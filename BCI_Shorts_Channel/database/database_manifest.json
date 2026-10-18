@@ -1,0 +1,24 @@
+{
+  "schema_version": 4,
+  "generated_at_utc": "2026-10-17T08:19:18.776585+00:00",
+  "schedule_cron": "0 9 * * *",
+  "total_topics": 3000,
+  "neuroscience_topics": 1500,
+  "psychology_topics": 1500,
+  "total_scripts_prewritten": 6000,
+  "total_flow_clip_prompts": 45000,
+  "qa_verification": {
+    "narrations_5clip_pass_count": 3000,
+    "narrations_10clip_pass_count": 3000,
+    "flow_5clip_prompts_pass_count": 3000,
+    "flow_10clip_prompts_pass_count": 3000,
+    "sample_issues": [],
+    "all_3000_pass": true
+  },
+  "files": {
+    "sqlite_db": "G:\\My Drive\\Kyubin_Yun_Workspace\\07_Youtube\\BCI_Shorts_Channel\\database\\all_about_brain_3000_prompts.db",
+    "brain_jsonl": "G:\\My Drive\\Kyubin_Yun_Workspace\\07_Youtube\\BCI_Shorts_Channel\\database\\brain_1500_prompts_db.jsonl",
+    "psychology_jsonl": "G:\\My Drive\\Kyubin_Yun_Workspace\\07_Youtube\\BCI_Shorts_Channel\\database\\psychology_1500_prompts_db.jsonl",
+    "manifest_json": "G:\\My Drive\\Kyubin_Yun_Workspace\\07_Youtube\\BCI_Shorts_Channel\\database\\database_manifest.json"
+  }
+}
