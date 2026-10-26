@@ -1,0 +1,74 @@
+{
+  "sources": [
+    {
+      "id": "SRC1",
+      "type": "primary",
+      "citation": "Francis R. Willett, Erin M. Kunz, Chaofei Fan, Donald T. Avansino et al. (2023). A high-performance speech neuroprosthesis. Nature.",
+      "doi": "10.1038/s41586-023-06377-x",
+      "url": "https://doi.org/10.1038/s41586-023-06377-x",
+      "year": 2023,
+      "verified": true,
+      "notes": "Foundational primary study (2023) in Nature establishing the core experimental paradigm and quantitative parameters."
+    },
+    {
+      "id": "SRC2",
+      "type": "replication",
+      "citation": "Sean L. Metzger, Kaylo T. Littlejohn, Alexander B. Silva, David A. Moses et al. (2023). A high-performance neuroprosthesis for speech decoding and avatar control. Nature.",
+      "doi": "10.1038/s41586-023-06443-4",
+      "url": "https://doi.org/10.1038/s41586-023-06443-4",
+      "year": 2023,
+      "verified": true,
+      "notes": "Complementary UCSF 253-electrode ECoG neuroprosthesis decoding attempted speech and facial avatar expressions in Nature (2023)."
+    },
+    {
+      "id": "SRC3",
+      "type": "follow_up",
+      "citation": "David A. Moses, Sean L. Metzger, Jessie R. Liu, Gopala K. Anumanchipalli et al. (2021). Neuroprosthesis for Decoding Speech in a Paralyzed Person with Anarthria. New England Journal of Medicine.",
+      "doi": "10.1056/nejmoa2027540",
+      "url": "https://doi.org/10.1056/nejmoa2027540",
+      "year": 2021,
+      "verified": true,
+      "notes": "Moses et al. (2021 NEJM) foundational clinical speech neuroprosthesis decoding full words from sensorimotor cortex in severe paralysis."
+    },
+    {
+      "id": "SRC4",
+      "type": "follow_up",
+      "citation": "Francis R. Willett, Donald T. Avansino, Leigh R. Hochberg, Jaimie M. Henderson et al. (2021). High-performance brain-to-text communication via handwriting. Nature.",
+      "doi": "10.1038/s41586-021-03506-2",
+      "url": "https://doi.org/10.1038/s41586-021-03506-2",
+      "year": 2021,
+      "verified": true,
+      "notes": "Willett, Avansino, Hochberg, Henderson & Shenoy (2021 Nature) intracortical brain-to-text handwriting BCI achieving 90 characters per minute."
+    },
+    {
+      "id": "SRC_M1",
+      "type": "documentary",
+      "citation": "UCSF Neurosurgery. \"A Neuroprosthesis for Speech Decoding and Avatar Control | Chang Lab - UCSF.\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=vL7yMn6kiMg",
+      "year": null,
+      "verified": true,
+      "notes": "Primary video reference analyzed locally in media/M1/ (8 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_M2",
+      "type": "documentary",
+      "citation": "UCSF Neurosurgery. \"Generalizable spelling using a speech neuroprosthesis | Chang Lab, UCSF.\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=MLYXp29pspk",
+      "year": null,
+      "verified": true,
+      "notes": "Complementary video reference analyzed locally in media/M2/ (14 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_STILL",
+      "type": "museum",
+      "citation": "Richard A. Normann (Public domain). \"Utah array pat5215088.jpg.\" Wikimedia Commons.",
+      "doi": null,
+      "url": "https://commons.wikimedia.org/wiki/File:Utah_array_pat5215088.jpg",
+      "year": null,
+      "verified": true,
+      "notes": "Verified archival image (897x605 px) stored locally in media/M3/still.jpg for reference analysis only (never reused raw). From Richard A. Normann's US Patent #5,215,088 Three-dimensional electrode device."
+    }
+  ]
+}

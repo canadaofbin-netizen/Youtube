@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "slug": "habit_loop_basal_ganglia",
+  "topic": "Ann Graybiel & Squire Lab (1999-2008): Dorsal Striatum Task-Bracketing & Amnesic Habit Loops (Patient E.P.)",
+  "pillar": "brain_health",
+  "created_at": "2026-10-25T22:49:27+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Understanding why Patient E.P. walked to the kitchen without hippocampal recall requires showing the dissociation between lesioned medial temporal hippocampus and intact dorsal striatum task-bracketing bursts.",
+  "primary_case": {
+    "title": "Patient E.P. (Eugene Pauly) amnesic habit retention & MIT dorsal striatum task-bracketing studies",
+    "year": 1999,
+    "place": "UC San Diego Memory Laboratory (Larry Squire) & MIT McGovern Institute (Ann Graybiel)",
+    "people": [
+      {
+        "name": "Eugene Pauly (Patient E.P.)",
+        "role": "Retired aerospace technician who lost medial temporal lobes to 1992 viral encephalitis yet retained and acquired daily motor habits",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Larry R. Squire",
+        "role": "UC San Diego neuroscientist who documented E.P.'s intact habit learning despite zero declarative recall",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Ann M. Graybiel",
+        "role": "MIT neurobiologist who discovered start-and-end task-bracketing ensembles in the dorsal striatum",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Kyle S. Smith",
+        "role": "Neuroscientist who demonstrated optogenetic switching of striatal habit loops",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 1992, herpes simplex encephalitis destroyed Patient Eugene Pauly's bilateral medial temporal lobes, studied extensively by Larry Squire's team through 1999 and beyond.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Eugene could not draw a floor plan of his own house or point toward the street from his living room, failing conscious spatial recall tests.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Despite zero declarative memory of where rooms were located, Eugene stood up when hungry, walked straight to the kitchen cabinet, and retrieved snacks effortlessly.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "On an eight-pair object-discrimination habit task, Eugene rose from roughly 50 percent chance to over 85 percent accuracy across 36 sessions without knowing how he chose.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Ann Graybiel's tetrode recordings in the dorsolateral striatum revealed 'task-bracketing' activity: sharp neural bursts at the start cue and final reward, with quiet firing in the middle.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Early in training, striatal neurons fire continuously throughout a T-maze run while dorsomedial striatum and prefrontal circuits evaluate choices.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Once a routine is overtrained into an automatic habit, activity shifts to the dorsolateral sensorimotor striatum and compresses into one chunked start-to-finish bracket.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "In outcome-devaluation tests, animals with overtrained dorsolateral striatal brackets keep running toward a devalued food well even after losing appetite for the reward.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Kyle Smith and Ann Graybiel showed in 2013 that brief optogenetic inhibition of infralimbic cortex during run onset disrupts ingrained habits within seconds, unmasking older routines.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "When the suppressed circuit is re-illuminated, the original chunked habit returns immediately, proving old habits remain latent rather than erased.",
+      "source_id": "SRC4"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Patient Eugene Pauly could navigate a 2-mile neighborhood walk and find his kitchen snacks while unable to sketch a single room of his house.",
+      "why_surprising": "It proves complex daily navigation can run on pure striatal autopilot with zero conscious map.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Once a habit is locked in, striatal neurons go nearly silent during the middle of the action and fire mainly at the very beginning and very end.",
+      "why_surprising": "Your brain literally compresses a multi-step routine into a single 'open-and-close' file.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Shutting down a tiny patch of cortex with light broke an entrenched habit in seconds — and a second flash brought the old habit right back.",
+      "why_surprising": "Old habits are never deleted from the striatum; they are merely outcompeted.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "Eugene reached over 85 percent accuracy on a multi-object test while insisting every trial that he had never seen the objects in his life.",
+      "why_surprising": "Skill and habit acquisition operate completely outside conscious awareness.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Habits take exactly 21 days to form and willpower erases the neural trace.",
+      "truth": "Habit consolidation varies widely by complexity, and striatal task-bracketing traces persist latently even after behavioral suppression.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Amnesia wipes out all forms of learning and daily independence.",
+      "truth": "Medial temporal damage destroys episodic recall while sparing basal ganglia procedural and habit circuits.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Your prefrontal cortex supervises every step of a familiar morning routine.",
+      "truth": "During chunked execution, prefrontal oversight drops while dorsolateral striatum and motor cortex run the sequence.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Habits are simple knee-jerk reflexes.",
+      "truth": "Striatal brackets package extended multi-action sequences gated by specific environmental cues.",
+      "source_id": "SRC3"
+    }
+  ],
+  "everyday_hooks": [
+    "Unlocking your phone and opening the same social app before you consciously remember picking the phone up.",
+    "Driving a familiar commute home and realizing at the driveway that you barely remember the last five intersections.",
+    "Reaching for the kitchen snack shelf at 10 p.m. when you are not even physically hungry because the evening cue fired your start burst.",
+    "Typing an old password automatically with your fingers even after consciously memorizing a new one."
+  ],
+  "linked_projects": [
+    "psych_01_habit_loop_basal_ganglia"
+  ]
+}

@@ -7,6 +7,7 @@ tracks Unlisted staging buffers, and automates scheduled releases.
 from datetime import datetime, timedelta, timezone
 import json
 from pathlib import Path
+import re
 from typing import Any
 
 from pipeline.config import PROJECTS_DIR
@@ -29,6 +30,20 @@ LIVE_RECEIPT_STATUSES = frozenset({
     "staged_unlisted",
     "uploaded_unlisted",
 })
+
+
+def _parse_scheduled_time_et(raw: Any) -> tuple[str, str]:
+    """Extracts ('YYYY-MM-DD', 'HH:MM') from strings like '2026-10-19 12:00 ET'."""
+    if raw is None:
+        return "", ""
+    cleaned = str(raw).replace("ET", "").strip()
+    m_full = re.match(r"^(\d{4}-\d{2}-\d{2})\s+(\d{2}:\d{2})", cleaned)
+    if m_full:
+        return m_full.group(1), m_full.group(2)
+    m_date = re.match(r"^(\d{4}-\d{2}-\d{2})$", cleaned)
+    if m_date:
+        return m_date.group(1), ""
+    return "", ""
 
 
 def is_live_youtube_receipt(receipt: dict[str, Any] | None) -> bool:
@@ -157,6 +172,9 @@ class StagingQueueManager:
                 "is_staged": is_live,
                 "is_live": is_live,
                 "upload_status": upload_receipt.get("status") if upload_receipt else "unuploaded",
+                "visibility": str(upload_receipt.get("visibility") or "").strip().lower() if upload_receipt else "unuploaded",
+                "scheduled_time_et": upload_receipt.get("scheduled_time_et") if upload_receipt else None,
+                "slot_id": upload_receipt.get("slot_id") if upload_receipt else None,
                 "video_id": upload_receipt.get("video_id") if upload_receipt else None,
                 "recommended_slot": get_pillar_default_slot(pillar),
             })
@@ -201,10 +219,25 @@ class StagingQueueManager:
         """
         live_ids: set[str] = set()
         occupied_slots: dict[tuple[str, int], dict[str, Any]] = {}
-        history: list[dict[str, Any]] = list(queue_data.get("history") or [])
-        hist_pids = {str(h.get("project_id") or "") for h in history if isinstance(h, dict)}
+        history: list[dict[str, Any]] = []
+        hist_by_pid: dict[str, dict[str, Any]] = {}
+        for h in queue_data.get("history") or []:
+            if not isinstance(h, dict):
+                continue
+            h_copy = dict(h)
+            h_pid = str(h_copy.get("project_id") or "").strip()
+            h_d, h_t = _parse_scheduled_time_et(
+                h_copy.get("scheduled_time_et") or h_copy.get("target_time_et")
+            )
+            if h_d and not str(h_copy.get("date") or "").strip():
+                h_copy["date"] = h_d
+            if h_t and not str(h_copy.get("time_et") or "").strip():
+                h_copy["time_et"] = h_t
+            history.append(h_copy)
+            if h_pid:
+                hist_by_pid[h_pid] = h_copy
 
-        future_statuses = {"scheduled", "scheduled_public", "staged", "queued_scheduled", "uploaded_unlisted", "staged_unlisted"}
+        future_statuses = {"scheduled", "scheduled_public", "staged", "queued_scheduled", "uploaded_unlisted", "staged_unlisted", "unlisted"}
         published_statuses = {"published", "published_public"}
 
         for prev in queue_data.get("scheduled_items") or []:
@@ -237,9 +270,10 @@ class StagingQueueManager:
                 except (TypeError, ValueError):
                     pass
 
-            if pid not in hist_pids:
-                history.append(prev)
-                hist_pids.add(pid)
+            if pid not in hist_by_pid:
+                archived_prev = dict(prev)
+                history.append(archived_prev)
+                hist_by_pid[pid] = archived_prev
 
         future_booked_pids = {str(v.get("project_id") or "") for v in occupied_slots.values()}
 
@@ -255,17 +289,77 @@ class StagingQueueManager:
                 except Exception:
                     continue
                 if is_live_youtube_receipt(rec):
-                    live_ids.add(p_dir.name)
-                    if p_dir.name not in hist_pids and p_dir.name not in future_booked_pids:
-                        history.append({
-                            "project_id": p_dir.name,
+                    pid_name = p_dir.name
+                    live_ids.add(pid_name)
+                    rec_date, rec_time = _parse_scheduled_time_et(rec.get("scheduled_time_et"))
+                    rec_slot = rec.get("slot_id")
+                    rec_status = str(rec.get("status") or "").strip().lower()
+                    rec_vis = str(rec.get("visibility") or "").strip().lower()
+                    is_future_rec = (
+                        rec_vis != "public"
+                        and rec_status not in published_statuses
+                        and (rec_vis in {"scheduled", "unlisted"} or rec_status in future_statuses)
+                        and bool(cutoff_date_str)
+                        and bool(rec_date)
+                        and rec_date >= str(cutoff_date_str)
+                        and rec_slot is not None
+                    )
+                    if is_future_rec and pid_name not in future_booked_pids:
+                        try:
+                            s_id = int(rec_slot)
+                            if (rec_date, s_id) not in occupied_slots:
+                                s_info = get_slot_info(s_id)
+                                occupied_slots[(rec_date, s_id)] = {
+                                    "schedule_id": f"{rec_date}_slot{s_id}",
+                                    "date": rec_date,
+                                    "slot_id": s_id,
+                                    "slot_name": s_info["name"],
+                                    "time_et": rec_time or s_info["time_et"],
+                                    "time_pt": s_info["time_pt"],
+                                    "time_kst": s_info["time_kst"],
+                                    "target_time_et": rec.get("scheduled_time_et") or f"{rec_date} {rec_time or s_info['time_et']} ET",
+                                    "project_id": pid_name,
+                                    "title": rec.get("title"),
+                                    "video_id": rec.get("video_id"),
+                                    "shorts_url": rec.get("shorts_url"),
+                                    "status": "unlisted" if rec_vis == "unlisted" else "scheduled",
+                                }
+                                future_booked_pids.add(pid_name)
+                                continue
+                        except (TypeError, ValueError):
+                            pass
+
+                    if pid_name in hist_by_pid:
+                        existing_h = hist_by_pid[pid_name]
+                        if rec_date and not str(existing_h.get("date") or "").strip():
+                            existing_h["date"] = rec_date
+                        if rec_time and not str(existing_h.get("time_et") or "").strip():
+                            existing_h["time_et"] = rec_time
+                        if rec_slot is not None and existing_h.get("slot_id") is None:
+                            existing_h["slot_id"] = rec_slot
+                        if rec.get("scheduled_time_et") and not existing_h.get("scheduled_time_et"):
+                            existing_h["scheduled_time_et"] = rec.get("scheduled_time_et")
+                        if rec.get("visibility") and not existing_h.get("visibility"):
+                            existing_h["visibility"] = rec.get("visibility")
+                    elif pid_name not in future_booked_pids:
+                        h_entry: dict[str, Any] = {
+                            "project_id": pid_name,
                             "video_id": rec.get("video_id"),
                             "shorts_url": rec.get("shorts_url"),
                             "title": rec.get("title"),
                             "status": rec.get("status"),
+                            "visibility": rec.get("visibility"),
+                            "slot_id": rec_slot,
                             "scheduled_time_et": rec.get("scheduled_time_et"),
-                        })
-                        hist_pids.add(p_dir.name)
+                        }
+                        if rec_date:
+                            h_entry["date"] = rec_date
+                        if rec_time:
+                            h_entry["time_et"] = rec_time
+                        if rec_date and rec_slot is not None:
+                            h_entry["schedule_id"] = f"{rec_date}_slot{rec_slot}"
+                        history.append(h_entry)
+                        hist_by_pid[pid_name] = h_entry
 
         queue_data["history"] = history
         return live_ids, occupied_slots
@@ -528,21 +622,114 @@ class StagingQueueManager:
         """Provides overview of staging inventory and scheduling status."""
         ready_projects = self.scan_ready_projects(allow_legacy_v4=allow_legacy_v4, include_live=False)
         all_with_live = self.scan_ready_projects(allow_legacy_v4=True, include_live=True)
-        live_count = sum(1 for p in all_with_live if p.get("is_live"))
+        live_projects = [p for p in all_with_live if p.get("is_live")]
+        live_count = len(live_projects)
+        live_by_pid = {p["project_id"]: p for p in live_projects}
+        public_live_pids = {
+            p["project_id"]
+            for p in live_projects
+            if p.get("visibility") == "public"
+            or str(p.get("upload_status") or "").strip().lower() in {"published", "published_public"}
+        }
+        staged_live_projects = [
+            p for p in live_projects if p["project_id"] not in public_live_pids
+        ]
+
         queue_data = self.load_queue()
+        ready_pids = {p["project_id"] for p in ready_projects}
+        live_pids = set(live_by_pid.keys())
         items = [it for it in (queue_data.get("scheduled_items") or []) if isinstance(it, dict)]
-        assigned_items = [
+        raw_vacant_items = [
             it
             for it in items
-            if str(it.get("project_id") or "").strip()
-            and str(it.get("project_id") or "").strip().lower() not in {"none", "null"}
-            and str(it.get("status") or "").strip().lower()
-            not in {"vacant", "blocked_legacy_v4", "deleted", "deleted_from_studio", "dry_run_staged"}
+            if not str(it.get("project_id") or "").strip()
+            or str(it.get("project_id") or "").strip().lower() in {"none", "null"}
+            or str(it.get("status") or "").strip().lower() == "vacant"
+        ]
+
+        inactive_queue_statuses = {
+            "blocked_legacy_v4",
+            "deleted",
+            "deleted_from_studio",
+            "dry_run_staged",
+            "awaiting_render",
+            "published",
+            "published_public",
+        }
+        assigned_items: list[dict[str, Any]] = []
+        seen_assigned_pids: set[str] = set()
+        for it in items:
+            if it in raw_vacant_items:
+                continue
+            pid_it = str(it.get("project_id") or "").strip()
+            st_it = str(it.get("status") or "").strip().lower()
+            if not pid_it or st_it in inactive_queue_statuses or st_it.startswith("error"):
+                continue
+            if pid_it in public_live_pids:
+                continue
+            live_p = live_by_pid.get(pid_it)
+            live_vis = str((live_p or {}).get("visibility") or "").strip().lower()
+            if live_vis == "unlisted" or (
+                st_it in {"unlisted", "staged_unlisted", "uploaded_unlisted"}
+                and live_vis != "scheduled"
+            ):
+                continue
+            if (
+                pid_it in (ready_pids | live_pids)
+                or is_valid_youtube_video_id(str(it.get("video_id") or "").strip())
+            ):
+                assigned_items.append(it)
+                seen_assigned_pids.add(pid_it)
+
+        for p in staged_live_projects:
+            pid_live = p["project_id"]
+            if pid_live in seen_assigned_pids:
+                continue
+            vis_live = str(p.get("visibility") or "").strip().lower()
+            st_live = str(p.get("upload_status") or "").strip().lower()
+            if vis_live == "unlisted" or ("unlisted" in st_live and vis_live != "scheduled"):
+                continue
+            r_date, r_time = _parse_scheduled_time_et(p.get("scheduled_time_et"))
+            r_slot = p.get("slot_id") or p.get("recommended_slot") or 2
+            assigned_items.append({
+                "schedule_id": f"{r_date}_slot{r_slot}" if r_date else f"live_{pid_live}",
+                "date": r_date,
+                "slot_id": r_slot,
+                "time_et": r_time or "12:00",
+                "project_id": pid_live,
+                "title": p.get("title"),
+                "pillar": p.get("pillar"),
+                "video_id": p.get("video_id"),
+                "status": "scheduled",
+            })
+            seen_assigned_pids.add(pid_live)
+
+        occupied_slot_keys: set[str] = set()
+        for occ in assigned_items:
+            occ_sid = str(occ.get("schedule_id") or "").strip()
+            if occ_sid:
+                occupied_slot_keys.add(occ_sid)
+            occ_d = str(occ.get("date") or "").strip()
+            if occ_d and occ.get("slot_id") is not None:
+                occupied_slot_keys.add(f"{occ_d}_slot{occ.get('slot_id')}")
+        for p in staged_live_projects:
+            r_date, _ = _parse_scheduled_time_et(p.get("scheduled_time_et"))
+            if r_date and p.get("slot_id") is not None:
+                occupied_slot_keys.add(f"{r_date}_slot{p.get('slot_id')}")
+
+        vacant_items = [
+            it
+            for it in raw_vacant_items
+            if (
+                str(it.get("schedule_id") or "").strip()
+                or f"{str(it.get('date') or '').strip()}_slot{it.get('slot_id')}"
+            )
+            not in occupied_slot_keys
         ]
 
         total_ready = len(ready_projects)
-        total_staged = sum(1 for p in ready_projects if p["is_staged"])
-        pending_staging = total_ready - total_staged
+        total_staged = len(staged_live_projects)
+        pending_staging = total_ready
 
         return {
             "total_completed_projects": total_ready + live_count,
@@ -551,7 +738,7 @@ class StagingQueueManager:
             "staged_in_buffer": total_staged,
             "pending_staging": pending_staging,
             "scheduled_slots_count": len(assigned_items),
-            "vacant_slots_count": len(items) - len(assigned_items),
+            "vacant_slots_count": len(vacant_items),
             "upcoming_planned_items": assigned_items[:10],
             "ready_projects": ready_projects,
         }

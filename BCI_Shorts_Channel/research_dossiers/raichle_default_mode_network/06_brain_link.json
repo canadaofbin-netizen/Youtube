@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "pivot",
+      "region": "default mode network",
+      "plain": "internal world & future simulator (mPFC + PCC + angular gyrus)",
+      "function": "igniting synchronously the instant external tasks pause to weave past episodes into future plans",
+      "scene_id": "S1",
+      "narration_bridge": "Captures Raichle's 2001 PNAS midline network discovery."
+    },
+    {
+      "role": "step1",
+      "region": "dorsolateral prefrontal cortex",
+      "plain": "external task spotlight",
+      "function": "stepping forward during focused math or visual search (<5% extra energy) and partnering with the DMN during creative planning",
+      "scene_id": "S2",
+      "narration_bridge": "Contrasts external task focus with intrinsic DMN simulation — and shows their creative partnership."
+    },
+    {
+      "role": "step2",
+      "region": "hippocampus",
+      "plain": "episodic memory supplier",
+      "function": "feeding real life memories into the DMN so it can recombine them into tomorrow's scenarios",
+      "scene_id": "S1",
+      "narration_bridge": "Explains how 'rest' builds future foresight."
+    }
+  ]
+}

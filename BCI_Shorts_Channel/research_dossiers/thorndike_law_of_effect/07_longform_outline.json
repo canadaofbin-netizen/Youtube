@@ -1,0 +1,101 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "From William James's basement to 15 slatted cat crates: how 23-year-old Edward Thorndike replaced Victorian pet myths with the Law of Effect.",
+    "core_experiment": "Thorndike (1898): gradual 160s to 6s puzzle-box escape curves, failed imitation controls, and reward 'stamping in'.",
+    "twist": "Köhler's 1917 visible-insight counterpoint AND Thorndike's own 1932 self-correction that rewards rewire far better than punishments."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Packing Slats, Fish & William James's Basement",
+      "beats": [
+        "Victorian 'clever pet' folklore vs Thorndike's stopwatch",
+        "Inside Puzzle Boxes A through K"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "slatted pine Puzzle Box & treadle"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Why the Curve Sloped Gradually Instead of Dropping Off a Cliff",
+      "beats": [
+        "160 seconds down to 6 seconds dot by dot",
+        "Why watching an expert cat 10 times gave zero shortcut",
+        "Birth of the Law of Effect"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "160s-to-6s chalkboard & twin crates"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Hidden Wires vs Visible Tools: Köhler's Counterpoint",
+      "beats": [
+        "Why opaque hotel-shower knobs force trial-and-error",
+        "When visible geometry unlocks genuine insight"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2"
+      ],
+      "new_shots_needed": [
+        "hidden-cord vs visible-block models"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Thorndike's Brave 1932 Self-Correction on Punishment",
+      "beats": [
+        "Why carrots stamp pathways in while sticks fail to erase them",
+        "From Columbia crates to Skinner & AlphaGo RL"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "robot latch RL curve"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Tightening Your Own Feedback Loops",
+      "beats": [
+        "Shrinking reward delay in habits and coaching",
+        "Action over overthinking"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "6-second mastery loop"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "interview",
+      "title": "Master’s Series on Field Research - Interview with Professor Robert Rosenthal",
+      "url": "https://www.youtube.com/watch?v=DNs8wpv4G_8",
+      "channel": "BurtonBlattInstitute",
+      "source_id": "SRC_M1",
+      "duration_sec": 3214,
+      "timecodes": [
+        {
+          "t": "04:37-04:48",
+          "what": "4:3 camera frame at kf_001.jpg (280.8s) paired with transcript segment \"It's easier to do them because everything is sort of geared up to do them. If you're going to do research in the field, you sort of have to go out...\", introducing core background on first-grade teacher leaning in warmly beside a randomly chosen 'Harvard bloomer' desk while holding the typed roster."
+        },
+        {
+          "t": "04:58-05:10",
+          "what": "Around kf_005.jpg (306.1s) (4:3 camera frame), transcript records \"and if you can't manage it, you can't get the research done. Peter Blanck: OK. I wanted to ask you, Bob, about some of the ethical issues you face...\", examining procedural mechanics and evidence in Rosenthal & Jacobson's Oak School random 'academic spurter' teacher-expectancy experiment."
+        },
+        {
+          "t": "06:04-06:09",
+          "what": "At kf_014.jpg (363.0s) (4:3 camera frame), speaker remarks \"had scored on a test in such a way that they would show unusual intellectual blooming, or spurting, in the coming academic year when that really...\", addressing theoretical interpretation and downstream implications of Rosenthal & Jacobson's Oak School random 'academic spurter' teacher-expectancy experiment."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (4:3 broadcast/clinical camera recording (320x240, 14 frames sampled across 280.8s–363.0s)) from BurtonBlattInstitute's \"Master’s Series on Field Research - Interview with Professor Robert Rosenthal\" (3214s total runtime).",
+          "Deduplicated English transcript (24 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (280.8s–363.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "The Pygmalion Effect, Growth Mindset, & Learning ft. Robert Rosenthal",
+      "url": "https://www.youtube.com/watch?v=R1Yl9nvXIE0",
+      "channel": "Trevor Ragan",
+      "source_id": "SRC_M2",
+      "duration_sec": 1020,
+      "timecodes": [
+        {
+          "t": "00:16-00:27",
+          "what": "At kf_002.jpg (22.1s) (high-contrast dark-background stimulus / title frame), Trevor Ragan's recording states \"- My name is Bob Rosenthal and I'm a just retired professor of many, many years, 20 years here, 37 years at Harvard before that,\" — providing spoken context for first-grade teacher leaning in warmly beside a randomly chosen 'Harvard bloomer' desk while holding the typed roster."
+        },
+        {
+          "t": "01:08-01:17",
+          "what": "Mid-segment widescreen camera frame at kf_006.jpg (70.7s) as narration explains \"based on a table of random numbers. - Half of the rats cages were labeled the smart rats, the other half of the cages were labeled the dumb rats.\", clarifying key empirical findings in Rosenthal & Jacobson's Oak School random 'academic spurter' teacher-expectancy experiment."
+        },
+        {
+          "t": "01:39-01:48",
+          "what": "Around kf_010.jpg (96.8s) (widescreen camera frame), commentary states \"One thing I forgot to tell you is these rats in this study, they couldn't read. So this wasn't about like their mindsets and attitudes,\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (live-action speaker/interview recording intercut with 2 visual slide frames (480x270, sampled across 15.3s–144.4s)) from Trevor Ragan's \"The Pygmalion Effect, Growth Mindset, & Learning ft. Robert Rosenthal\" (1020s total runtime).",
+          "Deduplicated English transcript (46 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (15.3s–144.4s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Classroom Horner Avenue School 1916.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Classroom_Horner_Avenue_School_1916.jpg",
+      "channel": "Wikimedia Commons (Ontario Ministry of Education)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Classroom Horner Avenue School 1916.jpg\" (960x770 px, Public domain): Classroom with teacher's office in back, Horner Avenue School, Long Branch, 1916, Canada. Documents authentic physical instrument geometry and period materials relevant to Rosenthal & Jacobson's Oak School random 'academic spurter' teacher-expectancy experiment."
+        }
+      ],
+      "license_note": "Archival photo (Public domain) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x770 px, Public domain, Ontario Ministry of Education) — apparatus reference: Classroom with teacher's office in back, Horner Avenue School, Long Branch, 1916, Canada.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

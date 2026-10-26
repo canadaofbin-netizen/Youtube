@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "crisis",
+      "region": "amygdala",
+      "plain": "fear alarm hub",
+      "function": "firing intense visceral distress whenever an unbuffered traumatic memory resurfaces",
+      "scene_id": "S1",
+      "narration_bridge": "Shows raw unbuffered recall keeping SUD distress locked near 7.5."
+    },
+    {
+      "role": "pivot",
+      "region": "thalamus",
+      "plain": "mediodorsal relay brake",
+      "function": "receiving rhythmic signals from midbrain eye-orienting circuits and driving feedforward inhibition onto the amygdala",
+      "scene_id": "S2",
+      "narration_bridge": "Visualizes Baek et al.'s 2019 Nature pathway silencing amygdala fear neurons during alternating tracking."
+    },
+    {
+      "role": "step1",
+      "region": "dorsolateral prefrontal cortex",
+      "plain": "dual-task working memory",
+      "function": "dividing limited attentional bandwidth between present-room visual tracking and memory recall so vividness fades",
+      "scene_id": "S1",
+      "narration_bridge": "Captures human working-memory taxation running alongside subcortical fear braking."
+    }
+  ]
+}

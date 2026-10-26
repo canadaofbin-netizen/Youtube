@@ -1,0 +1,213 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Concert cellist / craftsperson in deep absorption beside a 1980s Experience Sampling pager and Challenge-vs-Skill Flow Channel chart",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1988-2004, Chicago Experience Sampling studio & cognitive neuroscience lab",
+      "layout": {
+        "description": "Sunlit studio-laboratory combining a wooden music stand and cello chair with Csikszentmihalyi's belt-clipped electronic ESM pager, real-time experience diary booklet, and a large crisp diagonal 'Challenge vs Skill Flow Channel' chart.",
+        "positions": [
+          {
+            "who": "Skilled Cellist mannequin (in rolled linen sleeves)",
+            "where": "leaning into a wooden cello drawing the bow in absorbed, effortless precision, completely oblivious to the wall clock",
+            "facing": "focused on the strings and bow"
+          },
+          {
+            "who": "Mihaly Csikszentmihalyi & Arne Dietrich (mannequins in tweed blazer and lab shirt)",
+            "where": "standing quietly at the side bench plotting the high-challenge / high-skill coordinate inside the diagonal Flow Channel alongside a quieted medial-frontal scan",
+            "facing": "observing the chart"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "electronic ESM pager & diary booklet",
+          "period_detail": "compact 1980s belt pager and open timestamped rating card resting silent on the side stool",
+          "physical_behavior": "captured 8-times-daily real-world flow states"
+        },
+        {
+          "name": "diagonal 'Challenge vs Skill' Flow Channel board",
+          "period_detail": "crisp white chart with Anxiety (upper-left), Boredom (lower-right), and the bold diagonal 'FLOW CHANNEL' up the center",
+          "physical_behavior": "visualizes the exact entry rule for absorption"
+        },
+        {
+          "name": "wooden cello & sheet-music stand",
+          "period_detail": "rich natural wood instrument with clear phrase markings",
+          "physical_behavior": "provides immediate note-by-note sensory feedback"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Skilled Cellist mannequin",
+          "verb_sequence": "adjusts sheet-music tempo slightly higher to match skill -> enters seamless bowing rhythm as shoulders settle and self-conscious tension disappears"
+        },
+        {
+          "who": "Researchers",
+          "verb_sequence": "mark the data point squarely inside the diagonal Flow Channel and note medial-prefrontal inner-critic quieting"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Skilled Cellist mannequin",
+          "reaction": "lowers bow at the final bar and glances up in genuine surprise that an hour passed like ten minutes"
+        },
+        {
+          "who": "Arne Dietrich",
+          "reaction": "points to the efficiency gain of quieting ego self-monitoring"
+        }
+      ],
+      "wardrobe": "Natural linen button shirt with rolled sleeves on cellist; academic tweed blazer and open-collar Oxford shirt on researchers.",
+      "lighting": "Warm, high-key studio skylight streaming across natural wood and white chart.",
+      "recognition_hook": "Paging thousands of masters revealed peak flow doesn't fire 100 percent of your brain — it quietly mutes your self-judging inner narrator so trained skill can fly.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a cellist mannequin in absorbed play in a sunlit studio beside an electronic pager diary and a diagonal 'Challenge vs Skill Flow Channel' chart",
+        "must_show": [
+          "cello|instrument|stand",
+          "chart|channel|board",
+          "pager|notebook"
+        ],
+        "source": "M1@14:42-14:55; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Anxiety cliff vs Boredom valley outside the Flow Channel",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern practice desk",
+      "layout": {
+        "description": "Clean table showing two stalled states: an unplayable advanced score causing tense frustration vs a trivial one-finger drill causing slouched clock-watching.",
+        "positions": [
+          {
+            "who": "Learner mannequin",
+            "where": "adjusting task difficulty to the middle stretch sheet so posture locks in",
+            "facing": "at music/study desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "three-tier difficulty sheets (Too Easy / +8% Stretch / Overwhelming)",
+          "period_detail": "tangible calibration",
+          "physical_behavior": "demonstrates tuning challenge to skill"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Learner mannequin",
+          "verb_sequence": "swaps overwhelming sheet for the +8% stretch challenge -> focus locks immediately"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Learner mannequin",
+          "reaction": "leans in engaged"
+        }
+      ],
+      "wardrobe": "Casual knit sweater.",
+      "lighting": "Bright room daylight.",
+      "recognition_hook": "Too hard wakes panic; too easy wakes boredom — dialing difficulty just past comfort opens the channel.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Jazz keyboard improvisation scan: medial inner critic dims",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2008, neuroimaging music lab",
+      "layout": {
+        "description": "Bright control room overlooking a non-magnetic piano keyboard where a musician improvises a fresh melody while the monitor highlights quieted medial self-monitoring.",
+        "positions": [
+          {
+            "who": "Neuroscientist mannequin",
+            "where": "pointing to decreased medial prefrontal self-chatter during spontaneous soloing vs memorized scales",
+            "facing": "at monitor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "non-magnetic MIDI keyboard & cortical map",
+          "period_detail": "clean visual of Limb & Braun's jazz improvisation finding",
+          "physical_behavior": "confirms ego-quieting during creative flow"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Musician",
+          "verb_sequence": "switches from rigid scale to fluid improvisation -> medial self-critic region dims cleanly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Neuroscientist mannequin",
+          "reaction": "logs reduced self-censoring"
+        }
+      ],
+      "wardrobe": "Clean lab jacket and casual shirt.",
+      "lighting": "High-key control-room daylight.",
+      "recognition_hook": "When jazz pianists improvise in flow, the brain's inner self-censor literally turns down its volume.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Trading passive evening scrolling for a 45-minute clear-goal sprint",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern home studio",
+      "layout": {
+        "description": "Sunlit woodworking / coding desk with phone off, one clear 45-minute goal written at top of pad, and immediate visual progress.",
+        "positions": [
+          {
+            "who": "Maker mannequin",
+            "where": "working smoothly with full absorption and calm focus",
+            "facing": "at workbench"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "single-goal card & silent timer",
+          "period_detail": "clear goal + immediate feedback + matched stretch",
+          "physical_behavior": "triggers real restorative flow"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Maker mannequin",
+          "verb_sequence": "sets one concrete 45-minute target -> works uninterrupted in deep absorption"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Maker mannequin",
+          "reaction": "finishes energized rather than drained"
+        }
+      ],
+      "wardrobe": "Casual work overshirt.",
+      "lighting": "Warm afternoon window light.",
+      "recognition_hook": "Forty-five minutes of absorbed craft recharges human mood better than three hours of passive scrolling.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

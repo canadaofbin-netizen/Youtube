@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "lecture",
+      "title": "McGurk Effect",
+      "url": "https://www.youtube.com/watch?v=PWGeUztTkRA",
+      "channel": "Mark_Mitton",
+      "source_id": "SRC_M1",
+      "duration_sec": 54,
+      "timecodes": [
+        {
+          "t": "00:13-00:21",
+          "what": "Around kf_004.jpg (16.5s) (widescreen camera frame), speaker commentary notes \"judicial baba baa ba baba baa\", anchoring the research context of 1976 Surrey AV Studio: Covering the Monitor Screen Flips 'DA-DA' Instantly Back to 'BA-BA'."
+        },
+        {
+          "t": "00:22-00:26",
+          "what": "At kf_005.jpg (22.0s) (widescreen camera frame), audio continues with \"ba baba baa\", detailing experimental methodology and behavioral observations for Harry McGurk & John MacDonald's 1976 Nature 'Hearing Lips and Seeing Voices' dubbing experiment."
+        },
+        {
+          "t": "00:52-00:54",
+          "what": "Subsequent widescreen camera frame at kf_011.jpg (55.0s) in \"McGurk Effect\", documenting closing visual sequence for reference analysis."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_mcgurk_multisensory_illusion/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_mcgurk_multisensory_illusion",
+        "contact_sheet": "media/M1_mcgurk_multisensory_illusion/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1_mcgurk_multisensory_illusion/contact_sheet.jpg (widescreen live-action camera recording (480x270, 12 frames sampled across 0.0s–60.5s)) from Mark_Mitton's \"McGurk Effect\" (54s total runtime).",
+          "Deduplicated English transcript (7 timestamped cues in media/M1_mcgurk_multisensory_illusion/transcript.txt) aligned directly to keyframe timestamps (0.0s–60.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Try this bizarre audio illusion! 👁️👂😮 - BBC",
+      "url": "https://www.youtube.com/watch?v=G-lN8vWm3m0",
+      "channel": "BBC",
+      "source_id": "SRC_M2",
+      "duration_sec": 205,
+      "timecodes": [
+        {
+          "t": "00:08-00:15",
+          "what": "Widescreen camera frame at kf_004.jpg (14.3s) paired with transcript segment \"Our brains do a remarkable job of making sense of it all It seems easy enough to separate the sounds we hear from the sights we see\", introducing core background on 1976 Surrey AV Studio: Covering the Monitor Screen Flips 'DA-DA' Instantly Back to 'BA-BA'."
+        },
+        {
+          "t": "00:16-00:26",
+          "what": "Around kf_007.jpg (20.2s) (widescreen camera frame), transcript records \"It seems easy enough to separate the sounds we hear from the sights we see but there is one illusion that reveals this isn't always the case\", examining procedural mechanics and evidence in Harry McGurk & John MacDonald's 1976 Nature 'Hearing Lips and Seeing Voices' dubbing experiment."
+        },
+        {
+          "t": "01:10-01:21",
+          "what": "At kf_014.jpg (75.5s) (lecture slide / diagram frame), speaker remarks \"it's an illusion known as the mcGurk effect Ba take another look Concentrate first on the right of the screen now to the left of the screen\", addressing theoretical interpretation and downstream implications of Harry McGurk & John MacDonald's 1976 Nature 'Hearing Lips and Seeing Voices' dubbing experiment."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (live-action speaker/interview recording intercut with 1 visual slide frames (480x270, sampled across 1.0s–75.5s)) from BBC's \"Try this bizarre audio illusion! 👁️👂😮 - BBC\" (205s total runtime).",
+          "Deduplicated English transcript (14 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (1.0s–75.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Superior Temporal - DK ATLAS.png",
+      "url": "https://commons.wikimedia.org/wiki/File:Superior_Temporal_-_DK_ATLAS.png",
+      "channel": "Wikimedia Commons (RAZVAN V. MARINESCU)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Superior Temporal - DK ATLAS.png\" (1200x900 px, CC BY 4.0): Superior Temporal region of the human brain. Image was generated based on the Desikan-Killiany atlas using the BrainPainter software https://brainpainter.csail.mit.edu/. Provides anatomical and structural brain reference relevant to the neural mechanism in Harry McGurk & John MacDonald's 1976 Nature 'Hearing Lips and Seeing Voices' dubbing experiment."
+        }
+      ],
+      "license_note": "Archival photo (CC BY 4.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (1200x900 px, CC BY 4.0, RAZVAN V. MARINESCU) — neuroanatomy reference: Superior Temporal region of the human brain. Image was generated based on the Desikan-Killiany atlas using the BrainPainter software https://brainpainter.csail.mit.edu/.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

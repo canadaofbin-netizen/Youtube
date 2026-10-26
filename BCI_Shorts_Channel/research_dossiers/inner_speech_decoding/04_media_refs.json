@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "A Neuroprosthesis for Speech Decoding and Avatar Control | Chang Lab - UCSF",
+      "url": "https://www.youtube.com/watch?v=vL7yMn6kiMg",
+      "channel": "UCSF Neurosurgery",
+      "source_id": "SRC_M1",
+      "duration_sec": 101,
+      "timecodes": [
+        {
+          "t": "00:06-00:13",
+          "what": "At kf_001.jpg (8.6s) (widescreen camera frame), UCSF Neurosurgery's recording states \"I'm a neurosurgeon at UC San Francisco. My lab works on understanding how the brain processes language. One of our projects is to develop a device...\" — providing spoken context for Pat Bennett silently mouths a sentence as 62-WPM text streams across the Stanford monitor."
+        },
+        {
+          "t": "00:14-00:20",
+          "what": "Mid-segment widescreen camera frame at kf_004.jpg (17.1s) as narration explains \"My lab works on understanding how the brain processes language. One of our projects is to develop a device that can help people who have lost the...\", clarifying key empirical findings in BrainGate2 intracortical speech neuroprosthesis trial in participant T12 (Pat Bennett)."
+        },
+        {
+          "t": "00:29-00:39",
+          "what": "Around kf_007.jpg (26.0s) (dark-backdrop stage / studio camera frame), commentary states \"from a person with paralysis who is attempting to speak and translate that activity into words and sentences as text on a screen. In this new study,\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (8 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 8,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (widescreen live-action camera recording (480x270, 8 frames sampled across 8.6s–85.5s)) from UCSF Neurosurgery's \"A Neuroprosthesis for Speech Decoding and Avatar Control | Chang Lab - UCSF\" (101s total runtime).",
+          "Deduplicated English transcript (27 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (8.6s–85.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Generalizable spelling using a speech neuroprosthesis | Chang Lab, UCSF",
+      "url": "https://www.youtube.com/watch?v=MLYXp29pspk",
+      "channel": "UCSF Neurosurgery",
+      "source_id": "SRC_M2",
+      "duration_sec": 126,
+      "timecodes": [
+        {
+          "t": "00:05-00:13",
+          "what": "Around kf_003.jpg (10.0s) (lecture slide / diagram frame), speaker commentary notes \"and interact with others because they can't move, type or speak. Brain computer interfaces, or BCIs for short,\", anchoring the research context of Pat Bennett silently mouths a sentence as 62-WPM text streams across the Stanford monitor."
+        },
+        {
+          "t": "00:31-00:40",
+          "what": "At kf_008.jpg (35.0s) (widescreen camera frame), audio continues with \"control a BCI to generate full sentences by simply trying to say the desired words. However, this initial proof of concept\", detailing experimental methodology and behavioral observations for BrainGate2 intracortical speech neuroprosthesis trial in participant T12 (Pat Bennett)."
+        },
+        {
+          "t": "01:01-01:08",
+          "what": "Later monochrome film frame at kf_014.jpg (65.0s) accompanied by \"the BCI by simply attempting to silently speak. Then he silently attempts to say code words that represent each letter\", summarizing mechanism and boundary conditions in BrainGate2 intracortical speech neuroprosthesis trial in participant T12 (Pat Bennett)."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (live-action speaker/interview recording intercut with 3 visual slide frames (480x270, sampled across 0.0s–65.0s)) from UCSF Neurosurgery's \"Generalizable spelling using a speech neuroprosthesis | Chang Lab, UCSF\" (126s total runtime).",
+          "Deduplicated English transcript (51 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "museum_artefact",
+      "title": "Utah array pat5215088.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Utah_array_pat5215088.jpg",
+      "channel": "Wikimedia Commons (Richard A. Normann)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified museum artefact \"Utah array pat5215088.jpg\" (897x605 px, Public domain): From Richard A. Normann's US Patent #5,215,088 Three-dimensional electrode device. Documents authentic physical instrument geometry and period materials relevant to BrainGate2 intracortical speech neuroprosthesis trial in participant T12 (Pat Bennett)."
+        }
+      ],
+      "license_note": "Archival museum artefact (Public domain) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (897x605 px, Public domain, Richard A. Normann) — apparatus reference: From Richard A. Normann's US Patent #5,215,088 Three-dimensional electrode device.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Face-to-face at UC San Diego: D.S. recoils from his mother while the skin-conductance trace stays flat",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1996-1997, UC San Diego Center for Brain and Cognition clinical room, La Jolla",
+      "layout": {
+        "description": "Sunlit 1990s clinical neurology office where 30-year-old Patient D.S. sits at an examination table with two silver skin-conductance finger cuffs wired to a desktop polygraph monitor; his mother stands right across the table extending her hands warmly, while D.S. leans backward pointing at her in suspicion as the green polygraph needle trace runs flat.",
+        "positions": [
+          {
+            "who": "Patient D.S. (30-year-old mannequin in 1990s polo shirt)",
+            "where": "seated at the clinical desk with finger electrodes on his left hand, leaning back from his mother",
+            "facing": "facing his mother across the desk"
+          },
+          {
+            "who": "Mother (mannequin in 1990s floral blouse and cardigan)",
+            "where": "standing across the wooden desk reaching both palms gently forward",
+            "facing": "facing D.S."
+          },
+          {
+            "who": "Neurologist V.S. Ramachandran (mannequin in dark jacket and open-collar shirt)",
+            "where": "standing beside the desktop skin-conductance monitor",
+            "facing": "watching both D.S. and the flat horizontal line on the display"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "galvanic skin-conductance finger cuffs and monitor",
+          "period_detail": "two silver-chloride finger straps wired to a 1990s benchtop physiological trace screen",
+          "physical_behavior": "horizontal trace line stays completely flat without a spike when D.S. looks at his mother"
+        },
+        {
+          "name": "stack of family and stranger portrait photographs",
+          "period_detail": "glossy 4x6 color family snapshots spread beside the monitor",
+          "physical_behavior": "D.S. pushes his father's and mother's photos aside as 'doubles'"
+        },
+        {
+          "name": "clinical examination desk",
+          "period_detail": "light oak 1990s office desk",
+          "physical_behavior": "separates D.S. and his mother"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Mother",
+          "verb_sequence": "steps warmly to the desk -> places a family photograph down and reaches toward D.S."
+        },
+        {
+          "who": "Patient D.S.",
+          "verb_sequence": "stares straight at her face -> pulls his torso back into the chair and shakes his head while the skin-conductance trace stays flat"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Mother",
+          "reaction": "draws her hands back to her chest in quiet heartbreak"
+        },
+        {
+          "who": "Neurologist",
+          "reaction": "points to the flat horizontal trace on the monitor"
+        }
+      ],
+      "wardrobe": "D.S.: 1990s navy polo shirt and khakis. Mother: cream cardigan over blouse. Neurologist: dark blazer over collared shirt.",
+      "lighting": "High-key California window daylight across the clinical desk and monitor.",
+      "recognition_hook": "Staring straight into his own mother's eyes, he calls her an impostor while his fingertip sweat monitor stays completely flat.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "the patient leans back from his mother across the clinical desk while the finger electrode monitor shows a flat trace",
+        "must_show": [
+          "mother",
+          "monitor|trace",
+          "desk"
+        ],
+        "source": "M1@00:25-00:48; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Family photo album rejection: 'Another D.S., not me'",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1997, UC San Diego office",
+      "layout": {
+        "description": "Close tabletop staging with an open 1990s photo album showing parents and a younger snapshot of D.S. himself.",
+        "positions": [
+          {
+            "who": "Patient D.S.",
+            "where": "seated leaning over the open photo album",
+            "facing": "tapping his own snapshot dismissively"
+          },
+          {
+            "who": "Neurologist",
+            "where": "seated beside him holding a pen",
+            "facing": "watching D.S.'s finger"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "open 1990s family photo album",
+          "period_detail": "padded binder holding 4x6 snapshots",
+          "physical_behavior": "D.S. slides the album away across the desk"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient D.S.",
+          "verb_sequence": "inspects a sharp photo of himself -> taps the photo and pushes the album away as a double"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Neurologist",
+          "reaction": "notes that even visual self-identity lacks autonomic warmth"
+        }
+      ],
+      "wardrobe": "Same 1990s polo shirt and dark blazer.",
+      "lighting": "Bright clinical daylight.",
+      "recognition_hook": "He even pointed at a photograph of himself and said, 'That's another D.S., not me.'",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "The telephone test: instant warm recognition by voice alone",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1997, adjacent rooms at UC San Diego",
+      "layout": {
+        "description": "Split room staging: in the hallway room, the mother speaks into a 1990s corded desk telephone; in the main room, D.S. holds the receiver to his ear and relaxes immediately in warm recognition.",
+        "positions": [
+          {
+            "who": "Patient D.S.",
+            "where": "seated in the exam room holding the beige corded telephone receiver to his ear",
+            "facing": "smiling and leaning forward warmly"
+          },
+          {
+            "who": "Mother",
+            "where": "standing in the adjoining room holding the matching telephone handset",
+            "facing": "speaking tenderly into the receiver"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1990s beige corded desk telephones",
+          "period_detail": "classic push-button office telephones with coiled cords",
+          "physical_behavior": "carry her voice along the intact auditory-to-amygdala route"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient D.S.",
+          "verb_sequence": "lifts the ringing receiver to his ear -> hears his mother's voice -> visibly relaxes his shoulders and nods warmly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Mother",
+          "reaction": "presses a hand to her heart in relief from the next room"
+        }
+      ],
+      "wardrobe": "Same 1990s wardrobe across both rooms.",
+      "lighting": "Bright daylight across both rooms.",
+      "recognition_hook": "Over the phone he knew his real mom in one second — walk her through the door and she became an impostor again.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Two recognition streams: seeing who vs feeling familiarity",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern everyday parallel",
+      "layout": {
+        "description": "Bright hallway doorway where two family members greet each other face-to-face and by voice.",
+        "positions": [
+          {
+            "who": "Son mannequin",
+            "where": "stepping forward at the front door",
+            "facing": "greeting his mother"
+          },
+          {
+            "who": "Mother mannequin",
+            "where": "welcoming him at the threshold",
+            "facing": "open arms"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "framed hallway family portrait",
+          "period_detail": "wood-framed portrait hanging beside the open door",
+          "physical_behavior": "anchors the home threshold"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Son mannequin",
+          "verb_sequence": "hears her voice and sees her face together -> embraces her warmly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Both figures",
+          "reaction": "stand together in effortless unified recognition"
+        }
+      ],
+      "wardrobe": "Clean everyday cardigan and collared shirt.",
+      "lighting": "Warm natural daylight.",
+      "recognition_hook": "Every time you recognize someone you love, your brain seamlessly fuses a geometry match with an emotional chime.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Brenda Milner re-introducing herself to Henry across the Montreal testing table minutes after stepping out",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1955-1957, clinical neuropsychology testing room in Hartford / Montreal",
+      "layout": {
+        "description": "Sunlit mid-1950s wood-paneled clinical testing room with a neat oak desk, a well-worn Life magazine whose crossword puzzle has already been penciled in, and a testing stopwatch.",
+        "positions": [
+          {
+            "who": "Henry Molaison (29-year-old mannequin in 1950s collared plaid shirt and cardigan)",
+            "where": "seated politely across the oak desk extending his right hand with a warm first-time greeting posture",
+            "facing": "facing the doorway and desk"
+          },
+          {
+            "who": "Brenda Milner (mannequin in 1950s tailored blazer and white blouse holding clipboard)",
+            "where": "stepping back through the wooden door she exited just five minutes earlier, shaking Henry's hand gently",
+            "facing": "facing Henry"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "three-digit rehearsal card ('584')",
+          "period_detail": "white index card printed with the digits 584 resting face-down beside a stopwatch",
+          "physical_behavior": "forgotten completely the moment a brief knock interrupted Henry's rehearsal"
+        },
+        {
+          "name": "re-read 1950s picture magazine",
+          "period_detail": "illustrated magazine on the corner of the desk with margins showing Henry's own handwriting from twenty minutes ago",
+          "physical_behavior": "picked up by Henry as if opening a brand-new issue"
+        },
+        {
+          "name": "28-bolt stylus stepping-stone board",
+          "period_detail": "wooden board studded with metal bolt heads wired to an error buzzer",
+          "physical_behavior": "sits on the side table after 215 unremembered trials"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Brenda Milner",
+          "verb_sequence": "steps back into the testing room after a five-minute pause -> extends her hand across the oak desk"
+        },
+        {
+          "who": "Henry Molaison",
+          "verb_sequence": "rises politely to shake her hand as a complete stranger -> glances at the face-down '584' card with zero recognition"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Henry Molaison",
+          "reaction": "tilts his head with quiet courtesy when asked what test they were doing three minutes ago"
+        },
+        {
+          "who": "Brenda Milner",
+          "reaction": "records the clean split between intact 118-IQ conversation and vanished episodic recall"
+        }
+      ],
+      "wardrobe": "Henry: mid-1950s buttoned collared shirt, wool cardigan, pressed trousers. Brenda Milner: 1950s tailored dark wool jacket over crisp white blouse and skirt.",
+      "lighting": "Warm, high-key 1950s window daylight across oak furniture and white test cards.",
+      "recognition_hook": "Five minutes after finishing a 15-minute number test together, Henry rises politely to shake Brenda Milner's hand as if meeting her for the very first time.",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1950s male patient at an oak clinical desk shaking hands with a returning female neuropsychologist as a total stranger beside a face-down 584 index card and magazine",
+        "must_show": [
+          "desk",
+          "card|magazine",
+          "clipboard|handshake|hand"
+        ],
+        "source": "M1@00:08-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Fifteen-minute unbroken rehearsal of 584 shattered by one distraction",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1955, clinical testing desk",
+      "layout": {
+        "description": "Close view of the oak testing desk with a mechanical stopwatch sweeping past 15 minutes while Henry whispers quietly.",
+        "positions": [
+          {
+            "who": "Henry Molaison",
+            "where": "leaning forward tapping three fingers softly in an unbroken rehearsal loop",
+            "facing": "facing the stopwatch"
+          },
+          {
+            "who": "Brenda Milner",
+            "where": "introducing a brief side question to shift his attention",
+            "facing": "facing Henry"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "mechanical stopwatch and 584 card",
+          "period_detail": "chrome 1950s stopwatch passing 15:00",
+          "physical_behavior": "clicks stopped right before Milner asks a distracting question"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Brenda Milner",
+          "verb_sequence": "places a picture card down to divert Henry's attention for thirty seconds -> asks again for the three-digit number"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Henry Molaison",
+          "reaction": "opens both palms empty — neither the number 584 nor the test itself remains"
+        }
+      ],
+      "wardrobe": "Same 1950s cardigan and tailored blazer.",
+      "lighting": "High-key clinical daylight.",
+      "recognition_hook": "Fifteen minutes of working-memory focus evaporates in thirty seconds once attention shifts.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Scoville & Milner's 10-patient anatomical map comparison",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1957, Montreal Neurological Institute office",
+      "layout": {
+        "description": "Bright office lightbox displaying clean line diagrams comparing unilateral versus bilateral medial temporal resections across 10 surgical cases.",
+        "positions": [
+          {
+            "who": "Brenda Milner",
+            "where": "tracing the bilateral medial temporal boundary on an anatomical chart with a fountain pen",
+            "facing": "facing the lightbox"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1957 Brain diagram plates",
+          "period_detail": "clean black-and-white anatomical cross-sections comparing Case H.M. with unilateral cases",
+          "physical_behavior": "highlights bilateral hippocampal involvement only in severe amnesia"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Brenda Milner",
+          "verb_sequence": "circles the bilateral hippocampal zone and checks off the severe-amnesia column"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Brenda Milner",
+          "reaction": "pauses as the anatomical localization of conscious memory becomes unmistakable"
+        }
+      ],
+      "wardrobe": "1950s tailored blazer.",
+      "lighting": "Clean lightbox and window illumination.",
+      "recognition_hook": "Comparing ten surgical cases proved only bilateral hippocampal loss erased new conscious memories.",
+      "sources": [
+        "SRC1"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Protecting modern working memory from interruption",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern study desk",
+      "layout": {
+        "description": "Sunlit wooden desk where a student mannequin places a smartphone face-down out of reach while writing key notes by hand.",
+        "positions": [
+          {
+            "who": "Student mannequin",
+            "where": "seated at a clean desk writing uninterrupted summary notes",
+            "facing": "facing notebook"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "handwritten notebook and silenced phone",
+          "period_detail": "lined notebook beside a silenced phone placed across the desk",
+          "physical_behavior": "keeps the 30-second rehearsal bridge unbroken"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Student mannequin",
+          "verb_sequence": "sets phone aside -> finishes writing the full concept before switching tasks"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Student mannequin",
+          "reaction": "closes the notebook with calm retention"
+        }
+      ],
+      "wardrobe": "Modern casual sweater.",
+      "lighting": "Bright natural desk light.",
+      "recognition_hook": "Giving your hippocampus thirty uninterrupted seconds lets working memory cross into lasting storage.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

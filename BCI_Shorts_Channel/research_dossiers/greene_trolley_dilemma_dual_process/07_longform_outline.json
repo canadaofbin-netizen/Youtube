@@ -1,0 +1,102 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Same 5-for-1 math, opposite moral verdicts: how Joshua Greene's 2001 fMRI study exposed the brain's emotional alarm vs utilitarian calculator.",
+    "core_experiment": "Greene et al. (2001 Science / 2004 Neuron): vmPFC personal-force alarm on Footbridge vs dlPFC working-memory math on Switch, plus the 2-second override lag.",
+    "twist": "Why high utilitarian scores can mean either effortful cognitive override OR blunted vmPFC empathy — and why 'personal muscular force as a means' is the exact tripwire."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The 34-Year Philosophical Riddle: Switch vs Footbridge",
+      "beats": [
+        "Identical 5-vs-1 arithmetic, 85% flip in human verdicts",
+        "Greene climbs from philosophy into Princeton's MRI suite"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "wooden Switch vs Footbridge diorama"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Inside the Scanner: Two Rival Brain Cameras",
+      "beats": [
+        "Moral-Personal surges in vmPFC & posterior cingulate",
+        "Moral-Impersonal Switch matches Non-Moral dlPFC math",
+        "The 2-second hesitation when overriding the gut alarm"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "failure"
+      ],
+      "new_shots_needed": [
+        "reaction-time bar chart 4.9s vs 6.8s"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Tying Up Working Memory & Testing Personal Force",
+      "beats": [
+        "2008 7-digit cognitive load slows ONLY utilitarian 'Yes'",
+        "2009 trapdoor vs push: muscular force + intention"
+      ],
+      "scene_ids": [
+        "S2",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "2x2 personal-force card matrix"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "When the Brake Breaks: Lesion & Psychopathy Nuance",
+      "beats": [
+        "Why vmPFC damage boosts Footbridge pushing",
+        "Effortful compassion vs blunted empathy"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "dual-route neural diagram"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Point-and-Shoot vs Manual Mode in Everyday Life",
+      "beats": [
+        "Why charities show one face instead of a million statistics",
+        "Checking both moral cameras on big decisions"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "dual ethics & outcomes checklist"
+      ]
+    }
+  ]
+}

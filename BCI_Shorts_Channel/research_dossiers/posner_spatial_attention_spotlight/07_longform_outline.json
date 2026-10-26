@@ -1,0 +1,104 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "With eyeballs frozen on '+', an invisible attention spotlight races out in 100 ms — twice as fast as an eye movement.",
+    "core_experiment": "Posner's 1980 80/20 spatial cueing chronometry (~60 ms valid-vs-invalid swing) + 1984 Inhibition of Return.",
+    "twist": "Three separate brain interlocking relay dials (parietal disengage, collicular move, pulvinar engage) and the zoom-lens nuance."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Seeing Without Moving Your Eyes",
+      "beats": [
+        "Point-guard no-look pass mystery",
+        "EOG electrodes locking gaze on '+'",
+        "80% valid vs 20% invalid arrow cues"
+      ],
+      "scene_ids": [
+        "S2",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "Posner 3-box screen & EOG trace"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Faster Than an Eyeball Muscle",
+      "beats": [
+        "235 ms valid vs 295 ms invalid",
+        "100 ms spotlight shift beats 220 ms saccades"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "millisecond counter comparison"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Disengage, Move, Engage — Plus the 300-ms Bounce",
+      "beats": [
+        "Parietal, midbrain, and pulvinar trio",
+        "Inhibition of Return: nature's anti-stare timer",
+        "Zoom-lens resizing"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step1",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "300-ms crossover curve"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Replications, Critiques & Real-World Boundaries",
+      "beats": [
+        "Whatever your eyeballs point directly at is automatically what you are paying attention to. — Covert attention and eye gaze dissociate completely — athletes, drivers, and magicians exploit that split ever",
+        "Attention only changes which button your hand prepares to press, not how clearly you see. — Posner used a single-key press and later ERP recordings proved valid cues physically amplify early visual cort",
+        "Attention is a rigid circular beam of fixed size forever. to Eriksen's 'zoom-lens' and split-attention follow-ups showed the parietal beam dynamically zooms narrow (high r"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2"
+      ],
+      "new_shots_needed": [
+        "comparative replication table card on wooden desk"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Where Is Your Spotlight Aimed Right Now?",
+      "beats": [
+        "Why 'hands-free' highway arguments blind peripheral hazards",
+        "Reuniting eyes and covert focus"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "ending car call to spot merging lane"
+      ]
+    }
+  ]
+}

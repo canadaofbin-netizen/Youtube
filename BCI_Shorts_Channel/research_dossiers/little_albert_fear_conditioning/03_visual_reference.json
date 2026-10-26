@@ -1,0 +1,223 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1920 Johns Hopkins Nursery Table: Tame Porcelain White Rat, Wooden Control Blocks & Suspended 4-Foot Steel Bar",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1920, Phipps Clinic nursery room, Johns Hopkins University, Baltimore",
+      "layout": {
+        "description": "Sunlit 1920 Baltimore hospital nursery room with tall paned windows, a raised white-sheeted padded testing table at center, neutral wooden toy blocks, an articulated matte-white porcelain tame rat sculpture and white rabbit sculpture, and behind the table's head end a suspended 4-foot steel bar with a wooden-handled claw hammer.",
+        "positions": [
+          {
+            "who": "Rosalie Rayner (mannequin in 1920 white nurse-style laboratory smock)",
+            "where": "kneeling beside the raised white padded table gently placing the articulated matte-white porcelain rat sculpture beside wooden blocks",
+            "facing": "at side of nursery table"
+          },
+          {
+            "who": "Infant 'Albert' mannequin (in 1920 white cotton romper)",
+            "where": "seated on the white padded mattress reaching curiously at baseline, then pulling hand back toward wooden blocks after the steel-bar clang",
+            "facing": "center of padded table"
+          },
+          {
+            "who": "John B. Watson (mannequin in 1920 dark wool suit behind a weißen white coat)",
+            "where": "standing out of the infant's sightline behind the head of the table holding the hammer beside the suspended 4-foot steel bar",
+            "facing": "behind table head"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "suspended 4-foot steel bar & carpenter's claw hammer",
+          "period_detail": "iron rod hung from ceiling cord behind the padded table head",
+          "physical_behavior": "the exact acoustic unconditioned startle source from Watson & Rayner 1920"
+        },
+        {
+          "name": "articulated matte-white porcelain tame rat & white rabbit sculptures",
+          "period_detail": "porcelain animal figures placed gently on the white cotton mattress",
+          "physical_behavior": "neutral baseline animals turned into conditioned and generalized cues"
+        },
+        {
+          "name": "wooden toy blocks & hand-cranked 1920 35mm cinema camera",
+          "period_detail": "neutral control blocks Albert still played with calmly plus archival film camera",
+          "physical_behavior": "separates cue-specific conditioning from general distress"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Infant mannequin",
+          "verb_sequence": "reaches forward calmly toward the matte-white porcelain rat at baseline -> Watson taps the suspended steel bar behind the table -> on the next silent trial, Infant pulls hand back from the porcelain rat while still stacking wooden blocks calmly"
+        },
+        {
+          "who": "Rosalie Rayner",
+          "verb_sequence": "places the white porcelain rabbit and fuzzy white mask for the 5-day generalization check while logging session notes"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Infant mannequin",
+          "reaction": "leans away from furry cues while remaining calm with wooden control blocks"
+        },
+        {
+          "who": "Watson & Rayner",
+          "reaction": "record both generalization and the ethical omission of any final extinction session"
+        }
+      ],
+      "wardrobe": "1920 Baltimore clinic attire: white cotton clinical smock over long skirt; 1920 wool suit under lab coat; infant white cotton romper.",
+      "lighting": "Bright high-key 1920 tall-window nursery daylight.",
+      "recognition_hook": "At nine months he reached calmly for every animal in the room — seven clangs of a hidden steel bar turned silent white fur into an instant retreat.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1920 white-sheeted nursery testing table with an infant figure, a matte-white porcelain rat sculpture and wooden blocks in front, and a researcher standing behind with a suspended 4-foot steel bar and hammer",
+        "must_show": [
+          "rat|rabbit|blocks",
+          "bar|hammer|rod",
+          "table|mattress"
+        ],
+        "source": "M1@00:08-00:16; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Stimulus Generalization vs Wooden Control Blocks (Day +5)",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1920, Johns Hopkins nursery room",
+      "layout": {
+        "description": "Same sunlit white padded table displaying wooden blocks beside a white porcelain rabbit sculpture, cotton wool tuft, and bearded mask.",
+        "positions": [
+          {
+            "who": "Rosalie Rayner & Infant mannequin",
+            "where": "alternating wooden blocks (happy reach) with white furry items (hesitant pull-back)",
+            "facing": "at padded table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "wooden control blocks vs white bearded mask & cotton wool",
+          "period_detail": "proves withdrawal tracked furry similarity rather than general room distress",
+          "physical_behavior": "anchors Day +5 generalization test"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Rayner",
+          "verb_sequence": "offers wooden blocks -> Infant stacks them calmly -> places white porcelain rabbit -> Infant leans back"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Rayner",
+          "reaction": "notes fading strength over weeks in lab diary"
+        }
+      ],
+      "wardrobe": "1920 clinical smock and romper.",
+      "lighting": "Clean high-key daylight.",
+      "recognition_hook": "Right between pulling back from white fur, Albert stacked wooden blocks happily — proving the alarm tracked fur similarity, not the room.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "1924 Antidote: Mary Cover Jones & 'Little Peter' Exposure Cure",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1924, Columbia Teachers College nursery, New York",
+      "layout": {
+        "description": "Sunlit cheerful playroom where a child enjoys a snack tray at one end of a long room while a calm white porcelain rabbit sits safely 12 feet away.",
+        "positions": [
+          {
+            "who": "Mary Cover Jones (mannequin in 1924 cardigan and blouse)",
+            "where": "gradually moving the caged matte-white porcelain rabbit one foot closer per day only while young Peter stays relaxed with snacks and calm playmates",
+            "facing": "across sunny playroom"
+          },
+          {
+            "who": "'Peter' child mannequin",
+            "where": "smiling and eventually patting the porcelain rabbit with zero fear",
+            "facing": "at play table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "step-by-step distance markers (12 ft -> 6 ft -> 0 ft) & snack tray",
+          "period_detail": "first experimental cure of childhood animal fear via graduated counterconditioning",
+          "physical_behavior": "the humane ethical answer to Little Albert"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Mary Cover Jones",
+          "verb_sequence": "inches the porcelain rabbit closer across safe daily steps -> Child calmly touches the rabbit"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Child & Jones",
+          "reaction": "relaxed, joyful mastery"
+        }
+      ],
+      "wardrobe": "1924 academic blouse and skirt.",
+      "lighting": "Warm, bright nursery sunlight.",
+      "recognition_hook": "Watson showed fear could be wired in; four years later Mary Cover Jones invented graduated exposure therapy to gently wire it OUT.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "The Textbook Myth Audit & Modern IRB Child Safeguards",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "2014, University history-of-psychology archive",
+      "layout": {
+        "description": "Bright archive reading table comparing Watson & Rayner's original 1920 pages and hospital census ledger beside red-lined introductory textbooks.",
+        "positions": [
+          {
+            "who": "Archival historian mannequin",
+            "where": "cross-checking the 1920 film log and 1919 hospital census against exaggerated textbook paragraphs",
+            "facing": "at oak library desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1920 original journal vs corrected textbook myths & IRB Ethics Charter",
+          "period_detail": "exposes invented 'teddy bear' myths and enshrines informed consent & debriefing",
+          "physical_behavior": "scientific integrity lesson"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Historian",
+          "verb_sequence": "highlights fading fear notes in 1920 diary and places IRB child-protection charter beside it"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Student mannequin",
+          "reaction": "appreciates checking primary data over secondary folklore"
+        }
+      ],
+      "wardrobe": "Modern academic blazer and glasses.",
+      "lighting": "Bright library daylight.",
+      "recognition_hook": "Over half of textbooks exaggerated what happened — and Little Albert's unreversed test helped forge modern research ethics.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

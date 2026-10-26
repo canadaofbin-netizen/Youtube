@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Harry Harlow Monkey Experiment Contact Comfort",
+      "url": "https://www.youtube.com/watch?v=vbEdNJ-e-Yc",
+      "channel": "Chris Gmach",
+      "source_id": "SRC_M1",
+      "duration_sec": 126,
+      "timecodes": [
+        {
+          "t": "00:04-00:15",
+          "what": "At kf_003.jpg (11.0s) (4:3 camera frame), Chris Gmach's recording states \"Now, here are 106's two mothers. As you can see, it was weaned on a wire mother.\" — providing spoken context for infant macaque anchoring its hind feet on the terrycloth surrogate while leaning across to nurse from the bare wire frame."
+        },
+        {
+          "t": "00:16-00:30",
+          "what": "Mid-segment 4:3 camera frame at kf_005.jpg (22.0s) as narration explains \"Here's baby 106's. Watch. He's going to the wire mother. Scott, did he live?\", clarifying key empirical findings in Harry Harlow's Wisconsin dual-surrogate contact-comfort attachment experiments ('The Nature of Love')."
+        },
+        {
+          "t": "00:31-00:48",
+          "what": "Around kf_008.jpg (38.5s) (4:3 camera frame), commentary states \"He's going back.\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_harlow_cloth_mother_attachme/ (10 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_harlow_cloth_mother_attachme",
+        "contact_sheet": "media/M1_harlow_cloth_mother_attachme/contact_sheet.jpg",
+        "keyframe_count": 10,
+        "shot_notes": [
+          "Inspected media/M1_harlow_cloth_mother_attachme/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x360, 10 frames sampled across 0.0s–49.5s)) from Chris Gmach's \"Harry Harlow Monkey Experiment Contact Comfort\" (126s total runtime).",
+          "Deduplicated English transcript (7 timestamped cues in media/M1_harlow_cloth_mother_attachme/transcript.txt) aligned directly to keyframe timestamps (0.0s–49.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Harlow's Horrifying Monkey Experiments",
+      "url": "https://www.youtube.com/watch?v=qEEEu1HEtU0",
+      "channel": "SciShow Psych",
+      "source_id": "SRC_M2",
+      "duration_sec": 273,
+      "timecodes": [
+        {
+          "t": "00:09-00:16",
+          "what": "Around kf_003.jpg (10.0s) (widescreen camera frame), speaker commentary notes \"In the 1950s researchers were still trying to figure out whether children bonded with their caregivers only because they were the source of food...\", anchoring the research context of infant macaque anchoring its hind feet on the terrycloth surrogate while leaning across to nurse from the bare wire frame."
+        },
+        {
+          "t": "00:17-00:22",
+          "what": "At kf_005.jpg (20.0s) (widescreen camera frame), audio continues with \"only because they were the source of food when they were babies, or, if there is more to it than that, and some of the answers were drawn from the...\", detailing experimental methodology and behavioral observations for Harry Harlow's Wisconsin dual-surrogate contact-comfort attachment experiments ('The Nature of Love')."
+        },
+        {
+          "t": "01:05-01:11",
+          "what": "Later widescreen camera frame at kf_014.jpg (65.0s) accompanied by \"but at the time there was a bit of a debate in psychology about this sort of thing. On one side there were the behaviourists who thought that the...\", summarizing mechanism and boundary conditions in Harry Harlow's Wisconsin dual-surrogate contact-comfort attachment experiments ('The Nature of Love')."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (480x270, 14 frames sampled across 0.0s–65.0s)) from SciShow Psych's \"Harlow's Horrifying Monkey Experiments\" (273s total runtime).",
+          "Deduplicated English transcript (33 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Natural of Love Typical response to cloth mother surrogate in fear test.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Natural_of_Love_Typical_response_to_cloth_mother_surrogate_in_fear_test.jpg",
+      "channel": "Wikimedia Commons (Harry Harlow)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Natural of Love Typical response to cloth mother surrogate in fear test.jpg\" (311x399 px, CC0): Fig14 Typical response to cloth mother surrogate in fear test. Documents authentic physical instrument geometry and period materials relevant to Harry Harlow's Wisconsin dual-surrogate contact-comfort attachment experiments ('The Nature of Love')."
+        }
+      ],
+      "license_note": "Archival photo (CC0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (311x399 px, CC0, Harry Harlow) — apparatus reference: Fig14 Typical response to cloth mother surrogate in fear test.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

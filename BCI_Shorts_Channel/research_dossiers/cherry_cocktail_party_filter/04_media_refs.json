@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "The Science Behind the Cocktail Party Effect",
+      "url": "https://www.youtube.com/watch?v=GNf5wdOmzVw",
+      "channel": "BrainFacts.org",
+      "source_id": "SRC_M1",
+      "duration_sec": 272,
+      "timecodes": [
+        {
+          "t": "00:05-00:19",
+          "what": "Widescreen camera frame at kf_001.jpg (5.6s) paired with transcript segment \"socializing with one another, such as at a cocktail party or a restaurant, you are able to pay attention only to your own conversation and drown...\", introducing core background on 1953 Imperial College Dual-Channel Audio Console: Shadowing the Right Ear Aloud While Missing English-to-German Switch in the Left Ear."
+        },
+        {
+          "t": "01:38-01:49",
+          "what": "Around kf_005.jpg (108.6s) (widescreen camera frame), transcript records \"focus on and what stimuli to ignore. This type of attentional process is known as top-down or executive attention, because the focus is determined...\", examining procedural mechanics and evidence in E. Colin Cherry's 1953 Imperial College London 'Cocktail Party Problem' & Dichotic Shadowing Experiments."
+        },
+        {
+          "t": "02:46-02:54",
+          "what": "Subsequent widescreen camera frame at kf_011.jpg (169.3s) in \"The Science Behind the Cocktail Party Effect\", documenting closing visual sequence for reference analysis."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (live-action speaker/interview recording intercut with 3 visual slide frames (480x268, sampled across 5.6s–177.1s)) from BrainFacts.org's \"The Science Behind the Cocktail Party Effect\" (272s total runtime).",
+          "Deduplicated English transcript (21 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (5.6s–177.1s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "archive_film",
+      "title": "Colin Cherry (Edward Colin Cherry) - New Freedoms",
+      "url": "https://www.youtube.com/watch?v=vKnFGYaZibg",
+      "channel": "trogwallaby",
+      "source_id": "SRC_M2",
+      "duration_sec": 1190,
+      "timecodes": [
+        {
+          "t": "05:51-06:06",
+          "what": "At kf_001.jpg (360.8s) (4:3 camera frame), trogwallaby's recording states \"old another fear is that increasing national and global communication services will inevitably lead to greater centralization of power and so to...\" — providing spoken context for 1953 Imperial College Dual-Channel Audio Console: Shadowing the Right Ear Aloud While Missing English-to-German Switch in the Left Ear."
+        },
+        {
+          "t": "06:32-06:45",
+          "what": "Mid-segment 4:3 camera frame at kf_007.jpg (398.7s) as narration explains \"philosophical way and we won't get very far until we ask ourselves two questions first what is human communication and second what is the true...\", clarifying key empirical findings in E. Colin Cherry's 1953 Imperial College London 'Cocktail Party Problem' & Dichotic Shadowing Experiments."
+        },
+        {
+          "t": "07:10-07:22",
+          "what": "Around kf_013.jpg (436.7s) (4:3 camera frame), commentary states \"purpose it is an even greater mistake to think of communication necessarily being goal seeking with the aim of bringing people together for just a...\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (archival footage (450x360, 0/14 monochrome frames across 360.8s–443.0s)) from trogwallaby's \"Colin Cherry (Edward Colin Cherry) - New Freedoms\" (1190s total runtime).",
+          "Deduplicated English transcript (24 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (360.8s–443.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Primary auditory cortex and Auditory association areas.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Primary_auditory_cortex_and_Auditory_association_areas.jpg",
+      "channel": "Wikimedia Commons (Kompus K, Falkenberg LE, Bless JJ, Johnsen E, Kroken RA, Kråkvik B, Larøi F, Løberg E-M, Vedul-Kjelsås E, Westerhausen R and Hugdahl K)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Primary auditory cortex and Auditory association areas.jpg\" (347x362 px, CC BY-SA 3.0): Schematic illustration of the primary auditory cortex (PAC) on a brain template. The PAC (red) occupies most of the Heschl's gyrus, which extends mediolaterally within the Sylvian fissure. PAC is surr. Provides anatomical and structural brain reference relevant to the neural mechanism in E. Colin Cherry's 1953 Imperial College London 'Cocktail Party Problem' & Dichotic Shadowing Experiments."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 3.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (347x362 px, CC BY-SA 3.0, Kompus K, Falkenberg LE, Bless JJ, Johnsen E, Kroken RA, Kråkvik B, Larøi F, Løberg E-M, Vedul-Kjelsås E, Westerhausen R and Hugdahl K) — neuroanatomy reference: Schematic illustration of the primary auditory cortex (PAC) on a brain template. The PAC (red) occupies most of the Heschl's gyrus, which extends mediolaterally within the Sylvian fissure. PAC is surr.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

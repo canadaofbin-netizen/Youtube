@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Study by James Old of Brain Reward Center",
+      "url": "https://www.youtube.com/watch?v=uofQPLuLV9A",
+      "channel": "H. Tak Cheung",
+      "source_id": "SRC_M1",
+      "duration_sec": 75,
+      "timecodes": [
+        {
+          "t": "00:00-00:11",
+          "what": "4:3 camera frame at kf_002.jpg (5.5s) paired with transcript segment \"Working in Montreal in the 1950s, James Olds devised a crucial test. He worked out a new way to an effect, ask animals how they felt.\", introducing core background on rat pressing a brass lever hundreds of times an hour beneath a flexible overhead lead."
+        },
+        {
+          "t": "00:21-00:30",
+          "what": "Around kf_006.jpg (27.5s) (4:3 camera frame), transcript records \"When he first touches it, he gets no stimulation. It's not connected yet. Then one time he touches the petal, it does turn on the stimulation.\", examining procedural mechanics and evidence in Olds & Milner's serendipitous intracranial self-stimulation (ICSS) discovery at McGill University."
+        },
+        {
+          "t": "00:36-00:50",
+          "what": "At kf_009.jpg (44.0s) (4:3 camera frame), speaker remarks \"The animal must cross an area that gives a very painful shock to the feet in order to get to the petal and stimulate the brain. And a rat wanting...\", addressing theoretical interpretation and downstream implications of Olds & Milner's serendipitous intracranial self-stimulation (ICSS) discovery at McGill University."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_olds_milner_pleasure_center/ (9 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_olds_milner_pleasure_center",
+        "contact_sheet": "media/M1_olds_milner_pleasure_center/contact_sheet.jpg",
+        "keyframe_count": 9,
+        "shot_notes": [
+          "Inspected media/M1_olds_milner_pleasure_center/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x360, 9 frames sampled across 0.0s–44.0s)) from H. Tak Cheung's \"Study by James Old of Brain Reward Center\" (75s total runtime).",
+          "Deduplicated English transcript (14 timestamped cues in media/M1_olds_milner_pleasure_center/transcript.txt) aligned directly to keyframe timestamps (0.0s–44.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Dopamine Jackpot! Sapolsky on the Science of Pleasure",
+      "url": "https://www.youtube.com/watch?v=axrywDP9Ii0",
+      "channel": "FORA.tv",
+      "source_id": "SRC_M2",
+      "duration_sec": 299,
+      "timecodes": [
+        {
+          "t": "00:12-00:25",
+          "what": "At kf_002.jpg (17.1s) (lecture slide / diagram frame), FORA.tv's recording states \"one of those sessions where I can now get food and it knows that if I press this lever 10 times after a little bit of a delay I'll get some food...\" — providing spoken context for rat pressing a brass lever hundreds of times an hour beneath a flexible overhead lead."
+        },
+        {
+          "t": "00:45-00:59",
+          "what": "Mid-segment monochrome film frame at kf_008.jpg (55.1s) as narration explains \"when the signal comes on what's this is the monkey there sitting and saying I know this I know the drill I know this I'm on top of this is going...\", clarifying key empirical findings in Olds & Milner's serendipitous intracranial self-stimulation (ICSS) discovery at McGill University."
+        },
+        {
+          "t": "01:34-01:39",
+          "what": "Around kf_014.jpg (93.0s) (dark-backdrop stage / studio camera frame), commentary states \"elaboration rather than this design you press the lever right number of times you get reward do the work you get a reward 100% of the time that's...\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (recorded lecture combining speaker commentary with 7/14 diagram/slide frames (640x360, sampled across 10.8s–93.0s)) from FORA.tv's \"Dopamine Jackpot! Sapolsky on the Science of Pleasure\" (299s total runtime).",
+          "Deduplicated English transcript (25 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (10.8s–93.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "museum_artefact",
+      "title": "The stereotaxic apparatus. Wellcome M0016268.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:The_stereotaxic_apparatus._Wellcome_M0016268.jpg",
+      "channel": "Wikimedia Commons (Wikimedia Commons contributor)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified museum artefact \"The stereotaxic apparatus. Wellcome M0016268.jpg\" (1600x1220 px, CC BY 4.0): The stereotaxic apparatus: illustrations. Wellcome Images. Documents authentic physical instrument geometry and period materials relevant to Olds & Milner's serendipitous intracranial self-stimulation (ICSS) discovery at McGill University."
+        }
+      ],
+      "license_note": "Archival museum artefact (CC BY 4.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (1600x1220 px, CC BY 4.0, Wikimedia Commons contributor) — apparatus reference: The stereotaxic apparatus: illustrations. Wellcome Images.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

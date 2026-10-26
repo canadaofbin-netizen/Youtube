@@ -1,0 +1,91 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "archive_film",
+      "title": "Thorndike's Puzzle Box Trial9",
+      "url": "https://www.youtube.com/watch?v=OIo86W83_k0",
+      "channel": "Aspenwolf69",
+      "source_id": "SRC_M1",
+      "duration_sec": 46,
+      "timecodes": [
+        {
+          "t": "00:08-00:16",
+          "what": "Non-vocal 4:3 camera frame at kf_003.jpg (11.0s) in Aspenwolf69's \"Thorndike's Puzzle Box Trial9\", visually recording timing and visual layout relevant to Edward Thorndike in 1898 Columbia attic timing an cat pressing a wooden treadle latch inside slatted Puzzle Box A."
+        },
+        {
+          "t": "00:30-00:38",
+          "what": "Visual-only 4:3 camera frame at kf_007.jpg (33.0s) in \"Thorndike's Puzzle Box Trial9\", capturing movement progression and frame composition without spoken English commentary."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_thorndike_law_of_effect/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_thorndike_law_of_effect",
+        "contact_sheet": "media/M1_thorndike_law_of_effect/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1_thorndike_law_of_effect/contact_sheet.jpg (archival footage (480x360, 0/12 monochrome frames across 0.0s–60.5s)) from Aspenwolf69's \"Thorndike's Puzzle Box Trial9\" (46s total runtime).",
+          "Non-vocal archival/demonstration clip (media/M1_thorndike_law_of_effect/transcript.txt); visual timing and staging inspected directly across 12 keyframes (0.0s–60.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "Discovering Psychology: Episode 08 - Learning",
+      "url": "https://www.youtube.com/watch?v=3IAmN1BCcjE",
+      "channel": "Life Action",
+      "source_id": "SRC_M2",
+      "duration_sec": 1597,
+      "timecodes": [
+        {
+          "t": "11:34-11:50",
+          "what": "4:3 camera frame at kf_001.jpg (700.8s) paired with transcript segment \"die. Classical conditioning is not the only type of conditioning. While Pavlov demonstrated the importance of learning the relationships between...\", introducing core background on Edward Thorndike in 1898 Columbia attic timing an cat pressing a wooden treadle latch inside slatted Puzzle Box A."
+        },
+        {
+          "t": "12:15-12:31",
+          "what": "Around kf_008.jpg (745.1s) (4:3 camera frame), transcript records \"careful observation, measurement, and quantification of the performance of experimental animals, Thorndike discovered the type of learning we call...\", examining procedural mechanics and evidence in Edward Lee Thorndike's 1898 Columbia University Cat Puzzle-Box & Law of Effect experiments."
+        },
+        {
+          "t": "12:32-12:44",
+          "what": "At kf_010.jpg (757.7s) (monochrome film frame), speaker remarks \"and error. Actions that brought a reward, i.e., actions that were effective in achieving a goal, became learned actions. For Thorndike, it is the...\", addressing theoretical interpretation and downstream implications of Edward Lee Thorndike's 1898 Columbia University Cat Puzzle-Box & Law of Effect experiments."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x360, 14 frames sampled across 700.8s–783.0s)) from Life Action's \"Discovering Psychology: Episode 08 - Learning\" (1597s total runtime).",
+          "Deduplicated English transcript (22 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (700.8s–783.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "PSM V80 D211 Edward Lee Thorndike.png",
+      "url": "https://commons.wikimedia.org/wiki/File:PSM_V80_D211_Edward_Lee_Thorndike.png",
+      "channel": "Wikimedia Commons (Unknown author Unknown author)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"PSM V80 D211 Edward Lee Thorndike.png\" (788x1039 px, Public domain): Edward Lee Thorndike. Documents authentic researcher likeness, period attire, and historical context for Edward Lee Thorndike's 1898 Columbia University Cat Puzzle-Box & Law of Effect experiments."
+        }
+      ],
+      "license_note": "Archival photo (Public domain) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (788x1039 px, Public domain, Unknown author Unknown author) — portrait reference: Edward Lee Thorndike.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

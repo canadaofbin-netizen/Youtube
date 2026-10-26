@@ -1,0 +1,99 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "When science's top experts called 200 million brain fibers 'anti-sagging foam', one reversible eye-patch at Caltech revealed two independent minds in one skull.",
+    "core_experiment": "Sperry (1961 Science) & Myers: split optic chiasm + split corpus callosum eye-patch amnesia & simultaneous opposite Circle/Cross training.",
+    "twist": "Why the 'optic-chiasm leak' fooled 1940s neurology, how 1961 directly launched Gazzaniga's human split-brain revolution, and the 1981 Nobel synthesis."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "1951: '200 Million Fibers Just to Stop Brain Sagging?!'",
+      "beats": [
+        "Lashley & McCulloch's famous jokes",
+        "Why 1940s callosotomy exams missed the disconnection: the optic-chiasm leak."
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "optic chiasm vs callosum pathway model"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Caltech 1961: Move the Eye-Patch 2 cm, Erase the Memory.",
+      "beats": [
+        "Control 1 (callosum intact): 100% instant eye-to-eye transfer",
+        "Split callosum: 100% mastery drops straight to 50% naive beginner."
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "Circle/Cross box, cat & 100 to 50% graph"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Two Opposite Habits Inside One Skull",
+      "beats": [
+        "Polarized lenses teach Left = Circle and Right = Cross at the exact same time",
+        "Tactile paw isolation confirms physical tract-locked engrams"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "polarized filter paddles"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "From 1961 Animal Blueprint to Human Split-Brain & 1981 Nobel",
+      "beats": [
+        "Inspiring Bogen & Gazzaniga's 1962 human tests",
+        "Debunking pop-psych 'left-brained vs right-brained' myths"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "200-million-fiber bridge model"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "The Sperry Rule of Hidden Backup Channels",
+      "beats": [
+        "Checking for cross-talk leaks in science and engineering",
+        "Appreciating seamless 200-million-fiber unity"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "unified hemisphere bridge"
+      ]
+    }
+  ]
+}

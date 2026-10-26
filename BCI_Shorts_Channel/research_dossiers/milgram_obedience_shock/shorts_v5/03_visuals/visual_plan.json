@@ -1,0 +1,166 @@
+{
+  "schema": 5,
+  "visual_mode": "BEHAVIORAL_PSYCH",
+  "dossier": "milgram_obedience_shock",
+  "real_environment": "a 1961 Yale basement psychology laboratory with a brushed-steel thirty-lever voltage generator box",
+  "environment_props": [
+    "brushed-steel thirty-lever voltage generator box labeled 15V to 450V",
+    "wooden laboratory desk and dividing partition wall",
+    "grey lab technician clipboard and four-quadrant answer box"
+  ],
+  "cast": {
+    "subject": "volunteer teacher in a 1960s rolled-up white dress shirt",
+    "others": [
+      "experimenter in a knee-length grey lab technician coat",
+      "learner strapped into a wooden chair behind the partition wall"
+    ],
+    "animals": [],
+    "wardrobe": {
+      "teacher": "1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie",
+      "experimenter": "knee-length grey laboratory technician coat over a white collared shirt and narrow black tie",
+      "learner": "1960s white dress shirt and vest with leather straps across the forearms"
+    }
+  },
+  "must_have_scenes": [
+    {
+      "id": "S1",
+      "title": "The 30-lever shock generator: 'Please continue'",
+      "iconic": true,
+      "recognition_hook": "A man in a 1960s dress shirt sitting in front of the 30-lever 15V-to-450V XXX shock generator box while a man in a grey lab coat stands behind him saying 'Please continue'.",
+      "era": "1961-1962 Yale University basement laboratory",
+      "key_visual": {
+        "description": "the teacher mannequin presses a lever on the thirty-switch shock generator while the grey-coated experimenter stands behind him saying please continue",
+        "must_show": [
+          "switch|lever|toggle",
+          "generator",
+          "experimenter"
+        ],
+        "source": "M1_psychhub_original_footage@00:45-01:15; Milgram 1963"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Learner pounding on the dividing wall at 150V and 300V, then silence",
+      "iconic": false,
+      "recognition_hook": "Fists pounding through the laboratory wall followed by eerie silence while the volunteer still flips switches to 450 volts.",
+      "era": "1961-1962 Yale University basement laboratory"
+    },
+    {
+      "id": "S3",
+      "title": "Touch-proximity variation: forcing the learner's hand onto the metal plate",
+      "iconic": false,
+      "recognition_hook": "Having to physically hold the learner's hand down on the metal contact plate makes seven out of ten people refuse.",
+      "era": "1961-1962 Yale University basement laboratory"
+    },
+    {
+      "id": "S4",
+      "title": "Defiance: refusing the bare order and dissenting peers walking out",
+      "iconic": false,
+      "recognition_hook": "When given a bare order or when two peer teachers refuse to flip the switches, thirty-six of forty men push their chairs back and stop.",
+      "era": "1961-1962 Yale University basement laboratory"
+    }
+  ],
+  "brain_link": {},
+  "shots": {
+    "setup": {
+      "scene_id": "S1",
+      "setting": "real_env",
+      "shot_type": "wide",
+      "camera": "Wide establishing shot tracking forward toward the brushed-steel switch console",
+      "environment": "In a bright 1961 Yale basement laboratory divided by a partition wall, a strapped learner mannequin sits in the next room while a teacher mannequin in a rolled-up white shirt faces a thirty-lever voltage generator labeled fifteen to four hundred fifty volts",
+      "action": "The teacher presses a metallic toggle switch down as an experimenter mannequin in a grey coat taps a clipboard",
+      "prop_change": "A red indicator light flashes, the voltmeter needle jumps right, and relays buzz",
+      "reaction": "The teacher flinches and clutches his forehead with one trembling hand"
+    },
+    "symptom": {
+      "scene_id": "S2",
+      "setting": "real_env",
+      "shot_type": "medium",
+      "camera": "Medium cross-section shot tracking sideways across the dividing laboratory wall",
+      "environment": "Inside the bisected 1961 Yale basement laboratory, the strapped learner mannequin sits behind the wooden partition wall beside the thirty-lever voltage generator desk",
+      "action": "The learner pounds his fist against the dividing wall twice and slumps still, while the teacher mannequin in a white dress shirt pushes the final four-hundred-fifty-volt XXX toggle switch down",
+      "prop_change": "The partition wall vibrates, the red pilot light flashes, and the voltmeter needle swings right",
+      "reaction": "The teacher braces both elbows on the desk and buries his head in his hands"
+    },
+    "failure": {
+      "scene_id": "S9",
+      "setting": "real_env",
+      "shot_type": "medium",
+      "camera": "Medium tracking shot gliding sideways along a row of wooden seminar desks",
+      "environment": "In a bright 1961 Yale classroom, a chalkboard diagram shows the thirty-lever voltage generator box before fourteen student mannequins in tweed jackets",
+      "action": "A student mannequin shakes his head, scribbles a mark at the one percent line on a survey sheet, and slides the paper across the desk",
+      "prop_change": "The pen nib clicks against the desk and the stack of survey papers slides to the edge",
+      "reaction": "The students lean back in their wooden chairs and fold their arms confidently"
+    },
+    "crisis": {
+      "scene_id": "S5",
+      "setting": "real_env",
+      "shot_type": "cu",
+      "camera": "Close-up shot pushing in on the volunteer teacher's bare wrist beside the switch console",
+      "environment": "At the 1961 Yale laboratory desk, two unfolded paper slips reading Teacher lie beside the thirty-lever voltage generator box",
+      "action": "The experimenter mannequin in a grey lab coat straps a metal contact to the teacher mannequin's wrist and flips the third forty-five-volt toggle switch down",
+      "prop_change": "The metallic toggle switch snaps down, the red pilot light flashes, and the wire twitches",
+      "reaction": "The teacher jolts backward in his chair, yanks his forearm away, and rubs his stung wrist"
+    },
+    "pivot": {
+      "scene_id": "S4",
+      "setting": "real_env",
+      "shot_type": "ots",
+      "camera": "Over-the-shoulder shot pivoting from the grey-coated experimenter to the volunteer teacher at the console",
+      "environment": "In the bright 1961 Yale basement laboratory, the teacher mannequin in a rolled-up white dress shirt sits before the thirty-lever voltage generator box",
+      "action": "The experimenter mannequin thrusts his metal clipboard forward, and the teacher slams his palm flat on the desk and shoves his chair backward",
+      "prop_change": "The wooden chair skids across the floor, the released toggle switch springs up, and the voltmeter needle drops to zero",
+      "reaction": "The teacher stands up with squared shoulders and raises an open palm in refusal"
+    },
+    "step1": {
+      "scene_id": "S6",
+      "setting": "real_env",
+      "shot_type": "wide",
+      "camera": "Wide two-shot dollying laterally across the open laboratory room",
+      "environment": "In the 1961 Yale basement laboratory with the partition wall removed, the strapped learner mannequin sits in full view just feet from the thirty-lever voltage generator",
+      "action": "The learner jerks against the leather wrist straps right in front of the desk, and the teacher mannequin in a white shirt yanks his hand off the toggle switch",
+      "prop_change": "The leather straps rattle taut, the voltmeter needle swings to zero, and the red light flickers off",
+      "reaction": "The teacher recoils in his chair and drops both hands into his lap"
+    },
+    "step2": {
+      "scene_id": "S3",
+      "setting": "real_env",
+      "shot_type": "cu",
+      "camera": "Close-up shot tracking tightly across the metal contact plate on the laboratory table",
+      "environment": "In the 1961 Yale basement laboratory, the learner mannequin sits right beside the thirty-lever voltage generator box next to a wired steel contact plate",
+      "action": "The learner pulls his hand off the steel plate, and the teacher mannequin grabs the learner's forearm to press the palm down before recoiling",
+      "prop_change": "The steel contact plate slides across the tabletop, a small spark flashes, and the toggle switch clicks off",
+      "reaction": "The teacher steps backward from the table and holds both porcelain hands up in refusal"
+    },
+    "step3": {
+      "scene_id": "S4",
+      "setting": "real_env",
+      "shot_type": "wide",
+      "camera": "Wide shot pulling back across the three-chair generator desk",
+      "environment": "In the 1961 Yale basement laboratory, two peer teacher mannequins in white dress shirts sit beside the volunteer teacher mannequin before the thirty-lever voltage generator",
+      "action": "Both peer teachers slam their notebooks shut, push their wooden chairs back, and stand up, and the volunteer teacher pulls his hand off the switch",
+      "prop_change": "Three wooden chairs slide backward across the floor while the red indicator light snaps dark",
+      "reaction": "All three teachers stand shoulder to shoulder with folded arms as the experimenter lowers his clipboard"
+    },
+    "breakthrough": {
+      "scene_id": "S8",
+      "setting": "real_env",
+      "shot_type": "medium",
+      "camera": "Medium shot pushing in toward the tenth switch on the voltage console",
+      "environment": "In a bright modern psychology room, a teacher mannequin in a button-down shirt sits before the thirty-lever voltage generator at the one-hundred-fifty-volt mark",
+      "action": "The teacher presses the tenth toggle switch down, flinches as the wall vibrates, and reaches for the next switch before the researcher steps in and covers the panel",
+      "prop_change": "The red indicator light flashes, the voltmeter needle jumps right, and the clipboard drops onto the desk",
+      "reaction": "The teacher slumps back in his chair and wipes his forehead with his sleeve"
+    },
+    "conclusion": {
+      "scene_id": "S10",
+      "setting": "real_env",
+      "shot_type": "wide",
+      "camera": "Wide shot slowly pulling back and rising to an elevated angle over the laboratory",
+      "environment": "In the bright 1961 Yale basement laboratory, the thirty-lever voltage generator box sits silent on the wooden desk beside the grey-coated experimenter mannequin",
+      "action": "The volunteer teacher mannequin in a rolled-up white dress shirt pushes his chair back, stands up from the console, and walks toward the open door",
+      "prop_change": "The red pilot light clicks off, the voltmeter needle drops to zero, and the door swings open into bright daylight",
+      "reaction": "The teacher strides forward with upright posture while the experimenter lowers his clipboard"
+    }
+  }
+}

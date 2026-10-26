@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "slug": "milgram_obedience_shock",
+  "topic": "Stanley Milgram's obedience experiment (Yale University, 1961-1962; published 1963)",
+  "pillar": "bci_ethics",
+  "created_at": "2026-10-24T01:02:50+00:00",
+  "status": "ready",
+  "visual_mode": "BEHAVIORAL_PSYCH",
+  "visual_mode_reason": "The story is entirely about behaviour in a staged social situation: a man, a switch panel, a voice behind a wall and a man in a grey coat. No brain measurement was taken in 1961-62, and the twist (people continue when told it is for science, refuse a bare order) is social, not anatomical. Showing a glowing brain would invent a mechanism the sources never measured, so every clip stays in the real 1960s rooms with dynamic body acting. Pillar bci_ethics: it is the founding case of modern research-ethics rules (deception, distress, debriefing).",
+  "primary_case": {
+    "title": "Behavioral Study of Obedience (Milgram's baseline 'remote' condition, Experiment 1)",
+    "year": 1963,
+    "place": "Interaction laboratory, Yale University, New Haven, Connecticut, USA (sessions from August 1961 to May 1962; later variations in a Bridgeport office)",
+    "people": [
+      {
+        "name": "Stanley Milgram",
+        "role": "Yale assistant professor who designed and ran the study (later Harvard, CUNY)"
+      },
+      {
+        "name": "The experimenter (played by a 31-year-old high-school biology teacher)",
+        "role": "Gives the four prods in a grey technician's coat; impassive and stern (Milgram 1963)"
+      },
+      {
+        "name": "The learner (played by a 47-year-old accountant of Irish-American stock)",
+        "role": "Confederate strapped into the chair in the next room; mild-mannered and likable (Milgram 1963)"
+      },
+      {
+        "name": "40 male volunteers aged 20-50 from New Haven",
+        "role": "The real subjects, each in the role of 'teacher' (postal clerks, high-school teachers, salesmen, engineers, labourers)"
+      },
+      {
+        "name": "Jerry M. Burger",
+        "role": "Santa Clara University psychologist; 2009 partial replication stopping at 150 V"
+      },
+      {
+        "name": "Gina Perry",
+        "role": "Australian psychologist; archival critique 'Behind the Shock Machine' (2012)"
+      },
+      {
+        "name": "S. Alexander Haslam and Stephen D. Reicher",
+        "role": "Social psychologists; 'engaged followership' reinterpretation (2012)"
+      },
+      {
+        "name": "Diana Baumrind",
+        "role": "Psychologist; first published ethics critique (1964)"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Subjects were 40 men aged 20 to 50 from New Haven and nearby towns, recruited by newspaper advertisement and direct mail for a 'study of memory and learning', and paid $4.50 just for coming.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "A rigged draw made the real volunteer the teacher every time: both slips of paper read 'Teacher'.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The learner was strapped into an 'electric chair' in the adjoining room with an electrode on his wrist and electrode paste 'to avoid blisters and burns'.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The generator had 30 lever switches in a horizontal line from 15 to 450 volts in 15-volt steps, labelled in groups from Slight Shock to Danger: Severe Shock, with the last two switches marked XXX.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Pressing a switch lit a bright red pilot light, sounded an electric buzz, flashed a blue 'voltage energizer' light, swung the voltmeter dial to the right and set off relay clicks.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Every teacher first received a real 45-volt sample shock on the wrist, from the third switch, powered by a 45-volt battery.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The experimenter used four prods in strict order: 'Please continue' or 'Please go on'; 'The experiment requires that you continue'; 'It is absolutely essential that you continue'; 'You have no other choice, you must go on.'",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In the baseline condition the learner was silent until 300 volts, pounded on the wall at 300 and again at 315 volts, and then gave no more answers.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "26 of 40 men (65 percent) went to the 450-volt maximum; 14 stopped, the earliest at 300 volts.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Fourteen Yale psychology seniors predicted that 0 to 3 out of 100 people would go to 450 volts; their mean estimate was 1.2 percent.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In a later 'new baseline' with a heart-trouble script, the learner demanded release at 150 volts and fell silent after 330 volts; 26 of 40 still went to the end.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "With the learner in the same room obedience fell to 40 percent; when the teacher had to force the learner's hand onto a shock plate it fell to 30 percent.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "In a modest Bridgeport office run as 'Research Associates of Bridgeport', with no visible Yale link, obedience was 47.5 percent.",
+      "source_id": "SRC10"
+    },
+    {
+      "fact": "Burger's 2009 replication stopped at 150 volts: 70 percent were willing to continue, versus 82.5 percent in Milgram's comparable condition.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Across the roughly 30 variants, obedience to 450 V ranged from 0 to nearly 100 percent, and overall a majority did not go to the end.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "In the two-peers-rebel variation (Experiment 17), two confederate teachers refused to go on; 36 of 40 participants (90 percent) then defied the experimenter and only 4 continued to 450 volts.",
+      "source_id": "SRC10"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Yale psychology seniors guessed about 1 in 100 would go all the way; in the real test it was 26 of 40.",
+      "why_surprising": "The experts were off by a factor of about fifty, which is the gut-punch of the whole story.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "The only real shock in the whole experiment went to the teacher: a 45-volt sample on his own wrist.",
+      "why_surprising": "Viewers assume the learner was hurt; the one person actually shocked was the volunteer.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "When the experimenter said 'You have no other choice, you must go on' (a bare order), people typically refused.",
+      "why_surprising": "It flips the textbook 'blind obedience' story: the purely obedient prod was the one that failed.",
+      "source_id": "SRC5",
+      "rank": 3
+    },
+    {
+      "fact": "Fourteen of 40 men broke into nervous laughter, and three had full-blown, uncontrollable laughing seizures.",
+      "why_surprising": "Laughter is the last reaction anyone expects from someone who thinks he is hurting a stranger.",
+      "source_id": "SRC1",
+      "rank": 4
+    },
+    {
+      "fact": "Moving the lab from Yale to a plain Bridgeport office still left 47.5 percent obeying to the end.",
+      "why_surprising": "Even without the Ivy League name, almost half kept pressing switches.",
+      "source_id": "SRC10",
+      "rank": 5
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Milgram proved that two out of three people will always obey orders to hurt someone.",
+      "truth": "65 percent applied to one condition of 40 men; across roughly 30 variants obedience ranged from 0 to nearly 100 percent and overall most people did not go to the end.",
+      "source_id": "SRC5"
+    },
+    {
+      "myth": "The learner was really shocked.",
+      "truth": "The learner was a confederate who received no shocks; only the teacher got a real 45-volt sample shock.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "People obeyed calmly, like robots.",
+      "truth": "Many sweated, trembled, stuttered, dug fingernails into their flesh and laughed nervously; observers saw extreme tension.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Everyone believed the setup was real and the results are beyond dispute.",
+      "truth": "Gina Perry's archival work argues only about half fully believed it, that sessions departed from the published script, and that some subjects were never properly told the truth.",
+      "source_id": "SRC8"
+    },
+    {
+      "myth": "Nobody would obey today.",
+      "truth": "Burger's 2009 partial replication found 70 percent willing to continue past 150 volts, not significantly different from 1962.",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "A boss says 'it's company policy' when you are asked to do something that feels wrong.",
+    "A doctor, pilot or teacher in a uniform speaks in a calm, confident voice, and you stop questioning.",
+    "Online challenges or group chats where 'everyone is doing it for a good reason'.",
+    "Seeing the person affected up close (or touching them) makes it much harder to go along, which is why distance in apps and email makes harsh actions easier.",
+    "One person saying no out loud makes it easier for everyone else to say no (two refusing peers dropped obedience to 4 of 40 in Milgram's Experiment 17)."
+  ],
+  "linked_projects": [
+    "psych_18_milgram_obedience_authority"
+  ]
+}

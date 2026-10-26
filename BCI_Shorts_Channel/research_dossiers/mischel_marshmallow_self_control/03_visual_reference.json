@@ -1,0 +1,218 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Preschooler turning away and covering eyes with both hands beside a single white marshmallow and silver desk bell",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1970, Stanford Bing Nursery School 'Surprise Room', Palo Alto",
+      "layout": {
+        "description": "Minimalist sunlit 1970 preschool testing room with bare cream walls, a child-sized wooden table and chair, a small white paper plate holding one fluffy white marshmallow, a shiny chrome call bell, and an observation mirror.",
+        "positions": [
+          {
+            "who": "Preschooler mannequin (child-proportioned matte-white mannequin in 1970 overalls and striped tee)",
+            "where": "sitting sideways on the wooden chair, leaning far back from the plate and covering eyes playfully with both palms to avoid looking at the marshmallow",
+            "facing": "turned away from the center plate"
+          },
+          {
+            "who": "Walter Mischel (mannequin in 1970 turtleneck and tweed jacket)",
+            "where": "visible behind the observation glass noting gaze-aversion seconds on a stopwatch",
+            "facing": "watching the Surprise Room"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "white paper plate with one white marshmallow",
+          "period_detail": "plain 6-inch paper plate centered on the small wooden table",
+          "physical_behavior": "sits untouched as long as the child's gaze stays averted"
+        },
+        {
+          "name": "chrome call-back desk bell",
+          "period_detail": "classic small silver tap bell beside the plate",
+          "physical_behavior": "if tapped early, brings the adult back immediately but forfeits the second marshmallow"
+        },
+        {
+          "name": "opaque metal cake-tin cover on side shelf",
+          "period_detail": "round brushed-tin cover used in the hidden-reward condition",
+          "physical_behavior": "stretches average wait time from 1.03 minutes to 11.29 minutes"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Preschooler mannequin",
+          "verb_sequence": "glances once at the marshmallow and silver bell -> slides chair slightly sideways -> covers eyes with both hands and taps toes rhythmically to pass the time"
+        },
+        {
+          "who": "Walter Mischel",
+          "verb_sequence": "logs strategic gaze aversion passing the 11-minute mark"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Preschooler mannequin",
+          "reaction": "perks up triumphantly when the door clicks open at 15:00 with the second marshmallow"
+        },
+        {
+          "who": "Walter Mischel",
+          "reaction": "smiles realizing self-control works by starving temptation of attention"
+        }
+      ],
+      "wardrobe": "1970 California preschooler in corduroy overalls and striped shirt; researcher in 1970 tweed blazer over dark turtleneck.",
+      "lighting": "Clean, bright California morning daylight in an uncluttered room.",
+      "recognition_hook": "Staring straight at the marshmallow breaks kids in sixty-two seconds — covering their eyes or hiding the plate stretches patience tenfold.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1970 preschooler mannequin on a small wooden chair covering its eyes and turning sideways away from a white marshmallow and silver desk bell on a bare table",
+        "must_show": [
+          "marshmallow|plate",
+          "bell",
+          "table|chair"
+        ],
+        "source": "M1@06:44-07:00; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Uncovered staring condition collapses in 62 seconds",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1970, Bing Nursery Surprise Room",
+      "layout": {
+        "description": "Same small table with TWO uncovered treats sitting right under a child's chin.",
+        "positions": [
+          {
+            "who": "Staring Preschooler mannequin",
+            "where": "propping chin in both hands six inches from the uncovered marshmallow",
+            "facing": "staring straight at the plate"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "uncovered marshmallow & silver bell",
+          "period_detail": "fully exposed in direct gaze",
+          "physical_behavior": "triggers bell tap at 1.03 minutes"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Staring Preschooler mannequin",
+          "verb_sequence": "stares unblinkingly at the treat -> reaches out and slaps the silver bell at 62 seconds"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Walter Mischel",
+          "reaction": "crosses out his own prediction that seeing the reward helps waiting"
+        }
+      ],
+      "wardrobe": "1970 preschooler jumper and sneakers.",
+      "lighting": "Bright room daylight.",
+      "recognition_hook": "White-knuckle staring at an uncovered treat collapsed waiting to barely one minute.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "2013 Reliability Twist: Broken vs Kept Art-Supply Promise",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2013, University of Rochester developmental lab",
+      "layout": {
+        "description": "Bright play table with either a worn two-crayon cup ('sorry, I broke my promise') or a huge shiny art set ('just like I promised!') before the marshmallow plate arrives.",
+        "positions": [
+          {
+            "who": "Researcher mannequin",
+            "where": "setting down the promised deluxe art caddy accurately",
+            "facing": "facing child"
+          },
+          {
+            "who": "Child mannequin",
+            "where": "nodding with calm trust before the 12-minute marshmallow wait",
+            "facing": "facing table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "deluxe art caddy vs tiny worn crayon cup",
+          "period_detail": "pre-test reliability manipulation",
+          "physical_behavior": "quadruples subsequent marshmallow waiting from 3 minutes to 12 minutes"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Researcher mannequin",
+          "verb_sequence": "delivers the exact promised art set -> sets down the marshmallow -> child waits calmly for 12 minutes"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Child mannequin",
+          "reaction": "trusts the adult's word that waiting will actually pay off"
+        }
+      ],
+      "wardrobe": "Modern casual lab sweater and child tee.",
+      "lighting": "High-key modern playroom light.",
+      "recognition_hook": "When adults keep their promises first, kids wait four times longer — proving delay is rational trust, not fixed DNA.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Opaque pantry cover & phone-in-another-room setup",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern home study",
+      "layout": {
+        "description": "Clean sunlit study desk where a smartphone goes inside a closed wooden drawer while deep work begins.",
+        "positions": [
+          {
+            "who": "Adult mannequin",
+            "where": "sliding smartphone into a closed side drawer and opening a clean notebook",
+            "facing": "facing desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "closed wooden desk drawer",
+          "period_detail": "acts just like Mischel's 11-minute opaque cover",
+          "physical_behavior": "removes the hot visual cue effortlessly"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Adult mannequin",
+          "verb_sequence": "places phone inside opaque drawer -> writes smoothly without willpower strain"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Adult mannequin",
+          "reaction": "works calmly with zero bell-ringing urge"
+        }
+      ],
+      "wardrobe": "Modern casual cardigan.",
+      "lighting": "Bright window light.",
+      "recognition_hook": "Out of sight beats iron grit ten to one.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

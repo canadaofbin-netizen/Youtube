@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Dr. Endel Tulving Canadian Medical Hall of Fame Laureate 2007",
+      "url": "https://www.youtube.com/watch?v=lm8RZOP1e7A",
+      "channel": "cdnmedhall",
+      "source_id": "SRC_M1",
+      "duration_sec": 302,
+      "timecodes": [
+        {
+          "t": "00:14-00:19",
+          "what": "At kf_004.jpg (15.0s) (4:3 camera frame), cdnmedhall's recording states \"dr endel tulving's body of work provided the foundation for the entire field of memory research over the past four decades and has therefore...\" — providing spoken context for Toronto Baycrest Table: Endel Tulving & Patient K.C. Playing Tactical Chess Perfectly Beside Blank 'Yesterday (?)' & 'Tomorrow (?)' Cards."
+        },
+        {
+          "t": "00:20-00:24",
+          "what": "Mid-segment 4:3 camera frame at kf_005.jpg (20.0s) as narration explains \"memory research over the past four decades and has therefore contributed significantly to an increased\", clarifying key empirical findings in Endel Tulving's 1972/2002 Episodic vs Semantic Dissociation & Longitudinal Study of Patient K.C. (Kent Cochrane)."
+        },
+        {
+          "t": "00:54-01:02",
+          "what": "Around kf_013.jpg (60.0s) (monochrome film frame), commentary states \"kinds of sports particularly track and field athletics i was bored with all other sciences we had of course physics\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x352, 14 frames sampled across 0.0s–65.0s)) from cdnmedhall's \"Dr. Endel Tulving Canadian Medical Hall of Fame Laureate 2007\" (302s total runtime).",
+          "Deduplicated English transcript (35 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "KC5",
+      "url": "https://www.youtube.com/watch?v=Z0P03rxVIZ4",
+      "channel": "Reza Habib",
+      "source_id": "SRC_M2",
+      "duration_sec": 328,
+      "timecodes": [
+        {
+          "t": "00:04-00:12",
+          "what": "Around kf_002.jpg (9.0s) (4:3 camera frame), speaker commentary notes \"all right I'd like to show you now a report report here and want you to tell me what it\", anchoring the research context of Toronto Baycrest Table: Endel Tulving & Patient K.C. Playing Tactical Chess Perfectly Beside Blank 'Yesterday (?)' & 'Tomorrow (?)' Cards."
+        },
+        {
+          "t": "01:07-01:16",
+          "what": "At kf_009.jpg (70.9s) (4:3 camera frame), audio continues with \"back what year is it October the 8th 1980 1980 yes 8 years\", detailing experimental methodology and behavioral observations for Endel Tulving's 1972/2002 Episodic vs Semantic Dissociation & Longitudinal Study of Patient K.C. (Kent Cochrane)."
+        },
+        {
+          "t": "01:40-01:50",
+          "what": "Later 4:3 camera frame at kf_013.jpg (106.9s) accompanied by \"back inspected feed screws I guess yeah why do you say you guess don't you remember no I remember but you do remember did you work in an office or in\", summarizing mechanism and boundary conditions in Endel Tulving's 1972/2002 Episodic vs Semantic Dissociation & Longitudinal Study of Patient K.C. (Kent Cochrane)."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (live-action speaker/interview recording intercut with 1 visual slide frames (320x240, sampled across 0.0s–115.9s)) from Reza Habib's \"KC5\" (328s total runtime).",
+          "Deduplicated English transcript (27 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–115.9s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Hippocampus-mri.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Hippocampus-mri.jpg",
+      "channel": "Wikimedia Commons (Michael Firbank)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Hippocampus-mri.jpg\" (510x510 px, Public domain): MRI scan with hippocampus indicated. Provides anatomical and structural brain reference relevant to the neural mechanism in Endel Tulving's 1972/2002 Episodic vs Semantic Dissociation & Longitudinal Study of Patient K.C. (Kent Cochrane)."
+        }
+      ],
+      "license_note": "Archival photo (Public domain) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (510x510 px, Public domain, Michael Firbank) — neuroanatomy reference: MRI scan with hippocampus indicated.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

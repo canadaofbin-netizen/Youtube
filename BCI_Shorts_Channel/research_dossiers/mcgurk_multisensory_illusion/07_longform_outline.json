@@ -1,0 +1,101 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "How an accidental 1976 video dub ('BA' sound + 'GA' lips = 'DA'!) proved 98% of human brains hear with their eyes.",
+    "core_experiment": "McGurk & MacDonald (1976 Nature, N=103) + Beauchamp et al. (2010) causal TMS disruption of posterior Superior Temporal Sulcus.",
+    "twist": "Why knowing the trick gives zero immunity, why lips lead sound by 120 ms, and why individual/cultural reliance rises in noise."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The 1976 Dubbing Room Accident at Surrey",
+      "beats": [
+        "Asking for 'ba' sound over 'ga' lips",
+        "Why both scientists blamed the technician until they shut their eyes",
+        "98% of adults hear phantom 'DA'"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "monitor + speaker + occlusion paddle"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Bayesian Best-Guess & The Reverse 'BAGBA' Flip",
+      "beats": [
+        "Why sealed lips rule out pure 'ga'",
+        "Preschoolers (59%) to adults (98%): learning to read faces"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "age-curve placard"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "2010 Causal Proof: Unplugging pSTS for 100 Milliseconds",
+      "beats": [
+        "120-ms visual lip sneak preview",
+        "Beauchamp's TMS pulse turns 'DA' right back into 'BA'"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "figure-eight TMS coil over pSTS"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Individual Differences & Video-Sync Lag",
+      "beats": [
+        "Why some brains fuse 95% and others 20%",
+        "Why out-of-sync movie dubbing scrambles comprehension"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "temporal binding window graph"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Your Built-In 15-dB Lip-Reading Superpower",
+      "beats": [
+        "Why putting on glasses helps you hear at a loud party",
+        "Well-lit face-to-face communication"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "sunlit cafe conversation"
+      ]
+    }
+  ]
+}

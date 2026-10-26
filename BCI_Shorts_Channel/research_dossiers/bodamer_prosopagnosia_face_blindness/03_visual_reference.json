@@ -1,0 +1,212 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1947 Winnenden Clinic: Patient S. Reading Fine Print Sharp Yet Failing to Know a Tabletop Mirror & Family Portraits Until a Voice Speaks",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1947, Winnenden Neurological Clinic, Germany",
+      "layout": {
+        "description": "Sunlit high-key 1947 European clinic consultation desk holding a fine-print eye-chart card (read 100% accurately), a brass-trimmed wooden tabletop mirror, three framed black-and-white family portrait photographs, and a doorway where a visiting family member mannequin steps in silently before speaking.",
+        "positions": [
+          {
+            "who": "Patient S. (mannequin in neat 1947 wool cardigan and collared shirt)",
+            "where": "reading tiny print cleanly, then gazing puzzled into the tabletop mirror and across three family portraits — before lighting up with instant recognition the second the visitor at the door speaks",
+            "facing": "seated at clinic desk"
+          },
+          {
+            "who": "Joachim Bodamer (mannequin in 1947 crisp white physician coat)",
+            "where": "presenting the fine-print card, object tray, and portrait photographs to isolate pure face-identity loss",
+            "facing": "across consultation desk"
+          },
+          {
+            "who": "Mother / Visitor mannequin (in 1947 coat and hat)",
+            "where": "standing silently at first (unrecognized), then speaking warmly and triggering instant joyful recognition",
+            "facing": "at sunlit doorway"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "fine-print reading card & everyday object tray vs family portraits",
+          "period_detail": "proves sharp 20/20 visual acuity and object naming alongside zero face ID",
+          "physical_behavior": "Bodamer's exact 1947 diagnostic contrast"
+        },
+        {
+          "name": "wooden-framed tabletop mirror",
+          "period_detail": "stages Patient S. (and later Oliver Sacks) looking into a mirror without recognizing his own face",
+          "physical_behavior": "visceral iconic beat of prosopagnosia"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient S.",
+          "verb_sequence": "reads fine print aloud effortlessly -> looks into the tabletop mirror and family portraits shaking head blankly -> Visitor speaks one warm greeting -> Patient S. turns and rises immediately in warm recognition"
+        },
+        {
+          "who": "Joachim Bodamer",
+          "verb_sequence": "notes intact visual acuity + intact voice identity vs selective *Prosop-Agnosie*"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Patient S.",
+          "reaction": "relieved warmth upon hearing the unmistakable voice"
+        },
+        {
+          "who": "Joachim Bodamer",
+          "reaction": "inscribes 'Prosopagnosia' in his 1947 case ledger"
+        }
+      ],
+      "wardrobe": "1947 European clinical white coat with tie; wool cardigan and pleated trousers; 1947 tailored coat.",
+      "lighting": "Bright high-key European hospital window daylight.",
+      "recognition_hook": "He can read the smallest line on an eye chart — yet stares straight at his own face in a mirror and his own mother in a doorway until she speaks.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1947 neurology clinic desk with a fine-print eye card, family portraits, and a tabletop mirror where a seated patient looks blankly at faces until recognizing a speaking visitor",
+        "must_show": [
+          "mirror",
+          "portraits|photos|card",
+          "desk|clinic"
+        ],
+        "source": "M1@00:04-00:16; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "1985 Covert Recognition: Palm Sweat Knows Mom When Words Don't",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1985, University of Iowa neurology lab (Tranel & Damasio)",
+      "layout": {
+        "description": "Bright clinical table with stranger vs family portrait cards and a dual-pen electrodermal chart.",
+        "positions": [
+          {
+            "who": "Prosopagnosic patient mannequin",
+            "where": "shaking head 'Stranger' on every photo while the electrodermal pen jumps high exclusively on family portraits",
+            "facing": "at table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "family-vs-stranger photo deck & palmar conductance graph",
+          "period_detail": "proves unconscious autonomic recognition survives without conscious face ID",
+          "physical_behavior": "Tranel & Damasio 1985 Science"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Clinician",
+          "verb_sequence": "slides stranger photo (flat line) -> slides spouse photo (patient says 'Don't know her' while needle jumps high)"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Clinician",
+          "reaction": "contrasts covert prosopagnosia against its mirror twin, Capgras delusion"
+        }
+      ],
+      "wardrobe": "1985 blazer and clinical coat.",
+      "lighting": "Clean high-key daylight.",
+      "recognition_hook": "Consciously she swears she has never seen her husband's photo in her life — while her sweat glands leap in instant recognition.",
+      "sources": [
+        "SRC6",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "1 in 50 People: The Uniform & Haircut Context Trap",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern office vs supermarket aisle",
+      "layout": {
+        "description": "Bright split comparison: recognizable colleague in signature red glasses at her usual desk vs unrecognizable in casual hoodie after a haircut.",
+        "positions": [
+          {
+            "who": "Developmental prosopagnosic mannequin",
+            "where": "recognizing colleague instantly by desk context & voice, vs hesitating when non-facial cues change",
+            "facing": "in bright hallway"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "signature glasses / voice cue card ('~2% Congenital Prevalence')",
+          "period_detail": "destigmatizes why 1 in 50 adults rely on context and voice",
+          "physical_behavior": "modern developmental research"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Colleague",
+          "verb_sequence": "says 'Hey Jordan, it's Maya!' -> instant warm smile and handshake"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Both",
+          "reaction": "easy social connection once name + voice anchor identity"
+        }
+      ],
+      "wardrobe": "Modern smart-casual attire.",
+      "lighting": "Bright daylight.",
+      "recognition_hook": "Roughly one in fifty people around you navigates faces by hairstyle, stride, and voice — one friendly name check bridges the gap instantly.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Oliver Sacks & The Friendly Mirror Apology",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "2010, Sunlit New York bookshop mirror",
+      "layout": {
+        "description": "Warm sunlit bookshop doorway with a tall bevel-edged wall mirror.",
+        "positions": [
+          {
+            "who": "Bearded neurologist-author mannequin",
+            "where": "stepping aside politely tipping his hat to 'another bearded gentleman' in the mirror, then chuckling warmly upon realizing it is his own reflection",
+            "facing": "beside tall mirror"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "full-length bevelled bookshop mirror & notebook",
+          "period_detail": "humanizes congenital prosopagnosia with humor and grace",
+          "physical_behavior": "Oliver Sacks's famous personal account"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Author mannequin",
+          "verb_sequence": "tips hat to mirror -> realizes reflection matches his own move -> laughs and jots a note"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Author mannequin",
+          "reaction": "warm self-aware chuckle"
+        }
+      ],
+      "wardrobe": "Tweed blazer and spectacles.",
+      "lighting": "Warm morning window light.",
+      "recognition_hook": "Even world-famous neurologist Oliver Sacks once apologized for bumping into a bearded stranger — who turned out to be himself in a mirror.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

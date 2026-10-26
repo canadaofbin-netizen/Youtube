@@ -1,0 +1,768 @@
+{
+  "schema_version": 1,
+  "compiled_at": "2026-10-26T04:09:56.446757+00:00",
+  "project_id": "shorts_v5",
+  "dossier": "milgram_obedience_shock",
+  "visual_mode": "BEHAVIORAL_PSYCH",
+  "aspect": "9:16",
+  "clip_count": 10,
+  "has_brain_clips": false,
+  "shared_brain_master_anchor": null,
+  "cross_brain_continuity_contract": {
+    "enabled": false,
+    "brain_clip_numbers": [],
+    "master_anchor_id": "ref_brain_master",
+    "min_pairwise_silhouette_iou": 0.45,
+    "min_pairwise_spatial_corr": 0.52,
+    "max_bg_luma_spread": 45.0,
+    "require_consistent_facing": true
+  },
+  "r53_particle_ban": {
+    "enabled": true,
+    "max_brain_neon_green_cyan_ratio": 0.0025,
+    "max_floating_particle_dots": 2
+  },
+  "audio_contract": {
+    "max_true_peak_dbfs": -1.0,
+    "limiter_ceiling_dbfs": -1.5
+  },
+  "source_hashes": {
+    "visual_plan_sha256": "414a7cbdcc69ea68ed68bb33747e30527f13db9a485648c2648747ac546d5829",
+    "script_sha256": "8532b266becf547486bb0c00bed22b47c4f47a60bc7e16adda52b4d066e05105"
+  },
+  "clips": [
+    {
+      "clip_number": 1,
+      "role": "setup",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": true,
+      "narration": "Yale, nineteen sixty-one. A volunteer faces thirty switches, from fifteen up to four hundred fifty volts. A man in a grey coat says, please continue.",
+      "required_entities": [
+        "switch|lever|toggle",
+        "generator",
+        "experimenter",
+        "iconic_scene: A man in a 1960s dress shirt sitting in front of the 30-lever 15V-to-450V XXX shock generator box while a",
+        "cast (teacher): matte-white porcelain mannequin wearing 1960s white button-down dress shirt with sleeves rolled to the elbows and loosen",
+        "cast (experimenter): matte-white porcelain mannequin wearing knee-length grey laboratory technician coat over a white collared shirt and narr",
+        "environment: In a bright 1961 Yale basement laboratory divided by a partition wall, a strapped learner ",
+        "action: The teacher presses a metallic toggle switch down as an experimenter mannequin in a grey coat taps a"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Yale, nineteen sixty-one.",
+          "A volunteer faces thirty switches, from fifteen up to four hundred fifty volts.",
+          "A man in a grey coat says, please continue."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Yale, nineteen sixty-one."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "A volunteer faces thirty switches, from fifteen up to four hundred fifty volts. A man in a grey coat says, please continue."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_01",
+        "must_match_ref_ids": [
+          "ref_clip_01",
+          "ref_clip_01_key"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 2,
+      "role": "symptom",
+      "scene_id": "S2",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Through the wall, the learner pounded, then went silent. Still, twenty-six of forty men pressed on to the last switch. For their brains, this was a total nightmare.",
+      "required_entities": [
+        "iconic_scene: Fists pounding through the laboratory wall followed by eerie silence while the volunteer still flips swit",
+        "cast (teacher): matte-white porcelain mannequin wearing 1960s white button-down dress shirt with sleeves rolled to the elbows and loosen",
+        "cast (learner): matte-white porcelain mannequin wearing 1960s white dress shirt and vest with leather straps across the forearms",
+        "environment: Inside the bisected 1961 Yale basement laboratory, the strapped learner mannequin sits beh",
+        "action: The learner pounds his fist against the dividing wall twice and slumps still, while the teacher mann",
+        "prop_progression: The partition wall vibrates, the red pilot light flashes, and the voltmeter needle swings right"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Through the wall, the learner pounded, then went silent.",
+          "Still, twenty-six of forty men pressed on to the last switch.",
+          "For their brains, this was a total nightmare."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Through the wall, the learner pounded, then went silent."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "Still, twenty-six of forty men pressed on to the last switch. For their brains, this was a total nightmare."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_02",
+        "must_match_ref_ids": [
+          "ref_clip_02"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 3,
+      "role": "failure",
+      "scene_id": "S9",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Before the test, fourteen Yale students guessed how many people would go all the way. Their average guess was about one in a hundred.",
+      "required_entities": [
+        "cast (teacher): matte-white porcelain mannequin wearing 1960s white button-down dress shirt with sleeves rolled to the elbows and loosen",
+        "environment: In a bright 1961 Yale classroom, a chalkboard diagram shows the thirty-lever voltage gener",
+        "action: A student mannequin shakes his head, scribbles a mark at the one percent line on a survey sheet, and",
+        "prop_progression: The pen nib clicks against the desk and the stack of survey papers slides to the edge"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Before the test, fourteen Yale students guessed how many people would go all the way.",
+          "Their average guess was about one in a hundred."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Before the test, fourteen Yale students guessed how many people would go all the way."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "Their average guess was about one in a hundred."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_03",
+        "must_match_ref_ids": [
+          "ref_clip_03"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 4,
+      "role": "crisis",
+      "scene_id": "S5",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "The secret was the setup. The draw was rigged, so he was always the teacher. The learner was in on it. Only the teacher felt a real shock.",
+      "required_entities": [
+        "cast (teacher): matte-white porcelain mannequin wearing 1960s white button-down dress shirt with sleeves rolled to the elbows and loosen",
+        "cast (experimenter): matte-white porcelain mannequin wearing knee-length grey laboratory technician coat over a white collared shirt and narr",
+        "environment: At the 1961 Yale laboratory desk, two unfolded paper slips reading Teacher lie beside the ",
+        "action: The experimenter mannequin in a grey lab coat straps a metal contact to the teacher mannequin's wris",
+        "prop_progression: The metallic toggle switch snaps down, the red pilot light flashes, and the wire twitches"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "The secret was the setup.",
+          "The draw was rigged, so he was always the teacher.",
+          "The learner was in on it.",
+          "Only the teacher felt a real shock."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "The secret was the setup."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "The draw was rigged, so he was always the teacher. The learner was in on it. Only the teacher felt a real shock."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_04",
+        "must_match_ref_ids": [
+          "ref_clip_04"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 5,
+      "role": "pivot",
+      "scene_id": "S4",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Instead of blind obedience, look closer. Told the experiment requires it, men went on, but told you have no other choice, they stopped.",
+      "required_entities": [
+        "iconic_scene: When given a bare order or when two peer teachers refuse to flip the switches, thirty-six of forty men pu",
+        "cast (teacher): matte-white porcelain mannequin wearing 1960s white button-down dress shirt with sleeves rolled to the elbows and loosen",
+        "cast (experimenter): matte-white porcelain mannequin wearing knee-length grey laboratory technician coat over a white collared shirt and narr",
+        "environment: In the bright 1961 Yale basement laboratory, the teacher mannequin in a rolled-up white dr",
+        "action: The experimenter mannequin thrusts his metal clipboard forward, and the teacher slams his palm flat ",
+        "prop_progression: The wooden chair skids across the floor, the released toggle switch springs up, and the voltmeter ne"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Instead of blind obedience, look closer.",
+          "Told the experiment requires it, men went on, but told you have no other choice, they stopped."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Instead of blind obedience, look closer."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "Told the experiment requires it, men went on, but told you have no other choice, they stopped."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_05",
+        "must_match_ref_ids": [
+          "ref_clip_05"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 6,
+      "role": "step1",
+      "scene_id": "S6",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "First, he put the learner right in the same room. Seeing the man struggle up close, only forty percent went to the end.",
+      "required_entities": [
+        "cast (teacher): matte-white porcelain mannequin wearing 1960s white button-down dress shirt with sleeves rolled to the elbows and loosen",
+        "cast (learner): matte-white porcelain mannequin wearing 1960s white dress shirt and vest with leather straps across the forearms",
+        "environment: In the 1961 Yale basement laboratory with the partition wall removed, the strapped learner",
+        "action: The learner jerks against the leather wrist straps right in front of the desk, and the teacher manne",
+        "prop_progression: The leather straps rattle taut, the voltmeter needle swings to zero, and the red light flickers off"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "First, he put the learner right in the same room.",
+          "Seeing the man struggle up close, only forty percent went to the end."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "First, he put the learner right in the same room."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "Seeing the man struggle up close, only forty percent went to the end."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_06",
+        "must_match_ref_ids": [
+          "ref_clip_06"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 7,
+      "role": "step2",
+      "scene_id": "S3",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Next, the teacher had to press the learner's hand onto a shock plate himself. Now only thirty percent went all the way.",
+      "required_entities": [
+        "iconic_scene: Having to physically hold the learner's hand down on the metal contact plate makes seven out of ten peopl",
+        "cast (teacher): matte-white porcelain mannequin wearing 1960s white button-down dress shirt with sleeves rolled to the elbows and loosen",
+        "cast (learner): matte-white porcelain mannequin wearing 1960s white dress shirt and vest with leather straps across the forearms",
+        "environment: In the 1961 Yale basement laboratory, the learner mannequin sits right beside the thirty-l",
+        "action: The learner pulls his hand off the steel plate, and the teacher mannequin grabs the learner's forear",
+        "prop_progression: The steel contact plate slides across the tabletop, a small spark flashes, and the toggle switch cli"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Next, the teacher had to press the learner's hand onto a shock plate himself.",
+          "Now only thirty percent went all the way."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Next, the teacher had to press the learner's hand onto a shock plate himself."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "Now only thirty percent went all the way."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_07",
+        "must_match_ref_ids": [
+          "ref_clip_07"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 8,
+      "role": "step3",
+      "scene_id": "S4",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Finally, when two other teachers in the room refused to flip the switches, thirty-six out of forty men stood up and stopped too.",
+      "required_entities": [
+        "iconic_scene: When given a bare order or when two peer teachers refuse to flip the switches, thirty-six of forty men pu",
+        "cast (teacher): matte-white porcelain mannequin wearing 1960s white button-down dress shirt with sleeves rolled to the elbows and loosen",
+        "cast (experimenter): matte-white porcelain mannequin wearing knee-length grey laboratory technician coat over a white collared shirt and narr",
+        "environment: In the 1961 Yale basement laboratory, two peer teacher mannequins in white dress shirts si",
+        "action: Both peer teachers slam their notebooks shut, push their wooden chairs back, and stand up, and the v",
+        "prop_progression: Three wooden chairs slide backward across the floor while the red indicator light snaps dark"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Finally, when two other teachers in the room refused to flip the switches, thirty-six out of forty men stood up and stopped too."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              1.0
+            ],
+            "narration_clause": "Finally, when two other teachers in the room refused to flip the switches, thirty-six out of forty men stood up and stopped too."
+          }
+        ],
+        "requires_scale_pullback": true,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_08",
+        "must_match_ref_ids": [
+          "ref_clip_08"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "pullback_windowed",
+        "min_continuity_score": 0.45,
+        "max_late_morph_drop": 0.42
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.08,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 9,
+      "role": "breakthrough",
+      "scene_id": "S8",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "In two thousand nine, a new study stopped at one hundred fifty volts. Seventy percent tried to keep going. The researchers were left completely stunned.",
+      "required_entities": [
+        "cast (teacher): matte-white porcelain mannequin wearing 1960s white button-down dress shirt with sleeves rolled to the elbows and loosen",
+        "environment: In a bright modern psychology room, a teacher mannequin in a button-down shirt sits before",
+        "action: The teacher presses the tenth toggle switch down, flinches as the wall vibrates, and reaches for the",
+        "prop_progression: The red indicator light flashes, the voltmeter needle jumps right, and the clipboard drops onto the "
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "In two thousand nine, a new study stopped at one hundred fifty volts.",
+          "Seventy percent tried to keep going.",
+          "The researchers were left completely stunned."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "In two thousand nine, a new study stopped at one hundred fifty volts."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "Seventy percent tried to keep going. The researchers were left completely stunned."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_09",
+        "must_match_ref_ids": [
+          "ref_clip_09"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 10,
+      "role": "conclusion",
+      "scene_id": "S10",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Which is why a calm voice saying it is for a good cause is so powerful. Across all his versions, most people stopped, and you can too.",
+      "required_entities": [
+        "cast (teacher): matte-white porcelain mannequin wearing 1960s white button-down dress shirt with sleeves rolled to the elbows and loosen",
+        "cast (experimenter): matte-white porcelain mannequin wearing knee-length grey laboratory technician coat over a white collared shirt and narr",
+        "environment: In the bright 1961 Yale basement laboratory, the thirty-lever voltage generator box sits s",
+        "action: The volunteer teacher mannequin in a rolled-up white dress shirt pushes his chair back, stands up fr",
+        "prop_progression: The red pilot light clicks off, the voltmeter needle drops to zero, and the door swings open into br"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Which is why a calm voice saying it is for a good cause is so powerful.",
+          "Across all his versions, most people stopped, and you can too."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Which is why a calm voice saying it is for a good cause is so powerful."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "Across all his versions, most people stopped, and you can too."
+          }
+        ],
+        "requires_scale_pullback": true,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_10",
+        "must_match_ref_ids": [
+          "ref_clip_10"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "pullback_windowed",
+        "min_continuity_score": 0.45,
+        "max_late_morph_drop": 0.42
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.08,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    }
+  ]
+}

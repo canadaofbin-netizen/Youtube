@@ -1,0 +1,102 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "67 words written on page 62 before anyone had seen a synapse: how Donald Hebb (1949) and Bliss & Lømo (1973) cracked how neurons wire memories.",
+    "core_experiment": "Hebb (1949) page-62 causal synaptic rule + Bliss & Lømo (1973 J. Physiol.) hippocampal LTP + NMDA receptor coincidence lock.",
+    "twist": "Why Carla Shatz coined the 6-word rhyme, the 20-ms STDP 'latecomer weakens' twist, Hebb's kitchen pet rats, and Hopfield's 2024 Nobel AI link."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Montreal 1949: Guessing How Synapses Learn Before Seeing One",
+      "beats": [
+        "Page 62 of The Organization of Behavior",
+        "Cell assemblies: why one smell ignites a whole childhood summer",
+        "Hebb's enriched home-kitchen pet experiment"
+      ],
+      "scene_ids": [
+        "S1",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "1949 hardcover & A to B synapse model"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "1973 Proof: Bliss, Lømo & The 200% LTP Jump.",
+      "beats": [
+        "Perforant-path bursts into the hippocampus hold elevated for weeks",
+        "The NMDA receptor's magnesium 'champagne cork' coincidence lock"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "1973 LTP 100% to 220% oscilloscope graph"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "The 20-Millisecond Plot Twist: Causality & Reverse mechanical relay dial (STDP)",
+      "beats": [
+        "Why pure upward wiring would saturate the brain",
+        "+15 ms Before = Wire Stronger (LTP) | -15 ms Late = Wire Weaker (LTD).",
+        "Why Hebb's original wording beat the famous rhyme"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "asymmetric STDP timing chart"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "From McGill Cortex to 2024 Nobel AI Networks",
+      "beats": [
+        "Rosenblatt's Perceptron & Hopfield's associative networks",
+        "Biological efficiency vs backpropagation"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "cell-assembly web"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Habit Stacking With Real Hebbian Timing",
+      "beats": [
+        "Cue A to 2 seconds to Action B",
+        "Un-pairing bad cues ('out of sync, lose your link')"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "coffee mug to practice pad stack"
+      ]
+    }
+  ]
+}

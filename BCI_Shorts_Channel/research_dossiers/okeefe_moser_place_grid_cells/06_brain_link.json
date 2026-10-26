@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "temporal lobe",
+      "plain": "medial entorhinal 60° hexagonal Grid ruler",
+      "function": "tiling every step across the open 2-meter floor in periodic equilateral-triangle / honeycomb coordinates",
+      "scene_id": "S1",
+      "narration_bridge": "Captures May-Britt & Edvard Moser's 2005 Trondheim Grid-Cell discovery."
+    },
+    {
+      "role": "pivot",
+      "region": "hippocampus",
+      "plain": "single-spot CA1 Place Cell pin ('You Are Here!')",
+      "function": "combining entorhinal grid metrics with room landmarks to fire sharply ONLY inside one specific corner of the arena",
+      "scene_id": "S1",
+      "narration_bridge": "Captures John O'Keefe's 1971 UCL Place-Cell discovery."
+    },
+    {
+      "role": "step1",
+      "region": "prefrontal cortex",
+      "plain": "goal route planning & Memory Palace indexing",
+      "function": "reading hippocampal place-and-grid trajectories to plan future detours and organize abstract human concepts",
+      "scene_id": "S3",
+      "narration_bridge": "Links spatial GPS to human planning and episodic memory."
+    }
+  ]
+}

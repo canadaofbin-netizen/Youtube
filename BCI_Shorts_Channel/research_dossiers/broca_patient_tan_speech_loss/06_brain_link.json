@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "Wernicke's area",
+      "plain": "intact auditory comprehension",
+      "function": "decoding Paul Broca's spoken bedside questions cleanly so Leborgne knows his exact 21-year stay and pocket-watch time",
+      "scene_id": "S1",
+      "narration_bridge": "Shows posterior comprehension cortex remained functional."
+    },
+    {
+      "role": "pivot",
+      "region": "Broca's area",
+      "plain": "left inferior frontal speech-assembly lesion",
+      "function": "blocking spoken syllable sequencing on the posterior third of the left third frontal convolution so output collapses to 'Tan, tan'",
+      "scene_id": "S1",
+      "narration_bridge": "Captures Broca's historic April 1861 anatomical localization."
+    },
+    {
+      "role": "step1",
+      "region": "white matter",
+      "plain": "deep arcuate / SLF tract disconnection (2007 MRI)",
+      "function": "extending beneath surface cortex through deep perisylvian white matter as revealed when Dronkers scanned Leborgne's preserved 1861 brain",
+      "scene_id": "S2",
+      "narration_bridge": "Integrates Dronkers et al. (2007 Brain) network correction."
+    }
+  ]
+}

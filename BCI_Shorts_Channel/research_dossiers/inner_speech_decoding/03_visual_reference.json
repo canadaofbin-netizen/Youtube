@@ -1,0 +1,248 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Pat Bennett silently mouths a sentence as 62-WPM text streams across the Stanford monitor",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2023, Stanford Neural Prosthetics Translational Laboratory clinical session, Palo Alto",
+      "layout": {
+        "description": "Bright clinical neuroengineering room where a 68-year-old participant sits upright in a powered wheelchair facing a large eye-level computer monitor; two compact percutaneous pedestals above her left ear connect via slim ribbon cables to a rack amplifier while decoded English words stream rapidly across the display at 62 words per minute.",
+        "positions": [
+          {
+            "who": "Participant Pat (68-year-old mannequin in teal cardigan seated in powered wheelchair)",
+            "where": "center-left facing the eye-level display screen, silently shaping words with her lips",
+            "facing": "facing the computer monitor"
+          },
+          {
+            "who": "Stanford neural engineer (mannequin in collared shirt and lab badge)",
+            "where": "seated camera-right beside the neural signal workstation",
+            "facing": "watching the real-time spike raster and text output"
+          },
+          {
+            "who": "Clinical researcher (mannequin in white coat)",
+            "where": "standing behind the monitor",
+            "facing": "facing Pat with an encouraging nod"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "128-channel percutaneous pedestal connectors and ribbon cable",
+          "period_detail": "two small brushed-titanium cranial ports wired to the BrainGate preamplifier",
+          "physical_behavior": "transmit live neural spike trains into the bedside decoder rack"
+        },
+        {
+          "name": "widescreen speech-output monitor",
+          "period_detail": "27-inch clinical display showing cue sentence above and live decoded sentence streaming below",
+          "physical_behavior": "words appear rapidly one after another at 62 words per minute"
+        },
+        {
+          "name": "two 3.2-mm 64-electrode silicon arrays (bench display model)",
+          "period_detail": "tiny square silicon grids with 64 microscopic platinum-tipped pins beside a centimeter ruler",
+          "physical_behavior": "demonstrate the 3.2-millimeter scale of the cortical sensors"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Participant Pat",
+          "verb_sequence": "fixes her gaze on the prompt screen -> gently shapes silent syllables with her jaw and lips -> pauses as the full sentence completes on the monitor"
+        },
+        {
+          "who": "Stanford neural engineer",
+          "verb_sequence": "monitors the 128-channel raster plot -> leans forward as decoded text hits 62 words per minute"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Participant Pat",
+          "reaction": "lifts her shoulders and tilts her head warmly as her exact words appear on screen"
+        },
+        {
+          "who": "Stanford neural engineer",
+          "reaction": "claps both hands together quietly beside the workstation"
+        }
+      ],
+      "wardrobe": "Participant Pat: soft teal knit cardigan over white blouse and dark slacks in a clinical wheelchair. Engineers: crisp lab coat and buttoned Oxford shirt.",
+      "lighting": "Clean high-key California clinical daylight illuminating the wheelchair, monitor, and signal rack.",
+      "recognition_hook": "A paralyzed woman silently mouths words in a wheelchair while full sentences stream onto a screen in real time at 62 words per minute.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "the paralyzed participant in a wheelchair silently mouths words as sentences stream onto the monitor from cortical electrodes",
+        "must_show": [
+          "wheelchair",
+          "monitor|screen",
+          "electrodes|cable|pedestal"
+        ],
+        "source": "M1@00:06-00:13; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Slow 15-WPM letter-by-letter eye-tracker bottleneck",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2010s-2022 assistive communication baseline",
+      "layout": {
+        "description": "Home study with an infrared eye-tracking alphabet grid mounted before a wheelchair user staring slowly at one letter tile after another.",
+        "positions": [
+          {
+            "who": "Participant Pat",
+            "where": "seated in wheelchair staring intently at individual alphabet squares",
+            "facing": "facing the alphabet screen"
+          },
+          {
+            "who": "Caregiver mannequin",
+            "where": "waiting patiently beside the chair",
+            "facing": "watching the partial word"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "alphabet dwell-selection screen",
+          "period_detail": "on-screen QWERTY grid requiring a one-second stare per letter",
+          "physical_behavior": "fills a single word slowly letter by letter at 15 words per minute"
+        },
+        {
+          "name": "desk timer",
+          "period_detail": "digital desk timer advancing past 20 seconds for one short phrase",
+          "physical_behavior": "ticks upward while the sentence remains half-finished"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Participant Pat",
+          "verb_sequence": "holds gaze on one letter tile -> waits for the dwell ring -> shifts gaze to the next letter"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Participant Pat",
+          "reaction": "slumps shoulders slightly at the slow 15-WPM bottleneck"
+        }
+      ],
+      "wardrobe": "Teal cardigan on Pat; casual sweater on caregiver.",
+      "lighting": "Bright daytime room lighting.",
+      "recognition_hook": "Spelling letter by letter at 15 words per minute turns a five-second remark into an exhausting wait.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "39-phoneme decoding pipeline vs silent area 44",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2023 Stanford decoding workstation",
+      "layout": {
+        "description": "Neuroengineering bench displaying dual cortical placement diagrams (active area 6v vs quiet area 44) and a 39-phoneme probability bar chart.",
+        "positions": [
+          {
+            "who": "Lead neural engineer",
+            "where": "standing at the dual-screen workstation",
+            "facing": "pointing from the 6v spike raster to the phoneme sequence"
+          },
+          {
+            "who": "Neurosurgeon mannequin",
+            "where": "standing beside the cortical map model",
+            "facing": "facing the workstation"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "3D matte-white cortical placement model",
+          "period_detail": "anatomical brain model marking two arrays on ventral premotor 6v and two on area 44",
+          "physical_behavior": "6v markers show dense spike traces while area 44 stays flat"
+        },
+        {
+          "name": "phoneme probability display",
+          "period_detail": "live chart converting spike bins into 39 phonetic sounds and stitched words",
+          "physical_behavior": "bars shift cleanly with each syllable"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Lead neural engineer",
+          "verb_sequence": "traces the spike train from ventral premotor 6v into the phoneme probabilities and language model output"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Neurosurgeon mannequin",
+          "reaction": "nods at the stark contrast between vibrant area 6v and quiet Broca's area 44"
+        }
+      ],
+      "wardrobe": "White lab coat and surgical scrubs jacket.",
+      "lighting": "Bright laboratory daylight.",
+      "recognition_hook": "Two pea-sized arrays on ventral premotor cortex carry all 39 English phonemes while Broca's area 44 stays nearly silent.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Conversational speed restored across a 125,000-word vocabulary",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "2023 Stanford & UCSF clinical milestone",
+      "layout": {
+        "description": "Bright clinical lounge where Pat converses fluidly with two researchers via the live 62-WPM screen.",
+        "positions": [
+          {
+            "who": "Participant Pat",
+            "where": "seated in wheelchair facing two researchers across a small table",
+            "facing": "facing her conversation partners"
+          },
+          {
+            "who": "Two researchers",
+            "where": "seated across the table reading and responding immediately",
+            "facing": "facing Pat"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "tabletop conversation display",
+          "period_detail": "angled screen showing natural multi-word replies in real time",
+          "physical_behavior": "updates smoothly as Pat speaks silently"
+        },
+        {
+          "name": "printed 125,000-word dictionary volume",
+          "period_detail": "thick reference dictionary beside the monitor illustrating unconstrained vocabulary",
+          "physical_behavior": "rests on the table"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Participant Pat",
+          "verb_sequence": "attempts a spontaneous joke -> sentence flashes across the screen -> researchers respond immediately"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researchers",
+          "reaction": "lean back in delighted laughter at the natural back-and-forth rhythm"
+        }
+      ],
+      "wardrobe": "Teal cardigan on Pat; collared shirts on researchers.",
+      "lighting": "Warm high-key daylight.",
+      "recognition_hook": "Crossing 60 words per minute restores real-time human give-and-take.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

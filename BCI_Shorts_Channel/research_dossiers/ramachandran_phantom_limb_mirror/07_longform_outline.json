@@ -1,0 +1,101 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "A $10 mirror inside a cardboard box tricks visual cortex into seeing a missing hand stretch open — unclenching a 10-year phantom fist.",
+    "core_experiment": "Ramachandran's 1992-1998 cotton-swab cheek-to-thumb S1 remapping + 'learned paralysis' Mirror Box trials.",
+    "twist": "Modern 7T fMRI latent-hand maps (Makin) and why structured multi-week mirror rehab powers stroke clinics today."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Agony of a Fist That Isn't There",
+      "beats": [
+        "90% phantom limbs & frozen clenched spasms",
+        "Why cutting stump nerves failed",
+        "Cotton swab on the cheek lights up the phantom thumb."
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "cotton swab cheek-to-hand map"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Learned Paralysis and the $10 Cardboard Box",
+      "beats": [
+        "Motor cortex shouts 'Open!', feedback says 'Jammed'",
+        "Vertical mirror superimposing the healthy hand",
+        "6 of 10 phantoms animate on sight"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "Mirror Box symmetrical hand stretch"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Inside the Plastic Adult Brain",
+      "beats": [
+        "S1 face-hand border + parietal multisensory integration",
+        "Makin's 7T twist: latent finger maps still survive underneath."
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "clean S1 & parietal body-map bridge"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "From Bedside Cleverness to Stroke Clinics",
+      "beats": [
+        "Clinical trial reality: multi-week daily reps beat one-time hype",
+        "Stroke hemiparesis & CRPS adoption"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "daily stroke rehab mirror table"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "How Sight Calms Protective Guarding",
+      "beats": [
+        "Multisensory confirmation in recovery",
+        "The power of $10 first-principles thinking"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "symmetrical studio mirror movement"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Kahneman and Tversky flipping the +3,000 Gain Card vs -3,000 Loss Card beside the asymmetric Prospect Theory S-curve",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1979, Jerusalem / Stanford behavioral decision seminar room",
+      "layout": {
+        "description": "Sunlit 1979 university seminar room with a warm wooden table holding two large printed choice placards ('Problem 3: +3,000 Sure vs 80% +4,000' and 'Problem 4: -3,000 Sure vs 80% -4,000') in front of a chalkboard drawn with the famous asymmetric S-shaped Value Function.",
+        "positions": [
+          {
+            "who": "Amos Tversky (mannequin in 1970s open-collar shirt and rolled sleeves)",
+            "where": "standing at the chalkboard tracing the steep downward Loss curve dropping twice as fast below the center origin as the gentle Gain curve rises above",
+            "facing": "facing the seminar table"
+          },
+          {
+            "who": "Daniel Kahneman (mannequin in 1970s blazer and glasses)",
+            "where": "turning over Problem Card 4 on the wooden table to reveal 92% switching from safe choice to risky gamble",
+            "facing": "facing the students"
+          },
+          {
+            "who": "Seminar Participant mannequin",
+            "where": "pointing in astonishment from their cautious '+3,000' check mark to their opposite '-4,000 gamble' check mark",
+            "facing": "at the table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "paired Gain (+3,000) vs Loss (-3,000) placard cards",
+          "period_detail": "two crisp white tabletop placards showing identical probabilities with flipped signs",
+          "physical_behavior": "expose the 80%-safe to 92%-risky reversal on one table"
+        },
+        {
+          "name": "asymmetric S-curve chalkboard graph",
+          "period_detail": "crisp white chalk axes ('Gains / Losses' horizontal, 'Psychological Value' vertical) where the lower-left loss cliff plunges 2x steeper than the upper-right gain hill",
+          "physical_behavior": "visualizes Prospect Theory's core law"
+        },
+        {
+          "name": "ceramic university coffee mug",
+          "period_detail": "plain ceramic mug resting at the reference-point origin",
+          "physical_behavior": "anchors everyday ownership / endowment framing"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Daniel Kahneman",
+          "verb_sequence": "slides down the '+3,000 Sure' placard where 80% raise hands -> flips over the '-3,000 Sure' placard and watches 92% switch hands to the 80% -4,000 gamble"
+        },
+        {
+          "who": "Amos Tversky",
+          "verb_sequence": "taps the chalk Reference Point at (0,0) and draws the 2x-steeper drop into the loss quadrant"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Seminar Participant mannequin",
+          "reaction": "laughs catching their own brain reversing completely over a single minus sign"
+        },
+        {
+          "who": "Daniel Kahneman & Amos Tversky",
+          "reaction": "exchange a warm collaborative nod"
+        }
+      ],
+      "wardrobe": "1979 academic attire: open-collar Oxford shirt, light tweed blazer, corduroy trousers.",
+      "lighting": "Warm high-key Mediterranean / California seminar daylight.",
+      "recognition_hook": "Change one plus sign into a minus sign on the exact same math problem, and 80 percent cautious savers turn into 92 percent desperate gamblers.",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "two 1979 psychologists at a seminar table flipping +3,000 vs -3,000 choice placards in front of a chalkboard drawn with an asymmetric S-shaped Prospect Theory curve",
+        "must_show": [
+          "chalkboard|curve|graph",
+          "cards|placards",
+          "table"
+        ],
+        "source": "M1@00:09-00:16; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Thaler's university coffee-mug ownership split",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1990, Cornell classroom",
+      "layout": {
+        "description": "Sunlit lecture row where every second desk has a new ceramic university mug placed on it.",
+        "positions": [
+          {
+            "who": "Mug-Owner Student",
+            "where": "cradling the ceramic mug protectively writing '7.00' on a valuation slip",
+            "facing": "at desk"
+          },
+          {
+            "who": "Non-Owner Neighbour",
+            "where": "glancing casually at the identical mug writing '3.50' on an offer slip",
+            "facing": "next desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "identical ceramic university mugs & valuation slips",
+          "period_detail": "placed randomly on alternating desks",
+          "physical_behavior": "five minutes of ownership doubles valuation"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Professor mannequin",
+          "verb_sequence": "hands mugs to random half of row -> collects written value slips showing 2-to-1 split"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Students",
+          "reaction": "compare slips in disbelief"
+        }
+      ],
+      "wardrobe": "Academic casual sweaters and shirts.",
+      "lighting": "Bright classroom daylight.",
+      "recognition_hook": "Five minutes of owning a simple coffee mug doubles the price your brain demands to let it go.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "90% Survival vs 10% Mortality medical framing card",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1981, hospital conference room",
+      "layout": {
+        "description": "Clean conference table where two clinicians read identical surgical statistics printed in '90% One-Month Survival' vs '10% One-Month Mortality' booklets.",
+        "positions": [
+          {
+            "who": "Two Clinician mannequins in white coats",
+            "where": "comparing the two booklets side-by-side",
+            "facing": "at conference table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "paired '90% Survival' vs '10% Mortality' cards",
+          "period_detail": "mathematically identical outcomes",
+          "physical_behavior": "shift surgical approval dramatically even among doctors"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Clinician mannequin",
+          "verb_sequence": "places both booklets side-by-side realizing 90% survival and 10% mortality describe the exact same surgery"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Clinician mannequin",
+          "reaction": "adopts dual-frame patient counseling"
+        }
+      ],
+      "wardrobe": "Crisp white medical coats.",
+      "lighting": "High-key hospital conference light.",
+      "recognition_hook": "Even trained doctors recommend surgery far more often when the exact same odds say '90% survive' instead of '10% die.'",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Resetting a sunk-cost project to 'Fresh Zero Today'",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern desk",
+      "layout": {
+        "description": "Bright modern desk where a founder covers up the 'Past Hours Spent' column with a blank white card reading 'Starting From Zero Today: Would We Build This?'",
+        "positions": [
+          {
+            "who": "Founder mannequin",
+            "where": "placing the clean 'Zero Today' card over the sunk-loss column and calmly closing the stalled project binder",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "clean 'Zero Today' reference card",
+          "period_detail": "resets the mental origin",
+          "physical_behavior": "frees the team from chasing a -3,000 loss gamble"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Founder mannequin",
+          "verb_sequence": "covers past sunk hours -> evaluates future upside cleanly -> pivots to the stronger project"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Founder mannequin",
+          "reaction": "exhales with clarity"
+        }
+      ],
+      "wardrobe": "Modern smart-casual shirt.",
+      "lighting": "Bright morning daylight.",
+      "recognition_hook": "Resetting your mental reference point to 'starting fresh today' breaks sunk-cost gambling.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

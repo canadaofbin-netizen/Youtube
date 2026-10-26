@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "lecture",
+      "title": "Why Do Unfinished Tasks Stick in Our Minds? Exploring the Zeigarnik Effect",
+      "url": "https://www.youtube.com/watch?v=R8RFH9cUDHg",
+      "channel": "Dr. Jo Lukins",
+      "source_id": "SRC_M1",
+      "duration_sec": 390,
+      "timecodes": [
+        {
+          "t": "00:54-01:06",
+          "what": "At kf_001.jpg (60.8s) (widescreen camera frame), Dr. Jo Lukins's recording states \"task and then it's like the whole thing evaporates out of your head so it's that notion that while Tas from remain incomplete and unfinished our...\" — providing spoken context for Bluma Zeigarnik interrupting absorbed 1927 Berlin participants mid-puzzle while sweeping unfinished clay & bead tasks into a drawer."
+        },
+        {
+          "t": "01:51-01:56",
+          "what": "Mid-segment widescreen camera frame at kf_009.jpg (111.4s) as narration explains \"Bloomer so he was actually in a restaurant and he noticed going to restaurants many times that waiters tended to have a better memory recall for...\", clarifying key empirical findings in Bluma Zeigarnik & Kurt Lewin's 1927 University of Berlin Interrupted-Task Memory Experiments."
+        },
+        {
+          "t": "01:57-02:08",
+          "what": "Around kf_011.jpg (124.0s) (dark-backdrop stage / studio camera frame), commentary states \"tended to have a better memory recall for an unfinished order than when the order was actually finished so again and doesn't it make sense in a...\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (widescreen live-action camera recording (640x360, 14 frames sampled across 60.8s–143.0s)) from Dr. Jo Lukins's \"Why Do Unfinished Tasks Stick in Our Minds? Exploring the Zeigarnik Effect\" (390s total runtime).",
+          "Deduplicated English transcript (36 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (60.8s–143.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Why Is That Song Stuck in My Head?!",
+      "url": "https://www.youtube.com/watch?v=pq53AjCCfuE",
+      "channel": "SciShow",
+      "source_id": "SRC_M2",
+      "duration_sec": 507,
+      "timecodes": [
+        {
+          "t": "00:10-00:19",
+          "what": "Around kf_004.jpg (15.0s) (widescreen camera frame), speaker commentary notes \"You’re scrolling down your tumblr dash when you see an impossible piece of news about your favorite TV show. It sounds too good to be true, but...\", anchoring the research context of Bluma Zeigarnik interrupting absorbed 1927 Berlin participants mid-puzzle while sweeping unfinished clay & bead tasks into a drawer."
+        },
+        {
+          "t": "00:21-00:29",
+          "what": "At kf_006.jpg (25.0s) (widescreen camera frame), audio continues with \"you up. You’ve been rick rolled. And the worst part is, you know that song is going to stay with you the rest of the day, a short snippet...\", detailing experimental methodology and behavioral observations for Bluma Zeigarnik & Kurt Lewin's 1927 University of Berlin Interrupted-Task Memory Experiments."
+        },
+        {
+          "t": "00:43-00:53",
+          "what": "Later widescreen camera frame at kf_011.jpg (50.0s) accompanied by \"Turns out that which songs get stuck mostly depends on the person. But psychologists have some ideas about why your brain puts its playlist on...\", summarizing mechanism and boundary conditions in Bluma Zeigarnik & Kurt Lewin's 1927 University of Berlin Interrupted-Task Memory Experiments."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (480x270, 14 frames sampled across 0.0s–65.0s)) from SciShow's \"Why Is That Song Stuck in My Head?!\" (507s total runtime).",
+          "Deduplicated English transcript (31 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Bluma Zeigarnik, 1970-1980s.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Bluma_Zeigarnik,_1970-1980s.jpg",
+      "channel": "Wikimedia Commons (Andrey Zeigarnik)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Bluma Zeigarnik, 1970-1980s.jpg\" (960x1403 px, Public domain): Bluma Zeigarnik en.wikipedia.org/wiki/Bluma_Zeigarnik. Documents authentic researcher likeness, period attire, and historical context for Bluma Zeigarnik & Kurt Lewin's 1927 University of Berlin Interrupted-Task Memory Experiments."
+        }
+      ],
+      "license_note": "Archival photo (Public domain) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x1403 px, Public domain, Andrey Zeigarnik) — portrait reference: Bluma Zeigarnik en.wikipedia.org/wiki/Bluma_Zeigarnik.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1966 Sunlit Palo Alto Front Lawn: Tiny 3-Inch 'Safe Driver' Window Sticker vs Giant 'DRIVE CAREFULLY' Billboard (16.7% -> 76.0%!)",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1966, Tree-lined suburban street, Palo Alto, California",
+      "layout": {
+        "description": "Sunlit high-key 1966 California mid-century suburban front porch and manicured green lawn: in the window corner gleams a **tiny 3×3-inch 'Be a Safe Driver' square sticker** (from Week 1), while on the front grass two weeks later stands a **massive, clunky, hand-lettered white wooden 'DRIVE CAREFULLY' billboard** blocking the porch view alongside a crisp **16.7% Cold Ask vs 76.0% After 3-Inch Sticker** placard!",
+        "positions": [
+          {
+            "who": "Jonathan Freedman / Volunteer #2 mannequin (in 1966 collegiate button-down shirt, chinos, and clipboard)",
+            "where": "standing on the sunlit front walkway holding up the photograph of the giant 'DRIVE CAREFULLY' lawn billboard while pointing from the tiny 3-inch window sticker to the 76.0% bar!",
+            "facing": "on suburban front walkway"
+          },
+          {
+            "who": "Palo Alto Homeowner mannequin (in 1966 cardigan sweater at open front door)",
+            "where": "glancing affectionately at their own tiny 3-inch 'Be a Safe Driver' sticker in the window — then nodding warmly ('Sure, put the big sign up!') at 76% compliance!",
+            "facing": "at sunlit front porch step"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "tiny 3×3-inch 'Be a Safe Driver' window sticker vs giant clunky 'DRIVE CAREFULLY' lawn billboard",
+          "period_detail": "hilarious visual scale jump from 9 square inches to a view-blocking yard monster",
+          "physical_behavior": "Freedman & Fraser's legendary 1966 props"
+        },
+        {
+          "name": "4-Group Palo Alto Results Stand ('Cold Ask: 16.7% | Different-Topic Petition: 47.4% | 3-Inch Sticker First: 76.0%!')",
+          "period_detail": "shows both the 4.5x sticker jump and 3x cross-topic identity proof",
+          "physical_behavior": "anchors the entire 1966 JPSP classic"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Homeowner mannequin",
+          "verb_sequence": "places the tiny 3-inch square sticker neatly inside the window corner in Week 1 -> two weeks later Volunteer #2 shows the giant 'DRIVE CAREFULLY' lawn-billboard photo -> Homeowner glances at their own sticker ('I'm an involved citizen!') and signs YES!"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Homeowner mannequin",
+          "reaction": "smiles proudly beside the enormous lawn sign while next-door Cold-Ask neighbors shake their heads 'No way!' (83% refusal)"
+        },
+        {
+          "who": "Researcher mannequin",
+          "reaction": "logs the 4.5-fold self-perception surge"
+        }
+      ],
+      "wardrobe": "1966 California suburban style: crisp collegiate button-down and chinos; mid-century knit cardigan and slacks.",
+      "lighting": "Bright high-key sunny California morning light.",
+      "recognition_hook": "Ask cold to plant a monster 'DRIVE CAREFULLY' billboard in a manicured suburban yard and 83% slam the door — hand out a tiny 3-inch window sticker two weeks earlier and 76% say 'Dig right in!'",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a sunlit 1966 suburban front lawn and porch contrasting a tiny 3-inch window sticker with a giant 'DRIVE CAREFULLY' yard billboard and a 16.7%-to-76.0% compliance chart as a homeowner nods yes to a clipboard researcher",
+        "must_show": [
+          "billboard|sign",
+          "sticker|window",
+          "porch|lawn|chart"
+        ],
+        "source": "M1@00:08-00:20; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Study 1: A 2-Minute Soap Phone Quiz Opens Every Cupboard!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1966, Mid-century Palo Alto kitchen",
+      "layout": {
+        "description": "Sunlit 1966 kitchen with rotary desk phone and open wooden pantry cupboards.",
+        "positions": [
+          {
+            "who": "Homemaker & Survey Crew mannequins",
+            "where": "answering 8 harmless soap questions by phone on Monday -> welcoming a 5-person product-counting crew on Thursday at 52.8% (more than double 22.2%)!",
+            "facing": "in sunlit kitchen"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "rotary kitchen phone & soap survey card ('22.2% -> 52.8%')",
+          "period_detail": "proves even a 2-minute phone favor doubles intrusive 2-hour home access",
+          "physical_behavior": "Freedman & Fraser 1966 Study 1"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Homemaker",
+          "verb_sequence": "answers quick phone soap check -> three days later opens pantry doors warmly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researchers",
+          "reaction": "confirm phone micro-commitment power"
+        }
+      ],
+      "wardrobe": "1966 collared shirtdress and neat crew shirts.",
+      "lighting": "Warm sunny kitchen light.",
+      "recognition_hook": "Eight harmless phone questions about dish soap on Monday more than doubled who let five strangers inventory their kitchen closets on Thursday!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Why Paying $5 for the Tiny Sticker Kills the Magic!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1978, Follow-up self-perception test",
+      "layout": {
+        "description": "Suburban walkway comparing an Unpaid 3-inch sticker (high 76% identity shift) against a Paid $5 voucher sticker (collapses back toward baseline!).",
+        "positions": [
+          {
+            "who": "Researcher & Homeowner mannequins",
+            "where": "showing that external payout gives an alibi ('did it for the voucher') that blocks the 'helpful citizen' identity shift",
+            "facing": "at front gate"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Unpaid Voluntary Vote vs Paid Voucher comparison card",
+          "period_detail": "smoking-gun proof of Self-Perception Theory",
+          "physical_behavior": "links cleanly to Festinger & Bem"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Paid Homeowner",
+          "verb_sequence": "declines the big billboard two weeks later ('I only put up the small sticker because you paid me!')"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researcher",
+          "reaction": "confirms voluntary unpaid micro-acts drive identity"
+        }
+      ],
+      "wardrobe": "1970s casual jackets.",
+      "lighting": "Bright daylight.",
+      "recognition_hook": "Pay people for the tiny 3-inch sticker and the 76% lawn-sign miracle collapses — only voluntary choices rewrite 'the kind of person I am'!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Hacking Your Own Habits With a '3-Inch Sticker' Week 1",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit bedroom / running path",
+      "layout": {
+        "description": "Warm morning room where running shoes sit beside a 'Week 1: Just Walk 3 Minutes' card leading smoothly to 'Week 3: 5K Run'.",
+        "positions": [
+          {
+            "who": "Learner mannequin",
+            "where": "completing a tiny effortless 3-minute walk that casts an 'I show up daily' identity vote",
+            "facing": "by sunlit doorway"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "3-Minute Micro-Habit card -> Full Habit progression",
+          "period_detail": "ethical self-directed Foot-in-the-Door",
+          "physical_behavior": "actionable takeaway"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Learner",
+          "verb_sequence": "laces shoes for tiny 3-minute step -> two weeks later strides smoothly out for full run"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Learner",
+          "reaction": "energized, natural identity alignment"
+        }
+      ],
+      "wardrobe": "Modern athletic wear.",
+      "lighting": "Golden morning window light.",
+      "recognition_hook": "Don't start Monday with a giant ugly billboard — start with a 3-inch habit sticker that lets your brain see itself as 'someone who shows up'!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

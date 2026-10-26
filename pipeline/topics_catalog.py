@@ -500,12 +500,13 @@ PSYCHOLOGY_TOPICS_1_10 = [{'project_id': 'psych_01_habit_loop_basal_ganglia',
                                         'cranium: the lateral speech cortex glows electric cyan-blue, while the lower '
                                         'anterior frontal lobe fades to dim crimson-red. Strong rim light traces the '
                                         'porcelain contours.',
-                             'failure': 'In the same minimalist studio room, a co-worker mannequin holds out a work '
-                                        'schedule ledger with both hands. The foreman mannequin strikes the ledger '
-                                        'away with the back of his hand, sending it sliding across the floor, and '
-                                        'pushes his chair back as the co-worker and physician mannequins step back in '
-                                        'alarm. The camera tracks smoothly sideways between the figures, capturing the '
-                                        'distance in soft daylight.',
+                             'failure': 'In the bright minimalist white studio room, a matte-white porcelain '
+                                        'co-worker mannequin holds out a work schedule ledger with both hands. The '
+                                        'clothed matte-white porcelain foreman mannequin with a featureless white face '
+                                        'and translucent frosted-glass cranium strikes the ledger away with his hand, '
+                                        'sending it sliding across the floor, and pushes his chair back as the '
+                                        'porcelain mannequins step back. The camera tracks smoothly sideways in soft '
+                                        'daylight.',
                              'crisis': "The camera dives smoothly through the foreman mannequin's translucent "
                                        'frosted-glass cranium into a bright white studio gallery holding a realistic '
                                        'matte-white brain with visible gyri and sulci. It glides over the frontal pole '
@@ -523,11 +524,12 @@ PSYCHOLOGY_TOPICS_1_10 = [{'project_id': 'psych_01_habit_loop_basal_ganglia',
                                       'inside the almond-shaped amygdala deep in the temporal lobe, which lights up '
                                       'electric cyan-blue. The camera tracks the flowing bioluminescent green signal '
                                       'as it streams forward toward the frontal lobe.',
-                             'step2': 'The camera follows the bioluminescent green signal as it leaves the electric '
-                                      'cyan-blue amygdala and travels along the ventral white-matter tract toward the '
-                                      'ventromedial prefrontal cortex. At the severed crimson-red lesion cavity, the '
-                                      'particles crash and scatter into space without triggering frontal inhibition. '
-                                      'The camera slowly orbits the broken tract.',
+                             'step2': 'Inside the matte-white brain in a bright white studio gallery, the camera '
+                                      'follows the bioluminescent green signal as it leaves the electric cyan-blue '
+                                      'amygdala along the ventral white-matter tract toward the ventromedial '
+                                      'prefrontal cortex. At the severed crimson-red lesion cavity, the particles '
+                                      'crash and scatter into space without triggering frontal inhibition. The camera '
+                                      'slowly orbits the broken tract in bright studio daylight.',
                              'step3': 'The camera pulls back to reveal the whole circuit inside the matte-white brain: '
                                       'the almond-shaped amygdala active in electric cyan-blue, the ventromedial '
                                       'prefrontal cortex silent in crimson-red, and the intact dorsal motor pathways '
@@ -535,39 +537,39 @@ PSYCHOLOGY_TOPICS_1_10 = [{'project_id': 'psych_01_habit_loop_basal_ganglia',
                                       'outward toward the motor cortex. The full brain turns slowly in bright studio '
                                       'daylight.',
                              'breakthrough': 'The camera pulls smoothly out of the brain, back through the translucent '
-                                             'frosted-glass cranium, into the bright minimalist studio room. The '
-                                             'physician mannequin traces the cranial trajectory across a translucent '
-                                             'skull model with a silver pointer while the clothed foreman mannequin '
-                                             'lifts the steel rod with both hands and places it onto the display '
-                                             'stand. Inside his cranium, the intact dorsal cortex glows warm '
-                                             'amber-gold.',
-                             'conclusion': 'Wide shot of the bright studio room: the clothed foreman mannequin sits on '
-                                           'a wooden coach bench and pulls taut leather reins left and right with '
-                                           'steady hands, while the physician mannequin nods beside him and writes '
-                                           'notes in a ledger. Inside his translucent frosted-glass cranium, the '
-                                           'dorsal cortex glows electric cyan-blue and the spared motor route glows '
-                                           'warm amber-gold. The camera slowly pulls back and rises to an elevated '
-                                           'angle.'}},
+                                             'frosted-glass cranium, into the bright minimalist white studio room. A '
+                                             'matte-white porcelain physician mannequin with a featureless white face '
+                                             'traces a skull model with a silver pointer while the clothed '
+                                             'matte-white porcelain foreman mannequin lifts the steel rod with both '
+                                             'hands onto a stand. Inside his frosted-glass cranium, the dorsal cortex '
+                                             'glows warm amber-gold.',
+                             'conclusion': 'Wide shot of the bright minimalist white studio room: the clothed '
+                                           'matte-white porcelain mannequin with a featureless white face and '
+                                           'translucent frosted-glass cranium sits at the oak desk, closes a leather '
+                                           'journal with both hands, and places the steel rod beside it while the '
+                                           'porcelain physician mannequin writes notes. Inside his frosted-glass '
+                                           'cranium, the dorsal cortex glows electric cyan-blue and warm amber-gold. '
+                                           'The camera slowly pulls back and rises to an elevated angle.'}},
   'clip_narrations': ['In 1848 in Cavendish, Vermont, an accidental blast drove a thirteen-pound iron tamping rod '
                       "straight through railroad foreman Phineas Gage's skull.",
                       'He stood up and spoke within minutes, yet his calm personality vanished into reckless rage. For '
                       'his brain, this was a total nightmare.',
                       'His old railroad crew brought him back to work, but he cursed at every plan and had to be '
                       'dismissed.',
-                      'Here is what went wrong. The iron rod had torn through his ventromedial prefrontal cortex while '
-                      'sparing his outer speech and motor areas.',
-                      'Instead of housing logic and emotion in one single region, your frontal lobe uses a dedicated '
-                      'ventral circuit to regulate social impulses.',
-                      'Step one: when a frustrating event occurs, the deep almond-shaped amygdala fires a rapid '
-                      'emotional alarm toward the front of the brain.',
-                      'Step two: that alarm signal travels forward to the ventromedial prefrontal cortex, which '
-                      'normally weighs future consequences and calms the amygdala down.',
-                      'Step three: when that ventral white-matter bridge is severed, raw emotional impulses bypass '
-                      'frontal judgment and drive impulsive behaviour unchecked.',
-                      'The researchers were left completely stunned. In 1994, Hanna and Antonio Damasio reconstructed '
-                      'his preserved skull in three dimensions to map the exact lesion.',
-                      'Which proves that human moral judgment and social self-control depend on physical white-matter '
-                      'wiring inside the ventromedial prefrontal cortex.'],
+                      'Here is what went wrong. The iron rod tore through his lower frontal lobe while sparing his '
+                      'speech and motor areas.',
+                      'Instead of blending thought and mood in one spot, your frontal lobe uses a deep lower path to '
+                      'curb raw anger.',
+                      'Step one: when a tense shock hits, the deep almond-shaped amygdala fires a fast alarm straight '
+                      'toward the front of the brain.',
+                      'Step two: that alarm races forward to the lower frontal cortex, which weighs the risk and calms '
+                      'the deep amygdala down.',
+                      'Step three: when that white-matter bridge is cut, raw bursts of anger skip frontal care and '
+                      'drive rash acts unchecked.',
+                      'The researchers were left completely stunned. Hanna Damasio scanned his kept skull to map the '
+                      'exact path of the rod.',
+                      'Which proves that calm choice and social self-control rely on intact white-matter wiring inside '
+                      'the lower frontal lobe.'],
   'story_context': {'era_year': '1848 & 1994',
                     'location': 'Cavendish, Vermont & University of Iowa Neuroimaging Lab',
                     'protagonist': 'Phineas Gage (reconstructed by Hanna & Antonio Damasio, 1994)',
@@ -585,18 +587,16 @@ PSYCHOLOGY_TOPICS_1_10 = [{'project_id': 'psych_01_habit_loop_basal_ganglia',
                "through railroad foreman Phineas Gage's skull. He stood up and spoke within minutes, yet his calm "
                'personality vanished into reckless rage. For his brain, this was a total nightmare.',
   'setup_text': 'His old railroad crew brought him back to work, but he cursed at every plan and had to be dismissed. '
-                'Here is what went wrong. The iron rod had torn through his ventromedial prefrontal cortex while '
-                'sparing his outer speech and motor areas.',
-  'core_text': 'Instead of housing logic and emotion in one single region, your frontal lobe uses a dedicated ventral '
-               'circuit to regulate social impulses. Step one: when a frustrating event occurs, the deep almond-shaped '
-               'amygdala fires a rapid emotional alarm toward the front of the brain. Step two: that alarm signal '
-               'travels forward to the ventromedial prefrontal cortex, which normally weighs future consequences and '
-               'calms the amygdala down. Step three: when that ventral white-matter bridge is severed, raw emotional '
-               'impulses bypass frontal judgment and drive impulsive behaviour unchecked. The researchers were left '
-               'completely stunned. In 1994, Hanna and Antonio Damasio reconstructed his preserved skull in three '
-               'dimensions to map the exact lesion.',
-  'payoff_text': 'Which proves that human moral judgment and social self-control depend on physical white-matter '
-                 'wiring inside the ventromedial prefrontal cortex.',
+                'Here is what went wrong. The iron rod tore through his lower frontal lobe while sparing his speech '
+                'and motor areas.',
+  'core_text': 'Instead of blending thought and mood in one spot, your frontal lobe uses a deep lower path to curb raw '
+               'anger. Step one: when a tense shock hits, the deep almond-shaped amygdala fires a fast alarm straight '
+               'toward the front of the brain. Step two: that alarm races forward to the lower frontal cortex, which '
+               'weighs the risk and calms the deep amygdala down. Step three: when that white-matter bridge is cut, '
+               'raw bursts of anger skip frontal care and drive rash acts unchecked. The researchers were left '
+               'completely stunned. Hanna Damasio scanned his kept skull to map the exact path of the rod.',
+  'payoff_text': 'Which proves that calm choice and social self-control rely on intact white-matter wiring inside the '
+                 'lower frontal lobe.',
   'fact_citations': [{'claim': '3D skull reconstruction localizes Gage lesion to bilateral ventromedial prefrontal '
                                'cortex',
                       'source': 'Damasio et al. (Science, 1994, DOI: 10.1126/science.8178168)'}],

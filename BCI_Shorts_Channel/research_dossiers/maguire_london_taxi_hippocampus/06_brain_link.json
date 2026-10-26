@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "hippocampus",
+      "plain": "enlarged bilateral posterior hippocampal gray matter",
+      "function": "storing and dynamically updating the 25,000-street allocentric cognitive map of London — physically expanding with years passed since 'The Knowledge' (accompanied by slight anterior hippocampal reduction)",
+      "scene_id": "S1",
+      "narration_bridge": "Primary 2000 PNAS structural VBM discovery + 1997 PET route-recall activation."
+    },
+    {
+      "role": "pivot",
+      "region": "parietal cortex",
+      "plain": "egocentric street-view translation along turns",
+      "function": "converting the overhead landmark hippocampal London map into street-level left/right turns around blocked intersections",
+      "scene_id": "S2",
+      "narration_bridge": "Works in concert with posterior hippocampus in Maguire 1997 J. Neurosci. (SRC2)."
+    },
+    {
+      "role": "step1",
+      "region": "prefrontal cortex",
+      "plain": "multi-stop route planning & detour selection",
+      "function": "evaluating one-way restrictions and live traffic detours across thousands of candidate street combinations",
+      "scene_id": "S2",
+      "narration_bridge": "Completes the London navigation triad."
+    }
+  ]
+}

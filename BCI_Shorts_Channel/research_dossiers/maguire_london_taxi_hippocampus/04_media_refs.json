@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "London taxi drivers hippocampus",
+      "url": "https://www.youtube.com/watch?v=Sdv6lyQCJ04",
+      "channel": "Crevoisier Philippe",
+      "source_id": "SRC_M1",
+      "duration_sec": 90,
+      "timecodes": [
+        {
+          "t": "00:11-00:21",
+          "what": "At kf_004.jpg (16.5s) (widescreen camera frame), Crevoisier Philippe's recording states \"An aspect of declarative memory is spatial memory. Taxi drivers have to have excellent spatial memory, and especially taxi drivers in cities like...\" — providing spoken context for 2000 UCL Queen Square MRI Gallery: London Black Cab + 25,000-Street 'Blue Book' Map Growing the Posterior Hippocampus."
+        },
+        {
+          "t": "00:25-00:41",
+          "what": "Mid-segment widescreen camera frame at kf_007.jpg (33.0s) as narration explains \"York City, for example. In a famous study, Eleanor McGuire of the University College London used brain imaging technology to study the hippocampi...\", clarifying key empirical findings in Eleanor A. Maguire's 2000 UCL Structural MRI Discovery of Posterior Hippocampal Enlargement in Licensed London Taxi Drivers."
+        },
+        {
+          "t": "00:42-00:50",
+          "what": "Around kf_009.jpg (44.0s) (widescreen camera frame), commentary states \"technology to study the hippocampi of London taxi drivers in comparison to matched individuals who were not taxi drivers. The hippocampi of the...\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_maguire_london_taxi_hippocam/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_maguire_london_taxi_hippocam",
+        "contact_sheet": "media/M1_maguire_london_taxi_hippocam/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1_maguire_london_taxi_hippocam/contact_sheet.jpg (widescreen live-action camera recording (480x270, 12 frames sampled across 0.0s–60.5s)) from Crevoisier Philippe's \"London taxi drivers hippocampus\" (90s total runtime).",
+          "Deduplicated English transcript (10 timestamped cues in media/M1_maguire_london_taxi_hippocam/transcript.txt) aligned directly to keyframe timestamps (0.0s–60.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Robotaxis coming to London pose threat to cabbies who memorize 25,000 streets to earn licenses",
+      "url": "https://www.youtube.com/watch?v=ur61kzXjvN8",
+      "channel": "60 Minutes",
+      "source_id": "SRC_M2",
+      "duration_sec": 797,
+      "timecodes": [
+        {
+          "t": "00:46-01:00",
+          "what": "Around kf_001.jpg (51.8s) (widescreen camera frame), speaker commentary notes \"landmarks and businesses and know the shortest routes between them all. Look, we're the oldest form of transport in the world. Fact. We come before\", anchoring the research context of 2000 UCL Queen Square MRI Gallery: London Black Cab + 25,000-Street 'Blue Book' Map Growing the Posterior Hippocampus."
+        },
+        {
+          "t": "01:08-01:14",
+          "what": "At kf_008.jpg (68.5s) (widescreen camera frame), audio continues with \">> Tom Scullion has been driving one of London's famous black cabs for the past 34 years. What's the weirdest request\", detailing experimental methodology and behavioral observations for Eleanor A. Maguire's 2000 UCL Structural MRI Discovery of Posterior Hippocampal Enlargement in Licensed London Taxi Drivers."
+        },
+        {
+          "t": "01:15-01:19",
+          "what": "Later widescreen camera frame at kf_010.jpg (76.3s) accompanied by \"34 years. What's the weirdest request you've gotten from a passenger? Uh what, this week? Oh, you wouldn't\", summarizing mechanism and boundary conditions in Eleanor A. Maguire's 2000 UCL Structural MRI Discovery of Posterior Hippocampal Enlargement in Licensed London Taxi Drivers."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (480x270, 14 frames sampled across 51.8s–84.3s)) from 60 Minutes's \"Robotaxis coming to London pose threat to cabbies who memorize 25,000 streets to earn licenses\" (797s total runtime).",
+          "Deduplicated English transcript (44 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (51.8s–84.3s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "A TX4 Taxi at Heathrow Airport Terminal 5.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:A_TX4_Taxi_at_Heathrow_Airport_Terminal_5.jpg",
+      "channel": "Wikimedia Commons (Unisouth ( talk ))",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"A TX4 Taxi at Heathrow Airport Terminal 5.jpg\" (960x720 px, CC BY-SA 3.0): A en:TX4 Taxi at London Heathrow Airport Terminal 5. Documents authentic physical instrument geometry and period materials relevant to Eleanor A. Maguire's 2000 UCL Structural MRI Discovery of Posterior Hippocampal Enlargement in Licensed London Taxi Drivers."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 3.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x720 px, CC BY-SA 3.0, Unisouth ( talk )) — apparatus reference: A en:TX4 Taxi at London Heathrow Airport Terminal 5.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

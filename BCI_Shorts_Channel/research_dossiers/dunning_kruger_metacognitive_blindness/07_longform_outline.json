@@ -1,0 +1,102 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "A lemon-juice bank heist inspired Cornell's 1999 discovery — and proved the viral internet 'Mount Stupid' graph is completely fake.",
+    "core_experiment": "Kruger & Dunning's 4 Cornell studies (12th vs 62nd percentile, Study 3 peer-sheet test, Study 4 logic training drop).",
+    "twist": "Debunking the fake 'Mount Stupid' peak + statistical regression-to-the-mean guardrails."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Lemon Juice and the Dual Burden of Skill",
+      "beats": [
+        "1995 Pittsburgh bank heist",
+        "Why producing right answers = recognizing right answers",
+        "12th percentile actual vs 62nd estimated"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "paired 12% vs 62% sheets"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Busting the Fake 'Mount Stupid' Meme",
+      "beats": [
+        "What 1999 Figure 1 ACTUALLY looks like (62% to 74% gentle slope)",
+        "Why top scorers guessed 74% vs 87%: False Consensus, not self-doubt."
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "real 1999 chalkboard graph vs crossed-out meme"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Study 3 & Study 4: Turning the Error Detector On",
+      "beats": [
+        "Why seeing 5 peer tests helped experts but not novices",
+        "10 minutes of logic training: skill UP, overconfidence DOWN."
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step1",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "student lowering 55% to 32% after logic packet"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Statistical Honesty: Regression to the Mean",
+      "beats": [
+        "Krueger, Nuhfer & Gignac's noise controls",
+        "Why nobody is immune outside their trained lane"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2"
+      ],
+      "new_shots_needed": [
+        "psychometric noise control board"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "External Checklists Beat Solo Confidence",
+      "beats": [
+        "Embracing Week-3 humility",
+        "Peer review & objective rubrics"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "two colleagues walking down 8-point rubric"
+      ]
+    }
+  ]
+}

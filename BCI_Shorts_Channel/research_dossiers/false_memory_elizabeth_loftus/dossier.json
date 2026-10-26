@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "slug": "false_memory_elizabeth_loftus",
+  "topic": "Elizabeth Loftus & John Palmer (1974) / Pickrell (1995): Post-Event Misinformation, 'Smashed' vs 'Hit', and Rich False Memories",
+  "pillar": "brain_history",
+  "created_at": "2026-10-25T22:49:28+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "The core experiment is a vivid 1974 classroom film-and-questionnaire behavioral test (changing 'hit' to 'smashed'), paired with a concise hippocampal reconsolidation cut explaining why recalling a memory re-opens it to editing.",
+  "primary_case": {
+    "title": "Reconstruction of Automobile Destruction ('smashed' vs 'contacted' speed & phantom broken glass) and 'Lost in the Mall'",
+    "year": 1974,
+    "place": "University of Washington, Seattle, Washington, USA",
+    "people": [
+      {
+        "name": "Elizabeth F. Loftus",
+        "role": "Cognitive psychologist who proved eyewitness memories are reconstructed and overwritten by post-event language",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "John C. Palmer",
+        "role": "University of Washington student co-author of the landmark 1974 car-crash verb experiment",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Jacqueline E. Pickrell",
+        "role": "Co-author of the 1995 'Lost in the Mall' study planting entire childhood autobiographical episodes",
+        "source_id": "SRC3"
+      },
+      {
+        "name": "Julia Shaw",
+        "role": "Memory researcher whose 2015 rich-false-crime study triggered important coding critiques (Wade et al. 2018)",
+        "source_id": "SRC2"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 1974 at the University of Washington, Elizabeth Loftus and John Palmer showed 45 student witnesses short driver-safety films of two-car collisions and changed a single verb in one post-film question.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Asked 'About how fast were the cars going when they smashed into each other?', witnesses estimated a mean speed of 40.8 miles per hour.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Changing that single verb progressively lowered speed estimates for the exact same film: 'collided' yielded 39.3 mph, 'bumped' 38.1 mph, 'hit' 34.0 mph, and 'contacted' just 31.8 mph — a 9-mph shift from one word.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Experiment 2 with 150 new participants, witnesses returned one full week later without re-watching the film and were asked, 'Did you see any broken glass?' — even though zero broken glass existed in the footage.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "32 percent of witnesses originally asked the 'smashed' question falsely remembered seeing broken glass on the road, more than double the 14 percent in the 'hit' group and 12 percent in unqueried controls.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In 1995, Loftus and Jacqueline Pickrell gave 24 participants booklets containing three real childhood events from relatives plus one fabricated story of getting lost in a shopping mall at age five and rescued by an elderly person.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Six of the 24 participants (25 percent) came to remember the fictional mall event partially or fully, adding vivid sensory details like the rescuer's flannel shirt that nobody had ever told them.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Modern memory reconsolidation neuroscience shows that retrieving an episodic trace via the hippocampus temporarily destabilizes it, allowing prefrontal verbal framing to splice new details in before re-storage.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "Wade, Garry, and Pezdek (2018) critically re-scored Shaw & Porter's 70% false-crime headline, showing that under strict perceptual criteria ~26-30% formed full false memories while the rest held false beliefs — matching Loftus's classic ~25-30% benchmark.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Misleading eyewitness questioning contributed to roughly 70 percent of the first 375 DNA-exonerated wrongful convictions tracked by the Innocence Project, transforming police lineups worldwide.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "Across Loftus and Palmer's two 1974 experiments (45 plus 150 student witnesses = 195 total across 5 verb conditions spanning 31.8 to 40.8 mph, nearly a 7-to-9 mph spread), 16mm driver-education crash films produced a 32% versus 14% week-later false broken-glass gap, foreshadowing the 25% false-memory rate in 1995.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "All collision stimuli in Loftus and Palmer (1974) were projected from 16mm safety-education motion picture reels inside a University of Washington classroom.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Swapping one single word from 'contacted' to 'smashed' made witnesses remember the exact same car crash moving 9 miles per hour faster.",
+      "why_surprising": "One verb from an interviewer silently rewrote physical speed in the viewer's head.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "A full week later, nearly a third of 'smashed' witnesses swore they saw shattered glass on the asphalt — in a video clip with zero broken glass.",
+      "why_surprising": "The word did not just nudge a number; it hallucinated physical debris into a week-old memory.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "In the 'Lost in the Mall' study, one in four adults invented extra details about an elderly rescuer's clothes for a childhood afternoon that never happened.",
+      "why_surprising": "Once a false seed takes root, our own imagination decorates it with convincing sensory detail.",
+      "source_id": "SRC3",
+      "rank": 3
+    },
+    {
+      "fact": "When Pickrell debriefed participants and asked them to guess which of the four childhood stories was fake, some still picked one of their real memories instead of the mall story.",
+      "why_surprising": "Subjective vividness and emotional confidence cannot reliably tell a true memory from an edited one.",
+      "source_id": "SRC3",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Human memory works like a video camera that plays back unaltered files unless you lie.",
+      "truth": "Episodic memory is reconstructive like a Wikipedia page — every retrieval opens the file so subsequent words and suggestions can edit it.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "How confident or emotional an eyewitness looks on the stand proves their memory is accurate.",
+      "truth": "Post-event coaching and repeated questioning inflate confidence faster than accuracy, creating sincere, tearful witnesses who are completely mistaken.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Anyone can easily plant a vivid false memory in 100 percent of people in five minutes.",
+      "truth": "Critiques by Wade et al. (2018) show full perceptual false memories occur in roughly 25-30% of subjects under plausible family corroboration, distinct from mere plausibility beliefs.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Only children or gullible people fall for misinformation.",
+      "truth": "University students, military personnel under interrogation training, and seasoned professionals show robust misinformation effects.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Two siblings arguing at Thanksgiving over a childhood vacation story where both are 100 percent certain of opposite details.",
+    "How a leading question ('Wasn't that guy wearing a dark hoodie?') plants the hoodie in your mind when recalling a minor fender-bender.",
+    "Re-telling a funny personal story ten times over five years until your own punchline feels like what you literally saw.",
+    "Police interviewers asking 'What happened next?' instead of 'Did he have a weapon?' to protect clean witness memory."
+  ],
+  "linked_projects": [
+    "psych_09_false_memory_elizabeth_loftus"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "target_minutes": 12,
+  "shorts_extract": {
+    "hook": "September 13, 1848 in Cavendish, Vermont: railroad foreman Phineas Gage turns his head while tamping blasting powder, a spark ignites the hole, and a 3-foot-7-inch iron rod shoots through his left cheek and out the top of his skull—yet minutes later he sits upright in an ox cart talking.",
+    "core_experiment": "The iron rod tore through the judgment center behind his left eye (ventromedial prefrontal cortex) and severed about 11% of his left frontal white-matter wiring from the emotional alarm (amygdala), leaving his speech and walk intact while wrecking his social filter so friends said he was 'no longer Gage'.",
+    "twist": "Instead of staying a ruined drifter forever as textbooks claim, Gage later worked for years in Chile driving a six-horse stagecoach on steep mountain roads, where strict daily routine helped his spared brain networks relearn control."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "4:30 PM in the Cavendish Cut",
+      "beats": [
+        "Set the scene in September 1848 along the Rutland and Burlington Railroad cut in Cavendish, Vermont.",
+        "Explain the three-step blasting routine: black powder, protective sand plug, and tamping with Gage's custom 3-foot-7-inch, 13.25-pound iron rod.",
+        "Show the distraction: Gage looks over his right shoulder toward his crew before sand is poured, sparks the granite, and the rod blasts upward through his left cheek and skull."
+      ],
+      "scene_ids": ["S1"],
+      "reuse_shorts_roles": ["setup"],
+      "new_shots_needed": [
+        "Close-up of the assistant pouring black powder and reaching for the sand pail too late",
+        "Wide shot of the smeared iron rod landing 20-25 yards behind the granite ledge"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "The Walk Up the Hotel Stairs",
+      "beats": [
+        "Gage speaks within minutes of the blast and rides three-quarters of a mile sitting upright in an ox cart.",
+        "At Joseph Adams's hotel, he steps out of the cart, climbs the stairs, and greets Dr. Edward Williams and Dr. John Harlow.",
+        "Detail the autumn 1848 infection crisis—fungal sprouts, prepared coffin, and Harlow draining eight ounces of pus—until the skull opening closes in January 1849."
+      ],
+      "scene_ids": ["S2"],
+      "reuse_shorts_roles": ["symptom"],
+      "new_shots_needed": [
+        "Candlelit hotel bedroom showing Dr. Harlow dressing the cranial wound and draining the abscess"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "'No Longer Gage': The Lost Foreman Job",
+      "beats": [
+        "In spring 1849 Gage returns to Cavendish carrying his tamping iron and asks for his old foreman job back.",
+        "Show his sudden profanity, abandoned plans, and impatience with restraint in the tavern and contractor office; his bosses refuse to rehire him.",
+        "Dive inside the skull to show why speech and movement survived while the judgment center behind the left eye was destroyed."
+      ],
+      "scene_ids": ["S3"],
+      "reuse_shorts_roles": ["failure", "crisis"],
+      "new_shots_needed": [
+        "Side-by-side comparison of intact left Broca's/motor strips versus the shattered left orbitofrontal base"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Three Generations of Skull Scans (1994, 2004, 2012)",
+      "beats": [
+        "Follow Gage's exhumed skull and tamping iron to Harvard's Warren Anatomical Museum.",
+        "Compare Damasio's 1994 bilateral model against Ratiu's 2004 thin-slice CT of the real skull proving strictly left-sided damage.",
+        "Break down Van Horn's 2012 connectome study: 4% cortical gray matter lost, 11% white-matter cables cut between the emotional alarm (amygdala) and the judgment center."
+      ],
+      "scene_ids": ["S5"],
+      "reuse_shorts_roles": ["step1", "step2", "breakthrough"],
+      "new_shots_needed": [
+        "Museum tabletop view of Bigelow's 1850 plaster life cast beside the hinged skull flap"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "The Chile Stagecoach Twist and Social Recovery",
+      "beats": [
+        "Debunk the textbook myth of the permanent violent drifter using Malcolm Macmillan's historical detective work.",
+        "Follow Gage to Valparaiso and Santiago, Chile, where he cares for horses and drives a heavily laden six-horse stagecoach for nearly seven years.",
+        "Show the 1850 Wilgus daguerreotype portrait—once mistaken for a whaler with a harpoon—and explain how structured daily routines help injured frontal brains recover."
+      ],
+      "scene_ids": ["S4", "S5"],
+      "reuse_shorts_roles": ["pivot", "step3", "conclusion"],
+      "new_shots_needed": [
+        "1850 daguerreotype studio recreation showing Gage posing upright with his inscribed iron bar"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Chicken claw vs snow scene: left hand points at the snow shovel while the mouth invents an excuse",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1960s-1970s Caltech / Dartmouth tachistoscope testing room",
+      "layout": {
+        "description": "Bright mid-century psychology laboratory where a seated split-brain patient fixes his gaze on a central black dot on a frosted rear-projection tachistoscope screen; a snow-covered house flashes on the left half and a chicken claw flashes on the right half while his left hand points down at a snow-shovel picture card and his right hand points at a chicken card on the wooden table.",
+        "positions": [
+          {
+            "who": "Split-brain patient (mannequin in 1960s collared cardigan shirt)",
+            "where": "seated center at the wooden testing table facing the central fixation dot on the screen",
+            "facing": "staring dead ahead at the fixation cross while pointing with both hands"
+          },
+          {
+            "who": "Neuroscientist Michael Gazzaniga (mannequin in 1960s white shirt and narrow tie)",
+            "where": "standing camera-right beside the rear-projection screen with a notepad",
+            "facing": "observing both pointing hands and listening to the spoken excuse"
+          },
+          {
+            "who": "Lab assistant (mannequin in lab coat)",
+            "where": "operating the high-speed slide shutter behind the frosted screen",
+            "facing": "facing the projector"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "dual-field frosted tachistoscope screen",
+          "period_detail": "back-lit glass projection panel with central fixation dot flashing a wintry snow scene on the left and a chicken claw on the right for 100 milliseconds",
+          "physical_behavior": "flashes both images briefly then returns to blank white"
+        },
+        {
+          "name": "row of eight printed choice cards on the table",
+          "period_detail": "matte cardboard cards including a snow shovel on the left and a rooster/chicken on the right",
+          "physical_behavior": "patient's left index finger taps the snow-shovel card while his right index finger taps the chicken card"
+        },
+        {
+          "name": "1960s slide projector with rapid mechanical timer",
+          "period_detail": "brushed-metal laboratory projector behind the screen",
+          "physical_behavior": "fires a crisp 100-millisecond flash"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Split-brain patient",
+          "verb_sequence": "keeps eyes fixed on the center dot as snow and claw flash -> points left hand firmly onto the snow-shovel card and right hand onto the chicken card -> gestures conversationally as he explains the chicken shed"
+        },
+        {
+          "who": "Neuroscientist",
+          "verb_sequence": "points to the patient's left hand on the snow shovel -> tilts head in amazement at the instant spoken rationalization"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Split-brain patient",
+          "reaction": "nods with complete calm confidence, utterly unaware his speaking half never saw the snow"
+        },
+        {
+          "who": "Neuroscientist",
+          "reaction": "writes rapidly on his clipboard, stunned by the seamless post-hoc story"
+        }
+      ],
+      "wardrobe": "1960s collegiate button-down shirt and knit cardigan on patient; white dress shirt and narrow dark tie on Gazzaniga.",
+      "lighting": "Clean high-key 1960s laboratory daylight balanced with the bright tachistoscope panel.",
+      "recognition_hook": "His left hand points to a snow shovel and his right hand points to a chicken — and his speaking left brain smoothly invents a story about cleaning out a chicken shed.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "the split-brain patient stares at the alternating matched-angle while his left hand points to a snow shovel card and his right hand points to a chicken card",
+        "must_show": [
+          "screen",
+          "shovel",
+          "hand|hands"
+        ],
+        "source": "M1@00:08-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Intermanual conflict: left hand unbuttons what the right hand buttons",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1962 postwar California home of Patient W.J.",
+      "layout": {
+        "description": "Sunlit 1960s bedroom mirror area where Patient W.J. tries to button his dress shirt while his own left hand reaches up to undo the buttons.",
+        "positions": [
+          {
+            "who": "Patient W.J.",
+            "where": "standing before a bedroom dresser buttoning his shirt",
+            "facing": "looking down at his competing hands"
+          },
+          {
+            "who": "Spouse mannequin",
+            "where": "standing near the doorway",
+            "facing": "watching in concern"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1960s white button-down shirt",
+          "period_detail": "cotton dress shirt with plastic front buttons",
+          "physical_behavior": "right fingers fasten a button while left fingers pull the button back open"
+        },
+        {
+          "name": "wooden bedroom dresser",
+          "period_detail": "mid-century walnut chest",
+          "physical_behavior": "anchors the domestic room"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient W.J.",
+          "verb_sequence": "fastens the middle shirt button with his right hand -> his left hand rises and unbuttons it -> his right hand grabs his left wrist"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Patient W.J.",
+          "reaction": "stares down at his own rebellious left hand in disbelief"
+        }
+      ],
+      "wardrobe": "1960s white cotton dress shirt and dark trousers.",
+      "lighting": "Bright morning bedroom daylight.",
+      "recognition_hook": "After callosotomy, his left hand literally unbuttoned the shirt his right hand was trying to put on.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "'I saw nothing' — yet the left hand grabs the exact hidden object behind the screen",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1962 Caltech laboratory",
+      "layout": {
+        "description": "Testing desk with an opaque cloth curtain hiding tactile objects below a tachistoscope screen.",
+        "positions": [
+          {
+            "who": "Patient W.J.",
+            "where": "seated at the desk reaching his left hand under the cloth curtain",
+            "facing": "facing the fixation dot"
+          },
+          {
+            "who": "Roger Sperry & Gazzaniga mannequins",
+            "where": "standing beside the table",
+            "facing": "watching the hidden tray"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "opaque desk screen and hidden object tray",
+          "period_detail": "wooden frame with grey cloth curtain concealing a spoon, key, pencil, and comb",
+          "physical_behavior": "left hand feels behind the curtain and lifts the spoon flashed on the left screen"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient W.J.",
+          "verb_sequence": "shakes his head saying he saw nothing -> slips his left hand behind the curtain and lifts the exact flashed spoon"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researchers",
+          "reaction": "exchange astonished looks as the silent right brain answers with the left hand"
+        }
+      ],
+      "wardrobe": "1960s dress shirts and lab coats.",
+      "lighting": "Clean high-key lab daylight.",
+      "recognition_hook": "Verbally swearing he saw nothing while his left hand picks up the exact object behind a curtain.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Everyday interpreter: spinning reasons for an impulse decision",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern everyday home desk",
+      "layout": {
+        "description": "Bright modern living room desk with an impulse package delivery.",
+        "positions": [
+          {
+            "who": "Everyday viewer mannequin",
+            "where": "holding an impulse gadget box while talking to a friend",
+            "facing": "gesturing persuasively"
+          },
+          {
+            "who": "Friend mannequin",
+            "where": "listening across the table",
+            "facing": "tilting head skeptically"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "unboxed gadget and checklist pad",
+          "period_detail": "cardboard parcel and notepad listing post-hoc 'reasons'",
+          "physical_behavior": "hand taps the rationalized list"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Everyday viewer mannequin",
+          "verb_sequence": "opens the impulse box -> immediately gestures through a confident three-point justification"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Friend mannequin",
+          "reaction": "folds arms recognizing the classic post-hoc excuse"
+        }
+      ],
+      "wardrobe": "Modern casual button-down shirt.",
+      "lighting": "Bright natural daylight.",
+      "recognition_hook": "Even with an intact corpus callosum, your left-brain interpreter still invents instant excuses for gut impulses.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

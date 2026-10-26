@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "slug": "capgras_imposter_delusion",
+  "topic": "William Hirstein & V.S. Ramachandran (1997): Capgras Impostor Delusion & Fusiform-to-Amygdala Autonomic Disconnection",
+  "pillar": "brain_mysteries",
+  "created_at": "2026-10-25T22:49:28+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Explaining why Patient D.S. recognized his mother's voice over the telephone yet called her an impostor face-to-face requires showing intact fusiform face recognition severed from amygdala autonomic familiarity.",
+  "primary_case": {
+    "title": "Patient D.S. skin-conductance and telephone dissociation study in Capgras syndrome",
+    "year": 1997,
+    "place": "Center for Brain and Cognition, University of California, San Diego (La Jolla)",
+    "people": [
+      {
+        "name": "Patient D.S.",
+        "role": "30-year-old man who survived a severe traumatic car crash and coma, then insisted his parents were exact-looking impostors",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "V.S. Ramachandran",
+        "role": "UC San Diego behavioral neurologist who tested D.S.'s galvanic skin conductance and telephone recognition",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "William Hirstein",
+        "role": "Cognitive scientist and co-author of the landmark 1997 Proceedings of the Royal Society B paper",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Hadyn D. Ellis & Andrew W. Young",
+        "role": "Neuropsychologists who first proposed Capgras as the 'mirror image' of prosopagnosia (1990/2000)",
+        "source_id": "SRC7"
+      },
+      {
+        "name": "Max Coltheart",
+        "role": "Cognitive neuropsychiatrist who added the second-factor right-prefrontal belief-evaluation requirement",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Joseph Capgras and Jean Reboul-Lachaux first named 'l'illusion des sosies' (delusion of doubles) in Paris in 1923 before modern neuroimaging existed.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In 1997 at UC San Diego, William Hirstein and V.S. Ramachandran studied 30-year-old Patient D.S., who had lain in a three-week coma after a traumatic head injury in a car crash.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "D.S. had intact general intelligence, normal vision, and intact facial feature matching, yet looked straight at his father and mother and said, 'He looks exactly like my father, but he really isn't.'",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "When Ramachandran attached palmar galvanic skin-conductance electrodes to D.S.'s fingers, healthy controls produced sharp autonomic sweat spikes to photographs of familiar family members compared with strangers.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In D.S., skin-conductance responses to photographs of his own mother and father stayed completely flat — indistinguishable from photographs of total strangers.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Crucially, whenever D.S.'s mother or father telephoned him from another room, he recognized them immediately as his real parents with warm emotion, saying 'Mom, how are you?'",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The telephone dissociation proved the auditory cortex-to-amygdala emotional pathway remained completely intact while the visual fusiform-to-amygdala pathway was severed.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "D.S. even rejected recent photographs of himself as 'another DS,' showing that visual self-familiarity also relies on autonomic limbic tagging.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Hadyn Ellis and colleagues (2000) independently replicated the flat skin-conductance signature in additional Capgras patients, confirming it as the mirror-image double dissociation of prosopagnosia.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Max Coltheart's two-factor model showed that because ventromedial frontal patients also have flat skin conductance without delusions, full Capgras requires a second right-dorsolateral prefrontal deficit in belief evaluation.",
+      "source_id": "SRC3"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Face to face, D.S. swore his father was a clever impostor — yet five minutes later over the telephone, he greeted the exact same man warmly as his real dad.",
+      "why_surprising": "Vision had lost its wire to the emotional alarm, while hearing kept its wire completely intact.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "His fingers produced the exact same flat sweat reading when staring at his own mother's photo as when staring at a random stranger.",
+      "why_surprising": "Without that tiny unconscious limbic jolt, a lifelong loved one feels emotionally identical to a passerby.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Capgras delusion is the exact anatomical mirror image of face blindness (prosopagnosia).",
+      "why_surprising": "Prosopagnosia patients cannot name a face yet still sweat with recognition; Capgras patients name every feature yet feel zero recognition.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "Handed a snapshot of himself from two years earlier, D.S. pointed and said, 'That's another D.S., not me.'",
+      "why_surprising": "Even recognizing yourself in a photo requires an emotional familiarity tag.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Capgras patients have blurry eyesight or cannot remember what their parents look like.",
+      "truth": "Their visual acuity and fusiform face geometry matching are completely sharp — they explicitly note the 'impostor' looks identical.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Capgras syndrome is purely a Freudian psychological rejection of one's parents.",
+      "truth": "Structural traumatic brain injury, stroke, and dementia lesions severing temporal-limbic white matter produce the exact syndrome in neurologically healthy families.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "A cut wire between the face patch and amygdala alone guarantees an impostor delusion in everyone.",
+      "truth": "Two-factor research (Coltheart) shows a second right-frontal belief-checking impairment is needed so the patient accepts the 'impostor' hypothesis instead of dismissing the weird feeling.",
+      "source_id": "SRC3"
+    },
+    {
+      "myth": "The patient thinks voices on the phone are impostors too.",
+      "truth": "Because auditory temporal projections to the amygdala travel a separate intact route, phone calls immediately restore genuine recognition.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Hearing a loved one's voice on the phone in the dark and feeling an instant rush of warmth before they even say their name.",
+    "Staring at a word for 30 seconds ('jamais vu') until a totally familiar spelling suddenly feels eerie and foreign.",
+    "Seeing a wax museum statue that matches a celebrity's measurements 100 percent yet gives your gut zero feeling of a living person.",
+    "Looking in the mirror when exhausted at 3 a.m. and feeling a brief uncanny flash of detachment."
+  ],
+  "linked_projects": [
+    "psych_05_capgras_imposter_delusion"
+  ]
+}

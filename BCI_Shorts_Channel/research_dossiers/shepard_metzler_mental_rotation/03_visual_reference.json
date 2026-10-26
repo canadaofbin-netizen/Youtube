@@ -1,0 +1,212 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Jacqueline Metzler and Roger Shepard timing a participant comparing two 10-cube 3D perspective blocks beside the ruler-straight 0-to-180° graph",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1971, Stanford University cognitive psychology laboratory, California",
+      "layout": {
+        "description": "Sunlit 1971 Stanford laboratory featuring a tachistoscopic viewing hood and white display screen showing a crisp black-line pair of asymmetric 10-cube 3D perspective arms rotated 120 degrees apart, flanked by Same/Different response levers and a large plotted linear graph.",
+        "positions": [
+          {
+            "who": "Participant mannequin (in 1971 knit sweater)",
+            "where": "seated at the viewing console with hands poised on left/right response levers, tilting head subtly by a few degrees while mentally rotating the right-hand 10-cube block",
+            "facing": "facing the twin 10-cube display"
+          },
+          {
+            "who": "Jacqueline Metzler & Roger Shepard (mannequins in 1971 blazer and collared shirt)",
+            "where": "standing beside the digital millisecond counter and plotted Science graph showing the razor-straight 1s-to-4.5s line",
+            "facing": "observing the timer and graph"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "physical white 10-cube wooden reference models",
+          "period_detail": "two real L-and-elbow sculptures glued from ten white wooden cubes (one congruent pair, one chiral mirror twin) resting on the bench",
+          "physical_behavior": "let viewers immediately see how 3D rotation differs from a mirror twin"
+        },
+        {
+          "name": "twin-circle stimulus display screen",
+          "period_detail": "two crisp white circles framing isometric 10-cube line drawings rotated 120 degrees in depth",
+          "physical_behavior": "requires exactly ~3.0 seconds before the 'Same' lever clicks"
+        },
+        {
+          "name": "linear 0°-to-180° reaction-time chart",
+          "period_detail": "clean black-on-white graph plotting 20° steps in a straight diagonal line (~60° per second)",
+          "physical_behavior": "proves 3D depth and 2D flat curves match"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Display shutter",
+          "verb_sequence": "reveals two 10-cube shapes rotated 120° in depth -> Participant's head tilts slightly across 3.0 seconds -> right hand pulls the 'Same' lever cleanly"
+        },
+        {
+          "who": "Jacqueline Metzler",
+          "verb_sequence": "plots the 3.0-second data point squarely onto the straight 120° diagonal line"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Roger Shepard",
+          "reaction": "picks up the two white wooden 10-cube models and turns one smoothly by 120° to match the screen"
+        },
+        {
+          "who": "Participant mannequin",
+          "reaction": "relaxes after locking the 3D shapes into alignment"
+        }
+      ],
+      "wardrobe": "1971 Stanford academic wear: Metzler in tailored wool blazer and blouse; Shepard in Oxford shirt and tweed jacket; participant in ribbed knit sweater.",
+      "lighting": "Clean high-key California laboratory daylight illuminating the white 10-cube sculptures and graph.",
+      "recognition_hook": "Every extra sixty degrees between two ten-cube shapes adds one exact second on the stopwatch — proving your mind physically rotates objects through every angle in between.",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1971 Stanford lab desk with white 10-cube 3D block models, a twin-circle perspective display, response levers, and a straight diagonal 0-to-180 degree reaction-time graph",
+        "must_show": [
+          "cubes|blocks",
+          "graph|chart",
+          "screen|levers"
+        ],
+        "source": "M1@00:10-00:19; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Congruent twin vs impossible chiral mirror-image block",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1971, Stanford laboratory tabletop",
+      "layout": {
+        "description": "Close high-key tabletop view of three white wooden 10-cube sculptures: Standard, Rotated Twin, and Mirror Enantiomorph.",
+        "positions": [
+          {
+            "who": "Roger Shepard",
+            "where": "rotating the congruent twin smoothly into alignment, then trying the mirror twin which points the opposite way",
+            "facing": "hands over tabletop"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "three 10-cube white wooden sculptures",
+          "period_detail": "crisp geometric block assemblies",
+          "physical_behavior": "demonstrate why mirror twins can never superimpose"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Roger Shepard",
+          "verb_sequence": "aligns the first pair cleanly -> rotates the mirror twin 180° showing the final elbow juts the wrong way"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Jacqueline Metzler",
+          "reaction": "notes just 3.2 percent error across 1,600 trials"
+        }
+      ],
+      "wardrobe": "1971 blazer and shirt sleeves.",
+      "lighting": "Crisp studio tabletop light.",
+      "recognition_hook": "Like a left and right glove, chiral 10-cube mirror twins never align no matter how far you spin them.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Hand-turning interference proving premotor involvement",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2002, cognitive neuroscience lab",
+      "layout": {
+        "description": "Clean test station where a participant turns a smooth wooden dial counterclockwise with one hand while trying to mentally rotate a block clockwise on screen.",
+        "positions": [
+          {
+            "who": "Subject mannequin",
+            "where": "turning a tabletop dial opposite the screen block's shortest path, causing a visible brief pause",
+            "facing": "facing screen"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "rotary wooden hand dial",
+          "period_detail": "smooth tabletop knob",
+          "physical_behavior": "demonstrates motor-imagery overlap in premotor cortex"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Subject mannequin",
+          "verb_sequence": "turns dial counterclockwise while rotating image clockwise -> millisecond counter ticks slower"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researcher mannequin",
+          "reaction": "highlights premotor + parietal co-activation"
+        }
+      ],
+      "wardrobe": "Modern lab attire.",
+      "lighting": "Bright lab daylight.",
+      "recognition_hook": "Turning your physical hand the opposite way slows down your 'mind's eye' because both share premotor circuits.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Architect rotating a physical white foam model in hand to free working memory",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern design studio",
+      "layout": {
+        "description": "Sunlit studio table where an architect picks up a white 3D foam stair-core model and rotates it in two seconds instead of staring blankly at flat plans.",
+        "positions": [
+          {
+            "who": "Architect mannequin",
+            "where": "turning a crisp white foam architectural model smoothly in both hands",
+            "facing": "examining alignment"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "white 3D architectural massing model",
+          "period_detail": "clean foam block model",
+          "physical_behavior": "solves a tricky stairwell clearance instantly"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Architect mannequin",
+          "verb_sequence": "lifts physical model -> turns 120° in hand -> marks the exact fit on the drawing"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Colleague mannequin",
+          "reaction": "nods immediately seeing the 3D clearance"
+        }
+      ],
+      "wardrobe": "Modern studio overshirt.",
+      "lighting": "Bright studio skylight.",
+      "recognition_hook": "Turning a quick physical sketch or model in your hands frees your parietal workspace for bigger decisions.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

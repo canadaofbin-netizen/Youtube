@@ -1,0 +1,29 @@
+{
+  "visual_mode": "HYBRID",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "primary visual cortex",
+      "plain": "simultaneous ink & letter intake",
+      "function": "feeding both the blue ink wavelength and the letters R-E-D forward at the exact same instant",
+      "scene_id": "S1",
+      "narration_bridge": "Sets up the two-stream race from the 100-item card."
+    },
+    {
+      "role": "pivot",
+      "region": "anterior cingulate cortex",
+      "plain": "response-conflict alarm",
+      "function": "spiking fiercely when the automatic word answer ('Red!') collides head-on with the instructed ink answer ('Blue!')",
+      "scene_id": "S1",
+      "narration_bridge": "Explains why Stroop became the #1 fMRI probe of dorsal ACC conflict monitoring."
+    },
+    {
+      "role": "step1",
+      "region": "dorsolateral prefrontal cortex",
+      "plain": "top-down inhibitory brake",
+      "function": "suppressing the overlearned reading highway so Broca's speech motor output can say 'Blue' after a 74% time penalty",
+      "scene_id": "S1",
+      "narration_bridge": "Completes the executive control loop."
+    }
+  ]
+}

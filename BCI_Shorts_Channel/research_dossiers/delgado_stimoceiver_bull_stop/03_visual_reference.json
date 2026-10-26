@@ -1,0 +1,212 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1964/1965 Córdoba Sunlit Arena: José Delgado Clicking a Handheld Radio Transmitter as an Articulated Porcelain Bull Sculpture Skids & Turns Sideways",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1965, La Alamiriya Ranch arena, Córdoba, Spain",
+      "layout": {
+        "description": "Sunlit circular Spanish sand arena framed by whitewashed stone walls under bright Andalusian daylight: at center stands José Delgado holding a compact brushed-aluminum handheld FM radio transmitter box with whip antenna, while three yards in front of him a life-scale **articulated matte-white porcelain bull sculpture** skids in a clean arc of golden sand, turning its head and shoulders sharply sideways off the charge line.",
+        "positions": [
+          {
+            "who": "José Delgado (mannequin in 1965 open-collar white shirt, dark trousers, and espadrilles)",
+            "where": "standing calm and upright in the sunlit sand pressing the toggle button on his handheld radio transmitter box",
+            "facing": "center of sunlit ring"
+          },
+          {
+            "who": "Articulated matte-white porcelain bull sculpture",
+            "where": "front hooves planted in a braking skid, head and torso pivoting smoothly 90 degrees sideways away from Delgado in response to the unilateral caudate motor-turn signal",
+            "facing": "three yards ahead on the sand arc"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1965 brushed-aluminum handheld FM radio transmitter with whip antenna",
+          "period_detail": "wireless remote switch replacing tangled 1950s laboratory cables",
+          "physical_behavior": "Delgado's signature Córdoba apparatus"
+        },
+        {
+          "name": "life-scale articulated matte-white porcelain bull sculpture with tiny crown stimoceiver cap",
+          "period_detail": "stages the charging-halt-and-turn trajectory cleanly under R46 porcelain animal aesthetics",
+          "physical_behavior": "shows the physical sideways turn clearly"
+        },
+        {
+          "name": "chalked sand trajectory arc ('Forward Charge -> Caudate Motor Turn')",
+          "period_detail": "curved sand skid marks revealing a forced lateral motor veer rather than sleepy docility",
+          "physical_behavior": "plants the visual clue to the scientific twist"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Porcelain bull sculpture",
+          "verb_sequence": "barrels forward along the straight sand line -> Delgado clicks the handheld radio transmitter button -> bull's front hooves brake and its head/shoulders pivot briskly sideways off course"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "José Delgado",
+          "reaction": "lowers the radio transmitter calmly as observers along the wooden barrier gasp"
+        },
+        {
+          "who": "Observer mannequins behind barrier",
+          "reaction": "photograph the moment that landed on Page 1 of The New York Times"
+        }
+      ],
+      "wardrobe": "1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailored trousers.",
+      "lighting": "Crisp high-key Andalusian sunlight over pale golden sand and whitewashed walls.",
+      "recognition_hook": "No sword, no tether wires — one click on a handheld radio box makes a charging bull skid and veer sideways three yards from his chest.",
+      "sources": [
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a sunlit Spanish sand ring where a researcher in a white shirt presses a handheld radio transmitter with an antenna as an articulated matte-white porcelain bull sculpture brakes and turns sideways",
+        "must_show": [
+          "bull",
+          "radio|transmitter|antenna",
+          "arena|sand|ring"
+        ],
+        "source": "M1@00:26-00:40; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Page 1 Hype vs Caudate Motor-Turn Reality (Valenstein & Horgan)",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1973 / 2005, Neurobiology seminar desk",
+      "layout": {
+        "description": "Bright oak seminar table comparing the 1965 front-page headline placard beside a basal-ganglia caudate diagram and 16mm film frame analyzer.",
+        "positions": [
+          {
+            "who": "Neuroscientist mannequin",
+            "where": "pointing to the unilateral caudate electrode site and curved turning path on the frame-by-frame diagram",
+            "facing": "at oak table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Headline ('Tamed Aggression?') vs Caudate Motor-Steering Diagram",
+          "period_detail": "separates 1965 newspaper mythology from basal-ganglia motor physiology",
+          "physical_behavior": "Valenstein 1973 & Horgan 2005 critique"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Neuroscientist",
+          "verb_sequence": "overlays the curved lateral turning arrow onto the caudate motor circuit"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Students",
+          "reaction": "realize steering a muscle turn is NOT erasing anger"
+        }
+      ],
+      "wardrobe": "Academic tweed blazer and shirt.",
+      "lighting": "Clean seminar daylight.",
+      "recognition_hook": "The newspaper saw 'magical mind control' — frame-by-frame neuroanatomy saw a forced left turn in the caudate nucleus!",
+      "sources": [
+        "SRC3",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Modern Deep Brain Stimulation: Putting the Button in the Patient's Hand",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern movement-disorders neurology clinic",
+      "layout": {
+        "description": "Warm sunlit clinic table where an older Parkinson's patient holds their own sleek white patient programmer beside a full clear glass of water.",
+        "positions": [
+          {
+            "who": "Parkinson's Patient mannequin",
+            "where": "tapping 'ON' on their own personal DBS controller — hand steadying instantly to lift the water glass without spilling a drop!",
+            "facing": "at clinic table"
+          },
+          {
+            "who": "Neurologist mannequin",
+            "where": "smiling beside them with informed-consent care plan",
+            "facing": "across table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "patient-held DBS remote & steady water glass",
+          "period_detail": "ethical triumph of wireless basal-ganglia stimulation under patient agency",
+          "physical_behavior": "250,000+ patients helped worldwide"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient",
+          "verb_sequence": "taps personal DBS remote -> tremor ceases -> lifts water glass smoothly to lips"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Patient & Neurologist",
+          "reaction": "shared relief and restored independence"
+        }
+      ],
+      "wardrobe": "Modern cardigan and white physician coat.",
+      "lighting": "Warm encouraging daylight.",
+      "recognition_hook": "Sixty years after Córdoba, basal-ganglia pulses steady 250,000 trembling hands — with the remote control strictly in the patient's own palm.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Applying the Córdoba Skeptic's Filter to Modern Neurotech Hype",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern neuroethics media desk",
+      "layout": {
+        "description": "Sunlit studio desk with a crisp 3-question checklist next to a wireless BCI headset.",
+        "positions": [
+          {
+            "who": "Science communicator mannequin",
+            "where": "checking '1. Which exact brain region? 2. Motor/sensory signal or thought? 3. Who holds consent?'",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "3-Point Córdoba Neurotech Filter card",
+          "period_detail": "protects viewers against sensationalized 'mind-reading/control' clickbait",
+          "physical_behavior": "practical takeaway"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Communicator",
+          "verb_sequence": "checks off anatomical target and patient consent guardrails"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Communicator",
+          "reaction": "clear-eyed optimism without hype"
+        }
+      ],
+      "wardrobe": "Modern smart-casual shirt.",
+      "lighting": "Bright studio light.",
+      "recognition_hook": "Whenever a viral headline shouts 'Brain Chip Controls Minds!', ask the Córdoba question: did it change a thought, or steer a motor loop?",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

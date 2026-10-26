@@ -1,0 +1,100 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "One syllable ('Tan'), 21 counted fingers, and a 146-year-old MRI twist: how Paul Broca and Louis Victor Leborgne founded modern brain mapping.",
+    "core_experiment": "Broca (1861/1865): Patient Leborgne ('Tan') & Lelong left inferior frontal localization + left-hemisphere dominance.",
+    "twist": "Dronkers et al. (2007 Brain) high-resolution MRI of Tan's preserved 1861 brain revealing deep Superior Longitudinal Fasciculus tract involvement."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Bicêtre 1861: The Sharp Mind Behind 'Tan, Tan'",
+      "beats": [
+        "Holistic cortex dogma after phrenology's fall",
+        "Counting 21 years on fingers & reading Broca's pocket watch",
+        "April 18, 1861: the left third frontal convolution"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "pocket watch, 21-finger count & frontal cast"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "'We Speak With the Left Hemisphere!' (1865)",
+      "beats": [
+        "Lazare Lelong's 5 words confirm the exact spot",
+        "8 Left vs 0 Right cases shatter brain-symmetry dogma"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "8-to-0 hemisphere ledger"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "146 Years in a Jar to 2007 High-Resolution MRI.",
+      "beats": [
+        "Why small surface Broca strokes puzzled 20th-century doctors",
+        "Nina Dronkers scans Tan's actual 1861 brain: deep SLF white-matter highway."
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "2007 MRI slices of Tan's brain"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Thought Without Speech vs Speech Without Thought",
+      "beats": [
+        "Expressive aphasia dignity at the bedside",
+        "Setting the stage for Wernicke's 1874 mirror-twin"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "comprehension vs production chart"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Singing Words Across the Right Hemisphere",
+      "beats": [
+        "Melodic Intonation Therapy detour",
+        "Speaking with normal respect and patience"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "two-note melodic therapy tap"
+      ]
+    }
+  ]
+}

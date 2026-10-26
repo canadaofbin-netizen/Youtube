@@ -1,0 +1,218 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Formerly paid Rochester student pushing aside wooden Soma puzzle cubes for a magazine during the 8-minute one-way mirror break",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1971, University of Rochester psychology observation room, New York",
+      "layout": {
+        "description": "Sunlit 1971 university lab room with a wooden table holding seven carved wooden Piet Hein 'Soma' polycube pieces, isometric target shape cards, three glossy 1971 magazines (Time, New Yorker), an empty 'Session 3 — No Voucher Today' notice card, and a one-way mirror.",
+        "positions": [
+          {
+            "who": "Formerly Paid Student (mannequin in 1971 flannel shirt and jeans)",
+            "where": "leaning back during the solitary 8-minute break, pushing the wooden Soma puzzle blocks aside and flipping open a magazine instead",
+            "facing": "turned away from the puzzle blocks"
+          },
+          {
+            "who": "Edward Deci (mannequin in 1971 blazer and tie)",
+            "where": "standing behind the one-way observation glass holding a stopwatch logging free-choice seconds",
+            "facing": "watching the table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "seven wooden Soma polycube blocks",
+          "period_detail": "smooth maple 3D L-and-corner puzzle pieces capable of forming cubes and animals",
+          "physical_behavior": "played eagerly by unpaid controls (241s), pushed aside by formerly paid subjects (198s)"
+        },
+        {
+          "name": "printed payment-ended voucher envelope",
+          "period_detail": "manila Session-2 payout envelope marked 'Grant Exhausted — Unpaid Session 3'",
+          "physical_behavior": "triggers the shift from playful curiosity to 'unpaid work'"
+        },
+        {
+          "name": "stack of 1971 waiting-room magazines",
+          "period_detail": "glossy magazines placed deliberately as a free-time alternative",
+          "physical_behavior": "chosen immediately once external pay stops"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Edward Deci",
+          "verb_sequence": "excuses himself out the door leaving the student alone for 8 minutes -> starts stopwatch behind one-way glass"
+        },
+        {
+          "who": "Formerly Paid Student",
+          "verb_sequence": "nudges the wooden Soma cubes away the instant nobody is paying -> picks up a magazine and slouches back"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Edward Deci",
+          "reaction": "compares the falling 198-second bar against the rising 241-second unpaid-control bar"
+        },
+        {
+          "who": "Formerly Paid Student",
+          "reaction": "treats a formerly fun 3D puzzle as off-the-clock labor"
+        }
+      ],
+      "wardrobe": "1971 collegiate wear: plaid flannel overshirt, crew tee, denim trousers; researcher in early-1970s wool sport coat and wide tie.",
+      "lighting": "Clean high-key New York laboratory daylight.",
+      "recognition_hook": "Left alone for eight minutes behind a one-way mirror, students who were never paid keep building 3D Soma puzzles for fun — while students paid yesterday drop them like unpaid chores.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1971 college student alone at a wooden table pushing aside carved wooden 3D Soma puzzle blocks to read a magazine while a researcher times behind a one-way mirror",
+        "must_show": [
+          "blocks|cubes|puzzle",
+          "magazine",
+          "mirror|window|table"
+        ],
+        "source": "M1@00:02-00:10; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Unpaid control student eagerly building a Soma castle during the break",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1971, University of Rochester lab",
+      "layout": {
+        "description": "Same table and magazines, where an unpaid control student ignores the magazines and snaps wooden Soma blocks into a new 3D figure.",
+        "positions": [
+          {
+            "who": "Unpaid Control Student",
+            "where": "leaning in absorbedly fitting the seventh wooden Soma piece onto a 3D cube",
+            "facing": "facing puzzle"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "completed wooden Soma cube",
+          "period_detail": "seven interlocking maple pieces",
+          "physical_behavior": "assembled purely for the joy of mastery"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Unpaid Control Student",
+          "verb_sequence": "finishes one 3D shape -> immediately draws the next card for fun during the break"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Unpaid Control Student",
+          "reaction": "nods with quiet intrinsic satisfaction"
+        }
+      ],
+      "wardrobe": "1971 sweater and chinos.",
+      "lighting": "Bright room daylight.",
+      "recognition_hook": "Never paid a cent, control students actually played MORE with the puzzles by Session 3.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Experiment 3: Sincere competence feedback boosts free-choice play",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1971, University of Rochester lab",
+      "layout": {
+        "description": "Same Soma table as Deci points warmly to the student's fast completion time on the scorecard.",
+        "positions": [
+          {
+            "who": "Edward Deci",
+            "where": "pointing to the fast solve time on his clipboard with an encouraging nod",
+            "facing": "facing student"
+          },
+          {
+            "who": "Praised Student",
+            "where": "reaching eagerly for another Soma card the moment Deci steps out",
+            "facing": "facing blocks"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "solve-time competence chart",
+          "period_detail": "clipboard noting 'faster than average'",
+          "physical_behavior": "feeds competence without controlling autonomy"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Edward Deci",
+          "verb_sequence": "shares specific mastery feedback -> steps out -> Student dives straight back into the Soma blocks"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Edward Deci",
+          "reaction": "logs free-choice play surging upward"
+        }
+      ],
+      "wardrobe": "1971 sport coat and collegiate cardigan.",
+      "lighting": "High-key daylight.",
+      "recognition_hook": "Sincere mastery feedback lifted intrinsic curiosity where piece-rate vouchers crushed it.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Parent reading side-by-side instead of a per-page sticker bribe",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern living room",
+      "layout": {
+        "description": "Sunlit cozy living room sofa where parent and child read captivating adventure books side-by-side without any chore-chart tally.",
+        "positions": [
+          {
+            "who": "Child & Parent mannequins",
+            "where": "curled on sofa turning novel pages absorbedly",
+            "facing": "facing books"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "illustrated adventure books",
+          "period_detail": "open paperbacks",
+          "physical_behavior": "keep reading anchored in curiosity and relatedness"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Child mannequin",
+          "verb_sequence": "finishes chapter -> eagerly flips to the next page on their own"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Parent mannequin",
+          "reaction": "listens warmly as the child shares a plot twist"
+        }
+      ],
+      "wardrobe": "Casual modern home knitwear.",
+      "lighting": "Warm morning window light.",
+      "recognition_hook": "Autonomy, mastery, and shared curiosity outlast any sticker chart.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "archive_film",
+      "title": "Skinner Shaping Pigeon Turn Clip",
+      "url": "https://www.youtube.com/watch?v=xt-ycTMISwg",
+      "channel": "XXPorcelinaX",
+      "source_id": "SRC_M1",
+      "duration_sec": 57,
+      "timecodes": [
+        {
+          "t": "00:08-00:21",
+          "what": "At kf_004.jpg (16.5s) (4:3 camera frame), XXPorcelinaX's recording states \"Suppose I shape up the behavior of making a complete turn. What I do is simply as I did then, to wait for some part of that behavior.\" — providing spoken context for pigeon spinning counterclockwise before the 15-second grain hopper."
+        },
+        {
+          "t": "00:24-00:40",
+          "what": "Mid-segment 4:3 camera frame at kf_007.jpg (33.0s) as narration explains \"All you can see is the effect is instantaneous. I'm waiting for it to turn counterclockwise now, and then I reinforce that movement,\", clarifying key empirical findings in B. F. Skinner's fixed-time non-contingent hopper delivery experiment ('Superstition in the Pigeon')."
+        },
+        {
+          "t": "00:41-00:45",
+          "what": "Around kf_009.jpg (44.0s) (4:3 camera frame), commentary states \"and then I reinforce that movement, and I wait for a more pronounced...\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_skinner_operant_superstition/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_skinner_operant_superstition",
+        "contact_sheet": "media/M1_skinner_operant_superstition/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1_skinner_operant_superstition/contact_sheet.jpg (archival footage (480x360, 0/12 monochrome frames across 0.0s–60.5s)) from XXPorcelinaX's \"Skinner Shaping Pigeon Turn Clip\" (57s total runtime).",
+          "Deduplicated English transcript (8 timestamped cues in media/M1_skinner_operant_superstition/transcript.txt) aligned directly to keyframe timestamps (0.0s–60.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "archive_film",
+      "title": "BF Skinner Foundation - Pigeon & Red Block",
+      "url": "https://www.youtube.com/watch?v=ymkT_C_NWXw",
+      "channel": "bfskinnerfoundation",
+      "source_id": "SRC_M2",
+      "duration_sec": 62,
+      "timecodes": [
+        {
+          "t": "00:07-00:15",
+          "what": "Non-vocal 4:3 camera frame at kf_003.jpg (10.0s) in bfskinnerfoundation's \"BF Skinner Foundation - Pigeon & Red Block\", visually recording timing and visual layout relevant to pigeon spinning counterclockwise before the 15-second grain hopper."
+        },
+        {
+          "t": "00:27-00:35",
+          "what": "Visual-only 4:3 camera frame at kf_007.jpg (30.0s) in \"BF Skinner Foundation - Pigeon & Red Block\", capturing movement progression and frame composition without spoken English commentary."
+        },
+        {
+          "t": "00:47-00:55",
+          "what": "Subsequent 4:3 camera frame at kf_011.jpg (50.0s) in \"BF Skinner Foundation - Pigeon & Red Block\", documenting closing visual sequence for reference analysis."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (archival footage (480x360, 0/12 monochrome frames across 0.0s–55.0s)) from bfskinnerfoundation's \"BF Skinner Foundation - Pigeon & Red Block\" (62s total runtime).",
+          "Non-vocal archival/demonstration clip (media/M2/transcript.txt); visual timing and staging inspected directly across 12 keyframes (0.0s–55.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Skinner box photo 02.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Skinner_box_photo_02.jpg",
+      "channel": "Wikimedia Commons (Bd008)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Skinner box photo 02.jpg\" (499x455 px, CC BY-SA 3.0): Skinner box for rat. Documents authentic physical instrument geometry and period materials relevant to B. F. Skinner's fixed-time non-contingent hopper delivery experiment ('Superstition in the Pigeon')."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 3.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (499x455 px, CC BY-SA 3.0, Bd008) — apparatus reference: Skinner box for rat.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

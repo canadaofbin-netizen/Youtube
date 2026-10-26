@@ -1,0 +1,221 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Healthy graduate pseudopatient writing calmly in a spiral notebook in the hospital dayroom while a nurse charts 'engages in writing behavior'",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1972-1973, American psychiatric ward dayroom & glass nurses' station",
+      "layout": {
+        "description": "Brightly lit early-1970s hospital dayroom separated by a wide clear glass partition from the central nurses' charting station; wooden dayroom chairs, a wall clock near 11:55 a.m. outside the dining door, and metal medical chart binders.",
+        "positions": [
+          {
+            "who": "Pseudopatient Bill Underwood (mannequin in ordinary sweater and jeans)",
+            "where": "seated calmly in a dayroom chair writing neat field observations openly in a spiral notebook",
+            "facing": "facing the glass nurses' station"
+          },
+          {
+            "who": "Ward Nurse (mannequin in crisp 1972 white nursing uniform behind glass)",
+            "where": "glancing once at the notebook and writing 'Patient engages in writing behavior' into an aluminum chart binder",
+            "facing": "at the glass station counter"
+          },
+          {
+            "who": "Fellow Ward Patient (mannequin in cardigan)",
+            "where": "leaning over toward the pseudopatient pointing knowingly at the spiral notebook",
+            "facing": "recognizing him as a researcher"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "open spiral field notebook",
+          "period_detail": "ordinary college-ruled notebook filled with calm timestamped notes",
+          "physical_behavior": "reinterpreted on the official chart as pathological 'writing behavior'"
+        },
+        {
+          "name": "aluminum medical chart stamped 'IN REMISSION'",
+          "period_detail": "1970s metal clipboard showing intake words 'empty, hollow, thud' and discharge stamp 'Schizophrenia in Remission'",
+          "physical_behavior": "demonstrates sticky diagnostic anchoring"
+        },
+        {
+          "name": "glass-enclosed central nurses' station",
+          "period_detail": "bright partition separating quick 6-minute daily staff contact from dayroom life",
+          "physical_behavior": "illustrates distance between chart label and person"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Pseudopatient",
+          "verb_sequence": "writes calm timestamped notes openly in his spiral notebook -> Fellow ward patient leans in and gestures 'you're a professor checking up!'"
+        },
+        {
+          "who": "Ward Nurse behind glass",
+          "verb_sequence": "glances through the window -> writes 'engages in writing behavior' onto the aluminum chart"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Pseudopatient",
+          "reaction": "looks in quiet disbelief at how plain note-taking gets filtered through the intake label"
+        },
+        {
+          "who": "Ward Nurse",
+          "reaction": "snaps the aluminum chart shut without asking a single question"
+        }
+      ],
+      "wardrobe": "Early-1970s casual sweater and denim on pseudopatient; crisp white 1972 clinical coat/uniform on staff.",
+      "lighting": "Clean high-key 1970s institutional daylight — bright, clear documentary framing.",
+      "recognition_hook": "Jotting calm field notes in a spiral notebook in full view, a healthy graduate student gets charted behind glass as 'engaging in pathological writing behavior.'",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a calm 1970s graduate student writing in a spiral notebook in a bright hospital dayroom while a nurse behind a glass station writes into an aluminum medical chart",
+        "must_show": [
+          "notebook",
+          "chart|clipboard",
+          "glass|station|window"
+        ],
+        "source": "M1@00:08-00:15; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Study 2 reverse challenge: 41 false 'impostor' flags when zero were sent",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1973, teaching hospital intake desk",
+      "layout": {
+        "description": "Bright hospital admissions desk with a tally sheet labeled 'Suspected Rosenhan Impostor Rating (1-10)' beside a telephone.",
+        "positions": [
+          {
+            "who": "Attending Clinician mannequin",
+            "where": "circling 'High Confidence Fake' on 41 intake forms",
+            "facing": "at admissions desk"
+          },
+          {
+            "who": "David Rosenhan mannequin (split/adjacent Stanford office)",
+            "where": "holding up an empty 'Sent: 0' folder",
+            "facing": "at Stanford desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "41 flagged intake forms vs '0 Sent' folder",
+          "period_detail": "stark visual contrast",
+          "physical_behavior": "proves expectancy swings judgment both ways"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Attending Clinician",
+          "verb_sequence": "flags 41 incoming forms -> Rosenhan reveals zero pseudopatients were ever dispatched"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Attending Clinician",
+          "reaction": "stares stunned at the empty dispatch count"
+        }
+      ],
+      "wardrobe": "1973 white clinical coat and tweed jacket.",
+      "lighting": "High-key office light.",
+      "recognition_hook": "Warned that impostors were coming, staff flagged 41 patients as fakes — when Rosenhan sent zero.",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "1980 DSM-III operational criteria & 2019 archival sleuthing",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2019, archival desk with 1973 folder & DSM-III volume",
+      "layout": {
+        "description": "Sunlit research desk holding Bill Underwood's verified 9-day discharge papers, Harry Lando's omitted folder, and the structured 1980 DSM-III manual.",
+        "positions": [
+          {
+            "who": "Investigative Researcher mannequin",
+            "where": "comparing verified pseudopatient folders beside omitted records",
+            "facing": "at sunlit archive table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "verified vs omitted archival folders & DSM-III",
+          "period_detail": "clean side-by-side documentary evidence",
+          "physical_behavior": "shows how science self-corrects both psychiatry and famous papers"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Investigative Researcher mannequin",
+          "verb_sequence": "places the verified 'writing behavior' chart next to the omitted ninth folder"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Investigative Researcher mannequin",
+          "reaction": "documents both diagnostic stickiness AND the need for raw data transparency"
+        }
+      ],
+      "wardrobe": "Modern blazer.",
+      "lighting": "Bright archive daylight.",
+      "recognition_hook": "Archival sleuthing confirmed 'writing behavior' really happened — while catching Rosenhan omitting inconvenient files.",
+      "sources": [
+        "SRC1"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Blinding prior reputation labels during a modern work review",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern office desk",
+      "layout": {
+        "description": "Clean sunlit desk where a manager reviews anonymized work samples BEFORE opening last year's feedback file.",
+        "positions": [
+          {
+            "who": "Manager mannequin",
+            "where": "scoring anonymous work deliverables first while past-label folders sit closed to the side",
+            "facing": "at oak desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "anonymized work packet",
+          "period_detail": "top cover hides prior labels",
+          "physical_behavior": "prevents 'writing behavior' confirmation bias"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Manager mannequin",
+          "verb_sequence": "scores current performance objectively -> only then opens the background file"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Manager mannequin",
+          "reaction": "spots strong improvement a sticky old label would have hidden"
+        }
+      ],
+      "wardrobe": "Modern smart-casual blazer.",
+      "lighting": "Bright office window light.",
+      "recognition_hook": "Read today's actual behavior BEFORE opening yesterday's sticky label.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

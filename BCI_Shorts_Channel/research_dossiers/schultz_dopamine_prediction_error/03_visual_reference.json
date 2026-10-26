@@ -1,0 +1,203 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1997 Fribourg / Science Landmark: The 3-Row Dopamine Raster Plot — +Burst at Surprise, 0 Flat at Expected Juice, −Dip When Withheld!",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1997, Institute of Physiology, University of Fribourg, Switzerland",
+      "layout": {
+        "description": "Sunlit high-key 1997 neurophysiology gallery featuring an **articulated matte-white porcelain macaque sculpture** seated calmly before a **Conditioned Cue Lamp & Sweet Fruit-Juice Dropper**, paired with the monumental **3-Row Schultz-Dayan-Montague Raster Plot Display**: **Row 1 (No Cue + Juice = +Burst!)** | **Row 2 (Cue -> Expected Juice = Burst at Cue, 0 FLAT at Juice!)** | **Row 3 (Cue -> No Juice = Sharp −DIP Below Baseline!)** alongside the equation **`δ = Actual − Expected`**.",
+        "positions": [
+          {
+            "who": "Wolfram Schultz (mannequin in 1997 crisp white laboratory coat over shirt and tie)",
+            "where": "standing beside the illuminated 3-Row Dopamine Raster Display pointing to Row 2's completely flat trace at the moment expected juice arrives",
+            "facing": "beside 3-row raster plot board"
+          },
+          {
+            "who": "Peter Dayan & Read Montague mannequins (in 1997 computational academic blazers holding Temporal-Difference RL notebooks)",
+            "where": "matching the live VTA neuron spikes directly onto Sutton & Barto's reinforcement-learning equation beside the articulated matte-white porcelain macaque model!",
+            "facing": "beside conditioning apparatus and equation board"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "articulated matte-white porcelain macaque sculpture at Cue Lamp + Juice Dropper panel",
+          "period_detail": "stages the classic Fribourg behavioral conditioning setup cleanly per R46 porcelain-animal rule",
+          "physical_behavior": "honors the exact 1997 experimental paradigm"
+        },
+        {
+          "name": "3-Row Dopamine Raster Plot Board ('+Surprise | 0 Expected | −Withheld' + 'δ = Actual − Expected')",
+          "period_detail": "the single most famous figure in modern computational neuroscience",
+          "physical_behavior": "anchors Science 1997 instantly"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Apparatus & Porcelain Macaque model",
+          "verb_sequence": "Row 1: surprise juice drop triggers a sharp VTA +Burst -> Row 2: Cue Lamp flashes (+Burst at lamp!) followed 1.5s later by expected juice (**VTA stays dead flat at 0!**) -> Row 3: Cue Lamp flashes, juice is withheld, and VTA firing **plunges below baseline** right on the 1.5s mark!"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Dayan & Montague mannequins",
+          "reaction": "light up seeing biological neurons run exact Temporal-Difference AI math"
+        },
+        {
+          "who": "Wolfram Schultz",
+          "reaction": "confirms: 'Dopamine isn't pleasure — it is pure surprise math!'"
+        }
+      ],
+      "wardrobe": "1997 European & computational academic attire: crisp white lab coat and dark tie; tweed blazers and button-down shirts.",
+      "lighting": "Clean high-key Swiss laboratory daylight.",
+      "recognition_hook": "Give unexpected apple juice and dopamine explodes — ring a reliable bell first so the juice is 100% expected, and when that delicious juice hits the tongue, dopamine stays dead flat at zero!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a sunlit 1997 neurophysiology gallery with an articulated matte-white porcelain macaque sculpture at a cue-lamp juice panel beside Wolfram Schultz pointing to a 3-row '+Surprise / 0 Expected / -Withheld' dopamine raster plot",
+        "must_show": [
+          "raster|plot|board",
+          "lamp|dropper|panel",
+          "macaque|sculpture|researchers"
+        ],
+        "source": "M1@12:06-12:22; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Why Smartphone Feeds & Slot Machines Never Go Flat: Variable Rewards!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern behavioral & digital design lab",
+      "layout": {
+        "description": "Sunlit studio contrasting a Predictable Scheduled Paycheck (`1 − 1 = 0` flat dopamine) against an Unpredictable Pull-to-Refresh Feed (`Actual ≠ Expected` -> endless `+δ` and `-δ` swings!).",
+        "positions": [
+          {
+            "who": "User & Neuroscientist mannequins",
+            "where": "seeing why unpredictable notifications hijack VTA `Wanting` even when zero real `Liking` remains",
+            "facing": "beside 3D brain VTA-to-accumbens pathway"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Predictable (0 Error) vs Variable-Ratio Slot Machine (+/− Swings) Card",
+          "period_detail": "explains 1 AM doomscrolling via Schultz's equation",
+          "physical_behavior": "everyday digital survival insight"
+        }
+      ],
+      "actions": [
+        {
+          "who": "User",
+          "verb_sequence": "pulls-to-refresh repeatedly chasing an unpredictable +δ hit -> switches red notification badges OFF"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "User",
+          "reaction": "instant relief once the artificial prediction-error loop breaks"
+        }
+      ],
+      "wardrobe": "Modern casual knitwear.",
+      "lighting": "Clean high-key studio light.",
+      "recognition_hook": "Why can you scroll at 1 AM without enjoying a single post? Because unpredictable feeds hijack dopamine 'surprise-wanting' while pleasure sits at zero!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Biology Meets AI: From Midbrain VTA to DeepMind's AlphaGo",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1997–2024, Computational neuroscience & AI studio",
+      "layout": {
+        "description": "Bright seminar room pairing a 3D translucent brain (VTA -> Nucleus Accumbens -> Prefrontal Cortex) with Sutton & Barto's Temporal-Difference RL diagram.",
+        "positions": [
+          {
+            "who": "Neuroscientist & AI Engineer mannequins",
+            "where": "tracing how identical `Actual − Predicted` error signals train both striatal synapses and championship AI networks",
+            "facing": "at dual brain-and-AI whiteboard"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Shared TD Equation Board ('Midbrain VTA 1997 Deep RL AI')",
+          "period_detail": "unites neuroscience and computer science",
+          "physical_behavior": "SRC1 & SRC3 legacy"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Researchers",
+          "verb_sequence": "align biological cue-transfer curves with AI value-function learning"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Both",
+          "reaction": "shared awe at nature's 500-million-year head start"
+        }
+      ],
+      "wardrobe": "Modern smart-casual blazers.",
+      "lighting": "Bright daylight.",
+      "recognition_hook": "Every time an AI reinforcement learner updates its weights after a surprise move, it runs the exact equation Wolfram Schultz recorded inside midbrain dopamine cells!",
+      "sources": [
+        "SRC1"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Hacking `Actual − Expected` for Daily Joy & Motivation",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit kitchen / workspace",
+      "layout": {
+        "description": "Warm sunlit table showing two habits: 'Lower Entitled Expectations + Add Unscheduled Micro-Surprises' and 'Savor Present Opioid Liking'.",
+        "positions": [
+          {
+            "who": "Two partner/colleague mannequins",
+            "where": "surprising a partner with an unannounced Tuesday handwritten note (`Expected = 0, Actual = +1` -> bright `+δ`!) and savoring morning coffee slowly",
+            "facing": "at sunlit kitchen table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Unscheduled Tuesday Surprise Note + Mindful Savoring Cup",
+          "period_detail": "applies Schultz (surprise) + Berridge (savoring) in real life",
+          "physical_behavior": "warm actionable close"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Partner",
+          "verb_sequence": "delivers small unscheduled Tuesday kindness -> triggers bigger delight than a predictable obligation"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Both",
+          "reaction": "genuine delight and calm contentment"
+        }
+      ],
+      "wardrobe": "Warm casual sweaters.",
+      "lighting": "Golden morning window light.",
+      "recognition_hook": "Want a real dopamine spark in love or work? An unannounced five-dollar Tuesday surprise beats an expected hundred-dollar obligation every time!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

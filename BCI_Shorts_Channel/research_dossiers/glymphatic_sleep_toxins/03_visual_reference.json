@@ -1,0 +1,229 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Two-photon live imaging at Rochester: sleeping brain channels widen 60% as clear fluid flushes waste",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2013, University of Rochester Center for Translational Neuromedicine imaging suite",
+      "layout": {
+        "description": "High-key modern neurobiology imaging suite with a stainless-steel two-photon laser microscope tower positioned beside a dual-panel scientific monitor comparing narrow waking cortical channels on the left with 60-percent-wider sleeping perivascular channels flushing waste on the right.",
+        "positions": [
+          {
+            "who": "Lead neuroscientist Maiken Nedergaard (mannequin in white lab coat)",
+            "where": "standing beside the dual comparison monitor pointing at the expanded sleeping fluid channels",
+            "facing": "facing the display and co-researcher"
+          },
+          {
+            "who": "First author Lulu Xie (mannequin in white lab coat)",
+            "where": "seated at the two-photon microscope console adjusting the objective dial",
+            "facing": "facing the microscope stage and live EEG delta trace"
+          },
+          {
+            "who": "Postdoctoral researcher (mannequin in scrubs)",
+            "where": "standing camera-left holding the clearance rate chart",
+            "facing": "facing the monitor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "two-photon laser microscope tower",
+          "period_detail": "precision brushed-aluminum upright optical microscope on an air-floated table",
+          "physical_behavior": "objective lens focuses cleanly while EEG monitor transitions from fast waking waves to slow delta waves"
+        },
+        {
+          "name": "dual awake-vs-asleep clearance monitor",
+          "period_detail": "split scientific display showing tight waking tissue vs 60% expanded sleeping corridors clearing tracer twice as fast",
+          "physical_behavior": "sleeping panel sweeps dark waste buildup cleanly out along vessel sleeves"
+        },
+        {
+          "name": "EEG slow-wave strip display",
+          "period_detail": "screen scrolling tall slow delta waves during natural sleep",
+          "physical_behavior": "switches from rapid low-voltage waking lines to tall slow waves"
+        }
+      ],
+      "actions": [
+        {
+          "who": "First author mannequin",
+          "verb_sequence": "watches the EEG trace shift into tall slow-wave sleep -> dials the two-photon depth control"
+        },
+        {
+          "who": "Lead neuroscientist",
+          "verb_sequence": "traces the 60-percent wider perivascular fluid corridor across the sleeping monitor panel"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Both researchers",
+          "reaction": "lean closer to the screen in astonishment as sleeping clearance runs at double the waking speed"
+        }
+      ],
+      "wardrobe": "Crisp white University of Rochester laboratory coats over collared shirts and dark trousers.",
+      "lighting": "Clean high-key clinical daylight across the optical table and dual monitors.",
+      "recognition_hook": "The moment slow-wave sleep begins on the EEG, microscopic spaces between brain cells widen by 60 percent and clear fluid washes waste away at double speed.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "researchers at the two-photon microscope watch the monitor show brain fluid channels widen sixty percent during slow-wave sleep",
+        "must_show": [
+          "microscope",
+          "monitor|screen",
+          "channels|fluid"
+        ],
+        "source": "M1@01:09-01:18; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Sleepless night desk vs closed daytime drainage",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2013-present everyday late-night office",
+      "layout": {
+        "description": "Brightly lit 3 a.m. study desk cluttered with empty coffee mugs and a laptop screen.",
+        "positions": [
+          {
+            "who": "Exhausted worker mannequin",
+            "where": "slumped at the desk rubbing temples beside an alarm clock reading 3:15",
+            "facing": "facing the laptop"
+          },
+          {
+            "who": "Coworker mannequin (morning comparison)",
+            "where": "arriving refreshed in daylight",
+            "facing": "passing the desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "desk clock reading 3:15 and three empty mugs",
+          "period_detail": "ceramic coffee mugs beside a glowing laptop",
+          "physical_behavior": "hand pushes a third mug aside while rubbing forehead"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Exhausted worker",
+          "verb_sequence": "stares at the 3:15 clock -> presses both palms against his forehead"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Exhausted worker",
+          "reaction": "slumps forward as skipped slow-wave sleep leaves daytime fog"
+        }
+      ],
+      "wardrobe": "Rumpled button-down shirt with rolled sleeves.",
+      "lighting": "High-key interior office light.",
+      "recognition_hook": "One all-nighter measurably raises amyloid buildup in human memory hubs by morning.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Norepinephrine drop unlocks astrocytic aquaporin-4 channels",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2013 Rochester laboratory bench",
+      "layout": {
+        "description": "Laboratory bench with a large 3D matte-white architectural cross-section model of a cerebral vessel wrapped by star-shaped astrocytic endfeet.",
+        "positions": [
+          {
+            "who": "Researcher mannequin",
+            "where": "demonstrating the hinged vessel-sleeve model on the bench",
+            "facing": "facing camera"
+          },
+          {
+            "who": "Colleague mannequin",
+            "where": "recording clearance curve data",
+            "facing": "facing the bench"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "hinged 3D perivascular sleeve model",
+          "period_detail": "matte-white physical teaching model showing astrocytic endfeet around an artery",
+          "physical_behavior": "outer ring opens wider by 60 percent to reveal clear flow channels"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Researcher",
+          "verb_sequence": "slides the physical model lever from 'Awake' to 'Slow-Wave Sleep', widening the channel gap"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Colleague",
+          "reaction": "nods as the two-fold clearance bar chart aligns with the model"
+        }
+      ],
+      "wardrobe": "White lab coats.",
+      "lighting": "Bright studio gallery daylight.",
+      "recognition_hook": "Star-shaped glial cells form water-lined sleeves around arterial vessels to pump rinse fluid through the cortex.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Protecting the early-night slow-wave wash cycle",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern bedroom routine",
+      "layout": {
+        "description": "Calm sunlit-morning bedroom where a sleeper wakes refreshed beside a face-down phone left across the room.",
+        "positions": [
+          {
+            "who": "Sleeper mannequin",
+            "where": "sitting up energized in crisp white bedding as morning sunlight enters",
+            "facing": "stretching arms upward"
+          },
+          {
+            "who": "Partner mannequin",
+            "where": "opening the window blinds",
+            "facing": "facing the window"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "bedside analog clock and docked phone across the room",
+          "period_detail": "phone charging far from the bed while clock shows 7:00 after eight uninterrupted hours",
+          "physical_behavior": "blinds lift to flood the room with morning light"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Sleeper mannequin",
+          "verb_sequence": "sits up smoothly -> swings feet onto the floor with clear posture"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Sleeper mannequin",
+          "reaction": "stands tall and alert after a full night's biological wash cycle"
+        }
+      ],
+      "wardrobe": "Clean cotton sleepwear.",
+      "lighting": "Bright morning daylight.",
+      "recognition_hook": "Consistent deep sleep is your brain's active nightly maintenance shift, not wasted time.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "slug": "hubel_wiesel_visual_orientation",
+  "topic": "Hubel & Wiesel (1959): How a Jammed Glass Slide Accidentally Cracked the Visual Cortex's Edge Code",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:35+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "David Hubel and Torsten Wiesel's legendary 1958/1959 Johns Hopkins serendipity — failing for hours to excite a primary visual cortex (V1) neuron with round spots of light until the faint shadow edge of a jammed glass slide swept across the screen and unleashed a machine-gun crackle of spikes — is the Nobel-winning foundation of hierarchical vision and modern deep convolutional neural networks.",
+  "primary_case": {
+    "title": "David H. Hubel & Torsten N. Wiesel's 1958–1959 Johns Hopkins Jammed-Slide Discovery of V1 Orientation Columns",
+    "year": 1959,
+    "place": "Wilmer Institute, Johns Hopkins Hospital, Baltimore (and Harvard Medical School)",
+    "people": [
+      {
+        "name": "David H. Hubel & Torsten N. Wiesel",
+        "role": "Canadian and Swedish young postdocs in Stephen Kuffler's Johns Hopkins lab whose 25-year partnership cracked V1 simple/complex orientation columns, ocular dominance, and critical-period amblyopia — winning the 1981 Nobel Prize.",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Stephen W. Kuffler",
+        "role": "Johns Hopkins mentor who had mapped circular center-surround spots in retinal ganglion cells — leading Hubel & Wiesel to expect V1 cortex would respond to spots too.",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Kunihiko Fukushima & Yann LeCun",
+        "role": "Computer scientists who built the Neocognitron (1980) and Convolutional Neural Networks (CNNs) directly out of Hubel & Wiesel's 'Simple Cell to Complex Cell' hierarchy.",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In **1958** in a cramped basement room at Johns Hopkins's Wilmer Institute, two young postdocs — **David Hubel** and **Torsten Wiesel** — lowered a tungsten microelectrode (invented by Hubel) beside a single neuron in **primary visual cortex (V1)** wired to an audio loudspeaker that clicked *'pop-pop'* whenever the cell fired.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Because their mentor Stephen Kuffler had just proved **retinal cells love tiny round spots of light** (center-surround doughnuts), Hubel & Wiesel spent **hours** shining bright spots, dark spots, and full-room flashes onto the screen — and the stubborn V1 cortical neuron stayed **stone-cold silent**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Around hour five of that marathon session, as they slid a **3×1-inch glass slide** carrying a black-dot stencil into their brass ophthalmoscope projector, the glass **jammed slightly at an angle** — casting the **faint, razor-straight shadow edge of the glass slide itself** diagonally across the screen.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Instantly the loudspeaker **erupted like a machine gun (*BRRRRRRPPP!*)**. Stunned, they slid the glass back and forth: it wasn't the dot at all — that V1 neuron cared **ZERO about dots or diffuse brightness** and fired furiously ONLY for a **straight bar/edge tilted at ONE specific clock angle** (say, 11 o'clock to 5 o'clock), falling completely silent if rotated 30 degrees.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Publishing their landmark **1959 *Journal of Physiology* paper** (followed by 1962 & 1968 primate maps), Hubel & Wiesel revealed V1's breathtaking **hierarchical assembly line**: (1) **Simple Cells** align rows of circular LGN/retinal dot detectors into a bar/edge detector at one exact position and angle; (2) **Complex Cells** pool Simple Cells so an oriented edge triggers firing anywhere across the receptive field (especially sweeping in one direction!).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Lower the microelectrode straight down perpendicular to the cortical surface, and every single neuron from top to bottom prefers the **exact same bar tilt** (**Orientation Columns**); angle the electrode sideways millimetre by millimetre, and preferred tilt rotates smoothly round the clock like pinwheels alongside alternating Left-Eye / Right-Eye **Ocular Dominance Columns**.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "In 1963 (SRC3), Hubel & Wiesel discovered **Critical Periods**: if an infant eye is clouded by congenital cataract during early postnatal weeks while the brain wires ocular-dominance columns, the open eye permanently takes over V1 real estate — directly persuading pediatric ophthalmologists worldwide to fix infant cataracts and strabismus **in infancy instead of waiting until school age**, saving millions of children's sight.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "And in computer science, Kunihiko Fukushima (1980) and **Yann LeCun** explicitly modeled **Convolutional Neural Networks (CNNs)** — convolution filters = Simple Cells, spatial pooling = Complex Cells — directly on Hubel & Wiesel's 1959/1962 papers, powering virtually all modern computer vision and AI.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Hubel and Wiesel's (1959) cat striate recordings, an orientation-selective V1 simple cell fired near 0 spikes to diffuse full-field floodlight or a 90° orthogonal bar, yet discharged briskly when the slit tilted to its preferred 45° axis.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Five hours of shining bright round spots at a visual-cortex neuron produced dead silence — until the **faint shadow of a stuck glass slide** swept diagonally across the screen and blew the lab loudspeaker's doors off.",
+      "why_surprising": "One jammed piece of glass unlocked how the brain sees the world.",
+      "source_id": "SRC4",
+      "rank": 1
+    },
+    {
+      "fact": "Shine a blinding floodlight across the ENTIRE wall and a V1 Simple Cell barely yawns (plus-regions and minus-regions cancel right out to zero!) — draw ONE thin bar tilted at 45° and it fires 100 spikes a second.",
+      "why_surprising": "Your visual cortex ignores flat light; it is a ruthless **edge-and-angle detector**.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Open Layer 1 of **AlexNet, ResNet, or any modern AI image model** and stare at the filters it learns: rows of **oriented Gabor bars and edges** — the exact 1959 Simple Cells Hubel & Wiesel heard on their Johns Hopkins loudspeaker.",
+      "why_surprising": "Every modern AI vision model stands on Hubel & Wiesel's 1959 discovery.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "Before Hubel & Wiesel's 1963 critical-period discovery (SRC3), surgeons routinely waited until age 6 or 7 to remove congenital cataracts — and wondered why kids stayed blind in that eye. Early infant surgery saved binocular vision for millions of children worldwide.",
+      "why_surprising": "Basic single-neuron curiosity curing childhood blindness.",
+      "source_id": "SRC3",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Your primary visual cortex works like a camera sensor recording brightness pixel by pixel.",
+      "truth": "Flooding V1 with uniform bright light produces almost zero response — V1 throws away uniform areas and extracts oriented **contrast edges, bars, and motion directions**.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Childhood 'lazy eye' (amblyopia) is a muscle problem in the eyeball that can be fixed easily at any age.",
+      "truth": "Hubel & Wiesel proved amblyopia is **cortical competition inside V1 ocular-dominance columns** during early critical periods — which is why early childhood patching/surgery is crucial (though modern plasticity therapies now coax partial adult gains too).",
+      "source_id": "SRC3"
+    },
+    {
+      "myth": "Great breakthroughs follow neat pre-planned grant timelines without lucky accidents.",
+      "truth": "As Louis Pasteur said, chance favors the prepared mind: Hubel & Wiesel kept one stubborn cell alive for nine straight hours until they noticed what the jammed glass edge just did.",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Realizing why simple 5-stroke black-and-white line caricatures look 100% lifelike to your brain — line drawings feed V1's exact native edge language.",
+    "Seeing Layer-1 edge filters in modern AI computer-vision courses and meeting their 1959 biological parents.",
+    "Knowing someone who wore an eye-patch as a young kid to save vision in a 'lazy eye' — direct medicine from Hubel & Wiesel."
+  ],
+  "linked_projects": [
+    "psych_72_hubel_wiesel_visual_orientation"
+  ]
+}

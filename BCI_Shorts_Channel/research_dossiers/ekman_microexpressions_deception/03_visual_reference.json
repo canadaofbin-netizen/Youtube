@@ -1,0 +1,212 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Paul Ekman and Wallace Friesen advancing a 16mm Steenbeck film viewer one frame at a time to catch a 2-frame brow flash",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1969, Langley Porter Neuropsychiatric Institute film lab, UC San Francisco",
+      "layout": {
+        "description": "Sunlit 1969 UCSF film-analysis room featuring a flatbed 16mm Steenbeck editing console with glowing ground-glass viewing screen, numbered frame counter ('Frame 14 -> Frame 15'), anatomical Action Unit charts pinned on the wall, and clipboards.",
+        "positions": [
+          {
+            "who": "Paul Ekman (mannequin in 1969 tweed blazer and open shirt)",
+            "where": "turning the hand-crank frame advance knob one click at a time while pointing a grease pencil at Frame 14 on the bright viewer screen",
+            "facing": "facing the Steenbeck screen"
+          },
+          {
+            "who": "Wallace Friesen (mannequin in 1969 cardigan and glasses)",
+            "where": "holding a FACS muscle-anatomy chart beside the screen logging Action Units AU1+4 before AU12 snaps on at Frame 17",
+            "facing": "leaning beside the console"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "16mm flatbed Steenbeck film viewer",
+          "period_detail": "brushed-aluminum editing table displaying crisp sequential portrait frames on its frosted screen",
+          "physical_behavior": "freezes the 83-millisecond brow flash invisible at 24 fps"
+        },
+        {
+          "name": "three-frame contact strip ('Frame 13 Neutral / Frame 14-15 Distress / Frame 17 Polite Smile')",
+          "period_detail": "enlarged black-and-white photographic strip resting on the desk",
+          "physical_behavior": "makes the two-frame leak unmistakable"
+        },
+        {
+          "name": "anatomical Facial Action Coding chart",
+          "period_detail": "clean medical line drawing mapping numbered forehead and cheek muscles (AU1, AU4, AU6, AU12)",
+          "physical_behavior": "anchors objective muscle coding"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Paul Ekman",
+          "verb_sequence": "plays the 16mm interview at full speed showing an unbroken polite smile -> rewinds -> clicks the hand wheel two single frames forward exposing the hidden distress brow"
+        },
+        {
+          "who": "Wallace Friesen",
+          "verb_sequence": "matches the brow angle to Action Units 1+4 on the anatomical chart"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Paul Ekman",
+          "reaction": "circles 'Frame 14-15 (0.08 sec)' on the strip in astonishment"
+        },
+        {
+          "who": "Wallace Friesen",
+          "reaction": "writes 'Concealed Distress — Check Context (Avoid Othello's Error)' in the margin"
+        }
+      ],
+      "wardrobe": "1969 San Francisco academic wear: Ekman in tweed jacket over collared shirt; Friesen in wool button cardigan and tie.",
+      "lighting": "High-key daylight laboratory room balancing crisp bright Steenbeck viewer glass.",
+      "recognition_hook": "Invisible at full 24-frames-per-second speed, stepping the 16mm film two frames forward exposes an 83-millisecond flash of anguish before the polite smile locks shut.",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "two 1969 psychologists at a 16mm flatbed film-editing console pointing at a frozen two-frame facial expression strip beside an anatomical muscle Action Unit chart",
+        "must_show": [
+          "screen|viewer|film",
+          "chart|strip|frames",
+          "console|table"
+        ],
+        "source": "M1@00:08-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Eight years mapping 44 Facial Action Units in a mirror",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1976, UCSF facial anatomy lab",
+      "layout": {
+        "description": "Bright studio desk with an angled mirror, anatomical skull-muscle drawings, and numbered AU reference cards.",
+        "positions": [
+          {
+            "who": "Ekman & Friesen",
+            "where": "isolating single brow and cheek contractions in a desk mirror to verify Action Unit independence",
+            "facing": "facing mirror"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "44 Action Unit reference binder",
+          "period_detail": "illustrated muscle atlas",
+          "physical_behavior": "replaces vague adjectives with exact muscle mechanics"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Wallace Friesen",
+          "verb_sequence": "isolates AU6 cheek-raiser + AU12 lip-puller vs AU12 alone"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Paul Ekman",
+          "reaction": "photographs the crisp anatomical distinction"
+        }
+      ],
+      "wardrobe": "1970s collared shirts.",
+      "lighting": "High-key studio light.",
+      "recognition_hook": "Cataloging 44 exact muscle units turned fuzzy 'intuition' into repeatable science — and later Pixar animation.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Othello's Error: Innocent anxiety vs guilty anxiety look identical",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern interview room",
+      "layout": {
+        "description": "Split comparison of two identical interview tables where an honest nervous witness and a deceptive witness show the exact same tense brow.",
+        "positions": [
+          {
+            "who": "Interviewer mannequin",
+            "where": "pausing judgment and checking verifiable timeline documents instead of guessing from nerves",
+            "facing": "at table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "objective timeline verification folder",
+          "period_detail": "hard factual evidence vs 54% demeanor guessing",
+          "physical_behavior": "prevents false accusations"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Interviewer mannequin",
+          "verb_sequence": "sets aside gut hunches -> asks calm open-ended timeline questions"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Honest nervous witness mannequin",
+          "reaction": "relaxes once treated fairly"
+        }
+      ],
+      "wardrobe": "Modern professional blazers.",
+      "lighting": "Bright interview daylight.",
+      "recognition_hook": "Fear on an innocent face looks identical to fear on a guilty face — never confuse emotion with a lie.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Using a fleeting expression as an empathy cue, not a gotcha",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern coffee chat",
+      "layout": {
+        "description": "Sunlit office lounge where one colleague notices a brief flash of concern when deadlines come up and gently asks 'Do we need more runway?'",
+        "positions": [
+          {
+            "who": "Two Colleague mannequins",
+            "where": "seated across a small round table in open supportive conversation",
+            "facing": "facing each other"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "project calendar pad",
+          "period_detail": "adjusted collaboratively on the table",
+          "physical_behavior": "solves the hidden worry constructively"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Colleague A",
+          "verb_sequence": "spots brief tension behind 'Sure, fine!' -> gently asks 'What part feels tight?' -> Colleague B opens up relieved"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Colleague B",
+          "reaction": "exhales gratefully and points out the bottleneck"
+        }
+      ],
+      "wardrobe": "Modern smart-casual knitwear.",
+      "lighting": "Warm morning window light.",
+      "recognition_hook": "Used with humility, noticing a fleeting flash opens compassionate conversation instead of armchair policing.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

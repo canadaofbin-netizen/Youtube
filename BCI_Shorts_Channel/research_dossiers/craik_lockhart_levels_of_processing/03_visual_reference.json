@@ -1,0 +1,202 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Toronto 1975 Incidental Memory Bench: Three 200-ms Encoding Cards ('CAPS? 17%' | 'RHYME? 48%' | 'MEANING? 82%')",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1972 / 1975, University of Toronto Cognitive Psychology Laboratory",
+      "layout": {
+        "description": "Sunlit high-key 1970s Toronto university psychology room featuring a clean oak testing desk with a 200-ms card display and Yes/No keys alongside **three tiered Stimulus Question Plaques** — **Level 1 Shallow ('Is TABLE in CAPITALS? -> 17% Recall')**, **Level 2 Phonemic ('Does CRATE rhyme with WEIGHT? -> 48% Recall')**, and **Level 3 Deep Semantic ('Does WATCH fit: She placed the ___ on the desk? -> 82% Recall')**.",
+        "positions": [
+          {
+            "who": "Fergus Craik & Robert Lockhart (mannequins in 1972/1975 tweed blazer, turtleneck, and collared shirt)",
+            "where": "sliding the three encoding-depth cards into the viewer with zero mention of a memory test, then unveiling the towering 17% -> 48% -> 82% surprise recall staircase!",
+            "facing": "standing beside oak desk and bar chart"
+          },
+          {
+            "who": "Student Participant mannequin (in 1970s knit cardigan)",
+            "where": "tapping 'YES' briskly to the deep sentence-fit question — then lighting up in surprise ten minutes later as 8 out of 10 deep words pop effortlessly onto their recall sheet!",
+            "facing": "seated at Yes/No response keys"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "three-level Encoding Question Cards (1. Font Case | 2. Rhyme Sound | 3. Sentence Meaning)",
+          "period_detail": "identical 200-ms word flashes differed ONLY by the question asked",
+          "physical_behavior": "Craik & Tulving's classic 1975 manipulation"
+        },
+        {
+          "name": "Surprise Recall Staircase Board ('17% Shallow -> 48% Rhyme -> 82% Deep Semantic')",
+          "period_detail": "visualizes the nearly 5-fold memory jump without any instruction to memorize",
+          "physical_behavior": "crystallizes Levels of Processing in one glance"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Fergus Craik",
+          "verb_sequence": "flashes Level-1 CAPS card, Level-2 RHYME card, and Level-3 MEANING card as Participant taps Yes/No -> hands Participant an unexpected blank recall sheet -> Participant recalls almost none of the CAPS words while writing nearly every MEANING word"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Participant mannequin",
+          "reaction": "stares amazed at remembering words they never even tried to memorize!"
+        },
+        {
+          "who": "Craik & Lockhart",
+          "reaction": "point to Experiment 5 proving slow letter-counting still loses to fast meaning"
+        }
+      ],
+      "wardrobe": "Early-1970s Canadian academic attire: tweed jacket over turtleneck; Oxford shirt and wool cardigan.",
+      "lighting": "Bright high-key Toronto window daylight.",
+      "recognition_hook": "Same word, same fifth-of-a-second flash, zero warning of a test — yet asking about MEANING instead of CAPITAL LETTERS quintuples what your brain remembers!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1975 Toronto lab desk with Yes/No keys, three encoding cards (Capitals, Rhyme, Sentence Meaning), and a steep 17%-48%-82% surprise recall bar staircase",
+        "must_show": [
+          "cards",
+          "chart|staircase|bars",
+          "desk|keys"
+        ],
+        "source": "M1@15:23-15:34; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Experiment 5: Slow Letter-Counting Still Loses to Fast Meaning!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1975, University of Toronto lab (Craik & Tulving)",
+      "layout": {
+        "description": "Clean desk comparing a slow 1.7-second 'C-V-C-C-V Pattern?' card (~25% recall) against a fast 0.8-second 'Sentence Meaning?' card (~80% recall).",
+        "positions": [
+          {
+            "who": "Endel Tulving mannequin",
+            "where": "pointing to the stopwatch + recall inversion that crushed the 'just more time spent!' excuse",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1.7s Shallow Pattern vs 0.8s Deep Meaning comparison plaque",
+          "period_detail": "proves conceptual elaboration — NOT raw clock seconds — drives retention",
+          "physical_behavior": "Craik & Tulving 1975 Exp. 5"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Tulving",
+          "verb_sequence": "contrasts long letter-checking seconds (low memory) against brief meaning judgment (high memory)"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Students",
+          "reaction": "see why staring longer at notes fails"
+        }
+      ],
+      "wardrobe": "1975 blazer and tie.",
+      "lighting": "Clean daylight.",
+      "recognition_hook": "Spend TWICE as many seconds counting vowels and consonants and you STILL forget — half a second of real meaning wins hands down!",
+      "sources": [
+        "SRC4",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "1998 Subsequent-Memory fMRI: Predicting Recall Before the Test!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1998, Stanford / MGH neuroimaging suite (Wagner & Gabrieli)",
+      "layout": {
+        "description": "High-key fMRI console displaying single-word brain bursts in left inferior prefrontal + parahippocampal cortex labeled 'Predicted: REMEMBERED!'.",
+        "positions": [
+          {
+            "who": "Neuroscientist mannequin",
+            "where": "sorting single-trial BOLD surges during word viewing to forecast exact hits vs misses",
+            "facing": "at console"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Trial-by-Trial Subsequent Memory fMRI screen",
+          "period_detail": "turns Craik & Lockhart's 1972 cognitive depth into visible prefrontal-hippocampal spikes",
+          "physical_behavior": "Wagner et al. 1998 Science"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Neuroscientist",
+          "verb_sequence": "flags high left-PFC trials -> Volunteer recalls those exact words an hour later"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Volunteer",
+          "reaction": "amazed their recall was predicted before the quiz started"
+        }
+      ],
+      "wardrobe": "1998 sweater and white coat.",
+      "lighting": "Clean high-key light.",
+      "recognition_hook": "Watch left prefrontal cortex light up for one second as you read a word, and fMRI can predict before the quiz whether you'll remember it tomorrow!",
+      "sources": [
+        "SRC6"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Trading Yellow Highlighters for Three 'Why?' Questions",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit library desk",
+      "layout": {
+        "description": "Tidy oak study desk where a student sets down a passive highlighter and writes one 'How does this connect to...' margin question.",
+        "positions": [
+          {
+            "who": "Student mannequin",
+            "where": "closing a heavily highlighted page (shallow) to write a 1-sentence personal analogy (deep)",
+            "facing": "at library desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Why/Analogy margin note vs passive highlighter",
+          "period_detail": "converts Type I re-reading into Type II semantic elaboration",
+          "physical_behavior": "number-one study upgrade"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Student",
+          "verb_sequence": "caps highlighter -> writes one concrete 'Why?' connection in 20 seconds"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Student",
+          "reaction": "recalls the concept effortlessly on exam day"
+        }
+      ],
+      "wardrobe": "Modern smart-casual hoodie/shirt.",
+      "lighting": "Warm library window light.",
+      "recognition_hook": "Memory is the residue of thought — trade five passive re-reads for one genuine 'Why does this happen?' question.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

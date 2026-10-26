@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "slug": "inner_speech_decoding",
+  "topic": "Francis Willett, Jaimie Henderson & Shenoy Lab (2023): Intracortical Speech Neuroprosthesis Decoding 62 Words Per Minute",
+  "pillar": "bci_tech",
+  "created_at": "2026-10-25T22:49:27+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "The entire breakthrough rests on recording single-neuron spike trains from two intracortical microelectrode arrays on ventral premotor speech cortex and decoding 39 English phonemes after ALS severed descending motor tracts.",
+  "primary_case": {
+    "title": "BrainGate2 intracortical speech neuroprosthesis trial in participant T12 (Pat Bennett)",
+    "year": 2023,
+    "place": "Stanford University Neural Prosthetics Translational Laboratory, Stanford, California, USA",
+    "people": [
+      {
+        "name": "Pat Bennett (Participant T12)",
+        "role": "68-year-old former HR executive living with bulbar-onset ALS for 11 years who could no longer speak intelligibly",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Francis R. Willett",
+        "role": "Stanford neuroscientist and co-first author who built the RNN phoneme decoder",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Jaimie M. Henderson",
+        "role": "Stanford neurosurgeon who implanted the four microelectrode arrays",
+        "source_id": "SRC4"
+      },
+      {
+        "name": "Krishna V. Shenoy",
+        "role": "Late Stanford neural engineering pioneer who co-led the BrainGate speech project",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Sean L. Metzger & Edward F. Chang",
+        "role": "UCSF team who published complementary 253-channel ECoG avatar speech decoding at 78 WPM in the same August 2023 issue of Nature",
+        "source_id": "SRC2"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 2023 at Stanford University, Willett, Kunz, Fan, Avansino, Wilson, Choi, Kamdar, Glasser, Hochberg, Druckmann, Shenoy, and Henderson reported participant T12 (Pat Bennett), age 68, who had bulbar-onset ALS for 11 years.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Prior communication BCIs and eye-tracking spellers typically topped out around 15 to 18 words per minute, roughly four times slower than natural 160-WPM conversation.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Surgeons placed two 64-electrode Utah microelectrode arrays (128 electrodes total, each 3.2 by 3.2 mm) onto ventral premotor cortex (area 6v) plus two arrays in Broca's area 44.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Even 11 years after progressive paralysis froze her vocal muscles, attempting to speak evoked sharp, somatotopically organized spikes for lips, tongue, jaw, and larynx in ventral speech motor cortex.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Surprisingly, the arrays placed in classical Broca's area (area 44) carried almost zero usable articulatory phoneme information compared with ventral premotor cortex 6v.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "A recurrent neural network converted 80-millisecond neural firing bins from the 128 ventral motor electrodes into probabilities across 39 English phonemes plus a silence token.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Combined with an n-gram language model, Pat Bennett's attempted speech streamed onto a monitor at an average of 62 words per minute — 3.4 times faster than the prior 18-WPM handwriting BCI record.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "On a 50-word clinical phrase set, word error rate fell to 9.1 percent; on an open 125,000-word English vocabulary, word error rate was 23.8 percent.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In the companion August 2023 Nature paper, Sean Metzger and Edward Chang at UCSF used a 253-channel surface ECoG grid over speech cortex to reach 78 words per minute with a talking digital avatar.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Subsequent UC Davis BrainGate replication (Card et al.) pushed intracortical speech decoding accuracy above 97 percent within minutes of calibration.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Follow-up intracortical speech-neuroprosthesis recordings at UC Davis achieved up to 97.5% word-decoding accuracy within rapid calibration sessions.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "After 11 years of progressive ALS paralysis, Pat Bennett's ventral motor cortex still kept a crisp neural map of every lip, tongue, and jaw movement.",
+      "why_surprising": "Years of silence did not erase the motor code of her voice inside the cortex.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Her attempted speech decoded at 62 words per minute across a 125,000-word vocabulary — more than triple the fastest previous brain-to-text implant.",
+      "why_surprising": "62 WPM crosses the threshold from painfully slow letter-spelling into real human conversation.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Classical Broca's area (area 44) contributed almost zero phoneme signal, whereas tiny 3.2-millimeter arrays on ventral premotor cortex 6v carried the whole voice.",
+      "why_surprising": "It overturned a 160-year textbook assumption about where articulatory speech commands live.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "Two independent labs (Stanford Utah arrays and UCSF ECoG avatar) published back-to-back speech neuroprosthesis breakthroughs in the exact same August 2023 issue of Nature.",
+      "why_surprising": "Dual independent architectures proved high-speed speech decoding is clinically reproducible.",
+      "source_id": "SRC2",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Speech implants read private inner thoughts against a person's will.",
+      "truth": "The decoder reads voluntary motor commands sent to vocal muscles when the user intentionally attempts to speak, not silent unvoiced musings.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Broca's area is the single motor output hub for articulating syllables.",
+      "truth": "Direct human microelectrode recordings in T12 showed ventral premotor cortex (6v), not area 44, encodes articulatory phoneme kinematics.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Years of paralysis cause speech motor cortex neurons to wither into silence.",
+      "truth": "Even 11 years into ALS, neurons in ventral motor cortex fired robust phoneme-tuned spike trains.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Brain-to-text requires spelling one letter at a time on an alphabet grid.",
+      "truth": "Decoding 39 spoken phonemes directly unlocks 62-WPM continuous sentences across 125,000 words.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Trying to type a long heartfelt message with one finger on a tiny TV remote at 12 words per minute when you have a full sentence ready in your mind.",
+    "Mouthing words across a noisy room where your lips and tongue shape every phoneme without making a sound.",
+    "Predictive text on your phone fixing a mistyped letter because the surrounding sentence context makes the intended word clear.",
+    "Losing your voice with laryngitis and feeling how frustrating it is when your mind races at normal speed while your throat cannot keep up."
+  ],
+  "linked_projects": [
+    "psych_02_inner_speech_decoding"
+  ]
+}

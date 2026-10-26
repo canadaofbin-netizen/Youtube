@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Mental rotation",
+      "url": "https://www.youtube.com/watch?v=Hpc976b0-Jk",
+      "channel": "Ben Vincent",
+      "source_id": "SRC_M1",
+      "duration_sec": 277,
+      "timecodes": [
+        {
+          "t": "00:10-00:19",
+          "what": "Around kf_004.jpg (15.0s) (widescreen camera frame), speaker commentary notes \"by shepard and metzler published in 1971 in this paper participants were asked to identify\", anchoring the research context of Jacqueline Metzler and Roger Shepard timing a participant comparing two 10-cube 3D perspective blocks beside the ruler-straight 0-to-180° graph."
+        },
+        {
+          "t": "00:20-00:27",
+          "what": "At kf_006.jpg (25.0s) (widescreen camera frame), audio continues with \"identify whether two objects presented to them were essentially the same object rotated or if they were two\", detailing experimental methodology and behavioral observations for Roger Shepard & Jacqueline Metzler's 1,600-trial 3D block mental rotation experiment."
+        },
+        {
+          "t": "01:05-01:10",
+          "what": "Later widescreen camera frame at kf_014.jpg (65.0s) accompanied by \"3d objects which are actually different shapes shapes so you could argue that this is kind of\", summarizing mechanism and boundary conditions in Roger Shepard & Jacqueline Metzler's 1,600-trial 3D block mental rotation experiment."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (widescreen live-action camera recording (480x270, 14 frames sampled across 0.0s–65.0s)) from Ben Vincent's \"Mental rotation\" (277s total runtime).",
+          "Deduplicated English transcript (41 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "12. The Imagery Debate: The Role of the Brain",
+      "url": "https://www.youtube.com/watch?v=FkhU7i8hRK4",
+      "channel": "MIT OpenCourseWare",
+      "source_id": "SRC_M2",
+      "duration_sec": 3312,
+      "timecodes": [
+        {
+          "t": "19:37-19:50",
+          "what": "Widescreen camera frame at kf_001.jpg (1180.8s) paired with transcript segment \"the way it does here if they were simultaneous or would have pointed at an empty square and the trick was there were three distances this is the...\", introducing core background on Jacqueline Metzler and Roger Shepard timing a participant comparing two 10-cube 3D perspective blocks beside the ruler-straight 0-to-180° graph."
+        },
+        {
+          "t": "19:59-20:13",
+          "what": "Around kf_005.jpg (1206.1s) (widescreen camera frame), transcript records \"even though there's no the task was built so required imagery required scanning no instructions to use imagery no instructions to scan um as a...\", examining procedural mechanics and evidence in Roger Shepard & Jacqueline Metzler's 1,600-trial 3D block mental rotation experiment."
+        },
+        {
+          "t": "20:48-21:04",
+          "what": "At kf_013.jpg (1256.7s) (widescreen camera frame), speaker remarks \"no if so what's the letter Z what Z yes it's a z so the further you rotate the longer it takes this is Roger Shepard did this work in fact it's...\", addressing theoretical interpretation and downstream implications of Roger Shepard & Jacqueline Metzler's 1,600-trial 3D block mental rotation experiment."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (640x360, 14 frames sampled across 1180.8s–1263.0s)) from MIT OpenCourseWare's \"12. The Imagery Debate: The Role of the Brain\" (3312s total runtime).",
+          "Deduplicated English transcript (28 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (1180.8s–1263.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Psychologist Roger Shepard March 2019 ASU SciAPP conference.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Psychologist_Roger_Shepard_March_2019_ASU_SciAPP_conference.jpg",
+      "channel": "Wikimedia Commons (HouseOfChange)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Psychologist Roger Shepard March 2019 ASU SciAPP conference.jpg\" (1322x1565 px, CC BY-SA 4.0): Stanford psychologist Roger Shepard at a show of his art and illusions during ASU's SciAPP conference. Documents authentic researcher likeness, period attire, and historical context for Roger Shepard & Jacqueline Metzler's 1,600-trial 3D block mental rotation experiment."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 4.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (1322x1565 px, CC BY-SA 4.0, HouseOfChange) — portrait reference: Stanford psychologist Roger Shepard at a show of his art and illusions during ASU's SciAPP conference.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

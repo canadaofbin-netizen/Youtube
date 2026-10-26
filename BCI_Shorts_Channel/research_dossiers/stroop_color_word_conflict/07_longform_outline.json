@@ -1,0 +1,102 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Why four simple letters in the wrong ink slow every literate adult by 74% — and what J. Ridley Stroop's forgotten third experiment proved about brain highways.",
+    "core_experiment": "Stroop (1935): +5.6% reading words vs +74.3% naming ink (63.3 s to 110.3 s across 70 subjects), plus anterior cingulate conflict braking.",
+    "twist": "Debunking the 'simple speed race' myth via Stroop's 8-day Reverse-Stroop training and Cohen's pathway-strength model."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Nashville 1935: 100 Words That Jammed 70 Tongues",
+      "beats": [
+        "Experiment 1's tiny +5.6% blip when reading words",
+        "Experiment 2's +74.3% crash (63.3s to 110.3s) when naming ink",
+        "Why the man behind the test walked away from psychology"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "63.3s vs 110.3s twin easel cards"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Why Toddlers Win and Multilinguals Get Caught",
+      "beats": [
+        "Zero Stroop lag before 1st-grade literacy",
+        "Foreign-script fluency betrayed in 200 milliseconds"
+      ],
+      "scene_ids": [
+        "S2",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "preschooler vs professor & multi-script cards"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Highways vs Gravel Roads: The Forgotten Experiment 3",
+      "beats": [
+        "Why 'words are just faster' fails when color flashes first",
+        "8 days of practice & the Day-9 Reverse Stroop surprise",
+        "ACC conflict alarm + dlPFC braking"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "8-day practice curve & ACC-dlPFC brake"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Clinical & Everyday Executive Fatigue",
+      "beats": [
+        "Testing frontal control after concussion or aging",
+        "Why fighting clashing cues drains afternoon focus"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "clinical timing sheet"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Designing a Stroop-Free World",
+      "beats": [
+        "Why 'DELETE' must never be painted bright green",
+        "Aligning environment cues with automatic habits"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "aligned vs clashing UI controls"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "2001 UC San Diego 'Ishihara-in-Reverse': Spotting the Hidden Triangle of '2's Inside a Sea of Black '5's in One Second",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2001, Center for Brain and Cognition, UC San Diego",
+      "layout": {
+        "description": "Sunlit California psychology laboratory featuring a crisp white tabletop tachistoscope / easel card holder displaying a large square grid of block-digital black **5**s with six block-digital black **2**s secretly forming an upright triangle at center, beside a 1.0-second shutter timer and a transparent color-overlay reveal sheet showing how the red '2' triangle leaps out to a synesthete.",
+        "positions": [
+          {
+            "who": "V. S. Ramachandran & Edward Hubbard (mannequins in 2001 collared shirts and blazer)",
+            "where": "flashing the all-black '2s-in-5s' matrix card for 1.0 second and holding the transparent red-on-green teaching overlay beside it for comparison",
+            "facing": "beside easel card holder"
+          },
+          {
+            "who": "Control Subject mannequin",
+            "where": "leaning in squinting item-by-item at the identical black block digits as the 1-second timer expires at 59%",
+            "facing": "left chair"
+          },
+          {
+            "who": "Synesthete Subject 'J.C.' mannequin",
+            "where": "tracing an unmistakable upright triangle in mid-air within half a second with an 81% hit smile!",
+            "facing": "right chair"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "all-black digital '2s hidden in 5s' matrix card",
+          "period_detail": "block-font mirrored 2s and 5s that foil ordinary fast vision",
+          "physical_behavior": "Ramachandran & Hubbard's 2001 un-fakeable test"
+        },
+        {
+          "name": "1.0-second flash timer & 'Control 59% vs Synesthete 81%' bar plaque",
+          "period_detail": "prevents slow memorization tricks from faking performance",
+          "physical_behavior": "separates real sensory pop-out from memory"
+        },
+        {
+          "name": "transparent ruby-red / emerald-green educational reveal sheet",
+          "period_detail": "placed aside to show the viewer why six '2's pop into an instant triangle when V4 fires",
+          "physical_behavior": "makes invisible subjective perception crystal clear"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Ramachandran",
+          "verb_sequence": "reveals the all-black 2s-and-5s card for 1.0 second -> Control Subject squints still hunting row 1 -> Synesthete Subject immediately traces the central triangle with index finger"
+        },
+        {
+          "who": "Edward Hubbard",
+          "verb_sequence": "slides the teaching overlay forward demonstrating how fusiform-V4 color grouping creates instant pop-out"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Control Subject",
+          "reaction": "leans back amazed once the hidden triangle of '2's is pointed out"
+        },
+        {
+          "who": "Synesthete Subject",
+          "reaction": "smiles relieved to have objective scientific proof after years of disbelief"
+        }
+      ],
+      "wardrobe": "2001 California academic attire: tailored dark blazer over open-collar dress shirt; casual button-downs.",
+      "lighting": "Bright high-key La Jolla daylight.",
+      "recognition_hook": "Stare at forty black '5's for one second and miss the hidden shape — unless your brain automatically paints every '2' ruby red!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 2001 UCSD lab table displaying an all-black grid of digital 5s hiding a triangle of 2s beside a 1-second timer as a synesthete traces the hidden triangle immediately while a control subject squints",
+        "must_show": [
+          "grid|matrix|card",
+          "triangle|digits",
+          "timer|easel|table"
+        ],
+        "source": "M1@00:08-00:14; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "10-Year Consistency Check & Fisher-Price Fridge Magnets",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2013, Stanford / Edinburgh synesthesia survey table",
+      "layout": {
+        "description": "Bright table comparing a 1970s colored plastic alphabet-magnet tray ('A=Red, B=Orange, C=Yellow') beside a 10-year color-swatch retest chart (>92% match).",
+        "positions": [
+          {
+            "who": "Researcher & Synesthete mannequins",
+            "where": "matching 100 color swatches identically a decade apart — and spotting the childhood magnet influence in a subset of cohorts",
+            "facing": "at table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "100-swatch consistency chart (>90%) & colorful alphabet tile tray",
+          "period_detail": "shows genetic cross-wiring shaped by early literacy exposure",
+          "physical_behavior": "Simner & Witthoft/Winawer findings"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Synesthete",
+          "verb_sequence": "picks the exact same Pantone shade for 'R' and '7' years later without hesitation"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researcher",
+          "reaction": "notes how genes + childhood learning co-sculpt cortex"
+        }
+      ],
+      "wardrobe": "Modern academic casual wear.",
+      "lighting": "Warm sunlit room.",
+      "recognition_hook": "Ask a faker to re-guess 100 fake letter colors a year later and they drop to 35%; ask a synesthete ten years later and they nail over 90%.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Bouba vs Kiki: Every Human Brain's Shared Mini-Synesthesia",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2001, UCSD public lecture table",
+      "layout": {
+        "description": "Sunlit lectern holding two crisp white cutout plaques — one rounded cloud-amoeba shape and one sharp jagged star shape.",
+        "positions": [
+          {
+            "who": "Ramachandran mannequin",
+            "where": "holding up the rounded plaque and jagged plaque asking 'Which one is Bouba and which is Kiki?'",
+            "facing": "at lectern"
+          },
+          {
+            "who": "Audience mannequins",
+            "where": "pointing unanimously (95%+) to the round cloud for 'Bouba' and jagged star for 'Kiki'",
+            "facing": "in bright seminar row"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "rounded 'Bouba' & jagged 'Kiki' white plaques",
+          "period_detail": "95%+ cross-cultural agreement linking lip/sound contour to visual shape",
+          "physical_behavior": "bridges rare synesthesia to universal human language evolution"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Ramachandran",
+          "verb_sequence": "lifts both shapes -> entire row points identically on the count of three"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Audience",
+          "reaction": "laughs realizing every human cross-maps sound and shape"
+        }
+      ],
+      "wardrobe": "Academic blazer and casual shirts.",
+      "lighting": "Bright lecture-room daylight.",
+      "recognition_hook": "Think you have zero synesthesia? 95% of humans on Earth agree which shape is 'Bouba' and which is 'Kiki' in half a second.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Multi-Sensory Color Coding for Everyday Memory",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern study / music studio",
+      "layout": {
+        "description": "Sunlit studio desk pairing structured color-coded chord/concept blocks with clean visual layout.",
+        "positions": [
+          {
+            "who": "Musician / student mannequin",
+            "where": "grouping complex harmonic or study categories by consistent color + spatial zones",
+            "facing": "at studio desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "color-coded study / musical harmony deck",
+          "period_detail": "borrows synesthetic cross-coding intentionally",
+          "physical_behavior": "everyday learning boost"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Learner",
+          "verb_sequence": "sorts concepts into vivid consistent color-spatial anchors"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Learner",
+          "reaction": "recalls structure effortlessly"
+        }
+      ],
+      "wardrobe": "Modern smart-casual shirt.",
+      "lighting": "Warm daylight.",
+      "recognition_hook": "Giving dry concepts consistent color and shape hooks borrows a page straight from synesthetic cortex.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

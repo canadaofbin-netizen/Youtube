@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "slug": "kahneman_tversky_loss_aversion",
+  "topic": "Daniel Kahneman & Amos Tversky (1979): Prospect Theory, Reference Points & Why Losses Sting Twice as Hard as Gains",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:31+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Flipping two mathematically identical decision cards on a seminar table (sure gain vs sure loss) makes the behavioral reversal crystal clear, paired with amygdala/insula threat-loss asymmetry against striatal gain.",
+  "primary_case": {
+    "title": "Daniel Kahneman & Amos Tversky's 1979 Econometrica Prospect Theory choice experiments",
+    "year": 1979,
+    "place": "Hebrew University of Jerusalem & Stanford / UBC collaborations",
+    "people": [
+      {
+        "name": "Daniel Kahneman",
+        "role": "Psychologist (2002 Nobel Laureate in Economics) who co-mapped reference-dependent choice and the asymmetric S-curve of value",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Amos Tversky",
+        "role": "Mathematical psychologist whose crisp two-option thought problems demolished 240 years of Bernoulli Expected Utility dogma",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Richard H. Thaler",
+        "role": "Behavioral economist who translated Kahneman & Tversky's loss aversion directly into the classic coffee-mug 'Endowment Effect'",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "For 241 years since Daniel Bernoulli (1738), economics assumed rational humans judge choices purely by final total wealth ('Expected Utility Theory') regardless of starting point.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In their 1979 Econometrica landmark (the most cited paper in economics), psychologists Daniel Kahneman and Amos Tversky tested university cohorts on crisp paired choice problems (Problems 3 and 4, N=95).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Problem 3 (Gain Frame): choose between A) an 80 percent chance of winning 4,000 units (expected value 3,200) OR B) a 100 percent SURE gain of 3,000 units — a whopping 80 percent of people played it safe and took the smaller sure 3,000.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Problem 4 (Loss Frame): flip the exact same numbers negative — C) an 80 percent chance of LOSING 4,000 (-3,200 expected) OR D) a 100 percent SURE loss of 3,000 — suddenly 92 percent REJECTED safety and gambled on the worse -3,200 risk just to avoid locking in a sure loss.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Kahneman and Tversky explained this mirror-image flip ('the reflection effect') with three psychological laws: 1) people feel changes relative to a REFERENCE POINT, not absolute wealth; 2) diminishing sensitivity bends gains concave and losses convex; 3) the loss slope drops roughly TWICE as steeply as the gain slope rises ('losses loom larger than gains', ~2.0-2.25x in 1992).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "For simple 50/50 mixed gambles ('heads you win X, tails you lose 100'), most people refuse to play unless the upside X is roughly 200 — double the potential loss.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Richard Thaler tested this with university coffee mugs: students randomly handed a mug demanded roughly twice as much (~$7) to give it up as non-owners offered (~$3.50) to acquire the identical mug ('Endowment Effect').",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Modern meta-analyses (Brown et al. 2024; Yechiam) confirm ~1.8-2.0x average loss aversion while adding an important boundary: tiny pocket-change gambles show near-neutral symmetry, whereas meaningful endowments, sunk-cost traps, and major losses trigger full asymmetric sting.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Prospect Theory's S-shaped value function is kinked sharply at the reference origin (0,0) — also written 00 in coordinate notation — and Thaler's 5-minute coffee-mug endowment trials confirmed ~2x loss aversion within minutes of ownership.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Take the exact same 3,000-vs-4,000 math problem: write a PLUS sign in front and 80 percent of people become cautious savers; write a MINUS sign in front and 92 percent become reckless gamblers.",
+      "why_surprising": "One minus sign flipped human risk appetite upside down.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Two psychologists who never took a single formal university economics course wrote the most cited paper in the history of Econometrica — winning the Nobel Prize in Economics.",
+      "why_surprising": "Testing how real humans choose beat centuries of armchair equations.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Hand half a classroom an ordinary university coffee mug for five minutes, and they instantly value losing 'their' mug twice as high as classmates sitting right next to them value gaining it.",
+      "why_surprising": "Ownership shifts your mental reference point in seconds.",
+      "source_id": "SRC3",
+      "rank": 3
+    },
+    {
+      "fact": "Most people reject a completely fair 50/50 toss unless the potential win is roughly DOUBLE the potential loss.",
+      "why_surprising": "Evolution punished losing scarce winter calories harder than missing a bonus.",
+      "source_id": "SRC2",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Humans are consistently 'risk-averse' across all financial and life decisions.",
+      "truth": "People are risk-averse for GAINS (80% take sure +3,000) yet fiercely risk-SEEKING to avoid sure LOSSES (92% gamble on -4,000) — which is why traders hold plunging stocks too long.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Your happiness depends only on your final bank balance, not where you started this morning.",
+      "truth": "Winning 500 feels thrilling from zero, yet miserable if you started the afternoon up 2,000 — reference points rule emotion.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Every tiny two-unit choice triggers massive 2x loss panic.",
+      "truth": "Modern replications show trivial low-stakes choices behave nearly neutrally, while meaningful possessions, salaries, and sunk investments trigger strong ~2x loss aversion.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Framing '90% survival' vs '10% mortality' only fools people bad at math.",
+      "truth": "Physicians and PhD statisticians showed the exact same framing shift on Tversky & Kahneman's surgery problem.",
+      "source_id": "SRC3"
+    }
+  ],
+  "everyday_hooks": [
+    "Selling winning investments way too early to 'lock in the win' while holding losing investments for years hoping to 'get back to break-even'.",
+    "Keeping an unworn jacket or 'free 30-day trial' subscription because canceling feels like losing something you already own.",
+    "Driving twenty minutes across town to avoid a $5 'surcharge fee' you'd ignore if framed as a '$5 cash discount'.",
+    "Asking yourself before throwing more hours into a failing project: 'If I didn't own this today, would I buy into it fresh right now?'"
+  ],
+  "linked_projects": [
+    "psych_31_kahneman_tversky_loss_aversion"
+  ]
+}

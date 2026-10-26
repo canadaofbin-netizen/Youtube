@@ -1,0 +1,96 @@
+{
+  "target_minutes": 12,
+  "shorts_extract": {
+    "hook": "In early nineteen hundreds St. Petersburg, Ivan Pavlov starts a ticking metronome in front of a harnessed dog with no food in sight, and nine seconds later clear drops of saliva fill a glass tube on its cheek.",
+    "core_experiment": "By playing a neutral ticking sound right before meals, Pavlov proved that the brain wires the hearing center directly to the automatic reflex center that runs salivation—and that playing the sound after food fails even after three hundred seventy-four tries.",
+    "twist": "Even the scientist's own blink or breath set off the dogs, forcing Pavlov to build a soundproof laboratory where the experimenter triggered the sound from behind a wall."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Eleven Drops for a Sound: The Iconic Metronome Test",
+      "beats": [
+        "Cold open in the St. Petersburg laboratory: a dog stands in a leather harness on a wooden stand with a small glass funnel cemented to its cheek.",
+        "A wooden metronome begins to tick with no food bowl in the room; nine seconds later saliva drips into the graduated glass tube, reaching eleven drops in forty-five seconds.",
+        "Why everyone remembers a hand bell, even though Pavlov's own textbook demonstration used a ticking metronome."
+      ],
+      "scene_ids": ["S1", "S2"],
+      "reuse_shorts_roles": ["setup", "symptom"],
+      "new_shots_needed": [
+        "Macro 16:9 shot of Mendeleev cement sealing the glass funnel over the cheek duct.",
+        "Side-by-side comparison of textbook dinner-bell myth versus Pavlov's actual metronome, buzzer, whistle, and tuning-fork shelf."
+      ]
+    },
+    {
+      "n": 2,
+      "title": "The 1904 Nobel Twist: A Digestion Factory, Not a Psychology Lab",
+      "beats": [
+        "Pavlov joins the Imperial Institute of Experimental Medicine in 1891 and runs his Physiology Department like a factory.",
+        "He wins the 1904 Nobel Prize for the physiology of digestion—not for classical conditioning.",
+        "The frustrating anomaly of 'psychic secretion': dogs drooling at the sight of the assistant's footsteps before food touches the tongue."
+      ],
+      "scene_ids": ["S2", "S7"],
+      "reuse_shorts_roles": ["failure"],
+      "new_shots_needed": [
+        "1904 Stockholm Nobel ceremony wide shot (S7).",
+        "Laboratory bench showing chronic digestion collection tubes before the move to conditional reflexes."
+      ]
+    },
+    {
+      "n": 3,
+      "title": "When the Scientist Ruined the Experiment: Building the Soundproof Lab",
+      "beats": [
+        "Sitting in the same room with the dog fails: the dog reads the experimenter's slightest blink, breath, or shift in posture.",
+        "Ordinary building noises—footsteps, carts outside, shadows across the window—trigger false drops.",
+        "With funding from a Moscow businessman, Pavlov builds a special laboratory surrounded by an isolating trench, separating dog and scientist behind soundproof walls with pneumatic and electrical controls."
+      ],
+      "scene_ids": ["S4", "S6"],
+      "reuse_shorts_roles": ["crisis", "step3", "breakthrough"],
+      "new_shots_needed": [
+        "Architectural cross-section of the soundproof building with its outer trench and four isolated rooms per floor."
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Sound Before Food vs Food Before Sound: Krestovnikov's 374 Trials",
+      "beats": [
+        "How pairing works: neutral ticking sound first, food bowl swung under the muzzle immediately after.",
+        "Dr. Krestovnikov's order test: an electric buzzer started before food builds a reflex after a single pairing, but a loud electric bell started five to ten seconds after food fails after 374 pairings.",
+        "Why the brain is a prediction machine, not a simple association sponge (Rescorla 1988)."
+      ],
+      "scene_ids": ["S3", "S5"],
+      "reuse_shorts_roles": ["pivot"],
+      "new_shots_needed": [
+        "Split-screen reenactment of Krestovnikov's backward-pairing failure (374 trials, dry tube) vs forward-pairing success."
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Inside the Skull: How a Sound Switches On a Gland",
+      "beats": [
+        "Pavlov's hypothesis of a 'new nervous connection' in the cerebral hemispheres.",
+        "Signal path inside the brain: sound waves enter the inner ear and light up the auditory cortex (hearing center), which bridges across to the brainstem salivary nuclei (reflex center) that drive the glands.",
+        "How modern neuroscience separates salivary reflex conditioning from amygdala fear conditioning."
+      ],
+      "scene_ids": ["S1", "S3"],
+      "reuse_shorts_roles": ["step1", "step2"],
+      "new_shots_needed": [
+        "16:9 cutaway of brainstem salivary nuclei sending autonomic nerve signals down to the parotid and submaxillary glands."
+      ]
+    },
+    {
+      "n": 6,
+      "title": "From Little Albert to Your Smartphone Ping",
+      "beats": [
+        "How Watson and Rayner (1920) applied conditioning to human fear in the controversial Little Albert study.",
+        "Advertising jingles and consumer choice (Gorn 1982 vs Kellaris & Cox 1989 failed replication).",
+        "Everyday conditioning at your kitchen counter: why your hand reaches for a pinging phone before you decide, and how breaking the pairing extinguishes the pull."
+      ],
+      "scene_ids": ["S8"],
+      "reuse_shorts_roles": ["conclusion"],
+      "new_shots_needed": [
+        "Modern kitchen sequence showing extinction: the phone pings repeatedly without a reward until the automatic reach stops."
+      ]
+    }
+  ]
+}

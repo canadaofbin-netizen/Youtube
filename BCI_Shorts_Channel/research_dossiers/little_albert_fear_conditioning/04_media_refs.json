@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "archive_film",
+      "title": "Little Albert Experiment",
+      "url": "https://www.youtube.com/watch?v=FM-8GmWJgB4",
+      "channel": "Paul Chrustowski",
+      "source_id": "SRC_M1",
+      "duration_sec": 56,
+      "timecodes": [
+        {
+          "t": "00:08-00:16",
+          "what": "Non-vocal high-contrast dark-background stimulus / title frame at kf_003.jpg (11.0s) in Paul Chrustowski's \"Little Albert Experiment\", visually recording timing and visual layout relevant to 1920 Johns Hopkins Nursery Table: Tame White Rat, Wooden Control Blocks & Suspended 4-Foot Steel Bar."
+        },
+        {
+          "t": "00:30-00:38",
+          "what": "Visual-only high-contrast dark-background stimulus / title frame at kf_007.jpg (33.0s) in \"Little Albert Experiment\", capturing movement progression and frame composition without spoken English commentary."
+        },
+        {
+          "t": "00:52-00:56",
+          "what": "Subsequent monochrome film frame at kf_011.jpg (55.0s) in \"Little Albert Experiment\", documenting closing visual sequence for reference analysis."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_little_albert_fear_condition/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_little_albert_fear_condition",
+        "contact_sheet": "media/M1_little_albert_fear_condition/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1_little_albert_fear_condition/contact_sheet.jpg (archival footage (480x360, 7/12 monochrome frames across 0.0s–60.5s)) from Paul Chrustowski's \"Little Albert Experiment\" (56s total runtime).",
+          "Non-vocal archival/demonstration clip (media/M1_little_albert_fear_condition/transcript.txt); visual timing and staging inspected directly across 12 keyframes (0.0s–60.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "4. Foundations: Skinner",
+      "url": "https://www.youtube.com/watch?v=rCKK6r15fro",
+      "channel": "YaleCourses",
+      "source_id": "SRC_M2",
+      "duration_sec": 3527,
+      "timecodes": [
+        {
+          "t": "20:00-20:16",
+          "what": "Around kf_002.jpg (1207.1s) (widescreen camera frame), speaker commentary notes \"John Watson, the famous behaviorist, who reported a bizarre experiment with a baby known as Little Albert. And here's the idea. Little Albert...\", anchoring the research context of 1920 Johns Hopkins Nursery Table: Tame White Rat, Wooden Control Blocks & Suspended 4-Foot Steel Bar."
+        },
+        {
+          "t": "20:19-20:35",
+          "what": "At kf_005.jpg (1226.1s) (widescreen camera frame), audio continues with \"See. He's okay. No problem. Now, Watson did something interesting. As Little Albert was playing with the rat, \"Oh, I like rats, oh,\" Watson went...\", detailing experimental methodology and behavioral observations for John B. Watson & Rosalie Rayner's 1920 Johns Hopkins 'Little Albert' Conditioned Emotional Reactions study."
+        },
+        {
+          "t": "21:16-21:29",
+          "what": "Later widescreen camera frame at kf_014.jpg (1283.0s) accompanied by \"response? Fear. Excellent. Moreover, this fear extended to other things. So, this is a very weird and unpersuasive clip. But the idea is--the clip...\", summarizing mechanism and boundary conditions in John B. Watson & Rosalie Rayner's 1920 Johns Hopkins 'Little Albert' Conditioned Emotional Reactions study."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (640x360, 14 frames sampled across 1200.8s–1283.0s)) from YaleCourses's \"4. Foundations: Skinner\" (3527s total runtime).",
+          "Deduplicated English transcript (19 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (1200.8s–1283.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Little-albert.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Little-albert.jpg",
+      "channel": "Wikimedia Commons (John B Watson)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Little-albert.jpg\" (510x329 px, Public domain): A photograph taken during the so-called Little Albert experiment. Documents authentic physical instrument geometry and period materials relevant to John B. Watson & Rosalie Rayner's 1920 Johns Hopkins 'Little Albert' Conditioned Emotional Reactions study."
+        }
+      ],
+      "license_note": "Archival photo (Public domain) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (510x329 px, Public domain, John B Watson) — apparatus reference: A photograph taken during the so-called Little Albert experiment.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

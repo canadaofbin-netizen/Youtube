@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "slug": "shepard_metzler_mental_rotation",
+  "topic": "Roger Shepard & Jacqueline Metzler (1971): 3D Mental Rotation & the Linear 60-Degrees-Per-Second Mind's Eye",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:30+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Comparing perspective pairs of ten-cube 3D blocks while a reaction-time line climbs linearly at 60 degrees per second maps directly onto parietal spatial transformation + premotor motor simulation.",
+  "primary_case": {
+    "title": "Roger Shepard & Jacqueline Metzler's 1,600-trial 3D block mental rotation experiment",
+    "year": 1971,
+    "place": "Stanford University Department of Psychology, Palo Alto, California",
+    "people": [
+      {
+        "name": "Roger Newland Shepard",
+        "role": "Stanford cognitive scientist who conceived testing whether mental imagery obeys continuous physical rotation angles",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Jacqueline Metzler",
+        "role": "Stanford doctoral researcher who co-designed the 1,600 tachistoscopic block trials and discovered the exact linear angular velocity",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Stephen M. Kosslyn",
+        "role": "Cognitive neuroscientist who championed Shepard & Metzler's analog imagery findings in the famous 'Imagery Debate' against Zenon Pylyshyn",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Published in Science on February 19, 1971, Roger Shepard and Jacqueline Metzler tested eight adult participants across 1,600 trials each (200 trials per session across 8-10 sessions) viewing pairs of asymmetric 3D shapes built from ten connected solid cubes.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "On half the trials, the two 10-cube shapes were identical except rotated relative to each other by 0 to 180 degrees (in 20-degree steps); on the other half, one shape was an enantiomorph (3D mirror-image chiral twin) that could NEVER be rotated into congruence.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Half of the congruent pairs differed by simple 2D picture-plane rotation (like spinning a flat photo on a table), while the other half differed by true 3D depth rotation around a vertical axis.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Subjects pulled a right-hand lever for 'Same' or left-hand lever for 'Different/Mirror' while a millisecond timer measured reaction time with error rates remarkably low at just 3.2 percent.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The result stunned cognitive science: reaction time rose in a razor-straight LINEAR line from ~1.0 second at 0 degrees all the way to ~4.0-4.5 seconds at 180 degrees.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Every extra 60 degrees of physical angle cost almost exactly 1 additional second — meaning the human mind rotated the 3D object through intermediate angles at roughly 60 degrees per second.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Most astonishing of all, rotating a 10-cube figure in full 3D DEPTH ran at virtually the EXACT SAME speed (~60 degrees/sec) as spinning it flat in the 2D picture plane.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Modern fMRI and interference studies (Kosslyn; Yeary 2002) revealed WHY mental rotation obeys physical angular speed: posterior parietal cortex and dorsal premotor hand-area circuits literally simulate turning the object with invisible hands.",
+      "source_id": "SRC4"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Whether two 10-cube shapes differed by 20 degrees, 80 degrees, or 180 degrees, human reaction time climbed in a ruler-straight line at 60 degrees per second — proving your mind actually passes through every middle angle.",
+      "why_surprising": "You cannot 'teleport' a 3D shape from 0° to 180° in your head.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Rotating a complex shape front-to-back in 3D depth was just as fast as spinning it flat like a clock hand in 2D.",
+      "why_surprising": "Your brain's native geometry is built for three dimensions, not flat paper.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Tapping your fingers or turning a physical knob counterclockwise SLOWS DOWN clockwise mental rotation in your head (Yeary 2002).",
+      "why_surprising": "Your 'mind's eye' secretly borrows your motor cortex's invisible hands.",
+      "source_id": "SRC4",
+      "rank": 3
+    },
+    {
+      "fact": "Before 1971, strict behaviorists dismissed 'mental images' as unmeasurable ghosts — Shepard and Metzler timed an invisible thought with a stopwatch down to the millisecond.",
+      "why_surprising": "One straight-line graph made the inner imagination scientifically measurable.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "All human thought works strictly like text code or logical sentences ('propositional only'), never spatial simulation.",
+      "truth": "If the brain merely checked symbolic vertex lists, 180-degree comparisons wouldn't pass linearly through 60°, 100°, and 140° along the way.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "3D depth rotation is much slower than flat 2D rotation because retinas are flat.",
+      "truth": "Shepard and Metzler's two curves (2D picture-plane vs 3D depth) overlapped almost identically near ~60 degrees per second.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Spatial rotation skill is permanently fixed at birth and untrainable.",
+      "truth": "Practice with physical blocks, origami, CAD modeling, and spatial games substantially steepens speed and accuracy for everyone.",
+      "source_id": "SRC3"
+    },
+    {
+      "myth": "Mental imagery happens purely in a passive visual screen at the back of the head.",
+      "truth": "Neuroimaging and motor-interference studies prove dorsal parietal AND premotor hand regions co-fire to 'turn' the mental block.",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Tilting your head sideways while checking whether a couch will pivot through a narrow apartment stairwell.",
+    "Rotating a USB plug or fitted bedsheet in your head before flipping it with your hands.",
+    "Packing last-minute suitcases into a car trunk like 3D Tetris.",
+    "Watching a surgeon or chemist mentally rotate a mirrored chiral molecule before making a cut."
+  ],
+  "linked_projects": [
+    "psych_28_shepard_metzler_mental_rotation"
+  ]
+}

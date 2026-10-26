@@ -1,0 +1,223 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Porcelain rat pressing a brass lever hundreds of times an hour beneath a flexible overhead lead",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1954, McGill University psychology basement laboratory, Montreal",
+      "layout": {
+        "description": "High-key 1954 Montreal neuroscience laboratory featuring a clear-fronted wooden Skinner lever box with a counterweighted flexible overhead wire commutator connected to a 60-hertz variable transformer and a steep cumulative paper-drum recorder.",
+        "positions": [
+          {
+            "who": "Articulated matte-white porcelain rat sculpture",
+            "where": "rearing eagerly at the front wall of the chamber pressing the wide brass lever repeatedly with both forepaws",
+            "facing": "facing the brass lever"
+          },
+          {
+            "who": "James Olds (mannequin in 1950s white lab coat and rolled sleeves)",
+            "where": "leaning beside the cumulative recorder drum holding a stopwatch",
+            "facing": "staring at the nearly vertical ink line"
+          },
+          {
+            "who": "Peter Milner (mannequin in tweed vest and white lab coat)",
+            "where": "adjusting the 60-hertz transformer dial on the wooden bench",
+            "facing": "watching the lever box"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "wide brass self-stimulation lever",
+          "period_detail": "polished horizontal brass pedal mounted inside the chamber wall",
+          "physical_behavior": "depresses rhythmically multiple times every ten seconds while a full food dish behind the rat sits untouched"
+        },
+        {
+          "name": "overhead counterweighted wire arm",
+          "period_detail": "balanced 1950s pivot arm allowing free movement inside the box",
+          "physical_behavior": "sways gently with each rapid lever press"
+        },
+        {
+          "name": "steep cumulative ink-drum graph",
+          "period_detail": "rotating white paper cylinder where the ink pen climbs at a near-vertical 1,920-per-hour angle",
+          "physical_behavior": "traces relentless self-stimulation bursts"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Porcelain rat sculpture",
+          "verb_sequence": "turns completely away from a full ceramic food dish -> rushes to the brass pedal -> presses rapidly again and again"
+        },
+        {
+          "who": "James Olds & Peter Milner",
+          "verb_sequence": "flip the current toggle OFF for thirty seconds watching pressing halt -> flip it ON and watch the rat lunge straight back to the pedal"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Porcelain rat sculpture",
+          "reaction": "maintains intense forward-leaning seeking posture over the brass lever"
+        },
+        {
+          "who": "James Olds",
+          "reaction": "points to the untouched food dish beside the near-vertical ink trace in astonishment"
+        }
+      ],
+      "wardrobe": "1954 McGill researchers in white cotton lab coats over collared shirts and ties; subject staged as an articulated matte-white porcelain rat sculpture.",
+      "lighting": "Clean high-key 1950s laboratory daylight across wooden benches, brass lever, and white paper drum.",
+      "recognition_hook": "Ignoring a full dish of food right behind it, an articulated porcelain rat presses a brain-wired brass lever nearly two thousand times an hour.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "an articulated porcelain rat pressing a brass lever relentlessly inside a clear McGill chamber while ignoring a full food dish beside a near-vertical paper-drum graph",
+        "must_show": [
+          "rat",
+          "lever",
+          "graph|recorder|dish"
+        ],
+        "source": "M1@00:00-00:11; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Rat #34 returning to the open tabletop corner instead of fleeing",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Late 1953, McGill University laboratory",
+      "layout": {
+        "description": "Large open wooden tabletop arena surrounded by low walls where James Olds holds a manual push-button switch.",
+        "positions": [
+          {
+            "who": "Articulated porcelain rat sculpture (Rat #34)",
+            "where": "trotting eagerly back into the marked northeast corner of the arena sniffing the air",
+            "facing": "facing the corner"
+          },
+          {
+            "who": "James Olds",
+            "where": "standing tableside thumbing a handheld bakelite push-button",
+            "facing": "watching Rat #34 return"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "handheld bakelite stimulation button",
+          "period_detail": "wired to overhead lead",
+          "physical_behavior": "each click draws the porcelain rat straight back to the corner"
+        }
+      ],
+      "actions": [
+        {
+          "who": "James Olds",
+          "verb_sequence": "clicks the handheld switch -> Rat #34 pivots and marches straight back to that exact corner"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "James Olds",
+          "reaction": "realizes his electrode missed the aversive midbrain target and hit an unknown reward zone"
+        }
+      ],
+      "wardrobe": "1950s white lab coat; porcelain rat sculpture.",
+      "lighting": "Bright laboratory daylight.",
+      "recognition_hook": "Instead of running away from the pulse, Rat #34 marched straight back for more.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "X-ray reveal of the bent electrode wire",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1954, McGill histology room",
+      "layout": {
+        "description": "Clean backlit X-ray viewer showing a crisp cranial radiograph where the thin wire curves anteriorly into the septal forebrain region.",
+        "positions": [
+          {
+            "who": "Peter Milner & James Olds",
+            "where": "standing side-by-side pointing a pencil tip at the forward bend on the backlit X-ray plate",
+            "facing": "facing the lightbox"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "backlit X-ray plate",
+          "period_detail": "monochrome cranial radiograph showing the bent electrode trajectory",
+          "physical_behavior": "reveals septal / medial forebrain placement several millimeters ahead of target"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Peter Milner",
+          "verb_sequence": "traces the bent wire arc on the lightbox from midbrain target to anterior septum"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "James Olds",
+          "reaction": "smiles as the surgical mistake explains the behavioral reversal"
+        }
+      ],
+      "wardrobe": "1950s lab coats.",
+      "lighting": "Crisp lightbox illumination in bright room.",
+      "recognition_hook": "A backlit X-ray revealed the bent silver wire had landed squarely in the forebrain reward highway.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Catching late-night 'wanting without liking' on a smartphone",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern bedroom desk",
+      "layout": {
+        "description": "Clean modern desk where a person mannequin pauses mid-thumb-scroll, notices their own blank expression, and sets the phone onto a charging dock across the room.",
+        "positions": [
+          {
+            "who": "Person mannequin",
+            "where": "sitting at desk pausing thumb above glowing feed, then placing phone on far shelf",
+            "facing": "facing shelf"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "smartphone and distant wooden dock",
+          "period_detail": "clean modern phone",
+          "physical_behavior": "placed out of arm's reach to break the subcortical lever loop"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Person mannequin",
+          "verb_sequence": "catches automatic thumb-flick -> pauses -> walks phone across room onto wooden stand"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Person mannequin",
+          "reaction": "shoulders drop with calm relief once the lever is out of reach"
+        }
+      ],
+      "wardrobe": "Modern knit loungewear.",
+      "lighting": "Clean high-key indoor light.",
+      "recognition_hook": "Asking 'am I actually enjoying this, or just pressing the lever?' breaks the wanting trance.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "one_sentence_story": "In 1997 in Science, Wolfram Schultz, Peter Dayan, and Read Montague proved that midbrain dopamine neurons do NOT measure pleasure — they compute exact Reward Prediction Error (Actual Minus Expected): spiking for unexpected good news (+), going flat when expected rewards arrive on cue (0), and plunging below baseline when expected rewards fail to show (-).",
+  "so_what_for_you": "Stop chasing endless novelty hits thinking the *next* purchase will finally lock in permanent dopamine: build **small unscheduled delights** (`Actual > Expected`) into work and love, mute **slot-machine notification badges**, and slow down to savor present enjoyment.",
+  "jargon_map": [
+    {
+      "term": "Reward Prediction Error (`δ = Actual − Expected`)",
+      "plain": "the mathematical gap between how good an outcome actually was versus how good your brain predicted it would be",
+      "analogy": "getting a $1,000 bonus when you expected $0 (+1000!), vs expecting $1,000 (0), vs expecting $2,000 (-1000 ouch!)"
+    },
+    {
+      "term": "cue transfer (Row 2 shift)",
+      "plain": "once a light or chime reliably predicts a reward, the dopamine burst moves forward to the CUE and goes silent at the reward itself",
+      "analogy": "getting excited at the ice-cream truck jingle down the block"
+    },
+    {
+      "term": "negative prediction error dip (Row 3)",
+      "plain": "the sharp pause in VTA dopamine firing below baseline at the exact instant an expected reward fails to arrive",
+      "analogy": "stepping onto a dark basement stair that isn't there"
+    },
+    {
+      "term": "Temporal-Difference (TD) learning",
+      "plain": "updating future expectations step-by-step using live prediction errors — shared by midbrain VTA neurons and modern AI agents",
+      "analogy": "nature's own reinforcement-learning algorithm"
+    },
+    {
+      "term": "Wanting (dopamine) vs Liking (opioids)",
+      "plain": "distinguishing motivational pursuit/surprise learning from warm sensory pleasure",
+      "analogy": "craving one more scroll at 1 AM without even enjoying it"
+    }
+  ]
+}

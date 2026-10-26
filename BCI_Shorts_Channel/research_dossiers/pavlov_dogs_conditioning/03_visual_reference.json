@@ -1,0 +1,488 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "The sound alone: drops fall with no food",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "Early 1900s, Physiology Department, Imperial Institute of Experimental Medicine, St. Petersburg (earliest period, experimenter still in the room counting drops)",
+      "layout": {
+        "description": "Bright laboratory room with tall windows. A low wooden stand (table) in the middle; above it a wooden frame with an overhead crossbar from which leather straps hold the dog's harness. The dog stands side-on to camera, head toward a wooden shelf on which the metronome ticks. An assistant sits on a stool close to the dog's cheek with a notebook; a graduated glass tube is clamped to a small stand beside the dog's head, fed by a thin tube from the cheek funnel. No food bowl anywhere in view.",
+        "positions": [
+          {
+            "who": "porcelain dog",
+            "where": "standing on the wooden stand, centre, harnessed to the overhead crossbar",
+            "facing": "toward the metronome on the shelf, side-on to camera"
+          },
+          {
+            "who": "assistant (white coat)",
+            "where": "on a stool at the dog's cheek side, camera right",
+            "facing": "the graduated tube and the funnel on the dog's cheek"
+          },
+          {
+            "who": "Pavlov (white beard, white coat)",
+            "where": "standing behind the assistant, slightly back",
+            "facing": "the dog"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "metronome",
+          "period_detail": "wooden pyramid metronome with a swinging metal pendulum (stimulus named in Conditioned Reflexes, Lecture II)",
+          "physical_behavior": "pendulum swings side to side and ticks steadily"
+        },
+        {
+          "name": "glass funnel on the cheek",
+          "period_detail": "small glass funnel cemented over the relocated duct opening on the outside of the cheek (Mendeleev cement)",
+          "physical_behavior": "a clear bead of saliva swells at its spout and drips"
+        },
+        {
+          "name": "graduated glass tube / cylinder",
+          "period_detail": "thin glass tube with etched scale marks",
+          "physical_behavior": "liquid level creeps up one mark at a time as drops fall"
+        },
+        {
+          "name": "leather harness and straps",
+          "period_detail": "brown leather harness hanging from an overhead wooden crossbar (blocking from archive film M1 and recreation M2)",
+          "physical_behavior": "straps sway slightly as the dog shifts its weight"
+        },
+        {
+          "name": "notebook and pencil",
+          "period_detail": "bound lab notebook",
+          "physical_behavior": "pencil scratches tally marks"
+        }
+      ],
+      "actions": [
+        {
+          "who": "assistant",
+          "verb_sequence": "flicks the metronome pendulum -> sits back -> leans toward the cheek funnel -> counts drops with pencil taps -> scribbles tally marks"
+        },
+        {
+          "who": "porcelain dog",
+          "verb_sequence": "ears prick at the ticking -> licks its lips -> shifts weight forward in the harness while saliva drips from the cheek funnel"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "assistant",
+          "reaction": "pencil freezes mid-tally, shoulders lift, leans closer to the tube"
+        },
+        {
+          "who": "Pavlov",
+          "reaction": "grips the edge of the stand and bends in, hands on knees"
+        }
+      ],
+      "wardrobe": "Pavlov: white laboratory coat, full white beard (portrait photographs; actor in M2 recreation). Assistant: white laboratory coat, dark trousers. Dog: matte-white porcelain dog, brown leather harness keeps its real colour.",
+      "lighting": "Bright daylight from tall laboratory windows, clean and photoreal.",
+      "recognition_hook": "A harnessed dog drooling into a glass tube at the sound of a ticking metronome, with no food in sight - 'Pavlov's dog'.",
+      "sources": [
+        "SRC_PAVLOV1927",
+        "SRC_HUNTLEY97452",
+        "SRC_FLACTEMB_RECREATION",
+        "SRC_RYAZAN_DOG"
+      ],
+      "key_visual": {
+        "description": "the harnessed porcelain dog hears the ticking metronome before any food appears and saliva drips from the cheek tube into the graduated glass vial",
+        "must_show": [
+          "metronome|bell",
+          "saliva|drip|drool",
+          "tube|vial|glass"
+        ],
+        "source": "dossier S1; Pavlov 1927 lectures"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Fitting the dog: cheek funnel, tube and graduated glass",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Early 1900s, same laboratory",
+      "layout": {
+        "description": "Close framing on the dog's head and shoulder on the stand. The relocated duct opening is on the outside of the cheek; a small glass funnel sits over it, a thin rubber tube runs down to a graduated glass container on the stand. An assistant's hands adjust the funnel.",
+        "positions": [
+          {
+            "who": "porcelain dog",
+            "where": "on the stand, head in frame",
+            "facing": "camera left"
+          },
+          {
+            "who": "assistant",
+            "where": "beside the dog's head, camera right, hands at the cheek",
+            "facing": "the funnel"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "glass funnel",
+          "period_detail": "small, cemented to the cheek skin over the duct opening",
+          "physical_behavior": "first clear drop slides down its glass wall"
+        },
+        {
+          "name": "thin rubber tube",
+          "period_detail": "connects funnel to collecting glass",
+          "physical_behavior": "drop travels down inside it"
+        },
+        {
+          "name": "graduated glass container",
+          "period_detail": "etched scale marks",
+          "physical_behavior": "first drop splashes at the bottom"
+        }
+      ],
+      "actions": [
+        {
+          "who": "assistant",
+          "verb_sequence": "presses the funnel rim against the cheek -> taps the glass -> pours a measured drop into the container to zero it"
+        },
+        {
+          "who": "porcelain dog",
+          "verb_sequence": "shakes its head once -> settles in the harness"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "assistant",
+          "reaction": "steadies the dog with a palm on its neck, shoulders relaxed"
+        }
+      ],
+      "wardrobe": "Assistant in white coat; porcelain dog in brown leather harness.",
+      "lighting": "Bright window daylight, macro detail on glass.",
+      "recognition_hook": "The glass tube sticking out of the dog's cheek.",
+      "sources": [
+        "SRC_PAVLOV1927",
+        "SRC_RYAZAN_DOG",
+        "SRC_FLACTEMB_RECREATION"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Pairing: the tick, then the food",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Early 1900s, same laboratory",
+      "layout": {
+        "description": "Medium shot: metronome on the shelf at left, dog on its stand centre, assistant at right swinging a shallow food bowl under the dog's muzzle a moment after starting the metronome.",
+        "positions": [
+          {
+            "who": "porcelain dog",
+            "where": "stand, centre",
+            "facing": "camera left toward the bowl"
+          },
+          {
+            "who": "assistant",
+            "where": "right of the dog, holding the bowl",
+            "facing": "the dog"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "metronome",
+          "period_detail": "wooden pyramid metronome",
+          "physical_behavior": "pendulum starts swinging first"
+        },
+        {
+          "name": "shallow food bowl",
+          "period_detail": "enamel or earthenware bowl of food (exact food not specified in the lectures read; textbooks say meat powder)",
+          "physical_behavior": "food crumbs scatter as the dog eats"
+        },
+        {
+          "name": "cheek funnel and tube",
+          "period_detail": "as S2",
+          "physical_behavior": "saliva streams out fast"
+        }
+      ],
+      "actions": [
+        {
+          "who": "assistant",
+          "verb_sequence": "flicks the metronome -> waits a beat -> swings the bowl under the muzzle"
+        },
+        {
+          "who": "porcelain dog",
+          "verb_sequence": "lunges at the bowl -> eats -> saliva streams down the tube"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "assistant",
+          "reaction": "pulls the bowl back, writes a number, repeats"
+        }
+      ],
+      "wardrobe": "As S1.",
+      "lighting": "Bright daylight.",
+      "recognition_hook": "Sound first, food second - the pairing everyone learns in school.",
+      "sources": [
+        "SRC_PAVLOV1927"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "The experimenter is the noise",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Early 1900s, ordinary laboratory room before the special building",
+      "layout": {
+        "description": "Experimenter sits a metre from the dog in the same room trying to keep still; the dog's ears and head track his every blink, breath and shift of posture. A door at the back is half open; footsteps pass.",
+        "positions": [
+          {
+            "who": "experimenter",
+            "where": "on a chair facing the dog, camera right",
+            "facing": "the dog"
+          },
+          {
+            "who": "porcelain dog",
+            "where": "on the stand, centre",
+            "facing": "the experimenter"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "notebook",
+          "period_detail": "lab notebook on the experimenter's knee",
+          "physical_behavior": "pages flutter when he shifts"
+        },
+        {
+          "name": "graduated tube",
+          "period_detail": "as S1",
+          "physical_behavior": "level jumps irregularly, spoiling the count"
+        }
+      ],
+      "actions": [
+        {
+          "who": "experimenter",
+          "verb_sequence": "shifts on the chair -> coughs -> the dog jerks toward him -> slams the notebook shut"
+        },
+        {
+          "who": "porcelain dog",
+          "verb_sequence": "jerks its head toward every movement -> paces on the stand"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "experimenter",
+          "reaction": "slumps, rubs his forehead, shoulders drop"
+        }
+      ],
+      "wardrobe": "Experimenter in white coat.",
+      "lighting": "Daylight with moving window shadows (shadows were one of the listed disturbances).",
+      "recognition_hook": "The scientist himself spoils the experiment.",
+      "sources": [
+        "SRC_PAVLOV1927"
+      ]
+    },
+    {
+      "id": "S5",
+      "title": "Timing test: buzzer after food vs before food",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "1900s-1920s (Krestovnikov experiments reported in the 1927 lectures; date not given)",
+      "layout": {
+        "description": "Same stand; an electric buzzer box mounted on the wall with a push button on a cord held by the assistant. Split staging: first the bowl then the buzz (nothing in the tube), then the buzz then the bowl (tube fills).",
+        "positions": [
+          {
+            "who": "assistant",
+            "where": "beside the wall buzzer, camera left",
+            "facing": "the dog"
+          },
+          {
+            "who": "porcelain dog",
+            "where": "stand, centre",
+            "facing": "the bowl"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "electric buzzer",
+          "period_detail": "wall-mounted electric buzzer / bell box with push button",
+          "physical_behavior": "buzzes, small hammer vibrates"
+        },
+        {
+          "name": "food bowl",
+          "period_detail": "as S3",
+          "physical_behavior": "slides in"
+        },
+        {
+          "name": "graduated tube",
+          "period_detail": "as S1",
+          "physical_behavior": "stays dry in version one, fills in version two"
+        }
+      ],
+      "actions": [
+        {
+          "who": "assistant",
+          "verb_sequence": "presses the buzzer button with a thumb -> slides the bowl in"
+        },
+        {
+          "who": "porcelain dog",
+          "verb_sequence": "pricks its ears -> drools before the bowl arrives"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "assistant",
+          "reaction": "leans back, taps the tube twice"
+        }
+      ],
+      "wardrobe": "As S1.",
+      "lighting": "Bright daylight.",
+      "recognition_hook": "Same sound, opposite result - only the order changed.",
+      "sources": [
+        "SRC_PAVLOV1927"
+      ]
+    },
+    {
+      "id": "S6",
+      "title": "The soundproof laboratory: dog alone, experimenter behind the wall",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1910s, special laboratory at the Institute of Experimental Medicine (exact completion year not verified)",
+      "layout": {
+        "description": "One research room split in two by a thick soundproof partition. Left compartment: the dog alone on its stand with funnel and tube. Right compartment: the experimenter at a small control board, squeezing a rubber bulb (pneumatic transmission) or pressing a switch that starts the stimulus, reading drops on a recorder. Blocking echo of M1 operator-at-panel frame.",
+        "positions": [
+          {
+            "who": "porcelain dog",
+            "where": "left compartment, on the stand",
+            "facing": "camera"
+          },
+          {
+            "who": "experimenter",
+            "where": "right compartment at the control board",
+            "facing": "the partition / recorder"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "soundproof partition",
+          "period_detail": "thick padded wall between compartments",
+          "physical_behavior": "static; camera slides across it"
+        },
+        {
+          "name": "rubber squeeze bulb with air tube",
+          "period_detail": "pneumatic transmission through the wall",
+          "physical_behavior": "bulb collapses when squeezed"
+        },
+        {
+          "name": "drop recorder / graduated tube",
+          "period_detail": "electric drop recorder or graduated tube read from outside",
+          "physical_behavior": "marker clicks once per drop"
+        }
+      ],
+      "actions": [
+        {
+          "who": "experimenter",
+          "verb_sequence": "squeezes the bulb -> watches the recorder -> scribbles the count"
+        },
+        {
+          "who": "porcelain dog",
+          "verb_sequence": "ears prick at the sound -> licks lips -> drools alone"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "experimenter",
+          "reaction": "sits bolt upright, presses his palm flat on the desk"
+        }
+      ],
+      "wardrobe": "Experimenter in white coat.",
+      "lighting": "Even daylight in both compartments.",
+      "recognition_hook": "Walls between dog and scientist - and the sound still works.",
+      "sources": [
+        "SRC_PAVLOV1927",
+        "SRC_HUNTLEY97452"
+      ]
+    },
+    {
+      "id": "S7",
+      "title": "Nobel Prize 1904 - for digestion",
+      "iconic": false,
+      "shorts_priority": 3,
+      "era": "December 1904, Stockholm",
+      "layout": {
+        "description": "Ceremony hall; Pavlov in formal dress receives the diploma. Longform only.",
+        "positions": [
+          {
+            "who": "Pavlov",
+            "where": "centre stage",
+            "facing": "the presenter"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Nobel diploma",
+          "period_detail": "1904 Physiology or Medicine",
+          "physical_behavior": "unfolded"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Pavlov",
+          "verb_sequence": "steps forward -> takes the diploma -> bows"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "audience",
+          "reaction": "applause"
+        }
+      ],
+      "wardrobe": "Formal evening dress.",
+      "lighting": "Warm hall light.",
+      "recognition_hook": "The prize was for digestion.",
+      "sources": [
+        "SRC_NOBEL"
+      ]
+    },
+    {
+      "id": "S8",
+      "title": "You and the ping",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Present day",
+      "layout": {
+        "description": "Modern kitchen counter in daylight; a porcelain person in a hoodie sits with a mug; a phone face-down on the counter lights up and pings.",
+        "positions": [
+          {
+            "who": "modern porcelain person",
+            "where": "at the counter, centre",
+            "facing": "camera / phone"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "smartphone",
+          "period_detail": "modern",
+          "physical_behavior": "screen flashes, phone vibrates across the counter"
+        },
+        {
+          "name": "coffee mug",
+          "period_detail": "ceramic",
+          "physical_behavior": "coffee splashes when the hand jerks"
+        }
+      ],
+      "actions": [
+        {
+          "who": "modern person",
+          "verb_sequence": "jerks a hand toward the phone before looking -> coffee splashes"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "modern person",
+          "reaction": "freezes mid-reach, shoulders lift, slowly pulls the hand back"
+        }
+      ],
+      "wardrobe": "Grey hoodie keeps its colour; matte-white porcelain body.",
+      "lighting": "Bright morning daylight.",
+      "recognition_hook": "Your phone's notification sound.",
+      "sources": [
+        "SRC_RESCORLA1988"
+      ]
+    }
+  ]
+}

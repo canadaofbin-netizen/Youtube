@@ -1,0 +1,29 @@
+{
+  "visual_mode": "HYBRID",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "cochlea",
+      "plain": "both ears transmitting full acoustic waves",
+      "function": "sending crisp vibrations from BOTH the Right-Ear English story and the Left-Ear German/tone channel into the brainstem and primary Heschl's gyrus",
+      "scene_id": "S1",
+      "narration_bridge": "Proves the ignored ear is physically 100% open."
+    },
+    {
+      "role": "pivot",
+      "region": "auditory cortex",
+      "plain": "selective gain on attended Right-Ear voice",
+      "function": "amplifying the shadowed Right-Ear speaker's phoneme envelope in superior temporal cortex while suppressing Left-Ear lexical decoding down to coarse pitch/tone detection",
+      "scene_id": "S1",
+      "narration_bridge": "Matches Cherry (1953) + Mesgarani & Chang (2012) cortical voice selection."
+    },
+    {
+      "role": "step1",
+      "region": "Broca's area",
+      "plain": "continuous real-time vocal shadowing loop",
+      "function": "locking frontal articulatory output tightly onto the Right-Ear stream half a second behind, leaving zero bandwidth for Left-Ear German words",
+      "scene_id": "S1",
+      "narration_bridge": "Explains why shadowing blocks sneaky attention toggling."
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Bandura - bobo doll experiment",
+      "url": "https://www.youtube.com/watch?v=hHHdovKHDNU",
+      "channel": "thaLionheart",
+      "source_id": "SRC_M1",
+      "duration_sec": 96,
+      "timecodes": [
+        {
+          "t": "00:08-00:21",
+          "what": "At kf_004.jpg (16.5s) (4:3 camera frame), thaLionheart's recording states \"the air kicked it repeatedly through it down and beat it.\" — providing spoken context for preschooler lifting the wooden mallet toward the 3-foot weighted Bobo doll behind a one-way nursery mirror."
+        },
+        {
+          "t": "00:30-00:41",
+          "what": "Mid-segment 4:3 camera frame at kf_007.jpg (33.0s) as narration explains \"It was once widely believed that seeing others' vant aggression would drain the viewers' aggressive drive as you can see exposure to aggressive...\", clarifying key empirical findings in Albert Bandura, Dorothea Ross & Sheila Ross's Stanford Nursery Bobo Doll observational aggression study."
+        },
+        {
+          "t": "00:57-01:05",
+          "what": "Subsequent 4:3 camera frame at kf_012.jpg (60.5s) in \"Bandura - bobo doll experiment\", documenting closing visual sequence for reference analysis."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_bandura_bobo_doll_mirroring/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_bandura_bobo_doll_mirroring",
+        "contact_sheet": "media/M1_bandura_bobo_doll_mirroring/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1_bandura_bobo_doll_mirroring/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x360, 14 frames sampled across 0.0s–71.5s)) from thaLionheart's \"Bandura - bobo doll experiment\" (96s total runtime).",
+          "Deduplicated English transcript (3 timestamped cues in media/M1_bandura_bobo_doll_mirroring/transcript.txt) aligned directly to keyframe timestamps (0.0s–71.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "archive_film",
+      "title": "Bandura's Bobo Doll Experiment",
+      "url": "https://www.youtube.com/watch?v=dmBqwWlJg8U",
+      "channel": "Everywhere Psychology",
+      "source_id": "SRC_M2",
+      "duration_sec": 227,
+      "timecodes": [
+        {
+          "t": "00:14-00:19",
+          "what": "Around kf_004.jpg (15.0s) (4:3 camera frame), speaker commentary notes \"the segment you're about to see is taken from an early experiment on learning of a of aggressive styles of uh Behavior Uh\", anchoring the research context of preschooler lifting the wooden mallet toward the 3-foot weighted Bobo doll behind a one-way nursery mirror."
+        },
+        {
+          "t": "00:26-00:38",
+          "what": "At kf_007.jpg (30.0s) (4:3 camera frame), audio continues with \"a uh a filmed adult uh perform novel aggressive acts toward a uh inflated doll and the physical aggression was um\", detailing experimental methodology and behavioral observations for Albert Bandura, Dorothea Ross & Sheila Ross's Stanford Nursery Bobo Doll observational aggression study."
+        },
+        {
+          "t": "00:42-00:53",
+          "what": "Later 4:3 camera frame at kf_010.jpg (45.0s) accompanied by \"remarks we later measured how much of this uh modeled aggression the children had learned uh just by uh watching now\", summarizing mechanism and boundary conditions in Albert Bandura, Dorothea Ross & Sheila Ross's Stanford Nursery Bobo Doll observational aggression study."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (archival footage (480x358, 0/14 monochrome frames across 0.0s–65.0s)) from Everywhere Psychology's \"Bandura's Bobo Doll Experiment\" (227s total runtime).",
+          "Deduplicated English transcript (23 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Albert Bandura Psychologist.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Albert_Bandura_Psychologist.jpg",
+      "channel": "Wikimedia Commons (bandura@stanford.edu)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Albert Bandura Psychologist.jpg\" (1130x1600 px, CC BY-SA 4.0): Psychologist Albert Bandura in 2005. Documents authentic researcher likeness, period attire, and historical context for Albert Bandura, Dorothea Ross & Sheila Ross's Stanford Nursery Bobo Doll observational aggression study."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 4.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (1130x1600 px, CC BY-SA 4.0, bandura@stanford.edu) — portrait reference: Psychologist Albert Bandura in 2005.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Henry shakes Brenda Milner's hand as a total stranger five minutes after completing a 15-minute number rehearsal with her.",
+    "core_experiment": "Scoville's 1953 bilateral medial temporal surgery and Milner's 1957 10-patient study proving intact 118 IQ + childhood recall alongside zero new episodic storage.",
+    "twist": "2014 post-mortem 2,401-slice histology revealing severed entorhinal input and why working-memory rehearsal vanishes on distraction."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "A Stranger Every Five Minutes",
+      "beats": [
+        "August 25, 1953 Hartford surgery",
+        "Seizures quieted, IQ rises to 118",
+        "Re-reading the same magazine forever"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "5-minute doorway re-entry tracking shot"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "The 584 Number Trick",
+      "beats": [
+        "Holding 584 for 15 minutes via rehearsal",
+        "30-second distraction erases number and test",
+        "Prefrontal scratchpad vs hippocampal binder"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "macro stopwatch passing 15:00"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Ten Patients and One Clear Map",
+      "beats": [
+        "Overturning Lashley's whole-cortex myth",
+        "Unilateral vs bilateral medial temporal comparison",
+        "Why childhood memories survived in outer cortex"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "1957 anatomical diagram comparison"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "2,401 Slices After 2008",
+      "beats": [
+        "Henry Molaison gets his real name back",
+        "Entorhinal gateway discovery in post-mortem histology"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "clean 3D medial temporal gateway view"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Why Multitasking Mimics Micro-Amnesia",
+      "beats": [
+        "Protecting the working-to-long-term handoff",
+        "30 seconds of unbroken focus"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "modern distraction-free desk"
+      ]
+    }
+  ]
+}

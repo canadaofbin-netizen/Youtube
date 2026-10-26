@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "pavlov_dogs_conditioning",
+  "topic": "Ivan Pavlov's dogs and classical conditioning (St. Petersburg, Institute of Experimental Medicine, 1890s-1900s)",
+  "pillar": "brain_history",
+  "created_at": "2026-10-24T01:05:40+00:00",
+  "status": "ready_for_script",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "The story is a behavioural experiment you can watch from the outside (dog, harness, metronome, food, drops in a tube), so 9 of 10 clips stay in the real laboratory with the porcelain dog and assistants. But the punchline is physiological, and Pavlov himself framed it that way: a sound travels up the auditory nerve and ends up switching on the salivary glands, a 'new nervous connection' he placed in the cerebral hemispheres (Conditioned Reflexes, Lecture II). One brain clip (well under the HYBRID cap of 2) right after the dog hears the tick shows that link with two canonical regions only: auditory cortex (hearing center) -> brainstem (reflex center that runs salivation; salivary nuclei per Proctor & Carpenter 2007). Amygdala / cerebellum circuits from the old project are dropped: they belong to fear / eyeblink conditioning, not to Pavlov's salivary experiment. BEHAVIORAL_PSYCH was rejected because 'a sound turns on a gland' is the very thing the audience should see inside the head; NEURO_BIOLOGY was rejected because the modern circuitry of salivary conditioning is not pinned down well enough to justify 4 brain clips.",
+  "primary_case": {
+    "title": "Pavlov's conditional (conditioned) salivary reflex in dogs: a metronome tick, paired with food, comes to make the dog drool on its own",
+    "year": 1903,
+    "place": "Physiology Department, Imperial Institute of Experimental Medicine, St. Petersburg, Russia (later the purpose-built soundproof laboratory at the same institute)",
+    "people": [
+      {"name": "Ivan Petrovich Pavlov", "role": "Physiologist, head of the Physiology Department of the Institute of Experimental Medicine from 1891; Nobel Prize in Physiology or Medicine 1904 for digestion", "dates": "1849-1936", "source_id": "SRC_NOBEL"},
+      {"name": "Ivan Tolochinov", "role": "Assistant who developed the conditional reflex idea jointly with Pavlov (1901); called it 'reflex at a distance' and reported it in Helsinki in 1903", "source_id": "SRC_WIKI_PAVLOV"},
+      {"name": "Dr. Krestovnikov", "role": "Co-worker whose order-of-stimuli experiments (sound after food vs before food) Pavlov reports in Lecture II", "source_id": "SRC_PAVLOV1927"},
+      {"name": "G. V. Anrep", "role": "Pavlov's former co-worker who translated and edited the 1927 English edition 'Conditioned Reflexes' (Oxford University Press)", "source_id": "SRC_PAVLOV1927"},
+      {"name": "Unnamed laboratory assistants / co-workers", "role": "Ran the trials: started the stimulus, delivered food, read off drops", "source_id": "SRC_PAVLOV1927"},
+      {"name": "The dogs", "role": "Experimental subjects with a surgically relocated salivary duct opening on the cheek or under the chin; one preserved dog with its saliva tube is displayed in the Pavlov Museum, Ryazan (possibly named Baikal per the Commons caption)", "source_id": "SRC_RYAZAN_DOG"}
+    ]
+  },
+  "core_facts": [
+    {"fact": "Pavlov received the 1904 Nobel Prize in Physiology or Medicine 'in recognition of his work on the physiology of digestion', not for conditioned reflexes.", "source_id": "SRC_NOBEL"},
+    {"fact": "To measure saliva, each dog first had a minor operation that moved the opening of a salivary duct from inside the mouth to the outside of the cheek (parotid) or under the chin (submaxillary), so saliva flowed out onto the skin.", "source_id": "SRC_PAVLOV1927"},
+    {"fact": "A small glass funnel was fixed over the duct opening with a special cement made to a formula of Mendeleev; alternatively a sealed hemispherical bulb displaced coloured fluid along a horizontal graduated glass tube, and an electric recorder could split the flow into equal drops.", "source_id": "SRC_PAVLOV1927"},
+    {"fact": "Actual counting of drops falling from the funnel was done only in the very earliest period, before the experimenter was separated from the animal; later, saliva was read from a graduated tube or an electric recorder (results still reported in drops).", "source_id": "SRC_PAVLOV1927"},
+    {"fact": "In Pavlov's own textbook demonstration the signal was a beating metronome: salivation began 9 seconds after the sound started, and eleven drops were secreted in 45 seconds.", "source_id": "SRC_PAVLOV1927"},
+    {"fact": "The neutral sound gained its power because it had repeatedly been followed immediately by food; after several pairings the metronome alone triggered salivation and the feeding movements.", "source_id": "SRC_PAVLOV1927"},
+    {"fact": "Order matters: with one dog the loud buzzing of an electric bell started 5-10 seconds after food failed to produce a conditioned reflex even after 374 combinations, while an electric buzzer started before the food worked after a single combination (Krestovnikov).", "source_id": "SRC_PAVLOV1927"},
+    {"fact": "At first the experimenter sat in the room with the dog on its stand, but his slightest movements (blinking, eye movements, posture, breathing) acted as stimuli and spoiled the results, so he was moved outside the room.", "source_id": "SRC_PAVLOV1927"},
+    {"fact": "A special laboratory was then built at the Institute of Experimental Medicine with money from a Moscow businessman: an isolating trench around the building, four research rooms per floor separated by a cross-shaped corridor, and each room split by soundproof materials into an animal compartment and an experimenter compartment, with stimuli and recording passed by electrical or pneumatic transmission.", "source_id": "SRC_PAVLOV1927"},
+    {"fact": "Pavlov described conditioned reflexes as new nervous connections formed in the cerebral hemispheres, and compared them to 'education', 'habits' and 'training'.", "source_id": "SRC_PAVLOV1927"},
+    {"fact": "Pavlov's lab used many kinds of signal: metronomes, buzzers / electric bells, whistles, tuning forks, rotating objects, lights, touches and odours such as vanillin and amyl acetate.", "source_id": "SRC_PAVLOV1927"},
+    {"fact": "Pavlov joined the Institute of Experimental Medicine in 1891, where he ran the digestive-gland experiments that won the Nobel Prize.", "source_id": "SRC_WIKI_PAVLOV"},
+    {"fact": "Pavlov's move from digestive physiology to conditional reflexes grew out of 'psychic secretion' (glands responding before food reached them) observed in his digestion laboratory.", "source_id": "SRC_TODES1997_AP"},
+    {"fact": "Brainstem salivary nuclei send the autonomic nerve signals that drive salivary gland secretion.", "source_id": "SRC_PROCTOR2007"}
+  ],
+  "wow_facts": [
+    {"rank": 1, "fact": "The most famous dog experiment in history is NOT what won Pavlov his Nobel Prize: the 1904 prize was for the physiology of digestion.", "why_surprising": "Everyone assumes the drooling dogs earned the prize.", "source_id": "SRC_NOBEL"},
+    {"rank": 2, "fact": "Timing is everything: an electric bell sounded after the food taught a dog nothing in 374 pairings, but a buzzer sounded before the food worked after just one pairing.", "why_surprising": "The same kind of sound, the same food, opposite results, just by swapping the order.", "source_id": "SRC_PAVLOV1927"},
+    {"rank": 3, "fact": "The scientist himself was ruining the experiment: a blink or a breath from the experimenter was enough to set off the dog, so Pavlov had a building made with a trench around it and walls between dog and scientist.", "why_surprising": "A whole soundproof building exists because dogs read tiny human movements.", "source_id": "SRC_PAVLOV1927"},
+    {"rank": 4, "fact": "In Pavlov's own written demonstration the sound was a ticking metronome, not a hand bell: nine seconds after the ticking began the drool started, eleven drops in forty-five seconds.", "why_surprising": "The 'Pavlov's bell' image is a simplification; the textbook case is a metronome.", "source_id": "SRC_PAVLOV1927"},
+    {"rank": 5, "fact": "The dogs' saliva ran out through a hole in the cheek: a surgeon moved the duct opening to the outside skin so every drop could be caught in a glass funnel.", "why_surprising": "Most people picture a dog drooling from its mouth into a bowl.", "source_id": "SRC_PAVLOV1927"}
+  ],
+  "misconceptions": [
+    {"myth": "Pavlov always rang a hand bell before feeding his dogs.", "truth": "His own demonstration in 'Conditioned Reflexes' used a metronome; the lab also used buzzers, an electric bell, whistles, tuning forks, lights and touches. Whether and how often a bell was used is debated (Littman vs Thomas, 1994; Thomas 1997 found bell references), but the hand-rung dinner bell is a textbook shortcut.", "source_id": "SRC_THOMAS1997"},
+    {"myth": "Pavlov won the Nobel Prize for discovering classical conditioning.", "truth": "The 1904 Nobel Prize recognised his work on the physiology of digestion.", "source_id": "SRC_NOBEL"},
+    {"myth": "Pavlov was a psychologist studying learning.", "truth": "He was a physiologist of digestion who treated 'psychic secretion' as a physiological reflex problem and insisted on objective measurement.", "source_id": "SRC_TODES1997_AP"},
+    {"myth": "Conditioning is just two things happening close together in time.", "truth": "Order matters (sound before food), and modern work shows animals learn which events predict which, not mere closeness (Rescorla 1988).", "source_id": "SRC_RESCORLA1988"},
+    {"myth": "The dogs drooled from their mouths into a bowl that was weighed.", "truth": "Saliva was diverted through a surgically relocated duct opening on the cheek or chin into a funnel, bulb or graduated tube.", "source_id": "SRC_PAVLOV1927"}
+  ],
+  "everyday_hooks": [
+    "Your phone's notification sound: a neutral tone that has been followed by messages thousands of times can pull your attention or your hand before you decide (illustrative example of the same pairing logic; no specific study cited).",
+    "Advertising jingles and pleasant music paired with products (Gorn 1982 classical-conditioning study of music in ads; note Kellaris & Cox 1989 failed to replicate it).",
+    "Learned fears: Watson & Rayner (1920) paired a loud noise with a white rat for an infant ('Little Albert') - famous, ethically troubling and methodologically weak, but the classic link between conditioning and phobias.",
+    "Your mouth watering at the sound of a snack bag or the smell of a familiar kitchen."
+  ],
+  "linked_projects": ["psych_11_pavlov_classical_conditioning (legacy v4, superseded by shorts_v5 in this dossier)"]
+}

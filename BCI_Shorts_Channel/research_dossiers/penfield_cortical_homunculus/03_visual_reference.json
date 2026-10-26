@@ -1,0 +1,205 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1937 Montreal Teaching Suite: Wilder Penfield's Numbered Cortical Ticket Model Beside the Giant-Handed Porcelain Homunculus Sculpture",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1937, Montreal Neurological Institute (MNI), McGill University",
+      "layout": {
+        "description": "Sunlit high-key 1937 Montreal neurological teaching amphitheater featuring an oak demonstration table holding a large matte-white 3D anatomical cerebral hemisphere dotted along the central sulcus with tiny **sterile numbered white paper tickets ('1, 2, 3 ... 14')**, a fine silver bipolar stimulation wand, and a museum-grade **matte-white porcelain Homunculus sculpture** with oversized hands, thumbs, and lips.",
+        "positions": [
+          {
+            "who": "Wilder Penfield (mannequin in crisp 1937 white surgical/clinical coat)",
+            "where": "touching numbered ticket #14 on the matte-white motor-strip brain model with a fine silver probe while pointing to the matching oversized thumb on the porcelain Homunculus sculpture",
+            "facing": "standing at demonstration table"
+          },
+          {
+            "who": "Edwin Boldrey & Hortense Cantlie (mannequins in 1937 lab coat and artist smock)",
+            "where": "cross-checking the 126-patient cortical dot ledger against the hand-inked Homunculus proportion chart",
+            "facing": "beside oak table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "matte-white 3D brain cast with numbered sterile paper tickets ('1–28') & bipolar probe",
+          "period_detail": "reconstructs Penfield's iconic Montreal numbered-ticket mapping in clean gallery style",
+          "physical_behavior": "exact clinical signature of the Montreal Procedure"
+        },
+        {
+          "name": "sculpted matte-white porcelain Homunculus figure (giant hands/thumbs & lips, miniature torso)",
+          "period_detail": "makes cortical magnification instantly unforgettable at a glance",
+          "physical_behavior": "iconic museum sculpture inspired by Penfield, Boldrey & Cantlie"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Wilder Penfield",
+          "verb_sequence": "places numbered paper ticket #14 onto the lateral motor strip model -> points directly from ticket #14 to the giant porcelain thumb and ticket #22 to the oversized lips"
+        },
+        {
+          "who": "Hortense Cantlie",
+          "verb_sequence": "unrolls the 1937 cortical-proportion cross-section chart beside the 126-case tally ledger"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Boldrey & Cantlie",
+          "reaction": "verify why human thumbs and speech organs occupy over half the strip"
+        },
+        {
+          "who": "Wilder Penfield",
+          "reaction": "notes overlapping finger mosaics alongside the summary diagram"
+        }
+      ],
+      "wardrobe": "1937 Montreal clinical coats over shirt and tie; 1930s illustrator smock over collared blouse.",
+      "lighting": "Clean high-key museum-bright Montreal daylight.",
+      "recognition_hook": "Scale a human figure to how much brain cortex each body part commands, and two giant toolmaking hands plus a speaking mouth dwarf the entire body.",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1937 neurological teaching table displaying a matte-white 3D brain model tagged with tiny numbered paper tickets beside a matte-white porcelain Homunculus sculpture with giant hands and lips",
+        "must_show": [
+          "homunculus|sculpture|hands",
+          "tickets|brain|model",
+          "probe|chart|table"
+        ],
+        "source": "M1@00:07-00:19; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Two-Point Caliper Self-Test: Fingertip (2 mm) vs Back (40 mm)",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern classroom / clinic table",
+      "layout": {
+        "description": "Bright sunlit table where a two-point blunt wooden caliper touches a fingertip vs upper shoulder.",
+        "positions": [
+          {
+            "who": "Instructor & Volunteer mannequins",
+            "where": "feeling two points clearly at 2 mm on the index fingertip while 30 mm apart on the back still feels like ONE single point!",
+            "facing": "at table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "blunt wooden two-point discrimination caliper",
+          "period_detail": "lets anyone feel their own Homunculus magnification in 5 seconds",
+          "physical_behavior": "bedside neurology classic"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Instructor",
+          "verb_sequence": "touches 2-mm caliper to index pad ('Two points!') -> touches 30-mm caliper to upper back ('Only one!')"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Volunteer",
+          "reaction": "laughs feeling their giant thumb cortex vs tiny back cortex directly"
+        }
+      ],
+      "wardrobe": "Smart-casual shirts.",
+      "lighting": "Bright classroom daylight.",
+      "recognition_hook": "Two toothpick tips 2 millimetres apart feel clearly separate on your fingertip — put them 30 millimetres apart on your back and your brain swears there is only one!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Modern Awake Violinist Mapping: Saving Music in the OR",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern functional neurosurgery planning suite",
+      "layout": {
+        "description": "High-key sunlit clinical room where a violinist plays a clean melodic phrase while numbered cortical map points protect hand dexterity.",
+        "positions": [
+          {
+            "who": "Musician mannequin & Neurosurgeon mannequin",
+            "where": "verifying smooth left-hand finger vibrato across every mapped millimetre",
+            "facing": "in bright clinical suite"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "violin & numbered digital cortical ticket map",
+          "period_detail": "direct living legacy of Penfield's 1937 Montreal Procedure",
+          "physical_behavior": "modern career-saving neurosurgery"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Musician",
+          "verb_sequence": "plays swift scale cleanly while surgeon marks protected hand-mosaic boundary"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Team",
+          "reaction": "confirms 100% preserved dexterity"
+        }
+      ],
+      "wardrobe": "Crisp clinical attire.",
+      "lighting": "Clean high-key clinical light.",
+      "recognition_hook": "Every time a modern surgeon maps an awake guitarist or violinist to save their craft, they use Wilder Penfield's 1937 Montreal ticket method.",
+      "sources": [
+        "SRC1"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "2023 Nature Rewrite: Three Mind-Body 'SCAN' Hubs Inside Motor Cortex",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "2023, Washington University precision-fMRI lab (Gordon & Dosenbach)",
+      "layout": {
+        "description": "Clean neuroimaging display comparing the 1937 continuous ribbon against the 2023 concentric Foot / Hand / Mouth bullseyes interleaved with three purple/amber SCAN nodes.",
+        "positions": [
+          {
+            "who": "Evan Gordon / Nico Dosenbach mannequin",
+            "where": "pointing to the three interleaved whole-body SCAN nodes connecting prefrontal goals to posture and heart rate",
+            "facing": "at console"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1937 Classic Ribbon vs 2023 SCAN Interleaved Map display",
+          "period_detail": "biggest update to Penfield's motor map in 86 years",
+          "physical_behavior": "Gordon et al. 2023 Nature"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Researcher",
+          "verb_sequence": "highlights the three SCAN bridges between Foot, Hand, and Mouth zones"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Colleagues",
+          "reaction": "spot the exact same mixed points hiding inside Penfield's original 1937 raw tickets!"
+        }
+      ],
+      "wardrobe": "2023 casual blazer and sweater.",
+      "lighting": "Bright high-key lab light.",
+      "recognition_hook": "After 86 years in every textbook, 2023 precision MRI found three whole-body mind-body planning hubs tucked right inside Penfield's motor strip!",
+      "sources": [
+        "SRC2"
+      ]
+    }
+  ]
+}

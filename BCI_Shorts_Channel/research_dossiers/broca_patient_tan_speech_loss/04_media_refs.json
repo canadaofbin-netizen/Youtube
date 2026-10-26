@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "archive_film",
+      "title": "Reel-Example: Broca's Aphasia 1",
+      "url": "https://www.youtube.com/watch?v=IP8hkopObvs",
+      "channel": "Instant Neuro",
+      "source_id": "SRC_M1",
+      "duration_sec": 89,
+      "timecodes": [
+        {
+          "t": "00:04-00:21",
+          "what": "At kf_003.jpg (11.0s) (widescreen camera frame), Instant Neuro's recording states \"That's right. And how old are you? I can't. Try. I can't. You're 19. 19. And what happened\" — providing spoken context for April 1861 Bicêtre Bedside: Leborgne Answering '21 Years' With Crisp Left-Hand Finger Counts While Saying Only 'Tan, Tan'."
+        },
+        {
+          "t": "00:22-00:29",
+          "what": "Mid-segment widescreen camera frame at kf_006.jpg (27.5s) as narration explains \"That's right. And how old are you? I can't. Try. I can't. You're 19. 19. And what happened\", clarifying key empirical findings in Paul Broca's April 1861 Bicêtre Hospital study of Louis Victor Leborgne ('Monsieur Tan') & Nina Dronkers's 2007 High-Resolution MRI Re-Examination."
+        },
+        {
+          "t": "00:30-00:54",
+          "what": "Around kf_009.jpg (44.0s) (widescreen camera frame), commentary states \"to you? Um, stroke. And what happened after the stroke with your...\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_broca_patient_tan_speech_los/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_broca_patient_tan_speech_los",
+        "contact_sheet": "media/M1_broca_patient_tan_speech_los/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1_broca_patient_tan_speech_los/contact_sheet.jpg (archival footage (480x270, 0/12 monochrome frames across 0.0s–60.5s)) from Instant Neuro's \"Reel-Example: Broca's Aphasia 1\" (89s total runtime).",
+          "Deduplicated English transcript (2 timestamped cues in media/M1_broca_patient_tan_speech_los/transcript.txt) aligned directly to keyframe timestamps (0.0s–60.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "archive_film",
+      "title": "Brocas aphasia",
+      "url": "https://www.youtube.com/watch?v=RMa9BVpJkYQ",
+      "channel": "neurosigns.org",
+      "source_id": "SRC_M2",
+      "duration_sec": 117,
+      "timecodes": [
+        {
+          "t": "00:12-00:21",
+          "what": "Around kf_003.jpg (18.0s) (4:3 camera frame), speaker commentary notes \"Kent okay okay are you having pain anywhere no no you feel pretty good in general yeah yes you can understand what I'm saying to\", anchoring the research context of April 1861 Bicêtre Bedside: Leborgne Answering '21 Years' With Crisp Left-Hand Finger Counts While Saying Only 'Tan, Tan'."
+        },
+        {
+          "t": "00:48-01:04",
+          "what": "At kf_007.jpg (54.0s) (4:3 camera frame), audio continues with \"now I bad this is Richmond can you say Richmond Richmond Richmond say Richmond Rich can you say one two three one three okay that's very good can...\", detailing experimental methodology and behavioral observations for Paul Broca's April 1861 Bicêtre Hospital study of Louis Victor Leborgne ('Monsieur Tan') & Nina Dronkers's 2007 High-Resolution MRI Re-Examination."
+        },
+        {
+          "t": "01:20-01:28",
+          "what": "Later 4:3 camera frame at kf_010.jpg (81.1s) accompanied by \"I Tuesday Wednesday Friday Friday Saturday Saturday Su okay that's\", summarizing mechanism and boundary conditions in Paul Broca's April 1861 Bicêtre Hospital study of Louis Victor Leborgne ('Monsieur Tan') & Nina Dronkers's 2007 High-Resolution MRI Re-Examination."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (archival footage (360x640, 0/14 monochrome frames across 0.0s–117.1s)) from neurosigns.org's \"Brocas aphasia\" (117s total runtime).",
+          "Deduplicated English transcript (23 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–117.1s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "museum_artefact",
+      "title": "Cerveau de Louis Victor Leborgne dit Tantan 1.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Cerveau_de_Louis_Victor_Leborgne_dit_Tantan_1.jpg",
+      "channel": "Wikimedia Commons (Selbymay)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified museum artefact \"Cerveau de Louis Victor Leborgne dit Tantan 1.jpg\" (960x1200 px, CC BY-SA 4.0): Cerveau de Louis Victor Leborgne dit Tan ou Tantan, atteint d'aphasie, datant de 1861. Préparation humide. Pièce étudiée et décrite par Pierre Paul Broca. Provides anatomical and structural brain reference relevant to the neural mechanism in Paul Broca's April 1861 Bicêtre Hospital study of Louis Victor Leborgne ('Monsieur Tan') & Nina Dronkers's 2007 High-Resolution MRI Re-Examination."
+        }
+      ],
+      "license_note": "Archival museum artefact (CC BY-SA 4.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x1200 px, CC BY-SA 4.0, Selbymay) — neuroanatomy reference: Cerveau de Louis Victor Leborgne dit Tan ou Tantan, atteint d'aphasie, datant de 1861. Préparation humide. Pièce étudiée et décrite par Pierre Paul Broca.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

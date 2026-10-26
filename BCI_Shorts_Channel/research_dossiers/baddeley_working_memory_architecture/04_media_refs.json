@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Alan Baddeley on the future of working memory research",
+      "url": "https://www.youtube.com/watch?v=Q9cdvCDg6gY",
+      "channel": "gocognitive",
+      "source_id": "SRC_M1",
+      "duration_sec": 90,
+      "timecodes": [
+        {
+          "t": "00:08-00:19",
+          "what": "At kf_003.jpg (11.0s) (widescreen camera frame), gocognitive's recording states \"Certainly, interest me are working memory and emotion, and in my recent book I devote chapters to this.\" — providing spoken context for 1974 Stirling / Cambridge Dual-Task Bench: Chanting 8 Digits Aloud ('6-1-9-4-8-2-7-3') While Solving 'BA' Logic Cards at 95% Accuracy."
+        },
+        {
+          "t": "00:29-00:43",
+          "what": "Mid-segment widescreen camera frame at kf_008.jpg (38.5s) as narration explains \"and Domazio, argue that emotion is turned into feelings via working memory but don't actually say much about it. I think it would be very...\", clarifying key empirical findings in Alan D. Baddeley & Graham J. Hitch's 1974 University of Stirling / Cambridge 'Working Memory' Dual-Task Experiments (+ 2000 Episodic Buffer)."
+        },
+        {
+          "t": "00:44-00:48",
+          "what": "Around kf_009.jpg (44.0s) (widescreen camera frame), commentary states \"I think it would be very interesting to explore this, and we're just starting to...\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_baddeley_working_memory_arch/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_baddeley_working_memory_arch",
+        "contact_sheet": "media/M1_baddeley_working_memory_arch/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1_baddeley_working_memory_arch/contact_sheet.jpg (widescreen live-action camera recording (480x270, 12 frames sampled across 0.0s–60.5s)) from gocognitive's \"Alan Baddeley on the future of working memory research\" (90s total runtime).",
+          "Deduplicated English transcript (6 timestamped cues in media/M1_baddeley_working_memory_arch/transcript.txt) aligned directly to keyframe timestamps (0.0s–60.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Working Memory | Baddeley & Hitch 1974 | Memory | Cognitive Psychology",
+      "url": "https://www.youtube.com/watch?v=1xwNFb9tsxg",
+      "channel": "Psychology Unlocked",
+      "source_id": "SRC_M2",
+      "duration_sec": 267,
+      "timecodes": [
+        {
+          "t": "00:10-00:30",
+          "what": "Around kf_002.jpg (10.4s) (widescreen camera frame), speaker commentary notes \"book to Baddeley and Hitch's working memory model. This cognitive model proposed a new structure for short-term\", anchoring the research context of 1974 Stirling / Cambridge Dual-Task Bench: Chanting 8 Digits Aloud ('6-1-9-4-8-2-7-3') While Solving 'BA' Logic Cards at 95% Accuracy."
+        },
+        {
+          "t": "02:37-02:43",
+          "what": "Visual-only monochrome film frame at kf_005.jpg (160.4s) in \"Working Memory | Baddeley & Hitch 1974 | Memory | Cognitive Psychology\", capturing movement progression and frame composition without spoken English commentary."
+        },
+        {
+          "t": "02:51-02:59",
+          "what": "Subsequent widescreen camera frame at kf_009.jpg (174.3s) in \"Working Memory | Baddeley & Hitch 1974 | Memory | Cognitive Psychology\", documenting closing visual sequence for reference analysis."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (10 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 10,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (live-action speaker/interview recording intercut with 1 visual slide frames (480x270, sampled across 3.1s–179.7s)) from Psychology Unlocked's \"Working Memory | Baddeley & Hitch 1974 | Memory | Cognitive Psychology\" (267s total runtime).",
+          "Deduplicated English transcript (38 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (3.1s–179.7s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Baddeley working memory.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Baddeley_working_memory.jpg",
+      "channel": "Wikimedia Commons (FrozenMan ( talk ) ( Uploads ))",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Baddeley working memory.jpg\" (960x560 px, CC0): Baddeley Working Memory Diagram. Documents authentic physical instrument geometry and period materials relevant to Alan D. Baddeley & Graham J. Hitch's 1974 University of Stirling / Cambridge 'Working Memory' Dual-Task Experiments (+ 2000 Episodic Buffer)."
+        }
+      ],
+      "license_note": "Archival photo (CC0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x560 px, CC0, FrozenMan ( talk ) ( Uploads )) — apparatus reference: Baddeley Working Memory Diagram.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

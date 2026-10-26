@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Clive Wearing - The man with no short-term memory",
+      "url": "https://www.youtube.com/watch?v=Vwigmktix2Y",
+      "channel": "Casper H.",
+      "source_id": "SRC_M1",
+      "duration_sec": 185,
+      "timecodes": [
+        {
+          "t": "00:08-00:21",
+          "what": "4:3 camera frame at kf_004.jpg (16.5s) paired with transcript segment \"entirely within the present, with terrible consequences. Clive Waring has the worst case of amnesia ever known.\", introducing core background on Clive Wearing at the Upright Piano: Sight-Reading Renaissance Music Masterfully Beside His Crossed-Out '8:31 AM — NOW Awake!' Diary."
+        },
+        {
+          "t": "00:22-00:26",
+          "what": "Around kf_005.jpg (22.0s) (4:3 camera frame), transcript records \"Clive Waring has the worst case of amnesia ever known. 20 years ago, he lost his memory.\", examining procedural mechanics and evidence in Barbara A. Wilson, Alan D. Baddeley, Narinder Kapur & Deborah Wearing's Longitudinal Studies of Musician Clive Wearing (1985–2008)."
+        },
+        {
+          "t": "00:57-01:05",
+          "what": "Subsequent 4:3 camera frame at kf_012.jpg (60.5s) in \"Clive Wearing - The man with no short-term memory\", documenting closing visual sequence for reference analysis."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_clive_wearing_seven_second_m/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_clive_wearing_seven_second_m",
+        "contact_sheet": "media/M1_clive_wearing_seven_second_m/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1_clive_wearing_seven_second_m/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x360, 14 frames sampled across 0.0s–71.5s)) from Casper H.'s \"Clive Wearing - The man with no short-term memory\" (185s total runtime).",
+          "Deduplicated English transcript (5 timestamped cues in media/M1_clive_wearing_seven_second_m/transcript.txt) aligned directly to keyframe timestamps (0.0s–71.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "The Real 50 First Dates: Meet the man with a 30 second memory | 60 Minutes Australia",
+      "url": "https://www.youtube.com/watch?v=nMp_dHoodoQ",
+      "channel": "60 Minutes Australia",
+      "source_id": "SRC_M2",
+      "duration_sec": 908,
+      "timecodes": [
+        {
+          "t": "00:33-00:43",
+          "what": "At kf_001.jpg (39.6s) (widescreen camera frame), 60 Minutes Australia's recording states \"brain doesn't work properly clive still has a beautiful mind and a love he can never forget\" — providing spoken context for Clive Wearing at the Upright Piano: Sight-Reading Renaissance Music Masterfully Beside His Crossed-Out '8:31 AM — NOW Awake!' Diary."
+        },
+        {
+          "t": "01:01-01:12",
+          "what": "Mid-segment widescreen camera frame at kf_006.jpg (67.0s) as narration explains \"ever in the last 20 years in this compelling and complicated love story clive waring may not know when he last saw his wife deborah but he knows\", clarifying key empirical findings in Barbara A. Wilson, Alan D. Baddeley, Narinder Kapur & Deborah Wearing's Longitudinal Studies of Musician Clive Wearing (1985–2008)."
+        },
+        {
+          "t": "01:35-01:42",
+          "what": "Around kf_010.jpg (100.9s) (widescreen camera frame), commentary states \"ago clive lost his memory it was sudden and irreversible it's considered the worst case of amnesia in the world no difference\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (480x270, 14 frames sampled across 39.6s–136.8s)) from 60 Minutes Australia's \"The Real 50 First Dates: Meet the man with a 30 second memory | 60 Minutes Australia\" (908s total runtime).",
+          "Deduplicated English transcript (40 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (39.6s–136.8s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Hsv encephalitis.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Hsv_encephalitis.jpg",
+      "channel": "Wikimedia Commons (dr Laughlin Dawes)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Hsv encephalitis.jpg\" (480x512 px, CC BY 3.0): \"This 33 year-old female patient presented with agitation, confusion, mutism, and fever. This coronal T2-weighted MR image shows high signal in the temporal lobes including hippocampal formations and. Provides anatomical and structural brain reference relevant to the neural mechanism in Barbara A. Wilson, Alan D. Baddeley, Narinder Kapur & Deborah Wearing's Longitudinal Studies of Musician Clive Wearing (1985–2008)."
+        }
+      ],
+      "license_note": "Archival photo (CC BY 3.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (480x512 px, CC BY 3.0, dr Laughlin Dawes) — neuroanatomy reference: \"This 33 year-old female patient presented with agitation, confusion, mutism, and fever. This coronal T2-weighted MR image shows high signal in the temporal lobes including hippocampal formations and.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

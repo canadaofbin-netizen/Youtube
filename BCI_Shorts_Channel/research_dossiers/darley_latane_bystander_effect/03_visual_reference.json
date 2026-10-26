@@ -1,0 +1,228 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "NYU student pushing open the isolated intercom cubicle door in 52 seconds vs hesitating under the 6-channel light panel",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1968, New York University psychology corridor, Manhattan",
+      "layout": {
+        "description": "Brightly lit 1968 university corridor lined with numbered sound-attenuated cubicles; inside Cubicle 1 sits a small wooden desk, padded studio headphones, a desktop intercom box with six numbered channel indicator bulbs, and a stopwatch in the hallway.",
+        "positions": [
+          {
+            "who": "Solo-Condition Student (mannequin in 1968 corduroy jacket and turtleneck)",
+            "where": "bursting swiftly out of Cubicle 1 doorway with headphones still held in one hand to alert the hallway researcher",
+            "facing": "rushing into the corridor"
+          },
+          {
+            "who": "Six-Group Student in adjacent view / booth (mannequin in 1968 knit sweater)",
+            "where": "seated tensely inside a booth staring at FIVE lit channel bulbs on the intercom box, hands clasped anxiously on the desk",
+            "facing": "facing the six-bulb intercom panel"
+          },
+          {
+            "who": "John Darley (mannequin in 1968 suit and tie)",
+            "where": "standing at the corridor desk clicking a chrome stopwatch at 52 seconds",
+            "facing": "facing the booth doors"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "six-bulb desktop intercom unit",
+          "period_detail": "1968 brushed-metal intercom box with numbered amber lamps showing either 2 active booths or all 6 active booths",
+          "physical_behavior": "five extra lit lamps cut rescue probability from 85% down to 31%"
+        },
+        {
+          "name": "over-ear padded intercom headphones",
+          "period_detail": "black 1960s studio headset resting half-lifted on the desk",
+          "physical_behavior": "carries the pre-recorded seizure plea"
+        },
+        {
+          "name": "corridor response-time ledger",
+          "period_detail": "clipboard chart showing 85% (52s) for 2-person vs 31% (166s) for 6-person condition",
+          "physical_behavior": "documents the steep bystander curve"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Solo-Condition Student",
+          "verb_sequence": "hears distress over the two-lamp intercom -> rips off headphones -> pushes open the booth door in 52 seconds"
+        },
+        {
+          "who": "Six-Group Student",
+          "verb_sequence": "hears the identical recording -> looks at the five other lit channel bulbs assuming someone else already left -> stays frozen with clasped hands"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Six-Group Student",
+          "reaction": "leans forward anxiously when the researcher finally opens the door, relieved to ask if the peer is safe"
+        },
+        {
+          "who": "John Darley",
+          "reaction": "logs how four unseen listeners tripled hesitation time"
+        }
+      ],
+      "wardrobe": "1968 NYC collegiate attire: corduroy sport coats, fine-knit turtlenecks, button-down Oxford shirts, wool slacks.",
+      "lighting": "Clean high-key 1968 institutional corridor and booth daylight.",
+      "recognition_hook": "Hearing the exact same medical emergency through headphones, 85 percent of students bolt out the door when they think they're alone — versus just 31 percent when five other booth lights glow.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1968 college student rushing out of a numbered soundproof cubicle holding intercom headphones toward a corridor researcher while a six-bulb intercom box glows on the desk",
+        "must_show": [
+          "headphones|intercom",
+          "door|cubicle|booth",
+          "corridor|stopwatch"
+        ],
+        "source": "M1@00:26-00:34; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Columbia waiting room filling with white vent smoke beside calm confederates",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1968, Columbia University waiting room",
+      "layout": {
+        "description": "Brightly lit 1968 office waiting room where harmless white titanium-dioxide mist curls steadily through a wall air vent while three men fill out questionnaires.",
+        "positions": [
+          {
+            "who": "Genuine Student",
+            "where": "waving away white mist from his clipboard while glancing sideways at two utterly calm confederates",
+            "facing": "looking between vent and peers"
+          },
+          {
+            "who": "Two Confederates",
+            "where": "shrugging mildly and continuing to write without looking up",
+            "facing": "facing their clipboards"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "wall air-vent mist & survey clipboards",
+          "period_detail": "white mist drifting across the room",
+          "physical_behavior": "reported 75% of the time alone, but only 10% beside calm actors"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Genuine Student",
+          "verb_sequence": "looks alarmingly at the vent -> checks the two calm actors -> goes back to writing in pluralistic ignorance"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Observer behind mirror",
+          "reaction": "clicks stopwatch at 4 minutes"
+        }
+      ],
+      "wardrobe": "1968 shirts and sweaters.",
+      "lighting": "High-key waiting room light.",
+      "recognition_hook": "Seated beside two calm actors, nine out of ten students kept filling out forms as thick white smoke filled the room.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Trembling hands inside the six-person booth prove conflict, not apathy",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1968, NYU cubicle debriefing",
+      "layout": {
+        "description": "Open doorway of Cubicle 4 at the six-minute mark.",
+        "positions": [
+          {
+            "who": "John Darley",
+            "where": "opening the cubicle door gently as the seated student looks up anxiously",
+            "facing": "facing student"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "six-bulb intercom box",
+          "period_detail": "five amber peer lamps glowing",
+          "physical_behavior": "created an agonizing stalemate of 'surely someone else went'"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Student",
+          "verb_sequence": "stands immediately asking anxiously about the other student's health"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "John Darley",
+          "reaction": "reassures the visibly shaken participant during debriefing"
+        }
+      ],
+      "wardrobe": "1968 suit and collegiate sweater.",
+      "lighting": "Clean booth light.",
+      "recognition_hook": "Non-helpers weren't cold-hearted — they were sweating and trembling inside a responsibility trap.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Pointing to one person in a blue jacket during a sidewalk stumble",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern city plaza",
+      "layout": {
+        "description": "Sunlit modern plaza where a helper kneels beside a dizzy commuter and points directly at one specific bystander.",
+        "positions": [
+          {
+            "who": "First Responder mannequin",
+            "where": "kneeling steadily and pointing one clear arm toward a commuter in a navy jacket",
+            "facing": "facing the commuter"
+          },
+          {
+            "who": "Navy-Jacket Commuter mannequin",
+            "where": "pulling out smartphone immediately upon being singled out",
+            "facing": "nodding and dialing"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "smartphone dialing emergency services",
+          "period_detail": "held up promptly",
+          "physical_behavior": "direct assignment restores the 85% solo response"
+        }
+      ],
+      "actions": [
+        {
+          "who": "First Responder mannequin",
+          "verb_sequence": "points directly at one person -> Navy-Jacket Commuter steps forward and dials immediately"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Surrounding crowd",
+          "reaction": "clears space cooperatively once roles are clear"
+        }
+      ],
+      "wardrobe": "Modern navy jacket and smart-casual commuter wear.",
+      "lighting": "Bright outdoor plaza daylight.",
+      "recognition_hook": "Pointing to ONE specific person shatters diffusion of responsibility in two seconds.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

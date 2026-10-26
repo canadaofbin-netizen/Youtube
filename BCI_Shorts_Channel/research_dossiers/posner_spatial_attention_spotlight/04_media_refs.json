@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "lecture",
+      "title": "Q&A - Michael I. Posner - Enhancing Brain Networks of Conscious Control",
+      "url": "https://www.youtube.com/watch?v=79dGnJhXqEU",
+      "channel": "Chapman University Brain Institute",
+      "source_id": "SRC_M1",
+      "duration_sec": 1055,
+      "timecodes": [
+        {
+          "t": "07:19-07:25",
+          "what": "Widescreen camera frame at kf_004.jpg (439.8s) paired with transcript segment \"many years I really have to choose very carefully what I do because I know I don't have an institute where many other people could work and so on...\", introducing core background on participant with EOG eye-fixation sensors locked dead-center on '+' pressing a single key 60 ms faster for the arrow-cued box."
+        },
+        {
+          "t": "07:26-07:33",
+          "what": "Around kf_006.jpg (452.4s) (widescreen camera frame), transcript records \"many years I really have to choose very carefully what I do because I know I don't have an institute where many other people could work and so on...\", examining procedural mechanics and evidence in Michael I. Posner's endogenous/exogenous spatial cueing ('Posner Cueing Paradigm') experiments."
+        },
+        {
+          "t": "07:51-08:05",
+          "what": "At kf_010.jpg (477.7s) (widescreen camera frame), speaker remarks \"be any low frequency yeah expert I've heard others suggest that it because it's a low frequency it produces more entrainment of you know neural...\", addressing theoretical interpretation and downstream implications of Michael I. Posner's endogenous/exogenous spatial cueing ('Posner Cueing Paradigm') experiments."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (widescreen live-action camera recording (640x360, 14 frames sampled across 420.8s–503.0s)) from Chapman University Brain Institute's \"Q&A - Michael I. Posner - Enhancing Brain Networks of Conscious Control\" (1055s total runtime).",
+          "Deduplicated English transcript (23 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (420.8s–503.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "History of Neuroscience: Michael I. Posner",
+      "url": "https://www.youtube.com/watch?v=aFGkBm1IsqY",
+      "channel": "Society for Neuroscience",
+      "source_id": "SRC_M2",
+      "duration_sec": 3559,
+      "timecodes": [
+        {
+          "t": "01:00-01:10",
+          "what": "At kf_002.jpg (67.1s) (4:3 camera frame), Society for Neuroscience's recording states \"circuitry. You really have to develop and cognitive psychology has got a lot of experience in this particular task that I had to separate the...\" — providing spoken context for participant with EOG eye-fixation sensors locked dead-center on '+' pressing a single key 60 ms faster for the arrow-cued box."
+        },
+        {
+          "t": "01:18-01:32",
+          "what": "Mid-segment 4:3 camera frame at kf_005.jpg (86.1s) as narration explains \"processes by the speed that they took and the idea was that we could actually try to measure, make concrete the elements of complex thought and...\", clarifying key empirical findings in Michael I. Posner's endogenous/exogenous spatial cueing ('Posner Cueing Paradigm') experiments."
+        },
+        {
+          "t": "02:03-02:18",
+          "what": "Around kf_012.jpg (130.4s) (4:3 camera frame), commentary states \"or you could have a rule and I found it really originally to my surprise that it took about 80 milliseconds longer to match an upper and lower...\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (4:3 broadcast/clinical camera recording (320x240, 14 frames sampled across 60.8s–143.0s)) from Society for Neuroscience's \"History of Neuroscience: Michael I. Posner\" (3559s total runtime).",
+          "Deduplicated English transcript (13 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (60.8s–143.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Spatial-cueing-paradigm-from-Posner-et-al-1982.png",
+      "url": "https://commons.wikimedia.org/wiki/File:Spatial-cueing-paradigm-from-Posner-et-al-1982.png",
+      "channel": "Wikimedia Commons (Posner et al (1982))",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Spatial-cueing-paradigm-from-Posner-et-al-1982.png\" (467x373 px, CC0): Spatial-cueing-paradigm-from-Posner-et-al-1982. Documents authentic researcher likeness, period attire, and historical context for Michael I. Posner's endogenous/exogenous spatial cueing ('Posner Cueing Paradigm') experiments."
+        }
+      ],
+      "license_note": "Archival photo (CC0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (467x373 px, CC0, Posner et al (1982)) — portrait reference: Spatial-cueing-paradigm-from-Posner-et-al-1982.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "slug": "ramachandran_phantom_limb_mirror",
+  "topic": "V. S. Ramachandran (1995-1998): The $10 Cardboard Mirror Box, Cortical Remapping & Unclenching Phantom Limbs",
+  "pillar": "brain_health",
+  "created_at": "2026-10-25T22:49:32+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Placing an intact hand beside a vertical mirror inside a simple cardboard box so visual reflection 'opens' a painfully clenched phantom fist connects directly to primary somatosensory (S1) face-to-hand cortical remapping and visual-motor efference feedback.",
+  "primary_case": {
+    "title": "V. S. Ramachandran & Diane Rogers-Ramachandran's 1995-1996 cardboard Mirror Box phantom-limb experiments",
+    "year": 1996,
+    "place": "UC San Diego Center for Brain and Cognition, La Jolla, California",
+    "people": [
+      {
+        "name": "Vilayanur S. Ramachandran",
+        "role": "UC San Diego behavioral neurologist who mapped face-to-phantom-hand cortical remapping with a cotton swab and invented the $10 Mirror Box",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Diane Rogers-Ramachandran",
+        "role": "Co-inventor on the 1995 Nature / 1996 Proceedings B mirror-visual-feedback cohort of upper-limb amputees",
+        "source_id": "SRC2"
+      },
+      {
+        "name": "Herta Flor & Tamar Makin",
+        "role": "Modern neuroimaging investigators who tested cortical reorganization vs preserved phantom representation and placebo-controlled clinical trial boundaries",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Up to 90+ percent of amputees vividly feel a missing arm or leg ('phantom limb') — and in many patients, the phantom hand feels frozen in a painfully clenched spasm with phantom fingernails digging into the phantom palm.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Before Ramachandran, doctors often blamed phantom pain on inflamed stump nerve endings ('neuromas') — yet cutting stump nerves or even dorsal roots repeatedly failed to erase the phantom.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Inspired by Tim Pons's monkey somatosensory-cortex remapping discovery, Ramachandran brushed a simple cotton swab gently across blindfolded amputee Tom Sorenson's LEFT CHEEK in 1992 — and Tom gasped that he felt the swab simultaneously on his missing phantom thumb and index finger.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Why the cheek? On Penfield's primary somatosensory cortex (S1) strip, the FACE representation sits right beside the HAND representation — once hand input went silent, neighboring face inputs invaded/unmasked the hand territory (confirmed via MEG brain scans).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Ramachandran proposed 'learned paralysis' for clenched phantoms: every time motor cortex sent 'OPEN HAND!' before or right after amputation, proprioceptive/visual feedback came back 'NO MOVEMENT,' stamping 'paralyzed/clenched' into parietal-motor loops.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "To hack that loop without $10M hardware, Ramachandran propped a $10 vertical glass mirror inside an open cardboard box (1995 Nature / 1996 Proc B): the patient slid their intact hand into the reflective side so its mirror image sat squarely where the missing hand belonged.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "When long-suffering patient Philip Martinez looked into the mirror and opened and closed his intact hand symmetrically, six of ten tested patients immediately FELT their frozen phantom hand animate and unclench for the first time in years.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Modern neuroimaging & clinical trials (Tamar Makin; Herta Flor) added vital precision: 1) adult S1 still preserves a surprisingly detailed 'latent hand map' alongside competitive remapping, and 2) mirror therapy isn't a one-minute magic wand for every neuropathic pain type — multi-week structured daily sessions work best specifically for motor-cramping phantoms and post-stroke hemiparesis.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Between 1992 and 1998, Ramachandran and Rogers-Ramachandran paired cotton-swab cheek-to-phantom somatosensory mapping with vertical mirror-box visual feedback, evoking immediate felt movement in 6 of 10 upper-limb amputees.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Touch a blindfolded amputee's cheek with a 2-cent cotton swab and a drip of warm water running down his face feels like warm water trickling down his missing phantom arm.",
+      "why_surprising": "Because FACE sits next door to HAND on the brain's sensory strip, neighboring wires moved into the quiet apartment.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Using a $10 hardware-store mirror taped vertically inside a cardboard shoebox, Ramachandran let a man whose phantom fist had been clenched in agony for ten years SEE 'both' hands open — and feel his phantom fingers unclench in seconds.",
+      "why_surprising": "Visual feedback overrode ten years of 'no-movement' error signals.",
+      "source_id": "SRC2",
+      "rank": 2
+    },
+    {
+      "fact": "When the experimenter touched the intact hand IN THE MIRROR while the patient watched, several patients literally felt a tingle on their missing phantom fingers ('visual-tactile synesthesia').",
+      "why_surprising": "Sight directly gated somatosensory cortex.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "Adult brains were once thought hardwired like cast concrete after childhood — a cotton swab and a cardboard mirror proved adult body maps stay dynamically negotiable for life.",
+      "why_surprising": "Low-tech elegance beat surgical nerve-cutting.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Phantom limb pain is imaginary 'wishful thinking' or purely irritated stump nerve endings.",
+      "truth": "Central somatosensory/motor cortical maps and mismatched efference-copy loops drive phantom sensations even after peripheral nerve blocks.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Adult sensory cortex wiring is 100% frozen after age twelve.",
+      "truth": "MEG and fMRI prove adult sensory-motor body representations reorganize and re-weight across weeks and months.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "One 30-second peek in a mirror cures 100% of all phantom pain forever.",
+      "truth": "Controlled clinical trials show mirror therapy requires consistent multi-week daily practice and helps motor/cramping phantoms far more reliably than burning deafferentation pain.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Amputation completely erases the original hand map from cortex.",
+      "truth": "Tamar Makin's ultra-high-field 7T fMRI showed the missing hand's finger map actually persists latently underneath competitive face/stump shifts.",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Feeling your own hand 'jump' slightly when watching a close-up magic trick or VR avatar hand move at your exact wrist position.",
+    "Understanding why modern stroke rehabilitation and Complex Regional Pain Syndrome (CRPS) clinics use $15 folding mirror boxes on tabletops.",
+    "Solving an 'impossible' technical problem with a $10 physical prototype instead of assuming only million-dollar machines work.",
+    "Noticing how visually watching a stretched muscle move calmly in a gym mirror eases protective guarding."
+  ],
+  "linked_projects": [
+    "psych_46_ramachandran_phantom_limb_mirror"
+  ]
+}

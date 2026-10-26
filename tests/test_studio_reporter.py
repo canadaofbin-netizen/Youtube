@@ -283,3 +283,606 @@ def test_notable_changes_and_signal_radar_edge_cases():
     assert radar["amplification_strategy_count"] == 5
     sig_fail_4 = next(s for s in radar["failure_risk_signals"] if s["signal_id"] == "SIG-FAIL-4")
     assert sig_fail_4["severity"] == "LOW"
+
+
+def test_vacant_null_slots_and_legacy_v4_inventory_filtering():
+    """
+    Regression test for:
+    1) JSON `project_id: null` / `"None"` / `status: "vacant"` slots and stale unuploaded
+       `ready_to_stage` drafts in `staging_queue.json` must NEVER inflate `scheduled_count`,
+       `upcoming_schedule`, or `per_video_records`.
+    2) Unpublished/deleted legacy v4 MP4s in `projects/` and `Completed_Psychology_100_Shorts/`
+       must be excluded from `total_completed_inventory` and `staged_buffer_count` (matching
+       `StagingQueueManager.get_status_summary()`).
+    """
+    from pipeline.studio.queue_manager import StagingQueueManager
+
+    tmp_dir = Path(tempfile.mkdtemp(prefix="test_reporter_vacant_v4_"))
+    try:
+        projects_dir = tmp_dir / "BCI_Shorts_Channel" / "projects"
+        reports_dir = tmp_dir / "BCI_Shorts_Channel" / "reports" / "daily"
+        queue_file = tmp_dir / "BCI_Shorts_Channel" / "staging_queue.json"
+        link_graph_file = tmp_dir / "BCI_Shorts_Channel" / "short_link_graph.json"
+        archive_dir = tmp_dir / "Completed_Psychology_100_Shorts"
+        projects_dir.mkdir(parents=True, exist_ok=True)
+        archive_dir.mkdir(parents=True, exist_ok=True)
+
+        # 1. Live published project (counted even without v5 visual_plan because it is live on YouTube)
+        live_dir = projects_dir / "test_01_live_pub"
+        (live_dir / "05_assembly").mkdir(parents=True)
+        (live_dir / "00_project_manifest.json").write_text(
+            json.dumps({"project_id": "test_01_live_pub", "pillar": "everyday_neuro", "title": "Why Basal Ganglia Habits Lock Your Brain"}),
+            encoding="utf-8",
+        )
+        (live_dir / "05_assembly" / "final_shorts_1080x1920.mp4").write_bytes(b"\x00" * 1024)
+        (live_dir / "02_script").mkdir(parents=True)
+        (live_dir / "02_script" / "script.json").write_text(
+            json.dumps({
+                "title": "Why Basal Ganglia Habits Lock Your Brain",
+                "pillar": "everyday_neuro",
+                "clip_narrations": ["Hook sentence."] * 10,
+                "doi": "10.1038/nature12345",
+            }),
+            encoding="utf-8",
+        )
+        (live_dir / "06_publish").mkdir(parents=True)
+        (live_dir / "06_publish" / "upload_receipt.json").write_text(
+            json.dumps({
+                "project_id": "test_01_live_pub",
+                "video_id": "p4ou90cHt50",
+                "status": "published_public",
+                "visibility": "public",
+                "related_video_verified": True,
+                "related_target_project_id": "test_01_live_pub",
+                "playlist_verified": True,
+                "playlist_title": "Everyday Brain & Neuro-Hacks",
+            }),
+            encoding="utf-8",
+        )
+        (archive_dir / "final_shorts_test_01_live_pub.mp4").write_bytes(b"\x00" * 1024)
+
+        # 2. Deleted legacy v4 project (has MP4 in both 05_assembly and Completed_Psychology_100_Shorts)
+        del_dir = projects_dir / "test_04_deleted_v4"
+        (del_dir / "05_assembly").mkdir(parents=True)
+        (del_dir / "00_project_manifest.json").write_text(
+            json.dumps({"project_id": "test_04_deleted_v4", "pillar": "neuro_history"}),
+            encoding="utf-8",
+        )
+        (del_dir / "05_assembly" / "final_shorts_1080x1920.mp4").write_bytes(b"\x00" * 1024)
+        (del_dir / "06_publish").mkdir(parents=True)
+        (del_dir / "06_publish" / "upload_receipt.json").write_text(
+            json.dumps({
+                "project_id": "test_04_deleted_v4",
+                "video_id": None,
+                "status": "deleted_from_studio",
+                "visibility": "deleted",
+            }),
+            encoding="utf-8",
+        )
+        (archive_dir / "final_shorts_test_04_deleted_v4.mp4").write_bytes(b"\x00" * 1024)
+
+        # 3. Unpublished legacy v4 project without receipt (fails passes_v5_publish_gate)
+        unpub_v4_dir = projects_dir / "test_07_unpub_v4"
+        (unpub_v4_dir / "05_assembly").mkdir(parents=True)
+        (unpub_v4_dir / "00_project_manifest.json").write_text(
+            json.dumps({"project_id": "test_07_unpub_v4", "pillar": "brain_mysteries"}),
+            encoding="utf-8",
+        )
+        (unpub_v4_dir / "05_assembly" / "final_shorts_1080x1920.mp4").write_bytes(b"\x00" * 1024)
+        (archive_dir / "final_shorts_test_07_unpub_v4.mp4").write_bytes(b"\x00" * 1024)
+
+        # 4. Orphan legacy archive MP4 with no project folder at all
+        (archive_dir / "final_shorts_test_99_orphan_v4.mp4").write_bytes(b"\x00" * 1024)
+
+        # 5. staging_queue.json with 6 vacant/null/string-"None" slots + blocked/deleted/nonexistent ready_to_stage entries
+        queue_payload = {
+            "channel_id": "UC4FeioYYv9X04Di07_MfZ7g",
+            "scheduled_items": [
+                {"schedule_id": "2026-10-27_slot2", "project_id": None, "title": None, "pillar": None, "date": "2026-10-27", "slot_id": 2, "time_et": "12:00", "status": "vacant"},
+                {"schedule_id": "2026-10-27_slot4", "project_id": "None", "title": None, "pillar": None, "date": "2026-10-27", "slot_id": 4, "time_et": "20:00", "status": "vacant"},
+                {"schedule_id": "2026-10-28_slot2", "project_id": "null", "title": None, "pillar": None, "date": "2026-10-28", "slot_id": 2, "time_et": "12:00", "status": "vacant"},
+                {"schedule_id": "2026-10-28_slot4", "project_id": "   ", "title": None, "pillar": None, "date": "2026-10-28", "slot_id": 4, "time_et": "20:00", "status": "vacant"},
+                {"schedule_id": "2026-10-29_slot2", "project_id": None, "date": "2026-10-29", "slot_id": 2, "time_et": "12:00", "status": "vacant"},
+                {"schedule_id": "2026-10-29_slot4", "project_id": None, "date": "2026-10-29", "slot_id": 4, "time_et": "20:00", "status": "vacant"},
+                {"schedule_id": "2026-10-30_slot2", "project_id": "test_04_deleted_v4", "date": "2026-10-30", "slot_id": 2, "time_et": "12:00", "status": "blocked_legacy_v4"},
+                {"schedule_id": "2026-10-30_slot4", "project_id": "test_04_deleted_v4", "date": "2026-10-30", "slot_id": 4, "time_et": "20:00", "status": "deleted_from_studio"},
+                {"schedule_id": "2026-10-31_slot2", "project_id": "test_55_nonexistent_draft", "date": "2026-10-31", "slot_id": 2, "time_et": "12:00", "status": "ready_to_stage"},
+            ],
+            "history": [
+                {
+                    "schedule_id": "2026-10-21_slot2",
+                    "project_id": "test_01_live_pub",
+                    "video_id": "p4ou90cHt50",
+                    "title": "Why Basal Ganglia Habits Lock Your Brain",
+                    "pillar": "everyday_neuro",
+                    "date": "2026-10-21",
+                    "slot_id": 2,
+                    "time_et": "12:00",
+                    "status": "published",
+                }
+            ],
+        }
+        queue_file.write_text(json.dumps(queue_payload, indent=2), encoding="utf-8")
+        link_graph_file.write_text(json.dumps({"edges": [{"source": "test_01_live_pub"}], "two_cycle_count": 0}), encoding="utf-8")
+
+        qm = StagingQueueManager(queue_file=queue_file, projects_dir=projects_dir)
+        q_summary = qm.get_status_summary()
+        assert q_summary["scheduled_slots_count"] == 0
+        assert q_summary["vacant_slots_count"] == 6
+        assert q_summary["total_completed_projects"] == 1
+        assert q_summary["staged_in_buffer"] == 0
+
+        reporter = StudioAnalyticsReporter(
+            reports_dir=reports_dir,
+            projects_dir=projects_dir,
+            queue_file=queue_file,
+            short_link_graph_file=link_graph_file,
+        )
+        local_state = reporter._collect_local_pipeline_state("2026-10-25")
+        assert local_state["published_count"] == 1
+        assert local_state["scheduled_count"] == 0
+        assert local_state["vacant_slot_count"] == 6
+        assert local_state["staged_buffer_count"] == 0
+        assert local_state["total_completed_inventory"] == 1
+        assert local_state["blocked_legacy_v4_count"] == 3
+        assert local_state["upcoming_schedule"] == []
+        assert local_state["raw_queue_items"] == []
+        assert [v["project_id"] for v in local_state["videos"]] == ["test_01_live_pub"]
+
+        res = reporter.generate_daily_report(report_date="2026-10-25", dry_run=True)
+        payload = json.loads(Path(res["json_path"]).read_text(encoding="utf-8"))
+        md_text = Path(res["markdown_path"]).read_text(encoding="utf-8")
+
+        assert payload["inventory_summary"]["published_count"] == 1
+        assert payload["inventory_summary"]["scheduled_count"] == 0
+        assert payload["inventory_summary"]["vacant_slot_count"] == 6
+        assert payload["inventory_summary"]["staged_buffer_count"] == 0
+        assert payload["inventory_summary"]["total_completed_inventory"] == 1
+        assert payload["inventory_summary"]["blocked_legacy_v4_count"] == 3
+        assert payload["upcoming_schedule"] == []
+        assert [r["project_id"] for r in payload["per_video_records"]] == ["test_01_live_pub"]
+
+        risk_2 = next(i for i in payload["risk_audit"]["items"] if i["risk_id"] == "RISK-2")
+        assert risk_2["severity"] == "MEDIUM"
+        assert "QUEUE EMPTY" in risk_2["status_badge"]
+        assert "공백 없음" not in risk_2["status_badge"]
+
+        assert "📅 **Scheduled** `0 (0.0d)`" in md_text
+        assert "예약 0개" in md_text
+        assert "예약 0건" in md_text
+        assert "예약 6" not in md_text
+        assert "**Scheduled** `6" not in md_text
+    finally:
+        shutil.rmtree(tmp_dir, ignore_errors=True)
+
+
+def test_mixed_queue_with_v5_ready_project_and_vacant_slots():
+    """
+    Verifies that when a genuine Prompt System v5 unpublished project exists alongside
+    vacant (`project_id: null`) slots and legacy v4 projects, both `StagingQueueManager`
+    and `StudioAnalyticsReporter` count the v5 project accurately while excluding
+    vacant slots and legacy v4 artifacts.
+    """
+    from pipeline.studio.queue_manager import StagingQueueManager
+    from tests.test_studio_autonomous import _seed_hermetic_studio_project
+
+    tmp_dir = Path(tempfile.mkdtemp(prefix="test_reporter_mixed_v5_"))
+    try:
+        projects_dir = tmp_dir / "BCI_Shorts_Channel" / "projects"
+        reports_dir = tmp_dir / "BCI_Shorts_Channel" / "reports" / "daily"
+        queue_file = tmp_dir / "BCI_Shorts_Channel" / "staging_queue.json"
+        link_graph_file = tmp_dir / "BCI_Shorts_Channel" / "short_link_graph.json"
+        archive_dir = tmp_dir / "Completed_Psychology_100_Shorts"
+        projects_dir.mkdir(parents=True, exist_ok=True)
+        archive_dir.mkdir(parents=True, exist_ok=True)
+
+        # 1. Live published project (legacy v4 schema, allowed because live on YouTube)
+        _seed_hermetic_studio_project(
+            projects_dir,
+            "test_01_live_pub",
+            title="Why Basal Ganglia Habits Lock Your Brain",
+            pillar="everyday_neuro",
+            v5_ready=False,
+            live_receipt={
+                "project_id": "test_01_live_pub",
+                "video_id": "p4ou90cHt50",
+                "status": "published_public",
+                "visibility": "public",
+            },
+        )
+
+        # 2. Genuine v5-passing unpublished project whose MP4 lives ONLY in Completed_Psychology_100_Shorts
+        v5_storage = _seed_hermetic_studio_project(
+            projects_dir,
+            "test_08_gage_v5",
+            title="How an Iron Rod Rewired Human Personality",
+            pillar="brain_history",
+            v5_ready=True,
+        )
+        v5_asm_mp4 = v5_storage.get_stage_dir("05_assembly") / "final_shorts_1080x1920.mp4"
+        shutil.move(str(v5_asm_mp4), str(archive_dir / "final_shorts_test_08_gage_v5.mp4"))
+
+        # 3. Blocked legacy v4 project (unpublished, v5_ready=False)
+        _seed_hermetic_studio_project(
+            projects_dir,
+            "test_09_legacy_v4",
+            pillar="brain_mysteries",
+            v5_ready=False,
+        )
+
+        queue_payload = {
+            "channel_id": "UC4FeioYYv9X04Di07_MfZ7g",
+            "scheduled_items": [
+                {
+                    "schedule_id": "2026-10-27_slot2",
+                    "project_id": "test_08_gage_v5",
+                    "video_id": "AbCdEfGhI12",
+                    "title": "How an Iron Rod Rewired Human Personality",
+                    "pillar": "brain_history",
+                    "date": "2026-10-27",
+                    "slot_id": 2,
+                    "time_et": "12:00",
+                    "status": "scheduled",
+                },
+                {"schedule_id": "2026-10-27_slot4", "project_id": None, "date": "2026-10-27", "slot_id": 4, "time_et": "20:00", "status": "vacant"},
+                {"schedule_id": "2026-10-28_slot2", "project_id": None, "date": "2026-10-28", "slot_id": 2, "time_et": "12:00", "status": "vacant"},
+            ],
+            "history": [
+                {
+                    "schedule_id": "2026-10-21_slot2",
+                    "project_id": "test_01_live_pub",
+                    "video_id": "p4ou90cHt50",
+                    "title": "Why Basal Ganglia Habits Lock Your Brain",
+                    "pillar": "everyday_neuro",
+                    "date": "2026-10-21",
+                    "slot_id": 2,
+                    "time_et": "12:00",
+                    "status": "published",
+                }
+            ],
+        }
+        queue_file.write_text(json.dumps(queue_payload, indent=2), encoding="utf-8")
+        link_graph_file.write_text(json.dumps({"edges": [], "two_cycle_count": 0}), encoding="utf-8")
+
+        qm = StagingQueueManager(queue_file=queue_file, projects_dir=projects_dir)
+        q_summary = qm.get_status_summary()
+        assert q_summary["scheduled_slots_count"] == 1
+        assert q_summary["vacant_slots_count"] == 2
+        assert q_summary["total_completed_projects"] == 2
+
+        reporter = StudioAnalyticsReporter(
+            reports_dir=reports_dir,
+            projects_dir=projects_dir,
+            queue_file=queue_file,
+            short_link_graph_file=link_graph_file,
+        )
+        res = reporter.generate_daily_report(report_date="2026-10-25", dry_run=True)
+        payload = json.loads(Path(res["json_path"]).read_text(encoding="utf-8"))
+
+        assert payload["inventory_summary"]["published_count"] == 1
+        assert payload["inventory_summary"]["scheduled_count"] == 1
+        assert payload["inventory_summary"]["vacant_slot_count"] == 2
+        assert payload["inventory_summary"]["staged_buffer_count"] == 1
+        assert payload["inventory_summary"]["total_completed_inventory"] == 2
+        assert payload["inventory_summary"]["blocked_legacy_v4_count"] == 1
+        assert len(payload["upcoming_schedule"]) == 1
+        assert payload["upcoming_schedule"][0]["project_id"] == "test_08_gage_v5"
+
+        risk_2 = next(i for i in payload["risk_audit"]["items"] if i["risk_id"] == "RISK-2")
+        assert risk_2["severity"] == "OK"
+        assert "1`개 슬롯 배정" in risk_2["status_badge"]
+        assert "빈 슬롯 `2`개" in risk_2["status_badge"]
+        assert "공백 없음" not in risk_2["status_badge"]
+    finally:
+        shutil.rmtree(tmp_dir, ignore_errors=True)
+
+
+def test_archived_history_preserves_cohort_timestamps_slots_and_link_metadata():
+    """
+    Regression test for:
+    1) `StagingQueueManager.plan_5_slot_schedule()` archiving live `upload_receipt.json`
+       entries (which store `scheduled_time_et` + `slot_id` without separate `date`/`time_et`)
+       into `history`, ensuring `StudioAnalyticsReporter` preserves real cohort dates,
+       slot IDs, multi-day elapsed hours, and `min_publish_gap_hours`.
+    2) `related_video_receipt.json` (`link_reason`, `playlist_assigned`) populating
+       `related_link_role` and `playlist_verified`.
+    3) Zero stale hardcoded schedule/upload claims in `signal_radar` and `diagnostics`
+       when `scheduled_count == 0`, and `simultaneous_publish_count == 0` when unique.
+    """
+    from pipeline.studio.queue_manager import StagingQueueManager
+    from tests.test_studio_autonomous import _seed_hermetic_studio_project
+
+    tmp_dir = Path(tempfile.mkdtemp(prefix="test_reporter_history_ts_"))
+    try:
+        projects_dir = tmp_dir / "BCI_Shorts_Channel" / "projects"
+        reports_dir = tmp_dir / "BCI_Shorts_Channel" / "reports" / "daily"
+        queue_file = tmp_dir / "BCI_Shorts_Channel" / "staging_queue.json"
+        link_graph_file = tmp_dir / "BCI_Shorts_Channel" / "short_link_graph.json"
+        projects_dir.mkdir(parents=True, exist_ok=True)
+
+        s1 = _seed_hermetic_studio_project(
+            projects_dir,
+            "test_01_oct19",
+            title="Why Basal Ganglia Habits Lock Your Brain",
+            pillar="everyday_neuro",
+            v5_ready=False,
+            live_receipt={
+                "project_id": "test_01_oct19",
+                "video_id": "p4ou90cHt50",
+                "status": "published_public",
+                "visibility": "public",
+                "slot_id": 2,
+                "scheduled_time_et": "2026-10-19 12:00 ET",
+            },
+        )
+        s2 = _seed_hermetic_studio_project(
+            projects_dir,
+            "test_02_oct21",
+            title="How Dopamine Prediction Errors Drive Craving",
+            pillar="brain_basics",
+            v5_ready=False,
+            live_receipt={
+                "project_id": "test_02_oct21",
+                "video_id": "sP9VZqK1Lm2",
+                "status": "published_public",
+                "visibility": "public",
+                "slot_id": 2,
+                "scheduled_time_et": "2026-10-21 12:00 ET",
+            },
+        )
+        for st_obj, target_pid in ((s1, "test_02_oct21"), (s2, "test_01_oct19")):
+            (st_obj.get_stage_dir("06_publish") / "related_video_receipt.json").write_text(
+                json.dumps({
+                    "verified": True,
+                    "target_project_id": target_pid,
+                    "link_reason": "seed_rescue_from_starved_to_anchor",
+                    "playlist_assigned": True,
+                    "playlist_title": "Everyday Brain & Neuro-Hacks",
+                }),
+                encoding="utf-8",
+            )
+
+        link_graph_file.write_text(
+            json.dumps({
+                "edges": [
+                    {"source": "test_01_oct19", "target": "test_02_oct21"},
+                    {"source": "test_02_oct21", "target": "test_01_oct19"},
+                ],
+                "two_cycle_count": 1,
+            }),
+            encoding="utf-8",
+        )
+
+        qm = StagingQueueManager(queue_file=queue_file, projects_dir=projects_dir)
+        qm.plan_5_slot_schedule(days=3, start_date="2026-10-27", daily_prime_only=True)
+
+        saved_queue = json.loads(queue_file.read_text(encoding="utf-8"))
+        hist_by_pid = {h["project_id"]: h for h in saved_queue.get("history", [])}
+        assert hist_by_pid["test_01_oct19"]["date"] == "2026-10-19"
+        assert hist_by_pid["test_01_oct19"]["time_et"] == "12:00"
+        assert hist_by_pid["test_01_oct19"]["slot_id"] == 2
+        assert hist_by_pid["test_02_oct21"]["date"] == "2026-10-21"
+        assert hist_by_pid["test_02_oct21"]["slot_id"] == 2
+
+        reporter = StudioAnalyticsReporter(
+            reports_dir=reports_dir,
+            projects_dir=projects_dir,
+            queue_file=queue_file,
+            short_link_graph_file=link_graph_file,
+        )
+        res = reporter.generate_daily_report(report_date="2026-10-25", dry_run=True)
+        payload = json.loads(Path(res["json_path"]).read_text(encoding="utf-8"))
+        md_text = Path(res["markdown_path"]).read_text(encoding="utf-8")
+
+        recs_by_pid = {r["project_id"]: r for r in payload["per_video_records"]}
+        assert recs_by_pid["test_01_oct19"]["date"] == "2026-10-19"
+        assert recs_by_pid["test_01_oct19"]["time_et"] == "12:00"
+        assert recs_by_pid["test_01_oct19"]["slot_id"] == 2
+        assert recs_by_pid["test_01_oct19"]["published_slot_str"] == "10-19 12:00"
+        assert recs_by_pid["test_01_oct19"]["related_link_role"] == "seed_rescue_from_starved_to_anchor"
+        assert recs_by_pid["test_01_oct19"]["playlist_verified"] is True
+
+        assert recs_by_pid["test_02_oct21"]["date"] == "2026-10-21"
+        assert recs_by_pid["test_02_oct21"]["published_slot_str"] == "10-21 12:00"
+
+        assert "`10-19 12:00`" in md_text
+        assert "`10-21 12:00`" in md_text
+        assert "+144h" in md_text
+        assert "+96h" in md_text
+        assert "`10-25 12:00`" not in md_text
+        assert "(+1h)" not in md_text
+
+        assert payload["risk_audit"]["simultaneous_publish_count"] == 0
+        assert payload["risk_audit"]["min_publish_gap_hours"] == 48.0
+        risk_4 = next(i for i in payload["risk_audit"]["items"] if i["risk_id"] == "RISK-4")
+        assert "``" not in risk_4["evidence"]
+
+        serialized = json.dumps(payload["signal_radar"], ensure_ascii=False) + json.dumps(
+            payload["diagnostics"], ensure_ascii=False
+        )
+        assert "2편 Scheduled" not in serialized
+        assert "psych_04_phineas_gage_frontal_lobe" not in serialized
+    finally:
+        shutil.rmtree(tmp_dir, ignore_errors=True)
+
+
+def test_scheduled_upload_receipt_reconciles_vacant_and_stale_unlisted_queue_slots():
+    """
+    Verifies mutual exclusivity and vacant-slot subtraction when a project is uploaded via
+    `studio-upload --visibility scheduled` while `staging_queue.json` still holds `vacant`
+    (`project_id: null`) or stale `unlisted` status on that slot.
+    """
+    from pipeline.studio.queue_manager import StagingQueueManager
+    from tests.test_studio_autonomous import _seed_hermetic_studio_project
+
+    tmp_dir = Path(tempfile.mkdtemp(prefix="test_reporter_sched_receipt_"))
+    try:
+        projects_dir = tmp_dir / "BCI_Shorts_Channel" / "projects"
+        reports_dir = tmp_dir / "BCI_Shorts_Channel" / "reports" / "daily"
+        queue_file = tmp_dir / "BCI_Shorts_Channel" / "staging_queue.json"
+        link_graph_file = tmp_dir / "BCI_Shorts_Channel" / "short_link_graph.json"
+        projects_dir.mkdir(parents=True, exist_ok=True)
+        link_graph_file.write_text(json.dumps({"edges": [], "two_cycle_count": 0}), encoding="utf-8")
+
+        _seed_hermetic_studio_project(
+            projects_dir,
+            "test_01_pub",
+            pillar="everyday_neuro",
+            v5_ready=False,
+            live_receipt={
+                "project_id": "test_01_pub",
+                "video_id": "p4ou90cHt50",
+                "status": "published_public",
+                "visibility": "public",
+                "slot_id": 2,
+                "scheduled_time_et": "2026-10-21 12:00 ET",
+            },
+        )
+        _seed_hermetic_studio_project(
+            projects_dir,
+            "test_02_sched",
+            title="How Split Brains Reveal Dual Consciousness",
+            pillar="brain_mysteries",
+            v5_ready=True,
+            live_receipt={
+                "project_id": "test_02_sched",
+                "video_id": "ScHeDuLeD12",
+                "status": "uploaded",
+                "visibility": "scheduled",
+                "slot_id": 2,
+                "scheduled_time_et": "2026-10-27 12:00 ET",
+            },
+        )
+
+        # Case A: Queue still shows 2026-10-27_slot2 as vacant (`project_id: null`) + 3 other vacant slots
+        queue_file.write_text(
+            json.dumps({
+                "channel_id": "UC4FeioYYv9X04Di07_MfZ7g",
+                "scheduled_items": [
+                    {"schedule_id": "2026-10-27_slot2", "project_id": None, "date": "2026-10-27", "slot_id": 2, "time_et": "12:00", "status": "vacant"},
+                    {"schedule_id": "2026-10-27_slot4", "project_id": None, "date": "2026-10-27", "slot_id": 4, "time_et": "20:00", "status": "vacant"},
+                    {"schedule_id": "2026-10-28_slot2", "project_id": None, "date": "2026-10-28", "slot_id": 2, "time_et": "12:00", "status": "vacant"},
+                    {"schedule_id": "2026-10-28_slot4", "project_id": None, "date": "2026-10-28", "slot_id": 4, "time_et": "20:00", "status": "vacant"},
+                ],
+                "history": [],
+            }),
+            encoding="utf-8",
+        )
+
+        qm = StagingQueueManager(queue_file=queue_file, projects_dir=projects_dir)
+        q_sum = qm.get_status_summary()
+        assert q_sum["scheduled_slots_count"] == 1
+        assert q_sum["vacant_slots_count"] == 3
+        assert q_sum["staged_in_buffer"] == 1
+        assert q_sum["total_completed_projects"] == 2
+
+        reporter = StudioAnalyticsReporter(
+            reports_dir=reports_dir,
+            projects_dir=projects_dir,
+            queue_file=queue_file,
+            short_link_graph_file=link_graph_file,
+        )
+        st_a = reporter._collect_local_pipeline_state("2026-10-25")
+        assert st_a["published_count"] == 1
+        assert st_a["scheduled_count"] == 1
+        assert st_a["unlisted_staged_count"] == 0
+        assert st_a["staged_buffer_count"] == 1
+        assert st_a["vacant_slot_count"] == 3
+        assert len(st_a["upcoming_schedule"]) == 1
+        assert st_a["upcoming_schedule"][0]["project_id"] == "test_02_sched"
+        assert st_a["upcoming_schedule"][0]["slot_id"] == 2
+
+        # Case B: Queue has stale `status: "unlisted"` on 2026-10-27_slot2 while receipt is `scheduled`
+        queue_file.write_text(
+            json.dumps({
+                "channel_id": "UC4FeioYYv9X04Di07_MfZ7g",
+                "scheduled_items": [
+                    {"schedule_id": "2026-10-27_slot2", "project_id": "test_02_sched", "date": "2026-10-27", "slot_id": 2, "time_et": "12:00", "status": "unlisted"},
+                    {"schedule_id": "2026-10-27_slot4", "project_id": None, "date": "2026-10-27", "slot_id": 4, "time_et": "20:00", "status": "vacant"},
+                ],
+                "history": [],
+            }),
+            encoding="utf-8",
+        )
+        st_b = reporter._collect_local_pipeline_state("2026-10-25")
+        assert st_b["scheduled_count"] == 1
+        assert st_b["unlisted_staged_count"] == 0
+        assert st_b["staged_buffer_count"] == 1
+        assert st_b["vacant_slot_count"] == 1
+        assert len(st_b["upcoming_schedule"]) == 1
+        assert st_b["upcoming_schedule"][0]["status"] == "scheduled"
+    finally:
+        shutil.rmtree(tmp_dir, ignore_errors=True)
+
+
+def test_unrendered_awaiting_render_and_error_queue_items_excluded():
+    """
+    Verifies that unrendered Gear-2 v5 drafts (`status: "awaiting_render"`, no MP4) and
+    failed upload queue entries (`status: "error: ..."`) never inflate `scheduled_count`,
+    `upcoming_schedule`, or `total_completed_inventory`.
+    """
+    from pipeline.studio.queue_manager import StagingQueueManager
+    from tests.test_studio_autonomous import _seed_hermetic_studio_project
+
+    tmp_dir = Path(tempfile.mkdtemp(prefix="test_reporter_awaiting_render_"))
+    try:
+        projects_dir = tmp_dir / "BCI_Shorts_Channel" / "projects"
+        reports_dir = tmp_dir / "BCI_Shorts_Channel" / "reports" / "daily"
+        queue_file = tmp_dir / "BCI_Shorts_Channel" / "staging_queue.json"
+        link_graph_file = tmp_dir / "BCI_Shorts_Channel" / "short_link_graph.json"
+        projects_dir.mkdir(parents=True, exist_ok=True)
+        link_graph_file.write_text(json.dumps({"edges": [], "two_cycle_count": 0}), encoding="utf-8")
+
+        # 1. Gear-2 v5 draft without rendered MP4
+        draft_storage = _seed_hermetic_studio_project(
+            projects_dir,
+            "test_03_gear2_draft",
+            pillar="brain_history",
+            v5_ready=True,
+        )
+        (draft_storage.get_stage_dir("05_assembly") / "final_shorts_1080x1920.mp4").unlink()
+
+        # 2. Rendered v5 project whose upload attempt failed (`error: cdp timeout`)
+        _seed_hermetic_studio_project(
+            projects_dir,
+            "test_04_upload_failed",
+            pillar="bci_tech",
+            v5_ready=True,
+        )
+
+        queue_file.write_text(
+            json.dumps({
+                "channel_id": "UC4FeioYYv9X04Di07_MfZ7g",
+                "scheduled_items": [
+                    {"schedule_id": "2026-10-27_slot2", "project_id": "test_03_gear2_draft", "date": "2026-10-27", "slot_id": 2, "time_et": "12:00", "status": "awaiting_render"},
+                    {"schedule_id": "2026-10-27_slot4", "project_id": "test_04_upload_failed", "date": "2026-10-27", "slot_id": 4, "time_et": "20:00", "status": "error: cdp timeout"},
+                ],
+                "history": [],
+            }),
+            encoding="utf-8",
+        )
+
+        qm = StagingQueueManager(queue_file=queue_file, projects_dir=projects_dir)
+        q_sum = qm.get_status_summary()
+        assert q_sum["scheduled_slots_count"] == 0
+        assert q_sum["staged_in_buffer"] == 0
+        assert q_sum["total_completed_projects"] == 1
+        assert q_sum["v5_ready_unpublished_count"] == 1
+        assert q_sum["pending_staging"] == 1
+
+        reporter = StudioAnalyticsReporter(
+            reports_dir=reports_dir,
+            projects_dir=projects_dir,
+            queue_file=queue_file,
+            short_link_graph_file=link_graph_file,
+        )
+        st = reporter._collect_local_pipeline_state("2026-10-25")
+        assert st["published_count"] == 0
+        assert st["scheduled_count"] == 0
+        assert st["unlisted_staged_count"] == 0
+        assert st["total_completed_inventory"] == 1
+        assert st["staged_buffer_count"] == 1
+        assert st["upcoming_schedule"] == []
+    finally:
+        shutil.rmtree(tmp_dir, ignore_errors=True)
+

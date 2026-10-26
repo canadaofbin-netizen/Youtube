@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "slug": "dunning_kruger_metacognitive_blindness",
+  "topic": "David Dunning & Justin Kruger (1999): Metacognitive Blindness & the Real Shape of the 'Mount Stupid' Myth",
+  "pillar": "brain_mysteries",
+  "created_at": "2026-10-25T22:49:32+00:00",
+  "status": "ready",
+  "visual_mode": "BEHAVIORAL_PSYCH",
+  "visual_mode_reason": "Comparing actual exam percentile sheets (12th percentile) against self-rated percentile slips (62nd percentile) across humor, logic, and grammar desks — then training students until their self-rating DROPS — is pure behavioral/cognitive testing.",
+  "primary_case": {
+    "title": "Justin Kruger & David Dunning's 1999 Cornell four-study metacognitive calibration experiments",
+    "year": 1999,
+    "place": "Cornell University Department of Psychology, Ithaca, New York",
+    "people": [
+      {
+        "name": "David Dunning",
+        "role": "Cornell social psychologist inspired by bank robber McArthur Wheeler ('lemon juice makes faces invisible to cameras!') to test metacognitive self-assessment",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Justin Kruger",
+        "role": "Cornell graduate co-author who ran the four landmark studies across humor, logical reasoning, and English grammar — AND proved training fixes the blind spot",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Edward Nuhfer & Gilles Gignac",
+        "role": "Quantitative researchers whose statistical critiques debunked the fake internet 'Mount Stupid' cartoon peak while modeling regression-to-the-mean vs real metacognitive noise",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 1995 in Pittsburgh, McArthur Wheeler robbed two banks in broad daylight with zero mask — shocked upon arrest because he thought rubbing LEMON JUICE ('invisible ink') on his skin made his face invisible to security cameras.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Reading that news clipping at Cornell, David Dunning and graduate student Justin Kruger realized a deep cognitive double-curse (1999): in many intellectual skills, the exact knowledge needed to PRODUCE a right answer is the exact same knowledge needed to RECOGNIZE a wrong answer.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Across four Cornell studies (humor judgment, Wason/LSAT logical reasoning, and English grammar), bottom-quartile performers scored at the 12th percentile objectively — yet estimated their ability around the 62nd percentile.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "CRITICAL FACT THAT DEBUNKS 99% OF INTERNET MEMES: in Kruger and Dunning's real 1999 Figure 1, novices NEVER formed a towering 'Mount Stupid' peak higher than experts. Bottom-quartile subjects rated themselves ~60-62%, while top-quartile experts rated themselves HIGHER (~70-75%, vs 87th actual).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Why did top-quartile performers slightly UNDERESTIMATE their percentile (~72nd estimated vs 87th actual)? Not insecurity — 'False Consensus': because logic felt easy to THEM, they generously assumed everyone else aced it too. Once shown 5 peers' messy test sheets, top performers immediately raised their self-ranking accurately.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "By contrast, when bottom-quartile grammar students were shown 5 peers' stronger test sheets (Study 3), they STILL failed to lower their self-rating — because they couldn't spot why the peers' grammar was better.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Then came Study 4's hopeful breakthrough: Kruger and Dunning gave bottom-quartile students a brief 10-minute logic training packet — and as they became MORE competent, their self-rated percentile immediately DROPPED from the 55th down to a realistic 32nd percentile.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Statistical critics (Krueger & Mueller 2002; Nuhfer 2016; Gignac & Zajenkowski 2020) proved part of raw quartile-gap plots reflects mathematical regression-to-the-mean plus a universal 'better-than-average' bias — yet Study 4's training-induced self-rating drop confirms genuine metacognitive calibration gains.",
+      "source_id": "SRC2"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "The viral 'Mount Stupid' rollercoaster graph shared millions of times online is FAKE — it never appeared anywhere in Dunning and Kruger's 1999 paper.",
+      "why_surprising": "In the real 1999 graph, beginners thought they were slightly above average (~62%), NEVER smarter than real experts (~74%).",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "The whole research program started because a Pittsburgh man rubbed lemon juice on his face to rob two banks — after testing it with a Polaroid selfie where lemon sting made him point the lens at the ceiling.",
+      "why_surprising": "Even his 'experiment' failed because he lacked the skill to audit his own test.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Teach a struggling student 10 minutes of real logic rules (Study 4), and their confidence goes DOWN while their actual skill goes UP — because for the first time they can finally see the mistakes they just made.",
+      "why_surprising": "Feeling 'dumber' mid-course is often proof you just got smarter.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "Show top scorers five classmates' answer sheets and they instantly realize 'Oh, others found this hard!' — show bottom scorers those exact same five sheets and their confidence barely budges.",
+      "why_surprising": "Without the grammar rules, better answers just look 'different,' not better.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Dunning and Kruger drew a giant 'Mount Stupid' spike where total beginners have 100% supreme arrogance towering above experts.",
+      "truth": "Complete internet fabrication. In all four 1999 graphs, perceived ability rises gently from ~60% (bottom quartile) to ~75% (top quartile); novices simply overestimate relative to their low 12% score.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Only 'other stupid people' suffer from Dunning-Kruger blind spots.",
+      "truth": "Every single human has bottom-quartile blind spots outside their trained domains, and statistical regression-to-the-mean pulls extreme quartiles inward on noisy tests.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Top performers underestimate themselves because of 'Impostor Syndrome' self-doubt.",
+      "truth": "In Study 3, top scorers knew their raw score fairly well — they simply overestimated how well EVERYBODY ELSE scored ('false consensus').",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Incompetent confidence is permanent and unteachable.",
+      "truth": "Study 4 proved a single short logic mini-lesson restored realistic self-assessment immediately.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Starting week 3 of learning Python, chess, or woodworking and suddenly realizing 'Whoa, there's way more I don't know than I thought on Day 1!' (Study 4's healthy drop).",
+    "Catching yourself sharing the fake 'Mount Stupid' meme — an ironic Dunning-Kruger moment about the Dunning-Kruger paper itself.",
+    "Seeking external objective rubrics or blind peer review because you literally cannot proofread blind spots using the exact brain that wrote them.",
+    "Remembering as a senior engineer or teacher that 'obvious' steps in your head are NOT obvious to most of the room."
+  ],
+  "linked_projects": [
+    "psych_47_dunning_kruger_metacognitive_blindness"
+  ]
+}

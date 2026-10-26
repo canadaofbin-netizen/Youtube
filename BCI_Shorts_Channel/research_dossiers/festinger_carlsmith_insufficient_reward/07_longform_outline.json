@@ -1,0 +1,100 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "60 minutes of turning 48 square wooden pegs: why getting paid $1 made Stanford students genuinely love a boring chore that $20 couldn't fix.",
+    "core_experiment": "Festinger & Carlsmith (1959 JASP): Control (-0.45) & $20 (-0.05) vs $1 (+1.35!) insufficient-justification Cognitive Dissonance.",
+    "twist": "Daryl Bem's Self-Perception challenge vs Zanna & Cooper's (1974) arousal-pill proof, Aronson's 1963 Forbidden Toy rule, and free-choice boundaries."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Stanford 1959: The Most Boring Hour in Science History",
+      "beats": [
+        "12 spools + 48 square wooden pegs quarter-turn by quarter-turn",
+        "Every reward law bets on $20 (~$215 today) beating $1"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "48-peg board & $1 vs $20 envelopes"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "The Survey Shock: $1 (+1.35) Crushes $20 (-0.05).",
+      "beats": [
+        "Why $20 gave a painless external excuse",
+        "Why $1 triggered an ego collision in the waiting room"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "+1.35 vs -0.05 chart & waiting room"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Is Tension Real? Pills, Free Choice & Forbidden Toys",
+      "beats": [
+        "Bem's 1967 challenge vs Zanna & Cooper's 1974 arousal-pill proof",
+        "Aronson & Carlsmith 1963: why mild parenting guidance beats huge threats"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "1963 Forbidden Toy playroom"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "When Dissonance Traps Us: Hazing & Bad Sunk Costs",
+      "beats": [
+        "Effort justification at overpriced restaurants & clubs",
+        "Why free choice + consequences are required"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "sunk-cost trap"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Outsmarting Your Inner Spin Doctor",
+      "beats": [
+        "Use 'just enough' structure to foster real internal buy-in",
+        "The '$0 Today' reality check on sunk costs"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "Sunk-Cost Reality Check card"
+      ]
+    }
+  ]
+}

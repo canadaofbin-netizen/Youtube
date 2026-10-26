@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "slug": "kanwisher_fusiform_face_area",
+  "topic": "Nancy Kanwisher (1997): The Fusiform Face Area (FFA), Upside-Down 'Thatcher' Blindness & Domain Specificity",
+  "pillar": "brain_mysteries",
+  "created_at": "2026-10-25T22:49:32+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Kanwisher's 1997 fMRI discovery of a pea-sized patch on the right ventral fusiform gyrus firing twice as strongly to faces as to houses, hands, or scrambled faces is foundational human functional neuroanatomy.",
+  "primary_case": {
+    "title": "Nancy Kanwisher, Josh McDermott & Marvin Chun's 1997 fMRI localization of the Fusiform Face Area (FFA)",
+    "year": 1997,
+    "place": "Massachusetts General Hospital NMR Center & Harvard / MIT, Boston",
+    "people": [
+      {
+        "name": "Nancy Kanwisher",
+        "role": "MIT cognitive neuroscientist who discovered the human Fusiform Face Area (FFA) — and famously scanned her own brain dozens of times to test every skeptical control",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Josh McDermott & Marvin M. Chun",
+        "role": "Co-authors on the landmark 1997 Journal of Neuroscience five-control functional localizer study",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Isabel Gauthier",
+        "role": "Cognitive neuroscientist whose 'Greeble', car-expert, and bird-expert studies sparked the famous Face Module vs Perceptual Expertise debate",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 1997 at the MGH NMR Center, Nancy Kanwisher, Josh McDermott, and Marvin Chun scanned 15 individual subjects in fMRI rather than blurring brains together by group-averaging — discovering a ~1-cubic-centimeter region on the lateral ventral fusiform gyrus (strongest in the right hemisphere) present in 12 of 15 individuals.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "To prove this 'Fusiform Face Area' (FFA) wasn't just reacting to low-level contrast, curves, animate body parts, or general attention, Kanwisher threw FIVE ruthless control tests at it in a single paper.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Across every test, the FFA fired roughly TWICE as strongly to intact human faces as to common objects, houses, scrambled two-tone faces with identical luminance, three-quarter hair-hidden faces vs spoons, or human HANDS — even when subjects were forced to work harder attending to the hands.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "A year later (Kanwisher, Tong & Nakayama, 1998), turning faces UPSIDE DOWN dropped FFA response significantly (whereas object responses barely budged), explaining the behavioral 'Face Inversion / Thatcher Effect' where holistic eye-mouth spacing breaks upside down.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Adjacent ventral visual patches specialized cleanly right next door: the Parahippocampal Place Area (PPA) for scenes/buildings and the Extrastriate Body Area (EBA) for headless bodies.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Isabel Gauthier challenged strict innate face-exclusivity by showing bird experts, classic-car experts, and 'Greeble'-trained novices modestly recruit right FFA for non-face holistic individuation.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "In 2012, Josef Parvizi, Jacques Jonas, and colleagues settled causal proof in awake neurosurgical patients: sending a tiny electrical current directly into a patient's right FFA caused ONLY the neurologist's real face to morph instantly ('Your nose sagged and eyes shifted!') while the television and clipboard right beside him stayed 100% unchanged.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Infants develop measurable face-selective ventral cortical responses within the first 4 to 6 months of life, long before formal reading or schooling.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Electrophysiological recordings (the N170 / M170 component) show that ventral occipitotemporal face-selective cortex discriminates individual human faces within roughly 170 to 200 milliseconds.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Zap a pea-sized patch under the right temporal lobe of an awake patient (Parvizi 2012), and the doctor's face right in front of him instantly melts like a Picasso painting — while the doctor's necktie, clipboard, and room walls don't warp a millimeter.",
+      "why_surprising": "Causal proof that right fusiform cortex builds conscious faces, not generic sight.",
+      "source_id": "SRC4",
+      "rank": 1
+    },
+    {
+      "fact": "Nancy Kanwisher didn't just scan volunteers once — she climbed into the MRI tube herself dozens of times to try to BREAK her own hypothesis with scrambled faces, hands, and houses.",
+      "why_surprising": "Trying relentlessly to disprove your own discovery made the paper bulletproof.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Flip an upside-down portrait whose eyes and mouth were secretly pasted upside down ('Thatcher Illusion'): upside down it looks totally fine because FFA holistic spacing shuts off; turn the card right-side up and the whole room gasps.",
+      "why_surprising": "Your FFA only computes whole-face geometry upright.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "Blurring 15 brains together on an average template had hidden this pea-sized module for years until Kanwisher mapped each person's unique fusiform fold individually ('functional localizer').",
+      "why_surprising": "Individual anatomy unlocked cortical modularity.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Every square inch of cerebral cortex is an identical blank general-purpose mush.",
+      "truth": "Ventral temporal cortex contains reproducible domain-preferring patches for faces (FFA), places (PPA), bodies (EBA), and visual word forms.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "There is one single 'grandmother cell' in FFA for each friend you know.",
+      "truth": "FFA uses distributed population codes across millions of neurons partnered with anterior temporal identity hubs, not fragile single-neuron switches.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Recognizing upside-down faces uses the exact same holistic engine as upright faces.",
+      "truth": "Upside-down faces force slow piecemeal part-by-part scanning while upright faces trigger rapid holistic FFA configuration.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "FFA never responds above zero to anything except faces.",
+      "truth": "Expert individuation (birds, cars, chessboards) produces real secondary responses in overlapping fusiform patches, though upright faces remain the dominant driver.",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Flipping an upside-down 'Margaret Thatcher' photo right-side up at a party and gasping when the normal-looking upside-down face turns grotesque.",
+    "Spotting a childhood friend in 200 milliseconds across a crowded airport terminal despite ten years of aging and a new haircut.",
+    "Struggling to recognize actors in an upside-down reflection or photo negative.",
+    "Understanding why stroke damage to this exact pea-sized patch causes face-blindness (prosopagnosia) while reading tiny print stays 20/20."
+  ],
+  "linked_projects": [
+    "psych_45_kanwisher_fusiform_face_area"
+  ]
+}

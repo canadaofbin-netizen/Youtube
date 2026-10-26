@@ -1,0 +1,101 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "From Jules Cotard's 1880 Paris lecture to a jaw-dropping 2013 PET scan: how silenced bodily feeling + broken belief-checking make a waking brain insist it doesn't exist.",
+    "core_experiment": "Cotard (1880) 'Mademoiselle X' + Berrios & Luque (1995) 100-case statistical typology + Laureys & Zeman (2013) Default Mode hypometabolism.",
+    "twist": "Why Cotard is the inward twin of Capgras, Two-Factor Delusion Theory, reversible acyclovir triggers, and full clinical recovery."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Paris 1880: 'No Brain, No Stomach — Therefore Eternal'",
+      "beats": [
+        "Jules Cotard's 'Mademoiselle X' & délire des négations",
+        "Berrios & Luque's 100-case surprise: 86% organ negation & non-depressed Type I."
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "stethoscope, hollow-outline card & 100-case chart"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "2013 PET Shock: Walking Around With an Anesthetized Self-Network",
+      "beats": [
+        "Graham's story & Laureys/Zeman's FDG-PET scan",
+        "Profound frontoparietal Default Mode dimming"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "3-panel FDG-PET chart"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Two-Factor Theory & The Capgras Mirror Twin",
+      "beats": [
+        "Factor 1: silenced anterior insula interoceptive hum",
+        "Outward blame (Capgras) vs Inward blame (Cotard)",
+        "Factor 2: right prefrontal reality-checking offline"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2"
+      ],
+      "new_shots_needed": [
+        "Two-Factor attribution board"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "48-Hour Dialysis Cures & Switching Vitality Back On",
+      "beats": [
+        "Surprise medical triggers (acyclovir CMMG buildup, migraine, stroke)",
+        "High remission rates & Graham's full recovery"
+      ],
+      "scene_ids": [
+        "S4",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "recovery chart & warm teacup"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "The Quiet Insular Gift of Feeling Alive",
+      "beats": [
+        "Why fever/fatigue detachment doesn't fool intact Factor-2 cortex",
+        "Rapid compassionate medical care over stigma"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "sunlit terrace recovery"
+      ]
+    }
+  ]
+}

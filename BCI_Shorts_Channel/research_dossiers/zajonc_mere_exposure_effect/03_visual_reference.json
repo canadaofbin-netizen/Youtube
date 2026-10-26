@@ -1,0 +1,204 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1968 Michigan Tachistoscope Lab: 0 to 25 Flashes of 'IKTITAF' & Calligraphic Symbols Turn Neutral Nonsense Into 'Wonderful'!",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1968, Research Center for Group Dynamics, University of Michigan, Ann Arbor",
+      "layout": {
+        "description": "Sunlit high-key 1968 Michigan cognitive laboratory featuring a brushed-aluminum **slide projection screen and tachistoscope viewer**, stimulus cards displaying **nonsense Turkish words ('IKTITAF' — Shown 25x vs 'BIWONJNI' — Shown 1x)** alongside **calligraphic ideographs and yearbook portraits**, and a bold rising **Logarithmic Liking Curve Board (0, 1, 2, 5, 10, 25 Exposures -> 'Goodness' Rating 2.9 to 4.5+)**.",
+        "positions": [
+          {
+            "who": "Robert Zajonc (mannequin in 1968 crisp dark suit, white shirt, and narrow tie)",
+            "where": "standing beside the projection screen and Logarithmic Liking Curve pointing from the 25x 'IKTITAF' card to the top of the Goodness rating curve",
+            "facing": "beside screen and exposure curve"
+          },
+          {
+            "who": "Two Michigan Undergraduate mannequins (in 1968 collegiate V-neck sweaters at wooden rating desks)",
+            "where": "marking 'IKTITAF (25x) = Very Good!' and 'BIWONJNI (0x) = Neutral/Low' on their semantic-differential sheets despite zero translation!",
+            "facing": "seated at rating desks"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "stimulus flash cards ('IKTITAF 25x' | Calligraphic Character 25x | Yearbook Portrait 25x)",
+          "period_detail": "displays Zajonc's exact 3 stimulus families from the 1968 Monograph",
+          "physical_behavior": "instantly recognizable visual anchor"
+        },
+        {
+          "name": "Logarithmic Exposure-Liking Graph ('0 -> 1 -> 2 -> 5 -> 10 -> 25 Views')",
+          "period_detail": "visualizes steep early warmth gains tapering gracefully at high counts",
+          "physical_behavior": "signature curve of Zajonc 1968"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Robert Zajonc",
+          "verb_sequence": "flashes neutral nonsense words and calligraphic characters across 0, 1, 2, 5, 10, and 25 exposures -> Students rate what each unknown symbol 'means' -> Every stimulus family climbs smoothly up the Good/Warm scale purely from repetition!"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Undergraduate mannequins",
+          "reaction": "laugh surprised upon learning 'IKTITAF' and 'BIWONJNI' were randomly counterbalanced across classrooms"
+        },
+        {
+          "who": "Robert Zajonc",
+          "reaction": "smiles noting 'Familiarity breeds affection long before memory catches up'"
+        }
+      ],
+      "wardrobe": "1968 American university attire: tailored charcoal suit and narrow tie; collegiate cardigan and V-neck sweaters.",
+      "lighting": "Bright high-key Ann Arbor laboratory daylight.",
+      "recognition_hook": "Flash a totally meaningless word like 'IKTITAF' twenty-five times, and college students swear it means something noble and wonderful — swap which class gets the 25 flashes and the opposite nonsense word wins!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a sunlit 1968 Michigan psychology classroom where Robert Zajonc points from flashed 'IKTITAF 25x' and calligraphic symbol cards to a rising 0-to-25 logarithmic liking graph before seated students",
+        "must_show": [
+          "screen|cards",
+          "graph|curve|chart",
+          "desks|students"
+        ],
+        "source": "M1@02:52-03:06; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "1-Millisecond Subliminal Proof: Liking Without Remembering!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1980, Michigan tachistoscope booth (Kunst-Wilson & Zajonc)",
+      "layout": {
+        "description": "Crisp optical viewer flashing irregular octagons for 1 millisecond alongside a 50% Recognition vs 60% Liking split bar.",
+        "positions": [
+          {
+            "who": "Participant & Researcher mannequins",
+            "where": "scoring pure 50% guesswork on 'Which shape did I see?' yet reliably picking the old shape on 'Which shape do I LIKE?'",
+            "facing": "at optical viewer"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1-ms Polygon Card ('Memory = 50% Chance | Liking = 60% Winner!')",
+          "period_detail": "proves 'Preferences Need No Inferences'",
+          "physical_behavior": "Moreland & Zajonc 1979 / Kunst-Wilson 1980"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Viewer",
+          "verb_sequence": "flashes shape for 1 ms -> Participant fails memory test -> still chooses flashed shape as prettier"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researchers",
+          "reaction": "confirm affect precedes conscious recall"
+        }
+      ],
+      "wardrobe": "Late-1970s knitwear and blazer.",
+      "lighting": "Clean high-key studio light.",
+      "recognition_hook": "Flash a shape for one-thousandth of a second so memory hits 50% pure guesswork — and people STILL pick that exact shape as the prettier one!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Why You Love Your Mirror Face & Hate Group Photos (Mita et al. 1977)",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern sunlit bathroom mirror & living room table",
+      "layout": {
+        "description": "Bright split comparison showing a Mirror-Reversed Portrait ('Preferred by Self: 68%') beside a True Camera Portrait ('Preferred by Friends!').",
+        "positions": [
+          {
+            "who": "Self & Best Friend mannequins",
+            "where": "pointing to opposite flips of the exact same face based on which orientation each person sees every day!",
+            "facing": "beside side-by-side portraits"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Mirror-Flipped vs True-Orientation Portrait Pair",
+          "period_detail": "instantly relatable real-world proof of Mere Exposure",
+          "physical_behavior": "Mita, Dermer & Knight 1977"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Person",
+          "verb_sequence": "picks mirror-flipped portrait (seen 10,000 mornings) -> Best friend picks true unflipped portrait (seen across coffee tables)"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Both mannequins",
+          "reaction": "burst into 'Aha!' recognition"
+        }
+      ],
+      "wardrobe": "Modern casual knitwear.",
+      "lighting": "Warm morning window light.",
+      "recognition_hook": "You don't look bad in photos — you've just seen your mirror-flipped face 10,000 times, while your friends fell in love with the unflipped original!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Spaced Familiarity vs Overexposure Boredom",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit kitchen / workspace",
+      "layout": {
+        "description": "Warm table showing 'Give New Healthy Foods & Ideas 8 Spaced Tries' alongside 'Don't Mistake 25 Ad Impressions for Truth'.",
+        "positions": [
+          {
+            "who": "Parent/Learner mannequin",
+            "where": "introducing a new vegetable / unfamiliar genre across spaced calm days until fluency blooms into genuine liking",
+            "facing": "at sunlit oak table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Spaced 1-to-10 Exposure Tracker",
+          "period_detail": "applies Zajonc + Bornstein's inverted-U spacing rule",
+          "physical_behavior": "actionable daily habit"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Learner",
+          "verb_sequence": "spaces 8 calm exposures -> initial unfamiliarity melts into genuine enjoyment"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Learner",
+          "reaction": "relaxed, discerning smile"
+        }
+      ],
+      "wardrobe": "Modern everyday casual shirt.",
+      "lighting": "Golden daylight.",
+      "recognition_hook": "Give good new habits eight spaced tries before quitting — and never let 25 ad impressions fool your fluency meter into trusting hype!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

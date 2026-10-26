@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "The Brain Prize Presents: Stanislas Dehaene",
+      "url": "https://www.youtube.com/watch?v=wlYZBi_07vk",
+      "channel": "BrainFacts.org",
+      "source_id": "SRC_M1",
+      "duration_sec": 463,
+      "timecodes": [
+        {
+          "t": "00:15-00:21",
+          "what": "At kf_004.jpg (16.5s) (widescreen camera frame), BrainFacts.org's recording states \"He's trying to rewire areas in his brain so it can turn shapes of letters on paper into sounds and words of spoken language.\" — providing spoken context for 2006 Paris NeuroSpin Lab: Dialing a 50-ms Mask Past the Tipping Point Triggers 300-ms Frontoparietal 'Global Ignition'."
+        },
+        {
+          "t": "00:39-00:48",
+          "what": "Mid-segment widescreen camera frame at kf_009.jpg (44.0s) as narration explains \"He won the brain prize in 2014. He studies how reading takes place in the brain. He is a professor at Kalej de France\", clarifying key empirical findings in Stanislas Dehaene, Jean-Pierre Changeux & Lionel Naccache's 2006 NeuroSpin / Collège de France 'Global Neuronal Workspace' Consciousness Experiments."
+        },
+        {
+          "t": "00:49-00:53",
+          "what": "Around kf_010.jpg (49.5s) (widescreen camera frame), commentary states \"He is a professor at Kalej de France and the leader of Insurm CE.\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_dehaene_conscious_brain_igni/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_dehaene_conscious_brain_igni",
+        "contact_sheet": "media/M1_dehaene_conscious_brain_igni/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1_dehaene_conscious_brain_igni/contact_sheet.jpg (widescreen live-action camera recording (480x270, 14 frames sampled across 0.0s–71.5s)) from BrainFacts.org's \"The Brain Prize Presents: Stanislas Dehaene\" (463s total runtime).",
+          "Deduplicated English transcript (12 timestamped cues in media/M1_dehaene_conscious_brain_igni/transcript.txt) aligned directly to keyframe timestamps (0.0s–71.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "Educating the Brain - Stanislas Dehaene",
+      "url": "https://www.youtube.com/watch?v=0esnsHI4opA",
+      "channel": "Center for Science and Society",
+      "source_id": "SRC_M2",
+      "duration_sec": 2869,
+      "timecodes": [
+        {
+          "t": "00:07-00:15",
+          "what": "Around kf_003.jpg (10.0s) (widescreen camera frame), speaker commentary notes \"where would we be today if we hadn't been to school and what would our brain be like if we hadn't learned to read calculate if you\", anchoring the research context of 2006 Paris NeuroSpin Lab: Dialing a 50-ms Mask Past the Tipping Point Triggers 300-ms Frontoparietal 'Global Ignition'."
+        },
+        {
+          "t": "00:27-00:40",
+          "what": "At kf_008.jpg (35.0s) (widescreen camera frame), audio continues with \"opened my presentation I would be better so educating the brain and to remember what is it is like not to have learned\", detailing experimental methodology and behavioral observations for Stanislas Dehaene, Jean-Pierre Changeux & Lionel Naccache's 2006 NeuroSpin / Collège de France 'Global Neuronal Workspace' Consciousness Experiments."
+        },
+        {
+          "t": "00:45-00:53",
+          "what": "Later lecture slide / diagram frame at kf_011.jpg (50.0s) accompanied by \"stone and imagine now that every page of every book that you would look at would look like this a texture because if you\", summarizing mechanism and boundary conditions in Stanislas Dehaene, Jean-Pierre Changeux & Lionel Naccache's 2006 NeuroSpin / Collège de France 'Global Neuronal Workspace' Consciousness Experiments."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (live-action speaker/interview recording intercut with 5 visual slide frames (480x270, sampled across 0.0s–65.0s)) from Center for Science and Society's \"Educating the Brain - Stanislas Dehaene\" (2869s total runtime).",
+          "Deduplicated English transcript (38 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Stanislas Dehaene 2014.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Stanislas_Dehaene_2014.jpg",
+      "channel": "Wikimedia Commons (Per Henning/NTNU)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Stanislas Dehaene 2014.jpg\" (960x1233 px, CC BY 2.0): Stanislas Dehaene, Kavli Prize Committee in Neuroscience. Documents authentic physical instrument geometry and period materials relevant to Stanislas Dehaene, Jean-Pierre Changeux & Lionel Naccache's 2006 NeuroSpin / Collège de France 'Global Neuronal Workspace' Consciousness Experiments."
+        }
+      ],
+      "license_note": "Archival photo (CC BY 2.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x1233 px, CC BY 2.0, Per Henning/NTNU) — apparatus reference: Stanislas Dehaene, Kavli Prize Committee in Neuroscience.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

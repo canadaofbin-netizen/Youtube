@@ -1,0 +1,218 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1959 Stanford Peg-Board Table: 48 Square Wooden Pegs, '$1 vs $20 Payout Envelopes' & the Inverted '+1.35 vs -0.05' Enjoyment Graph!",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1959, Department of Psychology, Stanford University, California",
+      "layout": {
+        "description": "Sunlit high-key 1959 Stanford laboratory room featuring a warm oak table holding the famous **48-Square-Wooden-Peg Board** and **12-Wooden-Spool Tray** alongside an analog stopwatch, two crisp white **Payout Envelopes labeled '$1 Single-Unit Voucher' and '$20 Twenty-Unit Voucher'**, and the inverted private-rating chart showing **$1 Group: +1.35 ('Enjoyable!') vs $20 Group: -0.05 & Control: -0.45 ('Boring!')**.",
+        "positions": [
+          {
+            "who": "Leon Festinger / J. Merrill Carlsmith (mannequin in 1959 slim tie, short-sleeve white dress shirt, and horn-rim glasses)",
+            "where": "standing beside the oak peg-board table offering the choice of the '$1 Voucher Envelope' versus the '$20 Voucher Envelope' while pointing to the inverted +1.35 vs -0.05 attitude bars",
+            "facing": "beside peg board and chart"
+          },
+          {
+            "who": "Stanford Undergraduate mannequin (in 1959 collegiate cardigan and chinos)",
+            "where": "finishing his 60th minute quarter-turning the 48 square wooden pegs with glazed boredom — then leaning forward genuinely smiling (+1.35!) on the private interview scorecard after accepting only the $1 Envelope!",
+            "facing": "seated at 48-peg board"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "wooden 8×6 board of 48 square pegs & 12-spool packing tray",
+          "period_detail": "the legendary 60-minute Stanford boredom apparatus",
+          "physical_behavior": "makes the absurdity of calling it 'exciting!' immediately comic and clear"
+        },
+        {
+          "name": "labeled '$1 Single-Unit Payout Envelope' vs '$20 Twenty-Unit Payout Envelope'",
+          "period_detail": "cleanly contrasts tiny insufficient justification against massive external payout",
+          "physical_behavior": "stages the exact 1959 manipulation"
+        },
+        {
+          "name": "Private Attitude Rating Chart ('Control: -0.45 | $20 Payout: -0.05 | $1 Payout: +1.35!')",
+          "period_detail": "shows less payout producing dramatically higher genuine liking",
+          "physical_behavior": "captures the counter-behaviorist shock"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Undergraduate mannequin",
+          "verb_sequence": "turns square wooden pegs quarter-turn by quarter-turn sighing with boredom -> receives the small '$1 Payout Envelope' and tells a waiting peer the task was fun -> marks **+1.35 Truly Enjoyable** on the private department survey!"
+        },
+        {
+          "who": "Experimenter mannequin",
+          "verb_sequence": "contrasts a second student taking the thick '$20 Payout Envelope' who privately marks **-0.05 Boring**"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "$1 Student mannequin",
+          "reaction": "nods earnestly having convinced himself the pegs really had a neat rhythm"
+        },
+        {
+          "who": "$20 Student mannequin",
+          "reaction": "shrugs calmly ('Boring pegs, great $20 payday!')"
+        }
+      ],
+      "wardrobe": "1959 California campus style: crisp white short-sleeve dress shirt with slim dark tie; collegiate knit cardigan, Oxford shirt, chinos.",
+      "lighting": "Warm, bright high-key California window daylight.",
+      "recognition_hook": "Turn 48 square wooden pegs for one mind-numbing hour: pay students $20 to call it fun and they still hate it — pay them $1 and they convince themselves they loved it!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1959 Stanford lab table with a 48-square-wooden-peg board, labeled $1 and $20 payout envelopes, and a private rating chart where +1.35 ($1) towers above -0.05 ($20)",
+        "must_show": [
+          "pegs|board|spools",
+          "envelopes|vouchers",
+          "chart|graph|table"
+        ],
+        "source": "M1@00:21-00:28; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Waiting-Room Persuasion: Looking a Fellow Student in the Eye",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1959, Stanford waiting anteroom",
+      "layout": {
+        "description": "Bright wood-paneled waiting room with two chairs outside the peg-board lab.",
+        "positions": [
+          {
+            "who": "$1 Participant mannequin",
+            "where": "enthusiastically telling the waiting female student confederate 'Honestly, turning those pegs was really intriguing!'",
+            "facing": "in waiting chairs"
+          },
+          {
+            "who": "Waiting Student confederate mannequin",
+            "where": "listening attentively with notebook",
+            "facing": "across coffee table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "waiting-room sign-in clipboard",
+          "period_detail": "creates real social accountability to an innocent peer",
+          "physical_behavior": "triggers dissonant tension"
+        }
+      ],
+      "actions": [
+        {
+          "who": "$1 Participant",
+          "verb_sequence": "leans in pitching the dull task warmly under free choice -> pauses afterward feeling the $1 dissonance pinch"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "$1 Participant",
+          "reaction": "resolves tension by upgrading memory of the task"
+        }
+      ],
+      "wardrobe": "1959 campus sweaters and pleated skirt.",
+      "lighting": "Warm hallway daylight.",
+      "recognition_hook": "Once your own mouth freely tells an innocent classmate 'It's super fun!' for a tiny $1 voucher, your ego rewrites your memory so you aren't a liar!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "1963 Forbidden Toy Test: Why Mild Guidance Beats Giant Threats",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1963, Stanford nursery playroom (Aronson & Carlsmith)",
+      "layout": {
+        "description": "Sunny playroom rug with five colorful wooden toys including one sleek red fire-truck set aside on a low table.",
+        "positions": [
+          {
+            "who": "Experimenter & Child mannequins",
+            "where": "giving either a Mild request vs Severe warning before leaving the child free to rate the toys weeks later",
+            "facing": "in sunny playroom"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "wooden toy fire-truck & toy preference chart",
+          "period_detail": "children given a MILD reason privately devalued the forbidden toy for weeks; children threatened severely craved it more!",
+          "physical_behavior": "parenting triumph of insufficient justification"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Child under Mild reason",
+          "verb_sequence": "chooses freely not to play with truck -> weeks later rates other toys higher on own accord"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Aronson mannequin",
+          "reaction": "logs durable internalized self-control"
+        }
+      ],
+      "wardrobe": "1963 cardigan and child play clothes.",
+      "lighting": "Sunny playroom daylight.",
+      "recognition_hook": "Threaten huge punishment and kids obey only while you watch; give mild guidance with choice and they decide for themselves they don't even want it!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Spotting Your Own 'Effort Justification' on Bad Sunk Costs",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit cafe / workspace",
+      "layout": {
+        "description": "Bright desk where a buyer inspects a tedious subscription / project with a 'Would I Choose This Today at $0?' reality card.",
+        "positions": [
+          {
+            "who": "Decision-maker mannequin",
+            "where": "catching themselves over-praising an exhausting sunk cost and calmly cutting losses",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Sunk-Cost Reality Check card",
+          "period_detail": "disarms self-justification after grueling effort",
+          "physical_behavior": "everyday rational safeguard"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Decision-maker",
+          "verb_sequence": "compares real enjoyment vs ego defense -> cancels bad commitment cleanly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Decision-maker",
+          "reaction": "relieved honesty"
+        }
+      ],
+      "wardrobe": "Modern smart-casual shirt.",
+      "lighting": "Clean daylight.",
+      "recognition_hook": "Whenever you catch yourself fiercely praising something that cost you misery for almost zero reward, check whether Festinger's $1 peg-board is talking!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

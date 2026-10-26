@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "retina",
+      "plain": "circular center-surround dot code (via thalamus/LGN)",
+      "function": "responding briskly to tiny round spots of light while leaving downstream cortical feature assembly un-explained",
+      "scene_id": "S1",
+      "narration_bridge": "Kuffler's dot baseline that failed to drive cortical V1 with full flashes."
+    },
+    {
+      "role": "pivot",
+      "region": "primary visual cortex",
+      "plain": "oriented bar/edge Simple & Complex columns (V1)",
+      "function": "staying silent to uniform light or wrong-angle lines, then erupting in rapid spikes the instant an edge sweeps across at the cell's exact preferred tilt",
+      "scene_id": "S1",
+      "narration_bridge": "Captures Hubel & Wiesel's 1959 Nobel discovery."
+    },
+    {
+      "role": "step1",
+      "region": "temporal lobe",
+      "plain": "hierarchical shape & face assembly downstream",
+      "function": "combining V1's oriented edges across V2/V4 into curves, objects, and faces — mirrored digitally in modern CNNs",
+      "scene_id": "S3",
+      "narration_bridge": "Links V1 edge bricks to whole-object vision and AI."
+    }
+  ]
+}

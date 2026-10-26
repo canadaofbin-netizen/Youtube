@@ -1,0 +1,102 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Changing 'I' to your own first name silently flips panic into coaching — boosting speech performance and calming emotional brainwaves in under one second.",
+    "core_experiment": "Kross et al. (2014 JPSP, 7 studies) impromptu speech challenge + Moser & Kross (2017 Scientific Reports) sub-second ERP/fMRI proof.",
+    "twist": "Why 'effortless' grammatical habit beats willpower-heavy affirmations — and why it works just as strongly for socially anxious people."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Five Minutes Before Stone-Faced Judges",
+      "beats": [
+        "Kross's 3 a.m. realization",
+        "The 5-minute surprise dream-job speech test",
+        "'Why am I nervous?' vs 'Why is [Name] nervous?'"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "5:00 timer & I vs [Name] cards"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "What Blind Judges Saw on Tape",
+      "beats": [
+        "Threat appraisal flips to Challenge coaching",
+        "Higher confidence & persuasiveness scores",
+        "Works equally for chronically socially anxious people"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "blind evaluator scorecards"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Under One Second, Zero Extra Willpower",
+      "beats": [
+        "Moser & Kross 2017 EEG + fMRI follow-up",
+        "Emotional LPP drops inside 1000 ms",
+        "Medial prefrontal chatter quiets without frontal strain"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2"
+      ],
+      "new_shots_needed": [
+        "1-second ERP drop screen"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Shutting Off the 2 A.M. Cringe Loop",
+      "beats": [
+        "Post-event rumination & shame hours later",
+        "Why venting as 'I' fans the flames"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "evening journal comparison"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Silent Illeism: Your Built-In Pocket Coach",
+      "beats": [
+        "Why you keep it silent in public",
+        "3-second hallway protocol before any tough door"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "boardroom door breath"
+      ]
+    }
+  ]
+}

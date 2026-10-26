@@ -1,0 +1,94 @@
+{
+  "sources": [
+    {
+      "id": "SRC1",
+      "type": "primary",
+      "citation": "Harry Mcgurk, John Macdonald (1976). Hearing lips and seeing voices. Nature.",
+      "doi": "10.1038/264746a0",
+      "url": "https://doi.org/10.1038/264746a0",
+      "year": 1976,
+      "verified": true,
+      "notes": "Foundational primary study (1976) in Nature establishing the core experimental paradigm and quantitative parameters."
+    },
+    {
+      "id": "SRC2",
+      "type": "follow_up",
+      "citation": "Audrey R. Nath, Michael S. Beauchamp (2012). A neural basis for interindividual differences in the McGurk effect, a multisensory speech illusion. NeuroImage.",
+      "doi": "10.1016/j.neuroimage.2011.07.024",
+      "url": "https://doi.org/10.1016/j.neuroimage.2011.07.024",
+      "year": 2012,
+      "verified": true,
+      "notes": "Nath & Beauchamp (2012 NeuroImage) fMRI demonstration that left superior temporal sulcus (STS) response amplitude predicts individual susceptibility to the McGurk fusion percept."
+    },
+    {
+      "id": "SRC3",
+      "type": "critique",
+      "citation": "Agnès Alsius, Jordi Navarra, Ruth Campbell, Salvador Soto-Faraco (2005). Audiovisual Integration of Speech Falters under High Attention Demands. Current Biology.",
+      "doi": "10.1016/j.cub.2005.03.046",
+      "url": "https://doi.org/10.1016/j.cub.2005.03.046",
+      "year": 2005,
+      "verified": true,
+      "notes": "Alsius, Navarra, Campbell & Soto-Faraco (2005 Current Biology) dual-task study showing high visual/auditory attentional load sharply reduces McGurk fusion."
+    },
+    {
+      "id": "SRC4",
+      "type": "review",
+      "citation": "Kaisa Tiippana (2014). What is the McGurk effect? Frontiers in Psychology.",
+      "doi": "10.3389/fpsyg.2014.00725",
+      "url": "https://doi.org/10.3389/fpsyg.2014.00725",
+      "year": 2014,
+      "verified": true,
+      "notes": "Tiippana (2014 Frontiers in Psychology) methodological review clarifying stimulus variability and inter-individual boundaries of the McGurk effect."
+    },
+    {
+      "id": "SRC5",
+      "type": "follow_up",
+      "citation": "Ilmari Toivo Johannes Moisio, Tarja Peromaa, Lari Vainio, Martti Vainio et al. (2026). Do acoustic cues influence the McGurk effect—an audiovisual speech illusion? The Journal of the Acoustical Society of America.",
+      "doi": "10.1121/10.0043923",
+      "url": "https://doi.org/10.1121/10.0043923",
+      "year": 2026,
+      "verified": true,
+      "notes": "Subsequent empirical and theoretical investigation (2026) in Do acoustic cues influence the McGurk effect—an audiovisual speech illusion? The Journal of the Acoustical Society of America extending the foundational findings."
+    },
+    {
+      "id": "SRC6",
+      "type": "follow_up",
+      "citation": "David Meijer, Uta Noppeney (2023). Metacognition in the audiovisual McGurk illusion: perceptual and causal confidence. Philosophical Transactions of the Royal Society B.",
+      "doi": "10.1098/rstb.2022.0348",
+      "url": "https://doi.org/10.1098/rstb.2022.0348",
+      "year": 2023,
+      "verified": true,
+      "notes": "Subsequent empirical and theoretical investigation (2023) in Philosophical Transactions of the Royal Society B extending the foundational findings."
+    },
+    {
+      "id": "SRC_M1",
+      "type": "documentary",
+      "citation": "Mark_Mitton. \"McGurk Effect.\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=PWGeUztTkRA",
+      "year": null,
+      "verified": true,
+      "notes": "Primary video reference analyzed locally in media/M1_mcgurk_multisensory_illusion/ (12 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_M2",
+      "type": "documentary",
+      "citation": "BBC. \"Try this bizarre audio illusion! 👁️👂😮 - BBC.\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=G-lN8vWm3m0",
+      "year": null,
+      "verified": true,
+      "notes": "Complementary video reference analyzed locally in media/M2/ (14 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_STILL",
+      "type": "archive",
+      "citation": "RAZVAN V. MARINESCU (CC BY 4.0). \"Superior Temporal - DK ATLAS.png.\" Wikimedia Commons.",
+      "doi": null,
+      "url": "https://commons.wikimedia.org/wiki/File:Superior_Temporal_-_DK_ATLAS.png",
+      "year": null,
+      "verified": true,
+      "notes": "Verified archival image (1200x900 px) stored locally in media/M3/still.jpg for reference analysis only (never reused raw). Superior Temporal region of the human brain. Image was generated based on the Desikan-Killiany atlas using the BrainPainter software https://brainpainter.csail.mit.edu/."
+    }
+  ]
+}

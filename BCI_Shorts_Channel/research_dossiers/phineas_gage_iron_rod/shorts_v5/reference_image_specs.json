@@ -1,0 +1,779 @@
+{
+  "schema_version": 5,
+  "visual_mode": "NEURO_BIOLOGY",
+  "aspect": "9:16",
+  "dossier": "phineas_gage_iron_rod",
+  "total_reference_images": 17,
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: foreman 1848 in rolled-up white linen shirtsleeves, dark buttoned waistcoat, canvas trousers, broad-brimmed felt hat; foreman 1850 chile in tailored dark waistcoat, crisp white shirt and cravat, closed left eyelid, wide-brimmed stagecoach hat; physician in 1840s dark wool frock coat, high collar, black leather medical bag; neuroscientist in crisp white museum curator coat, slate-grey trousers.",
+  "generation_order": "1 env plate -> 2 cast sheets + hero prop (conditioned on env) -> 3 clip start / key frames (conditioned on 1+2)",
+  "master_anchors": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of an 1848 Vermont granite railroad cut in bright daylight, featuring long tapered iron tamping bar, no people. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "an 1848 Vermont granite railroad cut in bright daylight",
+        "long tapered iron tamping bar"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_foreman_1848",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_foreman_1848.png",
+      "title": "Cast sheet: foreman_1848 (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, foreman 1848 wearing rolled-up white linen shirtsleeves, dark buttoned waistcoat, canvas trousers, broad-brimmed felt hat, standing in an 1848 Vermont granite railroad cut in bright daylight. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "rolled-up white linen shirtsleeves, dark buttoned waistcoat, canvas trousers, br",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_foreman_1850_chile",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_foreman_1850_chile.png",
+      "title": "Cast sheet: foreman_1850_chile (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, foreman 1850 chile wearing tailored dark waistcoat, crisp white shirt and cravat, closed left eyelid, wide-brimmed stagecoach hat, standing in an 1848 Vermont granite railroad cut in bright daylight. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "tailored dark waistcoat, crisp white shirt and cravat, closed left eyelid, wide-",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_physician",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_physician.png",
+      "title": "Cast sheet: physician (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, physician wearing 1840s dark wool frock coat, high collar, black leather medical bag, standing in an 1848 Vermont granite railroad cut in bright daylight. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "1840s dark wool frock coat, high collar, black leather medical bag",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_neuroscientist",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_neuroscientist.png",
+      "title": "Cast sheet: neuroscientist (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, neuroscientist wearing crisp white museum curator coat, slate-grey trousers, standing in an 1848 Vermont granite railroad cut in bright daylight. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "crisp white museum curator coat, slate-grey trousers",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of long tapered iron tamping bar inside an 1848 Vermont granite railroad cut in bright daylight, exact period materials and textures. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "long tapered iron tamping bar"
+      ]
+    }
+  ],
+  "clip_anchors": [
+    {
+      "ref_id": "ref_clip_01",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "setup",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_01.png",
+      "title": "Clip 01 (setup / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_foreman_1848",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): An 1848 Vermont granite railroad cut in bright sunlight. Every person is an articulated matte-white porcelain mannequin, same design in every shot: foreman 1848 in rolled-up white linen shirtsleeves, dark buttoned waistcoat, canvas trousers, broad-brimmed felt hat. Frozen opening moment: A matte-white porcelain railroad foreman mannequin in white shirtsleeves and a dark vest kneels over a drilled granite hole. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_foreman_1848",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_01_key",
+      "clip_number": 1,
+      "frame": "key",
+      "category": "key_visual_anchor",
+      "role": "setup",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_01_key.png",
+      "title": "Clip 01 (setup / S1) key frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_foreman_1848",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): An 1848 Vermont granite railroad cut in bright sunlight. Every person is an articulated matte-white porcelain mannequin, same design in every shot: foreman 1848 in rolled-up white linen shirtsleeves, dark buttoned waistcoat, canvas trousers, broad-brimmed felt hat. Frozen key moment: the steel rod shoots straight up through the porcelain foreman's left cheek below the eye and out the top of his frosted-glass cranium, clean white porcelain chips scattering. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "iron|rod|bar",
+        "cheek",
+        "cranium|skull|head"
+      ],
+      "key_visual": {
+        "description": "the tamping iron shoots straight up through the porcelain foreman's left cheek below the eye and out the top of his frosted-glass cranium, clean white porcelain chips scattering",
+        "must_show": [
+          "iron|rod|bar",
+          "cheek",
+          "cranium|skull|head"
+        ],
+        "source": "dossier S1 props[Tamping iron].physical_behavior; Harlow 1868"
+      },
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_foreman_1848",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_02",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "symptom",
+      "scene_id": "S2",
+      "setting": "real_env",
+      "filename": "ref_clip_02.png",
+      "title": "Clip 02 (symptom / S2) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_foreman_1848",
+        "ref_cast_physician",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A sunlit 1848 Cavendish dirt road beside a wooden hotel porch. Every person is an articulated matte-white porcelain mannequin, same design in every shot: foreman 1848 in rolled-up white linen shirtsleeves, dark buttoned waistcoat, canvas trousers, broad-brimmed felt hat; physician in 1840s dark wool frock coat, high collar, black leather medical bag. Frozen opening moment: The porcelain foreman mannequin in a singed shirt and head bandage grips the wooden cart rail. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S2"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_foreman_1848",
+        "ref_cast_physician",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_03",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "failure",
+      "scene_id": "S3",
+      "setting": "real_env",
+      "filename": "ref_clip_03.png",
+      "title": "Clip 03 (failure / S3) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_foreman_1848",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A sunlit 1849 Vermont tavern and contractor room with heavy oak tables. Every person is an articulated matte-white porcelain mannequin, same design in every shot: foreman 1848 in rolled-up white linen shirtsleeves, dark buttoned waistcoat, canvas trousers, broad-brimmed felt hat. Frozen opening moment: The porcelain foreman mannequin in a wool vest with a closed left eyelid slams his fist onto the oak table and shoves a wooden chair back as a boss mannequin pulls away a work ledger. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S3"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_foreman_1848",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_04",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "crisis",
+      "scene_id": "S3",
+      "setting": "drill_down",
+      "filename": "ref_clip_04.png",
+      "title": "Clip 04 (crisis / S3) start frame",
+      "generation_order": 3,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head with an architectural translucent cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull in a bright white studio gallery. Three-quarter profile of a smooth matte-white porcelain mannequin head in a bright white studio gallery with an architectural translucent cutaway cranium revealing the realistic matte-white 3D porcelain brain with visible gyri and sulci inside the skull. The camera glides into the ventromedial prefrontal cortex behind the left eye, where the separated pathway shows a muted crimson-red lesion margin as the soft warm-ivory internal light pulse halts cleanly and dims quietly to stillness. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "S3"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": []
+    },
+    {
+      "ref_id": "ref_clip_05",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "pivot",
+      "scene_id": "S4",
+      "setting": "real_env",
+      "filename": "ref_clip_05.png",
+      "title": "Clip 05 (pivot / S4) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_foreman_1850_chile",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A sunlit 1850s mountain coach road between Valparaiso and Santiago in Chile. Every person is an articulated matte-white porcelain mannequin, same design in every shot: foreman 1850 chile in tailored dark waistcoat, crisp white shirt and cravat, closed left eyelid, wide-brimmed stagecoach hat. Frozen opening moment: The porcelain foreman mannequin in a tailored dark vest. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S4"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_foreman_1850_chile",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_06",
+      "clip_number": 6,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "step1",
+      "scene_id": "S3",
+      "setting": "brain_void",
+      "filename": "ref_clip_06.png",
+      "title": "Clip 06 (step1 / S3) start frame",
+      "generation_order": 3,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head with an architectural translucent cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull in a bright white studio gallery. Three-quarter profile of the smooth matte-white porcelain mannequin head in bright studio daylight with an architectural translucent cutaway cranium revealing the matte-white 3D brain inside. A soft warm-ivory light pulse glides inside the white-matter fiber tracts into the ventromedial prefrontal cortex just above the eye socket, lighting the intact judgment center in subtle warm amber-gold as it weighs a choice and sends a calming pulse backward while the rest of the porcelain brain and head stay pure matte white. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "S3"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": []
+    },
+    {
+      "ref_id": "ref_clip_07",
+      "clip_number": 7,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "step2",
+      "scene_id": "S1",
+      "setting": "brain_void",
+      "filename": "ref_clip_07.png",
+      "title": "Clip 07 (step2 / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head with an architectural translucent cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull in a bright white studio gallery. Close three-quarter profile of the smooth matte-white porcelain mannequin head in bright studio daylight with its architectural cutaway cranium revealing the matte-white 3D brain inside. The almond-shaped amygdala deep in the left temporal lobe glows subtle warm amber-gold and sends a soft warm-ivory light pulse inside the uncinate white-matter tract toward the ventromedial prefrontal cortex. At the muted crimson-red gap behind the left eye, the separated fiber bundle ends abruptly and the internal light pulse halts cleanly and dims quietly to stillness. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": []
+    },
+    {
+      "ref_id": "ref_clip_08",
+      "clip_number": 8,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "step3",
+      "scene_id": "S4",
+      "setting": "brain_void",
+      "filename": "ref_clip_08.png",
+      "title": "Clip 08 (step3 / S4) start frame",
+      "generation_order": 3,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head with an architectural translucent cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull in a bright white studio gallery. Three-quarter profile of the smooth matte-white porcelain mannequin head in bright studio daylight with its architectural translucent cutaway cranium revealing the matte-white 3D brain inside. While the lower left lesion behind the eye stays dimmed crimson-red, intact pathways across the surrounding prefrontal cortex glow subtle warm amber-gold, guiding a soft warm-ivory light pulse inside intact tracts across the front of the brain while the porcelain head and brain remain crisp and minimalist. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "S4"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": []
+    },
+    {
+      "ref_id": "ref_clip_09",
+      "clip_number": 9,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "breakthrough",
+      "scene_id": "S5",
+      "setting": "real_env",
+      "filename": "ref_clip_09.png",
+      "title": "Clip 09 (breakthrough / S5) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_neuroscientist",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A bright gallery at Harvard's Warren Anatomical Museum in crisp daylight. Every person is an articulated matte-white porcelain mannequin, same design in every shot: neuroscientist in crisp white museum curator coat, slate-grey trousers. Frozen opening moment: A porcelain neuroscientist mannequin in a white curator coat lifts the long tapered surveyor rod from a brass cradle and aligns it beside the left cheekbone of a matte-white porcelain cranial display model on a turntable. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S5"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_neuroscientist",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_10",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "conclusion",
+      "scene_id": "S4",
+      "setting": "real_env",
+      "filename": "ref_clip_10.png",
+      "title": "Clip 10 (conclusion / S4) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_foreman_1850_chile",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A sunlit 1850s daguerreotype studio and coach courtyard. Every person is an articulated matte-white porcelain mannequin, same design in every shot: foreman 1850 chile in tailored dark waistcoat, crisp white shirt and cravat, closed left eyelid, wide-brimmed stagecoach hat. Frozen opening moment: The well-dressed porcelain foreman mannequin in a tailored waistcoat and cravat grips his long tapered iron bar upright against his shoulder and steps beside the six-horse stagecoach team. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S4"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_foreman_1850_chile",
+        "ref_prop_hero"
+      ]
+    }
+  ],
+  "all_specs": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of an 1848 Vermont granite railroad cut in bright daylight, featuring long tapered iron tamping bar, no people. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "an 1848 Vermont granite railroad cut in bright daylight",
+        "long tapered iron tamping bar"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_foreman_1848",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_foreman_1848.png",
+      "title": "Cast sheet: foreman_1848 (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, foreman 1848 wearing rolled-up white linen shirtsleeves, dark buttoned waistcoat, canvas trousers, broad-brimmed felt hat, standing in an 1848 Vermont granite railroad cut in bright daylight. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "rolled-up white linen shirtsleeves, dark buttoned waistcoat, canvas trousers, br",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_foreman_1850_chile",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_foreman_1850_chile.png",
+      "title": "Cast sheet: foreman_1850_chile (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, foreman 1850 chile wearing tailored dark waistcoat, crisp white shirt and cravat, closed left eyelid, wide-brimmed stagecoach hat, standing in an 1848 Vermont granite railroad cut in bright daylight. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "tailored dark waistcoat, crisp white shirt and cravat, closed left eyelid, wide-",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_physician",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_physician.png",
+      "title": "Cast sheet: physician (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, physician wearing 1840s dark wool frock coat, high collar, black leather medical bag, standing in an 1848 Vermont granite railroad cut in bright daylight. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "1840s dark wool frock coat, high collar, black leather medical bag",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_neuroscientist",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_neuroscientist.png",
+      "title": "Cast sheet: neuroscientist (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, neuroscientist wearing crisp white museum curator coat, slate-grey trousers, standing in an 1848 Vermont granite railroad cut in bright daylight. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "crisp white museum curator coat, slate-grey trousers",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of long tapered iron tamping bar inside an 1848 Vermont granite railroad cut in bright daylight, exact period materials and textures. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "long tapered iron tamping bar"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_01",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "setup",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_01.png",
+      "title": "Clip 01 (setup / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_foreman_1848",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): An 1848 Vermont granite railroad cut in bright sunlight. Every person is an articulated matte-white porcelain mannequin, same design in every shot: foreman 1848 in rolled-up white linen shirtsleeves, dark buttoned waistcoat, canvas trousers, broad-brimmed felt hat. Frozen opening moment: A matte-white porcelain railroad foreman mannequin in white shirtsleeves and a dark vest kneels over a drilled granite hole. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_foreman_1848",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_01_key",
+      "clip_number": 1,
+      "frame": "key",
+      "category": "key_visual_anchor",
+      "role": "setup",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_01_key.png",
+      "title": "Clip 01 (setup / S1) key frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_foreman_1848",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): An 1848 Vermont granite railroad cut in bright sunlight. Every person is an articulated matte-white porcelain mannequin, same design in every shot: foreman 1848 in rolled-up white linen shirtsleeves, dark buttoned waistcoat, canvas trousers, broad-brimmed felt hat. Frozen key moment: the steel rod shoots straight up through the porcelain foreman's left cheek below the eye and out the top of his frosted-glass cranium, clean white porcelain chips scattering. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "iron|rod|bar",
+        "cheek",
+        "cranium|skull|head"
+      ],
+      "key_visual": {
+        "description": "the tamping iron shoots straight up through the porcelain foreman's left cheek below the eye and out the top of his frosted-glass cranium, clean white porcelain chips scattering",
+        "must_show": [
+          "iron|rod|bar",
+          "cheek",
+          "cranium|skull|head"
+        ],
+        "source": "dossier S1 props[Tamping iron].physical_behavior; Harlow 1868"
+      },
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_foreman_1848",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_02",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "symptom",
+      "scene_id": "S2",
+      "setting": "real_env",
+      "filename": "ref_clip_02.png",
+      "title": "Clip 02 (symptom / S2) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_foreman_1848",
+        "ref_cast_physician",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A sunlit 1848 Cavendish dirt road beside a wooden hotel porch. Every person is an articulated matte-white porcelain mannequin, same design in every shot: foreman 1848 in rolled-up white linen shirtsleeves, dark buttoned waistcoat, canvas trousers, broad-brimmed felt hat; physician in 1840s dark wool frock coat, high collar, black leather medical bag. Frozen opening moment: The porcelain foreman mannequin in a singed shirt and head bandage grips the wooden cart rail. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S2"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_foreman_1848",
+        "ref_cast_physician",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_03",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "failure",
+      "scene_id": "S3",
+      "setting": "real_env",
+      "filename": "ref_clip_03.png",
+      "title": "Clip 03 (failure / S3) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_foreman_1848",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A sunlit 1849 Vermont tavern and contractor room with heavy oak tables. Every person is an articulated matte-white porcelain mannequin, same design in every shot: foreman 1848 in rolled-up white linen shirtsleeves, dark buttoned waistcoat, canvas trousers, broad-brimmed felt hat. Frozen opening moment: The porcelain foreman mannequin in a wool vest with a closed left eyelid slams his fist onto the oak table and shoves a wooden chair back as a boss mannequin pulls away a work ledger. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S3"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_foreman_1848",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_04",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "crisis",
+      "scene_id": "S3",
+      "setting": "drill_down",
+      "filename": "ref_clip_04.png",
+      "title": "Clip 04 (crisis / S3) start frame",
+      "generation_order": 3,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head with an architectural translucent cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull in a bright white studio gallery. Three-quarter profile of a smooth matte-white porcelain mannequin head in a bright white studio gallery with an architectural translucent cutaway cranium revealing the realistic matte-white 3D porcelain brain with visible gyri and sulci inside the skull. The camera glides into the ventromedial prefrontal cortex behind the left eye, where the separated pathway shows a muted crimson-red lesion margin as the soft warm-ivory internal light pulse halts cleanly and dims quietly to stillness. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "S3"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": []
+    },
+    {
+      "ref_id": "ref_clip_05",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "pivot",
+      "scene_id": "S4",
+      "setting": "real_env",
+      "filename": "ref_clip_05.png",
+      "title": "Clip 05 (pivot / S4) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_foreman_1850_chile",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A sunlit 1850s mountain coach road between Valparaiso and Santiago in Chile. Every person is an articulated matte-white porcelain mannequin, same design in every shot: foreman 1850 chile in tailored dark waistcoat, crisp white shirt and cravat, closed left eyelid, wide-brimmed stagecoach hat. Frozen opening moment: The porcelain foreman mannequin in a tailored dark vest. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S4"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_foreman_1850_chile",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_06",
+      "clip_number": 6,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "step1",
+      "scene_id": "S3",
+      "setting": "brain_void",
+      "filename": "ref_clip_06.png",
+      "title": "Clip 06 (step1 / S3) start frame",
+      "generation_order": 3,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head with an architectural translucent cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull in a bright white studio gallery. Three-quarter profile of the smooth matte-white porcelain mannequin head in bright studio daylight with an architectural translucent cutaway cranium revealing the matte-white 3D brain inside. A soft warm-ivory light pulse glides inside the white-matter fiber tracts into the ventromedial prefrontal cortex just above the eye socket, lighting the intact judgment center in subtle warm amber-gold as it weighs a choice and sends a calming pulse backward while the rest of the porcelain brain and head stay pure matte white. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "S3"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": []
+    },
+    {
+      "ref_id": "ref_clip_07",
+      "clip_number": 7,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "step2",
+      "scene_id": "S1",
+      "setting": "brain_void",
+      "filename": "ref_clip_07.png",
+      "title": "Clip 07 (step2 / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head with an architectural translucent cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull in a bright white studio gallery. Close three-quarter profile of the smooth matte-white porcelain mannequin head in bright studio daylight with its architectural cutaway cranium revealing the matte-white 3D brain inside. The almond-shaped amygdala deep in the left temporal lobe glows subtle warm amber-gold and sends a soft warm-ivory light pulse inside the uncinate white-matter tract toward the ventromedial prefrontal cortex. At the muted crimson-red gap behind the left eye, the separated fiber bundle ends abruptly and the internal light pulse halts cleanly and dims quietly to stillness. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": []
+    },
+    {
+      "ref_id": "ref_clip_08",
+      "clip_number": 8,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "step3",
+      "scene_id": "S4",
+      "setting": "brain_void",
+      "filename": "ref_clip_08.png",
+      "title": "Clip 08 (step3 / S4) start frame",
+      "generation_order": 3,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head with an architectural translucent cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull in a bright white studio gallery. Three-quarter profile of the smooth matte-white porcelain mannequin head in bright studio daylight with its architectural translucent cutaway cranium revealing the matte-white 3D brain inside. While the lower left lesion behind the eye stays dimmed crimson-red, intact pathways across the surrounding prefrontal cortex glow subtle warm amber-gold, guiding a soft warm-ivory light pulse inside intact tracts across the front of the brain while the porcelain head and brain remain crisp and minimalist. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "S4"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": []
+    },
+    {
+      "ref_id": "ref_clip_09",
+      "clip_number": 9,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "breakthrough",
+      "scene_id": "S5",
+      "setting": "real_env",
+      "filename": "ref_clip_09.png",
+      "title": "Clip 09 (breakthrough / S5) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_neuroscientist",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A bright gallery at Harvard's Warren Anatomical Museum in crisp daylight. Every person is an articulated matte-white porcelain mannequin, same design in every shot: neuroscientist in crisp white museum curator coat, slate-grey trousers. Frozen opening moment: A porcelain neuroscientist mannequin in a white curator coat lifts the long tapered surveyor rod from a brass cradle and aligns it beside the left cheekbone of a matte-white porcelain cranial display model on a turntable. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S5"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_neuroscientist",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_10",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "conclusion",
+      "scene_id": "S4",
+      "setting": "real_env",
+      "filename": "ref_clip_10.png",
+      "title": "Clip 10 (conclusion / S4) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_foreman_1850_chile",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A sunlit 1850s daguerreotype studio and coach courtyard. Every person is an articulated matte-white porcelain mannequin, same design in every shot: foreman 1850 chile in tailored dark waistcoat, crisp white shirt and cravat, closed left eyelid, wide-brimmed stagecoach hat. Frozen opening moment: The well-dressed porcelain foreman mannequin in a tailored waistcoat and cravat grips his long tapered iron bar upright against his shoulder and steps beside the six-horse stagecoach team. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S4"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_foreman_1850_chile",
+        "ref_prop_hero"
+      ]
+    }
+  ]
+}

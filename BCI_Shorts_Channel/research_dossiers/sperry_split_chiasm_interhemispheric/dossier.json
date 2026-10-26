@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "slug": "sperry_split_chiasm_interhemispheric",
+  "topic": "Roger Sperry (1961): Split Optic Chiasm + Corpus Callosum — Teaching Two Independent Brains Inside One Skull",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:35+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Roger Sperry and Ronald Myers's pre-human split-chiasm + split-callosum animal experiments at Caltech/Chicago (1953–1961 Science) — where covering the left eye erased everything the right eye had just mastered 30 seconds earlier, and even allowed opposite rewards to be trained into left vs right hemispheres simultaneously — directly unlocked human split-brain neuroscience and the 1981 Nobel Prize.",
+  "primary_case": {
+    "title": "Roger W. Sperry & Ronald E. Myers's 1953–1961 Split Optic Chiasm & Corpus Callosum Interhemispheric Transfer Experiments",
+    "year": 1961,
+    "place": "Division of Biology, California Institute of Technology (Caltech), Pasadena (following University of Chicago 1953)",
+    "people": [
+      {
+        "name": "Roger Wolcott Sperry",
+        "role": "Caltech neurobiologist (1981 Nobel Laureate) who solved the 'Karl Lashley mystery' of what the 200-million-fiber corpus callosum actually does.",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Ronald E. Myers",
+        "role": "Sperry's graduate student who performed the ingenious dual microsurgery (splitting BOTH the crossed optic chiasm AND the corpus callosum) so each eye fed strictly one hemisphere",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Michael S. Gazzaniga & Joseph E. Bogen",
+        "role": "Sperry's graduate student and neurosurgical colleague who immediately translated the 1961 animal blueprint to human epilepsy patients (W.J., 1962)",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Up until the early 1950s, the **corpus callosum** — the massive bridge of **200+ million nerve fibers** connecting your left and right hemispheres — was the biggest joke in neurology. Giant Karl Lashley quipped in 1951 that its only job was *'to keep the two hemispheres from sagging,'* and Warren McCulloch joked its sole purpose was *'to spread epileptic seizures from one side to the other'*.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Why had 1940s doctors (Akelaitis) seen 'zero symptoms' when cutting the corpus callosum? **Roger Sperry** and graduate student **Ronald Myers** (1953–1961) spotted the hidden flaw: in normal eyes, the **optic chiasm** sends half of EACH eye's view to BOTH hemispheres — so both halves of the brain were secretly seeing every test card at the same time.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Myers & Sperry solved that leak with a surgical masterstroke in cats and monkeys: first, neatly divide the crossed fibers of the **optic chiasm** so the Right Eye wired **100% exclusively to the Right Hemisphere** and the Left Eye wired **100% to the Left Hemisphere**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Control Check 1 (Optic Chiasm split, **Corpus Callosum INTACT**): cover the Left Eye with a soft eye-patch and train the animal through the Right Eye to push **Circle (+) over Cross (-)** for food. Now switch the eye-patch to the Right Eye so ONLY the untrained Left Eye sees the pedals — **instant 100% mastery on Trial 1** because the intact corpus callosum copied the memory across the midline.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Experimental Shock 2 (BOTH Optic Chiasm AND **Corpus Callosum DIVIDED**, Sperry 1961 *Science*): train the animal to 100% perfection on Circle-vs-Cross through the Right Eye; then simply **move the soft eye-patch to the other eye**. Instantly the animal acts **100% naive — starting from zero chance guesses as if it had NEVER seen the Circle or Cross in its entire life**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Even wilder, Sperry trained **conflicting opposite rules simultaneously** into the same skull using polarizing eye filters: at the exact same moment, the Left Hemisphere learned **Circle = Good / Cross = Wrong** while the Right Hemisphere learned **Cross = Good / Circle = Wrong** — two completely contradictory minds living peacefully side by side inside one cranium without noticing any conflict.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Tactile pedal tests proved the exact same split for touch: without a corpus callosum, a complex roughness/shape puzzle mastered by the right paw remained **completely unknown to the left paw**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In **1961 *Science*** (*'Cerebral Organization and Behavior'*), Sperry declared that splitting the forebrain commissures leaves **two independent spheres of perception, learning, and memory** inside one body — directly launching Bogen, Gazzaniga & Sperry's human split-brain studies (1962) and winning Sperry the **1981 Nobel Prize in Physiology or Medicine**.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Karl Lashley — the titan of mid-century brain science — literally joked that the **200-million-fiber corpus callosum** only existed *'to stop the hemispheres from sagging'* until Sperry & Myers thought to patch ONE eye.",
+      "why_surprising": "Solving a 50-year blind spot by noticing both eyes leaked information to both hemispheres.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Train a split-chiasm, split-callosum animal to 100% perfection with a patch on its left eye; **move the eye-patch two centimetres over to its right eye**, and its brain goes completely blank — relearning the exact same puzzle from Trial 1.",
+      "why_surprising": "Moving an eye-patch switches between two completely separate memory banks.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Put opposite polarized lenses over the two eyes and feed opposite rewards: **Left Brain learns 'Push Circle!' while Right Brain learns 'Push Cross!' on the exact same trials** — two opposite habits stored in one head with zero argument.",
+      "why_surprising": "Two independent learning systems sharing one body.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "That single 1961 *Science* paper gave neurosurgeon Joseph Bogen and young grad student Michael Gazzaniga the exact blueprint to test human split-brain patient **W.J.** less than twelve months later — revolutionizing human consciousness science.",
+      "why_surprising": "Animal neurobiology unlocking the human mind.",
+      "source_id": "SRC2",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "The corpus callosum has no real cognitive job because people walk and talk normally at dinner after callosotomy.",
+      "truth": "Walking around a room lets BOTH eyes scan every object and hands touch together ('cross-cueing'), hiding the disconnection until Sperry's single-eye / flash techniques isolate one hemisphere at a time.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Memories float diffusely through cerebrospinal fluid or radiate wirelessly across the whole skull.",
+      "truth": "Sperry's 1961 split-callosum experiments proved memory engrams stay physically locked inside synaptic circuits unless transmitted across intact white-matter fiber tracts.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Sperry proved people are strictly 'left-brained accountants' or 'right-brained painters'.",
+      "truth": "In his 1982 Nobel Lecture, Sperry emphasized how seamlessly the intact corpus callosum integrates complementary left and right strengths into ONE unified conscious mind in healthy humans.",
+      "source_id": "SRC2"
+    }
+  ],
+  "everyday_hooks": [
+    "Covering one eye with your hand and marveling that in your intact brain, the other hemisphere still instantly receives everything you read via 200 million callosal fibers.",
+    "Laughing at how science's smartest experts once called the brain's largest fiber superhighway 'structural packing foam'.",
+    "Seeing how clever experimental controls (fixing the optic-chiasm leak!) turn 'zero effect' into a Nobel Prize."
+  ],
+  "linked_projects": [
+    "psych_71_sperry_split_chiasm_interhemispheric"
+  ]
+}

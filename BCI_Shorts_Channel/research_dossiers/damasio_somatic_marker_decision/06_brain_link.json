@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "crisis",
+      "region": "ventromedial prefrontal cortex",
+      "plain": "emotion-to-decision bridge",
+      "function": "failing after lesion to summon anticipatory warning weights before reaching toward trap Decks A and B",
+      "scene_id": "S1",
+      "narration_bridge": "Explains Elliot's paradox: intact dorsolateral IQ paired with flat anticipatory risk brakes."
+    },
+    {
+      "role": "pivot",
+      "region": "insula",
+      "plain": "visceral body-state map",
+      "function": "registering the 5-second pre-reach somatic warning signal in healthy players steering them to safe Decks C and D",
+      "scene_id": "S1",
+      "narration_bridge": "Links anticipatory palm skin-conductance spikes to bodily value tagging."
+    },
+    {
+      "role": "step1",
+      "region": "amygdala",
+      "plain": "consequence tagger",
+      "function": "stamping the sting of the first -$1,250 penalty so vmPFC can recall it before future reaches",
+      "scene_id": "S2",
+      "narration_bridge": "Shows how punishment memory wires the anticipatory warning."
+    }
+  ]
+}

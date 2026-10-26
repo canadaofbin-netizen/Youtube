@@ -1,0 +1,809 @@
+{
+  "schema_version": 1,
+  "compiled_at": "2026-10-26T04:09:53.736192+00:00",
+  "project_id": "shorts_v5",
+  "dossier": "invisible_gorilla_attention",
+  "visual_mode": "HYBRID",
+  "aspect": "9:16",
+  "clip_count": 10,
+  "has_brain_clips": true,
+  "shared_brain_master_anchor": "ref_brain_master",
+  "cross_brain_continuity_contract": {
+    "enabled": true,
+    "brain_clip_numbers": [
+      6,
+      7
+    ],
+    "master_anchor_id": "ref_brain_master",
+    "min_pairwise_silhouette_iou": 0.45,
+    "min_pairwise_spatial_corr": 0.52,
+    "max_bg_luma_spread": 45.0,
+    "require_consistent_facing": true
+  },
+  "r53_particle_ban": {
+    "enabled": true,
+    "max_brain_neon_green_cyan_ratio": 0.0025,
+    "max_floating_particle_dots": 2
+  },
+  "audio_contract": {
+    "max_true_peak_dbfs": -1.0,
+    "limiter_ceiling_dbfs": -1.5
+  },
+  "source_hashes": {
+    "visual_plan_sha256": "20b7d8eba54e644659a203e931b7ee5ffda617f768ff4ec1df40f47d348933d4",
+    "script_sha256": "a22e91447a0e44ffd69badbacd2bdf18b86805cff6a23f836dced14a77ce0e32"
+  },
+  "clips": [
+    {
+      "clip_number": 1,
+      "role": "setup",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "In nineteen ninety-nine at Harvard, Daniel Simons and Christopher Chabris ran a simple test. Volunteers counted passes between players in white shirts.",
+      "required_entities": [
+        "gorilla",
+        "chest",
+        "pass|basketball|ball",
+        "iconic_scene: Six players in white and black shirts passing basketballs in front of three grey elevator doors while a p",
+        "cast (white team): matte-white porcelain mannequin wearing 1999 plain white t-shirts and blue denim jeans",
+        "cast (black team): matte-white porcelain mannequin wearing 1999 plain black t-shirts and dark trousers",
+        "environment: Three brushed-steel elevator doors line the cream wall marked with black S curves in brigh",
+        "action: Three matte-white porcelain mannequins in white t-shirts and blue jeans weave around three mannequin"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "In nineteen ninety-nine at Harvard, Daniel Simons and Christopher Chabris ran a simple test.",
+          "Volunteers counted passes between players in white shirts."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "In nineteen ninety-nine at Harvard, Daniel Simons and Christopher Chabris ran a simple test."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "Volunteers counted passes between players in white shirts."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_01",
+        "must_match_ref_ids": [
+          "ref_clip_01"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 2,
+      "role": "symptom",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": true,
+      "narration": "A person in a dark gorilla suit walked right through the game. She beat her chest for nine seconds, yet half the viewers missed her.",
+      "required_entities": [
+        "gorilla",
+        "chest",
+        "pass|basketball|ball",
+        "iconic_scene: Six players in white and black shirts passing basketballs in front of three grey elevator doors while a p",
+        "cast (gorilla): matte-white porcelain mannequin wearing full-body shaggy dark brown-black furry gorilla costume",
+        "environment: Bright hallway daylight illuminates the three brushed-steel elevator doors and six weaving",
+        "action: A performer mannequin in a shaggy dark gorilla suit walks in from the right, stops dead center in fr",
+        "prop_progression: An orange basketball bounces off the floor and flies right past the gorilla's furry shoulders"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "A person in a dark gorilla suit walked right through the game.",
+          "She beat her chest for nine seconds, yet half the viewers missed her."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "A person in a dark gorilla suit walked right through the game."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "She beat her chest for nine seconds, yet half the viewers missed her."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_02",
+        "must_match_ref_ids": [
+          "ref_clip_02",
+          "ref_clip_02_key"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 3,
+      "role": "failure",
+      "scene_id": "S2",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Viewers wrote down fifteen passes and swore no gorilla ever crossed the hall. Then they watched the tape again in total shock.",
+      "required_entities": [
+        "iconic_scene: The viewer insists there was no gorilla in the video, then watches the rewind and freezes in shock as the",
+        "cast (gorilla): matte-white porcelain mannequin wearing full-body shaggy dark brown-black furry gorilla costume",
+        "cast (observer): matte-white porcelain mannequin wearing casual college crew-neck sweater and jeans",
+        "environment: A dark-grey television monitor sits on a wooden desk beside a paper pass-count sheet in br",
+        "action: A seated student observer mannequin writes on the pad and shakes its head as an experimenter mannequ",
+        "prop_progression: The television screen flickers on the dark gorilla pounding its chest, and the pen drops from the ob"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Viewers wrote down fifteen passes and swore no gorilla ever crossed the hall.",
+          "Then they watched the tape again in total shock."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Viewers wrote down fifteen passes and swore no gorilla ever crossed the hall."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "Then they watched the tape again in total shock."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_03",
+        "must_match_ref_ids": [
+          "ref_clip_03"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 4,
+      "role": "crisis",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Your eyes take in the whole room at once, but your mind can only track one small target. For your brain, this is a total nightmare.",
+      "required_entities": [
+        "gorilla",
+        "chest",
+        "pass|basketball|ball",
+        "iconic_scene: Six players in white and black shirts passing basketballs in front of three grey elevator doors while a p",
+        "cast (white team): matte-white porcelain mannequin wearing 1999 plain white t-shirts and blue denim jeans",
+        "cast (black team): matte-white porcelain mannequin wearing 1999 plain black t-shirts and dark trousers",
+        "environment: In the bright Harvard elevator bay, white-shirted and black-shirted mannequins weave in fr",
+        "action: The student mannequin grips a metal tally counter and presses the lever each time a white-shirted pl"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Your eyes take in the whole room at once, but your mind can only track one small target.",
+          "For your brain, this is a total nightmare."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Your eyes take in the whole room at once, but your mind can only track one small target."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "For your brain, this is a total nightmare."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_04",
+        "must_match_ref_ids": [
+          "ref_clip_04"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 5,
+      "role": "pivot",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Instead of showing you everything in front of your face, your mind acts like a strict bouncer. It blocks whatever you are not hunting for.",
+      "required_entities": [
+        "gorilla",
+        "chest",
+        "pass|basketball|ball",
+        "iconic_scene: Six players in white and black shirts passing basketballs in front of three grey elevator doors while a p",
+        "cast (white team): matte-white porcelain mannequin wearing 1999 plain white t-shirts and blue denim jeans",
+        "cast (black team): matte-white porcelain mannequin wearing 1999 plain black t-shirts and dark trousers",
+        "environment: Strong overhead daylight highlights the three white-shirted mannequins in front of the bru",
+        "action: A white-shirted porcelain mannequin catches a chest pass, pivots on one foot, and throws the orange "
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Instead of showing you everything in front of your face, your mind acts like a strict bouncer.",
+          "It blocks whatever you are not hunting for."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Instead of showing you everything in front of your face, your mind acts like a strict bouncer."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "It blocks whatever you are not hunting for."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_05",
+        "must_match_ref_ids": [
+          "ref_clip_05"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 6,
+      "role": "step1",
+      "scene_id": "S1",
+      "setting": "brain_void",
+      "is_brain_clip": true,
+      "is_key_visual_clip": false,
+      "narration": "First, light from both the players and the dark gorilla reaches your visual cortex, the vision center at the back of your brain.",
+      "required_entities": [
+        "porcelain_brain_anatomy: primary visual cortex",
+        "neural_state: receiving raw light signals from the eyes and forming the initial visual image at the back",
+        "story_link: First, light from both the players and the dark gorilla reaches your visual cortex, the vi",
+        "r53_signal: restrained internal warm-amber/ivory tract conduction (zero green/blue flying particles)"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles",
+        "flying_sparks_or_scattered_bokeh",
+        "mismatched_brain_bust_angle_or_mid_clip_morph"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "First, light from both the players and the dark gorilla reaches your visual cortex, the vision center at the back of your brain."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              1.0
+            ],
+            "narration_clause": "First, light from both the players and the dark gorilla reaches your visual cortex, the vision center at the back of your brain."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": false
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_06",
+        "must_match_ref_ids": [
+          "ref_clip_06"
+        ],
+        "shared_master_anchor": "ref_brain_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.52,
+        "max_late_morph_drop": 0.28
+      },
+      "anatomical_contract": {
+        "canonical_region": "primary visual cortex",
+        "region_group": "cortical_tract",
+        "hemisphere": "bilateral_or_medial",
+        "view_plane": "anatomical_cross_section",
+        "expected_facing": "any",
+        "forbid_symmetric_coronal": false,
+        "require_crimson_lesion": false,
+        "forbid_crimson_lesion": false,
+        "expected_signal_roi_norm": [
+          0.08,
+          0.06,
+          0.92,
+          0.82
+        ],
+        "forbidden_roi_norm": []
+      },
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.4,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 7,
+      "role": "step2",
+      "scene_id": "S1",
+      "setting": "brain_void",
+      "is_brain_clip": true,
+      "is_key_visual_clip": false,
+      "narration": "Next, while you count white shirts, your parietal cortex narrows its attention spotlight onto white shapes and shuts out the dark gorilla.",
+      "required_entities": [
+        "porcelain_brain_anatomy: parietal cortex",
+        "neural_state: directing selective attention onto task-relevant targets while suppressing ignored visual ",
+        "story_link: Next, while you count white shirts, your parietal cortex narrows its attention spotlight o",
+        "r53_signal: restrained internal warm-amber/ivory tract conduction (zero green/blue flying particles)"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles",
+        "flying_sparks_or_scattered_bokeh",
+        "mismatched_brain_bust_angle_or_mid_clip_morph"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Next",
+          "you count white shirts, your parietal cortex narrows its attention spotlight onto white shapes and shuts out the dark gorilla."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Next"
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "you count white shirts, your parietal cortex narrows its attention spotlight onto white shapes and shuts out the dark gorilla."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": false
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_07",
+        "must_match_ref_ids": [
+          "ref_clip_07"
+        ],
+        "shared_master_anchor": "ref_brain_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.52,
+        "max_late_morph_drop": 0.28
+      },
+      "anatomical_contract": {
+        "canonical_region": "parietal cortex",
+        "region_group": "cortical_tract",
+        "hemisphere": "bilateral_or_medial",
+        "view_plane": "anatomical_cross_section",
+        "expected_facing": "any",
+        "forbid_symmetric_coronal": false,
+        "require_crimson_lesion": false,
+        "forbid_crimson_lesion": false,
+        "expected_signal_roi_norm": [
+          0.08,
+          0.06,
+          0.92,
+          0.82
+        ],
+        "forbidden_roi_norm": []
+      },
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.4,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 8,
+      "role": "step3",
+      "scene_id": "S3",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Finally, eye cameras proved that people who missed the gorilla stared straight at her furry chest. They looked for one full second and saw nothing.",
+      "required_entities": [
+        "iconic_scene: A red eye-tracking crosshair sits directly on the chest-thumping gorilla for one full second while the vi",
+        "cast (gorilla): matte-white porcelain mannequin wearing full-body shaggy dark brown-black furry gorilla costume",
+        "environment: A sunlit visual cognition lab features an infrared eye camera mounted below a bright displ",
+        "action: A student mannequin rests its chin on the stand and taps a tally key as a researcher mannequin leans",
+        "prop_progression: On the screen, a red gaze crosshair slides onto the gorilla's chest and flashes for a full second wh"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Finally, eye cameras proved that people who missed the gorilla stared straight at her furry chest.",
+          "They looked for one full second and saw nothing."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Finally, eye cameras proved that people who missed the gorilla stared straight at her furry chest."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "They looked for one full second and saw nothing."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_08",
+        "must_match_ref_ids": [
+          "ref_clip_08"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 9,
+      "role": "breakthrough",
+      "scene_id": "S4",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "The researchers were left completely stunned. When they hid a gorilla in lung scans, eighty-three percent of expert doctors looked right past it too.",
+      "required_entities": [
+        "iconic_scene: A dark gorilla silhouette 48 times bigger than a nodule sits inside a lung scan as an expert doctor click",
+        "cast (white team): matte-white porcelain mannequin wearing 1999 plain white t-shirts and blue denim jeans",
+        "cast (gorilla): matte-white porcelain mannequin wearing full-body shaggy dark brown-black furry gorilla costume",
+        "environment: A radiology workstation glows in daylight with grayscale lung scans on the wide screen",
+        "action: A doctor mannequin in a white coat spins the scroll wheel and taps a tiny lung spot beside a dark go",
+        "prop_progression: A red marker circle flashes around the gorilla in the lung, and the stylus drops and clatters onto t"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "The researchers were left completely stunned.",
+          "When they hid a gorilla in lung scans, eighty-three percent of expert doctors looked right past it too."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "The researchers were left completely stunned."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "When they hid a gorilla in lung scans, eighty-three percent of expert doctors looked right past it too."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_09",
+        "must_match_ref_ids": [
+          "ref_clip_09"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 10,
+      "role": "conclusion",
+      "scene_id": "S6",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Which proves that staring straight at something does not mean you see it. Your mind erases giant hazards whenever you lock onto one task.",
+      "required_entities": [
+        "iconic_scene: Locked onto a single task on a screen, you walk right past someone waving directly in front of your face.",
+        "cast (white team): matte-white porcelain mannequin wearing 1999 plain white t-shirts and blue denim jeans",
+        "environment: Morning sunlight fills a busy urban sidewalk lined with glass storefronts and a marked ped",
+        "action: A pedestrian mannequin walks forward and taps rapidly on a smartphone screen while a friend mannequi",
+        "prop_progression: The smartphone screen flashes and a paper coffee cup in the pedestrian's hand tips and spills drops "
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Which proves that staring straight at something does not mean you see it.",
+          "Your mind erases giant hazards whenever you lock onto one task."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Which proves that staring straight at something does not mean you see it."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "Your mind erases giant hazards whenever you lock onto one task."
+          }
+        ],
+        "requires_scale_pullback": true,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_10",
+        "must_match_ref_ids": [
+          "ref_clip_10"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "pullback_windowed",
+        "min_continuity_score": 0.45,
+        "max_late_morph_drop": 0.42
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.08,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    }
+  ]
+}

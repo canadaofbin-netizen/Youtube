@@ -1,0 +1,218 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Patient tracking a horizontal LED light-bar saccade wand across a sunlit clinic room as SUD distress drops from 8 to 1",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1989-2019, clinical trauma research suite",
+      "layout": {
+        "description": "Sunlit, calm clinical therapy office with two comfortable armchairs angled politely, a sleek horizontal desktop LED light-bar mounted on a stand sweeping a crisp warm dot smoothly left-to-right at eye level, and a 0-to-10 Subjective Units of Disturbance (SUD) rating card.",
+        "positions": [
+          {
+            "who": "Patient mannequin (in soft knit sweater)",
+            "where": "seated upright with steady grounded posture, eyes tracking the horizontal sweeping light dot cleanly from left to right across 24 rhythmic passes",
+            "facing": "facing the horizontal LED bar"
+          },
+          {
+            "who": "Clinician mannequin (Francine Shapiro style blazer and blouse)",
+            "where": "seated slightly to the side adjusting the bilateral sweep pace while logging the 0-to-10 SUD drop on a clipboard",
+            "facing": "monitoring eye tracking and posture"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "horizontal bilateral LED light-bar",
+          "period_detail": "sleek 24-inch matte-aluminum bar displaying a single crisp amber-white dot gliding smoothly left-to-right-to-left",
+          "physical_behavior": "drives rhythmic horizontal saccades at ~1 cycle per second"
+        },
+        {
+          "name": "0-to-10 SUD rating scale card",
+          "period_detail": "clean visual scale where the marker slides from '8 — High Distress' down to '1 — Calm'",
+          "physical_behavior": "quantifies emotional de-escalation while factual recall stays clear"
+        },
+        {
+          "name": "3-node Nature circuit placard",
+          "period_detail": "clean schematic on side desk reading 'Orienting (SC) -> Mediodorsal Thalamus -> Amygdala Brake'",
+          "physical_behavior": "connects clinical eye tracking to 2019 circuit proof"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient mannequin",
+          "verb_sequence": "recalls a distressing memory briefly with tense shoulders (SUD 8) -> tracks 24 smooth left-right passes on the horizontal light bar -> exhales deeply as shoulders drop"
+        },
+        {
+          "who": "Clinician mannequin",
+          "verb_sequence": "pauses the light bar -> checks in calmly -> slides the SUD marker down toward 1"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Patient mannequin",
+          "reaction": "reports the memory still exists factually, yet feels distant and drained of panic"
+        },
+        {
+          "who": "Clinician mannequin",
+          "reaction": "records intact factual recall paired with quieted autonomic distress"
+        }
+      ],
+      "wardrobe": "Clean documentary clinical attire: soft wool sweater and slacks on patient; tailored blazer and white blouse on clinician.",
+      "lighting": "Warm, reassuring high-key California window daylight.",
+      "recognition_hook": "Tracking a simple light gliding left and right while recalling a 20-year-old memory sounded too weird to be true — until 2019 circuit recordings caught it physically braking the amygdala.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a patient in a sunlit therapy armchair tracking a horizontal left-to-right LED light bar while a clinician logs a 0-to-10 distress scale dropping from 8 to 1",
+        "must_show": [
+          "light|bar|led",
+          "chair",
+          "scale|chart|clipboard"
+        ],
+        "source": "M1@00:05-00:12; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "1987 California park walk optic-flow discovery",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "May 1987, sunlit park pathway, Los Gatos, California",
+      "layout": {
+        "description": "Bright tree-lined park path with dappled daylight across oak trunks.",
+        "positions": [
+          {
+            "who": "Francine Shapiro mannequin",
+            "where": "walking briskly along the park path noticing her eyes scanning left-to-right across tree trunks",
+            "facing": "walking forward"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "small pocket field notebook",
+          "period_detail": "opened on a park bench to jot down the unexpected eye-movement observation",
+          "physical_behavior": "initiates the 1989 controlled trial"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Francine Shapiro mannequin",
+          "verb_sequence": "notices distressing thought fade after rapid horizontal glances -> tests deliberate saccades on a bench"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Francine Shapiro mannequin",
+          "reaction": "writes the testable protocol into her notebook"
+        }
+      ],
+      "wardrobe": "1987 light jacket and walking trousers.",
+      "lighting": "Bright park sunshine.",
+      "recognition_hook": "A chance observation on a 1987 park walk launched thirty years of clinical trials and circuit debates.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "2019 KAIST Nature alternating LED cylinder circuit proof",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2019, KAIST neuroscience lab",
+      "layout": {
+        "description": "Clean modern laboratory bench with a translucent cylindrical arena ringed by sequential left-right white LED strips beside a clear circuit monitor.",
+        "positions": [
+          {
+            "who": "Articulated matte-white porcelain mouse sculpture",
+            "where": "orienting head calmly left-and-right toward alternating LED flashes instead of freezing",
+            "facing": "inside clean acrylic cylinder"
+          },
+          {
+            "who": "Jinhee Baek mannequin in white lab coat",
+            "where": "pointing to silenced basolateral amygdala spike traces on the monitor",
+            "facing": "beside bench"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "alternating bilateral LED ring & spike monitor",
+          "period_detail": "sequential left-right light array",
+          "physical_behavior": "outperforms chaotic flicker and extinction alone"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Alternating LEDs",
+          "verb_sequence": "sweep left-right -> Porcelain mouse tracks smoothly without freezing -> amygdala fear spikes drop flat"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Jinhee Baek mannequin",
+          "reaction": "maps the SC -> MD thalamus -> BLA inhibitory bridge"
+        }
+      ],
+      "wardrobe": "Crisp white laboratory coat; articulated matte-white porcelain mouse sculpture.",
+      "lighting": "Clean high-key modern lab light.",
+      "recognition_hook": "In 2019 Nature recordings, only rhythmic left-right alternating flashes fired the thalamic brake that silenced amygdala fear cells.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Brisk outdoor forward walk while decompressing from a stressful day",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern afternoon park path",
+      "layout": {
+        "description": "Sunlit wide park trail where two friends walk briskly side-by-side scanning the horizon naturally while talking calmly.",
+        "positions": [
+          {
+            "who": "Two Friend mannequins",
+            "where": "walking steadily forward along a bright park path",
+            "facing": "facing ahead"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "open sunlit horizon path",
+          "period_detail": "natural bilateral stepping and visual optic flow",
+          "physical_behavior": "anchors attention in present safety"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Friend mannequin",
+          "verb_sequence": "walks briskly scanning trees ahead while talking through a hard week -> tension melts noticeably"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Friend mannequin",
+          "reaction": "breathes easier than when ruminating motionless on a couch"
+        }
+      ],
+      "wardrobe": "Modern athletic walking jackets.",
+      "lighting": "Warm golden-afternoon daylight.",
+      "recognition_hook": "Natural forward walking and horizon scanning gently engage present-room orienting instead of frozen rumination.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

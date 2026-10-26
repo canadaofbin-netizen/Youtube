@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "pivot",
+      "region": "thalamus",
+      "plain": "sensory relay station",
+      "function": "receiving far fewer ascending nociceptive signals once thick touch fibers close the spinal gate",
+      "scene_id": "S1",
+      "narration_bridge": "Shows reduced ascending signal flow reaching the thalamic relay when rubbing activates fast touch pathways."
+    },
+    {
+      "role": "step1",
+      "region": "somatosensory cortex",
+      "plain": "body map strip",
+      "function": "registering firm soothing touch from the shin rub rather than unchecked sharp ache",
+      "scene_id": "S1",
+      "narration_bridge": "Links the physical shin rub to clean touch representation on the body strip."
+    },
+    {
+      "role": "step2",
+      "region": "brainstem",
+      "plain": "descending volume controller",
+      "function": "sending calming top-down signals down to the spinal gate during focused attention or relief",
+      "scene_id": "S3",
+      "narration_bridge": "Explains how brain state physically turns down the spinal gate."
+    }
+  ]
+}

@@ -1,0 +1,470 @@
+{
+  "schema_version": 1,
+  "dossier": "invisible_gorilla_attention",
+  "visual_mode": "HYBRID",
+  "cast_lock": [
+    {
+      "id": "white_team",
+      "look": "1999 plain white t-shirts and blue denim jeans"
+    },
+    {
+      "id": "black_team",
+      "look": "1999 plain black t-shirts and dark trousers"
+    },
+    {
+      "id": "gorilla",
+      "look": "full-body shaggy dark brown-black furry gorilla costume"
+    },
+    {
+      "id": "observer",
+      "look": "casual college crew-neck sweater and jeans"
+    },
+    {
+      "id": "radiologist",
+      "look": "crisp white medical coat over hospital scrubs"
+    }
+  ],
+  "clip_max_render_sec": 10,
+  "scenes": [
+    {
+      "scene_id": "S1",
+      "title": "1999 Harvard William James Hall Elevator Bay Basketball Pass & Chest-Thumping Gorilla",
+      "iconic": true,
+      "era": "1999 Harvard University psychology department (William James Hall 14th-floor elevator landing, Cambridge, Massachusetts)",
+      "space": "A compact 3 m deep by 5.2 m wide indoor university elevator lobby with a flat pale-cream wall housing three recessed brushed-steel double elevator doors side by side, dark curved 'S' target markings taped on the wall pillars between the doors, and a grey-beige tiled floor under bright overhead fluorescent daylight.",
+      "lighting": "Even, bright overhead fluorescent hallway daylight with soft floor reflections and clean separation between white shirts, black shirts, and dark gorilla fur.",
+      "wardrobe": "Three players in casual 1999 plain white t-shirts and loose denim jeans/khakis; three players in plain black t-shirts and black/dark trousers; one performer in a full-body shaggy dark gorilla costume.",
+      "positions": [
+        {
+          "who": "Three White-team student mannequins (wearing plain white t-shirts and blue/light jeans)",
+          "where": "Weaving in a continuous figure-eight across the left, center, and right of the elevator lobby foreground",
+          "facing": "Constantly turning toward one another in a triangle to throw and catch bounce passes and aerial chest passes"
+        },
+        {
+          "who": "Three Black-team student mannequins (wearing plain black t-shirts and dark pants/jeans)",
+          "where": "Interleaving tightly through the same 3 m by 5.2 m space between the White-team players and the three elevator doors",
+          "facing": "Turning toward their Black-team partners while tracking the second orange basketball"
+        },
+        {
+          "who": "Performer mannequin in a full dark brown-black shaggy furry gorilla suit",
+          "where": "Enters from the right edge in front of the rightmost elevator door, walks straight between the weaving players to dead center in front of the middle elevator door, then walks out the left edge",
+          "facing": "Walks right-to-left in profile, pivots 90 degrees at center frame to face the camera squarely while thumping its chest, then turns left again to exit"
+        }
+      ],
+      "props": [
+        {
+          "name": "Two standard orange rubber basketballs",
+          "look": "Regulation pebble-grain orange basketballs with black ribs",
+          "behaviour": "One basketball bounces sharply off the grey-beige lobby floor and arcs between the white-shirted players while the second ball flies in crisp chest passes between the black-shirted players"
+        },
+        {
+          "name": "Full-body dark furry gorilla suit",
+          "look": "1990s shaggy black-brown costume with sculpted brow ridge and furry mitts lent by Harvard professor Jerome Kagan",
+          "behaviour": "Shaggy dark fur sways as the performer strides through the center of the court and compresses as both furry fists pound the chest"
+        },
+        {
+          "name": "Three brushed-steel double elevator doors with wall 'S' markings",
+          "look": "Flat matte-grey dual sliding elevator doors with white overhead indicator plaques and black 'S' pass-height curves taped on the cream wall piers",
+          "behaviour": "Remain closed as the fixed architectural backdrop anchoring the depth of the hallway"
+        }
+      ],
+      "beats": [
+        {
+          "who": "White-team and Black-team players",
+          "action": "Weave around one another in tight overlapping circles, dribble, bounce-pass, and chest-pass the two orange basketballs continuously for fifteen white-team passes without ever looking at the gorilla",
+          "kind": "action",
+          "evidence": [
+            "M1@00:10-00:24",
+            "M1@00:25-00:34",
+            "S_simons1999",
+            "S_archive_video1999"
+          ]
+        },
+        {
+          "who": "Gorilla-suited performer",
+          "action": "Walks steadily in from the right side, steps between the passing players to the center of the frame, stops, turns to face the camera, raises both fists to thump its chest three times, and walks out the left side over 9 seconds",
+          "kind": "action",
+          "evidence": [
+            "M1@00:10-00:24",
+            "M1@00:25-00:34",
+            "S_simons1999",
+            "S_archive_video1999"
+          ]
+        },
+        {
+          "who": "Basketball players",
+          "action": "Zero reaction to the gorilla: their shoulders, hands, and heads stay locked on catching and passing the two bouncing orange basketballs",
+          "kind": "reaction",
+          "evidence": [
+            "M1@00:10-00:24",
+            "M1@00:25-00:34",
+            "S_simons1999",
+            "S_archive_video1999"
+          ]
+        }
+      ],
+      "recognition_hook": "Six players in white and black shirts passing basketballs in front of three grey elevator doors while a person in a gorilla suit stops in the middle and thumps its chest.",
+      "key_visual": {
+        "description": "the gorilla-suited mannequin stands dead centre in front of the middle elevator door thumping its chest while the six players keep passing two orange basketballs around it",
+        "must_show": [
+          "gorilla",
+          "chest",
+          "pass|basketball|ball"
+        ],
+        "source": "M1@00:25-00:34; Simons & Chabris 1999"
+      },
+      "evidence": [
+        {
+          "media_id": "M1",
+          "t": "00:10-00:24",
+          "what": "William James Hall 14th-floor elevator bay: three brushed-steel double elevator doors in back, black 'S' curves taped on the two cream wall pillars between the doors. Three players in white t-shirts and three players in black t-shirts weave in tight figure-eights passing two orange basketballs (bounce passes and aerial chest passes).",
+          "overlap": 22,
+          "span_sec": 14.0
+        },
+        {
+          "media_id": "M1",
+          "t": "00:25-00:34",
+          "what": "At 00:25, Elisa Cheng in a full dark brown-black shaggy gorilla suit enters from the right edge in front of the rightmost elevator door, walks between the weaving players to dead center in front of the middle elevator door (00:28-00:30), turns squarely toward the camera, raises both furry fists and thumps her chest three times, then turns left and walks out the left edge at 00:34 (9 seconds total ",
+          "overlap": 18,
+          "span_sec": 9.0
+        },
+        {
+          "media_id": "M2",
+          "t": "00:09-00:40",
+          "what": "Six players (3 white shirts, 3 black shirts) pass two basketballs (16 passes) in front of a pleated stage curtain. While the gorilla enters from right to left and thumps its chest at center frame, the backdrop curtain gradually shifts colour from bright crimson red to warm gold, and one black-shirted player backs out of the frame on the left.",
+          "overlap": 12,
+          "span_sec": 31.0
+        },
+        {
+          "media_id": "M1",
+          "t": "00:00-00:09",
+          "what": "White-on-black instruction card: 'This is a test of selective attention. Count how many times the players wearing white pass the basketball.'",
+          "overlap": 5,
+          "span_sec": 9.0
+        },
+        {
+          "media_id": "M1",
+          "t": "00:34-00:42",
+          "what": "The six players continue weaving and passing the two basketballs until the 15th White-team pass completes.",
+          "overlap": 5,
+          "span_sec": 8.0
+        },
+        {
+          "media_id": "M2",
+          "t": "00:00-00:08",
+          "what": "Title and instruction card: 'Count how many times the players wearing white pass the ball.'",
+          "overlap": 4,
+          "span_sec": 8.0
+        }
+      ],
+      "sources": [
+        "S_simons1999",
+        "S_archive_video1999"
+      ],
+      "render_span_sec": 31.0,
+      "clips_needed": 4,
+      "must_be_visible": [
+        "Two standard orange rubber basketballs",
+        "Full-body dark furry gorilla suit",
+        "Three brushed-steel double elevator doors with wall 'S' markings",
+        "Three White-team student mannequins",
+        "Three Black-team student mannequins",
+        "Performer mannequin in a full dark brown-black shaggy furry gorilla suit"
+      ],
+      "must_not": [
+        "real human faces or skin (every person is a matte-white porcelain mannequin)",
+        "on-screen text, captions, logos or watermarks",
+        "modern objects outside the era"
+      ]
+    },
+    {
+      "scene_id": "S2",
+      "title": "Observer Tallying Passes at the Monitor & Replay Shock ('I Missed That?!')",
+      "iconic": false,
+      "era": "1999 Harvard psychology testing room",
+      "space": "A sunlit university testing room with a 20-inch CRT television monitor on a wooden desk, a paper pass-count response sheet, and a pen.",
+      "lighting": "Bright natural window daylight mixing with the crisp glow of the television screen.",
+      "wardrobe": "Observer in a 1999 college crew-neck sweater and jeans; experimenter in a button-down Oxford shirt and slacks.",
+      "positions": [
+        {
+          "who": "Undergraduate observer mannequin",
+          "where": "Seated in a wooden chair directly in front of the television monitor",
+          "facing": "Leaning forward toward the screen while counting, then sitting back and shaking its head when questioned, then jolting forward on the replay"
+        },
+        {
+          "who": "Experimenter mannequin",
+          "where": "Standing beside the desk holding the clipboard protocol sheet and VHS remote",
+          "facing": "Angled toward the observer and the television screen"
+        }
+      ],
+      "props": [
+        {
+          "name": "CRT television monitor and VCR",
+          "look": "Late-1990s dark-grey 20-inch television monitor displaying the elevator-bay basketball tape",
+          "behaviour": "Screen flickers as the VHS tape rewinds and freezes on the chest-thumping gorilla frame in the center of the white-shirted players"
+        },
+        {
+          "name": "Paper tally sheet and ballpoint pen",
+          "look": "White response sheet with '15' written in ink",
+          "behaviour": "The pen writes '15' on the paper, then drops from the observer's fingers and rolls across the wooden desktop when the replay reveals the gorilla"
+        }
+      ],
+      "beats": [
+        {
+          "who": "Observer mannequin",
+          "action": "Writes the number fifteen on the paper pad, shakes its head 'no' when asked about a gorilla, then leans forward andclutches both sides of its head as the experimenter presses play on the rewind",
+          "kind": "action",
+          "evidence": [
+            "M1@00:25-00:34",
+            "S_simons1999"
+          ]
+        },
+        {
+          "who": "Experimenter mannequin",
+          "action": "Clicks the VCR remote button to rewind and freeze the monitor on the gorilla pounding its chest",
+          "kind": "action",
+          "evidence": [
+            "M1@00:25-00:34",
+            "S_simons1999"
+          ]
+        },
+        {
+          "who": "Observer mannequin",
+          "action": "Drops the pen onto the desk, jerks back in the chair, and raises both porcelain hands to its head in stunned disbelief",
+          "kind": "reaction",
+          "evidence": [
+            "M1@00:25-00:34",
+            "S_simons1999"
+          ]
+        }
+      ],
+      "recognition_hook": "The viewer insists there was no gorilla in the video, then watches the rewind and freezes in shock as the gorilla beats its chest dead center on the screen.",
+      "key_visual": null,
+      "evidence": [
+        {
+          "media_id": "M1",
+          "t": "00:25-00:34",
+          "what": "At 00:25, Elisa Cheng in a full dark brown-black shaggy gorilla suit enters from the right edge in front of the rightmost elevator door, walks between the weaving players to dead center in front of the middle elevator door (00:28-00:30), turns squarely toward the camera, raises both furry fists and thumps her chest three times, then turns left and walks out the left edge at 00:34 (9 seconds total ",
+          "overlap": 4,
+          "span_sec": 9.0
+        }
+      ],
+      "sources": [
+        "S_simons1999"
+      ],
+      "render_span_sec": 9.0,
+      "clips_needed": 2,
+      "must_be_visible": [
+        "CRT television monitor and VCR",
+        "Paper tally sheet and ballpoint pen",
+        "Undergraduate observer mannequin",
+        "Experimenter mannequin"
+      ],
+      "must_not": [
+        "real human faces or skin (every person is a matte-white porcelain mannequin)",
+        "on-screen text, captions, logos or watermarks",
+        "modern objects outside the era"
+      ]
+    },
+    {
+      "scene_id": "S3",
+      "title": "Eye-Tracking Red Crosshair Locked Directly on the Unseen Gorilla (Memmert 2006)",
+      "iconic": false,
+      "era": "2006 visual cognition eye-tracking laboratory",
+      "space": "A bright visual-attention lab with an infrared desk-mounted eye-tracker beneath the display monitor and a live gaze-overlay monitor beside it.",
+      "lighting": "Clean high-key clinical laboratory daylight.",
+      "wardrobe": "Lab researcher in white coat over collared shirt; observer in casual shirt.",
+      "positions": [
+        {
+          "who": "Observer mannequin",
+          "where": "Seated at the chin-rest desk in front of the main stimulus monitor",
+          "facing": "Looking straight ahead at the center of the screen while tapping a tally key"
+        },
+        {
+          "who": "Researcher mannequin",
+          "where": "Standing beside the secondary calibration screen",
+          "facing": "Watching the red gaze-fixation crosshair trace across the video"
+        }
+      ],
+      "props": [
+        {
+          "name": "Gaze-tracking monitor with red fixation crosshair",
+          "look": "Lab display showing the elevator-bay video overlaid with a bright crimson gaze circle and scanpath line",
+          "behaviour": "The glowing red fixation circle lands squarely on the dark gorilla's chest and holds there for a full second while the observer's hand keeps clicking the pass counter"
+        }
+      ],
+      "beats": [
+        {
+          "who": "Observer mannequin",
+          "action": "Presses the mechanical tally button each time a white-shirted player passes the basketball while its gaze lands directly on the gorilla",
+          "kind": "action",
+          "evidence": [
+            "M2@00:09-00:40",
+            "S_memmert2006"
+          ]
+        },
+        {
+          "who": "Researcher mannequin",
+          "action": "Taps the calibration printout as the gaze crosshair sits right on the gorilla without triggering any pause or reaction from the observer",
+          "kind": "reaction",
+          "evidence": [
+            "M2@00:09-00:40",
+            "S_memmert2006"
+          ]
+        }
+      ],
+      "recognition_hook": "A red eye-tracking crosshair sits directly on the chest-thumping gorilla for one full second while the viewer keeps counting passes, blind to what their own eyes are staring at.",
+      "key_visual": null,
+      "evidence": [
+        {
+          "media_id": "M2",
+          "t": "00:09-00:40",
+          "what": "Six players (3 white shirts, 3 black shirts) pass two basketballs (16 passes) in front of a pleated stage curtain. While the gorilla enters from right to left and thumps its chest at center frame, the backdrop curtain gradually shifts colour from bright crimson red to warm gold, and one black-shirted player backs out of the frame on the left.",
+          "overlap": 4,
+          "span_sec": 31.0
+        }
+      ],
+      "sources": [
+        "S_memmert2006"
+      ],
+      "render_span_sec": 31.0,
+      "clips_needed": 4,
+      "must_be_visible": [
+        "Gaze-tracking monitor with red fixation crosshair",
+        "Observer mannequin",
+        "Researcher mannequin"
+      ],
+      "must_not": [
+        "real human faces or skin (every person is a matte-white porcelain mannequin)",
+        "on-screen text, captions, logos or watermarks",
+        "modern objects outside the era"
+      ]
+    },
+    {
+      "scene_id": "S4",
+      "title": "Radiologist Missing a Gorilla 48x Nodule Size in a Lung CT Scan (Drew, Võ & Wolfe 2013)",
+      "iconic": false,
+      "era": "2013 Harvard Medical School / Brigham and Women's Hospital radiology reading room",
+      "space": "A modern diagnostic radiology workstation with dual high-contrast medical monitors displaying axial chest CT lung slices and a scroll wheel.",
+      "lighting": "Bright clinical reading room lighting with crisp monitor illumination.",
+      "wardrobe": "Radiologist in a crisp white medical coat over hospital scrubs.",
+      "positions": [
+        {
+          "who": "Expert radiologist mannequin",
+          "where": "Seated at the diagnostic workstation scrolling through chest CT slices",
+          "facing": "Leaning close to the medical monitor with a stylus in hand"
+        }
+      ],
+      "props": [
+        {
+          "name": "High-resolution medical monitor showing a chest CT lung scan",
+          "look": "Black-and-white axial lung slice with tiny white cancer nodules and a dark chest-thumping gorilla silhouette 48 times larger embedded in the upper lung field",
+          "behaviour": "The CT slices scroll rapidly, the cursor circles a tiny white speck on the left lung, and scrolls right past the giant gorilla silhouette without stopping"
+        }
+      ],
+      "beats": [
+        {
+          "who": "Radiologist mannequin",
+          "action": "Spins the scroll wheel, taps a tiny white lung nodule with the stylus tip, and clicks 'next case' right past the giant gorilla silhouette",
+          "kind": "action",
+          "evidence": [
+            "S_drew2013"
+          ]
+        },
+        {
+          "who": "Radiologist mannequin",
+          "action": "When the researcher points to the gorilla on the scan, the radiologist drops the stylus onto the desk and leans back with both hands open in shock",
+          "kind": "reaction",
+          "evidence": [
+            "S_drew2013"
+          ]
+        }
+      ],
+      "recognition_hook": "A tiny gorilla silhouette 48 times bigger than a tumor sits in plain sight inside a lung CT scan as an expert doctor clicks right past it.",
+      "key_visual": null,
+      "evidence": [],
+      "sources": [
+        "S_drew2013"
+      ],
+      "render_span_sec": 8.0,
+      "clips_needed": 1,
+      "must_be_visible": [
+        "High-resolution medical monitor showing a chest CT lung scan",
+        "Expert radiologist mannequin"
+      ],
+      "must_not": [
+        "real human faces or skin (every person is a matte-white porcelain mannequin)",
+        "on-screen text, captions, logos or watermarks",
+        "modern objects outside the era"
+      ]
+    },
+    {
+      "scene_id": "S6",
+      "title": "Everyday Crosswalk / Street Selective-Attention Blindness",
+      "iconic": false,
+      "era": "Contemporary sunlit city crosswalk",
+      "space": "A bright urban sidewalk and crosswalk where a pedestrian mannequin stares fixedly at a glowing smartphone screen or a specific street sign while an unexpected figure passes right in front of them.",
+      "lighting": "Crisp high-key morning sunlight.",
+      "wardrobe": "Smart-casual everyday jacket and trousers.",
+      "positions": [
+        {
+          "who": "Pedestrian mannequin",
+          "where": "Walking forward toward the crosswalk curb in the center foreground",
+          "facing": "Head tilted down toward the smartphone held in its hand"
+        },
+        {
+          "who": "Friend mannequin / cyclist mannequin",
+          "where": "Passing directly across the sidewalk in front of the pedestrian",
+          "facing": "Waving both arms or ringing a bicycle bell two feet away"
+        }
+      ],
+      "props": [
+        {
+          "name": "Smartphone and rolling coffee cup / bicycle",
+          "look": "Modern glass smartphone and paper coffee cup",
+          "behaviour": "The smartphone screen flashes with a text message while the pedestrian nearly bumps the passing bicycle, jolting coffee droplets across the lid"
+        }
+      ],
+      "beats": [
+        {
+          "who": "Pedestrian mannequin",
+          "action": "Types rapidly on the glowing phone screen and strides straight past a waving friend without lifting its head until the friend taps its shoulder",
+          "kind": "action",
+          "evidence": [
+            "S_simons1999",
+            "S_hyman2010"
+          ]
+        },
+        {
+          "who": "Pedestrian mannequin",
+          "action": "Jerks its shoulders back in surprise, lowers the phone, and spreads its free hand in apology",
+          "kind": "reaction",
+          "evidence": [
+            "S_simons1999",
+            "S_hyman2010"
+          ]
+        }
+      ],
+      "recognition_hook": "Locked onto a single task on a screen, you walk right past someone waving directly in front of your face.",
+      "key_visual": null,
+      "evidence": [],
+      "sources": [
+        "S_simons1999",
+        "S_hyman2010",
+        "S_strayer2003"
+      ],
+      "render_span_sec": 8.0,
+      "clips_needed": 1,
+      "must_be_visible": [
+        "Smartphone and rolling coffee cup / bicycle",
+        "Pedestrian mannequin",
+        "Friend mannequin / cyclist mannequin"
+      ],
+      "must_not": [
+        "real human faces or skin (every person is a matte-white porcelain mannequin)",
+        "on-screen text, captions, logos or watermarks",
+        "modern objects outside the era"
+      ]
+    }
+  ]
+}

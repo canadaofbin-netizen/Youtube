@@ -1,0 +1,100 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Why 'because I have to make copies' worked 93% of the time at CUNY's Xerox machine for 5 pages — and crashed to 24% for 20 pages.",
+    "core_experiment": "Langer, Blank & Chanowitz (1978 JPSP): 2×3 Xerox queue field experiment (5 vs 20 pages × No Reason / Real Rush / Placebic 'make copies').",
+    "twist": "Why pop-science cuts Langer's table in half, Folkes (1985) boundary replications, and mindful vs mindless scripts."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Manhattan 1978: Cutting the Library Xerox Line With Pure Nonsense",
+      "beats": [
+        "60% (no reason) vs 94% ('in a rush') vs 93% ('because I have to make copies'!)",
+        "Why busy doctoral scholars nodded at a tautology"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "CUNY Xerox console & 5-page packet"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Studies 1 & 2: How Familiar Templates Put Smart Brains on Autopilot",
+      "beats": [
+        "Interoffice memos that bypassed scrutiny when syntax looked routine",
+        "'Click, Whirr': energy-saving social scripts"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "familiar vs novel office memos"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "The Half Everybody Leaves Out: The 20-Page Crash (93% to 24%!)",
+      "beats": [
+        "Bring 20 pages: real reason hits 42%, empty 'because' plunges to 24%.",
+        "Folkes (1985) & Langer's reply: effort cost wakes the auditor"
+      ],
+      "scene_ids": [
+        "S1",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "20-page stack & 2×3 matrix board"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Spotting Placebic 'Because' Pitches in Ads & Meetings",
+      "beats": [
+        "'Buy Pro because you care about success!' — hollow clauses in disguise",
+        "Testing what sits to the right of 'because'"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "cost-threshold switch card"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Two Everyday Habits: Honest 'Becauses' & Mindful Pauses",
+      "beats": [
+        "Why real reasons nearly double help at both 5 and 20 pages",
+        "Waking out of autopilot when stakes matter"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "modern studio message swap"
+      ]
+    }
+  ]
+}

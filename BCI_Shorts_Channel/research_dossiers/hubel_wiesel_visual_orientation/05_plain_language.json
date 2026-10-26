@@ -1,0 +1,31 @@
+{
+  "one_sentence_story": "When a jammed glass slide cast an accidental diagonal shadow in their 1958–1959 Johns Hopkins lab, David Hubel and Torsten Wiesel discovered that primary visual cortex (V1) ignores flat light spots and decomposes the visual world into oriented edges and columns — winning the 1981 Nobel Prize, saving children from amblyopia, and inspiring modern AI Convolutional Neural Networks.",
+  "so_what_for_you": "Design slides, charts, and diagrams with crisp high-contrast edges and clean orientation lines rather than muddy gradients — you are speaking the native first language of primary visual cortex.",
+  "jargon_map": [
+    {
+      "term": "V1 orientation selectivity",
+      "plain": "discovery that primary visual cortex neurons fire fiercely only when a line or contrast edge matches their preferred tilt angle (e.g., 45°)",
+      "analogy": "a lock-and-key detector tuned to one specific clock hand angle"
+    },
+    {
+      "term": "Simple Cells to Complex Cells",
+      "plain": "hierarchical wiring where Simple Cells combine LGN dot-inputs into an edge at one spot, and Complex Cells respond to that edge anywhere across a patch",
+      "analogy": "the exact biological blueprint copied into AI Convolutional + Pooling layers"
+    },
+    {
+      "term": "orientation & ocular-dominance columns",
+      "plain": "vertical cortical stacks sharing the same preferred edge tilt and alternating left/right eye input across V1",
+      "analogy": "a microscopic ice-cube tray organizing every pixel angle and eye"
+    },
+    {
+      "term": "visual critical period",
+      "plain": "early postnatal developmental window when balanced two-eye input must reach V1 to wire normal binocular vision",
+      "analogy": "why infant cataracts and strabismus are treated early"
+    },
+    {
+      "term": "jammed-slide serendipity",
+      "plain": "the famous 1958 moment when the moving edge of a stuck glass slide triggered spikes after hours of failed circular spots",
+      "analogy": "science's luckiest stuck projector"
+    }
+  ]
+}

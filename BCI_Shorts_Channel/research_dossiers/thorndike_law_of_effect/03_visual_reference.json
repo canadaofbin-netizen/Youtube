@@ -1,0 +1,211 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Edward Thorndike in 1898 Columbia attic timing an articulated porcelain cat sculpture pressing a wooden treadle latch inside slatted Puzzle Box A",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1898, Columbia University attic animal-psychology room, New York",
+      "layout": {
+        "description": "Sunlit 1898 Columbia attic laboratory with warm wooden floorboards, a handmade pine-slat Puzzle Box (Box A) rigged with an internal wooden foot-treadle, overhead cord pulley, spring-hinged door, and an exterior porcelain saucer dish, beside a tall chalkboard plotting the jagged-to-smooth '160s -> 6s Escape Time Curve'.",
+        "positions": [
+          {
+            "who": "Edward Thorndike (mannequin in 1898 rolled-sleeve white shirt, waistcoat, and round spectacles)",
+            "where": "kneeling beside the slatted pine Puzzle Box holding a chrome pocket stopwatch in one hand and chalk in the other",
+            "facing": "beside Puzzle Box and curve chalkboard"
+          },
+          {
+            "who": "Articulated matte-white porcelain cat sculpture",
+            "where": "inside the slatted pine crate placing one front porcelain paw squarely down onto the wooden treadle platform as the overhead cord lifts the door latch toward the saucer outside",
+            "facing": "inside Puzzle Box A"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1898 slatted pine Puzzle Box with internal wooden treadle & cord latch",
+          "period_detail": "authentic rough-sawn crate apparatus where pressing the pedal pulls an overhead string to pop the wooden door",
+          "physical_behavior": "Thorndike's iconic handmade invention"
+        },
+        {
+          "name": "articulated matte-white porcelain cat sculpture & exterior porcelain reward dish",
+          "period_detail": "matte-white sculpted animal figure operating the wooden treadle cleanly",
+          "physical_behavior": "complies with R46 porcelain animal rule while showing exact motor action"
+        },
+        {
+          "name": "Escape-Time Curve chalkboard ('Trial 1: 160s ... Trial 25: 6s')",
+          "period_detail": "gradually sloping chalk curve contrasted against a dotted 'Sudden Insight Cliff' line",
+          "physical_behavior": "visualizes the mathematical proof of trial-and-error stamping in"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Porcelain cat sculpture",
+          "verb_sequence": "brushes past wooden slats -> steps onto the wooden treadle pedal -> overhead cord lifts the wooden latch and the crate door swings open to the exterior dish"
+        },
+        {
+          "who": "Edward Thorndike",
+          "verb_sequence": "clicks his pocket stopwatch at 6 seconds and marks the 25th dot along the downward-sloping escape curve"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Edward Thorndike",
+          "reaction": "points to the smooth gradual slope disproving sudden mechanical reasoning"
+        },
+        {
+          "who": "Porcelain cat sculpture",
+          "reaction": "steps cleanly out to the reward dish"
+        }
+      ],
+      "wardrobe": "1898 graduate-researcher attire: waistcoat over rolled-sleeve cotton shirt, wool trousers, wire-rim spectacles.",
+      "lighting": "Warm, bright 1898 skylight and tall-window attic daylight.",
+      "recognition_hook": "Nail together old packing slats, add a stopwatch, and watch 160 seconds of random pawing sculpt itself down to a crisp 6-second latch press.",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "an 1898 researcher with a stopwatch kneeling beside a slatted wooden puzzle box containing a matte-white porcelain cat pressing a wooden pedal latch next to a 160s-to-6s chalkboard graph",
+        "must_show": [
+          "box|crate|slats",
+          "cat|pedal|latch",
+          "chalkboard|curve|stopwatch"
+        ],
+        "source": "M1@00:08-00:16; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Why Watching an Expert Cat 10 Times Taught Zero Shortcut",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1898, Columbia attic lab",
+      "layout": {
+        "description": "Two side-by-side slatted pine boxes — an observation crate right beside Puzzle Box A.",
+        "positions": [
+          {
+            "who": "Observer porcelain cat sculpture",
+            "where": "watching an expert porcelain cat pop the treadle latch ten times, then taking full beginner time when placed inside itself",
+            "facing": "side-by-side crates"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "twin observation + test puzzle crates",
+          "period_detail": "tests imitation vs personal motor-reward stamping in",
+          "physical_behavior": "Thorndike's ingenious control against Victorian imitation tales"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Thorndike",
+          "verb_sequence": "transfers observer porcelain cat into active box -> stopwatch still runs long like a Trial-1 novice"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Thorndike",
+          "reaction": "logs that active motor-consequence pairing was required"
+        }
+      ],
+      "wardrobe": "1898 waistcoat and rolled sleeves.",
+      "lighting": "Bright attic daylight.",
+      "recognition_hook": "Watching ten perfect escapes from next door didn't shave a second off Trial 1 — the paw had to earn the door-open click itself.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Opaque Latches (Thorndike) vs Visible Crates & Sticks (Köhler 1917)",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1917 / comparative synthesis seminar",
+      "layout": {
+        "description": "Bright seminar table contrasting a hidden-wire puzzle box model against a visible stacked-wooden-block reach model.",
+        "positions": [
+          {
+            "who": "Comparative psychologist mannequin",
+            "where": "showing why hidden strings produce gradual curves while visible spatial tools allow sudden insight",
+            "facing": "at seminar table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Hidden-Cord Box vs Visible-Tool Stack models",
+          "period_detail": "reconciles Thorndike's gradual curve with Köhler's insight cliff",
+          "physical_behavior": "fair scientific synthesis"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Psychologist",
+          "verb_sequence": "reveals the hidden overhead cord on Model A vs visible blocks on Model B"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Students",
+          "reaction": "see why problem transparency shapes how brains learn"
+        }
+      ],
+      "wardrobe": "Academic tweed blazer.",
+      "lighting": "Clean classroom daylight.",
+      "recognition_hook": "Hide the mechanism and every brain must learn by trial and reward; make the geometry visible and insight can strike in a flash.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "From 1898 Slatted Crates to Modern Reinforcement Learning",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern robotics & skill-coaching studio",
+      "layout": {
+        "description": "Sunlit robotics workbench where a small articulated white robot arm learns to press a latch via immediate reward points.",
+        "positions": [
+          {
+            "who": "Robotics engineer mannequin",
+            "where": "watching the learning curve drop from 160s to 6s just like Thorndike's 1898 chalkboard",
+            "facing": "at workbench"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "robot latch trainer & RL reward-curve screen",
+          "period_detail": "same trial -> reward -> policy-update loop 125+ years later",
+          "physical_behavior": "connects 1898 psychology to modern AI"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Robot arm",
+          "verb_sequence": "succeeds on latch press -> reward counter ticks +1 and next trial speeds up"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Engineer",
+          "reaction": "nods at the timeless Law of Effect curve"
+        }
+      ],
+      "wardrobe": "Modern studio shirt.",
+      "lighting": "Bright studio daylight.",
+      "recognition_hook": "Every modern reinforcement-learning AI still obeys the exact curve 23-year-old Edward Thorndike chalked on an attic wall in 1898.",
+      "sources": [
+        "SRC1"
+      ]
+    }
+  ]
+}

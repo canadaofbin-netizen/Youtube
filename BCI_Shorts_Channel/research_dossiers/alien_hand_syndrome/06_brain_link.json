@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "premotor cortex",
+      "plain": "automatic object-affordance trigger",
+      "function": "prepping a smooth reach-and-grasp motor program the instant the eyes spot a shirt button, cup handle, or doorknob",
+      "scene_id": "S1",
+      "narration_bridge": "Shows why object-directed motor plans form automatically."
+    },
+    {
+      "role": "pivot",
+      "region": "corpus callosum",
+      "plain": "severed interhemispheric coordination",
+      "function": "failing to tell the right hemisphere's motor system what the left hemisphere's right hand is doing — unleashing intermanual button-vs-unbutton conflict",
+      "scene_id": "S1",
+      "narration_bridge": "Captures Feinberg's (1992) Callosal Alien Hand mechanism."
+    },
+    {
+      "role": "step1",
+      "region": "anterior cingulate cortex",
+      "plain": "broken medial-frontal intention & SMA veto brake",
+      "function": "losing the medial frontal gate that normally blocks unchosen object grabs before primary motor cortex fires",
+      "scene_id": "S2",
+      "narration_bridge": "Captures Goldberg's (1981) Frontal Alien Hand mechanism."
+    }
+  ]
+}

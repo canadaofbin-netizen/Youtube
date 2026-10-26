@@ -1,0 +1,101 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Zero conscious sight, >90% bullseye pointing: how Patient D.B. and Lawrence Weiskrantz discovered the brain's hidden second visual highway.",
+    "core_experiment": "Weiskrantz et al. (1974 Brain / Lancet): forced-choice pointing & X-vs-O guessing without V1 via the superior colliculus bypass.",
+    "twist": "Patient T.N.'s obstacle-course hallway walk, 'Affective Blindsight' for unseen faces, and why thirsty blindsight patients still prove consciousness isn't useless."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Queen Square 1974: 'Just Guess Into the Dark!'",
+      "beats": [
+        "Patient D.B.'s right-V1 surgery & standard '100% blind' chart",
+        "Humphrey's monkey Helen inspires forced-choice pointing",
+        "D.B.'s jaw drops at his own 93% bullseye scorecard"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "perimeter arc & 93% scorecard"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "The Ancient 10% Bypass Around V1",
+      "beats": [
+        "Ruling out stray light with the optic-disc check",
+        "Superior colliculus & pulvinar shortcut to parietal action maps"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "two-highway optic diagram"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Weaving Past Hallway Chairs & Feeling Unseen Smiles",
+      "beats": [
+        "2008 Patient T.N. obstacle-course walk with zero V1",
+        "Affective Blindsight: unseen faces moving cheek muscles via amygdala"
+      ],
+      "scene_ids": [
+        "S2",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2"
+      ],
+      "new_shots_needed": [
+        "corridor obstacle course & expression booth"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Why Consciousness Still Matters: The Thirsty Patient Paradox",
+      "beats": [
+        "Why D.B. never reaches spontaneously without a prompt",
+        "Unconscious radar vs conscious self-directed choice"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "water glass in blind vs conscious field"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Your Everyday Midbrain Reflex",
+      "beats": [
+        "Dodging a flying ball before naming it",
+        "How two visual streams team up every second"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "conscious reach"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Stopping a charging bull on Page 1 of The New York Times: what José Delgado's 1965 radio 'stimoceiver' really did inside the basal ganglia.",
+    "core_experiment": "Delgado (1965 Córdoba bull demo) + Valenstein (1973) / Horgan (2005 Scientific American) caudate motor-turning proof + modern Parkinson's DBS.",
+    "twist": "Why caudate stimulation steered muscles sideways rather than 'curing anger', why 1969 mind-control hype backfired, and why putting the remote in the patient's hand changed everything."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Córdoba 1965: One Radio Click Three Yards From the Horns",
+      "beats": [
+        "Tethered 1950s wires vs Delgado's wireless FM 'stimoceiver'",
+        "May 17, 1965 Page-1 New York Times sensation"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "handheld radio transmitter & bull skid"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "The Caudate Plot Twist: Steering Wheel, Not Peace Switch.",
+      "beats": [
+        "Valenstein & Horgan examine the exact target: caudate nucleus",
+        "Forced lateral motor turning vs hyped 'erased aggression'"
+      ],
+      "scene_ids": [
+        "S2",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "Page-1 headline vs caudate motor diagram"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "How 'Psychocivilized Society' Rhetoric Nearly Buried Great Hardware",
+      "beats": [
+        "1970s mind-control panic & Senate backlash",
+        "Why electrical pulses modulate circuits, not political beliefs"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "motor loop vs myth chart"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Redemption in the Clinic: 250,000+ Parkinson's DBS Patients",
+      "beats": [
+        "Benabid 1987 & wireless basal-ganglia pacing",
+        "Patient taps 'ON' and lifts a full glass of water steady."
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "patient-held DBS remote & steady glass"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Your 3-Point Córdoba Filter for Viral Brain-Chip Headlines",
+      "beats": [
+        "1. Exact brain region? 2. Motor signal or thought? 3. Who holds consent?",
+        "Ethical neurotech serves human agency"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "3-Point Córdoba Filter card"
+      ]
+    }
+  ]
+}

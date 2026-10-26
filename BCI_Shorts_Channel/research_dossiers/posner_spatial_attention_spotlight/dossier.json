@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "slug": "posner_spatial_attention_spotlight",
+  "topic": "Michael Posner (1980): Covert Spatial Attention 'Spotlight' Without Moving Your Eyes",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:31+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Posner's central fixation cross with valid vs invalid peripheral arrow cues demonstrates covert attention cleanly in millisecond reaction time, directly governed by the dorsal frontoparietal orienting network.",
+  "primary_case": {
+    "title": "Michael I. Posner's endogenous/exogenous spatial cueing ('Posner Cueing Paradigm') experiments",
+    "year": 1980,
+    "place": "University of Oregon Cognitive Neuroscience Laboratory, Eugene, Oregon",
+    "people": [
+      {
+        "name": "Michael I. Posner",
+        "role": "Cognitive neuroscientist who proved attention moves across visual space independently of physical eye movements and mapped the brain's three attention networks",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Charles R. R. Snyder & Raymond M. Klein",
+        "role": "Collaborators on valid/invalid cost-benefit chronometry and 'Inhibition of Return' (Posner & Cohen 1984)",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Maurizio Corbetta & Gordon Shulman",
+        "role": "Neuroimaging pioneers who mapped Posner's dorsal top-down vs ventral stimulus-driven frontoparietal orienting networks",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In his 1980 Quarterly Journal of Experimental Psychology classic (7th Bartlett Lecture), Michael Posner asked a deceptively simple question: can you aim your visual attention to the side WITHOUT moving your eyeballs a single millimeter?",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Participants locked their gaze on a central '+' fixation cross flanked by empty left and right boxes, monitored by electro-oculography (EOG) electrodes beside the eyes so any trial with a real eye movement (>1 degree) was discarded.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Before a target flash appeared inside the left or right box, a cue predicted its side: either a central arrow ('endogenous' voluntary cue, accurate 80% of the time) or a brief peripheral border flash ('exogenous' automatic cue).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Subjects pressed a single detection key the instant the target appeared — requiring zero eye movement and zero left-vs-right hand choice.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Even with eyeballs frozen dead-center on '+', targets landing in the VALIDLY cued box (80% trials) sped up reaction time to roughly ~220-240 milliseconds, versus ~250-265 ms neutral and ~280-305 ms on INVALIDLY cued 20% trials — a ~50-60 ms 'spotlight' swing.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Covert attention began boosting visual sensitivity at the cued spot within 50 to 150 milliseconds — FASTER than the ~200-250 ms human eyes even need to launch a physical saccade.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Four years later (Posner & Cohen, 1984), Posner discovered a brilliant twist on peripheral flashes: for the first ~100-200 ms a flash pulls attention in, but after ~300 ms the spotlight bounces away and INHIBITS that old spot ('Inhibition of Return') so foraging eyes keep scanning fresh ground.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Lesion and fMRI studies localized Posner's covert spotlight to intraparietal sulcus / superior parietal cortex ('disengage'), midbrain/brainstem superior colliculus ('move'), and thalamic pulvinar ('engage'), while modern 'zoom-lens' refinements showed the beam also widens or narrows on demand.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Across Posner's (1980) covert-orienting cueing blocks with eyes held strictly on central fixation, simple target detection averaged roughly 235 ms after valid spatial cues versus roughly 295 ms after invalid cues.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "With electrodes proving their eyeballs never budged a millimeter from a center '+', people detected flashes off to the side 60 milliseconds faster simply because an invisible mental spotlight arrived there first.",
+      "why_surprising": "Seeing sharply doesn't just follow your eyes — your mind arrives before your eyes ever move.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Your covert attention spotlight shifts to a new corner in ~100 milliseconds — twice as fast as the ~220 milliseconds your eye muscles need to physically turn.",
+      "why_surprising": "Attention scouts the landing pad ahead of every glance.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Flash a bright distraction on the left and wait just 300 milliseconds, and your brain actually becomes SLOWER at that exact spot ('Inhibition of Return').",
+      "why_surprising": "Evolution built an anti-staring timer so you scan the whole jungle instead of getting stuck on one rustling leaf.",
+      "source_id": "SRC3",
+      "rank": 3
+    },
+    {
+      "fact": "Patients with right parietal cortex damage can still move their eyes and see an object alone — yet fail to 'disengage' Posner's spotlight from the right side when an invalid target appears on the left.",
+      "why_surprising": "Posner broke 'paying attention' into three separate neural gears: disengage, move, engage.",
+      "source_id": "SRC2",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Whatever your eyeballs point directly at is automatically what you are paying attention to.",
+      "truth": "Covert attention and eye gaze dissociate completely — athletes, drivers, and magicians exploit that split every second.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Attention only changes which button your hand prepares to press, not how clearly you see.",
+      "truth": "Posner used a single-key press and later ERP recordings proved valid cues physically amplify early visual cortex sensory waveforms within 80-100 ms.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Attention is a rigid circular beam of fixed size forever.",
+      "truth": "Eriksen's 'zoom-lens' and split-attention follow-ups showed the parietal beam dynamically zooms narrow (high resolution) or wide (broad field).",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "A blinking banner ad keeps pulling your attention back to the same corner indefinitely.",
+      "truth": "After ~300 ms without goal relevance, Inhibition of Return actively suppresses that flashed location.",
+      "source_id": "SRC3"
+    }
+  ],
+  "everyday_hooks": [
+    "A basketball point guard staring dead-straight at a defender's chest while covertly aiming Posner's spotlight at a cutting teammate on the wing for a no-look pass.",
+    "Keeping your eyes steady on the highway lane ahead while covertly monitoring a merging car in the right lane.",
+    "How a sleight-of-hand magician uses a dramatic left-hand gesture (invalid 80% cue) to pull your covert spotlight 60 ms away from the right-hand pocket.",
+    "Why flashing webpage sidebar ads go 'invisible' to your brain half a second later via Inhibition of Return."
+  ],
+  "linked_projects": [
+    "psych_32_posner_spatial_attention_spotlight"
+  ]
+}

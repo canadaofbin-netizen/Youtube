@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "slug": "baron_cohen_theory_of_mind",
+  "topic": "Simon Baron-Cohen, Alan Leslie & Uta Frith (1985): The 'Sally-Anne' Marble Transfer & Theory of Mind",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:31+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Moving a shiny glass marble from Sally's wicker basket into Anne's cardboard box across a tabletop puppet stage is instantly visual, paired with temporoparietal / medial-prefrontal mentalizing development.",
+  "primary_case": {
+    "title": "Baron-Cohen, Leslie & Frith's 1985 'Sally-Anne' false-belief puppet experiment",
+    "year": 1985,
+    "place": "MRC Cognitive Development Unit, London",
+    "people": [
+      {
+        "name": "Simon Baron-Cohen",
+        "role": "Developmental psychopathologist who co-created the Sally-Anne puppet adaptation of Wimmer & Perner's false-belief task",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Alan M. Leslie & Uta Frith",
+        "role": "MRC London cognitive scientists who co-theorized metarepresentation and decoupled mental-state tracking",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Heinz Wimmer & Josef Perner",
+        "role": "Developmental psychologists who invented the original 1983 Maxi-and-the-chocolate false-belief paradigm",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Building on Premack & Woodruff (1978) and Wimmer & Perner's 1983 chocolate story, Simon Baron-Cohen, Alan Leslie, and Uta Frith created the minimalist 'Sally-Anne' tabletop doll test at London's MRC Cognitive Development Unit in 1985.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The child sits across from two small dolls: Sally (who has a round covered basket) and Anne (who has a rectangular covered box).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Sally places a glass marble inside her basket and walks out of the room; while Sally is GONE, mischievous Anne lifts the marble out of the basket and hides it inside Anne's own closed box.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Before asking the test question, researchers verify two control questions ('Where is the marble REALLY right now?' — Box; 'Where was the marble in the beginning?' — Basket) — passed 100 percent by every group.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Then Sally returns, and the researcher asks the decisive Belief Question: 'Where will Sally LOOK for her marble?'",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Passing requires holding TWO contradictory realities in your head at once: YOU know the marble is in the box, yet SALLY falsely believes it is still in her basket because she didn't see the swap.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Across typical developmental studies (Wellman et al. 2001 meta-analysis of 178 studies), 3-year-olds reliably fail verbal false-belief questions (~80% point to the box where the marble really is!), whereas by age 4.5 roughly 85 percent pass effortlessly (23 of 27 typical 4-year-olds and 12 of 14 children with Down syndrome of lower verbal mental age passed in 1985, while 16 of 20 autistic children in that high-support 1985 clinical sample pointed to the box).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Crucial modern update (Gernsbacher & Yergeau 2019; Milton's Double Empathy Problem; Baron-Cohen 2025): eye-tracking and modern replications proved 1) many autistic youths and adults pass verbal false-belief tasks cleanly depending on language load; 2) non-autistic people struggle JUST as hard to read autistic expressions ('two-way Double Empathy mismatch', not one-way brokenness); and 3) EVERY healthy adult routinely slips into the exact same 'Curse of Knowledge' error when writing confusing emails.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Ask a bright three-year-old 'Where will Sally look for her marble?' right after Anne secretly moved it, and the three-year-old points straight to the new box — completely unable to imagine Sally doesn't know what THEY just saw.",
+      "why_surprising": "Separating 'what is true' from 'what someone else believes' is a developmental leap between ages 3 and 5.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Every child in the room answered 'Where is the marble REALLY?' and 'Where did it start?' at 100 percent accuracy — the ONLY hurdle was decoupling someone else's unseen mental model from reality.",
+      "why_surprising": "Memory and eyesight were spotless; perspective decoupling was the puzzle.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Modern researchers (Damian Milton; Gernsbacher) overturned 1990s 'universal mindblindness' overgeneralizations by testing the reverse direction: neurotypical observers misread autistic people's emotions and intentions at high rates too ('the Double Empathy Problem').",
+      "why_surprising": "Misunderstanding across different minds runs on a two-way street.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "Even PhD adults fail adult versions of Sally-Anne every single day — tapping out 'Happy Birthday' on a table and guessing listeners hear the tune 50 percent of the time when actual listeners guess just 2.5 percent ('Curse of Knowledge').",
+      "why_surprising": "Once you know where the marble is, forgetting you know it takes effort at any age.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Three-year-olds point to Anne's box because they forgot where Sally put the marble.",
+      "truth": "They pass the 'Where was it at the beginning?' memory check 100% of the time; reality-bias overrides false-belief decoupling.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Every autistic person lacks empathy or fails Theory of Mind tasks.",
+      "truth": "That outdated stereotype collapsed under empirical scrutiny (SRC1): affective care/empathy is distinct from rapid social cueing, language demands heavily skew Sally-Anne scores, and misunderstanding between neurotypes is bidirectional ('Double Empathy').",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Once you turn five, you never confuse your own knowledge with someone else's again.",
+      "truth": "Adults constantly fall for the 'Curse of Knowledge' — writing cryptic acronyms or directions assuming readers see the map inside the writer's head.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Theory of Mind is a single binary switch you either have or don't.",
+      "truth": "Mentalizing spans graded skills from eye-gaze tracking to second-order beliefs ('Alice thinks Bob thinks...') and taxing tired adult prefrontal resources.",
+      "source_id": "SRC3"
+    }
+  ],
+  "everyday_hooks": [
+    "Sending a three-word Slack message ('Check the doc!') assuming your teammate knows which of forty docs you just had open ('adult Sally-Anne error').",
+    "Watching a 3-year-old play hide-and-seek by covering ONLY their own eyes in the middle of the rug ('if I can't see you, you can't see me').",
+    "Practicing 'Double Empathy' humility: asking directly what a colleague meant instead of assuming everyone signals feelings with identical body language.",
+    "Reading a draft email pretending you do NOT know the secret move Anne made in Paragraph 3."
+  ],
+  "linked_projects": [
+    "psych_35_baron_cohen_theory_of_mind"
+  ]
+}

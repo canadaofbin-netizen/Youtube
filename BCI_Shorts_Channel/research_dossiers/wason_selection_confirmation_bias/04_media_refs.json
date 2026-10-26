@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "The Most Common Cognitive Bias",
+      "url": "https://www.youtube.com/watch?v=vKA4w2O61Xo",
+      "channel": "Veritasium",
+      "source_id": "SRC_M1",
+      "duration_sec": 284,
+      "timecodes": [
+        {
+          "t": "00:01-00:13",
+          "what": "Widescreen camera frame at kf_004.jpg (9.4s) paired with transcript segment \"I'm gonna give you guys three numbers. A three number sequence and I have a rule in mind that these three numbers obey and I want you to try to...\", introducing core background on Peter Wason's 1968 UCL Tabletop: Four Cards ('E — K — 4 — 7') vs the 'Beer — Soda — 25 — 16' Reveal."
+        },
+        {
+          "t": "00:14-00:20",
+          "what": "Around kf_005.jpg (14.6s) (widescreen camera frame), transcript records \"But the way you can get information is by proposing your own set of three numbers, to which I will say yes that follows my rule or no it doesn't...\", examining procedural mechanics and evidence in Peter Cathcart Wason's 1966/1968 University College London 4-Card Selection Task ('E — K — 4 — 7')."
+        },
+        {
+          "t": "00:52-00:58",
+          "what": "At kf_014.jpg (55.3s) (widescreen camera frame), speaker remarks \"That's not my rule. But you're allowed, if you want, propose 3 other numbers. 3, 6, 12.\", addressing theoretical interpretation and downstream implications of Peter Cathcart Wason's 1966/1968 University College London 4-Card Selection Task ('E — K — 4 — 7')."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (widescreen live-action camera recording (480x270, 14 frames sampled across 0.7s–55.3s)) from Veritasium's \"The Most Common Cognitive Bias\" (284s total runtime).",
+          "Deduplicated English transcript (43 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (0.7s–55.3s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "The four card problem",
+      "url": "https://www.youtube.com/watch?v=FoLSzq-8ync",
+      "channel": "Christopher Scott Vaughen",
+      "source_id": "SRC_M2",
+      "duration_sec": 852,
+      "timecodes": [
+        {
+          "t": "02:26-02:35",
+          "what": "At kf_004.jpg (149.8s) (lecture slide / diagram frame), Christopher Scott Vaughen's recording states \"there's an even on one side there's a vowel on the other you don't have to check that you don't have to flip the four but you do have to flip that...\" — providing spoken context for Peter Wason's 1968 UCL Tabletop: Four Cards ('E — K — 4 — 7') vs the 'Beer — Soda — 25 — 16' Reveal."
+        },
+        {
+          "t": "02:36-02:45",
+          "what": "Mid-segment lecture slide / diagram frame at kf_006.jpg (162.4s) as narration explains \"with the seven because there could be a vowel on the other side which would contradict the statement and so yeah we got to flip the a and the 7. now\", clarifying key empirical findings in Peter Cathcart Wason's 1966/1968 University College London 4-Card Selection Task ('E — K — 4 — 7')."
+        },
+        {
+          "t": "03:18-03:31",
+          "what": "Around kf_013.jpg (206.7s) (lecture slide / diagram frame), commentary states \"you know these are just pictures suppose the same four cards instead showed a person's age and what they were drinking at a party and which cards...\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (recorded lecture combining speaker commentary with 14/14 diagram/slide frames (640x360, sampled across 130.8s–213.0s)) from Christopher Scott Vaughen's \"The four card problem\" (852s total runtime).",
+          "Deduplicated English transcript (31 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (130.8s–213.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "museum_artefact",
+      "title": "London - Gower Street - University College London 1827 William Wilkins.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:London_-_Gower_Street_-_University_College_London_1827_William_Wilkins.jpg",
+      "channel": "Wikimedia Commons (Txllxt TxllxT)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified museum artefact \"London - Gower Street - University College London 1827 William Wilkins.jpg\" (1600x1059 px, CC BY-SA 4.0): London - Gower Street - University College London 1827 William Wilkins. Documents the real institutional setting and architectural era associated with Peter Cathcart Wason's 1966/1968 University College London 4-Card Selection Task ('E — K — 4 — 7')."
+        }
+      ],
+      "license_note": "Archival museum artefact (CC BY-SA 4.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (1600x1059 px, CC BY-SA 4.0, Txllxt TxllxT) — architecture reference: London - Gower Street - University College London 1827 William Wilkins.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

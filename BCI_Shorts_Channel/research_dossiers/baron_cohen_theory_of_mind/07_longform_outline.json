@@ -1,0 +1,104 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Sally leaves her marble in a basket, Anne moves it to a box — and 3-year-olds swear Sally will look in the box.",
+    "core_experiment": "Baron-Cohen, Leslie & Frith's 1985 London puppet stage + the age 3-to-4.5 developmental leap across 178 studies.",
+    "twist": "Modern scientific upgrades: Damian Milton's two-way 'Double Empathy Problem' and the adult 'Curse of Knowledge'."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Two Dolls, One Basket, One Moved Marble",
+      "beats": [
+        "Dennett's acid test for tracking minds",
+        "Passing Reality & Memory 100%",
+        "Why age 3 points to the box while age 4.5 points to the basket"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "tabletop Sally-Anne marble swap"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Holding Two Conflicting Worlds in One Brain",
+      "beats": [
+        "Temporoparietal junction (TPJ) decoupling",
+        "Prefrontal brake suppressing 'where it really is'"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "child pointing back to wicker basket"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Correcting a 1990s Stereotype: The Double Empathy Twist",
+      "beats": [
+        "Why 'universal mindblindness' was wrong",
+        "Two-way misunderstandings across neurotypes (Milton)",
+        "Adult 'Happy Birthday' tapping: 50% guessed vs 2.5% real."
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step1",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "adult desk song-tapping test"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Replications, Critiques & Real-World Boundaries",
+      "beats": [
+        "Three-year-olds point to Anne's box because they forgot where Sally put the marble. to They pass the 'Where was it at the beginning?' memory check 100% of the time; reality-bias overrides false-bel",
+        "Every autistic person lacks empathy or fails Theory of Mind tasks. to That outdated stereotype collapsed under empirical scrutiny (SRC4): affective care/empathy is distinct from ra",
+        "Once you turn five, you never confuse your own knowledge with someone else's again. to Adults constantly fall for the 'Curse of Knowledge' — writing cryptic acronyms or directions assuming readers"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2"
+      ],
+      "new_shots_needed": [
+        "comparative replication table card on wooden desk"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Curing the Curse of Knowledge at Work",
+      "beats": [
+        "Tell people when the marble moved",
+        "Asking instead of assuming"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "adding clear 'Context:' line on the display"
+      ]
+    }
+  ]
+}

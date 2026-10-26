@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "slug": "glymphatic_sleep_toxins",
+  "topic": "Lulu Xie & Maiken Nedergaard (2013): The Glymphatic System & Slow-Wave Sleep Metabolite Clearance",
+  "pillar": "brain_health",
+  "created_at": "2026-10-25T22:49:28+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "The discovery was made directly inside living cortex via two-photon microscopy showing glial shrinkage, 60% interstitial expansion, and perivascular cerebrospinal fluid flushing amyloid-beta during slow-wave sleep.",
+  "primary_case": {
+    "title": "Two-photon in vivo imaging of sleep-driven cerebrospinal fluid clearance in adult cortex",
+    "year": 2013,
+    "place": "Center for Translational Neuromedicine, University of Rochester Medical Center, New York, USA",
+    "people": [
+      {
+        "name": "Maiken Nedergaard",
+        "role": "Danish-American neuroscientist who coined and mapped the glial-dependent 'glymphatic' clearance system",
+        "source_id": "SRC7"
+      },
+      {
+        "name": "Lulu Xie",
+        "role": "First author who performed awake-versus-sleeping two-photon tracer imaging in adult mice",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Jeffrey J. Iliff",
+        "role": "Co-investigator who characterized aquaporin-4 astrocytic water channels along perivascular sleeves",
+        "source_id": "SRC5"
+      },
+      {
+        "name": "Natalie L. Hauglund",
+        "role": "Co-author of modern glymphatic norepinephrine-oscillation and sleep-restoration reviews",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Although the human brain accounts for roughly 2 percent of body mass, it consumes about 20 percent of the body's resting metabolic energy while lacking conventional lymphatic vessels inside parenchyma.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In October 2013 in Science, Lulu Xie, Maiken Nedergaard, and colleagues at the University of Rochester used in vivo two-photon microscopy to watch fluorescent cerebrospinal fluid tracers enter the cortex of awake versus naturally sleeping mice.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "While mice were awake, cerebrospinal fluid tracer barely trickled past the outer cortical surface; the moment slow-wave delta sleep began, CSF surged deep along periarterial channels.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Real-time tetramethylammonium iontophoresis measurements revealed that the interstitial space between brain cells expanded by more than 60 percent (from ~14% to ~23% of tissue volume) during natural sleep or anesthesia.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Radiolabeled amyloid-beta injected into the cortex was cleared roughly twice as fast in sleeping mice as in awake mice.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The convective fluid wave depends on aquaporin-4 (AQP4) water channels densely packed on astrocytic endfeet wrapping cerebral blood vessels, inspiring the name 'glymphatic' (glial-lymphatic).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "High waking levels of the neuromodulator norepinephrine keep glial cells swollen and interstitial corridors tight; blocking adrenergic receptors in awake cortex mimicked the sleep-state fluid flush.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In humans, even a single night of total sleep deprivation measurably elevates amyloid-beta burden in the hippocampus and thalamus on PET imaging.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Recent scientific debate (2023-2026) actively tests convective bulk-flow versus dispersive vascular-pulsation models, confirming slow-wave oscillations and arterial vasomotion as key drivers in humans.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Sleeping pills such as zolpidem can suppress slow norepinephrine oscillations and blunt glymphatic flow compared with natural non-REM delta sleep.",
+      "source_id": "SRC3"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "During deep slow-wave sleep, supportive glial cells physically shrink so the fluid channels between your neurons widen by 60 percent.",
+      "why_surprising": "Your brain literally rearranges its physical plumbing geometry every night to open the drainpipes.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Toxic amyloid-beta protein flushes out of sleeping brain tissue at twice the rate of the waking brain.",
+      "why_surprising": "That gives a concrete biological answer to why every animal species on Earth must sleep despite predators.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "While awake, high norepinephrine keeps the gaps between neurons squeezed shut so incoming CSF tracers bounce off the surface.",
+      "why_surprising": "Your brain cannot run peak daytime signal processing and full-scale plumbing wash cycles at the exact same time.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "Sedation is not automatically restorative sleep: drugs that flatten natural slow-wave vascular pulses can stall the nightly wash.",
+      "why_surprising": "Unconscious is not the same as biologically cleaned.",
+      "source_id": "SRC3",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Sleep is passive downtime where the brain simply turns off to save calories.",
+      "truth": "Natural sleep only saves ~10-15% energy compared with quiet wakefulness; deep slow-wave sleep runs an active, high-flow metabolic clearance cycle.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "You can catch up on a week of four-hour nights with one long Sunday nap without biological cost.",
+      "truth": "Chronic curtailment of deep NREM Stage 3 sleep repeatedly interrupts nightly amyloid and tau clearance.",
+      "source_id": "SRC3"
+    },
+    {
+      "myth": "Brain cells recycle 100 percent of their own protein waste internally.",
+      "truth": "Extracellular proteins like amyloid-beta and tau depend heavily on perivascular CSF-interstitial exchange to exit into meningeal drains.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Alcohol or sedatives before bed improve the brain's nightly wash.",
+      "truth": "Fragmenting slow-wave architecture or blunting norepinephrine oscillations impairs perivascular pumping.",
+      "source_id": "SRC3"
+    }
+  ],
+  "everyday_hooks": [
+    "Waking up after four hours of fragmented sleep with that heavy, foggy 'unwashed' pressure behind your forehead.",
+    "Noticeably sharper focus the morning after uninterrupted early-night deep sleep versus late-night screen scrolling.",
+    "Why commercial kitchens cannot deep-clean the fryers and mop the floors during the dinner rush — they have to close the doors first.",
+    "Protecting the first 3-4 hours of your sleep window, when slow-wave delta sleep is deepest."
+  ],
+  "linked_projects": [
+    "psych_06_glymphatic_sleep_toxins"
+  ]
+}

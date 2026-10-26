@@ -1,0 +1,101 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Pouring tea that looks frozen like an icicle and cars that teleport: how Patient L.M. proved human visual motion lives in area V5.",
+    "core_experiment": "Zihl, von Cramon & Mai (1983 Brain) + 1991 8-year MRI follow-up + Beckers & Zeki reversible V5 TMS.",
+    "twist": "Why auditory and tactile motion stayed 100% normal, why unilateral strokes hide the deficit, and how L.M. poured coffee perfectly by acoustic pitch."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Munich 1983: The Woman Whose Pouring Tea Turned to Ice",
+      "beats": [
+        "20/20 static reading & color, zero smooth visual motion",
+        "Glacier tea & strobe-frame cars at the crosswalk"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "teapot, overflowing saucer & speed chart"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Measuring the 14°/s Cliff & Checking Ears and Skin",
+      "beats": [
+        "Slow 14°/s collapse",
+        "Why blindfolded sound and touch motion stayed 100% intact."
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "blindfolded sound-tracking check"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Inside Bilateral V5 / hMT+ & Reversible TMS Proof",
+      "beats": [
+        "Why only a rare symmetrical bilateral stroke unmasked akinetopsia",
+        "Freezing moving dots for 50 ms in healthy brains"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2"
+      ],
+      "new_shots_needed": [
+        "V5 TMS coil & dot display"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Eight Years Later: Pouring Hot Coffee by Musical Pitch",
+      "beats": [
+        "Zihl's 1991 follow-up",
+        "Using rising resonant cup sound & Doppler engine cues"
+      ],
+      "scene_ids": [
+        "S3",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "acoustic mug-pouring mastery"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Your Brain's Hidden Multi-Canvas Cinema",
+      "beats": [
+        "Color (V4), Faces (FFA), Motion (V5) stitched into one world",
+        "Appreciating cross-sensory resilience"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "clean spill-free cup"
+      ]
+    }
+  ]
+}

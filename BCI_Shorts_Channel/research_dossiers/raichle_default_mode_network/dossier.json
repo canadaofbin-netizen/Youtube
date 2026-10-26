@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "slug": "raichle_default_mode_network",
+  "topic": "Marcus Raichle (2001): The Default Mode Network & 'Brain Dark Energy' Burning 20% of Your Body's Fuel at Rest",
+  "pillar": "brain_health",
+  "created_at": "2026-10-25T22:49:32+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Raichle's oxygen-extraction PET discovery — a coherent midline cortical network (posterior cingulate/precuneus + medial prefrontal + angular gyrus) roaring at peak metabolism during rest and dipping whenever an external task begins — is pure systems neuroscience.",
+  "primary_case": {
+    "title": "Marcus E. Raichle, Debra Gusnard, Gordon Shulman et al.'s 2001 PNAS Default Mode Network discovery",
+    "year": 2001,
+    "place": "Washington University School of Medicine Mallinckrodt Institute of Radiology, St. Louis, Missouri",
+    "people": [
+      {
+        "name": "Marcus E. Raichle",
+        "role": "Washington University neurologist and neuroimaging pioneer who noticed mysterious 'task-induced decreases' and discovered the Default Mode Network (DMN)",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Gordon L. Shulman & Debra A. Gusnard",
+        "role": "Collaborators who compiled nine-study meta-analyses of midline task deactivations (1997) and mapped medial prefrontal self-referential activity (2001)",
+        "source_id": "SRC3"
+      },
+      {
+        "name": "Bharat Biswal & Randy Buckner",
+        "role": "Neuroscientists who linked resting low-frequency functional connectivity (1995) with DMN autobiographical memory, prospection, and Alzheimer's vulnerability",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "For decades, brain-imaging labs treated lying quietly in a scanner with eyes closed ('rest') as a blank zero baseline — throwing away strange negative numbers whenever certain regions went DOWN during math or reading tasks.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "At Washington University in St. Louis, Gordon Shulman and Marcus Raichle refused to throw out those 'deactivations': across 9 different PET studies (132 subjects), the EXACT SAME constellation of midline/parietal regions consistently turned DOWN whenever people switched from quiet rest to an external task.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Were those regions only roaring during rest because subjects felt anxious? In 2001 in PNAS, Marcus Raichle's team used quantitative oxygen-15 PET (measuring Oxygen Extraction Fraction, OEF) to test true baseline metabolic equilibrium — proving those regions weren't artificially 'spiking,' they were running at a massive, organized tonic baseline state: the DEFAULT MODE OF BRAIN FUNCTION.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Raichle calculated a jaw-dropping energy fact ('Brain Dark Energy'): the adult human brain is just 2 percent of body weight yet burns 20 percent of the body's entire resting energy — and switching to a hard chess or math problem increases local brain energy consumption by LESS THAN 5 PERCENT above resting intrinsic activity.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Core hubs of the Default Mode Network (DMN) span posterior cingulate cortex / precuneus, medial prefrontal cortex, and bilateral inferior parietal lobule (angular gyrus), linked closely with the hippocampal memory system.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "What is this 95%-of-budget engine doing when you stare out a train window? Replaying autobiographical episodes, simulating future scenarios ('prospection'), modeling other people's minds, and weaving personal meaning.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Clinically, Randy Buckner showed the high-metabolism hubs of the DMN overlap strikingly with the earliest sites of amyloid plaque accumulation in Alzheimer's disease, while hyper-locked subgenual-cingulate/DMN coupling tracks depressive rumination.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Modern neuroscience correction (Spreng; Yeshurun 2021): calling the DMN purely 'task-negative' or 'lazy distraction' was wrong — during tasks requiring autobiographical planning, creative divergent thinking, or following a rich movie plot, the DMN teams UP cooperatively with prefrontal control networks.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Resting-state neuroimaging studies show that even brief 60-to-90-second task-free pauses allow default mode network hubs to re-engage autobiographical consolidation and associative replay.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Your 3-pound brain burns 20 percent of your entire body's calories while you sit doing 'nothing' on a park bench — and solving brutal calculus adds LESS than 5 percent extra energy on top.",
+      "why_surprising": "Ninety-five percent of your brain's budget runs its continuous internal world model ('Brain Dark Energy').",
+      "source_id": "SRC3",
+      "rank": 1
+    },
+    {
+      "fact": "For ten years scientists literally deleted the Default Mode Network from their computer screens as 'annoying negative baseline noise' until Raichle asked why the exact same pattern dipped on every task.",
+      "why_surprising": "Looking inside the 'trash folder' of brain scans revealed neuroscience's most famous network.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Watch your brain the millisecond you stop focusing on a spreadsheet: within a heartbeat, posterior cingulate, medial prefrontal, and angular gyrus hubs snap ON together to simulate tomorrow's conversations.",
+      "why_surprising": "'Rest' is never idle — it's active mental time travel and life bookkeeping.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "Contrary to pop 'kill your DMN to focus!' blogs, creative breakthroughs happen when your executive prefrontal network and Default Mode Network COUPLE TOGETHER instead of fighting.",
+      "why_surprising": "Daydreaming + executive editing is the two-stroke engine of creativity.",
+      "source_id": "SRC4",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "When you close your eyes and rest, your brain powers down into idle sleep/standby mode like a dark calculator.",
+      "truth": "Resting intrinsic DMN metabolism consumes ~20% of body energy continuously, shifting <5% during external tasks.",
+      "source_id": "SRC3"
+    },
+    {
+      "myth": "Humans 'only use 10 percent of their brains'.",
+      "truth": "Quantitative oxygen-15 PET disproved the 10% myth completely: virtually the entire cortex maintains intense continuous intrinsic metabolic activity.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "The Default Mode Network is purely a 'bad distraction / unhappiness network' you should silence 24/7.",
+      "truth": "Unchecked negative rumination hurts, yet healthy DMN activity builds future planning, empathy, moral reflection, narrative comprehension, and creative insight.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "The DMN always shuts off during every goal-directed task.",
+      "truth": "Tasks drawing on memory, social understanding, or creative imagination actively recruit DMN hubs alongside executive networks.",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Having your best solution to a Tuesday engineering bug pop into your head in the shower or on a quiet walk when you finally let the DMN run.",
+    "Understanding why eight hours of non-stop back-to-back feeds with zero quiet transitions leaves your life feeling unintegrated.",
+    "Distinguishing constructive 'shower insight' DMN simulation from stuck 2 a.m. self-critical rumination.",
+    "Why 'I only use 10% of my brain' is busted every single minute by your 20%-calorie resting metabolism."
+  ],
+  "linked_projects": [
+    "psych_48_raichle_default_mode_network"
+  ]
+}

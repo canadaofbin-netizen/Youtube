@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "slug": "cognitive_dissonance_acc",
+  "topic": "Vincent van Veen, Cameron Carter & Festinger Paradigm (2009): Dorsal Anterior Cingulate Conflict & Cognitive Dissonance in fMRI",
+  "pillar": "bci_ethics",
+  "created_at": "2026-10-25T22:49:28+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "The 2009 study ingeniously turned the loud, cramped fMRI scanner itself into a Festinger induced-compliance trap while measuring dorsal anterior cingulate cortex and anterior insula activation predicting attitude change.",
+  "primary_case": {
+    "title": "Scanner-induced compliance fMRI experiment ('calling an uncomfortable MRI scanner pleasant')",
+    "year": 2009,
+    "place": "Carnegie Mellon University & University of California, Davis Imaging Research Center",
+    "people": [
+      {
+        "name": "Vincent van Veen",
+        "role": "Cognitive neuroscientist and first author who adapted Festinger & Carlsmith's induced-compliance paradigm inside an fMRI scanner",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Cameron S. Carter",
+        "role": "UC Davis neuroscientist and senior co-author specializing in anterior cingulate conflict monitoring",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Jonathan W. Schooler & Marie K. Krug",
+        "role": "Co-investigators on attitude shifts and behavioral control conditions",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Leon Festinger",
+        "role": "Psychologist who originated Cognitive Dissonance Theory and the forced-compliance paradigm later scanned with human fMRI in 2009",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In November 2009 in Nature Neuroscience, Vincent van Veen, Marie Krug, Jonathan Schooler, and Cameron Carter imaged the exact moment cognitive dissonance fires inside the living human brain.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "For 50 years since Leon Festinger (1957/1959), psychologists debated whether people change their beliefs after lying because of genuine unpleasant internal conflict or cool, emotionless 'self-perception' (Daryl Bem).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Van Veen's team turned the fMRI machine itself into the unpleasant chore: volunteers endured a long, noisy, cramped 45-minute monotonous task inside the scanner bore.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In the dissonance (free-choice) group, participants were asked as a personal favor to tell a nervous 'waiting patient' via intercom that the uncomfortable scanner was actually pleasant and comfortable — while still lying inside the scanner.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In the control (paid/no-choice) group, participants read the exact same positive statements about the scanner knowing they were paid an extra monetary bonus for reading scripted lines, giving them an external excuse.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The exact seconds when free-choice participants endorsed statements like 'The scanner was comfortable' ignited strong activation in the dorsal anterior cingulate cortex (dACC) and bilateral anterior insula.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Paid control participants saying the exact same words aloud showed dramatically lower dorsal anterior cingulate and anterior insula firing because the bonus payment resolved the conflict.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Critically, individual-by-individual peak activation in the dorsal anterior cingulate cortex and left anterior insula while lying directly predicted (`r > 0.55`) how much each volunteer shifted their post-scan rating to genuinely like the scanner more.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Because attitude shifts could already be predicted during the statement itself — before any post-scan questionnaire — the brain was resolving real-time conflict + visceral discomfort rather than passively inferring attitudes later.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Later scoping reviews (Veiga-Zarza et al. 2026) confirmed a two-stage neural cascade: dACC/insula conflict alarm during counter-attitudinal speech followed by prefrontal value updating.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Participants rated task unpleasantness and discomfort on standardized 1-to-7 post-session self-report scales following scanner exposure.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Behavioral field parallels of effort justification appear when consumers who wait 90 minutes in a queue rate the resulting product substantially higher to resolve effort-versus-reward dissonance.",
+      "source_id": "SRC4"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Scientists solved how to trigger cognitive dissonance inside an MRI tube by making volunteers lie about how 'pleasant and relaxing' the loud, cramped MRI tube itself was.",
+      "why_surprising": "The brain scanner simultaneously caused the misery, recorded the lie, and imaged the neural conflict in one shot.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Saying the exact same words ('The scanner is comfortable') left the conflict detector quiet when paid extra, yet lit up the anterior cingulate and insula when done by free choice.",
+      "why_surprising": "Your brain does not react to the words on your lips — it reacts to whether you have a good excuse for saying them.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Researchers could predict how much a volunteer's true opinion would flip afterward just by measuring how strongly their dorsal anterior cingulate spiked during the lie.",
+      "why_surprising": "The stronger the internal error alarm, the harder the brain rewrote its own opinion to quiet the alarm.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "Activation of the anterior insula — the brain's visceral gut-discomfort center — settled a 40-year debate against cold self-perception theory.",
+      "why_surprising": "Cognitive dissonance is not cool logical guesswork; it physically registers like an unpleasant gut error.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Cognitive dissonance just means holding any two complicated ideas in mind.",
+      "truth": "In neuroscience and social psychology, dissonance specifically requires counter-attitudinal behavior under perceived free choice without sufficient external justification.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "People know consciously when cognitive dissonance is rewriting their opinion.",
+      "truth": "Participants genuinely believed the loud scanner wasn't so bad afterward without realizing their dACC alarm drove the shift.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Bigger rewards produce bigger attitude change.",
+      "truth": "Paid controls had a clear external reason to read the script, so their dACC stayed quiet and they still rated the scanner unpleasant afterward.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Only gullible people rationalize bad experiences.",
+      "truth": "Every healthy brain uses dACC error-reduction to align beliefs with irreversible past choices.",
+      "source_id": "SRC3"
+    }
+  ],
+  "everyday_hooks": [
+    "Waiting 90 minutes in line for an overpriced restaurant and catching yourself insisting to friends that 'the atmosphere made it totally worth it.'",
+    "Defending a phone or car you chose yourself far more fiercely after noticing its annoying flaws.",
+    "Saying 'yes, happy to help!' to an unpaid weekend chore and suddenly convincing yourself it will be 'good experience.'",
+    "Why hazing or grueling bootcamps make graduates fiercely loyal to the group."
+  ],
+  "linked_projects": [
+    "psych_10_cognitive_dissonance_acc"
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "slug": "wason_selection_confirmation_bias",
+  "topic": "Peter Wason (1966/1968): The Four-Card Puzzle ('E — K — 4 — 7') That Stumps 90% of Educated Adults",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:33+00:00",
+  "status": "ready",
+  "visual_mode": "BEHAVIORAL_PSYCH",
+  "visual_mode_reason": "Peter Wason's 1966/1968 four-card tabletop puzzle ('E, K, 4, 7' testing 'If a card has a vowel on one side, it has an even number on the other') is pure cognitive logic and confirmation bias made visually gripping on a physical felt tabletop.",
+  "primary_case": {
+    "title": "Peter Cathcart Wason's 1966/1968 University College London 4-Card Selection Task ('E — K — 4 — 7')",
+    "year": 1968,
+    "place": "Psycholinguistics Research Unit, University College London",
+    "people": [
+      {
+        "name": "Peter Cathcart Wason",
+        "role": "UCL cognitive psychologist (and chess player) who coined 'confirmation bias' and designed both the 2-4-6 rule test and the 4-card selection task",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Philip N. Johnson-Laird",
+        "role": "Wason's UCL collaborator who co-tested stubborn rationalizations when people are shown the hidden backs of the cards",
+        "source_id": "SRC3"
+      },
+      {
+        "name": "Jonathan St. B. T. Evans & Leda Cosmides",
+        "role": "Researchers whose 'matching bias' eye-tracking studies and 'drinking-age social contract' flips revealed WHY abstract cards fool 90% of people",
+        "source_id": "SRC4"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 1966-1968 at University College London, Peter Wason laid FOUR double-sided cards flat on a table — showing **E**, **K**, **4**, and **7** (or D, K, 3, 7) — with one guarantee: every card has a letter on one side and a number on the other.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Participants had to test ONE simple rule by turning over ONLY the minimum necessary cards: **'If a card has a vowel on one side, then it has an even number on the other side.'**",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Across university students, professors, and even trained mathematicians caught off guard, **fewer than 10%** (typically 4% to 10%) picked the logically correct pair (**E and 7**).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Instead, roughly **45-50%** picked **E and 4**, and another ~35% picked **E alone**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Why is **4** a complete waste of a flip while **7** is mandatory? Flipping **4** and finding a consonant like 'K' does NOT break the rule (the rule never forbade consonants from having even numbers!); ONLY finding a vowel hiding behind the odd number **7** ('E on one side, 7 on the other!') can FALSIFY the rule (*modus tollens*: if P to Q, check P and NOT-Q).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Wason's 1968/1969 follow-ups, even when experimenters let students turn over **7**, stare right at a vowel on the back, and asked if **7** mattered, many stubbornly insisted 'No, only E and 4 matter!' until walked step-by-step through the contradiction.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Yet change the EXACT same logical rule from abstract 'E-K-4-7' to a concrete rule-violation check — Johnson-Laird's 1972 British postal rule ('If a letter is sealed, it must carry a 50-lire stamp') or Griggs & Cox's 1982 pub rule (**'If a person is drinking beer, they must be over 21'**: cards `Drinking Beer`, `Drinking Soda`, `Age 25`, `Age 16`) — and **75% to 85% of people instantly nail `Drinking Beer` and `Age 16`**.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Jonathan Evans (1984) discovered a second sneaky culprit alongside confirmation bias: **'Matching Bias'** — our eyes reflexively grab the two words explicitly mentioned in the sentence ('vowel' — E, 'even number' — 4), which is why negating the rule ('If vowel, then NOT even') ironically makes people pick the right card by accident.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "While roughly 90% of adults fail Wason's abstract E-K-4-7 card rule (<10% choosing E and 7, echoing Wason's 1960 '2-4-6' rule-discovery task), Griggs and Cox's (1982) drinking-age rule raised logical falsification accuracy toward ~75–80%.",
+      "source_id": "SRC5"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Four index cards on a desk — **E, K, 4, 7** — and 90% of university students, doctors, and PhDs reach straight for **E and 4** while completely ignoring **7**, the ONLY second card capable of proving the rule wrong.",
+      "why_surprising": "Four cardboard squares exposed a universal blind spot in human reasoning.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Swap 'Vowel to Even' for a pub bouncer's rule — **'If drinking beer, must be over 21'** (`Beer`, `Soda`, `25`, `16`) — and suddenly nobody flips `Age 25`. Everyone instantly checks `Beer` and `Age 16` (the exact twin of `E` and `7`).",
+      "why_surprising": "Human logic isn't broken — it is wired for catching rule-breakers, not abstract symbols.",
+      "source_id": "SRC3",
+      "rank": 2
+    },
+    {
+      "fact": "In Wason's earlier '2-4-6' cousin test, people guessed '8-10-12!', '20-22-24!', '100-102-104!' hearing 'Yes' every time and swore the secret rule was 'even numbers +2' — never once testing '1-2-3' to learn the real rule was simply 'any ascending numbers'.",
+      "why_surprising": "Confirmation bias: piling up 'Yeses' feels smart while teaching you zero.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "Even after physically flipping **7** and seeing a rule-breaking **E** printed on the back, half of Wason's 1969 volunteers initially tried to talk their way out of admitting **7** mattered.",
+      "why_surprising": "Once our brain locks onto a pet answer, we lawyer for it.",
+      "source_id": "SRC2",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Failing E-K-4-7 means someone has low intelligence or poor education.",
+      "truth": "High-IQ graduate students and professors miss E-K-4-7 at roughly 85-90% on first sight because fast intuitive attention ('matching + positive test strategy') grabs 'E' and '4' before slow formal deduction wakes up.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Good scientists and analysts prove their hypothesis by gathering as many confirming examples as possible.",
+      "truth": "Confirming cases ('4 has an E!') are often cheap; Karl Popper and Peter Wason showed real confidence comes ONLY from surviving deliberate attempts to FALSIFY ('flipping the 7').",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Abstract logic courses automatically cure everyday confirmation bias.",
+      "truth": "Even trained logicians slip unless they translate abstract claims into concrete 'what evidence would prove me WRONG?' checks.",
+      "source_id": "SRC3"
+    }
+  ],
+  "everyday_hooks": [
+    "Googling 'why intermittent fasting / my favorite stock works' (flipping the 4) instead of 'strongest evidence against my stock thesis' (flipping the 7).",
+    "Diagnosing a software bug or patient symptom by checking only tests that match your first hunch.",
+    "Instantly spotting who to card as a bartender (`Beer` + `16-year-old`) after getting tricked two minutes earlier by `E — K — 4 — 7`."
+  ],
+  "linked_projects": [
+    "psych_56_wason_selection_confirmation_bias"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "premotor cortex",
+      "plain": "movement preparation zone (SMA / premotor)",
+      "function": "showing sub-threshold voltage fluctuations ramping near -550 ms before a spontaneous wrist flick",
+      "scene_id": "S1",
+      "narration_bridge": "Visualizes the scalp EEG Readiness Potential building over supplementary/premotor cortex ahead of -200 ms W-time."
+    },
+    {
+      "role": "pivot",
+      "region": "prefrontal cortex",
+      "plain": "conscious veto & deliberation hub",
+      "function": "exercising top-down 'free won't' braking between -200 ms and -50 ms — and steering meaningful high-stakes choices",
+      "scene_id": "S3",
+      "narration_bridge": "Separates deliberate prefrontal choice and veto control from random motor-threshold noise."
+    },
+    {
+      "role": "step1",
+      "region": "motor cortex",
+      "plain": "final muscle dispatch",
+      "function": "sending the irreversible corticospinal command at -50 ms to trigger forearm muscle contraction at 0 ms",
+      "scene_id": "S1",
+      "narration_bridge": "Marks the final 0-ms wrist flick on the EMG trace."
+    }
+  ]
+}

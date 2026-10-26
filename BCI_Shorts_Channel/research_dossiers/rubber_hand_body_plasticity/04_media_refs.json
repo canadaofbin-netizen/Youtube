@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "The rubber hand illusion",
+      "url": "https://www.youtube.com/watch?v=IKyctCYtsh8",
+      "channel": "Daniel Pérez Marcos",
+      "source_id": "SRC_M1",
+      "duration_sec": 55,
+      "timecodes": [
+        {
+          "t": "00:08-00:16",
+          "what": "Non-vocal 4:3 camera frame at kf_003.jpg (11.0s) in Daniel Pérez Marcos's \"The rubber hand illusion\", visually recording timing and visual layout relevant to 1998 Pittsburgh Tabletop: Vertical Screen Hiding the Real Left Hand While Twin Paintbrushes Stroke the Visible Rubber Hand in Sync."
+        },
+        {
+          "t": "00:30-00:38",
+          "what": "Visual-only 4:3 camera frame at kf_007.jpg (33.0s) in \"The rubber hand illusion\", capturing movement progression and frame composition without spoken English commentary."
+        },
+        {
+          "t": "00:52-00:55",
+          "what": "Subsequent high-contrast dark-background stimulus / title frame at kf_011.jpg (55.0s) in \"The rubber hand illusion\", documenting closing visual sequence for reference analysis."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_rubber_hand_body_plasticity/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_rubber_hand_body_plasticity",
+        "contact_sheet": "media/M1_rubber_hand_body_plasticity/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1_rubber_hand_body_plasticity/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x384, 12 frames sampled across 0.0s–60.5s)) from Daniel Pérez Marcos's \"The rubber hand illusion\" (55s total runtime).",
+          "Non-vocal archival/demonstration clip (media/M1_rubber_hand_body_plasticity/transcript.txt); visual timing and staging inspected directly across 12 keyframes (0.0s–60.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Fake Hand Freakout",
+      "url": "https://www.youtube.com/watch?v=MG22iFL-VgE",
+      "channel": "Science Channel",
+      "source_id": "SRC_M2",
+      "duration_sec": 76,
+      "timecodes": [
+        {
+          "t": "00:07-00:16",
+          "what": "At kf_001.jpg (14.5s) (widescreen camera frame), Science Channel's recording states \"from a robot hand to a rubber one used by PhD students at the University of fryberg to creatively fool the brain whether you're into psychology or\" — providing spoken context for 1998 Pittsburgh Tabletop: Vertical Screen Hiding the Real Left Hand While Twin Paintbrushes Stroke the Visible Rubber Hand in Sync."
+        },
+        {
+          "t": "00:27-00:32",
+          "what": "Mid-segment widescreen camera frame at kf_005.jpg (27.1s) as narration explains \"he's just sitting there with the fake hand visible in front of him he knows it's a fake hand his eyes are telling\", clarifying key empirical findings in Matthew Botvinick & Jonathan Cohen's 1998 Nature 'Rubber Hands Feel Touch That Eyes See' experiment."
+        },
+        {
+          "t": "01:06-01:12",
+          "what": "Around kf_011.jpg (67.4s) (widescreen camera frame), commentary states \"hand but before you try this at home a word of warning if you're going to try this at home make sure you remember which one is the rubber hand...\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (11 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 11,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (live-action speaker/interview recording intercut with 3 visual slide frames (480x270, sampled across 14.5s–67.4s)) from Science Channel's \"Fake Hand Freakout\" (76s total runtime).",
+          "Deduplicated English transcript (32 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (14.5s–67.4s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Rubber hand illusion.png",
+      "url": "https://commons.wikimedia.org/wiki/File:Rubber_hand_illusion.png",
+      "channel": "Wikimedia Commons (Laura E Downey, Phillip Fletcher, Hannah L Golden, Colin J Mahoney, Jennifer L Agustus, Jonathan M Schott, Jonathan Rohr)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Rubber hand illusion.png\" (850x687 px, CC BY 3.0): Schematic diagram of the experimental set-up in the rubber hand illusion task. LH, left hand; part, partition; RH, right hand; Ru, rubber hand. Documents authentic physical instrument geometry and period materials relevant to Matthew Botvinick & Jonathan Cohen's 1998 Nature 'Rubber Hands Feel Touch That Eyes See' experiment."
+        }
+      ],
+      "license_note": "Archival photo (CC BY 3.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (850x687 px, CC BY 3.0, Laura E Downey, Phillip Fletcher, Hannah L Golden, Colin J Mahoney, Jennifer L Agustus, Jonathan M Schott, Jonathan Rohr) — apparatus reference: Schematic diagram of the experimental set-up in the rubber hand illusion task. LH, left hand; part, partition; RH, right hand; Ru, rubber hand.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

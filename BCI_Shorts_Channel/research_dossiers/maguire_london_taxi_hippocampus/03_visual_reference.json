@@ -1,0 +1,203 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "2000 UCL Queen Square MRI Gallery: London Black Cab + 25,000-Street 'Blue Book' Map Growing the Posterior Hippocampus!",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2000, Wellcome Department of Cognitive Neurology, UCL Queen Square, London",
+      "layout": {
+        "description": "Sunlit high-key London neuroscience gallery featuring a classic **gleaming black Austin/LTI London taxicab scale front & green-badge clipboard**, an unfolded **giant 25,000-street Charing Cross 6-mile radius map**, and a crisp **3D Structural MRI Lightbox** highlighting **Enlarged Bilateral Posterior Hippocampi Scaling With Years Driving** (paired with the **Fixed-Route Bus Driver = Flat** contrast!).",
+        "positions": [
+          {
+            "who": "Eleanor Maguire (mannequin in 2000 smart British tailored blazer and blouse)",
+            "where": "standing beside the 3D hippocampal MRI lightbox pointing from the dense 25,000-street London map directly to the enlarged posterior hippocampal cross-section",
+            "facing": "beside UCL MRI lightbox and London map"
+          },
+          {
+            "who": "Licensed London Black-Cab Driver mannequin (wearing official green PCO badge, flat cap, and wool jacket holding 'The Knowledge' route clipboard)",
+            "where": "tracing a complex 18-turn shortest route across London from memory with effortless precision!",
+            "facing": "standing beside 25,000-street London map"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "6-mile Charing Cross '25,000 Streets / 20,000 Landmarks' map + official Green Taxi Badge & route clipboard",
+          "period_detail": "viscerally communicates the staggering cognitive load of 'The Knowledge'",
+          "physical_behavior": "London's world-famous spatial memory crucible"
+        },
+        {
+          "name": "Structural VBM Hippocampus Comparison Board ('Taxi Driver Posterior Hippocampus UP vs Fixed-Route Bus Driver & Control')",
+          "period_detail": "packs 2000 PNAS + 2006 Bus control into one crystal-clear visual",
+          "physical_behavior": "anchors adult human neuroplasticity"
+        }
+      ],
+      "actions": [
+        {
+          "who": "London Cab Driver mannequin",
+          "verb_sequence": "calls out an intricate Charing Cross-to-Paddington backstreet detour from pure memory -> Eleanor Maguire illuminates his structural MRI on the lightbox -> posterior hippocampus stands visibly enlarged, climbing linearly with years driving a cab!"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Cab Driver mannequin",
+          "reaction": "tips cap proud that 3 years in the rain on a moped literally grew new hippocampal real estate"
+        },
+        {
+          "who": "Eleanor Maguire",
+          "reaction": "notes the anterior trade-off alongside the landmark proof that adult human brains remodel structurally"
+        }
+      ],
+      "wardrobe": "2000 London attire: crisp academic navy blazer; classic London cabbie wool jacket, collared shirt, green PCO badge, and flat cap.",
+      "lighting": "Clean high-key Queen Square tall-window daylight.",
+      "recognition_hook": "Spend three years memorizing 25,000 tangled London streets without GPS, and an MRI scanner catches your posterior hippocampus physically growing larger the longer you drive!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a sunlit 2000 UCL neuroscience gallery where Eleanor Maguire points from an unfolded 25,000-street London map and green-badged taxi driver to an MRI lightbox showing enlarged posterior hippocampi",
+        "must_show": [
+          "map|streets",
+          "mri|lightbox|hippocampus",
+          "badge|clipboard|driver"
+        ],
+        "source": "M1@00:11-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "2006 Killer Control: Flexible Black Cab vs Fixed-Route Red Bus!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2006, UCL Queen Square comparison room (Maguire, Woollett & Spiers)",
+      "layout": {
+        "description": "Bright split comparison table pairing a Flexible-Route Black Cab model (Enlarged Posterior Hippocampus!) against a Fixed-Route London Bus model (No Enlargement).",
+        "positions": [
+          {
+            "who": "Taxi Driver & Bus Driver mannequins",
+            "where": "sharing identical London traffic hours while only the map-solving cabbie shows posterior hippocampal expansion",
+            "facing": "across UCL comparison table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Flexible Map (Grows!) vs Repetitive Route (Flat) Card",
+          "period_detail": "rules out traffic stress, noise, and motor driving completely",
+          "physical_behavior": "Maguire et al. 2006 classic control"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Maguire",
+          "verb_sequence": "compares matched Cab vs Bus MRIs -> isolates active spatial mapping as the causal engine"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Both drivers",
+          "reaction": "see why autopilot repetition differs from active navigation"
+        }
+      ],
+      "wardrobe": "London cabbie jacket vs bus driver uniform shirt.",
+      "lighting": "Bright gallery light.",
+      "recognition_hook": "Same London traffic, same hours behind a wheel — yet black-cab navigators grew larger posterior hippocampi while fixed-route bus drivers stayed flat!",
+      "sources": [
+        "SRC5",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "2011 Before-and-After Proof: Watching Trainees Grow Gray Matter Live",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2011, UCL longitudinal MRI suite (Woollett & Maguire)",
+      "layout": {
+        "description": "High-key studio showing 79 Day-1 Trainees (Equal Baseline) splitting 4 years later into Passed 'The Knowledge' (Posterior Hippocampus Grew!) vs Dropped Out (0% Change).",
+        "positions": [
+          {
+            "who": "Maguire & Qualifying Trainee mannequins",
+            "where": "comparing Day-1 MRI against Year-4 Post-Qualification MRI",
+            "facing": "beside 3D translucent brain model"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Before-vs-After 4-Year Longitudinal MRI Chart + Anterior Trade-Off Note",
+          "period_detail": "proves training CAUSED growth rather than innate talent",
+          "physical_behavior": "Woollett & Maguire 2011 Current Biology"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Trainee",
+          "verb_sequence": "completes 4-year exam -> Year-4 MRI confirms newly grown posterior hippocampal gray matter"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researchers",
+          "reaction": "seal causal proof of adult structural plasticity"
+        }
+      ],
+      "wardrobe": "Modern smart-casual attire.",
+      "lighting": "Clean studio daylight.",
+      "recognition_hook": "Scan 79 trainees before Day 1 and four years later: dropouts stayed flat at zero, while everyone who mastered 'The Knowledge' grew posterior hippocampal gray matter!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "GPS Detox: Giving Your Own Hippocampus 'Taxi Mode' Workouts",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit neighborhood street / car dashboard",
+      "layout": {
+        "description": "Bright morning car interior / walking route where turn-by-turn GPS audio is switched OFF for a familiar cross-town trip.",
+        "positions": [
+          {
+            "who": "Driver/Walker mannequin",
+            "where": "orienting by landmarks and cardinal directions instead of following passive blue-line commands",
+            "facing": "in sunlit morning setting"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "GPS-Off 'Mental Map Mode' Weekly Habit Card",
+          "period_detail": "protects hippocampal spatial health in the smartphone era",
+          "physical_behavior": "Dahmani & Bohbot + Maguire takeaway"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Navigator",
+          "verb_sequence": "switches off turn-by-turn voice for local routes -> builds rich overhead landmark mental landmark map"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Navigator",
+          "reaction": "sharp, engaged spatial confidence"
+        }
+      ],
+      "wardrobe": "Modern everyday jacket.",
+      "lighting": "Warm morning sunlight.",
+      "recognition_hook": "Stop riding through your own life like a fixed-route passenger — switch off turn-by-turn GPS on local streets once a week and wake your hippocampus up!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

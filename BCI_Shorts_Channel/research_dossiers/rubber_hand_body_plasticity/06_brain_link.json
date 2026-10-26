@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "somatosensory cortex",
+      "plain": "hidden real-hand brush taps",
+      "function": "receiving rhythmic paintbrush strokes from the hidden real left hand behind the divider while vision sees only the rubber hand in front",
+      "scene_id": "S1",
+      "narration_bridge": "Creates the spatial conflict between felt position and seen position."
+    },
+    {
+      "role": "pivot",
+      "region": "premotor cortex",
+      "plain": "multisensory limb-ownership snap",
+      "function": "fusing synchronous visual brush strokes and felt tactile strokes with parietal body maps so the rubber hand is claimed as 'mine'",
+      "scene_id": "S1",
+      "narration_bridge": "Matches Ehrsson et al. (2004 Science) fMRI onset of rubber-hand ownership."
+    },
+    {
+      "role": "step1",
+      "region": "insula",
+      "plain": "visceral bodily threat alarm",
+      "function": "firing alongside palmar sweat glands the instant a sudden threat approaches the newly owned rubber fingers",
+      "scene_id": "S2",
+      "narration_bridge": "Captures Ehrsson et al. (2007) autonomic threat proof."
+    }
+  ]
+}

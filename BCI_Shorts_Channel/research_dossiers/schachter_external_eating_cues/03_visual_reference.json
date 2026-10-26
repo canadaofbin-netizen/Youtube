@@ -1,0 +1,203 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1968 Columbia Lab: Real Time Is 5:35 PM — Yet Rewiring the Wall Dial to '6:05 PM' Nearly Doubles Cracker Eating (37.1g vs 19.3g)!",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1968, Department of Psychology, Columbia University, New York",
+      "layout": {
+        "description": "Sunlit high-key 1968 Columbia laboratory split-comparison room showing **Real Time: 5:35 PM** in the researcher's hallway while inside stand two clean mid-century porcelain-face **electric wall dials** (**Room A Slow Dial reading 5:20** vs **Room B Fast Dial reading 6:05 'Dinner Time!'**) above wooden desks holding **open boxes of savory crackers** and a crisp **Cracker Intake Chart ('Fake 5:20 -> 19.3g | Fake 6:05 -> 37.1g — Nearly 2x!')**.",
+        "positions": [
+          {
+            "who": "Stanley Schachter (mannequin in 1968 tweed jacket, white shirt, and dark tie)",
+            "where": "standing at the observation window holding the removed student wristwatch and pointing from the fast-running **6:05** wall dial to the nearly doubled **37.1g** cracker bar!",
+            "facing": "at Columbia observation console"
+          },
+          {
+            "who": "Wristwatch-Free Student mannequin (wearing harmless dummy silver wrist electrodes in a 1968 collegiate sweater)",
+            "where": "glancing up at the **6:05** wall dial ('Whoa, past six already — I must be starving!') and reaching briskly into the open cracker box!",
+            "facing": "seated beneath 6:05 wall dial"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "paired smooth-face electric wall dials ('5:20 Slow' vs '6:05 Fast' at real 5:35 PM)",
+          "period_detail": "reconstructs Schachter & Gross's time-speed manipulation",
+          "physical_behavior": "the iconic visual centerpiece of Science 1968"
+        },
+        {
+          "name": "weighed open cracker boxes + 19.3g vs 37.1g Intake Stand",
+          "period_detail": "turns invisible cue-driven appetite into a crisp measurable weight jump",
+          "physical_behavior": "anchors the exact 1968 data"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Researcher",
+          "verb_sequence": "removes student's wristwatch at 5:00 PM and switches the smooth electric wall dial to 2x speed -> at real 5:35 PM the wall reads 6:05 PM -> Student glances up at '6:05', sets down pen, and eats nearly twice as many crackers (37.1g vs 19.3g)!"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Student mannequin",
+          "reaction": "pats stomach convinced it was 6:05 PM hunger talking — until shown real 5:35 PM!"
+        },
+        {
+          "who": "Stanley Schachter",
+          "reaction": "logs how external visual time and sightlines override biological fullness"
+        }
+      ],
+      "wardrobe": "1968 Ivy League academic attire: tweed sport coat and dark tie; collegiate crew-neck sweater and chinos.",
+      "lighting": "Clean high-key New York laboratory daylight.",
+      "recognition_hook": "Strip away wristwatches at 5:00 PM and run a smooth electric wall dial at double speed so 5:35 PM looks like 6:05 PM — and external-cue eaters devour nearly twice as many crackers!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a sunlit 1968 Columbia psychology room where a wristwatch-free student glances up at a smooth electric wall dial reading 6:05 PM and reaches into an open cracker box beside a 19.3g-vs-37.1g intake chart as Stanley Schachter observes",
+        "must_show": [
+          "dial|wall",
+          "crackers|box",
+          "chart|desk"
+        ],
+        "source": "M1@27:54-28:07; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Bright Lamp vs Dim Bulb: Doubling Cashews Purely by Sightline!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1968, Columbia snack-visibility room (Ross / Schachter)",
+      "layout": {
+        "description": "Two tables with identical tins of cashews — one brightly lit by a 40W desk lamp, one softly shaded.",
+        "positions": [
+          {
+            "who": "Two student mannequins",
+            "where": "eating more than twice as many cashews when brightly spotlighted right in front of their eyes",
+            "facing": "at side-by-side snack tables"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "40W Spotlighted Cashew Tin vs Shaded Tin",
+          "period_detail": "proves visual prominence drives automatic hand-to-mouth reaching",
+          "physical_behavior": "Science 1968 visibility proof"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Spotlighted student",
+          "verb_sequence": "reaches repeatedly without thinking -> Shaded student barely touches tin"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researchers",
+          "reaction": "confirm 'in bright sight = in stomach'"
+        }
+      ],
+      "wardrobe": "1968 collared shirts and cardigans.",
+      "lighting": "High-key room contrasting bright desk lamp vs shaded corner.",
+      "recognition_hook": "Shine a bright desk lamp onto a tin of cashews versus shading it — and external-cue snacking more than doubles without anyone feeling hungrier!",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Modern Nuance: Restraint Backfire & What Survived the Wansink Retractions",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2015–2025, Nutrition & interoception laboratory",
+      "layout": {
+        "description": "Clean research studio contrasting hypothalamus/insula fullness signals against Polivy & Herman's Restraint model and Rolls' replicated portion-size bowls.",
+        "positions": [
+          {
+            "who": "Nutrition scientist & Participant mannequins",
+            "where": "separating solid replicated cue science (Schachter, Polivy, Rolls) from Wansink's retracted 2018 papers",
+            "facing": "beside 3D brain & portion bowls"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Replicated Cue Science vs Retracted Hype Audit Card",
+          "period_detail": "models rigorous scientific honesty for viewers",
+          "physical_behavior": "Polivy & Herman 2015 / Ducy 2025"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Scientist",
+          "verb_sequence": "shows strict dieting mutes insula fullness cues -> switches focus to friction-based kitchen design"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Participant",
+          "reaction": "drops rigid guilt dieting for smart environment cues"
+        }
+      ],
+      "wardrobe": "Modern blazer and smart casual.",
+      "lighting": "Bright studio light.",
+      "recognition_hook": "Even after Cornell's soup-bowl retractions, rigorous labs confirmed strict dieting mutes stomach fullness and puts anyone at the mercy of visible snacks!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "The 60-Second Kitchen Sightline Reset",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit home kitchen",
+      "layout": {
+        "description": "Bright airy kitchen counter with a bowl of fresh fruit in the sunny center while chips and cookies move inside an opaque wooden cupboard.",
+        "positions": [
+          {
+            "who": "Homeowner mannequin",
+            "where": "tucking ultra-processed snacks into an opaque high cabinet and placing crisp fruit at eye level",
+            "facing": "at sunlit kitchen island"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Opaque Cabinet + Eye-Level Fruit Bowl",
+          "period_detail": "turns Schachter's 1968 visibility law into effortless healthy eating",
+          "physical_behavior": "zero-willpower daily upgrade"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Homeowner",
+          "verb_sequence": "closes opaque cupboard door -> reaches naturally for sunlit fruit when genuinely hungry"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Homeowner",
+          "reaction": "calm, effortless control"
+        }
+      ],
+      "wardrobe": "Modern relaxed casual wear.",
+      "lighting": "Warm morning kitchen sunlight.",
+      "recognition_hook": "Stop arm-wrestling an open cookie jar on your desk — put treats behind an opaque cabinet door and let sightline physics do 90% of the work!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

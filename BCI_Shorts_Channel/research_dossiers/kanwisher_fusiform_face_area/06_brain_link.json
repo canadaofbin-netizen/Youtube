@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "primary visual cortex",
+      "plain": "early edge & contrast screen",
+      "function": "responding equally to upright faces, upside-down faces, houses, and scrambled luminance patterns",
+      "scene_id": "S1",
+      "narration_bridge": "Shows early vision treating faces and houses as equal pixel edges."
+    },
+    {
+      "role": "pivot",
+      "region": "fusiform face area",
+      "plain": "holistic face module",
+      "function": "firing twice as strongly to intact upright human faces while dropping sharply for houses, hands, or inverted faces",
+      "scene_id": "S1",
+      "narration_bridge": "Captures Kanwisher's 1997 MGH fMRI discovery on the ventral fusiform gyrus."
+    },
+    {
+      "role": "step1",
+      "region": "temporal lobe",
+      "plain": "biographical identity bridge",
+      "function": "linking the FFA's holistic face geometry to the person's name and shared memories",
+      "scene_id": "S2",
+      "narration_bridge": "Completes face-to-person recognition."
+    }
+  ]
+}

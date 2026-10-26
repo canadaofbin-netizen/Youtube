@@ -1,0 +1,101 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "From a Berlin cafe waiter's instant amnesia after payment to 164 interrupted puzzles: why open loops haunt your mind 90% stronger — and how a 60-second plan closes them.",
+    "core_experiment": "Zeigarnik (1927 Psychologische Forschung): 18-22 hands-on tasks, RU/RC = 1.9 recall advantage for interrupted goals regardless of clock time.",
+    "twist": "Why ego-threat flips the effect, why 25 open tabs drain IQ, and Masicampo & Baumeister's (2011) 'When + Where' shutdown cure."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Berlin Waiter Who Forgot in 30 Seconds",
+      "beats": [
+        "Flawless memory before payment, total blank after 'Paid!'",
+        "Kurt Lewin's tension hypothesis & Bluma Zeigarnik's 1927 test"
+      ],
+      "scene_ids": [
+        "S2",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "cafe billfold & 1927 puzzle table"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Sweeping the Jigsaw Into the Drawer: 1.9-to-1",
+      "beats": [
+        "164 adults and children across 18-22 tactile tasks",
+        "Why clock time lost to goal tension",
+        "Children begging to glue the final piece"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "unfinished jigsaw vs completed star"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "When Open Loops Backfire: Ego Threat & Tab Overload",
+      "beats": [
+        "Why humiliating IQ-test interruptions don't replicate",
+        "Cliffhangers vs 20 half-written emails pinging working memory"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "20 cluttered open-task notes"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "2011 Breakthrough: 'Consider It Done!'",
+      "beats": [
+        "Masicampo & Baumeister's concrete plan experiment",
+        "Why your brain stops nagging once it trusts a calendar slot"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "When-and-Where shutdown card"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Hemingway's Morning Hook + Your 5:30 PM Shutdown",
+      "beats": [
+        "Leaving one intentional thread for creative flow",
+        "Closing every other tab before dinner"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "closed planner & calm evening"
+      ]
+    }
+  ]
+}

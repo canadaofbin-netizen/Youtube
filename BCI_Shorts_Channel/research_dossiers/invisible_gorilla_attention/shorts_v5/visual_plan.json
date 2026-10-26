@@ -1,0 +1,203 @@
+{
+  "schema": 5,
+  "visual_mode": "HYBRID",
+  "dossier": "invisible_gorilla_attention",
+  "real_environment": "a bright 1999 Harvard elevator lobby with three brushed-steel elevator doors",
+  "environment_props": [
+    "three brushed-steel elevator doors",
+    "two orange basketballs",
+    "dark furry gorilla costume"
+  ],
+  "scale_anchor_object": "orange basketball on the lobby floor",
+  "cast": {
+    "subject": "student observer",
+    "others": [
+      "three white-shirted basketball players",
+      "three black-shirted basketball players",
+      "performer in a dark furry gorilla suit"
+    ],
+    "animals": [],
+    "wardrobe": {
+      "white_team": "1999 plain white t-shirts and blue denim jeans",
+      "black_team": "1999 plain black t-shirts and dark trousers",
+      "gorilla": "full-body shaggy dark brown-black furry gorilla costume",
+      "observer": "casual college crew-neck sweater and jeans",
+      "radiologist": "crisp white medical coat over hospital scrubs"
+    }
+  },
+  "must_have_scenes": [
+    {
+      "id": "S1",
+      "title": "1999 Harvard William James Hall Elevator Bay Basketball Pass & Chest-Thumping Gorilla",
+      "iconic": true,
+      "recognition_hook": "Six players in white and black shirts passing basketballs in front of three grey elevator doors while a person in a gorilla suit stops in the middle and thumps its chest.",
+      "era": "1999 Harvard University",
+      "key_visual": {
+        "description": "the gorilla-suited mannequin stands dead centre in front of the middle elevator door thumping its chest while the six players keep passing two orange basketballs around it",
+        "must_show": [
+          "gorilla",
+          "chest",
+          "pass|basketball|ball"
+        ],
+        "source": "M1@00:25-00:34; Simons & Chabris 1999"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Observer Tallying Passes at the Monitor & Replay Shock",
+      "iconic": false,
+      "recognition_hook": "The viewer insists there was no gorilla in the video, then watches the rewind and freezes in shock as the gorilla beats its chest dead center on the screen.",
+      "era": "1999 Harvard testing room"
+    },
+    {
+      "id": "S3",
+      "title": "Eye-Tracking Red Crosshair Locked Directly on the Unseen Gorilla",
+      "iconic": false,
+      "recognition_hook": "A red eye-tracking crosshair sits directly on the chest-thumping gorilla for one full second while the viewer keeps counting passes.",
+      "era": "2006 eye-tracking lab"
+    },
+    {
+      "id": "S4",
+      "title": "Radiologist Missing a Gorilla 48x Nodule Size in a Lung CT Scan",
+      "iconic": false,
+      "recognition_hook": "A dark gorilla silhouette 48 times bigger than a nodule sits inside a lung scan as an expert doctor clicks right past it.",
+      "era": "2013 radiology reading room"
+    },
+    {
+      "id": "S6",
+      "title": "Everyday Crosswalk Selective-Attention Blindness",
+      "iconic": false,
+      "recognition_hook": "Locked onto a single task on a screen, you walk right past someone waving directly in front of your face.",
+      "era": "Contemporary city sidewalk"
+    }
+  ],
+  "target_region": "primary visual cortex",
+  "crisis_region": "primary visual cortex",
+  "compensatory_region": "parietal cortex",
+  "signal_path": [
+    "retina",
+    "optic nerve",
+    "primary visual cortex",
+    "parietal cortex"
+  ],
+  "anatomy_descriptors": {
+    "primary visual cortex": "folded occipital ridge at the back of the brain",
+    "parietal cortex": "upper posterior attention dome"
+  },
+  "brain_link": {
+    "step1": {
+      "role": "step1",
+      "region": "primary visual cortex",
+      "plain": "vision center",
+      "function": "receiving raw light signals from the eyes and forming the initial visual image at the back of the brain",
+      "scene_id": "S1",
+      "narration_bridge": "First, light from both the players and the dark gorilla reaches your visual cortex, the vision center at the back of your brain."
+    },
+    "step2": {
+      "role": "step2",
+      "region": "parietal cortex",
+      "plain": "attention spotlight",
+      "function": "directing selective attention onto task-relevant targets while suppressing ignored visual signals",
+      "scene_id": "S1",
+      "narration_bridge": "Next, while you count white shirts, your parietal cortex narrows its attention spotlight onto white shapes and shuts out the dark gorilla."
+    }
+  },
+  "shots": {
+    "setup": {
+      "scene_id": "S1",
+      "setting": "real_env",
+      "shot_type": "wide",
+      "camera": "Wide eye-level establishing shot pushing into the 1999 Harvard elevator lobby",
+      "environment": "Three brushed-steel elevator doors line the cream wall marked with black S curves in bright daylight",
+      "action": "Three matte-white porcelain mannequins in white t-shirts and blue jeans weave around three mannequins in black t-shirts as each player dribbles, tosses, and catches two orange basketballs",
+      "prop_change": "One orange basketball bounces sharply off the grey floor while the second ball arcs cleanly between outstretched porcelain hands",
+      "reaction": "Every player twists its shoulders and lunges after the flying ball with total focus"
+    },
+    "symptom": {
+      "scene_id": "S1",
+      "setting": "real_env",
+      "shot_type": "medium",
+      "camera": "Medium-wide straight-on shot holding on the center of the Harvard elevator bay",
+      "environment": "Bright hallway daylight illuminates the three brushed-steel elevator doors and six weaving basketball players",
+      "action": "A performer mannequin in a shaggy dark gorilla suit walks in from the right, stops dead center in front of the middle elevator door, faces the camera, and thumps its chest with both furry fists",
+      "prop_change": "An orange basketball bounces off the floor and flies right past the gorilla's furry shoulders",
+      "reaction": "The six players never flinch, lunging and passing around the chest-beating gorilla as if it is invisible"
+    },
+    "failure": {
+      "scene_id": "S2",
+      "setting": "real_env",
+      "shot_type": "medium",
+      "camera": "Smooth lateral tracking shot across a sunlit 1999 university testing room",
+      "environment": "A dark-grey television monitor sits on a wooden desk beside a paper pass-count sheet in bright daylight",
+      "action": "A seated student observer mannequin writes on the pad and shakes its head as an experimenter mannequin presses the remote button",
+      "prop_change": "The television screen flickers on the dark gorilla pounding its chest, and the pen drops from the observer's fingers and rolls across the desk",
+      "reaction": "The observer mannequin jerks back in the chair and clutches both porcelain hands to its head"
+    },
+    "crisis": {
+      "scene_id": "S1",
+      "setting": "real_env",
+      "shot_type": "ots",
+      "camera": "Over-the-shoulder tracking shot pushing past a student mannequin toward the crowded elevator lobby",
+      "environment": "In the bright Harvard elevator bay, white-shirted and black-shirted mannequins weave in front of the three steel doors",
+      "action": "The student mannequin grips a metal tally counter and presses the lever each time a white-shirted player catches and throws the ball while the dark gorilla strides through",
+      "prop_change": "The metal tally counter clicks and advances as the orange basketball bounces and arcs across the floor",
+      "reaction": "The observer mannequin leans forward with rigid shoulders, tracking only the white shirts as the gorilla walks by"
+    },
+    "pivot": {
+      "scene_id": "S1",
+      "setting": "real_env",
+      "shot_type": "track",
+      "camera": "Dynamic low-angle tracking shot following a white-shirted player across the bright elevator lobby",
+      "environment": "Strong overhead daylight highlights the three white-shirted mannequins in front of the brushed-steel elevator doors",
+      "action": "A white-shirted porcelain mannequin catches a chest pass, pivots on one foot, and throws the orange basketball to a teammate while the gorilla pounds its chest behind them",
+      "prop_change": "The bright orange basketball spins through the air and snaps into the teammate's porcelain hands",
+      "reaction": "The white-shirted players lean in with locked posture, chasing the ball while ignoring every dark figure"
+    },
+    "step1": {
+      "scene_id": "S1",
+      "setting": "brain_void",
+      "shot_type": "macro",
+      "camera": "Macro tracking shot gliding along the visual pathway inside an architectural cross-section cutaway of a matte-white brain"
+    },
+    "step2": {
+      "scene_id": "S1",
+      "setting": "brain_void",
+      "shot_type": "orbit",
+      "camera": "Smooth orbit around the upper posterior cortex and occipital lobe inside the matte-white brain cutaway"
+    },
+    "step3": {
+      "scene_id": "S3",
+      "setting": "real_env",
+      "shot_type": "cu",
+      "camera": "Close-up push-in across an eye-tracking laboratory desk toward a live gaze monitor",
+      "environment": "A sunlit visual cognition lab features an infrared eye camera mounted below a bright display screen",
+      "action": "A student mannequin rests its chin on the stand and taps a tally key as a researcher mannequin leans in and taps the monitor",
+      "prop_change": "On the screen, a red gaze crosshair slides onto the gorilla's chest and flashes for a full second while the counter ticks upward",
+      "reaction": "The researcher mannequin recoils and spreads one hand as the student keeps tapping without pausing"
+    },
+    "breakthrough": {
+      "scene_id": "S4",
+      "setting": "real_env",
+      "shot_type": "medium",
+      "camera": "Medium pan from a lung scan monitor to an expert doctor mannequin in a reading room",
+      "environment": "A radiology workstation glows in daylight with grayscale lung scans on the wide screen",
+      "action": "A doctor mannequin in a white coat spins the scroll wheel and taps a tiny lung spot beside a dark gorilla silhouette",
+      "prop_change": "A red marker circle flashes around the gorilla in the lung, and the stylus drops and clatters onto the desk",
+      "reaction": "The doctor mannequin jerks back in the chair and raises both porcelain hands to its temples"
+    },
+    "conclusion": {
+      "scene_id": "S6",
+      "setting": "real_env",
+      "shot_type": "wide",
+      "camera": "Slow pull-back rising to an elevated wide shot over a sunlit city crosswalk",
+      "environment": "Morning sunlight fills a busy urban sidewalk lined with glass storefronts and a marked pedestrian crossing",
+      "action": "A pedestrian mannequin walks forward and taps rapidly on a smartphone screen while a friend mannequin waves both arms in front of it and grabs its shoulder",
+      "prop_change": "The smartphone screen flashes and a paper coffee cup in the pedestrian's hand tips and spills drops across the lid",
+      "reaction": "The pedestrian mannequin flinches, lowers the phone, and raises an open hand in startled apology"
+    }
+  },
+  "scenes": {
+    "step1": "Three-quarter profile of a smooth matte-white porcelain mannequin head in a bright white studio gallery with an architectural translucent cutaway cranium revealing the full realistic matte-white 3D porcelain brain with deep gyri and sulci inside the skull. Two soft warm-ivory light pulses glide inside the white-matter fiber tracts from the optic nerve into the primary visual cortex at the back of the brain, lighting the folded occipital ridge subtle warm amber-gold while the parietal cortex above glows soft pearl-ivory in bright studio daylight.",
+    "step2": "Smooth orbit around the matte-white porcelain mannequin head with its translucent cutaway cranium revealing the full matte-white 3D brain in a bright white studio gallery. At the upper back of the brain, the parietal cortex glows subtle warm amber-gold and projects a focused top-down beam into the primary visual cortex. Soft warm-ivory internal light pulses for the white shirts glide forward cleanly inside the fiber tracts, while the unattended pathway meets a muted crimson-red inhibitory gate and dims quietly."
+  }
+}

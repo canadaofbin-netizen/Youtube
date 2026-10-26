@@ -1,0 +1,99 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "From 'IKTITAF' flashed 25 times to why you hate your unflipped smartphone photo: how Robert Zajonc (1968) proved Mere Exposure breeds warmth before memory.",
+    "core_experiment": "Zajonc (1968 JPSP Monograph): 0–25 exposures of nonsense words, calligraphic symbols, and portraits + Moreland & Zajonc (1979) subliminal dissociation.",
+    "twist": "Visual cortex fluency + amygdala calm, the Mirror-vs-Photo stunner (Mita 1977), and overexposure boredom limits."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Ann Arbor 1968: Making 'IKTITAF' Mean 'Wonderful' in 25 Flashes",
+      "beats": [
+        "Contradictory proverbs tested in the lab",
+        "Turkish nonsense words, Chinese characters & yearbook portraits all climb the same curve."
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "tachistoscope cards & 0–25 logarithmic curve"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "'Preferences Need No Inferences': The 1-Millisecond Shock",
+      "beats": [
+        "Memory = 50% fifty-fifty draw, Liking = 60% winner.",
+        "Why subliminal mere exposure beats conscious ad bombardment"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "1-ms polygon recognition vs liking split"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Why You Prefer Your Mirror & Friends Prefer Your Camera Photo",
+      "beats": [
+        "Mita et al. (1977): 68% pick their morning mirror flip",
+        "Visual cortex perceptual fluency + amygdala safety habituation"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "mirror-flipped vs true camera portrait pair"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "When Repetition Backfires: Noxious Starts & Jingle Burnout",
+      "beats": [
+        "Burgess & Sales (1971): why repeating something unpleasant breeds contempt",
+        "Spaced encounters vs massed boredom"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "inverted-U overexposure ceiling"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Using Mere Exposure Wisely Every Week",
+      "beats": [
+        "8–10 spaced tries for healthy foods, skills & new colleagues",
+        "Guarding against 'seen 25 times = must be true'"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "spaced 1-to-10 habit tracker"
+      ]
+    }
+  ]
+}

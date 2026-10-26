@@ -1,0 +1,218 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1971 UCL & 2005 Trondheim 2-Meter Open Arena: Single-Corner 'Place Cell' Bullseye Beside the Honeycomb 'Hexagonal Grid Cell' Lattice",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1971 London & 2005 Trondheim Nobel Spatial Neuroscience Suite",
+      "layout": {
+        "description": "Sunlit high-key Nordic-British neurobiology room featuring a clean white **2-meter circular/square open-field arena** on a low platform with a bold white-and-black north landmark cue card on its rim, an **articulated matte-white porcelain rat sculpture** exploring smoothly across the floor, and a crisp dual-panel overhead trajectory display contrasting **Panel A: O'Keefe Place Cell (1 single warm-amber hotspot in the NW corner)** with **Panel B: Moser Grid Cell (crystal-symmetric 60° hexagonal honeycomb dots tiling the entire floor!)**.",
+        "positions": [
+          {
+            "who": "John O'Keefe (mannequin in smart tweed blazer over collared shirt)",
+            "where": "pointing on Display Panel A to the concentrated single-location firing zone in the arena's northwest quadrant",
+            "facing": "left side of overhead display"
+          },
+          {
+            "who": "May-Britt Moser & Edvard Moser (mannequins in crisp Scandinavian sweaters/blazers)",
+            "where": "pointing in delight on Display Panel B to the unmistakable 60-degree hexagonal honeycomb grid emerging across the expanded 2-meter arena",
+            "facing": "right side of overhead display"
+          },
+          {
+            "who": "Articulated matte-white porcelain rat sculpture",
+            "where": "exploring freely across the clean white open-field arena toward the north cue card",
+            "facing": "inside the 2-meter floor arena"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "2-meter clean white open-field arena with rotatable visual cue card",
+          "period_detail": "the enlarged floor that unmasked the repeating 60° hexagonal grid in 2005",
+          "physical_behavior": "authentic UCL/Trondheim spatial apparatus"
+        },
+        {
+          "name": "articulated matte-white porcelain rat sculpture",
+          "period_detail": "freely moving exploration (never strapped down!) was essential to discovering Place & Grid cells",
+          "physical_behavior": "complies cleanly with R46 porcelain animal rule"
+        },
+        {
+          "name": "Side-by-Side '1971 Place Cell (1 Spot)' vs '2005 Grid Cell (Hexagonal Lattice)' trajectory screens",
+          "period_detail": "shows single pushpin vs full honeycomb coordinate paper in one glance",
+          "physical_behavior": "visualizes the entire 2014 Nobel Prize"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Porcelain rat sculpture",
+          "verb_sequence": "trots freely across the white 2-meter arena floor -> Panel A lights up strictly in the NW corner (Place Cell) while Panel B lights up at crisp 60-degree honeycomb vertices across the entire floor (Grid Cell)"
+        },
+        {
+          "who": "John O'Keefe",
+          "verb_sequence": "rotates the arena's north cue card 90 degrees -> both spatial maps rotate 90 degrees in lockstep!"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "May-Britt & Edvard Moser",
+          "reaction": "smile tracing the equilateral triangles connecting every firing vertex"
+        },
+        {
+          "who": "John O'Keefe",
+          "reaction": "nods seeing Tolman's 1948 'Cognitive Map' proven down to exact geometry"
+        }
+      ],
+      "wardrobe": "Academic tweed blazer and shirt; clean Scandinavian tailored knitwear and blazers.",
+      "lighting": "Bright high-key museum-clean daylight.",
+      "recognition_hook": "Make the arena floor big enough, and single brain cells spontaneously draw crystal-perfect 60-degree honeycomb graph paper across the room!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a sunlit neurobiology lab with a 2-meter white open-field floor holding a matte-white porcelain rat sculpture beside dual trajectory screens comparing a single-spot Place Cell and a 60-degree hexagonal Grid Cell honeycomb",
+        "must_show": [
+          "arena|floor",
+          "hexagon|grid|screens|display",
+          "rat"
+        ],
+        "source": "M1@00:09-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Why the Small Box Hid the Hexagon Until 2005",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2005, NTNU Trondheim laboratory",
+      "layout": {
+        "description": "Tabletop comparison of a cramped 70-cm box (cropping only 3 dots) beside the wide 200-cm enclosure (revealing 19 hexagonal vertices!).",
+        "positions": [
+          {
+            "who": "May-Britt & Edvard Moser mannequins",
+            "where": "lifting away the small inner frame to reveal the full repeating honeycomb across the wide floor",
+            "facing": "at arena edge"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "70-cm cropped frame vs 200-cm full hexagonal floor",
+          "period_detail": "dramatic lesson in scaling experimental space to match biology",
+          "physical_behavior": "Moser 2005 breakthrough"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Mosers",
+          "verb_sequence": "expand the enclosure walls -> partial dots snap into a unmistakable 60° crystal lattice"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Lab team",
+          "reaction": "gasps seeing nature's perfect geometry"
+        }
+      ],
+      "wardrobe": "2005 smart-casual lab shirts.",
+      "lighting": "Clean bright lab light.",
+      "recognition_hook": "Inside a tiny box it looked like three random blobs — widen the walls to two meters and a mathematical honeycomb jumps off the screen.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Navigating Ideas & Early Alzheimer's Protection",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2016, Human 3T/7T fMRI cognitive map lab",
+      "layout": {
+        "description": "Bright human imaging room showing 6-fold hexagonal grid symmetry lighting up as a volunteer navigates an abstract conceptual diagram.",
+        "positions": [
+          {
+            "who": "Neuroscientist & Volunteer mannequins",
+            "where": "mapping non-physical relationships along the exact same 60° entorhinal grid",
+            "facing": "at fMRI console"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "6-fold hexagonal fMRI polar plot",
+          "period_detail": "proves human entorhinal cortex maps abstract knowledge as 'mental space'",
+          "physical_behavior": "Doeller 2010 & Constantinescu 2016"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Volunteer",
+          "verb_sequence": "connects related concepts -> 60-degree entorhinal symmetry peaks on display"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Neuroscientist",
+          "reaction": "links entorhinal health to both street navigation and clear thinking"
+        }
+      ],
+      "wardrobe": "Modern casual sweater and lab coat.",
+      "lighting": "Clean high-key console light.",
+      "recognition_hook": "Humans co-opted our ancient hexagonal street GPS to navigate friendships, hierarchies, and ideas!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Building a 'Memory Palace' on Your Own Place Cells",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit study / living room",
+      "layout": {
+        "description": "Sunlit room where a speaker walks mentally from front door -> sofa -> bookshelf -> window, anchoring one key speech topic at each physical landmark.",
+        "positions": [
+          {
+            "who": "Speaker mannequin",
+            "where": "walking calmly past four room landmarks reciting a 20-minute talk without notes",
+            "facing": "across sunlit room"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "4 room landmark anchor cards ('1. Door | 2. Sofa | 3. Shelf | 4. Window')",
+          "period_detail": "puts ancient Method of Loci directly onto O'Keefe's Place Cells",
+          "physical_behavior": "everyday memory superpower"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Speaker",
+          "verb_sequence": "touches each room spot mentally -> recalls every section in effortless sequence"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Speaker",
+          "reaction": "poised, note-free confidence"
+        }
+      ],
+      "wardrobe": "Modern blazer and open collar.",
+      "lighting": "Warm morning window light.",
+      "recognition_hook": "The 2,500-year-old Memory Palace trick works because your hippocampus remembers 'WHERE' ten times better than naked bullet lists.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

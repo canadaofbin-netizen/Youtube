@@ -1,0 +1,212 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Volunteer watching Libet's revolving green cathode-ray dot to mark '-200 ms W-time' while scalp EEG rises at '-550 ms'",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1983, UC San Francisco neurophysiology laboratory",
+      "layout": {
+        "description": "High-key 1983 UCSF physiology lab with a comfortable reclining chair, vertex scalp EEG sensor lead, forearm EMG patch on the right wrist, a circular green-phosphor cathode-ray oscilloscope screen with a fast-revolving bright spot (2.56s per revolution), and a dual-channel waveform chart.",
+        "positions": [
+          {
+            "who": "Volunteer mannequin (in 1983 Oxford shirt with rolled right cuff)",
+            "where": "seated calmly watching the revolving green oscilloscope spot, flicking the right wrist briskly upward at an arbitrary moment",
+            "facing": "facing the round oscilloscope dial"
+          },
+          {
+            "who": "Benjamin Libet (mannequin in white 1983 lab coat and glasses)",
+            "where": "standing beside the EEG averager pointing to the '-550 ms RP onset' rising well ahead of the '-200 ms W-mark'",
+            "facing": "facing the waveform display"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "revolving-spot cathode-ray oscilloscope",
+          "period_detail": "round 1983 CRT screen numbered 5-60 around the rim with a crisp bright green spot sweeping one circle every 2.56 seconds",
+          "physical_behavior": "lets the subject call out exact 'W-time' position (-200 ms)"
+        },
+        {
+          "name": "forearm EMG surface electrode & vertex EEG lead",
+          "period_detail": "clean medical surface tabs on right forearm and crown of head",
+          "physical_behavior": "anchor 0 ms muscle firing against -550 ms cortical ramp"
+        },
+        {
+          "name": "three-marker timeline chart (-550 ms RP -> -200 ms W -> 0 ms Muscle)",
+          "period_detail": "large white chart plotting the rising curve with vertical markers at -550, -200, and 0 ms",
+          "physical_behavior": "captures the famous 350-millisecond gap"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Oscilloscope green spot",
+          "verb_sequence": "sweeps smoothly around the circular scale -> EEG trace begins climbing at -550 ms -> Volunteer consciously notices the urge at -200 ms -> right wrist flicks cleanly upward at 0 ms"
+        },
+        {
+          "who": "Benjamin Libet",
+          "verb_sequence": "marks the 350-millisecond gap between -550 ms cortical ramp and -200 ms reported awareness"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Volunteer mannequin",
+          "reaction": "points to number '15' on the CRT rim, shocked to see the EEG line rose a third of a second earlier"
+        },
+        {
+          "who": "Benjamin Libet",
+          "reaction": "highlights the remaining 150-ms 'veto' zone between -200 ms and -50 ms"
+        }
+      ],
+      "wardrobe": "1983 UCSF physiology wear: white lab coat over collared shirt and tie on Libet; rolled-sleeve button shirt and chinos on volunteer.",
+      "lighting": "Bright clean laboratory daylight with crisp readable oscilloscope trace.",
+      "recognition_hook": "Watching a fast-sweeping oscilloscope dot at UCSF, volunteers report deciding to flick their wrist at -200 milliseconds — while scalp voltage started climbing 350 milliseconds earlier.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1983 volunteer in a physiology chair flicking one wrist while watching a round revolving-dot oscilloscope beside a researcher pointing at a -550ms / -200ms / 0ms EEG timeline chart",
+        "must_show": [
+          "oscilloscope|screen|dial",
+          "wrist|hand",
+          "chart|trace"
+        ],
+        "source": "M1@00:08-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Libet's -150 ms 'Free Won't' Veto Test",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1983, UCSF physiology lab",
+      "layout": {
+        "description": "Same oscilloscope chair where the volunteer lets an urge rise toward a preset dot mark and deliberately aborts the wrist flick at the last split-second.",
+        "positions": [
+          {
+            "who": "Volunteer mannequin",
+            "where": "keeping right wrist completely still as the rising EEG ramp flattens back down before 0 ms",
+            "facing": "facing oscilloscope"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "flattened veto EEG trace & flat 0-ms EMG line",
+          "period_detail": "shows cortical build-up cancelled cleanly before any muscle fiber fires",
+          "physical_behavior": "demonstrates 'free won't'"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Volunteer mannequin",
+          "verb_sequence": "feels urge at -200 ms -> applies conscious veto brake -> hand remains utterly still"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Benjamin Libet",
+          "reaction": "points to the aborted ramp proving urges are not destiny"
+        }
+      ],
+      "wardrobe": "1983 shirt and lab coat.",
+      "lighting": "High-key lab daylight.",
+      "recognition_hook": "Even in Libet's own chair, volunteers could consciously veto a rising urge 150 milliseconds before the muscle moved.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Schurger 2012 & Maoz 2019: Wave-averaging illusion vs real $1,000 choice",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2019, modern cognitive neuroscience lab",
+      "layout": {
+        "description": "Sunlit modern lab comparing TWO screens: random bobbing neural waves averaged at their peaks (left) vs two real $1,000 charity donation buttons where the pre-awareness RP disappears (right).",
+        "positions": [
+          {
+            "who": "Modern Neuroscientist mannequin",
+            "where": "overlaying random wave crests to show how averaging backward creates a fake 'early decision' ramp",
+            "facing": "at wide display"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "$1,000 Charity A vs Charity B button box",
+          "period_detail": "meaningful high-stakes deliberation task (Maoz 2019)",
+          "physical_behavior": "shows flat pre-decision RP during real deliberate choice"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Subject mannequin",
+          "verb_sequence": "weighs two real charities carefully and presses button -> EEG shows deliberative prefrontal activity without a secret -550 ms autopilot boss"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Modern Neuroscientist mannequin",
+          "reaction": "smiles seeing forty years of fatalism debunked"
+        }
+      ],
+      "wardrobe": "Modern smart-casual blazer and tee.",
+      "lighting": "Bright modern lab daylight.",
+      "recognition_hook": "Average random ocean waves backward from the biggest splash and it looks like a ramp — test real $1,000 moral choices and the 'unconscious boss' vanishes!",
+      "sources": [
+        "SRC_SCHURGER"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Catching a reactive impulse inside your 'Free Won't' brake window",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern desk",
+      "layout": {
+        "description": "Bright sunlit workspace where a professional catches their thumb hovering over 'Send' on a heated message, pauses for half a second, and clicks 'Discard'.",
+        "positions": [
+          {
+            "who": "Professional mannequin",
+            "where": "pausing right index finger half an inch above the desktop trackpad button before pulling back calmly",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "draft reply discarded cleanly",
+          "period_detail": "screen shows calm blank compose window",
+          "physical_behavior": "practical everyday 'free won't'"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Professional mannequin",
+          "verb_sequence": "feels reactive urge -> catches it inside the veto window -> pulls hand back"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Professional mannequin",
+          "reaction": "nods with self-command"
+        }
+      ],
+      "wardrobe": "Modern collared knit shirt.",
+      "lighting": "Bright window daylight.",
+      "recognition_hook": "You don't choose every random wave that pops into your head — you choose which ones get past your prefrontal brake.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

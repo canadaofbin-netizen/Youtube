@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "slug": "ekman_microexpressions_deception",
+  "topic": "Paul Ekman & Wallace Friesen (1969-1978): Frame-by-Frame Microexpressions, FACS & the 'Pinocchio Nose' Myth",
+  "pillar": "brain_mysteries",
+  "created_at": "2026-10-25T22:49:31+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Slow-motion 16mm film inspection of a 1/15-second facial flash is a classic visual detective scene, grounded in subcortical amygdala motor pathways outrunning voluntary cortical masking.",
+  "primary_case": {
+    "title": "Paul Ekman & Wallace Friesen's slow-motion clinical film leakage discovery & Facial Action Coding System (FACS)",
+    "year": 1969,
+    "place": "Langley Porter Neuropsychiatric Institute, UC San Francisco",
+    "people": [
+      {
+        "name": "Paul Ekman",
+        "role": "UCSF psychologist who discovered brief involuntary microexpressions on slow-motion interview film while also warning that no facial tic guarantees lying",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Wallace V. Friesen",
+        "role": "Collaborator who co-discovered clinical microexpressions (1969) and co-developed the 44-Action-Unit Facial Action Coding System growing out of their 1969 nonverbal-leakage framework",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Ernest Haggard & Kenneth Isaacs",
+        "role": "Researchers who first spotted 'micromomentary expressions' (1966) during slow-motion psychotherapy film review",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 1969 at UC San Francisco, Paul Ekman and Wallace Friesen analyzed 16mm clinical interview films frame by frame at 24 frames per second after a hospitalized patient ('Mary') later confessed she had been hiding acute despair behind a cheerful smile to win a weekend pass.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Played at normal speed, Mary looked convincingly upbeat; stepped frame by frame, a two-frame (1/12-second) flash of intense anguish broke across her brow and mouth before a polite social smile snapped over it.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Building on Haggard & Isaacs (1966), Ekman and Friesen termed these involuntary flashes 'microexpressions' — brief emotional leaks lasting roughly 40 to 200 milliseconds (1/25 to 1/5 of a second) when someone tries to conceal strong affect.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "To measure faces objectively without guesswork, Ekman and Friesen spent eight years dissecting facial anatomy to build the Facial Action Coding System (FACS, 1976-1978), cataloging 44 distinct muscular Action Units (e.g., AU6 orbicularis oculi cheek-raiser + AU12 lip-corner puller in a genuine Duchenne smile).",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Dual motor wiring explains the leak: voluntary polite smiles travel from motor cortex, whereas urgent emotional expressions fire automatically from subcortical limbic/amygdala-brainstem nuclei milliseconds before cortical suppression catches up.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Crucially, Ekman himself coined 'Othello's Error': spotting a 100-millisecond flash of fear on an innocent suspect's face does NOT prove lying — an honest person terrified of being disbelieved flashes the exact same fear as a guilty liar terrified of getting caught.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Empirical high-stakes courtroom and laboratory studies by Stephen Porter & Leanne ten Brinke (2008) confirmed complete full-face microexpressions are actually rare (appearing in only ~2% of expressions, mostly partial upper- or lower-face leaks) and untrained human lie-detection accuracy averages just 54 percent — barely above a 50/50 toss.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Cross-cultural field studies with isolated Fore communities in Papua New Guinea (Ekman & Friesen, 1971) showed shared recognition of core macro-expressions (anger, fear, disgust, sadness, enjoyment) while cultural 'display rules' govern when people mask them in public.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Slow-motion 24-fps film inspection (isolating 1-to-2-frame leaks around frame 14 on a tabletop Steenbeck viewer) inspired Ekman's microexpression model, though Porter and ten Brinke (2008) found full-face leaks (<1/10 to 1/5 second) in only ~2% of trials.",
+      "source_id": "SRC4"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "At normal 24-frames-per-second playback, seasoned psychiatrists saw only a calm smile — stepping the 16mm projector frame by frame exposed a 2-frame (83-millisecond) flash of agony hidden in plain sight.",
+      "why_surprising": "Slow-motion film revealed a tug-of-war between two separate facial motor systems.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Paul Ekman named psychology's deadliest lie-detection trap after Shakespeare's Othello: Othello saw genuine fear on Desdemona's face and murdered her assuming fear meant guilt — when she was terrified of not being believed.",
+      "why_surprising": "A microexpression reads hidden EMOTION, never a Pinocchio lie.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Across hundreds of studies (Bond & DePaulo 2006), police, judges, and customs officers spot lies from demeanor at roughly 54 percent accuracy — virtually a 50/50 guess.",
+      "why_surprising": "Pop-TV 'human lie detector' infallibility is pure fiction.",
+      "source_id": "SRC4",
+      "rank": 3
+    },
+    {
+      "fact": "Ekman and Friesen personally stimulated and photographed every single muscle fiber in their own faces for eight years to map 44 objective Action Units — later adopted by Pixar animators to bring Toy Story and Inside Out faces to life.",
+      "why_surprising": "Clinical anatomy became the language of modern digital cinema.",
+      "source_id": "SRC2",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "There is a 'Pinocchio nose' facial tic or eye-direction tell ('looking up-left = lying') that proves deception 100% of the time.",
+      "truth": "Zero universal Pinocchio tells exist; eye-gaze direction myths fail completely under controlled testing, and microexpressions show concealed emotion rather than deception.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Liars flash full-face microexpressions every few seconds like TV crime dramas.",
+      "truth": "Porter & ten Brinke (2008) showed partial upper- or lower-face leakage is far commoner and full-face microexpressions appear on only ~2% of emotional trials.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "You can force a completely convincing 'genuine' eye-crinkling smile on command whenever stressed.",
+      "truth": "Most adults struggle to voluntarily contract the outer orbicularis oculi (AU6) symmetrically without genuine affect while suppressing brow distress (AU1+4).",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Microexpression science justifies airport behavior-screening arrests without hard evidence.",
+      "truth": "Independent scientific audits criticized TSA's SPOT program because nervousness and fatigue mimic 'deception' cues (Othello's Error).",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Catching a split-second tighten around a friend's eyes right before they smile and say 'No, really, it's totally fine!'",
+    "Stopping yourself from accusing a nervous teenager or job candidate of lying just because their voice trembles under authority ('Othello's Error').",
+    "Spotting a polite mouth-only 'Pan-Am smile' (AU12 alone) vs a warm eye-crinkling Duchenne smile (AU6 + AU12).",
+    "Asking a gentle open question ('Did something about that timeline worry you?') instead of playing amateur mind-reader."
+  ],
+  "linked_projects": [
+    "psych_33_ekman_microexpressions_deception"
+  ]
+}

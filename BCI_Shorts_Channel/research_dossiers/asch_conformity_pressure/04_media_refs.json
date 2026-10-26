@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "archive_film",
+      "title": "Asch Conformity Experiment",
+      "url": "https://www.youtube.com/watch?v=TYIh4MkcfJA",
+      "channel": "eqivideos",
+      "source_id": "SRC_M1",
+      "duration_sec": 250,
+      "timecodes": [
+        {
+          "t": "00:14-00:20",
+          "what": "Around kf_003.jpg (18.2s) (4:3 camera frame), speaker commentary notes \"As you can see here, I have a number of cards. And on each card, there are several lines.\", anchoring the research context of seat 6 student squinting at two white line-comparison cards as five confederates call out the wrong line."
+        },
+        {
+          "t": "00:33-00:46",
+          "what": "At kf_006.jpg (44.7s) (4:3 camera frame), audio continues with \"white t-shirt. The others are confederates of the experimenter and have been told to give wrong answers on\", detailing experimental methodology and behavioral observations for Solomon Asch's Swarthmore College group pressure line-comparison experiments."
+        },
+        {
+          "t": "01:10-01:16",
+          "what": "Later 4:3 camera frame at kf_011.jpg (72.1s) accompanied by \"Two. The subject denies the evidence of his own eyes and yields to group influence. One.\", summarizing mechanism and boundary conditions in Solomon Asch's Swarthmore College group pressure line-comparison experiments."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (archival footage (480x360, 0/14 monochrome frames across 1.4s–88.9s)) from eqivideos's \"Asch Conformity Experiment\" (250s total runtime).",
+          "Deduplicated English transcript (46 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (1.4s–88.9s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "Lec 23 | MIT 9.00SC Introduction to Psychology, Spring 2011",
+      "url": "https://www.youtube.com/watch?v=zPPsdsAQBx4",
+      "channel": "MIT OpenCourseWare",
+      "source_id": "SRC_M2",
+      "duration_sec": 4069,
+      "timecodes": [
+        {
+          "t": "25:29-25:40",
+          "what": "Lecture slide / diagram frame at kf_003.jpg (1533.4s) paired with transcript segment \"You haven't had a big interaction. Literally, it's moments next to each in a course. Here's another one, 250 students divided into groups of four...\", introducing core background on seat 6 student squinting at two white line-comparison cards as five confederates call out the wrong line."
+        },
+        {
+          "t": "25:41-25:48",
+          "what": "Around kf_005.jpg (1546.1s) (lecture slide / diagram frame), transcript records \"And they rated each other. And there was pretty good correlations between moments of sitting together and how sociable or extroverted people\", examining procedural mechanics and evidence in Solomon Asch's Swarthmore College group pressure line-comparison experiments."
+        },
+        {
+          "t": "26:19-26:35",
+          "what": "At kf_011.jpg (1584.0s) (lecture slide / diagram frame), speaker remarks \"were, how much time did they talk, how many arm movements. The impressions of the judges watching the videotape correlated pretty well with...\", addressing theoretical interpretation and downstream implications of Solomon Asch's Swarthmore College group pressure line-comparison experiments."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (recorded lecture combining speaker commentary with 14/14 diagram/slide frames (640x360, sampled across 1520.8s–1603.0s)) from MIT OpenCourseWare's \"Lec 23 | MIT 9.00SC Introduction to Psychology, Spring 2011\" (4069s total runtime).",
+          "Deduplicated English transcript (26 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (1520.8s–1603.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Asch conformity experiment.png",
+      "url": "https://commons.wikimedia.org/wiki/File:Asch_conformity_experiment.png",
+      "channel": "Wikimedia Commons (Daniel Göhler)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Asch conformity experiment.png\" (500x455 px, CC BY-SA 3.0): Asch conformity experiment. Documents authentic physical instrument geometry and period materials relevant to Solomon Asch's Swarthmore College group pressure line-comparison experiments."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 3.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (500x455 px, CC BY-SA 3.0, Daniel Göhler) — apparatus reference: Asch conformity experiment.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

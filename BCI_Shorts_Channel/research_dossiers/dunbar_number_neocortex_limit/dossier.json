@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "slug": "dunbar_number_neocortex_limit",
+  "topic": "Robin Dunbar (1992-1995): Primate Neocortex Ratio & the ~150 Social-Group Limit",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:32+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Plotting 38 primate species' neocortex-to-rest-of-brain ratios against stable troop size and extrapolating humans to ~148 (~150) directly links prefrontal/neocortical volume to multi-party relationship tracking.",
+  "primary_case": {
+    "title": "Robin I. M. Dunbar's 38-genus primate neocortex-ratio regression & human ~150 group-size validation",
+    "year": 1992,
+    "place": "University College London (UCL) Department of Anthropology",
+    "people": [
+      {
+        "name": "Robin I. M. Dunbar",
+        "role": "Evolutionary psychologist and primatologist who discovered primate troop size scales tightly with relative neocortex volume",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Leslie Aiello",
+        "role": "Paleoanthropologist who co-analyzed hominin cranial capacity trajectories and language-as-vocal-grooming scaling with Dunbar",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Patrik Lindenfors",
+        "role": "Evolutionary biologist whose 2021 Bayesian phylogenetic re-analysis emphasized wide statistical confidence intervals around a single fixed 150 point estimate",
+        "source_id": "SRC4"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Why do primates carry such metabolically expensive, oversized brains (~20% of resting human energy for 2% of body mass)? In 1992, UCL anthropologist Robin Dunbar tested ecological foraging theories (fruit-map range size) head-to-head against the 'Social Brain Hypothesis' across 38 primate genera.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Territory size and diet failed to explain neocortex expansion cleanly — instead, mean SOCIAL GROUP SIZE correlated remarkably strongly (r^2 ~ 0.60-0.76) with the neocortex ratio (neocortex volume divided by the rest of the brain).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Keeping track of not just 'me and you,' but third-party alliances ('who owes whom a favor across N individuals' grows combinatorially as N*(N-1)/2) acts like a steep RAM memory tax on prefrontal and temporal neocortex.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Plugging the modern human neocortex ratio (4.1:1) into that primate regression curve predicted a natural cohesive human community size of 147.8 — famously rounded to 'Dunbar's Number' of 150.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "When Dunbar checked historical and ethnographic records, ~150 popped up everywhere: Neolithic farming villages (~150), Roman army maniples (~120-160), modern military rifle companies (~130-180), Hutterite self-splitting communities (splitting right at 150 so no police force is needed!), and annual Christmas-card networks (~154 people).",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Inside that ~150 outer ring, human relationships nest in fractals scaled by roughly ~3x steps depending on time investment: ~5 intimate crisis support allies, ~15 sympathy close friends, ~50 good friends, ~150 meaningful personal ties, and ~500-1,500 recognizable faces/names.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Even on digital social networks with 5,000 'friends' (Gonçalves et al. 2011 Twitter study of 1.7 million users), reciprocal two-way conversation still hits a ceiling right between 100 and 200 accounts.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Methodological boundary (Lindenfors et al. 2021): Bayesian phylogenetic regressions produce wide 95% confidence bands around point extrapolations and human institutions (laws, org charts) stretch large-scale cooperation into millions — yet individual reciprocal relationship maintenance remains constrained by both cognitive tracking AND a 24-hour social-time budget.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Across Dunbar's 1992 and 1995 comparative primate regressions, group of 150 members entails N*(N-1)/2 = 11,175 pairwise ties, while human social time concentrates roughly 40% of contact inside the innermost 5-person support clique.",
+      "source_id": "SRC2"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Plug the size of the human neocortex into an equation built strictly from monkey and ape brains — and out pops 147.8, the exact size of Neolithic villages, Hutterite communes, and modern army companies.",
+      "why_surprising": "Biology quietly shaped human org charts for ten thousand years.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Hutterite farming communities in North America have a centuries-old rule: the day a settlement grows past 150 people, they split into two villages — because past 150, peer reputation stops working and formal bureaucracy has to take over.",
+      "why_surprising": "Peer trust fits inside one neocortical address book.",
+      "source_id": "SRC2",
+      "rank": 2
+    },
+    {
+      "fact": "Even when people collect 4,000 followers online, big-data analyses of 1.7 million social-media users proved active two-way conversations STILL hit a wall around 100 to 200 people.",
+      "why_surprising": "Silicon Valley servers upgraded storage, not your prefrontal cortex.",
+      "source_id": "SRC3",
+      "rank": 3
+    },
+    {
+      "fact": "Forty percent of your total weekly social time goes to just your inner circle of FIVE people — and another twenty percent to the next ten.",
+      "why_surprising": "Close friendship runs on an unforgiving clock-hour budget.",
+      "source_id": "SRC3",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Your brain explodes if you memorize a 151st person's name.",
+      "truth": "Humans recognize ~1,500 faces and names easily; ~150 (broadly ~100-250) reflects active, reciprocal 'know how they fit into the web' relationships.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Social media abolished Dunbar's limit so everyone now has 2,000 real friends.",
+      "truth": "Likes are cheap broadcasts, not reciprocal ties; real mutual support circles stayed stuck near ~5 intimate and ~150 active ties online.",
+      "source_id": "SRC3"
+    },
+    {
+      "myth": "147.8 is a laser-exact biological constant for every single person on Earth.",
+      "truth": "Introversion/extraversion, social time, and Lindenfors's statistical confidence bands span roughly 100 to 250 across individuals.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Big brains evolved mainly to find ripe fruit trees.",
+      "truth": "In Dunbar's 1992 multi-species comparison, social complexity outpredicted home-range fruit mapping as the primary neocortical driver.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Scrolling past 1,200 online connections when moving apartments and realizing there are roughly FIVE people you could actually call to carry a sofa.",
+    "Feeling an agile 80-person startup suddenly need HR handbooks and org charts the month headcount crosses ~150.",
+    "Investing real weekly dinner/walk hours into your inner 5 and 15 circles instead of spreading paper-thin across 800 acquaintances.",
+    "Splitting giant conference-hall teams into autonomous <150 'tribes' or <15 squads."
+  ],
+  "linked_projects": [
+    "psych_41_dunbar_number_neocortex_limit"
+  ]
+}

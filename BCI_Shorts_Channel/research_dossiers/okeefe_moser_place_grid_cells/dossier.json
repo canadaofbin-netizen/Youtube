@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "slug": "okeefe_moser_place_grid_cells",
+  "topic": "O'Keefe (1971) & May-Britt and Edvard Moser (2005): Place Cells, Hexagonal Grid Cells & Your Brain's Inner GPS",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:35+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "John O'Keefe and Jonathan Dostrovsky's 1971 discovery of hippocampal 'Place Cells' ('you are HERE!') — joined 34 years later by May-Britt and Edvard Moser's astonishing 2005 discovery of honeycomb-hexagonal 'Grid Cells' in medial entorhinal cortex — is the 2014 Nobel Prize proof of how brains build an internal coordinate map of space.",
+  "primary_case": {
+    "title": "John O'Keefe & Dostrovsky's 1971 Hippocampal Place Cells + May-Britt & Edvard Moser's 2005 Entorhinal Hexagonal Grid Cells (2014 Nobel Prize)",
+    "year": 1971,
+    "place": "University College London (1971) & Norwegian University of Science and Technology (NTNU), Trondheim (2005)",
+    "people": [
+      {
+        "name": "John O'Keefe",
+        "role": "UCL neuroscientist (mentored under Ronald Melzack at McGill) who let freely moving animals explore open arenas in 1971 and heard single hippocampal cells fire strictly at ONE spot in the room — vindicating Tolman's cognitive map.",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "May-Britt Moser & Edvard I. Moser",
+        "role": "Trondheim neuroscientist duo (former trainees with O'Keefe) who expanded the arena floor in 2005 and discovered entorhinal 'Grid Cells' tiling all of space in breathtaking 60-degree equilateral triangles / hexagons.",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Jonathan Dostrovsky & Eleanor Maguire / Joshua Jacobs",
+        "role": "1971 co-discoverer at UCL and human neuroimaging/intracranial researchers who confirmed place and 6-fold grid codes inside the human brain — even for abstract ideas.",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 1948 Edward Tolman claimed brains build internal **'Cognitive Maps'**, while behaviorists scoffed that 'maps in the head' were unscientific fairy tales. In **1971 (*Brain Research*)**, **John O'Keefe** and student **Jonathan Dostrovsky** at University College London listened to single CA1 **hippocampal neurons** in freely exploring animals — instead of strapping heads still.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "O'Keefe discovered **8 neurons** unlike anything ever recorded: Cell 1 ignored food, water, grooming, and sound anywhere else, firing **exclusively whenever the animal walked through the NORTH-WEST corner**; Cell 2 fired strictly by the **SOUTH edge**; Cell 3 strictly at **CENTER** — **'Place Cells'** whose ensemble literally spelled out *'Where am I right now?'*.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Even in total darkness after landmarks are switched off, Place Cells keep firing in the right spot using self-motion step integration — and if you rotate the room's visual cue card by 90 degrees, the entire hippocampal map rotates 90 degrees with it.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "For **34 years** a huge question remained: WHERE does the hippocampus get its metric ruler for distance and direction? In **2005** in Trondheim, Norway, **May-Britt and Edvard Moser** recorded one synapse upstream in **dorsomedial entorhinal cortex** — and made a crucial experimental tweak: **they built a MUCH LARGER 2-meter circular/square arena** so patterns wouldn't get cropped.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "As spikes plotted across the larger floor, the Trondheim lab gasped: a single entorhinal **Grid Cell** didn't fire at just one spot — it fired across **dozens of regularly spaced dots arranged in a mathematically crisp 60-degree hexagonal / equilateral-triangle honeycomb lattice** tiling the entire room like invisible graph paper.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Alongside **Head-Direction Cells** (internal compass, Ranck/Taube) and **Border/Boundary Cells** (wall rulers), Grid Cells and Place Cells form a complete **Internal GPS** — winning O'Keefe, May-Britt Moser, and Edvard Moser the **2014 Nobel Prize in Physiology or Medicine**.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Does the **human brain** have Place and Grid cells? **YES!** Intracranial recordings in awake neurosurgical patients driving virtual taxis (Ekstrom 2003; Jacobs 2013) and 6-fold fMRI symmetry signals (Doeller, Barry & Burgess 2010) confirmed both Place Cells and 60° hexagonal Grid coding in humans.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Modern mind-expanding twist (Constantinescu, Behrens 2016, SRC3): human entorhinal Grid Cells don't just map physical streets — they use the **exact same 60-degree hexagonal coordinate grid to navigate abstract 'concept spaces'** (social hierarchies, bird shapes, and ideas), explaining why **entorhinal cortex** is the #1 earliest site where Alzheimer's disease causes both getting lost AND losing episodic orientation.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Following O'Keefe and Dostrovsky's (1971) hippocampal place cells and Moser et al.'s (2005, reviewed 2015) medial entorhinal grid cells, cognitive neuroscience linked the 2,500-year-old (2500-year) classical Method of Loci to medial temporal spatial scaffolding.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "At first the Mosers saw just three or four dots in a small box — only when they **built a giant 2-meter arena floor** did a stunning **60-degree crystal honeycomb hexagon** leap onto the computer monitor, generated spontaneously by single brain cells.",
+      "why_surprising": "Sometimes a Nobel Prize is hiding six inches outside a too-small test box.",
+      "source_id": "SRC2",
+      "rank": 1
+    },
+    {
+      "fact": "Immanuel Kant argued in 1781 that the human mind comes pre-equipped with an innate framework of 'Space' before experience — O'Keefe and the Mosers found the literal **hexagonal graph paper and 'You-Are-Here' pins** inside entorhinal-hippocampal circuits.",
+      "why_surprising": "200 years of philosophy answered by single-neuron recordings.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Watch a sleeping brain right after learning a maze: hippocampal Place Cells **replay the exact daytime path at 10x fast-forward speed** during slow-wave sleep — and even simulate **unchosen future paths** before turning a corner.",
+      "why_surprising": "Your GPS replays yesterday and previews tomorrow.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "Why is getting turned around in a familiar neighborhood often the **very first subtle sign of Alzheimer's disease** years before severe memory loss? Because tau tangles strike **entorhinal Grid-Cell cortex** first.",
+      "why_surprising": "Grid-cell neuroanatomy explains early clinical diagnosis.",
+      "source_id": "SRC2",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Your hippocampus only cares about memorizing vocabulary lists and birthdays.",
+      "truth": "Spatial cognitive mapping ('Where am I?') was the ancient evolutionary job of the mammalian hippocampus — humans co-opted that exact spatial Place-and-Grid machinery to index *episodic memories* and *abstract concepts*.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Relying 100% on turn-by-turn smartphone GPS arrows exercises your hippocampal map.",
+      "truth": "Turn-by-turn 'turn left in 50 feet' engages striatal habit following while leaving hippocampal spatial mapping idle; glancing at an overview map and orienting landmarks wakes your Place & Grid network up.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Grid cells depend on painted lines on the floor.",
+      "truth": "The hexagonal lattice is generated *internally* by attractor dynamics inside medial entorhinal cortex — persisting even in pitch darkness.",
+      "source_id": "SRC2"
+    }
+  ],
+  "everyday_hooks": [
+    "Using the ancient 'Memory Palace' (*Method of Loci*) — placing grocery items or speech points along rooms of your childhood house — and realizing why it works like magic: you are stapling facts directly onto hippocampal **Place Cells**.",
+    "Glancing at North/South landmarks before walking through a new city instead of staring only at a blue turn-by-turn arrow.",
+    "Understanding why we use spatial metaphors for *everything* ('a close friend', 'a high position', 'distant cousins') — our entorhinal Grid Cells literally map social ideas on 60° coordinates."
+  ],
+  "linked_projects": [
+    "psych_74_okeefe_moser_place_grid_cells"
+  ]
+}

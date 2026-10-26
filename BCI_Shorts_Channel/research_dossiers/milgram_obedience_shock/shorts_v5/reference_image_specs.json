@@ -1,0 +1,847 @@
+{
+  "schema_version": 5,
+  "visual_mode": "BEHAVIORAL_PSYCH",
+  "aspect": "9:16",
+  "dossier": "milgram_obedience_shock",
+  "total_reference_images": 16,
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; experimenter in knee-length grey laboratory technician coat over a white collared shirt and narrow black tie; learner in 1960s white dress shirt and vest with leather straps across the forearms.",
+  "generation_order": "1 env plate -> 2 cast sheets + hero prop (conditioned on env) -> 3 clip start / key frames (conditioned on 1+2)",
+  "master_anchors": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a 1961 Yale basement psychology laboratory with a brushed-steel thirty-lever voltage generator box, featuring brushed-steel thirty-lever voltage generator box labeled 15V to 450V, no people. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "a 1961 Yale basement psychology laboratory with a brushed-steel thirty-lever vol",
+        "brushed-steel thirty-lever voltage generator box labeled 15V"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_teacher",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_teacher.png",
+      "title": "Cast sheet: teacher (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a smooth opaque matte-white porcelain head, teacher wearing 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie, standing in a 1961 Yale basement psychology laboratory with a brushed-steel thirty-lever voltage generator box. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "1960s white button-down dress shirt with sleeves rolled to the elbows and loosen",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_experimenter",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_experimenter.png",
+      "title": "Cast sheet: experimenter (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a smooth opaque matte-white porcelain head, experimenter wearing knee-length grey laboratory technician coat over a white collared shirt and narrow black tie, standing in a 1961 Yale basement psychology laboratory with a brushed-steel thirty-lever voltage generator box. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "knee-length grey laboratory technician coat over a white collared shirt and narr",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_learner",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_learner.png",
+      "title": "Cast sheet: learner (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a smooth opaque matte-white porcelain head, learner wearing 1960s white dress shirt and vest with leather straps across the forearms, standing in a 1961 Yale basement psychology laboratory with a brushed-steel thirty-lever voltage generator box. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "1960s white dress shirt and vest with leather straps across the forearms",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of brushed-steel thirty-lever voltage generator box labeled 15V to 450V inside a 1961 Yale basement psychology laboratory with a brushed-steel thirty-lever voltage generator box, exact period materials and textures. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "brushed-steel thirty-lever voltage generator box labeled 15V to 450V"
+      ]
+    }
+  ],
+  "clip_anchors": [
+    {
+      "ref_id": "ref_clip_01",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "setup",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_01.png",
+      "title": "Clip 01 (setup / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In a bright 1961 Yale basement laboratory divided by a partition wall, a strapped learner mannequin sits in the next room while a teacher mannequin in a rolled-up white shirt faces a thirty-lever voltage generator labeled fifteen to four hundred fifty volts. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; experimenter in knee-length grey laboratory technician coat over a white collared shirt and narrow black tie; learner in 1960s white dress shirt and vest with leather straps across the forearms. Frozen opening moment: The teacher presses a metallic toggle switch down as an experimenter mannequin in a grey coat taps a clipboard. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_01_key",
+      "clip_number": 1,
+      "frame": "key",
+      "category": "key_visual_anchor",
+      "role": "setup",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_01_key.png",
+      "title": "Clip 01 (setup / S1) key frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In a bright 1961 Yale basement laboratory divided by a partition wall, a strapped learner mannequin sits in the next room while a teacher mannequin in a rolled-up white shirt faces a thirty-lever voltage generator labeled fifteen to four hundred fifty volts. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; experimenter in knee-length grey laboratory technician coat over a white collared shirt and narrow black tie; learner in 1960s white dress shirt and vest with leather straps across the forearms. Frozen key moment: the teacher mannequin presses a lever on the thirty-switch shock generator while the grey-coated experimenter stands behind him saying please continue. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "switch|lever|toggle",
+        "generator",
+        "experimenter"
+      ],
+      "key_visual": {
+        "description": "the teacher mannequin presses a lever on the thirty-switch shock generator while the grey-coated experimenter stands behind him saying please continue",
+        "must_show": [
+          "switch|lever|toggle",
+          "generator",
+          "experimenter"
+        ],
+        "source": "M1_psychhub_original_footage@00:45-01:15; Milgram 1963"
+      },
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_02",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "symptom",
+      "scene_id": "S2",
+      "setting": "real_env",
+      "filename": "ref_clip_02.png",
+      "title": "Clip 02 (symptom / S2) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Inside the bisected 1961 Yale basement laboratory, the strapped learner mannequin sits behind the wooden partition wall beside the thirty-lever voltage generator desk. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; learner in 1960s white dress shirt and vest with leather straps across the forearms. Frozen opening moment: The learner pounds his fist against the dividing wall twice and slumps still. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S2"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_03",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "failure",
+      "scene_id": "S9",
+      "setting": "real_env",
+      "filename": "ref_clip_03.png",
+      "title": "Clip 03 (failure / S9) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In a bright 1961 Yale classroom, a chalkboard diagram shows the thirty-lever voltage generator box before fourteen student mannequins in tweed jackets. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie. Frozen opening moment: A student mannequin shakes his head. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S9"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_04",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "crisis",
+      "scene_id": "S5",
+      "setting": "real_env",
+      "filename": "ref_clip_04.png",
+      "title": "Clip 04 (crisis / S5) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): At the 1961 Yale laboratory desk, two unfolded paper slips reading Teacher lie beside the thirty-lever voltage generator box. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; experimenter in knee-length grey laboratory technician coat over a white collared shirt and narrow black tie. Frozen opening moment: The experimenter mannequin in a grey lab coat straps a metal contact to the teacher mannequin's wrist and flips the third forty-five-volt toggle switch down. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S5"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_05",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "pivot",
+      "scene_id": "S4",
+      "setting": "real_env",
+      "filename": "ref_clip_05.png",
+      "title": "Clip 05 (pivot / S4) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In the bright 1961 Yale basement laboratory, the teacher mannequin in a rolled-up white dress shirt sits before the thirty-lever voltage generator box. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; experimenter in knee-length grey laboratory technician coat over a white collared shirt and narrow black tie. Frozen opening moment: The experimenter mannequin thrusts his metal clipboard forward. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S4"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_06",
+      "clip_number": 6,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "step1",
+      "scene_id": "S6",
+      "setting": "real_env",
+      "filename": "ref_clip_06.png",
+      "title": "Clip 06 (step1 / S6) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In the 1961 Yale basement laboratory with the partition wall removed, the strapped learner mannequin sits in full view just feet from the thirty-lever voltage generator. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; learner in 1960s white dress shirt and vest with leather straps across the forearms. Frozen opening moment: The learner jerks against the leather wrist straps right in front of the desk. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S6"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_07",
+      "clip_number": 7,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "step2",
+      "scene_id": "S3",
+      "setting": "real_env",
+      "filename": "ref_clip_07.png",
+      "title": "Clip 07 (step2 / S3) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In the 1961 Yale basement laboratory, the learner mannequin sits right beside the thirty-lever voltage generator box next to a wired steel contact plate. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; learner in 1960s white dress shirt and vest with leather straps across the forearms. Frozen opening moment: The learner pulls his hand off the steel plate. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S3"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_08",
+      "clip_number": 8,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "step3",
+      "scene_id": "S4",
+      "setting": "real_env",
+      "filename": "ref_clip_08.png",
+      "title": "Clip 08 (step3 / S4) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In the 1961 Yale basement laboratory, two peer teacher mannequins in white dress shirts sit beside the volunteer teacher mannequin before the thirty-lever voltage generator. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; experimenter in knee-length grey laboratory technician coat over a white collared shirt and narrow black tie. Frozen opening moment: Both peer teachers slam their notebooks shut. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S4"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_09",
+      "clip_number": 9,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "breakthrough",
+      "scene_id": "S8",
+      "setting": "real_env",
+      "filename": "ref_clip_09.png",
+      "title": "Clip 09 (breakthrough / S8) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In a bright modern psychology room, a teacher mannequin in a button-down shirt sits before the thirty-lever voltage generator at the one-hundred-fifty-volt mark. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie. Frozen opening moment: The teacher presses the tenth toggle switch down. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S8"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_10",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "conclusion",
+      "scene_id": "S10",
+      "setting": "real_env",
+      "filename": "ref_clip_10.png",
+      "title": "Clip 10 (conclusion / S10) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In the bright 1961 Yale basement laboratory, the thirty-lever voltage generator box sits silent on the wooden desk beside the grey-coated experimenter mannequin. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; experimenter in knee-length grey laboratory technician coat over a white collared shirt and narrow black tie. Frozen opening moment: The volunteer teacher mannequin in a rolled-up white dress shirt pushes his chair back. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S10"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_prop_hero"
+      ]
+    }
+  ],
+  "all_specs": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a 1961 Yale basement psychology laboratory with a brushed-steel thirty-lever voltage generator box, featuring brushed-steel thirty-lever voltage generator box labeled 15V to 450V, no people. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "a 1961 Yale basement psychology laboratory with a brushed-steel thirty-lever vol",
+        "brushed-steel thirty-lever voltage generator box labeled 15V"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_teacher",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_teacher.png",
+      "title": "Cast sheet: teacher (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a smooth opaque matte-white porcelain head, teacher wearing 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie, standing in a 1961 Yale basement psychology laboratory with a brushed-steel thirty-lever voltage generator box. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "1960s white button-down dress shirt with sleeves rolled to the elbows and loosen",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_experimenter",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_experimenter.png",
+      "title": "Cast sheet: experimenter (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a smooth opaque matte-white porcelain head, experimenter wearing knee-length grey laboratory technician coat over a white collared shirt and narrow black tie, standing in a 1961 Yale basement psychology laboratory with a brushed-steel thirty-lever voltage generator box. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "knee-length grey laboratory technician coat over a white collared shirt and narr",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_learner",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_learner.png",
+      "title": "Cast sheet: learner (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a smooth opaque matte-white porcelain head, learner wearing 1960s white dress shirt and vest with leather straps across the forearms, standing in a 1961 Yale basement psychology laboratory with a brushed-steel thirty-lever voltage generator box. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "1960s white dress shirt and vest with leather straps across the forearms",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of brushed-steel thirty-lever voltage generator box labeled 15V to 450V inside a 1961 Yale basement psychology laboratory with a brushed-steel thirty-lever voltage generator box, exact period materials and textures. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "brushed-steel thirty-lever voltage generator box labeled 15V to 450V"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_01",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "setup",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_01.png",
+      "title": "Clip 01 (setup / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In a bright 1961 Yale basement laboratory divided by a partition wall, a strapped learner mannequin sits in the next room while a teacher mannequin in a rolled-up white shirt faces a thirty-lever voltage generator labeled fifteen to four hundred fifty volts. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; experimenter in knee-length grey laboratory technician coat over a white collared shirt and narrow black tie; learner in 1960s white dress shirt and vest with leather straps across the forearms. Frozen opening moment: The teacher presses a metallic toggle switch down as an experimenter mannequin in a grey coat taps a clipboard. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_01_key",
+      "clip_number": 1,
+      "frame": "key",
+      "category": "key_visual_anchor",
+      "role": "setup",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_01_key.png",
+      "title": "Clip 01 (setup / S1) key frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In a bright 1961 Yale basement laboratory divided by a partition wall, a strapped learner mannequin sits in the next room while a teacher mannequin in a rolled-up white shirt faces a thirty-lever voltage generator labeled fifteen to four hundred fifty volts. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; experimenter in knee-length grey laboratory technician coat over a white collared shirt and narrow black tie; learner in 1960s white dress shirt and vest with leather straps across the forearms. Frozen key moment: the teacher mannequin presses a lever on the thirty-switch shock generator while the grey-coated experimenter stands behind him saying please continue. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "switch|lever|toggle",
+        "generator",
+        "experimenter"
+      ],
+      "key_visual": {
+        "description": "the teacher mannequin presses a lever on the thirty-switch shock generator while the grey-coated experimenter stands behind him saying please continue",
+        "must_show": [
+          "switch|lever|toggle",
+          "generator",
+          "experimenter"
+        ],
+        "source": "M1_psychhub_original_footage@00:45-01:15; Milgram 1963"
+      },
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_02",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "symptom",
+      "scene_id": "S2",
+      "setting": "real_env",
+      "filename": "ref_clip_02.png",
+      "title": "Clip 02 (symptom / S2) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Inside the bisected 1961 Yale basement laboratory, the strapped learner mannequin sits behind the wooden partition wall beside the thirty-lever voltage generator desk. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; learner in 1960s white dress shirt and vest with leather straps across the forearms. Frozen opening moment: The learner pounds his fist against the dividing wall twice and slumps still. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S2"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_03",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "failure",
+      "scene_id": "S9",
+      "setting": "real_env",
+      "filename": "ref_clip_03.png",
+      "title": "Clip 03 (failure / S9) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In a bright 1961 Yale classroom, a chalkboard diagram shows the thirty-lever voltage generator box before fourteen student mannequins in tweed jackets. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie. Frozen opening moment: A student mannequin shakes his head. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S9"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_04",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "crisis",
+      "scene_id": "S5",
+      "setting": "real_env",
+      "filename": "ref_clip_04.png",
+      "title": "Clip 04 (crisis / S5) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): At the 1961 Yale laboratory desk, two unfolded paper slips reading Teacher lie beside the thirty-lever voltage generator box. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; experimenter in knee-length grey laboratory technician coat over a white collared shirt and narrow black tie. Frozen opening moment: The experimenter mannequin in a grey lab coat straps a metal contact to the teacher mannequin's wrist and flips the third forty-five-volt toggle switch down. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S5"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_05",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "pivot",
+      "scene_id": "S4",
+      "setting": "real_env",
+      "filename": "ref_clip_05.png",
+      "title": "Clip 05 (pivot / S4) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In the bright 1961 Yale basement laboratory, the teacher mannequin in a rolled-up white dress shirt sits before the thirty-lever voltage generator box. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; experimenter in knee-length grey laboratory technician coat over a white collared shirt and narrow black tie. Frozen opening moment: The experimenter mannequin thrusts his metal clipboard forward. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S4"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_06",
+      "clip_number": 6,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "step1",
+      "scene_id": "S6",
+      "setting": "real_env",
+      "filename": "ref_clip_06.png",
+      "title": "Clip 06 (step1 / S6) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In the 1961 Yale basement laboratory with the partition wall removed, the strapped learner mannequin sits in full view just feet from the thirty-lever voltage generator. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; learner in 1960s white dress shirt and vest with leather straps across the forearms. Frozen opening moment: The learner jerks against the leather wrist straps right in front of the desk. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S6"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_07",
+      "clip_number": 7,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "step2",
+      "scene_id": "S3",
+      "setting": "real_env",
+      "filename": "ref_clip_07.png",
+      "title": "Clip 07 (step2 / S3) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In the 1961 Yale basement laboratory, the learner mannequin sits right beside the thirty-lever voltage generator box next to a wired steel contact plate. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; learner in 1960s white dress shirt and vest with leather straps across the forearms. Frozen opening moment: The learner pulls his hand off the steel plate. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S3"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_learner",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_08",
+      "clip_number": 8,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "step3",
+      "scene_id": "S4",
+      "setting": "real_env",
+      "filename": "ref_clip_08.png",
+      "title": "Clip 08 (step3 / S4) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In the 1961 Yale basement laboratory, two peer teacher mannequins in white dress shirts sit beside the volunteer teacher mannequin before the thirty-lever voltage generator. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; experimenter in knee-length grey laboratory technician coat over a white collared shirt and narrow black tie. Frozen opening moment: Both peer teachers slam their notebooks shut. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S4"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_09",
+      "clip_number": 9,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "breakthrough",
+      "scene_id": "S8",
+      "setting": "real_env",
+      "filename": "ref_clip_09.png",
+      "title": "Clip 09 (breakthrough / S8) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In a bright modern psychology room, a teacher mannequin in a button-down shirt sits before the thirty-lever voltage generator at the one-hundred-fifty-volt mark. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie. Frozen opening moment: The teacher presses the tenth toggle switch down. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S8"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_10",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "conclusion",
+      "scene_id": "S10",
+      "setting": "real_env",
+      "filename": "ref_clip_10.png",
+      "title": "Clip 10 (conclusion / S10) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In the bright 1961 Yale basement laboratory, the thirty-lever voltage generator box sits silent on the wooden desk beside the grey-coated experimenter mannequin. Every person is an articulated matte-white porcelain mannequin, same design in every shot: teacher in 1960s white button-down dress shirt with sleeves rolled to the elbows and loosened dark tie; experimenter in knee-length grey laboratory technician coat over a white collared shirt and narrow black tie. Frozen opening moment: The volunteer teacher mannequin in a rolled-up white dress shirt pushes his chair back. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S10"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_teacher",
+        "ref_cast_experimenter",
+        "ref_prop_hero"
+      ]
+    }
+  ]
+}

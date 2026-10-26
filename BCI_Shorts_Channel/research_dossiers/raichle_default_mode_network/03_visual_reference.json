@@ -1,0 +1,212 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Marcus Raichle inspecting the 2001 St. Louis PET console showing midline Default Mode hubs roaring at 'Rest' alongside the 20%-body-energy bar",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2001, Mallinckrodt Institute of Radiology, Washington University in St. Louis",
+      "layout": {
+        "description": "Sunlit 2001 neuroimaging laboratory with a dual-display workstation showing crisp sagittal midline brain maps (medial prefrontal & posterior cingulate hubs active at quiet rest, dipping during external word generation) beside a striking '2% Body Mass = 20% Body Energy (<5% Task Increment)' placard.",
+        "positions": [
+          {
+            "who": "Marcus Raichle (mannequin in crisp white physician coat over shirt and tie)",
+            "where": "standing at the workstation pointing to the glowing midline sagittal hubs in the 'Quiet Eyes-Closed Rest' panel that everyone else had thrown away as baseline noise",
+            "facing": "facing the dual monitors"
+          },
+          {
+            "who": "Debra Gusnard / Gordon Shulman (mannequin in 2001 tailored blazer)",
+            "where": "comparing 9 stacked study transparent overlays that all dip in the exact same midline coordinates the second a task starts",
+            "facing": "at the light desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "9-study transparent overlay stack",
+          "period_detail": "clear acetate brain sheets aligning identical midline task-induced decreases across 132 subjects",
+          "physical_behavior": "shows how 'negative noise' turned into a universal network"
+        },
+        {
+          "name": "sagittal midline Default Mode map",
+          "period_detail": "clean architectural sagittal view highlighting medial prefrontal and posterior cingulate hubs",
+          "physical_behavior": "makes the core midline axis unmistakable"
+        },
+        {
+          "name": "95% Intrinsic vs <5% Task Energy column model",
+          "period_detail": "tall white cylindrical metabolic bar with only a tiny 5% cap on top for 'Hard Math Task'",
+          "physical_behavior": "busts the 'idle resting brain' and '10% brain' myths instantly"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Colleague mannequin",
+          "verb_sequence": "stacks all nine transparent study sheets onto the lightbox revealing the exact same midline pattern"
+        },
+        {
+          "who": "Marcus Raichle",
+          "verb_sequence": "points from the 'Eyes-Closed Rest' equilibrium map to the giant 95% Intrinsic Energy column"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Marcus Raichle",
+          "reaction": "smiles realizing 'doing nothing' is actually the brain's massive main job"
+        },
+        {
+          "who": "Colleague mannequin",
+          "reaction": "labels the new circuit 'A Default Mode of Brain Function'"
+        }
+      ],
+      "wardrobe": "2001 St. Louis academic medicine attire: crisp white physician coat, blue Oxford shirt, patterned tie; dark tailored blazer.",
+      "lighting": "Clean high-key radiology reading-room daylight.",
+      "recognition_hook": "Scientists threw away 'resting' brain data as blank noise for a decade — until Marcus Raichle checked the trash folder and found a network burning nearly twenty percent of your body's fuel.",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "two 2001 neuroimaging researchers in a bright St. Louis lab stacking nine transparent brain overlays beside a sagittal Default Mode monitor and a '95% Intrinsic vs <5% Task Energy' column",
+        "must_show": [
+          "monitor|screen|map",
+          "column|bar|chart",
+          "overlays|desk"
+        ],
+        "source": "M1@00:08-00:15; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "See-saw toggle vs Creative Coupling with Executive Cortex",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2015, modern network neuroscience lab",
+      "layout": {
+        "description": "Bright display comparing focused spreadsheet crunching (Executive UP / DMN DOWN) against creative story/architecture design (Executive + DMN COUPLED).",
+        "positions": [
+          {
+            "who": "Network Neuroscientist mannequin",
+            "where": "pointing to the cooperative bridge linking DMN imagination with prefrontal evaluation during creative design",
+            "facing": "at display"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "two-mode network diagram ('External Focus' vs 'Creative Coupling')",
+          "period_detail": "updates 2000s 'task-negative' oversimplification",
+          "physical_behavior": "shows DMN + Executive teamwork"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Network Neuroscientist mannequin",
+          "verb_sequence": "switches display from pure math drill to creative architecture planning -> both networks link up"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Graduate student mannequin",
+          "reaction": "sees why daydreaming isn't the enemy when edited well"
+        }
+      ],
+      "wardrobe": "Modern blazer and shirt.",
+      "lighting": "Bright modern lab light.",
+      "recognition_hook": "The Default Mode Network isn't 'lazy' — during creative breakthroughs it teams straight up with your executive planner.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Train-window reflection vs non-stop phone micro-interruptions",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern commuter train",
+      "layout": {
+        "description": "Sunlit passenger train window with two seats: one commuter scrolling frantically through tiny 3-second clips, the other looking peacefully out at passing trees with a notebook open.",
+        "positions": [
+          {
+            "who": "Reflective Commuter mannequin",
+            "where": "gazing calmly out the sunlit window, then jotting a sudden life/project insight into a small notebook",
+            "facing": "by train window"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "pocket notebook with fresh connected idea",
+          "period_detail": "product of 10 minutes of uncrowded DMN consolidation",
+          "physical_behavior": "contrasts against fragmented feed noise"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Reflective Commuter mannequin",
+          "verb_sequence": "lets gaze rest on sunlit landscape -> connects two distant project ideas -> writes crisp solution"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Reflective Commuter mannequin",
+          "reaction": "arrives mentally refreshed and clear"
+        }
+      ],
+      "wardrobe": "Modern casual coat and scarf.",
+      "lighting": "Warm morning train-window sunlight.",
+      "recognition_hook": "Stealing every quiet 90-second gap with a phone feed starves the exact network that stitches your memories into wisdom.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Leaving a phone-free 15-minute afternoon walk for 'shower insights'",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit campus courtyard",
+      "layout": {
+        "description": "Bright tree-lined walkway where a researcher strolls unhurriedly with hands in coat pockets, letting the morning's hard reading settle.",
+        "positions": [
+          {
+            "who": "Researcher mannequin",
+            "where": "strolling calmly in open daylight without earbuds or screen",
+            "facing": "along courtyard path"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "phone left charging back on office desk",
+          "period_detail": "deliberate whitespace for DMN memory integration",
+          "physical_behavior": "unlocks creative synthesis"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Researcher mannequin",
+          "verb_sequence": "leaves phone on desk -> takes 15-minute sunlit walk -> returns with clear outline"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researcher mannequin",
+          "reaction": "sits down to write effortlessly"
+        }
+      ],
+      "wardrobe": "Smart-casual blazer and chinos.",
+      "lighting": "Crisp sunlit courtyard daylight.",
+      "recognition_hook": "Hard focus loads the puzzle pieces; quiet phone-free walks let your Default Mode Network click them together.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

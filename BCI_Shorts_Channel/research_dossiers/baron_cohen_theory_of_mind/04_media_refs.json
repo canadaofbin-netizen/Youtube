@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Theory of mind Smarties task and Sally Anne",
+      "url": "https://www.youtube.com/watch?v=zfvSqwqx_sI",
+      "channel": "Arne Vlietinck",
+      "source_id": "SRC_M1",
+      "duration_sec": 63,
+      "timecodes": [
+        {
+          "t": "00:08-00:21",
+          "what": "4:3 camera frame at kf_004.jpg (16.5s) paired with transcript segment \"Sally comes in with her marble. Sally puts her marble into the basket and goes out.\", introducing core background on tabletop Sally-Anne puppet stage as Anne moves the glass marble from the round wicker basket into the closed rectangular box."
+        },
+        {
+          "t": "00:22-00:38",
+          "what": "Around kf_006.jpg (27.5s) (lecture slide / diagram frame), transcript records \"Anne comes and gets the marble. And she puts the marble in the box. Here comes Sally.\", examining procedural mechanics and evidence in Baron-Cohen, Leslie & Frith's 1985 'Sally-Anne' false-belief puppet experiment."
+        },
+        {
+          "t": "00:43-00:47",
+          "what": "At kf_009.jpg (44.0s) (lecture slide / diagram frame), speaker remarks \"Now.\", addressing theoretical interpretation and downstream implications of Baron-Cohen, Leslie & Frith's 1985 'Sally-Anne' false-belief puppet experiment."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_baron_cohen_theory_of_mind/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_baron_cohen_theory_of_mind",
+        "contact_sheet": "media/M1_baron_cohen_theory_of_mind/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1_baron_cohen_theory_of_mind/contact_sheet.jpg (recorded lecture combining speaker commentary with 6/12 diagram/slide frames (480x360, sampled across 0.0s–60.5s)) from Arne Vlietinck's \"Theory of mind Smarties task and Sally Anne\" (63s total runtime).",
+          "Deduplicated English transcript (6 timestamped cues in media/M1_baron_cohen_theory_of_mind/transcript.txt) aligned directly to keyframe timestamps (0.0s–60.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "Autism, Sex and Science: Simon Baron-Cohen at TEDxKingsCollegeLondon",
+      "url": "https://www.youtube.com/watch?v=eEYy1GXaNNY",
+      "channel": "TEDx Talks",
+      "source_id": "SRC_M2",
+      "duration_sec": 702,
+      "timecodes": [
+        {
+          "t": "00:15-00:23",
+          "what": "At kf_004.jpg (15.0s) (dark-backdrop stage / studio camera frame), TEDx Talks's recording states \"what are the links between Autism science and your\" — providing spoken context for tabletop Sally-Anne puppet stage as Anne moves the glass marble from the round wicker basket into the closed rectangular box."
+        },
+        {
+          "t": "00:24-00:31",
+          "what": "Mid-segment dark-backdrop stage / studio camera frame at kf_006.jpg (25.0s) as narration explains \"sex this child might be able to help us answer this question he has autism which is a condition where people struggle to\", clarifying key empirical findings in Baron-Cohen, Leslie & Frith's 1985 'Sally-Anne' false-belief puppet experiment."
+        },
+        {
+          "t": "00:46-00:54",
+          "what": "Around kf_011.jpg (50.0s) (dark-backdrop stage / studio camera frame), commentary states \"with water and he's obsessed with the patterns that the tiny water droplets make as he blocks the flow of water with\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (live-action speaker/interview recording intercut with 1 visual slide frames (480x270, sampled across 0.0s–65.0s)) from TEDx Talks's \"Autism, Sex and Science: Simon Baron-Cohen at TEDxKingsCollegeLondon\" (702s total runtime).",
+          "Deduplicated English transcript (32 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Professor Simon Baron-Cohen.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Professor_Simon_Baron-Cohen.jpg",
+      "channel": "Wikimedia Commons (Andy Miah)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Professor Simon Baron-Cohen.jpg\" (1570x1600 px, CC BY-SA 2.0): Cheltenham Science Festival, 2011. Documents authentic researcher likeness, period attire, and historical context for Baron-Cohen, Leslie & Frith's 1985 'Sally-Anne' false-belief puppet experiment."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 2.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (1570x1600 px, CC BY-SA 2.0, Andy Miah) — portrait reference: Cheltenham Science Festival, 2011.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

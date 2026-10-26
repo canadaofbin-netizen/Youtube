@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Bernard Baars Talk at the Center for the Future Mind",
+      "url": "https://www.youtube.com/watch?v=ykv5EA1-aJU",
+      "channel": "Center for the Future of AI, Mind & Society",
+      "source_id": "SRC_M1",
+      "duration_sec": 7533,
+      "timecodes": [
+        {
+          "t": "61:20-61:35",
+          "what": "Around kf_004.jpg (3689.8s) (lecture slide / diagram frame), speaker commentary notes \"what happens at area i t or mtl or both is an explosion uh an ignition uh what they call an ignition i called it a broadcast in the 80s and\", anchoring the research context of Bernard Baars demonstrating the Global Workspace blackboard/stage diagram beside a binocular-rivalry stereoscope."
+        },
+        {
+          "t": "61:36-61:42",
+          "what": "At kf_005.jpg (3696.1s) (lecture slide / diagram frame), audio continues with \"uh what they call an ignition i called it a broadcast in the 80s and 90s when i was talking about this because i was working off certain what i...\", detailing experimental methodology and behavioral observations for Bernard J. Baars's contrastive analysis of conscious vs unconscious processing ('Global Workspace Theory')."
+        },
+        {
+          "t": "62:31-62:39",
+          "what": "Later lecture slide / diagram frame at kf_014.jpg (3753.0s) accompanied by \"and a lot of other people get there first which is perfectly good and what we know now from very high resolution recordings in the brain again...\", summarizing mechanism and boundary conditions in Bernard J. Baars's contrastive analysis of conscious vs unconscious processing ('Global Workspace Theory')."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (recorded lecture combining speaker commentary with 14/14 diagram/slide frames (640x360, sampled across 3670.8s–3753.0s)) from Center for the Future of AI, Mind & Society's \"Bernard Baars Talk at the Center for the Future Mind\" (7533s total runtime).",
+          "Deduplicated English transcript (19 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (3670.8s–3753.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "interview",
+      "title": "Coming Out of the Dark Ages: Dr. Bernard Baars",
+      "url": "https://www.youtube.com/watch?v=KLwpe3siKZk",
+      "channel": "Love and Intelligence",
+      "source_id": "SRC_M2",
+      "duration_sec": 141,
+      "timecodes": [
+        {
+          "t": "00:14-00:24",
+          "what": "Widescreen camera frame at kf_002.jpg (17.1s) paired with transcript segment \"sexuality is actually one of the topics that is not sufficiently discussed in consciousness studies I don't know very much that many many studies...\", introducing core background on Bernard Baars demonstrating the Global Workspace blackboard/stage diagram beside a binocular-rivalry stereoscope."
+        },
+        {
+          "t": "00:30-00:43",
+          "what": "Around kf_005.jpg (36.1s) (widescreen camera frame), transcript records \"are coming out of a dark age in the scientific study of consciousness because for decades nobody studied consciousness directly so here coming out...\", examining procedural mechanics and evidence in Bernard J. Baars's contrastive analysis of conscious vs unconscious processing ('Global Workspace Theory')."
+        },
+        {
+          "t": "01:12-01:25",
+          "what": "At kf_012.jpg (80.4s) (widescreen camera frame), speaker remarks \"it's not one thing it's a whole bunch of things now at one level people don't have to be convinced that sexuality is a source of enormous...\", addressing theoretical interpretation and downstream implications of Bernard J. Baars's contrastive analysis of conscious vs unconscious processing ('Global Workspace Theory')."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (640x360, 14 frames sampled across 10.8s–93.0s)) from Love and Intelligence's \"Coming Out of the Dark Ages: Dr. Bernard Baars\" (141s total runtime).",
+          "Deduplicated English transcript (16 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (10.8s–93.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "MEG UCHSC.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:MEG_UCHSC.jpg",
+      "channel": "Wikimedia Commons (Katie Youngpeter.)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"MEG UCHSC.jpg\" (700x933 px, CC BY-SA 3.0): This is the magnetoencephalograph owned by the University of Colorado. The photo was taken at the University of Colorado Health Sciences Center (9th Ave. campus) shortly before the machine was taken d. Documents the real institutional setting and architectural era associated with Bernard J. Baars's contrastive analysis of conscious vs unconscious processing ('Global Workspace Theory')."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 3.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (700x933 px, CC BY-SA 3.0, Katie Youngpeter.) — architecture reference: This is the magnetoencephalograph owned by the University of Colorado. The photo was taken at the University of Colorado Health Sciences Center (9th Ave. campus) shortly before the machine was taken d.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

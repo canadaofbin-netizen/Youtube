@@ -1,0 +1,212 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Aaron Beck and patient mapping a split-second automatic thought onto a two-column consulting-room notepad",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1963, University of Pennsylvania psychiatric consulting office, Philadelphia",
+      "layout": {
+        "description": "Sunlit 1963 wood-and-bookcase university consulting office where Beck moved the chair away from the psychoanalytic couch so doctor and patient sit face-to-face across a warm walnut desk over a two-column lined legal pad.",
+        "positions": [
+          {
+            "who": "Aaron T. Beck (mannequin in 1960s tweed sport coat, white shirt, and bow tie)",
+            "where": "seated across the walnut desk leaning forward collaboratively with a fountain pen over a divided legal pad",
+            "facing": "facing the patient"
+          },
+          {
+            "who": "Patient mannequin (in 1960s wool cardigan and collared shirt)",
+            "where": "seated upright in the armchair opposite the empty leather couch, pointing to the left column where the sudden automatic thought was just written",
+            "facing": "facing the legal pad"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "empty psychoanalytic couch in background",
+          "period_detail": "classic tufted leather couch sitting unused against the bookshelf wall",
+          "physical_behavior": "marks the historic shift from free-association couch to face-to-face empirical testing"
+        },
+        {
+          "name": "two-column lined legal pad",
+          "period_detail": "yellow 1960s legal pad ruled down the middle into 'Automatic Thought' on the left and 'Objective Evidence' on the right",
+          "physical_behavior": "fills with concrete counter-evidence in the right column"
+        },
+        {
+          "name": "cognitive triad triangle sketch",
+          "period_detail": "clean index card showing a triangle labeled Self — World — Future",
+          "physical_behavior": "sits beside the legal pad"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient mannequin",
+          "verb_sequence": "slumps shoulders recalling a silent hallway snub -> pauses as Beck slides the legal pad forward -> points as the hidden sentence goes down in the left column"
+        },
+        {
+          "who": "Aaron T. Beck",
+          "verb_sequence": "draws a vertical line down the page -> writes three factual counter-examples in the right column"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Patient mannequin",
+          "reaction": "straightens posture visibly as the unexamined doom sentence shrinks beside real evidence"
+        },
+        {
+          "who": "Aaron T. Beck",
+          "reaction": "nods warmly in collaborative discovery"
+        }
+      ],
+      "wardrobe": "Beck: 1963 tweed jacket, crisp white shirt, classic bow tie. Patient: early-1960s knit cardigan over buttoned shirt and slacks.",
+      "lighting": "Warm, high-key afternoon window daylight across walnut desk, books, and yellow legal pad.",
+      "recognition_hook": "Leaving the Freudian couch empty behind them, Aaron Beck draws a single line down a notepad to test a patient's split-second 'automatic thought' against real facts.",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1960s psychiatrist in a bow tie and tweed jacket sitting face-to-face with a patient across a walnut desk writing on a two-column pad in front of an unused couch",
+        "must_show": [
+          "pad|paper|notebook",
+          "desk",
+          "couch|chair"
+        ],
+        "source": "M1@00:04-00:18; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Hallway pass-by triggering an arbitrary inference",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1963, office corridor",
+      "layout": {
+        "description": "Bright office corridor where a hurried colleague checks a wristwatch and walks past without waving.",
+        "positions": [
+          {
+            "who": "Patient mannequin",
+            "where": "standing by the hallway wall watching a hurried coworker rush past looking at a wristwatch",
+            "facing": "watching the corridor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "colleague's wristwatch & stack of files",
+          "period_detail": "visible cue showing the coworker is simply late for a meeting",
+          "physical_behavior": "missed entirely by selective negative interpretation"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Hurried colleague",
+          "verb_sequence": "glances at wristwatch and rushes down hall -> Patient mannequin freezes and lowers gaze"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Patient mannequin",
+          "reaction": "interprets ordinary haste as personal rejection"
+        }
+      ],
+      "wardrobe": "1960s office shirts and blazers.",
+      "lighting": "Bright corridor daylight.",
+      "recognition_hook": "A coworker rushing late to a meeting becomes 'everyone thinks I'm incompetent' in half a second.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Comparing 50 depressed vs 31 control interview folders",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1963, University of Pennsylvania office",
+      "layout": {
+        "description": "Desk stacked neatly with two labeled groups of manila clinical transcript folders (50 vs 31).",
+        "positions": [
+          {
+            "who": "Aaron T. Beck",
+            "where": "highlighting recurring distortion patterns across open transcript pages",
+            "facing": "facing the folders"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "manila case transcript folders",
+          "period_detail": "typed 1960s verbatim session sheets",
+          "physical_behavior": "reveal arbitrary inference and overgeneralization across all 50 depressed records"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Aaron T. Beck",
+          "verb_sequence": "circles matching Self-World-Future phrases across separate patient transcripts"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Aaron T. Beck",
+          "reaction": "sets aside the disproven Freudian hostility tally sheet"
+        }
+      ],
+      "wardrobe": "1963 tweed coat and bow tie.",
+      "lighting": "High-key study light.",
+      "recognition_hook": "Fifty patient transcripts disproved Beck's own Freudian hypothesis and exposed five repeatable thinking traps.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Modern two-column notebook check after an unanswered text",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern café table",
+      "layout": {
+        "description": "Sunlit café table with a pocket notebook open beside a silent smartphone.",
+        "positions": [
+          {
+            "who": "Young adult mannequin",
+            "where": "writing 'Guess vs Fact' in a small pocket notebook",
+            "facing": "facing notebook"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "pocket notebook and pen",
+          "period_detail": "two crisp columns separating 'They hate me' from 'They are in Tuesday lab until 5'",
+          "physical_behavior": "defuses anxiety in sixty seconds"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Young adult mannequin",
+          "verb_sequence": "jots three realistic reasons a friend hasn't texted back -> sets pen down calmly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Young adult mannequin",
+          "reaction": "relaxes shoulders and returns to reading"
+        }
+      ],
+      "wardrobe": "Modern casual jacket.",
+      "lighting": "Bright morning café light.",
+      "recognition_hook": "Putting a scary guess on paper beside three boring alternative explanations activates your prefrontal auditor.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

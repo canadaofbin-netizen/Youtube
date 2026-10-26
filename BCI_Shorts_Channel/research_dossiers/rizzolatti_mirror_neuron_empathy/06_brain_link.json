@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "pivot",
+      "region": "premotor cortex",
+      "plain": "action-goal mirror hub (ventral premotor F5)",
+      "function": "firing the exact same goal-specific burst when watching a precision pinch on a raisin as when executing that pinch",
+      "scene_id": "S1",
+      "narration_bridge": "Captures Rizzolatti's 1992 loudspeaker discovery in ventral premotor cortex."
+    },
+    {
+      "role": "step1",
+      "region": "parietal cortex",
+      "plain": "inferior parietal action partner",
+      "function": "routing visual hand-to-object geometry forward into premotor goal templates",
+      "scene_id": "S1",
+      "narration_bridge": "Links visual grasp observation along the frontoparietal mirror circuit."
+    },
+    {
+      "role": "step2",
+      "region": "temporal lobe",
+      "plain": "conceptual action meaning hub",
+      "function": "understanding what an action means even when premotor simulation is blocked or absent",
+      "scene_id": "S3",
+      "narration_bridge": "Incorporates Hickok's crucial correction separating conceptual understanding from motor resonance."
+    }
+  ]
+}

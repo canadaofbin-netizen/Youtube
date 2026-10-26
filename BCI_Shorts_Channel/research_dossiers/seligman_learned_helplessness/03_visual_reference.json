@@ -1,0 +1,213 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Two-compartment shuttle box with low center hurdle where the Escapable porcelain dog hops cleanly across while the Yoked case lies still",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1967, University of Pennsylvania behavioral psychology laboratory, Philadelphia",
+      "layout": {
+        "description": "High-key 1967 university laboratory showing a clean two-compartment acrylic-and-wood shuttle box divided down the middle by a low shoulder-high barrier with an overhead signal lamp indicating the safe right side.",
+        "positions": [
+          {
+            "who": "Articulated matte-white porcelain dog sculpture (Escapable Group 1)",
+            "where": "bounding effortlessly in a clean arc over the low wooden center hurdle into the brightly lit safe right compartment",
+            "facing": "leaping from left to right"
+          },
+          {
+            "who": "Martin Seligman & Steven Maier (mannequins in 1967 collared shirts, ties, and white lab coats)",
+            "where": "standing beside the triadic yoked circuit diagram comparing the 90% escape curve against the 67% passive tally",
+            "facing": "observing the shuttle box"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "two-sided shuttle box with low center barrier",
+          "period_detail": "clean white-and-oak test chamber split by an easily stepped-over 15-inch divider",
+          "physical_behavior": "overhead lamp switches off the instant the porcelain sculpture clears the low hurdle"
+        },
+        {
+          "name": "triadic yoked nose-panel console",
+          "period_detail": "side bench showing two identical circular nose panels — Panel A wired LIVE and Panel B wired YOKED (passive)",
+          "physical_behavior": "proves both groups received identical timing the day before"
+        },
+        {
+          "name": "escape latency tally chart",
+          "period_detail": "1967 clipboard graph contrasting Group 1 (fast jump) vs Group 2 (two-thirds failure to cross)",
+          "physical_behavior": "documents that control, not stress duration, governs action"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Warning tone lamp",
+          "verb_sequence": "illuminates on the left side -> Porcelain dog sculpture from Group 1 steps up and bounds cleanly over the low center barrier -> lamp clicks off in two seconds"
+        },
+        {
+          "who": "Steven Maier",
+          "verb_sequence": "traces the wire from Live Panel A to Yoked Panel B on the benchtop console"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Porcelain dog sculpture",
+          "reaction": "stands alert and calm in the safe right compartment"
+        },
+        {
+          "who": "Martin Seligman",
+          "reaction": "circles the stark behavioral split created by a single working off-switch"
+        }
+      ],
+      "wardrobe": "1967 researchers in crisp white cotton lab coats over Oxford shirts and narrow ties; animal subject strictly rendered as a clean articulated matte-white porcelain dog sculpture.",
+      "lighting": "Bright high-key clinical laboratory daylight.",
+      "recognition_hook": "Given the exact same stress duration down to the millisecond the day before, the animal whose button worked leaps the low hurdle in two seconds while its yoked partner never even tries.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "an articulated matte-white porcelain dog leaping cleanly over a low center divider inside a two-compartment 1967 shuttle box beside two lab-coated researchers and a yoked panel console",
+        "must_show": [
+          "hurdle|barrier|divider",
+          "dog",
+          "box|chamber"
+        ],
+        "source": "M1@00:00-00:04; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Yoked twin nose panels: identical clock, opposite control",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1967, University of Pennsylvania laboratory",
+      "layout": {
+        "description": "Close tabletop view of two side-by-side circular response panels wired through a shared timer relay.",
+        "positions": [
+          {
+            "who": "Steven Maier",
+            "where": "demonstrating how pressing Panel A stops both timers simultaneously while pressing Panel B changes nothing",
+            "facing": "facing the console"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "shared electromechanical relay timer",
+          "period_detail": "single clock feeding two chambers identically",
+          "physical_behavior": "eliminates physical duration as an explanation"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Steven Maier",
+          "verb_sequence": "presses Live Panel A stopping the clock -> presses Dead Panel B showing the clock keeps running"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Martin Seligman",
+          "reaction": "records identical cumulative seconds on both counters"
+        }
+      ],
+      "wardrobe": "1967 white lab coats.",
+      "lighting": "High-key benchtop light.",
+      "recognition_hook": "Wiring both chambers to the exact same clock proved helplessness came from zero control, not extra hardship.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "2016 Boulder neuroscience reversal: vmPFC braking the brainstem",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2016, University of Colorado Boulder neuroscience office",
+      "layout": {
+        "description": "Modern sunlit office whiteboard displaying TWO circuit diagrams: '1967 Assumption (Learned Passivity)' crossed out beside '2016 Discovery (Learned vmPFC Control Braking Dorsal Raphe)'.",
+        "positions": [
+          {
+            "who": "Older Steven Maier & Martin Seligman mannequins",
+            "where": "standing side-by-side tapping the green inhibitory arrow from vmPFC down to brainstem raphe",
+            "facing": "facing whiteboard"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "50-year circuit comparison board",
+          "period_detail": "clean schematic contrasting 1967 vs 2016",
+          "physical_behavior": "highlights one of psychology's rarest self-reversals"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Steven Maier",
+          "verb_sequence": "draws a bold top-down brake arrow from prefrontal cortex to brainstem raphe"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Martin Seligman",
+          "reaction": "nods warmly embracing the fifty-year correction"
+        }
+      ],
+      "wardrobe": "Modern tailored blazers and open-collar shirts.",
+      "lighting": "Bright Colorado window daylight.",
+      "recognition_hook": "Fifty years later, the original authors proved passivity is the brainstem default — CONTROL is what the frontal lobe learns.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Rebuilding agency with a concrete 5-minute controllable win",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern study/work desk",
+      "layout": {
+        "description": "Sunlit desk where an overwhelmed worker sets aside a massive uncontrollable binder and checks off three concrete 5-minute action cards.",
+        "positions": [
+          {
+            "who": "Worker mannequin",
+            "where": "sliding a crisp completed card into a 'Done' tray",
+            "facing": "facing desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "three small 'In My Control' index cards",
+          "period_detail": "tangible micro-actions with immediate visible feedback",
+          "physical_behavior": "re-engages prefrontal mastery braking"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Worker mannequin",
+          "verb_sequence": "completes first 5-minute action -> checks card -> stands up energized for the next step"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Worker mannequin",
+          "reaction": "posture lifts out of freeze mode"
+        }
+      ],
+      "wardrobe": "Modern knit sweater.",
+      "lighting": "Bright natural morning light.",
+      "recognition_hook": "One small action-to-outcome win switches your prefrontal mastery brake back online.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

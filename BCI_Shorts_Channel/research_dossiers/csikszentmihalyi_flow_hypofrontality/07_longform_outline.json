@@ -1,0 +1,105 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Random beeper diaries + fMRI scans prove peak 'flow' doesn't max out 100% of your brain — it quietly mutes your self-critical inner narrator.",
+    "core_experiment": "Csikszentmihalyi's Experience Sampling 'Flow Channel' (challenge matching skill, 3x more flow in craft than TV) + Dietrich's 2004 Transient Hypofrontality.",
+    "twist": "Jazz improvisation scans (Limb 2008) and modern network guardrails: medial ego-chatter drops while dorsal focus + basal ganglia lock in."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Pager Surprise: Why Work Beat Couch TV 3-to-1",
+      "beats": [
+        "8 random beeps a day",
+        "Anxiety cliff vs Boredom valley",
+        "The narrow diagonal Flow Channel"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "Flow Channel board & ESM pager"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "2004: Why '100% Brain Power' Was Backwards",
+      "beats": [
+        "Dietrich's Transient Hypofrontality",
+        "Silencing the medial prefrontal inner critic & timekeeper",
+        "Why overthinking makes athletes 'choke'"
+      ],
+      "scene_ids": [
+        "S1",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "jazz keyboard fMRI medial dimming"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "What Stays On vs What Turns Down",
+      "beats": [
+        "Medial ego-chatter OFF, dorsal task-lock + basal ganglia ON",
+        "Why novices must build skill first"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step1",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "network synchrony schematic"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Replications, Critiques & Real-World Boundaries",
+      "beats": [
+        "Flow means 'unlocking 100% of your brain's neurons firing at max wattage'. — Metabolic brain budgets are strictly finite; flow gains efficiency by selectively quieting self-referential me",
+        "Complete beginners can drop into effortless hypofrontal flow on a skill they have never practiced. — Dietrich emphasized flow relies on well-honed implicit basal-ganglia / sensorimotor routines; without foundati",
+        "Transient hypofrontality means the entire frontal lobe goes completely dark like sleep. to Modern fMRI refinements (Ulrich; network models) show medial self-criticism drops while dorsal task-attention"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2"
+      ],
+      "new_shots_needed": [
+        "comparative replication table card on wooden desk"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Three Switches to Enter Flow Tonight",
+      "beats": [
+        "Clear 45-min goal, instant feedback, +8% stretch",
+        "Trading numb scrolling for absorbed craft"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "sunlit workbench 45-min sprint"
+      ]
+    }
+  ]
+}

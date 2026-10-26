@@ -1,0 +1,103 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Taking calm field notes in a hospital dayroom gets charted as 'pathological writing behavior' under a sticky intake label.",
+    "core_experiment": "Rosenhan's 1973 Science report (19-day stays, 'in remission' tags, Study 2's 41/0 reverse challenge) + DSM-III reform.",
+    "twist": "Susannah Cahalan's 2019 archival bombshell: verified Bill Underwood alongside omitted ninth case Harry Lando and record gaps."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "'Empty, Hollow, Thud' at the Intake Desk",
+      "beats": [
+        "1972 unstructured diagnosis problem",
+        "Stopping all symptoms on the ward",
+        "'Writing behavior' & 'oral-acquisitive' lunch waiting"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "nurse charting behind glass partition"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Spotted by Patients, Missed by Charts",
+      "beats": [
+        "35 ward patients guess 'you're a professor!'",
+        "Discharged 'in remission', never simply 'healthy'",
+        "Study 2: 41 false flags when zero were sent"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "41 flagged forms vs 0 sent"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Spitzer's Rebuttal and the Birth of DSM-III",
+      "beats": [
+        "Why faking chest pain or voices triggers caution",
+        "Fixing reliability with explicit operational checklists"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "DSM-II prose vs DSM-III checklist"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "2019: Inside Rosenhan's Locked Filing Cabinet",
+      "beats": [
+        "Cahalan verifies Bill Underwood",
+        "Uncovering omitted optimist Harry Lando & missing files",
+        "Why open data protects science from good stories"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "archival folders side-by-side"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Peeling Off Sticky Labels in Everyday Life",
+      "beats": [
+        "Evaluating raw work before reading old gossip",
+        "Confirmation bias hygiene"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "blind work-sample review"
+      ]
+    }
+  ]
+}

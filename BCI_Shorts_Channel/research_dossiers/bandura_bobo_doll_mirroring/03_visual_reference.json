@@ -1,0 +1,223 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Preschooler mannequin lifting the wooden mallet toward the 3-foot weighted Bobo doll behind a one-way nursery mirror",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1961, Stanford University Nursery School playroom, California",
+      "layout": {
+        "description": "Bright sunlit 1961 nursery playroom with linoleum flooring, a child-sized wooden art table in the corner, a weighted inflatable clown-patterned Bobo rebound doll standing upright in the center, a small wooden peg-board mallet, and a wide one-way observation mirror along the wall.",
+        "positions": [
+          {
+            "who": "Preschooler mannequin (child-proportioned matte-white mannequin in 1961 striped polo shirt and shorts)",
+            "where": "standing beside the weighted Bobo doll raising a small wooden mallet in the exact posture demonstrated ten minutes earlier",
+            "facing": "facing the upright Bobo doll"
+          },
+          {
+            "who": "Two blind raters & Albert Bandura (mannequins in 1961 collared shirts and blazers)",
+            "where": "visible through the adjacent observation booth behind the one-way glass holding 5-second interval clipboards",
+            "facing": "watching the playroom"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "weighted inflatable Bobo rebound doll",
+          "period_detail": "3-foot vinyl weighted-base clown figure with painted smile that rocks backward and pops upright again",
+          "physical_behavior": "tilts back sharply under the wooden mallet tap and rebounds upright"
+        },
+        {
+          "name": "wooden nursery peg mallet",
+          "period_detail": "smooth light-wood child's toy mallet borrowed from the peg-board table",
+          "physical_behavior": "lifted by the child in direct imitation of the adult model's script"
+        },
+        {
+          "name": "peaceful Tinkertoy set in corner",
+          "period_detail": "wooden spool-and-rod building kit sitting untouched on the side rug",
+          "physical_behavior": "ignored in the aggressive-model group while favored in the calm-model group"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Preschooler mannequin",
+          "verb_sequence": "walks past the Tinkertoy rug straight to the weighted Bobo doll -> pushes the doll sideways -> taps its painted nose with the wooden mallet in exact sequence"
+        },
+        {
+          "who": "Observation booth raters",
+          "verb_sequence": "check off imitative motor and verbal boxes every five seconds on their clipboards"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "weighted Bobo doll",
+          "reaction": "rocks smoothly back to upright equilibrium inviting the next imitated move"
+        },
+        {
+          "who": "Albert Bandura",
+          "reaction": "points to the clipboard tally showing double the aggressive acts with zero external reward"
+        }
+      ],
+      "wardrobe": "1961 California preschool attire: striped cotton polo shirt, pleated shorts, canvas sneakers; researchers in crisp early-1960s collared shirts, narrow ties, and sport coats.",
+      "lighting": "High-key California morning daylight filling the nursery playroom.",
+      "recognition_hook": "Ten minutes after watching an adult strike an inflatable Bobo doll, a preschooler picks up the exact same wooden mallet and reenacts every move without a single reward.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1961 preschooler mannequin in a sunny nursery playroom raising a wooden toy mallet toward a weighted inflatable Bobo rebound doll while researchers score behind a one-way glass window",
+        "must_show": [
+          "doll|bobo",
+          "mallet|hammer",
+          "mirror|window|playroom"
+        ],
+        "source": "M1@00:08-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Adult model demonstrating the 10-minute Bobo script vs calm Tinkertoys",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1961, Stanford Nursery Room 1",
+      "layout": {
+        "description": "Nursery room with a child seated at a small potato-stamp art table in one corner watching an adult mannequin interact with either a 5-foot Bobo doll or wooden Tinkertoys.",
+        "positions": [
+          {
+            "who": "Adult Model mannequin",
+            "where": "kneeling beside the 5-foot Bobo doll with the wooden mallet",
+            "facing": "facing the doll"
+          },
+          {
+            "who": "Preschooler mannequin",
+            "where": "seated at the corner art table watching every move wide-eyed",
+            "facing": "facing the adult"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "5-foot Bobo doll and potato-print table",
+          "period_detail": "tall weighted vinyl doll and corner craft table",
+          "physical_behavior": "holds the child's rapt visual attention for ten minutes"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Adult Model",
+          "verb_sequence": "strikes the 5-foot doll with the mallet and tosses it upward while the child watches silently"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Preschooler mannequin",
+          "reaction": "stops stamping paper shapes and memorizes the entire physical sequence"
+        }
+      ],
+      "wardrobe": "1961 slacks and collared shirt on adult; polo and shorts on child.",
+      "lighting": "Bright nursery daylight.",
+      "recognition_hook": "Seated quietly at an art table, the child absorbs ten minutes of adult choreography without a word of instruction.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Calm Tinkertoy model drops aggression below control baseline",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1961, Stanford Nursery Room 3",
+      "layout": {
+        "description": "Same test playroom where a child from the Tinkertoy group sits peacefully assembling wooden spools right past the untouched Bobo doll.",
+        "positions": [
+          {
+            "who": "Calm-group preschooler mannequin",
+            "where": "sitting cross-legged connecting wooden Tinkertoy rods peacefully",
+            "facing": "facing the toy construction"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "wooden Tinkertoy Ferris wheel",
+          "period_detail": "neatly assembled spool-and-stick structure beside an untouched Bobo doll",
+          "physical_behavior": "demonstrates contagious calm"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Calm-group preschooler mannequin",
+          "verb_sequence": "glances once at the Bobo doll -> turns calmly back to building wooden spools"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Rater behind glass",
+          "reaction": "logs aggression scores lower than children who saw no adult at all"
+        }
+      ],
+      "wardrobe": "1961 preschool cardigan and skirt/shorts.",
+      "lighting": "Bright nursery daylight.",
+      "recognition_hook": "Watching a quiet adult build Tinkertoys lowered aggression below the no-model control group.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Parent modeling calm breathing during a spilled-cup kitchen accident",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern family kitchen",
+      "layout": {
+        "description": "Sunlit modern kitchen island where water spills from a cup; the parent calmly grabs a towel and the young child immediately grabs a second napkin to help.",
+        "positions": [
+          {
+            "who": "Parent mannequin",
+            "where": "kneeling calmly wiping spilled water with a dish towel",
+            "facing": "facing counter"
+          },
+          {
+            "who": "Child mannequin",
+            "where": "copying the calm posture and placing a second towel down",
+            "facing": "facing parent"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "tipped plastic cup and cotton dish towels",
+          "period_detail": "everyday kitchen spill",
+          "physical_behavior": "handled calmly and imitated immediately"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Parent mannequin",
+          "verb_sequence": "exhales slowly and wipes the counter -> child mirrors the exact calm motion"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Child mannequin",
+          "reaction": "nods proudly having learned composure by sight"
+        }
+      ],
+      "wardrobe": "Casual modern home attire.",
+      "lighting": "Bright morning kitchen light.",
+      "recognition_hook": "Calm under pressure is absorbed through the eyes just as fast as anger.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

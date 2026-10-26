@@ -1,0 +1,213 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Trinity University student alone at a microphone and silver tap-bell ringing >6 times in 5 minutes while trying NOT to think of a white bear",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1987, Trinity University psychology booth, San Antonio, Texas",
+      "layout": {
+        "description": "Clean brightly lit 1987 individual recording room with plain cream walls, a wooden desk holding a silver tap-bell, a desktop stand microphone, a printed instruction card reading 'DO NOT THINK OF A WHITE BEAR — Ring Bell If It Occurs', and a white porcelain polar-bear figurine sitting outside in the experimenter's control window.",
+        "positions": [
+          {
+            "who": "Student Participant (mannequin in 1987 collegiate polo shirt and jeans)",
+            "where": "seated alone at the wooden desk pressing a palm down onto the silver tap-bell AGAIN with an exasperated head-shake while glancing desperately around the bare room walls",
+            "facing": "facing the microphone and bell"
+          },
+          {
+            "who": "Daniel Wegner (mannequin in 1987 Oxford shirt and glasses)",
+            "where": "standing outside the observation glass holding a tally counter showing a steep Period-2 Rebound spike (16+ rings)",
+            "facing": "watching the desk bell"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "chrome tabletop tap-bell",
+          "period_detail": "classic silver call bell centered beside the desk microphone",
+          "physical_behavior": "tapped >6 times during initial suppression and >16 times during the Period-2 rebound surge"
+        },
+        {
+          "name": "'DO NOT THINK OF A WHITE BEAR' instruction placard",
+          "period_detail": "crisp black-on-white 1987 printed card propped on the desk",
+          "physical_behavior": "every glance at the card re-primes the forbidden bear"
+        },
+        {
+          "name": "Period-1 vs Period-2 Rebound bar chart",
+          "period_detail": "researcher's clipboard chart showing Suppression-First Period 2 towering above Expression-First",
+          "physical_behavior": "captures the beach-ball rebound effect"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Student Participant",
+          "verb_sequence": "reads 'DO NOT THINK OF A WHITE BEAR' -> stares hard at the desk lamp and shoe trying to distract himself -> freezes and taps the silver bell AGAIN -> sighs and taps it a seventh time"
+        },
+        {
+          "who": "Daniel Wegner",
+          "verb_sequence": "flips the Period-2 sign to 'Express Freely' and watches bell taps surge past 16"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Student Participant",
+          "reaction": "laughs in disbelief at how fast 'Don't' summoned the exact forbidden thought"
+        },
+        {
+          "who": "Daniel Wegner",
+          "reaction": "notes how scanning random room objects turned the lamp and wall into bear triggers"
+        }
+      ],
+      "wardrobe": "1987 Texas collegiate wear: pastel cotton polo shirt, pleated jeans; researcher in crisp striped Oxford button-down and slacks.",
+      "lighting": "Bright high-key 1987 university booth daylight.",
+      "recognition_hook": "Seated alone with a microphone and a silver bell, students ordered NOT to picture a white bear ring the confession bell every forty-five seconds — then rebound forty percent higher afterward.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1987 college student at a wooden booth desk tapping a silver desk bell beside a stand microphone and a 'DO NOT THINK OF A WHITE BEAR' card",
+        "must_show": [
+          "bell",
+          "microphone|mic",
+          "card|desk"
+        ],
+        "source": "M1@01:08-01:22; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Young Tolstoy standing in the 1863 nursery corner",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1863, Russian country estate study room",
+      "layout": {
+        "description": "Sunlit 19th-century wooden study corner where a young boy mannequin stands facing two wainscot walls while his older brother grins behind him.",
+        "positions": [
+          {
+            "who": "Young Leo Tolstoy mannequin",
+            "where": "standing in the sunlit corner covering face in comic defeat",
+            "facing": "facing corner"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "carved white porcelain bear figurine on shelf",
+          "period_detail": "visual emblem of the older brother's impossible club rule",
+          "physical_behavior": "origin of Wegner's 1987 experiment"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Older brother mannequin",
+          "verb_sequence": "whispers the dare -> Young boy stands in corner unable to clear his mind"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Young boy mannequin",
+          "reaction": "turns around laughing after five helpless minutes"
+        }
+      ],
+      "wardrobe": "1860s linen tunic shirt and trousers.",
+      "lighting": "Warm morning window light.",
+      "recognition_hook": "Wait in this corner until you stop thinking of a white bear — Tolstoy's 1863 childhood dare became modern cognitive science.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Experiment 2 Cure: The Single 'Red Volkswagen' Anchor",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1987, Trinity University booth",
+      "layout": {
+        "description": "Same booth desk, now holding a crisp card reading 'If a white bear occurs, focus on ONE Red Volkswagen beetle' beside a small red die-cast model.",
+        "positions": [
+          {
+            "who": "Student Participant",
+            "where": "speaking calmly into the microphone with right hand resting relaxed BESIDE the silent silver bell",
+            "facing": "facing mic"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Red Volkswagen replacement card & silent bell",
+          "period_detail": "focused single distractor",
+          "physical_behavior": "eliminates Period-2 rebound completely"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Student Participant",
+          "verb_sequence": "anchors smoothly on the single replacement image -> Period 2 bell count stays completely flat with zero rebound"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Daniel Wegner",
+          "reaction": "circles the flat Experiment-2 rebound bar"
+        }
+      ],
+      "wardrobe": "1987 collegiate sweater.",
+      "lighting": "High-key booth light.",
+      "recognition_hook": "Giving the brain ONE absorbing positive destination wiped out the white-bear rebound in Experiment 2.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Golfer / Speaker swapping 'Don't hit water' for 'Land center green'",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit putting green / podium",
+      "layout": {
+        "description": "Bright sunlit golf green bordering a pond where a player crosses out 'Don't hit pond' in a yardage notebook and points club squarely at a crisp white center flagstick.",
+        "positions": [
+          {
+            "who": "Golfer mannequin",
+            "where": "aligning shoulders calmly toward the center pin and rolling the ball dead-center",
+            "facing": "facing flagstick"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "positive target yardage card ('Aim Center Pin')",
+          "period_detail": "replaces ironic hazard monitor with clear motor target",
+          "physical_behavior": "keeps both brain systems aligned"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Golfer mannequin",
+          "verb_sequence": "locks eyes on center pin -> strokes smooth putt straight to the cup"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Golfer mannequin",
+          "reaction": "nods calmly"
+        }
+      ],
+      "wardrobe": "Clean polo shirt and chinos.",
+      "lighting": "Crisp outdoor morning sunshine.",
+      "recognition_hook": "Your brain steers toward whatever noun you feed it — feed it the target, never the hazard.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

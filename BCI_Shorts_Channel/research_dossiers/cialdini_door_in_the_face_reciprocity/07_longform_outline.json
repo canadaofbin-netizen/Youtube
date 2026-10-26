@@ -1,0 +1,99 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Why getting 100% rejected on a 2-year favor first TRIPLED 'Yeses' on a 2-hour zoo trip ten seconds later: Robert Cialdini's 1975 Door-in-the-Face classic.",
+    "core_experiment": "Cialdini et al. (1975 JPSP): 16.7% Direct vs 50.0% Door-in-the-Face + Exp. 2 Two-Requester proof (55.5% vs 10.7%) + 1976 84% blood-drive show-up.",
+    "twist": "Reciprocal concessions vs contrast, Watergate's $1M to $250k budget story, why absurd bad-faith anchors backfire, and the consumer self-defense shield."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Tempe 1975: How 100% 'NO!' Turned Into 3x 'YES!'",
+      "beats": [
+        "16.7% say yes to a 2-hour zoo trip alone",
+        "Ask for 2 years first (0% yes!) to retreat to 2 hours to 50.0% say YES."
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "2-stage flip clipboard & 16.7 to 50% stand"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Proving the Engine: Experiment 2's Two-Requester Trap",
+      "beats": [
+        "Is 2 hours just 'looking small'?",
+        "Person A asks 2 yrs, Person B asks 2 hrs to crashes to 10.7%. Reciprocity proven."
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "Two-Requester 10.7% vs 55.5% placard"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Do People Actually Show Up? 84% Blood-Drive Follow-Through",
+      "beats": [
+        "Cialdini & Ascani 1976 real-behavior test",
+        "Why feeling 'I negotiated them down' boosts pride + Watergate's $1M to $250k story"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "84% blood-drive check-in ledger"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "When It Backfires: Bad-Faith Anchors",
+      "beats": [
+        "Why comical extreme first prices destroy trust",
+        "Plausible prosocial ambition vs sleazy markup"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "pricing credibility boundary"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Ethical Negotiation + Your Consumer Shield",
+      "beats": [
+        "Offering an ambitious tier to easy starter step",
+        "Covering Decoy Offer #1 with your hand"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "covered Decoy Tier #1"
+      ]
+    }
+  ]
+}

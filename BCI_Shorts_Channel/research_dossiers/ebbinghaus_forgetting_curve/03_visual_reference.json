@@ -1,0 +1,210 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Hermann Ebbinghaus in 1885 Berlin reciting 'WID, ZOF, KAF' cards to a 150-bpm wooden metronome beside his 20-min-to-31-day Forgetting Curve",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1885, Hermann Ebbinghaus's study, Berlin",
+      "layout": {
+        "description": "Sunlit 1885 Berlin scholar's study with tall casement windows, a solid walnut desk holding neatly bundled stacks of 2,300 hand-lettered white index cards ('WID', 'ZOF', 'KAF', 'DAX'), a pyramid-shaped wooden mechanical metronome set to 150 bpm, a pocket stopwatch, and a large hand-plotted graph easel showing the steep 58% -> 44% -> 34% -> 21% curve.",
+        "positions": [
+          {
+            "who": "Hermann Ebbinghaus (mannequin in 1885 wool frock coat, waistcoat, and spectacles)",
+            "where": "seated upright at the walnut desk flipping 'WID — ZOF — KAF' index cards in crisp rhythm with the swinging metronome arm while logging relearning seconds in his bound ledger",
+            "facing": "at study desk"
+          },
+          {
+            "who": "Berlin Faculty Colleague mannequin (in 1885 dark wool jacket)",
+            "where": "standing beside the plotted curve easel inspecting the steep 1-hour savings drop against the 31-day retention tail",
+            "facing": "beside graph easel"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box",
+          "period_detail": "crisp hand-inked 3-letter cards arranged in wooden compartments",
+          "physical_behavior": "Ebbinghaus's invention for stripping away prior meaning"
+        },
+        {
+          "name": "pyramid wooden 150-bpm metronome & pocket timer",
+          "period_detail": "swinging brass pendulum keeping strict 0.4-second cadence per syllable",
+          "physical_behavior": "enforced scientific precision in a one-man experiment"
+        },
+        {
+          "name": "1885 Forgetting Curve chart ('20m: 58% | 1h: 44% | 1d: 34% | 31d: 21%')",
+          "period_detail": "large cream-paper graph showing the vertical first-hour plunge and flat 31-day tail",
+          "physical_behavior": "history's first mathematical graph of human memory"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Hermann Ebbinghaus",
+          "verb_sequence": "starts the 150-bpm metronome -> flips rapidly through the 13-syllable card deck reciting rhythmically -> clicks pocket timer and plots the sharp 1-hour drop (44.2%) and 31-day tail (21.1%) on the graph"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Hermann Ebbinghaus",
+          "reaction": "circles the 24-hour overnight plateau and notes 38 spaced reps beating 68 crammed reps"
+        }
+      ],
+      "wardrobe": "1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles.",
+      "lighting": "Bright crisp tall-window European daylight.",
+      "recognition_hook": "One stubborn man, a ticking metronome, and 2,300 fake words like 'ZOF' proved over half of raw learning vanishes in sixty minutes.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "an 1885 scholar at a walnut desk flipping hand-lettered 'WID / ZOF / KAF' index cards to a wooden pyramid metronome beside a plotted Forgetting Curve chart",
+        "must_show": [
+          "cards|syllables|deck",
+          "metronome",
+          "chart|curve|graph"
+        ],
+        "source": "M1@00:07-00:15; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "2015 Amsterdam Replication: 130 Years Apart, Same Exact Curve",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2015, University of Amsterdam psychology lab",
+      "layout": {
+        "description": "Bright modern lab desk where a 22-year-old student finishes 70 hours of syllable lists as Murre & Dros overlay the 2015 curve directly onto Ebbinghaus's 1885 dots.",
+        "positions": [
+          {
+            "who": "Student subject mannequin",
+            "where": "completing the 31-day relearning list on screen",
+            "facing": "at desk"
+          },
+          {
+            "who": "Jaap Murre mannequin",
+            "where": "pointing to the near-identical 1885 vs 2015 curves including the 24-hour overnight sleep bounce",
+            "facing": "beside monitor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1885 vs 2015 dual-curve overlay display",
+          "period_detail": "almost indistinguishable decay from 20 minutes to 31 days",
+          "physical_behavior": "gold-standard replication proof"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Murre",
+          "verb_sequence": "overlays 2015 data points onto 1885 curve -> lines match across all 7 intervals"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Both mannequins",
+          "reaction": "marvel at 130-year mathematical precision"
+        }
+      ],
+      "wardrobe": "Modern casual sweater and blazer.",
+      "lighting": "Bright high-key lab light.",
+      "recognition_hook": "Repeat Ebbinghaus's 70-hour syllable marathon in 2015, and a modern human brain lands almost dot-for-dot on his 1885 curve.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Nonsense Syllables vs Lord Byron's Poetry (10x Meaning Velcro)",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1885, Berlin study comparison",
+      "layout": {
+        "description": "Same walnut desk contrasting a tall stack of 80 repetition tallies for nonsense syllables beside a tiny 8-repetition stack for a stanza of Don Juan.",
+        "positions": [
+          {
+            "who": "Hermann Ebbinghaus",
+            "where": "holding open a slim poetry volume in one hand and a thick nonsense stack in the other",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "10-to-1 repetition tally stacks",
+          "period_detail": "meaningful verse needed 1/10th the repetitions of disconnected syllables",
+          "physical_behavior": "debunks misapplying the 1-hour cliff to meaningful stories"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Ebbinghaus",
+          "verb_sequence": "places 8-rep poetry stack beside 80-rep syllable stack"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Ebbinghaus",
+          "reaction": "records meaning's 10x leverage"
+        }
+      ],
+      "wardrobe": "1885 academic waistcoat.",
+      "lighting": "Warm morning window light.",
+      "recognition_hook": "Connected meaning cuts learning effort tenfold — only naked, unlinked facts fall straight off the 60-minute cliff.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Flattening the Cliff With Four Spaced Checkpoints",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern study desk",
+      "layout": {
+        "description": "Sunlit tidy desk with four spaced calendar review cards (+1 Hour, +1 Day, +3 Days, +7 Days) lifting the curve up toward 90%.",
+        "positions": [
+          {
+            "who": "Learner mannequin",
+            "where": "completing a brisk 5-minute Day-3 recall check and watching the retention curve flatten near the top",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Spaced Sawtooth Curve board ('+1h / +1d / +3d / +7d')",
+          "period_detail": "visualizes each brief retrieval resetting and flattening decay",
+          "physical_behavior": "actionable takeaway"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Learner",
+          "verb_sequence": "flips three recall cards at Day 3 -> retention line jumps back to 95% with a shallower slope"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Learner",
+          "reaction": "closes deck in 5 minutes instead of cramming for 3 hours"
+        }
+      ],
+      "wardrobe": "Modern smart-casual shirt.",
+      "lighting": "Clean daylight.",
+      "recognition_hook": "Interrupt the curve right before it bends — four short spaced checks beat one exhausting all-nighter every single time.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Three balls, ninety days, and three MRI scans: how Bogdan Draganski & Arne May (2004 Nature) filmed 'Use It or Lose It' gray-matter growth live.",
+    "core_experiment": "Draganski et al. (2004 Nature): 24 non-jugglers across T1 Baseline to T2 90-Day Juggling to T3 90-Day Washout + May (2004) & Boyke (2008 seniors).",
+    "twist": "Why visual-motion hMT+/V5 grew instead of hand cortex, dendritic/glial biology, 60-year-old plasticity, and preventing Scan-3 shrinkage."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Regensburg 2004: Can a 90-Day Hobby Reshape Adult Brain Anatomy?",
+      "beats": [
+        "12 randomized beginner jugglers vs 12 controls",
+        "60 seconds of 3-ball cascade to bilateral hMT+/V5 & parietal expansion."
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "3-ball cascade & T1-T2-T3 MRI timeline"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Wait — Why Visual-Motion Radar Instead of Finger Cortex?",
+      "beats": [
+        "Watching the peaks of parabolic arcs in peripheral vision",
+        "hMT+/V5 speed prediction to intraparietal catch coordinates to motor throw"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "3D brain V5-to-parietal arc diagram"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Act III: Confiscating the Balls & Watching Gray Matter Recede.",
+      "beats": [
+        "90 days of zero juggling to Scan 3 partial recession ('Use It or Lose It'!)",
+        "What VBM expansion really is under the microscope: dendritic spines, glia & capillaries"
+      ],
+      "scene_ids": [
+        "S1",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "Scan-3 washout curve & dendritic remodeling"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Never Too Late: 60-Year-Old Seniors Grow V5 Gray Matter Too.",
+      "beats": [
+        "Boyke et al. (2008): 50-to-67-year-olds gain hMT+/V5 + hippocampal volume",
+        "Scholz et al. (2009): white-matter cables thicken in 6 weeks"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "Ages 50–67 Juggling MRI Gain card"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Picking Your Own '3-Ball Cascade' This Week",
+      "beats": [
+        "Pairing desk work with dance, racquet sports, or 3 rolled socks",
+        "Short weekly maintenance reps keep the scaffolding up"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "living room weekly visuomotor practice"
+      ]
+    }
+  ]
+}

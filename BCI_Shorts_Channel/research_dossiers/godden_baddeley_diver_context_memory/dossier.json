@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "slug": "godden_baddeley_diver_context_memory",
+  "topic": "Godden & Baddeley (1975): Scuba Divers 20 Feet Underwater — Why Recall Jumps 46% When Your Surroundings Match",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:36+00:00",
+  "status": "ready",
+  "visual_mode": "BEHAVIORAL_PSYCH",
+  "visual_mode_reason": "Duncan Godden and Alan Baddeley's iconic 1975 Scottish scuba-diving experiment at Oban — sending 18 divers 20 feet underwater in cold loch water vs sitting dry on the shore in a 2×2 crossover — is an unforgettable real-world outdoor behavioral experiment.",
+  "primary_case": {
+    "title": "Duncan R. Godden & Alan D. Baddeley's 1975 Oban Scuba-Diver Context-Dependent Memory Experiment",
+    "year": 1975,
+    "place": "Open water off Oban, West Highlands of Scotland (University of Stirling Diving Club)",
+    "people": [
+      {
+        "name": "Duncan R. Godden & Alan D. Baddeley",
+        "role": "Stirling cognitive psychologists (Godden was an avid scuba diver!) who turned cold Scottish loch dives into psychology's ultimate test of environmental context-dependent memory",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "18 Open-Water Scuba Divers",
+        "role": "University diving club volunteers who listened to 36 unrelated words over underwater bone-conduction / mask headphones at 20 feet depth vs dry on shore, then recalled them on land or underwater.",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Steven M. Smith & Jaap M. J. Murre",
+        "role": "Researchers who discovered 'Mental Context Reinstatement' (imagining the study room!) and ran the pre-registered 2021 Royal Society Open Science underwater replication.",
+        "source_id": "SRC6"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Commercial deep-sea oil divers off 1970s Scotland kept complaining to psychologist **Alan Baddeley** that observations they memorized clearly on the seabed vanished the moment they climbed back onto the deck boat. Baddeley and diving colleague **Duncan Godden (1975, *British Journal of Psychology*)** took **18 scuba divers** to the cold waters of **Oban, Scotland** to run a pristine **2×2 crossover**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Divers listened twice to lists of **36 unrelated words** either **DRY** sitting on the rocky shore in diving gear OR **WET** hovering **20 feet (~6 meters) underwater** breathing compressed air, then waited 4 minutes and wrote down every word they could remember either **in the SAME environment or the OPPOSITE environment** (using weighted plastic formica slates and pencils underwater!).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Look at the classic 1975 numbers — **46%–50% better recall when Retrieval matched Encoding!**:",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "• Learned **DRY on land** — Tested **DRY on land**: **13.5 words (37.5%)** vs Tested **WET underwater**: plunged to **8.6 words (24%)**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "• Learned **WET underwater** — Tested **DRY on land**: **8.4 words (23%)** vs Tested **WET 20 ft underwater**: jumped right back UP to **11.4 words (32%)** — proving cold water wasn't just making brains dumb; **studying underwater made you remember BETTER underwater than on a sunny beach**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "**Forgotten Plot Twist #1 (Godden & Baddeley, 1980, SRC2):** Five years later, Godden & Baddeley sent divers BACK underwater to test **multiple-choice RECOGNITION** instead of blank-slate free recall — and the **context gap vanished completely**. Environmental cues help you *generate search paths* when staring at a blank sheet, whereas seeing the word right in front of you bypasses ambient room cues.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "**Plot Twist #2 (Steven Smith, 1979):** You don't actually have to flood your exam hall with 20 feet of Scottish seawater. Asking land-tested students to **close their eyes for 60 seconds and vividly picture the original room's sights, sounds, and desk** (**Mental Context Reinstatement**) recovered almost **100% of the lost same-room recall**.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "**Modern Replication Twist #3 (Jaap Murre, 2021 *Royal Society Open Science*, SRC6):** When Murre ran a strict pre-registered modern scuba replication, the context effect shrank dramatically — showing context-dependent recall is modest in ordinary rooms unless environments are starkly distinct, free recall has few internal story links, and cues aren't overshadowed.",
+      "source_id": "SRC6"
+    },
+    {
+      "fact": "In Godden and Baddeley's (1980) follow-up recognition experiment, replacing free recall with multiple-choice recognition word lists eliminated the land-versus-underwater context penalty to an essentially 0% difference.",
+      "source_id": "SRC2"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Learn 36 words **20 feet underwater** in freezing Scottish water: climb onto a warm dry beach and you recall only **8.4 words**; jump BACK into the cold dark water with a waterproof slate and recall **jumps 36% up to 11.4 words**.",
+      "why_surprising": "Cold water didn't erase the words — the dry beach lacked the underwater retrieval key.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Swap the blank diving slate for a **multiple-choice recognition sheet** (Godden & Baddeley 1980), and the entire underwater-vs-beach difference **drops to ZERO**.",
+      "why_surprising": "Context cues unlock *free-recall search*, not recognition familiarity.",
+      "source_id": "SRC2",
+      "rank": 2
+    },
+    {
+      "fact": "Stuck in a brand-new exam hall far from your bedroom desk? Steven Smith (1979) proved **closing your eyes for 30 seconds to mentally picture your bedroom lamp, chair, and desk** restores almost the ENTIRE same-room memory boost for free.",
+      "why_surprising": "Mental Context Reinstatement — the zero-cost hack used in police 'Cognitive Interviews'.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "In 2021, memory researcher Jaap Murre suited up modern scuba divers to pre-register a replication (*Royal Society Open Science*, SRC3) — finding real-world room effects are much gentler than pop-science claims unless recall is totally uncued.",
+      "why_surprising": "Honest modern replication sharpening a 1975 classic.",
+      "source_id": "SRC6",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Studying in a slightly different library chair will tank your multiple-choice SAT or medical board score by 50%.",
+      "truth": "Godden & Baddeley's own 1980 follow-up proved **recognition (multiple-choice)** is virtually immune to room changes — AND studying across *varied* rooms (Bjork & Smith) actually de-couples knowledge from one wallpaper so you recall it anywhere.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Underwater divers scored lower on land simply because swimming up exhausted them.",
+      "truth": "The **Dry — Wet** group ALSO plunged (13.5 down to 8.6!), whereas **Wet — Wet** rebounded despite diving TWICE — ruling out simple fatigue.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "You have to physically return to a crime scene to jog an eyewitness's memory.",
+      "truth": "The **Cognitive Interview** (Fisher & Geiselman) uses **mental context reinstatement** ('Close your eyes: what was the weather, where were you standing, what did you hear first?') to boost accurate witness recall from an office chair.",
+      "source_id": "SRC2"
+    }
+  ],
+  "everyday_hooks": [
+    "Walking from the bedroom into the kitchen, completely blanking on why you came in — then walking **back to the bedroom doorway** and watching the exact thought pop straight back into your head.",
+    "Studying in two or three different spots (desk, library, cafe) so exam facts don't get 'velcroed' to just your bedroom poster.",
+    "Closing your eyes during a blank-page essay exam to picture the exact notebook page and desk where you studied."
+  ],
+  "linked_projects": [
+    "psych_82_godden_baddeley_diver_context_memory"
+  ]
+}

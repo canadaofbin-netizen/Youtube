@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "auditory cortex",
+      "plain": "intact raw sound & melody hearing",
+      "function": "registering soft knocks, bells, and vocal tone clearly in Heschl's gyrus so the patient turns immediately when called",
+      "scene_id": "S1",
+      "narration_bridge": "Proves primary hearing is completely spared."
+    },
+    {
+      "role": "pivot",
+      "region": "Wernicke's area",
+      "plain": "broken phonological decoding & self-monitor",
+      "function": "failing on left posterior superior temporal / temporoparietal cortex to match speech sounds to word representations or monitor outgoing slips",
+      "scene_id": "S1",
+      "narration_bridge": "Captures Wernicke's 1874 discovery and Binder's (2015) phonological/monitoring refinement."
+    },
+    {
+      "role": "step1",
+      "region": "Broca's area",
+      "plain": "unmonitored fluent motor speech engine",
+      "function": "continuing to generate smooth, rhythmic grammatical cadences filled with unchecked paraphasias",
+      "scene_id": "S1",
+      "narration_bridge": "Explains effortless fluent output without comprehension."
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "From 'You Are Here' Place Cells (1971) to crystal-perfect 60° Hexagonal Grid Cells (2005): how O'Keefe and the Mosers found the brain's internal GPS.",
+    "core_experiment": "O'Keefe & Dostrovsky (1971 Brain Res.) hippocampal Place Cells + Moser, Rowland & Moser (2005/2015) entorhinal hexagonal Grid Cells (2014 Nobel Prize).",
+    "twist": "Why widening the arena to 2 meters revealed the honeycomb, how humans map abstract ideas on 60° grids, and early Alzheimer's entorhinal clues."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "UCL 1971: Taking Off the Restraints & Hearing 'You Are Here!'",
+      "beats": [
+        "Tolman's mocked 'Cognitive Map' vs strict habit chains",
+        "O'Keefe's NW-corner Place Cells & rotating the landmark card"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "2-meter arena & Place Cell hotspot"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Trondheim 2005: Widen the Box, Reveal the Honeycomb.",
+      "beats": [
+        "Why 34 years missed the metric ruler",
+        "May-Britt & Edvard Moser's 2-meter floor unveils 60° hexagonal Grid Cells."
+      ],
+      "scene_ids": [
+        "S2",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "step1",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "cropped 70cm vs 200cm honeycomb grid"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Humans Map Ideas on Hexagons — & Early Alzheimer's Clues",
+      "beats": [
+        "Human taxi/VR intracranial recordings & 6-fold fMRI",
+        "Mapping abstract concepts + why entorhinal cortex falters first in Alzheimer's"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2"
+      ],
+      "new_shots_needed": [
+        "human 6-fold fMRI plot"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Turn-by-Turn Arrows vs Active Cognitive Mapping",
+      "beats": [
+        "Striatal autopilot vs hippocampal engagement",
+        "10x fast-forward sleep replay"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "map vs arrow comparison"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Hacking Your Own Place Cells: Landmarks & Memory Palaces",
+      "beats": [
+        "Why the 2,500-year-old Method of Loci works",
+        "Anchoring four ideas to four corners of a room"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "4-landmark Memory Palace room"
+      ]
+    }
+  ]
+}

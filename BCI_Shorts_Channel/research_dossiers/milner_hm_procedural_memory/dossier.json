@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "slug": "milner_hm_procedural_memory",
+  "topic": "Brenda Milner & Patient H.M. (1962/1968): Tracing a Mirror Star With Zero Memory of Ever Seeing the Pencil",
+  "pillar": "brain_history",
+  "created_at": "2026-10-25T22:49:35+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Brenda Milner's 1962 three-day mirror-drawing experiment with Henry Molaison ('Patient H.M.' — whose 1953 bilateral medial-temporal resection blocked every new conscious memory, yet whose hand traced a double-bordered star cleaner every day while swearing 'What's this contraption?!') is the single most important case in memory neuroscience.",
+  "primary_case": {
+    "title": "Brenda Milner & William Beecher Scoville's Studies of Henry Molaison ('Patient H.M.') & the 1962 3-Day Mirror-Star Tracing Discovery",
+    "year": 1968,
+    "place": "Montreal Neurological Institute (McGill University) & Hartford Hospital, Connecticut",
+    "people": [
+      {
+        "name": "Brenda Milner",
+        "role": "Montreal Neurological Institute neuropsychologist (still sharp past age 105!) who traveled down to Connecticut with a mirror-star apparatus and discovered the human brain has MORE THAN ONE memory system.",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Henry Gustav Molaison ('Patient H.M.', 1926–2008)",
+        "role": "27-year-old Connecticut man who underwent experimental bilateral medial temporal lobe surgery on August 25, 1953 to stop intractable epilepsy — losing new conscious episodic memory while teaching science how memory works",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Suzanne Corkin & Larry R. Squire",
+        "role": "MIT neuroscientist who worked with Henry for 46 years (and revealed his full name with dignity upon his passing in 2008) and UCSD memory taxonomist who mapped Declarative vs Non-Declarative brain systems",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "On August 25, 1953 at Hartford Hospital, neurosurgeon William Scoville suctioned ~5–8 cm of **bilateral medial temporal tissue** (hippocampus, amygdala, entorhinal cortex) from 27-year-old **Henry Molaison ('H.M.')** to relieve devastating seizures: seizures dropped, Henry's **IQ actually rose slightly (to 118!)**, his humor and manners stayed kind, and he remembered his 1930s-40s childhood — yet **he could never form a single new conscious fact or event memory again**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Step out of the testing room for fifteen minutes and walk back in: even after working with **Brenda Milner** and **Suzanne Corkin** for *forty years*, Henry greeted them politely as brand-new strangers.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Before 1962, virtually every scientist on Earth assumed 'memory' was one single faculty — if H.M. couldn't remember eating lunch 30 minutes ago, surely he could NEVER learn a brand-new motor skill across three days.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Brenda Milner put that dogma to the test with a brilliant wooden tabletop apparatus: **Mirror-Star Tracing** — a metal shield blocked direct sight of Henry's hand and a printed **five-pointed double-outline star**, forcing him to trace between the narrow 6-mm lines while looking **ONLY into a vertical mirror** (which reverses up/down movements backwards!).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "On **Day 1 (10 trials)**, just like any healthy beginner, Henry's pencil jagged across the borders dozens of times (~30 errors on Trial 1, improving across the afternoon). On **Day 2**, Milner set the apparatus on the table and asked if he remembered it: Henry smiled politely and said **'No, I've never seen this before in my life!'** — then picked up the pencil and started right where Day 1's improved curve left off.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "By **Day 3 (Trial 30)**, Henry zipped smoothly around all five points of the mirror-reversed star with **almost ZERO border errors (<1–2 errors)** — looked down at his flawless star in genuine surprise, and remarked: ***'Well, this is strange — I thought this would be difficult, it looks so easy!'***",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Suzanne Corkin (1968, *Neuropsychologia*, SRC1) proved Day-3 mirror tracing wasn't a fluke: Henry showed robust day-to-day motor skill learning on **rotary pursuit** and **bimanual tracking** while remaining 0% aware of ever practicing.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Modern high-resolution MRI in 1997 (Corkin et al., SRC2) and post-mortem histology in 2009-2014 revealed the exact division of labor: **medial temporal / hippocampal circuits** bind conscious **Declarative ('Knowing WHAT')** memories, whereas **basal ganglia, motor cortex, and cerebellum** learn **Procedural ('Knowing HOW')** motor skills completely independently.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "In Milner's bedside working-memory test, Henry Molaison held the three-digit number 584 in mind for 15 minutes through continuous verbal rehearsal, yet forgot both 584 and the test itself the moment his attention was diverted.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "On Day 3, Henry Molaison looks at Brenda Milner's mirror-star contraption, swears honestly **'I have never seen that thing in my life'**, traces the backwards mirror star like a seasoned pro with **near-zero errors**, and says surprised: ***'Huh — I thought that was going to be hard!'***",
+      "why_surprising": "One sentence on Day 3 split 'Knowing WHAT' from 'Knowing HOW' forever.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "After 1953, NO neurosurgeon on Earth ever again removed both hippocampi from an epilepsy patient — Henry's sacrifice immediately saved thousands of future patients' memories through unilateral Wada memory pre-testing (invented by Milner & Wada).",
+      "why_surprising": "One tragic surgical outcome rewrote neurosurgical safety rules worldwide.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Henry kept a sharp 118 IQ, solved tough crossword puzzles using pre-1953 vocabulary, and could hold a 3-digit number in mind for 15 minutes solely by repeating it non-stop under his breath — until a knock at the door distracted him for two seconds and the number vanished into thin air.",
+      "why_surprising": "Short-term prefrontal rehearsal works 100% independently of hippocampal long-term storage.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "When Henry Molaison passed away peacefully at age 82 in 2008, the entire neuroscience world learned the real name and warm smile behind the two most famous initials in brain history: **H.M.**",
+      "why_surprising": "Forty-six years of gentle partnership with Milner and Corkin.",
+      "source_id": "SRC2",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Patient H.M. lost ALL memory — childhood, language, intelligence, and motor learning.",
+      "truth": "Henry kept his pre-surgery childhood memories, fluent English, 118 IQ, 20-second working memory, AND full procedural motor skill learning — ONLY consolidating new conscious declarative memories broke.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "The hippocampus is the permanent warehouse where your lifelong childhood memories sit forever.",
+      "truth": "Because Henry STILL remembered pre-1950 events after hippocampal removal, Milner proved the hippocampus is the **temporary binding teacher** that consolidates memories gradually out into neocortex over years.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Practicing a sport, surgical knot, or musical scale only counts if you consciously analyze every try.",
+      "truth": "Basal ganglia and cerebellar motor circuits log error-correction curves across sleep and days even when conscious episodic recall is completely zero.",
+      "source_id": "SRC2"
+    }
+  ],
+  "everyday_hooks": [
+    "Hopping onto a bicycle ten years after your last ride: you couldn't write an essay on handlebar torque angles ('Knowing What'), yet your cerebellum balances effortlessly in two seconds ('Knowing How').",
+    "Trying yourself to trace a 5-pointed star while looking ONLY in a bathroom mirror — feeling your hand fight backwards up-down physics on Trial 1.",
+    "Honoring Brenda Milner (still sharp past 100!) whose handmade mirror-star box overturned centuries of single-memory dogma."
+  ],
+  "linked_projects": [
+    "psych_68_milner_hm_procedural_memory"
+  ]
+}

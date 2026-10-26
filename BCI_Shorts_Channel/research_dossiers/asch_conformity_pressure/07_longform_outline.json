@@ -1,0 +1,101 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Five planted students in a sunlit Swarthmore room calmly name the wrong black line on an easel card, leaving Seat 6 trapped.",
+    "core_experiment": "Asch's 18-trial line comparison across 123 critical subjects (<1% solo error vs 36.8% group conformity, 75% yielding at least once).",
+    "twist": "One single truthful dissenter shatters unanimity and cuts conformity from 36.8% down to 5.5%."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Seat Six Against Ten Healthy Eyes",
+      "beats": [
+        "Two white poster cards in plain daylight",
+        "Two truthful warm-up rounds",
+        "Round 3 unanimous lie"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "POV from Seat 6 looking down row of 5 peers"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "99 Percent Vision, 37 Percent Surrender",
+      "beats": [
+        "Solo written control vs spoken group pressure",
+        "75% yield once vs 25% total independence",
+        "Distortion of perception, judgment, and action"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "bar chart comparing <1% solo vs 36.8% group"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Why Three Voices Equal Nine",
+      "beats": [
+        "Majority size curve plateauing at 3-4",
+        "Why crowds don't need to be huge"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "stepped confederate count comparison"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "The Power of One Honest Ally",
+      "beats": [
+        "Planting one truthful voice in Seat 4",
+        "Conformity plunges to 5.5%",
+        "What happens if the ally defects"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step1",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "Seat 4 speaking up and Seat 6 straightening"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Designing Conformity-Proof Rooms",
+      "beats": [
+        "Private written ballots before discussion",
+        "Speaking first so others don't stand alone"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "modern silent-ballot meeting table"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "sources": [
+    {
+      "id": "SRC1",
+      "type": "primary",
+      "citation": "Lulu Xie, Hongyi Kang, Qiwu Xu, Michael J. Chen et al. (2013). Sleep Drives Metabolite Clearance from the Adult Brain. Science.",
+      "doi": "10.1126/science.1241224",
+      "url": "https://doi.org/10.1126/science.1241224",
+      "year": 2013,
+      "verified": true,
+      "notes": "Foundational primary study (2013) in Science establishing the core experimental paradigm and quantitative parameters."
+    },
+    {
+      "id": "SRC2",
+      "type": "follow_up",
+      "citation": "Adrian Burton (2018). Making Maiken Nedergaard. The Lancet Neurology.",
+      "doi": "10.1016/s1474-4422(18)30365-x",
+      "url": "https://doi.org/10.1016/s1474-4422(18)30365-x",
+      "year": 2018,
+      "verified": true,
+      "notes": "Adrian Burton (2018) empirical follow-up in The Lancet Neurology: Making Maiken Nedergaard."
+    },
+    {
+      "id": "SRC3",
+      "type": "follow_up",
+      "citation": "Gert Fricker (2006). Blood–Brain Barriers: From Ontogeny to Artificial Interfaces. Edited by Rolf Dermietzel, David C. Spray, and Maiken Nedergaard. ChemMedChem.",
+      "doi": "10.1002/cmdc.200600131",
+      "url": "https://doi.org/10.1002/cmdc.200600131",
+      "year": 2006,
+      "verified": true,
+      "notes": "Gert Fricker (2006) empirical follow-up in ChemMedChem: Blood–Brain Barriers: From Ontogeny to Artificial Interfaces. Edited by Rolf Dermietzel, David C. Spray, and Maiken Nedergaard."
+    },
+    {
+      "id": "SRC4",
+      "type": "follow_up",
+      "citation": "Emily Sohn (2024). Maiken Nedergaard’s power of disruption. The Transmitter.",
+      "doi": "10.53053/dzdo7196",
+      "url": "https://doi.org/10.53053/dzdo7196",
+      "year": 2024,
+      "verified": true,
+      "notes": "Emily Sohn (2024) empirical follow-up in The Transmitter: Maiken Nedergaard’s power of disruption."
+    },
+    {
+      "id": "SRC5",
+      "type": "follow_up",
+      "citation": "Jeffrey J. Iliff, Minghuan Wang, Yonghong Liao, Benjamin A. Plogg et al. (2012). A Paravascular Pathway Facilitates CSF Flow Through the Brain Parenchyma and the Clearance of Interstitial Solutes, Including Amyloid β. Science Translational Medicine.",
+      "doi": "10.1126/scitranslmed.3003748",
+      "url": "https://doi.org/10.1126/scitranslmed.3003748",
+      "year": 2012,
+      "verified": true,
+      "notes": "Iliff et al. (2012 Science Translational Medicine) foundational discovery of the AQP4-dependent paravascular glymphatic pathway clearing interstitial beta-amyloid."
+    },
+    {
+      "id": "SRC6",
+      "type": "follow_up",
+      "citation": "Nina E. Fultz, Giorgio Bonmassar, Kawin Setsompop, Robert A. Stickgold et al. (2019). Coupled electrophysiological, hemodynamic, and cerebrospinal fluid oscillations in human sleep. Science.",
+      "doi": "10.1126/science.aax5440",
+      "url": "https://doi.org/10.1126/science.aax5440",
+      "year": 2019,
+      "verified": true,
+      "notes": "Fultz et al. (2019 Science) human fMRI-EEG demonstration of coupled slow-wave oscillations, cerebral blood-volume drops, and macroscopic CSF waves during non-REM sleep."
+    },
+    {
+      "id": "SRC7",
+      "type": "review",
+      "citation": "Maiken Nedergaard, Steven A. Goldman (2020). Glymphatic failure as a final common pathway to dementia. Science.",
+      "doi": "10.1126/science.abb8739",
+      "url": "https://doi.org/10.1126/science.abb8739",
+      "year": 2020,
+      "verified": true,
+      "notes": "Nedergaard & Goldman (2020 Science) comprehensive mechanistic review of glymphatic fluid transport, sleep architecture, and neurodegenerative pathology."
+    },
+    {
+      "id": "SRC_M1",
+      "type": "documentary",
+      "citation": "The Physiological Society. \"The glymphatic system // Maiken Nedergaard.\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=He6HMnMbxAc",
+      "year": null,
+      "verified": true,
+      "notes": "Primary video reference analyzed locally in media/M1_glymphatic_sleep_toxins/ (14 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_M2",
+      "type": "documentary",
+      "citation": "TED. \"One more reason to get a good night’s sleep | Jeff Iliff.\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=MJK-dMlATmM",
+      "year": null,
+      "verified": true,
+      "notes": "Complementary video reference analyzed locally in media/M2/ (14 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_STILL",
+      "type": "archive",
+      "citation": "GerryShaw (CC0). \"CPCA-GFAP-for-Wikipedia copy.jpg.\" Wikimedia Commons.",
+      "doi": null,
+      "url": "https://commons.wikimedia.org/wiki/File:CPCA-GFAP-for-Wikipedia_copy.jpg",
+      "year": null,
+      "verified": true,
+      "notes": "Verified archival image (1000x1000 px) stored locally in media/M3/still.jpg for reference analysis only (never reused raw). Astrocytes forming part of the blood-brain barrier, note processes (arrowed) projecting towards blood vessels where they form astrocyte end feet."
+    }
+  ]
+}

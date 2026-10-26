@@ -1,0 +1,37 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "crisis",
+      "region": "brainstem",
+      "plain": "top of the spine",
+      "function": "carrying descending motor commands down to the tongue, lips, and vocal cords",
+      "scene_id": "S1",
+      "narration_bridge": "Shows where ALS breaks the outgoing cable to vocal muscles while leaving the cortex intact."
+    },
+    {
+      "role": "pivot",
+      "region": "premotor cortex",
+      "plain": "action planner",
+      "function": "encoding fine lip, jaw, and tongue movements for all 39 English phonemes",
+      "scene_id": "S1",
+      "narration_bridge": "Links the two 64-electrode arrays on ventral premotor cortex to Pat's preserved articulatory code."
+    },
+    {
+      "role": "step1",
+      "region": "motor cortex",
+      "plain": "movement strip",
+      "function": "firing rapid phoneme spike trains during attempted speech",
+      "scene_id": "S2",
+      "narration_bridge": "Connects silent mouthing attempts to 128-channel spike bursts."
+    },
+    {
+      "role": "step2",
+      "region": "Broca's area",
+      "plain": "speech center",
+      "function": "higher-level grammatical framing that surprisingly held minimal phoneme detail in area 44",
+      "scene_id": "S3",
+      "narration_bridge": "Explains the unexpected finding that area 6v beat Broca's area 44 for phoneme decoding."
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Identical 30-minute GRE booklets produce equal scores as 'puzzles' yet split wide open when one Page-1 line cues stereotype threat.",
+    "core_experiment": "Steele & Aronson's 1995 Stanford four-study design (Diagnostic vs Non-Diagnostic + Study 4 Page-1 checkbox) & prefrontal RAM hijacking.",
+    "twist": "Universal proof in White male math majors, modern ~0.25 SD replication bounds, and 'Wise Feedback' + back-of-exam fixes."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Same Booklet, Different Brain Bandwidth",
+      "beats": [
+        "30-minute hard GRE verbal items",
+        "Non-Diagnostic parity vs Diagnostic drop",
+        "Study 4: checking one box on Page 1"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "side-by-side GRE Packet A vs Packet B"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Why Caring Most Hurts Hardest",
+      "beats": [
+        "ACC error alarm stealing dorsolateral prefrontal RAM",
+        "1999 twist: White male math majors drop too."
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "calculus RAM overload"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Realistic Science & Zero-Cost Fixes",
+      "beats": [
+        "Modern meta-analytic bounds (~0.2-0.3 SD, not magic cure-all)",
+        "Moving demographics to the last page"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step1",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "reordering demographic page to back"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Replications, Critiques & Real-World Boundaries",
+      "beats": [
+        "Stereotype threat only happens if a student secretly believes the negative stereotype is true. — False: students who fiercely REJECT the stereotype suffer the heaviest working-memory drain trying intently to",
+        "Stereotype threat only affects minority groups. to Any human — White male math students, elderly drivers, men on 'social sensitivity' tests — shows working-memor",
+        "One magic reframing sentence erases 100% of real-world school inequality. to Modern large-scale replications (Shewach 2019; Flore & Wicherts) show stereotype threat is a meaningful ~0.2-0"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2"
+      ],
+      "new_shots_needed": [
+        "comparative replication table card on wooden desk"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "The 'Wise Feedback' Formula",
+      "beats": [
+        "Why lowering standards backfires",
+        "High bar + 'I know you can hit it'"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "mentor giving wise feedback"
+      ]
+    }
+  ]
+}

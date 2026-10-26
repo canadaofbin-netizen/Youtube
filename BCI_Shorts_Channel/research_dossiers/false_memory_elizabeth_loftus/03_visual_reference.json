@@ -1,0 +1,232 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1974 Seattle lecture room: 'smashed' vs 'hit' questionnaires plant phantom broken glass on a clean crash film",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1974, University of Washington psychology screening classroom, Seattle",
+      "layout": {
+        "description": "Bright 1970s university screening room with a 16mm film projector casting a two-car intersection bump onto a white pull-down screen (clean asphalt, zero shattered glass); at wooden student desks in front, undergraduates fill out printed questionnaires where one sheet reads 'SMASHED' and another reads 'CONTACTED', while Elizabeth Loftus stands beside the projector holding the week-two 'broken glass' tally.",
+        "positions": [
+          {
+            "who": "Elizabeth Loftus (mannequin in 1970s tailored blazer and wide-collar blouse)",
+            "where": "standing beside the 16mm projector and pull-down screen holding two contrasting question sheets",
+            "facing": "facing the seated student witnesses"
+          },
+          {
+            "who": "Student witness A ('smashed' condition mannequin in 1970s sweater)",
+            "where": "seated front-left writing '41 mph' and checking 'YES — broken glass' on a printed form",
+            "facing": "facing the paper questionnaire and screen"
+          },
+          {
+            "who": "Student witness B ('contacted' condition mannequin in denim jacket)",
+            "where": "seated front-right writing '32 mph' and checking 'NO' on the matching form",
+            "facing": "facing the questionnaire"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "16mm classroom film projector and pull-down screen",
+          "period_detail": "brushed-metal 1970s Bell & Howell 16mm reel projector showing two sedans bumping cleanly on spotless pavement",
+          "physical_behavior": "projector beam illuminates the clean road with zero glass"
+        },
+        {
+          "name": "two printed survey sheets ('SMASHED' vs 'CONTACTED')",
+          "period_detail": "crisp white 1974 typed questionnaires differing by only one bolded verb",
+          "physical_behavior": "ballpoint pen checks the 'Yes, saw broken glass' box on the 'smashed' sheet"
+        },
+        {
+          "name": "week-later calendar flip stand",
+          "period_detail": "desktop calendar flipped forward seven days to Day 8",
+          "physical_behavior": "marks the one-week delay before the broken-glass test"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Elizabeth Loftus",
+          "verb_sequence": "clicks off the 16mm crash film -> hands the 'smashed' sheet left and 'contacted' sheet right"
+        },
+        {
+          "who": "Student witness A",
+          "verb_sequence": "reads the word 'smashed' -> writes a fast speed estimate -> checks 'YES' to seeing broken glass that never existed"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Student witness A",
+          "reaction": "nods with total certainty in his false recollection"
+        },
+        {
+          "who": "Elizabeth Loftus",
+          "reaction": "holds up both completed forms showing the 32% vs 14% phantom-glass split"
+        }
+      ],
+      "wardrobe": "1974 collegiate knit sweaters, corduroy jackets, and wide-lapel blazer on Loftus.",
+      "lighting": "Clean high-key classroom daylight balanced with the bright 16mm projection screen.",
+      "recognition_hook": "Watchers of the exact same clean fender-bender film checked 'Yes, I saw broken glass' twice as often just because one question used the word 'smashed.'",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "students in a 1974 screening room watch a clean car-bump film on a projector screen and check yes to broken glass on a smashed questionnaire",
+        "must_show": [
+          "projector|screen",
+          "questionnaire|sheet|form",
+          "students|witness"
+        ],
+        "source": "M1@00:16-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "1995 'Lost in the Mall' family booklet interview",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1995, University of Washington interview room",
+      "layout": {
+        "description": "Quiet sunlit interview office where a young adult reads a four-event childhood booklet and begins gesturing to describe details of a fictional mall rescue.",
+        "positions": [
+          {
+            "who": "Adult participant mannequin",
+            "where": "seated in an armchair holding the typed childhood memory booklet",
+            "facing": "gesturing vividly as they 'recall' the elderly rescuer"
+          },
+          {
+            "who": "Interviewer Jacqueline Pickrell mannequin",
+            "where": "seated across a small table taking notes",
+            "facing": "listening neutrally"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "four-story childhood booklet",
+          "period_detail": "stapled white booklet containing three real family stories and one fabricated age-five mall story",
+          "physical_behavior": "participant turns to Story #3 and nods in recognition"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Adult participant",
+          "verb_sequence": "reads the planted paragraph -> looks up and gestures to describe the rescuer's flannel shirt"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Interviewer",
+          "reaction": "records how 25 percent embellished a day that never happened"
+        }
+      ],
+      "wardrobe": "1990s cardigan and collared shirts.",
+      "lighting": "Bright natural window daylight.",
+      "recognition_hook": "One in four adults read a fake paragraph about getting lost in a mall at age five and started remembering what the rescuer wore.",
+      "sources": [
+        "SRC3",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Open-ended vs leading police witness interview reform",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2000s forensic reform room",
+      "layout": {
+        "description": "Clean modern interview room comparing a leading interviewer pointing suggestively versus an open-ended neutral notepad protocol.",
+        "positions": [
+          {
+            "who": "Witness mannequin",
+            "where": "seated at an interview table recalling calmly without interruption",
+            "facing": "facing the investigator"
+          },
+          {
+            "who": "Trained investigator mannequin",
+            "where": "seated with hands resting neutrally beside an open-question checklist",
+            "facing": "listening without suggesting details"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "double-blind photo lineup folders",
+          "period_detail": "numbered manila folders handed by an officer who does not know which photo is the suspect",
+          "physical_behavior": "prevents unconscious verbal or facial cues"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Trained investigator",
+          "verb_sequence": "slides numbered folders across the table and steps back neutrally"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Witness mannequin",
+          "reaction": "reviews calmly without post-event contamination"
+        }
+      ],
+      "wardrobe": "Clean business attire.",
+      "lighting": "High-key daylight.",
+      "recognition_hook": "Double-blind lineups and open questions grew directly out of Loftus's misinformation research.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Writing down fresh notes before talking to other witnesses",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern everyday street corner / desk",
+      "layout": {
+        "description": "Bright café patio where a witness immediately jots down timestamped notes on a pocket pad before chatting with bystanders.",
+        "positions": [
+          {
+            "who": "Everyday witness mannequin",
+            "where": "writing immediate first-hand notes in a pocket notebook",
+            "facing": "facing the pad"
+          },
+          {
+            "who": "Two chatting bystanders",
+            "where": "gesturing dramatically in the background",
+            "facing": "talking to each other"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "pocket notebook and pen",
+          "period_detail": "clean lined notepad capturing raw details before outside words enter",
+          "physical_behavior": "pen writes down time and color immediately"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Everyday witness",
+          "verb_sequence": "writes down raw observations first before listening to the crowd"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Everyday witness",
+          "reaction": "keeps an unedited original record"
+        }
+      ],
+      "wardrobe": "Modern casual jacket.",
+      "lighting": "Bright outdoor daylight.",
+      "recognition_hook": "Write down what matters right away — before someone else's verbs edit your memory.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

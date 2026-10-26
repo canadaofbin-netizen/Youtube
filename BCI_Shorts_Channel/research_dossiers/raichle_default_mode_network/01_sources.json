@@ -1,0 +1,94 @@
+{
+  "sources": [
+    {
+      "id": "SRC1",
+      "type": "primary",
+      "citation": "Marcus E. Raichle, Ann Mary MacLeod, Abraham Z. Snyder, William J. Powers et al. (2001). A default mode of brain function. Proceedings of the National Academy of Sciences.",
+      "doi": "10.1073/pnas.98.2.676",
+      "url": "https://doi.org/10.1073/pnas.98.2.676",
+      "year": 2001,
+      "verified": true,
+      "notes": "Foundational primary study (2001) in Proceedings of the National Academy of Sciences establishing the core experimental paradigm and quantitative parameters."
+    },
+    {
+      "id": "SRC2",
+      "type": "follow_up",
+      "citation": "Marcus E. Raichle (2015). The Brain's Default Mode Network. Annual Review of Neuroscience.",
+      "doi": "10.1146/annurev-neuro-071013-014030",
+      "url": "https://doi.org/10.1146/annurev-neuro-071013-014030",
+      "year": 2015,
+      "verified": true,
+      "notes": "Subsequent empirical and theoretical investigation (2015) in Annual Review of Neuroscience extending the foundational findings."
+    },
+    {
+      "id": "SRC3",
+      "type": "follow_up",
+      "citation": "Debra Gusnard, Erbil Akbudak, Gordon Shulman, Marcus E. Raichle (2001). Role of medial prefrontal cortex in a default mode of brain function. NeuroImage.",
+      "doi": "10.1016/s1053-8119(01)91757-4",
+      "url": "https://doi.org/10.1016/s1053-8119(01)91757-4",
+      "year": 2001,
+      "verified": true,
+      "notes": "Subsequent empirical and theoretical investigation (2001) in NeuroImage extending the foundational findings."
+    },
+    {
+      "id": "SRC4",
+      "type": "review",
+      "citation": "Yaara Yeshurun, Mai Nguyen, Uri Hasson (2021). The default mode network: where the idiosyncratic self meets the shared social world. Nature Reviews Neuroscience.",
+      "doi": "10.1038/s41583-020-00420-w",
+      "url": "https://doi.org/10.1038/s41583-020-00420-w",
+      "year": 2021,
+      "verified": true,
+      "notes": "Synthesizes modern systems-neuroscience evidence that the Default Mode Network actively integrates autobiographical memory, narrative meaning, and social sense-making."
+    },
+    {
+      "id": "SRC5",
+      "type": "follow_up",
+      "citation": "Hanbing Lu, Qihong Zou, Hong Gu, Marcus E. Raichle et al. (2012). Rat brains also have a default mode network. Proceedings of the National Academy of Sciences.",
+      "doi": "10.1073/pnas.1200506109",
+      "url": "https://doi.org/10.1073/pnas.1200506109",
+      "year": 2012,
+      "verified": true,
+      "notes": "Subsequent empirical and theoretical investigation (2012) in Proceedings of the National Academy of Sciences extending the foundational findings."
+    },
+    {
+      "id": "SRC6",
+      "type": "follow_up",
+      "citation": "Marcus E. Raichle, Abraham Z. Snyder (2007). A default mode of brain function: A brief history of an evolving idea. NeuroImage.",
+      "doi": "10.1016/j.neuroimage.2007.02.041",
+      "url": "https://doi.org/10.1016/j.neuroimage.2007.02.041",
+      "year": 2007,
+      "verified": true,
+      "notes": "Subsequent empirical and theoretical investigation (2007) in NeuroImage extending the foundational findings."
+    },
+    {
+      "id": "SRC_M1",
+      "type": "documentary",
+      "citation": "Streetwise Dhamma. \"Marcus Raichle on Default Mode Network (Brains On Trial).\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=_yep_JIupnY",
+      "year": null,
+      "verified": true,
+      "notes": "Primary video reference analyzed locally in media/M1_raichle_default_mode_network/ (11 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_M2",
+      "type": "documentary",
+      "citation": "Health Policy Politics. \"Morgan Freeman: Marcus Raichle and the Default Mode Network.\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=sIpnleA6k9c",
+      "year": null,
+      "verified": true,
+      "notes": "Complementary video reference analyzed locally in media/M2/ (14 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_STILL",
+      "type": "archive",
+      "citation": "Andreashorn (CC BY-SA 4.0). \"Default Mode Network Connectivity.png.\" Wikimedia Commons.",
+      "doi": null,
+      "url": "https://commons.wikimedia.org/wiki/File:Default_Mode_Network_Connectivity.png",
+      "year": null,
+      "verified": true,
+      "notes": "Verified archival image (960x2180 px) stored locally in media/M3/still.jpg for reference analysis only (never reused raw). This image shows main regions of the default mode network (yellow) and connectivity between the regions color-coded by structural traversing direction (xyz to rgb)."
+    }
+  ]
+}

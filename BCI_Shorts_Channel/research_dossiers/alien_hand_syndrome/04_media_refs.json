@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "'I only have half a brain' - BBC Stories",
+      "url": "https://www.youtube.com/watch?v=f2fCY_M7Vms",
+      "channel": "BBC Stories",
+      "source_id": "SRC_M1",
+      "duration_sec": 158,
+      "timecodes": [
+        {
+          "t": "00:20-00:28",
+          "what": "Widescreen camera frame at kf_004.jpg (25.0s) paired with transcript segment \"idea I only remember my very first seizure I was at my daycare plane and the next thing I knew I was in an ambulance we I tailed it to the hospital\", introducing core background on intermanual Conflict at the Neurology Exam Table: Right Hand Buttoning a Crisp Shirt While the Rogue Left Hand Unbuttons It."
+        },
+        {
+          "t": "00:29-00:33",
+          "what": "Around kf_005.jpg (30.7s) (widescreen camera frame), transcript records \"ambulance we I tailed it to the hospital and just watched her she had another seizure the next morning but um nothing\", examining procedural mechanics and evidence in Gary Goldberg, Nathaniel Mayer & Joseph Toglia's 1981 Medial Frontal Lesion Cases & Todd Feinberg's 1992 Frontal-vs-Callosal Classification."
+        },
+        {
+          "t": "01:07-01:22",
+          "what": "At kf_010.jpg (70.6s) (4:3 camera frame), speaker remarks \"the doctor explained that the only way they could treat it was to take out the half of the brain that was affected in very very early childhood...\", addressing theoretical interpretation and downstream implications of Gary Goldberg, Nathaniel Mayer & Joseph Toglia's 1981 Medial Frontal Lesion Cases & Todd Feinberg's 1992 Frontal-vs-Callosal Classification."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (live-action speaker/interview recording intercut with 1 visual slide frames (640x360, sampled across 0.0s–99.8s)) from BBC Stories's \"'I only have half a brain' - BBC Stories\" (158s total runtime).",
+          "Deduplicated English transcript (30 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (0.0s–99.8s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Alien-Hand Syndrome",
+      "url": "https://www.youtube.com/watch?v=G3JceitLE2g",
+      "channel": "Rolf Verleger",
+      "source_id": "SRC_M2",
+      "duration_sec": 182,
+      "timecodes": [
+        {
+          "t": "00:04-00:18",
+          "what": "At kf_003.jpg (10.0s) (4:3 camera frame), Rolf Verleger's recording states \"I'm sorry, but I have to play out many times. I have to play out all the time. But the left side is against me.\" — providing spoken context for intermanual Conflict at the Neurology Exam Table: Right Hand Buttoning a Crisp Shirt While the Rogue Left Hand Unbuttons It."
+        },
+        {
+          "t": "00:19-00:23",
+          "what": "Mid-segment 4:3 camera frame at kf_005.jpg (20.0s) as narration explains \"But the left side is against me. You see here, right?\", clarifying key empirical findings in Gary Goldberg, Nathaniel Mayer & Joseph Toglia's 1981 Medial Frontal Lesion Cases & Todd Feinberg's 1992 Frontal-vs-Callosal Classification."
+        },
+        {
+          "t": "00:52-01:00",
+          "what": "Subsequent 4:3 camera frame at kf_012.jpg (55.0s) in \"Alien-Hand Syndrome\", documenting closing visual sequence for reference analysis."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x360, 14 frames sampled across 0.0s–65.0s)) from Rolf Verleger's \"Alien-Hand Syndrome\" (182s total runtime).",
+          "Deduplicated English transcript (4 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Motor areas in the frontal lobe.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Motor_areas_in_the_frontal_lobe.jpg",
+      "channel": "Wikimedia Commons (Chouinard PA and Paus T)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Motor areas in the frontal lobe.jpg\" (960x702 px, CC BY 3.0): Motor areas in the frontal lobe. The premotor cortex on the lateral surface of the brain can be divided into the dorsal and ventral premotor areas (PMd and PMv) and the supplementary motor cortex on t. Provides anatomical and structural brain reference relevant to the neural mechanism in Gary Goldberg, Nathaniel Mayer & Joseph Toglia's 1981 Medial Frontal Lesion Cases & Todd Feinberg's 1992 Frontal-vs-Callosal Classification."
+        }
+      ],
+      "license_note": "Archival photo (CC BY 3.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x702 px, CC BY 3.0, Chouinard PA and Paus T) — neuroanatomy reference: Motor areas in the frontal lobe. The premotor cortex on the lateral surface of the brain can be divided into the dorsal and ventral premotor areas (PMd and PMv) and the supplementary motor cortex on t.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

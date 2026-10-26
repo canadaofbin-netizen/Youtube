@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "slug": "beck_cognitive_triad_depression",
+  "topic": "Aaron T. Beck (1963): Automatic Negative Thoughts, the Cognitive Triad & Birth of CBT",
+  "pillar": "brain_health",
+  "created_at": "2026-10-25T22:49:29+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Beck's 1963 consulting-room discovery centers on writing down rapid 'automatic thoughts' on a two-column worksheet, paired with dorsolateral prefrontal cognitive reappraisal quieting limbic amygdala reactivity.",
+  "primary_case": {
+    "title": "Aaron T. Beck's clinical interview analysis of 50 depressed patients ('Thinking and Depression')",
+    "year": 1963,
+    "place": "University of Pennsylvania Department of Psychiatry, Philadelphia",
+    "people": [
+      {
+        "name": "Aaron Temkin Beck",
+        "role": "University of Pennsylvania psychiatrist who set out to validate Freudian dream hostility and instead discovered automatic cognitive distortions",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "50 depressed psychotherapy patients vs 31 non-depressed psychiatric controls",
+        "role": "Clinical cohort whose verbatim interview transcripts and free-association notes revealed systematic negative schemas",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 1963 at the University of Pennsylvania, psychiatrist Aaron T. Beck analyzed verbatim therapy records of 50 depressed patients compared against 31 non-depressed control patients.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Trained as a classical psychoanalyst, Beck originally tried to prove Freud's hypothesis that depression was 'anger turned inward' showing up as masochistic wish-fulfillment in dreams.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Instead, patients' dreams and waking streams shared the exact same bleak themes of defectiveness, deprivation, and defeat — leading Beck to notice a second, unscripted stream of rapid 'automatic thoughts' flashing right before waves of sadness.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "These automatic thoughts sounded completely plausible to the patient, arrived unbidden like reflexes, and clustered around what Beck named the Negative Cognitive Triad: negative views of the Self ('I am worthless'), the World/experience ('everything blocks me'), and the Future ('it will never improve').",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Beck cataloged systematic logical errors driving these thoughts: arbitrary inference (jumping to doom with zero evidence), selective abstraction (fixating on one tiny flaw), overgeneralization, magnification of errors, and minimization of strengths.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "For example, a accomplished patient whose colleague walked past briskly in a hallway felt an instant wave of despair after an automatic thought flashed: 'He thinks I'm incompetent' — before testing a single alternative explanation.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "When Beck invited patients to treat automatic thoughts as testable hypotheses rather than absolute truths — writing evidence for and against on paper — acute hopelessness dropped within sessions.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Hundreds of randomized clinical trials later established Beck's Cognitive Behavioral Therapy (CBT) as a gold-standard treatment on par with antidepressant medication for mild-to-moderate depression, with lower relapse rates.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Standard cognitive-restructuring worksheets train patients to pause for 60 seconds when a negative automatic thought strikes and test the thought against objective disconfirming evidence in a two-column record.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Aaron Beck spent years studying patients' dreams to prove Freud right — and accidentally demolished his own psychoanalytic training when patients confessed a hidden second track of 'automatic thoughts' running during sessions.",
+      "why_surprising": "Testing his own cherished theory honestly birthed Cognitive Behavioral Therapy.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Depressed patients weren't failing at general logic puzzles; their reasoning broke down selectively around three targets — Self, World, and Future — through repeatable micro-distortions.",
+      "why_surprising": "Spotting the distortion pattern turned vague misery into something testable on paper.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "An automatic thought flashes in fractions of a second BEFORE the emotional crash hits, which is why sadness often feels as if it dropped out of a clear sky.",
+      "why_surprising": "Catching the half-second sentence unlocks the emotion behind it.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "Treating a painful thought like a lab hypothesis on a two-column notepad lowered relapse rates more durably than pills alone in follow-up trials.",
+      "why_surprising": "Teaching the prefrontal cortex to audit evidence leaves a lasting skill.",
+      "source_id": "SRC3",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Cognitive Behavioral Therapy is just 'positive thinking' or chanting happy affirmations in the mirror.",
+      "truth": "Beck explicitly rejected blind cheerfulness in favor of 'collaborative empiricism' — testing thoughts rigorously against real evidence.",
+      "source_id": "SRC3"
+    },
+    {
+      "myth": "Sad emotions appear first out of nowhere with zero cognitive link.",
+      "truth": "In Beck's clinical transcripts, split-second automatic appraisals routinely preceded surges of hopelessness and shame.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Depressed people see reality more accurately across every domain.",
+      "truth": "Beck's 50-patient records documented glaring logical distortions like arbitrary inference and selective abstraction ignoring clear counter-evidence.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Negative thoughts are always the sole root cause of every clinical depression.",
+      "truth": "Modern psychiatry recognizes bidirectional loops linking neurobiology, life stress, and negative schemas.",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Sending a text message, seeing 'Read 2 hours ago' with no reply, and instantly concluding 'They're angry at me' (arbitrary inference).",
+    "Getting 9 glowing lines on a performance review and losing sleep over the 1 minor suggestion (selective abstraction).",
+    "Making one small mistake on a slide and thinking 'I ruin every presentation' (overgeneralization).",
+    "Drawing a quick two-column line on paper — 'Automatic Thought' vs 'Actual Evidence' — when midnight dread hits."
+  ],
+  "linked_projects": [
+    "psych_21_beck_cognitive_triad_depression"
+  ]
+}

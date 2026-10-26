@@ -1,0 +1,218 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Parma lab loudspeaker firing identical spike bursts as an articulated porcelain macaque sits motionless watching a precision pinch on a raisin",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1992, University of Parma Institute of Human Physiology, Italy",
+      "layout": {
+        "description": "Sunlit 1992 Italian neurophysiology laboratory with a wooden testing tray holding small raisins, a benchtop audio spike monitor speaker and dual-trace green oscilloscope ('F5 Neuron Spikes' top trace, 'Arm Muscle EMG = Flat 0' bottom trace).",
+        "positions": [
+          {
+            "who": "Articulated matte-white porcelain macaque sculpture",
+            "where": "seated completely still with both hands resting calmly on the chair rail while watching the tabletop tray",
+            "facing": "facing the experimenter's hand"
+          },
+          {
+            "who": "Giacomo Rizzolatti / Luciano Fadiga (mannequin in crisp 1992 white lab coat)",
+            "where": "reaching smoothly across the wooden tray with thumb and index finger in a precision pinch to pick up a single raisin",
+            "facing": "at the testing tray"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "wooden testing tray with raisins & empty-air comparison zone",
+          "period_detail": "clean maple tray holding individual dark raisins",
+          "physical_behavior": "reaching for a real raisin fires intense F5 spikes; empty-air miming stays quiet"
+        },
+        {
+          "name": "dual-trace oscilloscope ('SPIKES HIGH / ARM MUSCLE FLAT')",
+          "period_detail": "crisp benchtop screen showing dense vertical F5 action-potential ticks directly above a dead-flat arm-muscle EMG line",
+          "physical_behavior": "proves zero covert muscle twitching"
+        },
+        {
+          "name": "benchtop audio spike monitor speaker",
+          "period_detail": "brushed-metal speaker box beside the oscilloscope",
+          "physical_behavior": "crackles alive the exact millisecond the researcher's fingers close on the raisin"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Porcelain macaque sculpture",
+          "verb_sequence": "sits with hands completely still on the armrest (EMG flat) -> Researcher reaches out and pinches a raisin off the wooden tray -> F5 spike trace erupts identically to an active grasp"
+        },
+        {
+          "who": "Researcher",
+          "verb_sequence": "mimes the exact same finger pinch in empty air beside the tray -> F5 spike trace stays completely silent"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researcher",
+          "reaction": "turns to the oscilloscope stunned that a 'motor' cell cared about a watched goal"
+        },
+        {
+          "who": "Porcelain macaque sculpture",
+          "reaction": "remains calmly attentive with zero arm movement"
+        }
+      ],
+      "wardrobe": "1992 Italian academic lab attire: white cotton lab coat over collared shirt and tie; animal subject strictly rendered as an articulated matte-white porcelain macaque sculpture.",
+      "lighting": "Warm, high-key Italian window daylight across maple wood and clean instruments.",
+      "recognition_hook": "With arm sensors dead flat proving not a single muscle twitched, a 'movement' cell in Parma crackled over the speaker the instant a scientist pinched a raisin.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1992 Parma scientist in a white lab coat pinching a raisin off a wooden tray in front of a motionless articulated matte-white porcelain macaque beside a spiking oscilloscope",
+        "must_show": [
+          "macaque|monkey",
+          "tray|raisin|hand",
+          "oscilloscope|monitor|speaker"
+        ],
+        "source": "M1@00:08-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Opaque screen test: Hidden apple still fires the goal neuron",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2001, Parma physiology lab",
+      "layout": {
+        "description": "Same wooden tray, now fitted with a small sliding white screen placed in front of a red apple.",
+        "positions": [
+          {
+            "who": "Researcher mannequin",
+            "where": "showing the apple first, sliding the white screen in front, and reaching behind the screen",
+            "facing": "at tray"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "small sliding white occluder screen & apple",
+          "period_detail": "hides the final finger contact from sight",
+          "physical_behavior": "proves F5 neurons code inferred goal, not just raw pixels"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Researcher mannequin",
+          "verb_sequence": "places apple behind screen -> reaches behind -> oscilloscope fires right at inferred grasp moment"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Colleague mannequin",
+          "reaction": "contrasts that burst against zero firing when reaching behind an empty screen"
+        }
+      ],
+      "wardrobe": "White lab coats; porcelain macaque sculpture.",
+      "lighting": "High-key lab light.",
+      "recognition_hook": "Hide the apple behind a screen and reach in — the neuron STILL fires, unless it knows the screen is empty.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Hickok's Reality Check: Separating motor resonance from 'explaining everything'",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2014, modern cognitive neuroscience seminar",
+      "layout": {
+        "description": "Sunlit lecture desk displaying two clear columns: 'Proven: Motor Prediction & Imitation Learning' vs 'Debunked Myth: Broken Mirrors Cause Autism / Sole Seat of Meaning'.",
+        "positions": [
+          {
+            "who": "Cognitive Neuroscientist mannequin",
+            "where": "pointing to intact action-comprehension scores in frontal-lesion patients",
+            "facing": "at whiteboard"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "25-study replication summary chart",
+          "period_detail": "clean scientific correction board",
+          "physical_behavior": "replaces 2000s pop-hype with solid evidence"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Cognitive Neuroscientist mannequin",
+          "verb_sequence": "places a green check beside sensorimotor prediction and crosses out 'explains all civilization'"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Audience mannequins",
+          "reaction": "nod appreciating rigorous boundary testing"
+        }
+      ],
+      "wardrobe": "Modern tailored blazer.",
+      "lighting": "Bright seminar daylight.",
+      "recognition_hook": "Science self-corrects: mirror neurons tune motor prediction and skill learning, NOT magical telepathy or 'broken-mirror' myths.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Alternating watch-then-do reps on a guitar fretboard",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern music studio",
+      "layout": {
+        "description": "Sunlit studio with two acoustic guitars where a teacher plays a slow chord transition and the student immediately executes the matching grip.",
+        "positions": [
+          {
+            "who": "Guitar Teacher mannequin",
+            "where": "demonstrating a clean three-finger chord change slowly at eye level",
+            "facing": "facing student"
+          },
+          {
+            "who": "Student mannequin",
+            "where": "watching fingers closely then executing the exact chord cleanly",
+            "facing": "facing guitar"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "two natural-wood acoustic guitars",
+          "period_detail": "shared motor vocabulary in action",
+          "physical_behavior": "couples visual observation with immediate motor execution"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Guitar Teacher mannequin",
+          "verb_sequence": "plays slow chord -> Student mirrors finger placement immediately"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Student mannequin",
+          "reaction": "locks the chord cleanly on the second rep"
+        }
+      ],
+      "wardrobe": "Casual modern shirts.",
+      "lighting": "Warm studio window light.",
+      "recognition_hook": "Pairing close observation with immediate physical reps wires Heyes's sensorimotor loop fastest.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

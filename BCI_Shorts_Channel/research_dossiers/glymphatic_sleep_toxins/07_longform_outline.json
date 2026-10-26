@@ -1,0 +1,136 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Live two-photon brain microscopy shows spaces between neurons widening 60% the instant deep sleep starts, flushing out amyloid waste at double speed.",
+    "core_experiment": "Xie & Nedergaard (2013 Science): awake vs sleeping CSF tracer influx, TMA+ 60% interstitial expansion, AQP4 astrocytic water channels, 2x amyloid-beta clearance.",
+    "twist": "Waking norepinephrine keeps channels squeezed shut for sharp signaling, and sedative pills that flatten slow vascular waves do not match natural delta sleep."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Why Every Animal Must Risk Falling Asleep",
+      "beats": [
+        "2% body weight burning 20% energy",
+        "Zero traditional lymph pipes inside brain tissue",
+        "The 2013 Rochester two-photon breakthrough"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup"
+      ],
+      "new_shots_needed": [
+        "wide shot of Rochester two-photon rig"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "What One All-Nighter Leaves Behind",
+      "beats": [
+        "Amyloid-beta and tau pooling between neurons",
+        "Human PET scan after one sleepless night",
+        "Why cell-internal recycling is not enough"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "symptom",
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "3 a.m. desk fatigue comparison"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Inside the Glymphatic Wash Cycle",
+      "beats": [
+        "Glial astrocytes wrapping arteries with AQP4 channels",
+        "Interstitial space expanding 60% (14% to 23%)",
+        "Convective sweep from arteries to veins"
+      ],
+      "scene_ids": [
+        "S1",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "hinged 3D perivascular model demonstration"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Double-Speed Amyloid Clearance",
+      "beats": [
+        "Radiolabeled amyloid-beta measurements",
+        "Awake trickle vs delta-sleep surge",
+        "Why norepinephrine locks the gates by day"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "side-by-side awake vs asleep clearance graph"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Sleeping Pills vs Natural Slow Waves",
+      "beats": [
+        "Norepinephrine slow oscillations as vascular pump",
+        "Why zolpidem sedation can blunt fluid flow",
+        "Ongoing convective vs dispersive physics debates"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [],
+      "new_shots_needed": [
+        "slow-wave EEG vs flat sedated trace"
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Protecting Your Nightly Wash Cycle",
+      "beats": [
+        "First 3-4 hours of sleep carry peak delta waves",
+        "Alcohol, late caffeine, and thermal habits",
+        "Waking with a physically rinsed cortex"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "bright morning bedroom wakeup"
+      ]
+    },
+    {
+      "n": 7,
+      "title": "Sleep as Active Biological Maintenance",
+      "beats": [
+        "Recap of the 60% plumbing shift",
+        "Long-term neuroprotection",
+        "Closing takeaway"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [],
+      "new_shots_needed": [
+        "elevated wide shot of sunlit bedroom"
+      ]
+    }
+  ]
+}

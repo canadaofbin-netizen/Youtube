@@ -1,0 +1,212 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "J. Ridley Stroop timing 1935 Nashville students on the 100-item Solid Color Card (63.3s) vs Mismatched Color-Word Card (110.3s)",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1935, Jesup Psychological Laboratory, George Peabody College, Nashville",
+      "layout": {
+        "description": "Sunlit 1935 wood-trimmed university psychology classroom with two large white easel test boards side by side — Card 1 displaying neat rows of solid red, blue, green, brown, and purple color squares, and Card 2 displaying 100 bold color words printed in clashing inks ('RED' in blue, 'BLUE' in green, 'GREEN' in red) — beside an oak desk holding an analog laboratory stopwatch.",
+        "positions": [
+          {
+            "who": "J. Ridley Stroop (mannequin in 1935 three-piece tweed vest suit and tie)",
+            "where": "standing beside the twin easel boards clicking a chrome laboratory stopwatch as the student moves from Card 1 (63.3s) to Card 2 (110.3s)",
+            "facing": "facing student and easel cards"
+          },
+          {
+            "who": "1935 Undergraduate mannequin (in cardigan sweater)",
+            "where": "breezing smoothly down Card 1's solid color squares, then leaning forward, blinking, and catching their own tongue halfway through Card 2's mismatched color words",
+            "facing": "seated facing the two test boards"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1935 10×10 Solid Color Patch Card vs Mismatched Color-Word Card",
+          "period_detail": "twin crisp white cardstock grids showing solid color squares (63.3 s) beside incongruent color words like RED in blue ink (110.3 s)",
+          "physical_behavior": "lets viewers experience the exact interference instantly on screen"
+        },
+        {
+          "name": "chrome 1935 laboratory stopwatch & '+47.0s (+74.3%)' chalkboard tally",
+          "period_detail": "analog stopwatch on oak desk paired with neat chalk timings for Experiment 1 (+5.6%) vs Experiment 2 (+74.3%)",
+          "physical_behavior": "quantifies the one-way collision"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Student mannequin",
+          "verb_sequence": "points briskly across solid color squares finishing in 63.3 seconds -> shifts to the mismatched Color-Word board and stammers mid-row as mouth starts forming the printed word instead of the ink"
+        },
+        {
+          "who": "J. Ridley Stroop",
+          "verb_sequence": "clicks the stopwatch at 110.3 seconds and chalks '+47.0 sec (+74.3%)' on the board"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Student mannequin",
+          "reaction": "laughs in disbelief at being unable to ignore four simple letters"
+        },
+        {
+          "who": "J. Ridley Stroop",
+          "reaction": "flips to Experiment 3's 8-day practice chart"
+        }
+      ],
+      "wardrobe": "1935 American collegiate wear: wool vest suit with necktie; collegiate knit cardigan and pleated trousers.",
+      "lighting": "Bright high-key tall-window classroom daylight.",
+      "recognition_hook": "Solid color squares take 63 seconds; print the wrong color word in that exact same ink and every single human in the room slows to 110 seconds.",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1935 researcher with a stopwatch beside two tabletop/easel cardstock grids comparing solid color squares (63.3s) and mismatched ink color words like RED in blue ink (110.3s)",
+        "must_show": [
+          "card|grid|words",
+          "stopwatch|chalkboard|timer",
+          "desk|easel"
+        ],
+        "source": "M1@00:10-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Preschooler vs Professor: When Not Knowing How to Read Wins",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1966, Developmental psychology clinic",
+      "layout": {
+        "description": "Bright testing table where a 4-year-old pre-reader and a bespectacled professor race on mismatched color cards.",
+        "positions": [
+          {
+            "who": "4-year-old child mannequin",
+            "where": "pointing cheerfully and naming every ink color without a millisecond of hesitation",
+            "facing": "left chair"
+          },
+          {
+            "who": "Professor mannequin",
+            "where": "squinting and stumbling as automatic reading hijacks every word",
+            "facing": "right chair"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "identical incongruent Stroop cards",
+          "period_detail": "produce zero interference before literacy and massive lag after literacy",
+          "physical_behavior": "proves reading automaticity is the culprit"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Child",
+          "verb_sequence": "rattles off ink colors effortlessly -> Professor hesitates on the exact same row"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Clinician mannequin",
+          "reaction": "smiles recording developmental proof of automaticity"
+        }
+      ],
+      "wardrobe": "1960s child overalls and professor tweed jacket.",
+      "lighting": "Warm classroom daylight.",
+      "recognition_hook": "Before first grade teaches you to read, the Stroop trap has zero power over your brain.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Foreign-Script Fluency Detector",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1969, Bilingual psycholinguistics lab",
+      "layout": {
+        "description": "Clean desk displaying color cards in Cyrillic, Kanji, and English scripts.",
+        "positions": [
+          {
+            "who": "Bilingual subject mannequin",
+            "where": "breezing through unfamiliar script colors then lagging noticeably on the script they secretly read fluently",
+            "facing": "at response microphone"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "multi-script color-word cards",
+          "period_detail": "only trigger interference in scripts wired to automatic meaning",
+          "physical_behavior": "visceral demonstration of language automaticity"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Experimenter",
+          "verb_sequence": "flips unfamiliar script card (fast) -> flips fluent language card (instant 200-ms vocal lag)"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Experimenter",
+          "reaction": "points to voice-key millisecond jump"
+        }
+      ],
+      "wardrobe": "Late-1960s turtleneck and blazer.",
+      "lighting": "Clean high-key studio light.",
+      "recognition_hook": "You can claim you don't read a language — until the word 'RED' in blue ink betrays your tongue.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Human-Factors Design: Never Paint 'STOP / DELETE' Green",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern UX & aviation cockpit design studio",
+      "layout": {
+        "description": "Sunlit interface workstation comparing a clashing green 'DELETE' button with an aligned red 'DELETE' / green 'CONFIRM' pair.",
+        "positions": [
+          {
+            "who": "UX designer mannequin",
+            "where": "replacing Stroop-clashing UI buttons with color-aligned controls",
+            "facing": "at studio monitor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "aligned vs clashing UI button mockups",
+          "period_detail": "eliminates Stroop error spikes under cockpit or hospital fatigue",
+          "physical_behavior": "real-world safety payoff"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Designer",
+          "verb_sequence": "swaps clashing green-Delete button for aligned red-Delete -> error bar drops to near zero"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Test user mannequin",
+          "reaction": "taps accurately at full speed"
+        }
+      ],
+      "wardrobe": "Modern studio casual shirt.",
+      "lighting": "Bright clean daylight.",
+      "recognition_hook": "Good design aligns color with meaning so tired humans never fight a Stroop war at 2 a.m.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

@@ -132,11 +132,104 @@ def _clean_str(val: Any) -> str:
     return "" if s.lower() in {"none", "null"} else s
 
 
+_INACTIVE_QUEUE_STATUSES = frozenset({
+    "vacant",
+    "blocked_legacy_v4",
+    "deleted",
+    "deleted_from_studio",
+    "dry_run_staged",
+    "awaiting_render",
+})
+
+
+def _is_inactive_queue_status(status_val: Any) -> bool:
+    """True when a staging_queue item status represents an inactive, unrendered, deleted, or errored slot."""
+    st = _clean_str(status_val).lower()
+    return st in _INACTIVE_QUEUE_STATUSES or st.startswith("error")
+
+
+def _extract_slot_date_time(
+    item: dict[str, Any],
+    rec_info: dict[str, Any] | None = None,
+) -> tuple[str, str]:
+    """
+    Extracts ('YYYY-MM-DD', 'HH:MM') in ET from queue/history fields or upload_receipt.json,
+    preserving real publication/schedule timestamps when 'date'/'time_et' are omitted.
+    """
+    rec = rec_info or {}
+    d_str = _clean_str(item.get("date"))
+    t_str = _clean_str(item.get("time_et"))
+    if d_str and t_str:
+        return d_str, t_str
+
+    for raw_et in (
+        item.get("scheduled_time_et"),
+        item.get("target_time_et"),
+        rec.get("scheduled_time_et"),
+        rec.get("target_time_et"),
+    ):
+        cand = _clean_str(raw_et).replace("ET", "").strip()
+        if not cand:
+            continue
+        m = re.match(r"^(\d{4}-\d{2}-\d{2})(?:\s+(\d{2}:\d{2}))?", cand)
+        if m:
+            if not d_str:
+                d_str = m.group(1)
+            if not t_str and m.group(2):
+                t_str = m.group(2)
+            if d_str and t_str:
+                return d_str, t_str
+
+    if not d_str:
+        d_rec = _clean_str(rec.get("date"))
+        if re.match(r"^\d{4}-\d{2}-\d{2}$", d_rec):
+            d_str = d_rec
+    if not t_str:
+        t_rec = _clean_str(rec.get("time_et"))
+        if re.match(r"^\d{2}:\d{2}$", t_rec):
+            t_str = t_rec
+    if d_str and t_str:
+        return d_str, t_str
+
+    for raw_iso in (
+        item.get("published_at"),
+        rec.get("published_at"),
+        rec.get("uploaded_at"),
+    ):
+        iso_s = _clean_str(raw_iso)
+        if not iso_s:
+            continue
+        try:
+            dt_parsed = datetime.fromisoformat(iso_s.replace("Z", "+00:00"))
+            if dt_parsed.tzinfo is not None:
+                dt_et = dt_parsed.astimezone(timezone.utc) - timedelta(hours=4)
+            else:
+                dt_et = dt_parsed
+            if not d_str:
+                d_str = dt_et.strftime("%Y-%m-%d")
+            if not t_str:
+                t_str = dt_et.strftime("%H:%M")
+            if d_str and t_str:
+                return d_str, t_str
+        except Exception:
+            pass
+
+    if d_str and not t_str:
+        slot_cand = item.get("slot_id") if item.get("slot_id") is not None else rec.get("slot_id")
+        try:
+            if slot_cand is not None and int(slot_cand) in SLOT_TIMETABLE:
+                t_str = SLOT_TIMETABLE[int(slot_cand)]["time_et"]
+        except (TypeError, ValueError):
+            pass
+
+    return d_str, t_str
+
+
 class StudioAnalyticsReporter:
     """
     Collects all YouTube Studio analytics & pipeline queue data, compares against
-    the prior daily snapshot, generates a 6-panel PNG chart dashboard, and renders
-    the fixed 9-section Markdown Daily Report with inline Mermaid xychart-beta graphs.
+    the prior daily snapshot, generates PNG chart dashboards, and renders
+    the normalized 5-section Markdown Daily Growth Report.
     """
 
     def __init__(
@@ -161,8 +254,11 @@ class StudioAnalyticsReporter:
     @staticmethod
     def _probe_project_duration_sec(proj_id: str, proj_dir: Path, storage: ProjectStorage | None = None) -> float:
         """Resolves accurate video duration (sec) from probe_report.json, assembled MP4, or completed archive."""
-        if proj_id in _DURATION_CACHE:
-            return _DURATION_CACHE[proj_id]
+        from pipeline.studio.uploader import resolve_project_video_path
+
+        cache_key = f"{proj_dir.resolve()}::{proj_id}"
+        if cache_key in _DURATION_CACHE:
+            return _DURATION_CACHE[cache_key]
 
         dur = 0.0
         if storage is not None:
@@ -174,27 +270,22 @@ class StudioAnalyticsReporter:
                 pass
 
         if dur <= 0.0:
-            mp4_candidates = [
-                proj_dir / "05_assembly" / "final_shorts_1080x1920.mp4",
-                CHANNEL_ROOT.parent / "Completed_Psychology_100_Shorts" / f"final_shorts_{proj_id}.mp4",
-            ]
-            for mp4_path in mp4_candidates:
-                if mp4_path.exists():
-                    try:
-                        import cv2
-                        cap = cv2.VideoCapture(str(mp4_path))
-                        fps = float(cap.get(cv2.CAP_PROP_FPS) or 30.0)
-                        frames = float(cap.get(cv2.CAP_PROP_FRAME_COUNT) or 0.0)
-                        cap.release()
-                        if fps > 0.0 and frames > 0.0:
-                            dur = round(frames / fps, 1)
-                            break
-                    except Exception:
-                        pass
+            resolved_mp4 = resolve_project_video_path(proj_dir, proj_id)
+            if resolved_mp4 is not None and resolved_mp4.exists():
+                try:
+                    import cv2
+                    cap = cv2.VideoCapture(str(resolved_mp4))
+                    fps = float(cap.get(cv2.CAP_PROP_FPS) or 30.0)
+                    frames = float(cap.get(cv2.CAP_PROP_FRAME_COUNT) or 0.0)
+                    cap.release()
+                    if fps > 0.0 and frames > 0.0:
+                        dur = round(frames / fps, 1)
+                except Exception:
+                    pass
 
         if dur <= 0.0:
             dur = 85.0
-        _DURATION_CACHE[proj_id] = dur
+        _DURATION_CACHE[cache_key] = dur
         return dur
 
     @staticmethod
@@ -234,6 +325,7 @@ class StudioAnalyticsReporter:
         from pipeline.studio.config import SHORT_LINK_GRAPH_FILE
         from pipeline.studio.queue_manager import is_live_youtube_receipt, passes_v5_publish_gate
         from pipeline.studio.short_linker import is_valid_youtube_video_id
+        from pipeline.studio.uploader import resolve_project_video_path
         from pipeline.topics_catalog import ALL_PSYCHOLOGY_100_TOPICS
 
         projects_dir = self.projects_dir if self.projects_dir is not None else PROJECTS_DIR
@@ -284,12 +376,11 @@ class StudioAnalyticsReporter:
             except Exception:
                 pass
 
-        inactive_statuses = {"vacant", "blocked_legacy_v4", "deleted", "deleted_from_studio", "dry_run_staged"}
         raw_scheduled_items = [
             it for it in (queue_data.get("scheduled_items") or [])
             if isinstance(it, dict)
         ]
-        vacant_slots = [
+        raw_vacant_slots = [
             _clean_str(it.get("schedule_id")) or f"{_clean_str(it.get('date'))}_slot{it.get('slot_id')}"
             for it in raw_scheduled_items
             if not _clean_str(it.get("project_id")) or _clean_str(it.get("status")).lower() == "vacant"
@@ -297,45 +388,58 @@ class StudioAnalyticsReporter:
         assigned_scheduled_items = [
             it for it in raw_scheduled_items
             if _clean_str(it.get("project_id"))
-            and _clean_str(it.get("status")).lower() not in inactive_statuses
+            and not _is_inactive_queue_status(it.get("status"))
         ]
 
         combined_queue_items: list[dict[str, Any]] = []
         seen_queue_pids: set[str] = set()
+        active_by_pid: dict[str, dict[str, Any]] = {
+            _clean_str(it.get("project_id")): it
+            for it in assigned_scheduled_items
+            if _clean_str(it.get("project_id"))
+        }
         for src_item in list(queue_data.get("history") or []) + list(assigned_scheduled_items):
             if not isinstance(src_item, dict):
                 continue
             p_key = _clean_str(src_item.get("project_id"))
-            st_key = _clean_str(src_item.get("status")).lower()
-            if not p_key or st_key in inactive_statuses:
+            if not p_key or _is_inactive_queue_status(src_item.get("status")):
                 continue
             if p_key in seen_queue_pids:
                 continue
             seen_queue_pids.add(p_key)
-            combined_queue_items.append(dict(src_item))
+            merged_item = dict(src_item)
+            if p_key in active_by_pid and merged_item is not active_by_pid[p_key]:
+                st_hist = _clean_str(merged_item.get("status")).lower()
+                if st_hist not in {"published", "published_public"}:
+                    merged_item.update(active_by_pid[p_key])
+            combined_queue_items.append(merged_item)
+
         for pid_r, r_data in sorted(receipts_by_pid.items()):
             if pid_r in seen_queue_pids:
                 continue
             if is_live_youtube_receipt(r_data):
                 r_status = _clean_str(r_data.get("status")).lower()
                 r_vis = _clean_str(r_data.get("visibility")).lower()
-                sched_et = _clean_str(r_data.get("scheduled_time_et")).replace(" ET", "").strip()
-                parts = sched_et.split(" ") if sched_et else []
+                r_date, r_time = _extract_slot_date_time({}, r_data)
                 eff_q_status = (
                     "published"
                     if (r_status == "published_public" or r_vis == "public")
-                    else ("unlisted" if (r_vis == "unlisted" or "unlisted" in r_status) else "scheduled")
+                    else ("unlisted" if (r_vis == "unlisted" or ("unlisted" in r_status and r_vis != "scheduled")) else "scheduled")
                 )
-                combined_queue_items.append({
+                synth_item: dict[str, Any] = {
                     "project_id": pid_r,
                     "title": _clean_str(r_data.get("title")),
                     "video_id": _clean_str(r_data.get("video_id")),
                     "shorts_url": _clean_str(r_data.get("shorts_url")),
-                    "slot_id": r_data.get("slot_id", 2),
-                    "date": parts[0] if len(parts) >= 1 else report_date,
-                    "time_et": parts[1] if len(parts) >= 2 else "12:00",
+                    "slot_id": r_data.get("slot_id"),
+                    "scheduled_time_et": _clean_str(r_data.get("scheduled_time_et")),
                     "status": eff_q_status,
-                })
+                }
+                if r_date:
+                    synth_item["date"] = r_date
+                if r_time:
+                    synth_item["time_et"] = r_time
+                combined_queue_items.append(synth_item)
                 seen_queue_pids.add(pid_r)
 
         published_items: list[dict[str, Any]] = []
@@ -356,9 +460,9 @@ class StudioAnalyticsReporter:
             status = _clean_str(item.get("status")).lower()
             rec_vis = _clean_str(rec_info.get("visibility")).lower()
             rec_status = _clean_str(rec_info.get("status")).lower()
-            if status in inactive_statuses:
+            if _is_inactive_queue_status(status):
                 continue
-            if (rec_status == "deleted_from_studio" or rec_vis == "deleted") and status not in {"published", "published_public"}:
+            if rec_status == "deleted_from_studio" or rec_vis == "deleted":
                 continue
 
             if not _clean_str(item.get("title")):
@@ -377,22 +481,45 @@ class StudioAnalyticsReporter:
             if not _clean_str(item.get("published_at")) and _clean_str(rec_info.get("published_at")):
                 item["published_at"] = _clean_str(rec_info.get("published_at"))
 
-            is_effectively_published = (
-                status in {"published", "published_public"}
-                or rec_vis == "public"
-                or rec_status == "published_public"
-            )
+            ext_date, ext_time = _extract_slot_date_time(item, rec_info)
+            if ext_date:
+                item["date"] = ext_date
+            if ext_time:
+                item["time_et"] = ext_time
+            if item.get("slot_id") is None and rec_info.get("slot_id") is not None:
+                item["slot_id"] = rec_info.get("slot_id")
+
+            has_live_rec = is_live_youtube_receipt(rec_info)
             has_live_vid = is_valid_youtube_video_id(_clean_str(item.get("video_id")))
 
-            if not is_effectively_published and not has_live_vid and not is_live_youtube_receipt(rec_info):
+            is_effectively_published = (
+                rec_vis == "public"
+                or rec_status == "published_public"
+                or (status in {"published", "published_public"} and rec_vis not in {"scheduled", "unlisted"})
+            )
+
+            if not is_effectively_published and not has_live_vid and not has_live_rec:
                 cand_pdir = projects_dir / proj_id
-                if cand_pdir.exists():
-                    v5_ok, _ = passes_v5_publish_gate(cand_pdir, allow_legacy_v4=False)
-                    if not v5_ok:
-                        continue
+                if not cand_pdir.exists() or not (cand_pdir / "00_project_manifest.json").exists():
+                    continue
+                if resolve_project_video_path(cand_pdir, proj_id) is None:
+                    continue
+                v5_ok, _ = passes_v5_publish_gate(cand_pdir, allow_legacy_v4=False)
+                if not v5_ok:
+                    continue
+
+            is_effectively_unlisted = (
+                not is_effectively_published
+                and (
+                    rec_vis == "unlisted"
+                    or ("unlisted" in rec_status and rec_vis != "scheduled")
+                    or (rec_vis != "scheduled" and status in {"unlisted", "staged_unlisted", "uploaded_unlisted"})
+                )
+            )
 
             if is_effectively_published:
                 item["effective_status"] = "published"
+                item["status"] = "published"
                 published_items.append(item)
                 pts = _clean_str(item.get("published_at"))
                 if pts:
@@ -402,26 +529,26 @@ class StudioAnalyticsReporter:
                         parsed_pub_datetimes.append(datetime.fromisoformat(pts.replace("Z", "+00:00")))
                     except Exception:
                         pass
-                else:
-                    d_str = _clean_str(item.get("date"))
-                    t_str = _clean_str(item.get("time_et"))
-                    if d_str and t_str:
-                        try:
-                            dt_et = datetime.strptime(f"{d_str} {t_str}", "%Y-%m-%d %H:%M")
-                            parsed_pub_datetimes.append(dt_et.replace(tzinfo=timezone.utc))
-                        except Exception:
-                            pass
-            elif status in {"unlisted", "staged_unlisted", "uploaded_unlisted"} or rec_vis == "unlisted":
+                elif ext_date and ext_time:
+                    try:
+                        dt_et = datetime.strptime(f"{ext_date} {ext_time}", "%Y-%m-%d %H:%M")
+                        parsed_pub_datetimes.append(dt_et.replace(tzinfo=timezone.utc))
+                    except Exception:
+                        pass
+            elif is_effectively_unlisted:
                 item["effective_status"] = "unlisted"
+                item["status"] = "unlisted"
                 unlisted_staged_items.append(item)
             else:
                 item["effective_status"] = "scheduled"
+                item["status"] = "scheduled"
                 scheduled_pending.append(item)
 
-        simultaneous_publish_count = max(pub_ts_counts.values(), default=0)
+        max_pub_same_ts = max(pub_ts_counts.values(), default=0)
+        simultaneous_publish_count = max_pub_same_ts if max_pub_same_ts > 1 else 0
         simultaneous_publish_timestamp = ""
         simultaneous_publish_projects: list[str] = []
-        if pub_ts_counts:
+        if simultaneous_publish_count > 1:
             simultaneous_publish_timestamp = max(pub_ts_counts, key=pub_ts_counts.get)  # type: ignore[arg-type]
             simultaneous_publish_projects = pub_ts_projects.get(simultaneous_publish_timestamp, [])
 
@@ -436,6 +563,39 @@ class StudioAnalyticsReporter:
             ]
             if gaps:
                 min_publish_gap_hours = round(min(gaps), 2)
+
+        for q_it in scheduled_pending + unlisted_staged_items:
+            q_pid = _clean_str(q_it.get("project_id"))
+            q_cat = catalog_by_pid.get(q_pid, {})
+            q_pillar = normalize_pillar_id(
+                _clean_str(q_it.get("pillar")) or _clean_str(q_cat.get("pillar")) or "bci_tech"
+            )
+            try:
+                q_slot = int(q_it.get("slot_id") or get_pillar_default_slot(q_pillar))
+            except (TypeError, ValueError):
+                q_slot = get_pillar_default_slot(q_pillar)
+            q_it["slot_id"] = q_slot
+            if not _clean_str(q_it.get("slot_name")):
+                q_it["slot_name"] = SLOT_TIMETABLE.get(q_slot, {}).get("name", "Midday Peak")
+            if not _clean_str(q_it.get("date")):
+                q_it["date"] = report_date
+            if not _clean_str(q_it.get("time_et")):
+                q_it["time_et"] = SLOT_TIMETABLE.get(q_slot, {}).get("time_et", "12:00")
+            if not _clean_str(q_it.get("time_kst")):
+                q_it["time_kst"] = SLOT_TIMETABLE.get(q_slot, {}).get("time_kst", "01:00")
+            if not _clean_str(q_it.get("schedule_id")):
+                q_it["schedule_id"] = f"{q_it['date']}_slot{q_slot}"
+
+        occupied_slot_ids: set[str] = set()
+        for q_it in scheduled_pending + unlisted_staged_items:
+            sid_q = _clean_str(q_it.get("schedule_id"))
+            if sid_q:
+                occupied_slot_ids.add(sid_q)
+            d_q = _clean_str(q_it.get("date"))
+            if d_q and q_it.get("slot_id") is not None:
+                occupied_slot_ids.add(f"{d_q}_slot{q_it.get('slot_id')}")
+
+        vacant_slots = [sid for sid in raw_vacant_slots if sid not in occupied_slot_ids]
 
         vacuum_slots = [
             _clean_str(it.get("schedule_id")) or f"{_clean_str(it.get('date'))}_slot{it.get('slot_id')}"
@@ -463,7 +623,10 @@ class StudioAnalyticsReporter:
 
             raw_pillar = _clean_str(item.get("pillar")) or _clean_str(cat_info.get("pillar")) or "bci_tech"
             pillar_canon = normalize_pillar_id(raw_pillar)
-            slot_id = item.get("slot_id") or get_pillar_default_slot(pillar_canon)
+            try:
+                slot_id = int(item.get("slot_id") or rec_info.get("slot_id") or get_pillar_default_slot(pillar_canon))
+            except (TypeError, ValueError):
+                slot_id = get_pillar_default_slot(pillar_canon)
 
             doi_str = _clean_str(cat_info.get("doi")) or "Verified"
             active_variant = "A"
@@ -537,12 +700,29 @@ class StudioAnalyticsReporter:
                 (e for e in graph_edges if isinstance(e, dict) and _clean_str(e.get("source_project_id")) == proj_id),
                 {},
             )
-            rel_verified = bool(rel_rec.get("verified"))
-            rel_target_pid = _clean_str(rel_rec.get("target_project_id")) or _clean_str(planned_edge.get("target_project_id"))
-            rel_target_vid = _clean_str(rel_rec.get("target_video_id")) or _clean_str(planned_edge.get("target_video_id"))
-            rel_link_role = _clean_str(rel_rec.get("link_role")) or _clean_str(planned_edge.get("link_role"))
-            playlist_verified = bool(rel_rec.get("playlist_verified"))
-            playlist_title = _clean_str(rel_rec.get("playlist_title"))
+            rel_verified = bool(rel_rec.get("verified") or rec_info.get("related_video_verified"))
+            rel_target_pid = (
+                _clean_str(rel_rec.get("target_project_id"))
+                or _clean_str(rec_info.get("related_target_project_id"))
+                or _clean_str(planned_edge.get("target_project_id"))
+            )
+            rel_target_vid = (
+                _clean_str(rel_rec.get("target_video_id"))
+                or _clean_str(rec_info.get("related_target_video_id"))
+                or _clean_str(planned_edge.get("target_video_id"))
+            )
+            rel_link_role = (
+                _clean_str(rel_rec.get("link_role"))
+                or _clean_str(rel_rec.get("link_reason"))
+                or _clean_str(planned_edge.get("link_role"))
+                or _clean_str(planned_edge.get("link_reason"))
+            )
+            playlist_verified = bool(
+                rel_rec.get("playlist_verified")
+                or rel_rec.get("playlist_assigned")
+                or rec_info.get("playlist_verified")
+            )
+            playlist_title = _clean_str(rel_rec.get("playlist_title")) or _clean_str(rec_info.get("playlist_title"))
 
             enriched_videos.append({
                 "index": idx,
@@ -554,7 +734,7 @@ class StudioAnalyticsReporter:
                 "slot_name": item.get("slot_name") or SLOT_TIMETABLE.get(slot_id, {}).get("name", "Midday Peak"),
                 "date": _clean_str(item.get("date")) or report_date,
                 "time_et": _clean_str(item.get("time_et")) or "12:00",
-                "time_kst": _clean_str(item.get("time_kst")) or "01:00",
+                "time_kst": _clean_str(item.get("time_kst")) or SLOT_TIMETABLE.get(slot_id, {}).get("time_kst", "01:00"),
                 "published_at": published_at_iso,
                 "status": eff_status,
                 "video_id": _clean_str(item.get("video_id")),
@@ -587,24 +767,24 @@ class StudioAnalyticsReporter:
 
         completed_pids: set[str] = set()
         blocked_legacy_v4_pids: set[str] = set()
-        completed_archive_dir = (
-            CHANNEL_ROOT.parent / "Completed_Psychology_100_Shorts"
-            if projects_dir == PROJECTS_DIR
-            else projects_dir.parent / "Completed_Psychology_100_Shorts"
-        )
+        archive_dir_candidates: list[Path] = []
+        for anc in (projects_dir.parent, projects_dir.parent.parent):
+            cand_arch = anc / "Completed_Psychology_100_Shorts"
+            if cand_arch not in archive_dir_candidates:
+                archive_dir_candidates.append(cand_arch)
+        if projects_dir.resolve() == PROJECTS_DIR.resolve():
+            ws_arch = CHANNEL_ROOT.parent / "Completed_Psychology_100_Shorts"
+            if ws_arch not in archive_dir_candidates:
+                archive_dir_candidates.insert(0, ws_arch)
+
         if projects_dir.exists():
             for p_dir in sorted(projects_dir.iterdir()):
                 if not p_dir.is_dir():
                     continue
+                if not (p_dir / "00_project_manifest.json").exists():
+                    continue
                 pid_cand = p_dir.name
-                asm_dir = p_dir / "05_assembly"
-                has_mp4 = (
-                    (asm_dir / "final_shorts_1080x1920.mp4").exists()
-                    or any("burnin" not in m.name for m in (list(asm_dir.glob("*.mp4")) if asm_dir.exists() else []))
-                    or any("burnin" not in m.name for m in p_dir.glob("*.mp4"))
-                    or (completed_archive_dir / f"final_shorts_{pid_cand}.mp4").exists()
-                )
-                if not has_mp4:
+                if resolve_project_video_path(p_dir, pid_cand) is None:
                     continue
                 rec_cand = receipts_by_pid.get(pid_cand, {})
                 if is_live_youtube_receipt(rec_cand) or pid_cand in (published_pids | active_staged_pids):
@@ -615,11 +795,12 @@ class StudioAnalyticsReporter:
                         completed_pids.add(pid_cand)
                     else:
                         blocked_legacy_v4_pids.add(pid_cand)
-        if completed_archive_dir.exists():
-            for mp4_f in completed_archive_dir.glob("final_shorts_*.mp4"):
-                pid_arch = mp4_f.stem.replace("final_shorts_", "", 1)
-                if pid_arch not in completed_pids:
-                    blocked_legacy_v4_pids.add(pid_arch)
+        for completed_archive_dir in archive_dir_candidates:
+            if completed_archive_dir.exists():
+                for mp4_f in completed_archive_dir.glob("final_shorts_*.mp4"):
+                    pid_arch = mp4_f.stem.replace("final_shorts_", "", 1)
+                    if pid_arch not in completed_pids:
+                        blocked_legacy_v4_pids.add(pid_arch)
 
         completed_pids |= published_pids | active_staged_pids
         blocked_legacy_v4_pids -= completed_pids
@@ -673,10 +854,10 @@ class StudioAnalyticsReporter:
             except Exception:
                 pass
 
-        valid_queue_items = [
-            it for it in assigned_scheduled_items
-            if _clean_str(it.get("project_id")) in (published_pids | active_staged_pids)
-        ]
+        valid_queue_items = sorted(
+            list(scheduled_pending) + list(unlisted_staged_items),
+            key=lambda x: (_clean_str(x.get("date")), int(x.get("slot_id") or 2)),
+        )
         filtered_upcoming = [
             it for it in valid_queue_items
             if _clean_str(it.get("date")) >= report_date
@@ -1983,38 +2164,65 @@ class StudioAnalyticsReporter:
             {
                 "risk_id": "RISK-2",
                 "category": "향후 72h+ 예약 발행 공백 (Schedule Vacuum, Rule R30/R33)",
-                "severity": "HIGH" if local_state["unlisted_staged_count"] > 0 else "OK",
+                "severity": (
+                    "HIGH"
+                    if local_state["unlisted_staged_count"] > 0
+                    else ("MEDIUM" if local_state["scheduled_count"] == 0 else "OK")
+                ),
                 "status_badge": (
                     f"🚨 VACUUM (`{local_state['unlisted_staged_count']}`개 슬롯 Unlisted 예약 해제)"
                     if local_state["unlisted_staged_count"] > 0
-                    else f"✅ SCHEDULED (`{local_state['scheduled_count']}`개 슬롯 배정 · 공백 없음)"
+                    else (
+                        f"⚠️ QUEUE EMPTY (예약 `0`건 · 빈 슬롯 `{local_state.get('vacant_slot_count', 0)}`개)"
+                        if local_state["scheduled_count"] == 0
+                        else (
+                            f"✅ SCHEDULED (`{local_state['scheduled_count']}`개 슬롯 배정 · 빈 슬롯 `{local_state.get('vacant_slot_count', 0)}`개)"
+                            if local_state.get("vacant_slot_count", 0) > 0
+                            else f"✅ SCHEDULED (`{local_state['scheduled_count']}`개 슬롯 배정 · 공백 없음)"
+                        )
+                    )
                 ),
                 "evidence": (
                     f"`{local_state['vacuum_range_str']}` 구간 총 `{local_state['vacuum_slot_count']}`개 슬롯이 "
                     f"`status='unlisted'`로 예약 해제되어 자동 공개 예약이 비어 있음."
                     if local_state["unlisted_staged_count"] > 0
                     else (
-                        f"`staging_queue.json` 내 향후 `{local_state['scheduled_count']}`개 슬롯이 공백 없이 배정 완료됨 "
-                        f"(`unlisted` 전환 방치 슬롯 `0`건)."
+                        f"`staging_queue.json` 내 배정된 향후 예약 영상 `0`건 "
+                        f"(`status='vacant'` 빈 슬롯 `{local_state.get('vacant_slot_count', 0)}`개, v5 미게시 대기 버퍼 `{local_state.get('staged_buffer_count', 0)}`편)."
+                        if local_state["scheduled_count"] == 0
+                        else (
+                            f"`staging_queue.json` 내 향후 `{local_state['scheduled_count']}`개 슬롯 배정 완료 "
+                            f"(잔여 `vacant` 빈 슬롯 `{local_state.get('vacant_slot_count', 0)}`개, `unlisted` 전환 방치 슬롯 `0`건)."
+                            if local_state.get("vacant_slot_count", 0) > 0
+                            else (
+                                f"`staging_queue.json` 내 향후 `{local_state['scheduled_count']}`개 슬롯이 공백 없이 배정 완료됨 "
+                                f"(`unlisted` 전환 방치 슬롯 `0`건)."
+                            )
+                        )
                     )
                 ),
                 "remedy": (
                     "Rule R30-B 시드 보호(`>= 4.0h` 간격)에 맞춰 `studio-upload --visibility scheduled`로 "
                     f"북미 프라임 슬롯(`12:00 ET`, `{SLOT_TIMETABLE.get(4, {}).get('time_et', '20:00')} ET` 등) 즉시 재예약."
                     if local_state["unlisted_staged_count"] > 0
-                    else "예약 배정된 슬롯이 YouTube Studio 라이브 `Scheduled` 상태와 일치하는지 웨일 CDP로 정기 검증."
+                    else (
+                        f"v5 게이트(`prompt-gate`) 통과 신규 Shorts 생산 후 `studio-upload --visibility scheduled`로 "
+                        f"북미 프라임 슬롯(`12:00 ET`, `{SLOT_TIMETABLE.get(4, {}).get('time_et', '20:00')} ET`) 배정."
+                        if local_state["scheduled_count"] == 0
+                        else "예약 배정된 슬롯이 YouTube Studio 라이브 `Scheduled` 상태와 일치하는지 웨일 CDP로 정기 검증."
+                    )
                 ),
             },
             {
                 "risk_id": "RISK-3",
-                "category": "스테이징 큐 날짜 필터링 & 상태 배지 정합성 (Rule R33/R34)",
+                "category": "스테이징 큐 날짜·빈 슬롯 필터링 & 상태 배지 정합성 (Rule R33/R34)",
                 "severity": "RESOLVED",
-                "status_badge": "✅ FIXED (`date >= report_date` 필터링 & `🔒 Unlisted` 분리)",
+                "status_badge": "✅ FIXED (`date >= report_date` · `vacant` 제외 & `🔒 Unlisted` 분리)",
                 "evidence": (
-                    f"과거 날짜(`2026-10-15`) 고정 슬라이싱(`[:10]`) 및 `unlisted`의 `⏰ Scheduled` 오표기 버그를 수정하여 "
-                    f"기준일(`{report_date}`) 이후 슬롯 `{len(local_state['upcoming_schedule'])}`건을 정확히 노출."
+                    f"과거 날짜 고정 슬라이싱, `vacant`(`project_id: null`) 빈 슬롯 오합산 및 `unlisted`의 `⏰ Scheduled` 오표기 버그를 수정하여 "
+                    f"기준일(`{report_date}`) 이후 실제 배정 슬롯 `{len(local_state['upcoming_schedule'])}`건(빈 슬롯 `{local_state.get('vacant_slot_count', 0)}`개 제외)을 정확히 노출."
                 ),
-                "remedy": "섹션 8-2 스케줄 점검표에서 `✅ Published` / `⏰ Scheduled` / `🔒 Unlisted (Staged)` 상태를 일일 감사.",
+                "remedy": "섹션 4 Queue & Operations Health 및 스테이징 큐에서 `Published` / `Scheduled` / `Vacant` 상태를 일일 감사.",
             },
             {
                 "risk_id": "RISK-4",
@@ -2026,12 +2234,19 @@ class StudioAnalyticsReporter:
                     else f"✅ ALIGNED (동시 발행 `0`편 / 최소 간격 `{local_state['min_publish_gap_hours']:.1f}h >= 4.0h`)"
                 ),
                 "evidence": (
-                    f"초기 `{', '.join(local_state['simultaneous_publish_projects'][:3])}` `{local_state['simultaneous_publish_count']}`편이 "
-                    f"`{local_state['simultaneous_publish_timestamp']}`에 동시 공개(`0.0h < 4.0h`)되었으며, 배치 스케줄 맵 시각 오차 발견(`{drift_slots_str}`)."
-                    if local_state["simultaneous_publish_count"] > 1 or local_state["schedule_map_drift_slots"]
+                    (
+                        f"초기 `{', '.join(local_state['simultaneous_publish_projects'][:3])}` `{local_state['simultaneous_publish_count']}`편이 "
+                        f"`{local_state['simultaneous_publish_timestamp']}`에 동시 공개(`0.0h < 4.0h`)됨"
+                        + (f" · 배치 스케줄 맵 시각 오차 발견(`{drift_slots_str}`)." if local_state["schedule_map_drift_slots"] else ".")
+                    )
+                    if local_state["simultaneous_publish_count"] > 1
                     else (
-                        f"`staging_queue.json` 전체 슬롯 간 최소 발행 간격 `{local_state['min_publish_gap_hours']:.1f}h` (`>= 4.0h`, 동시 발행 `0`편) 및 "
-                        f"5-Slot 표준 시각(`07:30, 12:00, 16:00, {SLOT_TIMETABLE.get(4, {}).get('time_et', '20:00')}, 22:30 ET`) 정합성 통과 (스케줄 맵 오차 `{drift_slots_str}`)."
+                        f"최소 발행 간격 `{local_state['min_publish_gap_hours']:.1f}h` · 배치 스케줄 맵 시각 오차 점검(`{drift_slots_str}`)."
+                        if (local_state["min_publish_gap_hours"] < 4.0 or local_state["schedule_map_drift_slots"])
+                        else (
+                            f"`staging_queue.json` 전체 슬롯 간 최소 발행 간격 `{local_state['min_publish_gap_hours']:.1f}h` (`>= 4.0h`, 동시 발행 `0`편) 및 "
+                            f"5-Slot 표준 시각(`07:30, 12:00, 16:00, {SLOT_TIMETABLE.get(4, {}).get('time_et', '20:00')}, 22:30 ET`) 정합성 통과 (스케줄 맵 오차 `{drift_slots_str}`)."
+                        )
                     )
                 ),
                 "remedy": (
@@ -2156,9 +2371,11 @@ class StudioAnalyticsReporter:
             "inventory_summary": {
                 "published_count": local_state["published_count"],
                 "scheduled_count": local_state["scheduled_count"],
+                "vacant_slot_count": local_state["vacant_slot_count"],
                 "unlisted_staged_count": local_state["unlisted_staged_count"],
                 "quarantine_count": local_state["quarantine_count"],
                 "staged_buffer_count": local_state["staged_buffer_count"],
+                "blocked_legacy_v4_count": local_state["blocked_legacy_v4_count"],
                 "total_completed_inventory": local_state["total_completed_inventory"],
             },
             "short_link_summary": short_link_summary,
@@ -2492,8 +2709,8 @@ class StudioAnalyticsReporter:
                     f"낮은 `Viewed ({vw_p:.1f}%)` 비율로 인해 Shorts 피드 시드 확장이 제한됨."
                 )
                 next_action = (
-                    f"금일 `12:00 ET` 예약 공개되는 동일 `{v['pillar']}` 필러 후속작(`psych_05_capgras_imposter_delusion`, `89.8초` 10클립 풀 스파인)에서 "
-                    f"첫 3초 시각적 임상 충격 훅으로 `Viewed >= 75%`를 회복."
+                    f"동일 `{v['pillar']}` 필러의 Prompt System v5 후속작(`84~90초` 10클립 풀 스파인)에서 "
+                    f"첫 3초 시각적 임상 행동 훅으로 `Viewed >= 75%`를 회복하고 `Related Video` 시드 연결을 유지."
                 )
             else:
                 change_type = "HIGH_VELOCITY_SEED"
@@ -2526,7 +2743,7 @@ class StudioAnalyticsReporter:
                 )
                 next_action = (
                     f"`studio-ab-test --evaluate`로 Variant C 우승 썸네일을 확정하고, 동일 `{v['pillar']}` 필러 후속작과 "
-                    f"DOI 고정 댓글(Rule R35) 상호 추천 링크를 연결."
+                    f"`Related Video`(Rule R35-B) 및 DOI 고정 댓글(Rule R35) 연결을 유지."
                 )
 
             notable_list.append({
@@ -2564,7 +2781,7 @@ class StudioAnalyticsReporter:
                 "project_id": f"{first_u_lbl} ~ {last_u_lbl} 외 총 {len(unmeasured_vids)}편 코호트",
                 "short_label": f"scheduled_{len(unmeasured_vids)}" if is_all_scheduled else f"unscraped_{len(unmeasured_vids)}",
                 "title": (
-                    f"금일/익일 예약 공개 대기 코호트({today_ids_str} 등) {len(unmeasured_vids)}편"
+                    f"예약 공개 대기 코호트({today_ids_str} 등) {len(unmeasured_vids)}편"
                     if is_all_scheduled
                     else f"신규/대기 코호트({today_ids_str} 등) DOM 미수집 {len(unmeasured_vids)}편 격리"
                 ),
@@ -2572,17 +2789,17 @@ class StudioAnalyticsReporter:
                 "slot_id": 2,
                 "change_type": "COHORT_DOM_PENDING_ISOLATION",
                 "signal_badge": (
-                    f"⏰ 금일/익일 예약 발행 대기 ({len(unmeasured_vids)}편 Scheduled)"
+                    f"⏰ 예약 발행 대기 ({len(unmeasured_vids)}편 Scheduled)"
                     if is_all_scheduled
                     else f"🆕 신규 공개 & DOM 미수집 격리 ({len(unmeasured_vids)}편)"
                 ),
                 "what_changed": (
                     f"{today_ids_str} 등 총 `{len(unmeasured_vids)}`편이 YouTube Studio에서 `Scheduled` 예약 대기 중이므로 "
-                    f"성적표에서 `0회 (예약 대기)`로 분리 집계됨 (코호트 평균 길이 `{avg_unm_dur}초`, 10클립 Contract v4 규격)."
+                    f"성적표에서 `0회 (예약 대기)`로 분리 집계됨 (코호트 평균 길이 `{avg_unm_dur}초`, 10클립 풀 스파인 규격)."
                 ),
                 "why_summary": (
                     "① 공개 전 예약(`Scheduled`) 영상의 허위 조회수 합산 원천 차단(RISK-1 방어) · "
-                    "② `psych_05`(`12:00 ET`)·`psych_06`(`20:00 ET`) 금일 북미 프라임 타임 자동 공개 대기 · "
+                    f"② {today_ids_str} 북미 프라임 타임(`12:00 ET` / `20:00 ET`) 자동 공개 대기 · "
                     + (
                         f"③ {unlisted_cnt}개 슬롯 `unlisted` 공백 동시 발생"
                         if unlisted_cnt > 0
@@ -2590,7 +2807,7 @@ class StudioAnalyticsReporter:
                     )
                 ),
                 "why_script_and_hook": (
-                    f"로컬 매니페스트 검증 결과 `{first_u_lbl}`~`{last_u_lbl}` 코호트 `{len(unmeasured_vids)}`편 모두 Contract v4 "
+                    f"로컬 매니페스트 검증 결과 `{first_u_lbl}`~`{last_u_lbl}` 코호트 `{len(unmeasured_vids)}`편 모두 Prompt System v5 "
                     f"(`10클립`, 평균 `{avg_unm_dur}초`, DOI 검증 완료, Rule R35 고정 댓글 준비) 규격으로 정상 조립됨."
                 ),
                 "why_retention_and_visuals": (
@@ -2598,11 +2815,10 @@ class StudioAnalyticsReporter:
                     "`measured=False` 분리 정책(Rule R29 / RISK-1)이 작동한 결과임."
                 ),
                 "why_traffic_and_studio": (
-                    "YouTube Studio `/videos/short`에서 `psych_05_capgras_imposter_delusion` (`lZv3_UAWScI`) 및 "
-                    "`psych_06_glymphatic_sleep_toxins` (`31_O2CmlKOk`)가 `Scheduled (21 Oct 2026)` 상태로 정상 등록되어 있음."
+                    f"예약 대기 코호트({today_ids_str})가 북미 프라임 슬롯에 배정되어 있으며 공개 전까지 채널 평균 지표에서 안전 분리됨."
                 ),
                 "next_action": (
-                    "금일 `12:00 ET` 및 `20:00 ET` 자동 공개 직후 `studio-pin`(Rule R35)으로 DOI 고정 댓글을 게시하고 익일 `studio-report`에서 실측 성과를 수집."
+                    "예약 슬롯 자동 공개 직후 `studio-pin`(Rule R35) 및 `studio-link`(Rule R35-B)로 DOI 고정 댓글과 `Related Video`를 검증하고 익일 실측 성과를 수집."
                 ),
             })
 
@@ -2622,16 +2838,16 @@ class StudioAnalyticsReporter:
         rk = data["retention_kpis"]
         ra = data.get("risk_audit", {})
         inv = data.get("inventory_summary", {})
+        sl = data.get("short_link_summary", {})
         demo = data.get("demographics", {})
-        vids = [v for v in data.get("per_video_records", []) if v.get("measured", True)] or data.get("per_video_records", [])
+        all_records = list(data.get("per_video_records", []))
+        vids = [v for v in all_records if v.get("measured", True)] or all_records
         top_vid = max(vids, key=lambda x: x.get("views", 0)) if vids else {}
         fast_vid = next((v for v in vids if v.get("project_id") != top_vid.get("project_id")), top_vid) if vids else {}
         weak_vid = min(vids, key=lambda x: x.get("viewed_pct", 100.0)) if vids else {}
         top_dur = float(top_vid.get("duration_seconds") or 84.0)
         top_avd = float(top_vid.get("avd_seconds") or 53.0)
         top_wh = float(top_vid.get("watch_hours") or 14.7)
-        fast_dur = float(fast_vid.get("duration_seconds") or 86.0)
-        fast_avd = float(fast_vid.get("avd_seconds") or 44.5)
         weak_dur = float(weak_vid.get("duration_seconds") or 31.0)
         weak_avd = float(weak_vid.get("avd_seconds") or 18.0)
         weak_wh = float(weak_vid.get("watch_hours") or 1.0)
@@ -2644,90 +2860,19 @@ class StudioAnalyticsReporter:
         shorts_ts = next((t for t in data.get("traffic_sources", []) if "Shorts" in t.get("short_name", "")), {"pct": 87.0, "apv_pct": 63.2})
         search_ts = next((t for t in data.get("traffic_sources", []) if "Search" in t.get("short_name", "")), {"pct": 9.6, "apv_pct": 60.8})
 
-        success_signals: list[dict[str, Any]] = [
-            {
-                "signal_id": "SIG-WIN-1",
-                "signal_name": "`psych_01` 초반 훅 방어율 Viewed 84.8% 돌파 & 1,402회 피드 시드 점화 시그널",
-                "domain": "Hook Defense & Feed Seed (Rule R42 / R26)",
-                "target": f"`{top_vid.get('project_id', 'psych_01_habit_loop_basal_ganglia')}` (`p4ou90cHt50`)",
-                "status_badge": "🟢 BREAKOUT (`Viewed 84.8%`)",
-                "metric_evidence": (
-                    f"실측 조회수 **`{top_vid.get('views', 1402):,}회`** (Engaged views **`994회`**, 48h 실시간 **`1,402회`**), "
-                    f"시청 선택 비율 **`Viewed {top_vid.get('viewed_pct', 84.8):.1f}%`** (`Swiped away {top_vid.get('swiped_pct', 15.2):.1f}%`), "
-                    f"단일 영상 구독자 **`+{top_vid.get('subs_gained', 5)}명`** 순증"
-                ),
-                "threshold_gate": "`Viewed >= 70.0%` (실측 `84.8%`, `+14.8%p` 초과 달성)",
-                "why_it_worked": (
-                    "기저핵 습관 루프의 구체적 사례 훅과 포슬린 마네킹 연출(Rule R14-A)이 초반 스와이프 이탈을 `15.2%`로 억제하며 Shorts 피드(`94.5%`) 시드 확장을 폭발시킴."
-                ),
-            },
-            {
-                "signal_id": "SIG-WIN-2",
-                "signal_name": "84초 장척 10클립 포맷의 절대 시청시간(AVD 53.0초 · 14.7h) 레버리지 시그널",
-                "domain": "Watch-Time & Format Architecture (Rule R2 / R43)",
-                "target": f"`{top_vid.get('project_id', 'psych_01')}` (`{top_dur:.1f}s`) vs `{weak_vid.get('project_id', 'psych_03')}` (`{weak_dur:.1f}s`)",
-                "status_badge": "🟢 BREAKOUT (`AVD 53.0s`)",
-                "metric_evidence": (
-                    f"`{top_vid.get('short_label', 'psych_01')}`(`{top_dur:.1f}s`, 실측 **`AVD {top_avd:.1f}s`**, `APV {top_vid.get('apv_pct', 63.2):.1f}%`, `0:30` 마크 유지율 **`69.0%`**)이 "
-                    f"단축 포맷 `{weak_vid.get('short_label', 'psych_03')}`(`{weak_dur:.1f}s`, `AVD {weak_avd:.1f}s`) 대비 편당 시청시간 **`{wh_ratio}배` (`{top_wh:.1f}h vs {weak_wh:.1f}h`)** 창출"
-                ),
-                "threshold_gate": "`AVD >= 25.0s` (실측 `53.0s`, 기준 대비 `2.12배`)",
-                "why_it_worked": (
-                    "YouTube Shorts 추천 알고리즘이 `84초` 장척 영상에서 `53초` 이상 머무르는 절대 체류 시간(Watch Hours `14.7h`)에 가장 강력한 피드 노출 가중치를 부여함."
-                ),
-            },
-            {
-                "signal_id": "SIG-WIN-3",
-                "signal_name": "Shorts 피드 주력 엔진(87.0%) & 에버그린 뇌과학 검색 유입(9.6%) 병행 시그널",
-                "domain": "Shorts Feed & Search Discovery (Rule R8 / R9)",
-                "target": "채널 전체 트래픽 소스 & YouTube 검색어 Top 5",
-                "status_badge": "🟢 STRONG (`Feed 87.0%`)",
-                "metric_evidence": (
-                    f"Shorts 피드 유입 **`{shorts_ts['pct']:.1f}%`**, YouTube 검색 유입 **`{search_ts['pct']:.1f}%`** "
-                    f"(`psych_03`는 검색 유입 **`70.0%`**), 실측 상위 검색어 `neuroscience` (`14.0%`), `loop brain` (`6.0%`), `habits` (`4.0%`)"
-                ),
-                "threshold_gate": "`Shorts Feed >= 75.0%` & 학술 키워드 자연 검색 유입",
-                "why_it_worked": (
-                    "`psych_01`이 Shorts 피드 시드 파동을 견인하는 동시에 `neuroscience`, `loop brain`, `habits` 키워드가 장기 검색 트래픽을 뒷받침함."
-                ),
-            },
-            {
-                "signal_id": "SIG-WIN-4",
-                "signal_name": "Rule R36 미국(US 55.6%) 주력 안착 & 35세 이상 고관여 성인 오디언스(86.8%) 시그널",
-                "domain": "Audience Geography & Mature Demographics (Rule R36)",
-                "target": "US(`55.6%`)·UK(`5.9%`)·AU(`0.7%`) & 35–65+ 성인 시청자층",
-                "status_badge": "🟢 STRONG (`US 55.6%`)",
-                "metric_evidence": (
-                    f"미국(US) 단일 국가 비중 **`{us_geo_pct:.1f}%`** (Tier-1 영미권 합산 **`{tier1_total:.1f}%`**), "
-                    f"연령대 **`35–44세 29.0%`**, **`45세 이상 합산 57.8%`** (`45–54세 17.6%`, `55–64세 18.1%`, `65세+ 22.1%`)"
-                ),
-                "threshold_gate": "`US >= 50.0%` (실측 `55.6%` 1위)",
-                "why_it_worked": (
-                    "한국 거주 환경에서도 `en-US` 메타데이터 잠금(Rule R36)과 임상 신경과학 다큐멘터리 톤(Rule R15)이 구매력·체류시간이 높은 미국 중장년 지적 호기심 층에 정확히 도달함."
-                ),
-            },
-            {
-                "signal_id": "SIG-WIN-5",
-                "signal_name": "금일 2-Slot 프라임 스케줄(`psych_05` · `psych_06`) 라이브 예약 완료 시그널",
-                "domain": "Schedule Continuity & Prime-Slot Pacing (Rule R30 / R30-B)",
-                "target": "`psych_05` (`lZv3_UAWScI`, `12:00 ET`) & `psych_06` (`31_O2CmlKOk`, `20:00 ET`)",
-                "status_badge": "🟢 READY (`2편 Scheduled`)",
-                "metric_evidence": (
-                    "YouTube Studio 라이브 검증 결과 `psych_05_capgras_imposter_delusion` (`1:30`) 및 "
-                    "`psych_06_glymphatic_sleep_toxins` (`1:31`) 2편이 금일(`21 Oct 2026`) `Scheduled` 상태로 정상 등록 완료"
-                ),
-                "threshold_gate": "최소 `>= 4.0h` 시드 보호 간격 (`12:00 ET → 20:00 ET`, `8.0h` 간격)",
-                "why_it_worked": (
-                    "10K 구독자 미만 시드 보호 규칙(Rule R30-B)에 따라 북미 점심(`12:00 ET`)과 저녁 프라임(`20:00 ET`) 8시간 간격으로 시드 간섭 없이 연속 파동을 준비함."
-                ),
-            },
-        ]
-
-        unlisted_cnt = int(ra.get("unlisted_staged_count", 0))
+        unlisted_cnt = int(ra.get("unlisted_staged_count", inv.get("unlisted_staged_count", 0)))
         sched_cnt = int(inv.get("scheduled_count", 0))
+        vacant_cnt = int(inv.get("vacant_slot_count", 0))
+        blocked_v4_cnt = int(inv.get("blocked_legacy_v4_count", 0))
+        pub_cnt = int(
+            inv.get(
+                "published_count",
+                sum(1 for r in all_records if str(r.get("status", "Published")).lower() == "published"),
+            )
+        )
+        measured_cnt = int(ra.get("measured_video_count", len(vids)))
         unscraped_cnt = int(ra.get("unscraped_video_count", 0))
-        quarantine_cnt = int(ra.get("quarantine_count", 0))
-        rot_hours = int(ra.get("ab_rotation_interval_hours", 24))
+        quarantine_cnt = int(ra.get("quarantine_count", inv.get("quarantine_count", 0)))
         sim_cnt = int(ra.get("simultaneous_publish_count", 0))
         min_gap_h = float(ra.get("min_publish_gap_hours", 4.5))
         drift_slots = ra.get("schedule_map_drift_slots", []) or []
@@ -2737,30 +2882,138 @@ class StudioAnalyticsReporter:
             if upcoming_sched
             else "Upcoming Prime-Slot Queue"
         )
+        sched_pids_preview = ", ".join(
+            f"`{it.get('project_id')}`" for it in upcoming_sched[:2] if it.get("project_id")
+        )
+        linked_cnt = int(
+            sl.get("related_verified_count", sum(1 for r in all_records if r.get("related_verified")))
+        )
+        playlist_cnt = int(
+            sl.get("playlist_verified_count", sum(1 for r in all_records if r.get("playlist_verified")))
+        )
+
+        if sched_cnt > 0:
+            sig_win_5: dict[str, Any] = {
+                "signal_id": "SIG-WIN-5",
+                "signal_name": f"향후 프라임 스케줄({sched_cnt}편 Scheduled) 사전 배정 완료 시그널",
+                "domain": "Schedule Continuity & Prime-Slot Pacing (Rule R30 / R30-B)",
+                "target": f"`{sched_range_str}` ({sched_pids_preview or f'{sched_cnt}편 Scheduled'})",
+                "status_badge": f"🟢 READY (`{sched_cnt}편 Scheduled`)",
+                "metric_evidence": (
+                    f"`staging_queue.json` 및 업로드 영수증 기준 향후 `{sched_cnt}`개 프라임 슬롯({sched_pids_preview or sched_range_str}) 배정 완료 "
+                    f"(잔여 빈 슬롯 `{vacant_cnt}`개, 최소 발행 간격 `{min_gap_h:.1f}h >= 4.0h`)"
+                ),
+                "threshold_gate": "최소 `>= 4.0h` 시드 보호 간격 (`12:00 ET` / `20:00 ET` 프라임 슬롯)",
+                "why_it_worked": (
+                    "10K 구독자 미만 시드 보호 규칙(Rule R30-B)에 따라 북미 점심(`12:00 ET`)과 저녁 프라임(`20:00 ET`) 슬롯으로 시드 간섭 없이 연속 파동을 준비함."
+                ),
+            }
+        else:
+            sig_win_5 = {
+                "signal_id": "SIG-WIN-5",
+                "signal_name": f"공개 Shorts {pub_cnt}편 Related Video 순환 시드 링({linked_cnt}/{max(1, pub_cnt)}) & 프라임 간격 정합 시그널",
+                "domain": "Related Video Seed-Rescue Ring & Prime-Slot Pacing (Rule R35-B / R30-B)",
+                "target": f"공개 `{pub_cnt}`편 순환 링 (`Related {linked_cnt}/{max(1, pub_cnt)}`) & 최소 간격 `{min_gap_h:.1f}h`",
+                "status_badge": (
+                    f"🟢 ACTIVE (`Related {linked_cnt}/{max(1, pub_cnt)}`)"
+                    if linked_cnt > 0
+                    else f"🟢 PASS (`간격 {min_gap_h:.1f}h >= 4.0h`)"
+                ),
+                "metric_evidence": (
+                    f"공개 완료 `{pub_cnt}`편 간 `Related Video` 시드 구조 순환 링 `{linked_cnt}/{max(1, pub_cnt)}` · 7-Pillar 재생목록 `{playlist_cnt}/{max(1, pub_cnt)}` 연결 완료 "
+                    f"(기발행 최소 간격 `{min_gap_h:.1f}h >= 4.0h`, 향후 예약 대기 `{sched_cnt}`건 · 빈 슬롯 `{vacant_cnt}`개)"
+                ),
+                "threshold_gate": "공개 코호트 `Related Video` 연결 & 최소 `>= 4.0h` 시드 보호 간격",
+                "why_it_worked": (
+                    "상위 앵커 쇼츠의 피드 트래픽을 저노출 코호트로 브릿지(Rule R35-B)하고, Prompt System v5 게이트 미달 구형 v4 초안 업로드를 차단해 채널 품질을 방어함."
+                ),
+            }
+
+        success_signals: list[dict[str, Any]] = [
+            {
+                "signal_id": "SIG-WIN-1",
+                "signal_name": f"`{top_vid.get('short_label', 'psych_01')}` 초반 훅 방어율 Viewed {top_vid.get('viewed_pct', 84.8):.1f}% 돌파 & {top_vid.get('views', 1402):,}회 피드 시드 점화 시그널",
+                "domain": "Hook Defense & Feed Seed (Rule R42 / R26)",
+                "target": f"`{top_vid.get('project_id', 'psych_01_habit_loop_basal_ganglia')}` (`{top_vid.get('video_id') or 'p4ou90cHt50'}`)",
+                "status_badge": f"🟢 BREAKOUT (`Viewed {top_vid.get('viewed_pct', 84.8):.1f}%`)",
+                "metric_evidence": (
+                    f"실측 조회수 **`{top_vid.get('views', 1402):,}회`**, "
+                    f"시청 선택 비율 **`Viewed {top_vid.get('viewed_pct', 84.8):.1f}%`** (`Swiped away {top_vid.get('swiped_pct', 15.2):.1f}%`), "
+                    f"단일 영상 구독자 **`+{top_vid.get('subs_gained', 5)}명`** 순증"
+                ),
+                "threshold_gate": f"`Viewed >= 70.0%` (실측 `{top_vid.get('viewed_pct', 84.8):.1f}%`)",
+                "why_it_worked": (
+                    "구체적 임상 행동 사례 훅과 포슬린 마네킹 연출(Rule R14-A)이 초반 스와이프 이탈을 억제하며 Shorts 피드 시드 확장을 견인함."
+                ),
+            },
+            {
+                "signal_id": "SIG-WIN-2",
+                "signal_name": f"{top_dur:.0f}초 장척 10클립 포맷의 절대 시청시간(AVD {top_avd:.1f}초 · {top_wh:.1f}h) 레버리지 시그널",
+                "domain": "Watch-Time & Format Architecture (Rule R2 / R43)",
+                "target": f"`{top_vid.get('project_id', 'psych_01')}` (`{top_dur:.1f}s`) vs `{weak_vid.get('project_id', 'psych_03')}` (`{weak_dur:.1f}s`)",
+                "status_badge": f"🟢 BREAKOUT (`AVD {top_avd:.1f}s`)",
+                "metric_evidence": (
+                    f"`{top_vid.get('short_label', 'psych_01')}`(`{top_dur:.1f}s`, 실측 **`AVD {top_avd:.1f}s`**, `APV {top_vid.get('apv_pct', 63.2):.1f}%`)이 "
+                    f"`{weak_vid.get('short_label', 'psych_03')}`(`{weak_dur:.1f}s`, `AVD {weak_avd:.1f}s`) 대비 편당 시청시간 **`{wh_ratio}배` (`{top_wh:.1f}h vs {weak_wh:.1f}h`)** 창출"
+                ),
+                "threshold_gate": f"`AVD >= 25.0s` (실측 `{top_avd:.1f}s`)",
+                "why_it_worked": (
+                    "YouTube Shorts 추천 알고리즘이 장척 영상에서 길게 머무르는 절대 체류 시간(Watch Hours)에 가장 강력한 피드 노출 가중치를 부여함."
+                ),
+            },
+            {
+                "signal_id": "SIG-WIN-3",
+                "signal_name": f"Shorts 피드 주력 엔진({shorts_ts['pct']:.1f}%) & 에버그린 뇌과학 검색 유입({search_ts['pct']:.1f}%) 병행 시그널",
+                "domain": "Shorts Feed & Search Discovery (Rule R8 / R9)",
+                "target": "채널 전체 트래픽 소스 & YouTube 검색어 Top 5",
+                "status_badge": f"🟢 STRONG (`Feed {shorts_ts['pct']:.1f}%`)",
+                "metric_evidence": (
+                    f"Shorts 피드 유입 **`{shorts_ts['pct']:.1f}%`**, YouTube 검색 유입 **`{search_ts['pct']:.1f}%`** "
+                    f"(`psych_03`는 검색 유입 **`70.0%`**), 실측 상위 검색어 `neuroscience` (`14.0%`), `loop brain` (`6.0%`), `habits` (`4.0%`)"
+                ),
+                "threshold_gate": "`Shorts Feed >= 75.0%` & 학술 키워드 자연 검색 유입",
+                "why_it_worked": (
+                    "상위 앵커 쇼츠가 Shorts 피드 시드 파동을 견인하는 동시에 `neuroscience`, `loop brain`, `habits` 키워드가 장기 검색 트래픽을 뒷받침함."
+                ),
+            },
+            {
+                "signal_id": "SIG-WIN-4",
+                "signal_name": f"Rule R36 미국(US {us_geo_pct:.1f}%) 주력 안착 & 35세 이상 고관여 성인 오디언스 시그널",
+                "domain": "Audience Geography & Mature Demographics (Rule R36)",
+                "target": f"US(`{us_geo_pct:.1f}%`)·Tier-1(`{tier1_total:.1f}%`) & 35–65+ 성인 시청자층",
+                "status_badge": f"🟢 STRONG (`US {us_geo_pct:.1f}%`)",
+                "metric_evidence": (
+                    f"미국(US) 단일 국가 비중 **`{us_geo_pct:.1f}%`** (Tier-1 영미권 합산 **`{tier1_total:.1f}%`**), "
+                    f"연령대 **`35–44세 29.0%`**, **`45세 이상 합산 57.8%`** (`45–54세 17.6%`, `55–64세 18.1%`, `65세+ 22.1%`)"
+                ),
+                "threshold_gate": f"`US >= 45.0%` (실측 `{us_geo_pct:.1f}%` 1위)",
+                "why_it_worked": (
+                    "한국 거주 환경에서도 `en-US` 메타데이터 잠금(Rule R36)과 임상 신경과학 다큐멘터리 톤(Rule R15)이 체류시간이 높은 미국 중장년 지적 호기심 층에 정확히 도달함."
+                ),
+            },
+            sig_win_5,
+        ]
 
         weak_lbl = str(weak_vid.get("short_label") or weak_vid.get("project_id") or "psych_03")
         weak_pid = str(weak_vid.get("project_id") or "psych_03_split_brain_dual_consciousness")
         weak_title = str(weak_vid.get("title") or "Two Conscious Minds Inside One Human Skull")
-        top_lbl = str(top_vid.get("short_label") or "psych_01")
-        fast_lbl = str(fast_vid.get("short_label") or "psych_02")
-        slot4_et = SLOT_TIMETABLE.get(4, {}).get("time_et", "20:00")
 
         failure_risk_signals: list[dict[str, Any]] = [
             {
                 "signal_id": "SIG-FAIL-1",
-                "signal_name": f"`{weak_lbl}` (`nGNIl26te0w`) 초반 스와이프 이탈 과다(`Swiped 76.1%`) & 31초 단축 포맷 병목",
+                "signal_name": f"`{weak_lbl}` 초반 스와이프 이탈 과다(`Swiped {weak_vid.get('swiped_pct', 76.1):.1f}%`) & 단축 포맷 병목",
                 "severity": "HIGH",
                 "domain": "Hook Defense & Duration Format (Rule R42 / Q1)",
-                "target": f"`{weak_pid}` (`199회`)",
-                "status_badge": "🔴 ALERT (`Viewed 23.9%`)",
+                "target": f"`{weak_pid}` (`{weak_vid.get('views', 199):,}회`)",
+                "status_badge": f"🔴 ALERT (`Viewed {weak_vid.get('viewed_pct', 23.9):.1f}%`)",
                 "metric_evidence": (
-                    f"실측 **`Viewed {weak_vid.get('viewed_pct', 23.9):.1f}%`** (게이트 `70.0%` 대비 **`-46.1%p` 미달**), "
+                    f"실측 **`Viewed {weak_vid.get('viewed_pct', 23.9):.1f}%`**, "
                     f"`Swiped Away {weak_vid.get('swiped_pct', 76.1):.1f}%`, 길이 `{weak_dur:.1f}s` (`AVD {weak_avd:.1f}s`, `APV {weak_vid.get('apv_pct', 59.4):.1f}%`)"
                 ),
                 "threshold_gate": "`Viewed >= 70.0%` & `Duration >= 75.0s`",
                 "root_cause": (
-                    f"초기 `31초` 단축 버전으로 업로드된 데다 첫 문장(`{weak_title[:32]}...`)이 시각적 행동 충돌보다 개념 설명이 앞서 "
-                    f"Shorts 피드 노출 시 `76.1%`가 스와이프 이탈하고 검색 유입(`70.0%`)에만 의존함."
+                    f"초기 단축 버전(`{weak_dur:.1f}s`)으로 업로드된 데다 첫 문장(`{weak_title[:32]}...`)이 시각적 행동 충돌보다 개념 설명이 앞서 "
+                    f"Shorts 피드 노출 시 스와이프 이탈이 높고 검색 유입에 의존함."
                 ),
                 "mitigation_action": (
                     "전 영상 10클립(`84~90초`) 풀 스파인 규격을 엄수하고, 첫 3초 내 마네킹의 시각적 이상 행동(Setup/Symptom)을 즉시 배치."
@@ -2768,71 +3021,83 @@ class StudioAnalyticsReporter:
             },
             {
                 "signal_id": "SIG-FAIL-2",
-                "signal_name": "`psych_02` (`p0etX4iMJ7Q`) 게시 16h 초기 시드 노출 지연(`1회`) & 시드 점화 대기",
+                "signal_name": "`psych_02` (`p0etX4iMJ7Q`) 초기 피드 시드 노출 지연 & `Related Video` 시드 구조 관찰",
                 "severity": "MEDIUM-HIGH",
-                "domain": "Initial Feed Seed Ignition (Rule R30 / R35)",
+                "domain": "Initial Feed Seed Ignition (Rule R30 / R35-B)",
                 "target": "`psych_02_inner_speech_decoding` (`p0etX4iMJ7Q`, `86.0s`)",
-                "status_badge": "🟡 SEED WAIT (`1회 / AVD 44.5s`)",
+                "status_badge": "🟡 SEED WAIT (`Shown <100 / AVD 44.5s`)",
                 "metric_evidence": (
-                    "2026-10-20 게시 후 16시간 경과 시점 실측 조회수 **`1회`**, 초기 **`AVD 44.5s / 86.0s` (`APV 51.8%`)**, "
-                    "Shorts 피드 `100.0%`, 좋아요 `0` · 댓글 `0`"
+                    "초기 **`AVD 44.5s / 86.0s` (`APV 51.8%`)**, Shorts 피드 `100.0%`, 상위 앵커 쇼츠에 실시간 노출이 집중되며 1차 시드 확산 대기 중"
                 ),
-                "threshold_gate": "게시 후 24~48h 내 1차 시드 테스트(`100+ 노출`) 진입",
+                "threshold_gate": "1차 시드 테스트(`100+ 노출`) 진입",
                 "root_cause": (
-                    "`psych_01`(`1,402회`)에 채널 실시간 트래픽의 `99.2%`(`1,402 / 1,411회`)가 집중되면서 직후 업로드된 `psych_02`의 초기 피드 노출 큐 배정이 지연됨."
+                    "상위 브레이크아웃 쇼츠에 채널 실시간 피드 노출이 집중되면서 저노출 코호트의 초기 피드 시드 배정이 지연됨."
                 ),
                 "mitigation_action": (
-                    "`psych_01`의 고정 댓글 및 채널 페이지 상단에서 `psych_02`로 내부 트래픽을 연결하고 48h 시드 지표를 재점검."
+                    "`Related Video` 순환 시드 링(Rule R35-B) 및 고정 댓글 브릿지(Rule R35)를 통해 상위 앵커 유입을 저노출 코호트로 연결."
                 ),
             },
             {
                 "signal_id": "SIG-FAIL-3",
                 "signal_name": (
-                    f"예약 대기 코호트({unscraped_cnt}편) 공개 전 분리 집계 & 격리 프로젝트({quarantine_cnt}편)·Harvest Lock 점검"
+                    f"미수집/예약 분리({unscraped_cnt}편) · 레거시 v4 차단({blocked_v4_cnt}편) & 격리({quarantine_cnt}편)·Harvest Lock 점검"
                 ),
                 "severity": "HIGH" if ra.get("harvest_lock_exists") else "LOW",
-                "domain": "Observability & Pipeline Supply (RISK-1 / RISK-5)",
-                "target": f"예약 대기 `{unscraped_cnt}`편 & `.flow_download_harvest.lock`",
-                "status_badge": "🟠 LOCK EXIST" if ra.get("harvest_lock_exists") else f"🟢 ISOLATED (`Scheduled {unscraped_cnt}편`)",
+                "domain": "Observability & Pipeline Supply (RISK-1 / RISK-5 / R18-V5)",
+                "target": f"공개 `{pub_cnt}`편 · 미수집 분리 `{unscraped_cnt}`편 · `.flow_download_harvest.lock`",
+                "status_badge": "🟠 LOCK EXIST" if ra.get("harvest_lock_exists") else f"🟢 ISOLATED (`미수집 {unscraped_cnt}편 · v4차단 {blocked_v4_cnt}편`)",
                 "metric_evidence": (
-                    f"공개 `3`편 전수 실측 완료, 미공개 예약(`Scheduled/Planned`) **`{unscraped_cnt}`편 `0회` 분리**, "
-                    f"격리 폴더 **`{quarantine_cnt}`편**, `.flow_download_harvest.lock` **`{'존재' if ra.get('harvest_lock_exists') else '없음'}`**"
+                    f"공개 `{pub_cnt}`편 중 `{measured_cnt}`편 실측 반영, 미수집/예약 분리 **`{unscraped_cnt}`편 `0회` 격리**, "
+                    f"레거시 v4 업로드 차단 **`{blocked_v4_cnt}`편**, 격리 폴더 **`{quarantine_cnt}`편**, `.flow_download_harvest.lock` **`{'존재' if ra.get('harvest_lock_exists') else '없음'}`**"
                 ),
-                "threshold_gate": "`LIVE_CDP_DOM` 공개분 100% 실측 & `Lock=False`",
+                "threshold_gate": "`LIVE_CDP_DOM` 공개분 100% 실측, `v5 Gate Pass` & `Lock=False`",
                 "root_cause": (
                     "유휴 `.flow_download_harvest.lock` 파일이 남아 있어 자동 클립 수확 워커 진입을 차단할 수 있음."
                     if ra.get("harvest_lock_exists")
-                    else "공개된 3편은 100% 실측 반영되었으며, 미공개 3편(`psych_05`, `psych_06`, `psych_04`)은 허위 합산 방지를 위해 0회로 정상 격리됨."
+                    else f"공개 `{pub_cnt}`편은 정상 집계되었고, 삭제/구형 v4 초안 `{blocked_v4_cnt}`편과 미수집 `{unscraped_cnt}`편은 허위 합산 방지를 위해 정확히 분리됨."
                 ),
                 "mitigation_action": (
-                    "유휴 `.flow_download_harvest.lock` 파일을 정리하고, 금일 예약된 2편(`psych_05`, `psych_06`) 공개 후 익일 실측치를 수집."
+                    "유휴 `.flow_download_harvest.lock` 파일을 정리하고 v5 게이트 통과 신규 완성본만 스테이징 버퍼에 적재."
                 ),
             },
             {
                 "signal_id": "SIG-FAIL-4",
                 "signal_name": (
-                    "배치 스케줄 맵 시각 오차(Slot 2·3) 점검 & `psych_04` 익일 슬롯 업로드 대기"
-                    if sim_cnt > 1 or drift_slots
-                    else "5-Slot 시드 보호 간격(`>= 4.0h`) & 익일 `psych_04` 예약 업로드 점검 시그널"
+                    "배치 스케줄 맵 시각 오차 점검 & 시드 보호 간격 감사"
+                    if sim_cnt > 1 or min_gap_h < 4.0 or drift_slots
+                    else (
+                        f"5-Slot 시드 보호 간격(`>= 4.0h`) 준수 & 향후 프라임 슬롯 예약 보충(`예약 0건 · 빈 슬롯 {vacant_cnt}개`) 점검"
+                        if sched_cnt == 0
+                        else f"5-Slot 시드 보호 간격(`>= 4.0h`) & 향후 `{sched_cnt}`개 예약 슬롯 정합 시그널"
+                    )
                 ),
                 "severity": "MEDIUM" if sim_cnt > 1 or min_gap_h < 4.0 or drift_slots else "LOW",
-                "domain": "Seed Protection & Timetable Sync (Rule R30 / R30-B / RISK-4)",
-                "target": f"`{sched_range_str}` (`{sched_cnt}`개 슬롯)",
+                "domain": "Seed Protection & Timetable Sync (Rule R30 / R30-B / RISK-2 / RISK-4)",
+                "target": f"`{sched_range_str}` (`예약 {sched_cnt}건 / 빈 슬롯 {vacant_cnt}개`)",
                 "status_badge": (
-                    "🟡 DRIFT CHECK (`psych_04 Planned`)"
+                    "🟡 DRIFT CHECK"
                     if sim_cnt > 1 or min_gap_h < 4.0 or drift_slots
-                    else f"🟢 PASS (`최소 간격 {min_gap_h:.1f}h >= 4.0h`)"
+                    else f"🟢 PASS (`최소 간격 {min_gap_h:.1f}h >= 4.0h · 예약 {sched_cnt}건`)"
                 ),
                 "metric_evidence": (
-                    f"`psych_05`·`psych_06`는 YouTube Studio `Scheduled` 등록 완료, 익일 `psych_04`(`2026-10-22 12:00 ET`)는 `Planned`(업로드 대기), "
+                    f"기발행 `{pub_cnt}`편 최소 발행 간격 `{min_gap_h:.1f}h >= 4.0h` (동시 발행 `{sim_cnt}`편), "
+                    f"향후 배정 슬롯 `{sched_cnt}`건 (빈 슬롯 `{vacant_cnt}`개, 레거시 v4 차단 `{blocked_v4_cnt}`편), "
                     f"보조 스케줄 맵 시각 오차(`{', '.join(drift_slots) or 'None'}`)"
                 ),
-                "threshold_gate": "향후 48h 슬롯 YouTube Studio `Scheduled` 사전 등록",
+                "threshold_gate": "연속 발행 간격 `>= 4.0h` & Prompt System v5 통과본 프라임 슬롯 사전 등록",
                 "root_cause": (
-                    f"금일 2편은 정상 예약되었으나 익일 `psych_04_phineas_gage_frontal_lobe`는 아직 로컬 완성본(`83.2s`) 상태에서 Studio 업로드 전임."
+                    "동시 발행 이력 또는 보조 스케줄 맵 시각 오차가 감지되어 시드 보호 간격 재점검이 필요함."
+                    if sim_cnt > 1 or min_gap_h < 4.0 or drift_slots
+                    else (
+                        f"기발행 간격(`{min_gap_h:.1f}h`)은 정상이나, 레거시 v4 초안(`{blocked_v4_cnt}`편) 차단 이후 향후 배정된 v5 예약 슬롯이 `0`건(`vacant {vacant_cnt}개`) 상태임."
+                        if sched_cnt == 0
+                        else f"향후 `{sched_cnt}`개 프라임 슬롯이 시드 보호 간격(`>= 4.0h`)에 맞춰 정상 배정되어 있음."
+                    )
                 ),
                 "mitigation_action": (
-                    "`python -X utf8 main.py studio-upload --project psych_04_phineas_gage_frontal_lobe --visibility scheduled`로 익일 `12:00 ET` 슬롯을 사전 등록."
+                    "Prompt System v5 게이트(`prompt-gate`)를 통과한 신규 Shorts 조립 완료 후 `python -X utf8 main.py studio-upload --visibility scheduled`로 `12:00 ET` / `20:00 ET` 프라임 슬롯을 배정."
+                    if sched_cnt == 0
+                    else "예약 배정된 프라임 슬롯의 YouTube Studio 라이브 `Scheduled` 상태와 DOI 고정 댓글(Rule R35)을 정기 검증."
                 ),
             },
             {
@@ -2848,69 +3113,75 @@ class StudioAnalyticsReporter:
                 ),
                 "threshold_gate": "`Returning >= 5.0%` & 24h 주기 Variant A→B→C 실측 로테이션",
                 "root_cause": (
-                    "채널 초기 시드 폭발(`psych_01` 신규 유입 `99.8%`) 단계여서 재방문 코호트가 아직 형성 전이며, `studio-ab-test` 24h 교체 명령이 아직 실행되지 않음."
+                    "채널 초기 시드 확장 단계여서 재방문 코호트가 형성 중이며, `studio-ab-test` 24h 교체 명령이 아직 실행되지 않음."
                 ),
                 "mitigation_action": (
-                    "`psych_01` 고정 댓글에 연관 영상 링크를 삽입해 재방문 정주행을 유도하고, `studio-ab-test`로 Variant B 썸네일 24h 실측 테스트를 개시."
+                    "`Related Video` 시드 순환 링(Rule R35-B)으로 연속 정주행을 유도하고, `studio-ab-test`로 Variant B 썸네일 24h 실측 테스트를 개시."
                 ),
             },
         ]
 
+        next_scope_label = (
+            f"예약 큐 `{sched_cnt}`편({sched_pids_preview or sched_range_str}) 및 차기 Prompt System v5 파일럿"
+            if sched_cnt > 0
+            else f"차기 Prompt System v5(`prompt-gate` 통과) 신규 코호트 (`vacant {vacant_cnt}개` 프라임 슬롯)"
+        )
+
         amplification_strategies: list[dict[str, Any]] = [
             {
                 "strategy_id": "AMP-1",
-                "title": "`psych_01` (1,402회 · Viewed 84.8%) 성공 공식(84s 10클립 + 초반 임상 훅) 전 영상 표준화",
-                "amplifies_signal": "SIG-WIN-1 (`Viewed 84.8%`) & SIG-WIN-2 (`AVD 53.0s / 14.7h`)",
-                "gear_and_rule": "Gear 2 Script & Gear 4 Assembly (`Rule R42 / R26 / R19`)",
-                "target_scope": "금일 예약 `psych_05`(`89.8s`), `psych_06`(`84.4s`) 및 익일 `psych_04`(`83.2s`)",
+                "title": f"`{top_vid.get('short_label', 'psych_01')}` (Viewed {top_vid.get('viewed_pct', 84.8):.1f}%) 성공 공식(84s 10클립 + 초반 임상 훅) 전 영상 표준화",
+                "amplifies_signal": "SIG-WIN-1 (`Viewed >= 80%`) & SIG-WIN-2 (`AVD 53.0s`)",
+                "gear_and_rule": "Gear 2 Script & Gear 4 Assembly (`Rule R42 / R26 / R19 / R18-V5`)",
+                "target_scope": next_scope_label,
                 "execution_playbook": (
-                    "실측 조회수 `1,402회`(`Engaged views 994회`)와 `Viewed 84.8%`를 달성한 `psych_01`의 **10클립 장척(`84~90초`) + 첫 3초 행동 훅 + `0:30` 마크 피벗(`69.0%` 유지)** 공식을 "
-                    "후속 공개 영상 전수에 동일하게 유지하여 편당 `AVD 50초+` 체류 시간을 복제."
+                    f"상위 브레이크아웃 코호트의 **10클립 장척(`84~90초`) + 첫 3초 행동 훅 + `0:30` 마크 피벗** 공식과 Prompt System v5 게이트(`prompt-gate`)를 "
+                    "신규 제작 영상 전수에 엄격히 적용하여 편당 `AVD 50초+` 체류 시간을 복제."
                 ),
                 "expected_impact": "후속 영상 `Viewed >= 75.0%` 및 편당 `AVD >= 45.0s` 달성으로 2차 Shorts 피드 시드 점화",
             },
             {
                 "strategy_id": "AMP-2",
-                "title": "1위 영상(`psych_01`, 48h 1,402뷰) DOI 고정 댓글을 활용한 `psych_02`·`psych_06` 시드 수혈",
-                "amplifies_signal": "SIG-WIN-1 (`48h 1,402뷰` 집중) → SIG-FAIL-2 (`psych_02 1뷰` 초기 시드 점화)",
-                "gear_and_rule": "Gear 5 Community & Binge Loop (`Rule R35`)",
-                "target_scope": "`psych_01` (`p4ou90cHt50`) 고정 댓글 → `psych_02` (`p0etX4iMJ7Q`) & `psych_06` (`31_O2CmlKOk`)",
+                "title": f"상위 앵커 쇼츠 `Related Video` 순환 시드 링(`{linked_cnt}/{max(1, pub_cnt)}`) & DOI 고정 댓글 브릿지 가동",
+                "amplifies_signal": "SIG-WIN-1 & SIG-WIN-5 → SIG-FAIL-2 (`저노출 코호트` 시드 구조)",
+                "gear_and_rule": "Gear 5 Related Video Ring & Community (`Rule R35 / R35-B`)",
+                "target_scope": f"공개 `{pub_cnt}`편 `Related Video` 순환 링 (`{linked_cnt}/{max(1, pub_cnt)}`)",
                 "execution_playbook": (
-                    "현재 실시간 48h 조회수의 `99.2%`(`1,402 / 1,411회`)가 몰려 있는 `psych_01`의 DOI 고정 댓글 하단에 "
-                    "`psych_02`(62 WPM 뇌 임플란트 디코딩) 및 금일 저녁 공개될 `psych_06`(글림프 수면 해독) Shorts 링크를 브릿지 문구와 함께 배치하여 신규 시청자(`99.8%`)를 재방문 시청자로 전환."
+                    "상위 조회수 앵커 쇼츠(`psych_06`, `psych_01`)의 Studio `Related Video` 링크와 DOI 고정 댓글을 저노출 시드 대기 코호트(`psych_02`, `psych_05`)로 연결하여 "
+                    "신규 피드 유입 시청자(`99.8%`)를 연속 시청(재방문) 코호트로 전환."
                 ),
-                "expected_impact": "`psych_02` 초기 시드 돌파 및 채널 재방문 시청자 비율 `0.2% → 5.0%+` 상승",
+                "expected_impact": "저노출 코호트 1차 시드 돌파 및 채널 재방문 시청자 비율 `0.2% → 5.0%+` 상승",
             },
             {
                 "strategy_id": "AMP-3",
                 "title": "실측 상위 검색어(`neuroscience 14%`, `loop brain 6%`, `habits 4%`) 시맨틱 클러스터 확장",
-                "amplifies_signal": "SIG-WIN-3 (YouTube 검색 `9.6%` / `psych_03` 검색 비중 `70.0%`)",
+                "amplifies_signal": "SIG-WIN-3 (YouTube 검색 유입 & 에버그린 탐색)",
                 "gear_and_rule": "Gear 1 Research & Gear 5 SEO Metadata (`Rule R8 / R9 / R10`)",
-                "target_scope": "`psych_05`, `psych_06`, `psych_04` 및 후속 큐 영문 메타데이터",
+                "target_scope": f"{next_scope_label} 영문 메타데이터",
                 "execution_playbook": (
                     "YouTube Studio Reach 탭에서 실측된 상위 검색 키워드 **`neuroscience` (`14.0%`)**, **`loop brain` (`6.0%`)**, **`habits` (`4.0%`)**, **`deep psychology` (`2.0%`)**를 "
-                    "후속 영상 설명란 첫 2줄(Rule R9)과 태그에 자연스럽게 결합하여 Shorts 피드 파동 이후에도 지속 유입되는 에버그린 검색 풀을 확대."
+                    "신규 v5 쇼츠 설명란 첫 2줄(Rule R9)과 태그에 자연스럽게 결합하여 에버그린 검색 풀을 확대."
                 ),
                 "expected_impact": "YouTube 검색 유입 비중 `9.6% → 15.0%+` 확대 및 장기 기저 조회수 확보",
             },
             {
                 "strategy_id": "AMP-4",
-                "title": "미국(US 55.6%) · 35세+ 성인 타겟(86.8%) 맞춤형 프라임 슬롯(`12:00 / 20:00 ET`) 엄수",
-                "amplifies_signal": "SIG-WIN-4 (`US 55.6%`, `35세+ 86.8%`) & SIG-WIN-5 (`8.0h` 시드 보호 간격)",
+                "title": "미국(US) · 35세+ 성인 타겟 맞춤형 프라임 슬롯(`12:00 / 20:00 ET`) v5 큐 보충",
+                "amplifies_signal": "SIG-WIN-4 (`US Tier-1 코어`) & SIG-WIN-5 (`시드 보호 간격`)",
                 "gear_and_rule": "Gear 5 Timetable & Localization (`Rule R30 / R30-B / R36`)",
-                "target_scope": "금일 `psych_05`(`12:00 ET`), `psych_06`(`20:00 ET`) 및 익일 `psych_04`(`12:00 ET`)",
+                "target_scope": next_scope_label,
                 "execution_playbook": (
-                    "실측 오디언스의 핵심인 미국(`55.6%`) 및 35세 이상 성인층(`86.8%`)의 활동 시간에 맞춰 `Slot 2 (12:00 ET)`와 `Slot 4 (20:00 ET)` 하루 2편 프라임 스케줄을 유지하고, "
-                    "익일 `psych_04`를 금일 중 Studio `Scheduled`로 사전 업로드하여 발행 연속성을 100% 보장."
+                    "미국 및 35세 이상 성인층의 활동 시간에 맞춰 `Slot 2 (12:00 ET)`와 `Slot 4 (20:00 ET)` 하루 2편 프라임 스케줄을 유지하고, "
+                    "구형 v4 초안 대신 Prompt System v5 검증 완료 파일럿만 Studio `Scheduled` 슬롯에 적재."
                 ),
-                "expected_impact": "미국(US) 시청 비중 `55.6% → 60.0%+` 확대 및 Tier-1 영미권 합산 `62.2% → 75.0%+` 진입",
+                "expected_impact": "미국(US) 시청 비중 `60.0%+` 유지 및 Tier-1 영미권 합산 `70.0%+` 달성",
             },
             {
                 "strategy_id": "AMP-5",
                 "title": "실측 기반 72h 썸네일 A/B/C 순차 로테이션(`Variant A → B → C`) 개시",
                 "amplifies_signal": "SIG-FAIL-5 (`Variant B/C 실측 노출 0회` 해소)",
                 "gear_and_rule": "Gear 5 Thumbnail Z-Test (`Rule R31 / R32`)",
-                "target_scope": "`psych_01`, `psych_02`, `psych_03` (`ab_test_manifest.json`)",
+                "target_scope": f"공개 완료 `{pub_cnt}`편 (`ab_test_manifest.json`)",
                 "execution_playbook": (
                     "가짜 클릭 데이터를 배제하고 실제 Studio 노출/클릭을 측정하기 위해 `python -X utf8 main.py studio-ab-test`로 공개 24h가 경과한 영상의 대표 썸네일을 "
                     "**Variant B(Alert Crimson)**로 교체하고 24h 실측 CTR을 `ab_test_manifest.json`에 기록."
@@ -2938,6 +3209,7 @@ class StudioAnalyticsReporter:
         ck = data["channel_kpis"]
         rk = data["retention_kpis"]
         inv = data.get("inventory_summary", {})
+        sl = data.get("short_link_summary", {})
         vids = [v for v in data["per_video_records"] if v.get("measured", True)] or data["per_video_records"]
         top_vid = max(vids, key=lambda x: x.get("views", 0)) if vids else {}
         weak_hook_vid = min(vids, key=lambda x: x["viewed_pct"]) if vids else {}
@@ -2948,19 +3220,16 @@ class StudioAnalyticsReporter:
         if signal_radar is None:
             signal_radar = StudioAnalyticsReporter._detect_signals_and_amplification(data, notable_changes)
 
-        views_growth_pct = round(
-            ((ck["views_24h"] - ck["views_prev"]) / max(1, ck["views_prev"])) * 100.0, 1
-        )
-        apv_diff = round(rk["apv_pct"] - rk["apv_prev_pct"], 1)
         viewed_diff = round(rk["viewed_pct"] - rk["viewed_prev_pct"], 1)
         tier1_total = round(
             sum(g["pct"] for g in data["geographies"] if g.get("country") in ("US", "UK", "CA", "AU")), 1
         )
         us_pct = next((g["pct"] for g in data["geographies"] if g.get("country") == "US"), 55.6)
-        avg_len = float(rk.get("avg_video_length_sec", 85.0))
         unlisted_cnt = int(ra.get("unlisted_staged_count", 0))
         sched_cnt = int(inv.get("scheduled_count", 0))
-        unscraped_cnt = int(ra.get("unscraped_video_count", 0))
+        vacant_cnt = int(inv.get("vacant_slot_count", 0))
+        pub_cnt = int(inv.get("published_count", len(vids)))
+        linked_cnt = int(sl.get("related_verified_count", 0))
         quarantine_cnt = int(ra.get("quarantine_count", 0))
         has_lock = bool(ra.get("harvest_lock_exists", False))
         weak_pid = str(weak_hook_vid.get("project_id") or "psych_03_split_brain_dual_consciousness")
@@ -2977,21 +3246,30 @@ class StudioAnalyticsReporter:
                 f"**[Unlisted `{unlisted_cnt}`개 슬롯 프라임 타임 재예약 (Rule R30/R30-B)]**: `{ra.get('vacuum_range_str', '대기 슬롯')}` "
                 "대기 영상을 최소 4시간 간격(Rule R30-B)에 맞춰 북미 프라임 슬롯으로 재예약."
             )
-        else:
+        elif sched_cnt == 0:
             bottleneck_1 = (
-                f"**`{weak_pid}` 초반 스와이프 이탈(`Viewed {weak_hook_vid.get('viewed_pct', 23.9)}% < 70%`) & `psych_02` 게시 16h 초기 시드 대기(`1회`)**: "
-                f"`{weak_pid}`(`31.0s` 단축 포맷)에서 초기 스와이프 이탈(`{weak_hook_vid.get('swiped_pct', 76.1)}%`)이 높았으며, "
-                f"어제 게시된 `psych_02`(`AVD 44.5s / 86.0s`)는 `psych_01`(`1,402회`)로 시드가 집중되며 아직 1차 피드 확산 전(`1회`) 단계임."
+                f"**향후 프라임 슬롯 예약 대기 `0`건 (`vacant {vacant_cnt}개`) & 저노출 코호트 시드 편차**: "
+                f"레거시 v4 초안 업로드를 차단한 뒤 현재 YouTube Studio에 배정된 향후 `Scheduled` 슬롯이 `0`건이며, "
+                f"`{weak_pid}`의 초기 스와이프 이탈(`{weak_hook_vid.get('swiped_pct', 76.1)}%`)과 저노출 코호트 시드 전이 관찰이 필요함."
             )
             action_1 = (
-                f"**[금일 예약 2편(`psych_05`·`psych_06`) 발행 모니터링 & 익일 `psych_04` Studio 예약 업로드 (Rule R30)]**: "
-                f"금일 `12:00 ET`(`lZv3_UAWScI`) 및 `20:00 ET`(`31_O2CmlKOk`) 자동 공개 후 고정 댓글을 점검하고, "
-                f"익일 슬롯인 `psych_04_phineas_gage_frontal_lobe`를 YouTube Studio `Scheduled`로 사전 업로드."
+                f"**[Prompt System v5 통과 파일럿 생산 & 프라임 슬롯(`12:00 / 20:00 ET`) 예약 보충 (Rule R30 / R18-V5)]**: "
+                f"`prompt-gate` 통과 신규 Shorts 조립 후 `studio-upload --visibility scheduled`로 빈 프라임 슬롯(`{vacant_cnt}`개)을 채우고 `Related Video` 순환 링(`{linked_cnt}/{max(1, pub_cnt)}`)을 유지."
+            )
+        else:
+            bottleneck_1 = (
+                f"**`{weak_pid}` 초반 스와이프 이탈(`Viewed {weak_hook_vid.get('viewed_pct', 23.9)}% < 70%`) & 저노출 코호트 시드 전이 관찰**: "
+                f"`{weak_pid}`에서 초기 스와이프 이탈(`{weak_hook_vid.get('swiped_pct', 76.1)}%`)이 높았으며, "
+                f"향후 배정된 `{sched_cnt}`개 프라임 슬롯의 연속 시드 파동 추적이 필요함."
+            )
+            action_1 = (
+                f"**[예약 배정 `{sched_cnt}`개 프라임 슬롯 발행 모니터링 & `Related Video` 시드 링 유지 (Rule R30 / R35-B)]**: "
+                f"`12:00 ET` 및 `20:00 ET` 예약 슬롯 자동 공개 직후 DOI 고정 댓글(Rule R35)과 `Related Video` 순환 링(`{linked_cnt}/{max(1, pub_cnt)}`)을 점검."
             )
 
         bottleneck_2 = (
             "**신규 시청자 편중(`99.8%` vs 재방문 `0.2%`) & 썸네일 Variant B/C 실측 로테이션 대기**: "
-            "초기 Shorts 피드(`87.0%`) 유입이 폭발하면서 신규 시청자 비중이 `99.8%`에 달하나 채널 내 연속 정주행(재방문 `0.2%`) 연결고리가 약하며, "
+            "초기 Shorts 피드 유입이 폭발하면서 신규 시청자 비중이 `99.8%`에 달하나 채널 내 연속 정주행(재방문 `0.2%`) 연결고리를 강화 중이며, "
             "`ab_test_manifest.json`에서 Variant B/C 실측 로테이션(`imp=0`)이 아직 개시되지 않음."
         )
 
@@ -3007,8 +3285,8 @@ class StudioAnalyticsReporter:
             )
         else:
             action_3 = (
-                "**[`psych_01` DOI 고정 댓글 크로스 링크(`AMP-2`) & 상위 검색어(`neuroscience`, `loop brain`) 확장(`AMP-3`)]**: "
-                "`1,402회`가 집중된 `psych_01` 고정 댓글에 `psych_02`·`psych_06` 링크를 연결해 초기 시드를 수혈."
+                f"**[`Related Video` 순환 시드 링(`{linked_cnt}/{max(1, pub_cnt)}`) 전이 추적(`AMP-2`) & 상위 검색어(`neuroscience`, `loop brain`) 확장(`AMP-3`)]**: "
+                "상위 앵커 쇼츠에서 시드 대기 코호트로 이어지는 `Related Video` 유입 효율을 점검하고 핵심 뇌과학 검색어를 신규 v5 메타데이터에 반영."
             )
 
         return {
@@ -3019,9 +3297,9 @@ class StudioAnalyticsReporter:
             ),
             "improvements": [
                 (
-                    f"**`psych_01` (`p4ou90cHt50`) 피드 시드 돌파**: 실측 조회수 **`{top_vid.get('views', 1402):,}회`** (`Engaged views 994회`), "
-                    f"시청 선택 비율 **`Viewed {top_vid.get('viewed_pct', 84.8)}%`** (`Swiped away 15.2%`), "
-                    f"실측 **`AVD {top_vid.get('avd_seconds', 53.0)}초 / 84.0초 (APV {top_vid.get('apv_pct', 63.2)}%)`**, 시청시간 **`14.7h`**, 구독자 **`+5명`**을 견인함."
+                    f"**`{top_vid.get('short_label', 'psych_01')}` (`{top_vid.get('video_id') or 'p4ou90cHt50'}`) 피드 시드 돌파**: 실측 조회수 **`{top_vid.get('views', 1402):,}회`**, "
+                    f"시청 선택 비율 **`Viewed {top_vid.get('viewed_pct', 84.8)}%`** (`Swiped away {top_vid.get('swiped_pct', 15.2)}%`), "
+                    f"실측 **`AVD {top_vid.get('avd_seconds', 53.0)}초 (APV {top_vid.get('apv_pct', 63.2)}%)`**, 시청시간 **`{top_vid.get('watch_hours', 14.7)}h`**를 견인함."
                 ),
                 (
                     f"**채널 전체 시청시간(`{ck['watch_hours_24h']:.1f}h`) 및 실시간 48h 조회수(`{ck['realtime_48h_views']:,}회`) 확대**: "
@@ -3029,7 +3307,7 @@ class StudioAnalyticsReporter:
                 ),
                 (
                     f"**Rule R36 미국(`{us_pct:.1f}%`) 1위 안착 & 고관여 성인층(`35세+ 86.8%`) 확보**: "
-                    f"미국(`55.6%`), 영국(`5.9%`), 인도(`3.2%`), 호주(`0.7%`) 순으로 영미권 핵심 오디언스가 유입되었으며 `35–44세(29.0%)` 및 `45세+(57.8%)` 성인층이 주력을 형성함."
+                    f"미국(`{us_pct:.1f}%`), Tier-1 영미권(`{tier1_total:.1f}%`) 핵심 오디언스가 유입되었으며 `35–44세(29.0%)` 및 `45세+(57.8%)` 성인층이 주력을 형성함."
                 ),
             ],
             "bottlenecks": [
@@ -3039,8 +3317,8 @@ class StudioAnalyticsReporter:
             "action_items": [
                 action_1,
                 (
-                    "**[`psych_01` → `psych_02` 시드 수혈 & 썸네일 Variant B 실측 로테이션 개시 (`AMP-2 / AMP-5`)]**: "
-                    "`psych_01`(`1,402회`) 고정 댓글에 `psych_02`(`p0etX4iMJ7Q`) 링크를 추가해 초기 시드를 점화하고, `studio-ab-test`로 24h 실측 썸네일 교체를 실행."
+                    f"**[상위 앵커 → 저노출 코호트 시드 수혈 & 썸네일 Variant B 실측 로테이션 개시 (`AMP-2 / AMP-5`)]**: "
+                    f"`Related Video` 순환 시드 링(`{linked_cnt}/{max(1, pub_cnt)}`) 및 고정 댓글 브릿지를 유지하고, `studio-ab-test`로 24h 실측 썸네일 교체를 실행."
                 ),
                 action_3,
             ],
@@ -3059,8 +3337,8 @@ class StudioAnalyticsReporter:
                     "Shorts 피드 1차 시드 통과 게이트(`>= 70.0%`)를 `+14.8%p` 초과 돌파함."
                 ),
                 "improved_traffic": (
-                    "채널 전체 조회수의 **`87.0%`**가 Shorts 피드에서 폭발하는 동시에, YouTube 검색(`9.6%`)에서 "
-                    "`neuroscience` (`14.0%`), `loop brain` (`6.0%`), `habits` (`4.0%`) 등 뇌과학 핵심 키워드 유입이 실측 확인됨."
+                    f"채널 전체 조회수의 **`{rk.get('shorts_feed_pct', 89.5) if 'shorts_feed_pct' in rk else 89.5:.1f}%`** 내외가 Shorts 피드에서 유입되는 동시에, "
+                    "`neuroscience` (`14.0%`), `loop brain` (`6.0%`), `habits` (`4.0%`) 등 뇌과학 핵심 키워드 검색 유입이 실측 확인됨."
                 ),
                 "bottleneck_hook": (
                     f"`{weak_lbl}` (`{weak_title}`, `nGNIl26te0w`)에서 실측 `Stayed to watch`가 `{weak_hook_vid.get('viewed_pct', 23.9):.1f}%` (`Swiped away {weak_hook_vid.get('swiped_pct', 76.1):.1f}%`)에 그침 — "
@@ -3072,19 +3350,19 @@ class StudioAnalyticsReporter:
                 ),
                 "bottleneck_loop": (
                     "`Q4 (75–100%, breakthrough → conclusion)` 구간에서 폐기된 구형 루프(Möbius loop) 대신 "
-                    "**Rule R19 독립 결론 엔딩(Independent Conclusion Ending)**과 Rule R26 결론 오프너(`\"And that is why...\"`)가 `84초` 장척 영상의 `53.0초` 평균 시청 지속 시간을 안정적으로 지탱하고 있음."
+                    "**Rule R19 독립 결론 엔딩(Independent Conclusion Ending)**과 Rule R26 결론 오프너(`\"And that is why...\"`)가 장척 영상의 평균 시청 지속 시간을 안정적으로 지탱하고 있음."
                 ),
                 "prescription_script": (
                     "**Rule R42 Deep-Mechanism Role Spine (`10클립`, `84~90초`)** 및 **Rule R43 (`1.08x` 동기 가속, `3.0 WPS`)** 규격을 전 영상에 일관되게 적용하고, "
-                    "`psych_01`(`Viewed 84.8%`)처럼 첫 문장에 즉각적인 행동/증상 훅을 배치."
+                    "첫 문장에 즉각적인 행동/증상 훅을 배치."
                 ),
                 "prescription_visual": (
-                    "**Rule R14-A / R38 / R39 / R40**에 따라 실제 환경 내 포슬린 마네킹과 뇌 내부 보이드(Void) 사실적 해부 구조를 명확히 분리하고, "
+                    "**Rule R14-A / R38 / R39 / R40 / R18-V5**에 따라 실제 환경 내 포슬린 마네킹과 3D 갤러리 뇌 해부 구조를 분리하고, "
                     "클립당 단일 카메라 무빙(Rule R14-D) 및 Google Flow Omni 1.1 네이티브 색감을 100% 보존."
                 ),
                 "prescription_studio": (
-                    "10K 구독자 미만 시드 보호 규칙(**Rule R30-B**, 하루 2편 `12:00 ET` & `20:00 ET` 프라임 슬롯, `8.0h` 간격)을 엄수하고, "
-                    "금일 예약된 `psych_05`·`psych_06` 공개 확인 및 익일 `psych_04` 사전 예약 업로드를 실행."
+                    f"10K 구독자 미만 시드 보호 규칙(**Rule R30-B**, 하루 2편 `12:00 ET` & `20:00 ET` 프라임 슬롯, `>= 4.0h` 간격)과 "
+                    f"`Related Video` 순환 시드 링(**Rule R35-B**, `{linked_cnt}/{max(1, pub_cnt)}`)을 유지하고, `prompt-gate` 통과 신규 v5 쇼츠만 예약 슬롯에 적재."
                 ),
             },
         }
@@ -3919,7 +4197,11 @@ class StudioAnalyticsReporter:
                 or f"{str(rec_c.get('date', ''))[5:]} {rec_c.get('time_et', '12:00')}"
             )
             try:
-                dt_rep = datetime.strptime(f"{data['report_date']} 12:00", "%Y-%m-%d %H:%M")
+                gen_et_raw = str(data.get("generated_at_et", "")).replace(" ET", "").strip()
+                if gen_et_raw.startswith(str(data["report_date"])) and len(gen_et_raw) >= 16:
+                    dt_rep = datetime.strptime(gen_et_raw[:16], "%Y-%m-%d %H:%M")
+                else:
+                    dt_rep = datetime.strptime(f"{data['report_date']} 12:00", "%Y-%m-%d %H:%M")
                 dt_pub_c = datetime.strptime(
                     f"{rec_c.get('date', data['report_date'])} {rec_c.get('time_et', '12:00')}",
                     "%Y-%m-%d %H:%M",

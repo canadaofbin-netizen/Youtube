@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "slug": "invisible_gorilla_attention",
+  "topic": "The Invisible Gorilla — Selective Attention and Inattentional Blindness (Simons & Chabris, 1999)",
+  "pillar": "brain_mysteries",
+  "created_at": "2026-10-24T01:02:00+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "The Invisible Gorilla is famous first and foremost as a physical visual demonstration: six students in white and black shirts passing two orange basketballs in front of three Harvard elevator doors while a performer in a full gorilla costume walks into the middle and thumps her chest. Eight of the ten clips therefore stay in real_env to reenact the iconic 1999 William James Hall hallway footage, the replay shock, the eye-tracking and radiologist follow-ups, and everyday attention blindness. Exactly two brain_void clips (step1 and step2) are used at the core mechanism beat to show how light from the gorilla reaches the primary visual cortex (vision center) while the parietal cortex (attention spotlight) filters out the dark figure before awareness.",
+  "primary_case": {
+    "title": "Gorillas in Our Midst: Sustained Inattentional Blindness for Dynamic Events",
+    "year": 1999,
+    "place": "14th-floor elevator lobby of William James Hall, Harvard University, Cambridge, Massachusetts, USA",
+    "people": [
+      "Daniel J. Simons (assistant professor of psychology at Harvard University, co-author and cameraman)",
+      "Christopher F. Chabris (psychology PhD candidate at Harvard University, co-author and director of choreography)",
+      "Elisa Cheng (Harvard undergraduate student who wore the full gorilla suit)",
+      "Jennifer Shephard (Harvard researcher who played the Umbrella Woman in the comparison condition)",
+      "Judith Danovitch, Steve Most, and Alex Wong (White-shirt basketball team actors)",
+      "Amy DeIpolyi, Jason Jay, and Megan White (Black-shirt basketball team actors)",
+      "Jerome Kagan (Harvard developmental psychologist who lent his lab's gorilla costume for the shoot)",
+      "Ulric Neisser (cognitive psychologist whose 1975–1979 selective-looking basketball and umbrella-woman studies inspired the experiment)"
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 1999, Daniel J. Simons and Christopher F. Chabris filmed two three-person basketball teams (three players in white shirts, three in black shirts) weaving and passing two standard orange basketballs in a 3 m by 5.2 m elevator lobby in Harvard University's William James Hall.",
+      "source_id": "S_simons1999"
+    },
+    {
+      "fact": "In the main 16-condition study with 192 analyzed undergraduate observers (out of 228 tested), 46% failed to notice the unexpected event (54% noticed) across all conditions.",
+      "source_id": "S_simons1999"
+    },
+    {
+      "fact": "In the famous 9-second chest-thumping live-action (Opaque) Gorilla video—where the gorilla walked from right to left into the middle of the players after 35 seconds, stopped, turned to face the camera, thumped its chest, and walked off while observers counted the White team's 15 passes—exactly 50% of observers (6 of 12) completely missed the gorilla.",
+      "source_id": "S_simons1999"
+    },
+    {
+      "fact": "In the standard 5-second Opaque Gorilla condition, 58% of observers counting White-team passes in the Easy task missed the gorilla (42% noticed), and 50% missed it in the Hard task (counting bounce and aerial passes separately).",
+      "source_id": "S_simons1999"
+    },
+    {
+      "fact": "Feature similarity strongly controlled blindness: across the Gorilla conditions, only 27% of observers attending to the White-shirt team noticed the black gorilla (73% missed it), whereas 58% of observers attending to the Black-shirt team noticed the black gorilla.",
+      "source_id": "S_simons1999"
+    },
+    {
+      "fact": "Task difficulty significantly increased blindness: 64% noticed the unexpected event in the Easy total-count task versus 45% in the Hard separate bounce-and-aerial count task.",
+      "source_id": "S_simons1999"
+    },
+    {
+      "fact": "Not one of the 88 non-noticers remembered seeing the gorilla or umbrella woman even when asked directly in four escalating post-test questions, and several insisted the tape had been swapped until they watched the replay.",
+      "source_id": "S_simons1999"
+    },
+    {
+      "fact": "In a 2006 eye-tracking study using the Simons & Chabris gorilla video, Daniel Memmert found that observers who missed the gorilla looked directly at the gorilla for an average of about 1 second—the exact same fixation duration as observers who consciously noticed it.",
+      "source_id": "S_memmert2006"
+    },
+    {
+      "fact": "In 2013, Trafton Drew, Melissa Võ, and Jeremy Wolfe embedded a gorilla 48 times the size of an average lung nodule into the final chest CT scan examined by 24 expert radiologists; 83% (20 of 24) missed the gorilla even though eye-tracking showed the majority looked straight at it.",
+      "source_id": "S_drew2013"
+    }
+  ],
+  "wow_facts": [
+    {
+      "rank": 1,
+      "fact": "Half of all viewers missed a person in a full gorilla suit who walked into the middle of the basketball game, faced the camera, thumped her chest with both fists, and stayed on screen for 9 full seconds.",
+      "why_surprising": "People believe vision works like a video camera that records everything in front of their eyes, making a 9-second chest-beating gorilla seem impossible to miss.",
+      "source_id": "S_simons1999"
+    },
+    {
+      "rank": 2,
+      "fact": "Eye-tracking proved that people who missed the gorilla stared directly at it for about 1 full second—just as long as the people who saw it.",
+      "why_surprising": "Missing the gorilla is not caused by looking at the wrong part of the screen; the image lands right on the center of the eye, yet never reaches conscious awareness.",
+      "source_id": "S_memmert2006"
+    },
+    {
+      "rank": 3,
+      "fact": "When researchers hid a gorilla 48 times larger than a cancer nodule inside lung CT scans, 83% of expert radiologists (20 out of 24) looked right at the gorilla and failed to see it.",
+      "why_surprising": "Even medical specialists trained for years to spot tiny visual anomalies are blinded by their own narrow search target.",
+      "source_id": "S_drew2013"
+    },
+    {
+      "rank": 4,
+      "fact": "Viewers counting the White-shirted players missed the black gorilla 73% of the time, while viewers counting the Black-shirted players missed it only 42% of the time.",
+      "why_surprising": "Your brain tunes its attention filter to the exact colour you are hunting for and actively blocks dark shapes when you are looking for white shirts.",
+      "source_id": "S_simons1999"
+    },
+    {
+      "rank": 5,
+      "fact": "In the 2010 sequel ('The Monkey Business Illusion'), viewers who already knew to look for the gorilla spotted it immediately—but missed the red curtain turning gold and a player walking out of the game.",
+      "why_surprising": "Even when you know a trick is coming, looking for one surprise makes you blind to the next unexpected change.",
+      "source_id": "S_simons2010"
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "People who miss the gorilla only miss it because their eyes happened to be looking at the edges of the screen when the gorilla walked by.",
+      "truth": "Memmert (2006) and Drew et al. (2013) used eye-trackers to show that non-noticers fixated directly on the gorilla for roughly one full second; the failure happens in brain attention filtering, not eye pointing.",
+      "source_id": "S_memmert2006"
+    },
+    {
+      "myth": "People with higher intelligence, stronger working memory, or sharper focus will notice the gorilla while easily distracted people will miss it.",
+      "truth": "Simons & Jensen (2009) and Bredemeier & Simons (2012) tested hundreds of observers and proved that individual working-memory capacity and counting accuracy do not predict who sees the gorilla.",
+      "source_id": "S_bredemeier2012"
+    },
+    {
+      "myth": "Viewers actually saw the gorilla in the moment and simply forgot it by the time the video ended ('inattentional amnesia').",
+      "truth": "Becklen & Cervone (1983), Simons & Chabris (1999), and Rees et al. (1999) showed that stopping the video immediately or scanning the brain with fMRI reveals zero conscious recognition of the ignored object.",
+      "source_id": "S_rees1999"
+    },
+    {
+      "myth": "Trained visual experts like radiologists or police officers would never fall for inattentional blindness in their own job.",
+      "truth": "Drew, Võ & Wolfe (2013) showed 83% of radiologists missed a lung-scan gorilla, and Chabris et al. (2011) showed 44% to 65% of runners chasing a suspect right past a staged brawl never saw the fight.",
+      "source_id": "S_drew2013"
+    }
+  ],
+  "everyday_hooks": [
+    "Drivers looking down a street exclusively for oncoming cars look straight at a cyclist or motorcycle in plain sight and pull out anyway ('looked-but-failed-to-see' crashes).",
+    "Staring at your phone or hunting for a friend in a crowded cafe makes you walk right past someone waving directly in front of your face.",
+    "When you focus all your mental energy on one metric or problem at work, giant warning signs right in front of you vanish from awareness."
+  ],
+  "linked_projects": [
+    "psych_08_inattentional_blindness_gorilla",
+    "shorts_v5"
+  ]
+}

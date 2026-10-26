@@ -1,0 +1,91 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "PHANTOM LIMB MIRROR",
+      "url": "https://www.youtube.com/watch?v=W7EapF85LqY",
+      "channel": "N A",
+      "source_id": "SRC_M1",
+      "duration_sec": 50,
+      "timecodes": [
+        {
+          "t": "00:14-00:21",
+          "what": "At kf_004.jpg (16.5s) (4:3 camera frame), N A's recording states \"maybe you can interrupt this loop. So I said, well, why don't we put a mirror there and have James look inside the mirror. She says, though you...\" — providing spoken context for amputee looking at the vertical Mirror Box reflection as opening his intact right hand visually unclenches his left phantom spasm."
+        },
+        {
+          "t": "00:22-00:34",
+          "what": "Mid-segment 4:3 camera frame at kf_006.jpg (27.5s) as narration explains \"She says, though you have visually resurrected the phantom limb, and of course the patient knows it's an illusion, but it's very, very compelling....\", clarifying key empirical findings in V. S. Ramachandran & Diane Rogers-Ramachandran's 1995-1996 cardboard Mirror Box phantom-limb experiments."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_ramachandran_phantom_limb_mi/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_ramachandran_phantom_limb_mi",
+        "contact_sheet": "media/M1_ramachandran_phantom_limb_mi/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1_ramachandran_phantom_limb_mi/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x360, 12 frames sampled across 0.0s–60.5s)) from N A's \"PHANTOM LIMB MIRROR\" (50s total runtime).",
+          "Deduplicated English transcript (10 timestamped cues in media/M1_ramachandran_phantom_limb_mi/transcript.txt) aligned directly to keyframe timestamps (0.0s–60.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "Releasing Phantom Limb Pain",
+      "url": "https://www.youtube.com/watch?v=jNTCFSuKEMA",
+      "channel": "University of California Television (UCTV)",
+      "source_id": "SRC_M2",
+      "duration_sec": 78,
+      "timecodes": [
+        {
+          "t": "00:14-00:19",
+          "what": "Around kf_004.jpg (15.0s) (dark-backdrop stage / studio camera frame), speaker commentary notes \"get the guy to volitionally open the hand to make it less painful?\" And I tell the patient this, and he laughs at\", anchoring the research context of amputee looking at the vertical Mirror Box reflection as opening his intact right hand visually unclenches his left phantom spasm."
+        },
+        {
+          "t": "00:42-00:44",
+          "what": "At kf_009.jpg (40.0s) (dark-backdrop stage / studio camera frame), audio continues with \"clenched. He's actually seeing mirror reflection of the normal hand. Then he would send commands to both hands to\", detailing experimental methodology and behavioral observations for V. S. Ramachandran & Diane Rogers-Ramachandran's 1995-1996 cardboard Mirror Box phantom-limb experiments."
+        },
+        {
+          "t": "00:47-00:55",
+          "what": "Later dark-backdrop stage / studio camera frame at kf_011.jpg (50.0s) accompanied by \"open. He unclench your normal hand. It look like his phantom hand, which has been resurrected by the mirror, is now\", summarizing mechanism and boundary conditions in V. S. Ramachandran & Diane Rogers-Ramachandran's 1995-1996 cardboard Mirror Box phantom-limb experiments."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (480x270, 14 frames sampled across 0.0s–65.0s)) from University of California Television (UCTV)'s \"Releasing Phantom Limb Pain\" (78s total runtime).",
+          "Deduplicated English transcript (38 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Dr. Vilayanur S. Ramachandran and psychology student Matthew Marradi holding the original Mirror Box.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Dr._Vilayanur_S._Ramachandran_and_psychology_student_Matthew_Marradi_holding_the_original_Mirror_Box.jpg",
+      "channel": "Wikimedia Commons (Beatrice Ring)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Dr. Vilayanur S. Ramachandran and psychology student Matthew Marradi holding the original Mirror Box.jpg\" (960x1069 px, CC BY-SA 3.0): This is the original mirror box that was initially used to create relief withy phantom limbs in amputees. Dr. V.S. Ramachandran discovered the link between visual perception and nerve transmission, pa. Documents authentic physical instrument geometry and period materials relevant to V. S. Ramachandran & Diane Rogers-Ramachandran's 1995-1996 cardboard Mirror Box phantom-limb experiments."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 3.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x1069 px, CC BY-SA 3.0, Beatrice Ring) — apparatus reference: This is the original mirror box that was initially used to create relief withy phantom limbs in amputees. Dr. V.S. Ramachandran discovered the link between visual perception and nerve transmission, pa.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

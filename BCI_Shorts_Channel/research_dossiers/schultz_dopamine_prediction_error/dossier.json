@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "slug": "schultz_dopamine_prediction_error",
+  "topic": "Wolfram Schultz, Dayan & Montague (1997): Dopamine Is NOT 'Pleasure' — It's Exact 'Actual Minus Expected' Surprise Math!",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:39+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Wolfram Schultz, Peter Dayan, and Read Montague's monumental 1997 Science paper — proving midbrain VTA dopamine neurons fire for UNEXPECTED juice (+), go completely FLAT (0) when expected juice arrives on schedule after a cue, and PLUNGE BELOW BASELINE (-) at the exact millisecond expected juice is withheld! — united single-neuron electrophysiology with AI Temporal-Difference reinforcement learning.",
+  "primary_case": {
+    "title": "Wolfram Schultz, Peter Dayan & P. Read Montague's 1997 Midbrain Dopamine 'Reward Prediction Error' Discovery (Science 1997)",
+    "year": 1997,
+    "place": "Institute of Physiology, University of Fribourg, Switzerland (with MIT / Gatsby & Baylor College of Medicine)",
+    "people": [
+      {
+        "name": "Wolfram Schultz",
+        "role": "Fribourg / Cambridge neurophysiologist whose painstaking single-unit recordings of midbrain dopamine neurons revealed the 3-row raster plot seen in every neuroscience and AI textbook on Earth",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Peter Dayan & P. Read Montague",
+        "role": "Computational neuroscientists who recognized that Schultz's live dopamine spike rasters matched **Richard Sutton & Andrew Barto's Temporal-Difference (TD) Reinforcement Learning error (`δ = R + γV(t+1) − V(t)`)** millisecond for millisecond.",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Macaque & Kent Berridge",
+        "role": "Laboratory conditioning subject alongside Michigan neuroscientist Kent Berridge who separated Dopamine 'Wanting/Learning' from Opioid 'Liking'",
+        "source_id": "SRC6"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Ask ten people on the street *'What is **dopamine**?'* and nine will say ***'The brain's pleasure molecule!'*** — yet in **March 1997 (*Science*, SRC1)**, **Wolfram Schultz, Peter Dayan, and Read Montague** published one **3-row neural raster plot** that demolished the 'dopamine = pleasure' myth forever.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In **Row 1 — Unexpected Reward (No Cue + Drop of Sweet Fruit Juice)**: a drop of apple juice arrives out of nowhere with zero warning — and midbrain **ventral tegmental area (VTA) / substantia nigra dopamine neurons** fire a **sharp +BURST** right when the juice hits the tongue.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Now pair a **Conditioned Cue (a 1-second light or tone)** consistently 1.5 seconds BEFORE the drop of juice (**Row 2 — Expected Reward: Cue to Juice Arrives as Promised**): once learned, the dopamine **+BURST jumps forward in time to the CUE** — and when the sweet delicious juice *actually arrives in the mouth* 1.5 seconds later, **DOPAMINE STAYS DEAD FLAT AT BASELINE (Zero Spike!)**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Read Row 2 twice. The subject is drinking the **exact same sweet fruit juice** and enjoying it — yet **dopamine fires ZERO extra spikes at the juice** because **Actual Reward (1) − Predicted Reward (1) = 0 Surprise**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Then comes **Row 3 — Omitted Expected Reward (Cue Flashes to Juice Withheld!)**: the cue light flashes (*'Juice coming in 1.5 seconds!'*), dopamine bursts at the light, and then **NO JUICE DROPS** — at the **exact millisecond** the juice was expected to arrive, VTA dopamine firing **PLUNGES SILENT BELOW BASELINE (Negative Prediction Error, `δ < 0`)**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Computational neuroscientists **Peter Dayan and Read Montague** stared at Schultz's three rows and gasped: VTA/SNc dopamine neurons were physically computing **Temporal-Difference (TD) Reward Prediction Error (`δ = Actual Outcome − Expected Outcome`)** — the exact mathematical teaching equation invented by **Richard Sutton and Andrew Barto** for **AI Reinforcement Learning** (later powering DeepMind's AlphaGo and Atari agents).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Along side Michigan's **Kent Berridge** ('Wanting / Incentive Salience' vs hedonic opioid/endocannabinoid 'Liking'), Schultz's 1997 equation explained **EVERY everyday dopamine paradox** in one stroke: why **the Amazon tracking alert or slot-machine spin** feels more electric than owning the item a week later (`Expected = 1 to δ = 0`!), and why **unpredictable variable-ratio social feeds** keep firing `+δ` bursts forever.",
+      "source_id": "SRC6"
+    },
+    {
+      "fact": "Modern circuit nuance (**Schultz 2024, SRC2; Watabe-Uchida / Dabney *Nature* distributional RL**): recent recordings show nearby **GABAergic neurons** supply the 'Expected Value (`-V`)' subtraction into VTA dopamine cells, and individual dopamine neurons even encode a **full probability distribution** of optimistic vs pessimistic prediction errors.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Under Schultz, Dayan, and Montague's (1997) reward-prediction-error equation (R - E), receiving a 9-unit outcome when expecting 10 yields a negative prediction error (-1) that suppresses midbrain dopamine firing below baseline.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Drink sweet fruit juice **unexpectedly** — huge dopamine burst. Drink the **EXACT SAME sweet fruit juice** 1.5 seconds after a reliable bell — **ZERO dopamine burst at the juice**.",
+      "why_surprising": "If dopamine were 'pleasure,' expected ice cream would spike it — instead dopamine went 100% flat because `1 − 1 = 0`.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Flash the cue light and **withhold the drop of juice**: dopamine neurons don't just stay quiet — they **SLAM ON THE BRAKES BELOW RESTING BASELINE** at the exact split-second the juice failed to touch the tongue.",
+      "why_surprising": "A neural stopwatch inside your midbrain tracking expectation down to the tenth of a second.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "The **exact mathematical equation** (`δ = Actual − Predicted`) firing inside your midbrain VTA every time you check a text message is the **same Temporal-Difference equation** that taught **AlphaGo** how to beat world champions.",
+      "why_surprising": "Evolution discovered AI reinforcement learning 500 million years ahead of Silicon Valley.",
+      "source_id": "SRC1",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Dopamine is the 'pleasure chemical' that makes food, music, or achievements feel delicious in the moment.",
+      "truth": "Schultz (1997, SRC1) proved dopamine goes **dead flat** during fully expected rewards, while Kent Berridge proved actual hedonic **pleasure ('liking')** runs on tiny **mu-opioid and endocannabinoid 'hedonic hotspots'** — dopamine encodes **prediction error learning + motivational 'wanting'**.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "'Dopamine fasting' lowers your brain's baseline dopamine to zero and 'resets' pleasure.",
+      "truth": "Dopamine is an essential survival neuromodulator for movement (lost in Parkinson's!) and error-driven learning — you cannot 'fast' out of dopamine; what actually helps is **stepping off unpredictable intermittent-reward slot machines** (endless scroll feeds).",
+      "source_id": "SRC3"
+    },
+    {
+      "myth": "Getting everything you expect on a predictable schedule should produce endless dopamine highs.",
+      "truth": "Predictable `1 − 1 = 0` flattens phasic dopamine bursts — which is why long-term joy comes from **savoring opioid 'liking' gratitude** plus **small pleasant surprises (`Actual > Expected`)**.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Feeling a bigger rush **tracking a package on the delivery map** than looking at the object sitting on your desk three days later (`Cue = +Burst`, `Expected Object = 0`).",
+    "Feeling that sharp hollow **stomach drop** when your phone buzzes, you expect a text from your crush, and it's an automated spam alert (**Row 3 Negative Prediction Error `-δ`!**).",
+    "Stopping endless 'dopamine chasing' by knowing **anticipation/surprise (`dopamine`)** and **calm enjoyment (`opioid/present savoring`)** are two completely different brain systems."
+  ],
+  "linked_projects": [
+    "psych_99_schultz_dopamine_prediction_error"
+  ]
+}

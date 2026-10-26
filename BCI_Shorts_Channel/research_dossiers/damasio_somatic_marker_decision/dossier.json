@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "slug": "damasio_somatic_marker_decision",
+  "topic": "Antonio Damasio & Antoine Bechara (1994-1997): Patient Elliot, the Iowa Gambling Task & Gut 'Somatic Markers'",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:32+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Patient EVR ('Elliot') acing every IQ test yet going bankrupt on four card decks (A, B vs C, D) while skin-conductance sensors stay flat directly maps ventromedial prefrontal cortex coupling bodily 'gut alarms' to rational choice.",
+  "primary_case": {
+    "title": "Antonio Damasio's Patient 'Elliot' (EVR) & Bechara et al.'s 1994-1997 Iowa Gambling Task skin-conductance experiments",
+    "year": 1994,
+    "place": "University of Iowa Hospitals and Clinics Department of Neurology, Iowa City",
+    "people": [
+      {
+        "name": "Antonio R. Damasio",
+        "role": "Behavioral neurologist whose patient 'Elliot' overturned Plato and Descartes by proving emotionless logic cannot make everyday decisions",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Antoine Bechara & Hanna Damasio",
+        "role": "Iowa neuroscientists who invented the four-deck Iowa Gambling Task (1994) and recorded anticipatory palm skin-conductance warnings (1997)",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Barnaby Dunn & Tiago Maia",
+        "role": "Cognitive scientists whose 2005-2006 critiques showed conscious explicit deck knowledge overlaps earlier than originally thought while confirming vmPFC value-integration deficits",
+        "source_id": "SRC4"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "At the University of Iowa, Antonio Damasio treated 'Elliot' (Patient EVR), a successful corporate accountant who had a benign meningioma tumor removed above his nasal cavity — damaging bilateral ventromedial prefrontal cortex (vmPFC).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Post-surgery, Elliot scored in the superior 97th+ percentile on IQ, memory, math, and abstract moral dilemmas — yet in real life he lost his job, his savings, and two marriages, spending whole afternoons paralyzed over whether to schedule a meeting at 1:30 or 2:00 p.m. or which pen color to use.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Standard lab tests couldn't catch Elliot's deficit until Antoine Bechara and the Damasios invented the 'Iowa Gambling Task' (1994): 100 card draws across four decks — Decks A & B ('Bad Decks': $100 wins, crushing $1,250 losses, net -$250 per 10 cards) vs Decks C & D ('Good Decks': $50 wins, tiny losses, net +$250 per 10 cards).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Healthy controls started sampling all four decks, then steadily shifted to safe Decks C & D by card ~30-50; vmPFC patients like Elliot kept chasing high-payout 'Bad' Decks A & B right into bankruptcy across all 100 cards ('myopia for the future').",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In 1996-1997, Bechara wired galvanic skin-conductance sensors to participants' palms: both groups sweated AFTER getting hit by a $1,250 loss, yet ONLY healthy brains developed ANTICIPATORY palm micro-sweats in the 5 seconds BEFORE reaching toward Bad Decks A & B — starting around card 10-20, BEFORE they could verbally explain which decks were rigged.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Even more stunning: EVEN AFTER vmPFC patients late in the game could state out loud 'Decks A and B are dangerous!', their palms stayed flat at zero anticipatory signal — and their hands STILL drew from the bad decks.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Damasio named this the 'Somatic Marker Hypothesis' (Descartes' Error): without vmPFC tagging options with subtle visceral/emotional 'stop/go' weights from insula and amygdala, pure cold pros-and-cons lists spin forever or chase shiny traps.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Subsequent critiques (Maia & McClelland 2004; Dunn et al. 2006) showed sharper questionnaires detect partial conscious hunches earlier in healthy subjects than Bechara's coarse verbal probes — refining 'unconscious magic gut' hype while confirming vmPFC is indispensable for translating risk knowledge into felt deterrent weight.",
+      "source_id": "SRC4"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "After losing a patch of ventromedial prefrontal cortex, Patient Elliot aced every IQ and logic test in the hospital — then spent thirty minutes unable to pick a Tuesday appointment time because neither option 'felt' better.",
+      "why_surprising": "Without emotion, pure Spock-like logic doesn't become super-smart — it freezes.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Wired to palm sweat sensors, healthy volunteers' hands fired tiny warning spikes FIVE SECONDS before touching the rigged $100 decks — dozens of cards before they could explain the math out loud.",
+      "why_surprising": "Bodily risk-tagging warned the hand ahead of a polished speech.",
+      "source_id": "SRC2",
+      "rank": 2
+    },
+    {
+      "fact": "Near the end of the 100-card game, some vmPFC patients looked straight at the scientist and said 'Decks A and B are bad!' — then reached right back out and drew another card from Deck B with a dead-flat palm trace.",
+      "why_surprising": "Knowing a trap intellectually without FEELING its sting failed to stop the hand.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "For 2,000 years philosophers preached 'strip away all emotion to make rational choices' — Elliot proved healthy emotion is the exact fuel that prunes infinite pros-and-cons trees.",
+      "why_surprising": "Descartes had the relationship between feeling and reason upside down.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Becoming 100% emotionless like Mr. Spock makes you a superior, hyper-rational decision-maker.",
+      "truth": "Clinical vmPFC emotion-blunting produces catastrophic real-life indecisiveness over trivial choices and blindness to long-term ruin.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "You should blindly trust every random 'gut feeling' over math and data.",
+      "truth": "Somatic markers ONLY help in domains where you have real feedback experience (like learning Decks A-D); in unfamiliar statistics or prejudices, raw gut impulses mislead.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Healthy subjects on the Iowa Gambling Task have zero conscious clue at card 50.",
+      "truth": "Maia & McClelland (2004) showed finer probing reveals emerging conscious awareness alongside palm markers — body and conscious insight co-evolve.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "vmPFC patients don't feel pain or surprise when they lose $1,250.",
+      "truth": "They DO show normal reactive palm spikes right AFTER a big loss — what's broken is generating the ANTICIPATORY warning before the NEXT reach.",
+      "source_id": "SRC2"
+    }
+  ],
+  "everyday_hooks": [
+    "Spending forty-five minutes reading 300 identical toaster reviews on ten tabs because every rational spec ties and nothing 'clicks'.",
+    "Feeling a subtle stomach knot five seconds before signing a too-good-to-be-true contract you've seen burn people before.",
+    "Knowing intellectually at 11 p.m. 'staying up late will ruin tomorrow' while feeling zero emotional weight in the moment.",
+    "Setting a 5-minute timer on minor equal-value choices ('1:30 vs 2:00 p.m.') when pros-and-cons spreadsheets tie."
+  ],
+  "linked_projects": [
+    "psych_42_damasio_somatic_marker_decision"
+  ]
+}

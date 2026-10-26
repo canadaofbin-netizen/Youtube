@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "lecture",
+      "title": "The glymphatic system // Maiken Nedergaard",
+      "url": "https://www.youtube.com/watch?v=He6HMnMbxAc",
+      "channel": "The Physiological Society",
+      "source_id": "SRC_M1",
+      "duration_sec": 3464,
+      "timecodes": [
+        {
+          "t": "01:09-01:18",
+          "what": "At kf_003.jpg (73.4s) (widescreen camera frame), The Physiological Society's recording states \"between the billion of nodes we have, we would understand how the brain works. If you're MD, you realize that the brain doesn't look like that.\" — providing spoken context for two-photon live imaging at Rochester: sleeping brain channels widen 60% as clear fluid flushes waste."
+        },
+        {
+          "t": "01:40-01:48",
+          "what": "Mid-segment widescreen camera frame at kf_008.jpg (105.1s) as narration explains \"And this is really what our work is about. How do we keep the brain healthy for the many decades of human life?\", clarifying key empirical findings in Two-photon in vivo imaging of sleep-driven cerebrospinal fluid clearance in adult cortex."
+        },
+        {
+          "t": "02:06-02:15",
+          "what": "Around kf_012.jpg (130.4s) (widescreen camera frame), commentary states \"we all know that sleep is completely essential for how we feel when we wake up in the morning. If we've been up most of the night,\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_glymphatic_sleep_toxins/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_glymphatic_sleep_toxins",
+        "contact_sheet": "media/M1_glymphatic_sleep_toxins/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1_glymphatic_sleep_toxins/contact_sheet.jpg (widescreen live-action camera recording (640x360, 14 frames sampled across 60.8s–143.0s)) from The Physiological Society's \"The glymphatic system // Maiken Nedergaard\" (3464s total runtime).",
+          "Deduplicated English transcript (29 timestamped cues in media/M1_glymphatic_sleep_toxins/transcript.txt) aligned directly to keyframe timestamps (60.8s–143.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "One more reason to get a good night’s sleep | Jeff Iliff",
+      "url": "https://www.youtube.com/watch?v=MJK-dMlATmM",
+      "channel": "TED",
+      "source_id": "SRC_M2",
+      "duration_sec": 706,
+      "timecodes": [
+        {
+          "t": "07:29-07:43",
+          "what": "Around kf_001.jpg (460.8s) (dark-backdrop stage / studio camera frame), speaker commentary notes \"is rushing through the brain, and we discovered that at the same time when the brain goes to sleep, the brain cells themselves seem to shrink...\", anchoring the research context of two-photon live imaging at Rochester: sleeping brain channels widen 60% as clear fluid flushes waste."
+        },
+        {
+          "t": "08:01-08:12",
+          "what": "At kf_005.jpg (486.1s) (dark-backdrop stage / studio camera frame), audio continues with \"when the brain is awake and is at its most busy, it puts off clearing away the waste from the spaces between its cells until later, and then, when...\", detailing experimental methodology and behavioral observations for Two-photon in vivo imaging of sleep-driven cerebrospinal fluid clearance in adult cortex."
+        },
+        {
+          "t": "09:00-09:09",
+          "what": "Later dark-backdrop stage / studio camera frame at kf_014.jpg (543.0s) accompanied by \"amyloid-beta builds up and aggregates in the spaces between the brain's cells, instead of being cleared away like it's supposed to be, and it's...\", summarizing mechanism and boundary conditions in Two-photon in vivo imaging of sleep-driven cerebrospinal fluid clearance in adult cortex."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (640x360, 14 frames sampled across 460.8s–543.0s)) from TED's \"One more reason to get a good night’s sleep | Jeff Iliff\" (706s total runtime).",
+          "Deduplicated English transcript (27 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (460.8s–543.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "CPCA-GFAP-for-Wikipedia copy.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:CPCA-GFAP-for-Wikipedia_copy.jpg",
+      "channel": "Wikimedia Commons (GerryShaw)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"CPCA-GFAP-for-Wikipedia copy.jpg\" (1000x1000 px, CC0): Astrocytes forming part of the blood-brain barrier, note processes (arrowed) projecting towards blood vessels where they form astrocyte end feet. Provides anatomical and structural brain reference relevant to the neural mechanism in Two-photon in vivo imaging of sleep-driven cerebrospinal fluid clearance in adult cortex."
+        }
+      ],
+      "license_note": "Archival photo (CC0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (1000x1000 px, CC0, GerryShaw) — neuroanatomy reference: Astrocytes forming part of the blood-brain barrier, note processes (arrowed) projecting towards blood vessels where they form astrocyte end feet.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

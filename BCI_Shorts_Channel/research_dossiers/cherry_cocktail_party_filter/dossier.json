@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "slug": "cherry_cocktail_party_filter",
+  "topic": "Colin Cherry (1953): The 'Cocktail Party Problem' — Shadowing One Ear While Going Deaf to Language Flips in the Other",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:36+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "British telecommunications engineer Colin Cherry's 1953 Imperial College 'dichotic listening' experiments — playing two different voices into Left vs Right headphone cups while subjects repeated ('shadowed') the right ear aloud — bridge physical acoustic behavior directly to auditory cortex selective-gain tuning.",
+  "primary_case": {
+    "title": "E. Colin Cherry's 1953 Imperial College London 'Cocktail Party Problem' & Dichotic Shadowing Experiments",
+    "year": 1953,
+    "place": "Department of Electrical Engineering, Imperial College London (and MIT Research Laboratory of Electronics)",
+    "people": [
+      {
+        "name": "Edward Colin Cherry",
+        "role": "British telecommunications engineer and cognitive scientist who coined 'the Cocktail Party Problem' in 1953 and invented dichotic speech shadowing",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Donald E. Broadbent",
+        "role": "Cambridge psychologist who built Psychology's first 'Early Selection Filter Model' directly out of Cherry's 1953 dichotic left-ear deafness findings",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Neville Moray & Edward Chang",
+        "role": "Psychologist who tested '35 repetitions in the ignored ear = 0% recall, EXCEPT your own first name!' (1959) and modern UCSF neurosurgeon who recorded live human auditory cortex turning up the attended voice.",
+        "source_id": "SRC4"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In **1953 (*Journal of the Acoustical Society of America*)**, Imperial College telecommunications engineer **Colin Cherry** posed a deceptively simple question that stumped telephone and radar engineers for decades: ***'How do we recognize what one person is saying when others are speaking at the same time (the \"cocktail party problem\")?'***",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Experiment 1 (both voices mixed identically onto ONE single audio channel with zero spatial separation), asking volunteers to pull apart two overlapping passages spoken by the SAME person's voice was brutal — they had to replay it dozens of times piecing tiny cliché phrases together word by word.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Experiment 2, Cherry invented **Dichotic Listening + Speech Shadowing**: feed Passage A into the **Right Ear** and completely different Passage B into the **Left Ear** over padded dual-channel headphones, and ask the volunteer to **repeat the Right-Ear voice aloud continuously ('shadowing')** half a second behind it.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Shadowing the attended Right Ear became surprisingly effortless — yet when Cherry stopped the audio and asked what happened in the **unattended Left Ear**, volunteers drew an **astonishing mental blank**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "How deaf were they to the ignored Left Ear? Volunteers **DID notice coarse physical changes** — whether the Left Ear held a human voice vs a pure **400-Hz tone**, OR switched from a **male deep voice to a female high-pitched voice**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Yet they **COMPLETELY MISSED semantic and linguistic changes** in the ignored Left Ear: they didn't know a single topic, didn't notice when **English secretly switched mid-stream into GERMAN**, didn't notice **speech played BACKWARDS**, and in Neville Moray's (1959) follow-up didn't recall a single word from a list **repeated 35 TIMES** in the ignored ear.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Cherry & Taylor (1954, SRC2) also timed the **attention-switching bottleneck**: alternate a single sentence rapidly back-and-forth between Left Ear and Right Ear ~3 times per second (~160–200 ms per ear), and speech intelligibility **crashes** because shifting your attentional spotlight between channels costs ~150–200 milliseconds.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Sixty years later in awake human neurosurgery (Mesgarani & Chang, 2012 *Nature*), high-density electrode grids on **human non-primary auditory cortex (superior temporal gyrus)** revealed Cherry's exact mechanism: two voices enter Heschl's primary auditory cortex together, and **selective attention sculpts non-primary auditory cortex until the neural spectrogram looks almost exclusively like the ONE voice you chose to listen to**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Seven years after Cherry's 1953 dichotic shadowing paper, 24-year-old Oxford doctoral researcher Anne Treisman (1960) showed that semantic context and personal names leak across the unattended ear channel.",
+      "source_id": "SRC4"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "While you repeat the Right-Ear speaker out loud, Cherry secretly switches the Left-Ear speaker **from English into German — or even reversed backwards speech** — and when he stops the console and asks if anything sounded odd in your left ear, you say ***'Nope, sounded like normal English!'***",
+      "why_surprising": "You hear the *pitch* of an ignored voice while going 100% blind to its *words*.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Neville Moray (1959) repeated a simple English word **35 TIMES IN A ROW** into the ignored headphone ear — and volunteers scored at pure chance recognizing it 30 seconds later. Yet whisper **THE VOLUNTEER'S OWN FIRST NAME** once into that exact same ignored ear, and a third of them snap their heads instantly.",
+      "why_surprising": "set up Anne Treisman's famous 1960s Attenuation breakthrough.",
+      "source_id": "SRC4",
+      "rank": 2
+    },
+    {
+      "fact": "Alternate ONE speaker's voice rapidly left-ear / right-ear three times a second (Cherry & Taylor 1954), and clear English turns unintelligible — catching the exact **~180-millisecond mechanical speed limit** of switching human auditory attention.",
+      "why_surprising": "Multitasking between two voices isn't parallel; it is a 180-ms toggle switch.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "In 2012, neurosurgeons decoded what an awake listener was hearing straight out of their **superior temporal gyrus**: two speakers talked at once in the room, yet the brain's electrical wave reproduced **ONLY the one speaker the patient chose to attend to**.",
+      "why_surprising": "Your brain builds noise-canceling focus right inside auditory cortex.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "You can genuinely listen to a podcast or sports broadcast in one ear while absorbing a Zoom meeting in the other.",
+      "truth": "Cherry's 1953 shadowing experiments proved human speech comprehension has a single-channel semantic bottleneck — the 'second' stream drops to raw pitch background noise unless you rapidly toggle and lose chunks of both.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Hearing aids only need to make every sound in a restaurant louder.",
+      "truth": "Amplifying background clatter equally with speech leaves the 'Cocktail Party Problem' unsolved — which is why modern directional/AI neural hearing aids copy Cherry's spatial + voice-timbre separation cues.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Everything hitting your eardrum gets fully understood and stored unconsciously in memory.",
+      "truth": "35 repetitions in an unattended ear left zero recognition trace in Moray (1959) — without selective attention, speech bounces off an early perceptual gate.",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Nodding along to a podcast while writing an email, hitting pause 10 minutes later, and realizing you couldn't summarize a single sentence of the podcast.",
+    "Locking onto one friend's voice across a loud dinner table using voice pitch + spatial direction ('Cocktail Party' magic).",
+    "Understanding why drivers talking on hands-free phone calls still miss critical traffic cues — semantic attention is hogged by the conversation."
+  ],
+  "linked_projects": [
+    "psych_77_cherry_cocktail_party_filter"
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "sources": [
+    {
+      "id": "SRC1",
+      "type": "primary",
+      "citation": "Milgram, S. (1963). Behavioral study of obedience. The Journal of Abnormal and Social Psychology, 67(4), 371-378.",
+      "doi": "10.1037/h0040525",
+      "url": "https://www.columbia.edu/cu/psychology/terrace/w1001/readings/milgram.pdf",
+      "verified": true,
+      "notes": "Read in full (PDF reprint). Baseline 'remote' condition: 40 men aged 20-50 from New Haven, recruited by newspaper ad and direct mail, paid $4.50; 'elegant interaction laboratory' at Yale; experimenter = 31-year-old high-school biology teacher in a grey technician's coat, impassive and stern; learner = 47-year-old accountant of Irish-American stock, mild-mannered and likable. Rigged draw (both slips read 'Teacher'); learner strapped into an 'electric chair' in the adjacent room, electrode on the wrist with paste 'to avoid blisters and burns'. Generator: 30 lever switches in a horizontal line, 15-450 V in 15-V steps, group labels Slight Shock ... Danger: Severe Shock, last two switches 'XXX'; pressing a switch lights a bright red pilot light, an electric buzzing sounds, a blue 'voltage energizer' light flashes, the voltmeter dial swings right, relays click. Nameplate 'Shock Generator, Type ZLB, Dyson Instrument Company, Waltham, Mass. Output 15 Volts-450 Volts'. 45-volt sample shock to the teacher's wrist via the third switch (real 45-V battery). Teacher announces the voltage before each shock; answer box with four numbered quadrants on top of the generator. Learner silent until 300 V, pounds the wall at 300 and 315 V, then no answers. Four prods verbatim. Results: no one stopped before 300 V; 5 stopped at 300, 4 at 315, 2 at 330, 1 each at 345/360/375 = 14 defiant; 26 of 40 to 450 V. 14 Yale psychology seniors predicted 0-3 percent (mean 1.2 percent). Pain rating mean 13.42 of 14. Sweating, trembling, stuttering, lip biting, groaning, fingernails dug into flesh; 14 of 40 nervous laughter; 3 full-blown uncontrollable seizures (one 46-year-old encyclopedia salesman). Observer quote about a poised businessman reduced to a 'twitching, stuttering wreck' in 20 minutes who still obeyed to the end. Friendly reconciliation with the victim after the interview."
+    },
+    {
+      "id": "SRC2",
+      "type": "follow_up",
+      "citation": "Milgram, S. (1965). Some conditions of obedience and disobedience to authority. Human Relations, 18(1), 57-76.",
+      "doi": "10.1177/001872676501800105",
+      "url": "",
+      "verified": true,
+      "notes": "Crossref verified. Reports the proximity series (remote, voice-feedback, proximity, touch-proximity). Full text not read here; the condition percentages (proximity 40 percent, touch-proximity 30 percent) are taken from secondary summaries of Milgram 1965/1974 (SRC10 and web summaries) that agree with each other."
+    },
+    {
+      "id": "SRC3",
+      "type": "book",
+      "citation": "Milgram, S. (1974). Obedience to Authority: An Experimental View. New York: Harper & Row.",
+      "doi": "",
+      "url": "https://www.panarchy.org/milgram/obedience.html",
+      "verified": false,
+      "notes": "Book (no DOI). Excerpt checked at panarchy.org: 'The victim claimed heart trouble; subjects still shocked him on command. The victim pleaded to be let free, and his answers no longer registered on the signal box; subjects continued to shock him.' Source of the 19 variations: Experiment 5 'new baseline' with heart-trouble script (150 V: 'Get me out of here... My heart's starting to bother me... I refuse to go on'; silence after 330 V; 26 of 40 obedient), Experiment 10 Bridgeport (47.5 percent), experimenter-by-telephone (about 21 percent). These numbers were cross-checked only in secondary sources (SRC10, web summaries), not in the book itself."
+    },
+    {
+      "id": "SRC4",
+      "type": "replication",
+      "citation": "Burger, J. M. (2009). Replicating Milgram: Would people still obey today? American Psychologist, 64(1), 1-11.",
+      "doi": "10.1037/a0010932",
+      "url": "",
+      "verified": true,
+      "notes": "Crossref verified. Full text blocked (APA Incapsula). Key numbers from APA press summary via web search and Wikipedia: partial replication of Milgram's Experiment 5 stopped at 150 V (the first point where the learner demands release); 70 percent of participants were willing to continue past 150 V versus 82.5 percent in Milgram's comparable condition, difference not significant; 29 men and 41 women; a modeled-refusal condition did not reduce obedience; women obeyed at about the same rate as men."
+    },
+    {
+      "id": "SRC5",
+      "type": "critique",
+      "citation": "Haslam, S. A., & Reicher, S. D. (2012). Contesting the 'nature' of conformity: What Milgram and Zimbardo's studies really show. PLoS Biology, 10(11), e1001426.",
+      "doi": "10.1371/journal.pbio.1001426",
+      "url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001426",
+      "verified": true,
+      "notes": "Read (open access). The 'baseline study' is not typical of the 30 or so variants; obedience to 450 V ranged from 0 percent to nearly 100 percent, and across the studies as a whole a majority chose not to go that far. Participants tend to go along when the experimenter justifies continuing by science ('The experiment requires that you continue') but typically refuse the direct order 'You have no other choice, you must go on'. Reinterpretation: identification-based (engaged) followership rather than blind obedience."
+    },
+    {
+      "id": "SRC6",
+      "type": "follow_up",
+      "citation": "Burger, J. M., Girgis, Z. M., & Manning, C. C. (2011). In their own words: Explaining obedience to authority through an examination of participants' comments. Social Psychological and Personality Science, 2(5), 460-466.",
+      "doi": "10.1177/1948550610397632",
+      "url": "",
+      "verified": true,
+      "notes": "Crossref verified. Cited by SRC5 for the prod analysis; secondary summaries state that no participant who received the fourth prod ('You have no other choice') continued. Full text not read."
+    },
+    {
+      "id": "SRC7",
+      "type": "critique",
+      "citation": "Baumrind, D. (1964). Some thoughts on ethics of research: After reading Milgram's 'Behavioral Study of Obedience.' American Psychologist, 19(6), 421-423.",
+      "doi": "10.1037/h0040128",
+      "url": "",
+      "verified": true,
+      "notes": "Classic ethics critique (participant distress, deception). verified flag is set from verify_doi (see _scratch/doi_results2.json)."
+    },
+    {
+      "id": "SRC8",
+      "type": "critique",
+      "citation": "Perry, G. (2012/2013). Behind the Shock Machine: The Untold Story of the Notorious Milgram Psychology Experiments. Melbourne: Scribe (2012); New York: The New Press (rev. ed. 2013, ISBN 978-1-59558-921-7).",
+      "doi": "",
+      "url": "https://www.npr.org/2013/08/28/209559002/taking-a-closer-look-at-milgrams-shocking-obedience-study",
+      "verified": false,
+      "notes": "Book (no DOI). NPR interview (read 2026-10-24): over 700 people took part across the variations; the famous 65 percent applied to 26 of 40 people; obedience varied enormously and in some variations no one obeyed; a disobedient subject still resented 50 years later that he was never 'de-hoaxed'; participant Bill Menold: 'The thought of quitting never ... occurred to me'. Wikipedia (citing p. 139): Perry wrote that only about half of participants fully believed it was real and of those, 66 percent disobeyed; she argued there was a 'troubling mismatch' between published descriptions and what actually happened."
+    },
+    {
+      "id": "SRC9",
+      "type": "review",
+      "citation": "Blass, T. (1999). The Milgram paradigm after 35 years: Some things we now know about obedience to authority. Journal of Applied Social Psychology, 29(5), 955-978.",
+      "doi": "10.1111/j.1559-1816.1999.tb00134.x",
+      "url": "",
+      "verified": true,
+      "notes": "Crossref verified. Review of replications of the Milgram paradigm; not quoted for specific numbers here."
+    },
+    {
+      "id": "SRC10",
+      "type": "news",
+      "citation": "Wikipedia contributors. Milgram experiment. Wikipedia (raw wikitext retrieved 2026-10-24).",
+      "doi": "",
+      "url": "https://en.wikipedia.org/wiki/Milgram_experiment",
+      "verified": true,
+      "notes": "Secondary, used only for cross-checks: experiments began August 1961, three months after the start of the Eichmann trial; touch condition 30 percent; telephone instructions about 21 percent; Experiment 10 Bridgeport 'Research Associates of Bridgeport' 47.5 percent (not statistically significant); Experiment 17 (two peer teachers refuse) 4 of 40 continued; original shock generator at the Archives of the History of American Psychology; Burger 2009 halted after the 150-volt switch, half the participants female; Rod Dickinson's 2002 'Milgram Re-enactment'; Experimenter (2015, Michael Almereyda)."
+    },
+    {
+      "id": "SRC11",
+      "type": "museum",
+      "citation": "Drs. Nicholas and Dorothy Cummings Center for the History of Psychology / Archives of the History of American Psychology, The University of Akron (National Museum of Psychology).",
+      "doi": "",
+      "url": "https://www.uakron.edu/chp/",
+      "verified": false,
+      "notes": "Holds Milgram's original simulated shock generator (per Wikipedia and a web search summary). Museum page itself not opened; treat as secondary-confirmed."
+    },
+    {
+      "id": "SRC12",
+      "type": "documentary",
+      "citation": "Milgram, S. (1965). Obedience [black-and-white documentary film, about 45 min, footage shot at Yale in May 1962]. Distributed by Penn State Media Sales / Alexander Street Press.",
+      "doi": "",
+      "url": "https://www.youtube.com/watch?v=Kzd6Ew3TraA",
+      "verified": false,
+      "notes": "Film details (May 1962 footage, 1965 release, about 45 min) from web search summaries; excerpts viewed via a PsychHubUK upload for blocking analysis only (media/M1_psychhub_original_footage). Never reused."
+    }
+  ]
+}

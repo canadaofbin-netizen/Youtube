@@ -1,0 +1,202 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Toronto Baycrest Table: Endel Tulving & Patient K.C. Playing Tactical Chess Perfectly Beside Blank 'Yesterday (?)' & 'Tomorrow (?)' Cards",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2002, Rotman Research Institute, Baycrest, Toronto",
+      "layout": {
+        "description": "Sunlit high-key Canadian neuropsychology room featuring a warm oak table holding a carved **wooden chessboard mid-game** (Semantic Rules: 100% Intact!), a map of Ontario where K.C. points accurately to his family's cottage, and two large white thought-frame easels beside him — **'Personal Past Episode: [Blank White Canvas]'** and **'Tomorrow Afternoon Plan: [Identical Blank White Canvas]'**.",
+        "positions": [
+          {
+            "who": "Endel Tulving (mannequin in tailored dark blazer and open-collar shirt)",
+            "where": "seated across the chessboard making a knight move, then gesturing gently between the two blank 'Yesterday' and 'Tomorrow' frame cards",
+            "facing": "across oak table"
+          },
+          {
+            "who": "Patient K.C. / Kent Cochrane (mannequin in neat Canadian plaid flannel overshirt and chinos)",
+            "where": "executing a crisp, smart chess bishop counter-move effortlessly — then pausing thoughtfully with open palms before both the 'Remember One Game You Played' card and the 'Imagine Tomorrow' card",
+            "facing": "seated at chessboard"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "wooden Staunton chessboard & Ontario cottage map ('Semantic Knowledge: 100%')",
+          "period_detail": "proves intact intelligence, rules, and geographic facts",
+          "physical_behavior": "documented real-world strengths of Kent Cochrane"
+        },
+        {
+          "name": "paired 'Relive Yesterday: Blank' & 'Imagine Tomorrow: Blank' white frame easels",
+          "period_detail": "visualizes Tulving's stunning discovery that past reliving and future imagination vanish together",
+          "physical_behavior": "anchors Mental Time Travel symmetry"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient K.C.",
+          "verb_sequence": "moves his bishop diagonally in a clever tactical pin and points accurately to the cottage spot on the Ontario map -> Tulving asks for ONE lived memory of playing chess OR what K.C. imagines doing tomorrow -> K.C. gestures calmly to both blank white frames ('The exact same kind of blankness')"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Endel Tulving",
+          "reaction": "notes that Episodic Memory is a bidirectional Mental Time Machine for past AND future"
+        },
+        {
+          "who": "Patient K.C.",
+          "reaction": "remains calm, polite, and articulate throughout the chess match"
+        }
+      ],
+      "wardrobe": "Early-2000s Toronto attire: academic dark blazer over collared shirt; neat casual flannel overshirt and chinos.",
+      "lighting": "Warm, bright high-key Toronto window daylight.",
+      "recognition_hook": "He plays a sharp game of chess right in front of you — yet cannot remember a single game from his past OR picture a single scene of his own tomorrow!",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a sunlit neuropsychology table where a researcher and patient play a wooden chessboard beside an Ontario map and two blank easel frames labeled Yesterday and Tomorrow",
+        "must_show": [
+          "chess|chessboard",
+          "frames|easels|cards",
+          "map|table"
+        ],
+        "source": "M1@00:14-00:19; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "2007 fMRI Proof: Yesterday & Tomorrow Light Up the Exact Same Network!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2007, Harvard / UCL neuroimaging lab (Addis, Schacter & Hassabis)",
+      "layout": {
+        "description": "Clean bright neuroimaging console displaying two nearly identical glowing brain maps side-by-side: 'Remembering 3 Years Ago' vs 'Imagining 3 Years Ahead'.",
+        "positions": [
+          {
+            "who": "Neuroscientist mannequin",
+            "where": "pointing to matching hippocampal + Default Mode activation across Past and Future scans",
+            "facing": "at fMRI display"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Past (-3 yr) vs Future (+3 yr) twin fMRI brain maps",
+          "period_detail": "confirms Tulving's bedside insight across healthy brains",
+          "physical_behavior": "2007 Science / PNAS breakthrough"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Researcher",
+          "verb_sequence": "toggles between Past recall and Future simulation -> same core network stays lit"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Team",
+          "reaction": "celebrates solving *why* memory stays constructive and flexible"
+        }
+      ],
+      "wardrobe": "2007 blazer and sweater.",
+      "lighting": "Clean high-key console light.",
+      "recognition_hook": "Scan a healthy brain remembering last summer and imagining next summer — the two brain maps look like identical twins!",
+      "sources": [
+        "SRC3",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Passing School Without Recess Memories (Developmental Amnesia, 1997)",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1997, London pediatric neuropsychology room (Vargha-Khadem)",
+      "layout": {
+        "description": "Sunny classroom desk where a bright teenager aces a world-geography map quiz (Semantic!) while needing a pocket notebook to check what happened after lunch (Episodic!).",
+        "positions": [
+          {
+            "who": "Student & Neuropsychologist mannequins",
+            "where": "reviewing top factual vocabulary & geography grades built entirely via intact cortical Semantic memory",
+            "facing": "at sunny desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "A-grade geography map + pocket daily schedule pad",
+          "period_detail": "proves children with neonatal hippocampal injury still build rich Semantic knowledge",
+          "physical_behavior": "Vargha-Khadem et al. 1997 Science"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Student",
+          "verb_sequence": "labels capitals effortlessly on map -> checks pocket pad for afternoon appointment"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Both",
+          "reaction": "proud smile at educational resilience"
+        }
+      ],
+      "wardrobe": "School sweater and blazer.",
+      "lighting": "Warm classroom sunlight.",
+      "recognition_hook": "Lose hippocampi as an infant and you can STILL master school vocabulary, math, and geography — proving encyclopedia facts don't need episodic memories to stick!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Episodic Future Simulation: Rehearsing Tomorrow's Win Today",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit desk",
+      "layout": {
+        "description": "Warm study desk with a '2-Sentence Daily Sensory Capsule' journal and tomorrow's concrete visual rehearsal notes.",
+        "positions": [
+          {
+            "who": "Planner mannequin",
+            "where": "writing two vivid sensory lines from today and mentally walking through tomorrow's presentation room",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Daily Episodic Capsule journal",
+          "period_detail": "captures specific sights/sounds before weeks blur into generic semantic summary",
+          "physical_behavior": "practical takeaway"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Planner",
+          "verb_sequence": "jots one concrete moment from today -> visualizes tomorrow's exact room and opening step"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Planner",
+          "reaction": "grounded gratitude for past + calm readiness for tomorrow"
+        }
+      ],
+      "wardrobe": "Modern smart-casual cardigan.",
+      "lighting": "Golden morning window light.",
+      "recognition_hook": "Jot down one specific sensory moment every night so years don't blur — and use your hippocampal time machine to pre-walk tomorrow's biggest goals.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

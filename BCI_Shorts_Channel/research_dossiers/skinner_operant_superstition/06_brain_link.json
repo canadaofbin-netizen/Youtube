@@ -1,0 +1,21 @@
+{
+  "visual_mode": "HYBRID",
+  "links": [
+    {
+      "role": "pivot",
+      "region": "basal ganglia",
+      "plain": "action-habit selector",
+      "function": "stamping in whichever motor move immediately preceded an unexpected reward",
+      "scene_id": "S1",
+      "narration_bridge": "Connects the pigeon's accidental counterclockwise spin right before the 15-second hopper click to striatal habit stamping."
+    },
+    {
+      "role": "step1",
+      "region": "ventral tegmental area",
+      "plain": "reward-surprise hub",
+      "function": "sending a timing signal whenever grain arrives unexpectedly",
+      "scene_id": "S2",
+      "narration_bridge": "Explains how timed hopper clicks reinforce coincidental body postures."
+    }
+  ]
+}

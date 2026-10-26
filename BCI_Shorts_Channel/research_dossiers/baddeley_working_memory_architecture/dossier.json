@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "slug": "baddeley_working_memory_architecture",
+  "topic": "Baddeley & Hitch (1974): Holding 8 Random Digits While Reasoning — Why Short-Term Memory Is a 4-Room Workshop, Not One Shelf",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:36+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Alan Baddeley and Graham Hitch's landmark 1974 eight-experiment overthrow of 'single-box Short-Term Memory' — proving volunteers chanting 8 random digits aloud ('6-1-9-4-8-2-7-3') STILL solved grammatical reasoning with only a tiny ~35% slowdown and near-zero errors — connects cognitive psychology's Multi-Component Working Memory directly to separate frontoparietal phonological vs visuospatial loops.",
+  "primary_case": {
+    "title": "Alan D. Baddeley & Graham J. Hitch's 1974 University of Stirling / Cambridge 'Working Memory' Dual-Task Experiments (+ 2000 Episodic Buffer)",
+    "year": 1974,
+    "place": "University of Stirling, Scotland & MRC Applied Psychology Unit, Cambridge",
+    "people": [
+      {
+        "name": "Alan D. Baddeley & Graham J. Hitch",
+        "role": "British cognitive psychologists on a shoestring first grant who tried to 'crash' short-term memory with 8-digit loads — and discovered it refused to crash because Working Memory has separate specialized rooms.",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Patient 'K.F.' (Shallice & Warrington, 1970)",
+        "role": "Neurological patient with a 2-digit verbal span yet completely normal visual memory and everyday reasoning — the clinical clue that inspired Baddeley & Hitch.",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "By 1970, Atkinson & Shiffrin's textbook model taught that human **Short-Term Memory (STM)** was **ONE single 7-slot shelf**: if a neurological patient (like **Patient K.F.**, who could barely repeat **2 digits** after a left parietal lesion!) lost that shelf, their thinking and long-term learning should have collapsed — **yet K.F. reasoned, learned, and lived normally**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In **1974** (*Psychology of Learning and Motivation*), **Alan Baddeley and Graham Hitch** simulated being 'Patient K.F.' in healthy volunteers: fill their '7-slot shelf' completely to the brim by making them **recite 6 to 8 random digits aloud non-stop**, and AT THE SAME TIME test complex **grammatical reasoning** (*'A is NOT preceded by B — BA: True or False?'*), prose comprehension, and word recall.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "According to single-box dogma, an 8-digit load filling 100% of STM should have **totally crashed reasoning to 50% chance**. Instead, Baddeley & Hitch stared at the stopwatch in shock: even under a crushing **8-digit concurrent chant**, volunteers took only ~1 second longer (~3.27 s vs ~2.15 s at 0 digits) and kept **95% reasoning accuracy**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "From 10+ clever dual-task experiments, Baddeley & Hitch replaced unitary 'Short-Term Memory' with a multi-room active workshop called **Working Memory**: (1) **Central Executive** (attentional boss), (2) **Phonological Loop** (~2-second inner-ear + inner-voice sound tape), and (3) **Visuospatial Sketchpad** (mental eye for 3D shapes, chessboards, and routes).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Look at the **Phonological Loop's 2-second stopwatch rule** (Word-Length Effect, Baddeley, Thomson & Buchanan 1975): you don't hold '7 magic words' — you hold **whatever you can pronounce in ~2 seconds**. People easily recall 5 crisp short words (*wit, sum, harm, bay, top*), crash on 5 five-syllable monsters (*university, opportunity, aluminum, constitutional, auditorium*), and explain why Welsh/Arabic long digit names yield shorter raw digit spans than fast one-syllable Chinese digits.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Look at **cross-room independence**: chanting *'the-the-the'* aloud (**articulatory suppression**) disrupts verbal rhyme memory while leaving **3D mental rotation on the Visuospatial Sketchpad** virtually untouched — whereas tapping a spatial keypad pattern disrupts 3D imagery while sparing verbal spans.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In **2000 (*Trends in Cognitive Sciences*, SRC2)**, Baddeley solved a nagging gap in his own 1974 model — why can healthy people repeat a **16-word meaningful sentence** if the Phonological Loop holds only 2 seconds (~5 words)? — by adding Room #4: the **Episodic Buffer**, a multimodal workspace binding visual, verbal, and long-term semantic chunks together.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Neuroimaging (PET/fMRI, Paulesu, Smith & Jonides) mapped Baddeley's four rooms onto distinct human anatomy: **Left Supramarginal + Broca's loop** for the Phonological Loop, **Right Parietal-Occipital-Premotor cortex** for the Visuospatial Sketchpad, and **Bilateral Dorsolateral Prefrontal Cortex** for the Central Executive.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "In Baddeley, Thomson, and Buchanan's (1975) word-length experiments, immediate serial recall dropped from roughly 90% on five monosyllabic words to roughly 50% on five 5-syllable words, governed by an articulatory rehearsal window of ~2.0 seconds.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Make volunteers chant **EIGHT random numbers out loud non-stop** — filling 100%+ of their supposed '7-item memory tank' — hand them tough logic puzzles (*'A is not preceded by B'*), and they **still score 95% correct** with barely a one-second slowdown.",
+      "why_surprising": "That single 1974 result blew up 'one-box Short-Term Memory' forever.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Your verbal loop isn't a '7-slot box' — it is a **2-SECOND AUDIO TAPE**. That's why speakers of languages with fast short number words (like Mandarin *yi, er, san*, ~260 ms/digit) naturally score ~9–10 digits on standard IQ digit-span tests versus ~6.5–7 in slower-pronounced languages unless reading speed is matched.",
+      "why_surprising": "2 seconds of pronunciation speed — not 'brain slots' — sets verbal span.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "You CAN effortlessly visualize rotating furniture in an apartment (Visuospatial Sketchpad) while humming a song (Phonological Loop) — yet try reading a book while listening to talk radio (BOTH fighting for the Phonological Loop!) and the workshop jams immediately.",
+      "why_surprising": "Same-room tasks collide; different-room tasks coexist.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "Twenty-six years after inventing the most cited memory model on Earth, Alan Baddeley cheerfully audited what his own 3-part diagram couldn't explain (16-word prose chunks!) and added the **Episodic Buffer (2000)**.",
+      "why_surprising": "Great science keeps upgrading its own blueprint.",
+      "source_id": "SRC2",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Short-term memory holds '7 plus or minus 2' items no matter how big or long the words are.",
+      "truth": "Verbal span tracks **2 seconds of spoken duration** (5 short words vs ~2–3 five-syllable words), while pure un-chunked Central-Executive / visual focus holds closer to **4 chunks** (Cowan).",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "All multitasking fails equally.",
+      "truth": "Two tasks demanding the **Central Executive** or the **SAME slave loop** (two verbal streams, or texting + driving visual lanes!) crash dangerously, whereas pairing a lightweight **Visuospatial** sketch task with a **Phonological** loop shows striking independence.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Children who struggle following 4-step spoken classroom instructions lack motivation or general intelligence.",
+      "truth": "Gathercole & Baddeley proved many struggling students simply have a tight **working-memory bottleneck** — breaking 4-step oral instructions into crisp visual checklist steps on the desk rescues learning immediately.",
+      "source_id": "SRC2"
+    }
+  ],
+  "everyday_hooks": [
+    "Repeating a 6-digit verification code under your breath ('4-9-2-8-1-7... 4-9-2...') across the room — and watching someone saying 'Wait, what time is dinner?' wipe your **2-second Phonological Loop** clean.",
+    "Driving smoothly along a familiar visual highway while singing along to music (Visuospatial + Phonological harmony) — then turning the radio DOWN the second you hit a confusing downtown detour because your **Central Executive** needs 100% bandwidth.",
+    "Turning down the car radio so you can 'see' street signs better."
+  ],
+  "linked_projects": [
+    "psych_79_baddeley_working_memory_architecture"
+  ]
+}

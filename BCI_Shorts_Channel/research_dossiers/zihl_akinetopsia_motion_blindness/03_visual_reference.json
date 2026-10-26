@@ -1,0 +1,208 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1983 Munich Clinic Table: Patient L.M. Pouring Tea That Appears Frozen Like a Glass Rod Until Overflowing Across the Saucer",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1983, Max Planck Institute for Psychiatry, Munich",
+      "layout": {
+        "description": "Sunlit 1983 Munich clinical testing room with a clean pale-oak table holding a matte-white porcelain teapot tilted in mid-pour above a porcelain teacup and saucer — where a crystal-clear translucent amber column hangs visually 'frozen' like a glass icicle until overflowing onto the white saucer — beside Josef Zihl's velocity-threshold perimeter screen.",
+        "positions": [
+          {
+            "who": "Patient L.M. (mannequin in 1983 tailored knit cardigan and collared blouse)",
+            "where": "holding the tilted white porcelain teapot with both hands, staring intently at the motionless-looking amber pour column and gasping only when tea spills over the saucer rim",
+            "facing": "seated at oak table"
+          },
+          {
+            "who": "Josef Zihl (mannequin in 1983 white clinical coat and spectacles)",
+            "where": "seated across the table holding a stopwatch and smooth-pursuit velocity chart ('14°/s Lost')",
+            "facing": "across testing table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "white porcelain teapot, overflowing teacup & saucer",
+          "period_detail": "captures L.M.'s immortal 'frozen like a glacier' pouring test",
+          "physical_behavior": "neurology's single clearest real-world demonstration of V5 loss"
+        },
+        {
+          "name": "moving light-target velocity board ('Smooth 14°/s')",
+          "period_detail": "quantifies the exact velocity cliff discovered at Munich",
+          "physical_behavior": "anchors Zihl et al. 1983 psychophysics"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient L.M.",
+          "verb_sequence": "tilts the porcelain teapot carefully watching the spout -> fails to detect rising cup motion until liquid brims over onto the saucer -> sets pot down startled"
+        },
+        {
+          "who": "Josef Zihl",
+          "verb_sequence": "tests L.M. with eyes closed tracking a moving sound source left-to-right -> L.M. points smoothly and accurately!"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Patient L.M.",
+          "reaction": "relieved discovering her hearing and touch track motion 100% normally"
+        },
+        {
+          "who": "Josef Zihl",
+          "reaction": "maps symmetrical lateral temporo-occipital V5 lesions on the 1983 Brain diagram"
+        }
+      ],
+      "wardrobe": "1983 German clinical coat with tie; neat wool cardigan over collared blouse.",
+      "lighting": "Clean high-key European window daylight catching the glassy amber tea stream.",
+      "recognition_hook": "To her sharp 20/20 eyes, hot tea pouring out of a spout looks frozen solid like a glass rod — until a puddle suddenly appears on the table.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1983 Munich clinic table where a seated woman pours from a white porcelain teapot into an overflowing teacup beside a neurologist holding a velocity threshold chart",
+        "must_show": [
+          "teapot|cup|teacup",
+          "saucer|table",
+          "chart|clinic"
+        ],
+        "source": "M1@00:08-00:14; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Strobe-Frame Street Crossing: Far Away, Then Instantly Here",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1983, Sunlit Munich crosswalk model / window view",
+      "layout": {
+        "description": "Bright clinic window overlooking a quiet tree-lined street and tabletop traffic-speed model.",
+        "positions": [
+          {
+            "who": "Patient L.M. & Therapist mannequins",
+            "where": "practicing listening to smooth engine Doppler sound instead of trusting discrete visual car jumps",
+            "facing": "at window"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "tabletop street-crossing distance model",
+          "period_detail": "illustrates why >14°/s cars seem to teleport without smooth visual approach",
+          "physical_behavior": "Zihl 1983 safety training"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Therapist",
+          "verb_sequence": "trains L.M. to wait and judge acoustic engine sweep before stepping off curb"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Patient L.M.",
+          "reaction": "crosses confidently using intact auditory motion"
+        }
+      ],
+      "wardrobe": "1983 trench coat and cardigan.",
+      "lighting": "Bright daylight.",
+      "recognition_hook": "Look down the block and the car is 100 yards away — blink, and without V5 it teleports straight to the crosswalk.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "1991 Eight-Year Follow-Up: Pouring Perfectly by Ear!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1991, Patient L.M.'s sunlit Munich kitchen",
+      "layout": {
+        "description": "Bright tidy kitchen table with a porcelain teapot and ceramic mug.",
+        "positions": [
+          {
+            "who": "Patient L.M.",
+            "where": "tilting her ear slightly toward the mug as she pours, stopping crisply 1 cm below the rim by listening to the rising resonant pitch!",
+            "facing": "at kitchen table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "tall ceramic mug & teapot",
+          "period_detail": "acoustic resonance rises in pitch as air column shortens",
+          "physical_behavior": "Zihl et al. 1991 documented everyday triumph"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient L.M.",
+          "verb_sequence": "pours steadily while listening -> stops right at the top with zero spill"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Patient L.M.",
+          "reaction": "calm, proud smile of adaptive mastery"
+        }
+      ],
+      "wardrobe": "1991 comfortable knit sweater.",
+      "lighting": "Warm morning kitchen sunlight.",
+      "recognition_hook": "Anyone can test L.M.'s secret right now: close your eyes at a water tap and hear the rising pitch announce 'full!' right on time.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Reversible 50-ms Motion Freeze via V5 TMS (Beckers & Zeki)",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "1995, UCL / London visual neuroscience lab",
+      "layout": {
+        "description": "Clean TMS suite with a random-dot motion screen and handheld coil.",
+        "positions": [
+          {
+            "who": "Healthy volunteer mannequin",
+            "where": "watching moving dots freeze for a split second strictly during a lateral V5 magnetic pulse while dot color stays crisp",
+            "facing": "facing monitor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "dot-motion monitor & V5 TMS coil",
+          "period_detail": "replicates L.M.'s dissociation reversibly in healthy brains",
+          "physical_behavior": "causal confirmation of human V5"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Researcher",
+          "verb_sequence": "triggers 50-ms V5 pulse -> motion freezes briefly then resumes smoothly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Volunteer",
+          "reaction": "marvels that shape and color never flickered"
+        }
+      ],
+      "wardrobe": "Smart-casual shirt and lab coat.",
+      "lighting": "Clean high-key lab light.",
+      "recognition_hook": "Pause area V5 for one twentieth of a second in a healthy brain, and motion freezes while color and sharpness never blink.",
+      "sources": [
+        "SRC3",
+        "SRC2"
+      ]
+    }
+  ]
+}

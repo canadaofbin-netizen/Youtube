@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "slug": "seligman_learned_helplessness",
+  "topic": "Martin Seligman & Steven Maier (1967-2016): Learned Helplessness & the Prefrontal-Raphe Passivity Twist",
+  "pillar": "brain_health",
+  "created_at": "2026-10-25T22:49:29+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "The behavioral shuttle-box hurdle contrast (yoked escapable vs inescapable panel press) pairs directly with Maier and Seligman's stunning 2016 neuroscience reversal showing passivity is default dorsal-raphe firing until ventromedial prefrontal control learns to inhibit it.",
+  "primary_case": {
+    "title": "Overmier, Seligman & Maier's 1967 triadic yoked shuttle-box experiment & 50-year dorsal raphe reversal",
+    "year": 1967,
+    "place": "University of Pennsylvania (Richard Solomon's laboratory), Philadelphia & University of Colorado Boulder",
+    "people": [
+      {
+        "name": "Martin E. P. Seligman",
+        "role": "University of Pennsylvania graduate psychologist who co-discovered the triadic inescapable-stress passivity effect",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Steven F. Maier",
+        "role": "Co-discoverer who later became a systems neuroscientist and overturned their own original theory in 2016",
+        "source_id": "SRC2"
+      },
+      {
+        "name": "J. Bruce Overmier",
+        "role": "Co-author of the foundational 1967 inescapable-stress transfer experiments",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 1967 at the University of Pennsylvania, graduate students Martin Seligman, Steven Maier, and Bruce Overmier designed a 'triadic yoked' experiment separating physical stress from behavioral control.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Group 1 ('Escapable') could terminate mild brief discomfort immediately by pressing a head panel with its nose; Group 2 ('Yoked Inescapable') received the EXACT same microsecond-by-microsecond duration and intensity wired in series from Group 1, except its panel was disconnected; Group 3 received none.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Twenty-four hours later, all three groups were placed individually into a two-sided shuttle box divided by a low shoulder-high barrier where a warning tone preceded easily escapable floor stimulation — one simple hop over the low divider ended it instantly.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Naive Group 3 subjects and Escapable Group 1 subjects quickly hopped straight over the low barrier on nearly 90 percent of trials.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "By contrast, roughly two-thirds (about 67 percent) of the Yoked Inescapable group never jumped the low barrier — lying down passively even though Group 1 had endured the exact same physical input the day before.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Remarkably, one-third (~33 percent) of subjects in the inescapable group NEVER became helpless at all, jumping the barrier just like controls.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "To reverse established passivity, researchers had to physically guide the passive animal's legs across the low barrier at least twice so it directly experienced its own movement turning off the cue.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Fifty years later (Maier & Seligman, 2016 Psychological Review), Steven Maier's brainstem recordings completely FLIPPED their 1967 interpretation: animals do NOT 'learn' helplessness — passivity is the ancient innate brainstem default (dorsal raphe nucleus) during prolonged stress, and what the brain actually LEARNS is CONTROL via ventromedial prefrontal cortex inhibiting the dorsal raphe.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Behavioral activation protocols derived from Seligman's guided-mastery reversal break learned passivity by scheduling brief 5-minute tasks with immediate, unmistakable action-to-outcome feedback.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Two subjects endured the exact same physical stress down to the millisecond — yet one hopped over a low wall to freedom in seconds while its yoked partner lay down and gave up.",
+      "why_surprising": "Objective control, not stress intensity, decided resilience.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Even inside the inescapable group, roughly one out of every three subjects refused to give up and jumped the barrier right away.",
+      "why_surprising": "Resilience showed up from the very first 1967 dataset.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Fifty years after making 'learned helplessness' a household phrase, co-discoverers Steven Maier and Martin Seligman published a landmark paper saying: 'We had it backwards!'",
+      "why_surprising": "Passivity is the unlearned brainstem reflex; MASTERY is what the prefrontal cortex actually learns.",
+      "source_id": "SRC4",
+      "rank": 3
+    },
+    {
+      "fact": "Once the prefrontal cortex learns it has an off-switch in one tough situation, it 'immunizes' the brain against giving up in brand-new unrelated challenges days later.",
+      "why_surprising": "Small experiences of real agency build biological stress armor.",
+      "source_id": "SRC4",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Helplessness is an acquired cognitive belief learned from scratch while optimism is automatic.",
+      "truth": "Maier & Seligman's neurobiological reversal showed prolonged uncontrolled stress triggers automatic brainstem passivity unless ventromedial prefrontal circuits detect and learn active control.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Stress damages resilience purely through total hours of hardship.",
+      "truth": "Yoked partners experienced identical physical duration; having a working off-switch turned the same stressor into 'behavioral immunization'.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Verbal pep talks alone snap someone out of entrenched helplessness.",
+      "truth": "In Seligman's shuttle box, passive subjects only recovered after experiencing concrete physical action-to-outcome contingencies.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Everyone exposed to uncontrollable adversity becomes permanently passive.",
+      "truth": "Roughly one-third resisted passivity from trial one, and restoring small controllable wins reactivates prefrontal braking.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Leaving a closet door unlocked after months of stuck latches and never bothering to turn the handle to check.",
+    "Giving up on math or coding in tenth grade after two confusing exams and calling yourself 'not a numbers person' at thirty.",
+    "Watching hospital patients recover faster when given control over small choices — room lighting, meal timing, or physical-therapy micro-goals.",
+    "Breaking overwhelming burnout by completing one tiny 5-minute action whose outcome you 100% control."
+  ],
+  "linked_projects": [
+    "psych_24_seligman_learned_helplessness"
+  ]
+}

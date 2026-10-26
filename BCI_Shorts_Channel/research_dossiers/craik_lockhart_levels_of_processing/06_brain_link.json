@@ -1,0 +1,29 @@
+{
+  "visual_mode": "HYBRID",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "primary visual cortex",
+      "plain": "shallow uppercase font check (~17% retention)",
+      "function": "inspecting surface letter case (`TABLE` vs `table`) in early visual-orthographic cortex without engaging semantic networks",
+      "scene_id": "S1",
+      "narration_bridge": "Leaves a fragile trace forgotten minutes later."
+    },
+    {
+      "role": "pivot",
+      "region": "prefrontal cortex",
+      "plain": "left ventrolateral semantic elaboration",
+      "function": "evaluating rich conceptual fit ('Does WATCH fit on the table?') in left inferior prefrontal semantic hubs",
+      "scene_id": "S1",
+      "narration_bridge": "Directly reflects Wagner & Gabrieli's (1998 Science) Subsequent-Memory fMRI predictor."
+    },
+    {
+      "role": "step1",
+      "region": "hippocampus",
+      "plain": "durable episodic-semantic binding (~82%+ retention)",
+      "function": "locking deeply elaborated words into medial temporal memory even when the volunteer had zero expectation of a quiz",
+      "scene_id": "S1",
+      "narration_bridge": "Explains the 5x jump from shallow case to deep meaning."
+    }
+  ]
+}

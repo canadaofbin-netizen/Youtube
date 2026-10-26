@@ -1,0 +1,209 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Festinger's 1954 Comparison Scale Meets the Olympic 1st / 2nd / 3rd Podium: Beaming Bronze (7.1) vs Disappointed Silver (4.8)!",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1954 / 1992 Olympic Podium Behavioral Comparison Studio",
+      "layout": {
+        "description": "Sunlit high-key documentary studio stage featuring a crisp **white three-tier 1st / 2nd / 3rd Championship Podium** alongside Leon Festinger's **1954 Upward vs Downward Comparison Sightline Board** ('2nd Place Silver Looks UP at 1st -> 4.8 Joy | 3rd Place Bronze Looks DOWN at 4th -> 7.1 Joy!').",
+        "positions": [
+          {
+            "who": "Silver-Position Athlete mannequin (on #2 platform in white track tracksuit)",
+            "where": "gazing sideways and UPWARD at the higher #1 platform with folded arms and a tight, wistful expression (4.8/10)",
+            "facing": "standing on #2 tier"
+          },
+          {
+            "who": "Bronze-Position Athlete mannequin (on #3 platform in matching white tracksuit)",
+            "where": "glancing DOWNWARD toward the empty #4 floor mat off the podium and throwing both arms up in an exuberant, beaming smile (7.1/10)!",
+            "facing": "standing on #3 tier"
+          },
+          {
+            "who": "Leon Festinger / Researcher mannequin (in tailored blazer with clipboard)",
+            "where": "tracing the opposite visual comparison arrows from Tier #2->#1 (Upward Contrast) and Tier #3->#4 (Downward Relief) onto the 7.1 vs 4.8 rating chart",
+            "facing": "beside podium"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "three-tier white 1st / 2nd / 3rd Podium + #4 Floor Marker",
+          "period_detail": "stages the single most counterintuitive proof of Social Comparison ever filmed",
+          "physical_behavior": "Medvec, Madey & Gilovich 1995 classic"
+        },
+        {
+          "name": "Upward vs Downward Sightline Chart ('Silver 4.8 vs Bronze 7.1')",
+          "period_detail": "visualizes Festinger's reference-point mechanics in one instant",
+          "physical_behavior": "explains why better objective rank felt worse"
+        }
+      ],
+      "actions": [
+        {
+          "who": "#2 Silver mannequin",
+          "verb_sequence": "turns head upward toward Tier #1 -> shoulders slump slightly knowing 0.05 seconds cost 1st place"
+        },
+        {
+          "who": "#3 Bronze mannequin",
+          "verb_sequence": "looks down at the empty #4 floor mat -> beams wide raising both hands in celebration as Researcher logs 7.1 vs 4.8!"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Observer mannequins",
+          "reaction": "realize happiness followed the *comparison arrow*, not the objective stopwatch!"
+        }
+      ],
+      "wardrobe": "Clean classic white-and-navy Olympic track warmups; mid-century academic wool blazer and tie.",
+      "lighting": "Bright high-key sunlit stadium/studio daylight.",
+      "recognition_hook": "Finish second in the entire world and sulk at 4.8; finish worse in third place and beam at 7.1 — because Silver looks up at 1st while Bronze looks down at 4th!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a sunlit three-tier 1st-2nd-3rd podium with a #4 floor mat where the 3rd-place athlete celebrates joyfully looking toward 4th while the 2nd-place athlete looks wistfully up at 1st beside a 7.1-vs-4.8 chart",
+        "must_show": [
+          "podium|tiers",
+          "athletes",
+          "chart|board"
+        ],
+        "source": "M1@24:54-25:05; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Hypothesis III: Why Your Classmate Stings & Federer Doesn't",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1954, University of Minnesota / Stanford seminar room",
+      "layout": {
+        "description": "Bright table showing a weekend tennis player unbothered by a World Champion poster while leaning intently over a next-door neighbor's club scorecard.",
+        "positions": [
+          {
+            "who": "Leon Festinger & Club Player mannequins",
+            "where": "mapping peak comparison intensity strictly inside the 'Close Similarity Zone'",
+            "facing": "at table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Similarity Bell-Curve plaque ('Too Far = 0 Sting | Close Peer = Peak Comparison!')",
+          "period_detail": "explains neighbor/coworker envy cleanly",
+          "physical_behavior": "Festinger 1954 Hypothesis III"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Player",
+          "verb_sequence": "ignores world-record poster -> leans closely over peer's nearly identical score"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Festinger",
+          "reaction": "points to the close-similarity spike"
+        }
+      ],
+      "wardrobe": "1950s tennis sweater and professor suit.",
+      "lighting": "Clean daylight.",
+      "recognition_hook": "You never lose a minute's sleep over an astronaut's trophy — Festinger's similarity detector only fires on people standing right next to your rung!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "150 Real Villagers vs 10,000 Curated Highlight Reels",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern sunlit living room",
+      "layout": {
+        "description": "Contrast board showing 'Ancestral Village (150 Real Lives)' vs 'Infinite Feed (Top 0.01% Filtered Highlights)' draining mood.",
+        "positions": [
+          {
+            "who": "Viewer mannequin",
+            "where": "setting down an endless highlight-reel feed after spotting the artificial upward-comparison trap",
+            "facing": "on sunlit sofa"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "150 Real Lives vs 10,000 Highlight Reels board",
+          "period_detail": "shows how modern feeds super-stimulate a 1954 evolutionary gauge",
+          "physical_behavior": "modern mental-health insight"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Viewer",
+          "verb_sequence": "turns phone screen face-down and opens personal progress log"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Viewer",
+          "reaction": "shoulders relax immediately"
+        }
+      ],
+      "wardrobe": "Modern casual sweater.",
+      "lighting": "Warm afternoon light.",
+      "recognition_hook": "Comparing your Tuesday bloopers against 10,000 strangers' once-a-year highlight reels rigs Festinger's ruler against you.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Switching to Temporal Comparison ('Me Today vs Me Last Spring')",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit desk / running track",
+      "layout": {
+        "description": "Warm desk holding a personal '6-Month Progress Graph' rising steadily upward with zero neighbor columns.",
+        "positions": [
+          {
+            "who": "Runner / Creator mannequin",
+            "where": "plotting today's personal best against their own April baseline with genuine pride",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Personal Temporal Progress Chart ('April -> July -> October')",
+          "period_detail": "Lyubomirsky's habit of chronically happy high-achievers",
+          "physical_behavior": "actionable cure"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Creator",
+          "verb_sequence": "marks new personal milestone -> smiles unbothered by outside noise"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Creator",
+          "reaction": "steady, durable fulfillment"
+        }
+      ],
+      "wardrobe": "Modern athletic/smart-casual wear.",
+      "lighting": "Golden morning sunlight.",
+      "recognition_hook": "Keep 100% of your drive and drop 90% of the sting by competing against who YOU were six months ago.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

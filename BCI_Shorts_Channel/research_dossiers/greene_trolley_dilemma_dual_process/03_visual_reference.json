@@ -1,0 +1,208 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Architectural wooden tabletop Trolley Switch vs Footbridge model beside Princeton's 2001 fMRI response console",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2001, Princeton University neuroimaging & moral cognition laboratory",
+      "layout": {
+        "description": "Sunlit academic laboratory featuring a clean white birch tabletop railway-junction diorama with two side-by-side miniature scenes — Track A with a brass-handled points switch lever diverting a wooden tram toward 1 figure away from 5 figures, and Track B with a miniature elevated footbridge above 5 figures — beside a dual-button response pad and reaction-time display.",
+        "positions": [
+          {
+            "who": "Joshua Greene (mannequin in 2001 collared shirt and crewneck sweater)",
+            "where": "standing beside the split wooden track diorama demonstrating the impersonal Switch lever on the left versus the elevated Footbridge figure on the right",
+            "facing": "facing the tabletop model"
+          },
+          {
+            "who": "Participant mannequin",
+            "where": "seated with index fingers poised over 'Appropriate' and 'Inappropriate' response buttons — pressing instantly on Switch (~85% Yes) then hesitating 2 extra seconds on Footbridge",
+            "facing": "at the response console"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "split wooden Trolley Switch vs Footbridge architectural model",
+          "period_detail": "clean white-birch Y-junction track with mechanical switch lever on one side and elevated footbridge span with 5 vs 1 miniature porcelain figures on the other",
+          "physical_behavior": "makes the identical 5-for-1 math vs opposite human action visually unmistakable"
+        },
+        {
+          "name": "two-button moral response box & reaction-time timer ('4.9s No vs 6.8s Yes')",
+          "period_detail": "white clinical button box wired to a crisp reaction-time bar display",
+          "physical_behavior": "visualizes the 2-second cognitive tug-of-war"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Joshua Greene",
+          "verb_sequence": "flips the impersonal track switch lever on Model A -> Participant taps 'Appropriate' briskly -> shifts to the elevated Footbridge on Model B -> Participant's finger freezes in mid-air over the button for two tense seconds"
+        },
+        {
+          "who": "Participant mannequin",
+          "verb_sequence": "pulls hand back to press 'Inappropriate' on Footbridge despite identical 5-vs-1 figures"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Participant mannequin",
+          "reaction": "stares between both models realizing the body count never changed — only personal muscular force changed"
+        },
+        {
+          "who": "Joshua Greene",
+          "reaction": "points to the diverging emotional vs working-memory response curves on the console"
+        }
+      ],
+      "wardrobe": "Early-2000s Princeton academic attire: collared button-down under fine-knit crewneck sweater, tailored trousers.",
+      "lighting": "Clean high-key New Jersey daylight across pale birch wood and matte-white porcelain.",
+      "recognition_hook": "Five figures vs one figure on both tracks — yet flipping a switch feels obvious while touching one figure on a footbridge freezes the human hand.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a wooden tabletop railway diorama contrasting a track switch lever and an elevated footbridge with five vs one miniature porcelain figures beside a two-button response box",
+        "must_show": [
+          "track|switch|lever",
+          "bridge|footbridge|figures",
+          "button|console|model"
+        ],
+        "source": "M1@00:03-00:11; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "The 2-Second Utilitarian Hesitation Under Cognitive Load",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2008, Harvard Moral Cognition Lab",
+      "layout": {
+        "description": "Bright testing booth where a participant holds a 7-digit number strip in mind while evaluating Switch vs Footbridge cards.",
+        "positions": [
+          {
+            "who": "Participant mannequin",
+            "where": "pausing noticeably longer on utilitarian overrides while gut 'No' presses stay fast",
+            "facing": "at booth desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "digit-load memory strip & timer",
+          "period_detail": "taxes working memory selectively",
+          "physical_behavior": "proves utilitarian calculation requires executive bandwidth"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Participant",
+          "verb_sequence": "memorizes 7 digits -> taps fast emotional 'No' -> slows markedly when computing utilitarian 'Yes'"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Experimenter",
+          "reaction": "logs selective slowing on utilitarian overrides alone"
+        }
+      ],
+      "wardrobe": "2008 casual academic shirts.",
+      "lighting": "Bright high-key lab daylight.",
+      "recognition_hook": "Tie up working memory with seven digits, and ONLY cold utilitarian math slows down while the gut alarm fires at full speed.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Personal Muscular Force vs Remote Switch Control",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2009, Harvard follow-up study",
+      "layout": {
+        "description": "Clean tabletop comparing a trapdoor switch on the footbridge against direct hand contact.",
+        "positions": [
+          {
+            "who": "Researcher mannequin",
+            "where": "contrasting remote trapdoor lever vs direct push across four matched dilemma cards",
+            "facing": "at table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "2x2 Personal Force × Intention card matrix",
+          "period_detail": "isolates why direct muscular force as an intentional means trips the alarm",
+          "physical_behavior": "resolves Thomson's philosophical puzzle"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Researcher",
+          "verb_sequence": "places remote-switch vs direct-force cards side by side -> approval rate drops sharply when muscular force is direct"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Observer mannequin",
+          "reaction": "sees the exact psychological tripwire"
+        }
+      ],
+      "wardrobe": "Smart-casual blazer and shirt.",
+      "lighting": "Clean seminar daylight.",
+      "recognition_hook": "It isn't distance alone — it is using your own muscles to harm one person as a deliberate tool that trips the ancient alarm.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Auto-Mode vs Manual-Mode Triage in Real Policy",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern hospital ethics & autonomous-vehicle safety boardroom",
+      "layout": {
+        "description": "Sunlit conference table where engineers and clinicians compare an individual case file beside a population safety chart.",
+        "positions": [
+          {
+            "who": "Ethics panel mannequins",
+            "where": "explicitly checking both compassionate bedside duties and transparent population-wide safety numbers",
+            "facing": "around oak table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "dual checklist ('Individual Rights Guardrail' + 'Total Lives Saved Math')",
+          "period_detail": "keeps both neural cameras visible on the table",
+          "physical_behavior": "prevents blind spots from either extreme"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Chair mannequin",
+          "verb_sequence": "places both checklists side by side before finalizing emergency protocol"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Panel",
+          "reaction": "reaches transparent, balanced consensus"
+        }
+      ],
+      "wardrobe": "Modern medical coat and business-casual attire.",
+      "lighting": "Warm architectural daylight.",
+      "recognition_hook": "Wise institutions honor the gut alarm that protects individuals while switching to manual mode when policy numbers affect thousands.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

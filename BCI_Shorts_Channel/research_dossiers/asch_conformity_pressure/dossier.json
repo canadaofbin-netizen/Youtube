@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "slug": "asch_conformity_pressure",
+  "topic": "Solomon Asch (1951-1956): Perceptual Line-Judgment Conformity & One-Ally Liberation",
+  "pillar": "bci_ethics",
+  "created_at": "2026-10-25T22:49:28+00:00",
+  "status": "ready",
+  "visual_mode": "BEHAVIORAL_PSYCH",
+  "visual_mode_reason": "Asch's line-length conformity experiment is a pure social-behavioral drama staged around a seminar table with white comparison cards and seven confederates; brain cuts are unnecessary.",
+  "primary_case": {
+    "title": "Solomon Asch's Swarthmore College group pressure line-comparison experiments",
+    "year": 1951,
+    "place": "Swarthmore College, Pennsylvania",
+    "people": [
+      {
+        "name": "Solomon E. Asch",
+        "role": "Gestalt social psychologist who tested whether unanimous group falsehoods could make lone individuals deny clear visual facts",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Male undergraduate critical subjects (N=123 across main series)",
+        "role": "Genuine participants seated second-from-end in a row of confederates",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Trained confederate majority (7 to 9 actors)",
+        "role": "Instructed beforehand to announce unanimous wrong line matches on 12 of 18 trials",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Starting in 1951 at Swarthmore College and published in full monograph form in 1956, Solomon Asch tested 123 male college students seated among 7 to 9 secretly briefed confederates.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "On each of 18 trials, the experimenter held up two large white poster cards: one standard vertical black line on the left and three comparison lines labeled 1, 2, and 3 on the right.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Line differences ranged from 0.75 inches to 1.75 inches — so obvious that control participants judging alone in writing made errors less than 1 percent of the time.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The genuine participant always sat near the end of the row (seat 6 of 7) so he had to listen to five or six peers calmly state the answer aloud before his turn.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "After two truthful warm-up rounds, all confederates unanimously announced the same blatantly wrong comparison line on 12 critical trials.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Across all critical trials, genuine participants conformed to the unanimous wrong majority 36.8 percent of the time.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Roughly 75 percent of participants yielded to the group's obviously false answer at least once, while 25 percent remained completely independent across all 12 critical trials.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Post-experiment interviews revealed three motives: rare perceptual distortion, distortion of judgment ('my eyes must be wrong'), and commonest distortion of action (knowing the group was wrong but dreading ridicule).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Adding just one dissenting ally who spoke the correct answer shattered unanimity and slashed conformity by roughly four-fifths, down to about 5.5 percent.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Allowing the lone participant to write answers privately on paper while confederates still spoke aloud cut conformity by roughly two-thirds.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Asch's partner-variation and written-response follow-ups, adding a single truthful dissenter or allowing private written responses cut group conformity errors by roughly 80 percent.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Across typical 7-to-9-person sessions, the lone naive participant sat near the end of the row (often seat 6) after five confederates (10 eyes) had already announced the same wrong line aloud.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "While solo control observers judged the line lengths with over 99 percent accuracy, unanimous confederate pressure pushed critical-trial error rates to roughly 37 percent (36.8%).",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Three out of four college students agreed out loud that two wildly unequal black lines were the exact same length at least once just to avoid standing alone.",
+      "why_surprising": "Social harmony routinely overrides crystal-clear eyesight.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "People writing the exact same line answers alone in a quiet room got more than 99 percent right — yet group pressure pushed errors to 36.8 percent.",
+      "why_surprising": "The mistakes came entirely from the room, not the eyes.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Giving the lone participant just ONE truthful partner in a room of eight dropped conformity from 36.8 percent all the way down to 5.5 percent.",
+      "why_surprising": "Unanimity, not sheer crowd size, is the real cage.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "Even Asch himself viewed the result partly as hopeful: two-thirds of all answers stayed truthful despite total group encirclement.",
+      "why_surprising": "Textbooks often forget how fiercely 25 percent resisted every single trial.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Asch proved people are blind sheep who conform almost 100 percent of the time.",
+      "truth": "Participants actually gave the independent truthful answer on 63.2 percent of critical trials, and 25 percent never yielded once.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Everyone who conformed genuinely hallucinated that the wrong line was equal.",
+      "truth": "Most conformers admitted in debriefing that they saw the true length clearly but suppressed their voice to avoid looking defective.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Bigger crowds keep increasing conformity indefinitely.",
+      "truth": "Conformity plateaus rapidly once the unanimous majority reaches three to four confederates.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Any weird dissenter breaks group pressure equally regardless of what they say.",
+      "truth": "Breaking unanimity drops conformity sharply, though if the lone ally suddenly defects back to the majority, conformity rebounds immediately.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Nodding along in a work meeting when five colleagues praise a flawed slide deck that visibly contradicts the numbers on the display.",
+    "Laughing at an unfunny group joke because everyone else at the table laughed first.",
+    "Feeling instant relief when one single coworker asks the 'obvious' question you were too embarrassed to raise.",
+    "Changing your restaurant star rating after reading ten unanimous five-star reviews."
+  ],
+  "linked_projects": [
+    "psych_13_asch_conformity_pressure"
+  ]
+}

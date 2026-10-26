@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "slug": "libet_readiness_potential_free_will",
+  "topic": "Benjamin Libet (1983): The -550 ms Readiness Potential, Conscious 'W-Time' & Schurger's Neural Noise Twist",
+  "pillar": "brain_mysteries",
+  "created_at": "2026-10-25T22:49:31+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Libet's fast-revolving oscilloscope spot ('W-time' at -200 ms) vs scalp EEG readiness potential rising at -550 ms in supplementary/premotor cortex is the quintessential neurobiology-of-volition experiment.",
+  "primary_case": {
+    "title": "Benjamin Libet's 1983 UCSF scalp-EEG Readiness Potential vs conscious intention ('W-time') experiment",
+    "year": 1983,
+    "place": "University of California, San Francisco (UCSF) Department of Physiology",
+    "people": [
+      {
+        "name": "Benjamin Libet",
+        "role": "UCSF neurophysiologist who timed conscious urge ('W') against Kornhuber & Deecke's cortical Readiness Potential — and proposed the last-second 'conscious veto' ('free won't')",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Hans Helmut Kornhuber & Lüder Deecke",
+        "role": "German neurologists who originally discovered the slow negative Bereitschaftspotential (Readiness Potential) in 1965",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Aaron Schurger",
+        "role": "Cognitive neuroscientist whose 2012 leaky stochastic accumulator model overturned deterministic 'free will is dead' readings of Libet's curve",
+        "source_id": "SRC_SCHURGER"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 1983 at UC San Francisco, Benjamin Libet asked healthy volunteers to flick their right wrist spontaneously 'whenever the urge struck' while recording both forearm EMG muscle onset (0 ms) and vertex scalp EEG over supplementary motor / premotor cortex.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "To timestamp the exact millisecond a participant first FELT the conscious urge to move ('W-time'), they watched a bright green cathode-ray oscilloscope spot revolving once every 2.56 seconds (nearly 25x faster than a wall second hand, ~43 ms per scale tick) and reported where the dot stood when the urge popped into awareness.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Forearm muscle activation defined 0 milliseconds; participants consistently reported feeling their conscious urge to flick ('W') at roughly -200 milliseconds (one-fifth of a second BEFORE the muscle moved).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Yet when Libet averaged 40 spontaneous wrist-flick trials backward from 0 ms, the cortical Readiness Potential (Bereitschaftspotential) began ramping smoothly upward at roughly -550 milliseconds — a full 350 milliseconds BEFORE the person reported feeling any conscious decision.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Headlines proclaimed 'Your brain decides 0.35 seconds before YOU do — free will is an illusion!' — a claim that horrified Libet himself.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Libet pointed out a crucial 150-millisecond window between -200 ms ('W' awareness) and -50 ms (point of no return down the spinal cord) during which subjects could consciously VETO an urge before the muscle fired ('free won't').",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Then in 2012, Aaron Schurger, Jacobo Sitt, and Stanislas Dehaene solved the -550 ms mystery mathematically and empirically: on meaningless 'move whenever' trials, premotor neural activity fluctuates up and down like ocean waves; whenever a random crest happens to cross the motor threshold, the wrist flicks — and averaging 40 crest-crossings backward AUTOMATICALLY produces a smooth -550 ms upward ramp out of pure spontaneous noise, NOT a secret unconscious command 550 ms early.",
+      "source_id": "SRC_SCHURGER"
+    },
+    {
+      "fact": "In 2019, Uri Maoz and colleagues confirmed that on DELIBERATE meaningful choices (e.g., choosing which charity receives $1,000), the classic pre-awareness Readiness Potential vanishes completely.",
+      "source_id": "SRC4"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Scalp electrodes over premotor cortex started ramping upward 550 milliseconds before a wrist flick — 350 milliseconds BEFORE the volunteer even felt the urge to move.",
+      "why_surprising": "That third-of-a-second gap sparked forty years of philosophy wars.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Even Libet didn't conclude free will was dead: he proved people could let an urge build up and VETO it in the final 150 milliseconds before muscle firing — coining 'Free Won't'.",
+      "why_surprising": "Consciousness still held the brake pedal.",
+      "source_id": "SRC4",
+      "rank": 2
+    },
+    {
+      "fact": "Nearly thirty years later, Aaron Schurger proved the famous -550 ms slope wasn't a secret 'unconscious boss' deciding early at all — it was an averaging illusion caused by riding random neural waves over a threshold on an arbitrary wrist flick.",
+      "why_surprising": "Averaging backward from wave peaks always looks like a ramp.",
+      "source_id": "SRC_SCHURGER",
+      "rank": 3
+    },
+    {
+      "fact": "When Uri Maoz (2019) replaced meaningless wrist flicks with real moral stakes — donating $1,000 to real charities — the pre-conscious Readiness Potential disappeared.",
+      "why_surprising": "Arbitrary finger twitches were never a model for meaningful life choices.",
+      "source_id": "SRC4",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Libet proved 100% that human free will is a total illusion and every life decision is made unconsciously half a second early.",
+      "truth": "Libet studied meaningless arbitrary wrist twitches, defended a 150-ms conscious veto, and Maoz (2019) showed deliberate value-based decisions don't even show the pre-conscious RP.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "The -550 ms Readiness Potential marks the exact moment an unconscious decision locks in irrevocably.",
+      "truth": "Schurger et al. (2012) demonstrated the slow ramp reflects sub-threshold stochastic neural fluctuations that remain cancellable right up to ~150-200 ms before movement.",
+      "source_id": "SRC_SCHURGER"
+    },
+    {
+      "myth": "Reporting 'W-time' on a revolving dot is 100% immune to perceptual lag.",
+      "truth": "Subsequent chronometry studies showed shifting attention between internal urges and a moving visual dot introduces tens of milliseconds of flash-lag variance.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Impulses that pop into your head MUST become actions.",
+      "truth": "The -200 ms to -50 ms prefrontal/premotor veto window ('free won't') is real and trainable via stop-signal inhibition.",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Feeling an impulse to snap back an angry reply — and catching it in your 'free won't' veto window before your mouth opens.",
+    "Picking up a snack absently (arbitrary wave crossing threshold) versus deliberately choosing a career move over weeks of prefrontal reasoning.",
+    "Checking your phone reflexively during a lull — and putting it back down mid-reach.",
+    "Why 'my brain made me do it before I knew' fails both in neuroscience labs and courtrooms."
+  ],
+  "linked_projects": [
+    "psych_34_libet_readiness_potential_free_will"
+  ]
+}

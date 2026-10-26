@@ -1,0 +1,105 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Flipping one plus sign to a minus sign turns 80% cautious savers into 92% desperate gamblers on the exact same math.",
+    "core_experiment": "Kahneman & Tversky's 1979 Prospect Theory (reference points, S-curve diminishing sensitivity, ~2x loss aversion, Endowment mug).",
+    "twist": "Medical framing ('90% survive vs 10% die'), modern stake-size boundaries, and resetting sunk-cost reference points."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Minus Sign That Broke 240 Years of Economics",
+      "beats": [
+        "Problem 3 (+3,000 sure: 80% safe)",
+        "Problem 4 (-3,000 sure: 92% gamble!)",
+        "Why Bernoulli missed the Reference Point"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "flipping +3,000 vs -3,000 placards"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Drawing the Asymmetric S-Curve",
+      "beats": [
+        "Origin at (0,0): status quo rules emotion",
+        "Losses drop ~2x steeper than gains rise",
+        "50/50 toss needs 2-to-1 upside"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "chalkboard S-curve trace"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "The $7 Coffee Mug and the 90% Surgery",
+      "beats": [
+        "Thaler's 5-minute Endowment Effect",
+        "Doctors swayed by '90% survive' vs '10% die'",
+        "Modern nuance: stakes & ownership scale the sting"
+      ],
+      "scene_ids": [
+        "S2",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step1",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "classroom mug split"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Replications, Critiques & Real-World Boundaries",
+      "beats": [
+        "Humans are consistently 'risk-averse' across all financial and life decisions. to People are risk-averse for GAINS (80% take sure +3,000) yet fiercely risk-SEEKING to avoid sure LOSSES (92% ga",
+        "Your happiness depends only on your final bank balance, not where you started this morning. — Winning 500 feels thrilling from zero, yet miserable if you started the afternoon up 2,000 — reference points",
+        "Every tiny two-unit choice triggers massive 2x loss panic. to Modern replications show trivial low-stakes choices behave nearly neutrally, while meaningful possessions, sal"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2"
+      ],
+      "new_shots_needed": [
+        "comparative replication table card on wooden desk"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Escaping the Sunk-Cost Trap",
+      "beats": [
+        "Why people hold losing stocks and dead projects",
+        "Covering sunk history with a 'Zero Today' card"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "modern 'Starting From Zero' reset"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Brenda Milner & Henry Molaison ('H.M.'): Day-3 Flawless Mirror-Star Tracing Beside the '30 Errors -> 1 Error' Learning Curve",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1962 / 1968, Hartford & Montreal Neurological Institute testing table",
+      "layout": {
+        "description": "Sunlit 1960s neuropsychological testing room with a warm oak desk holding the classic **Mirror-Tracing Apparatus** — an angled metallic hand-occlusion shield hiding direct sight of the paper sheet while an upright framed mirror at the back reflects a crisp **five-pointed double-outline star** and pencil — right beside Brenda Milner's 3-day graph ('Day 1: 30 Errors -> Day 2: 8 Errors -> Day 3: 1 Error | Conscious Recall: 0').",
+        "positions": [
+          {
+            "who": "Henry Molaison / 'Patient H.M.' (mannequin in neat 1962 buttoned cardigan and collared shirt)",
+            "where": "sliding his right hand and pencil beneath the metal occlusion shield while watching ONLY the upright mirror — gliding smoothly between the narrow star borders on Day 3 while tilting his head in pleasant surprise ('That looked hard, yet it's so easy!')",
+            "facing": "seated at testing desk"
+          },
+          {
+            "who": "Brenda Milner (mannequin in 1962 tailored tweed suit jacket and blouse)",
+            "where": "seated beside the oak desk holding her stopwatch and pointing to the steep 3-day downward error curve",
+            "facing": "beside mirror apparatus"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "wooden-and-metal Mirror-Star Tracing Apparatus (occlusion shield + vertical mirror + 5-pointed star sheet)",
+          "period_detail": "blocks direct vision of the hand so only mirror-reversed visual feedback guides the pencil",
+          "physical_behavior": "neuroscience's single most famous tabletop learning device"
+        },
+        {
+          "name": "Day 1 Jagged Star Sheet vs Day 3 Smooth Star Sheet & 3-Day Error Graph",
+          "period_detail": "contrasts ~30 jagged border crossings on Trial 1 against 1 clean trace on Trial 30",
+          "physical_behavior": "visualizes procedural learning without declarative memory"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Brenda Milner",
+          "verb_sequence": "places a fresh 5-pointed double-border star sheet under the occlusion shield on Day 3 and asks if Henry has ever tried this -> Henry shakes his head politely ('First time!') -> picks up the pencil and traces all five star points in the mirror smoothly without crossing a border"
+        },
+        {
+          "who": "Henry Molaison",
+          "verb_sequence": "lifts the shield to inspect his clean star in amused wonder"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Henry Molaison",
+          "reaction": "warm, surprised smile at unexpected skill mastery"
+        },
+        {
+          "who": "Brenda Milner",
+          "reaction": "realizes human memory is NOT one system — founding modern multiple-memory neuroscience"
+        }
+      ],
+      "wardrobe": "Early-1960s attire: tailored women's tweed suit and silk blouse; neat men's wool cardigan over white Oxford shirt.",
+      "lighting": "Clean high-key New England / Montreal window daylight.",
+      "recognition_hook": "On Day 3 he swears politely he has never seen the mirror box in his life — then traces a backwards five-pointed star like an expert on the very first stroke.",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1960s neuropsychology desk with a mirror-star tracing apparatus (hand shield, vertical mirror, and five-pointed star sheet) where a seated man traces smoothly beside a 3-day error drop chart",
+        "must_show": [
+          "mirror",
+          "star|shield|apparatus",
+          "chart|graph|desk"
+        ],
+        "source": "M1@00:07-00:12; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Day 1 Struggle: Fighting Backwards Mirror Physics (30 Errors)",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1962, Day 1 Trial 1 at the testing table",
+      "layout": {
+        "description": "Same oak desk showing Trial 1's zigzagging pencil crossings at the tricky star corners.",
+        "positions": [
+          {
+            "who": "Henry Molaison",
+            "where": "concentrating patiently as the mirror reversal pulls his pencil repeatedly across the star's corners on Trial 1",
+            "facing": "at mirror box"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Trial-1 star sheet with 30 corner zigzags",
+          "period_detail": "proves the task was genuinely hard at baseline before 3 days of motor learning",
+          "physical_behavior": "baseline control"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Henry",
+          "verb_sequence": "tries moving up-left at a star corner -> mirror reversal zigzags pencil across border -> adjusts steadily"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Brenda Milner",
+          "reaction": "counts border crossings calmly on Trial 1"
+        }
+      ],
+      "wardrobe": "1962 cardigan and tweed jacket.",
+      "lighting": "Bright daylight.",
+      "recognition_hook": "Anyone trying a mirror star on Trial 1 zigzags thirty times at the corners — which made Henry's effortless Day-3 glide unmistakable.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Holding '584' for 15 Minutes Until One Knock at the Door",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1968, MIT / MNI working-memory session (Milner & Corkin)",
+      "layout": {
+        "description": "Bright quiet testing room with digit cards ('5 — 8 — 4') on the desk.",
+        "positions": [
+          {
+            "who": "Henry & Suzanne Corkin mannequins",
+            "where": "Henry silently rehearsing a 3-digit number flawlessly for 15 minutes via intact prefrontal cortex — until a brief polite knock interrupts rehearsal and the digits vanish",
+            "facing": "at table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "3-digit rehearsal card ('584')",
+          "period_detail": "separates intact 20-second prefrontal working memory from missing hippocampal consolidation",
+          "physical_behavior": "Milner & Corkin classic demonstration"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Henry",
+          "verb_sequence": "recites '584' accurately after quiet rehearsal -> turns toward door knock -> smiles unable to recall that a number test even happened"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Corkin",
+          "reaction": "documents crisp boundary between short-term rehearsal and long-term storage"
+        }
+      ],
+      "wardrobe": "Late-1960s collared shirt and lab blazer.",
+      "lighting": "Clean high-key daylight.",
+      "recognition_hook": "Without distractions, intact frontal cortex rehearsed three digits for fifteen straight minutes — one two-second interruption erased the entire test.",
+      "sources": [
+        "SRC1"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Knowing WHAT vs Knowing HOW in Everyday Skill Mastery",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit park path / music practice room",
+      "layout": {
+        "description": "Sunlit park lane where an adult hops effortlessly onto a bicycle beside a clean two-branch memory map ('Hippocampus: Facts & Events' vs 'Cerebellum/Basal Ganglia: Skills & Habits').",
+        "positions": [
+          {
+            "who": "Cyclist / learner mannequin",
+            "where": "pedaling smoothly on balance autopilot",
+            "facing": "on sunlit path"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "bicycle & two-branch memory diagram",
+          "period_detail": "connects H.M.'s gift to every human's daily muscle memory",
+          "physical_behavior": "universal takeaway"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Cyclist",
+          "verb_sequence": "pushes off smoothly in one balanced motion after years away"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Cyclist",
+          "reaction": "confident smile"
+        }
+      ],
+      "wardrobe": "Modern smart-casual jacket.",
+      "lighting": "Warm morning sunlight.",
+      "recognition_hook": "Every time your fingers find a guitar chord or balance a bicycle after ten years away, you are thanking the procedural brain Henry Molaison revealed to science.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

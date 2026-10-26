@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Brenda Milner Investigates Memory",
+      "url": "https://www.youtube.com/watch?v=ecVn3NlcPT8",
+      "channel": "The Kavli Prize",
+      "source_id": "SRC_M1",
+      "duration_sec": 36,
+      "timecodes": [
+        {
+          "t": "00:07-00:12",
+          "what": "Around kf_003.jpg (7.8s) (widescreen camera frame), speaker commentary notes \"understanding with reference to the brain because it's the organ of mind as they say no and very happy if anything I\", anchoring the research context of Brenda Milner & Henry Molaison ('H.M.'): Day-3 Flawless Mirror-Star Tracing Beside the '30 Errors to 1 Error' Learning Curve."
+        },
+        {
+          "t": "00:17-00:23",
+          "what": "At kf_006.jpg (22.6s) (widescreen camera frame), audio continues with \"find is useful of course but it's not what drives me is curiosity you know and like life\", detailing experimental methodology and behavioral observations for Brenda Milner & William Beecher Scoville's Studies of Henry Molaison ('Patient H.M.') & the 1962 3-Day Mirror-Star Tracing Discovery."
+        },
+        {
+          "t": "00:24-00:28",
+          "what": "Later widescreen camera frame at kf_008.jpg (25.8s) accompanied by \"me is curiosity you know and like life gives one of these opportunities every so often and you have to\", summarizing mechanism and boundary conditions in Brenda Milner & William Beecher Scoville's Studies of Henry Molaison ('Patient H.M.') & the 1962 3-Day Mirror-Star Tracing Discovery."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (9 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 9,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (widescreen live-action camera recording (480x270, 9 frames sampled across 1.2s–33.3s)) from The Kavli Prize's \"Brenda Milner Investigates Memory\" (36s total runtime).",
+          "Deduplicated English transcript (12 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (1.2s–33.3s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "TEDxMcGill - Brenda Milner - Language: the Builder of Bridges",
+      "url": "https://www.youtube.com/watch?v=mHCJvfRzmks",
+      "channel": "TEDx Talks",
+      "source_id": "SRC_M2",
+      "duration_sec": 584,
+      "timecodes": [
+        {
+          "t": "00:21-00:28",
+          "what": "Widescreen camera frame at kf_002.jpg (29.0s) paired with transcript segment \"I grew up in England, many years ago, and was fortunate in learning. First, a little German,\", introducing core background on Brenda Milner & Henry Molaison ('H.M.'): Day-3 Flawless Mirror-Star Tracing Beside the '30 Errors to 1 Error' Learning Curve."
+        },
+        {
+          "t": "01:08-01:25",
+          "what": "Around kf_005.jpg (83.5s) (dark-backdrop stage / studio camera frame), transcript records \"that I would continue only to read French for pleasure, not other languages. That meant while I was studying Psychology,\", examining procedural mechanics and evidence in Brenda Milner & William Beecher Scoville's Studies of Henry Molaison ('Patient H.M.') & the 1962 3-Day Mirror-Star Tracing Discovery."
+        },
+        {
+          "t": "01:37-01:44",
+          "what": "At kf_007.jpg (102.3s) (widescreen camera frame), speaker remarks \"The war came and then, for various reasons, we had the chance, I married Peter Milner, physicist,\", addressing theoretical interpretation and downstream implications of Brenda Milner & William Beecher Scoville's Studies of Henry Molaison ('Patient H.M.') & the 1962 3-Day Mirror-Star Tracing Discovery."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (10 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 10,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (480x264, 10 frames sampled across 10.1s–175.8s)) from TEDx Talks's \"TEDxMcGill - Brenda Milner - Language: the Builder of Bridges\" (584s total runtime).",
+          "Deduplicated English transcript (43 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (10.1s–175.8s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Brenda Milner.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Brenda_Milner.jpg",
+      "channel": "Wikimedia Commons (Eva Blue)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Brenda Milner.jpg\" (960x1114 px, CC BY 2.0): Neuropsychologist Brenda Milner at TEDxMcGill, 2011. Photo by Eva Blue. Documents authentic researcher likeness, period attire, and historical context for Brenda Milner & William Beecher Scoville's Studies of Henry Molaison ('Patient H.M.') & the 1962 3-Day Mirror-Star Tracing Discovery."
+        }
+      ],
+      "license_note": "Archival photo (CC BY 2.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x1114 px, CC BY 2.0, Eva Blue) — portrait reference: Neuropsychologist Brenda Milner at TEDxMcGill, 2011. Photo by Eva Blue.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "crisis",
+      "region": "corpus callosum",
+      "plain": "bridge between hemispheres",
+      "function": "linking left and right hemispheres with 200 million axons",
+      "scene_id": "S1",
+      "narration_bridge": "Shows the surgical gap blocking snow-scene signals from crossing to the speaking left side."
+    },
+    {
+      "role": "step1",
+      "region": "primary visual cortex",
+      "plain": "vision center",
+      "function": "receiving left-visual-field snow scene in the right hemisphere and chicken claw in the left hemisphere",
+      "scene_id": "S1",
+      "narration_bridge": "Traces the two separate half-screen flashes into opposite visual cortices."
+    },
+    {
+      "role": "step2",
+      "region": "Broca's area",
+      "plain": "speech center",
+      "function": "generating fluent spoken explanations exclusively from left-hemisphere information",
+      "scene_id": "S1",
+      "narration_bridge": "Explains why only the left hemisphere speaks out loud to invent the chicken-shed story."
+    },
+    {
+      "role": "step3",
+      "region": "motor cortex",
+      "plain": "movement strip",
+      "function": "driving the left hand from the right hemisphere to point at the snow shovel",
+      "scene_id": "S1",
+      "narration_bridge": "Connects the silent right brain's visual answer to the left hand pointing on the table."
+    }
+  ]
+}

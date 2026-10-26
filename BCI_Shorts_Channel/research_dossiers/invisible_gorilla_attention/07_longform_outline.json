@@ -1,0 +1,123 @@
+{
+  "target_minutes": 12,
+  "shorts_extract": {
+    "hook": "In 1999 at Harvard, volunteers counted basketball passes between players in white shirts while a person in a full gorilla suit walked into the middle of the game, faced the camera, and thumped her chest for nine seconds—and half of all viewers never saw the gorilla.",
+    "core_experiment": "Simons and Chabris filmed three White-team players and three Black-team players weaving in front of three elevator doors in William James Hall; focusing hard on counting white-shirt passes caused the parietal cortex attention spotlight to suppress the dark gorilla even after its image reached the primary visual cortex.",
+    "twist": "Eye-tracking proved that people who missed the gorilla stared directly at it for one full second, and when researchers hid a gorilla inside lung CT scans, 83% of expert radiologists looked right at it and missed it too."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The 1999 Harvard Elevator Lobby Test",
+      "beats": [
+        "Cold open on the 14th-floor elevator landing of William James Hall: three steel elevator doors, six students in white and black t-shirts, two bouncing orange basketballs.",
+        "The viewer challenge: count the White team's 15 passes as the gorilla walks into the center, faces the camera, thumps her chest for 9 seconds, and exits.",
+        "The reveal: 50% of viewers in the chest-thumping condition (and 46% across all 192 observers in the 16 main conditions) miss the gorilla completely."
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "failure"
+      ],
+      "new_shots_needed": [
+        "Close-up of the VHS camera viewfinder on a tripod in the William James Hall hallway",
+        "Split-screen comparison of the Transparent vs Opaque conditions from Figure 2 of Simons & Chabris (1999)"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "From Ulric Neisser's Umbrella Woman to Jerome Kagan's Gorilla Suit",
+      "beats": [
+        "Why scientists doubted earlier blindness studies: Ulric Neisser's 1975–1979 half-silvered mirror umbrella woman and Arien Mack & Irvin Rock's 1998 200-ms computer cross flashes.",
+        "How Daniel Simons and Christopher Chabris borrowed developmental psychologist Jerome Kagan's gorilla costume and recruited student Elisa Cheng to test live-action occlusion."
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [],
+      "new_shots_needed": [
+        "1970s optical mirror rig superimposing two basketball and hand-slap monitors",
+        "Backstage hallway preparation as the student actor steps into the furry gorilla suit"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Why Counting White Shirts Erases a Black Gorilla",
+      "beats": [
+        "The 2x2x2x2 experimental breakdown: Easy total pass count (64% noticed) vs Hard bounce-and-aerial count (45% noticed).",
+        "The feature-similarity discovery: 58% of Black-team trackers noticed the black gorilla, but only 27% of White-team trackers noticed it (73% missed it).",
+        "Inside the brain: raw light from the gorilla hits the primary visual cortex (vision center), but the parietal cortex (attention spotlight) suppresses dark shapes while boosting white shirts."
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "pivot",
+        "step1",
+        "step2"
+      ],
+      "new_shots_needed": [
+        "Data chart visualization comparing White-team (27%) vs Black-team (58%) noticing rates"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Staring Straight Through the Gorilla: Eye-Tracking & Brain Scans",
+      "beats": [
+        "Debunking the 'looking away' excuse: Daniel Memmert's 2006 eye-tracking study proving non-noticers fixated directly on the gorilla for ~1 full second.",
+        "Debunking 'inattentional amnesia' (Rees et al. 1999 Science fMRI study) and the 'smart/high-working-memory people don't miss it' myth (Bredemeier & Simons 2012)."
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step3"
+      ],
+      "new_shots_needed": [
+        "fMRI scanner bore showing suppressed visual word processing under high attention load"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "When Experts Miss the Gorilla: Radiologists & Police Chases",
+      "beats": [
+        "Drew, Võ & Wolfe (2013): 20 out of 24 (83%) expert radiologists miss a gorilla 48 times the size of a cancer nodule in chest CT scans despite looking straight at it.",
+        "Chabris et al. (2011) 'Fight Club' replication of the Boston police officer Kenny Conley case: runners chasing a suspect miss a loud 3-man brawl right beside the path.",
+        "Simons (2010) 'The Monkey Business Illusion': viewers hunting for the gorilla miss the red curtain turning gold and a player leaving the game."
+      ],
+      "scene_ids": [
+        "S4",
+        "S5"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "Outdoor campus path where a runner jogging after a confederate passes three figures staging a loud scuffle"
+      ]
+    },
+    {
+      "n": 6,
+      "title": "The Illusion of Attention in Everyday Life",
+      "beats": [
+        "How inattentional blindness causes 'looked-but-failed-to-see' car crashes against cyclists and motorcycles (Strayer et al. 2003) and cell-phone walking blindness (Hyman et al. 2010).",
+        "Practical takeaway: why lowering cognitive load and knowing your attention spotlight is narrow is the only defense against missing what stands right in front of you."
+      ],
+      "scene_ids": [
+        "S6"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "Driver's over-the-shoulder view at an intersection looking for cars while a cyclist crosses the lane"
+      ]
+    }
+  ]
+}

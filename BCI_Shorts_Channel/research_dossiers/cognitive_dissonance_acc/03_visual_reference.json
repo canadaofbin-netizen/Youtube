@@ -1,0 +1,233 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Inside the cramped MRI bore: volunteer tells the intercom 'the scanner is pleasant' as dACC conflict spikes",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2009, UC Davis / Carnegie Mellon 3-Tesla fMRI neuroimaging suite",
+      "layout": {
+        "description": "Bright clinical MRI suite split by an observation window: inside the scanner room, a volunteer lies tightly fitted inside the cylindrical white 3-Tesla MRI bore wearing ear defenders and speaking into a fiber-optic intercom microphone ('The scanner was comfortable'); in the control room foreground, Vincent van Veen watches the live brain monitor light up at the midline conflict detector.",
+        "positions": [
+          {
+            "who": "Free-choice volunteer (mannequin in blue hospital scrubs on the MRI bed)",
+            "where": "lying supine inside the narrow cylindrical 3T MRI bore speaking into the intercom mic",
+            "facing": "facing upward inside the scanner tunnel"
+          },
+          {
+            "who": "Neuroscientist Vincent van Veen (mannequin in collared shirt and lab coat)",
+            "where": "seated at the control-room glass window before the real-time fMRI activation console",
+            "facing": "watching both the volunteer through the window and the sagittal dACC activation map"
+          },
+          {
+            "who": "Waiting 'next patient' confederate (mannequin in sweater)",
+            "where": "seated in the hallway alcove listening on an intercom speaker",
+            "facing": "facing the speaker"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "3-Tesla cylindrical fMRI scanner bore",
+          "period_detail": "large clinical white MRI magnet with sliding patient table and head coil",
+          "physical_behavior": "houses the cramped volunteer during the noisy 45-minute session"
+        },
+        {
+          "name": "fiber-optic scanner intercom microphone",
+          "period_detail": "non-magnetic white plastic microphone clipped inside the head coil",
+          "physical_behavior": "carries the volunteer's reluctant 'It is very comfortable' endorsement"
+        },
+        {
+          "name": "control-room sagittal brain monitor",
+          "period_detail": "widescreen neuroimaging console displaying midline dorsal anterior cingulate and anterior insula activation",
+          "physical_behavior": "warm amber-gold subsurface glow highlights the midline conflict region during free-choice trials"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Free-choice volunteer",
+          "verb_sequence": "winces slightly inside the tight MRI head coil -> speaks 'The scanner is pleasant' into the intercom mic"
+        },
+        {
+          "who": "Neuroscientist",
+          "verb_sequence": "points to the sharp dorsal anterior cingulate activation peak on the control-room screen"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Free-choice volunteer",
+          "reaction": "exhales and relaxes tension once his post-scan rating shifts upward"
+        },
+        {
+          "who": "Neuroscientist",
+          "reaction": "logs the r > 0.55 correlation between the midline spike and the flipped comfort score"
+        }
+      ],
+      "wardrobe": "Volunteer in light-blue cotton MRI-safe scrubs; researchers in white lab coat over Oxford shirt.",
+      "lighting": "High-key clinical daylight across both the MRI bay and glass-walled control room.",
+      "recognition_hook": "Lying cramped inside a loud MRI tube and telling the next patient 'it's super comfortable' made the brain's conflict alarm light up — and rewrote their real opinion.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "the volunteer lies inside the narrow MRI scanner speaking into an intercom while the control-room monitor shows midline brain conflict",
+        "must_show": [
+          "scanner|mri|bore",
+          "monitor|screen",
+          "intercom|microphone|window"
+        ],
+        "source": "M1@00:04-00:08; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Paid control condition: external bonus keeps the conflict alarm quiet",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2009 control-group fMRI session",
+      "layout": {
+        "description": "MRI prep desk where a paid-condition volunteer signs a bonus payment receipt envelope before reading the exact same script with a calm, unchanged brain trace.",
+        "positions": [
+          {
+            "who": "Paid control volunteer",
+            "where": "standing at the prep counter signing a bonus payment voucher envelope",
+            "facing": "facing the researcher"
+          },
+          {
+            "who": "Research assistant",
+            "where": "handing over the printed bonus voucher envelope",
+            "facing": "facing the volunteer"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "printed bonus payment voucher envelope",
+          "period_detail": "crisp white university payment voucher clearly marked 'Extra Scripted Reading Bonus'",
+          "physical_behavior": "gives a clear external reason so the volunteer later still rates the scanner uncomfortable"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Paid control volunteer",
+          "verb_sequence": "accepts the bonus voucher envelope -> reads the script calmly -> later circles 'Unpleasant' honestly on the exit rating"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Research assistant",
+          "reaction": "notes the flat dACC trace and unchanged honest rating"
+        }
+      ],
+      "wardrobe": "MRI scrubs and lab coat.",
+      "lighting": "Bright clinical prep-room light.",
+      "recognition_hook": "Give someone an extra payment excuse to read the exact same words, and their conflict alarm stays quiet — so their true opinion never budges.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Post-scan comfort rating flip",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2009 UC Davis debriefing desk",
+      "layout": {
+        "description": "Bright debriefing table outside the MRI bay where the free-choice volunteer circles a high comfort score on the post-scan questionnaire.",
+        "positions": [
+          {
+            "who": "Free-choice volunteer",
+            "where": "seated at the debriefing desk circling 6 out of 7 for scanner comfort",
+            "facing": "facing the rating form"
+          },
+          {
+            "who": "Researcher",
+            "where": "comparing pre- vs post-scan score sheets",
+            "facing": "standing beside the desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1-to-7 scanner comfort rating scale",
+          "period_detail": "printed questionnaire from 1 (Extremely Uncomfortable) to 7 (Very Pleasant)",
+          "physical_behavior": "pen circles a high pleasantness number matching the earlier dACC spike"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Free-choice volunteer",
+          "verb_sequence": "nods earnestly and circles a pleasant rating on the paper scale"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researcher",
+          "reaction": "matches the high comfort score directly to that volunteer's scanner trace"
+        }
+      ],
+      "wardrobe": "MRI scrubs and lab coat.",
+      "lighting": "Bright daylight.",
+      "recognition_hook": "The bigger the conflict spike inside the tube, the more genuinely the volunteer liked the tube ten minutes later.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Everyday rationalization after an overpriced choice",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern café / restaurant sidewalk",
+      "layout": {
+        "description": "Sunlit sidewalk outside a tiny crowded café with a long queue where a diner praises a tiny pastry to friends.",
+        "positions": [
+          {
+            "who": "Diner mannequin",
+            "where": "holding a tiny plate after a 90-minute wait, gesturing enthusiastically",
+            "facing": "facing two friends"
+          },
+          {
+            "who": "Two friend mannequins",
+            "where": "glancing from the tiny plate to the long line",
+            "facing": "facing the diner"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "tiny porcelain plate and long velvet queue rope",
+          "period_detail": "minimalist café plate beside a '90 MIN WAIT' sign",
+          "physical_behavior": "diner gestures proudly over the tiny portion"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Diner mannequin",
+          "verb_sequence": "steps out of the 90-minute line -> holds up the tiny pastry -> nods insistently about how amazing it was"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Friends",
+          "reaction": "exchange knowing glances at classic dissonance reduction"
+        }
+      ],
+      "wardrobe": "Casual modern jackets.",
+      "lighting": "Bright afternoon sunlight.",
+      "recognition_hook": "Wait 90 minutes by your own free choice, and your anterior cingulate will make sure that tiny pastry tastes incredible.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

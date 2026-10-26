@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "slug": "rosenthal_pygmalion_expectancy",
+  "topic": "Robert Rosenthal & Lenore Jacobson (1966-1968): Oak School 'Pygmalion in the Classroom' Self-Fulfilling Prophecy",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:29+00:00",
+  "status": "ready",
+  "visual_mode": "BEHAVIORAL_PSYCH",
+  "visual_mode_reason": "Rosenthal and Jacobson's elementary-classroom study unfolds purely through human teacher-pupil interactions — warmer nods, longer wait-times, and richer feedback toward randomly chosen 'bloomers'.",
+  "primary_case": {
+    "title": "Rosenthal & Jacobson's Oak School random 'academic spurter' teacher-expectancy experiment",
+    "year": 1968,
+    "place": "South San Francisco ('Oak School' public elementary school, grades 1-6), California",
+    "people": [
+      {
+        "name": "Robert Rosenthal",
+        "role": "Harvard social psychologist who discovered experimenter-expectancy effects in lab rats and brought the test into public school classrooms",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Lenore Jacobson",
+        "role": "South San Francisco elementary school principal who co-designed and hosted the year-long Oak School study",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "18 elementary teachers & ~650 Oak School pupils (grades 1 through 6)",
+        "role": "Given Flanagan's Tests of General Ability disguised as the 'Harvard Test of Inflected Acquisition'",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In spring 1964 (published 1966 in Psychological Reports and 1968 as Pygmalion in the Classroom), Robert Rosenthal and principal Lenore Jacobson tested all pupils across 18 classrooms (grades 1-6) at 'Oak School' in South San Francisco.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Students took a standard nonverbal IQ test (Flanagan's Tests of General Ability), but teachers were told it was a brand-new 'Harvard Test of Inflected Acquisition' predicting imminent intellectual 'spurting'.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "That autumn, researchers handed each teacher a casual list naming roughly 20 percent of the class as 'academic bloomers' poised for dramatic growth.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In reality, those 20 percent names had been drawn completely AT RANDOM using a table of random numbers — the only difference between 'bloomers' and controls lived inside the teachers' minds.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Retested eight months later on the exact same IQ instrument, randomly labeled 'bloomers' outgained control classmates overall by roughly 3.8 IQ points (12.22 vs 8.42 points).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The expectancy surge concentrated dramatically in the youngest grades: randomly labeled first-graders gained 27.4 IQ points (vs 12.0 in controls, a +15.4-point advantage), and second-graders gained 16.5 points (vs 7.0 in controls).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Nearly half (47 percent) of first- and second-grade 'bloomers' gained 20 or more total IQ points, compared with only 19 percent of control children.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Follow-up classroom observations identified four subtle behavioral channels ('Four-Factor Theory'): teachers unknowingly gave 'bloomers' a warmer socioemotional climate, richer material, more chances to speak, and clearer feedback.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Psychometricians led by Robert L. Thorndike (1968) and Lee Jussim later critiqued Oak School's noisy first-grade Flanagan norms and showed real-world teacher-expectancy effects are modest (averaging r ~ 0.15 to 0.20) rather than magical — yet disproportionally potent for stigmatized or young newcomers.",
+      "source_id": "SRC2"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Twenty percent of Oak School kids were picked out of a hat using a random-number table — yet eight months later, first-graders on that 'Harvard bloomer' list outgained classmates by more than 15 IQ points.",
+      "why_surprising": "A random ink name on a sheet changed how adults taught all year.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Teachers weren't consciously tutoring the listed kids after school; in fact, at year's end most teachers couldn't even recall every name from the September memo.",
+      "why_surprising": "Expectations leaked out through split-second nods, patience, and follow-up questions.",
+      "source_id": "SRC2",
+      "rank": 2
+    },
+    {
+      "fact": "Before Oak School, Rosenthal proved the exact same effect in college students training ordinary lab rats randomly labeled 'maze-bright' versus 'maze-dull' — the 'bright' rats ran mazes faster simply because handlers touched them more gently.",
+      "why_surprising": "Expectancy shapes behavior even across species.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "Critical re-analyses showed expectations hit hardest right when people enter a brand-new environment (like Grade 1 or a new job) before reputations harden.",
+      "why_surprising": "First impressions carry outsized leverage.",
+      "source_id": "SRC4",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Simply wishing someone is a genius magically raises anyone's adult IQ by 30 points.",
+      "truth": "Thorndike (1968) and modern meta-analyses show average expectancy effects are real but modest (r ~ 0.15-0.20), strongest in early grades and mediated by concrete teaching behaviors.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Teachers at Oak School deliberately ignored the other 80 percent of students.",
+      "truth": "Control children also gained over 8 IQ points; teachers transmitted higher expectations to 'bloomers' entirely outside conscious awareness.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Expectations only work through verbal praise.",
+      "truth": "Rosenthal's four-factor research showed waiting two extra seconds for an answer and asking 'walk me through how you got that' mattered more than empty compliments.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "High expectations can never backfire.",
+      "truth": "At Oak School, control children who bloomed UNEXPECTEDLY without being on the Harvard list were sometimes rated less favorably by surprised teachers.",
+      "source_id": "SRC2"
+    }
+  ],
+  "everyday_hooks": [
+    "Giving a quiet new hire extra patience and stretch questions because a trusted colleague whispered 'watch them, they're sharp'.",
+    "Cutting off a student after one second of hesitation when you secretly assume they don't know the answer.",
+    "Performing noticeably better under a coach who treats your mistake as 'almost there' instead of 'typical for you'.",
+    "Starting a new class or team where nobody knows your past stumbles yet."
+  ],
+  "linked_projects": [
+    "psych_22_rosenthal_pygmalion_expectancy"
+  ]
+}

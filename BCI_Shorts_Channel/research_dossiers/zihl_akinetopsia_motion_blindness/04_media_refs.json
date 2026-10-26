@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "The Woman from Munich who is motion blind",
+      "url": "https://www.youtube.com/watch?v=yz6GF7Szb2Y",
+      "channel": "George Pollak",
+      "source_id": "SRC_M1",
+      "duration_sec": 347,
+      "timecodes": [
+        {
+          "t": "00:08-00:14",
+          "what": "Around kf_002.jpg (7.8s) (widescreen camera frame), speaker commentary notes \"the most basic features of vision are constructed by the brain the most compelling evidence for this comes from the study of extremely rare\", anchoring the research context of 1983 Munich Clinic Table: Patient L.M. Pouring Tea That Appears Frozen Like a Glass Rod Until Overflowing Across the Saucer."
+        },
+        {
+          "t": "00:31-00:45",
+          "what": "At kf_006.jpg (39.4s) (widescreen camera frame), audio continues with \"motion everything she sees is frozen even though her other senses shout out that the world is moving by\", detailing experimental methodology and behavioral observations for Josef Zihl, Detlev von Cramon & Norbert Mai's 1983 Brain discovery of selective 'Motion Blindness' (Akinetopsia) in Patient L.M."
+        },
+        {
+          "t": "01:40-01:45",
+          "what": "Later widescreen camera frame at kf_014.jpg (99.6s) accompanied by \"faced with the massive amount of visual information coming into our eyes it seems we divide up the task of building the scene in our heads into\", summarizing mechanism and boundary conditions in Josef Zihl, Detlev von Cramon & Norbert Mai's 1983 Brain discovery of selective 'Motion Blindness' (Akinetopsia) in Patient L.M."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (widescreen live-action camera recording (640x360, 14 frames sampled across 0.0s–99.6s)) from George Pollak's \"The Woman from Munich who is motion blind\" (347s total runtime).",
+          "Deduplicated English transcript (25 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (0.0s–99.6s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "Mystery of the Brain - Symposium 2019 Talk Semir Zeki",
+      "url": "https://www.youtube.com/watch?v=-mhMCJDTd3g",
+      "channel": "Max Planck Institute for Biological Cybernetics",
+      "source_id": "SRC_M2",
+      "duration_sec": 2007,
+      "timecodes": [
+        {
+          "t": "15:38-15:52",
+          "what": "Widescreen camera frame at kf_002.jpg (947.1s) paired with transcript segment \"visual brain. And of course, you begin to ask the question, well, the primary visual cortex in terms of fast motion signals, it is they reach V5...\", introducing core background on 1983 Munich Clinic Table: Patient L.M. Pouring Tea That Appears Frozen Like a Glass Rod Until Overflowing Across the Saucer."
+        },
+        {
+          "t": "16:11-16:27",
+          "what": "Around kf_007.jpg (978.7s) (widescreen camera frame), transcript records \"stimuli, he is conscious of them. In other words, he tells you which direction they're moving in, provided they are fast-moving and high contrast....\", examining procedural mechanics and evidence in Josef Zihl, Detlev von Cramon & Norbert Mai's 1983 Brain discovery of selective 'Motion Blindness' (Akinetopsia) in Patient L.M."
+        },
+        {
+          "t": "17:00-17:09",
+          "what": "At kf_014.jpg (1023.0s) (widescreen camera frame), speaker remarks \"years before of using the Ezio Levion illusion where you see fast motion the you some of you see will see fast motion these rings, but you can't...\", addressing theoretical interpretation and downstream implications of Josef Zihl, Detlev von Cramon & Norbert Mai's 1983 Brain discovery of selective 'Motion Blindness' (Akinetopsia) in Patient L.M."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (640x360, 14 frames sampled across 940.8s–1023.0s)) from Max Planck Institute for Biological Cybernetics's \"Mystery of the Brain - Symposium 2019 Talk Semir Zeki\" (2007s total runtime).",
+          "Deduplicated English transcript (24 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (940.8s–1023.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Dorsal and ventral pathways - lateral view.png",
+      "url": "https://commons.wikimedia.org/wiki/File:Dorsal_and_ventral_pathways_-_lateral_view.png",
+      "channel": "Wikimedia Commons (Polygon data were generated by Database Center for Life Science(DBCLS)[2].)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Dorsal and ventral pathways - lateral view.png\" (600x600 px, CC BY-SA 2.1 jp): The dorsal stream (red) and ventral stream (blue). Documents authentic physical instrument geometry and period materials relevant to Josef Zihl, Detlev von Cramon & Norbert Mai's 1983 Brain discovery of selective 'Motion Blindness' (Akinetopsia) in Patient L.M."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 2.1 jp) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (600x600 px, CC BY-SA 2.1 jp, Polygon data were generated by Database Center for Life Science(DBCLS)[2].) — apparatus reference: The dorsal stream (red) and ventral stream (blue).",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

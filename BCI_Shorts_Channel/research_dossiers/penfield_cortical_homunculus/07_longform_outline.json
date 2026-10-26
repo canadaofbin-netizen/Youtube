@@ -1,0 +1,104 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "126 awake brain surgeries, tiny numbered paper tickets, and a giant-handed 'little man' — plus the 2023 Nature discovery that rewrote Penfield's motor strip after 86 years.",
+    "core_experiment": "Penfield & Boldrey (1937 Brain) awake M1/S1 ticket mapping & Homunculus magnification + Gordon et al. (2023 Nature) interleaved SCAN hubs.",
+    "twist": "Why brain tissue feels zero pain, why awake patients say 'YOU moved my hand!', and why 2-mm fingertip vs 30-mm back touch proves cortical magnification."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Montreal 1937: Conversing With 126 Awake Brains",
+      "beats": [
+        "Zero pain receptors inside cortex",
+        "Numbered sterile paper tickets & 'You moved my finger — I didn't!'"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "numbered-ticket brain cast & probe"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Drawing the Giant-Handed Homunculus",
+      "beats": [
+        "Mrs. Hortense Cantlie's proportional 'little man'",
+        "2-mm fingertip vs 30-mm back caliper self-test",
+        "Saving awake violinists in modern ORs"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "Homunculus, caliper & violin"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "What Textbooks Oversimplified — & The 2023 Nature Twist.",
+      "beats": [
+        "Penfield's own warning about overlapping mosaics",
+        "Gordon & Dosenbach (2023): 3 interleaved mind-body SCAN hubs inside M1.",
+        "Connecting action plans to heart rate & posture"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "1937 Ribbon vs 2023 SCAN map"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Checking Penfield's Original 1937 Raw Tickets",
+      "beats": [
+        "86-year-old surgical notes confirm the 2023 SCAN spots",
+        "Science advancing by honoring raw data over textbook cartoons"
+      ],
+      "scene_ids": [
+        "S4",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "1937 raw dot ledger"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Putting Your Giant Hand-and-Voice Cortex to Work",
+      "beats": [
+        "Why handwriting and explaining aloud beat passive reading",
+        "Mind and body wired together inside M1"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "active sketching & playing"
+      ]
+    }
+  ]
+}

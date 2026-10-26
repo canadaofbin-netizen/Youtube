@@ -1,0 +1,202 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1978 CUNY Library Copy Alcove: 5 Pages ('Because I Have to Make Copies' = 93%!) vs 20 Pages (Crashes to 24%!)",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1978, CUNY Graduate Center Library, Manhattan, New York",
+      "layout": {
+        "description": "Sunlit high-key 1978 university library copy alcove featuring a classic beige freestanding **1970s Xerox console photocopier** with its warm green document glass lid raised, stacks of white bond paper, and a crisp two-column **Langer 1978 Copy-Line Scoreboard** comparing **5 Pages (No Reason 60% | Real 'Rush' 94% | Empty 'Because Make Copies' 93%!)** against **20 Pages (No Reason 24% | Empty 'Because' 24% | Real 'Rush' 42%)**.",
+        "positions": [
+          {
+            "who": "Langer Confederate mannequin (in 1978 corduroy blazer holding a thin **5-page packet**)",
+            "where": "stepping politely up beside the Xerox photocopier speaking the famous tautology ('...because I have to make copies?')",
+            "facing": "beside Xerox console"
+          },
+          {
+            "who": "Waiting Doctoral Student mannequin (in 1978 turtleneck sweater and glasses holding an open library volume)",
+            "where": "smiling automatically and gesturing 'Go right ahead!' at **93%** for 5 pages — while a second student beside the **thick 20-page stack** shakes their head 'Wait your turn!' (**24%**)",
+            "facing": "standing at library Xerox queue"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1978 freestanding beige library Xerox photocopier + thin 5-page vs thick 20-page paper stacks",
+          "period_detail": "makes the effort-cost switch visually unmistakable",
+          "physical_behavior": "the exact Manhattan library setting of Langer, Blank & Chanowitz 1978"
+        },
+        {
+          "name": "Langer 1978 2×3 Compliance Matrix Board ('5 Pages: 60% / 94% / 93% vs 20 Pages: 24% / 42% / 24%')",
+          "period_detail": "shows BOTH the famous 93% 'because' shock AND the overlooked 20-page awakening",
+          "physical_behavior": "prevents the classic pop-psych half-truth"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Confederate mannequin",
+          "verb_sequence": "holds up 5 pages and says 'because I have to make copies' -> Library user steps warmly aside (93%!) -> Confederate returns holding a thick 20-page stack with the same empty 'because' -> Library user pauses, hears the hollow excuse, and shakes head NO (24%)!"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Ellen Langer mannequin (observing discretely behind library bookshelves with a notepad)",
+          "reaction": "smiles as the 5-page vs 20-page fork maps the exact boundary of human autopilot"
+        },
+        {
+          "who": "Library user mannequin",
+          "reaction": "blinks realizing they just let someone cut for 'having to make copies' at a copy machine"
+        }
+      ],
+      "wardrobe": "1978 New York academic attire: tan corduroy jacket over collared shirt; ribbed knit turtleneck, wool slacks, and wire-rim spectacles.",
+      "lighting": "Clean high-key Manhattan library tall-window daylight.",
+      "recognition_hook": "Ask to cut in line at a library Xerox machine with five pages 'because I have to make copies,' and 93% of graduate scholars step aside — try that exact empty line with twenty pages and 76% shut you down cold!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a sunlit 1978 university library copy alcove where a student holding 5 pages asks to cut at a beige Xerox photocopier beside a 93%-vs-24% compliance scoreboard",
+        "must_show": [
+          "photocopier|copier|xerox",
+          "pages|stack|paper",
+          "scoreboard|chart|library"
+        ],
+        "source": "M1@00:08-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Studies 1 & 2: Why Routine Office Memos Run on Autopilot",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1978, CUNY departmental mailroom",
+      "layout": {
+        "description": "Bright 1978 university office desk with standard interoffice memo slips versus unfamiliar phrasing.",
+        "positions": [
+          {
+            "who": "Office administrator & Researcher mannequins",
+            "where": "comparing routine-format memos (90% automatic compliance) against novel-format memos that wake up critical reading",
+            "facing": "at 1978 wooden desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Familiar Script Memo vs Novel Format Memo",
+          "period_detail": "shows scripts trigger via structural familiarity",
+          "physical_behavior": "Langer 1978 Studies 1 & 2"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Administrator",
+          "verb_sequence": "stamps familiar-syntax memo automatically -> pauses thoughtfully on novel-syntax memo"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Langer",
+          "reaction": "documents the cognitive energy-saving trade-off"
+        }
+      ],
+      "wardrobe": "1978 collared blouse and tweed vest.",
+      "lighting": "Warm morning office light.",
+      "recognition_hook": "Before Langer ever walked up to the Xerox machine, two office-memo experiments proved familiar formatting puts smart adults on polite autopilot!",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "The 20-Page Wake-Up Call: Stake Size Flips Mindfulness ON",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1985, University consumer behavior lab (Folkes / Langer)",
+      "layout": {
+        "description": "Clean split desk contrasting Low Cost (20-second wait -> Autopilot 'Click-Whirr') vs High Cost (5-minute wait -> Active Scrutiny of Reasons).",
+        "positions": [
+          {
+            "who": "Two participant mannequins",
+            "where": "auditing whether the requester's reason is genuine and uncontrollable ('printer jammed before exam') versus lazy",
+            "facing": "across split comparison table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Cost-Threshold Switch Card ('Low Stakes = Script | High Stakes = Logic')",
+          "period_detail": "reconciles Langer 1978 with Folkes 1985",
+          "physical_behavior": "complete scientific picture"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Participant",
+          "verb_sequence": "weighs thick 20-page stack -> accepts genuine rush (42%), rejects hollow tautology (24%)"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researchers",
+          "reaction": "confirm human autopilot has a built-in price alarm"
+        }
+      ],
+      "wardrobe": "1985 knit sweaters and blazers.",
+      "lighting": "Bright high-key lab light.",
+      "recognition_hook": "Your brain isn't broken — it only runs the 'Because' shortcut on 20-second favors and wakes the lawyer up when someone brings 20 pages!",
+      "sources": [
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Everyday Upgrade: Give Honest 'Becauses' & Audit Hollow Ones",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit coworking studio",
+      "layout": {
+        "description": "Bright modern desk where a laptop message swaps 'Need this by 3 PM' for 'Could we wrap this by 3 PM **because** client review starts at 3:30?'",
+        "positions": [
+          {
+            "who": "Two teammate mannequins",
+            "where": "exchanging a clear, genuine 'because' message that unlocks fast goodwill cooperation",
+            "facing": "at sunlit studio desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Genuine 'Because' Message Card",
+          "period_detail": "turns 60% friction into 94% voluntary teamwork",
+          "physical_behavior": "practical everyday tool"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Sender",
+          "verb_sequence": "adds one honest 'because' clause -> Teammate nods immediately and prioritizes it"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Both teammates",
+          "reaction": "smooth, respectful collaboration"
+        }
+      ],
+      "wardrobe": "Modern smart-casual attire.",
+      "lighting": "Warm afternoon daylight.",
+      "recognition_hook": "Never bark a bare deadline when one honest 'because' clause nearly doubles how gladly people help you!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

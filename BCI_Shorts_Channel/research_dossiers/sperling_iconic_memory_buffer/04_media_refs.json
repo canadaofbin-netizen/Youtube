@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "recreation_film",
+      "title": "Iconic Memory Test (demo of a classic psychophysics experiment by George Sperling on VSTM)",
+      "url": "https://www.youtube.com/watch?v=GkZNHe49GcA",
+      "channel": "Axon",
+      "source_id": "SRC_M1",
+      "duration_sec": 197,
+      "timecodes": [
+        {
+          "t": "00:08-00:16",
+          "what": "Non-vocal lecture slide / diagram frame at kf_003.jpg (11.0s) in Axon's \"Iconic Memory Test (demo of a classic psychophysics experiment by George Sperling on VSTM)\", visually recording timing and visual layout relevant to 1960 Harvard Tachistoscope: 50-ms '3×4 Letter Grid' Flash + Post-Flash High/Mid/Low Tone Revealing 9.1 of 12 Letters."
+        },
+        {
+          "t": "00:30-00:38",
+          "what": "Visual-only lecture slide / diagram frame at kf_007.jpg (33.0s) in \"Iconic Memory Test (demo of a classic psychophysics experiment by George Sperling on VSTM)\", capturing movement progression and frame composition without spoken English commentary."
+        },
+        {
+          "t": "00:52-01:00",
+          "what": "Subsequent lecture slide / diagram frame at kf_011.jpg (55.0s) in \"Iconic Memory Test (demo of a classic psychophysics experiment by George Sperling on VSTM)\", documenting closing visual sequence for reference analysis."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_sperling_iconic_memory_buffe/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_sperling_iconic_memory_buffe",
+        "contact_sheet": "media/M1_sperling_iconic_memory_buffe/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1_sperling_iconic_memory_buffe/contact_sheet.jpg (recorded lecture combining speaker commentary with 12/12 diagram/slide frames (480x270, sampled across 0.0s–60.5s)) from Axon's \"Iconic Memory Test (demo of a classic psychophysics experiment by George Sperling on VSTM)\" (197s total runtime).",
+          "Non-vocal archival/demonstration clip (media/M1_sperling_iconic_memory_buffe/transcript.txt); visual timing and staging inspected directly across 12 keyframes (0.0s–60.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "Whole Partial Report Sperling, 1960",
+      "url": "https://www.youtube.com/watch?v=SIWfrlAQ7_A",
+      "channel": "Arlo Clark-Foos",
+      "source_id": "SRC_M2",
+      "duration_sec": 381,
+      "timecodes": [
+        {
+          "t": "04:54-05:08",
+          "what": "At kf_003.jpg (303.4s) (lecture slide / diagram frame), Arlo Clark-Foos's recording states \"how'd you do all right remember pausing after the letters so you can write them down scoring your performance recording all of these how about...\" — providing spoken context for 1960 Harvard Tachistoscope: 50-ms '3×4 Letter Grid' Flash + Post-Flash High/Mid/Low Tone Revealing 9.1 of 12 Letters."
+        },
+        {
+          "t": "05:36-05:46",
+          "what": "Mid-segment lecture slide / diagram frame at kf_009.jpg (341.4s) as narration explains \"you now have three averages you have an average for whole report an average for partial report when the delay was near zero and an average for...\", clarifying key empirical findings in George Sperling's 1960 Harvard Psychological Monographs 50-ms 'Whole vs Partial Report' Iconic Memory Experiment."
+        },
+        {
+          "t": "05:58-06:10",
+          "what": "Around kf_013.jpg (366.7s) (lecture slide / diagram frame), commentary states \"second according to sperling's original study which means that as long as that tone comes immediately after the display goes away you can still...\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (recorded lecture combining speaker commentary with 14/14 diagram/slide frames (640x360, sampled across 290.8s–373.0s)) from Arlo Clark-Foos's \"Whole Partial Report Sperling, 1960\" (381s total runtime).",
+          "Deduplicated English transcript (20 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (290.8s–373.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Sperling's Partial Report Paradigm.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Sperling%27s_Partial_Report_Paradigm.jpg",
+      "channel": "Wikimedia Commons (Psyc3330 w11)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Sperling's Partial Report Paradigm.jpg\" (290x342 px, CC BY-SA 3.0): Sperling's Partial Report Paradigm. Documents authentic researcher likeness, period attire, and historical context for George Sperling's 1960 Harvard Psychological Monographs 50-ms 'Whole vs Partial Report' Iconic Memory Experiment."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 3.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (290x342 px, CC BY-SA 3.0, Psyc3330 w11) — portrait reference: Sperling's Partial Report Paradigm.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

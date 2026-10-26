@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "lecture",
+      "title": "3 clues to understanding your brain | VS Ramachandran",
+      "url": "https://www.youtube.com/watch?v=Rl2LwnaUA-k",
+      "channel": "TED",
+      "source_id": "SRC_M1",
+      "duration_sec": 1532,
+      "timecodes": [
+        {
+          "t": "00:25-00:48",
+          "what": "Around kf_004.jpg (46.8s) (widescreen camera frame), speaker commentary notes \"Well, as Chris pointed out, I study the human brain, the functions and structure of the human brain. And I just want you to think for a minute...\", anchoring the research context of face-to-face at UC San Diego: D.S. recoils from his mother while the skin-conductance trace stays flat."
+        },
+        {
+          "t": "00:53-01:04",
+          "what": "At kf_005.jpg (61.1s) (widescreen camera frame), audio continues with \"And this peculiar recursive quality that we call self-awareness, which I think is the holy grail of neuroscience, of neurology, and hopefully...\", detailing experimental methodology and behavioral observations for Patient D.S. skin-conductance and telephone dissociation study in Capgras syndrome."
+        },
+        {
+          "t": "02:23-02:31",
+          "what": "Subsequent widescreen camera frame at kf_012.jpg (145.8s) in \"3 clues to understanding your brain | VS Ramachandran\", documenting closing visual sequence for reference analysis."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (live-action speaker/interview recording intercut with 1 visual slide frames (480x266, sampled across 10.2s–169.0s)) from TED's \"3 clues to understanding your brain | VS Ramachandran\" (1532s total runtime).",
+          "Deduplicated English transcript (25 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (10.2s–169.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "interview",
+      "title": "Capgras' delusion patient",
+      "url": "https://www.youtube.com/watch?v=dqBGzkz1oDU",
+      "channel": "cogmonaut",
+      "source_id": "SRC_M2",
+      "duration_sec": 599,
+      "timecodes": [
+        {
+          "t": "00:03-00:09",
+          "what": "4:3 camera frame at kf_001.jpg (8.5s) paired with transcript segment \"two years ago david was involved in a terrible car accident while driving back to california from mexico there was a problem with the car\", introducing core background on face-to-face at UC San Diego: D.S. recoils from his mother while the skin-conductance trace stays flat."
+        },
+        {
+          "t": "00:42-00:49",
+          "what": "Around kf_006.jpg (47.4s) (4:3 camera frame), transcript records \"delusion he would look at his mother and he would say this woman doctor she looks exactly like my mother but in fact she's not my\", examining procedural mechanics and evidence in Patient D.S. skin-conductance and telephone dissociation study in Capgras syndrome."
+        },
+        {
+          "t": "01:01-01:07",
+          "what": "At kf_010.jpg (67.7s) (4:3 camera frame), speaker remarks \"i was cooking dinner and he probably didn't like the food that night and he said you know the lady who comes\", addressing theoretical interpretation and downstream implications of Patient D.S. skin-conductance and telephone dissociation study in Capgras syndrome."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x360, 14 frames sampled across 8.5s–85.3s)) from cogmonaut's \"Capgras' delusion patient\" (599s total runtime).",
+          "Deduplicated English transcript (44 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (8.5s–85.3s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Fusiform Gyrus and its Sulci on 3D-printed brain, inferior view.png",
+      "url": "https://commons.wikimedia.org/wiki/File:Fusiform_Gyrus_and_its_Sulci_on_3D-printed_brain,_inferior_view.png",
+      "channel": "Wikimedia Commons (Mwegrzyn)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Fusiform Gyrus and its Sulci on 3D-printed brain, inferior view.png\" (960x1138 px, CC BY-SA 4.0): Fusiform gyrus with all major sulci delimiting it, displayed on a 3D-printed brain of a healthy adult. As we view the brain from below, the right hemisphere is on the left side of the image; red – fus. Provides anatomical and structural brain reference relevant to the neural mechanism in Patient D.S. skin-conductance and telephone dissociation study in Capgras syndrome."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 4.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x1138 px, CC BY-SA 4.0, Mwegrzyn) — neuroanatomy reference: Fusiform gyrus with all major sulci delimiting it, displayed on a 3D-printed brain of a healthy adult. As we view the brain from below, the right hemisphere is on the left side of the image; red – fus.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

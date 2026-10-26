@@ -1,0 +1,99 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "One musical beep AFTER the screen went black solved a 74-year mystery — proving your visual cortex holds a 300-millisecond photograph twice as big as working memory.",
+    "core_experiment": "Sperling (1960 Psych. Monographs): 4.5-letter Whole Report ceiling vs 9.1-letter Partial Report capacity & 300–500 ms iconic decay curve.",
+    "twist": "Why bright flashes bleach iconic memory (and why rapid phone scrolling erases retention), spatial vs category cues, and the Block-vs-Dehaene consciousness debate."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Cambridge 1960: 'I Swear I Saw All Twelve Letters!'",
+      "beats": [
+        "74 years stuck at the 4.5-letter Whole Report wall",
+        "George Sperling's post-blackout High / Medium / Low tone trick"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "3x4 grid & 3-tone generator"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "9.1 Letters Available — Gone in 300 Milliseconds.",
+      "beats": [
+        "Mapping the steep 0-to-500 ms decay cliff",
+        "Why category cues ('just digits') fail while spatial row cues win"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "9.1 to 4.5 decay curve"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Bleaching the Ghost: Backward Masking & Rapid Scrolling",
+      "beats": [
+        "Bright post-flashes wipe V1 persistence instantly",
+        "Why flicking 3 slides per second leaves zero memory"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "backward-masking scroll comparison"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Exhibit A in Modern Consciousness Science",
+      "beats": [
+        "Ulric Neisser names 'Iconic Memory' & the 3-stage memory model",
+        "Block's phenomenal overflow vs Dehaene's preconscious V1 gate"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "Overflow vs Workspace board"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Aiming Your 300-ms Spotlight in Daily Life",
+      "beats": [
+        "Locking onto 4 priority digits on a fleeting plate",
+        "Giving diagrams 2 un-masked seconds to transfer"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "4-digit Partial Report grab"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "interview",
+      "title": "Ann Graybiel 2001 National Medal of Science (Brain Anatomy & Physiology) - Interview, MIT 2002",
+      "url": "https://www.youtube.com/watch?v=D6GFMsiSphc",
+      "channel": "MIT Video Productions",
+      "source_id": "SRC_M1",
+      "duration_sec": 1217,
+      "timecodes": [
+        {
+          "t": "00:15-00:19",
+          "what": "4:3 camera frame at kf_004.jpg (15.0s) paired with transcript segment \"The part of the brain we work on is called the basal ganglia and these regions of the brain lie deep\", introducing core background on Eugene walks straight to the kitchen snack cabinet despite failing the house map test."
+        },
+        {
+          "t": "00:20-00:27",
+          "what": "Around kf_006.jpg (25.0s) (4:3 camera frame), transcript records \"these regions of the brain lie deep underneath the cortex, which is the part most people know about and see in all\", examining procedural mechanics and evidence in Patient E.P. (Eugene Pauly) amnesic habit retention & MIT dorsal striatum task-bracketing studies."
+        },
+        {
+          "t": "00:40-00:48",
+          "what": "At kf_010.jpg (45.0s) (4:3 camera frame), speaker remarks \"machine. But underneath that are deep lying brain nuclei and the basal ganglia are the largest of these\", addressing theoretical interpretation and downstream implications of Patient E.P. (Eugene Pauly) amnesic habit retention & MIT dorsal striatum task-bracketing studies."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x270, 14 frames sampled across 0.0s–65.0s)) from MIT Video Productions's \"Ann Graybiel 2001 National Medal of Science (Brain Anatomy & Physiology) - Interview, MIT 2002\" (1217s total runtime).",
+          "Deduplicated English transcript (40 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "Ann Graybiel Kavli Prize Laureate Lecture",
+      "url": "https://www.youtube.com/watch?v=WVLnuBgw3Mc",
+      "channel": "The Kavli Prize",
+      "source_id": "SRC_M2",
+      "duration_sec": 1576,
+      "timecodes": [
+        {
+          "t": "14:14-14:26",
+          "what": "At kf_001.jpg (860.8s) (widescreen camera frame), The Kavli Prize's recording states \"successful in that behavior and through that we developed a sort of behavioral chunking a little bit like what george miller used to talk about...\" — providing spoken context for Eugene walks straight to the kitchen snack cabinet despite failing the house map test."
+        },
+        {
+          "t": "15:06-15:16",
+          "what": "Mid-segment widescreen camera frame at kf_009.jpg (911.4s) as narration explains \"so you might be thinking if it's all this goes on when we make a simple habit how on earth did we ever break a habit um it's pretty hard didn't it\", clarifying key empirical findings in Patient E.P. (Eugene Pauly) amnesic habit retention & MIT dorsal striatum task-bracketing studies."
+        },
+        {
+          "t": "15:33-15:45",
+          "what": "Around kf_013.jpg (936.7s) (lecture slide / diagram frame), commentary states \"the sensory motor stratum at the same time to find out what happened again teaching a maze test only it had a wrinkle we call this recall the bad...\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (recorded lecture combining speaker commentary with 7/14 diagram/slide frames (640x360, sampled across 860.8s–943.0s)) from The Kavli Prize's \"Ann Graybiel Kavli Prize Laureate Lecture\" (1576s total runtime).",
+          "Deduplicated English transcript (24 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (860.8s–943.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Cortical surface with an overlay of the basal ganglia and thalamus.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Cortical_surface_with_an_overlay_of_the_basal_ganglia_and_thalamus.jpg",
+      "channel": "Wikimedia Commons (Colder B)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Cortical surface with an overlay of the basal ganglia and thalamus.jpg\" (960x544 px, CC BY 4.0): The figure shows the cortical surface with an overlay of the basal ganglia and thalamus. The blue dots on the cortical surface represent the neuronal activity for a notional emulation. This emulation. Provides anatomical and structural brain reference relevant to the neural mechanism in Patient E.P. (Eugene Pauly) amnesic habit retention & MIT dorsal striatum task-bracketing studies."
+        }
+      ],
+      "license_note": "Archival photo (CC BY 4.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x544 px, CC BY 4.0, Colder B) — neuroanatomy reference: The figure shows the cortical surface with an overlay of the basal ganglia and thalamus. The blue dots on the cortical surface represent the neuronal activity for a notional emulation. This emulation.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

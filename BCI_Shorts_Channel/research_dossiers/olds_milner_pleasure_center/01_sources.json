@@ -1,0 +1,74 @@
+{
+  "sources": [
+    {
+      "id": "SRC1",
+      "type": "primary",
+      "citation": "James Olds, Peter Milner (1954). Positive reinforcement produced by electrical stimulation of septal area and other regions of rat brain. Journal of Comparative and Physiological Psychology.",
+      "doi": "10.1037/h0058775",
+      "url": "https://doi.org/10.1037/h0058775",
+      "year": 1954,
+      "verified": true,
+      "notes": "Foundational primary study (1954) in Journal of Comparative and Physiological Psychology establishing the core experimental paradigm and quantitative parameters."
+    },
+    {
+      "id": "SRC2",
+      "type": "review",
+      "citation": "Roy A. Wise (2004). Dopamine, learning and motivation. Nature Reviews Neuroscience.",
+      "doi": "10.1038/nrn1406",
+      "url": "https://doi.org/10.1038/nrn1406",
+      "year": 2004,
+      "verified": true,
+      "notes": "Roy Wise's synthesis of intracranial self-stimulation and mesolimbic dopamine reward circuitry."
+    },
+    {
+      "id": "SRC3",
+      "type": "review",
+      "citation": "Kent C. Berridge, Morten L. Kringelbach (2015). Pleasure Systems in the Brain. Neuron.",
+      "doi": "10.1016/j.neuron.2015.02.018",
+      "url": "https://doi.org/10.1016/j.neuron.2015.02.018",
+      "year": 2015,
+      "verified": true,
+      "notes": "Kent Berridge and Morten Kringelbach's dissociation between mesolimbic dopamine 'wanting' (incentive salience) and hedonic 'liking' hotspots."
+    },
+    {
+      "id": "SRC4",
+      "type": "follow_up",
+      "citation": "Ilana B. Witten, Elizabeth E. Steinberg, Soo Yeun Lee, Thomas J. Davidson et al. (2011). Recombinase-Driver Rat Lines: Tools, Techniques, and Optogenetic Application to Dopamine-Mediated Reinforcement. Neuron.",
+      "doi": "10.1016/j.neuron.2011.10.028",
+      "url": "https://doi.org/10.1016/j.neuron.2011.10.028",
+      "year": 2011,
+      "verified": true,
+      "notes": "Optogenetic proof that selective activation of ventral tegmental area dopamine neurons suffices to drive vigorous lever self-stimulation."
+    },
+    {
+      "id": "SRC_M1",
+      "type": "documentary",
+      "citation": "H. Tak Cheung. \"Study by James Old of Brain Reward Center.\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=uofQPLuLV9A",
+      "year": null,
+      "verified": true,
+      "notes": "Primary video reference analyzed locally in media/M1_olds_milner_pleasure_center/ (9 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_M2",
+      "type": "documentary",
+      "citation": "FORA.tv. \"Dopamine Jackpot! Sapolsky on the Science of Pleasure.\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=axrywDP9Ii0",
+      "year": null,
+      "verified": true,
+      "notes": "Complementary video reference analyzed locally in media/M2/ (14 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_STILL",
+      "type": "museum",
+      "citation": "Wikimedia Commons contributor (CC BY 4.0). \"The stereotaxic apparatus. Wellcome M0016268.jpg.\" Wikimedia Commons.",
+      "doi": null,
+      "url": "https://commons.wikimedia.org/wiki/File:The_stereotaxic_apparatus._Wellcome_M0016268.jpg",
+      "year": null,
+      "verified": true,
+      "notes": "Verified archival image (1600x1220 px) stored locally in media/M3/still.jpg for reference analysis only (never reused raw). The stereotaxic apparatus: illustrations. Wellcome Images."
+    }
+  ]
+}

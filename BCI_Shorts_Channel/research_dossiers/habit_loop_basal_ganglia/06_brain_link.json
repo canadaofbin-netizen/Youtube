@@ -1,0 +1,37 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "crisis",
+      "region": "hippocampus",
+      "plain": "memory recorder",
+      "function": "encoding conscious floor plans and new daily episodes",
+      "scene_id": "S2",
+      "narration_bridge": "Links Eugene's blank floor-plan drawing to viral loss of his conscious memory recorder."
+    },
+    {
+      "role": "pivot",
+      "region": "basal ganglia",
+      "plain": "habit engine",
+      "function": "packaging repeated cue-action-reward loops into automatic chunks",
+      "scene_id": "S1",
+      "narration_bridge": "Connects Eugene's effortless walk to the snack cabinet to the intact deep habit engine."
+    },
+    {
+      "role": "step1",
+      "region": "motor cortex",
+      "plain": "movement strip",
+      "function": "executing the middle physical steps once the striatal start burst fires",
+      "scene_id": "S1",
+      "narration_bridge": "Shows automatic footsteps and cabinet reach running along the movement strip."
+    },
+    {
+      "role": "step2",
+      "region": "prefrontal cortex",
+      "plain": "planner",
+      "function": "stepping back to save energy once a routine becomes fully bracketed",
+      "scene_id": "S3",
+      "narration_bridge": "Explains why conscious supervision powers down during familiar routines."
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Hubel and Wiesel Cat Experiment",
+      "url": "https://www.youtube.com/watch?v=IOHayh06LJ4",
+      "channel": "Paul Lester",
+      "source_id": "SRC_M1",
+      "duration_sec": 60,
+      "timecodes": [
+        {
+          "t": "00:16-00:21",
+          "what": "At kf_004.jpg (16.5s) (widescreen camera frame), Paul Lester's recording states \"first experiments and they didn't go well because at the beginning we couldn't make the cells fire at all. We'd shine lights all over the screen...\" — providing spoken context for 1959 Johns Hopkins Optical Bench: The Angled Glass-Slide Edge Unleashing Spikes on the Oscilloscope After Round Light Spots Failed."
+        },
+        {
+          "t": "00:22-00:38",
+          "what": "Mid-segment widescreen camera frame at kf_006.jpg (27.5s) as narration explains \"all. We'd shine lights all over the screen and nothing seemed to work and rather by accident one day we were shining small spots either white...\", clarifying key empirical findings in David H. Hubel & Torsten N. Wiesel's 1958–1959 Johns Hopkins Jammed-Slide Discovery of V1 Orientation Columns."
+        },
+        {
+          "t": "00:57-01:00",
+          "what": "Subsequent widescreen camera frame at kf_012.jpg (60.5s) in \"Hubel and Wiesel Cat Experiment\", documenting closing visual sequence for reference analysis."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_hubel_wiesel_visual_orientat/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_hubel_wiesel_visual_orientat",
+        "contact_sheet": "media/M1_hubel_wiesel_visual_orientat/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1_hubel_wiesel_visual_orientat/contact_sheet.jpg (live-action speaker/interview recording intercut with 2 visual slide frames (480x270, sampled across 0.0s–71.5s)) from Paul Lester's \"Hubel and Wiesel Cat Experiment\" (60s total runtime).",
+          "Deduplicated English transcript (5 timestamped cues in media/M1_hubel_wiesel_visual_orientat/transcript.txt) aligned directly to keyframe timestamps (0.0s–71.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "interview",
+      "title": "Torsten Wiesel, M.D. - Oral History Excerpts",
+      "url": "https://www.youtube.com/watch?v=Mo5yck8OPLw",
+      "channel": "The Rockefeller University",
+      "source_id": "SRC_M2",
+      "duration_sec": 492,
+      "timecodes": [
+        {
+          "t": "00:11-00:19",
+          "what": "Non-vocal widescreen camera frame at kf_003.jpg (14.3s) in The Rockefeller University's \"Torsten Wiesel, M.D. - Oral History Excerpts\", visually recording timing and visual layout relevant to 1959 Johns Hopkins Optical Bench: The Angled Glass-Slide Edge Unleashing Spikes on the Oscilloscope After Round Light Spots Failed."
+        },
+        {
+          "t": "00:56-01:05",
+          "what": "At kf_009.jpg (60.0s) (monochrome film frame), audio continues with \"into science because I realized very quickly that it was very little to do. I decided I want to see.\", detailing experimental methodology and behavioral observations for David H. Hubel & Torsten N. Wiesel's 1958–1959 Johns Hopkins Jammed-Slide Discovery of V1 Orientation Columns."
+        },
+        {
+          "t": "01:06-01:19",
+          "what": "Later widescreen camera frame at kf_010.jpg (69.0s) accompanied by \"It's possible to find a way of understanding more really what it is, that lead to people who behave in strange ways. Other way of work is in some...\", summarizing mechanism and boundary conditions in David H. Hubel & Torsten N. Wiesel's 1958–1959 Johns Hopkins Jammed-Slide Discovery of V1 Orientation Columns."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (640x360, 14 frames sampled across 0.0s–100.5s)) from The Rockefeller University's \"Torsten Wiesel, M.D. - Oral History Excerpts\" (492s total runtime).",
+          "Deduplicated English transcript (11 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–100.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Hubel+wiesel.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Hubel%2Bwiesel.jpg",
+      "channel": "Wikimedia Commons (Jimmierock)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Hubel+wiesel.jpg\" (387x520 px, CC BY-SA 3.0): Recording of specialized neurons that only respond to specific orientation of a line. Provides anatomical and structural brain reference relevant to the neural mechanism in David H. Hubel & Torsten N. Wiesel's 1958–1959 Johns Hopkins Jammed-Slide Discovery of V1 Orientation Columns."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 3.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (387x520 px, CC BY-SA 3.0, Jimmierock) — neuroanatomy reference: Recording of specialized neurons that only respond to specific orientation of a line.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

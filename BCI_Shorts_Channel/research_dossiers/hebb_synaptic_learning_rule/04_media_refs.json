@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Dr. Donald O. Hebb",
+      "url": "https://www.youtube.com/watch?v=EsrMoXJSxto",
+      "channel": "cdnmedhall",
+      "source_id": "SRC_M1",
+      "duration_sec": 339,
+      "timecodes": [
+        {
+          "t": "00:11-00:17",
+          "what": "Around kf_003.jpg (18.0s) (4:3 camera frame), speaker commentary notes \"Donald Hebb had already taught himself to read by the age of three he breeed through school and in the way of many\", anchoring the research context of 1949 McGill Page 62 & 1973 Oslo/London Oscilloscope: Coincident A to B Firing Jumping the Hippocampal LTP Curve Up 200%."
+        },
+        {
+          "t": "00:38-00:48",
+          "what": "At kf_006.jpg (45.0s) (dark-backdrop stage / studio camera frame), audio continues with \"wasn't interested and uh in his fourth year he moved back into a general Arts course after graduating in 1925 with a\", detailing experimental methodology and behavioral observations for Donald O. Hebb's 1949 McGill Synaptic Learning Postulate & Tim Bliss and Terje Lømo's 1973 Hippocampal Long-Term Potentiation (LTP) Proof."
+        },
+        {
+          "t": "01:47-01:55",
+          "what": "Later 4:3 camera frame at kf_013.jpg (108.0s) accompanied by \"appointment at the yeres primate Center in Florida he's writing the manuscript so he worked seven days a week usually\", summarizing mechanism and boundary conditions in Donald O. Hebb's 1949 McGill Synaptic Learning Postulate & Tim Bliss and Terje Lømo's 1973 Hippocampal Long-Term Potentiation (LTP) Proof."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (4:3 broadcast/clinical camera recording (240x196, 14 frames sampled across 0.0s–117.0s)) from cdnmedhall's \"Dr. Donald O. Hebb\" (339s total runtime).",
+          "Deduplicated English transcript (47 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (0.0s–117.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Eric Kandel - Understanding how LTP functions in relation to memory storage (55/80)",
+      "url": "https://www.youtube.com/watch?v=t0iYYVvL3HY",
+      "channel": "Web of Stories - Life Stories of Remarkable People",
+      "source_id": "SRC_M2",
+      "duration_sec": 173,
+      "timecodes": [
+        {
+          "t": "00:00-00:15",
+          "what": "Widescreen camera frame at kf_002.jpg (9.0s) paired with transcript segment \"Ted Abel, in the lab at that particular point, was beginning to take advantage of some of the methodology that Mark Mayford had introduced. Mark...\", introducing core background on 1949 McGill Page 62 & 1973 Oslo/London Oscilloscope: Coincident A to B Firing Jumping the Hippocampal LTP Curve Up 200%."
+        },
+        {
+          "t": "00:53-01:07",
+          "what": "Around kf_008.jpg (63.0s) (widescreen camera frame), transcript records \"He used a dominant negative hit of PKA, and he found when you did that, you went to feed it with the late phase of LTP, and you got rid of long...\", examining procedural mechanics and evidence in Donald O. Hebb's 1949 McGill Synaptic Learning Postulate & Tim Bliss and Terje Lømo's 1973 Hippocampal Long-Term Potentiation (LTP) Proof."
+        },
+        {
+          "t": "01:20-01:34",
+          "what": "At kf_011.jpg (90.0s) (widescreen camera frame), speaker remarks \"factor. So that was really sort of a major step forward in allowing us to understand how LTP functions a little bit more and how it relates to...\", addressing theoretical interpretation and downstream implications of Donald O. Hebb's 1949 McGill Synaptic Learning Postulate & Tim Bliss and Terje Lømo's 1973 Hippocampal Long-Term Potentiation (LTP) Proof."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (640x360, 14 frames sampled across 0.0s–117.0s)) from Web of Stories - Life Stories of Remarkable People's \"Eric Kandel - Understanding how LTP functions in relation to memory storage (55/80)\" (173s total runtime).",
+          "Deduplicated English transcript (23 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–117.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Pyramidal hippocampal neuron 40x.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Pyramidal_hippocampal_neuron_40x.jpg",
+      "channel": "Wikimedia Commons (MethoxyRoxy)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Pyramidal hippocampal neuron 40x.jpg\" (1344x1024 px, CC BY-SA 2.5): Golgi stained pyramidal neuron in the hippocampus of an epileptic patient. 40 times magnification. Provides anatomical and structural brain reference relevant to the neural mechanism in Donald O. Hebb's 1949 McGill Synaptic Learning Postulate & Tim Bliss and Terje Lømo's 1973 Hippocampal Long-Term Potentiation (LTP) Proof."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 2.5) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (1344x1024 px, CC BY-SA 2.5, MethoxyRoxy) — neuroanatomy reference: Golgi stained pyramidal neuron in the hippocampus of an epileptic patient. 40 times magnification.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

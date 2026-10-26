@@ -1,0 +1,213 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Articulated porcelain infant macaque anchoring its hind feet on the terrycloth surrogate while leaning across to nurse from the bare wire frame",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1958, University of Wisconsin Primate Laboratory, Madison",
+      "layout": {
+        "description": "Brightly lit 1958 observation chamber with glass viewing window, containing two side-by-side inclined cylindrical surrogates: on the left, bare silver welded wire mesh holding a glass milk bottle; on the right, warm tan cushioned terrycloth with no bottle.",
+        "positions": [
+          {
+            "who": "Articulated matte-white porcelain infant macaque sculpture",
+            "where": "anchoring both hind feet tightly onto the soft tan terrycloth cylinder while stretching its arms sideways across the gap to sip from the wire frame's bottle",
+            "facing": "bridging from cloth surrogate toward wire bottle"
+          },
+          {
+            "who": "Harry Harlow (mannequin in 1950s white lab coat and horn-rimmed glasses)",
+            "where": "standing outside the glass observation window with a dual-channel timer clock logging hours on cloth versus wire",
+            "facing": "observing the dual surrogates"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "bare welded-wire milk surrogate",
+          "period_detail": "inclined cylindrical wire-mesh frame fitted with a single glass nursing bottle at chest height",
+          "physical_behavior": "logged at under 1.5 hours of contact per day despite holding all food"
+        },
+        {
+          "name": "soft tan terrycloth surrogate",
+          "period_detail": "identical inclined cylinder wrapped in cushioned sponge rubber and textured tan terrycloth towel fabric",
+          "physical_behavior": "logged at 17+ hours of daily clinging contact despite zero milk"
+        },
+        {
+          "name": "dual electromechanical contact-time clocks",
+          "period_detail": "two 1950s dial counters wired to pressure switches under each surrogate base",
+          "physical_behavior": "cloth clock reads 17 hours while wire clock barely passes 1 hour"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Porcelain infant macaque sculpture",
+          "verb_sequence": "clings tightly to the tan terrycloth cylinder -> keeps hind feet locked on the soft cloth while leaning across to drink briefly from the wire bottle -> snaps immediately back onto the terrycloth chest"
+        },
+        {
+          "who": "Harry Harlow",
+          "verb_sequence": "points to the 17-hour vs 1-hour counter dials outside the glass window"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Porcelain infant macaque sculpture",
+          "reaction": "rests calmly against the textured tan terrycloth once hunger is satisfied"
+        },
+        {
+          "who": "Harry Harlow",
+          "reaction": "notes how tactile contact completely overrides food reinforcement"
+        }
+      ],
+      "wardrobe": "Experimenter mannequin in 1958 white cotton lab coat, collared shirt, and narrow tie; animal subject strictly rendered as an articulated matte-white porcelain infant macaque sculpture.",
+      "lighting": "Clean high-key 1958 laboratory daylight illuminating the stark texture contrast between cold silver wire mesh and warm tan terrycloth.",
+      "recognition_hook": "Keeping both feet locked onto the milkless soft terrycloth surrogate, the porcelain infant stretches sideways just long enough to sip from the bare wire bottle before snapping right back to the cloth.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "an articulated matte-white porcelain infant macaque anchoring its feet on a tan terrycloth cylinder while leaning sideways to drink from an adjacent bare wire-mesh frame with a bottle",
+        "must_show": [
+          "cloth|terrycloth",
+          "wire",
+          "bottle|macaque|monkey"
+        ],
+        "source": "M1@00:04-00:15; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Mechanical drumming toy triggers an instant sprint to the cloth surrogate",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1958, Wisconsin fear-test chamber",
+      "layout": {
+        "description": "Clean testing enclosure containing both wire and cloth surrogates as a small wind-up toy bear with a miniature drum sits at the opposite end.",
+        "positions": [
+          {
+            "who": "Porcelain infant macaque sculpture",
+            "where": "sprinting straight past the bare wire milk frame to clasp the tan terrycloth surrogate tightly",
+            "facing": "buried against the terrycloth"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "wind-up drumming toy",
+          "period_detail": "small 1950s tin mechanical toy holding two tiny drumsticks",
+          "physical_behavior": "triggers an immediate flight toward the cloth haven"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Experimenter",
+          "verb_sequence": "sets down the tin drumming toy -> porcelain infant darts past the wire feeder and leaps onto the terrycloth cylinder"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Porcelain infant macaque sculpture",
+          "reaction": "calms down against the cloth, then turns its head curiously back toward the toy"
+        }
+      ],
+      "wardrobe": "1958 lab coat; articulated porcelain macaque sculpture.",
+      "lighting": "High-key observation light.",
+      "recognition_hook": "Under sudden fear, even wire-fed infants run past their food source straight to the soft cloth mother.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Open-field room exploration using the cloth mother as a secure base",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1958, Wisconsin open-field playroom",
+      "layout": {
+        "description": "Spacious white testing room scattered with wooden blocks, folded paper, and a small climbing cube around the central tan terrycloth surrogate.",
+        "positions": [
+          {
+            "who": "Porcelain infant macaque sculpture",
+            "where": "stepping bravely out from the terrycloth base to inspect a wooden block, glancing back once for reassurance",
+            "facing": "facing the blocks"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "wooden curiosity blocks",
+          "period_detail": "colorful geometric blocks arranged across the floor",
+          "physical_behavior": "explored freely only when the cloth surrogate stands in the room"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Porcelain infant macaque sculpture",
+          "verb_sequence": "touches the cloth base -> walks out three steps to pick up a wooden cube"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Observer mannequin",
+          "reaction": "charts exploratory steps rising dramatically when the secure base is present"
+        }
+      ],
+      "wardrobe": "1958 lab coat; porcelain macaque sculpture.",
+      "lighting": "Bright high-key room daylight.",
+      "recognition_hook": "With a warm safe base in the room, fear turns into bold exploration.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Modern hospital kangaroo skin-to-skin newborn care",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern family maternity suite",
+      "layout": {
+        "description": "Sunlit modern hospital room where a parent mannequin holds a swaddled newborn calmly against their chest while vital-sign monitors show steady waves.",
+        "positions": [
+          {
+            "who": "Parent mannequin in soft cotton wrap",
+            "where": "reclining calmly in an armchair holding infant close",
+            "facing": "facing infant"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "vital-sign bedside monitor",
+          "period_detail": "clean medical display showing steady calm heart-rate trace",
+          "physical_behavior": "stabilizes with warm tactile contact"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Nurse mannequin",
+          "verb_sequence": "places warm blanket gently over parent and infant"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Parent mannequin",
+          "reaction": "relaxes as the monitor trace steadies"
+        }
+      ],
+      "wardrobe": "Soft modern hospital wrap and scrubs.",
+      "lighting": "Warm, bright window daylight.",
+      "recognition_hook": "Harlow's contact-comfort proof helped overturn no-touch nursery rules in favor of skin-to-skin care.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

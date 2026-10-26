@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "archive_film",
+      "title": "Gazzaniga explains Split Brain in Sperry Lab",
+      "url": "https://www.youtube.com/watch?v=8cOBt5fxS3Y",
+      "channel": "Roger Sperry History",
+      "source_id": "SRC_M1",
+      "duration_sec": 659,
+      "timecodes": [
+        {
+          "t": "07:14-07:29",
+          "what": "At kf_003.jpg (443.4s) (monochrome film frame), Roger Sperry History's recording states \"sees to the right of that point is projected into the left hemisphere so that a split brain person can be sitting here and when we flash on a...\" — providing spoken context for 1961 Caltech Discrimination Box: Shifting a Soft Eye-Patch Resets an Cat's 100% 'Circle vs Cross' Mastery Back to Zero."
+        },
+        {
+          "t": "07:30-07:44",
+          "what": "Mid-segment monochrome film frame at kf_005.jpg (456.1s) as narration explains \"the patient says uh that he describes it as an orange and no matter what the stimuli words pictures they describe in a correct manner a similar...\", clarifying key empirical findings in Roger W. Sperry & Ronald E. Myers's 1953–1961 Split Optic Chiasm & Corpus Callosum Interhemispheric Transfer Experiments."
+        },
+        {
+          "t": "07:59-08:13",
+          "what": "Around kf_010.jpg (487.7s) (monochrome film frame), commentary states \"sure enough the patient goes out very calmly and points to the word fork so that uh what happens in the split brain patient is that all the...\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_sperry_split_chiasm_interhem/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_sperry_split_chiasm_interhem",
+        "contact_sheet": "media/M1_sperry_split_chiasm_interhem/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1_sperry_split_chiasm_interhem/contact_sheet.jpg (archival footage (480x360, 11/14 monochrome frames across 430.8s–513.0s)) from Roger Sperry History's \"Gazzaniga explains Split Brain in Sperry Lab\" (659s total runtime).",
+          "Deduplicated English transcript (32 timestamped cues in media/M1_sperry_split_chiasm_interhem/transcript.txt) aligned directly to keyframe timestamps (430.8s–513.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "interview",
+      "title": "Recent Interview with Gazzaniga and split brain patient 'Joe'",
+      "url": "https://www.youtube.com/watch?v=RFgtGIL7vEY",
+      "channel": "markmcdermott",
+      "source_id": "SRC_M2",
+      "duration_sec": 614,
+      "timecodes": [
+        {
+          "t": "00:48-00:54",
+          "what": "Around kf_004.jpg (48.1s) (dark-backdrop stage / studio camera frame), speaker commentary notes \"day to control Joe's epileptic seizures a surgeon severed the connection between the two halves of his brain cutting the\", anchoring the research context of 1961 Caltech Discrimination Box: Shifting a Soft Eye-Patch Resets an Cat's 100% 'Circle vs Cross' Mastery Back to Zero."
+        },
+        {
+          "t": "01:17-01:23",
+          "what": "At kf_008.jpg (80.4s) (4:3 camera frame), audio continues with \"his everyday life he's largely unaffected by the fact that his left and his right brains work independently do\", detailing experimental methodology and behavioral observations for Roger W. Sperry & Ronald E. Myers's 1953–1961 Split Optic Chiasm & Corpus Callosum Interhemispheric Transfer Experiments."
+        },
+        {
+          "t": "01:38-01:44",
+          "what": "Later 4:3 camera frame at kf_012.jpg (100.1s) accompanied by \"right away when I was asked to draw a different shape with each hand in a brain like mine roughly\", summarizing mechanism and boundary conditions in Roger W. Sperry & Ronald E. Myers's 1953–1961 Split Optic Chiasm & Corpus Callosum Interhemispheric Transfer Experiments."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x330, 14 frames sampled across 14.6s–111.5s)) from markmcdermott's \"Recent Interview with Gazzaniga and split brain patient 'Joe'\" (614s total runtime).",
+          "Deduplicated English transcript (40 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (14.6s–111.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Roger Wolcott Sperry.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Roger_Wolcott_Sperry.jpg",
+      "channel": "Wikimedia Commons (Unknown author Unknown author)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Roger Wolcott Sperry.jpg\" (960x1265 px, Public domain): Roger Wolcott Sperry. Documents authentic researcher likeness, period attire, and historical context for Roger W. Sperry & Ronald E. Myers's 1953–1961 Split Optic Chiasm & Corpus Callosum Interhemispheric Transfer Experiments."
+        }
+      ],
+      "license_note": "Archival photo (Public domain) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x1265 px, Public domain, Unknown author Unknown author) — portrait reference: Roger Wolcott Sperry.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1970 Columbia / NYU Neurobiology Bench: Giant Aplysia Porcelain Model, Dual Microelectrodes & '1,300 -> 2,600 Doubled Synapses' Chart",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1970, NYU / Columbia University Neurobiology Laboratory, New York",
+      "layout": {
+        "description": "Sunlit high-key 1970 New York neurobiology laboratory featuring a crystal-clear seawater glass dish holding an **articulated matte-white porcelain Aplysia sea-hare sculpture**, flanked by twin precision micromanipulator arms lowering glass microelectrodes onto a large educational 2-neuron ('Sensory -> Motor') circuit diagram, beside a crisp chart comparing **Short-Term (1,300 Terminals) vs Long-Term Spaced Training (2,600 Terminals — Doubled!)**.",
+        "positions": [
+          {
+            "who": "Eric Kandel (mannequin in 1970 crisp white lab coat, collared shirt, and signature red bow tie)",
+            "where": "adjusting the gentle water-jet pipette beside the seawater dish while pointing from the oscilloscope synaptic potential jump to the '1,300 -> 2,600 Synaptic Terminals' structural growth plaque",
+            "facing": "standing at electrophysiology bench"
+          },
+          {
+            "who": "Vincent Castellucci / Irving Kupfermann (mannequin in 1970 rolled-sleeve Oxford shirt under lab coat)",
+            "where": "recording paired presynaptic and postsynaptic trace amplitudes in the 1970 Science laboratory notebook",
+            "facing": "seated beside dual-trace monitor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "articulated matte-white porcelain Aplysia sea-hare sculpture in clear glass dish & gentle water-jet pipette",
+          "period_detail": "clean museum-grade porcelain marine model showing siphon-to-gill reflex geometry",
+          "physical_behavior": "honors R46 porcelain animal rule"
+        },
+        {
+          "name": "dual micromanipulator probes & twin-trace EPSP oscilloscope",
+          "period_detail": "records the exact single synapse between siphon sensory cell and gill motor cell",
+          "physical_behavior": "captures the January 1970 Science breakthrough"
+        },
+        {
+          "name": "'850 (Habituated) | 1,300 (Baseline) | 2,600 (Long-Term Spaced)' terminal-tree plaque",
+          "period_detail": "visualizes physical pruning and doubling of synaptic branches",
+          "physical_behavior": "proves long-term memory is new anatomy"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Eric Kandel",
+          "verb_sequence": "applies a gentle spaced water-jet training sequence -> points as the postsynaptic wave doubles on the oscilloscope AND switches to the structural plaque showing 1,300 terminals branching out into 2,600 terminals"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Colleague mannequin",
+          "reaction": "logs intact short-term trace vs protein-dependent long-term terminal doubling"
+        },
+        {
+          "who": "Eric Kandel",
+          "reaction": "beams with his trademark bow-tie warmth as one simple synapse unlocks memory's molecular alphabet"
+        }
+      ],
+      "wardrobe": "1970 academic laboratory attire: crisp white lab coat, blue Oxford button-down, signature bow tie.",
+      "lighting": "Clean high-key New York laboratory daylight.",
+      "recognition_hook": "With 20,000 giant naked-eye neurons, a humble sea snail proved long-term memories physically double the connections between brain cells.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1970 neurobiology bench where a bow-tied researcher in a lab coat stands beside a clear dish holding a matte-white porcelain Aplysia sculpture, micromanipulators, an oscilloscope, and a 1300-to-2600 synaptic terminal chart",
+        "must_show": [
+          "dish|sculpture|aplysia",
+          "oscilloscope|probes|chart",
+          "bench|table"
+        ],
+        "source": "M1@00:08-00:16; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Why Cramming Fails & Spaced Sessions Flip CREB On",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1990, Columbia Center for Neurobiology and Behavior",
+      "layout": {
+        "description": "Bright teaching table contrasting '4 Crammed Trials (Local cAMP Only)' against '4 Spaced Trials (Nuclear CREB-1 -> New Terminals)'.",
+        "positions": [
+          {
+            "who": "Neurobiologist mannequin",
+            "where": "showing why spaced gaps let PKA reach the cell nucleus to lift the CREB-2 brake and build permanent hardware",
+            "facing": "at diagram board"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Crammed Chemical vs Spaced Structural comparison board",
+          "period_detail": "explains Ebbinghaus's 1885 spacing law at the gene level",
+          "physical_behavior": "Kandel & Bailey 1990s discovery"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Neurobiologist",
+          "verb_sequence": "flips the CREB-1 switch ON strictly on the spaced-training track"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Graduate students",
+          "reaction": "vow never to rely on last-minute cramming again"
+        }
+      ],
+      "wardrobe": "1990s academic sweaters and lab coats.",
+      "lighting": "Bright seminar light.",
+      "recognition_hook": "Cramming only turns up temporary chemical volume at the tip — spaced practice sends a messenger into the cell nucleus to build twice as many wires.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Conserved Across 500 Million Years: Matte-White Porcelain Sea-Slug to Mouse to Human",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2000, Stockholm Nobel Lecture stage",
+      "layout": {
+        "description": "Warm sunlit lecture hall displaying matte-white porcelain Aplysia sea-slug, porcelain fruit-fly, and mammalian hippocampus models sharing the identical cAMP -> PKA -> CREB pathway.",
+        "positions": [
+          {
+            "who": "Eric Kandel mannequin",
+            "where": "delivering his 2000 Nobel Lecture pointing across the conserved evolutionary memory alphabet",
+            "facing": "at oak lectern"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "3-species conserved CREB memory plaque",
+          "period_detail": "vindicates Kandel's bold 1962 bet on a simple marine organism",
+          "physical_behavior": "2000 Nobel Prize synthesis"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Kandel",
+          "verb_sequence": "gestures across all three species sharing one molecular memory switch"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Audience mannequins",
+          "reaction": "applaud warmly"
+        }
+      ],
+      "wardrobe": "Tailored dark suit and bow tie.",
+      "lighting": "Warm auditorium daylight.",
+      "recognition_hook": "Evolution didn't reinvent memory for humans — it kept the exact molecular CREB switch perfected half a billion years ago in the sea.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Every Day You Learn, You Physically Re-Sculpt Your Own Brain",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit study & sleep-consolidation bedroom",
+      "layout": {
+        "description": "Sunlit desk with four spaced 25-minute study blocks followed by restful sleep.",
+        "positions": [
+          {
+            "who": "Student mannequin",
+            "where": "finishing a short spaced session calmly knowing protein synthesis will cement new terminals overnight",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "4-day spaced schedule card",
+          "period_detail": "aligns daily study habits with CREB transcription timing",
+          "physical_behavior": "actionable takeaway"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Student",
+          "verb_sequence": "checks off Session 3 of 4 and closes book on time for full sleep"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Student",
+          "reaction": "confident, rested focus"
+        }
+      ],
+      "wardrobe": "Modern casual knitwear.",
+      "lighting": "Warm afternoon light.",
+      "recognition_hook": "You walk out of every spaced study session with a slightly different anatomical brain than the one you walked in with.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

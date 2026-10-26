@@ -1,0 +1,102 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Injected with secret adrenaline under a 'vitamin' cover story, unwarned students hurl paper airplanes in one room and rage in the next.",
+    "core_experiment": "Schachter & Singer's 1962 184-student design crossing Informed / Ignorant / Misinformed epinephrine briefings with Euphoria and Anger actors.",
+    "twist": "Why a 20-second honest warning conferred emotional immunity — plus modern replication boundaries on arousal reappraisal."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Fictional Vitamin Named 'Suproxin'",
+      "beats": [
+        "0.5 cc pure adrenaline under a vision-test cover story",
+        "Informed vs Ignorant vs Misinformed briefings",
+        "Identical racing hearts"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "close-up Suproxin vial and arm bandage"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Paper Airplanes vs Ripped Questionnaires",
+      "beats": [
+        "Confederate euphoria script (index 22.56)",
+        "Confederate anger script",
+        "Same chemistry, opposite feelings"
+      ],
+      "scene_ids": [
+        "S1",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "alternating matched-angle airplane vs torn booklet"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Twenty Seconds of Truth as Armor",
+      "beats": [
+        "Why Informed students stayed calm (12.72)",
+        "Insula body signal meets prefrontal meaning label"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "calm Informed student pointing to arm bandage"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "What Replications Refined",
+      "beats": [
+        "Marshall & Zimbardo's negative-tilt nuance",
+        "Turning stage fright into performance excitement"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "arousal reappraisal curve"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "The Five-Second Espresso Check",
+      "beats": [
+        "Spotting caffeine, sleep debt, and hunger before reacting",
+        "Separating body chemistry from relationship stories"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "modern desk with two empty espresso cups"
+      ]
+    }
+  ]
+}

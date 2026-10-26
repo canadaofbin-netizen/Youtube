@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "slug": "thorndike_law_of_effect",
+  "topic": "Edward Thorndike (1898): Wooden Puzzle Boxes, Escaping Cats & the Birth of the Law of Effect",
+  "pillar": "brain_history",
+  "created_at": "2026-10-25T22:49:33+00:00",
+  "status": "ready",
+  "visual_mode": "BEHAVIORAL_PSYCH",
+  "visual_mode_reason": "Edward Thorndike timing hungry cats escaping slatted wooden crate puzzle boxes via pedals, string loops, and latches at Columbia in 1898 — plotting gradual escape-time curves rather than sudden human-like 'aha!' cliffs — is a classic mechanical apparatus behavioral study.",
+  "primary_case": {
+    "title": "Edward Lee Thorndike's 1898 Columbia University Cat Puzzle-Box & Law of Effect experiments",
+    "year": 1898,
+    "place": "Attic & basement animal rooms, Columbia University (and William James's basement in Cambridge, Massachusetts)",
+    "people": [
+      {
+        "name": "Edward Lee Thorndike",
+        "role": "23-year-old Harvard/Columbia graduate student who nailed together 15 slatted crate 'puzzle boxes' and timed every single scratch-to-latch escape with a stopwatch",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "William James",
+        "role": "Harvard psychologist who famously sheltered Thorndike's early animal experiments in his own home basement when Harvard denied campus space.",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "B. F. Skinner",
+        "role": "Behaviorist who built the operant conditioning chamber ('Skinner box') directly upon Thorndike's 1898 Law of Effect",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Before 1898, 'animal psychology' relied on charming Victorian fireside anecdotes ('My clever terrier understands door locks like a little gentleman!'). At age 23, Edward Thorndike nailed together 15 homemade wooden crate 'puzzle boxes' out of old packing slats and brought a stopwatch.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "When Harvard administrators refused lab space for animals, William James hosted Thorndike's first chicks in the basement of the James family home in Cambridge before James McKeen Cattell gave Thorndike an attic lab at Columbia.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Inside each slatted puzzle box, a hungry cat could see a dish of fish right outside the door; escaping required a specific mechanical action — stepping on a wooden treadle platform, pulling a hanging wire loop, or turning a wooden button latch (and in tough Box K, ALL THREE in one sequence!).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "On Trial 1, cats clawed, bit slats, squeezed through gaps, and flailed for 2 to 5 minutes until a paw accidentally snagged the loop or pedal, springing the weighted door open to the fish.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Crucially, when Thorndike plotted 'Seconds to Escape' across 20 to 40 trials ('time-curves'), the line did NOT drop in one vertical 'Aha. Now I understand pulleys!' cliff — it sloped DOWNWARD GRADUALLY from ~160 seconds down to a smooth 6-to-7 seconds as useless movements dropped out and the rewarded movement got 'stamped in'.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Even more telling: when Thorndike lifted a cat and manually guided its paw onto the loop ('learning by imitation/instruction'), OR let a rookie cat watch an expert cat escape 10 times, the cats learned ZERO faster than pure trial-and-error.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "From those jagged-then-smooth escape curves, Thorndike formulated the **Law of Effect**: actions followed immediately by a satisfying outcome are stamped in and grow more likely in that situation, whereas actions producing discomfort or nothing fade away — the bedrock of B. F. Skinner's operant conditioning AND modern AI reinforcement learning.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Two vital twists followed: in 1917 Wolfgang Köhler countered that Thorndike's hidden strings HID causal mechanics (chimps given visible sticks and crates DO show sudden insight cliffs!), and in 1932 Thorndike bravely corrected his own law — proving rewards reliably strengthen habits while punishments ('annoyers') do NOT symmetrically erase them.",
+      "source_id": "SRC2"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "William James literally let 23-year-old Edward Thorndike run animal maze experiments in the BASEMENT OF JAMES'S OWN HOUSE when Harvard refused lab space.",
+      "why_surprising": "Modern reinforcement science started in William James's cellar and old packing crates.",
+      "source_id": "SRC2",
+      "rank": 1
+    },
+    {
+      "fact": "Plot a cat's escape times across 30 trials and there is NO sudden lightbulb moment — the curve slopes down bit by bit from 160 seconds to 6 seconds as lucky hits get 'stamped in' by fish.",
+      "why_surprising": "Intelligence without conscious physics: trial, accidental success, and reward selection.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Let a beginner cat sit right next to the box watching a master cat pop the latch 10 times in a row, put the beginner inside, and it flails from scratch — zero observational shortcut.",
+      "why_surprising": "Without doing the motor act itself and earning the consequence, the bond didn't stamp in.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "Every modern AI reinforcement-learning agent (from AlphaGo to robotics) runs a digital descendant of Thorndike's 1898 Law of Effect: try actions, weight what wins reward, prune what fails.",
+      "why_surprising": "1898 wooden slats birthed both Skinnerian behaviorism and modern RL.",
+      "source_id": "SRC2",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Animals solve hidden mechanical latches by reasoning out how strings and pulleys work like miniature engineers.",
+      "truth": "Thorndike's gradual escape-time graphs proved blind variation + reward selection can produce lightning-fast 6-second mastery with zero mechanical theory.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Thorndike proved NO animal ever experiences sudden 'aha!' insight.",
+      "truth": "Wolfgang Köhler (1917) showed arbitrary hidden wires force blind trial-and-error, whereas visible spatial problems (stacking crates under bananas) allow genuine sudden insight in apes and corvids.",
+      "source_id": "SRC3"
+    },
+    {
+      "myth": "Punishing mistakes erases bad habits just as cleanly as rewarding good actions builds them.",
+      "truth": "Thorndike himself overturned his 'symmetrical' Law of Effect in the early 1930s ('Truncated Law of Effect'): immediate positive consequences stamp habits in far more reliably than punishment erases them.",
+      "source_id": "SRC2"
+    }
+  ],
+  "everyday_hooks": [
+    "Learning to ride a bike or hit a golf ball — where 10 hours of verbal physics lectures do nothing until your own muscles feel which micro-adjustments work.",
+    "Understanding why immediate positive feedback builds team or pet habits 5x faster than scolding mistakes days later.",
+    "Seeing how smartphone apps 'stamp in' thumb-check loops using immediate micro-rewards."
+  ],
+  "linked_projects": [
+    "psych_55_thorndike_law_of_effect"
+  ]
+}

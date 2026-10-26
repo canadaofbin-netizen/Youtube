@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Action of the brain.avi",
+      "url": "https://www.youtube.com/watch?v=BvMVCzLbpp8",
+      "channel": "144mille",
+      "source_id": "SRC_M1",
+      "duration_sec": 129,
+      "timecodes": [
+        {
+          "t": "00:08-00:21",
+          "what": "4:3 camera frame at kf_004.jpg (16.5s) paired with transcript segment \"for a peanut, so the lab had all these peanuts around, and whenever the monkey made it smooth, the neuron would fire. Scientists thought, now...\", introducing core background on Parma lab loudspeaker firing identical spike bursts as an macaque sits motionless watching a precision pinch on a raisin."
+        },
+        {
+          "t": "00:22-00:33",
+          "what": "Around kf_006.jpg (27.5s) (4:3 camera frame), transcript records \"Then one day, the monkey was just sitting around, not moving at all, just sitting, when a human scientist came into the lab, and when that...\", examining procedural mechanics and evidence in di Pellegrino, Fadiga, Fogassi, Gallese & Rizzolatti's 1992 Parma premotor area F5 single-unit discovery."
+        },
+        {
+          "t": "00:57-01:05",
+          "what": "Subsequent 4:3 camera frame at kf_012.jpg (60.5s) in \"Action of the brain.avi\", documenting closing visual sequence for reference analysis."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_rizzolatti_mirror_neuron_emp/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_rizzolatti_mirror_neuron_emp",
+        "contact_sheet": "media/M1_rizzolatti_mirror_neuron_emp/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1_rizzolatti_mirror_neuron_emp/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x360, 14 frames sampled across 0.0s–71.5s)) from 144mille's \"Action of the brain.avi\" (129s total runtime).",
+          "Deduplicated English transcript (9 timestamped cues in media/M1_rizzolatti_mirror_neuron_emp/transcript.txt) aligned directly to keyframe timestamps (0.0s–71.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "Trailer: Mirror Neurons: The Science Behind Empathy Ft. Dr. Marco Iacoboni Purposeful Empathy",
+      "url": "https://www.youtube.com/watch?v=eWCVbK5typk",
+      "channel": "Purposeful Empathy Hosted by Anita Nowak",
+      "source_id": "SRC_M2",
+      "duration_sec": 81,
+      "timecodes": [
+        {
+          "t": "00:12-00:19",
+          "what": "At kf_004.jpg (15.0s) (widescreen camera frame), Purposeful Empathy Hosted by Anita Nowak's recording states \"environment group behavior is always better than individual Behavior I mean we will even a very individualistic Society but\" — providing spoken context for Parma lab loudspeaker firing identical spike bursts as an macaque sits motionless watching a precision pinch on a raisin."
+        },
+        {
+          "t": "00:20-00:27",
+          "what": "Mid-segment widescreen camera frame at kf_006.jpg (25.0s) as narration explains \"societies that are much more Collective mistake and for them it's totally natural to think yeah of course it makes\", clarifying key empirical findings in di Pellegrino, Fadiga, Fogassi, Gallese & Rizzolatti's 1992 Parma premotor area F5 single-unit discovery."
+        },
+        {
+          "t": "00:46-00:54",
+          "what": "Around kf_011.jpg (50.0s) (widescreen camera frame), commentary states \"social interaction from learning how to do things new skills and there's a whole theory about language and imitation and\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (480x270, 14 frames sampled across 0.0s–65.0s)) from Purposeful Empathy Hosted by Anita Nowak's \"Trailer: Mirror Neurons: The Science Behind Empathy Ft. Dr. Marco Iacoboni Purposeful Empathy\" (81s total runtime).",
+          "Deduplicated English transcript (28 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Giacomo Rizzolatti.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Giacomo_Rizzolatti.jpg",
+      "channel": "Wikimedia Commons (Festival della Scienza from Genova - photo by Cirone-Musi)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Giacomo Rizzolatti.jpg\" (1067x1600 px, CC BY-SA 2.0): Giacomo Rizzolatti (Kiev, 28 aprile 1937) è un neuroscienziato italiano. Documents authentic researcher likeness, period attire, and historical context for di Pellegrino, Fadiga, Fogassi, Gallese & Rizzolatti's 1992 Parma premotor area F5 single-unit discovery."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 2.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (1067x1600 px, CC BY-SA 2.0, Festival della Scienza from Genova - photo by Cirone-Musi) — portrait reference: Giacomo Rizzolatti (Kiev, 28 aprile 1937) è un neuroscienziato italiano.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

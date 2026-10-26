@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "lecture",
+      "title": "Cognitive Dissonance Theory: A Crash Course",
+      "url": "https://www.youtube.com/watch?v=9Y17YaZRRvY",
+      "channel": "Opinion Science",
+      "source_id": "SRC_M1",
+      "duration_sec": 416,
+      "timecodes": [
+        {
+          "t": "00:04-00:08",
+          "what": "Around kf_003.jpg (2.6s) (widescreen camera frame), speaker commentary notes \"Chances are good that you've heard of something called \"Cognitive Dissonance.\"\", anchoring the research context of inside the cramped MRI bore: volunteer tells the intercom 'the scanner is pleasant' as dACC conflict spikes."
+        },
+        {
+          "t": "00:09-00:21",
+          "what": "At kf_005.jpg (15.1s) (monochrome film frame), audio continues with \"It's a term that's starting to get thrown around a lot these days, but you might not know that it has a really deep root in classic social...\", detailing experimental methodology and behavioral observations for Scanner-induced compliance fMRI experiment ('calling an uncomfortable MRI scanner pleasant')."
+        },
+        {
+          "t": "00:36-00:52",
+          "what": "Later dark-backdrop stage / studio camera frame at kf_010.jpg (42.6s) accompanied by \"we define it? At the very basics, cognitive dissonance is about inconsistency. When we hold two thoughts that are inconsistent with one another...\", summarizing mechanism and boundary conditions in Scanner-induced compliance fMRI experiment ('calling an uncomfortable MRI scanner pleasant')."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (11 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 11,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (live-action speaker/interview recording intercut with 1 visual slide frames (480x270, sampled across 1.3s–87.9s)) from Opinion Science's \"Cognitive Dissonance Theory: A Crash Course\" (416s total runtime).",
+          "Deduplicated English transcript (25 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (1.3s–87.9s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "interview",
+      "title": "Part 1: Carol Tavris on Cognitive Dissonance and Consonance",
+      "url": "https://www.youtube.com/watch?v=lRDm7PhE2pk",
+      "channel": "Samantha Jones",
+      "source_id": "SRC_M2",
+      "duration_sec": 574,
+      "timecodes": [
+        {
+          "t": "04:03-04:18",
+          "what": "Monochrome film frame at kf_001.jpg (250.8s) paired with transcript segment \"indicating that they're wrong that's how they can sleep at night so you say it's especially uncomfortable for us if those ideas causing this...\", introducing core background on inside the cramped MRI bore: volunteer tells the intercom 'the scanner is pleasant' as dACC conflict spikes."
+        },
+        {
+          "t": "04:27-04:38",
+          "what": "Around kf_005.jpg (276.1s) (dark-backdrop stage / studio camera frame), transcript records \"like this um when there are two dissonant beliefs you know I smoke and I know it's bad for me that's that's bad enough but when the dissonance is\", examining procedural mechanics and evidence in Scanner-induced compliance fMRI experiment ('calling an uncomfortable MRI scanner pleasant')."
+        },
+        {
+          "t": "05:15-05:29",
+          "what": "At kf_012.jpg (320.4s) (4:3 camera frame), speaker remarks \"disaster because with every step we make justifying an action we've taken or a belief we hold a decision we've made We Roll Along justifying that...\", addressing theoretical interpretation and downstream implications of Scanner-induced compliance fMRI experiment ('calling an uncomfortable MRI scanner pleasant')."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x360, 14 frames sampled across 250.8s–333.0s)) from Samantha Jones's \"Part 1: Carol Tavris on Cognitive Dissonance and Consonance\" (574s total runtime).",
+          "Deduplicated English transcript (26 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (250.8s–333.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "MRI anterior cingulate.png",
+      "url": "https://commons.wikimedia.org/wiki/File:MRI_anterior_cingulate.png",
+      "channel": "Wikimedia Commons (Geoff B Hall)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"MRI anterior cingulate.png\" (530x404 px, CC0): Sagittal MRI slice with highlighting indicating location of the anterior cingulate cortex. Provides anatomical and structural brain reference relevant to the neural mechanism in Scanner-induced compliance fMRI experiment ('calling an uncomfortable MRI scanner pleasant')."
+        }
+      ],
+      "license_note": "Archival photo (CC0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (530x404 px, CC0, Geoff B Hall) — neuroanatomy reference: Sagittal MRI slice with highlighting indicating location of the anterior cingulate cortex.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

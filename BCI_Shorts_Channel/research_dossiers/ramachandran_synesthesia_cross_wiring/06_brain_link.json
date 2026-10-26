@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "primary visual cortex",
+      "plain": "identical black-on-white strokes",
+      "function": "receiving identical zero-color black ink strokes for both the scattered '5's and the six '2's on the 1-second test card",
+      "scene_id": "S1",
+      "narration_bridge": "Confirms zero physical wavelength difference exists on the paper."
+    },
+    {
+      "role": "pivot",
+      "region": "fusiform face area",
+      "plain": "neighboring fusiform grapheme-to-V4 cross-wiring",
+      "function": "passing automatic lateral excitation from the ventral fusiform number-form patch directly into adjacent ventral V4 color cortex",
+      "scene_id": "S1",
+      "narration_bridge": "Captures Ramachandran & Hubbard's (2001/2005) fusiform cross-activation discovery (using canonical ventral fusiform anchor)."
+    },
+    {
+      "role": "step1",
+      "region": "parietal cortex",
+      "plain": "instant triangle gestalt pop-out",
+      "function": "grouping the six synesthetically 'red' 2s into an unmistakable triangle before slow serial search even begins",
+      "scene_id": "S1",
+      "narration_bridge": "Explains the 81% vs 59% 1-second accuracy leap."
+    }
+  ]
+}

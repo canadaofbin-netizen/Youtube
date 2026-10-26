@@ -1,0 +1,102 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "85% of solo intercom listeners bolt out of their booth in 52 seconds — add four lit peer bulbs and 69% stay frozen.",
+    "core_experiment": "Darley & Latané's 1968 NYU intercom study (diffusion of responsibility) paired with the Columbia smoke room (pluralistic ignorance).",
+    "twist": "Sweating non-helpers, the real archival truth behind 1964 Queens headlines, and how pointing to ONE person fixes the bug."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Safety in Numbers — Or Paralysis?",
+      "beats": [
+        "1964 headlines vs experimental psychology",
+        "Isolating voices inside NYU intercom booths",
+        "2, 3, or 6 glowing channel bulbs"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "close-up 6-bulb intercom unit"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "85% Down to 31% in Three Minutes",
+      "beats": [
+        "52-second bolt vs 166-second hesitation",
+        "Sweating palms prove inner conflict, not cruelty"
+      ],
+      "scene_ids": [
+        "S1",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "booth doorway comparison"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "The Smoke-Filled Waiting Room",
+      "beats": [
+        "75% solo action vs 10% beside calm actors",
+        "Pluralistic ignorance: checking faces instead of flames"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "white mist curling over clipboards"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "What History and Modern Cameras Corrected",
+      "beats": [
+        "Debunking the exaggerated '38 passive witnesses' myth",
+        "90% group CCTV rescue when danger is clear",
+        "Why individual responsibility still diffuses"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "archival vs lab comparison"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "The Blue-Jacket Rule for Work and Life",
+      "beats": [
+        "Never yell 'Somebody!' or CC twelve people",
+        "Point, describe, and assign one owner"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "pointing to navy-jacket bystander"
+      ]
+    }
+  ]
+}

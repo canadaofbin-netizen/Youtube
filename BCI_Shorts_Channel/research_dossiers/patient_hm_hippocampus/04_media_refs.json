@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Looking Deeper Into the Brain of \"H.M.,\" Our Most Famous Amnesiac",
+      "url": "https://www.youtube.com/watch?v=SQASyR0w8Qo",
+      "channel": "Slate",
+      "source_id": "SRC_M1",
+      "duration_sec": 87,
+      "timecodes": [
+        {
+          "t": "00:08-00:21",
+          "what": "Lecture slide / diagram frame at kf_004.jpg (16.5s) paired with transcript segment \"in hopes that it would mitigate his epileptic seizures. His seizures vanished, but so did his ability to retain memories. Because of this, he...\", introducing core background on Brenda Milner re-introducing herself to Henry across the Montreal testing table minutes after stepping out."
+        },
+        {
+          "t": "00:34-00:44",
+          "what": "Around kf_008.jpg (38.5s) (dark-backdrop stage / studio camera frame), transcript records \"that which is consciously learned and later retrieved. The post-surgical HM recalled general aspects of his life and could learn new skills, but...\", examining procedural mechanics and evidence in Bilateral medial temporal lobe resection in Patient H.M. (Henry Gustav Molaison) & Milner's neuropsychological dissociation."
+        },
+        {
+          "t": "00:57-01:05",
+          "what": "Subsequent widescreen camera frame at kf_012.jpg (60.5s) in \"Looking Deeper Into the Brain of \"H.M.,\" Our Most Famous Amnesiac\", documenting closing visual sequence for reference analysis."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_patient_hm_hippocampus/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_patient_hm_hippocampus",
+        "contact_sheet": "media/M1_patient_hm_hippocampus/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1_patient_hm_hippocampus/contact_sheet.jpg (live-action speaker/interview recording intercut with 1 visual slide frames (480x270, sampled across 0.0s–71.5s)) from Slate's \"Looking Deeper Into the Brain of \"H.M.,\" Our Most Famous Amnesiac\" (87s total runtime).",
+          "Deduplicated English transcript (6 timestamped cues in media/M1_patient_hm_hippocampus/transcript.txt) aligned directly to keyframe timestamps (0.0s–71.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "The Cure - Episode 8 - Unsung Hero: Henry Molaison",
+      "url": "https://www.youtube.com/watch?v=xrFpXPnzvEA",
+      "channel": "Al Jazeera English",
+      "source_id": "SRC_M2",
+      "duration_sec": 98,
+      "timecodes": [
+        {
+          "t": "00:05-00:13",
+          "what": "At kf_003.jpg (10.0s) (lecture slide / diagram frame), Al Jazeera English's recording states \"Henry Malias lived in relative obscurity, but he possessed one of the world's most famous brains and helped shape our understanding of memory. In\" — providing spoken context for Brenda Milner re-introducing herself to Henry across the Montreal testing table minutes after stepping out."
+        },
+        {
+          "t": "00:32-00:39",
+          "what": "Mid-segment lecture slide / diagram frame at kf_008.jpg (35.0s) as narration explains \"He lived in the present for the rest of his life, unable to store information for any longer than 30 seconds. But\", clarifying key empirical findings in Bilateral medial temporal lobe resection in Patient H.M. (Henry Gustav Molaison) & Milner's neuropsychological dissociation."
+        },
+        {
+          "t": "00:44-00:52",
+          "what": "Around kf_011.jpg (50.0s) (lecture slide / diagram frame), commentary states \"Henry could speak, recall long-term memories from before his surgery, carry out tasks like tying shoelaces, and\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (recorded lecture combining speaker commentary with 13/14 diagram/slide frames (480x270, sampled across 0.0s–65.0s)) from Al Jazeera English's \"The Cure - Episode 8 - Unsung Hero: Henry Molaison\" (98s total runtime).",
+          "Deduplicated English transcript (36 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "museum_artefact",
+      "title": "CajalHippocampus (modified).png",
+      "url": "https://commons.wikimedia.org/wiki/File:CajalHippocampus_(modified).png",
+      "channel": "Wikimedia Commons (original: Santiago Ramón y Cajal (1852–1934) derivative = Looie496)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified museum artefact \"CajalHippocampus (modified).png\" (960x520 px, Public domain): Modified drawing of the neural circuitry of the rodent hippocampus. Provides anatomical and structural brain reference relevant to the neural mechanism in Bilateral medial temporal lobe resection in Patient H.M. (Henry Gustav Molaison) & Milner's neuropsychological dissociation."
+        }
+      ],
+      "license_note": "Archival museum artefact (Public domain) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x520 px, Public domain, original: Santiago Ramón y Cajal (1852–1934) derivative = Looie496) — neuroanatomy reference: Modified drawing of the neural circuitry of the rodent hippocampus.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "lecture",
+      "title": "Elizabeth Loftus 1978 Experiments (2013 TED Talk)",
+      "url": "https://www.youtube.com/watch?v=QGs3UN5i0-Q",
+      "channel": "RinShadow",
+      "source_id": "SRC_M1",
+      "duration_sec": 71,
+      "timecodes": [
+        {
+          "t": "00:16-00:21",
+          "what": "At kf_004.jpg (16.5s) (widescreen camera frame), RinShadow's recording states \"them questions about what they remember. In one study, we showed people a simulated accident and we asked people how fast were\" — providing spoken context for 1974 Seattle lecture room: 'smashed' vs 'hit' questionnaires plant phantom broken glass on a clean crash film."
+        },
+        {
+          "t": "00:24-00:37",
+          "what": "Mid-segment widescreen camera frame at kf_007.jpg (33.0s) as narration explains \"the cars going when they hit each other. And we asked other people how fast were the cars going when they smashed into each other. And if we asked...\", clarifying key empirical findings in Reconstruction of Automobile Destruction ('smashed' vs 'contacted' speed & phantom broken glass) and 'Lost in the Mall'."
+        },
+        {
+          "t": "00:39-00:44",
+          "what": "Around kf_009.jpg (44.0s) (widescreen camera frame), commentary states \"And moreover, that leading smash question caused people to be more like-\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_false_memory_elizabeth_loftu/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_false_memory_elizabeth_loftu",
+        "contact_sheet": "media/M1_false_memory_elizabeth_loftu/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1_false_memory_elizabeth_loftu/contact_sheet.jpg (widescreen live-action camera recording (480x270, 12 frames sampled across 0.0s–60.5s)) from RinShadow's \"Elizabeth Loftus 1978 Experiments (2013 TED Talk)\" (71s total runtime).",
+          "Deduplicated English transcript (8 timestamped cues in media/M1_false_memory_elizabeth_loftu/transcript.txt) aligned directly to keyframe timestamps (0.0s–60.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Exclusive: The Bunny Effect",
+      "url": "https://www.youtube.com/watch?v=eZlPzSeUDDw",
+      "channel": "CBS News",
+      "source_id": "SRC_M2",
+      "duration_sec": 79,
+      "timecodes": [
+        {
+          "t": "00:07-00:13",
+          "what": "Around kf_003.jpg (10.0s) (4:3 camera frame), speaker commentary notes \"hands with Bugs Bunny at Disneyland this would be impossible because bugs is a Warner brother's\", anchoring the research context of 1974 Seattle lecture room: 'smashed' vs 'hit' questionnaires plant phantom broken glass on a clean crash film."
+        },
+        {
+          "t": "00:32-00:39",
+          "what": "At kf_008.jpg (35.0s) (4:3 camera frame), audio continues with \"they like the layout but later on when we say tell tell us about your your one of your childhood trips to Disney which\", detailing experimental methodology and behavioral observations for Reconstruction of Automobile Destruction ('smashed' vs 'contacted' speed & phantom broken glass) and 'Lost in the Mall'."
+        },
+        {
+          "t": "00:45-00:52",
+          "what": "Later 4:3 camera frame at kf_011.jpg (50.0s) accompanied by \"will get lots of people to tell us they remember meeting bugs and then when they get pressed for details they'll say they\", summarizing mechanism and boundary conditions in Reconstruction of Automobile Destruction ('smashed' vs 'contacted' speed & phantom broken glass) and 'Lost in the Mall'."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x360, 14 frames sampled across 0.0s–65.0s)) from CBS News's \"Exclusive: The Bunny Effect\" (79s total runtime).",
+          "Deduplicated English transcript (30 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Elizabeth Loftus-TAM 9-July 2011.JPG",
+      "url": "https://commons.wikimedia.org/wiki/File:Elizabeth_Loftus-TAM_9-July_2011.JPG",
+      "channel": "Wikimedia Commons (BDEngler)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Elizabeth Loftus-TAM 9-July 2011.JPG\" (960x1440 px, CC BY-SA 3.0): Elizabeth Loftus at The Amaz!ng Meeting 9, Las Vegas, NV, July 2011. Documents authentic researcher likeness, period attire, and historical context for Reconstruction of Automobile Destruction ('smashed' vs 'contacted' speed & phantom broken glass) and 'Lost in the Mall'."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 3.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x1440 px, CC BY-SA 3.0, BDEngler) — portrait reference: Elizabeth Loftus at The Amaz!ng Meeting 9, Las Vegas, NV, July 2011.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

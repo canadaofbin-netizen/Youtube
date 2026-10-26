@@ -1,0 +1,223 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Amputee looking at the vertical Mirror Box reflection as opening his intact right hand visually unclenches his left phantom spasm",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1995, UC San Diego Center for Brain and Cognition clinic room, La Jolla",
+      "layout": {
+        "description": "Sunlit 1995 UCSD neurology office with a clean wooden table holding Ramachandran's open-topped cardboard-and-wood Mirror Box divided down the center by a bright vertical glass mirror, creating the seamless optical illusion of two symmetrical open hands.",
+        "positions": [
+          {
+            "who": "Upper-Limb Amputee Participant (mannequin in rolled-sleeve collared shirt)",
+            "where": "seated at the wooden table placing his intact right hand in front of the vertical mirror while leaning slightly right so the reflection aligns cleanly where his missing left hand belongs",
+            "facing": "looking intently into the vertical mirror"
+          },
+          {
+            "who": "V. S. Ramachandran (mannequin in dark 1995 blazer and patterned tie)",
+            "where": "standing across the table pointing to the symmetrical reflected hand opening smoothly",
+            "facing": "observing the participant's reaction"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "vertical tabletop Mirror Box",
+          "period_detail": "clean open-front rectangular box split by an upright frameless glass mirror",
+          "physical_behavior": "superimposes the intact right hand's reflection precisely onto the missing left-hand coordinates"
+        },
+        {
+          "name": "sterile cotton-tipped mapping swab & Penfield strip card",
+          "period_detail": "resting beside the box from the cheek-to-thumb remapping exam",
+          "physical_behavior": "documents neighboring face-hand S1 topography"
+        },
+        {
+          "name": "symmetrical open-palm reflection",
+          "period_detail": "crystal-clear mirror image of five fingers stretching open smoothly",
+          "physical_behavior": "delivers the missing 'movement succeeded!' visual return"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Participant",
+          "verb_sequence": "places intact hand beside the vertical mirror in a tight fist matching his cramped phantom -> slowly stretches all five fingers wide open while watching the mirror reflection"
+        },
+        {
+          "who": "V. S. Ramachandran",
+          "verb_sequence": "points to the reflected 'left' hand opening cleanly in space"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Participant",
+          "reaction": "widens posture in astonishment and relief as the decade-long clenched phantom sensation releases"
+        },
+        {
+          "who": "V. S. Ramachandran",
+          "reaction": "logs immediate phantom movement in 6 of 10 patients from a $10 mirror"
+        }
+      ],
+      "wardrobe": "1995 San Diego academic/clinical dress: dark blazer, white shirt, and tie on Ramachandran; casual short-sleeve/rolled-cuff Oxford shirt on participant.",
+      "lighting": "Bright, crisp California window daylight casting a clean, unmistakable reflection in the vertical mirror.",
+      "recognition_hook": "His missing hand had felt frozen in a painful fist for years — until a $10 mirror propped in a box tricked his visual brain into watching 'both' hands stretch wide open.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1995 neurology table with an open vertical Mirror Box reflecting a participant's intact open hand into the space of the missing hand while V. S. Ramachandran observes",
+        "must_show": [
+          "mirror|box",
+          "hand|reflection",
+          "table"
+        ],
+        "source": "M1@00:14-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Cotton swab on the cheek felt on the missing phantom thumb",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1992, UCSD neurology exam room",
+      "layout": {
+        "description": "Bright clinical chair where a blindfolded participant raises a finger on his intact hand to report feeling a cheek cotton-swab stroke on his missing phantom thumb.",
+        "positions": [
+          {
+            "who": "V. S. Ramachandran",
+            "where": "brushing a clean cotton swab gently across the blindfolded patient's left cheek",
+            "facing": "beside chair"
+          },
+          {
+            "who": "Blindfolded Patient mannequin",
+            "where": "pointing immediately to 'phantom thumb' on a hand chart",
+            "facing": "seated upright"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "cotton swab & face-next-to-hand S1 diagram",
+          "period_detail": "shows why cheek borders thumb on Penfield's strip",
+          "physical_behavior": "proves dynamic adult cortical remapping"
+        }
+      ],
+      "actions": [
+        {
+          "who": "V. S. Ramachandran",
+          "verb_sequence": "strokes three points on the cheek -> Patient maps distinct phantom fingers"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "V. S. Ramachandran",
+          "reaction": "marvels at $0.02 bedside neuroscience"
+        }
+      ],
+      "wardrobe": "1990s blazer and collared shirt.",
+      "lighting": "High-key exam light.",
+      "recognition_hook": "Because FACE sits right next to HAND on the brain's sensory strip, a cotton swab on the cheek lit up a missing thumb.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Modern 7-Tesla fMRI & daily stroke/phantom rehab protocol",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2018, modern neurorehabilitation clinic",
+      "layout": {
+        "description": "Sunlit physical therapy table where an occupational therapist guides a post-stroke patient through structured 20-minute daily folding-mirror-box hand exercises.",
+        "positions": [
+          {
+            "who": "Occupational Therapist mannequin",
+            "where": "guiding structured daily mirror-box repetitions",
+            "facing": "across table"
+          },
+          {
+            "who": "Stroke Recovery Patient mannequin",
+            "where": "practicing rhythmic finger taps in front of a folding tabletop mirror",
+            "facing": "at table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "modern folding therapy mirror & 4-week daily log",
+          "period_detail": "shows clinical rigor beyond a one-time trick",
+          "physical_behavior": "builds lasting motor recovery"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient mannequin",
+          "verb_sequence": "completes daily 15-minute bilateral mirror routine checking off Week 3"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Occupational Therapist mannequin",
+          "reaction": "measures improved active wrist extension"
+        }
+      ],
+      "wardrobe": "Clean modern clinic polo and casual wear.",
+      "lighting": "Bright rehab gym daylight.",
+      "recognition_hook": "Turned into a structured daily protocol, the $10 mirror moved from phantom limbs into mainstream stroke rehabilitation.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Using clean visual alignment during physical therapy stretching",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern studio mirror",
+      "layout": {
+        "description": "Bright studio wall mirror where watching smooth, symmetrical shoulder motion reduces protective muscle guarding.",
+        "positions": [
+          {
+            "who": "Recovering Athlete mannequin",
+            "where": "watching symmetrical slow arm lifts in a bright studio mirror with relaxed shoulders",
+            "facing": "facing mirror"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "full-clarity wall mirror",
+          "period_detail": "confirms safe unthreatened range of motion",
+          "physical_behavior": "calms parietal-motor guarding"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Recovering Athlete mannequin",
+          "verb_sequence": "watches smooth symmetrical motion -> stiffness eases"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Recovering Athlete mannequin",
+          "reaction": "moves more freely"
+        }
+      ],
+      "wardrobe": "Clean athletic wear.",
+      "lighting": "Bright natural daylight.",
+      "recognition_hook": "Seeing smooth, safe movement in real time helps your brain turn down protective motor guarding.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

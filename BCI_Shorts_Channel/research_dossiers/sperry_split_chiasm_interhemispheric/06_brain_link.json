@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "optic nerve",
+      "plain": "isolated single-hemisphere eye routing (split chiasm)",
+      "function": "sending visual Circle-vs-Cross signals from the uncovered right eye strictly into the right visual cortex alone without crossing",
+      "scene_id": "S1",
+      "narration_bridge": "Closes the 'optic-chiasm leak' that hid callosal function before 1953."
+    },
+    {
+      "role": "pivot",
+      "region": "corpus callosum",
+      "plain": "intact transfer vs severed midline isolation",
+      "function": "copying the learned Circle rule instantly to the left hemisphere when intact, versus trapping the memory strictly inside one hemisphere when divided",
+      "scene_id": "S1",
+      "narration_bridge": "Captures Myers & Sperry's Nobel-winning double control."
+    },
+    {
+      "role": "step1",
+      "region": "primary visual cortex",
+      "plain": "two independent hemispheric memory banks",
+      "function": "storing 'Circle = Go' in one hemisphere and 'Cross = Go' (or naive zero) in the opposite hemisphere with zero cross-talk",
+      "scene_id": "S2",
+      "narration_bridge": "Matches Sperry's 1961 Science conclusion."
+    }
+  ]
+}

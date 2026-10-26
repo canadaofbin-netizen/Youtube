@@ -1,0 +1,847 @@
+{
+  "schema_version": 5,
+  "visual_mode": "HYBRID",
+  "aspect": "9:16",
+  "dossier": "pavlov_dogs_conditioning",
+  "total_reference_images": 17,
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: physiologist in white laboratory coat and full white beard; assistant in white laboratory coat and dark trousers; dog in brown leather harness straps suspended from an overhead wooden crossbar; modern person in grey casual hoodie.",
+  "generation_order": "1 env plate -> 2 cast sheets + hero prop (conditioned on env) -> 3 clip start / key frames (conditioned on 1+2)",
+  "master_anchors": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a bright 1904 St. Petersburg physiology laboratory with tall windows, featuring wooden harness stand, no people. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "a bright 1904 St. Petersburg physiology laboratory with tall windows",
+        "wooden harness stand"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_physiologist",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_physiologist.png",
+      "title": "Cast sheet: physiologist (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, physiologist wearing white laboratory coat and full white beard, standing in a bright 1904 St. Petersburg physiology laboratory with tall windows. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "white laboratory coat and full white beard",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_assistant",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_assistant.png",
+      "title": "Cast sheet: assistant (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, assistant wearing white laboratory coat and dark trousers, standing in a bright 1904 St. Petersburg physiology laboratory with tall windows. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "white laboratory coat and dark trousers",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_dog",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_dog.png",
+      "title": "Cast sheet: dog (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, dog wearing brown leather harness straps suspended from an overhead wooden crossbar, standing in a bright 1904 St. Petersburg physiology laboratory with tall windows. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "brown leather harness straps suspended from an overhead wooden crossbar",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_modern_person",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_modern_person.png",
+      "title": "Cast sheet: modern_person (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, modern person wearing grey casual hoodie, standing in a bright 1904 St. Petersburg physiology laboratory with tall windows. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "grey casual hoodie",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of wooden harness stand inside a bright 1904 St. Petersburg physiology laboratory with tall windows, exact period materials and textures. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "wooden harness stand"
+      ]
+    }
+  ],
+  "clip_anchors": [
+    {
+      "ref_id": "ref_clip_01",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "setup",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_01.png",
+      "title": "Clip 01 (setup / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_physiologist",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A bright Saint Petersburg laboratory with tall windows, camera smoothly tracks forward toward the wooden harness stand. Every person is an articulated matte-white porcelain mannequin, same design in every shot: physiologist in white laboratory coat and full white beard; assistant in white laboratory coat and dark trousers; dog in brown leather harness straps suspended from an overhead wooden crossbar. Frozen opening moment: A matte-white porcelain dog stands in brown leather straps inside a wooden frame while a white-coated assistant mannequin flicks a brass metronome and scribbles notes. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_physiologist",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_01_key",
+      "clip_number": 1,
+      "frame": "key",
+      "category": "key_visual_anchor",
+      "role": "setup",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_01_key.png",
+      "title": "Clip 01 (setup / S1) key frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_physiologist",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A bright Saint Petersburg laboratory with tall windows, camera smoothly tracks forward toward the wooden harness stand. Every person is an articulated matte-white porcelain mannequin, same design in every shot: physiologist in white laboratory coat and full white beard; assistant in white laboratory coat and dark trousers; dog in brown leather harness straps suspended from an overhead wooden crossbar. Frozen key moment: the harnessed porcelain dog hears the ticking metronome before any food appears and saliva drips from the cheek tube into the graduated glass vial. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "metronome|bell",
+        "saliva|drip|drool",
+        "tube|vial|glass"
+      ],
+      "key_visual": {
+        "description": "the harnessed porcelain dog hears the ticking metronome before any food appears and saliva drips from the cheek tube into the graduated glass vial",
+        "must_show": [
+          "metronome|bell",
+          "saliva|drip|drool",
+          "tube|vial|glass"
+        ],
+        "source": "dossier S1; Pavlov 1927 lectures"
+      },
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_physiologist",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_02",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "symptom",
+      "scene_id": "S2",
+      "setting": "real_env",
+      "filename": "ref_clip_02.png",
+      "title": "Clip 02 (symptom / S2) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): The porcelain dog in the wooden harness stand with the ticking brass metronome behind it, camera pushes in on the cheek tube. Every person is an articulated matte-white porcelain mannequin, same design in every shot: assistant in white laboratory coat and dark trousers; dog in brown leather harness straps suspended from an overhead wooden crossbar. Frozen opening moment: The matte-white porcelain dog pricks its ears at the metronome. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S2"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_03",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "failure",
+      "scene_id": "S4",
+      "setting": "real_env",
+      "filename": "ref_clip_03.png",
+      "title": "Clip 03 (failure / S4) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): The sunlit laboratory from the seated experimenter mannequin to the porcelain dog on the wooden harness stand. Every person is an articulated matte-white porcelain mannequin, same design in every shot: dog in brown leather harness straps suspended from an overhead wooden crossbar. Frozen opening moment: A white-coated experimenter mannequin on a wooden chair shifts posture. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S4"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_04",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "crisis",
+      "scene_id": "S5",
+      "setting": "real_env",
+      "filename": "ref_clip_04.png",
+      "title": "Clip 04 (crisis / S5) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): The wooden stand and a wall-mounted electric bell box. Every person is an articulated matte-white porcelain mannequin, same design in every shot: assistant in white laboratory coat and dark trousers; dog in brown leather harness straps suspended from an overhead wooden crossbar. Frozen opening moment: The assistant mannequin pulls back an empty enamel food bowl first and only. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S5"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_05",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "pivot",
+      "scene_id": "S3",
+      "setting": "real_env",
+      "filename": "ref_clip_05.png",
+      "title": "Clip 05 (pivot / S3) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_physiologist",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): The wooden stand from the ticking pyramid metronome on the shelf to the porcelain dog in its leather harness. Every person is an articulated matte-white porcelain mannequin, same design in every shot: physiologist in white laboratory coat and full white beard; assistant in white laboratory coat and dark trousers; dog in brown leather harness straps suspended from an overhead wooden crossbar. Frozen opening moment: The white-coated assistant mannequin flicks the brass metronome pendulum first. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S3"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_physiologist",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_06",
+      "clip_number": 6,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "step1",
+      "scene_id": "S3",
+      "setting": "brain_void",
+      "filename": "ref_clip_06.png",
+      "title": "Clip 06 (step1 / S3) start frame",
+      "generation_order": 3,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head with an architectural translucent cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull in a bright white studio gallery. Three-quarter profile of a matte-white porcelain mannequin head in a bright white studio gallery with a translucent cutaway cranium revealing the full matte-white 3D brain with deep gyri and sulci inside. A soft warm-ivory light pulse glides inside the white-matter fibers from the inner ear into the auditory cortex on the side of the brain. The auditory cortex glows subtle warm amber-gold as calm waves of subsurface warm-ivory luminance travel inside its folded ridge in time with the ticking sound. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "S3"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": []
+    },
+    {
+      "ref_id": "ref_clip_07",
+      "clip_number": 7,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "step2",
+      "scene_id": "S1",
+      "setting": "brain_void",
+      "filename": "ref_clip_07.png",
+      "title": "Clip 07 (step2 / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head with an architectural translucent cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull in a bright white studio gallery. A bright bridge of subtle warm amber-gold white-matter fibers locks in between the auditory cortex and the brainstem at the base. Soft warm-ivory internal light pulses glide inside the amber-gold fiber pathway and illuminate the brainstem in a calm subsurface glow. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": []
+    },
+    {
+      "ref_id": "ref_clip_08",
+      "clip_number": 8,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "step3",
+      "scene_id": "S6",
+      "setting": "real_env",
+      "filename": "ref_clip_08.png",
+      "title": "Clip 08 (step3 / S6) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): The thick soundproof wall of the Saint Petersburg laboratory, revealing both compartments. Every person is an articulated matte-white porcelain mannequin, same design in every shot: dog in brown leather harness straps suspended from an overhead wooden crossbar. Frozen opening moment: In the right room. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S6"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_09",
+      "clip_number": 9,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "breakthrough",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_09.png",
+      "title": "Clip 09 (breakthrough / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_physiologist",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): The central wooden harness stand in the bright laboratory with the bearded physiologist and assistant mannequins flanking the porcelain dog. Every person is an articulated matte-white porcelain mannequin, same design in every shot: physiologist in white laboratory coat and full white beard; assistant in white laboratory coat and dark trousers; dog in brown leather harness straps suspended from an overhead wooden crossbar. Frozen opening moment: The assistant mannequin presses a wall buzzer button once before sliding the bowl. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_physiologist",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_10",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "conclusion",
+      "scene_id": "S8",
+      "setting": "real_env",
+      "filename": "ref_clip_10.png",
+      "title": "Clip 10 (conclusion / S8) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_modern_person",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Pull-back rising to an elevated wide shot of a sunlit modern kitchen counter. Every person is an articulated matte-white porcelain mannequin, same design in every shot: modern person in grey casual hoodie. Frozen opening moment: A matte-white porcelain person in a grey hoodie sits at the counter holding a ceramic mug. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S8"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_modern_person",
+        "ref_prop_hero"
+      ]
+    }
+  ],
+  "all_specs": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a bright 1904 St. Petersburg physiology laboratory with tall windows, featuring wooden harness stand, no people. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "a bright 1904 St. Petersburg physiology laboratory with tall windows",
+        "wooden harness stand"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_physiologist",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_physiologist.png",
+      "title": "Cast sheet: physiologist (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, physiologist wearing white laboratory coat and full white beard, standing in a bright 1904 St. Petersburg physiology laboratory with tall windows. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "white laboratory coat and full white beard",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_assistant",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_assistant.png",
+      "title": "Cast sheet: assistant (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, assistant wearing white laboratory coat and dark trousers, standing in a bright 1904 St. Petersburg physiology laboratory with tall windows. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "white laboratory coat and dark trousers",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_dog",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_dog.png",
+      "title": "Cast sheet: dog (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, dog wearing brown leather harness straps suspended from an overhead wooden crossbar, standing in a bright 1904 St. Petersburg physiology laboratory with tall windows. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "brown leather harness straps suspended from an overhead wooden crossbar",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_modern_person",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_modern_person.png",
+      "title": "Cast sheet: modern_person (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, modern person wearing grey casual hoodie, standing in a bright 1904 St. Petersburg physiology laboratory with tall windows. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "grey casual hoodie",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of wooden harness stand inside a bright 1904 St. Petersburg physiology laboratory with tall windows, exact period materials and textures. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "wooden harness stand"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_01",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "setup",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_01.png",
+      "title": "Clip 01 (setup / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_physiologist",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A bright Saint Petersburg laboratory with tall windows, camera smoothly tracks forward toward the wooden harness stand. Every person is an articulated matte-white porcelain mannequin, same design in every shot: physiologist in white laboratory coat and full white beard; assistant in white laboratory coat and dark trousers; dog in brown leather harness straps suspended from an overhead wooden crossbar. Frozen opening moment: A matte-white porcelain dog stands in brown leather straps inside a wooden frame while a white-coated assistant mannequin flicks a brass metronome and scribbles notes. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_physiologist",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_01_key",
+      "clip_number": 1,
+      "frame": "key",
+      "category": "key_visual_anchor",
+      "role": "setup",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_01_key.png",
+      "title": "Clip 01 (setup / S1) key frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_physiologist",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A bright Saint Petersburg laboratory with tall windows, camera smoothly tracks forward toward the wooden harness stand. Every person is an articulated matte-white porcelain mannequin, same design in every shot: physiologist in white laboratory coat and full white beard; assistant in white laboratory coat and dark trousers; dog in brown leather harness straps suspended from an overhead wooden crossbar. Frozen key moment: the harnessed porcelain dog hears the ticking metronome before any food appears and saliva drips from the cheek tube into the graduated glass vial. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "metronome|bell",
+        "saliva|drip|drool",
+        "tube|vial|glass"
+      ],
+      "key_visual": {
+        "description": "the harnessed porcelain dog hears the ticking metronome before any food appears and saliva drips from the cheek tube into the graduated glass vial",
+        "must_show": [
+          "metronome|bell",
+          "saliva|drip|drool",
+          "tube|vial|glass"
+        ],
+        "source": "dossier S1; Pavlov 1927 lectures"
+      },
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_physiologist",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_02",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "symptom",
+      "scene_id": "S2",
+      "setting": "real_env",
+      "filename": "ref_clip_02.png",
+      "title": "Clip 02 (symptom / S2) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): The porcelain dog in the wooden harness stand with the ticking brass metronome behind it, camera pushes in on the cheek tube. Every person is an articulated matte-white porcelain mannequin, same design in every shot: assistant in white laboratory coat and dark trousers; dog in brown leather harness straps suspended from an overhead wooden crossbar. Frozen opening moment: The matte-white porcelain dog pricks its ears at the metronome. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S2"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_03",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "failure",
+      "scene_id": "S4",
+      "setting": "real_env",
+      "filename": "ref_clip_03.png",
+      "title": "Clip 03 (failure / S4) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): The sunlit laboratory from the seated experimenter mannequin to the porcelain dog on the wooden harness stand. Every person is an articulated matte-white porcelain mannequin, same design in every shot: dog in brown leather harness straps suspended from an overhead wooden crossbar. Frozen opening moment: A white-coated experimenter mannequin on a wooden chair shifts posture. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S4"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_04",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "crisis",
+      "scene_id": "S5",
+      "setting": "real_env",
+      "filename": "ref_clip_04.png",
+      "title": "Clip 04 (crisis / S5) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): The wooden stand and a wall-mounted electric bell box. Every person is an articulated matte-white porcelain mannequin, same design in every shot: assistant in white laboratory coat and dark trousers; dog in brown leather harness straps suspended from an overhead wooden crossbar. Frozen opening moment: The assistant mannequin pulls back an empty enamel food bowl first and only. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S5"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_05",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "pivot",
+      "scene_id": "S3",
+      "setting": "real_env",
+      "filename": "ref_clip_05.png",
+      "title": "Clip 05 (pivot / S3) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_physiologist",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): The wooden stand from the ticking pyramid metronome on the shelf to the porcelain dog in its leather harness. Every person is an articulated matte-white porcelain mannequin, same design in every shot: physiologist in white laboratory coat and full white beard; assistant in white laboratory coat and dark trousers; dog in brown leather harness straps suspended from an overhead wooden crossbar. Frozen opening moment: The white-coated assistant mannequin flicks the brass metronome pendulum first. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S3"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_physiologist",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_06",
+      "clip_number": 6,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "step1",
+      "scene_id": "S3",
+      "setting": "brain_void",
+      "filename": "ref_clip_06.png",
+      "title": "Clip 06 (step1 / S3) start frame",
+      "generation_order": 3,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head with an architectural translucent cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull in a bright white studio gallery. Three-quarter profile of a matte-white porcelain mannequin head in a bright white studio gallery with a translucent cutaway cranium revealing the full matte-white 3D brain with deep gyri and sulci inside. A soft warm-ivory light pulse glides inside the white-matter fibers from the inner ear into the auditory cortex on the side of the brain. The auditory cortex glows subtle warm amber-gold as calm waves of subsurface warm-ivory luminance travel inside its folded ridge in time with the ticking sound. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "S3"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": []
+    },
+    {
+      "ref_id": "ref_clip_07",
+      "clip_number": 7,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "step2",
+      "scene_id": "S1",
+      "setting": "brain_void",
+      "filename": "ref_clip_07.png",
+      "title": "Clip 07 (step2 / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head with an architectural translucent cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull in a bright white studio gallery. A bright bridge of subtle warm amber-gold white-matter fibers locks in between the auditory cortex and the brainstem at the base. Soft warm-ivory internal light pulses glide inside the amber-gold fiber pathway and illuminate the brainstem in a calm subsurface glow. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": []
+    },
+    {
+      "ref_id": "ref_clip_08",
+      "clip_number": 8,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "step3",
+      "scene_id": "S6",
+      "setting": "real_env",
+      "filename": "ref_clip_08.png",
+      "title": "Clip 08 (step3 / S6) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): The thick soundproof wall of the Saint Petersburg laboratory, revealing both compartments. Every person is an articulated matte-white porcelain mannequin, same design in every shot: dog in brown leather harness straps suspended from an overhead wooden crossbar. Frozen opening moment: In the right room. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S6"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_09",
+      "clip_number": 9,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "breakthrough",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_09.png",
+      "title": "Clip 09 (breakthrough / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_physiologist",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): The central wooden harness stand in the bright laboratory with the bearded physiologist and assistant mannequins flanking the porcelain dog. Every person is an articulated matte-white porcelain mannequin, same design in every shot: physiologist in white laboratory coat and full white beard; assistant in white laboratory coat and dark trousers; dog in brown leather harness straps suspended from an overhead wooden crossbar. Frozen opening moment: The assistant mannequin presses a wall buzzer button once before sliding the bowl. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_physiologist",
+        "ref_cast_assistant",
+        "ref_cast_dog",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_10",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "conclusion",
+      "scene_id": "S8",
+      "setting": "real_env",
+      "filename": "ref_clip_10.png",
+      "title": "Clip 10 (conclusion / S8) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_modern_person",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Pull-back rising to an elevated wide shot of a sunlit modern kitchen counter. Every person is an articulated matte-white porcelain mannequin, same design in every shot: modern person in grey casual hoodie. Frozen opening moment: A matte-white porcelain person in a grey hoodie sits at the counter holding a ceramic mug. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S8"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_modern_person",
+        "ref_prop_hero"
+      ]
+    }
+  ]
+}

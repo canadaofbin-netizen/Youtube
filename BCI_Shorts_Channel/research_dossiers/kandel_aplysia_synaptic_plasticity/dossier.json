@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "slug": "kandel_aplysia_synaptic_plasticity",
+  "topic": "Eric Kandel (1970–2000): How a Giant Sea Slug's 20,000 Neurons Proved Memories Physically Grow New Synapses",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:35+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Eric Kandel, Vincent Castellucci, Harold Pinsker, and Irving Kupfermann's 1970 Science experiments on the giant marine snail Aplysia californica — proving short-term memory tweaks existing synaptic transmitter release while long-term memory switches on CREB genes to grow brand-new physical synaptic terminals — is the 2000 Nobel foundation of cellular memory.",
+  "primary_case": {
+    "title": "Eric R. Kandel, Castellucci, Pinsker & Kupfermann's 1970 Science Aplysia Gill-Withdrawal Synapse Discovery (2000 Nobel Prize)",
+    "year": 1970,
+    "place": "New York University School of Medicine & Columbia University College of Physicians and Surgeons, New York",
+    "people": [
+      {
+        "name": "Eric Richard Kandel",
+        "role": "Vienna-born psychiatrist turned neurobiologist who fled 1938 Nazi Austria at age 9, wondered how memories burned into his own mind, and chose a giant sea slug with huge visible neurons to find the physical engram — winning the 2000 Nobel Prize.",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Irving Kupfermann, Harold Pinsker & Vincent Castellucci",
+        "role": "Co-discoverers on the landmark January 1970 Science trio of papers mapping the exact sensory-to-motor gill-withdrawal synapse",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Craig H. Bailey & Kelsey C. Martin",
+        "role": "Kandel collaborators who photographed physical doubling of synaptic boutons in long-term sensitization (2,600 vs 1,300 terminals!) and local synaptic tagging",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Mammalian brains pack **86 billion tiny microscopic neurons**, making it nearly impossible in the 1960s to find ONE single synapse storing ONE specific memory. Psychiatrist **Eric Kandel** made a bold bet that outraged mammalian physiologists: switch to the California sea hare ***Aplysia californica*** — which has just **~20,000 neurons**, the largest nerve cells in the animal kingdom (up to **1 millimetre wide**, visible to the naked eye!).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In **January 1970 (*Science*, three back-to-back papers!)**, Kandel, Pinsker, Kupfermann, and Castellucci mapped a crystal-clear reflex circuit: ~24 siphon sensory neurons wire directly onto ~6 gill motor neurons. Touch the siphon gently with a water jet, and the gill retracts defensively.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Touch the siphon gently 10 to 15 times when nothing bad happens (**Habituation**): the gill stops retracting — and intracellular electrodes inside that EXACT sensory-to-motor synapse proved why: **fewer packets of glutamate neurotransmitter** were released per spike without changing the neuron's firing ability.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Pair a mild tail stimulus so serotonin washes across that same sensory neuron (**Sensitization**): cyclic AMP (**cAMP**) and Protein Kinase A (**PKA**) surge inside the terminal, closing potassium channels and **boosting glutamate release** for minutes-to-hours (**Short-Term Memory = functional chemical dial-up of existing synapses**!).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Then Kandel asked the ultimate question: why does **spaced training** (4–5 spaced tail pairings across days) create a memory lasting **WEEKS**, whereas cramming fails? Because repeated serotonin waves send PKA all the way into the **cell nucleus** to switch on the master gene regulator **CREB-1** (while lifting the memory brake **CREB-2**).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Collaborator **Craig Bailey** looked under the electron microscope and photographed history's smoking gun: a naive sensory neuron had **~1,300 synaptic terminals**; after habituation it pruned down to **~850**; after long-term sensitization it sprouted **~2,600 physical synaptic terminals — literally DOUBLING its wiring**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Block new protein synthesis right during training, and **Long-Term Memory vanishes completely while Short-Term Memory works 100% normally** — proving short-term memory is a temporary chemical adjustment whereas long-term memory is **new anatomical architecture**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Every skeptical mammalian neuroscientist had to tip their hat in the 1990s when **the exact same cAMP–PKA–CREB molecular switch** discovered in a sea slug turned out to govern long-term hippocampal spatial memory in mice, flies, and humans — earning Kandel the **2000 Nobel Prize**.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Peers warned young Eric Kandel he was throwing away his career studying a **1-pound slimy sea slug** — until its giant **1-millimetre naked-eye neurons** let him put electrodes directly on BOTH sides of a single memory.",
+      "why_surprising": "Choosing the simplest creature solved a mystery 86 billion human neurons hid.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Under the electron microscope, **Long-Term Memory isn't a metaphor**: a single sensory neuron literally **doubled its physical connections from 1,300 to 2,600 synaptic terminals** when CREB genes switched on.",
+      "why_surprising": "Learning physically re-sculpts the anatomy of your brain.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Why did Ebbinghaus's 1885 spaced review beat cramming? Kandel found the exact molecular clock 100 years later: cramming only sloshes temporary cAMP at the tip, whereas **spaced intervals send PKA into the nucleus to flip CREB-1 ON and build new synapses**.",
+      "why_surprising": "Cellular proof of why all-night cramming evaporates by Friday.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "Born in Vienna in 1929, Kandel never forgot the night Nazi officers banged on his family's door on his 9th birthday — driving a lifelong quest from psychoanalysis to giant sea snails to discover how experience etches itself into flesh.",
+      "why_surprising": "Personal history fueling Nobel biology.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Long-term memories are just stronger electrical loops spinning indefinitely without changing brain structure.",
+      "truth": "Short-term memory is chemical/functional (minutes), whereas long-term memory requires gene transcription (CREB), fresh protein synthesis, and physical growth of new dendritic spines and terminals.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Invertebrate 'slug reflexes' have nothing in common with smart mammalian brains.",
+      "truth": "Evolution conserved the molecular alphabet of memory (glutamate, neuromodulators, cAMP, PKA, CREB, synaptic growth) for over 500 million years from mollusks to humans.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "You stop growing new synaptic connections once you turn 25.",
+      "truth": "Every new skill, language, or meaningful memory you consolidate across your entire lifespan physically grows and prunes synaptic terminals.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Realizing why cramming for 4 hours on Thursday night (short-term cAMP chemistry) fades by Monday, while four 30-minute spaced sessions flip CREB on to build permanent synapses.",
+    "Walking out of a great piano practice or lecture knowing your neurons are literally synthesizing structural proteins tonight while you sleep.",
+    "Appreciating why 'picking the right simple model' beats brute force in science and engineering."
+  ],
+  "linked_projects": [
+    "psych_73_kandel_aplysia_synaptic_plasticity"
+  ]
+}

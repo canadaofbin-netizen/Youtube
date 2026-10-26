@@ -1,0 +1,202 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1972 Harvard Museum of Comparative Zoology: High-Investing Mother vs Brooding Pipefish Dad — Flip the Investment, Flip the Choosiness!",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1972, Museum of Comparative Zoology, Harvard University, Cambridge, Massachusetts",
+      "layout": {
+        "description": "Sunlit high-key 1972 Harvard natural-history seminar gallery featuring two crisp museum-white **matte porcelain zoological sculptures** on oak pedestals — Pedestal A showing **Standard Maternal Investment (elaborate Peacock courting selective Peahen)** alongside Pedestal B showing **Male-Brooding Reversal (ornamented Female Pipefish & Jacana Bird courting a picky Brooding Father!)** — framed by a bold **Trivers Parental Investment Ledger ('Higher Care Cost -> Choosier Sex | Flip Who Broods -> Courtship Flips 180°!')**.",
+        "positions": [
+          {
+            "who": "Robert L. Trivers (mannequin in 1972 Harvard corduroy blazer and open-collar oxford shirt)",
+            "where": "standing between the two white porcelain zoological pedestals pointing from the brooding pipefish father sculpture to the flipped 'Male = Choosy!' column on the chalk ledger",
+            "facing": "between museum pedestals"
+          },
+          {
+            "who": "Two Harvard Biology Seminar mannequins (in 1972 knit sweaters holding field notebooks)",
+            "where": "leaning forward in 'Aha!' realization as the sex-role-reversed pipefish and jacana cases prove investment — not XY chromosomes — drives selectivity!",
+            "facing": "seated at oak seminar table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "paired matte-white porcelain zoological sculptures (Peacock/Peahen vs Brooding Pipefish/Jacana Dad)",
+          "period_detail": "stages Trivers's decisive sex-role-reversal proof cleanly per R46 porcelain-animal protocol",
+          "physical_behavior": "visualizes the falsifiable core of Trivers 1972"
+        },
+        {
+          "name": "Harvard Comparative Investment Ledger ('Mammals: Female Invests More | Pipefish/Jacana: Male Invests More | Long-Term Humans: Biparental Mutual Choice!')",
+          "period_detail": "captures standard, reversed, and human biparental cases on one board",
+          "physical_behavior": "blocks pop-evo caricatures instantly"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Robert Trivers",
+          "verb_sequence": "contrasts high-maternal-investment species on Pedestal A with male-brooding pipefish and jacanas on Pedestal B -> traces the 180-degree flip in who ornaments and who chooses -> adds long-term human biparental care where BOTH sexes invest and choose carefully!"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Seminar mannequins",
+          "reaction": "nod amazed as one clean economic principle unites birds, reef fish, and human families"
+        },
+        {
+          "who": "Robert Trivers",
+          "reaction": "adds the 1971 Reciprocal Altruism & 1974 100%-vs-50% Sibling equations beside it"
+        }
+      ],
+      "wardrobe": "1972 Cambridge academic attire: tan corduroy sport coat, oxford shirt, knit pullovers, and wool trousers.",
+      "lighting": "Bright high-key Harvard museum tall-window daylight.",
+      "recognition_hook": "Think courtship rules are wired rigidly to XY chromosomes? Meet pipefish and jacana dads who carry the eggs — the instant fathers pay the heavier parenting bill, dads turn picky and females compete for them!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a sunlit 1972 Harvard comparative zoology gallery where Robert Trivers points between matte-white porcelain peacock and male-brooding pipefish pedestals beside a Parental Investment flip chart",
+        "must_show": [
+          "pedestals|sculptures",
+          "chart|ledger|board",
+          "table|gallery"
+        ],
+        "source": "M1@55:20-55:32; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "1971 Reciprocal Altruism: Cleaner Fish, Gratitude & Cheater Outrage",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1971, Harvard behavioral biology desk (Trivers QRB)",
+      "layout": {
+        "description": "Sunlit study table with a matte-white porcelain reef grouper-and-cleaner-wrasse model and a Benefit > Cost Reciprocity chart.",
+        "positions": [
+          {
+            "who": "Trivers & Colleague mannequins",
+            "where": "mapping how repeated encounters select for gratitude toward helpers and moral indignation at freeloaders",
+            "facing": "at Harvard study table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Reciprocal Altruism Payoff Card ('Cost Small, Benefit Large + Memory = Cooperation')",
+          "period_detail": "explains cooperation among non-relatives",
+          "physical_behavior": "Trivers 1971 SRC1"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Trivers",
+          "verb_sequence": "traces repeated favor exchanges -> highlights gratitude & reparative guilt as trust glue"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Colleague",
+          "reaction": "sees human moral emotions as reciprocity software"
+        }
+      ],
+      "wardrobe": "1971 tweed blazer and turtleneck.",
+      "lighting": "Warm morning window light.",
+      "recognition_hook": "Why doesn't a giant reef grouper swallow the tiny cleaner fish swimming inside its mouth? Because tomorrow's parasite cleanup is worth far more than one tiny snack!",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "1974 Parent-Offspring Conflict: 50%/50% Mom vs 100%/50% Kid!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1974, Sunlit family kitchen & Harvard chalkboard (Trivers SRC2)",
+      "layout": {
+        "description": "Bright split view pairing a parent dividing slices equally (50% / 50%) between two children while Child #1 lobbies energetically (100% self vs 50% sibling!).",
+        "positions": [
+          {
+            "who": "Parent & Two Child mannequins",
+            "where": "acting out the universal sibling-fairness negotiation with warm humor",
+            "facing": "at sunlit kitchen table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Relatedness Fraction Board ('Parent: 50% / 50% | Child: 100% Self / 50% Sibling')",
+          "period_detail": "turns toddler weaning/sharing battles into crystal-clear genetics",
+          "physical_behavior": "Trivers 1974 SRC2"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Parent",
+          "verb_sequence": "divides attention 50/50 -> Child #1 lobbies for extra -> Parent smiles knowing the 2:1 relatedness math"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Parent",
+          "reaction": "replaces parental guilt with calm perspective"
+        }
+      ],
+      "wardrobe": "Warm casual family sweaters.",
+      "lighting": "Sunny kitchen daylight.",
+      "recognition_hook": "Your kids aren't broken when they argue over fair shares — you're 50% related to both of them, while each kid is 100% related to themselves!",
+      "sources": [
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Human Biparental Investment & Modern Cultural Flexibility",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit family park / home study",
+      "layout": {
+        "description": "Warm modern living room where both partners co-invest deeply in family and career alongside a Cross-Cultural Equality chart (Hrdy; Eagly & Wood).",
+        "positions": [
+          {
+            "who": "Two partner mannequins",
+            "where": "sharing hands-on childcare and mutual support with high shared selectivity and reciprocal trust",
+            "facing": "in sunlit living room"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Mutual Biparental Care & Equality Shift Card",
+          "period_detail": "integrates Trivers with Hrdy and Eagly & Wood",
+          "physical_behavior": "balanced modern takeaway"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Partners",
+          "verb_sequence": "co-invest time and care -> build resilient mutual partnership"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Partners",
+          "reaction": "warm, equal teamwork"
+        }
+      ],
+      "wardrobe": "Modern casual attire.",
+      "lighting": "Golden afternoon light.",
+      "recognition_hook": "When both human partners invest deeply in shared life and family, Trivers's own equation predicts mutual selectivity, mutual respect, and lasting reciprocity!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

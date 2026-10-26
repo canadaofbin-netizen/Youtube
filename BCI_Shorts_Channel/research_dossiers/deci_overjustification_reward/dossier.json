@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "slug": "deci_overjustification_reward",
+  "topic": "Edward Deci (1971): Soma Puzzle Cubes, Overjustification & How Cash Rewards Undermine Intrinsic Motivation",
+  "pillar": "brain_mysteries",
+  "created_at": "2026-10-25T22:49:30+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Deci's one-way mirror free-choice observation (students abandoning Soma puzzle cubes once cash vouchers stop) pairs cleanly with Murayama et al.'s modern fMRI proof of corticostriatal intrinsic-value suppression.",
+  "primary_case": {
+    "title": "Edward L. Deci's University of Rochester Soma puzzle free-choice intrinsic motivation experiment",
+    "year": 1971,
+    "place": "University of Rochester Department of Psychology, Rochester, New York",
+    "people": [
+      {
+        "name": "Edward L. Deci",
+        "role": "Psychologist who challenged operant dogma by showing tangible piece-rate pay erodes spontaneous curiosity once withdrawn",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Richard M. Ryan",
+        "role": "Co-founder with Deci of Self-Determination Theory (autonomy, competence, relatedness)",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Kou Murayama",
+        "role": "Neuroscientist whose 2010 fMRI replication showed performance pay physically dampens subsequent striatum-prefrontal intrinsic activity",
+        "source_id": "SRC5"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 1971 at the University of Rochester, Edward Deci invited 24 college students across three one-hour sessions to assemble three-dimensional 'Soma' block puzzles (invented by Piet Hein) into sketched shapes.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Session 1, nobody was paid; halfway through each session, Deci excused himself for 8 minutes leaving current magazines (New Yorker, Playboy, Time) right beside the Soma blocks while secretly timing through a one-way mirror how many seconds students played with the puzzles FOR FUN.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Session 2, the experimental group received $1 for every Soma puzzle solved within 13 minutes, while the control group continued solving the exact same puzzles with zero pay.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "During paid Session 2, paid students played slightly more during the free break (313.9 seconds vs 205.7 seconds baseline) to practice winning.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The shocker hit in Session 3 when Deci announced study funds had run out so nobody would be paid today: unpaid controls actually INCREASED spontaneous puzzle play slightly (241.2 seconds vs 212.1 in Session 1), whereas formerly paid students DROPPED nearly 50 seconds below their own Session 1 baseline (198.5 seconds vs 248.2 seconds).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In a parallel third experiment inside the exact same 1971 paper, giving students sincere VERBAL PRAISE ('That's very good, much faster than most people') instead of cash INCREASED subsequent unpaid free-choice play.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Across 128 studies later meta-analyzed by Deci, Koestner & Ryan (1999), expected tangible 'if-then' rewards reliably undercut intrinsic interest on enjoyable tasks ('overjustification'), because perceived locus of causality shifts from internal autonomy ('I love puzzles') to external control ('I work for vouchers').",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "In 2010, Kou Murayama's team scanned this exact 3-stage design in fMRI: removing performance pay caused corticostriatal activation (anterior striatum and lateral prefrontal cortex) during free-choice play to plunge below unpaid controls.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "During Session 3's 8-minute (480-second) unobserved free-choice window after Session-2 piece-rate pay ended, unpaid control students spent 241 seconds solving Soma cube puzzles whereas formerly paid students dropped to 198 seconds.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Pay college students for one single hour to solve a 3D puzzle they already loved for free — then stop paying them — and they abandon the puzzle faster than people who never got a dime.",
+      "why_surprising": "External pay rewrote 'play' into 'unpaid labor' in sixty minutes.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "In the exact same 1971 paper, sincere verbal feedback ('you solved that faster than average') boosted unpaid curiosity instead of killing it.",
+      "why_surprising": "Information that feeds competence uplifts drive; 'if-then' bribes feel controlling.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Decades later inside an MRI scanner (Murayama 2010), the formerly paid group's reward striatum literally went quieter than unpaid controls when playing alone in the waiting room.",
+      "why_surprising": "Overjustification isn't just an excuse — it dampens intrinsic striatal valuation.",
+      "source_id": "SRC5",
+      "rank": 3
+    },
+    {
+      "fact": "Unexpected surprise bonuses given AFTER a creative project finishes do NOT harm intrinsic motivation at all.",
+      "why_surprising": "Only dangling an expected 'do X to get Y' carrot shifts autonomy outward.",
+      "source_id": "SRC4",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Adding piece-rate cash bonuses on top of an enjoyable activity always adds extra total motivation ('intrinsic + extrinsic = more').",
+      "truth": "Intrinsic and controlling extrinsic motivation are NOT strictly additive; expected piece-rate rewards crowd out internal drive once stopped.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "All external rewards and salaries destroy human motivation.",
+      "truth": "Fair base salaries, unexpected 'thank-you' bonuses, and competence-affirming verbal praise preserve or enhance intrinsic interest; dull routine tasks also don't suffer.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Preschoolers are too young to show overjustification.",
+      "truth": "Lepper, Greene & Nisbett (1973) replicated the exact drop in nursery schoolers promised a 'Good Player Award' ribbon for drawing with felt-tip markers.",
+      "source_id": "SRC3"
+    },
+    {
+      "myth": "People only stop playing in Session 3 out of spite.",
+      "truth": "fMRI shows silent corticostriatal valuation drops automatically even when subjects aren't consciously resentful.",
+      "source_id": "SRC3"
+    }
+  ],
+  "everyday_hooks": [
+    "Paying a child per page to read books they already enjoyed — and watching them stop reading the day the summer chart ends.",
+    "Turning a beloved photography or baking hobby into a frantic gig-economy side hustle and suddenly dreading picking up the camera.",
+    "Using fair base pay + surprise 'here's what you built brilliantly' recognition instead of micromanaged per-ticket bounties.",
+    "Keeping one creative project completely unmonetized and untracked just for pure play."
+  ],
+  "linked_projects": [
+    "psych_29_deci_overjustification_reward"
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "50,000 hours of compassion in a 128-sensor EEG net: how Lutz, Ricard & Davidson (2004 PNAS) discovered record 40-Hz gamma synchrony and 'state-to-trait' brain remodeling.",
+    "core_experiment": "Lutz, Greischar, Rawlings, Ricard & Davidson (2004 PNAS) + Lutz (2009 J Neurosci) + Ferrarelli (2013 PLoS ONE sleep control).",
+    "twist": "Frontoparietal 40-Hz gamma, r = 0.79 baseline trait correlation, non-REM sleep EMG proof, and realistic daily dose-response."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Madison 2004: Checking the Wall Cables When the Monks Started Meditating.",
+      "beats": [
+        "1992 Dalai Lama challenge: study kindness with anxiety's rigor",
+        "8 adepts (10,000–50,000 hrs) vs 10 trained novices in 128-sensor EEG"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "monk in 128-sensor geodesic EEG net & 40-Hz waveform"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Before the Bell Even Rang: Resting Baseline r = 0.79.",
+      "beats": [
+        "Temporary states become permanent resting traits",
+        "Frontoparietal synchrony + insula/amygdala compassion coupling"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "resting baseline trait correlation chart"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Defeating the Muscle-Tension Critique: Recording Meditators Fast Asleep.",
+      "beats": [
+        "Could 40-Hz gamma be forehead tension?",
+        "Ferrarelli et al. (2013): elevated gamma persists deep inside non-REM sleep."
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "non-REM sleep EEG suite"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Honest Dose-Response vs 'McMindfulness' Hype",
+      "beats": [
+        "Why Davidson's own lab warns against 5-minute miracle claims",
+        "What 7 hours (2 weeks) vs 3 months vs 10,000 hours actually change"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "Dose-Response Plasticity Ladder"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "10 Morning Minutes: Training Kindness & Focus Like a Muscle",
+      "beats": [
+        "Unconditional goodwill practice before opening your phone",
+        "Repeated states to your brain's new resting baseline"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "sunlit morning 10-minute practice corner"
+      ]
+    }
+  ]
+}

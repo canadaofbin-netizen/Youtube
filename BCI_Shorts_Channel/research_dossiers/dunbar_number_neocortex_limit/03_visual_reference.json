@@ -1,0 +1,212 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Robin Dunbar plotting 38 primate cranial casts along the neocortex-ratio graph up to the human '150' mark",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1992, University College London comparative anthropology laboratory",
+      "layout": {
+        "description": "Sunlit 1992 UCL anthropology seminar room with a long natural-oak specimen table displaying comparative matte-white porcelain primate endocast models in ascending size (prosimian, matte-white porcelain macaque cast, baboon cast, chimpanzee cast, modern human cast) in front of a crisp log-log regression board.",
+        "positions": [
+          {
+            "who": "Robin Dunbar (mannequin in 1992 tweed blazer and open-collar shirt)",
+            "where": "standing at the regression board extending the straight primate trendline from chimpanzee (~50-55) up to the human 4.1 neocortex ratio landing squarely at '~150'",
+            "facing": "facing the table and chart"
+          },
+          {
+            "who": "Colleague anthropologist mannequin",
+            "where": "aligning the matte-white matte-white porcelain chimpanzee and human cranial endocasts along the oak table beside ethnographic village/company ledgers",
+            "facing": "at the specimen table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "ascending row of five matte-white primate cranial endocasts",
+          "period_detail": "museum-grade white 3D casts showing dramatic outer neocortical folding expansion from small prosimians to humans",
+          "physical_behavior": "makes the 4.1 neocortex ratio physically tangible"
+        },
+        {
+          "name": "log-log Neocortex Ratio vs Group Size chart",
+          "period_detail": "large white placard plotting 38 primate dots climbing tightly up to Human = 147.8 (~150)",
+          "physical_behavior": "visualizes the mathematical prediction"
+        },
+        {
+          "name": "historical ~150 ledger cards ('Neolithic Village: 150 / Roman Maniple: 130 / Hutterite Split: 150')",
+          "period_detail": "crisp comparison cards stacked on the table",
+          "physical_behavior": "confirm the biological prediction in real human history"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Colleague anthropologist",
+          "verb_sequence": "sets the large human white endocast at the right end of the primate row"
+        },
+        {
+          "who": "Robin Dunbar",
+          "verb_sequence": "draws the dotted vertical line from '4.1 Neocortex Ratio' up to the primate slope and across to '150 Group Size' -> taps the matching Hutterite & Roman company cards"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Colleague anthropologist",
+          "reaction": "compares the failed 'fruit-range' scatter plot against the tight 'social group' line in amazement"
+        },
+        {
+          "who": "Robin Dunbar",
+          "reaction": "sketches the nested 5 — 15 — 50 — 150 concentric rings beside the graph"
+        }
+      ],
+      "wardrobe": "1992 British academic attire: warm herringbone tweed jacket, blue Oxford shirt, corduroy trousers.",
+      "lighting": "High-key London tall-window daylight illuminating matte-white museum endocasts.",
+      "recognition_hook": "Line up 38 matte-white porcelain primate brain casts by outer-cortex size, extend the line to humans, and it lands on 148 — the exact size where villages split and startups suddenly need HR.",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1992 anthropologist at a UCL oak table lined with ascending matte-white primate brain casts pointing to a 'Neocortex Ratio -> 150 Group Size' regression chart",
+        "must_show": [
+          "casts|skulls|models",
+          "chart|graph|150",
+          "table"
+        ],
+        "source": "M1@13:20-13:32; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Concentric 5 / 15 / 50 / 150 circle tabletop map",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern behavioral lab",
+      "layout": {
+        "description": "Overhead view of a sunlit oak table drawn with four concentric circles holding 5, 15, 50, and 150 small white wooden pegs.",
+        "positions": [
+          {
+            "who": "Participant mannequin",
+            "where": "placing 5 tallest wooden pegs right into the innermost '3 a.m. Crisis Circle'",
+            "facing": "hands over concentric map"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "concentric wooden-peg social board",
+          "period_detail": "5 inner pegs absorb 40% of social time",
+          "physical_behavior": "separates lifelines from acquaintances"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Participant mannequin",
+          "verb_sequence": "counts thousands of phone contacts -> places just five into the center ring"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Participant mannequin",
+          "reaction": "sees clearly who actually anchors emotional health"
+        }
+      ],
+      "wardrobe": "Modern casual sweater.",
+      "lighting": "Bright overhead daylight.",
+      "recognition_hook": "Forty percent of your emotional bandwidth goes to just the five pegs in your center circle.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "5,000 online 'friends' vs ~150 real two-way replies",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2011, computational social-science lab",
+      "layout": {
+        "description": "Bright monitor showing a giant starburst of 4,000 faint passive links shrinking when filtered to mutual two-way conversations — leaving a crisp ~150 core.",
+        "positions": [
+          {
+            "who": "Data Scientist mannequin",
+            "where": "toggling the 'Mutual Replies Only' filter on the network graph",
+            "facing": "at monitor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1.7-million-user network plateau graph",
+          "period_detail": "curve flattening between 100 and 200 regardless of follower count",
+          "physical_behavior": "proves digital tools didn't upgrade neocortical RAM"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Data Scientist mannequin",
+          "verb_sequence": "clicks 'Two-Way Conversation Filter' -> 4,000 faint lines vanish leaving 145 solid ties"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Data Scientist mannequin",
+          "reaction": "notes Lindenfors's 100-250 individual bandwidth band"
+        }
+      ],
+      "wardrobe": "Modern collared shirt.",
+      "lighting": "Clean high-key office light.",
+      "recognition_hook": "Collect 5,000 followers if you want — your actual two-way conversations still plateau right inside the primate band.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Putting away the phone to invest two real hours with your Inner Five",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit dinner table",
+      "layout": {
+        "description": "Warm sunlit wooden dining table where four close friends share a meal with zero phones on the table.",
+        "positions": [
+          {
+            "who": "Four Close Friend mannequins",
+            "where": "leaning in laughing and listening across a shared meal",
+            "facing": "around oak table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "basket of silenced phones by the entryway",
+          "period_detail": "protects scarce face-to-face grooming hours",
+          "physical_behavior": "nourishes the 5-person core"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Host mannequin",
+          "verb_sequence": "sets meal down -> four friends talk uninterrupted"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Group",
+          "reaction": "connects deeply"
+        }
+      ],
+      "wardrobe": "Casual modern knitwear.",
+      "lighting": "Warm golden daylight.",
+      "recognition_hook": "Protect weekly hours for your inner five instead of trading real allies for a thousand shallow likes.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

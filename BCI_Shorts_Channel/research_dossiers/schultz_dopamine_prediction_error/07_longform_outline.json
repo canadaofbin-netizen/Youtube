@@ -1,0 +1,100 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Why expected sweet juice fires ZERO extra dopamine: how Schultz, Dayan & Montague (1997 Science) proved dopamine runs 'Actual Minus Expected' AI math.",
+    "core_experiment": "Schultz, Dayan & Montague (1997 Science): 3-row VTA raster (+Unpredicted, 0 Expected + Cue Transfer, −Omitted) + Schultz (2024 review).",
+    "twist": "VTA to Nucleus Accumbens to PFC TD loop, Berridge's Wanting vs Liking, variable social feeds, and everyday expectation math."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Fribourg 1997: The 3-Row Plot That Ended the 'Pleasure Molecule' Myth",
+      "beats": [
+        "Row 1: surprise juice = +burst. Row 2: expected juice after bell = ZERO.",
+        "Row 3: bell + withheld juice = timed plunge below baseline."
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "macaque panel & 3-row raster board"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "When Neurobiology Met AI: Temporal-Difference (`Actual − Expected`)",
+      "beats": [
+        "Dayan & Montague spot Sutton & Barto's exact RL teaching signal",
+        "VTA phasic pulse updating nucleus accumbens & prefrontal forecasts"
+      ],
+      "scene_ids": [
+        "S1",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "VTA-Accumbens-PFC & TD equation whiteboard"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Wanting vs Liking: Why You Doomscroll at 1 AM With Zero Joy",
+      "beats": [
+        "Kent Berridge: opioid 'Liking' vs dopamine 'Wanting/Error'",
+        "Why unpredictable pull-to-refresh feeds never flatten to zero"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "Predictable vs Variable-Ratio feed card"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "The Expectation Trap: How Expecting a '10' Turns a '9' Into Pain",
+      "beats": [
+        "`Actual 9 − Expected 10 = −1` negative prediction error.",
+        "Debunking internet 'dopamine fasting' myths"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "expectation calibration check"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Designing `+δ` Surprises & Calm Savoring",
+      "beats": [
+        "Why unscheduled Tuesday kindness beats predictable big obligations",
+        "Turning off slot-machine badges & savoring what's already here"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "unscheduled Tuesday note & mindful morning cup"
+      ]
+    }
+  ]
+}

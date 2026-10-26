@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "ventral tegmental area",
+      "plain": "phasic midbrain dopamine prediction-error burst / flatline / dip",
+      "function": "firing +bursts to unexpected rewards or predictive cues, staying at 0 baseline when expected juice arrives on time, and pausing below baseline at omitted reward time",
+      "scene_id": "S1",
+      "narration_bridge": "Exact single-unit VTA/SNc raster signature in Schultz, Dayan & Montague 1997 Science (SRC1)."
+    },
+    {
+      "role": "pivot",
+      "region": "nucleus accumbens",
+      "plain": "ventral striatal synaptic teaching & motivational 'wanting' update",
+      "function": "receiving the VTA phasic dopamine wave to strengthen cue-action habits on `+δ` and weaken outdated expectations on `-δ`",
+      "scene_id": "S1",
+      "narration_bridge": "Primary striatal target of VTA prediction-error projections."
+    },
+    {
+      "role": "step1",
+      "region": "prefrontal cortex",
+      "plain": "expected-value timing & model-based reward forecast",
+      "function": "maintaining the precise 1.5-second temporal expectation ('Juice arrives NOW') that drives subtraction when expected outcomes occur or fail",
+      "scene_id": "S2",
+      "narration_bridge": "Completes the VTA–Striatal–Prefrontal TD loop."
+    }
+  ]
+}

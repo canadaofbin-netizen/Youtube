@@ -1,0 +1,84 @@
+{
+  "sources": [
+    {
+      "id": "SRC1",
+      "type": "primary",
+      "citation": "Robert E Hampson, Dong Song, Brian S Robinson, Dustin Fetterhoff et al. (2018). Developing a hippocampal neural prosthetic to facilitate human memory encoding and recall. Journal of Neural Engineering.",
+      "doi": "10.1088/1741-2552/aaaed7",
+      "url": "https://doi.org/10.1088/1741-2552/aaaed7",
+      "year": 2018,
+      "verified": true,
+      "notes": "Foundational primary study (2018) in Journal of Neural Engineering establishing the core experimental paradigm and quantitative parameters."
+    },
+    {
+      "id": "SRC2",
+      "type": "follow_up",
+      "citation": "Dong Song, Robert E. Hampson, Brian S. Robinson, Ioan Opris et al. (2015). Nonlinear dynamical modeling of human hippocampal CA3-CA1 functional connectivity for memory prostheses. 2015 7th International IEEE/EMBS Conference on Neural Engineering (NER).",
+      "doi": "10.1109/ner.2015.7146623",
+      "url": "https://doi.org/10.1109/ner.2015.7146623",
+      "year": 2015,
+      "verified": true,
+      "notes": "Song, Hampson, Robinson, Marmarelis, Deadwyler & Berger (2015) nonlinear dynamical MIMO modeling of human CA3-CA1 connectivity."
+    },
+    {
+      "id": "SRC3",
+      "type": "follow_up",
+      "citation": "Theodore W Berger, Robert E Hampson, Dong Song, Anushka Goonawardena et al. (2011). A cortical neural prosthesis for restoring and enhancing memory. Journal of Neural Engineering.",
+      "doi": "10.1088/1741-2560/8/4/046017",
+      "url": "https://doi.org/10.1088/1741-2560/8/4/046017",
+      "year": 2011,
+      "verified": true,
+      "notes": "Berger et al. (2011 Journal of Neural Engineering) rodent CA3-to-CA1 MIMO nonlinear hippocampal prosthesis restoring and enhancing delayed-nonmatch-to-sample memory."
+    },
+    {
+      "id": "SRC4",
+      "type": "follow_up",
+      "citation": "Robert E Hampson, Dong Song, Ioan Opris, Lucas M Santos et al. (2013). Facilitation of memory encoding in primate hippocampus by a neuroprosthesis that promotes task-specific neural firing. Journal of Neural Engineering.",
+      "doi": "10.1088/1741-2560/10/6/066013",
+      "url": "https://doi.org/10.1088/1741-2560/10/6/066013",
+      "year": 2013,
+      "verified": true,
+      "notes": "Deadwyler et al. (2013 Journal of Neural Engineering) nonhuman primate hippocampal MIMO neural prosthesis rescuing memory across pharmacological disruption."
+    },
+    {
+      "id": "SRC5",
+      "type": "follow_up",
+      "citation": "Youssef Ezzyat, Paul A. Wanda, Deborah F. Levy, Allison Kadel et al. (2018). Closed-loop stimulation of temporal cortex rescues functional networks and improves memory. Nature Communications.",
+      "doi": "10.1038/s41467-017-02753-0",
+      "url": "https://doi.org/10.1038/s41467-017-02753-0",
+      "year": 2018,
+      "verified": true,
+      "notes": "Ezzyat et al. (2018 Nature Communications) closed-loop lateral temporal cortex stimulation improving human episodic word recall."
+    },
+    {
+      "id": "SRC_M1",
+      "type": "documentary",
+      "citation": "Ateneo Innovation Center. \"Cristine Joy Pimentel on \"Hippocampal Neural Prosthetic for Human Memory Encoding and Recall\".\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=Om4IN-a1O7k",
+      "year": null,
+      "verified": true,
+      "notes": "Primary video reference analyzed locally in media/M1/ (14 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_M2",
+      "type": "documentary",
+      "citation": "Foresight Institute. \"Dong Song, USC | Toward a Hippocampal Memory Prosthesis.\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=EVz2mgF_6x0",
+      "year": null,
+      "verified": true,
+      "notes": "Complementary video reference analyzed locally in media/M2/ (14 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_STILL",
+      "type": "museum",
+      "citation": "Wikimedia Commons (Public domain). \"CajalHippocampus.jpeg.\" Wikimedia Commons.",
+      "doi": null,
+      "url": "https://commons.wikimedia.org/wiki/File:CajalHippocampus.jpeg",
+      "year": null,
+      "verified": true,
+      "notes": "Verified archival image (687x1280 px) stored locally in media/M3/still.jpg for reference analysis only (never reused raw). Archival visual record \"CajalHippocampus.jpeg\"."
+    }
+  ]
+}

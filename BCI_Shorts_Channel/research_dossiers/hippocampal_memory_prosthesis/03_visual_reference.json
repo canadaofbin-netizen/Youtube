@@ -1,0 +1,233 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Wake Forest epilepsy suite: patient taps the remembered shape on a touchscreen as MIMO CA3-to-CA1 stimulation boosts recall 37%",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2018, Wake Forest Baptist Medical Center epilepsy monitoring unit, Winston-Salem",
+      "layout": {
+        "description": "Bright clinical hospital monitoring suite where a surgical epilepsy patient sits propped upright in an adjustable hospital bed with a clean white cranial wrap and fine ribbon leads connected to a bedside neural prosthetic computer; the patient reaches forward to tap the matching geometric photograph on a touchscreen tablet while the engineer's monitor displays synchronized CA3 input and MIMO-predicted CA1 output spike rasters.",
+        "positions": [
+          {
+            "who": "Surgical patient (mannequin in light blue hospital gown and clean white head bandage)",
+            "where": "seated upright in the hospital bed reaching a finger to tap the correct target image on an angled touchscreen",
+            "facing": "facing the touchscreen stand"
+          },
+          {
+            "who": "Neuroscientist Robert Hampson (mannequin in white lab coat)",
+            "where": "standing beside the bedside MIMO computer cart",
+            "facing": "watching the CA3-to-CA1 spike translation display"
+          },
+          {
+            "who": "Biomedical engineer (mannequin in collared shirt)",
+            "where": "seated at the stimulation laptop",
+            "facing": "monitoring the microampere pulse pattern"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "over-bed touchscreen memory tablet",
+          "period_detail": "mounted clinical touchscreen displaying four complex photographic shapes in the delayed match-to-sample test",
+          "physical_behavior": "patient's index finger taps the exact remembered sample image and a green confirmation border lights up"
+        },
+        {
+          "name": "bedside MIMO spike-translation workstation",
+          "period_detail": "dual-trace display showing real-time CA3 input spikes on top and patterned CA1 stimulation pulses below",
+          "physical_behavior": "CA1 pulse train fires in clean lockstep with the CA3 pattern"
+        },
+        {
+          "name": "fine depth-electrode ribbon cable",
+          "period_detail": "medical-grade multi-channel connector running from the clean head wrap to the amplifier",
+          "physical_behavior": "transmits microvolt single-neuron spikes"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Surgical patient",
+          "verb_sequence": "studies the sample image before it disappears -> waits through the delay screen -> reaches out and taps the exact matching image among distractors"
+        },
+        {
+          "who": "Neuroscientist",
+          "verb_sequence": "points to the aligned CA3-to-CA1 spike raster as the patient's score rises 37 percent"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Surgical patient",
+          "reaction": "nods with quiet satisfaction as delayed recognition stays sharp"
+        },
+        {
+          "who": "Neuroscientist & engineer",
+          "reaction": "exchange an amazed look beside the cart"
+        }
+      ],
+      "wardrobe": "Patient in clean light-blue hospital gown and neat white cranial wrap; researchers in white lab coat and Oxford shirt.",
+      "lighting": "Clean high-key clinical daylight streaming into the hospital monitoring room.",
+      "recognition_hook": "A hospital patient playing a touchscreen memory game scores 37 percent higher when a computer plays his own hippocampal spike code back into layer CA1.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "the hospital patient taps the remembered image on a bedside touchscreen while the workstation translates CA3 spikes into CA1 pulses",
+        "must_show": [
+          "touchscreen|screen",
+          "bed|patient",
+          "workstation|monitor"
+        ],
+        "source": "M1@00:02-00:10; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Flat constant current vs patterned MIMO melody",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2018 USC / Wake Forest neural engineering comparison",
+      "layout": {
+        "description": "Clean neuroengineering lab bench comparing a flat metronome-pulse stimulator trace (zero gain) against the sparse spatiotemporal MIMO raster (+37% gain).",
+        "positions": [
+          {
+            "who": "USC engineer Dong Song mannequin",
+            "where": "standing at the wide waveform display",
+            "facing": "comparing scrambled pulses vs MIMO code"
+          },
+          {
+            "who": "Theodore Berger mannequin",
+            "where": "standing beside a physical CA3-CA1 circuit board",
+            "facing": "facing the display"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "comparison raster screen",
+          "period_detail": "two side-by-side panels: flat/scrambled pulse train at 0% change vs MIMO spatiotemporal code at +37%",
+          "physical_behavior": "MIMO trace aligns precisely with biological CA1 spikes"
+        }
+      ],
+      "actions": [
+        {
+          "who": "USC engineer",
+          "verb_sequence": "switches the display from scrambled control pulses to the personalized MIMO Volterra pattern"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Berger mannequin",
+          "reaction": "nods as only the timed biological pattern unlocks recall"
+        }
+      ],
+      "wardrobe": "Dark blazer and white lab coat.",
+      "lighting": "Bright laboratory daylight.",
+      "recognition_hook": "Scrambled pulses with the exact same electricity did nothing — only the precise millisecond rhythm worked.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "75-minute delayed recognition check",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2018 Wake Forest follow-up test",
+      "layout": {
+        "description": "Same bright hospital room 75 minutes after stimulation cables are idle, where the patient still recognizes MIMO-encoded photos 35% better.",
+        "positions": [
+          {
+            "who": "Surgical patient",
+            "where": "seated comfortably with stimulation turned off, reviewing delayed test photos",
+            "facing": "facing the tablet"
+          },
+          {
+            "who": "Clinical tester",
+            "where": "holding session timer showing 75 minutes elapsed",
+            "facing": "facing the patient"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "75-minute elapsed clock and recognition tablet",
+          "period_detail": "wall/desk timer at 01:15:00 beside the photo recognition screen",
+          "physical_behavior": "patient selects previously MIMO-encoded images accurately"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Surgical patient",
+          "verb_sequence": "taps 'seen before' on photos encoded over an hour earlier"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Clinical tester",
+          "reaction": "checks off the 35 percent long-term retention boost"
+        }
+      ],
+      "wardrobe": "Hospital gown and white lab coat.",
+      "lighting": "Bright afternoon clinical light.",
+      "recognition_hook": "More than an hour after the stimulator stopped, memories written with the MIMO bridge were still 35 percent stronger.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Future prosthetic hope for injured memory circuits",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "2024 clinical translation lab",
+      "layout": {
+        "description": "Modern neurotechnology lab displaying a miniaturized implantable chip prototype beside a hippocampal 3D model.",
+        "positions": [
+          {
+            "who": "Clinician mannequin",
+            "where": "holding the fingernail-sized prosthetic chip casing beside the 3D hippocampus model",
+            "facing": "facing an older patient mannequin"
+          },
+          {
+            "who": "Older adult volunteer mannequin",
+            "where": "leaning in attentively across the consultation desk",
+            "facing": "looking at the miniature chip"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "miniaturized titanium neural prosthetic casing",
+          "period_detail": "compact sealed medical implant prototype on a velvet tray",
+          "physical_behavior": "glints cleanly in studio light"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Clinician mannequin",
+          "verb_sequence": "lifts the compact chip beside the C-shaped hippocampal model"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Older adult mannequin",
+          "reaction": "nods hopeful at a prosthetic bridge for damaged memory relays"
+        }
+      ],
+      "wardrobe": "White clinician coat and tweed cardigan.",
+      "lighting": "High-key daylight.",
+      "recognition_hook": "Instead of uploading fake memories, future neural prosthetics can repair the biological bridge that lets you keep your own.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

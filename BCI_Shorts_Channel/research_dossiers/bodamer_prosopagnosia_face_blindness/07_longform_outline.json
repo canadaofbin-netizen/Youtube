@@ -1,0 +1,101 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "20/20 eyesight yet a stranger in the mirror: how Bodamer's 1947 discovery of Prosopagnosia revealed two hidden wires for human identity.",
+    "core_experiment": "Bodamer (1947) Patient S. dissociation (intact print, objects & voices vs lost face ID) + Tranel & Damasio (1985) covert sweat recognition.",
+    "twist": "The Capgras mirror-twin double dissociation, Oliver Sacks's mirror apology, and why 1 in 50 adults quietly live with developmental face blindness."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "1947 Winnenden: Sharp Eyes, Blank Mirror, Instant Voice",
+      "beats": [
+        "Patient S. reads tiny print yet walks past his silent mother",
+        "One spoken syllable unlocks full memory: coining 'Prosopagnosia'"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "eye card, tabletop mirror & portraits"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "When Sweat Glands Remember Who Words Forgot (1985)",
+      "beats": [
+        "Tranel & Damasio's electrodermal family-photo test",
+        "Mirror-image twin of Capgras impostor delusion"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step1",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "palmar conductance spike chart"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Oliver Sacks & The 1-in-50 Hidden Trait",
+      "beats": [
+        "Tipping a hat to your own reflection",
+        "~2% congenital face blindness: surviving by haircuts, shoes & voices"
+      ],
+      "scene_ids": [
+        "S4",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "bookshop mirror & office context shift"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Inside the Ventral Fusiform-Temporal Bridge",
+      "beats": [
+        "Apperceptive FFA assembly vs associative temporal memory link",
+        "Why eyes draw gaze even when identity fails"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "fusiform-to-temporal diagram"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Five Kind Words That Help 2% of Every Room",
+      "beats": [
+        "Why out-of-context encounters trip face-blind colleagues",
+        "Saying your name warmly out of context"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "warm named greeting"
+      ]
+    }
+  ]
+}

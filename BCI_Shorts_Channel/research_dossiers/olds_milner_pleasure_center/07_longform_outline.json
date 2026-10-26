@@ -1,0 +1,103 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Rat #34 ignores a dish of food and presses a brain-wired brass lever nearly 2,000 times in one hour.",
+    "core_experiment": "Olds & Milner's 1954 accidental bent-wire implant in the septal / medial forebrain bundle across 15 histologically mapped rats.",
+    "twist": "Modern affective neuroscience twist: the 'pleasure center' is actually a relentless mesolimbic 'wanting' engine that fires even without pleasure."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Wire That Bent Into History",
+      "beats": [
+        "Aiming for reticular avoidance, hitting anterior septum",
+        "Rat #34 marching back to the zapped corner",
+        "X-ray reveal of the bent electrode"
+      ],
+      "scene_ids": [
+        "S2",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "backlit X-ray trajectory overlay"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "1,920 Presses an Hour for Zero Food",
+      "beats": [
+        "Wiring the Skinner lever box",
+        "Ignoring full food trays and crossing shock grids",
+        "Instant drop when current switches off"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "macro brass pedal and steep cumulative graph"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Mapping Hot Spots vs Dead Zones",
+      "beats": [
+        "Septal & medial forebrain bundle vs neutral caudate",
+        "VTA-to-nucleus-accumbens fiber highway"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "3D forebrain bundle pulse"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Plot Twist: Wanting Is Not Liking",
+      "beats": [
+        "Why 'pleasure center' was a misnomer",
+        "Berridge's wanting vs liking split",
+        "Human button-pressing reports of restless urge"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "side-by-side wanting vs liking comparison"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Unplugging Your Digital Skinner Lever",
+      "beats": [
+        "Spotting numb midnight scrolling",
+        "Adding physical distance to reset prefrontal brakes"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "placing phone on distant dock"
+      ]
+    }
+  ]
+}

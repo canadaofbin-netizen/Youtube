@@ -1,0 +1,104 @@
+{
+  "sources": [
+    {
+      "id": "SRC1",
+      "type": "primary",
+      "citation": "Matthew Botvinick, Jonathan Cohen (1998). Rubber hands ‘feel’ touch that eyes see. Nature.",
+      "doi": "10.1038/35784",
+      "url": "https://doi.org/10.1038/35784",
+      "year": 1998,
+      "verified": true,
+      "notes": "Foundational primary study (1998) in Nature establishing the core experimental paradigm and quantitative parameters."
+    },
+    {
+      "id": "SRC2",
+      "type": "follow_up",
+      "citation": "Manos Tsakiris, Patrick Haggard (2005). The Rubber Hand Illusion Revisited: Visuotactile Integration and Self-Attribution. Journal of Experimental Psychology: Human Perception and Performance.",
+      "doi": "10.1037/0096-1523.31.1.80",
+      "url": "https://doi.org/10.1037/0096-1523.31.1.80",
+      "year": 2005,
+      "verified": true,
+      "notes": "Tsakiris & Haggard (2005 JEP:HPP) systematic experiments proving body-scheme anatomical congruence and synchronous timing gate rubber-hand ownership."
+    },
+    {
+      "id": "SRC3",
+      "type": "critique",
+      "citation": "Marieke Rohde, Massimiliano Di Luca, Marc O. Ernst (2011). The Rubber Hand Illusion: Feeling of Ownership and Proprioceptive Drift Do Not Go Hand in Hand. PLoS ONE.",
+      "doi": "10.1371/journal.pone.0021659",
+      "url": "https://doi.org/10.1371/journal.pone.0021659",
+      "year": 2011,
+      "verified": true,
+      "notes": "Rohde, Di Luca & Ernst (2011 PLOS ONE) psychophysical dissociation showing proprioceptive drift can occur independently of subjective rubber-hand ownership."
+    },
+    {
+      "id": "SRC4",
+      "type": "follow_up",
+      "citation": "Laura Germine, Taylor Leigh Benson, Francesca Cohen, Christine I’Lee Hooker (2013). Psychosis-proneness and the rubber hand illusion of body ownership. Psychiatry Research.",
+      "doi": "10.1016/j.psychres.2012.11.022",
+      "url": "https://doi.org/10.1016/j.psychres.2012.11.022",
+      "year": 2013,
+      "verified": true,
+      "notes": "Subsequent empirical and theoretical investigation (2013) in Psychiatry Research extending the foundational findings."
+    },
+    {
+      "id": "SRC5",
+      "type": "follow_up",
+      "citation": "Lénie J. Torregrossa, Sohee Park (2022). Body ownership across schizotypy dimensions: A rubber hand illusion experiment. Psychiatry Research Communications.",
+      "doi": "10.1016/j.psycom.2022.100058",
+      "url": "https://doi.org/10.1016/j.psycom.2022.100058",
+      "year": 2022,
+      "verified": true,
+      "notes": "Subsequent empirical and theoretical investigation (2022) in Psychiatry Research Communications extending the foundational findings."
+    },
+    {
+      "id": "SRC_LUSH",
+      "type": "critique",
+      "citation": "Peter Lush (2020). Demand Characteristics Confound the Rubber Hand Illusion. Collabra: Psychology.",
+      "doi": "10.1525/collabra.325",
+      "url": "https://doi.org/10.1525/collabra.325",
+      "year": 2020,
+      "verified": true,
+      "notes": "Critique demonstrating substantial trait phenomenological control / suggestibility variance across standard rubber hand illusion questionnaires."
+    },
+    {
+      "id": "SRC6",
+      "type": "follow_up",
+      "citation": "H. Henrik Ehrsson, Charles Spence, Richard E. Passingham (2004). That's My Hand! Activity in Premotor Cortex Reflects Feeling of Ownership of a Limb. Science.",
+      "doi": "10.1126/science.1097011",
+      "url": "https://doi.org/10.1126/science.1097011",
+      "year": 2004,
+      "verified": true,
+      "notes": "Human fMRI study linking ventral premotor and intraparietal multisensory integration directly to subjective rubber-hand ownership onset."
+    },
+    {
+      "id": "SRC_M1",
+      "type": "documentary",
+      "citation": "Daniel Pérez Marcos. \"The rubber hand illusion.\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=IKyctCYtsh8",
+      "year": null,
+      "verified": true,
+      "notes": "Primary video reference analyzed locally in media/M1_rubber_hand_body_plasticity/ (12 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_M2",
+      "type": "documentary",
+      "citation": "Science Channel. \"Fake Hand Freakout.\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=MG22iFL-VgE",
+      "year": null,
+      "verified": true,
+      "notes": "Complementary video reference analyzed locally in media/M2/ (11 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_STILL",
+      "type": "archive",
+      "citation": "Laura E Downey, Phillip Fletcher, Hannah L Golden, Colin J Mahoney, Jennifer L Agustus, Jonathan M Schott, Jonathan Rohr (CC BY 3.0). \"Rubber hand illusion.png.\" Wikimedia Commons.",
+      "doi": null,
+      "url": "https://commons.wikimedia.org/wiki/File:Rubber_hand_illusion.png",
+      "year": null,
+      "verified": true,
+      "notes": "Verified archival image (850x687 px) stored locally in media/M3/still.jpg for reference analysis only (never reused raw). Schematic diagram of the experimental set-up in the rubber hand illusion task. LH, left hand; part, partition; RH, right hand; Ru, rubber hand."
+    }
+  ]
+}

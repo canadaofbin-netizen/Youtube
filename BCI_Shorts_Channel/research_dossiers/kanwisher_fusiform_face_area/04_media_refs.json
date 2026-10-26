@@ -1,0 +1,91 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Nancy Kanwisher, 2024 Kavli Prize Laureate in Neuroscience",
+      "url": "https://www.youtube.com/watch?v=HPthzg3ZTDQ",
+      "channel": "The Kavli Prize",
+      "source_id": "SRC_M1",
+      "duration_sec": 48,
+      "timecodes": [
+        {
+          "t": "00:12-00:21",
+          "what": "Widescreen camera frame at kf_004.jpg (16.5s) paired with transcript segment \"And I came along a few years later and I thought, this is awesome. We're going to use this to look at the structure of the human mind. One of the...\", introducing core background on Nancy Kanwisher comparing Faces vs Houses/Hands on the 1997 MGH fMRI console beside an inverted 'Thatcher' portrait flip."
+        },
+        {
+          "t": "00:22-00:32",
+          "what": "Around kf_006.jpg (27.5s) (widescreen camera frame), transcript records \"at the structure of the human mind. One of the first experiments we did, we popped subjects in the scanner, we showed them faces, objects, and we...\", examining procedural mechanics and evidence in Nancy Kanwisher, Josh McDermott & Marvin Chun's 1997 fMRI localization of the Fusiform Face Area (FFA)."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_kanwisher_fusiform_face_area/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_kanwisher_fusiform_face_area",
+        "contact_sheet": "media/M1_kanwisher_fusiform_face_area/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1_kanwisher_fusiform_face_area/contact_sheet.jpg (live-action speaker/interview recording intercut with 1 visual slide frames (480x270, sampled across 0.0s–60.5s)) from The Kavli Prize's \"Nancy Kanwisher, 2024 Kavli Prize Laureate in Neuroscience\" (48s total runtime).",
+          "Deduplicated English transcript (7 timestamped cues in media/M1_kanwisher_fusiform_face_area/transcript.txt) aligned directly to keyframe timestamps (0.0s–60.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "Nancy Kanwisher: A neural portrait of the human mind",
+      "url": "https://www.youtube.com/watch?v=5Yj3nGv0kn8",
+      "channel": "TED",
+      "source_id": "SRC_M2",
+      "duration_sec": 1065,
+      "timecodes": [
+        {
+          "t": "00:14-00:19",
+          "what": "At kf_004.jpg (15.0s) (widescreen camera frame), TED's recording states \"about a project being carried out by scientists all over the world to paint a neural portrait of the human mind.\" — providing spoken context for Nancy Kanwisher comparing Faces vs Houses/Hands on the 1997 MGH fMRI console beside an inverted 'Thatcher' portrait flip."
+        },
+        {
+          "t": "00:20-00:26",
+          "what": "Mid-segment dark-backdrop stage / studio camera frame at kf_006.jpg (25.0s) as narration explains \"to paint a neural portrait of the human mind. And the central idea of this work is that the human mind and brain\", clarifying key empirical findings in Nancy Kanwisher, Josh McDermott & Marvin Chun's 1997 fMRI localization of the Fusiform Face Area (FFA)."
+        },
+        {
+          "t": "00:53-01:01",
+          "what": "Around kf_012.jpg (55.0s) (widescreen camera frame), commentary states \"the children's faces look weirdly similar, and you can't figure out which child is yours. Do you need new glasses?\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (live-action speaker/interview recording intercut with 1 visual slide frames (480x270, sampled across 0.0s–65.0s)) from TED's \"Nancy Kanwisher: A neural portrait of the human mind\" (1065s total runtime).",
+          "Deduplicated English transcript (41 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Introduction to the Simons Center, Nancy Kanwisher, 2m33s.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Introduction_to_the_Simons_Center,_Nancy_Kanwisher,_2m33s.jpg",
+      "channel": "Wikimedia Commons (Simons Center for the Social Brain)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Introduction to the Simons Center, Nancy Kanwisher, 2m33s.jpg\" (710x947 px, CC BY 3.0): Neuroscientist Nancy Kanwisher speaks in a video produced by the Simons Center for the Social Brain. Provides anatomical and structural brain reference relevant to the neural mechanism in Nancy Kanwisher, Josh McDermott & Marvin Chun's 1997 fMRI localization of the Fusiform Face Area (FFA)."
+        }
+      ],
+      "license_note": "Archival photo (CC BY 3.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (710x947 px, CC BY 3.0, Simons Center for the Social Brain) — neuroanatomy reference: Neuroscientist Nancy Kanwisher speaks in a video produced by the Simons Center for the Social Brain.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

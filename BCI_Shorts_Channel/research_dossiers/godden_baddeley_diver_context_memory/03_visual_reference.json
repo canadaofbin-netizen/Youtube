@@ -1,0 +1,203 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1975 Oban Scottish Loch Shore & Pier: Scuba Divers With Waterproof Formica Slates Comparing the 2×2 'Dry-Dry (13.5) vs Wet-Wet (11.4)' Crossover",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1975, Loch pier & pebble shore, Oban, Scotland",
+      "layout": {
+        "description": "Crisp high-key sunlit Scottish loch-side diving pier and clear shallow turquoise-glass observation tank/dock: on the dry wooden pier sits Diver Group A in black-and-white wetsuits writing on clipboards (**Dry -> Dry: 13.5**), while visible down beside the clear sunlit pier ladder hovers Diver Group B in vintage 1975 twin-hose scuba masks writing with graphite pencils on **weighted white Formica underwater slates** (**Wet -> Wet: 11.4 vs Mismatched 8.5!**).",
+        "positions": [
+          {
+            "who": "Alan Baddeley & Duncan Godden (mannequins in 1975 Scottish wool cable-knit sweaters and windbreakers)",
+            "where": "standing on the sunlit wooden pier holding the underwater audio intercom cable and pointing to the 2×2 Crossover Scorecard ('Same Context Wins: 13.5 & 11.4 vs Mismatched: 8.6 & 8.4')",
+            "facing": "on wooden pier edge"
+          },
+          {
+            "who": "Scuba Diver mannequins (in 1975 wetsuits, masks tilted on forehead on pier / writing on white Formica slate in clear sunlit water)",
+            "where": "comparing their waterproof Formica word slates across matched vs mismatched runs",
+            "facing": "at pier steps and clear water edge"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "weighted white Formica underwater writing slates & graphite pencils",
+          "period_detail": "authentic 1975 waterproof recording method used at 20-foot depth",
+          "physical_behavior": "makes underwater memory testing tangible and memorable"
+        },
+        {
+          "name": "2×2 Context Crossover Board ('DRY-DRY 13.5 | DRY-WET 8.6 | WET-DRY 8.4 | WET-WET 11.4')",
+          "period_detail": "proves the diagonal X-shaped interaction at a single glance",
+          "physical_behavior": "one of psychology's cleanest 2×2 graphs"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Duncan Godden",
+          "verb_sequence": "reads 36 words over the diver headphone line -> Diver underwater writes smoothly on the white Formica slate (11.4 words matched vs 8.4 when brought ashore!)"
+        },
+        {
+          "who": "Alan Baddeley",
+          "verb_sequence": "traces the X-shaped crossover showing matched environments boosting free recall ~46%"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Diver mannequins",
+          "reaction": "grin comparing how jumping BACK into the cold water unlocked words they couldn't recall dry on the beach!"
+        }
+      ],
+      "wardrobe": "1975 Scottish coastal fieldwork: chunky cream cable-knit wool fisherman sweaters, weatherproof windbreakers, vintage neoprene diving suits.",
+      "lighting": "Crisp bright Highland coastal daylight over clear sunlit water and pale wood.",
+      "recognition_hook": "Memorize 36 words twenty feet underwater: dry on the beach you blank out at 8.4 words — jump back into the cold loch and 11.4 words come rushing back!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a sunlit 1975 Scottish wooden diving pier where researchers in cable-knit sweaters hold a 2x2 Dry/Wet crossover chart beside scuba divers comparing white waterproof Formica writing slates",
+        "must_show": [
+          "divers|wetsuits|scuba",
+          "slates|chart|board",
+          "pier|water"
+        ],
+        "source": "M1@00:16-00:19; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "1980 Follow-Up Surprise: Multiple-Choice Recognition Wipes Out the Gap!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1980, Oban diving station (Godden & Baddeley)",
+      "layout": {
+        "description": "Same sunlit pier dock where divers circle multiple-choice word sheets instead of blank slates.",
+        "positions": [
+          {
+            "who": "Diver & Researcher mannequins",
+            "where": "comparing identical high scores across all four Dry/Wet boxes on multiple-choice recognition",
+            "facing": "on pier table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Multiple-Choice Slate ('Context Gap = 0%!')",
+          "period_detail": "reassures students taking multiple-choice exams in unfamiliar halls",
+          "physical_behavior": "Godden & Baddeley 1980 crucial boundary"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Diver",
+          "verb_sequence": "checks recognized words rapidly on dry land after underwater study with zero loss"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Baddeley",
+          "reaction": "notes context cues drive *search*, not recognition"
+        }
+      ],
+      "wardrobe": "Cable-knit sweaters and wetsuits.",
+      "lighting": "Bright coastal daylight.",
+      "recognition_hook": "Hand those exact same divers a multiple-choice test instead of a blank slate, and the underwater-vs-land gap vanishes completely!",
+      "sources": [
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Walking Back to the Bedroom Doorway ('Why Did I Come Into the Kitchen?')",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern sunlit home hallway",
+      "layout": {
+        "description": "Bright doorway between a study desk and a kitchen counter.",
+        "positions": [
+          {
+            "who": "Homeowner mannequin",
+            "where": "standing puzzled in the kitchen ('Wait, what did I come for?'), then taking three steps back to see the study desk — snapping fingers as the answer pops back!",
+            "facing": "between kitchen and study doorway"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "open doorway & study desk cue",
+          "period_detail": "everyday context-reinstatement experienced by every human",
+          "physical_behavior": "relatable viewer hook"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Homeowner",
+          "verb_sequence": "pauses blankly in kitchen -> steps back to study threshold -> immediately remembers 'Scissors!'"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Homeowner",
+          "reaction": "laughs at instant environmental cueing"
+        }
+      ],
+      "wardrobe": "Modern casual sweater.",
+      "lighting": "Warm home sunlight.",
+      "recognition_hook": "When you forget why you walked into the kitchen, retracing three steps back to the doorway works for the exact same reason Oban's divers jumped back in the loch!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "30-Second Mental Room Visualization in an Unfamiliar Exam Hall",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern bright university exam hall",
+      "layout": {
+        "description": "Sunlit rows of unfamiliar exam desks where a student pauses calmly before an essay prompt.",
+        "positions": [
+          {
+            "who": "Student mannequin",
+            "where": "closing eyes briefly for 20 seconds to picture their study desk lamp and notebook layout, then opening eyes and writing fluently",
+            "facing": "at exam desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "essay booklet & calm 20-second mental reset",
+          "period_detail": "Steven Smith's (1979) Mental Context Reinstatement cure",
+          "physical_behavior": "zero-cost exam & interview tool"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Student",
+          "verb_sequence": "closes eyes briefly reconstructing study context -> opens eyes and writes outline briskly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Student",
+          "reaction": "relieved, steady flow"
+        }
+      ],
+      "wardrobe": "Modern campus casual shirt.",
+      "lighting": "Bright hall daylight.",
+      "recognition_hook": "Can't bring 20 feet of Scottish water into the exam hall? Close your eyes for twenty seconds and reconstruct your study desk inside your head!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

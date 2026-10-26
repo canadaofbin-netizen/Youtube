@@ -1,0 +1,102 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Sidney Smith stalls at 9 raw binary digits, then uses 3-to-1 chunking to recite 40 straight without error.",
+    "core_experiment": "George Miller's 1956 separation of 2.6-bit sensory judgments from ~7-chunk immediate memory span.",
+    "twist": "Miller's own confession that the 'Magical Seven' link was a rhetorical joke — and Cowan's modern 4-chunk pure core."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Nine Zeros vs Forty Straight",
+      "beats": [
+        "Why raw 0-1 strings crash at nine",
+        "Sidney Smith's 3-to-1 octal trick",
+        "40 binary digits from one mental rack"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "tabletop binary tile grouping"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Why Shannon Bits Failed Memory",
+      "beats": [
+        "1-bit digits vs 10-bit English words",
+        "Tenfold more data inside the same ~7 slots",
+        "Envelopes vs letter thickness"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "side-by-side card thickness visual"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Judgment Bits vs Memory Chunks",
+      "beats": [
+        "6-tone pitch judgment ceiling (~2.6 bits)",
+        "Prefrontal chunk pointers vs sensory discrimination"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "acoustic booth button test"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "The Joke Behind the 'Magical' Number",
+      "beats": [
+        "Miller's APA lecture stitch",
+        "Nelson Cowan's modern 4-chunk core",
+        "Why phone numbers split into 3-3-4"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "4-chunk phone block graphic"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Chunking Your Own Workday",
+      "beats": [
+        "Grouping twelve loose notes into three buckets",
+        "How experts pack bigger chunks"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "modern three-column board"
+      ]
+    }
+  ]
+}

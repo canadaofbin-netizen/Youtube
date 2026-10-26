@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "slug": "greene_trolley_dilemma_dual_process",
+  "topic": "Joshua Greene (2001): Switch vs Footbridge — How Personal Moral Force Splits Emotional Alarm From Cold Utilitarian Math",
+  "pillar": "bci_ethics",
+  "created_at": "2026-10-25T22:49:33+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Greene's 2001 Princeton fMRI trolley experiment pairs two physical moral scenarios (pulling an impersonal railway switch vs pushing a bystander off a footbridge to save five lives) with dual-process competition between ventromedial prefrontal / amygdala alarm and dorsolateral prefrontal calculation.",
+  "primary_case": {
+    "title": "Joshua D. Greene, R. Brian Sommerville, Leigh E. Nystrom, John M. Darley & Jonathan D. Cohen's 2001 Science fMRI Trolley vs Footbridge study",
+    "year": 2001,
+    "place": "Center for the Study of Brain, Mind and Behavior, Princeton University",
+    "people": [
+      {
+        "name": "Joshua D. Greene",
+        "role": "Princeton philosophy-turned-neuroscience researcher (later Harvard) who scanned subjects solving classic Switch vs Footbridge moral dilemmas",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Jonathan D. Cohen & John M. Darley",
+        "role": "Senior Princeton cognitive neuroscientist and social psychologist co-authors on the 2001 Science paper",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Philippa Foot & Judith Jarvis Thomson",
+        "role": "Moral philosophers who formulated the original 1967/1985 runaway trolley and footbridge thought experiments",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Philosophers Philippa Foot (1967) and Judith Jarvis Thomson (1985) posed a baffling paradox: the arithmetic is identical — sacrifice 1 life to save 5 — yet roughly 80-90% of people endorse pulling a track switch ('Switch dilemma'), whereas ~80-90% refuse to push one person off a bridge onto the tracks ('Footbridge dilemma').",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In 2001 at Princeton, Joshua Greene and colleagues scanned two cohorts of 9 volunteers each (18 total) in fMRI across 60 dilemmas split into Moral-Personal (Footbridge-style), Moral-Impersonal (Switch-style), and Non-Moral puzzles.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Moral-Personal dilemmas selectively lit up emotion- and social-cognition hubs — medial frontal gyrus / ventromedial prefrontal cortex (vmPFC), posterior cingulate, and angular gyrus — far more strongly than Moral-Impersonal Switch dilemmas with the exact same 5-for-1 body count.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Conversely, Moral-Impersonal Switch dilemmas activated dorsolateral prefrontal and parietal working-memory circuits to virtually the same level as cold Non-Moral train-schedule math problems.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Reaction times exposed the hidden tug-of-war inside the skull: saying 'Appropriate' (riding WITH the gut alarm, e.g., pulling the impersonal switch) was fast, whereas overriding the emotional alarm to say 'Appropriate' on a Moral-Personal dilemma took ~2 seconds longer (~6.8 s vs ~4.9 s for 'Inappropriate').",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In 2004 (Neuron), Greene showed anterior cingulate cortex (ACC) detects conflict between the gut alarm and the 5-vs-1 math, recruiting dorsolateral prefrontal cortex (dlPFC) on trials where subjects ultimately choose the utilitarian override.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Putting volunteers under heavy cognitive load (memorizing scrolling digits while deciding, Greene 2008) selectively slowed utilitarian 'yes' overrides without slowing deontological 'no' refusals — confirming utilitarian math requires effortful executive control.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Later replications and critiques (Greene 2009; Kahane et al.) clarified that 'personal muscular force used as an intentional means' — not mere spatial proximity — triggers the immediate vmPFC/amygdala veto, and patients with vmPFC lesions endorse pushing on the footbridge at dramatically elevated rates.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Thirty-four (34) years after Philippa Foot's 1967 tram problem, Greene et al. (2001) scanned participants inside fMRI and documented a ~85% verdict swing between impersonal switch and personal footbridge dilemmas despite identical 5-versus-1 arithmetic.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Same math — 5 lives saved, 1 life lost — yet flipping an impersonal lever activates cold working-memory math circuits while using your own hands on a footbridge triggers an instant ventromedial emotional alarm.",
+      "why_surprising": "Your brain runs two rival moral cameras: an automatic emotional alarm and a slow executive calculator.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "The handful of volunteers who STILL said 'Yes, push to save five' on personal dilemmas took nearly TWO FULL SECONDS longer to press the button — the exact time cost of dorsolateral cortex wrestling down their own gut veto.",
+      "why_surprising": "Reaction time caught a philosophical civil war in milliseconds.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Give people a 7-digit number to hold in memory while deciding (Greene 2008), and ONLY their utilitarian calculation slows down — emotional 'Never push!' answers fire just as fast.",
+      "why_surprising": "Deontological alarm is automatic; utilitarian override burns working memory.",
+      "source_id": "SRC3",
+      "rank": 3
+    },
+    {
+      "fact": "Patients with focal damage to ventromedial prefrontal cortex calmly endorse pushing on the footbridge because the visceral alarm wire is silent while their 5-is-greater-than-1 calculator stays intact.",
+      "why_surprising": "Lesion neurology confirmed fMRI dual-process predictions.",
+      "source_id": "SRC4",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Moral judgments come purely from conscious logical principles that we deduce first and feel second.",
+      "truth": "Automatic socio-emotional alarm circuits fire first on personal force, and conscious principles often rationalize that gut verdict after the fact.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Utilitarian '5 > 1' answers inside the scanner prove someone is wise and compassionate.",
+      "truth": "High utilitarian scores on extreme sacrificial dilemmas can stem EITHER from effortful cognitive concern OR from blunted vmPFC/antisocial empathy — two opposite neural routes to the same button.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Any physical touch makes a dilemma feel forbidden.",
+      "truth": "Follow-up experiments (Greene 2009) proved it is the combination of 'personal muscular force' AND 'using harm as an intentional means' — not side-effect switch pulls — that trips the alarm.",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Feeling totally fine donating to a statistical triage policy on paper, yet freezing when a single named patient looks you in the eye.",
+    "Understanding why hospital triage boards, self-driving car engineers, and emergency commanders separate frontline personal care from resource allocation formulas.",
+    "Noticing your own mind invent elaborate philosophical reasons two seconds AFTER an instant gut 'No way!'"
+  ],
+  "linked_projects": [
+    "psych_49_greene_trolley_dilemma_dual_process"
+  ]
+}

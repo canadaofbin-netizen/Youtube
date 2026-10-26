@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "A peek inside a murderer's brain",
+      "url": "https://www.youtube.com/watch?v=7cg2bHGt2k8",
+      "channel": "CNN",
+      "source_id": "SRC_M1",
+      "duration_sec": 114,
+      "timecodes": [
+        {
+          "t": "00:12-00:21",
+          "what": "At kf_004.jpg (16.5s) (widescreen camera frame), CNN's recording states \"over her and shot her. Take the prefrontal cortex, it's what we use to plan things out, to make decisions, and\" — providing spoken context for 1997 UC Irvine PET Imaging Suite: 41 Matched Brain Scans Reveal the 'Missing Frontal Brake' — Plus the 1998 Impulsive vs Planned Twist."
+        },
+        {
+          "t": "00:22-00:31",
+          "what": "Mid-segment widescreen camera frame at kf_006.jpg (27.5s) as narration explains \"Take the prefrontal cortex, it's what we use to plan things out, to make decisions, and to differentiate between right and wrong. Scientists...\", clarifying key empirical findings in Adrian Raine, Monte Buchsbaum & Lori LaCasse's 1997 UC Irvine FDG-PET Brain-Metabolism Study of 41 NGRI Homicide Defendants."
+        },
+        {
+          "t": "00:44-00:52",
+          "what": "Around kf_010.jpg (49.5s) (widescreen camera frame), commentary states \"Most important for us, it's all about empathy. The amygdala and the psychopath, it's just not doing its job.\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_raine_murderer_brain_pet_def/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_raine_murderer_brain_pet_def",
+        "contact_sheet": "media/M1_raine_murderer_brain_pet_def/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1_raine_murderer_brain_pet_def/contact_sheet.jpg (live-action speaker/interview recording intercut with 2 visual slide frames (480x270, sampled across 0.0s–71.5s)) from CNN's \"A peek inside a murderer's brain\" (114s total runtime).",
+          "Deduplicated English transcript (11 timestamped cues in media/M1_raine_murderer_brain_pet_def/transcript.txt) aligned directly to keyframe timestamps (0.0s–71.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "interview",
+      "title": "Dr. Adrian Raine: The Full Interview",
+      "url": "https://www.youtube.com/watch?v=Pc4j9STclRk",
+      "channel": "University of Pennsylvania",
+      "source_id": "SRC_M2",
+      "duration_sec": 534,
+      "timecodes": [
+        {
+          "t": "02:51-03:05",
+          "what": "Around kf_001.jpg (180.8s) (widescreen camera frame), speaker commentary notes \"violent criminal offender you know do we lock them up and throw away the key do we flick the switch on that electric chair um to what extent do we...\", anchoring the research context of 1997 UC Irvine PET Imaging Suite: 41 Matched Brain Scans Reveal the 'Missing Frontal Brake' — Plus the 1998 Impulsive vs Planned Twist."
+        },
+        {
+          "t": "03:21-03:30",
+          "what": "At kf_005.jpg (206.1s) (widescreen camera frame), audio continues with \"others and that its Shades of Gray it's a dimension it's a Continuum it's not black and white and it's not innocence and guilt it's shades of gray...\", detailing experimental methodology and behavioral observations for Adrian Raine, Monte Buchsbaum & Lori LaCasse's 1997 UC Irvine FDG-PET Brain-Metabolism Study of 41 NGRI Homicide Defendants."
+        },
+        {
+          "t": "04:08-04:23",
+          "what": "Later widescreen camera frame at kf_013.jpg (256.7s) accompanied by \"who someone with birth complications poor nutrition all factors that we know predisposed to violence and they have a brain scan that looks like a...\", summarizing mechanism and boundary conditions in Adrian Raine, Monte Buchsbaum & Lori LaCasse's 1997 UC Irvine FDG-PET Brain-Metabolism Study of 41 NGRI Homicide Defendants."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (640x360, 14 frames sampled across 180.8s–263.0s)) from University of Pennsylvania's \"Dr. Adrian Raine: The Full Interview\" (534s total runtime).",
+          "Deduplicated English transcript (27 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (180.8s–263.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Adrian-raine-by-bill-cramer.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Adrian-raine-by-bill-cramer.jpg",
+      "channel": "Wikimedia Commons (BillCramer)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Adrian-raine-by-bill-cramer.jpg\" (500x700 px, CC BY-SA 4.0): Adrian Raine, Professor of Criminology, University of Pennsylvania. Location: 3809 Walnut St Philadelphia, PA 19104 Link to Photo: Common History Original File Name: bc2008041_078 Credit: Bill Cramer. Documents authentic researcher likeness, period attire, and historical context for Adrian Raine, Monte Buchsbaum & Lori LaCasse's 1997 UC Irvine FDG-PET Brain-Metabolism Study of 41 NGRI Homicide Defendants."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 4.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (500x700 px, CC BY-SA 4.0, BillCramer) — portrait reference: Adrian Raine, Professor of Criminology, University of Pennsylvania. Location: 3809 Walnut St Philadelphia, PA 19104 Link to Photo: Common History Original File Name: bc2008041_078 Credit: Bill Cramer.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

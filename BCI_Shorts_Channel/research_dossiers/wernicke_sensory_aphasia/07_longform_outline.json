@@ -1,0 +1,101 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "At age 26, Carl Wernicke found the mirror-twin of Broca's aphasia and sketched history's first connectome diagram of human language.",
+    "core_experiment": "Wernicke (1874): fluent paraphasic speech + lost comprehension from left posterior temporal lesions + predicting Conduction Aphasia.",
+    "twist": "Binder's (2015) MRI breakthrough: why pSTG is the phonological decoder & live headphone monitor while word meaning spans wider temporal cortex."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Breslau 1874: Musical Speech That Made Zero Sense",
+      "beats": [
+        "Susanne Adam & Rother: sharp hearing for bells, blank on spoken nouns",
+        "Why wards mistook left-temporal stroke for madness"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "key/glass/brush tray & desk bell"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Broca's Mirror-Twin & Predicting a Brand-New Disorder",
+      "beats": [
+        "Left posterior temporal lesion with 100% intact Broca's area",
+        "Drawing the first wiring diagram & predicting Conduction Aphasia"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "1874 a1 to b sketch & 3-syndrome chart"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "2015 MRI Twist: Unplugged Studio Headphones.",
+      "beats": [
+        "Why Wernicke patients don't notice their own invented words",
+        "Binder 2015: phonological self-monitor (pSTG) vs semantic network (MTG)"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "Dual-Stream language map"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Emergency Stroke Red Flag: Fluent Nonsense",
+      "beats": [
+        "Why FAST stroke checks include nonsensical fluent sentences",
+        "Time-critical clot rescue"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "stroke recognition card"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Opening the Visual Side Door at the Bedside",
+      "beats": [
+        "Why shouting louder never helps",
+        "Pairing calm voice with visual objects, writing, and gesture"
+      ],
+      "scene_ids": [
+        "S4",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "visual communication board"
+      ]
+    }
+  ]
+}

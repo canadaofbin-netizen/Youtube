@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Drs. Cytowic and Frakowiak on Synesthesia",
+      "url": "https://www.youtube.com/watch?v=SH6K9Wp9764",
+      "channel": "Richard E. Cytowic",
+      "source_id": "SRC_M1",
+      "duration_sec": 588,
+      "timecodes": [
+        {
+          "t": "00:08-00:14",
+          "what": "At kf_002.jpg (9.0s) (widescreen camera frame), Richard E. Cytowic's recording states \"something that they may see or taste or feel as a physical touch perceiving the days of the week as colored is the most\" — providing spoken context for 2001 UC San Diego 'Ishihara-in-Reverse': Spotting the Hidden Triangle of '2's Inside a Sea of Black '5's in One Second."
+        },
+        {
+          "t": "00:40-00:47",
+          "what": "Mid-segment lecture slide / diagram frame at kf_006.jpg (43.5s) as narration explains \"common is where when you're speaking or or particular when you're reading you see colors there's a teacher for example\", clarifying key empirical findings in V. S. Ramachandran & Edward M. Hubbard's 2001 UC San Diego '2s-and-5s Hidden Shape Pop-Out' Synesthesia experiments."
+        },
+        {
+          "t": "01:24-01:31",
+          "what": "Around kf_011.jpg (88.6s) (lecture slide / diagram frame), commentary states \"or the shape of the first letter or or some some association with the colors that are\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (live-action speaker/interview recording intercut with 3 visual slide frames (480x270, sampled across 0.0s–114.5s)) from Richard E. Cytowic's \"Drs. Cytowic and Frakowiak on Synesthesia\" (588s total runtime).",
+          "Deduplicated English transcript (54 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (0.0s–114.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Seeing Sound, Tasting Color: Synesthesia",
+      "url": "https://www.youtube.com/watch?v=FTr1VnXKr4A",
+      "channel": "Big Think",
+      "source_id": "SRC_M2",
+      "duration_sec": 153,
+      "timecodes": [
+        {
+          "t": "00:13-00:19",
+          "what": "Around kf_004.jpg (15.0s) (lecture slide / diagram frame), speaker commentary notes \"so somebody with synesthesia they might hear music and it causes them to see colors physically or they might hear\", anchoring the research context of 2001 UC San Diego 'Ishihara-in-Reverse': Spotting the Hidden Triangle of '2's Inside a Sea of Black '5's in One Second."
+        },
+        {
+          "t": "00:38-00:44",
+          "what": "At kf_009.jpg (40.0s) (lecture slide / diagram frame), audio continues with \"a color experience so somebody might look at the number six and that's red to that CED or they look at the letter\", detailing experimental methodology and behavioral observations for V. S. Ramachandran & Edward M. Hubbard's 2001 UC San Diego '2s-and-5s Hidden Shape Pop-Out' Synesthesia experiments."
+        },
+        {
+          "t": "00:45-00:51",
+          "what": "Later lecture slide / diagram frame at kf_011.jpg (50.0s) accompanied by \"that CED or they look at the letter J and that's purple and it's an internal experience it's automatic it's\", summarizing mechanism and boundary conditions in V. S. Ramachandran & Edward M. Hubbard's 2001 UC San Diego '2s-and-5s Hidden Shape Pop-Out' Synesthesia experiments."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (recorded lecture combining speaker commentary with 14/14 diagram/slide frames (480x270, sampled across 0.0s–65.0s)) from Big Think's \"Seeing Sound, Tasting Color: Synesthesia\" (153s total runtime).",
+          "Deduplicated English transcript (43 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Synaesthesiatest.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Synaesthesiatest.jpg",
+      "channel": "Wikimedia Commons (Wikimedia Commons)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Synaesthesiatest.jpg\" (840x420 px, CC BY 2.5): Wikimedia Commons file \"Synaesthesiatest.jpg\". Documents authentic physical instrument geometry and period materials relevant to V. S. Ramachandran & Edward M. Hubbard's 2001 UC San Diego '2s-and-5s Hidden Shape Pop-Out' Synesthesia experiments."
+        }
+      ],
+      "license_note": "Archival photo (CC BY 2.5) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (840x420 px, CC BY 2.5, Wikimedia Commons) — apparatus reference: Wikimedia Commons file \"Synaesthesiatest.jpg\".",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

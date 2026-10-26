@@ -1,0 +1,635 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "The 30-lever shock generator: 'Please continue'",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "August 1961 - May 1962, Yale University interaction laboratory (Linsly-Chittenden Hall basement), New Haven, Connecticut",
+      "layout": {
+        "description": "Fluorescent-lit 1961 Yale basement laboratory divided by a solid partition wall with vertical striped drapes along the back wall. In the main room, the volunteer Teacher sits at a wooden desk facing the rectangular brushed-steel Type ZLB shock generator box (30 horizontal metal toggle levers from 15V on the left to 450V XXX on the right, circular voltmeter dial, red pilot lamps, and a four-quadrant 1-2-3-4 answer box on top). Beside and slightly behind him stands the stern Experimenter in a knee-length grey lab technician coat holding a clipboard. On the other side of the partition wall sits the Learner strapped into an armchair with an electrode on his wrist.",
+        "positions": [
+          {
+            "who": "Teacher (volunteer mannequin in 1960s white dress shirt with rolled-up sleeves)",
+            "where": "seated center at the wooden laboratory desk directly in front of the 30-lever shock generator panel",
+            "facing": "the brushed-steel switch console, turning his head back toward the Experimenter when hesitating"
+          },
+          {
+            "who": "Experimenter (31-year-old biology teacher role, mannequin in grey lab technician coat and dark tie)",
+            "where": "standing camera-right beside and slightly behind the Teacher's desk with a metal clipboard and stopwatch",
+            "facing": "down toward the Teacher and the switch panel"
+          },
+          {
+            "who": "Learner (47-year-old accountant role, mannequin in white shirt and vest)",
+            "where": "seated in the adjacent room behind the dividing partition wall, forearms strapped to the chair armrests",
+            "facing": "the partition wall separating him from the Teacher"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "30-toggle voltage generator box (Type ZLB)",
+          "period_detail": "wide brushed-steel and dark-grey rectangular console with 30 metal lever switches in a horizontal row labeled 15V to 450V in 15-volt steps, group plates from Slight Shock to Danger: Severe Shock and XXX, circular voltmeter gauge, and red/blue indicator bulbs",
+          "physical_behavior": "metal toggle lever snaps down under the finger, bright red indicator light flashes on, blue energizer lamp flickers, voltmeter needle jumps to the right, internal relays click and buzz"
+        },
+        {
+          "name": "four-quadrant answer box",
+          "period_detail": "dark rectangular box mounted above the generator with translucent numbered windows 1, 2, 3, 4",
+          "physical_behavior": "numbered quadrant lights up when the learner presses a response key, then stays dark after 315 volts"
+        },
+        {
+          "name": "clipboard and pencil",
+          "period_detail": "1960s metal-clip laboratory board held by the Experimenter",
+          "physical_behavior": "Experimenter taps the clipboard edge with a pencil as he delivers each standardized prod"
+        },
+        {
+          "name": "wrist electrode and leather chair straps",
+          "period_detail": "brown leather straps bucked across the Learner's forearms with a metal disc electrode wired to the wall",
+          "physical_behavior": "leather straps pull taut when the Learner strains against the chair"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Teacher",
+          "verb_sequence": "reaches a trembling hand over the row of 30 metal levers -> presses a toggle switch down -> red indicator light flashes and voltmeter needle swings right -> jerks his hand back and turns toward the Experimenter"
+        },
+        {
+          "who": "Experimenter",
+          "verb_sequence": "steps closer behind the Teacher's shoulder -> taps the clipboard -> gestures firmly toward the next switch along the 15V-to-450V panel"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Teacher",
+          "reaction": "shoulders hunch forward, one hand clutches his own forehead and rubs his brow while his other hand hovers over the 450-volt XXX switches"
+        },
+        {
+          "who": "Experimenter",
+          "reaction": "stands rigid and impassive with arms angled over the clipboard, leaning slightly forward to issue the calm verbal prod"
+        }
+      ],
+      "wardrobe": "Teacher: 1960s white button-down dress shirt with sleeves rolled to the elbows, loosened dark tie, dark trousers. Experimenter: knee-length grey laboratory technician coat over white shirt and narrow black tie. Learner: 1960s dress shirt and suit trousers with jacket removed.",
+      "lighting": "Bright, clean clinical daylight illumination filling the 1961 basement laboratory, catching the brushed-steel switch panel, red pilot lights, and matte-white porcelain figures.",
+      "recognition_hook": "A man in a 1960s dress shirt sitting in front of the 30-lever 15V-to-450V XXX shock generator box while a man in a grey lab coat stands behind him saying 'Please continue' — the unmistakable image of the Milgram experiment.",
+      "sources": [
+        "SRC1",
+        "SRC11",
+        "SRC12"
+      ],
+      "key_visual": {
+        "description": "the teacher mannequin presses a lever on the thirty-switch shock generator while the grey-coated experimenter stands behind him saying please continue",
+        "must_show": [
+          "switch|lever|toggle",
+          "generator",
+          "experimenter"
+        ],
+        "source": "M1_psychhub_original_footage@00:45-01:15; Milgram 1963"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Learner pounding on the dividing wall at 150V and 300V, then silence",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1961-1962, Yale University interaction laboratory",
+      "layout": {
+        "description": "Split cross-section view bisecting the dividing partition wall between the two basement rooms. On the left side of the wall, the Learner sits strapped into the wooden armchair, hammering his fist against the partition wall at 300 and 315 volts before slumping completely still. On the right side of the wall, the Teacher sits at the 30-lever generator desk, flinching as the wall vibrates.",
+        "positions": [
+          {
+            "who": "Learner",
+            "where": "left compartment, strapped into the armchair beside the dividing wall",
+            "facing": "the partition wall"
+          },
+          {
+            "who": "Teacher",
+            "where": "right compartment, seated at the 30-lever generator box beside the same wall",
+            "facing": "the generator panel and glancing sharply at the vibrating wall"
+          },
+          {
+            "who": "Experimenter",
+            "where": "right compartment, standing behind the Teacher's chair",
+            "facing": "the Teacher"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "dividing partition wall",
+          "period_detail": "solid wood-and-plaster laboratory partition separating Teacher and Learner",
+          "physical_behavior": "shudders and vibrates as the Learner pounds his fist against it at 300 and 315 volts, knocking dust motes into the light"
+        },
+        {
+          "name": "four-quadrant answer box and 30-lever panel",
+          "period_detail": "mounted on the Teacher's desk",
+          "physical_behavior": "red indicator light flashes and voltmeter needle swings right as the Teacher presses switches all the way to the 450V XXX lever while the answer box stays dark"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Learner",
+          "verb_sequence": "pounds his clenched fist against the dividing wall twice -> strains against the leather wrist straps -> slumps motionless in the chair after 315 volts"
+        },
+        {
+          "who": "Teacher",
+          "verb_sequence": "jolts back from the desk as the wall thuds -> grips his hair with one hand -> reaches out and presses the final 450-volt XXX toggle switch down"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Teacher",
+          "reaction": "trembles visibly, elbows braced on the wooden desk, burying his forehead in his palm before pushing the switch"
+        }
+      ],
+      "wardrobe": "Same 1961 Yale wardrobe: rolled-sleeve white dress shirt on Teacher, grey technician coat on Experimenter, dress shirt on strapped Learner.",
+      "lighting": "Bright daylight across both sides of the bisected partition wall.",
+      "recognition_hook": "Fists pounding through the laboratory wall followed by eerie silence while the volunteer still flips switches to 450 volts.",
+      "sources": [
+        "SRC1",
+        "SRC3",
+        "SRC12"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Touch-proximity variation: forcing the learner's hand onto the metal plate",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1961-1962, Yale University interaction laboratory (Milgram 1965 proximity and touch-proximity series)",
+      "layout": {
+        "description": "Single-room staging with the partition wall removed. The Learner sits at the same table right beside the Teacher, next to a flat wired metal plate connected to the 30-lever generator box. The grey-coated Experimenter stands beside them ordering the Teacher to press the Learner's hand down onto the plate.",
+        "positions": [
+          {
+            "who": "Teacher",
+            "where": "standing/leaning over the desk between the 30-lever generator and the Learner",
+            "facing": "the Learner and the metal contact plate"
+          },
+          {
+            "who": "Learner",
+            "where": "seated immediately beside the Teacher at the same table",
+            "facing": "the metal contact plate, pulling his arm back"
+          },
+          {
+            "who": "Experimenter",
+            "where": "standing camera-right with clipboard",
+            "facing": "the Teacher and Learner"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "flat metal contact plate",
+          "period_detail": "brushed-steel rectangular contact plate wired to the voltage generator on the table",
+          "physical_behavior": "slides slightly and sparks/buzzes as a hand is pressed down onto the metal surface while a red indicator light flashes"
+        },
+        {
+          "name": "30-lever voltage generator box",
+          "period_detail": "same Type ZLB panel on the desk",
+          "physical_behavior": "toggle switch snaps down and voltmeter needle swings right"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Learner",
+          "verb_sequence": "yanks his hand off the metal contact plate -> twists his torso away from the desk"
+        },
+        {
+          "who": "Teacher",
+          "verb_sequence": "grabs the Learner's forearm with one hand -> forces the Learner's palm flat onto the metal plate -> recoils and pulls both hands back in refusal"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Teacher",
+          "reaction": "steps backward away from the table, shaking his head and holding both palms up as obedience drops to 30 percent"
+        }
+      ],
+      "wardrobe": "1960s rolled-sleeve dress shirt on Teacher, dress shirt on Learner, grey lab coat on Experimenter.",
+      "lighting": "Bright studio daylight revealing the immediate physical closeness of Teacher and Learner.",
+      "recognition_hook": "Having to physically hold the victim's hand down on the metal plate makes seven out of ten people refuse.",
+      "sources": [
+        "SRC2",
+        "SRC3",
+        "SRC10"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Defiance: refusing the bare order and dissenting peers walking out",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1961-1962, Yale University interaction laboratory (Prod 4 analysis and Experiment 17 two-peers defiance)",
+      "layout": {
+        "description": "At the 30-lever generator desk, the Teacher sits flanked by two peer teachers (or faces the Experimenter alone as Prod 4 'You have no other choice' is delivered). The peers push their chairs back and stand up to refuse, and the Teacher releases the switch lever and shoves his chair back from the console.",
+        "positions": [
+          {
+            "who": "Teacher",
+            "where": "center at the 30-lever generator desk, pushing his wooden chair back",
+            "facing": "turning squarely to face the Experimenter"
+          },
+          {
+            "who": "Two dissenting peer teachers",
+            "where": "standing up beside the desk after pushing their chairs back",
+            "facing": "the Experimenter, arms folded or palms raised in refusal"
+          },
+          {
+            "who": "Experimenter",
+            "where": "standing at right with clipboard extended",
+            "facing": "the refusing Teacher"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "30-lever voltage generator box",
+          "period_detail": "switches halted mid-row around 150V-300V",
+          "physical_behavior": "partial row of levers flips back up, voltmeter needle drops to zero, red indicator light clicks off"
+        },
+        {
+          "name": "wooden laboratory chairs",
+          "period_detail": "1960s wooden office chairs",
+          "physical_behavior": "scrape and slide backward across the linoleum floor as the Teacher and peers stand up"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Experimenter",
+          "verb_sequence": "steps forward -> points clipboard sharply at the switches ('You have no other choice, you must go on')"
+        },
+        {
+          "who": "Teacher and peers",
+          "verb_sequence": "slam palms flat on the desk -> shove their wooden chairs backward -> stand up and step away from the switch console"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Teacher",
+          "reaction": "stands tall with squared shoulders and raised palm, refusing to touch another switch"
+        },
+        {
+          "who": "Experimenter",
+          "reaction": "lowers the clipboard to his side as the session terminates"
+        }
+      ],
+      "wardrobe": "1960s dress shirts and ties on Teacher and peers; grey technician coat on Experimenter.",
+      "lighting": "Bright daylight illuminating the clear physical break from authority.",
+      "recognition_hook": "When given a bare order ('you have no other choice') or when peers say no first, people push their chairs back and refuse.",
+      "sources": [
+        "SRC5",
+        "SRC6",
+        "SRC10"
+      ]
+    },
+    {
+      "id": "S5",
+      "title": "The rigged draw and the real 45-volt sample shock on the teacher's wrist",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1961-1962, Yale University interaction laboratory",
+      "layout": {
+        "description": "Before the test begins, the Experimenter holds two folded paper slips (both secretly reading 'Teacher') and then presses a metal wrist electrode with white paste onto the Teacher's own bare forearm at the generator console, flipping the third switch (45 volts) so the Teacher feels the only real electric jolt in the entire study.",
+        "positions": [
+          {
+            "who": "Teacher",
+            "where": "seated at the generator desk with right shirt sleeve rolled up, forearm resting near the third switch",
+            "facing": "his own wrist and the 45-volt switch"
+          },
+          {
+            "who": "Experimenter",
+            "where": "leaning over the generator console beside the Teacher",
+            "facing": "the Teacher's wrist and the third toggle switch"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "two folded paper slips",
+          "period_detail": "small white paper slips drawn from a hat, both inscribed 'Teacher'",
+          "physical_behavior": "slip unfolds in the Teacher's hand while the Learner hides his slip"
+        },
+        {
+          "name": "wrist electrode and 45-volt third switch",
+          "period_detail": "metal contact strapped to the Teacher's wrist, wired to a hidden 45-volt battery on the third switch",
+          "physical_behavior": "Experimenter flips the third toggle switch, a spark/red indicator light flashes, and the wire twitches"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Experimenter",
+          "verb_sequence": "straps the metal electrode to the Teacher's wrist -> flips the third 45-volt lever switch down"
+        },
+        {
+          "who": "Teacher",
+          "verb_sequence": "jolts and yanks his forearm back from the console as the real 45-volt sample stings his wrist"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Teacher",
+          "reaction": "rubs his stung wrist with his other hand, convinced the generator is genuinely live"
+        }
+      ],
+      "wardrobe": "Teacher in rolled-up white dress shirt; Experimenter in grey technician coat (matching M1 and M2 reference frames).",
+      "lighting": "Bright clinical daylight.",
+      "recognition_hook": "The only person who ever felt a real electric jolt in Milgram's lab was the volunteer Teacher himself.",
+      "sources": [
+        "SRC1",
+        "SRC12"
+      ]
+    },
+    {
+      "id": "S6",
+      "title": "Same-room proximity variation: seeing the learner up close",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "1961-1962, Yale University interaction laboratory (Milgram 1965 proximity condition)",
+      "layout": {
+        "description": "The Learner sits strapped in a chair just a few feet away from the Teacher inside the same room, visible in full view without a dividing wall. Seeing the Learner's body jolt in the same room drops obedience from 65 percent to 40 percent.",
+        "positions": [
+          {
+            "who": "Teacher",
+            "where": "seated at the 30-lever generator box",
+            "facing": "the Learner seated a few feet away in the same room"
+          },
+          {
+            "who": "Learner",
+            "where": "seated in the armchair five feet in front of the desk in the same room",
+            "facing": "the Teacher"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "30-lever voltage generator box",
+          "period_detail": "Type ZLB panel",
+          "physical_behavior": "red indicator light flashes once before the Teacher pulls his hand off the switch row"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Learner",
+          "verb_sequence": "jerks against the chair straps right in front of the Teacher"
+        },
+        {
+          "who": "Teacher",
+          "verb_sequence": "flinches -> pulls his hand off the metal switch lever -> turns away from the console"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Teacher",
+          "reaction": "drops both hands into his lap, unable to keep pressing switches while looking straight at the Learner"
+        }
+      ],
+      "wardrobe": "1960s dress shirts and grey technician coat.",
+      "lighting": "Bright daylight.",
+      "recognition_hook": "Put the victim in the same room and obedience drops from 65 percent to 40 percent.",
+      "sources": [
+        "SRC2",
+        "SRC3"
+      ]
+    },
+    {
+      "id": "S7",
+      "title": "Bridgeport commercial office variation: no Yale prestige",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1962, modest commercial office building in Bridgeport, Connecticut ('Research Associates of Bridgeport', Experiment 10)",
+      "layout": {
+        "description": "A plain, slightly worn downtown office room in Bridgeport with a frosted-glass door lettered 'Research Associates of Bridgeport', metal filing cabinets, and no Yale banners or ivy-covered walls. The same 30-lever generator sits on a plain office desk.",
+        "positions": [
+          {
+            "who": "Teacher",
+            "where": "seated at the plain office desk before the 30-lever generator",
+            "facing": "the switch panel"
+          },
+          {
+            "who": "Experimenter",
+            "where": "standing beside a dented metal filing cabinet in the plain office",
+            "facing": "the Teacher"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "frosted-glass office door and metal filing cabinet",
+          "period_detail": "1960s commercial office door reading 'Research Associates of Bridgeport'",
+          "physical_behavior": "door glass rattles slightly as the Teacher flips a switch and the red indicator light flashes"
+        },
+        {
+          "name": "30-lever voltage generator box",
+          "period_detail": "same Type ZLB panel relocated to Bridgeport",
+          "physical_behavior": "toggle switch clicks down, red light flashes, voltmeter needle swings right"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Teacher",
+          "verb_sequence": "glances around the plain commercial office -> hesitates -> still presses a metal toggle switch down as the red pilot light flashes"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Teacher",
+          "reaction": "slumps his shoulders and wipes his brow with his sleeve as almost half (47.5 percent) still go to the end"
+        }
+      ],
+      "wardrobe": "1960s dress shirt and grey coat.",
+      "lighting": "Bright daylight through venetian blinds in a plain commercial office.",
+      "recognition_hook": "Moving out of Yale into a plain Bridgeport office cut obedience, yet almost half still pressed every switch.",
+      "sources": [
+        "SRC3",
+        "SRC10"
+      ]
+    },
+    {
+      "id": "S8",
+      "title": "Burger 2009 replication stopping at the 150-volt turning point",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2009, Santa Clara University laboratory (Jerry M. Burger partial replication)",
+      "layout": {
+        "description": "Modern 2000s university psychology room with the recreated 30-lever generator box on a laminate desk. At the 150-volt tenth switch, the Learner shouts through the wall demanding to be let out; 70 percent of modern volunteers reach to press the next switch before the researcher steps in to stop the test.",
+        "positions": [
+          {
+            "who": "Modern Teacher (2009 volunteer mannequin in casual button-down shirt)",
+            "where": "seated at the desk in front of the 150-volt switch on the generator panel",
+            "facing": "the switch console"
+          },
+          {
+            "who": "Modern Experimenter",
+            "where": "standing beside the desk with a clipboard",
+            "facing": "the Teacher"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "150-volt switch on the recreated generator panel",
+          "period_detail": "tenth toggle lever marked 150 Volts (Strong Shock)",
+          "physical_behavior": "Teacher presses the 150V switch, red light flashes, and his finger reaches onto the 165V lever before the Experimenter's hand covers the panel"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Modern Teacher",
+          "verb_sequence": "presses the 150-volt toggle switch -> flinches as the wall vibrates -> reaches his finger forward to flip the next switch"
+        },
+        {
+          "who": "Modern Experimenter",
+          "verb_sequence": "steps in quickly -> places a palm over the switch row to halt the 2009 session at 150 volts"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Modern Teacher",
+          "reaction": "exhales and drops his hands onto the desk as the researcher stops the test"
+        }
+      ],
+      "wardrobe": "2000s casual shirt on Teacher; lab coat on Experimenter.",
+      "lighting": "Bright modern laboratory daylight.",
+      "recognition_hook": "Repeated in 2009 up to the 150-volt turning point, 70 percent of people today still tried to keep going.",
+      "sources": [
+        "SRC4"
+      ]
+    },
+    {
+      "id": "S9",
+      "title": "Fourteen Yale psychology seniors predict only 1 percent will obey",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1961, Yale University seminar classroom, New Haven",
+      "layout": {
+        "description": "A 1961 Yale seminar room with a chalkboard diagram of the 15V-to-450V switch panel. Fourteen senior psychology students sit at wooden desks writing their predictions on paper survey sheets, marking down 0 to 3 percent (mean 1.2 percent) near the bottom of the scale.",
+        "positions": [
+          {
+            "who": "Yale psychology seniors (mannequins in 1960s tweed jackets and sweaters)",
+            "where": "seated in rows at wooden seminar desks",
+            "facing": "the chalkboard diagram of the 30-lever generator"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "prediction survey sheets and fountain pens",
+          "period_detail": "printed 0-to-100 percent scale sheets handed to 14 Yale seniors",
+          "physical_behavior": "pen nib circles the 1 percent mark at the bottom of the page and slides the sheet across the desk"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Yale senior student",
+          "verb_sequence": "shakes his head dismissively at the 450-volt diagram -> scribbles a tiny mark at one percent on the paper sheet -> taps the pen down on the desk"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Yale senior students",
+          "reaction": "lean back confidently in their wooden chairs, certain almost nobody would press the 450-volt switch"
+        }
+      ],
+      "wardrobe": "1961 collegiate tweed jackets, cardigans, white shirts and ties.",
+      "lighting": "Bright classroom daylight.",
+      "recognition_hook": "Yale psychology majors guessed only 1 in 100 people would go to 450 volts — fifty times lower than reality.",
+      "sources": [
+        "SRC1"
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "Stepping back when told 'it is for a good cause'",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "1961 laboratory and timeless everyday parallel",
+      "layout": {
+        "description": "Wide shot of the 1961 Yale basement laboratory where the Teacher pushes his chair back from the 30-lever generator box, stands up, and walks away from the grey-coated Experimenter while the red pilot light clicks off.",
+        "positions": [
+          {
+            "who": "Teacher",
+            "where": "standing beside the pushed-back chair in front of the 30-lever console",
+            "facing": "away from the switches, turning to face the Experimenter"
+          },
+          {
+            "who": "Experimenter",
+            "where": "standing beside the desk with lowered clipboard",
+            "facing": "the Teacher"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "30-lever generator box and wooden chair",
+          "period_detail": "Type ZLB console with switches left unpressed",
+          "physical_behavior": "wooden chair slides back across the floor and the red indicator light snaps dark"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Teacher",
+          "verb_sequence": "pulls his hand off the switch lever -> pushes the wooden chair backward -> stands up and steps away from the desk"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Teacher",
+          "reaction": "stands upright with open palms, breaking the polite momentum of the room"
+        }
+      ],
+      "wardrobe": "1960s rolled-sleeve dress shirt on Teacher, grey technician coat on Experimenter.",
+      "lighting": "Bright daylight.",
+      "recognition_hook": "Across all 30 variations, most people stopped — and knowing how the trap works lets you stop too.",
+      "sources": [
+        "SRC5",
+        "SRC8"
+      ]
+    },
+    {
+      "id": "S11",
+      "title": "Post-session debriefing and the archive files",
+      "iconic": false,
+      "shorts_priority": 4,
+      "era": "1962 Yale debriefing room and 2012 archival boxes",
+      "layout": {
+        "description": "After the session ends, the unharmed Learner walks into the main room smiling to shake the exhausted Teacher's hand while the Teacher mops his brow; later archival boxes reveal session tapes and notes.",
+        "positions": [
+          {
+            "who": "Learner",
+            "where": "stepping through the doorway into the main room",
+            "facing": "the Teacher, hand extended"
+          },
+          {
+            "who": "Teacher",
+            "where": "rising from the generator desk",
+            "facing": "the Learner"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "handkerchief and archival tape reels",
+          "period_detail": "1960s pocket handkerchief and reel-to-reel tape boxes",
+          "physical_behavior": "Teacher wipes his forehead and shakes the Learner's hand"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Learner",
+          "verb_sequence": "walks in unharmed -> shakes the Teacher's trembling hand"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Teacher",
+          "reaction": "slumps in relief and wipes sweat from his brow"
+        }
+      ],
+      "wardrobe": "1960s dress shirts.",
+      "lighting": "Bright daylight.",
+      "recognition_hook": "The learner walks out unharmed, though the ethical debate lasted decades.",
+      "sources": [
+        "SRC1",
+        "SRC7",
+        "SRC8"
+      ]
+    }
+  ]
+}

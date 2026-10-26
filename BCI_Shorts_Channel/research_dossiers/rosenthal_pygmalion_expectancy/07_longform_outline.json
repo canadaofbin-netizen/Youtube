@@ -1,0 +1,102 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Picked from a random-number book, 'Harvard bloomer' first-graders jump 15 IQ points ahead of classmates in eight months.",
+    "core_experiment": "Rosenthal & Jacobson's 1964-1968 Oak School design across 18 classrooms and the Four-Factor behavioral mechanism.",
+    "twist": "Thorndike's 1968 psychometric critique and why expectations hit hardest in brand-new rooms before reputations harden."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Fictional Harvard Test",
+      "beats": [
+        "Oak School's 18 classrooms",
+        "Picking 20% of names from a random-number book",
+        "One casual September memo"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "circling names from random-number table"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Eight Months Later: The First-Grade Surge",
+      "beats": [
+        "+27.4 vs +12.0 points in Grade 1",
+        "47% vs 19% gaining 20+ points",
+        "Teachers couldn't even recall the list"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "teacher kneeling patiently at first-grade desk"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "No Magic — Four Invisible Channels",
+      "beats": [
+        "Climate, input, response opportunity, feedback",
+        "Why 3 seconds of wait-time changes everything"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "alternating matched-angle 1-sec cutoff vs 3-sec wait"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "The Great Debate: Thorndike & Realistic Bounds",
+      "beats": [
+        "First-grade Flanagan norm critique",
+        "Meta-analytic consensus (r ~ 0.15-0.20)",
+        "Why day-one impressions matter most"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "grade-by-grade bar chart"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Using Blind Grading and Deliberate Wait-Time",
+      "beats": [
+        "Curtain auditions and anonymous code reviews",
+        "Giving newcomers the bloomer climate"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "modern whiteboard wait-time huddle"
+      ]
+    }
+  ]
+}

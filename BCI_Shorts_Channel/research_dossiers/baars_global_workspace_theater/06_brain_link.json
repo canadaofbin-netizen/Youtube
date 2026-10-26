@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "primary visual cortex",
+      "plain": "local sensory specialist",
+      "function": "processing raw features locally in parallel even before a stimulus wins global awareness",
+      "scene_id": "S2",
+      "narration_bridge": "Shows both binocular-rivalry images active locally in early visual cortex while only one reaches awareness."
+    },
+    {
+      "role": "pivot",
+      "region": "prefrontal cortex",
+      "plain": "frontoparietal broadcast hub",
+      "function": "igniting long-range white-matter communication with parietal, temporal, and language regions once one coalition wins the stage",
+      "scene_id": "S1",
+      "narration_bridge": "Visualizes Baars & Dehaene's global broadcast linking distant cortical specialists."
+    },
+    {
+      "role": "step1",
+      "region": "parietal cortex",
+      "plain": "workspace partner hub",
+      "function": "co-maintaining the single winning conscious scene across the dorsal-frontoparietal bridge",
+      "scene_id": "S1",
+      "narration_bridge": "Anchors the wide cortical broadcast network."
+    }
+  ]
+}

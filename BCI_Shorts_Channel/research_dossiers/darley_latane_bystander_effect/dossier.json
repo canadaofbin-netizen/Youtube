@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "slug": "darley_latane_bystander_effect",
+  "topic": "John Darley & Bibb Latané (1968): NYU Intercom Emergency & Diffusion of Responsibility",
+  "pillar": "bci_ethics",
+  "created_at": "2026-10-25T22:49:30+00:00",
+  "status": "ready",
+  "visual_mode": "BEHAVIORAL_PSYCH",
+  "visual_mode_reason": "Darley and Latané's intercom cubicle crisis and smoke-filled waiting room are pure social-behavioral scenes staged through booth doors, headsets, and bystander glances.",
+  "primary_case": {
+    "title": "Darley & Latané's NYU isolated-cubicle intercom seizure emergency & Columbia smoke-room experiments",
+    "year": 1968,
+    "place": "New York University & Columbia University, New York City",
+    "people": [
+      {
+        "name": "John M. Darley",
+        "role": "NYU social psychologist who co-designed the multi-cubicle intercom emergency to isolate diffusion of responsibility",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Bibb Latané",
+        "role": "Columbia social psychologist who co-authored the smoke-room pluralistic ignorance and intercom bystander studies",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "72 NYU introductory psychology students",
+        "role": "Placed in isolated soundproof booths believing 1, 2, or 5 other students heard a peer's medical seizure",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Sparked by public debate after the 1964 Queens attack on Kitty Genovese, John Darley and Bibb Latané tested in 1968 whether larger groups actually slow down emergency help rather than guaranteeing safety in numbers.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "At NYU, each student sat alone in a small cubicle wearing headphones with an intercom microphone, told that microphones rotated automatically every two minutes to protect privacy.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "During Round 1, a pre-recorded fellow student casually mentioned he sometimes suffered seizures under exam stress; during Round 2, his voice choked, stammered, and pleaded for help over the live channel before cutting out.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "When participants believed they were the ONLY listener who knew about the seizure (2-person group), 85 percent bolted out of their booth to fetch the experimenter before the recording even finished (averaging 52 seconds).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "When participants believed ONE other student was also listening (3-person group), help dropped to 62 percent (averaging 93 seconds).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "When participants believed FOUR other students were also listening (6-person group), only 31 percent left their booth within six minutes (averaging 166 seconds).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Non-helpers were NOT cold or apathetic: when the experimenter opened their booth doors, non-helpers had sweating palms and trembling hands, asking anxiously 'Is he alright?' — trapped in conflict rather than indifference.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In their companion 1968 Columbia smoke-room study, 75 percent of solo students reported thick white titanium-dioxide smoke pouring through a wall vent within 4 minutes, versus just 10 percent seated with two calm confederates ('pluralistic ignorance').",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Archival historians (Manning, Levine & Collins, 2007) later proved the 1964 New York Times headline of '38 passive witnesses watching Kitty Genovese' was journalistically exaggerated (several neighbors actually called police or shouted), and 2020 real-world CCTV studies show at least one bystander helps in ~90% of clear violent emergencies — yet individual likelihood still drops via diffusion of responsibility.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "In Darley and Latané's (1968) six-person intercom condition (one victim, one real subject, and four simulated peer booths), 69% of subjects failed to report the seizure within six minutes (only 31% reported, versus 85% when alone).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Diffusion-of-responsibility field and digital replications show that addressing a single named bystander elicits far faster aid than broadcasting an unattributed plea to 12 simultaneous recipients.",
+      "source_id": "SRC2"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Believing you are the ONLY person who hears a stranger's medical crisis produces an 85 percent rescue rate in under a minute — believing four others also hear it slashes your chance of moving down to 31 percent.",
+      "why_surprising": "Safety in numbers flips backward when nobody owns the action.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Students who stayed frozen in the 6-person booths weren't callous monsters — their hands were visibly shaking and sweating when researchers opened the door.",
+      "why_surprising": "Diffusion of responsibility paralyses caring people, not uncaring ones.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "In a companion test where harmless white smoke filled a waiting room until people could barely read their forms, 75 percent walked out to report it alone — versus just 10 percent sitting beside two calm strangers.",
+      "why_surprising": "We check strangers' faces to decide whether our own eyes see a fire.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "Even the famous '38 silent witnesses' newspaper story that inspired the research turned out to be partially exaggerated by reporters — proving good lab experiments outlast flawed headlines.",
+      "why_surprising": "Science tested the mechanism cleanly even where journalism sensationalized.",
+      "source_id": "SRC4",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "City crowds fail to help because modern urban people are cold, selfish, and apathetic.",
+      "truth": "Darley and Latané's trembling, sweating non-helpers cared deeply; divided responsibility and fear of misreading ambiguity froze action.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Thirty-eight neighbors stood at brightly lit windows watching the entire 1964 Kitty Genovese attack without lifting a finger.",
+      "truth": "Archival trial records showed far fewer witnesses saw unambiguous violence, at least two calls/shouts occurred, and one neighbor held Kitty in her arms before the ambulance arrived.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Real-world emergencies almost never get help in public.",
+      "truth": "2020 multi-city CCTV analyses show when danger is unmistakable, someone intervenes ~90% of the time — though any single individual's odds still dip unless singled out.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Shouting 'Somebody call 911!' into a crowd works reliably.",
+      "truth": "Broadcasting to 'somebody' triggers maximum diffusion; pointing to one specific person ('You in the blue jacket, call 911!') restores the 85% solo condition.",
+      "source_id": "SRC3"
+    }
+  ],
+  "everyday_hooks": [
+    "Receiving a mass email addressed to twelve CC'd coworkers asking 'Can someone check this?' and watching nobody reply all day.",
+    "Pointing directly at one bystander in first-aid training: 'You in the plaid shirt, call 911 and come back to tell me.'",
+    "Smelling burnt toast in an open-plan office and staying seated because twenty other people are still typing calmly.",
+    "Tagging `@Alex` directly in a team chat instead of posting `@channel somebody please fix build`."
+  ],
+  "linked_projects": [
+    "psych_25_darley_latane_bystander_effect"
+  ]
+}

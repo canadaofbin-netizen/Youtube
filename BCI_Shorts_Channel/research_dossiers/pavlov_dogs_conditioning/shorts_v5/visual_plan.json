@@ -1,0 +1,209 @@
+{
+  "schema": 5,
+  "visual_mode": "HYBRID",
+  "dossier": "pavlov_dogs_conditioning",
+  "real_environment": "a bright 1904 St. Petersburg physiology laboratory with tall windows",
+  "environment_props": [
+    "wooden harness stand",
+    "ticking brass metronome",
+    "graduated glass saliva tube"
+  ],
+  "scale_anchor_object": "wooden harness stand on the laboratory table",
+  "cast": {
+    "subject": "porcelain dog in a brown leather harness",
+    "others": [
+      "bearded physiologist",
+      "laboratory assistant"
+    ],
+    "animals": [
+      "matte-white porcelain dog"
+    ],
+    "wardrobe": {
+      "physiologist": "white laboratory coat and full white beard",
+      "assistant": "white laboratory coat and dark trousers",
+      "dog": "brown leather harness straps suspended from an overhead wooden crossbar",
+      "modern_person": "grey casual hoodie"
+    }
+  },
+  "must_have_scenes": [
+    {
+      "id": "S1",
+      "title": "The sound alone: drops fall with no food",
+      "iconic": true,
+      "recognition_hook": "A harnessed dog drooling into a glass tube at the sound of a ticking metronome, with no food in sight - 'Pavlov's dog'.",
+      "key_visual": {
+        "description": "the harnessed porcelain dog hears the ticking metronome before any food appears and saliva drips from the cheek tube into the graduated glass vial",
+        "must_show": [
+          "metronome|bell",
+          "saliva|drip|drool",
+          "tube|vial|glass"
+        ],
+        "source": "dossier S1; Pavlov 1927 lectures"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Fitting the dog: cheek funnel, tube and graduated glass",
+      "iconic": false,
+      "recognition_hook": "The glass tube sticking out of the dog's cheek."
+    },
+    {
+      "id": "S3",
+      "title": "Pairing: the tick, then the food",
+      "iconic": false,
+      "recognition_hook": "Sound first, food second - the pairing everyone learns in school."
+    },
+    {
+      "id": "S4",
+      "title": "The experimenter is the noise",
+      "iconic": false,
+      "recognition_hook": "The scientist himself spoils the experiment."
+    },
+    {
+      "id": "S5",
+      "title": "Timing test: buzzer after food vs before food",
+      "iconic": false,
+      "recognition_hook": "Same sound, opposite result - only the order changed."
+    },
+    {
+      "id": "S6",
+      "title": "The soundproof laboratory: dog alone, experimenter behind the wall",
+      "iconic": false,
+      "recognition_hook": "Walls between dog and scientist - and the sound still works."
+    },
+    {
+      "id": "S8",
+      "title": "You and the ping",
+      "iconic": false,
+      "recognition_hook": "Your phone's notification sound."
+    }
+  ],
+  "shots": {
+    "setup": {
+      "scene_id": "S1",
+      "setting": "real_env",
+      "shot_type": "wide",
+      "camera": "Wide establishing shot in a bright Saint Petersburg laboratory with tall windows, camera smoothly tracks forward toward the wooden harness stand",
+      "action": "A matte-white porcelain dog stands in brown leather straps inside a wooden frame while a white-coated assistant mannequin flicks a brass metronome and scribbles notes",
+      "prop_change": "The metronome pendulum swings and ticks while clear saliva beads at a glass cheek funnel and drips into a graduated glass tube",
+      "reaction": "A bearded physiologist mannequin in a white coat grips the stand and leans in as liquid rises in the tube with no food bowl present"
+    },
+    "symptom": {
+      "scene_id": "S2",
+      "setting": "real_env",
+      "shot_type": "cu",
+      "camera": "Close-up side profile on the porcelain dog in the wooden harness stand with the ticking brass metronome behind it, camera pushes in on the cheek tube",
+      "action": "The matte-white porcelain dog pricks its ears at the metronome, licks its muzzle, and salivates as the white-coated assistant mannequin taps the glass tube",
+      "prop_change": "The brass pendulum swings while clear drops drip from the glass cheek funnel down a thin tube and splash inside the etched cylinder",
+      "reaction": "The assistant mannequin freezes mid-tally with lifted shoulders and leans closer to the scale marks in bright daylight"
+    },
+    "failure": {
+      "scene_id": "S4",
+      "setting": "real_env",
+      "shot_type": "medium",
+      "camera": "Medium lateral tracking shot across the sunlit laboratory from the seated experimenter mannequin to the porcelain dog on the wooden harness stand",
+      "action": "A white-coated experimenter mannequin on a wooden chair shifts posture, coughs, and slams his notebook shut as the porcelain dog jerks its head and paces in the harness",
+      "prop_change": "The leather straps sway, the notebook slams shut on his knee, and clear liquid drips early into the graduated glass tube before any signal starts",
+      "reaction": "The experimenter mannequin slumps on the chair and rubs his forehead with dropped shoulders in bright daylight"
+    },
+    "crisis": {
+      "scene_id": "S5",
+      "setting": "real_env",
+      "shot_type": "medium",
+      "camera": "Medium over-the-shoulder shot past the white-coated assistant mannequin toward the porcelain dog on the wooden stand and a wall-mounted electric bell box",
+      "action": "The assistant mannequin pulls back an empty enamel food bowl first and only then presses the wall button, while the porcelain dog sniffs the empty stand",
+      "prop_change": "The metal hammer on the wall box vibrates and buzzes after the meal is over, while the graduated glass tube beside the dog's cheek stays dry",
+      "reaction": "The assistant mannequin taps the empty glass tube twice and shakes his head with slumped shoulders in bright laboratory daylight"
+    },
+    "pivot": {
+      "scene_id": "S3",
+      "setting": "real_env",
+      "shot_type": "medium",
+      "camera": "Medium tracking shot across the wooden stand from the ticking pyramid metronome on the shelf to the porcelain dog in its leather harness",
+      "action": "The white-coated assistant mannequin flicks the brass metronome pendulum first, then swings an enamel food bowl under the porcelain dog's muzzle as the dog lunges and eats",
+      "prop_change": "The metronome ticks steadily, food crumbs scatter across the sliding bowl, and clear saliva drips rapidly down the cheek funnel into the glass tube",
+      "reaction": "The bearded physiologist mannequin braces both hands on the stand as the assistant pulls the bowl back and writes the count"
+    },
+    "step1": {
+      "scene_id": "S3",
+      "setting": "brain_void",
+      "shot_type": "macro",
+      "camera": "Macro tracking shot inside a realistic matte-white brain cross-section in a bright white studio gallery",
+      "action": "a smooth, steady bioluminescent green light pulse glides cleanly inside the white-matter fiber tracts from the inner ear along white-matter nerve fibers into the auditory cortex on the side of the brain",
+      "prop_change": "The auditory cortex ignites electric cyan-blue as rhythmic waves of bioluminescent green light pulse across its folded surface in time with the ticking sound",
+      "reaction": "Surrounding matte-white cortical folds catch crisp daylight rim lighting while the glowing electric cyan-blue region brightens with each pulse"
+    },
+    "step2": {
+      "scene_id": "S1",
+      "setting": "brain_void",
+      "shot_type": "macro",
+      "camera": "Smooth orbiting macro shot inside the realistic matte-white brain in bright studio daylight, pushing in from the side of the brain to the base",
+      "action": "A bright bridge of warm amber-gold white-matter fibers locks in between the electric cyan-blue auditory cortex and the brainstem at the base of the brain",
+      "prop_change": "Bioluminescent green internal fiber light pulse race across the warm amber-gold pathway and ignite the brainstem in a steady golden-green glow that triggers the salivary reflex",
+      "reaction": "The rest of the matte-white brain rests in clean studio daylight as the new pathway pulses smoothly from top to bottom"
+    },
+    "step3": {
+      "scene_id": "S6",
+      "setting": "real_env",
+      "shot_type": "wide",
+      "camera": "Wide lateral tracking shot gliding across the thick soundproof wall of the Saint Petersburg laboratory, revealing both compartments",
+      "action": "In the right room, the experimenter mannequin squeezes a rubber air bulb at a control board, while in the left room the porcelain dog pricks its ears and licks its lips",
+      "prop_change": "The rubber bulb collapses, the metronome pendulum swings and ticks, and clear saliva drops fall from the cheek funnel into the glass tube",
+      "reaction": "Behind the wall, the experimenter mannequin sits bolt upright and presses his palm flat on the desk as the recorder clicks"
+    },
+    "breakthrough": {
+      "scene_id": "S1",
+      "setting": "real_env",
+      "shot_type": "medium",
+      "camera": "Medium slow push-in on the central wooden harness stand in the bright laboratory with the bearded physiologist and assistant mannequins flanking the porcelain dog",
+      "action": "The assistant mannequin presses a wall buzzer button once before sliding the bowl, and the porcelain dog shifts forward in the leather straps and drools on cue",
+      "prop_change": "The buzzer vibrates, clear saliva drips steadily from the glass cheek funnel, and the liquid rises in the tube mark by mark",
+      "reaction": "The bearded physiologist mannequin lifts the graduated glass tube toward the tall window light while the assistant clenches his notebook"
+    },
+    "conclusion": {
+      "scene_id": "S8",
+      "setting": "real_env",
+      "shot_type": "wide",
+      "camera": "Slow pull-back rising to an elevated wide shot of a sunlit modern kitchen counter",
+      "action": "A matte-white porcelain person in a grey hoodie sits at the counter holding a ceramic mug, then jerks a hand forward to grab a smartphone the instant it chimes",
+      "prop_change": "The face-down smartphone screen flashes and vibrates across the counter while dark coffee splashes over the rim of the ceramic mug",
+      "reaction": "The porcelain figure freezes mid-reach with lifted shoulders and slowly pulls its hand back from the glowing phone in bright morning daylight"
+    }
+  },
+  "scenes": {
+    "setup": "Wide establishing shot in a bright Saint Petersburg laboratory with tall windows, camera smoothly tracks forward toward the wooden harness stand. A matte-white porcelain dog stands in brown leather straps inside a wooden frame while a white-coated assistant mannequin flicks a brass metronome and scribbles notes. The metronome pendulum swings and ticks while clear saliva beads at a glass cheek funnel and drips into a graduated glass tube. A bearded physiologist mannequin in a white coat grips the stand and leans in as liquid rises in the tube with no food bowl present.",
+    "symptom": "Close-up side profile on the porcelain dog in the wooden harness stand with the ticking brass metronome behind it, camera pushes in on the cheek tube. The matte-white porcelain dog pricks its ears at the metronome, licks its muzzle, and salivates as the white-coated assistant mannequin taps the glass tube. The brass pendulum swings while clear drops drip from the glass cheek funnel down a thin tube and splash inside the etched cylinder. The assistant mannequin freezes mid-tally with lifted shoulders and leans closer to the scale marks in bright daylight.",
+    "failure": "Medium lateral tracking shot across the sunlit laboratory from the seated experimenter mannequin to the porcelain dog on the wooden harness stand. A white-coated experimenter mannequin on a wooden chair shifts posture, coughs, and slams his notebook shut as the porcelain dog jerks its head and paces in the harness. The leather straps sway, the notebook slams shut on his knee, and clear liquid drips early into the graduated glass tube before any signal starts. The experimenter mannequin slumps on the chair and rubs his forehead with dropped shoulders in bright daylight.",
+    "crisis": "Medium over-the-shoulder shot past the white-coated assistant mannequin toward the porcelain dog on the wooden stand and a wall-mounted electric bell box. The assistant mannequin pulls back an empty enamel food bowl first and only then presses the wall button, while the porcelain dog sniffs the empty stand. The metal hammer on the wall box vibrates and buzzes after the meal is over, while the graduated glass tube beside the dog's cheek stays dry. The assistant mannequin taps the empty glass tube twice and shakes his head with slumped shoulders in bright laboratory daylight.",
+    "pivot": "Medium tracking shot across the wooden stand from the ticking pyramid metronome on the shelf to the porcelain dog in its leather harness. The white-coated assistant mannequin flicks the brass metronome pendulum first, then swings an enamel food bowl under the porcelain dog's muzzle as the dog lunges and eats. The metronome ticks steadily, food crumbs scatter across the sliding bowl, and clear saliva drips rapidly down the cheek funnel into the glass tube. The bearded physiologist mannequin braces both hands on the stand as the assistant pulls the bowl back and writes the count.",
+    "step1": "Three-quarter profile of a matte-white porcelain mannequin head in a bright white studio gallery with a translucent cutaway cranium revealing the full matte-white 3D brain with deep gyri and sulci inside. A soft warm-ivory light pulse glides inside the white-matter fibers from the inner ear into the auditory cortex on the side of the brain. The auditory cortex glows subtle warm amber-gold as calm waves of subsurface warm-ivory luminance travel inside its folded ridge in time with the ticking sound.",
+    "step2": "Smooth orbiting macro shot around the matte-white porcelain mannequin head with its translucent cutaway cranium revealing the full matte-white 3D brain in bright studio daylight, pushing in from the side of the brain to the brainstem. A bright bridge of subtle warm amber-gold white-matter fibers locks in between the auditory cortex and the brainstem at the base. Soft warm-ivory internal light pulses glide inside the amber-gold fiber pathway and illuminate the brainstem in a calm subsurface glow.",
+    "step3": "Wide lateral tracking shot gliding across the thick soundproof wall of the Saint Petersburg laboratory, revealing both compartments. In the right room, the experimenter mannequin squeezes a rubber air bulb at a control board, while in the left room the porcelain dog pricks its ears and licks its lips. The rubber bulb collapses, the metronome pendulum swings and ticks, and clear saliva drops fall from the cheek funnel into the glass tube. Behind the wall, the experimenter mannequin sits bolt upright and presses his palm flat on the desk as the recorder clicks.",
+    "breakthrough": "Medium slow push-in on the central wooden harness stand in the bright laboratory with the bearded physiologist and assistant mannequins flanking the porcelain dog. The assistant mannequin presses a wall buzzer button once before sliding the bowl, and the porcelain dog shifts forward in the leather straps and drools on cue. The buzzer vibrates, clear saliva drips steadily from the glass cheek funnel, and the liquid rises in the tube mark by mark. The bearded physiologist mannequin lifts the graduated glass tube toward the tall window light while the assistant clenches his notebook.",
+    "conclusion": "Slow pull-back rising to an elevated wide shot of a sunlit modern kitchen counter. A matte-white porcelain person in a grey hoodie sits at the counter holding a ceramic mug, then jerks a hand forward to grab a smartphone the instant it chimes. The face-down smartphone screen flashes and vibrates across the counter while dark coffee splashes over the rim of the ceramic mug. The porcelain figure freezes mid-reach with lifted shoulders and slowly pulls its hand back from the glowing phone in bright morning daylight."
+  },
+  "brain_link": {
+    "step1": {
+      "region": "auditory cortex",
+      "plain": "hearing center",
+      "link": "Each metronome tick sends sound signals from the ears into the auditory cortex, the brain's hearing center, right before food arrives."
+    },
+    "step2": {
+      "region": "brainstem",
+      "plain": "reflex center",
+      "link": "Repeated pairing links the hearing center to the brainstem, the automatic reflex center whose salivary nuclei drive drooling."
+    }
+  },
+  "target_region": "auditory cortex",
+  "crisis_region": "brainstem",
+  "compensatory_region": "brainstem",
+  "signal_path": [
+    "cochlea",
+    "auditory cortex",
+    "brainstem"
+  ],
+  "anatomy_descriptors": {
+    "auditory cortex": "folded ridge on the side of the brain above the ear",
+    "brainstem": "stalk-like reflex hub at the base of the brain"
+  }
+}

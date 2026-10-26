@@ -1,0 +1,138 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Paralyzed for 11 years by ALS, 68-year-old Pat Bennett silently mouths a sentence as words stream across a Stanford monitor at 62 words per minute.",
+    "core_experiment": "Two 64-electrode arrays (128 channels) on ventral premotor cortex 6v feed a recurrent neural network decoding 39 English phonemes across a 125,000-word vocabulary.",
+    "twist": "Classical Broca's area 44 held almost zero phoneme signal, whereas speech motor cortex 6v kept a sharp lip-and-tongue map after a decade of paralysis."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "62 Words Per Minute Without Speaking Out Loud",
+      "beats": [
+        "Pat Bennett's 11-year silence under ALS",
+        "Live 62-WPM sentence streaming on the display",
+        "Breaking the 18-WPM BCI ceiling"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup"
+      ],
+      "new_shots_needed": [
+        "close-up of streaming words matching silent lip motion"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "The 15-WPM Spelling Trap",
+      "beats": [
+        "How eye-trackers and cursor spellers work",
+        "15 WPM vs 160 WPM natural speech",
+        "Descending corticobulbar disconnection"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "symptom",
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "over-the-shoulder dwell-keyboard comparison"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Four Pea-Sized Arrays on the Left Hemisphere",
+      "beats": [
+        "3.2 mm Utah arrays implanted by Henderson",
+        "128 channels on area 6v vs 128 on area 44",
+        "Recording single-neuron action potentials"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "macro of 3.2-mm array model beside millimeter scale"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "How 39 Phonemes Unlock 125,000 Words",
+      "beats": [
+        "Step 1: preserved lip/tongue/jaw somatotopy",
+        "Step 2: 80-ms RNN phoneme probabilities",
+        "Step 3: language model assembling full words"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step1",
+        "step2",
+        "step3"
+      ],
+      "new_shots_needed": [
+        "animated 39-phoneme probability chart"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "The Broca's Area Surprise",
+      "beats": [
+        "Why area 44 failed to decode phonemes",
+        "Redrawing the textbook speech map",
+        "9.1% vs 23.8% word error rates"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [],
+      "new_shots_needed": [
+        "side-by-side 6v vs area 44 raster comparison"
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Back-to-Back Breakthroughs: Stanford & UCSF",
+      "beats": [
+        "Metzger & Chang 253-channel ECoG avatar at 78 WPM",
+        "UC Davis 97.5% rapid calibration follow-up",
+        "Why private thoughts are NOT decoded"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "ethics boundary graphic: attempted speech vs inner thought"
+      ]
+    },
+    {
+      "n": 7,
+      "title": "A Preserved Voice Inside the Cortex",
+      "beats": [
+        "What T12 proved about long-term cortical plasticity",
+        "Road to wireless home implants",
+        "Human dignity of conversational speed"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "wide clinical conversation shot"
+      ]
+    }
+  ]
+}

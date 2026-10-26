@@ -1,0 +1,218 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Hiker jumping back on a sunlit trail from a curved wooden root milliseconds before recognizing it — paired with LeDoux's Low-Road vs High-Road diagram",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1995, sunlit woodland trail & NYU Center for Neural Science chart",
+      "layout": {
+        "description": "Bright sunlit forest footpath where a dark S-curved oak root lies across sun-dappled gravel; in crisp documentary framing, a hiker mannequin recoils mid-step while a side-panel / studio bench displays Joseph LeDoux's two-arrow Thalamus -> Amygdala (Fast Blur) vs Thalamus -> Cortex -> Amygdala (Sharp Detail) schematic.",
+        "positions": [
+          {
+            "who": "Hiker mannequin (in khaki field shirt and hiking boots)",
+            "where": "caught mid-step recoiling one boot sharply backward from the curved wooden root on the sunlit path before leaning back in with relief",
+            "facing": "looking down at the S-curved root"
+          },
+          {
+            "who": "Joseph LeDoux (mannequin in NYU blazer and open shirt, studio/lab bench)",
+            "where": "pointing to the short direct lower arrow ('Low Road: Fast Blur') beating the tall upper cortical loop ('High Road: Sharp Bark Detail')",
+            "facing": "at the two-pathway schematic"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "S-curved dark oak tree root on gravel path",
+          "period_detail": "harmless deadwood branch whose silhouette mimics a coiled serpent in peripheral blur",
+          "physical_behavior": "triggers Low-Road jump at 100 ms, resolved as harmless bark by High Road at 300 ms"
+        },
+        {
+          "name": "blurry vs razor-sharp comparison frames",
+          "period_detail": "two square photo plates on the lab bench: left plate blurred into a snake-like smudge (Low Road), right plate razor-sharp showing wood grain and twigs (High Road)",
+          "physical_behavior": "shows exact resolution tradeoff for speed"
+        },
+        {
+          "name": "Dual-Pathway Thalamus-Cortex-Amygdala board",
+          "period_detail": "museum-clean anatomical diagram with two clean path lines",
+          "physical_behavior": "illustrates why survival beats accuracy by 2x speed"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Hiker mannequin",
+          "verb_sequence": "spots dark S-curve peripherally -> boots recoil instantly BEFORE head finishes turning -> focuses clearly on the dry oak bark and exhales with a laugh"
+        },
+        {
+          "who": "Joseph LeDoux",
+          "verb_sequence": "traces the short thalamus-to-amygdala shortcut beating the longer cortical loop"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Hiker mannequin",
+          "reaction": "steps calmly over the harmless wooden root once the High Road all-clear lands"
+        },
+        {
+          "who": "Joseph LeDoux",
+          "reaction": "notes why 100 stick false-alarms beat missing 1 real viper"
+        }
+      ],
+      "wardrobe": "Clean khaki outdoor hiking shirt, canvas pack, and boots on hiker; dark NYU blazer and collared shirt on LeDoux.",
+      "lighting": "Bright high-key sunlit woodland daylight & crisp studio bench illumination.",
+      "recognition_hook": "Your boots leap backward off the trail BEFORE your eyes even realize the 'snake' is a crooked wooden branch — because your thalamus runs a secret two-speed race.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a hiker mannequin recoiling mid-step from a snake-shaped wooden tree root on a sunlit path alongside a 'Fast Low Road vs Sharp High Road' thalamus-cortex-amygdala diagram",
+        "must_show": [
+          "root|stick|branch",
+          "hiker|boots|path",
+          "diagram|board"
+        ],
+        "source": "M1@00:06-00:13; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "NYU 12-millisecond thalamic shortcut oscilloscope proof",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1994, NYU Center for Neural Science lab",
+      "layout": {
+        "description": "High-key neurophysiology bench showing a millisecond spike trace with TWO distinct arrival peaks inside lateral amygdala: Peak 1 at 12 ms (Thalamic) and Peak 2 at ~28 ms (Cortical).",
+        "positions": [
+          {
+            "who": "Joseph LeDoux",
+            "where": "pointing a pen tip to the crisp 12-ms early arrival spike on the monitor",
+            "facing": "at bench"
+          },
+          {
+            "who": "Articulated matte-white porcelain rat sculpture",
+            "where": "alert inside a clean acoustic tone chamber",
+            "facing": "facing speaker"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "two-peak 12ms vs 28ms spike monitor",
+          "period_detail": "crisp oscilloscope readout",
+          "physical_behavior": "proves subcortical arrival beats cortical arrival"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Acoustic tone plays",
+          "verb_sequence": "Peak 1 fires at 12 ms directly from thalamus -> Peak 2 arrives later from cortex"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Joseph LeDoux",
+          "reaction": "maps the monosynaptic lateral-amygdala front door"
+        }
+      ],
+      "wardrobe": "White lab coat; articulated matte-white porcelain rat sculpture.",
+      "lighting": "Clean high-key lab light.",
+      "recognition_hook": "Single-neuron recordings caught two separate arrival waves: a 12-millisecond thalamic sprint followed by the slower cortical check.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "2014 Correction: Threat-Defense Reflex != Conscious Feeling of Fear",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2014, NYU seminar room",
+      "layout": {
+        "description": "Sunlit lecture whiteboard where LeDoux crosses out 'Amygdala = Conscious Fear Center' and writes 'Amygdala = Automatic Threat Defense | Cortex = Conscious Feeling of Fear'.",
+        "positions": [
+          {
+            "who": "Joseph LeDoux mannequin",
+            "where": "pointing clearly to the two-tier survival vs conscious-feeling chart",
+            "facing": "at whiteboard"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "2014 Threat-Defense vs Conscious-Fear board",
+          "period_detail": "landmark conceptual precision",
+          "physical_behavior": "stops conflating a startle reflex with subjective dread"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Joseph LeDoux mannequin",
+          "verb_sequence": "separates bodily defensive reflex below from conscious cortical appraisal above"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Students",
+          "reaction": "nod grasping why bodies flinch before minds feel afraid"
+        }
+      ],
+      "wardrobe": "Modern tailored jacket.",
+      "lighting": "Bright seminar daylight.",
+      "recognition_hook": "Even LeDoux corrected pop headlines: the amygdala pulls the airbag cord; your conscious cortex feels the scare.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Giving the High Road two seconds before reacting to a startling email or shadow",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit kitchen / hallway",
+      "layout": {
+        "description": "Bright hallway coatrack where a person startles for half a second at an oversized trench coat silhouette, pauses one breath as detail resolves, and walks calmly past.",
+        "positions": [
+          {
+            "who": "Person mannequin",
+            "where": "pausing one calm breath as the High Road resolves the coatrack cleanly",
+            "facing": "in bright hallway"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "wooden hallway coatrack with trench coat",
+          "period_detail": "classic everyday Low-Road false alarm",
+          "physical_behavior": "resolved in 300 ms"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Person mannequin",
+          "verb_sequence": "catches half-second startle -> breathes out slowly letting High Road confirm safety"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Person mannequin",
+          "reaction": "smiles at the harmless coat and continues on"
+        }
+      ],
+      "wardrobe": "Casual modern home sweater.",
+      "lighting": "Bright natural window light.",
+      "recognition_hook": "Wait half a second for your cortical High Road to finish rendering before acting on a blurry alarm.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

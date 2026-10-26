@@ -1,0 +1,218 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Participant with EOG eye-fixation sensors locked dead-center on '+' pressing a single key 60 ms faster for the arrow-cued box",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1980, University of Oregon cognitive neuroscience lab, Eugene",
+      "layout": {
+        "description": "Clean high-key 1980 visual psychophysics lab with a chinrest facing a crisp monitor displaying a center '+' cross, a small left-pointing arrow cue above '+', and two square outline boxes on the left and right alongside an EOG flat-line eye-movement trace and millisecond counter.",
+        "positions": [
+          {
+            "who": "Participant mannequin (in 1980 crew-neck sweater)",
+            "where": "resting chin steadily on the optical chinrest with eyes locked dead-center on '+', right index finger pressing a single telegraph-style microswitch",
+            "facing": "staring straight ahead at '+'"
+          },
+          {
+            "who": "Michael Posner (mannequin in 1980s plaid shirt and vest)",
+            "where": "standing beside the EOG oscilloscope and millisecond counter comparing '235 ms Valid' against '295 ms Invalid'",
+            "facing": "pointing to the flat EOG eye-trace"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "three-element Posner screen ('[ ] +← [ ]')",
+          "period_detail": "crisp high-contrast monitor showing central fixation cross, directional arrow cue, and peripheral target asterisk '*' flashing in the left box",
+          "physical_behavior": "visualizes covert attention without eye movement"
+        },
+        {
+          "name": "flat-line EOG eye-stability trace",
+          "period_detail": "paper/oscilloscope strip confirming 0.0 degrees of physical eyeball rotation",
+          "physical_behavior": "proves the 60 ms speedup happened purely inside the brain"
+        },
+        {
+          "name": "dual millisecond digital readout",
+          "period_detail": "clean 1980 LED counter contrasting ~235 ms (Valid 80%) vs ~295 ms (Invalid 20%)",
+          "physical_behavior": "quantifies spotlight benefit plus disengagement cost"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Screen center arrow",
+          "verb_sequence": "points LEFT while eyes stay frozen on '+' -> asterisk '*' flashes inside the left box -> Participant's finger clicks the single key in 235 ms"
+        },
+        {
+          "who": "Invalid 20% trial",
+          "verb_sequence": "arrow points LEFT, asterisk flashes RIGHT -> finger hesitates to 295 ms while parietal spotlight disengages and re-aims"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Michael Posner",
+          "reaction": "taps the completely flat EOG eye trace beside the 60-millisecond reaction swing"
+        },
+        {
+          "who": "Participant mannequin",
+          "reaction": "maintains steady center fixation throughout"
+        }
+      ],
+      "wardrobe": "1980 Pacific Northwest university wear: knit crew sweater on participant; collared plaid shirt and wool vest on researcher.",
+      "lighting": "Bright clean laboratory daylight with crisp readable monitor contrast.",
+      "recognition_hook": "With sensors proving their eyeballs never budged a hair from the center cross, people spot a side flash 60 milliseconds faster because an invisible mental spotlight got there first.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1980 participant on a chinrest staring straight at a center '+' screen between two side boxes while pressing a single key beside a flat eye-movement trace and 235ms/295ms timer",
+        "must_show": [
+          "screen|monitor|boxes",
+          "chinrest|key|button",
+          "timer|trace"
+        ],
+        "source": "M1@07:19-07:25; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "No-look basketball pass: eyes center, spotlight on the wing",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern indoor basketball court",
+      "layout": {
+        "description": "Sunlit hardwood court where a point guard looks straight into a defender's eyes while rifling a crisp bounce pass to a cutting teammate on the left wing.",
+        "positions": [
+          {
+            "who": "Point Guard mannequin",
+            "where": "head and eyes locked straight ahead at the defender while hands snap a precise diagonal bounce pass left",
+            "facing": "facing defender"
+          },
+          {
+            "who": "Defender mannequin",
+            "where": "fooled by the guard's eye direction",
+            "facing": "leaning center"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "leather basketball",
+          "period_detail": "bouncing cleanly into the left-wing cutter's hands",
+          "physical_behavior": "guided by covert parietal attention"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Point Guard mannequin",
+          "verb_sequence": "locks eyes center -> shifts covert spotlight left -> fires pinpoint no-look pass"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Defender mannequin",
+          "reaction": "freezes wrong-footed by 60+ milliseconds"
+        }
+      ],
+      "wardrobe": "Clean white and navy athletic uniforms.",
+      "lighting": "Bright gymnasium daylight.",
+      "recognition_hook": "Every great no-look pass exploits Posner's split between where eyes point and where attention aims.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Inhibition of Return after 300 milliseconds",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1984, Oregon laboratory screen",
+      "layout": {
+        "description": "Close view of the two-box screen showing a brief border flash on the left followed 400 ms later by a slower response at that old flashed box.",
+        "positions": [
+          {
+            "who": "Michael Posner",
+            "where": "pointing to the crossover point at 300 ms on the timeline chart where fast pull flips into Inhibition of Return",
+            "facing": "at lab whiteboard"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "300-ms crossover graph",
+          "period_detail": "clean curve dipping fast at 100 ms then rising above baseline past 300 ms",
+          "physical_behavior": "illustrates nature's foraging anti-stare timer"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Michael Posner",
+          "verb_sequence": "traces the facilitation-to-inhibition flip at 300 milliseconds"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Graduate assistant mannequin",
+          "reaction": "nods seeing how the spotlight refuses to get stuck on old flashes"
+        }
+      ],
+      "wardrobe": "1980s academic shirt and vest.",
+      "lighting": "Bright lab light.",
+      "recognition_hook": "Wait a third of a second after an irrelevant flash, and your brain actively suppresses that old spot so you keep exploring.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Driver hanging up a heated hands-free call to return the spotlight to the road",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern daytime car interior",
+      "layout": {
+        "description": "Bright daytime windshield view where a driver taps 'End Call' on the steering wheel so eyes AND covert spotlight reunite on merging traffic.",
+        "positions": [
+          {
+            "who": "Driver mannequin",
+            "where": "pressing steering-wheel end-call button and scanning highway merge cleanly",
+            "facing": "facing road"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "dashboard 'Call Ended' icon",
+          "period_detail": "clean minimal car display",
+          "physical_behavior": "restores full spatial orienting bandwidth"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Driver mannequin",
+          "verb_sequence": "ends distracting call -> spots merging cyclist immediately in peripheral lane"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Driver mannequin",
+          "reaction": "steers smoothly with full 235-ms alertness"
+        }
+      ],
+      "wardrobe": "Modern casual jacket.",
+      "lighting": "Crisp outdoor highway daylight.",
+      "recognition_hook": "Eyes on the windshield mean nothing if a heated phone call steals your parietal spotlight.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

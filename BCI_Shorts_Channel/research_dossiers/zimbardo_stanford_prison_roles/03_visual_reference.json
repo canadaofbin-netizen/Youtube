@@ -1,0 +1,218 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Christina Maslach confronting Superintendent Zimbardo in the Jordan Hall basement corridor beside mirrored-sunglass guards on Day 5",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "August 1971, Jordan Hall Psychology Basement, Stanford University",
+      "layout": {
+        "description": "Brightly lit windowless 1971 university basement hallway converted into 'Stanford County Jail' with painted drywall doors labeled 'The Yard', a superintendent clipboard desk, khaki-uniformed guard mannequins in silver mirrored aviator sunglasses, and numbered smock uniforms.",
+        "positions": [
+          {
+            "who": "Christina Maslach (mannequin in 1971 tailored jacket and blouse)",
+            "where": "standing firmly in the bright corridor raising an open palm to halt the superintendent's roll-call clipboard",
+            "facing": "facing Philip Zimbardo directly"
+          },
+          {
+            "who": "Philip Zimbardo as 'Superintendent' (mannequin in 1971 dark suit holding timetable clipboard)",
+            "where": "freezing mid-step as his dual researcher/warden blind spot cracks open",
+            "facing": "facing Christina Maslach"
+          },
+          {
+            "who": "Two Guard mannequins (in khaki shirts, whistles, and silver mirrored sunglasses)",
+            "where": "standing uncertainly down the corridor beside cell door #1",
+            "facing": "glancing toward the confrontation"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "silver mirrored aviator sunglasses",
+          "period_detail": "reflective 1971 sunglasses worn by guards to hide eye-to-eye human contact",
+          "physical_behavior": "held lowered in one guard's hand as the spell breaks"
+        },
+        {
+          "name": "Day-6 'STUDY TERMINATED' calendar & orientation tape reel",
+          "period_detail": "wall schedule crossed out at Day 6 of 14 alongside the open orientation briefing notes",
+          "physical_behavior": "documents both the rapid escalation and the staff briefing cues"
+        },
+        {
+          "name": "'Stanford County Jail' painted hallway sign",
+          "period_detail": "hand-lettered 1971 placard taped over the Jordan Hall psychology basement door",
+          "physical_behavior": "shows the makeshift academic corridor beneath the theatrical roles"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Christina Maslach",
+          "verb_sequence": "steps into the brightly lit basement hallway -> points from the mirrored sunglasses and numbered smocks to the researcher's clipboard -> demands the simulation stop"
+        },
+        {
+          "who": "Philip Zimbardo",
+          "verb_sequence": "lowers his superintendent clipboard -> crosses out Days 7 through 14 on the wall schedule"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Guard mannequin",
+          "reaction": "removes the silver mirrored sunglasses, snapping instantly back into an ordinary college student"
+        },
+        {
+          "who": "Christina Maslach",
+          "reaction": "stands steady as the sole visitor out of fifty to break institutional tunnel vision"
+        }
+      ],
+      "wardrobe": "1971 Stanford attire: khaki short-sleeve button shirts and chinos on guards; numbered cotton smocks on prisoners; Maslach in 1971 tailored blazer; Zimbardo in dark 1971 slacks and shirt.",
+      "lighting": "Bright high-key fluorescent basement corridor lighting — clean documentary visibility with zero dark horror gloom.",
+      "recognition_hook": "Fifty visitors walked through Stanford's six-day basement prison and stayed quiet — until Christina Maslach stepped in on Day 5 and broke the superintendent's tunnel vision.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1971 female psychologist confronting the study director in a brightly lit university basement hallway labeled 'Stanford County Jail' while a khaki-clad student lowers mirrored sunglasses",
+        "must_show": [
+          "sunglasses|glasses",
+          "clipboard|sign|door",
+          "hallway|corridor"
+        ],
+        "source": "M1@00:08-00:20; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Sunday random lot draw sorting 24 screened students into two boxes",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "August 1971, Stanford Jordan Hall office",
+      "layout": {
+        "description": "Bright office table with two cardboard supply boxes labeled 'Guards (Khaki + Glasses)' and 'Prisoners (Numbered Smocks)'.",
+        "positions": [
+          {
+            "who": "Craig Haney & Curtis Banks",
+            "where": "sorting 24 identical healthy psychological screening folders into two equal stacks",
+            "facing": "facing table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "24 normal MMPI screening folders",
+          "period_detail": "identical baseline mental-health profiles",
+          "physical_behavior": "split arbitrarily into power vs powerlessness"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Craig Haney",
+          "verb_sequence": "places twelve folders beside the mirrored sunglasses box and twelve beside the numbered smock box"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Curtis Banks",
+          "reaction": "logs the randomized starting baseline"
+        }
+      ],
+      "wardrobe": "1971 collared shirts and sport coats.",
+      "lighting": "Bright office daylight.",
+      "recognition_hook": "Twenty-four healthy students with identical personality scores were split purely by chance.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "2018 Archival Discovery: Orientation briefing script on the desk",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2018, archival library reading room",
+      "layout": {
+        "description": "Sunlit modern university archive table displaying typed 1971 orientation transcripts highlighting Warden Jaffe's coaching lines.",
+        "positions": [
+          {
+            "who": "Archival historian mannequin",
+            "where": "comparing the 1971 orientation transcript against textbook summaries with a highlighter",
+            "facing": "facing table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1971 orientation transcript binder",
+          "period_detail": "printed archival pages highlighting 'create a sense of powerlessness'",
+          "physical_behavior": "proves leadership coaching drove escalation alongside uniforms"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Archival historian mannequin",
+          "verb_sequence": "underlines the explicit guard-coaching lines and notes that two-thirds of guards still resisted cruelty"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Archival historian mannequin",
+          "reaction": "nods as the fuller scientific truth emerges"
+        }
+      ],
+      "wardrobe": "Modern blazer and glasses.",
+      "lighting": "Bright library daylight.",
+      "recognition_hook": "Uncovered 1971 transcripts proved guards didn't turn cruel in a vacuum — leaders coached them 'for the sake of science.'",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Modern Institutional Review Board (IRB) independent safety check",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern university ethics conference room",
+      "layout": {
+        "description": "Sunlit oak table where an independent ethics panel reviews a study protocol while the lead researcher sits across the table rather than chairing.",
+        "positions": [
+          {
+            "who": "Independent Ethics Chair mannequin",
+            "where": "stamping an independent monitoring requirement onto a protocol folder",
+            "facing": "facing researcher"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "IRB Independent Monitor checklist",
+          "period_detail": "clean printed oversight form",
+          "physical_behavior": "separates investigator ambition from participant safety"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Independent Ethics Chair mannequin",
+          "verb_sequence": "assigns an external safety officer with unilateral stop authority"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Lead Researcher mannequin",
+          "reaction": "signs the safeguard agreement constructively"
+        }
+      ],
+      "wardrobe": "Modern professional blazers.",
+      "lighting": "High-key conference daylight.",
+      "recognition_hook": "Modern ethics boards exist because no leader can objectively police a hierarchy they are starring in.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

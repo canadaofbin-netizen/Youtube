@@ -1,0 +1,29 @@
+{
+  "visual_mode": "HYBRID",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "hypothalamus",
+      "plain": "true biological energy-balance & satiety state",
+      "function": "tracking identical 5:35 PM circulating glucose, ghrelin, and leptin levels across both rooms regardless of what the wall dial claims",
+      "scene_id": "S1",
+      "narration_bridge": "Establishes identical biological hunger in Fast vs Slow rooms."
+    },
+    {
+      "role": "pivot",
+      "region": "insula",
+      "plain": "interoceptive stomach fullness vs muted visceral signal",
+      "function": "delivering internal gastric stretch and fullness cues that get overshadowed when attention locks onto bright external food sights and mealtime numbers",
+      "scene_id": "S1",
+      "narration_bridge": "Explains why external-cue eaters missed roast-beef preload satiety."
+    },
+    {
+      "role": "step1",
+      "region": "prefrontal cortex",
+      "plain": "top-down '6:05 PM = Dinner Time!' cognitive expectation",
+      "function": "reading the fast wall dial ('6:05 PM!') + open cracker box and launching almost 2x cracker intake (37.1g vs 19.3g) — or, in internal regulators, pausing so as 'not to spoil dinner'.",
+      "scene_id": "S1",
+      "narration_bridge": "Captures Schachter & Gross's 1968 crossover interaction."
+    }
+  ]
+}

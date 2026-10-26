@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "slug": "blindsight_subcortical_vision",
+  "topic": "Lawrence Weiskrantz (1974): 'Blindsight' — Patient D.B. Pointing With 90% Accuracy Into Total Conscious Darkness",
+  "pillar": "brain_mysteries",
+  "created_at": "2026-10-25T22:49:34+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Lawrence Weiskrantz and Elizabeth Warrington's 1974 discovery of 'Blindsight' in Patient D.B. — clinically blind in his left visual field after right V1 removal yet pointing to lights and guessing X-vs-O at >90% accuracy — directly maps the two visual pathways (conscious V1 cortex vs unconscious superior colliculus / pulvinar subcortical bypass).",
+  "primary_case": {
+    "title": "Lawrence Weiskrantz, Elizabeth Warrington, M. D. Sanders & J. Marshall's 1974 Patient D.B. 'Blindsight' discovery",
+    "year": 1974,
+    "place": "National Hospital for Nervous Diseases, Queen Square, London & University of Oxford",
+    "people": [
+      {
+        "name": "Lawrence Weiskrantz",
+        "role": "Oxford experimental psychologist who coined the word 'Blindsight' in 1974 after persuading clinically blind Patient D.B. to 'just guess' into his dark visual field",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Patient 'D.B.'",
+        "role": "Young British man whose right primary visual cortex (V1 / calcarine cortex) was surgically removed at Queen Square to cure a benign vascular malformation triggering severe migraines — leaving his left visual field consciously pitch-dark",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Elizabeth K. Warrington & Nicholas Humphrey",
+        "role": "Queen Square neuropsychologist co-discoverer and Cambridge primate researcher whose monkey 'Helen' inspired Weiskrantz to test human hand-pointing inside blind fields",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Standard neurology before 1974 taught a simple rule: destroy human primary visual cortex (**V1** at the back of the occipital lobe), and the opposite half of space goes permanently, 100% blind — because physicians only ever asked *'Tell me when you SEE the light'*.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Inspired by Nicholas Humphrey's monkey 'Helen' (who caught moving currants without V1), Elizabeth Warrington and Lawrence Weiskrantz tested **Patient D.B.** at Queen Square in 1973-1974 after surgical removal of his right V1 left his left visual field completely blind on standard hospital perimetry.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Instead of asking 'Do you see anything?' (to which D.B. always truthfully answered **'Nothing at all — zero!'**), Weiskrantz changed the rules to **forced-choice guessing**: *'Reach out and touch where a target MIGHT be'* or *'Just guess like flipping a coin: was it an X or an O, horizontal or vertical lines?'*",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "D.B. laughed that guessing in total blackness was ridiculous — yet across dozens of trials his finger landed **almost dead-center on silent light spots across 30 degrees of his 'blind' field**, and he discriminated **X vs O and line orientations at 85% to >95% accuracy** while insisting he saw NOTHING.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "When Weiskrantz finally showed D.B. his own scorecard in *Brain* / *The Lancet* (1974), D.B. was utterly dumbstruck: *'Did I really do that?. I didn't see a thing — it was pure guesswork!'*",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Careful controls ruled out stray light bouncing onto D.B.'s good half-retina (flashing targets onto the natural optic-disc blind spot inside the blind field dropped accuracy right down to 50% chance!).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "How did D.B.'s hand know what 'he' didn't see? About 10% of optic-nerve fibers bypass V1 completely, branching down to the ancient midbrain **superior colliculus**, **pulvinar**, and lateral geniculate shortcuts straight into dorsal action/motion areas (MT/V5) — guiding eyes and hands WITHOUT switching on conscious awareness.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Decades later, Beatrice de Gelder and Marco Tamietto discovered **'Affective Blindsight'** in bilateral-V1-stroke patient **T.N.**: completely cortically blind across BOTH eyes, T.N. walked down a long corridor weaving cleanly around chairs, boxes, and tripods without a single collision — AND unconsciously flinched/smiled in facial EMG when shown unseen fearful vs happy faces via the superior-colliculus to amygdala shortcut.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "In Weiskrantz et al.'s (1974) forced-choice reaching and grating orientation trials, Patient D.B. reported zero conscious sight in his scotoma yet exceeded 90% accuracy — reaching roughly 93% on spatial localization blocks.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Ask Patient D.B. what he sees on his left and he swears on his life: **'Pitch black — nothing!'** Tell him 'Just point anyway,' and his finger lands dead on the silent target 9 times out of 10 — leaving D.B. gasping when shown his own chart.",
+      "why_surprising": "Seeing and consciously KNOWING you see are two separate systems in the human brain.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "In 2008, a doctor with strokes in BOTH visual cortices (Patient T.N.) — clinically blind across his entire visual world — put down his white cane and zig-zagged cleanly around trash cans, chairs, and boxes down a hospital hallway without touching a single obstacle.",
+      "why_surprising": "Your ancient midbrain obstacle radar works even when conscious sight is dark.",
+      "source_id": "SRC3",
+      "rank": 2
+    },
+    {
+      "fact": "Show an angry or terrified face inside a blindsight field: the patient swears nobody was on the display, yet their amygdala lights up and their own cheek/brow muscles unconsciously mirror the emotion.",
+      "why_surprising": "'Affective Blindsight': catching human emotion without conscious sight.",
+      "source_id": "SRC3",
+      "rank": 3
+    },
+    {
+      "fact": "For a hundred years doctors missed Blindsight simply because they asked *'Raise your hand IF you see it'* instead of *'Guess left or right even when you see nothing'*.",
+      "why_surprising": "Changing one question unlocked the neuroscience of consciousness.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Patients with Blindsight are secretly peeking or seeing blurry dim shadows.",
+      "truth": "In 'Type 1 Blindsight', subjective visibility is genuinely zero even on high-confidence betting scales — which is why blindsight patients can starve in front of a glass of water on their blind side unless explicitly prompted by someone else to 'guess'.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Unconscious blindsight proves conscious awareness is a useless decoration ('epiphenomenon').",
+      "truth": "Just the opposite. Without conscious V1 sight, Patient D.B. NEVER spontaneously reached for a cup or initiated plans toward objects in his blind field — consciousness is what lets you act *on your own* without an experimenter prompting 'guess now!'",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Only humans have two visual streams.",
+      "truth": "Evolution built the ancient midbrain collicular 'Where is it moving?' radar in fish, frogs, and mammals hundreds of millions of years before expanding primate V1 high-definition conscious cortex.",
+      "source_id": "SRC3"
+    }
+  ],
+  "everyday_hooks": [
+    "Ducking or jerking your hand back from a flying ball in peripheral vision half a second BEFORE your conscious mind registers what the object even was.",
+    "Walking down stairs reading something else and catching a misstep automatically via dorsal/subcortical action vision.",
+    "Realizing why 'having a gut hunch' sometimes reflects real sub-threshold sensory processing."
+  ],
+  "linked_projects": [
+    "psych_60_blindsight_subcortical_vision"
+  ]
+}

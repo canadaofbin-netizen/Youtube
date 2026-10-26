@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "interview",
+      "title": "Dr. Ekman Explains Facial Action Coding System (FACS)",
+      "url": "https://www.youtube.com/watch?v=ZMlN2sJAThA",
+      "channel": "Paul Ekman Group",
+      "source_id": "SRC_M1",
+      "duration_sec": 66,
+      "timecodes": [
+        {
+          "t": "00:08-00:21",
+          "what": "Around kf_004.jpg (16.5s) (widescreen camera frame), speaker commentary notes \"anger, anger, sadness, disgust, contempt, surprise and enjoyment. I spent the next eight years developing a technique for quantifying and...\", anchoring the research context of Paul Ekman and Wallace Friesen advancing a 16mm Steenbeck film viewer one frame at a time to catch a 2-frame brow flash."
+        },
+        {
+          "t": "00:32-00:44",
+          "what": "At kf_008.jpg (38.5s) (monochrome film frame), audio continues with \"in 78. It took me eight years, a long time, but it opened everything for science, for teaching. It was used by all the animation studios, where...\", detailing experimental methodology and behavioral observations for Paul Ekman & Wallace Friesen's slow-motion clinical film leakage discovery & Facial Action Coding System (FACS)."
+        },
+        {
+          "t": "00:57-01:05",
+          "what": "Subsequent monochrome film frame at kf_012.jpg (60.5s) in \"Dr. Ekman Explains Facial Action Coding System (FACS)\", documenting closing visual sequence for reference analysis."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_ekman_microexpressions_decep/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_ekman_microexpressions_decep",
+        "contact_sheet": "media/M1_ekman_microexpressions_decep/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1_ekman_microexpressions_decep/contact_sheet.jpg (widescreen live-action camera recording (480x270, 14 frames sampled across 0.0s–71.5s)) from Paul Ekman Group's \"Dr. Ekman Explains Facial Action Coding System (FACS)\" (66s total runtime).",
+          "Deduplicated English transcript (6 timestamped cues in media/M1_ekman_microexpressions_decep/transcript.txt) aligned directly to keyframe timestamps (0.0s–71.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Dr. Paul Ekman on Expression and Gesture and Their Role in Emotion and Deception",
+      "url": "https://www.youtube.com/watch?v=J9i-9_QuetA",
+      "channel": "Paul Ekman Group",
+      "source_id": "SRC_M2",
+      "duration_sec": 1156,
+      "timecodes": [
+        {
+          "t": "05:36-05:51",
+          "what": "4:3 camera frame at kf_001.jpg (350.8s) paired with transcript segment \"expression really a musical notation for the face being widely used in everything from advertising to entertainment animation films what for...\", introducing core background on Paul Ekman and Wallace Friesen advancing a 16mm Steenbeck film viewer one frame at a time to catch a 2-frame brow flash."
+        },
+        {
+          "t": "06:17-06:22",
+          "what": "Around kf_006.jpg (382.4s) (monochrome film frame), transcript records \"honey in developing the facial action coding system I had to learn how to make each of these Expressions on my own\", examining procedural mechanics and evidence in Paul Ekman & Wallace Friesen's slow-motion clinical film leakage discovery & Facial Action Coding System (FACS)."
+        },
+        {
+          "t": "06:42-06:57",
+          "what": "At kf_010.jpg (407.7s) (4:3 camera frame), speaker remarks \"the next chapter about how the face facial movement voluntary facial movement can turn on the physiology of emotion in the body and the Brain I'm...\", addressing theoretical interpretation and downstream implications of Paul Ekman & Wallace Friesen's slow-motion clinical film leakage discovery & Facial Action Coding System (FACS)."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x360, 14 frames sampled across 350.8s–433.0s)) from Paul Ekman Group's \"Dr. Paul Ekman on Expression and Gesture and Their Role in Emotion and Deception\" (1156s total runtime).",
+          "Deduplicated English transcript (21 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (350.8s–433.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "museum_artefact",
+      "title": "Guillaume Duchenne de Boulogne performing facial electrostimulus experiments.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Guillaume_Duchenne_de_Boulogne_performing_facial_electrostimulus_experiments.jpg",
+      "channel": "Wikimedia Commons (Wikimedia Commons)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified museum artefact \"Guillaume Duchenne de Boulogne performing facial electrostimulus experiments.jpg\" (902x1239 px, Public domain): Wikimedia Commons file \"Guillaume Duchenne de Boulogne performing facial electrostimulus experiments.jpg\". Documents authentic physical instrument geometry and period materials relevant to Paul Ekman & Wallace Friesen's slow-motion clinical film leakage discovery & Facial Action Coding System (FACS)."
+        }
+      ],
+      "license_note": "Archival museum artefact (Public domain) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (902x1239 px, Public domain, Wikimedia Commons) — apparatus reference: Wikimedia Commons file \"Guillaume Duchenne de Boulogne performing facial electrostimulus experiments.jpg\".",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

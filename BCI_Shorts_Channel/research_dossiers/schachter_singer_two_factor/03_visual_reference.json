@@ -1,0 +1,218 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Uninformed 'Suproxin' student tossing paper airplanes beside a euphoric confederate while his hands tremble from adrenaline",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1962, University of Minnesota waiting room, Minneapolis",
+      "layout": {
+        "description": "Brightly lit 1962 university waiting room with a wooden table stacked with scratch paper and manila folders, a metal wire wastebasket in the corner, a plastic hula hoop leaning against the wall, and a one-way observation window.",
+        "positions": [
+          {
+            "who": "Euphoric Confederate (mannequin in 1962 cardigan and rolled sleeves)",
+            "where": "standing dynamically launching a folded white paper airplane across the room toward the wire wastebasket",
+            "facing": "facing the wastebasket"
+          },
+          {
+            "who": "Epi-Ignorant Subject (mannequin in 1962 collared shirt with rolled left sleeve showing small bandage)",
+            "where": "rising eagerly from his chair with visibly trembling adrenaline-charged hands to fold and launch his own paper airplane",
+            "facing": "facing the confederate and wastebasket"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "small adhesive injection bandage & 'Suproxin' vial tray",
+          "period_detail": "1960s medical tray by the door holding a labeled 'Suproxin' bottle while a tiny round bandage sits on the student's upper arm",
+          "physical_behavior": "marks the hidden 0.5 cc epinephrine injection"
+        },
+        {
+          "name": "folded white paper airplanes & crumpled paper balls",
+          "period_detail": "crisp white scratch-paper darts arcing across the waiting room toward a wire wastebasket",
+          "physical_behavior": "launched gleefully by the uninformed student who misreads his racing heart as euphoria"
+        },
+        {
+          "name": "pulse recording chart behind glass",
+          "period_detail": "clipboard behind the one-way window logging identical elevated pulse rates across groups",
+          "physical_behavior": "proves bodily arousal matched while behavior diverged"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Epi-Ignorant Subject",
+          "verb_sequence": "glances down at his unexplained trembling hands -> watches the confederate sail a paper airplane -> grins posture-wide and launches his own paper dart across the room"
+        },
+        {
+          "who": "Observer behind glass",
+          "verb_sequence": "compares the wild euphoria tally (22.56) against the calm Informed student's sheet (12.72)"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Epi-Ignorant Subject",
+          "reaction": "scoops up another sheet of scratch paper, interpreting raw adrenaline as pure fun"
+        },
+        {
+          "who": "Euphoric Confederate",
+          "reaction": "cheers him on beside the manila-folder tower"
+        }
+      ],
+      "wardrobe": "1962 Midwestern collegiate attire: Oxford shirts with one sleeve rolled to show small round arm bandage, V-neck sweaters, chinos, loafers.",
+      "lighting": "High-key fluorescent-and-daylight 1962 university room lighting.",
+      "recognition_hook": "Injected with secret adrenaline and given zero explanation for his pounding heart, a college student joins a stranger in hurling paper airplanes across the waiting room.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "two 1962 male college mannequins in a cluttered university waiting room launching folded white paper airplanes toward a wire wastebasket while one wears an arm injection bandage",
+        "must_show": [
+          "airplane|paper",
+          "wastebasket|basket|table",
+          "bandage|sleeve|room"
+        ],
+        "source": "M1@11:14-11:26; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Epi-Informed student sits calmly immune to the paper airplanes",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1962, University of Minnesota waiting room",
+      "layout": {
+        "description": "Same waiting room with paper airplanes on the floor while an Informed student sits relaxed in his chair pointing calmly to the bandage on his arm.",
+        "positions": [
+          {
+            "who": "Epi-Informed Subject",
+            "where": "leaning back calmly in his wooden chair watching a paper airplane land beside him without joining in",
+            "facing": "facing the confederate"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "side-effect briefing card",
+          "period_detail": "printed physician note listing 'pounding heart and hand tremor'",
+          "physical_behavior": "gives the brain the true cause of arousal"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Epi-Informed Subject",
+          "verb_sequence": "feels his pulse race -> touches his arm bandage knowingly -> stays calmly seated"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Epi-Informed Subject",
+          "reaction": "watches the actor's hula-hoop routine with mild detached amusement"
+        }
+      ],
+      "wardrobe": "1962 Oxford shirt and slacks.",
+      "lighting": "High-key room light.",
+      "recognition_hook": "Warned for twenty seconds that the shot causes a racing heart, the Informed student stays completely immune.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Same adrenaline dose flips into anger in the questionnaire room",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1962, University of Minnesota waiting room",
+      "layout": {
+        "description": "Same table now holding thick five-page stapled questionnaires as the confederate rips his pages in half.",
+        "positions": [
+          {
+            "who": "Angry Confederate",
+            "where": "standing beside the table tearing the five-page questionnaire in half",
+            "facing": "facing the table"
+          },
+          {
+            "who": "Epi-Ignorant Subject",
+            "where": "pushing his own questionnaire away sharply in shared indignation",
+            "facing": "facing the confederate"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "five-page personal questionnaire",
+          "period_detail": "stapled mimeographed booklet torn down the center",
+          "physical_behavior": "channels unexplained adrenaline into shared anger"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Angry Confederate",
+          "verb_sequence": "rips his booklet and tosses it into the basket -> Uninformed subject slams his pencil down in agreement"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Epi-Ignorant Subject",
+          "reaction": "bristles with borrowed outrage fueled by the exact same 0.5 cc epinephrine shot"
+        }
+      ],
+      "wardrobe": "1962 collegiate shirts and trousers.",
+      "lighting": "High-key room light.",
+      "recognition_hook": "Swap the actor's script, and the exact same 0.5 cc shot of adrenaline turns into anger instead of joy.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Checking the espresso cup before blaming a frustrating email",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern home office",
+      "layout": {
+        "description": "Bright modern desk with a laptop and TWO empty espresso cups side-by-side.",
+        "positions": [
+          {
+            "who": "Remote worker mannequin",
+            "where": "pausing fingers over the keyboard, glancing at the two empty espresso cups, and taking a slow breath",
+            "facing": "facing laptop"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "two empty ceramic espresso cups",
+          "period_detail": "sitting beside the keyboard",
+          "physical_behavior": "reveal the true source of the racing pulse"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Remote worker mannequin",
+          "verb_sequence": "starts typing a sharp reply -> spots the two empty espresso cups -> deletes the draft calmly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Remote worker mannequin",
+          "reaction": "shakes head lightly, saving an unnecessary argument"
+        }
+      ],
+      "wardrobe": "Modern casual shirt.",
+      "lighting": "Bright natural window light.",
+      "recognition_hook": "Spotting the double espresso on your desk stops your brain from blaming your coworker for a racing pulse.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

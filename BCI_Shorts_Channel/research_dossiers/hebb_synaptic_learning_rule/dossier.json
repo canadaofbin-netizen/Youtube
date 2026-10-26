@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "slug": "hebb_synaptic_learning_rule",
+  "topic": "Donald Hebb (1949) & Bliss and Lømo (1973): 'Cells That Fire Together, Wire Together' — From Bold Guess to LTP Proof",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:35+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Donald Olding Hebb's visionary 1949 Montreal postulate (when Neuron A repeatedly helps fire Neuron B, their synapse strengthens!) — proven physiologically 24 years later when Tim Bliss and Terje Lømo discovered Long-Term Potentiation (LTP) in the hippocampus (1973) — is the foundational rule of both biological neuroscience and artificial neural networks.",
+  "primary_case": {
+    "title": "Donald O. Hebb's 1949 McGill Synaptic Learning Postulate & Tim Bliss and Terje Lømo's 1973 Hippocampal Long-Term Potentiation (LTP) Proof",
+    "year": 1949,
+    "place": "McGill University, Montreal (1949) & Per Andersen's Lab, University of Oslo / Mill Hill London (1966–1973)",
+    "people": [
+      {
+        "name": "Donald Olding Hebb",
+        "role": "Former Nova Scotia schoolteacher turned McGill psychologist — who brought lab rats home as pets for his daughters, saw enriched play make them smarter, and wrote page 62 of The Organization of Behavior (1949).",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Terje Lømo & Timothy V. P. Bliss",
+        "role": "Norwegian and British neurophysiologists whose 1966/1973 perforant-path hippocampal recordings delivered the stunning real-world proof of Hebb's synapse: Long-Term Potentiation (LTP).",
+        "source_id": "SRC2"
+      },
+      {
+        "name": "Carla J. Shatz & Graham Collingridge",
+        "role": "Stanford developmental neurobiologist who coined the immortal phrase 'Cells that fire together, wire together' (1992) and discoverer of the NMDA-receptor coincidence lock.",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In **1949**, four years BEFORE electron microscopes had even photographed a synaptic cleft clearly, McGill psychologist **Donald O. Hebb** wrote 67 words on **page 62** of *The Organization of Behavior* that became the most influential sentence in brain science:",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "*'When an axon of cell A is near enough to excite a cell B and repeatedly or persistently takes part in firing it, some growth process or metabolic change takes place in one or both cells such that A's efficiency, as one of the cells firing B, is increased'* — immortalized in 6 crisp words by Stanford neurobiologist **Carla Shatz (1992)**: ***'Cells that fire together, wire together!'***",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In the very same 1949 book, Hebb recounted bringing laboratory rats home to run freely around his Montreal kitchen with his young daughters — when brought back to McGill, those **enriched-home 'pet' rats crushed cage-reared littermates on every maze puzzle**, launching environmental-enrichment neuroplasticity.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "For **24 years**, Hebb's page-62 rule was pure theoretical genius waiting for physiological proof — until **Terje Lømo (1966)** in Oslo and **Tim Bliss & Terje Lømo (1973 *Journal of Physiology*, SRC2, SRC3)** stimulated the perforant pathway into the **hippocampus** with brief high-frequency bursts and watched the postsynaptic response **jump up by 200%+ and stay elevated for hours, days, and weeks**: **Long-Term Potentiation (LTP)**.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "In the 1980s (Collingridge; Nicoll; Malenka), molecular neuroscientists found **nature's exact microscopic 'Hebb Coincidence Lock'**: the **NMDA glutamate receptor**. A magnesium ion (**Mg2+**) plugs the NMDA channel like a champagne cork — **ONLY when Presynaptic Cell A releases glutamate AT THE EXACT SAME MILLISECOND that Postsynaptic Cell B is already depolarized ('firing!') does the Mg2+ cork pop out**, letting calcium rush in to strengthen the synapse.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Block NMDA receptors pharmacologically (Morris 1986 water-maze test), and **both LTP AND new spatial learning stop dead in their tracks**.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Critical computational & biological twist (**Spike-Timing-Dependent Plasticity, STDP**, Markram / Bi & Poo 1998, SRC4): if 'fire together' ONLY ever turned synapses UP without a reverse gear, every synapse in your skull would max out to 100% in an afternoon. Millisecond clocks revealed **CAUSALITY matters**: if Cell A fires **10–20 ms BEFORE** Cell B ('A helped cause B!'), the synapse **strengthens (LTP)**; if Cell A fires **10–20 ms AFTER** Cell B ('A arrived too late!'), the synapse **weakens (LTD)**.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "From Frank Rosenblatt's **Perceptron (1958)** and John Hopfield's **Hopfield Networks (1982, 2024 Physics Nobel!)** to modern representation learning, artificial neural networks started as direct mathematical equations of Hebb's 1949 page-62 rule.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Donald Hebb wrote the blueprint of synaptic learning in **1949 — four years BEFORE anyone had ever seen a synapse under an electron microscope** — and when Hebb himself was shown his rule's staggering impact decades later, he laughed modestly that he thought page 62 was 'obvious'.",
+      "why_surprising": "67 words on page 62 predicted both LTP neurobiology and AI neural networks.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Inside your hippocampus sits a literal molecular **AND-gate** (**the NMDA receptor**): Cell A sending glutamate alone = magnesium cork stays shut; Cell B firing alone = no glutamate key; **A + B at the exact same 20-millisecond instant = POP. Calcium rushes in and welds the memory**.",
+      "why_surprising": "A microscopic mechanical coincidence lock built out of protein and one magnesium ion.",
+      "source_id": "SRC2",
+      "rank": 2
+    },
+    {
+      "fact": "Everyone quotes *'Cells that fire together, wire together'* — first coined NOT by Hebb, but by neurobiologist **Carla Shatz**! — yet almost nobody knows the **20-millisecond reverse rule (STDP)**: fire 15 ms BEFORE and you wire stronger; arrive **15 ms TOO LATE** and you wire *weaker*.",
+      "why_surprising": "Your synapses don't just detect coincidence — they detect *cause and effect*.",
+      "source_id": "SRC4",
+      "rank": 3
+    },
+    {
+      "fact": "Hebb also launched 'neuroplasticity from enriched environments' simply by letting seven lab rats live as family pets in his Montreal kitchen — proving playful exploration grew smarter brains than sterile cages.",
+      "why_surprising": "A dad's kitchen experiment overturning genetic fatalism.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Donald Hebb literally wrote the slogan 'Cells that fire together, wire together' in 1949.",
+      "truth": "Hebb wrote the 67-word causal postulate ('takes part in firing it'); Stanford's Carla Shatz coined the brilliant 6-word rhyme in 1992 — and Hebb's original wording ('takes part in firing') actually predicted causal STDP timing better than the rhyme.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Hebbian synapses only ever get stronger and never weaken.",
+      "truth": "Pure upward Hebbian growth causes runaway saturation; real brains pair LTP with **Long-Term Depression (LTD — 'out of sync, lose your link!')** and homeostatic scaling during sleep.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Associating two habits works even if you pair them ten minutes apart.",
+      "truth": "At the NMDA-receptor and STDP level, causal pairing operates on tight sub-second windows; linking cues immediately ('habit stacking' right as Action A finishes) harnesses genuine Hebbian timing.",
+      "source_id": "SRC2"
+    }
+  ],
+  "everyday_hooks": [
+    "Smelling cinnamon or rain and having an entire childhood kitchen or summer song pop into your head in 100 milliseconds — an entire **Hebbian Cell Assembly** igniting from one shared node.",
+    "'Habit stacking' (doing 10 pushups the *exact second* the coffee brewer clicks ON) — wiring Neuron Group B right onto Neuron Group A's tail.",
+    "Seeing John Hopfield win the **2024 Nobel Prize in Physics** for associative memory networks built directly on Hebb's 1949 equation."
+  ],
+  "linked_projects": [
+    "psych_75_hebb_synaptic_learning_rule"
+  ]
+}

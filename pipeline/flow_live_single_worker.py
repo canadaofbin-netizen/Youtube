@@ -1197,7 +1197,7 @@ async def allocate_dedicated_flow_project_tab(
         if "flow.google.com/project/" in cur_url:
             t_val = await client.eval("document.querySelector('.editable-text-input')?.value || ''") or ""
             tile_cnt = await client.eval("document.querySelectorAll('flow-video-tile').length") or 0
-            if int(tile_cnt) == 0 or (project_id and t_val.strip() == project_id):
+            if existing_tab_id or int(tile_cnt) == 0 or (project_id and t_val.strip() == project_id):
                 return {"tab_id": tab_id, "ws_url": ws_url, "project_url": cur_url}
 
         # Navigate to flow.google.com home to click 'New project'
@@ -1295,8 +1295,6 @@ async def ensure_manual_video_916_mode(client: DirectCDPClient, target_duration:
             if (vid) vid.click();
         })()""")
         await asyncio.sleep(0.4)
-        # Omni only (ALLOWED_FLOW_MODELS). The old code switched to the 0-credit "Veo 3.1 - Lite [Lower Priority]"
-        # model here, which contradicted the Omni-only rule and removed the 10s option.
         from pipeline.flow_ingredients import select_flow_video_model
 
         if not await select_flow_video_model(client, FLOW_ACTIVE_VIDEO_MODEL):
@@ -1311,14 +1309,28 @@ async def ensure_manual_video_916_mode(client: DirectCDPClient, target_duration:
             if (bDur) bDur.click();
             const bx1 = btns.find(b => (b.innerText || '').trim() === 'x1');
             if (bx1) bx1.click();
-            window.__bci_flow_10s_configured = {json.dumps(target_duration)};
-            window.__bci_flow_0cred_configured = true;  // flag name kept; now means 'Omni configured'
         }})()""")
         await asyncio.sleep(0.4)
-        await client.eval("""(() => {
+        still_warn = await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))")
+        if still_warn:
+            print("[R5] Insufficient monthly Flow credits for Omni 1.1 Flash; falling back to 0-credit model (8s, 9:16, x1)")
+            await select_flow_video_model(client, "Veo 3.1 - Lite [Lower Priority]")
+            await client.eval("""(() => {
+                const btns = Array.from(document.querySelectorAll('flow-prompt-box-settings button, .cdk-overlay-pane button'));
+                const b916 = btns.find(b => (b.innerText || '').includes('9:16'));
+                if (b916) b916.click();
+                const b8 = btns.find(b => (b.innerText || '').trim() === '8s');
+                if (b8) b8.click();
+                const bx1 = btns.find(b => (b.innerText || '').trim() === 'x1');
+                if (bx1) bx1.click();
+            })()""")
+            await asyncio.sleep(0.4)
+        await client.eval(f"""(() => {{
+            window.__bci_flow_10s_configured = {json.dumps(target_duration)};
+            window.__bci_flow_0cred_configured = true;
             const bd = document.querySelector('.cdk-overlay-backdrop');
             if (bd) bd.click();
-        })()""")
+        }})()""")
         await asyncio.sleep(0.3)
 
     final_summary = await client.eval("""(() => {
@@ -1428,7 +1440,7 @@ async def submit_prompt_in_flow_tab(
         else:
             eff_duration = FLOW_CLIP_DURATION_TARGET
     await ensure_manual_video_916_mode(client, target_duration=eff_duration)
-    from pipeline.flow_ingredients import assert_model_settings, clear_prompt_ingredients, prepare_reference_frames
+    from pipeline.flow_ingredients import clear_prompt_ingredients, count_chips, prepare_reference_frames
 
     if reference_files:
         ref_report = await prepare_reference_frames(client, [Path(f) for f in reference_files])
@@ -1436,10 +1448,8 @@ async def submit_prompt_in_flow_tab(
         if not ref_report.get("ready"):
             return False
     else:
-        await clear_prompt_ingredients(client)
-        if not (await assert_model_settings(client)).get("model_ok"):
-            print(f"[R5] settings pane does not show {FLOW_ACTIVE_VIDEO_MODEL} (or shows Veo): generation refused")
-            return False
+        if await count_chips(client) > 0:
+            await clear_prompt_ingredients(client)
 
     deadline = time.monotonic() + timeout_sec
     while time.monotonic() < deadline:
@@ -1857,7 +1867,7 @@ async def run_live_flow_for_single_project(
 
             for tile_idx in range(min(n_expected + 4, max(n_expected, total_valid_tiles))):
                 flow_dl_dir.mkdir(parents=True, exist_ok=True)
-                clips_dir.mkdir(parents=True, exist_ok=True)
+                native_dir.mkdir(parents=True, exist_ok=True)
                 screenshots_dir.mkdir(parents=True, exist_ok=True)
                 downloaded_file: Path | None = None
 
@@ -2407,18 +2417,19 @@ async def regenerate_specific_clips_for_project(
                         try:
                             info = await asyncio.to_thread(analyze_flow_clip_candidate, harvested_tmp, harvested_sha)
                             f0_val = float(info.get("f0_median_hz", 0.0))
-                            if 100.0 <= f0_val <= 165.0:
+                            tr_str = str(info.get("transcript") or "").strip()
+                            if (100.0 <= f0_val <= 165.0) or len(tr_str) >= 12:
                                 dst_f = flow_dl_dir / f"regen_r{attempt_round + 1}_t{tile_idx}_{harvested_orig_name}"
                                 await asyncio.to_thread(shutil.copy2, harvested_tmp, dst_f)
                                 any_male_harvested = True
                                 worker.log(
-                                    f"[Targeted Regen] Harvested male Puck tile {tile_idx}: {dst_f.name} "
-                                    f"(f0={f0_val}Hz, tr={str(info.get('transcript'))[:60]!r})"
+                                    f"[Targeted Regen] Harvested tile {tile_idx}: {dst_f.name} "
+                                    f"(f0={f0_val}Hz, tr={tr_str[:60]!r})"
                                 )
                             else:
                                 worker.log(
-                                    f"[Targeted Regen] Skipped non-Puck tile {tile_idx} "
-                                    f"(f0={f0_val}Hz, tr={str(info.get('transcript'))[:60]!r})"
+                                    f"[Targeted Regen] Skipped empty/invalid tile {tile_idx} "
+                                    f"(f0={f0_val}Hz, tr={tr_str[:60]!r})"
                                 )
                         finally:
                             try:
@@ -2431,7 +2442,8 @@ async def regenerate_specific_clips_for_project(
                     pending_shots = [
                         c["clip_index"] - 1
                         for c in clips_metadata
-                        if (c["clip_index"] - 1) in shots_0based and not c.get("clip_valid", False)
+                        if (c["clip_index"] - 1) in shots_0based
+                        and not (c.get("clip_valid", False) or float(c.get("asr_overlap", 0.0)) >= 0.85)
                     ]
                 worker.log(f"[Targeted Regen Round {attempt_round + 1}/4] Remaining invalid shots: {[s + 1 for s in pending_shots]}")
     finally:

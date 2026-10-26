@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "slug": "olds_milner_pleasure_center",
+  "topic": "James Olds & Peter Milner (1954): Accidental Septal-Mesolimbic Brain Stimulation & 7,500 Lever Presses",
+  "pillar": "bci_tech",
+  "created_at": "2026-10-25T22:49:28+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Olds and Milner's serendipitous bent-electrode discovery directly contrasts midbrain reticular aversion against septal / medial forebrain bundle mesolimbic wanting circuits.",
+  "primary_case": {
+    "title": "Olds & Milner's serendipitous intracranial self-stimulation (ICSS) discovery at McGill University",
+    "year": 1954,
+    "place": "McGill University Psychological Laboratory (Donald Hebb's department), Montreal",
+    "people": [
+      {
+        "name": "James Olds",
+        "role": "29-year-old Harvard social psychology postdoc new to stereotaxic surgery whose slightly off-target electrode struck the septal region",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Peter M. Milner",
+        "role": "Electrical radar engineer turned McGill neuroscientist who taught Olds electrode implantation and co-designed the Skinner-box self-stimulation circuit",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Kent C. Berridge",
+        "role": "Modern affective neuroscientist who later proved these mesolimbic circuits drive compulsive 'wanting' (incentive salience) rather than pure hedonic 'liking'",
+        "source_id": "SRC3"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In late 1953 at McGill University (published 1954), postdoc James Olds aimed a fine insulated silver wire electrode at a rat's midbrain reticular activating system, where stimulation normally caused avoidance.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "During implantation, the flexible wire bent forward by several millimeters, landing in the anterior septal / medial forebrain bundle region instead — verified later by post-mortem X-ray and histology.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Placed in an open tabletop arena where Olds pressed a hand switch delivering brief 60-hertz alternating current (0.5 to 5 volts), Rat #34 did not flee; instead it sniffed eagerly and returned repeatedly to the exact corner where the pulse occurred.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Olds and Peter Milner then wired 15 implanted rats into modified Skinner lever boxes so each press delivered a 0.5-to-1.0-second electrical pulse directly to the brain through a flexible overhead lead.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Rats with electrodes in the septal area pressed the lever relentlessly, reaching rates up to 742 presses in a single hour (and up to 1,920 presses per hour in high-responder medial forebrain bundle placements).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In later marathon sessions reported by Olds (1958), self-stimulating rats pressed up to 7,500 times in 12 hours and crossed electrified floor grids far stronger than starving rats would tolerate for food.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Electrodes implanted in control regions such as the caudate nucleus or corpus callosum produced neutral response rates near 4 to 10 percent of session time, while tegmental electrodes triggered active avoidance.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The moment Olds switched off the stimulator current, lever pressing dropped sharply toward baseline, then surged back within seconds when current was restored.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Decades later, Kent Berridge and Terry Robinson demonstrated that mesolimbic dopamine fibers running through Olds and Milner's stimulation zone mediate compulsive 'wanting' (incentive motivation) rather than sensory 'liking'.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Human psychiatric patients later implanted by Robert Heath and others pressed septal/mesolimbic buttons hundreds of times out of restless urge and curiosity rather than reporting serene bliss.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "In septal electrode placements (such as Rat #34), Olds and Milner (1954) recorded sustained self-stimulation rates approaching 1,920 to nearly 2,000 lever presses per hour alongside a 7,500-press 12-hour marathon.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Because a novice postdoc's wire electrode bent a few millimeters off target, Rat #34 kept marching BACK to the corner where its brain was zapped instead of running away.",
+      "why_surprising": "One accidental surgical miss launched the entire neuroscience of reward and addiction.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Wired to its own lever, a septal-implanted rat pressed up to 1,920 times in a single hour for zero food and zero water — just tiny 60-hertz pulses.",
+      "why_surprising": "Direct circuit activation bypassed every bodily survival brake.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "In follow-up grid tests, self-stimulating rats sprinted across painful foot grids while ignoring plates of food right beside them until physical exhaustion.",
+      "why_surprising": "Compulsive 'wanting' can completely overpower hunger.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "Later neuroscience revealed Olds's famous 'pleasure center' wasn't really a bliss button at all — it was a relentless 'do-that-again wanting' engine.",
+      "why_surprising": "Craving and genuine enjoyment live in separate brain chemistries.",
+      "source_id": "SRC4",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Olds and Milner discovered a single pure 'pleasure center' that floods the brain with serene happiness.",
+      "truth": "Their electrodes stimulated medial forebrain bundle fibers driving mesolimbic dopamine 'wanting' and seeking, which often diverges sharply from hedonic 'liking'.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Olds deliberately targeted the septal reward pathway from day one.",
+      "truth": "He was aiming for the midbrain reticular formation to study alertness and stumbled onto self-stimulation only because the wire bent off course.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Every spot in the brain reinforces lever pressing if stimulated gently.",
+      "truth": "Control placements in sensorimotor cortex, thalamus, or corpus callosum stayed neutral (~4-10%), and midbrain tegmentum drove escape.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Addiction means loving a substance or app too much.",
+      "truth": "Hijacked mesolimbic circuits can drive 1,900+ repetitions an hour even when conscious enjoyment drops to zero.",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Doom-scrolling short videos at 1:30 a.m. when you aren't even enjoying them anymore — pure 'wanting' lever-pressing with zero 'liking'.",
+    "Checking email or message notifications thirty times an hour just for the tiny anticipation spike.",
+    "Reaching for another salted chip from the bag long after the first bite's flavor faded.",
+    "Playing 'just one more turn' in a strategy game while exhausted."
+  ],
+  "linked_projects": [
+    "psych_15_olds_milner_pleasure_center"
+  ]
+}

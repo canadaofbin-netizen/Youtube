@@ -1,0 +1,217 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Nancy Kanwisher comparing Faces vs Houses/Hands on the 1997 MGH fMRI console beside an inverted 'Thatcher' portrait flip",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1997, Massachusetts General Hospital NMR Center / MIT cognitive neuroscience lab, Boston",
+      "layout": {
+        "description": "Sunlit 1997 neuroimaging control room overlooking a clean white MRI bore window; on the oak console desk sit five printed visual control stimulus cards (Intact Faces, Houses, Scrambled Faces, Spoons, Human Hands), a rotatable upright/inverted portrait frame, and a crisp monitor highlighting the right ventral fusiform spot.",
+        "positions": [
+          {
+            "who": "Nancy Kanwisher (mannequin in 1997 collared shirt and blazer)",
+            "where": "standing at the imaging console rotating an upside-down portrait card 180 degrees upright while pointing to the tall 'Faces' response bar towering 2x above Houses, Scrambled, and Hands",
+            "facing": "facing the stimulus cards and monitor"
+          },
+          {
+            "who": "Josh McDermott / Marvin Chun (mannequin in rolled Oxford sleeves)",
+            "where": "checking off all five rigorous visual control runs across 12 individual brain maps",
+            "facing": "at the console desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "five-card 1997 control deck (Faces / Houses / Scrambled / Objects / Hands)",
+          "period_detail": "five high-contrast grayscale test cards spread neatly across the oak console",
+          "physical_behavior": "prove low-level contrast and animate body parts fail to trigger the 2x face surge"
+        },
+        {
+          "name": "180-degree swivel portrait frame ('Upright vs Inverted Face')",
+          "period_detail": "wooden tabletop swivel frame demonstrating holistic lock upright vs piecemeal drop inverted",
+          "physical_behavior": "anchors the 1998 Face Inversion Effect"
+        },
+        {
+          "name": "Faces (2x) vs Objects/Hands bar graph & ventral fusiform map",
+          "period_detail": "crisp white monitor chart showing the sharp step-function jump solely for intact faces",
+          "physical_behavior": "captures cortical domain specificity"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Nancy Kanwisher",
+          "verb_sequence": "slides the Houses, Scrambled, and Hands cards under the camera showing low baseline bars -> slides the Upright Face card forward as the right-fusiform bar leaps twice as high -> flips the swivel portrait upside down watching holistic tuning drop"
+        },
+        {
+          "who": "Colleague mannequin",
+          "verb_sequence": "overlays 12 individual ventral fusiform maps confirming reproducible anatomy"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Nancy Kanwisher",
+          "reaction": "nods having survived five attempts to falsify her own face-module hypothesis"
+        },
+        {
+          "who": "Colleague mannequin",
+          "reaction": "notes adjacent Place (PPA) and Body (EBA) patches right next door"
+        }
+      ],
+      "wardrobe": "1997 Boston academic wear: tailored blazer over crisp collared shirt and chinos; rolled-sleeve Oxford button-down.",
+      "lighting": "Clean high-key New England control-room daylight.",
+      "recognition_hook": "Test houses, spoons, scrambled pixels, or human hands and this pea-sized patch stays quiet — flash an upright human face and it jumps twice as high in milliseconds.",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1997 neuroscientist at an fMRI console desk comparing five grayscale test cards (Faces vs Houses/Hands) and a swivel portrait frame beside a 2x response bar chart",
+        "must_show": [
+          "cards|portrait|faces",
+          "monitor|chart|screen",
+          "console|desk"
+        ],
+        "source": "M1@00:12-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "The Thatcher Illusion: Normal upside down, shocking right-side up",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1998, MIT vision seminar",
+      "layout": {
+        "description": "Bright seminar table where two upside-down portrait cards look nearly identical until rotated 180 degrees upright.",
+        "positions": [
+          {
+            "who": "Student mannequins",
+            "where": "leaning back in instant surprise the millisecond the inverted portrait rotates upright",
+            "facing": "around seminar table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "twin rotatable portrait plaques",
+          "period_detail": "demonstrate holistic eye-mouth configuration switching ON only when upright",
+          "physical_behavior": "visceral classroom proof of FFA tuning"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Instructor",
+          "verb_sequence": "rotates both upside-down plaques 180° upright -> holistic mismatch jumps out instantly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Students",
+          "reaction": "gasp and laugh seeing how blind they were upside down"
+        }
+      ],
+      "wardrobe": "Late-1990s sweaters and shirts.",
+      "lighting": "Bright classroom daylight.",
+      "recognition_hook": "Upside down your FFA takes a coffee break — flip the portrait upright and distorted spacing jumps out in a tenth of a second.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "2012 Stanford Awake Stimulation: Only the doctor's face morphs",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2012, Stanford clinical epilepsy mapping suite",
+      "layout": {
+        "description": "Bright hospital room where an awake patient looks calmly at a doctor standing beside a wall TV and clipboard.",
+        "positions": [
+          {
+            "who": "Neurologist mannequin in white coat",
+            "where": "standing at the foot of the bed holding a clipboard",
+            "facing": "facing patient"
+          },
+          {
+            "who": "Awake Patient mannequin",
+            "where": "pointing in amazement strictly at the doctor's face while gesturing that the clipboard and room look 100% normal",
+            "facing": "in hospital chair"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "milliampere cortical stimulator switch",
+          "period_detail": "delivers a brief harmless pulse strictly to right FFA electrodes",
+          "physical_behavior": "causally alters face perception alone"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Clinician",
+          "verb_sequence": "applies brief 1-second right-FFA stimulation -> Patient reports the doctor's features shifted instantly while the room stayed rock-solid"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Neurologist mannequin",
+          "reaction": "logs causal proof of human FFA specificity"
+        }
+      ],
+      "wardrobe": "Crisp white physician coat and clean patient sweater.",
+      "lighting": "Bright high-key clinical daylight.",
+      "recognition_hook": "Stimulate right FFA directly in an awake human, and ONLY the real person's face in front of them warps while the room stays rock-solid.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Eye-level upright framing in everyday human connection",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern studio / office desk",
+      "layout": {
+        "description": "Sunlit desk where raising a laptop onto a wooden stand brings the camera to clean upright eye level.",
+        "positions": [
+          {
+            "who": "Communicator mannequin",
+            "where": "adjusting laptop stand to natural eye level for clear face-to-face rapport",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "oak laptop stand",
+          "period_detail": "aligns upright facial geometry cleanly",
+          "physical_behavior": "works smoothly with viewers' FFA"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Communicator mannequin",
+          "verb_sequence": "lifts camera to eye level and turns toward window light"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Colleague on screen",
+          "reaction": "connects immediately"
+        }
+      ],
+      "wardrobe": "Modern smart-casual shirt.",
+      "lighting": "Warm window key light.",
+      "recognition_hook": "Clear, well-lit eye-level framing feeds the exact holistic upright geometry your listener's FFA evolved to read.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

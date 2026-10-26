@@ -1,0 +1,202 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1989 Stanford 4-Card Table: Same 'Cassava Root & Tattoo' Cards Jump From 23% (Neutral Fact) to 75% (Catch the Free-Rider!)",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1989, Department of Psychology, Stanford University, California",
+      "layout": {
+        "description": "Sunlit high-key 1989 Stanford cognitive laboratory featuring a clean oak table holding **4 oversized two-sided white test cards** (**'Eats Cassava Root' | 'Eats Molo Nuts' | 'Has Tattoo' | 'No Tattoo'**) paired with a bold split **Context Comparison Board**: **Left = Descriptive Geography Story (23% Correct)** vs **Right = Rationed Benefit Social Contract Story (75% Correct — 'Eats Cassava' + 'No Tattoo' Flipped!)**.",
+        "positions": [
+          {
+            "who": "Leda Cosmides (mannequin in 1989 tailored blazer and crisp collared blouse)",
+            "where": "standing beside the 4-card oak table swapping the background story placard from 'Descriptive Geography' to 'Rationed Benefit Social Contract' without touching a single word on the 4 cards!",
+            "facing": "beside 4-card table and scoreboard"
+          },
+          {
+            "who": "Two Stanford Student mannequins (in late-1980s collegiate sweaters)",
+            "where": "staring baffled at the Descriptive story (23%), then instantly reaching out and flipping **'Eats Cassava Root'** + **'No Tattoo'** at **75% accuracy** the moment Cassava becomes an earned Benefit!",
+            "facing": "seated across oak table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "4 oversized Wason test cards ('Eats Cassava Root' | 'Eats Molo Nuts' | 'Has Tattoo' | 'No Tattoo')",
+          "period_detail": "keeps every word of the unfamiliar rule 100% constant across conditions",
+          "physical_behavior": "Cosmides 1989's brilliant experimental control"
+        },
+        {
+          "name": "Story-Frame Flip Board ('Neutral Fact: 23% | Catch the Benefit-Without-Cost Cheater: 75%!')",
+          "period_detail": "makes the 3x reasoning leap unmistakable at a glance",
+          "physical_behavior": "anchors Cognition 1989 data"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Leda Cosmides",
+          "verb_sequence": "lays down the 4 unfamiliar Cassava/Tattoo cards under a neutral geography story -> Students hesitate and miss 'No Tattoo' (77% fail) -> Cosmides swaps ONLY the story frame to 'Rationed Benefit for Initiates' -> Students snap straight to 'Eats Cassava' + 'No Tattoo' (75% pass)!"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Student mannequins",
+          "reaction": "grin amazed at how effortless the exact same 4 cards became once framed as 'Who skipped paying?'"
+        },
+        {
+          "who": "Leda Cosmides",
+          "reaction": "logs the Switched-Contract not-P & Q proof right beside it"
+        }
+      ],
+      "wardrobe": "1989 California academic attire: structured cotton/linen blazer and blouse; collegiate crewneck sweaters and khakis.",
+      "lighting": "Clean high-key Stanford classroom daylight.",
+      "recognition_hook": "Keep the four unfamiliar 'Cassava Root and Tattoo' cards 100% identical: tell students it's a geography fact and 77% fail — tell them Cassava is a rationed perk and 75% catch the freeloader in seconds!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a sunlit 1989 Stanford lab table displaying four oversized 'Eats Cassava Root / Eats Molo Nuts / Has Tattoo / No Tattoo' cards beside a 23%-to-75% Cheater-Detection scoreboard as students flip the two cheater cards",
+        "must_show": [
+          "cards",
+          "scoreboard|board|chart",
+          "table"
+        ],
+        "source": "M1@00:04-00:11; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "The Switched-Contract Stunner: Breaking Aristotle's Logic to Catch Cheaters!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1989, Stanford seminar table (Cosmides Exp. 3 & 4)",
+      "layout": {
+        "description": "Bright seminar table showing 'If Paid Cost -> Gets Benefit' where 71% flip 'Did NOT Pay Cost (not-P)' + 'Took Benefit (Q)' instead of formal textbook P & not-Q.",
+        "positions": [
+          {
+            "who": "Cosmides & Student mannequins",
+            "where": "watching smart humans violate textbook propositional logic to track Benefit-Without-Cost",
+            "facing": "at seminar table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Formal Logic (P & not-Q) vs Social Exchange (not-P & Q: 71%!) card",
+          "period_detail": "decisive disproof of pure formal-logic models",
+          "physical_behavior": "Cosmides 1989 Exp. 3–4"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Students",
+          "verb_sequence": "bypass P & not-Q and flip not-P & Q to catch the unpaid benefit-taker"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Cosmides",
+          "reaction": "confirms content-specialized social reasoning"
+        }
+      ],
+      "wardrobe": "Late-1980s academic blazers and shirts.",
+      "lighting": "Bright daylight.",
+      "recognition_hook": "Reverse the wording of a social contract and 71% of humans cheerfully break formal textbook logic just to keep catching the guy who took the perk without paying!",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Patient R.M. (2002 PNAS): Separating Hazard Safety From Cheater Detection in the Brain",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2002, Neuropsychology gallery (Stone, Cosmides & Tooby)",
+      "layout": {
+        "description": "High-key studio gallery showing translucent 3D brain ventromedial prefrontal + amygdala pathways alongside Safety Precaution Cards (70% Intact) vs Social Cheater Cards (39% Impaired).",
+        "positions": [
+          {
+            "who": "Neuropsychologist & Patient R.M. mannequins",
+            "where": "solving 4-card TB-Mask Safety rules at 70% while dropping to 39% on 4-card Social Contract rules",
+            "facing": "beside 3D brain model & dual card boards"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Safety Precaution (70%) vs Social Cheater (39%) Dissociation Board",
+          "period_detail": "neurological double-check of specialized social-exchange circuitry",
+          "physical_behavior": "Stone et al. 2002 PNAS"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient R.M.",
+          "verb_sequence": "solves Safety Precaution 4-card rule cleanly -> struggles selectively on identical Social Exchange 4-card rule"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Neuropsychologists",
+          "reaction": "map ventromedial prefrontal + amygdala role"
+        }
+      ],
+      "wardrobe": "Modern clinical blazer and casual shirt.",
+      "lighting": "Clean high-key gallery light.",
+      "recognition_hook": "After bilateral orbitofrontal and amygdala injury, Patient R.M. still aced 4-card Safety Hazard puzzles at 70% — while selectively losing 4-card Cheater puzzles!",
+      "sources": [
+        "SRC5"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Writing Clear Rules & Cooling False 'Freeloader' Alarms",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit team office",
+      "layout": {
+        "description": "Bright collaborative whiteboard translating muddy 'If Tier A -> Clause B' prose into crystal-clear 'Benefit Shared Contribution Expected' agreements.",
+        "positions": [
+          {
+            "who": "Team lead & Colleague mannequins",
+            "where": "aligning clearly on shared contributions and checking facts before assuming malice",
+            "facing": "at sunlit whiteboard"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Clear Benefit Contribution Charter",
+          "period_detail": "turns 23% confusion into 75%+ instant clarity",
+          "physical_behavior": "actionable workplace tool"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Team lead",
+          "verb_sequence": "rewrites abstract rule into clear Benefit-for-Contribution terms -> whole team understands on read #1"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Team",
+          "reaction": "clear, fair cooperation"
+        }
+      ],
+      "wardrobe": "Modern smart-casual attire.",
+      "lighting": "Warm afternoon window light.",
+      "recognition_hook": "Want people to understand complex rules on the first read? Stop writing like a logic textbook and frame clear Benefits alongside fair Contributions!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

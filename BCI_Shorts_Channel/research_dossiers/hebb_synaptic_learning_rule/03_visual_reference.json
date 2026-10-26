@@ -1,0 +1,207 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1949 McGill Page 62 & 1973 Oslo/London Oscilloscope: Coincident A->B Firing Jumping the Hippocampal LTP Curve Up 200%",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1949 Montreal & 1973 Oslo/London Hippocampal Physiology Bench",
+      "layout": {
+        "description": "Sunlit high-key neurobiology seminar & physiology studio combining Donald Hebb's open **1949 hardcover *The Organization of Behavior* (opened to Page 62)** on a warm oak desk beside an educational sculpted white **Two-Neuron Synapse Model (Cell A -> Cell B)** and Tim Bliss & Terje Lømo's **1973 LTP Oscilloscope & Graph** showing baseline 100% EPSP leaping up to a sustained **200%+ plateau** after coincident A->B burst timing.",
+        "positions": [
+          {
+            "who": "Donald O. Hebb (mannequin in 1949 tweed jacket, waistcoat, and pipe-free academic spectacles)",
+            "where": "standing beside the oak desk pointing from Page 62 of his 1949 book to the sculpted white Cell-A-to-Cell-B synapse model",
+            "facing": "left side of oak bench"
+          },
+          {
+            "who": "Tim Bliss & Terje Lømo (mannequins in 1973 white lab coats over collared shirts)",
+            "where": "triggering synchronous A->B stimulation pulses and pointing in triumph as the 1973 hippocampal LTP trace jumps from 100% baseline to a steady 220% plateau",
+            "facing": "at oscilloscope and LTP graph"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "open 1949 *Organization of Behavior* hardcover ('Page 62 Postulate') & sculpted matte-white A->B Synapse Model",
+          "period_detail": "bridges Hebb's 1949 theoretical leap directly to physical synaptic contact",
+          "physical_behavior": "honors the exact historic text"
+        },
+        {
+          "name": "1973 Hippocampal LTP Step-Function Graph ('Baseline 100% -> Coincident Burst -> 220% Sustained Days')",
+          "period_detail": "iconic upward step chart from Bliss & Lømo 1973",
+          "physical_behavior": "makes invisible synaptic strengthening visually unmistakable"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Bliss & Lømo mannequins",
+          "verb_sequence": "test Input A alone (flat 100% baseline) -> trigger coincident A-fires-B burst -> postsynaptic oscilloscope wave and wall graph leap to 220% and hold rock-steady!"
+        },
+        {
+          "who": "Donald Hebb",
+          "verb_sequence": "nods warmly seeing his 24-year-old page-62 prediction come alive on the trace"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Bliss & Lømo",
+          "reaction": "celebrate physiological proof of mammalian synaptic memory"
+        },
+        {
+          "who": "Donald Hebb",
+          "reaction": "gestures to the causal 'A takes part in firing B' arrow"
+        }
+      ],
+      "wardrobe": "1949 Canadian tweed three-piece academic suit; 1973 British/Norwegian white laboratory coats over Oxford shirts.",
+      "lighting": "Clean high-key museum-bright window daylight.",
+      "recognition_hook": "In 1949 he guessed it before anyone had seen a synapse; in 1973 one coincident burst sent the hippocampal memory line shooting up 200% for days.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a sunlit neurobiology bench pairing an open 1949 book and matte-white two-neuron A-to-B synapse sculpture with a 1973 hippocampal LTP graph jumping from 100% baseline to a sustained 220% plateau",
+        "must_show": [
+          "book|synapse|model",
+          "graph|chart|oscilloscope",
+          "desk|bench"
+        ],
+        "source": "M1@00:11-00:17; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "The 20-Millisecond Causal Clock: Before Wires Up, Late Wires Down (STDP)",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1998, Precision patch-clamp lab (Bi & Poo / Markram)",
+      "layout": {
+        "description": "Clean bright physiology display showing the famous asymmetric STDP curve: +15 ms ('A before B') = +80% LTP; -15 ms ('A after B') = -40% LTD.",
+        "positions": [
+          {
+            "who": "Neurophysiologist mannequin",
+            "where": "pointing to the sharp vertical crossover at 0 milliseconds separating causal 'A caused B' from late 'A missed B'",
+            "facing": "at STDP chart"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Asymmetric STDP Timing Graph ('+15ms Wire Stronger | -15ms Prune Weaker')",
+          "period_detail": "proves Hebbian synapses detect *causality*, not sloppy overlap",
+          "physical_behavior": "1997/1998 STDP breakthrough"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Researcher",
+          "verb_sequence": "triggers A 15 ms before B (upward jump) vs A 15 ms after B (downward prune)"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Students",
+          "reaction": "realize Hebb's exact 1949 words ('takes part in firing it') predicted causal timing!"
+        }
+      ],
+      "wardrobe": "Late-1990s smart-casual shirt and lab coat.",
+      "lighting": "Bright high-key lab light.",
+      "recognition_hook": "Arrive 15 milliseconds early to help fire the cell and your link doubles; arrive 15 milliseconds late after it already fired and your link gets pruned!",
+      "sources": [
+        "SRC4",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Hebb's Montreal Kitchen Pets: Enriched Worlds Grow Richer Wiring",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1947, Donald Hebb's sunlit Montreal family study",
+      "layout": {
+        "description": "Warm sunlit study tabletop comparing maze scorecards from 'Enriched Home Exploration' vs 'Plain Cage' groups alongside a small wooden tabletop maze.",
+        "positions": [
+          {
+            "who": "Donald Hebb mannequin",
+            "where": "comparing dramatic problem-solving gains on the tabletop maze with an articulated matte-white porcelain rat sculpture",
+            "facing": "at wooden maze table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "tabletop wooden Hebb-Williams maze & score ledger",
+          "period_detail": "shows enriched active exploration wiring richer cortical assemblies",
+          "physical_behavior": "Hebb's famous 1947/1949 home-pet discovery"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Porcelain rat sculpture",
+          "verb_sequence": "navigates cleanly straight through the tabletop maze goal path"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Hebb",
+          "reaction": "records enriched-experience brain plasticity decades before it became fashionable"
+        }
+      ],
+      "wardrobe": "1940s wool cardigan and tie.",
+      "lighting": "Warm home window light.",
+      "recognition_hook": "Hebb brought seven lab animals home to explore his kitchen — and accidentally launched environmental-enrichment brain science.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "From Page 62 to Hopfield AI Networks & Daily Habit Stacking",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern desk: morning coffee mug right beside an open language notebook",
+      "layout": {
+        "description": "Sunlit kitchen/study counter where setting the coffee mug down immediately cues opening 5 vocabulary cards.",
+        "positions": [
+          {
+            "who": "Learner mannequin",
+            "where": "placing the morning mug down (Cue A) and within 2 seconds opening the practice pad (Action B)",
+            "facing": "at sunlit counter"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "coffee mug -> open practice notebook 'A -> B Habit Stack'",
+          "period_detail": "rides causal A-before-B Hebbian timing every morning",
+          "physical_behavior": "everyday behavioral engineering"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Learner",
+          "verb_sequence": "finishes pouring coffee -> immediately writes three lines in notebook without phone detour"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Learner",
+          "reaction": "effortless automatic trigger after two weeks"
+        }
+      ],
+      "wardrobe": "Modern morning sweater.",
+      "lighting": "Warm morning sunlight.",
+      "recognition_hook": "Chain a brand-new habit two seconds after a rock-solid daily cue so 'A fires right before B' wires them into one automatic routine.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

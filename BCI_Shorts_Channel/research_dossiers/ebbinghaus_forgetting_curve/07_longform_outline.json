@@ -1,0 +1,100 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "2,300 fake words, one ticking metronome, and a 56% first-hour cliff: how Hermann Ebbinghaus turned human forgetting — and spaced review — into exact math.",
+    "core_experiment": "Ebbinghaus (1885) Savings curve (58.2% at 20m to 44.2% at 1h to 33.7% at 1d to 21.1% at 31d) + Murre & Dros (2015) replication.",
+    "twist": "Why 'I remember zero' hides massive subconscious Savings, why overnight sleep paused the 9h-to-24h drop, and why meaningful poetry cuts effort 10x."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Defying Wundt Alone With a 150-BPM Metronome",
+      "beats": [
+        "Why Ebbinghaus invented 2,300 'WID-ZOF-KAF' syllables",
+        "The genius of the 'Savings Score' for hidden memory"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "WID/ZOF/KAF deck & metronome"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "The First-Hour Waterfall (58% to 44% to 21%)",
+      "beats": [
+        "Mapping all 7 intervals from 20 minutes to 31 days",
+        "The mysterious 9-hour vs 24-hour overnight sleep pause"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "1885 Forgetting Curve easel"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "2015 Replication & The Meaning Myth",
+      "beats": [
+        "Murre & Dros's 70-hour Amsterdam match",
+        "Lord Byron's Don Juan: why stories beat rote trivia 10-to-1"
+      ],
+      "scene_ids": [
+        "S2",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2"
+      ],
+      "new_shots_needed": [
+        "1885 vs 2015 overlay & 10:1 stacks"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "38 Spaced Reps Beat 68 Crammed Reps",
+      "beats": [
+        "Ebbinghaus's 1885 birth of the Spacing Effect",
+        "How Anki and medical students flatten decay"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "Spaced Sawtooth Curve"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Your Anti-Forgetting Protocol",
+      "beats": [
+        "+1h, +1d, +3d, +7d active recall",
+        "Turning every dry fact into connected meaning"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "4-checkpoint review cards"
+      ]
+    }
+  ]
+}

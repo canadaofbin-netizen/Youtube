@@ -1,0 +1,223 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Seat 6 student squinting at two white line-comparison cards as five confederates call out the wrong line",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1951, Swarthmore College seminar room, Pennsylvania",
+      "layout": {
+        "description": "Sunlit 1951 college classroom with a curved semi-circular wooden table seating seven male student mannequins facing an easel at the front holding two large white posterboard cards with crisp vertical black ink lines.",
+        "positions": [
+          {
+            "who": "Critical Subject in Seat 6 (mannequin in 1950s knit sweater vest and collared shirt)",
+            "where": "seated second from the right end, leaning forward and squinting incredulously toward the easel",
+            "facing": "facing the two white line cards"
+          },
+          {
+            "who": "Confederates 1 through 5 (mannequins in 1950s tweed jackets and Oxford shirts)",
+            "where": "seated calmly along the curved table to his left",
+            "facing": "turning slightly as each announces the identical wrong number"
+          },
+          {
+            "who": "Solomon Asch (mannequin in dark 1950s suit)",
+            "where": "standing beside the wooden easel flipping the pair of white line cards",
+            "facing": "facing the row of seven students"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "standard vertical line card (left)",
+          "period_detail": "crisp white 1950s posterboard displaying a single medium-length black vertical line",
+          "physical_behavior": "mounted upright on the left side of the wooden easel"
+        },
+        {
+          "name": "three-line comparison card (right)",
+          "period_detail": "matching white posterboard displaying lines 1, 2, and 3 where Line 2 clearly matches the standard while Line 1 is visibly shorter",
+          "physical_behavior": "stands beside the standard card in plain daylight"
+        },
+        {
+          "name": "experimenter's trial ledger",
+          "period_detail": "1950s cloth-bound notebook tracking 18 trials",
+          "physical_behavior": "pen marks whether Seat 6 yields or stands independent"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Confederates 1 to 5",
+          "verb_sequence": "point calmly one by one toward the easel -> announce the identical blatantly wrong comparison line"
+        },
+        {
+          "who": "Critical Subject in Seat 6",
+          "verb_sequence": "leans forward and blinks hard at the two white cards -> glances nervously down the row of five calm peers -> wavers in silent conflict before speaking"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Critical Subject in Seat 6",
+          "reaction": "slumps his shoulders slightly under five pairs of calm gazes as he decides whether to betray his own eyes"
+        },
+        {
+          "who": "Solomon Asch",
+          "reaction": "holds a neutral expression beside the easel while recording the spoken number"
+        }
+      ],
+      "wardrobe": "1951 American collegiate attire: Oxford button-down shirts, wool sweater vests, tweed sport coats, pleated trousers; experimenter in dark 1950s suit and tie.",
+      "lighting": "High-key natural afternoon classroom daylight illuminating the black lines on white posterboard with zero ambiguity.",
+      "recognition_hook": "Five calm students in a row call out an obviously wrong black line on a white easel card, leaving Seat 6 sweating over whether to trust his own eyes.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "six male students in 1950s collegiate attire seated at a curved seminar table facing an easel with two white poster cards displaying black vertical comparison lines",
+        "must_show": [
+          "lines|cards",
+          "easel",
+          "table|students"
+        ],
+        "source": "M1@00:14-00:20; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Control group writing answers alone with 99 percent accuracy",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1951, Swarthmore College classroom",
+      "layout": {
+        "description": "Quiet classroom desks where individual student mannequins write line numbers silently on paper slips without spoken peer answers.",
+        "positions": [
+          {
+            "who": "Solo control students",
+            "where": "seated at separate wooden desks writing calmly",
+            "facing": "facing the front easel"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "paper response sheet",
+          "period_detail": "numbered 1-to-18 answer slip",
+          "physical_behavior": "pencil records >99 percent accurate line matches"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Control student",
+          "verb_sequence": "glances once at the easel -> writes the obvious matching number immediately"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Control student",
+          "reaction": "sits relaxed with zero doubt"
+        }
+      ],
+      "wardrobe": "1950s collared shirts and cardigans.",
+      "lighting": "Bright classroom daylight.",
+      "recognition_hook": "Alone on paper, error rates sit below one percent.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "One truthful ally in Seat 4 shatters unanimity",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1951, Swarthmore College seminar room",
+      "layout": {
+        "description": "Same curved seven-seat seminar table facing the line-card easel, where Seat 4 speaks the true line number ahead of Seat 6.",
+        "positions": [
+          {
+            "who": "Truthful Ally in Seat 4",
+            "where": "sitting upright and pointing clearly to the true matching line",
+            "facing": "facing the easel"
+          },
+          {
+            "who": "Critical Subject in Seat 6",
+            "where": "straightening his posture immediately as tension evaporates",
+            "facing": "looking gratefully toward Seat 4 and the easel"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "comparison line cards on easel",
+          "period_detail": "same two white posterboards",
+          "physical_behavior": "now backed by one honest voice in Seat 4"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Truthful Ally in Seat 4",
+          "verb_sequence": "breaks the false chant with the accurate line number -> Seat 6 sits tall and states the true number firmly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Critical Subject in Seat 6",
+          "reaction": "exhales visibly as conformity plunges from 36.8 percent to 5.5 percent"
+        }
+      ],
+      "wardrobe": "1950s collegiate tweed and sweater vests.",
+      "lighting": "Bright classroom daylight.",
+      "recognition_hook": "Just one honest voice in the room slashes conformity by eighty percent.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Silent written ballots before a modern team vote",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern conference room",
+      "layout": {
+        "description": "Sunlit modern glass conference table where six team mannequins jot independent votes on index cards before anyone speaks.",
+        "positions": [
+          {
+            "who": "Team members",
+            "where": "seated around a light oak table writing silently on cards",
+            "facing": "facing the center table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "white index ballot cards",
+          "period_detail": "six silent written vote cards turned face-up simultaneously",
+          "physical_behavior": "reveals honest disagreement before group pressure forms"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Team lead",
+          "verb_sequence": "collects silent cards -> turns them face-up together on the table"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Team members",
+          "reaction": "lean in constructively to compare independent views"
+        }
+      ],
+      "wardrobe": "Clean modern smart-casual blazers and shirts.",
+      "lighting": "High-key modern office daylight.",
+      "recognition_hook": "Writing answers down privately cuts group distortion by two-thirds.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

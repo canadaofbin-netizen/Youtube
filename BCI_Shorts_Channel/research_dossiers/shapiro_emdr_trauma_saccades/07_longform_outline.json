@@ -1,0 +1,103 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Dismissed as 'weird finger-waving' for 30 years, bilateral eye tracking during recall was caught braking the amygdala in 2019 Nature.",
+    "core_experiment": "Shapiro's 1989 randomized PTSD study (SUD 7.45 to 0.13) + human working-memory taxation experiments.",
+    "twist": "Baek et al.'s 2019 Nature optogenetic proof: Superior Colliculus to Mediodorsal Thalamus to Amygdala inhibition (and debunking 'hemisphere-sync' myths)."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "A Walk in the Park and a 30-Year Argument",
+      "beats": [
+        "1987 park observation & 1989 randomized trial",
+        "SUD distress plunging from ~7.5 near 0",
+        "Why skeptics doubted 'left-right brain' talk"
+      ],
+      "scene_ids": [
+        "S2",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "horizontal LED light-bar tracking"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Mechanism 1: Starving Panic of Working-Memory Pixels",
+      "beats": [
+        "Limited prefrontal bandwidth",
+        "Tracking a fast dot blurs emotional vividness during reconsolidation"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "dual-task bandwidth split"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Mechanism 2: The 2019 Nature Circuit Bombshell",
+      "beats": [
+        "Alternating LEDs vs random flicker",
+        "Superior Colliculus to Mediodorsal Thalamus to Amygdala brake."
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step1",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "KAIST alternating LED cylinder & flat spike trace"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Replications, Critiques & Real-World Boundaries",
+      "beats": [
+        "Eye movements work by magically 'synchronizing your creative right brain with your logical left brain'. — Pop-talk about corpus-callosum 'hemisphere syncing' was inaccurate; the real mechanisms are 1) prefrontal work",
+        "Waving your fingers in front of your own face at home cures severe clinical PTSD without a trained clinician. to Safe trauma reprocessing requires structured clinical pacing, grounding, and therapeutic containment — never D",
+        "EMDR erases factual memory of what happened like Eternal Sunshine. to Factual autobiographical accuracy stays intact; only the hijacked visceral amygdala alarm charge diminishes."
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2"
+      ],
+      "new_shots_needed": [
+        "comparative replication table card on wooden desk"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Grounded Movement vs Frozen Replay",
+      "beats": [
+        "Why professional therapy matters for PTSD",
+        "Everyday walks vs motionless rumination"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "sunlit park trail walk"
+      ]
+    }
+  ]
+}

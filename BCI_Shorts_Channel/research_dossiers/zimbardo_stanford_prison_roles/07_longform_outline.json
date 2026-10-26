@@ -1,0 +1,103 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "A 14-day Stanford basement simulation collapses in 6 days when Christina Maslach breaks the superintendent's tunnel vision.",
+    "core_experiment": "Haney, Banks & Zimbardo's 1971 Jordan Hall setup (mirrored glasses, ID numbers, 1/3 punitive vs 2/3 non-cruel guards).",
+    "twist": "The 2018 archival bombshell: staff orientation briefings coached 'toughness', proving leadership framing + zero oversight — not magic uniforms — drove the spiral."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Twenty-Four Healthy Students and a fifty-fifty draw",
+      "beats": [
+        "August 1971 Jordan Hall basement",
+        "Mirrored sunglasses vs numbered smocks",
+        "Planned for 14 days, halted on Day 6"
+      ],
+      "scene_ids": [
+        "S2",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "two role boxes on office table"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Three Kinds of Guards — And One Blind Superintendent",
+      "beats": [
+        "Why only 1/3 turned punitive while 2/3 resisted",
+        "Zimbardo's fatal mistake: playing Warden himself"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "mirrored sunglasses corridor view"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Day Five: One Voice Out of Fifty",
+      "beats": [
+        "Christina Maslach walks into the basement",
+        "'It's terrible what you are doing to these boys!'",
+        "Shutting the doors next morning"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "Maslach halting superintendent clipboard"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "The 2018 Tape Archive Twist",
+      "beats": [
+        "Le Texier & Haslam-Reicher uncover orientation coaching",
+        "Demand characteristics & 'engaged followership'",
+        "Rewriting the textbook myth"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "archival 1971 briefing transcript"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Building Maslach Checkpoints Into Real Teams",
+      "beats": [
+        "Why modern IRBs ban dual roles",
+        "Giving outsiders permission to say 'Stop'"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "modern independent ethics review"
+      ]
+    }
+  ]
+}

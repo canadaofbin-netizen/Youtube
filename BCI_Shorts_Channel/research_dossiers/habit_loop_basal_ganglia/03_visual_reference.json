@@ -1,0 +1,248 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Eugene walks straight to the kitchen snack cabinet despite failing the house map test",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1999, suburban California home and UC San Diego neuropsychological testing visit",
+      "layout": {
+        "description": "Bright sunlit 1990s suburban dining table opening directly into a wooden-cabinet kitchen. At the dining table lies a blank sheet of white paper and a graphite pencil where the elderly patient failed to sketch his floor plan; in the background, the patient walks unhesitatingly to the upper oak cabinet and opens the door to take a jar of nuts.",
+        "positions": [
+          {
+            "who": "Patient Eugene (elderly mannequin in 1990s plaid cardigan and slacks)",
+            "where": "walking smoothly from the dining table straight to the upper wooden kitchen cabinet",
+            "facing": "facing the snack cabinet door"
+          },
+          {
+            "who": "Neuropsychologist (mannequin in collared shirt with clipboard)",
+            "where": "standing beside the dining table holding the blank floor-plan sheet",
+            "facing": "watching Eugene open the exact cabinet in astonishment"
+          },
+          {
+            "who": "Spouse observer (mannequin in cardigan)",
+            "where": "standing near the hallway doorway",
+            "facing": "watching the kitchen"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "blank floor-plan sketch sheet and pencil",
+          "period_detail": "white 8.5x11 testing sheet with only an uncertain rectangle drawn on it",
+          "physical_behavior": "rests untouched on the dining table after Eugene shook his head"
+        },
+        {
+          "name": "oak kitchen snack cabinet",
+          "period_detail": "1990s raised-panel wooden upper cabinet above the counter",
+          "physical_behavior": "swings open smoothly on metal hinges as Eugene reaches the exact handle without hesitation"
+        },
+        {
+          "name": "glass snack jar",
+          "period_detail": "clear glass jar filled with roasted nuts inside the cabinet",
+          "physical_behavior": "lifted cleanly onto the countertop in one practiced motion"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient Eugene",
+          "verb_sequence": "sets the pencil down beside the blank house map -> rises from the chair -> walks straight into the kitchen and pulls open the exact snack cabinet"
+        },
+        {
+          "who": "Neuropsychologist",
+          "verb_sequence": "lowers the clipboard -> looks from the blank paper sheet to Eugene's hand lifting the jar"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Patient Eugene",
+          "reaction": "calmly unscrews the snack jar lid with practiced ease while unable to name which room comes next"
+        },
+        {
+          "who": "Neuropsychologist",
+          "reaction": "leans forward beside the table, stunned by the split between zero conscious map and flawless habit"
+        }
+      ],
+      "wardrobe": "Patient Eugene: 1990s earth-tone cardigan sweater over collared shirt and khaki trousers. Neuropsychologist: light blue Oxford shirt, tie, dark slacks.",
+      "lighting": "High-key natural California morning daylight streaming across the dining table and wooden kitchen cabinets.",
+      "recognition_hook": "An amnesic man who cannot draw a single room of his own home walks straight to the kitchen cabinet and grabs his snacks without pausing.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "the amnesic patient leaves a blank floor plan on the table and walks straight to open the kitchen cabinet for snacks",
+        "must_show": [
+          "cabinet",
+          "table|map|plan",
+          "kitchen"
+        ],
+        "source": "M1@00:15-00:19; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Failed conscious recall on the eight-pair object table",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1999, UC San Diego testing room",
+      "layout": {
+        "description": "Clean clinical testing room with pairs of everyday small objects arranged on a wooden table above hidden paper markers.",
+        "positions": [
+          {
+            "who": "Patient Eugene",
+            "where": "seated across the testing table reaching under the correct object",
+            "facing": "facing the object pairs"
+          },
+          {
+            "who": "Neuropsychologist",
+            "where": "seated opposite flipping score sheets",
+            "facing": "facing Eugene"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "eight pairs of household test objects",
+          "period_detail": "small plastic and wooden objects concealing a printed 'correct' target strip underneath one item per pair",
+          "physical_behavior": "Eugene's hand lifts the winning object accurately 85 percent of the time"
+        },
+        {
+          "name": "session tally pad",
+          "period_detail": "lined clinical score sheet marking Session 1 through Session 36",
+          "physical_behavior": "pen checks off another correct choice"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient Eugene",
+          "verb_sequence": "shakes his head denying he has ever seen the test -> reaches out and picks up the exact correct object"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Neuropsychologist",
+          "reaction": "records the 85 percent score while Eugene looks puzzled by his own right hand"
+        }
+      ],
+      "wardrobe": "Same 1990s cardigan on Eugene; blue Oxford shirt on Neuropsychologist.",
+      "lighting": "Bright clinical daylight.",
+      "recognition_hook": "Picking the winning object 85 percent of the time while swearing he has never seen the game before.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "T-maze cue-triggered habit run and start-end bracketing",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2005-2008, MIT McGovern Institute behavioral laboratory",
+      "layout": {
+        "description": "High-key neuroscience laboratory featuring an acrylic T-shaped runway with an audible tone speaker at the center junction and two small food wells at the left and right arms.",
+        "positions": [
+          {
+            "who": "Articulated matte-white porcelain rat sculpture",
+            "where": "poised at the start gate of the acrylic T-maze, then sprinting cleanly into the cued arm",
+            "facing": "facing down the center stem toward the turn"
+          },
+          {
+            "who": "MIT researcher mannequin in white lab coat",
+            "where": "standing beside the maze monitor rack",
+            "facing": "observing the run"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "acrylic T-maze with sliding start gate",
+          "period_detail": "clear laboratory T-maze with vertical start barrier and two end reward wells",
+          "physical_behavior": "gate slides upward, releasing the porcelain rat into a rapid smooth turn"
+        },
+        {
+          "name": "oscilloscope waveform monitor",
+          "period_detail": "benchtop display showing two sharp firing peaks at gate-open and goal-arrival with flat middle trace",
+          "physical_behavior": "trace brackets the start and finish of the run"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Porcelain rat sculpture",
+          "verb_sequence": "bolts forward the instant the gate lifts -> banks smoothly left at the tone -> stops precisely at the end well"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "MIT researcher",
+          "reaction": "points to the two sharp start-and-end waveform peaks framing the silent middle segment"
+        }
+      ],
+      "wardrobe": "MIT researcher in crisp white laboratory coat over dark trousers; articulated matte-white porcelain rat sculpture.",
+      "lighting": "Bright clean laboratory daylight.",
+      "recognition_hook": "The T-maze run compresses into two sharp start-and-finish bursts in the deep striatum.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Swapping the routine attached to an everyday cue",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern everyday evening kitchen",
+      "layout": {
+        "description": "Bright modern kitchen at evening where a bowl of sliced fruit sits in front of the old snack cabinet door.",
+        "positions": [
+          {
+            "who": "Everyday person mannequin",
+            "where": "standing at the kitchen counter as a wall clock hits 10:00",
+            "facing": "facing the counter"
+          },
+          {
+            "who": "Partner mannequin",
+            "where": "seated at the island with a mug of herbal tea",
+            "facing": "facing the counter"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "ceramic fruit bowl",
+          "period_detail": "white ceramic bowl placed directly on the counter at eye level",
+          "physical_behavior": "hand reaches for an apple slice instead of the upper cabinet handle"
+        },
+        {
+          "name": "kitchen wall clock",
+          "period_detail": "clean analog clock reading 10:00",
+          "physical_behavior": "marks the familiar evening cue"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Everyday person mannequin",
+          "verb_sequence": "walks into the kitchen on the 10:00 cue -> redirects hand from the upper cabinet to lift a slice of fruit"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Everyday person mannequin",
+          "reaction": "nods calmly as the new reward closes the evening bracket"
+        }
+      ],
+      "wardrobe": "Casual modern knit sweater and trousers.",
+      "lighting": "Clean high-key kitchen illumination.",
+      "recognition_hook": "Keeping the cue and reward while replacing the middle routine rewires the striatal bracket.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

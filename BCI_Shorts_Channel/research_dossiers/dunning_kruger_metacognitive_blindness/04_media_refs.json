@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "lecture",
+      "title": "David Dunning, Social Psychologist: On Gender Attitudes and Stereotypes",
+      "url": "https://www.youtube.com/watch?v=SKGoYvdRhkA",
+      "channel": "womeninscience1",
+      "source_id": "SRC_M1",
+      "duration_sec": 247,
+      "timecodes": [
+        {
+          "t": "00:18-00:32",
+          "what": "At kf_002.jpg (27.1s) (widescreen camera frame), womeninscience1's recording states \"one example that i remember from an old friend of mine is when she was in elementary school um she drew a picture and what she did is she drew the...\" — providing spoken context for Cornell classroom desk contrasting the REAL flat-sloping 1999 Figure-1 graph (12% actual vs 62% guessed) against the crossed-out fake 'Mount Stupid' cartoon."
+        },
+        {
+          "t": "00:37-00:51",
+          "what": "Mid-segment widescreen camera frame at kf_005.jpg (46.1s) as narration explains \"what a great artist you are now what my friend remarked is why didn't this teacher say what a great scientist you are there are some of the...\", clarifying key empirical findings in Justin Kruger & David Dunning's 1999 Cornell four-study metacognitive calibration experiments."
+        },
+        {
+          "t": "01:12-01:24",
+          "what": "Around kf_010.jpg (77.7s) (lecture slide / diagram frame), commentary states \"having a major impact on the life choices and the career choices that people are making it's interesting because i would describe them as in the...\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (live-action speaker/interview recording intercut with 1 visual slide frames (640x360, sampled across 20.8s–103.0s)) from womeninscience1's \"David Dunning, Social Psychologist: On Gender Attitudes and Stereotypes\" (247s total runtime).",
+          "Deduplicated English transcript (23 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (20.8s–103.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "David Dunning: \"Gullible to Ourselves\"",
+      "url": "https://www.youtube.com/watch?v=bH3fWsyowhA",
+      "channel": "PRYDE",
+      "source_id": "SRC_M2",
+      "duration_sec": 3350,
+      "timecodes": [
+        {
+          "t": "00:16-00:25",
+          "what": "Around kf_003.jpg (18.0s) (lecture slide / diagram frame), speaker commentary notes \"people may learn or what they may miss learning as their lives go on and as we go on as a society and in some sense if\", anchoring the research context of Cornell classroom desk contrasting the REAL flat-sloping 1999 Figure-1 graph (12% actual vs 62% guessed) against the crossed-out fake 'Mount Stupid' cartoon."
+        },
+        {
+          "t": "01:02-01:10",
+          "what": "At kf_008.jpg (63.1s) (widescreen camera frame), audio continues with \"the simplest way to exemplify this is to just mention this one study that Salva Kiir and Emily Rosen's wagon I did where\", detailing experimental methodology and behavioral observations for Justin Kruger & David Dunning's 1999 Cornell four-study metacognitive calibration experiments."
+        },
+        {
+          "t": "01:54-02:03",
+          "what": "Later widescreen camera frame at kf_014.jpg (117.1s) accompanied by \"where we are doing ongoing studies looking to see what exactly people do learn in the classroom and one study we\", summarizing mechanism and boundary conditions in Justin Kruger & David Dunning's 1999 Cornell four-study metacognitive calibration experiments."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (live-action speaker/interview recording intercut with 3 visual slide frames (640x360, sampled across 0.0s–117.1s)) from PRYDE's \"David Dunning: \"Gullible to Ourselves\"\" (3350s total runtime).",
+          "Deduplicated English transcript (55 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–117.1s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Uris Hall Auditorium, Cornell University.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Uris_Hall_Auditorium,_Cornell_University.jpg",
+      "channel": "Wikimedia Commons (Kenneth C. Zirkel)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Uris Hall Auditorium, Cornell University.jpg\" (1600x1067 px, CC BY-SA 4.0): Uris Hall Auditorium, Cornell University. Believe me when I tell you that this hall has not been renovated or upholstered since 1984. Documents the real institutional setting and architectural era associated with Justin Kruger & David Dunning's 1999 Cornell four-study metacognitive calibration experiments."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 4.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (1600x1067 px, CC BY-SA 4.0, Kenneth C. Zirkel) — architecture reference: Uris Hall Auditorium, Cornell University. Believe me when I tell you that this hall has not been renovated or upholstered since 1984.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Tabletop Sally-Anne puppet stage as Anne moves the glass marble from the round wicker basket into the closed rectangular box",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1985, MRC Cognitive Development Unit testing table, London",
+      "layout": {
+        "description": "Sunlit 1985 London developmental playroom with a clean wooden child-height table holding two small cloth-dressed dolls (Sally and Anne), one round woven wicker basket with a lid on the left, one crisp white rectangular cardboard box with a lid on the right, and a gleaming blue-swirl glass marble.",
+        "positions": [
+          {
+            "who": "Researcher mannequin (in 1985 knit cardigan)",
+            "where": "seated across the low wooden table moving Doll Anne's hands to transfer the glass marble from the round wicker basket into the rectangular box while Doll Sally rests out of sight below the table edge",
+            "facing": "facing the child"
+          },
+          {
+            "who": "Four-Year-Old Child mannequin (in 1985 corduroy jumper)",
+            "where": "watching intently across the table, then pointing one clear index finger back to Sally's round wicker basket when Sally returns",
+            "facing": "facing the basket and box"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "round woven wicker basket (Sally's)",
+          "period_detail": "small lidded tan basket on the left side of the table — empty after the secret swap",
+          "physical_behavior": "correctly pointed to by 4.5-year-olds answering 'Where will Sally LOOK?'"
+        },
+        {
+          "name": "rectangular lidded box (Anne's) & glass marble",
+          "period_detail": "crisp white lidded box on the right holding the secretly transferred blue glass marble",
+          "physical_behavior": "pointed to by 3-year-olds swayed by reality bias"
+        },
+        {
+          "name": "two small cloth-dressed tabletop dolls (Sally & Anne)",
+          "period_detail": "simple matte-porcelain/cloth study puppets in red vs blue aprons",
+          "physical_behavior": "stage the exit, secret transfer, and return cleanly"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Doll Sally",
+          "verb_sequence": "places the glass marble into the round wicker basket and exits below the table rim -> Doll Anne lifts the marble across into the rectangular box and closes both lids"
+        },
+        {
+          "who": "Doll Sally returns",
+          "verb_sequence": "Researcher asks 'Where will Sally look?' -> 4-year-old Child mannequin points steadily to the round wicker basket"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Four-Year-Old Child mannequin",
+          "reaction": "smiles knowingly, holding BOTH facts cleanly: marble is in the box, yet Sally believes basket"
+        },
+        {
+          "who": "Researcher mannequin",
+          "reaction": "checks off all three items: Belief Question + Reality Control + Memory Control"
+        }
+      ],
+      "wardrobe": "1985 British developmental lab attire: warm wool cardigan over collared shirt on researcher; corduroy pinafore/jumper over striped tee on child.",
+      "lighting": "Warm high-key London window daylight across natural wood, wicker basket, and white box.",
+      "recognition_hook": "You just watched Anne hide the marble in the white box — yet predicting Sally will still check her empty wicker basket requires holding two conflicting worlds inside one head.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1985 tabletop developmental test with two small dolls, a round lidded wicker basket, a rectangular lidded white box, and a glass marble as a child points to the basket",
+        "must_show": [
+          "basket",
+          "box",
+          "marble|dolls|table"
+        ],
+        "source": "M1@00:08-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Age 3 reality pull vs Age 4.5 perspective leap",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1985, London developmental playroom",
+      "layout": {
+        "description": "Side-by-side tabletop moment comparing a 3-year-old pointing eagerly to the white box (where the marble really sits) vs a 4.5-year-old pointing to the wicker basket.",
+        "positions": [
+          {
+            "who": "Three-Year-Old Child mannequin",
+            "where": "pointing straight at Anne's rectangular box despite passing both memory controls",
+            "facing": "at wooden table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "178-study developmental curve card",
+          "period_detail": "clean trajectory rising sharply from age 3.0 to 4.5",
+          "physical_behavior": "illustrates universal childhood maturation"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Three-Year-Old Child mannequin",
+          "verb_sequence": "points immediately to the real marble location in the box"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researcher mannequin",
+          "reaction": "notes intact memory paired with pre-decoupled reality bias"
+        }
+      ],
+      "wardrobe": "1985 child sweater.",
+      "lighting": "Bright playroom daylight.",
+      "recognition_hook": "At age three, what YOU know feels like what the whole universe knows.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Modern Double Empathy & Adult 'Tap-the-Song' Curse of Knowledge",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern university communication lab",
+      "layout": {
+        "description": "Bright seminar table where one adult taps knuckles rhythmically on oak expecting the listener across the table to recognize 'Happy Birthday' — while the listener hears only random knocks.",
+        "positions": [
+          {
+            "who": "Tapper mannequin",
+            "where": "tapping desk rhythmically confident the melody is obvious",
+            "facing": "facing listener"
+          },
+          {
+            "who": "Listener mannequin",
+            "where": "tilting head puzzled hearing disconnected wooden taps",
+            "facing": "facing tapper"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "50% Predicted vs 2.5% Actual recognition placard",
+          "period_detail": "Elizabeth Newton's classic adult Curse of Knowledge score",
+          "physical_behavior": "proves healthy adults make Sally-Anne errors daily"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Tapper mannequin",
+          "verb_sequence": "taps song -> Listener guesses wrong -> Tapper laughs realizing the orchestra only played inside their own head"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Both mannequins",
+          "reaction": "bridge the two-way perspective gap by naming the context aloud"
+        }
+      ],
+      "wardrobe": "Modern casual sweaters.",
+      "lighting": "High-key seminar daylight.",
+      "recognition_hook": "Adults guess listeners hear a tapped song 50% of the time — actual score is 2.5%, proving Sally-Anne blind spots never fully retire.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Adding the missing 'marble moved' sentence before hitting Send",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern office desk",
+      "layout": {
+        "description": "Bright desk monitor where a writer catches an ambiguous message and adds one crisp context line ('Context: yesterday we moved the budget file from Folder A to Folder B').",
+        "positions": [
+          {
+            "who": "Writer mannequin",
+            "where": "pausing over keyboard to add one clear background sentence for a colleague who missed the meeting",
+            "facing": "at monitor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "clean screen message with explicit 'Context:' line",
+          "period_detail": "bridges the unseen transfer",
+          "physical_behavior": "eliminates three rounds of confusion"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Writer mannequin",
+          "verb_sequence": "types the missing context line -> sends clear message"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Colleague across room",
+          "reaction": "gives an immediate thumbs-up understanding on the first read"
+        }
+      ],
+      "wardrobe": "Modern office shirt.",
+      "lighting": "Bright natural window light.",
+      "recognition_hook": "One sentence telling your reader when the marble moved cures the Curse of Knowledge.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

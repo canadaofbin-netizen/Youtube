@@ -1,0 +1,102 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Comparing 10-cube 3D shapes takes 1 extra second for every 60 degrees — a ruler-straight line proving your mind passes through every middle angle.",
+    "core_experiment": "Shepard & Metzler's 1971 Science study (1,600 trials/subject, 2D vs 3D depth equivalence, chiral mirror twins).",
+    "twist": "Why 3D depth matched 2D speed, the Kosslyn-Pylyshyn Imagery Debate, and premotor 'invisible hands'."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Timing a Ghost With a Stopwatch",
+      "beats": [
+        "Why behaviorists banned 'mental images'",
+        "10-cube asymmetric perspective blocks & mirror twins"
+      ],
+      "scene_ids": [
+        "S2",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "white wooden 10-cube sculptures"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "The Straightest Line in Psychology",
+      "beats": [
+        "1.0s at 0° to 4.5s at 180° (60° per second)",
+        "Shock #2: 3D depth is just as fast as flat 2D"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "plotting the straight Science diagonal"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Invisible Hands in Your Premotor Cortex",
+      "beats": [
+        "Parietal spatial stream + premotor simulation",
+        "Why turning a physical knob the wrong way slows mental rotation"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step1",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "rotary hand-dial interference test"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Replications, Critiques & Real-World Boundaries",
+      "beats": [
+        "All human thought works strictly like text code or logical sentences ('propositional only'), never spatial simulation. to If the brain merely checked symbolic vertex lists, 180-degree comparisons wouldn't pass linearly through 60°,",
+        "3D depth rotation is much slower than flat 2D rotation because retinas are flat. — Shepard and Metzler's two curves (2D picture-plane vs 3D depth) overlapped almost identically near ~60 degrees",
+        "Spatial rotation skill is permanently fixed at birth and untrainable. to Practice with physical blocks, origami, CAD modeling, and spatial games substantially steepens speed and accur"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2"
+      ],
+      "new_shots_needed": [
+        "comparative replication table card on wooden desk"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Offloading Your 60°/Sec Workspace",
+      "beats": [
+        "Why spatial skill improves with practice",
+        "Turning physical models and sketches in hand"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "architect rotating white foam model"
+      ]
+    }
+  ]
+}

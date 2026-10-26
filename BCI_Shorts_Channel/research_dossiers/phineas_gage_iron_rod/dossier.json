@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "slug": "phineas_gage_iron_rod",
+  "topic": "Phineas Gage - the 1848 iron tamping rod accident (Cavendish, Vermont) and his personality change",
+  "pillar": "brain_history",
+  "created_at": "2026-10-24T01:02:30+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Kept NEURO_BIOLOGY. The whole story is a physical brain injury: an iron rod passed from under the left cheekbone, behind the left eye socket and out of the top of the skull, and every later question (what changed, why, how he recovered) is answered by WHICH tissue the rod destroyed. The viewer can only understand the twist if they see the rod's path through the left orbitofrontal 'judgment center' and the cut wiring (Ratiu 2004, Van Horn 2012). Brain clips are capped at 3 drill_down/brain_void + 1 pull_out and each one starts from the rod's path, so the brain never floats free of the story; the human beats (blast, ox cart, refused job, Chile stagecoach, portrait) stay as real-environment reenactments.",
+  "primary_case": {
+    "title": "Passage of an iron rod through the head of railroad foreman Phineas P. Gage",
+    "year": 1848,
+    "place": "Rutland and Burlington Railroad cut near Cavendish, Windsor County, Vermont, USA",
+    "people": [
+      {"name": "Phineas P. Gage", "role": "subject; blasting foreman, 25 years old at the accident", "source_id": "SRC01"},
+      {"name": "John Martyn Harlow", "role": "local physician in Cavendish who treated Gage and published the 1848 and 1868 reports", "source_id": "SRC01"},
+      {"name": "Edward H. Williams", "role": "physician of Proctorsville, first doctor called to the patient (Harlow: 'Dr. Williams, of Proctorsville, who was first called')", "source_id": "SRC01"},
+      {"name": "Joseph Adams", "role": "keeper of the hotel in Cavendish to which Gage was carried by ox cart", "source_id": "SRC01"},
+      {"name": "Henry Jacob Bigelow", "role": "Harvard professor of surgery; examined Gage in Boston and published in 1850; had the plaster head cast made", "source_id": "SRC03"},
+      {"name": "Malcolm Macmillan", "role": "historian-psychologist; main critic of the exaggerated personality myth; argued for Gage's later 'social recovery'", "source_id": "SRC08"},
+      {"name": "Hanna and Antonio Damasio", "role": "1994 Science reconstruction (bilateral ventromedial damage claim)", "source_id": "SRC04"},
+      {"name": "Peter Ratiu and Ion-Florin Talos", "role": "2004 CT reconstruction of the real skull (left frontal lobe only)", "source_id": "SRC05"},
+      {"name": "John Darrell Van Horn", "role": "2012 connectome reconstruction of white-matter damage", "source_id": "SRC06"},
+      {"name": "Jack and Beverly Wilgus", "role": "photo collectors who identified the first daguerreotype of Gage (published 2009)", "source_id": "SRC09"}
+    ]
+  },
+  "core_facts": [
+    {"fact": "The accident happened on 13 September 1848 at about 4:30 pm on the line of the Rutland and Burlington Railroad in Cavendish, Vermont.", "source_id": "SRC01"},
+    {"fact": "Gage was a 25-year-old foreman 'engaged in charging a hole, preparatory to blasting'; he had poured in the powder and was tamping it before the sand was added.", "source_id": "SRC01"},
+    {"fact": "Harlow 1868: Gage sat on a shelf of rock above the hole; his men were in the pit a few feet behind him loading rock onto a platform car with a derrick; he looked over his right shoulder, the iron struck fire on the rock and the charge exploded.", "source_id": "SRC02"},
+    {"fact": "The tamping iron was round, smooth from use, pointed at the end that entered first, 3 feet 7 inches long, 1 1/4 inches in diameter and weighed 13 1/4 pounds; the taper was about 12 inches long and the point 1/4 inch across.", "source_id": "SRC02"},
+    {"fact": "The iron entered the left side of the face just in front of the angle of the lower jaw, passed under the cheekbone (zygomatic arch) and behind the left eye socket, and exited at the top of the head near the junction of the coronal and sagittal sutures.", "source_id": "SRC01"},
+    {"fact": "The iron went 'high into the air' and fell 'several rods behind him', where his men picked it up 'smeared with blood and brain'; Macmillan estimates it landed about 20 to 25 yards behind him.", "source_id": "SRC02"},
+    {"fact": "Gage was thrown on his back, had a few convulsive movements, but spoke within a few minutes.", "source_id": "SRC01"},
+    {"fact": "His men carried him a few rods to the road and sat him in an ox cart; he rode sitting erect three-quarters of a mile to Joseph Adams's hotel, got out of the cart himself and, with a little help, walked up a long flight of stairs.", "source_id": "SRC01"},
+    {"fact": "Harlow arrived near 6 pm; Gage recognised him and 'said he hoped he was not much hurt'; pointing to his cheek he said 'the iron entered there and passed through my head'.", "source_id": "SRC02"},
+    {"fact": "His face, hands and arms were deeply burned by the blast.", "source_id": "SRC02"},
+    {"fact": "Infection nearly killed him in late September 1848; attendants had his coffin and clothes ready; Harlow cut away fungus growths and drained about eight ounces of pus.", "source_id": "SRC02"},
+    {"fact": "By 1 January 1849 the opening in the top of his head had closed; in April 1849 he returned to Cavendish 'bringing his iron with him'. He lost the sight of his left eye.", "source_id": "SRC02"},
+    {"fact": "His contractors, who had regarded him as their most efficient foreman, 'considered the change in his mind so marked that they could not give him his place again'; friends said he was 'no longer Gage'.", "source_id": "SRC02"},
+    {"fact": "Harlow described him as 'fitful, irreverent, indulging at times in the grossest profanity', impatient of restraint, making plans and abandoning them; this description was published only in 1868, after Gage's death.", "source_id": "SRC02"},
+    {"fact": "He kept the tamping iron as his 'constant companion', exhibited himself for a while at Barnum's in New York, then worked about 18 months in Jonathan Currier's livery stable in Hanover, New Hampshire.", "source_id": "SRC02"},
+    {"fact": "He went to Chile to work for a new coach line at Valparaiso, caring for horses and 'often driving a coach heavily laden and drawn by six horses' between Valparaiso and Santiago.", "source_id": "SRC02"},
+    {"fact": "A physician who knew him in Chile around 1858-59 described him as 'engaged in stage driving' with 'no impairment whatever of his mental faculties'.", "source_id": "SRC14"},
+    {"fact": "He died of epileptic convulsions in San Francisco; Harlow gave May 21, 1861, but cemetery records show burial on May 23, 1860, so Macmillan dates his death to May 21, 1860.", "source_id": "SRC14"},
+    {"fact": "His skull was exhumed (probably late 1867) and, with the tamping iron, deposited by Harlow in the Harvard medical museum (today's Warren Anatomical Museum, Countway Library).", "source_id": "SRC08"},
+    {"fact": "Damasio et al. (1994) concluded the damage involved both left and right prefrontal (ventromedial) cortex; their model used a cadaver skull deformed to Gage's measurements.", "source_id": "SRC04"},
+    {"fact": "Ratiu et al. (2004), using thin-slice CT of the real skull, concluded the injury was limited to the left frontal lobe and that the skull hinged open as the rod passed.", "source_id": "SRC05"},
+    {"fact": "Van Horn et al. (2012) estimated the rod intersected about 4% (3.97%) of cortical grey matter but about 11% of the white matter of the left frontal lobe, severing parts of the uncinate fasciculus linking the amygdala/hippocampus to orbitofrontal cortex.", "source_id": "SRC06"},
+    {"fact": "The most-affected cortical areas in Van Horn's model were left orbital regions (left orbital sulcus ~91% of its volume intersected, orbital gyrus ~39%).", "source_id": "SRC06"},
+    {"fact": "Van Horn's team measured the real iron at the Warren Museum: 110 cm long, maximum diameter 3.2 cm.", "source_id": "SRC06"},
+    {"fact": "Two daguerreotype portraits of Gage holding his iron were identified in 2009 and 2010; the first had been believed by its owners to show a whaler with his harpoon.", "source_id": "SRC09"}
+  ],
+  "wow_facts": [
+    {"rank": 1, "fact": "Minutes after a 13 1/4-pound iron bar passed through his skull, Gage was talking, and rode three-quarters of a mile sitting up in an ox cart.", "why_surprising": "Viewers expect instant death; instead he walked up a flight of stairs and told the doctor he hoped he was not much hurt.", "source_id": "SRC01"},
+    {"rank": 2, "fact": "The iron was 3 feet 7 inches long (110 cm measured today) and flew high into the air, landing roughly 20-25 yards behind him.", "why_surprising": "The object is taller than a small child and heavier than a bowling-ball-sized weight, yet it went clean through.", "source_id": "SRC02"},
+    {"rank": 3, "fact": "The 'monster Gage' of textbooks is largely a myth: years later he drove a six-horse stagecoach in Chile and a physician found 'no impairment whatever of his mental faculties'.", "why_surprising": "Almost every class teaches that he was ruined for life.", "source_id": "SRC14"},
+    {"rank": 4, "fact": "Gage carried the iron with him for the rest of his life and posed with it for a portrait; for decades the photo's owners thought it showed a whaler holding a harpoon.", "why_surprising": "He treated the object that nearly killed him like a trophy.", "source_id": "SRC09"},
+    {"rank": 5, "fact": "Modern reconstructions disagree: Damasio 1994 said both sides of the front brain were hit; Ratiu 2004 and Van Horn 2012, using the real skull, say left side only - but with about 11% of the left frontal wiring cut.", "why_surprising": "Even the world's most famous brain injury is still being re-measured 160 years later.", "source_id": "SRC06"}
+  ],
+  "misconceptions": [
+    {"myth": "Gage became a permanent violent, drunken drifter who never held a job and died penniless.", "truth": "After a period of exhibiting he worked about 18 months in a livery stable and then for years as a stagecoach driver in Chile; Macmillan finds the drifter picture inconsistent with the facts.", "source_id": "SRC08"},
+    {"myth": "The rod destroyed both frontal lobes.", "truth": "CT reconstructions of the actual skull (Ratiu 2004, Van Horn 2012) place the damage in the left frontal lobe only; the bilateral claim came from Damasio 1994's model skull.", "source_id": "SRC05"},
+    {"myth": "Gage's case inspired the lobotomy.", "truth": "Macmillan finds no evidence that lobotomy was designed with Gage in mind.", "source_id": "SRC08"},
+    {"myth": "Gage died in 1861 (Harlow's date, repeated in Damasio 1994).", "truth": "Burial records show May 23, 1860; Macmillan dates his death to May 21, 1860.", "source_id": "SRC14"},
+    {"myth": "The rod went through the middle of his forehead.", "truth": "It entered under the left cheekbone, passed behind the left eye and came out at the top of the head near the midline.", "source_id": "SRC01"}
+  ],
+  "everyday_hooks": [
+    "The split-second 'don't say that' feeling before you blurt out something rude is the kind of feelings-to-choices link the judgment center behind your eyes provides.",
+    "Concussions in sport and car accidents often hit the same front-and-underside part of the brain; families describe a loved one as 'not himself', just like Gage's friends.",
+    "Routine and structure (to-do lists, fixed schedules) are used in rehabilitation after frontal injuries - the same structure Macmillan thinks the stagecoach job gave Gage.",
+    "Teen brains: the front of the brain is among the last regions to finish maturing, which is why impulse control keeps improving into your twenties."
+  ],
+  "linked_projects": ["psych_04_phineas_gage_frontal_lobe"],
+  "open_doubts": [
+    "Exact year Gage left for Chile: Harlow says August 1852; Macmillan (2008) notes a Warren Museum relic suggesting 1854. The Short avoids the year.",
+    "Exact landing distance of the rod: primary source says only 'several rods'; Macmillan estimates 20-25 yards; Harvard curator video says 30 yards. The Short says 'far behind him' only.",
+    "Teen-brain everyday hook is general textbook knowledge, not sourced in this dossier; not used in the Short."
+  ]
+}

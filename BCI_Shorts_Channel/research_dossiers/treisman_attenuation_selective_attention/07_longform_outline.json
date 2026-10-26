@@ -1,0 +1,100 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Neither 0% off nor 100% on: how 24-year-old Anne Treisman swapped stories mid-sentence to prove attention is a dimmer knob with hair-trigger alarms.",
+    "core_experiment": "Treisman (1960/1964) mid-sentence ear-swap intrusions + bilingual translation detection + Treisman & Geffen (1967) 86.5% vs 8.7% target tapping.",
+    "twist": "Why your own name and 'Fire!' have permanently low dictionary thresholds, reconciling Early vs Late Selection, and the life-saving 'Name-First' rule."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Cocktail Party Paradox: How Did My Own Name Get In?",
+      "beats": [
+        "Broadbent's 0% wall vs Deutsch's 100% flood",
+        "24-year-old Anne Treisman's sneaky mid-sentence headphone swap"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "dual-channel console & sentence-crossover card"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Dimmer Knobs & Hair-Trigger Words (Attenuation Theory)",
+      "beats": [
+        "Why 'mahogany...' pulled 'TABLE!' out of the ignored ear",
+        "1964 bilingual surprise: recognizing French translations of the same story."
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "threshold bar chart & bilingual card"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "86.5% vs 8.7%: The Ruler Tap That Settled the War",
+      "beats": [
+        "Treisman & Geffen 1967 target-tapping showdown",
+        "Proving both 0% and 100% extremes wrong in one clean number"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "86.5% vs 8.7% plaque & tap ruler"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Modern Cortical Gain: Treisman Was 30 Years Ahead",
+      "beats": [
+        "How sensory neurons scale firing gain up and down like a dimmer",
+        "Why background chatter still nudges primed stress topics"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "rotary dimmer dial"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Always Say Their Name FIRST (Cockpit & Life Rule)",
+      "beats": [
+        "Why '24B, Alex!' loses the number at 8.7% gain",
+        "'Alex — [pause] — 24B!' unlocks 100% comprehension"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "Name to Pause to Data card"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "recreation_film",
+      "title": "Heritage Minutes: Wilder Penfield",
+      "url": "https://www.youtube.com/watch?v=pUOG2g4hj8s",
+      "channel": "Historica Canada",
+      "source_id": "SRC_M1",
+      "duration_sec": 61,
+      "timecodes": [
+        {
+          "t": "00:07-00:19",
+          "what": "At kf_003.jpg (12.8s) (widescreen camera frame), Historica Canada's recording states \"[plates crashing on floor] Every time she has a seizure, she smells something burning.\" — providing spoken context for 1937 Montreal Teaching Suite: Wilder Penfield's Numbered Cortical Ticket Model Beside the Giant-Handed Homunculus Sculpture."
+        },
+        {
+          "t": "00:21-00:29",
+          "what": "Mid-segment 4:3 camera frame at kf_005.jpg (25.8s) as narration explains \"Now, if we can provoke that smell by probing the surface of the brain, we’ll find the source of the seizures. Mrs. Gold, do you feel anything?\", clarifying key empirical findings in Wilder Penfield & Edwin Boldrey's 1937 Brain Awake Cortical Stimulation Mapping of 126 Epilepsy Patients (Updated by Gordon et al., 2023 Nature)."
+        },
+        {
+          "t": "00:30-00:38",
+          "what": "Around kf_010.jpg (34.3s) (dark-backdrop stage / studio camera frame), commentary states \"I can see the most wonderful lights. And now what do you feel? Did you pour cold water on my hand, Dr. Penfield?\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x270, 14 frames sampled across 12.3s–41.7s)) from Historica Canada's \"Heritage Minutes: Wilder Penfield\" (61s total runtime).",
+          "Deduplicated English transcript (19 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (12.3s–41.7s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Documentary Penfield 2",
+      "url": "https://www.youtube.com/watch?v=RNtqU-Xa9KM",
+      "channel": "PhysioSick",
+      "source_id": "SRC_M2",
+      "duration_sec": 1653,
+      "timecodes": [
+        {
+          "t": "04:34-04:48",
+          "what": "Around kf_003.jpg (283.4s) (widescreen camera frame), speaker commentary notes \"at the Montreal Neurological Institute years of tireless effort had borne fruit the puzzling deaths were now rare as treatment and Care improved...\", anchoring the research context of 1937 Montreal Teaching Suite: Wilder Penfield's Numbered Cortical Ticket Model Beside the Giant-Handed Homunculus Sculpture."
+        },
+        {
+          "t": "05:09-05:19",
+          "what": "At kf_008.jpg (315.1s) (widescreen camera frame), audio continues with \"s and scientists too came from around the world to join the team at The Institute studying the brain and treating its disorders and to work with...\", detailing experimental methodology and behavioral observations for Wilder Penfield & Edwin Boldrey's 1937 Brain Awake Cortical Stimulation Mapping of 126 Epilepsy Patients (Updated by Gordon et al., 2023 Nature)."
+        },
+        {
+          "t": "05:20-05:31",
+          "what": "Later widescreen camera frame at kf_010.jpg (327.7s) accompanied by \"leader and Guiding Light the wonderful thing about working with a man of the sword of course is that it's contagious if you have a leader you...\", summarizing mechanism and boundary conditions in Wilder Penfield & Edwin Boldrey's 1937 Brain Awake Cortical Stimulation Mapping of 126 Epilepsy Patients (Updated by Gordon et al., 2023 Nature)."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (360x240, 14 frames sampled across 270.8s–353.0s)) from PhysioSick's \"Documentary Penfield 2\" (1653s total runtime).",
+          "Deduplicated English transcript (18 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (270.8s–353.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "museum_artefact",
+      "title": "Sensory and motor homunculi.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Sensory_and_motor_homunculi.jpg",
+      "channel": "Wikimedia Commons (Dr. Joe Kiff ( http://psychology.wikia.com/wiki/User:Lifeartist / http://psychology.wikia.com/wiki/User:Dr_Joe_Kiff ))",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified museum artefact \"Sensory and motor homunculi.jpg\" (960x720 px, CC BY-SA 3.0): Sensory Homunculus and Motor Homunculus sculptures at the Museum of Natural History, London, based on the cortical homunculi mapped by Dr. Wilder Penfield. Photographed by Dr. Joe Kiff. Documents authentic physical instrument geometry and period materials relevant to Wilder Penfield & Edwin Boldrey's 1937 Brain Awake Cortical Stimulation Mapping of 126 Epilepsy Patients (Updated by Gordon et al., 2023 Nature)."
+        }
+      ],
+      "license_note": "Archival museum artefact (CC BY-SA 3.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x720 px, CC BY-SA 3.0, Dr. Joe Kiff ( http://psychology.wikia.com/wiki/User:Lifeartist / http://psychology.wikia.com/wiki/User:Dr_Joe_Kiff )) — apparatus reference: Sensory Homunculus and Motor Homunculus sculptures at the Museum of Natural History, London, based on the cortical homunculi mapped by Dr. Wilder Penfield. Photographed by Dr. Joe Kiff.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

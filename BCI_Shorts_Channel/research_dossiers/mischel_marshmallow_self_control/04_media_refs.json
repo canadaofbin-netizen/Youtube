@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Walter Mischel on his Marshmallow Experiment",
+      "url": "https://www.youtube.com/watch?v=0b3SWsjWzdA",
+      "channel": "Steve Stockdale",
+      "source_id": "SRC_M1",
+      "duration_sec": 563,
+      "timecodes": [
+        {
+          "t": "06:44-07:00",
+          "what": "Dark-backdrop stage / studio camera frame at kf_001.jpg (410.8s) paired with transcript segment \"early age wouldn't brand the kid for life particularly the kids who don't do well on this that's what I'm thinking the kids who don't do well are...\", introducing core background on preschooler turning away and covering eyes with both hands beside a single white marshmallow and silver desk bell."
+        },
+        {
+          "t": "07:36-07:46",
+          "what": "Around kf_009.jpg (461.4s) (dark-backdrop stage / studio camera frame), transcript records \"to do it that connect with how the brain works in the experiments we've done we've taken children who were unable to wait for more than a minute...\", examining procedural mechanics and evidence in Walter Mischel & Ebbe Ebbesen's Stanford Bing Nursery School delay-of-gratification experiments."
+        },
+        {
+          "t": "08:04-08:18",
+          "what": "At kf_014.jpg (493.0s) (dark-backdrop stage / studio camera frame), speaker remarks \"that that happens you walk out of the room the child is able to wait 15 minutes you show the child the picture of the object and you say make...\", addressing theoretical interpretation and downstream implications of Walter Mischel & Ebbe Ebbesen's Stanford Bing Nursery School delay-of-gratification experiments."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (4:3 broadcast/clinical camera recording (400x300, 14 frames sampled across 410.8s–493.0s)) from Steve Stockdale's \"Walter Mischel on his Marshmallow Experiment\" (563s total runtime).",
+          "Deduplicated English transcript (28 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (410.8s–493.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Walter Mischel - The Marshmallow Test",
+      "url": "https://www.youtube.com/watch?v=XcmrCLL7Rtw",
+      "channel": "The Brainwaves Video Anthology",
+      "source_id": "SRC_M2",
+      "duration_sec": 262,
+      "timecodes": [
+        {
+          "t": "00:15-00:24",
+          "what": "At kf_004.jpg (15.0s) (widescreen camera frame), The Brainwaves Video Anthology's recording states \"my name is Walter Michelle and I'm a professor at Columbia\" — providing spoken context for preschooler turning away and covering eyes with both hands beside a single white marshmallow and silver desk bell."
+        },
+        {
+          "t": "00:34-00:44",
+          "what": "Mid-segment widescreen camera frame at kf_009.jpg (40.0s) as narration explains \"of self-control are for their lives uh as they grow up uh self-control which used to be called willpower is obviously\", clarifying key empirical findings in Walter Mischel & Ebbe Ebbesen's Stanford Bing Nursery School delay-of-gratification experiments."
+        },
+        {
+          "t": "00:57-01:04",
+          "what": "Around kf_013.jpg (60.0s) (widescreen camera frame), commentary states \"uh studying the problem of self-control is a measure that's now called the marshmallow test actually we very\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (480x270, 14 frames sampled across 0.0s–65.0s)) from The Brainwaves Video Anthology's \"Walter Mischel - The Marshmallow Test\" (262s total runtime).",
+          "Deduplicated English transcript (33 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Marshmallows.JPG",
+      "url": "https://commons.wikimedia.org/wiki/File:Marshmallows.JPG",
+      "channel": "Wikimedia Commons (Smith609)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Marshmallows.JPG\" (960x443 px, CC BY-SA 3.0): Marshmallows. Documents authentic physical instrument geometry and period materials relevant to Walter Mischel & Ebbe Ebbesen's Stanford Bing Nursery School delay-of-gratification experiments."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 3.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x443 px, CC BY-SA 3.0, Smith609) — apparatus reference: Marshmallows.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

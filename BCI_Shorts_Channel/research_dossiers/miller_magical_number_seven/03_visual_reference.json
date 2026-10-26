@@ -1,0 +1,213 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Grouping 40 binary 0-and-1 tiles into crisp 3-digit octal chunks on the Harvard seminar table",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1956, Harvard University Psycho-Acoustic Laboratory, Cambridge",
+      "layout": {
+        "description": "Sunlit 1956 wood-paneled Harvard seminar room with a green slate chalkboard and a long oak table covered in small white wooden tiles printed with black 0s and 1s alongside larger bracketed octal summary blocks.",
+        "positions": [
+          {
+            "who": "George A. Miller (mannequin in 1950s tweed jacket, white shirt, and dark tie)",
+            "where": "standing at the oak table sliding loose 0-1-1 tiles into neat three-tile wooden brackets",
+            "facing": "facing the table and student"
+          },
+          {
+            "who": "Sidney Smith (mannequin in rolled Oxford sleeves)",
+            "where": "standing beside the chalkboard reciting 40 binary digits effortlessly from his octal chunk brackets",
+            "facing": "facing the chalkboard"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "loose binary 0/1 tile row",
+          "period_detail": "40 individual white tiles printed with 0 or 1 where an ungrouped subject stalls after tile 9",
+          "physical_behavior": "swept cleanly into neat triplets like [1 0 1] -> [5]"
+        },
+        {
+          "name": "octal chunking brackets",
+          "period_detail": "carved wooden 3-tile trays labeled with single octal digits 0 through 7",
+          "physical_behavior": "compresses 21 binary tiles into just 7 manageable chunks"
+        },
+        {
+          "name": "chalkboard span comparison chart",
+          "period_detail": "crisp white chalk bars comparing binary digits, decimal digits, letters, and words all hovering near height 7",
+          "physical_behavior": "shows bits skyrocket while chunk count stays flat near seven"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Sidney Smith",
+          "verb_sequence": "attempts to recall loose binary tiles and stalls at tile 9 -> slides wooden 3-tile octal brackets over the line -> recites all 40 binary digits cleanly"
+        },
+        {
+          "who": "George A. Miller",
+          "verb_sequence": "draws a horizontal chalk line across '7 ± 2 chunks' on the slate board"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Sidney Smith",
+          "reaction": "taps the final 40th tile with effortless precision"
+        },
+        {
+          "who": "George A. Miller",
+          "reaction": "gestures between the tiny 9-bit binary stack and tall 70-bit word stack fitting inside the same seven-slot tray"
+        }
+      ],
+      "wardrobe": "1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers.",
+      "lighting": "High-key New England window daylight across green slate chalkboard and oak tabletop.",
+      "recognition_hook": "Stalling after just nine raw zeros and ones, a Harvard researcher groups every three digits into one octal chunk and recalls forty straight without a mistake.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "two 1950s Harvard researchers at an oak table grouping scattered 0-and-1 tiles into neat three-tile wooden brackets beneath a '7 ± 2' chalkboard chart",
+        "must_show": [
+          "tiles|digits|cards",
+          "chalkboard|board",
+          "table"
+        ],
+        "source": "M1@00:09-00:15; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Seven binary digits versus seven rich English words",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1956, Harvard seminar table",
+      "layout": {
+        "description": "Split tabletop display comparing seven thin binary cards on the left with seven thick dictionary word cards on the right.",
+        "positions": [
+          {
+            "who": "Participant mannequin",
+            "where": "reading back seven English word cards effortlessly",
+            "facing": "facing the table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "seven binary cards vs seven word cards",
+          "period_detail": "printed white index cards",
+          "physical_behavior": "both sets fill seven wooden slots despite a tenfold difference in information bits"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Participant mannequin",
+          "verb_sequence": "places seven thick word cards into the exact same seven-slot wooden rack"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "George A. Miller",
+          "reaction": "points out that slot count, not bit weight, sets the bottleneck"
+        }
+      ],
+      "wardrobe": "1950s tweed and Oxford shirts.",
+      "lighting": "Bright classroom daylight.",
+      "recognition_hook": "Seven words carry ten times more bits than seven zeros, yet fit the same mental rack.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Unidimensional tone judgment ceiling around six categories",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1956, Harvard Psycho-Acoustic booth",
+      "layout": {
+        "description": "Clean acoustic testing desk with an oscillator frequency dial and numbered response buttons 1 through 10.",
+        "positions": [
+          {
+            "who": "Listener mannequin in studio headphones",
+            "where": "pressing numbered category buttons as pure tones play",
+            "facing": "facing button panel"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "ten-button pitch judgment box",
+          "period_detail": "brushed aluminum response panel",
+          "physical_behavior": "accuracy stays crisp up to 6 tones then blurs when stretched to 10"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Listener mannequin",
+          "verb_sequence": "identifies four tones flawlessly -> hesitates when ten ungrouped pitches are mixed"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "George A. Miller",
+          "reaction": "logs the ~2.6-bit sensory judgment ceiling"
+        }
+      ],
+      "wardrobe": "1950s collared shirt and cardigan.",
+      "lighting": "High-key acoustic lab light.",
+      "recognition_hook": "Without a reference scale, raw one-dimensional pitch judgment tops out around six categories.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Chunking a messy modern task list into three clear buckets",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern workspace",
+      "layout": {
+        "description": "Sunlit white desk where twelve scattered sticky notes are reorganized into three clean labeled columns.",
+        "positions": [
+          {
+            "who": "Knowledge worker mannequin",
+            "where": "grouping twelve loose notes under three bold category headers",
+            "facing": "facing desk board"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "three-column whiteboard",
+          "period_detail": "clean board grouping twelve tasks into three clear 4-item chunks",
+          "physical_behavior": "turns cognitive overload into instant clarity"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Knowledge worker mannequin",
+          "verb_sequence": "clusters loose notes into three named buckets"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Knowledge worker mannequin",
+          "reaction": "steps back with calm focus"
+        }
+      ],
+      "wardrobe": "Modern smart-casual knit shirt.",
+      "lighting": "Bright natural daylight.",
+      "recognition_hook": "Bundling twelve scattered tasks into three named buckets works WITH your prefrontal slots.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

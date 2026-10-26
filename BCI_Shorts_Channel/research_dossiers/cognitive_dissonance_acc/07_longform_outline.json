@@ -1,0 +1,137 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Volunteers cramped inside a roaring MRI tube told a nervous patient 'the scanner is super comfortable' — and their brain's conflict spike predicted how much they convinced themselves it was true.",
+    "core_experiment": "Van Veen, Krug, Schooler & Carter (2009 Nature Neuroscience): 45-min loud MRI task, free-choice intercom fib vs paid-bonus control, dACC + anterior insula BOLD predicting attitude shift.",
+    "twist": "Settled the 40-year Festinger vs self-perception debate: dissonance physically fires visceral gut discomfort (insula) + error conflict (dACC) in real time during the fib."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Turning the MRI Tube Into the Trap",
+      "beats": [
+        "Why Festinger's 1959 pegs wouldn't fit an MRI",
+        "45 minutes inside a roaring, cramped scanner",
+        "Asking volunteers to call the tube 'pleasant'"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "tight close-up inside the 3T head coil"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Hot Conflict vs Cold Self-Perception",
+      "beats": [
+        "50-year mystery since 1957",
+        "Daryl Bem's cold observer challenge",
+        "Why only live brain imaging could decide"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "two-theory chalkboard diagram"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Free Choice vs Paid Bonus Control",
+      "beats": [
+        "Same exact words spoken into the intercom",
+        "Bonus voucher silences the conflict in controls",
+        "dACC + anterior insula light up under free choice"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "alternating matched-angle: free-choice spike vs paid flat trace"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Predicting Belief Change From a Brain Scan",
+      "beats": [
+        "Post-scan 1-to-7 comfort ratings",
+        "r > 0.55 correlation from dACC & insula",
+        "Proof that attitude shifts start mid-sentence"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "scatter plot and rating sheet comparison"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Why Gut Discomfort (Insula) Matters",
+      "beats": [
+        "Anterior insula's role in bodily unease",
+        "Why we rationalize harder when stressed",
+        "Two-stage cascade into prefrontal re-valuation"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [],
+      "new_shots_needed": [
+        "anatomical highlight of midline dACC and insula"
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Scope & Critiques of Induced Compliance",
+      "beats": [
+        "Chapanis methodological questions",
+        "Free-choice requirement: bare coercion fails",
+        "2026 scoping review consensus"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [],
+      "new_shots_needed": [
+        "free-choice vs forced-order comparison"
+      ]
+    },
+    {
+      "n": 7,
+      "title": "Spotting Your Own Dashboard Conflict Light",
+      "beats": [
+        "90-minute café line and sunk-cost loyalty",
+        "Admitting 'I made a bad pick' shuts off the trap",
+        "Closing takeaway"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "sunny café queue scene"
+      ]
+    }
+  ]
+}

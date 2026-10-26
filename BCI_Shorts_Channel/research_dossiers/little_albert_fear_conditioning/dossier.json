@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "slug": "little_albert_fear_conditioning",
+  "topic": "Watson & Rayner (1920): 'Little Albert', the Claw-Hammer Steel Bar & History's Most Controversial Fear Test",
+  "pillar": "brain_history",
+  "created_at": "2026-10-25T22:49:33+00:00",
+  "status": "ready",
+  "visual_mode": "BEHAVIORAL_PSYCH",
+  "visual_mode_reason": "John B. Watson and Rosalie Rayner's filmed 1920 Johns Hopkins nursery room test — pairing a tame white rat with a loud steel-bar hammer clang behind an 11-month-old infant — is a landmark historical behavioral conditioning and research-ethics case staged purely in the physical nursery.",
+  "primary_case": {
+    "title": "John B. Watson & Rosalie Rayner's 1920 Johns Hopkins 'Little Albert' Conditioned Emotional Reactions study",
+    "year": 1920,
+    "place": "Harriet Lane Home / Phipps Psychiatric Clinic nursery room, Johns Hopkins University, Baltimore",
+    "people": [
+      {
+        "name": "John B. Watson & Rosalie Rayner",
+        "role": "Founder of Behaviorism and graduate student who filmed baseline fearlessness at 9 months and paired a white rat with a steel-bar clang at 11 months, 3 days",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "'Albert B.'",
+        "role": "Infant child of a Harriet Lane Home wet nurse — calm and unafraid of animals on film at baseline, removed from the hospital before any fear reversal was ever attempted",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Ben Harris, Hall P. Beck & Alan J. Fridlund",
+        "role": "Historians of psychology whose archival investigations exposed textbook exaggerations, unreversed conditioning ethics, and the Douglas Merritte vs Albert Barger identity debate",
+        "source_id": "SRC6"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "At 8 months, 26 days old in late 1919 at Johns Hopkins, 'Albert B.' was filmed on a white nursery mattress reaching out calmly with ZERO fear toward a tame white rat, a rabbit, a dog, cotton wool, masks, and even burning newspaper.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Only ONE stimulus triggered an unconditioned startle reflex in Albert: Watson standing behind the infant's back and striking a suspended 4-foot-long, 3/4-inch steel bar with a carpenter's claw hammer.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Starting at 11 months, 3 days old (Watson & Rayner, 1920), each time Albert's fingers touched the white rat, Watson slammed the steel bar behind his head — twice in Session 1, then five more pairings a week later (7 total pairings).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "After 7 pairings, presenting the silent white rat ALONE caused Albert to cry, pucker his face, and crawl rapidly away across the mattress — conditioned fear transferred to a previously neutral animal.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Five days later (11 months, 20 days), Watson and Rayner tested 'stimulus generalization': Albert whimpered or pulled back from a furry rabbit, a dog, a sealskin fur coat, cotton wool, and Watson wearing a white-bearded Santa Claus mask — while continuing to play happily with wooden toy blocks right between trials.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Crucial historical critique #1 (Ben Harris, 1979; Powell et al., 2014): introductory psychology textbooks blatantly invented claims Watson never saw (like fear of a 'white teddy bear' or 'his mother's fur coat'), hid that Watson repeatedly had to 'freshen' the fading fear with extra hammer strikes, and ignored that Albert frequently sucked his thumb to block fear.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Crucial ethics failure #2: Watson & Rayner KNEW a month in advance when Albert's mother would take him home, yet chose to spend his final sessions testing generalization rather than extinguishing the conditioned fear — it took Watson's student Mary Cover Jones ('Little Peter', 1924) four years later to pioneer gentle exposure counterconditioning.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Modern archival sleuthing sparked a lively historical detective story over Albert's real identity — Hall Beck & Alan Fridlund (2009/2012) proposed neurologically ill 'Douglas Merritte' (who died at age 6), whereas Russ Powell, Nancy Digdon & Ben Harris (2014) unearthed strong hospital-census evidence for healthy 'William Albert Barger' (1919-2007), who lived to 87 and reportedly disliked dogs.",
+      "source_id": "SRC6"
+    },
+    {
+      "fact": "In Watson and Rayner's (1920) transfer tests 5 days after rat-plus-steel-bar conditioning, fear responses generalized to a rabbit, dog, sealskin coat, and Santa Claus mask; in 1924, Mary Cover Jones extinguished fear in child 'Peter' by moving a caged rabbit from 12 feet to 0 feet during snack feeding.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "On Watson's surviving silent 1920 film reel, 9-month-old Albert reaches happily for a rat, a rabbit, and a dog — until 7 clangs of a 4-foot steel bar behind his head turn soft white fur alone into an instant alarm trigger.",
+      "why_surprising": "Seven acoustic pairings wired a brand-new emotional reflex before language even existed.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Right between crying at the rabbit and pulling back from a Santa beard, Albert smiled and banged wooden blocks cleanly — proving wooden blocks acted as a control ensuring he wasn't just crying at everything in the room.",
+      "why_surprising": "Even in N=1, wooden blocks separated conditioned fur cues from general distress.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "When historians audited 100+ college textbooks (Harris 1979; Powell 2014), over half got the facts wrong — inventing animals Watson never used and hiding that Albert's conditioned fear faded quickly unless Watson struck the steel bar again.",
+      "why_surprising": "Always read the original 1920 laboratory diary instead of textbook folklore.",
+      "source_id": "SRC4",
+      "rank": 3
+    },
+    {
+      "fact": "Watson never un-conditioned Little Albert — it was graduate student Mary Cover Jones in 1924 ('Little Peter', pairing snacks with gradually closer rabbits) who invented modern exposure therapy.",
+      "why_surprising": "The cure came from Mary Cover Jones, not John Watson.",
+      "source_id": "SRC3",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Little Albert's conditioned rat phobia stayed rock-solid and permanent from the very first session.",
+      "truth": "In Watson & Rayner's own 1920 notes, Albert's fear noticeably weakened after 10-30 days, forcing them to strike the steel bar again during generalization sessions to 'freshen' the reaction.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Watson proved every human phobia comes purely from a single loud traumatic pairing.",
+      "truth": "Evolutionary preparedness (Seligman/Öhman) later showed humans condition easily to snakes, heights, or animals, whereas conditioning lifelong phobias to wooden blocks, curtains, or spoons almost never sticks.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Watson & Rayner cured Albert before he left Johns Hopkins.",
+      "truth": "They never attempted extinction or counterconditioning despite knowing his departure date — an ethical violation permanently banned by modern Institutional Review Boards.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Flinching instantly at the smell of a dentist's antiseptic or a hospital corridor sound because of one painful childhood visit.",
+    "Understanding why gentle, graduated exposure ('Little Peter' style) steadily un-wires conditioned anxiety.",
+    "Checking primary sources whenever a famous textbook story sounds suspiciously neat."
+  ],
+  "linked_projects": [
+    "psych_53_little_albert_fear_conditioning"
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "slug": "split_brain_dual_consciousness",
+  "topic": "Michael Gazzaniga & Roger Sperry (1962-2000): Corpus Callosotomy, Split-Brain Patients (W.J. & P.S.), and the Left-Hemisphere Interpreter",
+  "pillar": "brain_mysteries",
+  "created_at": "2026-10-25T22:49:27+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Explaining why the left hand points to a snow shovel while the speaking mouth invents a chicken-coop excuse requires showing contralateral visual routing and the surgical gap across the 200-million-axon corpus callosum.",
+  "primary_case": {
+    "title": "Caltech & Dartmouth split-brain tachistoscope experiments (Patients W.J. and P.S.)",
+    "year": 1962,
+    "place": "California Institute of Technology (Pasadena) & Dartmouth Medical School",
+    "people": [
+      {
+        "name": "Michael S. Gazzaniga",
+        "role": "Cognitive neuroscientist who tested Patient W.J. as a Caltech graduate student in 1962 and discovered the left-hemisphere interpreter with Joseph LeDoux",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Roger W. Sperry",
+        "role": "Caltech neurobiologist and 1981 Nobel laureate who directed the hemispheric disconnection program",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Patient W.J. (William Jenkins)",
+        "role": "48-year-old WWII paratrooper and first human callosotomy patient tested by Gazzaniga and Sperry in 1962",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Patient P.S. (Paul S.)",
+        "role": "Teenage callosotomy patient whose chicken-claw / snow-shovel trial revealed the confabulating left-hemisphere interpreter",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Joseph E. LeDoux",
+        "role": "Co-investigator with Gazzaniga on the 1970s mobile-van testing of Patient P.S. in New England",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 1962 at Caltech, neurosurgeons Joseph Bogen and Philip Vogel severed the corpus callosum of 48-year-old WWII veteran W.J. to halt intractable grand mal seizures, initiating Gazzaniga and Sperry's human split-brain series.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The human corpus callosum contains roughly 200 million axonal fibers connecting homologous regions of the left and right cerebral hemispheres.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "In early postoperative weeks, split-brain patients sometimes experienced 'alien' intermanual conflict: W.J.'s left hand unbuttoned his shirt or shoved groceries back onto a shelf while his right hand tried to dress or shop.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "When a visual stimulus is flashed for 100 to 150 milliseconds to the left of a central fixation dot (left visual hemifield), retinal fibers project exclusively to the silent right visual cortex before the eyes can saccade.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Shown a word or object exclusively in the left visual field, W.J. verbally insisted 'I saw nothing,' yet his left hand (controlled by the right hemisphere) reached behind a screen and picked up the exact matching object.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In the classic simultaneous-concept test with teenage patient P.S., Gazzaniga and LeDoux flashed a chicken claw to the right visual field (left hemisphere) and a snow-covered house to the left visual field (right hemisphere).",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "From an array of picture cards on the table, P.S.'s right hand pointed to a chicken while his left hand pointed to a snow shovel.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Asked why his left hand was pointing at a snow shovel, P.S. — whose speaking left hemisphere had never seen the snow scene — instantly confabulated without hesitation: 'Oh, that's simple. The chicken claw goes with the chicken, and you need a shovel to clean out the chicken shed.'",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Roger Sperry received the 1981 Nobel Prize in Physiology or Medicine for demonstrating functional specialization across disconnected cerebral hemispheres.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Modern debates (Pinto et al. 2017 vs Volz & Gazzaniga 2017) show that while subcortical brainstem motor links allow cross-hand pointing, perceptual awareness of left- and right-field content remains strictly divided across the severed callosum.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Across 50 years of post-commissurotomy research since 1962, investigators debated whether callosotomy yields two independent conscious streams or unified agency bridged by subcortical pathways.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "When P.S.'s left hand pointed at a snow shovel for a snow scene his left brain never saw, his mouth instantly invented a story about cleaning a chicken shed — and completely believed it.",
+      "why_surprising": "Your speaking left brain would rather invent a plausible fiction in half a second than admit it does not know why your body moved.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "A patient could stare at a fixation dot, say out loud 'I didn't see anything,' and simultaneously pick up the exact flashed object behind a curtain with his left hand.",
+      "why_surprising": "Two independent perceptual streams were answering Opposite answers inside the same skull.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Soon after surgery, one hand literally fought the other over shirt buttons and grocery shelves.",
+      "why_surprising": "Without the 200-million-fiber callosal bridge, motor intentions can temporarily collide in real life.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "Flashes had to last under 150 milliseconds so the patient's eyes could not dart sideways and leak the picture into both hemispheres.",
+      "why_surprising": "One tiny eye flick is enough for split-brain patients to cross-cue their two halves in everyday life.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Left-brained people are purely logical mathematicians while right-brained people are purely artistic creatives.",
+      "truth": "Both hemispheres work constantly together in intact brains; lateralization is about specialized processing modules (speech/interpreter on left, spatial/holistic attention on right), not personality types.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Split-brain patients walk around visibly acting like two personalities all day.",
+      "truth": "In normal life, head and eye movements send visual scenes to both hemispheres simultaneously; split perception mainly appears under brief 100-ms tachistoscope fixation.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "The right hemisphere cannot understand any words at all.",
+      "truth": "Several patients (such as P.S. and J.W.) understood nouns and spelled answers with Scrabble tiles using the left hand despite lacking vocal speech.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Confabulation means the patient is consciously lying to trick the scientist.",
+      "truth": "The left-hemisphere interpreter genuinely experiences its post-hoc story as the true reason for its own behavior.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Buying something impulsively online at midnight and hearing yourself invent three sensible 'practical reasons' for it the next morning.",
+    "Snapping irritably when you are actually just hungry or exhausted, then blaming a coworker's email tone.",
+    "Trying to pat your head and rub your stomach at the same time and feeling the two motor programs interfere.",
+    "Catching yourself defending a snap gut judgment long after the original trigger happened."
+  ],
+  "linked_projects": [
+    "psych_03_split_brain_dual_consciousness"
+  ]
+}

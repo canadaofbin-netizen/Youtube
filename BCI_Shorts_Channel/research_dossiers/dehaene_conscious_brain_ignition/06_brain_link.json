@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "primary visual cortex",
+      "plain": "early <200-ms feedforward local sensory wave (Subliminal & Preconscious)",
+      "function": "encoding flashed letters and shapes linearly in early occipital-temporal cortex even on trials where the viewer consciously reports seeing a blank screen",
+      "scene_id": "S1",
+      "narration_bridge": "Establishes preserved early sensory coding without conscious access (SRC1, SRC3)."
+    },
+    {
+      "role": "pivot",
+      "region": "parietal cortex",
+      "plain": "inferior parietal attentional gate & workspace hub (~270–300 ms)",
+      "function": "opening the preconscious bottleneck and locking into reciprocal long-range white-matter conduction with frontal hubs at the 50-ms masking threshold",
+      "scene_id": "S1",
+      "narration_bridge": "Key posterior limb of Dehaene's frontoparietal workspace."
+    },
+    {
+      "role": "step1",
+      "region": "prefrontal cortex",
+      "plain": "all-or-none ~300-ms Global Workspace broadcast",
+      "function": "sustaining coherent internal tract conduction across bilateral prefrontal-parietal loops so the perceived word can be held in working memory and spoken aloud",
+      "scene_id": "S1",
+      "narration_bridge": "Core GNW conscious-access signature (Dehaene et al. 2006 SRC1; 2011 SRC2)."
+    }
+  ]
+}

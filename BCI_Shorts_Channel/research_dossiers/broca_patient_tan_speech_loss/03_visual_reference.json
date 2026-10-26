@@ -1,0 +1,203 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "April 1861 Bicêtre Bedside: Leborgne Answering '21 Years' With Crisp Left-Hand Finger Counts While Saying Only 'Tan, Tan'",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "April 1861, Bicêtre Hospital ward, Paris",
+      "layout": {
+        "description": "Sunlit high-key 1861 Paris hospital examination room with tall arched French windows, a crisp white-linened bedside chair, Paul Broca's silver pocket watch and leather clinical notebook on an oak side table, and a matte-white anatomical plaster model highlighting the left third frontal convolution.",
+        "positions": [
+          {
+            "who": "Paul Broca (mannequin in 1861 dark French physician frock coat, white cravat, and waistcoat)",
+            "where": "holding open his silver pocket watch and asking Leborgne how many years he has lived at Bicêtre",
+            "facing": "seated beside exam table"
+          },
+          {
+            "who": "Louis Victor Leborgne / 'Monsieur Tan' (mannequin in neat 1861 white linen hospital shirt and cardigan)",
+            "where": "nodding with bright, alert eyes, gesturing 'Tan, tan' vocally while crisply opening his left hand four consecutive times (20) plus 1 single finger (= 21 years!)",
+            "facing": "seated upright facing Broca"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1861 silver pocket watch & '4 × 5 + 1 = 21 Years' ledger note",
+          "period_detail": "proves Leborgne's sharp arithmetic, time reading, and spoken-question comprehension",
+          "physical_behavior": "refutes any confusion between speech loss and dementia"
+        },
+        {
+          "name": "matte-white cerebral cast marking the Left 3rd Frontal Convolution",
+          "period_detail": "pinpoints the exact asymmetric left-frontal locus presented on April 18, 1861",
+          "physical_behavior": "marks the birth of cortical localization"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Paul Broca",
+          "verb_sequence": "asks Leborgne how many years he has spent at Bicêtre and shows his pocket watch -> Leborgne replies 'Tan, tan' with expressive pitch while flashing four crisp 5-finger counts plus 1 finger to answer '21' accurately"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Paul Broca",
+          "reaction": "records intact intelligence + preserved tongue motility alongside selective loss of *articulate language*"
+        },
+        {
+          "who": "Leborgne mannequin",
+          "reaction": "expresses clear relief at being understood accurately"
+        }
+      ],
+      "wardrobe": "1861 Parisian physician frock coat, waistcoat, white collar; clean white linen hospital shirt and wool shawl cardigan.",
+      "lighting": "Bright high-key tall-window Paris daylight.",
+      "recognition_hook": "His mouth could pronounce only one syllable — 'Tan' — yet five seconds with Paul Broca's pocket watch proved a sharp, fully awake mind lived inside.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "an 1861 Paris hospital room where a seated patient answers a frock-coated physician's pocket-watch question by crisply flashing finger counts ('21') beside a matte-white left-frontal brain model",
+        "must_show": [
+          "watch|notebook|ledger",
+          "fingers|hand",
+          "model|brain|table"
+        ],
+        "source": "M1@00:04-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "2007 Paris MRI: Scanning Leborgne's 146-Year-Old Preserved Brain",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2007, Paris / UC Davis neuroimaging suite (Dronkers et al.)",
+      "layout": {
+        "description": "Clean bright modern MRI control suite displaying crisp 3D slices of Leborgne's preserved 1861 specimen.",
+        "positions": [
+          {
+            "who": "Nina Dronkers (mannequin in modern blazer)",
+            "where": "pointing on the high-resolution monitor to the deep white-matter tract lesion (Superior Longitudinal Fasciculus) extending far deeper than surface Broca's area",
+            "facing": "at MRI console"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "high-res 3D MRI slice display of Leborgne's 1861 brain",
+          "period_detail": "reveals deep insula + SLF/arcuate tract involvement without cutting the historic specimen",
+          "physical_behavior": "Dronkers et al. 2007 Brain landmark"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Dronkers",
+          "verb_sequence": "scrolls from the famous 1861 surface dent deeper into the white-matter speech highway"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "French & US colleagues",
+          "reaction": "nod seeing a 146-year clinical mystery resolved"
+        }
+      ],
+      "wardrobe": "2007 tailored blazer and white lab coats.",
+      "lighting": "Clean high-key console room light.",
+      "recognition_hook": "Because Paul Broca refused to slice 'Tan's' brain in 1861, a 2007 MRI scanner revealed what hid underneath for 146 years.",
+      "sources": [
+        "SRC_DRONKERS",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "'We Speak With the Left Hemisphere!' (1865 Asymmetry Breakthrough)",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1865, Société d'Anthropologie de Paris lecture hall",
+      "layout": {
+        "description": "Sunlit 19th-century oak lecture table displaying eight left-hemisphere case diagrams vs zero right-hemisphere aphasia cases.",
+        "positions": [
+          {
+            "who": "Paul Broca",
+            "where": "presenting the 8-to-0 left-vs-right hemisphere chart to astonished Parisian anatomists",
+            "facing": "at oak lectern"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "8 Left vs 0 Right hemisphere case ledger",
+          "period_detail": "overturns centuries of assuming symmetrical twin hemispheres",
+          "physical_behavior": "Broca 1865 landmark"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Broca",
+          "verb_sequence": "points across eight consecutive left-frontal lesion diagrams"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Anatomists",
+          "reaction": "realize human brain hemispheres specialize asymmetrically"
+        }
+      ],
+      "wardrobe": "1865 formal academic frock coats.",
+      "lighting": "Warm tall-window hall light.",
+      "recognition_hook": "Eight speech-loss brains in a row, all damaged on the LEFT — shattering the myth that our two hemispheres are identical twins.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Singing Across the Detour: Melodic Intonation Rehabilitation",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern speech-language therapy studio",
+      "layout": {
+        "description": "Warm sunlit therapy table where a therapist taps a gentle two-note rhythm with a left-hemisphere stroke survivor.",
+        "positions": [
+          {
+            "who": "Speech therapist & Survivor mannequins",
+            "where": "tapping left-hand rhythm and singing 'Good mor-ning!' smoothly together using intact right-hemisphere melody circuits when plain speech stalls",
+            "facing": "at therapy table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "two-note melodic rhythm cards",
+          "period_detail": "recruits intact right-hemisphere frontotemporal singing network",
+          "physical_behavior": "clinical payoff of Broca's lateralization discovery"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Survivor",
+          "verb_sequence": "struggles speaking prose -> taps rhythm and sings the full three-word phrase clearly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Both",
+          "reaction": "beam at the unlocked voice"
+        }
+      ],
+      "wardrobe": "Modern smart-casual attire.",
+      "lighting": "Warm encouraging daylight.",
+      "recognition_hook": "When the left hemisphere's speech bridge is damaged, tapping a melody can route real words across the intact right hemisphere!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "youtube_reenactment",
+      "title": "The Story of Phineas Gage VTS 02 1",
+      "url": "https://www.youtube.com/watch?v=NFO6ts6vZic",
+      "channel": "hanjhs2000",
+      "timecodes": [
+        {
+          "t": "00:48-01:55",
+          "what": "September 13, 1848 Cavendish railroad cut setup: Gage directing workmen clearing brush and drilling granite, pouring blasting powder, and preparing to tamp the charge."
+        },
+        {
+          "t": "02:35-03:20",
+          "what": "The blast sequence: Gage looks away toward his crew before sand is poured, the tamping iron sparks in the rock hole, white smoke erupts, and Gage falls backward onto the granite ledge before speaking and being helped toward the ox cart."
+        },
+        {
+          "t": "05:32-06:45",
+          "what": "Arrival at Cavendish hotel: Gage walks up the porch steps and sits conversing with Dr. Edward Williams and Dr. John Harlow."
+        },
+        {
+          "t": "09:45-11:15",
+          "what": "Post-recovery confrontation: Gage returns to his old railroad crew demanding his foreman job back, loses his temper when replaced, and is described as 'not the man that was Gage'."
+        }
+      ],
+      "license_note": "Reference analysis only (blocking, period props, wardrobe, and physical action sequence). Never reused in channel videos.",
+      "analysis": {
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "transcript": "media/M1/transcript.txt",
+        "keyframe_count": 32,
+        "shot_notes": "Keyframes kf_002-kf_018 show the 1848 Vermont granite cut: rough pale granite ledges, wooden black-powder kegs, workmen in rolled-up white linen shirtsleeves, dark waistcoats, suspenders, and broad-brimmed felt hats. Keyframes kf_019-kf_026 show the blast: Gage crouches over the vertical hole gripping the long iron rod with both hands, turns his head toward a workman calling out, an orange flash and dense white black-powder smoke plume erupt straight upward from the rock, and Gage is thrown flat on his back across the pale stone rubble. Later frames show the wooden ox cart transport and the heated confrontation with his railroad crew."
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "youtube_museum_curatorial",
+      "title": "Lessons of the brain: the Phineas Gage case",
+      "url": "https://www.youtube.com/watch?v=yXbAMHzYGJ0",
+      "channel": "Harvard University",
+      "timecodes": [
+        {
+          "t": "00:11-00:43",
+          "what": "Curator Dominic Hall at Harvard's Warren Anatomical Museum explains the September 1848 Cavendish blast and shows the 3-foot-7-inch, 13.25-pound tapered iron rod alongside 1850 anatomical diagrams of the skull trajectory."
+        },
+        {
+          "t": "00:49-01:23",
+          "what": "Close-ups of the actual Phineas Gage skull, the 1850 plaster life cast commissioned by Henry Jacob Bigelow, the hinged frontal bone flap, and the original 1848 Boston Medical and Surgical Journal report."
+        }
+      ],
+      "license_note": "Reference analysis only (museum artefact proportions, skull entry/exit geometry, and tamping iron taper). Never reused in channel videos.",
+      "analysis": {
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "transcript": "media/M2/transcript.txt",
+        "keyframe_count": 24,
+        "shot_notes": "Keyframes kf_002-kf_008 show the real 110-cm tamping iron resting horizontally on brass museum cradles and 1850 lithographs of the rod passing vertically beneath the left zygomatic arch and exiting the midline frontal bone. Keyframes kf_009-kf_015 show the actual skull side-by-side with Bigelow's 1850 plaster life mask (clearly showing the closed left eyelid and raised forehead scar) and a close-up of the 12-inch conical taper ending in a blunt 1/4-inch point."
+      }
+    }
+  ]
+}

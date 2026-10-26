@@ -1,0 +1,91 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "archive_film",
+      "title": "Siphon Withdrawal Reflexes in Aplysia (Dominican University)",
+      "url": "https://www.youtube.com/watch?v=wE54PPXgstM",
+      "channel": "Andrew Meissen",
+      "source_id": "SRC_M1",
+      "duration_sec": 42,
+      "timecodes": [
+        {
+          "t": "00:08-00:16",
+          "what": "Non-vocal 4:3 camera frame at kf_003.jpg (11.0s) in Andrew Meissen's \"Siphon Withdrawal Reflexes in Aplysia (Dominican University)\", visually recording timing and visual layout relevant to 1970 Columbia / NYU Neurobiology Bench: Giant Aplysia Model, Dual Microelectrodes & '1,300 to 2,600 Doubled Synapses' Chart."
+        },
+        {
+          "t": "00:30-00:38",
+          "what": "Visual-only 4:3 camera frame at kf_007.jpg (33.0s) in \"Siphon Withdrawal Reflexes in Aplysia (Dominican University)\", capturing movement progression and frame composition without spoken English commentary."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_kandel_aplysia_synaptic_plas/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_kandel_aplysia_synaptic_plas",
+        "contact_sheet": "media/M1_kandel_aplysia_synaptic_plas/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1_kandel_aplysia_synaptic_plas/contact_sheet.jpg (archival footage (480x360, 0/12 monochrome frames across 0.0s–60.5s)) from Andrew Meissen's \"Siphon Withdrawal Reflexes in Aplysia (Dominican University)\" (42s total runtime).",
+          "Non-vocal archival/demonstration clip (media/M1_kandel_aplysia_synaptic_plas/transcript.txt); visual timing and staging inspected directly across 12 keyframes (0.0s–60.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "Eric Kandel, Nobel Prize in Physiology or Medicine 2000: Nobel Prize lecture",
+      "url": "https://www.youtube.com/watch?v=a8lmgAh9uZE",
+      "channel": "Nobel Prize",
+      "source_id": "SRC_M2",
+      "duration_sec": 3427,
+      "timecodes": [
+        {
+          "t": "17:25-17:39",
+          "what": "Around kf_001.jpg (1050.8s) (lecture slide / diagram frame), speaker commentary notes \"from avid carlson the serotonergic pathway is particularly important this pathway ends in the sensory neurons including on the presynaptic...\", anchoring the research context of 1970 Columbia / NYU Neurobiology Bench: Giant Aplysia Model, Dual Microelectrodes & '1,300 to 2,600 Doubled Synapses' Chart."
+        },
+        {
+          "t": "17:50-18:03",
+          "what": "At kf_005.jpg (1076.1s) (4:3 camera frame), audio continues with \"you give five training trials you get a persistent enhancement of synaptic transmission that lasts for days and this does require new protein...\", detailing experimental methodology and behavioral observations for Eric R. Kandel, Castellucci, Pinsker & Kupfermann's 1970 Science Aplysia Gill-Withdrawal Synapse Discovery (2000 Nobel Prize)."
+        },
+        {
+          "t": "18:31-18:46",
+          "what": "Later 4:3 camera frame at kf_012.jpg (1120.4s) accompanied by \"that you can reconstitute this component of the neural circuit in dissociated cell culture you can take a single sensory neuron a single motor...\", summarizing mechanism and boundary conditions in Eric R. Kandel, Castellucci, Pinsker & Kupfermann's 1970 Science Aplysia Gill-Withdrawal Synapse Discovery (2000 Nobel Prize)."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (live-action speaker/interview recording intercut with 5 visual slide frames (492x360, sampled across 1050.8s–1133.0s)) from Nobel Prize's \"Eric Kandel, Nobel Prize in Physiology or Medicine 2000: Nobel Prize lecture\" (3427s total runtime).",
+          "Deduplicated English transcript (28 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (1050.8s–1133.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Aplysia californica.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Aplysia_californica.jpg",
+      "channel": "Wikimedia Commons (Genny Anderson)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Aplysia californica.jpg\" (400x289 px, CC BY-SA 4.0): Aplysia californica emitting ink cloud. Provides visual morphology reference for the focal organism/stimulus discussed in Eric R. Kandel, Castellucci, Pinsker & Kupfermann's 1970 Science Aplysia Gill-Withdrawal Synapse Discovery (2000 Nobel Prize)."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 4.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (400x289 px, CC BY-SA 4.0, Genny Anderson) — subject organism reference: Aplysia californica emitting ink cloud.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

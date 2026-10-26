@@ -1,0 +1,839 @@
+{
+  "schema_version": 5,
+  "visual_mode": "HYBRID",
+  "aspect": "9:16",
+  "dossier": "invisible_gorilla_attention",
+  "total_reference_images": 17,
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: white team in 1999 plain white t-shirts and blue denim jeans; black team in 1999 plain black t-shirts and dark trousers; gorilla in full-body shaggy dark brown-black furry gorilla costume; observer in casual college crew-neck sweater and jeans.",
+  "generation_order": "1 env plate -> 2 cast sheets + hero prop (conditioned on env) -> 3 clip start / key frames (conditioned on 1+2)",
+  "master_anchors": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a bright 1999 Harvard elevator lobby with three brushed-steel elevator doors, featuring three brushed-steel elevator doors, no people. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "a bright 1999 Harvard elevator lobby with three brushed-steel elevator doors",
+        "three brushed-steel elevator doors"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_white_team",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_white_team.png",
+      "title": "Cast sheet: white_team (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, white team wearing 1999 plain white t-shirts and blue denim jeans, standing in a bright 1999 Harvard elevator lobby with three brushed-steel elevator doors. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "1999 plain white t-shirts and blue denim jeans",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_black_team",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_black_team.png",
+      "title": "Cast sheet: black_team (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, black team wearing 1999 plain black t-shirts and dark trousers, standing in a bright 1999 Harvard elevator lobby with three brushed-steel elevator doors. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "1999 plain black t-shirts and dark trousers",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_gorilla",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_gorilla.png",
+      "title": "Cast sheet: gorilla (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, gorilla wearing full-body shaggy dark brown-black furry gorilla costume, standing in a bright 1999 Harvard elevator lobby with three brushed-steel elevator doors. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "full-body shaggy dark brown-black furry gorilla costume",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_observer",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_observer.png",
+      "title": "Cast sheet: observer (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, observer wearing casual college crew-neck sweater and jeans, standing in a bright 1999 Harvard elevator lobby with three brushed-steel elevator doors. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "casual college crew-neck sweater and jeans",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of three brushed-steel elevator doors inside a bright 1999 Harvard elevator lobby with three brushed-steel elevator doors, exact period materials and textures. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "three brushed-steel elevator doors"
+      ]
+    }
+  ],
+  "clip_anchors": [
+    {
+      "ref_id": "ref_clip_01",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "setup",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_01.png",
+      "title": "Clip 01 (setup / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_cast_black_team",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Three brushed-steel elevator doors line the cream wall marked with black S curves in bright daylight. Every person is an articulated matte-white porcelain mannequin, same design in every shot: white team in 1999 plain white t-shirts and blue denim jeans; black team in 1999 plain black t-shirts and dark trousers. Frozen opening moment: Three matte-white porcelain mannequins in white t-shirts and blue jeans weave around three mannequins in black t-shirts as each player dribbles. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_cast_black_team",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_02",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "symptom",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_02.png",
+      "title": "Clip 02 (symptom / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Bright hallway daylight illuminates the three brushed-steel elevator doors and six weaving basketball players. Every person is an articulated matte-white porcelain mannequin, same design in every shot: gorilla in full-body shaggy dark brown-black furry gorilla costume. Frozen opening moment: A performer mannequin in a shaggy dark gorilla suit walks in from the right. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_02_key",
+      "clip_number": 2,
+      "frame": "key",
+      "category": "key_visual_anchor",
+      "role": "symptom",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_02_key.png",
+      "title": "Clip 02 (symptom / S1) key frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Bright hallway daylight illuminates the three brushed-steel elevator doors and six weaving basketball players. Every person is an articulated matte-white porcelain mannequin, same design in every shot: gorilla in full-body shaggy dark brown-black furry gorilla costume. Frozen key moment: the gorilla-suited mannequin stands dormant centre in front of the middle elevator door thumping its chest while the six players keep passing two orange basketballs around it. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "gorilla",
+        "chest",
+        "pass|basketball|ball"
+      ],
+      "key_visual": {
+        "description": "the gorilla-suited mannequin stands dead centre in front of the middle elevator door thumping its chest while the six players keep passing two orange basketballs around it",
+        "must_show": [
+          "gorilla",
+          "chest",
+          "pass|basketball|ball"
+        ],
+        "source": "M1@00:25-00:34; Simons & Chabris 1999"
+      },
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_03",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "failure",
+      "scene_id": "S2",
+      "setting": "real_env",
+      "filename": "ref_clip_03.png",
+      "title": "Clip 03 (failure / S2) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_gorilla",
+        "ref_cast_observer",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A dark-grey television monitor sits on a wooden desk beside a paper pass-count sheet in bright daylight. Every person is an articulated matte-white porcelain mannequin, same design in every shot: gorilla in full-body shaggy dark brown-black furry gorilla costume; observer in casual college crew-neck sweater and jeans. Frozen opening moment: A seated student observer mannequin writes on the pad and shakes its head as an experimenter mannequin presses the remote button. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S2"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_gorilla",
+        "ref_cast_observer",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_04",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "crisis",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_04.png",
+      "title": "Clip 04 (crisis / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_cast_black_team",
+        "ref_cast_gorilla",
+        "ref_cast_observer",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In the bright Harvard elevator bay, white-shirted and black-shirted mannequins weave in front of the three steel doors. Every person is an articulated matte-white porcelain mannequin, same design in every shot: white team in 1999 plain white t-shirts and blue denim jeans; black team in 1999 plain black t-shirts and dark trousers; gorilla in full-body shaggy dark brown-black furry gorilla costume; observer in casual college crew-neck sweater and jeans. Frozen opening moment: The student mannequin grips a metal tally counter and presses the lever each time a white-shirted player catches and throws the ball while the dark gorilla strides through. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_cast_black_team",
+        "ref_cast_gorilla",
+        "ref_cast_observer",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_05",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "pivot",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_05.png",
+      "title": "Clip 05 (pivot / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_cast_black_team",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Strong overhead daylight highlights the three white-shirted mannequins in front of the brushed-steel elevator doors. Every person is an articulated matte-white porcelain mannequin, same design in every shot: white team in 1999 plain white t-shirts and blue denim jeans; black team in 1999 plain black t-shirts and dark trousers; gorilla in full-body shaggy dark brown-black furry gorilla costume. Frozen opening moment: A white-shirted porcelain mannequin catches a chest pass. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_cast_black_team",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_06",
+      "clip_number": 6,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "step1",
+      "scene_id": "S1",
+      "setting": "brain_void",
+      "filename": "ref_clip_06.png",
+      "title": "Clip 06 (step1 / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head with an architectural translucent cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull in a bright white studio gallery. Three-quarter profile of a smooth matte-white porcelain mannequin head in a bright white studio gallery with an architectural translucent cutaway cranium revealing the full realistic matte-white 3D porcelain brain with deep gyri and sulci inside the skull. Two soft warm-ivory light pulses glide inside the white-matter fiber tracts from the optic nerve into the primary visual cortex at the back of the brain, lighting the folded occipital ridge subtle warm amber-gold while the parietal cortex above glows soft pearl-ivory in bright studio daylight. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": []
+    },
+    {
+      "ref_id": "ref_clip_07",
+      "clip_number": 7,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "step2",
+      "scene_id": "S1",
+      "setting": "brain_void",
+      "filename": "ref_clip_07.png",
+      "title": "Clip 07 (step2 / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head with an architectural translucent cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull in a bright white studio gallery. At the upper back of the brain, the parietal cortex glows subtle warm amber-gold and projects a focused top-down beam into the primary visual cortex. Soft warm-ivory internal light pulses for the white shirts glide forward cleanly inside the fiber tracts, while the unattended pathway meets a muted crimson-red inhibitory gate and dims quietly. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": []
+    },
+    {
+      "ref_id": "ref_clip_08",
+      "clip_number": 8,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "step3",
+      "scene_id": "S3",
+      "setting": "real_env",
+      "filename": "ref_clip_08.png",
+      "title": "Clip 08 (step3 / S3) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A sunlit visual cognition lab features an infrared eye camera mounted below a bright display screen. Every person is an articulated matte-white porcelain mannequin, same design in every shot: gorilla in full-body shaggy dark brown-black furry gorilla costume. Frozen opening moment: A student mannequin rests its chin on the stand and taps a tally key as a researcher mannequin leans in and taps the monitor. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S3"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_09",
+      "clip_number": 9,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "breakthrough",
+      "scene_id": "S4",
+      "setting": "real_env",
+      "filename": "ref_clip_09.png",
+      "title": "Clip 09 (breakthrough / S4) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A radiology workstation glows in daylight with grayscale lung scans on the wide screen. Every person is an articulated matte-white porcelain mannequin, same design in every shot: white team in 1999 plain white t-shirts and blue denim jeans; gorilla in full-body shaggy dark brown-black furry gorilla costume. Frozen opening moment: A doctor mannequin in a white coat spins the scroll wheel and taps a tiny lung spot beside a dark gorilla silhouette. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S4"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_10",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "conclusion",
+      "scene_id": "S6",
+      "setting": "real_env",
+      "filename": "ref_clip_10.png",
+      "title": "Clip 10 (conclusion / S6) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Morning sunlight fills a busy urban sidewalk lined with glass storefronts and a marked pedestrian crossing. Every person is an articulated matte-white porcelain mannequin, same design in every shot: white team in 1999 plain white t-shirts and blue denim jeans. Frozen opening moment: A pedestrian mannequin walks forward and taps rapidly on a smartphone screen while a friend mannequin waves both arms in front of it and grabs its shoulder. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S6"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_prop_hero"
+      ]
+    }
+  ],
+  "all_specs": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a bright 1999 Harvard elevator lobby with three brushed-steel elevator doors, featuring three brushed-steel elevator doors, no people. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "a bright 1999 Harvard elevator lobby with three brushed-steel elevator doors",
+        "three brushed-steel elevator doors"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_white_team",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_white_team.png",
+      "title": "Cast sheet: white_team (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, white team wearing 1999 plain white t-shirts and blue denim jeans, standing in a bright 1999 Harvard elevator lobby with three brushed-steel elevator doors. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "1999 plain white t-shirts and blue denim jeans",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_black_team",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_black_team.png",
+      "title": "Cast sheet: black_team (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, black team wearing 1999 plain black t-shirts and dark trousers, standing in a bright 1999 Harvard elevator lobby with three brushed-steel elevator doors. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "1999 plain black t-shirts and dark trousers",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_gorilla",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_gorilla.png",
+      "title": "Cast sheet: gorilla (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, gorilla wearing full-body shaggy dark brown-black furry gorilla costume, standing in a bright 1999 Harvard elevator lobby with three brushed-steel elevator doors. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "full-body shaggy dark brown-black furry gorilla costume",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_cast_observer",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_observer.png",
+      "title": "Cast sheet: observer (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, observer wearing casual college crew-neck sweater and jeans, standing in a bright 1999 Harvard elevator lobby with three brushed-steel elevator doors. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "casual college crew-neck sweater and jeans",
+        "porcelain mannequin, no human skin or face"
+      ]
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of three brushed-steel elevator doors inside a bright 1999 Harvard elevator lobby with three brushed-steel elevator doors, exact period materials and textures. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "three brushed-steel elevator doors"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_01",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "setup",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_01.png",
+      "title": "Clip 01 (setup / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_cast_black_team",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Three brushed-steel elevator doors line the cream wall marked with black S curves in bright daylight. Every person is an articulated matte-white porcelain mannequin, same design in every shot: white team in 1999 plain white t-shirts and blue denim jeans; black team in 1999 plain black t-shirts and dark trousers. Frozen opening moment: Three matte-white porcelain mannequins in white t-shirts and blue jeans weave around three mannequins in black t-shirts as each player dribbles. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_cast_black_team",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_02",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "symptom",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_02.png",
+      "title": "Clip 02 (symptom / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Bright hallway daylight illuminates the three brushed-steel elevator doors and six weaving basketball players. Every person is an articulated matte-white porcelain mannequin, same design in every shot: gorilla in full-body shaggy dark brown-black furry gorilla costume. Frozen opening moment: A performer mannequin in a shaggy dark gorilla suit walks in from the right. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_02_key",
+      "clip_number": 2,
+      "frame": "key",
+      "category": "key_visual_anchor",
+      "role": "symptom",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_02_key.png",
+      "title": "Clip 02 (symptom / S1) key frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Bright hallway daylight illuminates the three brushed-steel elevator doors and six weaving basketball players. Every person is an articulated matte-white porcelain mannequin, same design in every shot: gorilla in full-body shaggy dark brown-black furry gorilla costume. Frozen key moment: the gorilla-suited mannequin stands dormant centre in front of the middle elevator door thumping its chest while the six players keep passing two orange basketballs around it. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "gorilla",
+        "chest",
+        "pass|basketball|ball"
+      ],
+      "key_visual": {
+        "description": "the gorilla-suited mannequin stands dead centre in front of the middle elevator door thumping its chest while the six players keep passing two orange basketballs around it",
+        "must_show": [
+          "gorilla",
+          "chest",
+          "pass|basketball|ball"
+        ],
+        "source": "M1@00:25-00:34; Simons & Chabris 1999"
+      },
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_03",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "failure",
+      "scene_id": "S2",
+      "setting": "real_env",
+      "filename": "ref_clip_03.png",
+      "title": "Clip 03 (failure / S2) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_gorilla",
+        "ref_cast_observer",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A dark-grey television monitor sits on a wooden desk beside a paper pass-count sheet in bright daylight. Every person is an articulated matte-white porcelain mannequin, same design in every shot: gorilla in full-body shaggy dark brown-black furry gorilla costume; observer in casual college crew-neck sweater and jeans. Frozen opening moment: A seated student observer mannequin writes on the pad and shakes its head as an experimenter mannequin presses the remote button. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S2"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_gorilla",
+        "ref_cast_observer",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_04",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "crisis",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_04.png",
+      "title": "Clip 04 (crisis / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_cast_black_team",
+        "ref_cast_gorilla",
+        "ref_cast_observer",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): In the bright Harvard elevator bay, white-shirted and black-shirted mannequins weave in front of the three steel doors. Every person is an articulated matte-white porcelain mannequin, same design in every shot: white team in 1999 plain white t-shirts and blue denim jeans; black team in 1999 plain black t-shirts and dark trousers; gorilla in full-body shaggy dark brown-black furry gorilla costume; observer in casual college crew-neck sweater and jeans. Frozen opening moment: The student mannequin grips a metal tally counter and presses the lever each time a white-shirted player catches and throws the ball while the dark gorilla strides through. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_cast_black_team",
+        "ref_cast_gorilla",
+        "ref_cast_observer",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_05",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "pivot",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "filename": "ref_clip_05.png",
+      "title": "Clip 05 (pivot / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_cast_black_team",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Strong overhead daylight highlights the three white-shirted mannequins in front of the brushed-steel elevator doors. Every person is an articulated matte-white porcelain mannequin, same design in every shot: white team in 1999 plain white t-shirts and blue denim jeans; black team in 1999 plain black t-shirts and dark trousers; gorilla in full-body shaggy dark brown-black furry gorilla costume. Frozen opening moment: A white-shirted porcelain mannequin catches a chest pass. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_cast_black_team",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_06",
+      "clip_number": 6,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "step1",
+      "scene_id": "S1",
+      "setting": "brain_void",
+      "filename": "ref_clip_06.png",
+      "title": "Clip 06 (step1 / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head with an architectural translucent cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull in a bright white studio gallery. Three-quarter profile of a smooth matte-white porcelain mannequin head in a bright white studio gallery with an architectural translucent cutaway cranium revealing the full realistic matte-white 3D porcelain brain with deep gyri and sulci inside the skull. Two soft warm-ivory light pulses glide inside the white-matter fiber tracts from the optic nerve into the primary visual cortex at the back of the brain, lighting the folded occipital ridge subtle warm amber-gold while the parietal cortex above glows soft pearl-ivory in bright studio daylight. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": []
+    },
+    {
+      "ref_id": "ref_clip_07",
+      "clip_number": 7,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "step2",
+      "scene_id": "S1",
+      "setting": "brain_void",
+      "filename": "ref_clip_07.png",
+      "title": "Clip 07 (step2 / S1) start frame",
+      "generation_order": 3,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head with an architectural translucent cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull in a bright white studio gallery. At the upper back of the brain, the parietal cortex glows subtle warm amber-gold and projects a focused top-down beam into the primary visual cortex. Soft warm-ivory internal light pulses for the white shirts glide forward cleanly inside the fiber tracts, while the unattended pathway meets a muted crimson-red inhibitory gate and dims quietly. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "S1"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": []
+    },
+    {
+      "ref_id": "ref_clip_08",
+      "clip_number": 8,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "step3",
+      "scene_id": "S3",
+      "setting": "real_env",
+      "filename": "ref_clip_08.png",
+      "title": "Clip 08 (step3 / S3) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A sunlit visual cognition lab features an infrared eye camera mounted below a bright display screen. Every person is an articulated matte-white porcelain mannequin, same design in every shot: gorilla in full-body shaggy dark brown-black furry gorilla costume. Frozen opening moment: A student mannequin rests its chin on the stand and taps a tally key as a researcher mannequin leans in and taps the monitor. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S3"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_09",
+      "clip_number": 9,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "breakthrough",
+      "scene_id": "S4",
+      "setting": "real_env",
+      "filename": "ref_clip_09.png",
+      "title": "Clip 09 (breakthrough / S4) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): A radiology workstation glows in daylight with grayscale lung scans on the wide screen. Every person is an articulated matte-white porcelain mannequin, same design in every shot: white team in 1999 plain white t-shirts and blue denim jeans; gorilla in full-body shaggy dark brown-black furry gorilla costume. Frozen opening moment: A doctor mannequin in a white coat spins the scroll wheel and taps a tiny lung spot beside a dark gorilla silhouette. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S4"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_cast_gorilla",
+        "ref_prop_hero"
+      ]
+    },
+    {
+      "ref_id": "ref_clip_10",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "conclusion",
+      "scene_id": "S6",
+      "setting": "real_env",
+      "filename": "ref_clip_10.png",
+      "title": "Clip 10 (conclusion / S6) start frame",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_prop_hero"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Morning sunlight fills a busy urban sidewalk lined with glass storefronts and a marked pedestrian crossing. Every person is an articulated matte-white porcelain mannequin, same design in every shot: white team in 1999 plain white t-shirts and blue denim jeans. Frozen opening moment: A pedestrian mannequin walks forward and taps rapidly on a smartphone screen while a friend mannequin waves both arms in front of it and grabs its shoulder. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "S6"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_white_team",
+        "ref_prop_hero"
+      ]
+    }
+  ]
+}

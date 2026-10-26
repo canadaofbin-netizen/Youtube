@@ -1,0 +1,137 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Playing a patient's own mathematical CA3-to-CA1 spike code back into their hippocampus boosted human memory by 37% on the spot.",
+    "core_experiment": "Hampson, Song, Deadwyler & Berger (2018): 17 epilepsy patients, microwires in CA3/CA1, nonlinear MIMO Volterra model, +37% short-term & +35% 75-min recall vs 0% scrambled control.",
+    "twist": "The chip never knew what image the patient saw — it acted purely as a synaptic translator speaking native millisecond rhythm."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The 37-Percent Memory Boost",
+      "beats": [
+        "Hospital bedside touchscreen test",
+        "Live CA3-to-CA1 closed-loop stimulation",
+        "First successful write-in memory prosthetic in humans"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup"
+      ],
+      "new_shots_needed": [
+        "close-up of touchscreen match and raster"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Why Pacemaker Pulses Failed the Hippocampus",
+      "beats": [
+        "Success of flat DBS in tremor vs failure in memory",
+        "Broken CA3-to-CA1 baton pass in injury and dementia",
+        "Memory as melody, not raw current"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "symptom",
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "waveform comparison: flat pulse vs natural burst"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Cracking the CA3-to-CA1 Equation",
+      "beats": [
+        "Recording Phase 1 successful trials",
+        "Dong Song's nonlinear MIMO Volterra model",
+        "Personalizing the code to each brain"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "dual-trace CA3 input to predicted CA1 output"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Scrambled Control vs Native Rhythm",
+      "beats": [
+        "Phase 2 real-time playback",
+        "+37% short-term, +35% at 75 minutes",
+        "Why random-timing pulses gave 0% gain"
+      ],
+      "scene_ids": [
+        "S2",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "75-minute delayed recognition check"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Not Total Recall: What the Chip Can and Cannot Do",
+      "beats": [
+        "Cannot implant fake movie memories",
+        "Translates spike timing without knowing image content",
+        "2024 Roeder feature-code replication"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [],
+      "new_shots_needed": [
+        "myth vs reality alternating matched-angle"
+      ]
+    },
+    {
+      "n": 6,
+      "title": "From Bedside Cart to Miniature Implant",
+      "beats": [
+        "Patients with impaired baseline benefit most",
+        "Miniaturization for TBI and Alzheimer's",
+        "Ethical safeguards"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "macro of miniature titanium implant beside 3D hippocampus"
+      ]
+    },
+    {
+      "n": 7,
+      "title": "Your Own Everyday CA3-to-CA1 Handoff",
+      "beats": [
+        "Why distraction breaks encoding at the gate",
+        "Giving CA3 a clean 3-second look",
+        "Closing summary"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [],
+      "new_shots_needed": [
+        "wide clinical suite pullback"
+      ]
+    }
+  ]
+}

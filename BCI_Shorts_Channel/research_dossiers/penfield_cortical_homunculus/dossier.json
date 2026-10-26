@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "slug": "penfield_cortical_homunculus",
+  "topic": "Wilder Penfield (1937) & Gordon (2023): Awake Cortical Mapping, the Giant-Handed Homunculus & Its Modern Plot Twist",
+  "pillar": "brain_history",
+  "created_at": "2026-10-25T22:49:35+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Wilder Penfield and Edwin Boldrey's 1937 Montreal awake cortical electrical stimulation maps (numbering cortical spots with tiny sterile paper tickets while awake patients reported thumb tingles and lip twitches, inspiring Hortense Cantlie's giant-lipped 'Homunculus' — and Evan Gordon's 2023 Nature 'SCAN' hub update!) is iconic human neuroanatomy.",
+  "primary_case": {
+    "title": "Wilder Penfield & Edwin Boldrey's 1937 Brain Awake Cortical Stimulation Mapping of 126 Epilepsy Patients (Updated by Gordon et al., 2023 Nature)",
+    "year": 1937,
+    "place": "Montreal Neurological Institute (MNI), McGill University, Montreal",
+    "people": [
+      {
+        "name": "Wilder Graves Penfield & Edwin Boldrey",
+        "role": "Founder of the Montreal Neurological Institute and surgical resident who tallied 126 awake operating-room stimulation maps in 1937 using gentle 1-2 mA probes and numbered paper tickets",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Mrs. Hortense Cantlie",
+        "role": "Medical illustrator at MNI who drew the famous distorted 'Cortical Homunculus' — giant thumbs, huge lips and tongue, tiny trunk — scaling body parts by cortical real estate rather than physical size.",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Evan M. Gordon & Nico U. F. Dosenbach",
+        "role": "Washington University neuroscientists whose 2023 Nature precision-fMRI discovery revealed Penfield's smooth motor strip is actually interrupted by three whole-body 'Somato-Cognitive Action Network' (SCAN) planning hubs.",
+        "source_id": "SRC2"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Because brain tissue itself has **ZERO pain receptors**, neurosurgeon **Wilder Penfield** at the Montreal Neurological Institute (founded 1934) could numb only the scalp under local anesthesia and gently converse with **100% awake patients** during epilepsy surgery so he never cut into vital speech or hand zones.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Across **126 awake operations** compiled with Edwin Boldrey in *Brain* (**1937**), Penfield touched exposed precentral (**primary motor, M1**) and postcentral (**primary somatosensory, S1**) gyri with a gentle 1–2 milliampere bipolar electrode and dropped tiny **sterile numbered paper tickets ('1, 2, 3...')** onto each spot.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Along the postcentral sensory strip, patients reported crisp localized tingles (*'My right thumb just buzzed!'*); millimetres forward across the central sulcus on the precentral motor strip, the exact matching body part twitched involuntarily — while patients remarked clearly: ***'You moved my hand — I didn't choose to move it!'***",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "When Penfield, Boldrey, and artist **Hortense Cantlie** scaled each body part to how many millimetres of human cortex controlled it — creating the famous **Cortical Homunculus ('little man')** — the result was hilariously lopsided: **giant hands and thumbs, enormous lips, jaw, and vocal tongue**, and a tiny miniature back, torso, and legs.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Why do human hands and lips hog more than HALF of our sensorimotor cortex while our whole back gets a sliver? Cortical real estate scales with **nerve-receptor density and fine motor precision** (toolmaking thumbs + 100-muscle human speech!), NOT physical weight.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Even Penfield himself warned against taking the cartoon Homunculus too literally. In his 1937 raw dot charts (re-highlighted by Schieber & modern historians, SRC2), finger, wrist, and face points actually **overlapped in rich mosaics** rather than sitting behind razor-sharp borders, and plastic boundaries expand with violin or Braille training.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Occasionally, when Penfield stimulated temporal-lobe epilepsy tissue outside M1/S1, awake patients experienced vivid **'experiential flashbacks'** (hearing a familiar orchestra tune or childhood kitchen voice play in real time) — sparking decades of memory-engram debate.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Then in **April 2023 (*Nature*)**, Evan Gordon, Nico Dosenbach, and colleagues unveiled the biggest rewrite of Penfield's map in **86 years**: precision fMRI proved primary motor cortex is NOT one continuous toes-to-tongue ribbon — **Foot, Hand, and Mouth effector zones sit like concentric bullseyes interleaved with THREE whole-body 'Somato-Cognitive Action Network' (SCAN) nodes** wired directly to prefrontal planning, breathing, and heart-rate control (and revisiting Penfield's own 1937-1948 raw tickets confirmed those exact mixed spots!).",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Two-point tactile discrimination thresholds (~2 mm on the index fingertip versus ~30–40 mm across the upper back) mirror Penfield's disproportionately enlarged hand-and-lip somatosensory homunculus.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Touch spot #14 on an awake patient's motor strip with a 2-milliamp probe: their right index finger lifts off the drape while their clear voice says ***'Doctor, you moved my finger — I didn't want to move it!'***",
+      "why_surprising": "Brain tissue feels zero pain while steering every muscle in your body.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Draw a human whose body parts match their square millimetres of brain cortex (**Penfield's Homunculus**), and two **giant hands and an enormous speaking mouth** dwarf the entire chest and legs.",
+      "why_surprising": "Evolution spent human cortex on toolmaking thumbs and spoken words.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Penfield hated how textbooks turned Mrs. Cantlie's whimsical 'Homunculus' sketch into rigid dogma — calling cartoons a 'grotesque shortcut' when his own 1937 numbered tickets showed rich overlapping mosaics.",
+      "why_surprising": "Even the creator of the Homunculus warned textbooks not to oversimplify it.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "86 years later (**Gordon et al., 2023 *Nature***), ultra-high-precision MRI discovered THREE hidden mind-body **SCAN hubs** breaking right into Penfield's motor strip — linking goal planning directly to adrenaline, heart rate, and posture before you even move.",
+      "why_surprising": "Why 'getting butterflies before a race' is literally wired into motor cortex.",
+      "source_id": "SRC2",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Brain surgery hurts the brain tissue itself.",
+      "truth": "The meninges and scalp feel pain (numbed locally), whereas cerebral cortex parenchyma contains zero nociceptors — making awake speech and motor mapping painless and life-saving.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Your back and legs have the largest motor cortex because they have the biggest muscles.",
+      "truth": "Cortical area tracks fine motor degrees of freedom and receptor density — your thumb and lips each command far more cortex than your entire torso.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Penfield's motor strip is a continuous uninterrupted line from toes at the top to tongue at the bottom.",
+      "truth": "Gordon et al. (2023 Nature) proved M1 alternates isolated Foot/Hand/Mouth precision bullseyes with whole-body Somato-Cognitive Action Network (SCAN) hubs.",
+      "source_id": "SRC2"
+    }
+  ],
+  "everyday_hooks": [
+    "Feeling why a tiny 1-millimetre splinter in your thumb or tongue feels HUGE compared with a 2-centimetre scratch on your shoulder.",
+    "Watching a violinist or surgeon play/stitch awake during modern tumor surgery — using Penfield's exact 1937 numbered-ticket method to protect their career.",
+    "Feeling your heart rate jump the exact second you *plan* to stand up and sprint (2023 SCAN mind-body hubs in action!)."
+  ],
+  "linked_projects": [
+    "psych_69_penfield_cortical_homunculus"
+  ]
+}

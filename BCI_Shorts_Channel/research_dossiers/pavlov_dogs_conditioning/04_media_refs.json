@@ -1,0 +1,96 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "archive_film",
+      "title": "Ivan Pavlov's dogs in the U.S.S.R. 1930's. Archive film 97452",
+      "url": "https://www.youtube.com/watch?v=axJ9CwcH9WM",
+      "channel": "HuntleyFilmArchives",
+      "source_id": "SRC_HUNTLEY97452",
+      "timecodes": [
+        {
+          "t": "00:00-00:06",
+          "what": "Close-up of a conditioned dog's head with a small saliva collection funnel and tube attached below the cheek as saliva drops form."
+        },
+        {
+          "t": "00:06-00:09",
+          "what": "Experimenter in a white coat seated at a wall-mounted control panel in the separated observation compartment, operating switches and gauges."
+        },
+        {
+          "t": "00:09-00:25",
+          "what": "Full side view of the dog standing on a raised wooden stand inside a four-post wooden frame, supported by two leather harness straps hanging from the overhead crossbar."
+        },
+        {
+          "t": "00:25-00:39",
+          "what": "Close-up of the cheek fistula tube, followed by a white-coated assistant entering to stroke the harnessed dog and place a shallow food bowl under its muzzle."
+        }
+      ],
+      "license_note": "Archival reference analysed locally in media/M1/ (keyframes + contact_sheet.jpg); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "shot_notes": [
+          "The harness is not a cage: it is an open wooden frame bolted to a tabletop with two leather loops suspended from an overhead wooden bar under the dog's chest and belly.",
+          "The dog stands up in the harness with room to shift its weight forward, prick its ears, and lunge toward the front of the stand when food arrives.",
+          "The experimenter sits in a separate compartment facing wall-mounted dials, push-buttons, and recording gauges, matching Pavlov's Lecture II description of the soundproof laboratory."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "recreation_film",
+      "title": "Pavlovs Dogs (dramatised laboratory recreation)",
+      "url": "https://www.youtube.com/watch?v=asmXyJaXBC8",
+      "channel": "flactemb",
+      "source_id": "SRC_FLACTEMB_RECREATION",
+      "timecodes": [
+        {
+          "t": "00:03-00:46",
+          "what": "Dog in a leather harness on a wooden table eats from a round bowl while a bearded Pavlov figure in a white lab coat watches; macro insert of clear saliva drops sliding down the glass cheek tube."
+        },
+        {
+          "t": "00:52-01:18",
+          "what": "Wide shot of the bright laboratory with tall multipane windows: dog on the central wooden harness stand, Pavlov on the left, assistant with notebook on the right."
+        },
+        {
+          "t": "01:18-01:35",
+          "what": "Barrier screen erected; a ticking pyramid metronome starts before food is passed through the hatch."
+        },
+        {
+          "t": "01:35-02:35",
+          "what": "Close-up of the glass tube cemented to the cheek filling with drops on the metronome tick alone; Pavlov and assistant compare two graduated glass cylinders."
+        }
+      ],
+      "license_note": "Educational recreation analysed locally in media/M2/ for blocking and prop scale only; never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "shot_notes": [
+          "Tall daylight laboratory windows behind the central wooden stand give crisp rim light on the glass cheek funnel and graduated cylinder.",
+          "Macro cutaways to the cheek tube clearly show individual clear drops swelling at the spout and raising the meniscus inside the graduated glass tube.",
+          "Two-person staging works best in 9:16 vertical framing: dog side-on in the central wooden harness stand, bearded physiologist and white-coated assistant flanking the stand."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "museum_artefact",
+      "title": "Preserved experimental dog with saliva collection tube, Pavlov Memorial Museum, Ryazan",
+      "url": "https://commons.wikimedia.org/wiki/File:One_of_Pavlov%27s_dogs.jpg",
+      "channel": "Wikimedia Commons / Pavlov Museum Ryazan",
+      "source_id": "SRC_RYAZAN_DOG",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Full side photograph of one of Pavlov's preserved dogs (possibly Baikal) showing the small cylindrical glass saliva collector and tube mounted at the cheek."
+        }
+      ],
+      "license_note": "Museum photograph inspected for prop geometry only; rendered in Flow as a matte-white porcelain dog.",
+      "analysis": {
+        "shot_notes": [
+          "Confirms the compact scale of the cheek-mounted glass collection vial/funnel hanging just below the jaw line."
+        ]
+      }
+    }
+  ]
+}

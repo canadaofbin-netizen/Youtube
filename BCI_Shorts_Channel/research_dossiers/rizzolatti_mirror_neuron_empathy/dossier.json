@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "slug": "rizzolatti_mirror_neuron_empathy",
+  "topic": "Giacomo Rizzolatti, Luciano Fadiga & Gallese (1992-1996): Parma Premotor Area F5 'Mirror Neurons' & Greg Hickok's Critique",
+  "pillar": "brain_news",
+  "created_at": "2026-10-25T22:49:32+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "The serendipitous Parma lab moment — a single-neuron audio monitor crackling in premotor area F5 both when an macaque grasps a raisin AND when it sits completely still watching a researcher grasp one — is iconic single-cell neurobiology.",
+  "primary_case": {
+    "title": "di Pellegrino, Fadiga, Fogassi, Gallese & Rizzolatti's 1992 Parma premotor area F5 single-unit discovery",
+    "year": 1992,
+    "place": "University of Parma Institute of Human Physiology, Parma, Italy",
+    "people": [
+      {
+        "name": "Giacomo Rizzolatti",
+        "role": "University of Parma neurophysiologist whose lab discovered visuomotor 'mirror neurons' in ventral premotor area F5",
+        "source_id": "SRC5"
+      },
+      {
+        "name": "Giuseppe di Pellegrino, Luciano Fadiga, Leonardo Fogassi & Vittorio Gallese",
+        "role": "Co-discoverers who verified goal-specific grasping neurons firing equally during execution and silent observation",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Gregory Hickok & Cecilia Heyes",
+        "role": "Cognitive scientists whose rigorous critiques ('The Myth of Mirror Neurons', 2014) curbed wild 'explains all civilization/autism' hype while clarifying sensorimotor associative learning",
+        "source_id": "SRC4"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 1992 at the University of Parma, Giuseppe di Pellegrino, Luciano Fadiga, Leonardo Fogassi, Vittorio Gallese, and Giacomo Rizzolatti recorded single neurons in ventral premotor cortex (area F5) of macaques trained to pick up small food items like raisins or peanuts.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Connected to an audio loudspeaker so every action potential sounded a crisp 'pop-pop-pop,' F5 neurons were thought to be purely motor command cells firing when the hand shaped a precision pinch or whole-hand grasp.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Then came the serendipitous shock: while the animal sat completely motionless between trials with zero muscle EMG activity, an experimenter reached out to pick up a raisin from the tray — and the motor neuron's loudspeaker burst into the EXACT same rapid 'pop-pop-pop'.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Systematic controls ruled out simple food excitement or generic motion: pushing the food with pliers or miming an empty-handed grasp in midair with no target object failed to fire most F5 mirror neurons — the cell cared specifically about GOAL-DIRECTED hand-to-object action.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Remarkably, roughly one-third were 'strictly congruent' (firing ONLY when both watched and executed grasps used a two-finger precision pinch), while two-thirds were 'broadly congruent' (firing for any grasp achieving the same goal).",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Later Parma studies (Umiltà 2001; Kohler 2002) showed F5 mirror neurons still fired when the final grasp happened behind an opaque screen (as long as the animal knew an apple was behind it!) OR merely from hearing the dry crunch of a peanut shell cracking in the dark.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "In humans, Mukamel et al. (2010) directly recorded single mirror-like neurons inside supplementary motor and hippocampal regions of neurosurgical epilepsy patients.",
+      "source_id": "SRC6"
+    },
+    {
+      "fact": "Crucial scientific correction (Gregory Hickok 2014; Southgate & Hamilton): 2000s pop-science wildly overhyped mirror neurons as 'the sole atom of human language, culture, and empathy' and falsely blamed autism on 'broken mirrors' — rigorous lesion and fMRI studies proved stroke patients with damaged frontal motor cortex STILL understand watched actions, and autistic motor-mirroring systems are NOT globally broken.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Between 1992 and 1996, Rizzolatti, Fadiga, Fogassi, and Gallese mapped macaque area F5 visuomotor mirror neurons that fired selectively to goal-directed grasping while staying silent to empty-air pantomime.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Sitting completely motionless with zero muscle twitches on the arm monitor, a premotor 'movement' neuron crackled over the Parma lab loudspeaker the exact instant the researcher reached for a raisin.",
+      "why_surprising": "Sight of someone else's grasp plugged straight into the observer's own motor vocabulary.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Mime the exact same pinch in empty air with no raisin there, and the mirror neuron stays silent — hide a real apple behind a screen and reach behind it, and the neuron FIRES.",
+      "why_surprising": "It tracked the GOAL of the reach, not just moving pixels.",
+      "source_id": "SRC2",
+      "rank": 2
+    },
+    {
+      "fact": "Even in pitch darkness, ‘audiovisual’ mirror neurons fired the exact same burst simply from hearing the crisp crack of a peanut shell.",
+      "why_surprising": "Sound, sight, and action converged on one goal code.",
+      "source_id": "SRC4",
+      "rank": 3
+    },
+    {
+      "fact": "When pop-science called mirror neurons 'the explanation for everything from civilization to autism,' neuroscientist Gregory Hickok checked stroke wards: patients with destroyed frontal motor speech areas STILL understood watched actions cleanly.",
+      "why_surprising": "Mirror neurons help predict and imitate actions — they aren't the sole seat of understanding.",
+      "source_id": "SRC4",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Mirror neurons alone explain all human empathy, morality, telepathy, and civilization.",
+      "truth": "Mirror neurons encode low-level motor action goals and sensorimotor prediction; rich cognitive empathy and moral reasoning rely on broader temporoparietal and prefrontal networks.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Autism is caused by 'broken mirror neurons'.",
+      "truth": "Extensive replications (Southgate & Hamilton; Hamilton 2013 review of 25+ studies) solidly refuted the 'broken mirror' hypothesis of autism.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "If your motor cortex can't simulate an action, you cannot understand what it means.",
+      "truth": "Patients born without limbs or with frontal motor strokes understand actions like 'throwing' or 'grasping' accurately.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Mirror neurons are magical fixed genes immune to experience.",
+      "truth": "Cecilia Heyes demonstrated associative learning: dancers and pianists develop stronger mirror responses specifically for moves they have practiced seeing-and-doing.",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Wincing and curling your own toes involuntarily when watching a skateboarder slam a shin on video.",
+    "Unconsciously tilting your shoulders to 'help' a teammate sink a tight corner shot.",
+    "Learning a guitar chord or tennis serve faster by watching a coach's hand closely right before trying it yourself.",
+    "Catching a contagious yawn across a quiet library table."
+  ],
+  "linked_projects": [
+    "psych_40_rizzolatti_mirror_neuron_empathy"
+  ]
+}

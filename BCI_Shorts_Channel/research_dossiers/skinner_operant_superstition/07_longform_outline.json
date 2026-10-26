@@ -1,0 +1,102 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "A hungry pigeon spins counterclockwise in a box whose grain tray opens on a blind 15-second timer.",
+    "core_experiment": "Skinner's 1948 fixed-time schedule across eight pigeons (six developing rituals, >10,000 extinction hops).",
+    "twist": "Staddon & Simmelhag's 1971 replication separating early-interval idiosyncratic rituals from late-interval foraging pecks."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Clock That Created a Ritual",
+      "beats": [
+        "15-second blind grain timer",
+        "Counterclockwise pigeon spin",
+        "Six of eight birds locked in"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "close-up 15-second sweep timer"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Six Cages, Six Personal Dances",
+      "beats": [
+        "Corner thrusting vs invisible bar tossing",
+        "Accidental temporal contiguity",
+        "Feedback loop shortening inter-turn gaps"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "multi-box overhead comparison"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Ten Thousand Hops Into Thin Air",
+      "beats": [
+        "Unplugging the food hopper",
+        "10,000+ unreinforced extinction responses",
+        "Why intermittent luck resists erasure"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "cumulative recorder stylus close-up"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "The 1971 Twist: Interim vs Terminal Habits",
+      "beats": [
+        "Staddon & Simmelhag video replication",
+        "Early-interval circling vs late-interval pecking",
+        "Striatal stamping meets innate foraging"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step2"
+      ],
+      "new_shots_needed": [
+        "timeline chart of 15-second interval"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Your Everyday Skinner Box",
+      "beats": [
+        "Elevator buttons, lucky socks, and market superstitions",
+        "Testing whether standing still changes the outcome"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "urban crosswalk button shot"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "'I've never seen this box in my life — wow, why is it so easy?!' How Brenda Milner and Patient H.M. split 'Knowing What' from 'Knowing How'.",
+    "core_experiment": "Milner (1962/1968) 3-day Mirror-Star Tracing (30 errors to ~1 error with zero episodic recall) + Corkin (1968/1997) motor & MRI proofs.",
+    "twist": "Why Henry still remembered his 1930s childhood (consolidation!), how his case permanently changed neurosurgery safety, and intact 15-minute rehearsal."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Hartford 1953: One Surgery That Changed Brain Surgery Forever",
+      "beats": [
+        "27-year-old Henry Molaison's bilateral medial-temporal resection",
+        "118 IQ & warm manners intact, zero new conscious memories saved"
+      ],
+      "scene_ids": [
+        "S1",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "digit rehearsal card & mirror box"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Day 1 to Day 3 on the Mirror Star (30 Errors to 1 Error)",
+      "beats": [
+        "Fighting backwards mirror physics on Trial 1",
+        "Day 3: 'Never seen it before!' followed by flawless star mastery"
+      ],
+      "scene_ids": [
+        "S2",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "mirror-star box & 3-day error curve"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Two Memory Brains: Hippocampus vs Cerebellum & Basal Ganglia",
+      "beats": [
+        "Declarative ('Knowing What') vs Procedural ('Knowing How')",
+        "Corkin's rotary-pursuit confirmation & 1997 living MRI"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2"
+      ],
+      "new_shots_needed": [
+        "Day 1 vs Day 3 star sheets"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Why Childhood Survived & Distraction Wiped '584'",
+      "beats": [
+        "Systems consolidation into neocortex",
+        "Prefrontal 15-minute rehearsal vs hippocampal storage"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "584 rehearsal card"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Henry Molaison's Gift to Every Learner",
+      "beats": [
+        "Honoring the man behind 'H.M.' and Brenda Milner",
+        "Trusting overnight cerebellar motor consolidation"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "bicycle & two-memory diagram"
+      ]
+    }
+  ]
+}

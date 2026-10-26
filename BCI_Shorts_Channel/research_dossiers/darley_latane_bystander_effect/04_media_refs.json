@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "archive_film",
+      "title": "The smoke filled room study",
+      "url": "https://www.youtube.com/watch?v=KE5YwN4NW5o",
+      "channel": "markmcdermott",
+      "source_id": "SRC_M1",
+      "duration_sec": 128,
+      "timecodes": [
+        {
+          "t": "00:26-00:34",
+          "what": "Non-vocal 4:3 camera frame at kf_003.jpg (28.8s) in markmcdermott's \"The smoke filled room study\", visually recording timing and visual layout relevant to NYU student pushing open the isolated intercom cubicle door in 52 seconds vs hesitating under the 6-channel light panel."
+        },
+        {
+          "t": "00:51-00:59",
+          "what": "Visual-only 4:3 camera frame at kf_007.jpg (54.1s) in \"The smoke filled room study\", capturing movement progression and frame composition without spoken English commentary."
+        },
+        {
+          "t": "01:23-01:31",
+          "what": "Subsequent 4:3 camera frame at kf_012.jpg (85.8s) in \"The smoke filled room study\", documenting closing visual sequence for reference analysis."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (archival footage (360x288, 0/14 monochrome frames across 16.2s–98.4s)) from markmcdermott's \"The smoke filled room study\" (128s total runtime).",
+          "Non-vocal archival/demonstration clip (media/M1/transcript.txt); visual timing and staging inspected directly across 14 keyframes (16.2s–98.4s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "Creating a new generation of youth super heroes | PHILIP ZIMBARDO | TEDxRoma",
+      "url": "https://www.youtube.com/watch?v=oMMhgJ_Vpwk",
+      "channel": "TEDx Talks",
+      "source_id": "SRC_M2",
+      "duration_sec": 952,
+      "timecodes": [
+        {
+          "t": "10:11-10:24",
+          "what": "Around kf_001.jpg (620.8s) (dark-backdrop stage / studio camera frame), speaker commentary notes \"have created uh transformed social psychology knowledge into six in-depth lessons and with videos, provocative challenges to students. This lesson...\", anchoring the research context of NYU student pushing open the isolated intercom cubicle door in 52 seconds vs hesitating under the 6-channel light panel."
+        },
+        {
+          "t": "10:52-11:07",
+          "what": "At kf_007.jpg (658.7s) (widescreen camera frame), audio continues with \"take extraordinary action in challenging situations in their lives. Effective heroes do the right thing when other people are doing the wrong...\", detailing experimental methodology and behavioral observations for Darley & Latané's NYU isolated-cubicle intercom seizure emergency & Columbia smoke-room experiments."
+        },
+        {
+          "t": "11:08-11:23",
+          "what": "Later lecture slide / diagram frame at kf_010.jpg (677.7s) accompanied by \"heroism begins in the mind, begins with thinking about yourself as a hero. Thinking about yourself as having an inner hero that we will help...\", summarizing mechanism and boundary conditions in Darley & Latané's NYU isolated-cubicle intercom seizure emergency & Columbia smoke-room experiments."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (live-action speaker/interview recording intercut with 2 visual slide frames (640x360, sampled across 620.8s–703.0s)) from TEDx Talks's \"Creating a new generation of youth super heroes | PHILIP ZIMBARDO | TEDxRoma\" (952s total runtime).",
+          "Deduplicated English transcript (25 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (620.8s–703.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Kitty Genovese Childhood Home - Brooklyn NY.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Kitty_Genovese_Childhood_Home_-_Brooklyn_NY.jpg",
+      "channel": "Wikimedia Commons (CityLimitsJunction)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Kitty Genovese Childhood Home - Brooklyn NY.jpg\" (960x1280 px, CC0): Kitty Genovese's Childhood Home at 29 St Johns Pl. in Park Slope, Brooklyn. Documents authentic physical instrument geometry and period materials relevant to Darley & Latané's NYU isolated-cubicle intercom seizure emergency & Columbia smoke-room experiments."
+        }
+      ],
+      "license_note": "Archival photo (CC0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x1280 px, CC0, CityLimitsJunction) — apparatus reference: Kitty Genovese's Childhood Home at 29 St Johns Pl. in Park Slope, Brooklyn.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

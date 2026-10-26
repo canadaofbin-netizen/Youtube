@@ -1,0 +1,102 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Staring at an uncovered marshmallow breaks preschoolers in 62 seconds — covering eyes or hiding the plate stretches patience 10x.",
+    "core_experiment": "Mischel & Ebbesen's 1970-1972 Stanford Surprise Room experiments on visibility, gaze aversion, and 'hot vs cool' framing.",
+    "twist": "Modern replications (Kidd 2013; Watts 2018) proving adult promise-keeping and home stability — not fixed willpower DNA — drive waiting."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "When Mischel's Own Prediction Failed",
+      "beats": [
+        "1 treat now (ring bell) vs 2 in 15 minutes",
+        "Uncovered Collapse: 62 seconds",
+        "Opaque Cover Surge: 11.29 minutes"
+      ],
+      "scene_ids": [
+        "S2",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "side-by-side uncovered vs covered timer"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "What the 15-Minute Kids Actually Did",
+      "beats": [
+        "Covering eyes, singing, spinning chairs",
+        "Hot chewy thoughts (5 min) vs Cool white-cloud framing (18 min)"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "child covering eyes at table"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Prefrontal Cool vs Striatal Hot",
+      "beats": [
+        "Nucleus accumbens sensory pull",
+        "Prefrontal reframing cooling the cue"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "clean brain cool-framing bridge"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "The 2013-2018 Plot Twist: Trust, Not Destiny",
+      "beats": [
+        "Kidd's broken crayon promise (3 min vs 12 min)",
+        "Watts's 900-child socioeconomic replication",
+        "Why eating fast makes sense in an unreliable world"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "broken vs kept art-set comparison"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Putting an Opaque Lid on Your Workday",
+      "beats": [
+        "Why clear cookie jars and desk phones beat grit",
+        "Designing 11-minute drawers"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "sliding phone into closed wooden drawer"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "What happens at millisecond 300 when unconscious sight becomes 'I SEE IT!' — how Stanislas Dehaene (2006) mapped Global Neuronal Workspace ignition.",
+    "core_experiment": "Dehaene, Changeux, Naccache et al. (2006 TiCS) + Del Cul (2006) + Dehaene & Changeux (2011 Neuron) + COGITATE (2025 adversarial test).",
+    "twist": "Subliminal vs Preconscious vs Conscious 3-state map, ~300-ms nonlinear frontoparietal broadcast, coma detection, and single-stage focus."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Paris 2006: Turning 'The Mystery of Consciousness' Into a 50-ms Lab Dial",
+      "beats": [
+        "Same flashed word — half the time 'Blank!', half the time 'I SEE IT!'",
+        "What your visual cortex reads in the dark during the first 200 milliseconds"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "visual-masking display & 3D brain"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Millisecond 300: The All-or-None Frontoparietal 'Global Ignition'",
+      "beats": [
+        "Linear rise in V1 to sudden bimodal step-cliff across parietal & prefrontal hubs.",
+        "Broadcasting one winning thought to language, memory & planning at once"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "nonlinear step-curve & internal frontoparietal tracts"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "The Grand Map: Subliminal vs Preconscious vs Conscious Access",
+      "beats": [
+        "Uniting Zajonc's 1-ms shapes, Cherry's ignored ear & Simons's Invisible Gorilla.",
+        "Why attention is the gatekeeper, not awareness itself"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "3-State Consciousness Matrix"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Bedside Miracles & The 2025 COGITATE Showdown (GNW vs IIT)",
+      "beats": [
+        "Detecting hidden awareness in non-speaking coma patients",
+        "Testing rival theories openly across 256 brains — surprises on both sides."
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "clinical EEG & COGITATE adversarial card"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Capstone #100: Who Gets the Microphone on Your Conscious Stage?",
+      "beats": [
+        "Thousands of unconscious routines, ONE 300-ms global broadcast at a time",
+        "Protecting deep, uninterrupted conscious thought"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "sunlit clutter-free focus desk"
+      ]
+    }
+  ]
+}

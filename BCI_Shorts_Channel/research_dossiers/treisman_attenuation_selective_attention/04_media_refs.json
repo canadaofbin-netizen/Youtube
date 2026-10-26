@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Anne Treisman - 2011 National Medal of Science",
+      "url": "https://www.youtube.com/watch?v=nxdy5v9h2HU",
+      "channel": "Evolving Communications",
+      "source_id": "SRC_M1",
+      "duration_sec": 127,
+      "timecodes": [
+        {
+          "t": "00:15-00:21",
+          "what": "At kf_004.jpg (16.5s) (4:3 camera frame), Evolving Communications's recording states \"to focus in on things that interest us and to exclude irrelevant distractions. Cognitive psychologist Anne Treisman focuses on our brain's...\" — providing spoken context for 1964 Oxford Dichotic Console: Mid-Sentence Story Swap Pulling the Listener's Voice Across Headphone Ears + Dimmer-Knob Threshold Board."
+        },
+        {
+          "t": "00:22-00:30",
+          "what": "Mid-segment 4:3 camera frame at kf_006.jpg (27.5s) as narration explains \"to focus in on things that interest us and to exclude irrelevant distractions. Cognitive psychologist Anne Treisman focuses on our brain's...\", clarifying key empirical findings in Anne M. Treisman's 1960/1964 Oxford Dichotic Channel-Swap & 'Attenuation Theory' of Selective Attention."
+        },
+        {
+          "t": "00:57-01:05",
+          "what": "Subsequent 4:3 camera frame at kf_012.jpg (60.5s) in \"Anne Treisman - 2011 National Medal of Science\", documenting closing visual sequence for reference analysis."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_treisman_attenuation_selecti/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_treisman_attenuation_selecti",
+        "contact_sheet": "media/M1_treisman_attenuation_selecti/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1_treisman_attenuation_selecti/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x364, 14 frames sampled across 0.0s–71.5s)) from Evolving Communications's \"Anne Treisman - 2011 National Medal of Science\" (127s total runtime).",
+          "Deduplicated English transcript (7 timestamped cues in media/M1_treisman_attenuation_selecti/transcript.txt) aligned directly to keyframe timestamps (0.0s–71.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "Anne Treisman Lecture with Dr Marisa Carrasco (New York University)",
+      "url": "https://www.youtube.com/watch?v=ntOTTjlObW4",
+      "channel": "Experimental Psychology Dept, University of Oxford",
+      "source_id": "SRC_M2",
+      "duration_sec": 3584,
+      "timecodes": [
+        {
+          "t": "14:35-14:47",
+          "what": "Around kf_001.jpg (880.8s) (lecture slide / diagram frame), speaker commentary notes \"we assess feature tuning using reverse correlation a method used to infer the shape of the underlying neural response profile from behavioral...\", anchoring the research context of 1964 Oxford Dichotic Console: Mid-Sentence Story Swap Pulling the Listener's Voice Across Headphone Ears + Dimmer-Knob Threshold Board."
+        },
+        {
+          "t": "15:26-15:32",
+          "what": "At kf_009.jpg (931.4s) (lecture slide / diagram frame), audio continues with \"as expected for exogenous attention there's a benefit at the attended location higher discriminability and faster speed\", detailing experimental methodology and behavioral observations for Anne M. Treisman's 1960/1964 Oxford Dichotic Channel-Swap & 'Attenuation Theory' of Selective Attention."
+        },
+        {
+          "t": "15:33-15:48",
+          "what": "Later lecture slide / diagram frame at kf_010.jpg (937.7s) accompanied by \"for valid than for neutral and the cost and invalid location lower discriminability and slower speed for invalids than for neutral trials\", summarizing mechanism and boundary conditions in Anne M. Treisman's 1960/1964 Oxford Dichotic Channel-Swap & 'Attenuation Theory' of Selective Attention."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (recorded lecture combining speaker commentary with 14/14 diagram/slide frames (584x360, sampled across 880.8s–963.0s)) from Experimental Psychology Dept, University of Oxford's \"Anne Treisman Lecture with Dr Marisa Carrasco (New York University)\" (3584s total runtime).",
+          "Deduplicated English transcript (21 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (880.8s–963.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Anne Treisman.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Anne_Treisman.jpg",
+      "channel": "Wikimedia Commons (Executive Office of the President of the United States)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Anne Treisman.jpg\" (360x360 px, Public domain): Cognitive psychologist Anne M. Treisman photographed at the National Medal of Science ceremony, White House archival portrait. Documents authentic researcher likeness, period attire, and historical context for Anne M. Treisman's 1960/1964 Oxford Dichotic Channel-Swap & 'Attenuation Theory' of Selective Attention."
+        }
+      ],
+      "license_note": "Archival photo (Public domain) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (360x360 px, Public domain, Executive Office of the President of the United States) — portrait reference: Cognitive psychologist Anne M. Treisman photographed at the National Medal of Science ceremony, White House archival portrait.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

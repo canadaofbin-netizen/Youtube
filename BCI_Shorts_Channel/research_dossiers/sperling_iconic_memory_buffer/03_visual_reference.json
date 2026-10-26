@@ -1,0 +1,213 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1960 Harvard Tachistoscope: 50-ms '3×4 Letter Grid' Flash + Post-Flash High/Mid/Low Tone Revealing 9.1 of 12 Letters!",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1960, Psychological Laboratories, Harvard University, Cambridge",
+      "layout": {
+        "description": "Sunlit high-key 1960 Harvard psychophysics laboratory featuring a clean white tabletop two-field **tachistoscope viewer**, an illuminated wall display replica of the **3×4 Consonant Grid ('T D R N / F Z K B / X L G M — 50 ms Flash')**, a three-tone audio generator (**High = Top Row, Mid = Middle Row, Low = Bottom Row**), and George Sperling's iconic **Decay Graph ('0 ms Delay: 9.1 Letters -> 500 ms Delay: 4.5 Letters')**.",
+        "positions": [
+          {
+            "who": "George Sperling (25-year-old mannequin in 1960 Oxford button-down shirt, slim tie, and tweed vest)",
+            "where": "triggering the 50-ms grid flash followed immediately after blackout by the 'High Tone' button while pointing to the steep 0-to-500-ms decay curve",
+            "facing": "standing beside tachistoscope and tone box"
+          },
+          {
+            "who": "Harvard Volunteer mannequin (in 1960 collegiate crewneck sweater)",
+            "where": "peering into the clean white tachistoscope hood, hearing the High Tone AFTER the flash goes dark, and crisply reciting 'T — D — R — N!' onto the response pad",
+            "facing": "seated at tachistoscope table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "3×4 twelve-consonant stimulus grid board ('T D R N / F Z K B / X L G M')",
+          "period_detail": "the exact 12-letter array that trapped psychology at 4.5 letters for 74 years",
+          "physical_behavior": "lets viewers test their own eyes instantly"
+        },
+        {
+          "name": "3-Button Post-Flash Audio Tone Box ('HIGH 2500Hz -> Row 1 | MID 650Hz -> Row 2 | LOW 250Hz -> Row 3')",
+          "period_detail": "sounds AFTER the screen goes dark so eyes cannot pre-aim",
+          "physical_behavior": "Sperling's stroke of experimental genius"
+        },
+        {
+          "name": "Iconic Decay Curve plaque ('9.1 Letters at 0s -> 4.5 Ceiling at 0.5s')",
+          "period_detail": "plots the exact 300–500 ms evaporation of raw visual memory",
+          "physical_behavior": "born in Sperling's 1960 monograph"
+        }
+      ],
+      "actions": [
+        {
+          "who": "George Sperling",
+          "verb_sequence": "flashes the 3×4 grid for 50 milliseconds -> screen drops dark -> triggers the High Tone at 0 ms delay -> Volunteer recites all 4 top-row letters effortlessly ('9.1 / 12 capacity!')"
+        },
+        {
+          "who": "George Sperling",
+          "verb_sequence": "repeats waiting 0.5 seconds in the dark before sounding the tone -> Volunteer catches only 1–2 letters from that row as the curve hits the 4.5 floor"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Volunteer mannequin",
+          "reaction": "nods vindicated ('See! I really DID see all twelve for a split second!')"
+        },
+        {
+          "who": "George Sperling",
+          "reaction": "charts the birth of Sensory Iconic Memory"
+        }
+      ],
+      "wardrobe": "1960 Ivy League attire: Oxford cloth button-down, slim knit tie, wool vest; collegiate crewneck sweater.",
+      "lighting": "Clean high-key Cambridge laboratory daylight.",
+      "recognition_hook": "Ask for all 12 flashed letters and everyone stalls at 4 — play a high or low beep AFTER the screen goes dark and suddenly you prove 9 letters were glowing inside the brain!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1960 Harvard psychophysics desk with a white tachistoscope, a 3x4 twelve-consonant grid board, a High/Mid/Low post-flash audio tone generator, and a 9.1-to-4.5-letter 500ms decay graph",
+        "must_show": [
+          "grid|letters",
+          "tachistoscope|tone|box",
+          "graph|curve|chart"
+        ],
+        "source": "M1@00:08-00:16; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Bright Backward Masking vs Rapid Phone Scrolling",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern visual neuroscience / smartphone desk",
+      "layout": {
+        "description": "Split comparison: a bright white post-flash wiping out Sperling's 3×4 ghost image vs a thumb flicking bright slides every 0.3 seconds.",
+        "positions": [
+          {
+            "who": "User mannequin",
+            "where": "realizing why flicking through 30 bright slides in 15 seconds leaves zero retained memory",
+            "facing": "at sunlit desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Backward-Masking Timeline card ('New Flash <300ms = Bleaches Previous Image')",
+          "period_detail": "connects 1960 masking physics directly to modern feed-scrolling amnesia",
+          "physical_behavior": "SRC3 practical link"
+        }
+      ],
+      "actions": [
+        {
+          "who": "User",
+          "verb_sequence": "slows down and pauses 2 full seconds on an important diagram so working memory copies it cleanly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "User",
+          "reaction": "retains the core diagram effortlessly"
+        }
+      ],
+      "wardrobe": "Modern casual shirt.",
+      "lighting": "Clean daylight.",
+      "recognition_hook": "Every bright new slide you scroll onto your retina inside 300 milliseconds acts like bleach on the ghost image of the slide before it!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "The Consciousness Debate: Do We Consciously See All 12? (Block vs Dehaene)",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern cognitive neuroscience auditorium",
+      "layout": {
+        "description": "Sunlit seminar stage comparing 'Phenomenal Overflow (All 12 Conscious)' vs 'Global Workspace Gate (Preconscious V1 -> 4 Conscious)'.",
+        "positions": [
+          {
+            "who": "Two friendly debating researcher mannequins",
+            "where": "pointing to Sperling's 1960 3×4 grid as Exhibit A in modern consciousness science",
+            "facing": "at stage board"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Overflow vs Workspace Gate diagram",
+          "period_detail": "shows a 1960 student thesis still driving cutting-edge brain theory",
+          "physical_behavior": "modern neuroscience relevance"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Researchers",
+          "verb_sequence": "trace V1 persistence vs frontoparietal P3b readout"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Audience",
+          "reaction": "leaning forward engaged"
+        }
+      ],
+      "wardrobe": "Modern tailored blazers.",
+      "lighting": "Bright auditorium light.",
+      "recognition_hook": "Sixty-five years later, the sharpest debate in consciousness science still revolves around George Sperling's twelve consonants!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Partial-Report Focus in Real Life: Grabbing the Last 4 License Digits",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit street / parking lot",
+      "layout": {
+        "description": "Bright sidewalk where a witness glances once at a 7-character plate and immediately locks attention onto the final 4 characters.",
+        "positions": [
+          {
+            "who": "Witness mannequin",
+            "where": "mentally cuing the right-hand 4 characters inside the 300-ms window and jotting them down 100% accurately",
+            "facing": "on bright sidewalk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "4-character chunk notepad",
+          "period_detail": "practical real-world Partial Report strategy",
+          "physical_behavior": "beats losing everything trying to grab all 7"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Witness",
+          "verb_sequence": "aims mental spotlight at the last 4 characters immediately -> writes all 4 cleanly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Witness",
+          "reaction": "satisfied nod"
+        }
+      ],
+      "wardrobe": "Modern smart-casual jacket.",
+      "lighting": "Bright morning sunlight.",
+      "recognition_hook": "You only get 300 milliseconds before the ghost photograph fades — aim your mental spotlight at four priority digits first!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

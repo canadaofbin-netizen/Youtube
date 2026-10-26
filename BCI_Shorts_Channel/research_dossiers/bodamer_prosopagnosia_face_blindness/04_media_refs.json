@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Prosopagnosia - Face Blindness - in under 2 Minutes!",
+      "url": "https://www.youtube.com/watch?v=DsUlexSNs-4",
+      "channel": "Dr Beth Colby",
+      "source_id": "SRC_M1",
+      "duration_sec": 89,
+      "timecodes": [
+        {
+          "t": "00:04-00:16",
+          "what": "At kf_003.jpg (11.0s) (widescreen camera frame), Dr Beth Colby's recording states \"Imagine you can't recognise the face of friends or family. Imagine you can't recognise your own face. Or imagine you cannot distinguish between a...\" — providing spoken context for 1947 Winnenden Clinic: Patient S. Reading Fine Print Sharp Yet Failing to Know a Tabletop Mirror & Family Portraits Until a Voice Speaks."
+        },
+        {
+          "t": "00:17-00:30",
+          "what": "Mid-segment widescreen camera frame at kf_005.jpg (22.0s) as narration explains \"These are different degrees of a condition called prosopagnosia, or face blindness. Some people have prosopagnosia from birth, and this does not...\", clarifying key empirical findings in Joachim Bodamer's 1947 Winnenden Clinical Cases Coining 'Prosopagnosia' (from Greek prosopon 'face' + agnosia 'not-knowing')."
+        },
+        {
+          "t": "00:35-00:51",
+          "what": "Around kf_009.jpg (44.0s) (widescreen camera frame), commentary states \"This adds to the difficulties people with autism have in making friends. Some people acquire prosopagnosia later in life, and this may be due to...\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_bodamer_prosopagnosia_face_b/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_bodamer_prosopagnosia_face_b",
+        "contact_sheet": "media/M1_bodamer_prosopagnosia_face_b/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1_bodamer_prosopagnosia_face_b/contact_sheet.jpg (widescreen live-action camera recording (480x270, 12 frames sampled across 0.0s–60.5s)) from Dr Beth Colby's \"Prosopagnosia - Face Blindness - in under 2 Minutes!\" (89s total runtime).",
+          "Deduplicated English transcript (10 timestamped cues in media/M1_bodamer_prosopagnosia_face_b/transcript.txt) aligned directly to keyframe timestamps (0.0s–60.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Face Blindness, part 1",
+      "url": "https://www.youtube.com/watch?v=dxqsBk7Wn-Y",
+      "channel": "CBS News",
+      "source_id": "SRC_M2",
+      "duration_sec": 765,
+      "timecodes": [
+        {
+          "t": "01:06-01:13",
+          "what": "Around kf_001.jpg (71.9s) (widescreen camera frame), speaker commentary notes \"but for people who are face blind the condition is very\", anchoring the research context of 1947 Winnenden Clinic: Patient S. Reading Fine Print Sharp Yet Failing to Know a Tabletop Mirror & Family Portraits Until a Voice Speaks."
+        },
+        {
+          "t": "01:39-01:48",
+          "what": "At kf_007.jpg (104.8s) (widescreen camera frame), audio continues with \"ones no idea oh we showed Jacob faces without hair uh a pure test of facial\", detailing experimental methodology and behavioral observations for Joachim Bodamer's 1947 Winnenden Clinical Cases Coining 'Prosopagnosia' (from Greek prosopon 'face' + agnosia 'not-knowing')."
+        },
+        {
+          "t": "01:49-01:53",
+          "what": "Later widescreen camera frame at kf_011.jpg (111.1s) accompanied by \"hair uh a pure test of facial\", summarizing mechanism and boundary conditions in Joachim Bodamer's 1947 Winnenden Clinical Cases Coining 'Prosopagnosia' (from Greek prosopon 'face' + agnosia 'not-knowing')."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (live-action speaker/interview recording intercut with 1 visual slide frames (480x270, sampled across 71.9s–120.8s)) from CBS News's \"Face Blindness, part 1\" (765s total runtime).",
+          "Deduplicated English transcript (35 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (71.9s–120.8s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Fusiform face area face recognition.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Fusiform_face_area_face_recognition.jpg",
+      "channel": "Wikimedia Commons (NIH)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Fusiform face area face recognition.jpg\" (475x503 px, Public domain): This is a computer-enhanced fMRI scan of a person who has been asked to look at faces. The image shows increased blood flow in the part of the visual cortex that recognizes faces. Provides anatomical and structural brain reference relevant to the neural mechanism in Joachim Bodamer's 1947 Winnenden Clinical Cases Coining 'Prosopagnosia' (from Greek prosopon 'face' + agnosia 'not-knowing')."
+        }
+      ],
+      "license_note": "Archival photo (Public domain) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (475x503 px, Public domain, NIH) — neuroanatomy reference: This is a computer-enhanced fMRI scan of a person who has been asked to look at faces. The image shows increased blood flow in the part of the visual cortex that recognizes faces.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

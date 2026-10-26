@@ -1,0 +1,207 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Peter Wason's 1968 UCL Tabletop: Four Cards ('E — K — 4 — 7') vs the 'Beer — Soda — 25 — 16' Reveal",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1968, University College London psychology seminar room",
+      "layout": {
+        "description": "Sunlit 1968 London wood-and-baize testing table displaying four large crisp white cards face-up in a row — **E**, **K**, **4**, **7** — beneath a printed placard reading 'RULE: If a card has a VOWEL on one side, it has an EVEN NUMBER on the other', with a parallel second row of concrete comparison cards ('BEER', 'SODA', '25', '16') beside it.",
+        "positions": [
+          {
+            "who": "Peter Wason (mannequin in 1968 British tweed jacket and tie)",
+            "where": "seated across the baize table holding one finger calmly beside card '7' as the volunteer confidently reaches for 'E' and '4'",
+            "facing": "across testing table"
+          },
+          {
+            "who": "University Student mannequin (in 1968 crewneck jumper)",
+            "where": "reaching confidently toward 'E' and '4' — then freezing in astonishment as Wason flips '7' over to reveal a rule-shattering 'E' on its back!",
+            "facing": "seated facing the four cards"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "four oversized double-sided Wason cards ('E', 'K', '4', '7')",
+          "period_detail": "thick matte cardstock where flipping '7' reveals 'E' (rule broken!) while flipping '4' reveals 'K' (rule unbroken!)",
+          "physical_behavior": "the exact 4-card puzzle viewers can play along with in 3 seconds"
+        },
+        {
+          "name": "rule placard & '<10% Pick E & 7' vs '80% Pick Beer & 16' comparison tray",
+          "period_detail": "second row showing identical logic as 'If Beer -> Over 21'",
+          "physical_behavior": "delivers the instant 'aha!' contrast"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Student mannequin",
+          "verb_sequence": "points confidently to 'E' and '4' -> Wason turns '4' over showing 'K' (harmless!) -> Wason flips '7' over revealing 'E' on the back, shattering the rule in one move"
+        },
+        {
+          "who": "Peter Wason",
+          "verb_sequence": "slides the parallel 'BEER / SODA / 25 / 16' row forward -> Student immediately points to 'BEER' and '16'"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Student mannequin",
+          "reaction": "palms forehead laughing at how obvious '16 / 7' becomes in real-world terms"
+        },
+        {
+          "who": "Peter Wason",
+          "reaction": "records the 90% abstract miss vs 80% concrete hit"
+        }
+      ],
+      "wardrobe": "1968 British university tweed jacket, Oxford shirt, knit tie; collegiate wool jumper.",
+      "lighting": "Bright high-key London tall-window daylight.",
+      "recognition_hook": "Four cards — E, K, 4, 7 — fool 90% of university minds until you flip '7' and turn the exact same puzzle into a pub bouncer test.",
+      "sources": [
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1968 wooden table with four large white cards labeled E, K, 4, and 7 beneath a vowel-even rule placard as a researcher flips card 7 to reveal a hidden E",
+        "must_show": [
+          "cards",
+          "placard|rule|board",
+          "table|desk"
+        ],
+        "source": "M1@00:01-00:13; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Wason's '2 — 4 — 6' Confirmation Trap (1960)",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1960, UCL laboratory",
+      "layout": {
+        "description": "Bright desk where a volunteer writes endless 'Yes' triples ('8-10-12', '14-16-18') without ever testing '1-2-3'.",
+        "positions": [
+          {
+            "who": "Participant mannequin",
+            "where": "beaming over a column of 'YES' checkmarks while completely wrong about the real rule ('any ascending numbers')",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "notepad of 'YES' triples vs untested '1-2-3' card",
+          "period_detail": "shows why seeking 'Yes' locks in overly narrow myths",
+          "physical_behavior": "origin of the term 'confirmation bias'"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Participant",
+          "verb_sequence": "writes '20-22-24 -> YES!' and announces wrong rule -> Wason reveals '1-2-3' also gets YES"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Participant",
+          "reaction": "stunned realization"
+        }
+      ],
+      "wardrobe": "1960s British collared shirt and cardigan.",
+      "lighting": "Clean daylight.",
+      "recognition_hook": "Ten 'Yeses' in a row felt like genius proof — when one brave 'No' test ('1-2-3') would have revealed the truth in five seconds.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "1972 Postal-Stamp Envelopes: Instant 80% Mastery",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1972, UCL / Italian postal experiment",
+      "layout": {
+        "description": "Tabletop with four real paper envelopes: Sealed, Unsealed, 50-Lire Stamp, 40-Lire Stamp.",
+        "positions": [
+          {
+            "who": "Participant mannequin",
+            "where": "instantly flipping the Sealed envelope and the 40-Lire envelope to catch underpaid mail",
+            "facing": "at table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "four postal envelopes",
+          "period_detail": "identical logic to E-K-4-7 solved effortlessly at >80% accuracy",
+          "physical_behavior": "Johnson-Laird, Legrenzi & Legrenzi 1972"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Participant",
+          "verb_sequence": "flips Sealed + low-stamp envelope without hesitation"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Johnson-Laird mannequin",
+          "reaction": "marks 80%+ success bar"
+        }
+      ],
+      "wardrobe": "1970s corduroy blazer.",
+      "lighting": "Warm classroom daylight.",
+      "recognition_hook": "Turn abstract letters into sealed envelopes with cheap stamps, and ordinary people suddenly reason like master logicians.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Flipping 'Card 7' on Your Own Pet Beliefs",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern investment / research desk",
+      "layout": {
+        "description": "Sunlit desk with a two-column decision pad: 'Why I Might Be Right (Card 4)' vs 'What Would Prove Me Wrong? (Card 7)'.",
+        "positions": [
+          {
+            "who": "Analyst mannequin",
+            "where": "deliberately filling out the 'Card 7 Disproof Check' column before signing off",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Card-7 Pre-Mortem Checklist",
+          "period_detail": "forces active falsification search in everyday decisions",
+          "physical_behavior": "practical takeaway"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Analyst",
+          "verb_sequence": "crosses out a one-sided search and runs the disconfirming query"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Analyst",
+          "reaction": "catches a hidden flaw before launch"
+        }
+      ],
+      "wardrobe": "Modern smart-casual shirt.",
+      "lighting": "Bright daylight.",
+      "recognition_hook": "Smart people don't win by piling up Card-4 'Yeses' — they win by flipping Card 7 before reality flips it for them.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

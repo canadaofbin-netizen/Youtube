@@ -1,0 +1,103 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Leaving the psychoanalytic couch empty, Aaron Beck maps a patient's hidden half-second 'automatic thought' onto a two-column pad.",
+    "core_experiment": "Beck's 1963 50-vs-31 clinical study uncovering the Negative Cognitive Triad (Self, World, Future) and five classic thinking distortions.",
+    "twist": "How Beck disproved his own Freudian dream theory and built CBT's 'collaborative empiricism' — not blind positive thinking."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Experiment That Disproved Freud by Accident",
+      "beats": [
+        "Testing 'anger turned inward' in dreams",
+        "Uncovering the hidden second track of automatic thoughts",
+        "Moving from couch to desk"
+      ],
+      "scene_ids": [
+        "S1",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "pan from empty couch to face-to-face desk"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "The Cognitive Triad: Self, World, Future",
+      "beats": [
+        "50 depressed vs 31 control records",
+        "Why a rushed hallway pass feels like total failure"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "hallway wristwatch pass-by"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Five Thinking Traps Hiding in Plain Sight",
+      "beats": [
+        "Arbitrary inference & selective abstraction",
+        "Overgeneralization, magnification, minimization",
+        "Prefrontal auditor vs amygdala alarm"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "two-column legal pad close-up"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Why CBT Is Science, Not Affirmations",
+      "beats": [
+        "Collaborative empiricism vs forced cheer",
+        "Lower relapse rates in clinical trials",
+        "Bidirectional biology-cognition nuance"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "evidence-testing balance sheet"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "The 60-Second Two-Column Check",
+      "beats": [
+        "Catching 'Read 2 hours ago' spirals",
+        "Writing three boring alternative explanations"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "modern café pocket notebook"
+      ]
+    }
+  ]
+}

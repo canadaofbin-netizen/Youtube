@@ -1,0 +1,138 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Eugene fails to draw a single room of his house on paper, then stands up and walks straight to the kitchen snack cabinet.",
+    "core_experiment": "Squire's 36-session amnesic habit tests (>85% accuracy without recall) paired with Graybiel's MIT T-maze recordings showing dorsolateral striatum start-and-end task-bracketing.",
+    "twist": "Optogenetic silencing proves old habits are never deleted from the striatum — they remain latent and snap back unless outcompeted by a replacement routine."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Man With No Map Who Never Got Lost",
+      "beats": [
+        "Blank floor-plan test at the dining table",
+        "Automatic walk to the oak snack cabinet",
+        "1992 encephalitis lesion erasing the hippocampus"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "16:9 hallway tracking shot following Eugene"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Thirty-Six Sessions Without Remembering One",
+      "beats": [
+        "Eight-pair object task setup",
+        "Accuracy climbing past 85% while denying recognition",
+        "Separating knowing-what from knowing-how"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "overhead macro of the eight object pairs"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Inside the Dorsal Striatum",
+      "beats": [
+        "Associative dorsomedial vs sensorimotor dorsolateral striatum",
+        "Novice continuous firing across the T-maze",
+        "Compression into one motor chunk"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "alternating matched-angle novice vs expert T-maze waveform"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Task-Bracketing: Start Burst, Silent Middle, End Burst",
+      "beats": [
+        "Cue triggers the opening burst",
+        "Prefrontal planner powers down in the middle",
+        "Reward locks the closing bracket"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "step3"
+      ],
+      "new_shots_needed": [
+        "close-up of start gate lifting and waveform peak"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Why Bad Habits Ignore Consequences",
+      "beats": [
+        "Outcome devaluation test",
+        "Running to a food well you no longer want",
+        "Link to compulsions and addiction"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [],
+      "new_shots_needed": [
+        "two-arm choice comparison after devaluation"
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Switching Habits With a Flash of Light",
+      "beats": [
+        "Smith & Graybiel 2013 optogenetic test",
+        "Instant habit break and instant relapse",
+        "Latent traces in the basal ganglia"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "laboratory fiber-optic light cue demonstration"
+      ]
+    },
+    {
+      "n": 7,
+      "title": "Rewiring Your Own Cue-Routine-Reward Bracket",
+      "beats": [
+        "Why mid-routine willpower loses",
+        "Changing the cue or swapping the middle action",
+        "Evening kitchen takeaway"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "wide evening kitchen replacement routine"
+      ]
+    }
+  ]
+}

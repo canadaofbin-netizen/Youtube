@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "lecture",
+      "title": "The Future is Here: Neuromodulation and Gate Control Theory | Joseph Liao M.D",
+      "url": "https://www.youtube.com/watch?v=yHYE1L_9GLQ",
+      "channel": "Stanford Pain Medicine",
+      "source_id": "SRC_M1",
+      "duration_sec": 1605,
+      "timecodes": [
+        {
+          "t": "07:36-07:46",
+          "what": "At kf_001.jpg (460.8s) (lecture slide / diagram frame), Stanford Pain Medicine's recording states \"Now let's take a look at what happens when we can close the gate with the gate control theory. Well, we still have painful stimuli going through...\" — providing spoken context for Melzack and Wall demonstrating the fast-touch vs slow-ache spinal gate diagram beside a bumped-shin reflex."
+        },
+        {
+          "t": "08:25-08:36",
+          "what": "Mid-segment lecture slide / diagram frame at kf_009.jpg (511.4s) as narration explains \"Well, we can activate the gait control theory at the level of the peripheral nerve the spinal cord as well as the brain. So again, when we have a...\", clarifying key empirical findings in Ronald Melzack & Patrick Wall's 1965 MIT Science synthesis & dorsal-horn substantia gelatinosa gate model."
+        },
+        {
+          "t": "08:37-08:49",
+          "what": "Around kf_011.jpg (524.0s) (lecture slide / diagram frame), commentary states \"it goes along the peripheral nerves to the spinal cord and then up to the brain where it does higher level functioning and processing. So at the...\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (recorded lecture combining speaker commentary with 14/14 diagram/slide frames (640x360, sampled across 460.8s–543.0s)) from Stanford Pain Medicine's \"The Future is Here: Neuromodulation and Gate Control Theory | Joseph Liao M.D\" (1605s total runtime).",
+          "Deduplicated English transcript (27 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (460.8s–543.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "interview",
+      "title": "DR MELZACK Interviewed on Gate Control Theory by Dr Leora Kuttner April 1989",
+      "url": "https://www.youtube.com/watch?v=0qGZPmUttUk",
+      "channel": "Leora Kuttner",
+      "source_id": "SRC_M2",
+      "duration_sec": 844,
+      "timecodes": [
+        {
+          "t": "04:09-04:25",
+          "what": "Around kf_002.jpg (257.1s) (4:3 camera frame), speaker commentary notes \"the system is just a heck of a lot more complicated than injury beinging pain so it's very important to realize that you've got sensory fibers...\", anchoring the research context of Melzack and Wall demonstrating the fast-touch vs slow-ache spinal gate diagram beside a bumped-shin reflex."
+        },
+        {
+          "t": "04:40-04:51",
+          "what": "At kf_006.jpg (282.4s) (4:3 camera frame), audio continues with \"the lot more fibers in the spinal cord uh that send uh information or messages about pain up to the brain in any case what Pat wall was looking at...\", detailing experimental methodology and behavioral observations for Ronald Melzack & Patrick Wall's 1965 MIT Science synthesis & dorsal-horn substantia gelatinosa gate model."
+        },
+        {
+          "t": "05:11-05:25",
+          "what": "Later 4:3 camera frame at kf_012.jpg (320.4s) accompanied by \"trickle through the substantia gelatinosa and acts like a gate so these messages coming in from the sensory fibers either activate these cells...\", summarizing mechanism and boundary conditions in Ronald Melzack & Patrick Wall's 1965 MIT Science synthesis & dorsal-horn substantia gelatinosa gate model."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (4:3 broadcast/clinical camera recording (476x360, 14 frames sampled across 250.8s–333.0s)) from Leora Kuttner's \"DR MELZACK Interviewed on Gate Control Theory by Dr Leora Kuttner April 1989\" (844s total runtime).",
+          "Deduplicated English transcript (27 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (250.8s–333.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Patrick David Wall by Sonnabend.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Patrick_David_Wall_by_Sonnabend.jpg",
+      "channel": "Wikimedia Commons (Yolanda Sonnabend)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Patrick David Wall by Sonnabend.jpg\" (432x549 px, CC BY 4.0): Patrick Wall. Oil painting, canvas 45.4 x 35.2 cm. Documents authentic researcher likeness, period attire, and historical context for Ronald Melzack & Patrick Wall's 1965 MIT Science synthesis & dorsal-horn substantia gelatinosa gate model."
+        }
+      ],
+      "license_note": "Archival photo (CC BY 4.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (432x549 px, CC BY 4.0, Yolanda Sonnabend) — portrait reference: Patrick Wall. Oil painting, canvas 45.4 x 35.2 cm.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

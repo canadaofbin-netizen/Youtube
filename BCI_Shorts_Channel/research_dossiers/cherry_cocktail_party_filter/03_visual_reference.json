@@ -1,0 +1,203 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1953 Imperial College Dual-Channel Audio Console: Shadowing the Right Ear Aloud While Missing English-to-German Switch in the Left Ear",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1953, Department of Electrical Engineering, Imperial College London",
+      "layout": {
+        "description": "Sunlit high-key 1953 British acoustics & communications laboratory featuring a brushed-metal **dual-channel studio audio console** wired to **padded over-ear split-channel headphones**; above the console sit two crisp channel indicator boards — **Right Ear Channel: 'English Story (Shadowed Aloud: 99%)'** and **Left Ear Channel: '400Hz Beep / Pitch Shift = Noticed! | Switch to GERMAN = 0% Noticed!'**.",
+        "positions": [
+          {
+            "who": "Colin Cherry (mannequin in 1953 British tweed blazer, waistcoat, and striped tie)",
+            "where": "standing at the dual-channel studio audio console smoothly flipping the Left-Ear input toggle from English to German speech while monitoring the listener's unbroken shadowing",
+            "facing": "at dual-channel audio console"
+          },
+          {
+            "who": "Listener mannequin (wearing padded dual-channel studio headphones in 1953 knit jumper)",
+            "where": "speaking steadily into a desktop microphone repeating the Right-Ear English passage word-for-word — then shrugging in total surprise when asked if the Left Ear spoke German!",
+            "facing": "seated at studio desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "dual-channel studio audio console & padded over-ear headphones",
+          "period_detail": "delivers independent Left vs Right speech streams cleanly",
+          "physical_behavior": "stages Cherry's 1953 dichotic paradigm"
+        },
+        {
+          "name": "Left-Ear Test Toggle Board ('400Hz Tone [YES] | Male->Female Pitch [YES] | English->German [NO!]')",
+          "period_detail": "contrasts noticed physical features against missed linguistic meaning",
+          "physical_behavior": "crystallizes Broadbent's early filter data in one glance"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Listener mannequin",
+          "verb_sequence": "shadows the Right-Ear English voice smoothly aloud -> Colin Cherry flips Left-Ear channel into German speech -> Listener never flinches and afterward reports 'Sounded like English' -> Cherry flips Left-Ear to a 400-Hz tone -> Listener immediately raises left hand!"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Listener mannequin",
+          "reaction": "laughs amazed at catching a beep instantly while missing an entire foreign language in the exact same ear"
+        },
+        {
+          "who": "Colin Cherry",
+          "reaction": "logs the birth of the 'Cocktail Party Problem'"
+        }
+      ],
+      "wardrobe": "1953 British academic attire: warm wool tweed jacket, waistcoat, club tie; ribbed wool jumper over collared shirt.",
+      "lighting": "Clean high-key London laboratory daylight.",
+      "recognition_hook": "Switch the ignored headphone cup from a man's voice to a beep and they spot it instantly — switch English into German or backwards speech and they never notice a thing!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1953 London acoustics lab where an engineer at a dual-channel studio audio console flips a Left-Ear German switch while a seated listener in padded headphones shadows the Right-Ear voice aloud",
+        "must_show": [
+          "headphones",
+          "console|microphone",
+          "board|chart|desk"
+        ],
+        "source": "M1@00:05-00:19; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "1954 Ear-Hopping Speed Limit: 3 Switches Per Second Breaks Speech",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1954, Imperial College acoustics bench (Cherry & Taylor)",
+      "layout": {
+        "description": "Bright bench with an electronic toggle switch hopping a single voice Left -> Right -> Left every 180 milliseconds.",
+        "positions": [
+          {
+            "who": "Listener & Cherry mannequins",
+            "where": "plotting the dramatic U-shaped dip in word recognition right around 3 alternations per second",
+            "facing": "at audio bench"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Ear-Alternation Dip Graph ('180 ms Attention Switch Bottleneck')",
+          "period_detail": "quantifies the physical time cost of toggling auditory focus",
+          "physical_behavior": "Cherry & Taylor 1954 JASA"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Cherry",
+          "verb_sequence": "dials alternation rate to 3 Hz -> listener stumbles -> dials past 10 Hz -> intelligibility recovers"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Cherry",
+          "reaction": "measures the ~180-ms attention-shift clock"
+        }
+      ],
+      "wardrobe": "1954 tweed jacket and collared shirts.",
+      "lighting": "Bright lab daylight.",
+      "recognition_hook": "Bounce one clear sentence back and forth between your two ears three times a second, and human comprehension crashes right on the 180-millisecond switch cost!",
+      "sources": [
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "2012 Awake Brain Decoding: Auditory Cortex Tunes Out the Crowd",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2012, UCSF human speech neurophysiology suite (Mesgarani & Chang)",
+      "layout": {
+        "description": "Clean high-key clinical display comparing a two-speaker mixed room spectrogram against the reconstructed neural spectrogram matching ONLY Speaker A.",
+        "positions": [
+          {
+            "who": "Neuroscientist & Listener mannequins",
+            "where": "watching superior temporal cortex selectively amplify whichever speaker the listener chooses to follow",
+            "facing": "at monitor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Mixed Audio vs Selective Cortical Reconstruction screen",
+          "period_detail": "shows Cherry's 1953 filter operating live in human auditory cortex",
+          "physical_behavior": "2012 Nature proof"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Listener",
+          "verb_sequence": "shifts mental focus from Speaker 1 to Speaker 2 -> cortical spectrogram flips cleanly to Speaker 2"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Neuroscientist",
+          "reaction": "confirms biological noise-canceling gain"
+        }
+      ],
+      "wardrobe": "Modern white coat and casual shirt.",
+      "lighting": "Clean high-key light.",
+      "recognition_hook": "Two voices hit your eardrum at identical volume — yet one synapse past primary hearing, your brain's electrical wave contains ONLY the voice you chose!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Protecting Your Single Verbal Channel in Everyday Work",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit home office",
+      "layout": {
+        "description": "Tidy oak desk where a writer switches headphones from a talk podcast to calm instrumental audio before drafting a report.",
+        "positions": [
+          {
+            "who": "Writer mannequin",
+            "where": "pausing spoken lyrics/talk and typing smoothly at full verbal clarity",
+            "facing": "at oak desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Spoken-Word OFF / Instrumental ON toggle",
+          "period_detail": "stops dichotic verbal competition while writing",
+          "physical_behavior": "practical productivity rule"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Writer",
+          "verb_sequence": "switches off background talk show -> writing speed and recall double"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Writer",
+          "reaction": "clear, effortless deep work"
+        }
+      ],
+      "wardrobe": "Modern smart-casual knitwear.",
+      "lighting": "Warm morning window light.",
+      "recognition_hook": "Never force your single verbal decoder to write sentences while another human voice talks in your headphones.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

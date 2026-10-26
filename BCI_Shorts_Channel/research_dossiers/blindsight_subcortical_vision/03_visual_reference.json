@@ -1,0 +1,218 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1974 Queen Square Perimeter Arc: Patient D.B. Fixing Straight Ahead While Pointing Dead-Center Into His 'Blind' Left Field",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1974, National Hospital, Queen Square, London",
+      "layout": {
+        "description": "Sunlit 1974 British hospital neuro-ophthalmology testing room featuring a curved white semicircular perimeter screen with a central fixation cross; on the right ('Intact Field') and left ('Consciously Blind Left Field') sit silent optical projection spots and 'X vs O' plaques, alongside a scorecard reading 'Conscious Sight: 0% | Forced-Choice Pointing: 92%'.",
+        "positions": [
+          {
+            "who": "Patient D.B. (mannequin in 1974 knit V-neck jumper over collared shirt)",
+            "where": "chin resting steadily on the white perimeter chin-rest, eyes locked strictly on the center cross, extending his index finger to touch the silent light spot in his 'blind' left arc while shaking his head saying he saw nothing",
+            "facing": "at perimeter chin-rest"
+          },
+          {
+            "who": "Lawrence Weiskrantz & Elizabeth Warrington (mannequins in 1974 white clinical coats)",
+            "where": "silently projecting a silent target and 'X / O' grating into the left arc, then turning the 92%-accurate scorecard around to show the astonished patient",
+            "facing": "beside perimeter screen"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "curved white clinical perimeter arc with central fixation cross",
+          "period_detail": "separates D.B.'s intact right field from his V1-lesioned blind left field",
+          "physical_behavior": "exact 1974 Queen Square clinical apparatus"
+        },
+        {
+          "name": "silent light-spot projector & 'X vs O' orientation paddles",
+          "period_detail": "zero sound cues — pure silent visual targets inside the blind hemifield",
+          "physical_behavior": "tests location pointing AND shape orientation"
+        },
+        {
+          "name": "'Seen: 0 / 30 — Pointed Accurately: 28 / 30 (93%)' reveal clipboard",
+          "period_detail": "captures D.B.'s own famous disbelief when shown his hit map",
+          "physical_behavior": "delivers the core human astonishment beat"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Lawrence Weiskrantz",
+          "verb_sequence": "flashes a silent target spot 20 degrees inside D.B.'s blind left arc and prompts 'Just guess with your finger' -> Patient D.B. reaches smoothly and touches dead-center on the spot while reporting 'Nothing there'"
+        },
+        {
+          "who": "Elizabeth Warrington",
+          "verb_sequence": "turns the cluster-dotted target map around -> Patient D.B. leans back in amazement seeing 28 bullseyes"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Patient D.B.",
+          "reaction": "stares wide-eyed at his own bullseye target sheet ('I swear it was pure guesswork!')"
+        },
+        {
+          "who": "Weiskrantz & Warrington",
+          "reaction": "record the birth of 'Blindsight' for Brain and The Lancet"
+        }
+      ],
+      "wardrobe": "1974 British clinical coats over tweed/blouse; patient V-neck wool jumper and collared shirt.",
+      "lighting": "Clean high-key clinical daylight.",
+      "recognition_hook": "He swears on his life the left half of the screen is empty — then puts his finger bullseye on 28 out of 30 silent targets.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1974 clinical testing room where a seated patient on a chin-rest stares straight ahead while pointing accurately at a silent target on the left half of a curved white perimeter screen beside a 93% accuracy clipboard",
+        "must_show": [
+          "screen|perimeter|arc",
+          "chin-rest|target|cross",
+          "clipboard|chart"
+        ],
+        "source": "M1@00:08-00:16; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "2008 Corridor Obstacle Course Without V1 (Patient T.N.)",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2008, European university neurology corridor",
+      "layout": {
+        "description": "Bright sunlit hospital corridor scattered with low wooden chairs, cardboard boxes, and paper-roll obstacles.",
+        "positions": [
+          {
+            "who": "Cortically blind Patient T.N. mannequin",
+            "where": "walking unassisted down the bright corridor side-stepping every chair and box cleanly without a cane or collision",
+            "facing": "center of obstacle hallway"
+          },
+          {
+            "who": "Two Neurologist mannequins",
+            "where": "trailing safely a step behind with dropped jaws and clipboards",
+            "facing": "following down corridor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "staggered hallway chairs & boxes",
+          "period_detail": "navigated with zero collisions despite bilateral V1 loss",
+          "physical_behavior": "de Gelder et al. 2008 landmark video proof"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient T.N.",
+          "verb_sequence": "weaves left around a chair and steps smoothly past a box while reporting zero conscious sight"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Neurologists",
+          "reaction": "applaud quietly at intact subcortical dorsal navigation"
+        }
+      ],
+      "wardrobe": "2008 sweater and clinical coats.",
+      "lighting": "Bright corridor daylight.",
+      "recognition_hook": "Zero primary visual cortex in either hemisphere — yet his ancient midbrain radar steers his feet cleanly around every chair in the hall.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Affective Blindsight: Catching Fear Without Seeing a Face",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2009, Tilburg / Torino affective neuroscience lab",
+      "layout": {
+        "description": "Clean testing booth flashing a fearful vs smiling mannequin portrait into the blind field while tiny cheek sensors record involuntary mimicry.",
+        "positions": [
+          {
+            "who": "Blindsight participant mannequin",
+            "where": "reporting an empty screen while their brow subtly knits on unseen fear cards and relaxes on unseen smile cards",
+            "facing": "facing monitor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "facial expression cards & amygdala-colliculus pathway diagram",
+          "period_detail": "proves unseen emotions reach amygdala via superior colliculus",
+          "physical_behavior": "Tamietto & de Gelder 2010"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Experimenter",
+          "verb_sequence": "flashes unseen smile card -> participant's zygomatic cheek trace lifts automatically"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Experimenter",
+          "reaction": "notes intact subcortical emotion radar"
+        }
+      ],
+      "wardrobe": "Clean modern shirt and lab coat.",
+      "lighting": "High-key booth light.",
+      "recognition_hook": "Even when conscious sight is pitch-dark, an unseen smile or frightened face reaches your amygdala and moves your own cheek muscles.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Why You Still Need Consciousness: The Untouched Glass of Water",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "1974 / Philosophical synthesis scene",
+      "layout": {
+        "description": "Sunlit table where a clear glass of water sits in the blind left field — untouched until someone prompts a guess.",
+        "positions": [
+          {
+            "who": "Patient mannequin",
+            "where": "feeling thirsty yet never spontaneously reaching left until turning head to bring the glass into conscious sight",
+            "facing": "at table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "clear water glass on left vs right side of table",
+          "period_detail": "illustrates what unconscious blindsight CANNOT do: initiate spontaneous self-chosen goals",
+          "physical_behavior": "debunks 'consciousness is useless' myth"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient",
+          "verb_sequence": "ignores glass in blind zone -> turns eyes into intact conscious field -> smiles and picks up glass immediately"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Patient",
+          "reaction": "drinks purposefully once conscious V1 engages"
+        }
+      ],
+      "wardrobe": "Smart-casual jumper.",
+      "lighting": "Warm window light.",
+      "recognition_hook": "Blindsight can dodge a chair or win a forced guess — ONLY conscious sight lets you look at a glass of water and choose to drink.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "First-grade teacher leaning in warmly beside a randomly chosen 'Harvard bloomer' desk while holding the typed roster",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1964-1965 school year, 'Oak School' elementary classroom, South San Francisco",
+      "layout": {
+        "description": "Sunlit mid-1960s California first-grade classroom with rows of small wooden-and-tubular-steel student desks, alphabet cursive cards above the green chalkboard, and a teacher's oak desk holding a typed 'Harvard Test of Inflected Acquisition' memo.",
+        "positions": [
+          {
+            "who": "Elementary Teacher (mannequin in 1960s knee-length pleated dress and cardigan)",
+            "where": "kneeling warmly beside a first-grader's wooden desk, waiting patiently and pointing encouragingly at a geometric puzzle workbook",
+            "facing": "facing the young student"
+          },
+          {
+            "who": "Randomly Labeled 'Bloomer' Pupil (child mannequin in 1960s plaid shirt)",
+            "where": "sitting tall raising a pencil eagerly to complete the next pattern",
+            "facing": "facing the workbook and teacher"
+          },
+          {
+            "who": "Robert Rosenthal & Lenore Jacobson (mannequins in 1960s suit and blazer)",
+            "where": "visible in the doorway hallway holding the random-number table that generated the list",
+            "facing": "observing the classroom interaction"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "typed 'Harvard Test of Inflected Acquisition' memo",
+          "period_detail": "crisp 1964 typewritten roster with five circled pupil names resting on the corner of the teacher's desk",
+          "physical_behavior": "secretly generated from a random-number booklet"
+        },
+        {
+          "name": "random-number table booklet",
+          "period_detail": "printed statistical table in Rosenthal's hand",
+          "physical_behavior": "proves the circled 'spurters' were chosen by pure chance"
+        },
+        {
+          "name": "nonverbal geometric pattern booklet",
+          "period_detail": "1960s Flanagan picture-and-shape test pages",
+          "physical_behavior": "shows the young student solving harder items as the teacher waits patiently"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Elementary Teacher",
+          "verb_sequence": "glances once at the circled name on her desk roster -> walks down the aisle and kneels beside the child -> pauses patiently for three full seconds while the child thinks"
+        },
+        {
+          "who": "Randomly Labeled 'Bloomer' Pupil",
+          "verb_sequence": "hesitates briefly -> catches the teacher's encouraging nod -> pencils in the correct geometric match"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Randomly Labeled 'Bloomer' Pupil",
+          "reaction": "sits taller and raises hand eagerly for the next harder question"
+        },
+        {
+          "who": "Robert Rosenthal",
+          "reaction": "notes the four subtle channels — warmth, input, response opportunity, and specific feedback — turning a random label into real learning"
+        }
+      ],
+      "wardrobe": "1964 public-school attire: teacher in modest pastel wool cardigan over A-line dress; children in cotton collared shirts and jumpers; researchers in tailored 1960s suit and suit-dress.",
+      "lighting": "Warm, high-key California classroom window daylight.",
+      "recognition_hook": "Chosen purely out of a random-number book, a first-grader gets three extra seconds of warm patience at the desk — and jumps fifteen IQ points ahead by May.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1960s elementary school teacher kneeling encouragingly beside a child's wooden desk in a sunlit classroom while a typed 'Harvard Test' roster rests on the front desk",
+        "must_show": [
+          "desk",
+          "paper|roster|booklet",
+          "classroom|chalkboard|teacher"
+        ],
+        "source": "M1@04:37-04:48; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Drawing the 20 percent 'bloomer' names from a random-number table",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "September 1964, principal's office at Oak School",
+      "layout": {
+        "description": "Quiet 1960s school principal's office with class roll cards spread across a wooden table beside a printed book of random numbers.",
+        "positions": [
+          {
+            "who": "Robert Rosenthal & Lenore Jacobson",
+            "where": "running a finger down a random-number column and circling every fifth student card blindly",
+            "facing": "facing the table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "statistical random-number table & index cards",
+          "period_detail": "printed random digits selecting 20 percent of pupils regardless of spring score",
+          "physical_behavior": "proves zero real baseline difference"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Robert Rosenthal",
+          "verb_sequence": "reads off random two-digit numbers -> Lenore Jacobson types the corresponding names onto the teacher memo"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Lenore Jacobson",
+          "reaction": "seals the casual one-page lists for the 18 teachers"
+        }
+      ],
+      "wardrobe": "1964 suit and tailored blazer.",
+      "lighting": "Bright office daylight.",
+      "recognition_hook": "Every single 'late bloomer' name on the Harvard memo came straight out of a random-number book.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Spring retest chart: Grades 1-2 surge while upper grades flatten",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "May 1965, Harvard data room",
+      "layout": {
+        "description": "Academic office displaying a bar chart across Grades 1 through 6 where Grade 1 (+15.4 net) and Grade 2 (+9.5 net) tower above Grades 3-6.",
+        "positions": [
+          {
+            "who": "Robert Rosenthal",
+            "where": "pointing to the tall Grade 1 and Grade 2 bars",
+            "facing": "facing the chart"
+          },
+          {
+            "who": "Methodological reviewer mannequin",
+            "where": "pointing closely at Grade 1 baseline variance notes",
+            "facing": "examining the chart"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "six-grade IQ gain bar chart",
+          "period_detail": "clean poster chart comparing experimental spurters vs controls by grade",
+          "physical_behavior": "highlights malleability in Grades 1-2 and Thorndike's measurement scrutiny"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Methodological reviewer",
+          "verb_sequence": "inspects the Grade 1 baseline spread while noting the consistent four-factor behavioral shift"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Robert Rosenthal",
+          "reaction": "documents both the dramatic early-grade sensitivity and realistic effect boundaries"
+        }
+      ],
+      "wardrobe": "1960s academic tweed jackets.",
+      "lighting": "Clean high-key office light.",
+      "recognition_hook": "Expectations hit hardest in Grades 1 and 2 before classroom reputations calcify — and sparked decades of healthy scientific debate.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Manager giving a new teammate three extra seconds of wait-time",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern team whiteboard huddle",
+      "layout": {
+        "description": "Bright modern office whiteboard where a team lead asks a tough architecture question and waits calmly while a junior engineer sketches.",
+        "positions": [
+          {
+            "who": "Team Lead mannequin",
+            "where": "holding marker down calmly with open posture instead of jumping in",
+            "facing": "facing junior engineer"
+          },
+          {
+            "who": "Junior Engineer mannequin",
+            "where": "stepping up to sketch a sharp solution on the whiteboard",
+            "facing": "facing whiteboard"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "clean whiteboard diagram",
+          "period_detail": "system sketch completed by the junior teammate",
+          "physical_behavior": "unlocked by three seconds of patient wait-time"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Team Lead mannequin",
+          "verb_sequence": "asks open question -> waits silently with warm nod -> Junior Engineer completes the key diagram"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Junior Engineer mannequin",
+          "reaction": "stands taller as competence compounds"
+        }
+      ],
+      "wardrobe": "Modern smart-casual office shirts.",
+      "lighting": "Bright office daylight.",
+      "recognition_hook": "Three extra seconds of patient wait-time tells someone's brain 'I expect you to figure this out.'",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

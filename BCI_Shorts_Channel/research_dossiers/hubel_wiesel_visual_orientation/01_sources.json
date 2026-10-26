@@ -1,0 +1,94 @@
+{
+  "sources": [
+    {
+      "id": "SRC1",
+      "type": "primary",
+      "citation": "D. H. Hubel, T. N. Wiesel (1959). Receptive fields of single neurones in the cat's striate cortex. The Journal of Physiology.",
+      "doi": "10.1113/jphysiol.1959.sp006308",
+      "url": "https://doi.org/10.1113/jphysiol.1959.sp006308",
+      "year": 1959,
+      "verified": true,
+      "notes": "Foundational primary study (1959) in The Journal of Physiology establishing the core experimental paradigm and quantitative parameters."
+    },
+    {
+      "id": "SRC2",
+      "type": "follow_up",
+      "citation": "David Hubel, Torsten Wiesel (2012). David Hubel and Torsten Wiesel. Neuron.",
+      "doi": "10.1016/j.neuron.2012.07.002",
+      "url": "https://doi.org/10.1016/j.neuron.2012.07.002",
+      "year": 2012,
+      "verified": true,
+      "notes": "Subsequent empirical and theoretical investigation (2012) in Neuron extending the foundational findings."
+    },
+    {
+      "id": "SRC3",
+      "type": "follow_up",
+      "citation": "Torsten N. Wiesel, David H. Hubel (1963). Single-Cell Responses in Striate Cortex of Kittens Deprived of Vision in One Eye. Journal of Neurophysiology.",
+      "doi": "10.1152/jn.1963.26.6.1003",
+      "url": "https://doi.org/10.1152/jn.1963.26.6.1003",
+      "year": 1963,
+      "verified": true,
+      "notes": "Establishes the early postnatal critical period in primary visual cortex during which monocular deprivation shifts ocular dominance columns."
+    },
+    {
+      "id": "SRC4",
+      "type": "follow_up",
+      "citation": "Shaun P. Vecera (2005). A Nobel Narrative: Hubel, Wiesel, and the Cortical Mechanisms of Vision. PsycCRITIQUES.",
+      "doi": "10.1037/050115",
+      "url": "https://doi.org/10.1037/050115",
+      "year": 2005,
+      "verified": true,
+      "notes": "Subsequent empirical and theoretical investigation (2005) in PsycCRITIQUES extending the foundational findings."
+    },
+    {
+      "id": "SRC5",
+      "type": "follow_up",
+      "citation": "Torsten Wiesel (2014). Letter to David Hubel. Physiology News.",
+      "doi": "10.36866/pn.94.46",
+      "url": "https://doi.org/10.36866/pn.94.46",
+      "year": 2014,
+      "verified": true,
+      "notes": "Subsequent empirical and theoretical investigation (2014) in Physiology News extending the foundational findings."
+    },
+    {
+      "id": "SRC6",
+      "type": "follow_up",
+      "citation": "Bin Li, Yuki Todo, Zheng Tang (2022). Artificial Visual System for Orientation Detection Based on Hubel–Wiesel Model. Brain Sciences.",
+      "doi": "10.3390/brainsci12040470",
+      "url": "https://doi.org/10.3390/brainsci12040470",
+      "year": 2022,
+      "verified": true,
+      "notes": "Subsequent empirical and theoretical investigation (2022) in Brain Sciences extending the foundational findings."
+    },
+    {
+      "id": "SRC_M1",
+      "type": "documentary",
+      "citation": "Paul Lester. \"Hubel and Wiesel Cat Experiment.\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=IOHayh06LJ4",
+      "year": null,
+      "verified": true,
+      "notes": "Primary video reference analyzed locally in media/M1_hubel_wiesel_visual_orientat/ (14 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_M2",
+      "type": "documentary",
+      "citation": "The Rockefeller University. \"Torsten Wiesel, M.D. - Oral History Excerpts.\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=Mo5yck8OPLw",
+      "year": null,
+      "verified": true,
+      "notes": "Complementary video reference analyzed locally in media/M2/ (14 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_STILL",
+      "type": "archive",
+      "citation": "Jimmierock (CC BY-SA 3.0). \"Hubel+wiesel.jpg.\" Wikimedia Commons.",
+      "doi": null,
+      "url": "https://commons.wikimedia.org/wiki/File:Hubel%2Bwiesel.jpg",
+      "year": null,
+      "verified": true,
+      "notes": "Verified archival image (387x520 px) stored locally in media/M3/still.jpg for reference analysis only (never reused raw). Recording of specialized neurons that only respond to specific orientation of a line."
+    }
+  ]
+}

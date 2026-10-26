@@ -1,0 +1,203 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "2006 Paris NeuroSpin Lab: Dialing a 50-ms Mask Past the Tipping Point Triggers 300-ms Frontoparietal 'Global Ignition'!",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2006, NeuroSpin (Saclay) & Collège de France, Paris, France",
+      "layout": {
+        "description": "Sunlit high-key 2006 French cognitive-neuroimaging gallery featuring a precision **visual-masking stimulus display** flashing a target word across **16 ms -> 33 ms -> 50 ms -> 83 ms**, a studio-white **translucent 3D human brain model** showing **local occipital conduction (<200 ms)** transitioning cleanly into **restrained internal white-matter tract conduction linking parietal and prefrontal hubs (~300 ms)**, and Dehaene's **3-State Taxonomy & All-or-None Step-Curve Board (Subliminal | Preconscious | Conscious Ignition!)**.",
+        "positions": [
+          {
+            "who": "Stanislas Dehaene (mannequin in 2006 French academic dark blazer and open-collar crisp shirt)",
+            "where": "standing beside the 3D translucent brain and Nonlinear 300-ms Step-Curve pointing to the exact 50-ms threshold where flat unconscious processing leaps into full frontoparietal broadcast!",
+            "facing": "beside 3D brain and step-curve board"
+          },
+          {
+            "who": "Observer mannequin (in 2006 high-density MEG/EEG cap seated before the visual-masking monitor)",
+            "where": "shaking head 'Blank screen!' at 33-ms masking while visual cortex quietly lights — then pressing 'I SEE IT!' at 50+ ms as the 300-ms frontoparietal workspace unifies!",
+            "facing": "seated at visual-masking console"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "visual-masking threshold monitor (33 ms Unseen vs 50+ ms Seen) + Nonlinear 300-ms Step-Function Board",
+          "period_detail": "captures Del Cul & Dehaene's exact phase-transition discovery",
+          "physical_behavior": "visualizes consciousness flipping from 0% to 100%"
+        },
+        {
+          "name": "studio-white 3D Brain Workspace Model (Local V1 Wave vs Coherent Internal Prefrontal-Parietal Tract Pulse)",
+          "period_detail": "renders Global Ignition with museum-clean restrained internal fiber conduction per R53",
+          "physical_behavior": "capstone #100 visual centerpiece"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Stanislas Dehaene",
+          "verb_sequence": "advances the mask delay from 33 ms (local occipital pulse fades at ~270–300 ms a smooth restrained internal pulse conducts along long-range parietal-to-prefrontal white-matter tracts -> Observer reports the word aloud!"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Observer mannequin",
+          "reaction": "marvels that their visual cortex read the word 33 ms ago without 'them' ever knowing until the 300-ms broadcast hit"
+        },
+        {
+          "who": "Stanislas Dehaene",
+          "reaction": "maps Subliminal, Preconscious, and Conscious Access onto one testable architecture"
+        }
+      ],
+      "wardrobe": "2006 Paris academic attire: tailored navy blazer over crisp open-collar white shirt; clean knit pullover.",
+      "lighting": "Clean high-key Paris neuroscience gallery daylight.",
+      "recognition_hook": "Flash a word with a 33-millisecond mask and your visual cortex reads it while YOU swear the screen was blank — nudge the mask past 50 milliseconds, and at 300 milliseconds a sudden frontoparietal wave broadcasts 'I SEE IT!' across your entire brain!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a sunlit 2006 Paris neuroimaging gallery where Stanislas Dehaene points to a 3D brain model's restrained internal frontoparietal white-matter tracts and a nonlinear 300-ms step-function board beside a masked-word observer",
+        "must_show": [
+          "brain|tracts",
+          "monitor|display",
+          "board|curve|chart"
+        ],
+        "source": "M1@00:15-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Uniting 100 Classics: Subliminal vs Preconscious vs Conscious!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2006, Collège de France lecture gallery (Dehaene, Changeux & Naccache)",
+      "layout": {
+        "description": "Bright architectural lecture room displaying the iconic 2×2 Matrix of Stimulus Strength × Top-Down Attention.",
+        "positions": [
+          {
+            "who": "Dehaene & Changeux mannequins",
+            "where": "placing Zajonc's 1-ms shapes in 'Subliminal', Invisible Gorilla & Cocktail Party in 'Preconscious', and 300-ms Broadcast in 'Conscious'",
+            "facing": "at 3-State Matrix board"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "3-State Consciousness Matrix ('Subliminal | Preconscious | Conscious Access')",
+          "period_detail": "ties together attention, perception, and awareness across psychology",
+          "physical_behavior": "Dehaene et al. 2006 TiCS centerpiece"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Dehaene",
+          "verb_sequence": "shows why Preconscious signals (like the Gorilla!) are strong in V1 yet wait behind a busy workspace gate"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Audience mannequins",
+          "reaction": "experience a grand-synthesis 'Aha!' across all 100 topics"
+        }
+      ],
+      "wardrobe": "Tailored European academic suits and blazers.",
+      "lighting": "Bright gallery daylight.",
+      "recognition_hook": "One clean three-box map explains subliminal ads, missed gorillas in plain sight, AND the spotlight of waking thought!",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Clinical & Open-Science Milestones: Coma Detection & COGITATE (2025)",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2014–2025, Clinical neurology & multi-lab consortium",
+      "layout": {
+        "description": "Clean split gallery showing bedside EEG consciousness detection alongside the pre-registered GNW vs IIT COGITATE comparison.",
+        "positions": [
+          {
+            "who": "Lionel Naccache & Consortium Researcher mannequins",
+            "where": "using frontoparietal sharing signatures at the bedside AND openly testing rival consciousness theories side by side",
+            "facing": "at clinical & open-science console"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Bedside Consciousness Signature + COGITATE Adversarial Test Card",
+          "period_detail": "shows both real-world medical salvation and fearless self-testing",
+          "physical_behavior": "SRC2 & SRC4"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Clinician",
+          "verb_sequence": "detects hidden conscious workspace sharing in a non-speaking patient; Consortium publishes transparent GNW vs IIT scorecards"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researchers",
+          "reaction": "celebrate consciousness maturing into rigorous clinical & falsifiable science"
+        }
+      ],
+      "wardrobe": "Clinical coat and modern blazers.",
+      "lighting": "Clean high-key daylight.",
+      "recognition_hook": "Global Workspace signatures now help spot hidden awareness in non-speaking coma patients — while rival consciousness theories test each other openly in Nature!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Guarding Your One-Broadcast-at-a-Time 300-ms Stage",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit study overlooking quiet trees",
+      "layout": {
+        "description": "Serene, clutter-free wooden desk with one open notebook and silenced notifications.",
+        "positions": [
+          {
+            "who": "Thinker mannequin",
+            "where": "giving one meaningful question full uninterrupted access to the conscious global workspace",
+            "facing": "at sunlit wooden desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Single-Broadcast Focus Card ('Many Unconscious Routines — ONE Conscious Stage')",
+          "period_detail": "crowning everyday lesson of all 100 psychology & brain classics",
+          "physical_behavior": "capstone takeaway"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Thinker",
+          "verb_sequence": "clears competing tabs -> lets one deep problem hold the global workspace stage uninterrupted"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Thinker",
+          "reaction": "calm, lucid creative insight"
+        }
+      ],
+      "wardrobe": "Modern comfortable smart-casual knitwear.",
+      "lighting": "Warm golden morning sunlight.",
+      "recognition_hook": "Your brain runs a thousand quiet subroutines in the dark, yet its 300-millisecond conscious stage broadcasts only ONE thought at a time — choose wisely what gets the microphone!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1961 Caltech Discrimination Box: Shifting a Soft Eye-Patch Resets an Articulated Porcelain Cat's 100% 'Circle vs Cross' Mastery Back to Zero",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1961, Division of Biology, Caltech, Pasadena",
+      "layout": {
+        "description": "Sunlit high-key 1961 Caltech neurobiology laboratory featuring a clean white wooden two-choice **Visual Discrimination Box** displaying two illuminated translucent push-panels (**Circle [+]** vs **Cross [-]**), an **articulated matte-white porcelain cat sculpture** wearing a tiny reversible soft white felt monocle eye-shield, and Roger Sperry's twin learning-curve board ('Right Eye: 100% Mastered -> Swap Patch to Left Eye: 50% Naive Reset!').",
+        "positions": [
+          {
+            "who": "Roger Sperry (mannequin in crisp 1961 white lab coat over slim tie)",
+            "where": "standing beside the discrimination box gently shifting the tiny reversible white felt eye-shield from the porcelain cat's left side to its right side while pointing to the vertical drop on the learning chart",
+            "facing": "beside apparatus and graph"
+          },
+          {
+            "who": "Articulated matte-white porcelain cat sculpture",
+            "where": "confidently pressing the illuminated **Circle** panel with its paw under Eye 1 (100% accuracy), then hesitating equally between Circle and Cross as a complete novice the moment the eye-shield switches to Eye 2",
+            "facing": "at two-panel discrimination box"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "illuminated two-choice 'Circle (+) vs Cross (-)' push-panel box",
+          "period_detail": "classic Caltech behavioral testing chamber",
+          "physical_behavior": "stages Sperry's exact 1961 Science visual discrimination"
+        },
+        {
+          "name": "articulated matte-white porcelain cat sculpture with reversible felt eye-shield",
+          "period_detail": "cleanly visualizes single-eye hemisphere routing under R46 porcelain animal aesthetics",
+          "physical_behavior": "makes the eye-swap reset crystal clear"
+        },
+        {
+          "name": "Intact Callosum (100% Transfer) vs Split Callosum (50% Reset) dual-curve board",
+          "period_detail": "shows why Control Group 1 remembered instantly while Split Group 2 started over from scratch",
+          "physical_behavior": "proves the exact job of 200 million callosal fibers"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Porcelain cat sculpture",
+          "verb_sequence": "presses the Circle (+) panel briskly 10/10 times with Right Eye open -> Roger Sperry gently swaps the soft felt shield to uncover ONLY the Left Eye -> porcelain cat pauses undecided between Circle and Cross at 50% chance"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Roger Sperry & Ronald Myers mannequins",
+          "reaction": "mark the sharp vertical drop from 100% down to 50% naive baseline on Trial 1 of the second eye"
+        }
+      ],
+      "wardrobe": "1961 California laboratory attire: crisp white cotton lab coat, slim dark tie, short-sleeve dress shirt.",
+      "lighting": "Clean high-key Pasadena window daylight.",
+      "recognition_hook": "With the left eye covered, it nails 'Circle over Cross' ten times out of ten — move the eye-patch two centimetres to the other eye and its brain has never seen a circle in its life!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1961 Caltech lab table with a two-panel Circle-versus-Cross discrimination box, an articulated matte-white porcelain cat sculpture with a reversible eye shield, and a 100%-to-50% transfer graph",
+        "must_show": [
+          "cat",
+          "circle|cross|panels|box",
+          "chart|graph|shield"
+        ],
+        "source": "M1@07:14-07:29; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Polarized Filters: Teaching Opposite Rules to Left & Right Brains at Once!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1961, Caltech polarized-optics bench",
+      "layout": {
+        "description": "Bright optical bench where opposite polarized lenses project 'Circle = Reward' to the Left Hemisphere and 'Cross = Reward' to the Right Hemisphere simultaneously.",
+        "positions": [
+          {
+            "who": "Roger Sperry mannequin",
+            "where": "rotating polarized filter slides to show two opposite habits coexisting inside one skull without interference",
+            "facing": "at optical bench"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "crossed polarizing filter paddles & split Circle/Cross scorecards",
+          "period_detail": "proves two independent memory systems can store contradictory truths simultaneously",
+          "physical_behavior": "Sperry 1961 Science showstopper"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Sperry",
+          "verb_sequence": "flips Left polarizer ('Pushes Circle!') -> flips Right polarizer ('Pushes Cross!')"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Graduate student mannequin (young Gazzaniga)",
+          "reaction": "stares amazed planning the first human split-brain tests"
+        }
+      ],
+      "wardrobe": "1961 white lab coat and cardigan.",
+      "lighting": "Bright high-key lab light.",
+      "recognition_hook": "Using polarized lenses, Sperry taught one hemisphere 'Circle wins, Cross loses' and the OTHER hemisphere 'Cross wins, Circle loses' on the exact same afternoon!",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Why Lashley Got Fooled: Closing the Optic-Chiasm Leak",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1953, Anatomical diagram table",
+      "layout": {
+        "description": "Clean teaching table with two clear acrylic eye-to-brain pathway models — Model A showing normal crossed + uncrossed chiasm leaks, Model B showing isolated straight-back pathways.",
+        "positions": [
+          {
+            "who": "Ronald Myers mannequin",
+            "where": "tracing with a pointer how an unsplit optic chiasm secretly fed both hemispheres at once",
+            "facing": "at diagram table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "acrylic Optic Chiasm vs Corpus Callosum pathway board",
+          "period_detail": "explains 20 years of negative clinical studies in 5 seconds",
+          "physical_behavior": "experimental design masterclass"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Myers",
+          "verb_sequence": "blocks the crossed chiasm path to reveal pure callosal transfer"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Colleagues",
+          "reaction": "appreciate why Lashley's 'sagging support' joke collapsed"
+        }
+      ],
+      "wardrobe": "1950s dress shirt and tie.",
+      "lighting": "Clean seminar daylight.",
+      "recognition_hook": "Doctors thought cutting 200 million fibers did nothing only because each eye was secretly whispering the answer to BOTH hemispheres!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "1981 Nobel Legacy: Two Specialists United Into One Seamless You",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "1981, Stockholm / Caltech celebratory lecture",
+      "layout": {
+        "description": "Warm sunlit lecture hall displaying Sperry's unified hemispheric bridge diagram leading from 1961 animal discovery to human split-brain insights.",
+        "positions": [
+          {
+            "who": "Roger Sperry mannequin",
+            "where": "pointing to the glowing white-matter callosal bridge uniting verbal left and visuospatial right strengths",
+            "facing": "at lectern"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "200-Million-Fiber Callosal Bridge model",
+          "period_detail": "celebrates healthy interhemispheric teamwork rather than pop-psych 'left vs right' rivalry",
+          "physical_behavior": "Sperry 1982 Nobel message"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Sperry",
+          "verb_sequence": "gestures across the intact callosal bridge uniting both hemispheres"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Audience",
+          "reaction": "applauds the solved mystery of the brain's largest tract"
+        }
+      ],
+      "wardrobe": "1981 tailored dark suit.",
+      "lighting": "Warm auditorium daylight.",
+      "recognition_hook": "Your 200-million-fiber corpus callosum isn't packing foam — it syncs two specialized hemispheres into one seamless conscious mind.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

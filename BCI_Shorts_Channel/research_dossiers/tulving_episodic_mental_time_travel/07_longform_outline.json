@@ -1,0 +1,100 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Knowing every rule of chess without remembering a single game — or picturing tomorrow: how Endel Tulving and Patient K.C. discovered Mental Time Travel.",
+    "core_experiment": "Tulving (1972/2002 Annu. Rev. Psychol.) Semantic vs Episodic split in Patient K.C. + 2007 Science Past–Future hippocampal simulation proof.",
+    "twist": "Why children without hippocampi still pass school geography (Vargha-Khadem 1997), why memory is constructive so we can simulate tomorrow, and Demis Hassabis's AI link."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Toronto's Chess Player With Zero Past Moments (Patient K.C.)",
+      "beats": [
+        "1972: Tulving splits 'Knowing Facts' (Semantic) from 'Reliving Moments' (Episodic)",
+        "K.C. plays smart chess & maps his cottage, yet recalls ZERO lived days"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "chessboard, Ontario map & blank Past easel"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "The Question That Stunned Neuroscience: 'What About Tomorrow?'",
+      "beats": [
+        "K.C. reports the 'exact same blankness' looking forward as backward",
+        "2007 fMRI: remembering -3 years & imagining +3 years light up the SAME network."
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step1",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "blank Tomorrow easel & Past/Future fMRI"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Why Memory Is Lego Bricks Instead of a Security Camera",
+      "beats": [
+        "Flexible recombination lets us test-drive future risks",
+        "How hippocampal scene construction inspired DeepMind's Demis Hassabis"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step2"
+      ],
+      "new_shots_needed": [
+        "modular future simulation"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Passing School Exams Without Episodic Memory (1997)",
+      "beats": [
+        "Children with neonatal hippocampal injury master reading, facts & geography",
+        "Errorless cortical Semantic learning"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "geography map & pocket schedule"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Driving Your Own Mental Time Machine",
+      "beats": [
+        "2-line evening sensory capsule stops years from blurring",
+        "Specific episodic pre-living before big performances"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "Daily Episodic Capsule journal"
+      ]
+    }
+  ]
+}

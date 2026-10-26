@@ -1,0 +1,208 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1975 Sunny Arizona State Walkway: '2 Years Unpaid (0% Yes!)' Retreating Immediately to '2-Hour Zoo Trip (50% Yes — 3x Jump!)'",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1975, Palm-lined sunlit campus walkway, Arizona State University, Tempe",
+      "layout": {
+        "description": "Sunlit high-key 1975 Arizona university quad walkway with warm brick paving, bright desert daylight, and a clipboard researcher comparing two crisp signup sheets — **Direct Zoo Ask Alone: 16.7% YES** versus **2-Year Ask ('NO!') -> Retreat to 2-Hour Zoo Trip: 50.0% YES (3x!)**.",
+        "positions": [
+          {
+            "who": "Robert Cialdini / Campus Researcher mannequin (in 1975 collared polo/button-down shirt and chinos holding County Youth clipboard)",
+            "where": "taking half a polite step back with an understanding palm gesture as he flips the top '2-Year Weekly Counselor' sheet over to reveal the smaller 'One 2-Hour Zoo Chaperone' sheet!",
+            "facing": "on sunlit brick campus walkway"
+          },
+          {
+            "who": "Campus Student Walker mannequin (in 1975 denim jacket/collared shirt carrying textbooks)",
+            "where": "first shaking head firmly 'No way!' at the 2-year request — then relaxing, nodding warmly, and signing the 2-hour Saturday zoo clipboard!",
+            "facing": "facing researcher on walkway"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "flip-over two-stage Clipboard ('Request 1: 2 Years Weekly [0% Yes]' -> 'Concession 2: One 2-Hour Zoo Trip [50% Yes!]')",
+          "period_detail": "shows the immediate Big-No -> Small-Yes pivot in one physical prop",
+          "physical_behavior": "exact 1975 JPSP Experiment 1 manipulation"
+        },
+        {
+          "name": "3-Condition Comparison Stand ('Direct Ask: 16.7% | Two Different Requesters: 10.7% | Same-Person Concession: 50–55.5%!')",
+          "period_detail": "visualizes both the 3x jump and Experiment 2's reciprocity proof",
+          "physical_behavior": "locks down the scientific mechanism"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Researcher mannequin",
+          "verb_sequence": "presents the 2-Year Weekly sheet -> Student Walker shakes head 'No' -> Researcher nods understandingly and flips down to the 2-Hour Zoo sheet -> Student Walker smiles and signs name cleanly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Student Walker mannequin",
+          "reaction": "walks away feeling satisfied at reaching a fair two-hour compromise"
+        },
+        {
+          "who": "Researcher mannequin",
+          "reaction": "tallies 50% compliance — triple the direct-ask group"
+        }
+      ],
+      "wardrobe": "1975 American Southwest campus attire: wide-collar cotton shirts, corduroy/denim jacket, flared chinos, canvas sneakers.",
+      "lighting": "Bright high-key sunny Tempe campus daylight.",
+      "recognition_hook": "Ask strangers straight up to chaperone a two-hour zoo trip and 83% walk past — get rejected on a two-year job ten seconds first, and half of them say yes!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a sunlit 1975 university walkway where a clipboard researcher flips from a rejected '2-Year Counselor' sheet to a '2-Hour Zoo Trip' sheet as a textbook-carrying student signs beside a 16.7%-to-50% chart",
+        "must_show": [
+          "clipboard|sheets",
+          "walkway|campus|books",
+          "chart|stand"
+        ],
+        "source": "M1@00:06-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Experiment 2's Genius Control: Why Switching Requesters Crashed to 10.7%!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1975, ASU walkway (Experiment 2)",
+      "layout": {
+        "description": "Same sunlit quad where Requester A walks away after 'No' and Requester B steps up asking for the 2-hour zoo trip.",
+        "positions": [
+          {
+            "who": "Requester A & Requester B mannequins",
+            "where": "splitting the big ask and small ask across two separate strangers — watching compliance plunge to 10.7%!",
+            "facing": "on walkway"
+          },
+          {
+            "who": "Walker mannequin",
+            "where": "declining Requester B easily because B made zero personal concession",
+            "facing": "center of path"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Two-Requester 10.7% vs Same-Requester 55.5% placard",
+          "period_detail": "proves Reciprocal Concessions (not mere contrast) powers the effect",
+          "physical_behavior": "Cialdini 1975 Exp. 2"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Requester A",
+          "verb_sequence": "gets 'No' on 2 years and leaves -> Requester B asks for 2 hours -> Walker declines politely"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Cialdini",
+          "reaction": "confirms Gouldner's Reciprocity Norm is the causal engine"
+        }
+      ],
+      "wardrobe": "1975 campus shirts.",
+      "lighting": "Sunny campus light.",
+      "recognition_hook": "Split the 2-year ask and 2-hour ask across two DIFFERENT people, and the magic vanishes (10.7%) — proving you were repaying a personal concession!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "1976 Civic Donor-Drive Proof: 84% Actually Showed Up!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1976, Campus civic donor-drive center (Cialdini & Ascani)",
+      "layout": {
+        "description": "Bright welcoming campus donation check-in table where pledged Door-in-the-Face donors arrive right on schedule.",
+        "positions": [
+          {
+            "who": "Volunteer Donor & Nurse mannequins",
+            "where": "checking in at 84% real behavioral show-up rate AND volunteering phone numbers for future drives",
+            "facing": "at check-in table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "84% Real Show-Up & Future Volunteering ledger",
+          "period_detail": "proves reciprocal concessions build genuine internal ownership rather than hollow talk",
+          "physical_behavior": "Cialdini & Ascani 1976"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Donor",
+          "verb_sequence": "checks in cheerfully and signs future volunteer roster"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Coordinator",
+          "reaction": "notes lasting prosocial follow-through"
+        }
+      ],
+      "wardrobe": "1976 nurse coat and student sweater.",
+      "lighting": "Clean high-key indoor daylight.",
+      "recognition_hook": "Because people feel THEY steered the compromise, 84% actually showed up on donation day!",
+      "sources": [
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "The Consumer Shield: Judging Offer #2 Without Anchor #1",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern retail / software pricing desk",
+      "layout": {
+        "description": "Sunlit desk where a buyer covers up a giant crossed-out 'Enterprise $999' box with their hand to evaluate the '$199 Standard' tier cleanly on its own merits.",
+        "positions": [
+          {
+            "who": "Smart Buyer mannequin",
+            "where": "physically covering the decoy mega-tier and asking 'Is $199 worth it to me standalone?'",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "pricing sheet with covered Decoy Tier #1",
+          "period_detail": "neutralizes artificial Door-in-the-Face retail concessions",
+          "physical_behavior": "Cialdini's consumer self-defense rule"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Buyer",
+          "verb_sequence": "places palm over giant Tier #1 -> evaluates Tier #2 calmly against real budget"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Buyer",
+          "reaction": "clear, un-pressured decision"
+        }
+      ],
+      "wardrobe": "Modern smart-casual shirt.",
+      "lighting": "Bright daylight.",
+      "recognition_hook": "Whenever a salesperson sighs and retreats from an overpriced package to a 'special compromise,' cover Offer #1 with your hand before deciding!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

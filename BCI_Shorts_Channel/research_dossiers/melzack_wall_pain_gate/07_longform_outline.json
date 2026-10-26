@@ -1,0 +1,101 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Patrick Wall buzzes thick touch nerves on his own arm at MIT to prove a spinal 'gate' can block pain before it reaches the brain.",
+    "core_experiment": "Melzack & Wall's 1965 Science model: fast A-beta touch fibers vs slow C pain fibers in the dorsal horn + top-down descending control.",
+    "twist": "How the 1965 paper invented TENS in 24 months, solved phantom-surgery failures, and overturned 300 years of Descartes."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Why Descartes's Pain Rope Was Wrong",
+      "beats": [
+        "300 years of bell-rope dogma",
+        "Anzio beachhead soldiers & phantom limb mysteries",
+        "Why rubbing a shin actually works"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "bumped shin instinctive rub"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Inside the Spinal Dorsal Horn Race",
+      "beats": [
+        "100 m/s thick A-beta touch vs 1 m/s thin C-fibers",
+        "Substantia gelatinosa bouncer gating T-cells"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "MIT Gate Control chalkboard schematic"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "The Brain's Top-Down Volume Knob",
+      "beats": [
+        "Descending brainstem modulation",
+        "Why game-winning focus silences a scrape until the buzzer",
+        "Why needle panic doubles the sting"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step1",
+        "step2"
+      ],
+      "new_shots_needed": [
+        "basketball buzzer sideline reveal"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "From Chalkboard to TENS in Two Years",
+      "beats": [
+        "Wall & Sweet testing electrodes on their own arms",
+        "Modern synaptic refinements confirming the gate"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "forearm tactile pad demonstration"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Closing Your Gate From Both Directions",
+      "beats": [
+        "Bottom-up touch/warmth + top-down slow breathing",
+        "Real pain modulation ≠ 'all in your head'"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "clinic vibration-pack + calm breath"
+      ]
+    }
+  ]
+}

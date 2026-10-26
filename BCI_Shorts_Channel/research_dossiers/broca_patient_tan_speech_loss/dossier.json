@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "slug": "broca_patient_tan_speech_loss",
+  "topic": "Paul Broca (1861) & Nina Dronkers (2007): Patient 'Tan', the Preserved Paris Brain & the Birth of Cortical Localization",
+  "pillar": "brain_history",
+  "created_at": "2026-10-25T22:49:34+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Paul Broca's April 1861 Paris presentation of Louis Victor Leborgne ('Patient Tan' — understanding speech and gesturing numbers accurately while able to utter only 'Tan, tan!') — plus Nina Dronkers's 2007 high-resolution MRI of Leborgne's preserved 146-year-old brain — is the foundational origin story of clinical neuroanatomy.",
+  "primary_case": {
+    "title": "Paul Broca's April 1861 Bicêtre Hospital study of Louis Victor Leborgne ('Monsieur Tan') & Nina Dronkers's 2007 High-Resolution MRI Re-Examination",
+    "year": 1861,
+    "place": "Bicêtre Hospital & Société d'Anthropologie de Paris (and Musée Dupuytren, Paris)",
+    "people": [
+      {
+        "name": "Pierre Paul Broca",
+        "role": "36-year-old Paris surgeon-anthropologist who examined Louis Victor Leborgne in April 1861 and wisely preserved Leborgne's intact un-sliced brain in alcohol so future centuries could re-scan it.",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Louis Victor Leborgne ('Patient Tan')",
+        "role": "51-year-old former artisan frame-maker who lost speech at age 30 — retaining sharp comprehension, expressive facial prosody, and finger-counting while able to pronounce only the single syllable 'Tan'",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Nina F. Dronkers",
+        "role": "UC Davis cognitive neuroscientist who placed Leborgne's and Lelong's preserved 1861 museum brains into a modern high-resolution MRI scanner in 2007 — discovering the lesion ran far deeper along the Superior Longitudinal / Arcuate Fasciculus.",
+        "source_id": "SRC_DRONKERS"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In early April 1861 in Paris, fierce scientific debate raged at the *Société d'Anthropologie*: holistic orthodoxy (Pierre Flourens) insisted the cerebral cortex was an undifferentiated whole after phrenology's collapse, while Ernest Auburtin vowed he would renounce localization forever if a patient lost speech WITHOUT frontal-lobe damage.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Just days later (April 12, 1861), 51-year-old **Louis Victor Leborgne** arrived on surgeon **Paul Broca's** ward at Bicêtre Hospital — nicknamed **'Monsieur Tan'** across the hospital because for 21 years his sole spoken output to almost every question was **'Tan, tan!'** (plus one frustrated French oath when angry!).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Broca tested Leborgne carefully at the bedside: Leborgne's tongue and lips were NOT paralyzed (he chewed, swallowed, and varied vocal pitch expressively!), and his intelligence and comprehension were remarkably sharp — ask how many years he had been at Bicêtre and he calmly opened his left hand **four times plus one finger = 21 years**; ask the time on Broca's pocket watch and he held up the exact fingers.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Six days later Leborgne died of gangrene; on **April 18, 1861**, Broca presented Leborgne's brain in Paris showing a prominent egg-sized softening centered on the **posterior third of the LEFT inferior frontal gyrus** — and six months later **Lazare Lelong** (an 84-year-old laborer able to say only *oui, non, tois, toujours, Lelo*) showed a smaller lesion on the **exact same left frontal convolution**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "By 1865, after seeing eight consecutive left-sided aphasia cases with zero right-sided equivalents, Broca proclaimed neurology's revolutionary asymmetric law: ***'Nous parlons avec l'hémisphère gauche!'*** ('We speak with the left hemisphere!').",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Fortunately for science, Broca refused to slice Leborgne's and Lelong's brains open, preserving them whole in jars at Paris's Musée Dupuytren for 146 years.",
+      "source_id": "SRC_DRONKERS"
+    },
+    {
+      "fact": "In **2007 (*Brain*)**, Nina Dronkers and French colleagues slid both 1861 brains into a high-resolution MRI scanner and uncovered a thrilling modern twist: surface 'Broca's area' (BA 44/45) was only the tip of the iceberg — Leborgne's and Lelong's lesions plunged deep into the **insula, basal ganglia, and the Superior Longitudinal / Arcuate Fasciculus** white-matter superhighway.",
+      "source_id": "SRC_DRONKERS"
+    },
+    {
+      "fact": "That 2007 MRI solved a 20th-century clinical puzzle (Mohr 1978, SRC4): tiny strokes confined strictly to surface Broca's cortex cause weeks of apraxia that mostly recover, whereas permanent 'Tan'-level nonfluent aphasia requires severing the deep frontal-white-matter speech production network.",
+      "source_id": "SRC_DRONKERS"
+    },
+    {
+      "fact": "By 1865, Broca's series of 8 consecutive left-hemisphere aphasia cases versus 0 right-hemisphere cases overturned cerebral symmetry dogma and set the stage for Carl Wernicke's 1874 sensory-aphasia discovery.",
+      "source_id": "SRC3"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Ask 'Monsieur Tan' how long he has lived in Bicêtre Hospital: his mouth can only say **'Tan, tan!'**, yet his hand crisply flashes **5 + 5 + 5 + 5 + 1 = 21 years** without a second's hesitation — proving thought and comprehension survived when spoken words vanished.",
+      "why_surprising": "Losing speech production does NOT mean losing a sharp human mind.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Because Paul Broca wisely refused to slice Leborgne's brain up in 1861, **Nina Dronkers was able to put the actual 146-year-old brain of Patient Tan into a modern MRI scanner in 2007**.",
+      "why_surprising": "A 19th-century clinical decision unlocked a 21st-century neuroimaging breakthrough.",
+      "source_id": "SRC_DRONKERS",
+      "rank": 2
+    },
+    {
+      "fact": "Dronkers's 2007 MRI revealed Leborgne's famous surface dent hid deep destruction of the **Superior Longitudinal / Arcuate Fasciculus** — solving why small surface Broca strokes recover while 'Tan' never spoke a sentence for 21 years.",
+      "why_surprising": "Broca's patient had a bigger lesion than 'Broca's Area' itself.",
+      "source_id": "SRC_DRONKERS",
+      "rank": 3
+    },
+    {
+      "fact": "Before Broca's 1865 report, anatomists assumed the left and right halves of the human brain were mirror-image twins like two lungs or kidneys — *'We speak with the left hemisphere'* shattered brain symmetry forever.",
+      "why_surprising": "Discovery of cerebral lateralization.",
+      "source_id": "SRC3",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Grammar and speech live inside one isolated postage-stamp box ('Broca's Area') that works all by itself.",
+      "truth": "Modern MRI — including Dronkers's 2007 scan of Tan's own brain! — proves fluent speech requires a coordinated network spanning inferior frontal cortex, insula, premotor cortex, and deep arcuate/SLF white-matter tracts.",
+      "source_id": "SRC_DRONKERS"
+    },
+    {
+      "myth": "Patients with Broca's nonfluent aphasia cannot understand what you say or think clearly.",
+      "truth": "Everyday comprehension and intelligence remain largely intact (save complex reversible passive grammar), which is why shouting slowly as if to a child is deeply insulting to an aphasic adult.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Broca jumped straight from phrenology skull bumps to brain maps.",
+      "truth": "Broca explicitly rejected skull-bump phrenology; he paired careful living bedside cognitive exams with post-mortem cortical pathology.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Having a word sit 100% clear in your thoughts ('tip-of-the-tongue') while your mouth temporarily refuses to assemble the syllables.",
+    "Remembering never to equate slow or halted speech after a stroke with dimmed intelligence.",
+    "Marveling that a preserved 1861 brain sat waiting 146 years in a Paris jar until MRI technology was invented to peer inside it."
+  ],
+  "linked_projects": [
+    "psych_64_broca_patient_tan_speech_loss"
+  ]
+}

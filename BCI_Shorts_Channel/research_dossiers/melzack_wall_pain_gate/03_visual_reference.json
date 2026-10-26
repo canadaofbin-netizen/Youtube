@@ -1,0 +1,217 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Melzack and Wall demonstrating the fast-touch vs slow-ache spinal gate diagram beside a bumped-shin reflex",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1965, MIT neurophysiology seminar room, Cambridge, Massachusetts",
+      "layout": {
+        "description": "Sunlit 1965 MIT laboratory-seminar room featuring a slate chalkboard drawn with the classic three-box Gate Control circuit ('L' large fibers, 'S' small fibers, 'SG' gate, 'T' transmission) beside a demonstration bench with a handheld TENS-prototype nerve stimulator.",
+        "positions": [
+          {
+            "who": "Ronald Melzack (mannequin in 1965 tweed blazer and tie)",
+            "where": "standing at the chalkboard pointing chalk to the '+' inhibitory gate arrow from large 'L' touch fibers",
+            "facing": "facing the bench"
+          },
+          {
+            "who": "Patrick D. Wall (mannequin in rolled white lab shirt sleeves)",
+            "where": "seated on the bench edge placing a small round tactile stimulator pad onto his own forearm to demonstrate pain gating",
+            "facing": "facing the stimulator dial"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1965 Gate Control chalkboard schematic",
+          "period_detail": "crisp white chalk diagram showing Large fibers (+), Small fibers (-), Substantia Gelatinosa (SG), and Transmission cell (T)",
+          "physical_behavior": "illustrates how fast touch closes the gate before signals ascend"
+        },
+        {
+          "name": "prototype benchtop tactile nerve stimulator",
+          "period_detail": "1960s brushed-metal low-voltage pulse box wired to two small round skin pads on Wall's forearm",
+          "physical_behavior": "delivers gentle high-frequency buzz recruiting thick A-beta touch fibers"
+        },
+        {
+          "name": "myelinated vs unmyelinated cable model",
+          "period_detail": "two physical tabletop nerve rods — one thick insulated rod and one thin bare wire",
+          "physical_behavior": "visualizes the 100 m/s vs 1 m/s conduction speed gap"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patrick D. Wall",
+          "verb_sequence": "presses a blunt pressure gauge against his forearm -> switches ON the gentle A-beta tactile buzz pad right beside it -> nods as perceived sharpness drops immediately"
+        },
+        {
+          "who": "Ronald Melzack",
+          "verb_sequence": "traces the chalk line from Large 'L' touch fiber into the 'SG' spinal gate blocking the 'T' output"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Patrick D. Wall",
+          "reaction": "rotates his forearm comfortably while the tactile buzz runs"
+        },
+        {
+          "who": "Ronald Melzack",
+          "reaction": "caps the chalk diagram with the top-down 'Central Control' arrow from the brain"
+        }
+      ],
+      "wardrobe": "1965 MIT academic dress: Melzack in herringbone jacket, white shirt, narrow dark tie; Wall in rolled Oxford sleeves, dark trousers, lab coat draped on chair.",
+      "lighting": "Clean high-key New England laboratory daylight across slate chalkboard and brushed aluminum instruments.",
+      "recognition_hook": "Buzzing thick touch nerves on his own forearm at MIT, Patrick Wall proves you can physically slam a gate inside the spinal cord before pain ever reaches the brain.",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "two 1965 MIT neuroscientists beside a 'L / S / SG / T' Gate Control chalkboard diagram testing a small round tactile nerve-stimulator pad on a bare forearm",
+        "must_show": [
+          "chalkboard|diagram|board",
+          "pad|stimulator|arm",
+          "bench|table"
+        ],
+        "source": "M1@07:36-07:46; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Universal bumped-shin rub recruiting fast A-beta fibers",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Everyday living room",
+      "layout": {
+        "description": "Sunlit living room where a person mannequin bumps a shin lightly against a low wooden coffee table and immediately rubs the spot briskly with both palms.",
+        "positions": [
+          {
+            "who": "Person mannequin",
+            "where": "sitting on sofa edge briskly rubbing shin right above the bumped spot",
+            "facing": "looking down at shin"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "low oak coffee table",
+          "period_detail": "everyday living-room corner",
+          "physical_behavior": "triggers instant instinctive rubbing reflex"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Person mannequin",
+          "verb_sequence": "bumps shin on oak corner -> immediately rubs surrounding skin firmly -> posture relaxes within seconds"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Person mannequin",
+          "reaction": "exhales as fast touch signals outrun and gate the slow ache"
+        }
+      ],
+      "wardrobe": "Casual trousers and knit shirt.",
+      "lighting": "Bright living-room daylight.",
+      "recognition_hook": "Rubbing a bumped shin isn't superstition — it fires 100 m/s touch cables to close the spinal gate.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Athlete finishing a championship play before noticing a scrape",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Athletic court sideline",
+      "layout": {
+        "description": "Bright indoor basketball court sideline after the final buzzer.",
+        "positions": [
+          {
+            "who": "Basketball player mannequin in jersey",
+            "where": "celebrating at the buzzer, then glancing down in surprise at a scraped knee",
+            "facing": "standing courtside"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "scoreboard reading 00:00",
+          "period_detail": "lit courtside clock",
+          "physical_behavior": "marks the moment intense top-down focus releases"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Basketball player mannequin",
+          "verb_sequence": "lands final shot in full focus -> walks to bench after buzzer -> only then notices the knee scuff"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Trainer mannequin",
+          "reaction": "hands an ice wrap as descending brainstem gating steps down"
+        }
+      ],
+      "wardrobe": "Clean white-and-navy athletic jersey and shorts.",
+      "lighting": "Bright arena lighting.",
+      "recognition_hook": "Top-down brainstem signals can hold the spinal gate closed until the crisis or game ends.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Combining gentle warmth/touch and slow breathing during a vaccine shot",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern clinic room",
+      "layout": {
+        "description": "Clean bright clinic chair where a patient presses cool tactile vibration near the shoulder while breathing slowly instead of staring tensely.",
+        "positions": [
+          {
+            "who": "Patient mannequin",
+            "where": "seated relaxed with dropped shoulders breathing slowly",
+            "facing": "looking calmly across the room"
+          },
+          {
+            "who": "Clinician mannequin",
+            "where": "applying a small vibration/cool pack beside the deltoid",
+            "facing": "standing beside chair"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "small tactile vibration pack",
+          "period_detail": "handheld palm-sized buzzer cooling pad",
+          "physical_behavior": "activates A-beta gating locally"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Clinician mannequin",
+          "verb_sequence": "places gentle vibrating cool pack above the site -> Patient breathes out slowly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Patient mannequin",
+          "reaction": "blinks in pleasant surprise that the pinch barely registered"
+        }
+      ],
+      "wardrobe": "Modern casual t-shirt and clean clinical scrubs.",
+      "lighting": "High-key clinic daylight.",
+      "recognition_hook": "Pairing local touch buzz with relaxed breathing closes the spinal gate from bottom-up and top-down at once.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

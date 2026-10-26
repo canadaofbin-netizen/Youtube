@@ -1,0 +1,100 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Why chanting 8 random digits aloud failed to crash human logic — and how Baddeley & Hitch discovered the 4-room workshop of Working Memory.",
+    "core_experiment": "Baddeley & Hitch (1974) 8-digit concurrent reasoning (95% accuracy!) + 2-second Phonological Loop + Visuospatial Sketchpad + 2000 Episodic Buffer.",
+    "twist": "Why Mandarin speakers remember 9–10 digits on a 2-second tape, why you turn down the car radio at tricky exits, and rescuing classroom overload."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Puzzle of Patient K.F. & The 8-Digit Stress Test (1974)",
+      "beats": [
+        "2-digit span yet normal reasoning?.",
+        "Chanting 8 digits aloud while solving 'A is not preceded by B' — 95% accuracy."
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "8-digit strip, BA logic card & 95% graph"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Inside the 2-Second Phonological Loop",
+      "beats": [
+        "5 short words (90%) vs 5 five-syllable monsters (50%)",
+        "Solved: why Mandarin vs Welsh digit spans follow a 2.0-second clock."
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "short vs 5-syllable cards & 2.0s timer"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Separate Rooms: Visuospatial Sketchpad + 2000 Episodic Buffer",
+      "beats": [
+        "Rotating 3D blocks while humming vs verbal-on-verbal collision",
+        "How the Episodic Buffer binds 16-word meaningful sentences"
+      ],
+      "scene_ids": [
+        "S3",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "3D blocks & 4-room blueprint"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Why You Turn Down the Radio to 'See' a Highway Exit",
+      "beats": [
+        "Central Executive bandwidth under surprise cognitive load",
+        "Left frontoparietal verbal vs right frontoparietal spatial cortex"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "Central Executive diagram"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Working-Memory Hygiene at School & Work",
+      "beats": [
+        "Converting 4 spoken instructions into a 4-icon desk checklist",
+        "Freeing the Central Executive to think"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "4-step visual desk checklist"
+      ]
+    }
+  ]
+}

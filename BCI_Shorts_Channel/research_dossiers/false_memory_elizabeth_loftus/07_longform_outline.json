@@ -1,0 +1,135 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Changing one word in a question from 'contacted' to 'smashed' made witnesses see the same car crash 9 mph faster — and remember broken glass that never existed.",
+    "core_experiment": "Loftus & Palmer (1974): 45 + 150 witnesses, 5 verbs (31.8 to 40.8 mph), week-later phantom glass (32% vs 14%), plus 1995 'Lost in the Mall' (25% rich childhood false memories).",
+    "twist": "Memory is like a Wikipedia page editable on every recall, yet neutral immediate questioning preserves remarkably clean accuracy."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "One Word Adds Nine Miles Per Hour",
+      "beats": [
+        "1974 UW 16mm crash film",
+        "Five verbs from contacted (31.8 mph) to smashed (40.8 mph)",
+        "Same eyeballs, edited numbers"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "macro of the five typed verb variants"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Phantom Glass Seven Days Later",
+      "beats": [
+        "150 new witnesses return after one week",
+        "Zero broken glass in the actual film",
+        "32% 'smashed' vs 14% 'hit' say YES"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "clean asphalt freeze-frame vs checked YES box"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Why Recall Melts the Wax: Hippocampal Reconsolidation",
+      "beats": [
+        "Memory is not a locked MP4 file",
+        "Hippocampus re-binds current words into old scenes",
+        "Source-monitoring failure in prefrontal cortex"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "side-by-side Wikipedia-edit analogy visual"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Planting a Whole Childhood Afternoon: Lost in the Mall",
+      "beats": [
+        "Loftus & Pickrell 1995 24-subject booklet",
+        "25% remember getting lost at age five",
+        "Inventing the elderly rescuer's flannel shirt"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "interview room booklet page turn"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "False Belief vs Rich False Memory",
+      "beats": [
+        "Shaw & Porter 2015 vs Wade et al. 2018 re-scoring",
+        "Why the real ~25-30% perceptual rate still matters hugely",
+        "70% of DNA exonerations tied to witness error"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [],
+      "new_shots_needed": [
+        "comparison chart: false belief vs perceptual memory"
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Reforming Police Lineups Worldwide",
+      "beats": [
+        "Why 'Did he have a gun?' contaminates memory",
+        "Double-blind folders and open-ended prompts",
+        "Confidence inflation over repeated retellings"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [],
+      "new_shots_needed": [
+        "neutral double-blind folder handoff"
+      ]
+    },
+    {
+      "n": 7,
+      "title": "Protecting Your Own Memory Page",
+      "beats": [
+        "Family holiday arguments explained",
+        "Write raw notes before talking to others",
+        "Final takeaway"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "witness writing immediate timestamped notes"
+      ]
+    }
+  ]
+}

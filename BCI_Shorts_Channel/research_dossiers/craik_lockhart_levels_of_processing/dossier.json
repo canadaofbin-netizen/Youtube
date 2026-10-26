@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "slug": "craik_lockhart_levels_of_processing",
+  "topic": "Craik & Lockhart (1972) / Craik & Tulving (1975): Why Deep Meaning Triples Memory Without Even Trying to Memorize",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:36+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Fergus Craik and Robert Lockhart's 1972 Levels of Processing framework (tested quantitatively in Craik & Tulving's 1975 10-experiment surprise recall bombshell: ~15% shallow uppercase check vs ~45% rhyme check vs ~80%+ deep sentence-meaning check!) links behavioral encoding depth directly to left inferior prefrontal + hippocampal binding.",
+  "primary_case": {
+    "title": "Fergus I. M. Craik & Robert S. Lockhart's 1972 Levels of Processing & Craik & Endel Tulving's 1975 Toronto 10-Experiment Proof",
+    "year": 1972,
+    "place": "Department of Psychology, University of Toronto, Canada",
+    "people": [
+      {
+        "name": "Fergus I. M. Craik & Robert S. Lockhart",
+        "role": "University of Toronto cognitive psychologists whose 1972 paper overturned the idea that repeating words over and over automatically transfers them into long-term memory.",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Endel Tulving",
+        "role": "Co-author with Craik on the classic 1975 Journal of Experimental Psychology: General 10-experiment series measuring 200-ms encoding questions against surprise memory",
+        "source_id": "SRC4"
+      },
+      {
+        "name": "John D. E. Gabrieli & Anthony D. Wagner",
+        "role": "Stanford/MIT neuroscientists whose 1998 Science 'Subsequent Memory' fMRI studies watched left inferior prefrontal + parahippocampal activation during deep encoding predict word-by-word which items you will remember.",
+        "source_id": "SRC6"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Before 1972, students and textbooks believed a seductive lie: keep a word spinning inside Short-Term Memory long enough by repeating it over and over, and it automatically 'transfers' into permanent Long-Term Memory.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "At the University of Toronto in **1972 (*JVLVB*)**, **Fergus Craik and Robert Lockhart** demolished that pipeline myth: memory durability is NOT determined by *which box* an item sits in or *how many times* you mutter it (**Type I Maintenance Rehearsal**), it is a direct byproduct of **HOW DEEPLY you process its meaning** (**Type II Elaborative Processing**).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In **Craik & Watkins (1973, SRC2)**, holding a target word in mind by repeating it mechanically for **12 seconds vs 2 seconds** produced **0% difference** on a surprise final memory test — mechanical repetition without meaning left virtually zero deeper trace.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Then **Craik & Tulving (1975, 10 experiments!)** flashed words for **200 milliseconds** with NO warning of a memory test (**incidental learning!**), asking one of THREE quick yes/no questions per word: (1) **Shallow Structural**: *'Is the word in CAPITAL LETTERS?'* (`TABLE`), (2) **Intermediate Phonemic**: *'Does the word RHYME with weight?'* (`crate`), or (3) **Deep Semantic**: *'Does the word fit: The girl placed the ___ on the table?'* (`watch`).",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "On a **surprise recognition/recall test** minutes later, memory skyrocketed **3x to 5x** solely from which question the brain answered for half a second: **~15–18% recognized after Case check to ~45–50% after Rhyme check to ~80–90%+ after Deep Meaning check**.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Even more shocking (Hyde & Jenkins; Craik & Tulving 1975): volunteers who were **NOT even trying to memorize** while answering Deep Semantic questions **beat or tied volunteers told 'Try as hard as you can to memorize this list for a test!'** — proving **WHAT you think about** crushes **wanting to remember**.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Critics rightly asked: *'Wait — what if the final test asks for RHYMES instead of words?'* **Morris, Bransford & Franks (1977, SRC5)** proved **Transfer-Appropriate Processing**: rhyme encoding actually beats semantic encoding ONLY on a rhyme-matching test, though across 99% of real life and exams we retrieve by *meaning*.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "In **1998 (*Science*)**, Wagner, Brewer, Gabrieli, and colleagues scanned volunteers in event-related fMRI during shallow case vs deep semantic questions: trial-by-trial surges in **left ventrolateral prefrontal cortex** and **left parahippocampal/hippocampal cortex** predicted *before the test even happened* which exact words each human would remember or forget.",
+      "source_id": "SRC6"
+    },
+    {
+      "fact": "In Craik and Tulving (1975), answering a deep semantic sentence-fit question took roughly 0.5 to 0.8 seconds (about half a second to 800 milliseconds) yet boosted later word recognition from 17% (case check) to 82%.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "In Craik and Tulving's (1975) incidental encoding experiments, unexpected recognition climbed from ~17% after shallow letter-case judgments to ~48% after rhyme judgments and ~82% after 20-second semantic sentence-fit judgments.",
+      "source_id": "SRC4"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Flash the exact same word for **one-fifth of a second** with zero warning of a quiz: ask *'Is it in ALL CAPS?'* and **83% of people forget it**; ask *'Would it fit inside a teacup?'* and **over 80% remember it effortlessly**.",
+      "why_surprising": "Half a second of meaning beats ten minutes of robotic staring.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Tell Group A *'There WILL be a huge memory test — try your hardest to memorize!'* while checking letter shapes, and tell Group B *'No test at all — just rate how pleasant each word is!'* — **Group B crushes the intentional memorizers**.",
+      "why_surprising": "'Intent to remember' does almost nothing; *depth of thought* does everything.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Ever wondered why **Americans could NOT draw the front of a U.S. one-cent piece from memory** (Nickerson & Adams 1979) despite touching it **thousands of times**? Because you only ever process its *shallow copper color* to separate it from silver change — zero deep processing = zero detail memory.",
+      "why_surprising": "10,000 shallow glances lose to 1 deep question.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "Inside an fMRI scanner (Wagner & Gabrieli 1998), neuroscientists can literally watch **left inferior frontal + hippocampal cortex** light up on a single word and predict *'She's going to remember #14 and forget #15!'* hours before the test.",
+      "why_surprising": "Levels of Processing visible word by word inside the living brain.",
+      "source_id": "SRC6",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Highlighting textbook sentences in yellow and re-reading notes five times puts knowledge into long-term memory.",
+      "truth": "Passive re-reading and highlighting are classic **Type I shallow maintenance** — they create cozy visual familiarity while producing dismal exam recall compared with asking 'Why is this true and how does it connect to X?'.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Trying really hard and gritting your teeth ('I MUST remember this!') flips on a memory switch.",
+      "truth": "Human brains have NO direct 'Save to Disk' willpower button; memory is the automatic residue of deep semantic elaboration.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "'Deep processing' just means spending more seconds staring at the word.",
+      "truth": "Craik & Tulving (1975 Experiment 5!) invented a tricky shallow task (*'Does this word follow Consonant-Vowel-Consonant-Consonant-Vowel pattern?'*) that took **LONGER** (1.7 seconds!) than a quick 0.8-second meaning question — and **fast Deep Meaning STILL crushed slow Shallow Letter-Counting**.",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Reading an entire page of a textbook twice at 11 p.m. while thinking about snacks — shallow font-scanning with 0% semantic encoding.",
+    "Meeting someone at a conference, repeating their name mechanically twice, and forgetting it 30 seconds later vs linking their name to a vivid question or trait.",
+    "Swapping passive re-reading for 3 'Why / How does this compare to...' questions and cutting study time in half."
+  ],
+  "linked_projects": [
+    "psych_81_craik_lockhart_levels_of_processing"
+  ]
+}

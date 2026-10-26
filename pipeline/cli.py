@@ -961,20 +961,37 @@ def _load_gate_inputs(folder: Path):
 def cmd_prompt_gate(args):
     import json
 
-    from pipeline.flow_prompt_builder import build_flow_prompts
+    from pipeline.flow_prompt_builder import (
+        build_flow_prompts,
+        is_v5_plan,
+        validate_character_motion,
+        validate_flow_prompts,
+        validate_narrations,
+    )
     from pipeline.prompt_quality_v5 import validate_production_v5
 
     folder = Path(args.dir)
     plan, narrations = _load_gate_inputs(folder)
     clips = build_flow_prompts(plan, narrations)
-    issues = validate_production_v5(plan, narrations, clips)
+    if is_v5_plan(plan):
+        issues = validate_production_v5(plan, narrations, clips)
+    else:
+        issues = []
+        issues.extend(validate_flow_prompts([c["prompt"] for c in clips]))
+        issues.extend(validate_narrations(narrations))
+        issues.extend(validate_character_motion(clips))
+        for c in clips:
+            if c.get("cutoff_risk"):
+                issues.append(
+                    f"Clip {c.get('clip_number')}: cutoff_risk is True ({c.get('estimated_speech_sec')}s > {c.get('target_duration')})"
+                )
     if plan.get("dossier"):
         from pipeline import research_dossier as rd
 
         if rd.dossier_dir(str(plan["dossier"])).exists():
             issues += rd.check_narration_facts(str(plan["dossier"]), narrations)
     contract_compiled = False
-    if not issues and (folder / "03_visuals").exists():
+    if not issues and is_v5_plan(plan) and (folder / "03_visuals").exists():
         from pipeline.clip_qa_contract import compile_clip_qa_contract
 
         compile_clip_qa_contract(folder, save=True)

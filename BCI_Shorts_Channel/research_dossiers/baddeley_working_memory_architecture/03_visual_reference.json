@@ -1,0 +1,213 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1974 Stirling / Cambridge Dual-Task Bench: Chanting 8 Digits Aloud ('6-1-9-4-8-2-7-3') While Solving 'BA' Logic Cards at 95% Accuracy!",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1974, University of Stirling / MRC Cambridge Psychology Lab",
+      "layout": {
+        "description": "Sunlit high-key 1974 British cognitive psychology room featuring a clean oak desk holding **8-Digit Memory Load Cards ('6 — 1 — 9 — 4 — 8 — 2 — 7 — 3')**, crisp **Grammatical Reasoning Flashcards ('A is NOT preceded by B -> [ B A ] True or False?')**, a two-button response timer showing **95% Accuracy (2.15s -> 3.27s)**, and Baddeley & Hitch's **4-Box Working Memory Blueprint** on the wall easel.",
+        "positions": [
+          {
+            "who": "Alan Baddeley & Graham Hitch (mannequins in 1974 British corduroy/tweed blazers and ties)",
+            "where": "flipping the 'B A' grammatical reasoning card and staring impressed at the flat 95%-accuracy line even at an 8-digit vocal load",
+            "facing": "standing across oak testing table"
+          },
+          {
+            "who": "Participant mannequin (in 1974 knit V-neck sweater)",
+            "where": "rhythmically reciting '6-1-9-4-8-2-7-3' aloud while simultaneously tapping the 'TRUE' button accurately for 'A is not preceded by B -> BA'!",
+            "facing": "seated at response console"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "8-Digit Vocal Load Strip & 'A is NOT preceded by B -> [B A]' Logic Card",
+          "period_detail": "pits full verbal rehearsal directly against active reasoning",
+          "physical_behavior": "Baddeley & Hitch's exact 1974 experiment that toppled unitary STM"
+        },
+        {
+          "name": "Accuracy & Latency Graph ('0 Digits: 2.15s / 95% -> 8 Digits: 3.27s / 95% — No Crash!')",
+          "period_detail": "shows smooth graceful trade-off instead of the predicted 50% collapse",
+          "physical_behavior": "empirical proof of separate working-memory components"
+        },
+        {
+          "name": "4-Room Working Memory Blueprint (Central Executive -> Phonological Loop | Visuospatial Sketchpad | Episodic Buffer)",
+          "period_detail": "clean architectural schematic beside the table",
+          "physical_behavior": "textbook model used worldwide"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Participant mannequin",
+          "verb_sequence": "keeps reciting the 8-digit string aloud without dropping a digit -> inspects '[B A]' logic card -> presses 'TRUE' cleanly in 3.2 seconds"
+        },
+        {
+          "who": "Alan Baddeley",
+          "verb_sequence": "points from the 95% accuracy line to the separated Central Executive and Phonological Loop rooms on the easel"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Baddeley & Hitch",
+          "reaction": "exchange an excited look realizing 'Short-Term Memory' is a multi-part active workshop"
+        },
+        {
+          "who": "Participant mannequin",
+          "reaction": "completes the block with 95% reasoning accuracy intact"
+        }
+      ],
+      "wardrobe": "1974 British university attire: tan corduroy/tweed jackets, patterned ties, collared shirts, V-neck wool jumper.",
+      "lighting": "Bright high-key Scottish/Cambridge window daylight.",
+      "recognition_hook": "Stuff their verbal short-term memory to the absolute brim with 8 random digits — and watch them still nail tricky logic puzzles at 95% accuracy!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1974 psychology desk with an 8-digit card, a 'B A' grammatical logic card, and a 95%-accuracy timer alongside a 4-box Working Memory diagram as a seated subject chants digits while tapping True",
+        "must_show": [
+          "cards|digits",
+          "diagram|chart|blueprint",
+          "desk|timer|button"
+        ],
+        "source": "M1@00:08-00:19; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "The 2-Second Phonological Tape: 5 Short Words vs 5 Long Words (1975)",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1975, Stirling laboratory",
+      "layout": {
+        "description": "Clean table comparing Card A ('WIT, SUM, HARM, BAY, TOP — 90% Recall') against Card B ('UNIVERSITY, OPPORTUNITY, ALUMINUM, CONSTITUTIONAL, AUDITORIUM — 50% Recall') beside a 2.0-second stopwatch.",
+        "positions": [
+          {
+            "who": "Participant mannequin",
+            "where": "rattling off all 5 monosyllables inside 1.8 seconds vs running out of the 2-second loop halfway through the 5-syllable words",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Short-Word vs 5-Syllable-Word cards & 2.0s Loop Timer",
+          "period_detail": "proves verbal memory measures spoken *seconds*, not item slots",
+          "physical_behavior": "Baddeley, Thomson & Buchanan 1975"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Participant",
+          "verb_sequence": "reads 5 short words easily -> stumbles on word 4 of the 5-syllable list as the 2-second tape overwrites"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Experimenter",
+          "reaction": "demos why fast-pronounced Mandarin digits boost digit span"
+        }
+      ],
+      "wardrobe": "1975 sweater and collared shirt.",
+      "lighting": "Clean high-key daylight.",
+      "recognition_hook": "You don't own seven magic memory slots — you own a two-second audio loop!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Same-Room Collision vs Cross-Room Harmony",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern cognitive ergonomics lab",
+      "layout": {
+        "description": "Split tabletop: Volunteer effortlessly rotates 3D wooden blocks while humming 'la-la-la' (Sketchpad + Loop = Smooth!) vs stalling when asked to read prose while chanting words (Loop + Loop = Crash!).",
+        "positions": [
+          {
+            "who": "Volunteer mannequin",
+            "where": "assembling 3D spatial puzzle blocks smoothly during vocal humming, then jamming when two verbal streams collide",
+            "facing": "at workbench"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "3D wooden Shepard-Metzler blocks vs dual text cards",
+          "period_detail": "makes modality-specific interference tangible in 3 seconds",
+          "physical_behavior": "dual-task design principle"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Volunteer",
+          "verb_sequence": "rotates 3D block smoothly while humming -> freezes when asked to read two different sentences"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Ergonomist mannequin",
+          "reaction": "highlights independent Visuospatial vs Phonological rooms"
+        }
+      ],
+      "wardrobe": "Modern smart-casual shirt.",
+      "lighting": "Bright studio light.",
+      "recognition_hook": "Two verbal tasks fight over one 2-second microphone; one visual task and one gentle rhythm live in peaceful separate rooms!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Why You Turn Down the Car Radio to 'See' a Tricky Exit",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit car dashboard / classroom checklist",
+      "layout": {
+        "description": "Sunlit study/classroom table where a teacher converts a 4-step spoken instruction into 4 clean visual icons on a mini-whiteboard.",
+        "positions": [
+          {
+            "who": "Teacher & Student mannequins",
+            "where": "offloading fragile 2-second verbal load onto permanent visual steps so Central Executive focus stays 100% free",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "4-step visual checklist board",
+          "period_detail": "rescues working-memory overload in classrooms and cockpits",
+          "physical_behavior": "Gathercole & Baddeley educational payoff"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Teacher",
+          "verb_sequence": "places 4 visual step icons on desk -> Student executes all 4 steps calmly without asking 'Wait, what was step 2?'"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Student",
+          "reaction": "confident mastery"
+        }
+      ],
+      "wardrobe": "Modern casual blazer and sweater.",
+      "lighting": "Warm classroom sunlight.",
+      "recognition_hook": "Offload multi-step spoken lists onto paper so your 2-second audio loop stops dropping Step 3 while you work on Step 1!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

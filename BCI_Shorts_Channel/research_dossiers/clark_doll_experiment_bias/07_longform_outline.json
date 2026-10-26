@@ -1,0 +1,101 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Four hand-painted 12-inch dolls, 253 preschoolers, and Footnote 11 of Brown v. Board: how Mamie and Kenneth Clark changed psychology and constitutional law.",
+    "core_experiment": "Clark & Clark (1939/1940/1947): 94% accurate category ID vs 67%/59% absorbed societal preference across 253 children + 1954 Supreme Court citation.",
+    "twist": "Restoring Mamie Phipps Clark's thesis origin, William Cross's personal-love vs societal-stigma nuance, Harlem's Northside Center, and Spencer's 2010 update."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "From Mamie Clark's 1939 Thesis to Four Hand-Painted Dolls",
+      "beats": [
+        "Why the Clarks had to hand-paint identical 12-inch dolls",
+        "Testing 253 children aged 3–7 across Arkansas & Massachusetts"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "four matched 12-inch dolls & 8-question sheet"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "94% Clarity Meets Question 8 ('Looks Like You')",
+      "beats": [
+        "Questions 1–4 preference (67% / 59%) vs Questions 5–7 accuracy (94%)",
+        "Thurgood Marshall brings developmental data to the witness stand"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "67%/59% ledger & Footnote 11"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "May 17, 1954: Footnote 11 Strikes Down 'Separate But Equal'",
+      "beats": [
+        "Chief Justice Earl Warren's unanimous 9–0 ruling",
+        "Building Harlem's Northside Center (1946) to heal & empower kids"
+      ],
+      "scene_ids": [
+        "S2",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "1954 Brown opinion & Northside books"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Scientific Nuance: Personal Love vs Societal Radar (Cross & Spencer)",
+      "beats": [
+        "Why doll choice measured awareness of *society's* hierarchy, not lack of family love",
+        "2010 update: why 'color-silent' parenting fails"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "status radar vs family warmth"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Raising Bias-Resistant Kids Today",
+      "beats": [
+        "Ages 3–6 social detective window",
+        "Diverse hero shelves + warm explicit conversation"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "diverse scientist bookshelf"
+      ]
+    }
+  ]
+}

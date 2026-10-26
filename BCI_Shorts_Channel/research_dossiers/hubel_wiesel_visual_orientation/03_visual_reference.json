@@ -1,0 +1,214 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1959 Johns Hopkins Optical Bench: The Angled Glass-Slide Edge Unleashing Spikes on the Oscilloscope After Round Light Spots Failed",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1959, Wilmer Institute neurophysiology room, Johns Hopkins Hospital, Baltimore",
+      "layout": {
+        "description": "Bright high-key 1959 Johns Hopkins laboratory featuring a white tangent projection screen on the wall, a brass optical slide projector where a **3×1-inch glass slide sticks slightly at a 45-degree diagonal angle** casting a crisp slanted shadow edge across the screen, an articulated matte-white porcelain cat sculpture facing the screen, and a desktop oscilloscope + acoustic speaker cone leaping from flat silence (on round spots) to tall dense spike bursts (on the 45° edge!).",
+        "positions": [
+          {
+            "who": "David Hubel (mannequin in 1959 rolled-sleeve white dress shirt, slim tie, and lab coat)",
+            "where": "hand paused on the slightly angled glass slide in the projector slot, eyes wide as the diagonal edge sweeps the white screen and the oscilloscope trace erupts",
+            "facing": "at optical projector"
+          },
+          {
+            "who": "Torsten Wiesel (mannequin in 1959 knit vest under open white lab coat)",
+            "where": "leaning toward the desktop oscilloscope and speaker monitor pointing at the dramatic spike burst tuned strictly to 45 degrees",
+            "facing": "at oscilloscope console"
+          },
+          {
+            "who": "Articulated matte-white porcelain cat sculpture",
+            "where": "positioned calmly facing the white tangent projection screen",
+            "facing": "on optical viewing table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "optical slide projector with 45°-angled glass slide & white tangent screen",
+          "period_detail": "contrasts silent round dot stencil against the active diagonal edge of the glass slide itself",
+          "physical_behavior": "stages the legendary 1958/1959 serendipity cleanly"
+        },
+        {
+          "name": "desktop green-trace oscilloscope & '0° Silent | 45° BURST! | 90° Silent' tuning polar chart",
+          "period_detail": "visualizes razor-sharp orientation tuning across clock angles",
+          "physical_behavior": "makes single-neuron firing visually unmistakable"
+        },
+        {
+          "name": "articulated matte-white porcelain cat sculpture",
+          "period_detail": "honors R46 porcelain animal rule with clean museum styling",
+          "physical_behavior": "authentic 1959 experimental subject"
+        }
+      ],
+      "actions": [
+        {
+          "who": "David Hubel",
+          "verb_sequence": "projects a round spot onto the white screen (oscilloscope trace stays flat) -> slides the glass holder so its 45-degree edge sweeps across the receptive field -> oscilloscope erupts with tall vertical spike bars"
+        },
+        {
+          "who": "Torsten Wiesel",
+          "verb_sequence": "rotates the bar to 90 degrees horizontal (trace goes flat again) -> rotates back to 45 degrees (full burst returns!)"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Hubel & Wiesel",
+          "reaction": "exchange an electrified grin after five hours of silence suddenly cracked the visual code"
+        }
+      ],
+      "wardrobe": "1959 laboratory attire: rolled-sleeve white cotton shirts, slim dark ties, open white lab coats.",
+      "lighting": "Clean high-key laboratory daylight keeping the projection screen and oscilloscope crisp.",
+      "recognition_hook": "Five hours of shining round spots produced dead silence — then a stuck glass slide cast one diagonal edge and the neuron roared to life!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1959 lab with two researchers beside an optical projector casting a 45-degree glass-slide edge onto a white screen in front of a porcelain cat sculpture while an oscilloscope jumps with spikes",
+        "must_show": [
+          "projector|slide|screen",
+          "oscilloscope|chart|spikes",
+          "cat"
+        ],
+        "source": "M1@00:16-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Why Line Drawings Work & Full Floodlights Fail",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1962, Harvard Medical School neurobiology seminar",
+      "layout": {
+        "description": "Sunlit seminar table comparing a blank flooded white board (0 spikes) against a 6-line Picasso-style silhouette sketch (rich V1 edge map).",
+        "positions": [
+          {
+            "who": "Hubel & Wiesel mannequins",
+            "where": "showing how 3 aligned circular LGN centers sum into one Simple-Cell bar detector",
+            "facing": "at chalkboard"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "3-Dot-to-1-Bar Simple Cell wiring plaque & minimal line sketch",
+          "period_detail": "explains both zero response to diffuse light and why humans recognize line art instantly",
+          "physical_behavior": "Hubel & Wiesel 1962 hierarchy"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Hubel",
+          "verb_sequence": "aligns three circular '+' centers in a row -> forms one crisp 45° Simple Cell edge filter"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Students",
+          "reaction": "see instantly how dots build lines and lines build shapes"
+        }
+      ],
+      "wardrobe": "1960s tweed jackets and ties.",
+      "lighting": "Bright classroom daylight.",
+      "recognition_hook": "Flood the wall with bright light and V1 yawns — draw five clean black lines and your edge-detector cortex builds an entire face!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Saving Millions of Kids' Vision: Critical-Period Eye Care",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern pediatric ophthalmology clinic",
+      "layout": {
+        "description": "Warm cheerful sunlit pediatric eye clinic where a smiling toddler wears a colorful pirate-star eye patch over the stronger eye for an hour a day.",
+        "positions": [
+          {
+            "who": "Pediatric ophthalmologist & Child mannequins",
+            "where": "testing playful 3D stereo picture cards as early patching balances V1 ocular-dominance columns",
+            "facing": "at clinic table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "cheerful child eye-patch & stereo butterfly card",
+          "period_detail": "direct clinical triumph of Hubel & Wiesel's 1963 critical-period discovery",
+          "physical_behavior": "millions of amblyopia cases prevented"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Child",
+          "verb_sequence": "reaches out touching the floating 3D stereo wings accurately"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Parent & Doctor mannequins",
+          "reaction": "celebrate saved binocular eyesight"
+        }
+      ],
+      "wardrobe": "Modern colorful pediatric coat and child sweater.",
+      "lighting": "Warm sunny clinic light.",
+      "recognition_hook": "Every child whose eyesight is saved by an early eye-patch or infant cataract surgery owes a thank-you to Hubel & Wiesel's cortical columns.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "From 1959 V1 Simple Cells to Modern AI Deep Learning (CNNs)",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern AI computer-vision studio",
+      "layout": {
+        "description": "Sunlit workstation displaying Layer-1 convolutional edge filters (0°, 45°, 90°, 135° bars) right beside Hubel & Wiesel's 1959 orientation diagram.",
+        "positions": [
+          {
+            "who": "AI researcher mannequin",
+            "where": "comparing biological Simple/Complex cells side-by-side with Convolutional + Pooling network layers",
+            "facing": "at monitor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Layer-1 Gabor edge-filter grid vs 1959 V1 tuning curve",
+          "period_detail": "nearly identical oriented edge detectors in silicon and carbon",
+          "physical_behavior": "Fukushima 1980 & LeCun CNN lineage"
+        }
+      ],
+      "actions": [
+        {
+          "who": "AI researcher",
+          "verb_sequence": "feeds camera frame through Layer 1 -> oriented edges light up just like 1959 V1"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researcher",
+          "reaction": "nods at 65+ years of bio-inspired AI"
+        }
+      ],
+      "wardrobe": "Modern smart-casual shirt.",
+      "lighting": "Bright studio light.",
+      "recognition_hook": "Peer inside Layer 1 of any modern AI vision network and you'll meet the exact 45-degree edge detectors discovered by a jammed slide in 1959.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

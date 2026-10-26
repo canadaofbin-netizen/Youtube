@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "auditory cortex",
+      "plain": "coincident sensory cue A + experience B",
+      "function": "firing simultaneously with visual/olfactory cortex when two experiences occur together in real life",
+      "scene_id": "S1",
+      "narration_bridge": "Activates two inputs converging onto shared hippocampal targets."
+    },
+    {
+      "role": "pivot",
+      "region": "hippocampus",
+      "plain": "NMDA coincidence pop & Bliss-Lømo LTP",
+      "function": "ejecting the NMDA magnesium block when Input A helps fire Cell B — surging postsynaptic strength by 200%+ across days (LTP)",
+      "scene_id": "S1",
+      "narration_bridge": "Captures Bliss & Lømo (1973) proving Hebb (1949)."
+    },
+    {
+      "role": "step1",
+      "region": "prefrontal cortex",
+      "plain": "one-cue cell-assembly completion",
+      "function": "igniting the entire linked memory or habit assembly later when just ONE fragment of the original experience arrives",
+      "scene_id": "S2",
+      "narration_bridge": "Explains associative recall, Hopfield networks, and habit stacking."
+    }
+  ]
+}

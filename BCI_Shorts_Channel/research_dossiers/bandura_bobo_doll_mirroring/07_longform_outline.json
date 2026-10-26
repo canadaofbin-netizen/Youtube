@@ -1,0 +1,103 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "A four-year-old watches an adult strike a Bobo doll for 10 minutes, then reenacts every move and phrase with zero reward.",
+    "core_experiment": "Bandura, Ross & Ross's 1961 72-child Stanford study across aggressive, calm Tinkertoy, and control conditions.",
+    "twist": "Why televised models work too, why calm is equally contagious, and the Bobo rebound-play critique."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Ten Minutes at the Potato-Stamp Table",
+      "beats": [
+        "72 Stanford preschoolers matched on baseline temperament",
+        "Scripted mallet strikes and novel catchphrases",
+        "Zero candy, zero praise"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "child watching from corner craft table"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Behind the One-Way Mirror: 240 Five-Second Ticks",
+      "beats": [
+        "Mild toy-reservation arousal step",
+        "Doubled imitative aggression and verbatim shouts",
+        "Demolishing the 'catharsis' myth"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "one-way glass clipboard scoring"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "The Forgotten Half: Contagious Calm",
+      "beats": [
+        "Quiet Tinkertoy adult condition",
+        "Aggression drops BELOW no-model controls",
+        "Prosocial scripts travel by sight too"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "peaceful Tinkertoy room comparison"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Screens, Punishment, and the Rebound Critique",
+      "beats": [
+        "1963 televised model replication",
+        "Learning vs performing under punishment",
+        "Why Bobo is play-aggression, not pure violence"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "1963 TV screen comparison"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "What Your Stress Script Teaches the Room",
+      "beats": [
+        "Audit your visible reactions at home and work",
+        "Replacing 'do as I say' with modeled calm"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "modern spilled-cup calm kitchen scene"
+      ]
+    }
+  ]
+}

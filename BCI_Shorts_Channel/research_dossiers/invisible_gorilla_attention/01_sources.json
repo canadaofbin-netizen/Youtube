@@ -1,0 +1,130 @@
+{
+  "sources": [
+    {
+      "id": "S_simons1999",
+      "type": "primary",
+      "citation": "Simons, D. J., & Chabris, C. F. (1999). Gorillas in our midst: Sustained inattentional blindness for dynamic events. Perception, 28(9), 1059–1074.",
+      "doi": "10.1068/p281059",
+      "url": "https://doi.org/10.1068/p281059",
+      "verified": true,
+      "notes": "Primary Harvard study (N=192 across 16 main conditions + N=12 in the 9-second chest-thumping gorilla condition). Reports 46% overall inattentional blindness, 50% blindness for the 9s chest-thumping gorilla, 27% vs 58% noticing for White vs Black team attendance, and 64% vs 45% noticing for Easy vs Hard counting."
+    },
+    {
+      "id": "S_neisser1975",
+      "type": "primary_historical",
+      "citation": "Neisser, U., & Becklen, R. (1975). Selective looking: Attending to visually specified events. Cognitive Psychology, 7(4), 480–494.",
+      "doi": "10.1016/0010-0285(75)90019-5",
+      "url": "https://doi.org/10.1016/0010-0285(75)90019-5",
+      "verified": true,
+      "notes": "Foundational selective-looking paradigm using superimposed basketball passing and hand-slapping games that inspired Simons & Chabris (1999)."
+    },
+    {
+      "id": "S_memmert2006",
+      "type": "follow_up",
+      "citation": "Memmert, D. (2006). The effects of eye movements, age, and expertise on inattentional blindness. Consciousness and Cognition, 15(3), 620–627.",
+      "doi": "10.1016/j.concog.2006.01.001",
+      "url": "https://doi.org/10.1016/j.concog.2006.01.001",
+      "verified": true,
+      "notes": "Eye-tracking study on the Simons & Chabris gorilla video proving that observers who missed the gorilla fixated directly on it for an average of ~1 second, identical to observers who noticed it."
+    },
+    {
+      "id": "S_drew2013",
+      "type": "follow_up",
+      "citation": "Drew, T., Võ, M. L.-H., & Wolfe, J. M. (2013). The Invisible Gorilla strikes again: Sustained inattentional blindness in expert observers. Psychological Science, 24(9), 1848–1853.",
+      "doi": "10.1177/0956797613479386",
+      "url": "https://doi.org/10.1177/0956797613479386",
+      "verified": true,
+      "notes": "20 of 24 (83%) expert radiologists searching lung CT scans for nodules missed a gorilla 48 times the size of an average nodule despite looking directly at its location on eye-tracking."
+    },
+    {
+      "id": "S_simons2010",
+      "type": "replication",
+      "citation": "Simons, D. J. (2010). Monkeying around with the gorillas in our midst: Familiarity with an inattentional-blindness task does not improve the detection of unexpected events. i-Perception, 1(1), 3–6.",
+      "doi": "10.1068/i0386",
+      "url": "https://doi.org/10.1068/i0386",
+      "verified": true,
+      "notes": "The 'Monkey Business Illusion' follow-up: viewers familiar with the gorilla spotted it, but missed the background curtain changing from red to gold and a black-team player walking off."
+    },
+    {
+      "id": "S_bredemeier2012",
+      "type": "critique",
+      "citation": "Bredemeier, K., & Simons, D. J. (2012). Working memory and inattentional blindness. Psychonomic Bulletin & Review, 19(2), 239–244.",
+      "doi": "10.3758/s13423-011-0204-8",
+      "url": "https://doi.org/10.3758/s13423-011-0204-8",
+      "verified": true,
+      "notes": "Refutes the misconception that individual differences in working memory capacity predict who notices unexpected objects in sustained inattentional blindness."
+    },
+    {
+      "id": "S_simons_jensen2009",
+      "type": "critique",
+      "citation": "Simons, D. J., & Jensen, M. S. (2009). The effects of individual differences and task difficulty on inattentional blindness. Psychonomic Bulletin & Review, 16(2), 398–403.",
+      "doi": "10.3758/PBR.16.2.398",
+      "url": "https://doi.org/10.3758/PBR.16.2.398",
+      "verified": true,
+      "notes": "Shows that while harder primary counting tasks increase blindness, an individual's skill at the counting task does not predict noticing."
+    },
+    {
+      "id": "S_chabris2011",
+      "type": "follow_up",
+      "citation": "Chabris, C. F., Weinberger, A., Fontaine, M., & Simons, D. J. (2011). You do not talk about Fight Club if you do not notice Fight Club: Inattentional blindness for a simulated real-world assault. i-Perception, 2(2), 150–153.",
+      "doi": "10.1068/i0436",
+      "url": "https://doi.org/10.1068/i0436",
+      "verified": true,
+      "notes": "Real-world replication inspired by Boston police officer Kenny Conley: volunteers jogging after a confederate missed a staged 3-person fight 65% of the time at night (35% noticed) and 44% during the day (56% noticed)."
+    },
+    {
+      "id": "S_most2001",
+      "type": "follow_up",
+      "citation": "Most, S. B., Simons, D. J., Scholl, B. J., Jimenez, R., Clifford, E., & Chabris, C. F. (1999/2001). How not to be seen: The contribution of similarity and selective ignoring to sustained inattentional blindness. Psychological Science, 12(1), 9–17.",
+      "doi": "10.1111/1467-9280.00303",
+      "url": "https://doi.org/10.1111/1467-9280.00303",
+      "verified": true,
+      "notes": "Demonstrates attentional set and selective ignoring: even a bright red cross moving across a black-and-white display for 5 seconds was missed by ~30% of observers."
+    },
+    {
+      "id": "S_strayer2003",
+      "type": "follow_up",
+      "citation": "Strayer, D. L., Drews, F. A., & Johnston, W. A. (2003). Cell phone-induced failures of visual attention during simulated driving. Journal of Experimental Psychology: Applied, 9(1), 23–32.",
+      "doi": "10.1037/1076-898X.9.1.23",
+      "url": "https://doi.org/10.1037/1076-898X.9.1.23",
+      "verified": true,
+      "notes": "Eye-tracking in driving simulators showed hands-free phone conversations cause inattentional blindness even for objects directly fixated on the road."
+    },
+    {
+      "id": "S_hyman2010",
+      "type": "follow_up",
+      "citation": "Hyman, I. E., Boss, S. M., Wise, B. M., McKenzie, K. E., & Caggiano, J. M. (2010). Did you see the unicycling clown? Inattentional blindness while walking and talking on a cell phone. Applied Cognitive Psychology, 24(5), 597–607.",
+      "doi": "10.1002/acp.1638",
+      "url": "https://doi.org/10.1002/acp.1638",
+      "verified": true,
+      "notes": "Pedestrians talking on cell phones walked right past a brightly dressed clown riding a unicycle across a campus square without noticing."
+    },
+    {
+      "id": "S_rees1999",
+      "type": "follow_up",
+      "citation": "Rees, G., Russell, C., Frith, C. D., & Driver, J. (1999). Inattentional blindness versus inattentional amnesia for fixated but ignored words. Science, 286(5449), 2504–2507.",
+      "doi": "10.1126/science.286.5449.2504",
+      "url": "https://doi.org/10.1126/science.286.5449.2504",
+      "verified": true,
+      "notes": "fMRI study proving that when attention is consumed by a primary task, the brain fails to process the meaning of ignored stimuli even at the center of gaze."
+    },
+    {
+      "id": "S_simons2000",
+      "type": "review",
+      "citation": "Simons, D. J. (2000). Attentional capture and inattentional blindness. Trends in Cognitive Sciences, 4(4), 147–155.",
+      "doi": "10.1016/S1364-6613(00)01455-8",
+      "url": "https://doi.org/10.1016/S1364-6613(00)01455-8",
+      "verified": true,
+      "notes": "Comprehensive review of explicit vs implicit attentional capture and inattentional blindness across lab and real-world settings."
+    },
+    {
+      "id": "S_archive_video1999",
+      "type": "archive",
+      "citation": "Simons, D. J., & Chabris, C. F. (1999). Selective Attention Test [Original 1999 experiment stimulus video]. VisCog Productions / Daniel Simons YouTube Archive.",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=vJG698U2Mvo",
+      "verified": true,
+      "notes": "Original 1999 Harvard William James Hall 9-second chest-thumping gorilla stimulus video (82s with instruction and answer cards; 15 White-team passes)."
+    }
+  ]
+}

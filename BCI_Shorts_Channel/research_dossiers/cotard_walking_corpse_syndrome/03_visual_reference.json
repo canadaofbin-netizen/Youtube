@@ -1,0 +1,207 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1880 Paris Consultation & 1995 100-Case Map: Jules Cotard Listening as 'Mademoiselle X' Gestures to an Empty-Shell Torso Outline",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1880, Vanves Neurological Clinic, Paris",
+      "layout": {
+        "description": "Sunlit high-key 1880 Parisian neurological study with tall French windows, an oak consultation desk holding a brass medical stethoscope (confirming a steady rhythmic pulse!), Cotard's 1880 *Délire des négations* case ledger, and an anatomical silhouette chart where the patient traces an empty hollow interior despite intact vital signs.",
+        "positions": [
+          {
+            "who": "Jules Cotard (mannequin in 1880 dark wool physician coat and waistcoat)",
+            "where": "gently holding a brass stethoscope showing a steady normal pulse reading while listening with calm clinical attentiveness",
+            "facing": "seated across oak consultation desk"
+          },
+          {
+            "who": "'Mademoiselle X' mannequin (motionless upright porcelain figure in modest 1880 buttoned wool dress)",
+            "where": "sitting very still, placing one hand flat over her sternum and gesturing toward an empty-outline anatomical sketch to insist her interior feels completely hollow and absent",
+            "facing": "seated at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1880 acoustic stethoscope & normal pulse chart vs 'Hollow Shell' silhouette card",
+          "period_detail": "contrasts 100% intact physiological pulse against absent insular interoceptive feeling",
+          "physical_behavior": "visualizes Factor 1 sensory-feeling disconnect with museum-clean clarity"
+        },
+        {
+          "name": "Berrios & Luque 100-Case Subtype Chart ('86% Organ Negation | Type I Neurological vs Type II/Depressive')",
+          "period_detail": "clean clinical typology plaque beside Cotard's ledger",
+          "physical_behavior": "anchors the 1995 empirical synthesis"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Jules Cotard",
+          "verb_sequence": "checks the steady physiological pulse and offers a warm porcelain cup -> Patient shakes head slowly pointing to the hollow-outline anatomical card to explain she feels zero internal organs"
+        },
+        {
+          "who": "Jules Cotard",
+          "verb_sequence": "documents *le délire des négations* as a distinct neurological-psychiatric syndrome"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Patient mannequin",
+          "reaction": "still, perplexed certainty born from total absence of internal visceral feeling"
+        },
+        {
+          "who": "Jules Cotard",
+          "reaction": "notes the paradox between intact speech/pulse and lost inner bodily presence"
+        }
+      ],
+      "wardrobe": "1880 Parisian physician frock coat and waistcoat; modest high-collared 1880 wool dress.",
+      "lighting": "Clean high-key tall-window Paris daylight.",
+      "recognition_hook": "Her pulse beats steadily under the doctor's stethoscope and her speech is crystal-clear — yet silenced internal feeling convinces her mind she is an empty shell.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "an 1880 Parisian physician with a stethoscope and clinical ledger seated across an oak desk from a still patient gesturing to a hollow-outline torso chart",
+        "must_show": [
+          "stethoscope|ledger|chart",
+          "silhouette|outline|card",
+          "desk|clinic"
+        ],
+        "source": "M1@00:08-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "2013 Liège & Exeter PET Scan: Waking Speech With Anesthesia-Level Self-Network Dimming",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2013, Coma Science Group neuroimaging suite (Laureys & Zeman)",
+      "layout": {
+        "description": "Bright modern PET imaging review room displaying side-by-side brain metabolic maps: Healthy Awake vs Graham (Cotard) vs Restored Follow-Up.",
+        "positions": [
+          {
+            "who": "Steven Laureys & Adam Zeman mannequins",
+            "where": "pointing in astonishment to the dimmed frontoparietal Default Mode metabolic map of a man conversing calmly right beside them",
+            "facing": "at high-key console"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "3-panel FDG-PET comparison chart (Healthy / Acute Cotard / Recovered)",
+          "period_detail": "shows profound frontoparietal hypometabolism reversing after treatment",
+          "physical_behavior": "2013 neuroimaging milestone"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Clinicians",
+          "verb_sequence": "compare acute dimmed self-network map against bright restored recovery map"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Recovered patient mannequin",
+          "reaction": "smiles gratefully seeing objective proof of what he lived through and overcame"
+        }
+      ],
+      "wardrobe": "Modern white coats and casual cardigan.",
+      "lighting": "Clean high-key clinical light.",
+      "recognition_hook": "He walked into the scanner room talking clearly — yet his self-awareness network burned as little energy as deep anesthesia, until treatment switched it back on!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "The Capgras–Cotard See-Saw: One Unplugged Wire, Two Opposite Blames",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1996, Cognitive neuropsychiatry seminar (Young & Leafhead)",
+      "layout": {
+        "description": "Bright teaching table with a balanced two-branch diagram branching from 'Missing Insular Warmth' left to 'External Blame -> Capgras' and right to 'Internal Blame -> Cotard'.",
+        "positions": [
+          {
+            "who": "Neuropsychologist mannequin",
+            "where": "tracing how identical autonomic flatness flips between 'They are replicas' and 'I am a hollow shell'",
+            "facing": "at seminar board"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Two-Factor Attribution Branch Board",
+          "period_detail": "unifies neurology's two strangest delusions under one clear mechanism",
+          "physical_behavior": "Young & Leafhead 1996 / Coltheart Two-Factor model"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Neuropsychologist",
+          "verb_sequence": "flips attribution arrow from outward (Capgras) to inward (Cotard)"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Clinician audience",
+          "reaction": "nods as two mysterious syndromes snap into one clear framework"
+        }
+      ],
+      "wardrobe": "1990s academic blazer.",
+      "lighting": "Bright seminar daylight.",
+      "recognition_hook": "Unplug the brain's emotional warmth wire: blame the outside world and you get Capgras; blame yourself and you get Cotard.",
+      "sources": [
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Reversible Medical Triggers & Full Recovery Back to Everyday Life",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern hospital discharge & sunlit garden walk",
+      "layout": {
+        "description": "Sunlit hospital terrace where a physician reviews a cleared medication-metabolite chart as a recovered patient enjoys warm tea outdoors.",
+        "positions": [
+          {
+            "who": "Physician & Recovered Patient mannequins",
+            "where": "celebrating full return of felt vitality after clearing neurotoxic medication / treating the root cause",
+            "facing": "on bright terrace"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "cleared clinical recovery chart & warm porcelain teacup",
+          "period_detail": "felt warmth of the teacup in the palms signals restored insular interoception",
+          "physical_behavior": "hopeful clinical resolution"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Recovered patient",
+          "verb_sequence": "wraps hands around the warm teacup feeling real warmth and presence again"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Both",
+          "reaction": "relieved, grounded smile"
+        }
+      ],
+      "wardrobe": "Modern coat and comfortable knitwear.",
+      "lighting": "Warm morning sunlight.",
+      "recognition_hook": "What once looked like an untreatable Gothic mystery often reverses completely when modern neurology treats the underlying circuit or chemical trigger.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

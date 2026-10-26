@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "slug": "skinner_operant_superstition",
+  "topic": "B. F. Skinner (1948): Operant Conditioning Chamber & Accidental 'Superstition' in the Pigeon",
+  "pillar": "brain_mysteries",
+  "created_at": "2026-10-25T22:49:28+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "The core discovery happens visually inside Skinner's timed grain-hopper box with an pigeon turning counterclockwise, paired with brief striatal prediction-error reinforcement.",
+  "primary_case": {
+    "title": "B. F. Skinner's fixed-time non-contingent hopper delivery experiment ('Superstition in the Pigeon')",
+    "year": 1948,
+    "place": "Indiana University Psychological Laboratory, Bloomington",
+    "people": [
+      {
+        "name": "Burrhus Frederic Skinner",
+        "role": "Experimental psychologist who delivered grain every 15 seconds regardless of behavior and documented superstitious rituals in six of eight pigeons",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "William H. Morse",
+        "role": "Behavioral pharmacologist who co-authored follow-up analyses on second-type sensory superstitions with Skinner",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "John E. R. Staddon",
+        "role": "Psychologist who replicated the 1948 schedule with Virginia Simmelhag (1971) and distinguished interim vs terminal foraging behaviors",
+        "source_id": "SRC2"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 1948, B. F. Skinner placed eight hungry pigeons maintained at 75 percent of their free-feeding body weight into individual operant conditioning chambers.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Instead of requiring a key peck, a mechanical solenoid swung the grain hopper into reach for 5 seconds at fixed 15-second intervals regardless of what the bird was doing.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Six of the eight pigeons rapidly developed stereotyped, idiosyncratic movement rituals between hopper deliveries even though their actions had zero causal effect on food.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "One pigeon executed two or three crisp counterclockwise full turns inside the cage between every 15-second hopper presentation.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Other birds thrust their heads repeatedly toward one upper cage corner, tossed their heads as if lifting an invisible bar, or brushed their beaks just above the floor.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Because a spinning bird took only a few seconds per turn, the next 15-second grain tray frequently arrived mid-spin, accidentally reinforcing the exact posture.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "When Skinner disconnected the grain timer to test extinction, one hopping pigeon emitted more than 10,000 unreinforced responses before the ritual finally faded.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Shifting the fixed-time clock from 15 seconds to 60 seconds preserved high-rate ritualized movement in trained birds.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In 1971, John Staddon and Virginia Simmelhag replicated Skinner's non-contingent schedule and found rituals split into 'interim' circling early in the interval and 'terminal' pecking right before food.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Modern striatal physiology links accidental ritual lock-in to phasic dopamine bursts stamping temporally contiguous motor states into basal ganglia action selection.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "During extinction after fixed-interval non-contingent feeding was switched off, one conditioned pigeon emitted more than 10,000 (10 thousand) side-to-side pendulum hops before the ritual subsided.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Six out of eight pigeons invented elaborate personal dances when a food tray simply opened on a blind 15-second timer.",
+      "why_surprising": "Random coincidence alone was enough to wire rigid behavioral rituals.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "One pigeon kept performing its lucky stepping ritual over 10,000 times after the food hopper was shut off completely.",
+      "why_surprising": "Accidentally reinforced habits can resist extinction for hours.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "No two birds invented the exact same early-interval quirk: one spun counterclockwise while another bowed toward an empty corner.",
+      "why_surprising": "Whichever random move happened right before the first few rewards got frozen in place.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "Staddon and Simmelhag later showed that right before the 15th second, almost all birds converged on pecking motions.",
+      "why_surprising": "Biology blends accidental reinforcement with innate foraging instincts.",
+      "source_id": "SRC4",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Superstition requires complex human culture, language, or magical beliefs.",
+      "truth": "Simple temporal contiguity between an action and an unexpected reward stamps superstitious motor loops across species.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Every pigeon in Skinner's box kept doing completely random rituals right up to the food delivery forever.",
+      "truth": "Staddon and Simmelhag (1971) showed late-interval responses converge on species-typical pecking while early-interval circling reflects interim activity.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "You quickly notice when your lucky ritual stops working.",
+      "truth": "Intermittent coincidence makes accidental routines remarkably resistant to extinction, exceeding 10,000 responses in Skinner's test.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Only irrational people fall for illusory control.",
+      "truth": "Healthy striatal reinforcement circuits are biased toward false positives because missing a real cause in nature costs more than repeating a harmless move.",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Pressing an elevator 'door close' or crosswalk button five times in a row because the doors happened to shut right after your third press last week.",
+    "Wearing the same 'lucky' socks to an exam or sports match because you scored well the first time you wore them.",
+    "Tilting your body sideways after releasing a bowling ball or video-game jump as if post-release posture steers the outcome.",
+    "Refreshing a flight-price page at a specific minute because a fare dropped once right after you clicked."
+  ],
+  "linked_projects": [
+    "psych_12_skinner_operant_superstition"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "pivot",
+      "region": "parietal cortex",
+      "plain": "3D spatial simulator",
+      "function": "computing continuous angular transformations along the dorsal spatial stream at 60 degrees per second",
+      "scene_id": "S1",
+      "narration_bridge": "Links the ruler-straight 0°-to-180° reaction-time line directly to superior parietal spatial rotation."
+    },
+    {
+      "role": "step1",
+      "region": "premotor cortex",
+      "plain": "invisible hand turner",
+      "function": "silently simulating the motor act of grasping and turning the 10-cube block",
+      "scene_id": "S2",
+      "narration_bridge": "Explains why hand movements interfere with mental rotation."
+    },
+    {
+      "role": "step2",
+      "region": "primary visual cortex",
+      "plain": "early geometry feed",
+      "function": "supplying the two crisp perspective block outlines into the dorsal parietal workspace",
+      "scene_id": "S1",
+      "narration_bridge": "Shows the initial visual pair entering the rotation stream."
+    }
+  ]
+}

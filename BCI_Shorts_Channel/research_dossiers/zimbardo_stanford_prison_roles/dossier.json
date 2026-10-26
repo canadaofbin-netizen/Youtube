@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "slug": "zimbardo_stanford_prison_roles",
+  "topic": "Philip Zimbardo, Craig Haney & Curtis Banks (1971): The Stanford Prison Simulation & Modern Archival Critique",
+  "pillar": "bci_ethics",
+  "created_at": "2026-10-25T22:49:30+00:00",
+  "status": "ready",
+  "visual_mode": "BEHAVIORAL_PSYCH",
+  "visual_mode_reason": "The Jordan Hall basement mock corridor, mirrored sunglasses, numbered smocks, and Christina Maslach's day-six ethical intervention are pure institutional-role behavioral staging.",
+  "primary_case": {
+    "title": "Haney, Banks & Zimbardo's six-day Jordan Hall basement mock prison study & 2018 archival tape revelations",
+    "year": 1971,
+    "place": "Stanford University Psychology Building Basement (Jordan Hall), Palo Alto, California",
+    "people": [
+      {
+        "name": "Philip G. Zimbardo",
+        "role": "Stanford psychologist who acted simultaneously as lead investigator and 'Prison Superintendent' — a dual role he later acknowledged compromised neutrality",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Craig Haney & W. Curtis Banks",
+        "role": "Graduate co-investigators who designed the screening batteries, role assignments, and behavioral coding",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Christina Maslach",
+        "role": "Newly minted Stanford PhD psychologist whose moral confrontation on Day 5 forced the study's early termination on Day 6",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In August 1971 at Stanford University, Craig Haney, Curtis Banks, and Philip Zimbardo recruited male college students via a $15-per-day newspaper ad and screened 75 applicants down to 24 psychologically healthy finalists.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "A coin flip assigned 12 men as 'Guards' (given khaki uniforms, whistles, and silver mirrored sunglasses hiding eye contact) and 12 as 'Prisoners' (given numbered smocks, stocking caps, and ankle chains in a converted basement hallway of Jordan Hall).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Planned to run for 14 days, the simulation escalated so rapidly into sleep-disrupted roll calls, verbal humiliation, and acute emotional distress that five prisoners had to be released early and the entire study was halted on Day 6.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Crucially, Guard behavior was NEVER uniform: roughly one-third became aggressively punitive (led by a student nicknamed 'John Wayne'), a middle group enforced rules strictly but fairly, and several 'good guards' quietly did favors and refused cruelty.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Zimbardo made the fateful mistake of stepping inside the drama himself as 'Prison Superintendent,' worrying about rumored 'escape plots' instead of monitoring human-subjects welfare from the outside.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "On Thursday evening (Day 5), visiting psychologist Christina Maslach witnessed hooded prisoners led down the hall and confronted Zimbardo directly — 'It's terrible what you are doing to these boys!' — snapping him out of his superintendent role to shut the basement down next morning.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Early methodological critics like Siamak Movahedi (1975) and Peter Gray argued subjects weren't mindlessly possessed by uniforms — they were improvising stereotypes and responding to explicit demand cues.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "In 2018-2019, archival researcher Thibault Le Texier and social psychologists Alex Haslam and Stephen Reicher examined Stanford's original tape archives, revealing that wardens had actively briefed guards ('you can create in them a sense of powerlessness') and coached a reluctant guard that 'tough guards' were needed for the study to work — shifting the scientific lesson from 'automatic uniform trance' to 'toxic leadership coaching + zero independent oversight'.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "From 24 screened male college applicants judged psychologically healthy, Zimbardo's team used a 50-50 (50%) coin-flip assignment to allocate half to mock guard uniforms and half to numbered prisoner smocks.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Twenty-four healthy college kids passed personality tests on Friday, flipped a coin on Sunday, and saw their planned two-week basement study shut down in just six days.",
+      "why_surprising": "Unchecked power plus zero external oversight spiraled inside a single workweek.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Out of over fifty faculty, students, and visitors who walked through the Jordan Hall basement, ONLY ONE person — young psychologist Christina Maslach — stood up and said 'Stop this right now!'",
+      "why_surprising": "Her five-minute moral dissent remains the most heroic moment of the entire study.",
+      "source_id": "SRC3",
+      "rank": 2
+    },
+    {
+      "fact": "Not every guard turned cruel: two-thirds refused to invent creative humiliations, proving uniforms never erase personal moral choice.",
+      "why_surprising": "Textbooks often flatten three distinct guard groups into one myth.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "Decades later, dusty cassette tapes in Stanford's library revealed Zimbardo's own staff had explicitly coached guards during orientation on how to induce 'powerlessness' — transforming the experiment from a story about blind uniforms into a warning about authority coaching.",
+      "why_surprising": "Archival transparency rewrote psychology's most famous basement.",
+      "source_id": "SRC4",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Putting on a guard uniform automatically turns any ordinary person into a sadist with zero instruction.",
+      "truth": "Only about one-third of guards acted punitively, and archival tapes (Le Texier 2018; Haslam & Reicher) showed experimenters actively briefed and nudged guards toward 'toughness'.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Even the newspaper ad randomly attracted neutral people.",
+      "truth": "Follow-up study by Carnahan & McFarland (2007) showed an ad mentioning 'a psychological study of prison life' selectively attracts applicants higher in dominance and lower in empathy than an identical ad omitting the word 'prison'.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Lead researcher Zimbardo remained a neutral scientific observer behind glass.",
+      "truth": "He played 'Prison Superintendent' himself, losing objectivity until Christina Maslach intervened from outside the hierarchy.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Because the 1971 methods were flawed, institutional power has no psychological risk.",
+      "truth": "Real correctional and organizational history confirms unchecked hierarchies + dehumanizing labels + leader encouragement remain genuinely dangerous without independent oversight.",
+      "source_id": "SRC3"
+    }
+  ],
+  "everyday_hooks": [
+    "Notice how an online moderator badge or airport clipboard can inflate petty rule-flexing when nobody audits the role.",
+    "Remembering Christina Maslach's 'outsider check': bringing in a colleague outside your team bubble to ask 'Have we normalized something weird here?'",
+    "Seeing how leader phrasing ('show them who's in charge' vs 'treat everyone with dignity') steers how staff interpret uniforms.",
+    "Why Institutional Review Boards (IRBs) now forbid a lead scientist from simultaneously role-playing inside their own study."
+  ],
+  "linked_projects": [
+    "psych_27_zimbardo_stanford_prison_roles"
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "2004 Regensburg 3-Scan Trial: 90 Days of 3-Ball Juggling Expands Visual-Motion Area hMT+/V5 — 90 Idle Days Shrinks It Back!",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2004, Department of Neurology, University of Regensburg, Germany",
+      "layout": {
+        "description": "Sunlit high-key 2004 German university neurology gallery where a beginner-turned-juggler holds a crisp **3-ball cascade arc in mid-air** beside a **60-Second Qualification Stopwatch** and an illuminated **3-Scan Longitudinal MRI Timeline Board**: **Scan 1 Baseline (Flat) -> Scan 2 Month-3 Juggling Peak (Warm Bilateral hMT+/V5 Expansion!) -> Scan 3 Month-6 Zero Practice (Partial Recession — 'Use It or Lose It'!)**.",
+        "positions": [
+          {
+            "who": "Bogdan Draganski & Arne May mannequins (in 2004 crisp white neurology coats over collared shirts)",
+            "where": "pointing across the 3-Scan Longitudinal MRI Timeline from the Scan-2 bilateral hMT+/V5 peak to the Scan-3 90-day detraining dip",
+            "facing": "beside 3-Scan MRI timeline board"
+          },
+          {
+            "who": "Newly Trained Juggler mannequin (in 2004 athletic pullover and casual trousers)",
+            "where": "smoothly juggling three matte-white & saffron practice balls in a clean figure-eight cascade past the 60-second mark!",
+            "facing": "juggling in sunlit gallery center"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "three soft juggling balls in clean figure-eight cascade + 60-second benchmark timer",
+          "period_detail": "stages the exact behavioral mastery criterion from Nature 2004",
+          "physical_behavior": "instantly clear kinetic visual"
+        },
+        {
+          "name": "T1 -> T2 (+hMT+/V5 Expansion) -> T3 (Idle Washout) 3-Scan MRI Board",
+          "period_detail": "displays BOTH learning growth AND detraining reversibility in one frame",
+          "physical_behavior": "Draganski et al. 2004 Nature signature graph"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Juggler mannequin",
+          "verb_sequence": "drops balls on Day 1 (Scan 1) -> masters a smooth 60-second 3-ball cascade at Month 3 as bilateral hMT+/V5 & parietal gray matter expand on Scan 2 -> sets balls on the shelf for 90 idle days -> Scan 3 shows partial gray-matter recession!"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Juggler mannequin",
+          "reaction": "marvels that their VISUAL motion radar — not just finger muscles — grew in 90 days"
+        },
+        {
+          "who": "Draganski & May mannequins",
+          "reaction": "document reversible structural plasticity in ordinary healthy adults"
+        }
+      ],
+      "wardrobe": "2004 German clinical-academic attire: tailored neurology coats over button-down shirts; clean casual athletic knitwear.",
+      "lighting": "Bright high-key Regensburg laboratory daylight.",
+      "recognition_hook": "Teach complete beginners to juggle three balls for sixty seconds and MRI catches visual-motion gray matter expanding in ninety days — forbid practice for the next ninety days and watch it shrink halfway back!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a sunlit 2004 Regensburg neurology gallery where a volunteer juggles a 3-ball cascade beside researchers pointing to a 3-Scan T1-T2-T3 MRI timeline board showing bilateral hMT+/V5 expansion and idle recession",
+        "must_show": [
+          "balls|juggling",
+          "mri|timeline|board",
+          "researchers|timer"
+        ],
+        "source": "M1@17:34-17:45; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Why Visual-Motion Radar (hMT+/V5) Grew Instead of Finger Muscles!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2004, Regensburg visuomotor analysis room",
+      "layout": {
+        "description": "High-key studio with translucent 3D brain highlighting lateral visual-motion area hMT+/V5 handing 3D arc predictions to posterior intraparietal cortex.",
+        "positions": [
+          {
+            "who": "Neuroscientist & Juggler mannequins",
+            "where": "showing jugglers watch the TOP peaks of the parabolic arcs rather than staring down at their palms",
+            "facing": "beside 3D brain model"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Parabolic Arc Peak Diagram -> hMT+/V5 & Parietal Map",
+          "period_detail": "explains the counterintuitive brain location",
+          "physical_behavior": "SRC1 & SRC2 insight"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Juggler",
+          "verb_sequence": "keeps gaze calm at eye-level arc peaks -> hMT+/V5 predicts landing effortlessly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Juggler",
+          "reaction": "realizes juggling is high-speed visual geometry"
+        }
+      ],
+      "wardrobe": "Smart-casual shirts.",
+      "lighting": "Clean gallery light.",
+      "recognition_hook": "Great jugglers never stare at their hands — they lock onto the top peak of each arc while visual-motion cortex calculates the catch!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "2008 Encore: 60-Year-Old Seniors Grow hMT+/V5 Gray Matter Too!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2008, Hamburg / Regensburg healthy-aging trial (Boyke & May)",
+      "layout": {
+        "description": "Warm sunlit movement studio where lively 60-year-old adults practice 3-ball juggling alongside a Youth vs Senior MRI Plasticity chart.",
+        "positions": [
+          {
+            "who": "Two 60-year-old Senior Juggler mannequins & Researcher",
+            "where": "celebrating significant hMT+/V5 + hippocampal gray-matter gains in their sixties!",
+            "facing": "in sunlit studio"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Ages 50–67 Juggling MRI Gain Card",
+          "period_detail": "smashes ageist myths about older brains",
+          "physical_behavior": "Boyke, Draganski & May 2008"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Senior learners",
+          "verb_sequence": "master 3-ball cascade -> post-training MRI confirms fresh V5 & hippocampal expansion"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Seniors",
+          "reaction": "beaming pride and vitality"
+        }
+      ],
+      "wardrobe": "Comfortable active casual cardigans and polo shirts.",
+      "lighting": "Warm morning window light.",
+      "recognition_hook": "Think structural brain growth is just for twenty-two-year-olds? Sixty-year-olds who learned to juggle grew the exact same visual-motion gray matter!",
+      "sources": [
+        "SRC5"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Cellular Truth & Keeping 'Scan 2' Alive Every Week",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit living room / tennis court",
+      "layout": {
+        "description": "Bright home space pairing three practice balls / racquet with a 'Dendritic Spines + Weekly Maintenance Reps' card.",
+        "positions": [
+          {
+            "who": "Adult learner mannequin",
+            "where": "spending 10 playful minutes keeping a visuomotor skill sharp across the week",
+            "facing": "in sunlit room"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Use-It-or-Keep-It Weekly Visuomotor Card",
+          "period_detail": "prevents Scan-3 detraining shrinkage",
+          "physical_behavior": "lifelong brain-health habit"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Learner",
+          "verb_sequence": "practices 10 brisk minutes twice a week -> maintains crisp coordination and neural scaffolding"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Learner",
+          "reaction": "energized, playful focus"
+        }
+      ],
+      "wardrobe": "Modern casual activewear.",
+      "lighting": "Golden afternoon light.",
+      "recognition_hook": "Your cortex keeps the dendritic scaffolding you actually use — add one joyful hand-eye skill to your week and don't let it gather dust!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

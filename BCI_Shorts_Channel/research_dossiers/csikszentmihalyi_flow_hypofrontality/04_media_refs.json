@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "lecture",
+      "title": "Mihaly Csikszentmihalyi: Flow, the secret to happiness",
+      "url": "https://www.youtube.com/watch?v=fXIeFJCqsPs",
+      "channel": "TED",
+      "source_id": "SRC_M1",
+      "duration_sec": 1136,
+      "timecodes": [
+        {
+          "t": "14:42-14:55",
+          "what": "Dark-backdrop stage / studio camera frame at kf_002.jpg (887.1s) paired with transcript segment \"you get immediate feedback. You know that what you need to do is possible to do, even though difficult, and sense of time disappears, you forget...\", introducing core background on concert cellist / craftsperson in deep absorption beside a 1980s Experience Sampling pager and Challenge-vs-Skill Flow Channel chart."
+        },
+        {
+          "t": "15:17-15:31",
+          "what": "Around kf_008.jpg (925.1s) (dark-backdrop stage / studio camera frame), transcript records \"and whenever they go off you say what you're doing, how you feel, where you are, what you're thinking about. And two things that we measure is the...\", examining procedural mechanics and evidence in Csikszentmihalyi's Experience Sampling Method (ESM) flow discovery & Dietrich's 2004 Transient Hypofrontality synthesis."
+        },
+        {
+          "t": "15:37-15:51",
+          "what": "At kf_011.jpg (944.0s) (dark-backdrop stage / studio camera frame), speaker remarks \"which is the center of the diagram. That would be your mean level of challenge and skill, which will be different from that of anybody else. But...\", addressing theoretical interpretation and downstream implications of Csikszentmihalyi's Experience Sampling Method (ESM) flow discovery & Dietrich's 2004 Transient Hypofrontality synthesis."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (4:3 broadcast/clinical camera recording (640x356, 14 frames sampled across 880.8s–963.0s)) from TED's \"Mihaly Csikszentmihalyi: Flow, the secret to happiness\" (1136s total runtime).",
+          "Deduplicated English transcript (22 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (880.8s–963.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "Flow: How Can We Optimize our Life Experience?",
+      "url": "https://www.youtube.com/watch?v=8b8dNuoBFV0",
+      "channel": "World Governments Summit",
+      "source_id": "SRC_M2",
+      "duration_sec": 1352,
+      "timecodes": [
+        {
+          "t": "16:40-16:51",
+          "what": "At kf_001.jpg (1010.8s) (widescreen camera frame), World Governments Summit's recording states \"moment and that for instance the climber here is a climber who says that Tim being is self catalyzing that\" — providing spoken context for concert cellist / craftsperson in deep absorption beside a 1980s Experience Sampling pager and Challenge-vs-Skill Flow Channel chart."
+        },
+        {
+          "t": "17:32-17:45",
+          "what": "Mid-segment widescreen camera frame at kf_009.jpg (1061.4s) as narration explains \"that he is writing the music in another room but has four or five players waiting for him so every page he writes he takes to these people to play...\", clarifying key empirical findings in Csikszentmihalyi's Experience Sampling Method (ESM) flow discovery & Dietrich's 2004 Transient Hypofrontality synthesis."
+        },
+        {
+          "t": "18:10-18:19",
+          "what": "Around kf_014.jpg (1093.0s) (widescreen camera frame), commentary states \"have a um if you think about skills low skills High skills low challenge High challenge flow\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (640x360, 14 frames sampled across 1010.8s–1093.0s)) from World Governments Summit's \"Flow: How Can We Optimize our Life Experience?\" (1352s total runtime).",
+          "Deduplicated English transcript (18 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (1010.8s–1093.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Mihaly Csikszentmihalyi.jpg",
+      "url": "https://commons.wikimedia.org/wiki/File:Mihaly_Csikszentmihalyi.jpg",
+      "channel": "Wikimedia Commons (Ehirsh)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Mihaly Csikszentmihalyi.jpg\" (673x774 px, Public domain): Mihaly Csikszentmihalyi. Documents authentic researcher likeness, period attire, and historical context for Csikszentmihalyi's Experience Sampling Method (ESM) flow discovery & Dietrich's 2004 Transient Hypofrontality synthesis."
+        }
+      ],
+      "license_note": "Archival photo (Public domain) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (673x774 px, Public domain, Ehirsh) — portrait reference: Mihaly Csikszentmihalyi.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

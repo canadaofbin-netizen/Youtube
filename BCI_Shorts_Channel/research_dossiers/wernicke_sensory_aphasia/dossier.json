@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "slug": "wernicke_sensory_aphasia",
+  "topic": "Carl Wernicke (1874): Fluent Nonsense, Broken Comprehension & the First Network Diagram of the Human Brain",
+  "pillar": "brain_history",
+  "created_at": "2026-10-25T22:49:34+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "26-year-old Carl Wernicke's 1874 discovery of sensory/receptive aphasia — effortless musical speech rhythm pouring out meaningless neologisms while word comprehension collapses — plus his prediction of 'conduction aphasia' between posterior temporal and frontal speech hubs is foundational network neuroanatomy.",
+  "primary_case": {
+    "title": "Carl Wernicke's 1874 Breslau Monograph on Sensory Aphasia (Patients Susanne Adam & Rother) & Modern Localization Re-Evaluation",
+    "year": 1874,
+    "place": "Allerheiligen Hospital, Breslau (now Wrocław, Poland)",
+    "people": [
+      {
+        "name": "Carl Wernicke",
+        "role": "26-year-old German neuropsychiatrist who published Der aphasische Symptomencomplex just six months into his neurological training — discovering receptive aphasia AND predicting a brand-new brain syndrome from pure wiring diagrams.",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Susanne Adam (59-year-old seamstress) & Patient Rother",
+        "role": "Wernicke's two classic 1874 Breslau patients who spoke rapidly with normal melody yet answered questions with scrambled syllables ('word salad') because they could no longer decode spoken words",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Jeffrey R. Binder & Marek-Marsel Mesulam",
+        "role": "Modern neurologists whose high-resolution MRI cohorts proved lasting comprehension loss extends beyond surface superior temporal gyrus into middle temporal & temporoparietal semantic networks",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Thirteen years after Paul Broca presented 'Monsieur Tan' (who understood everything yet could barely utter a syllable), **26-year-old Carl Wernicke** in Breslau (1874) walked up to two patients who displayed the **exact opposite neurological shock**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "59-year-old **Susanne Adam** and 73-year-old **Rother** were NOT deaf (they turned immediately toward soft knocks and environmental sounds!) and NOT mute — sentences poured rapidly from their mouths with normal German rhythm and intonation.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Yet their fluent sentences were riddled with swapped sounds and invented non-words (**paraphasias / jargon aphasia**), they could **not understand simple spoken requests**, and — unlike Broca's self-aware Patient Tan — they often smiled unaware that their own spoken sentences made zero sense (**anosognosia for speech errors**).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "At autopsy of Patient Rother, Broca's left frontal area was **100% intact** — instead, a focal infarction sat further back on the **left posterior superior temporal gyrus (pSTG)** right beside primary auditory cortex.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Wernicke then made history's first **network-neuroscience prediction on paper**: if posterior temporal cortex stores 'auditory sound-images of words' and Broca's frontal cortex stores 'motor speech patterns', what happens if a lesion spares BOTH hubs and cuts ONLY the fiber cable connecting them? Patients should understand speech AND speak fluently, yet fail to **repeat** words aloud and catch themselves stumbling (**Conduction Aphasia** — confirmed clinically within years!).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Why did doctors initially misdiagnose Susanne Adam as confused or psychotic on busy wards? Because fluent rhythm + incomprehensible words + unawareness of errors mimics psychiatric 'word salad' unless a neurologist tests non-verbal visual problem-solving and gesture comprehension.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In **2015 (*Neurology*)**, Jeffrey Binder and modern lesion-mapping teams (Mesulam; Hickok & Poeppel, SRC2, SRC4) solved a 140-year-old map confusion: textbooks kept moving 'Wernicke's Area' around because restricted posterior STG damage impairs **speech-sound (phonological) decoding & monitoring**, whereas permanent loss of **word meaning** requires damage extending into **middle temporal gyrus, angular gyrus, or anterior temporal poles**.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "That modern correction also explained why classic Wernicke patients can't catch their own spoken slips: posterior STG is the **self-monitoring audio-motor feedback loop** that checks your own voice as you speak.",
+      "source_id": "SRC2"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "At just **26 years old**, six months out of medical residency, Carl Wernicke didn't just discover the mirror-twin of Broca's aphasia — he drew a two-hub wiring diagram and **predicted a brand-new brain disorder ('Conduction Aphasia') before anyone had mapped its tract**.",
+      "why_surprising": "History's first triumph of connectome neuroscience, drawn with pen and ink in 1874.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Listen from across a hallway and a Wernicke's aphasia patient sounds like they are chatting smoothly at normal speed — step closer and every noun is a confident invented word while they wonder why YOU look confused.",
+      "why_surprising": "Intact musical speech engine detached from its phonological dictionary.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Broca's Patient Tan could say ONE syllable while understanding everything; Wernicke's patients poured out hundreds of fluent syllables while understanding almost nothing — neurology's most dramatic double dissociation.",
+      "why_surprising": "Speech production and speech comprehension live at opposite ends of a cortical highway.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "Why don't Wernicke patients stop mid-sentence when a nonsense word slips out? Because the exact posterior temporal patch damaged by the stroke IS the internal headphone monitor that checks your own voice in real time (Binder 2015).",
+      "why_surprising": "When the studio monitor unplugs, you can't hear your own wrong notes.",
+      "source_id": "SRC2",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Wernicke's Area is a single dictionary drawer where every word's meaning is stored.",
+      "truth": "Modern MRI (Binder 2015; Hickok & Poeppel) shows classical posterior STG converts acoustic sounds into phonological word forms and monitors speech output, while actual conceptual meaning is distributed across middle/anterior temporal and parietal semantic hubs.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Fluent jargon speech in an older emergency-room patient means psychiatric psychosis or sudden dementia.",
+      "truth": "Sudden-onset fluent 'word salad' is a classic red-flag stroke emergency (**left MCA inferior division stroke** hitting posterior temporal cortex) where immediate clot rescue can save comprehension.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Deafness causes Wernicke's aphasia.",
+      "truth": "Primary hearing is intact — patients hear finger snaps, doorbells, and tone melodies clearly while speech phonemes fail to map onto words.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Hearing someone speak a foreign language fluently across a cafe — capturing all the melody, questions, and emotion with zero decoded words.",
+    "Speaking into noise-canceling headphones at a concert and not realizing how loudly or oddly you just pronounced a word because self-monitoring feedback was blocked.",
+    "Spotting sudden fluent nonsense speech as a time-critical **stroke warning sign**, not 'confusion'."
+  ],
+  "linked_projects": [
+    "psych_65_wernicke_sensory_aphasia"
+  ]
+}

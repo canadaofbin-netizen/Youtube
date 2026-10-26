@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "slug": "shapiro_emdr_trauma_saccades",
+  "topic": "Francine Shapiro (1989) & Jinhee Baek (2019): Bilateral Eye Saccades, Working-Memory Taxing & Fear-Circuit Suppression",
+  "pillar": "brain_health",
+  "created_at": "2026-10-25T22:49:31+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Tracking horizontal light-bar or finger saccades while recalling distress connects directly to Baek et al.'s 2019 Nature discovery of midbrain superior colliculus to mediodorsal thalamus to basolateral amygdala fear inhibition plus prefrontal working-memory competition.",
+  "primary_case": {
+    "title": "Francine Shapiro's 1989 EMDR randomized trauma trial & Baek et al.'s 2019 Nature superior-colliculus circuit proof",
+    "year": 1989,
+    "place": "Mental Research Institute, Palo Alto, California & KAIST Neuroscience Lab (2019)",
+    "people": [
+      {
+        "name": "Francine Shapiro",
+        "role": "California psychologist who noticed rapid horizontal eye movements dulled distressing thoughts during a 1987 park walk and published the first 1989 randomized PTSD trial",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Jinhee Baek & Hee-Sup Shin",
+        "role": "KAIST neuroscientists whose 2019 Nature study mapped the exact collicular-thalamic-amygdala pathway silencing fear memories during alternating bilateral visual stimulation",
+        "source_id": "SRC2"
+      },
+      {
+        "name": "Marcel van den Hout & Richard McNally",
+        "role": "Clinical scientists whose dual-task working-memory experiments clarified why taxing working memory during recallvividly degrades emotional intensity",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In May 1987, Francine Shapiro noticed while walking through a California park that disturbing thoughts abruptly lost their emotional charge whenever her eyes darted rapidly back and forth across trees and pathways.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In 1989, Shapiro published a randomized controlled study of 22 trauma survivors (combat veterans and assault survivors, average symptom duration ~23 years) comparing rhythmic bilateral saccadic eye movements during trauma recall against an exposure-only placebo description condition.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "On the 0-to-10 Subjective Units of Disturbance (SUD) scale, the bilateral saccade group plunged from a mean distress of ~7.45 down toward ~0.13 within a single 50-minute session, whereas the no-eye-movement control condition hovered near ~7.6-8.3 until crossed over.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "For twenty-five years, fierce skepticism raged: critics like Richard McNally noted early dismantling trials had mixed eye-movement isolation results and mocked vague popular talk of 'syncing left and right hemispheres'.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Two hard mechanisms finally resolved the mystery. First, cognitive labs (van den Hout & Engelhard) proved 'Working-Memory Taxation': holding a vivid memory in limited dorsolateral prefrontal working memory WHILE tracking a fast horizontal target starves the memory image of bandwidth, reconsolidating it less vividly.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Second, in February 2019 in Nature, Jinhee Baek, Hee-Sup Shin, and colleagues placed fear-conditioned mice inside an LED cylinder flashing left-right alternating lights during extinction recall — and watched freezing drop far deeper and more permanently than extinction alone OR non-alternating flashes.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Single-unit and optogenetic recordings in Baek et al. (2019) traced the exact three-synapse circuit: alternating bilateral visual tracking activates the midbrain superior colliculus to excites mediodorsal thalamus to drives feedforward inhibition that silences fear-encoding neurons in the basolateral amygdala.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Today, the World Health Organization (WHO) and VA/DoD endorse EMDR alongside trauma-focused CBT as first-line evidence-based PTSD therapies.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Exactly 30 years after Francine Shapiro's 1989 randomized controlled study, Jinhee Baek and colleagues published the 2019 Nature optogenetic circuit proof showing bilateral eye movements suppress basolateral amygdala fear neurons via the superior colliculus and mediodorsal thalamus.",
+      "source_id": "SRC2"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "For thirty years skeptics laughed at moving your eyes side-to-side during therapy as a 'purple hat placebo' — until a 2019 Nature optogenetics paper traced a direct three-step wire from eye-orienting midbrain straight to silencing the amygdala's fear cells.",
+      "why_surprising": "Hard circuit neuroscience caught up with a strange 1987 park observation.",
+      "source_id": "SRC2",
+      "rank": 1
+    },
+    {
+      "fact": "In Baek's 2019 Nature test, random flickering lights or recall ALONE let fear bounce back — ONLY rhythmic left-right alternating tracking paired with memory recall durably silenced amygdala fear neurons.",
+      "why_surprising": "Timing bilateral orienting DURING active memory retrieval was the lock-and-key.",
+      "source_id": "SRC2",
+      "rank": 2
+    },
+    {
+      "fact": "Human lab tests revealed a second parallel bonus: tracking a brisk moving dot steals scarce prefrontal working-memory slots right while a painful image is unpacked, putting it back into storage faded and calmer.",
+      "why_surprising": "Your working memory literally runs out of pixels to render full panic.",
+      "source_id": "SRC4",
+      "rank": 3
+    },
+    {
+      "fact": "Participants carrying 20-year-old distress in Shapiro's 1989 trial dropped from ~7.5 out of 10 distress down near zero once structured recall was paired with guided horizontal saccades.",
+      "why_surprising": "Dual-attention kept patients anchored in present-room safety while processing the past.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Eye movements work by magically 'synchronizing your creative right brain with your logical left brain'.",
+      "truth": "Pop-talk about corpus-callosum 'hemisphere syncing' was inaccurate; the real mechanisms are 1) prefrontal working-memory competition and 2) superior-colliculus to mediodorsal-thalamus to amygdala feedforward inhibition.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Waving your fingers in front of your own face at home cures severe clinical PTSD without a trained clinician.",
+      "truth": "Safe trauma reprocessing requires structured clinical pacing, grounding, and therapeutic containment — never DIY flooding.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "EMDR erases factual memory of what happened like Eternal Sunshine.",
+      "truth": "Factual autobiographical accuracy stays intact; only the hijacked visceral amygdala alarm charge diminishes.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Any random distraction works identically to rhythmic bilateral orienting.",
+      "truth": "Baek et al. (2019) proved rhythmic alternating orienting uniquely recruits superior-colliculus thalamic output compared to chaotic flicker.",
+      "source_id": "SRC2"
+    }
+  ],
+  "everyday_hooks": [
+    "Why walking briskly forward through a park while talking through a hard problem (optic flow + bilateral stepping) often feels less overwhelming than sitting frozen in a dark room.",
+    "Playing a visual spatial puzzle like Tetris shortly after a jarring minor scare (taxing visual working memory before consolidation).",
+    "Understanding how modern trauma therapy pairs present-moment sensory grounding with brief memory recall.",
+    "Seeing how skeptics and clinicians both won when 2019 circuit tools replaced hand-waving myths with real thalamic-amygdala wiring."
+  ],
+  "linked_projects": [
+    "psych_37_shapiro_emdr_trauma_saccades"
+  ]
+}

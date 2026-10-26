@@ -1,0 +1,212 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Intermanual Conflict at the Neurology Exam Table: Right Hand Buttoning a Crisp Shirt While the Rogue Left Hand Unbuttons It",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1981 / 1992, Philadelphia & New York behavioral neurology clinic",
+      "layout": {
+        "description": "Sunlit clinical neurology examination room with an oak exam desk holding everyday affordance test objects (a porcelain mug, wooden hairbrush, and folded towel) as a patient sits upright wearing a crisp pale-blue button-down cardigan shirt.",
+        "positions": [
+          {
+            "who": "Patient mannequin (in pale-blue front-button shirt)",
+            "where": "using their right hand to carefully fasten the middle shirt buttons while their own left hand smoothly reaches up two buttons lower to unfasten them — looking down in startled exasperation",
+            "facing": "seated on clinical chair"
+          },
+          {
+            "who": "Neurologist mannequin (Gary Goldberg / Todd Feinberg in white coat with clipboard)",
+            "where": "observing the smooth opposite-hand tug-of-war before handing a soft white grip cylinder to occupy the rogue hand",
+            "facing": "standing across oak exam desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "large-buttoned pale-blue clinical test shirt",
+          "period_detail": "shows right hand buttoning upward while left hand unbuttons right behind it",
+          "physical_behavior": "the single most iconic bedside sign of Callosal intermanual conflict"
+        },
+        {
+          "name": "desktop affordance tray (porcelain mug, wooden comb, doorknob block)",
+          "period_detail": "triggers compulsive one-handed reaching in the Frontal SMA variant",
+          "physical_behavior": "demonstrates Goldberg's 1981 grasp release"
+        },
+        {
+          "name": "soft white foam 'Occupy-the-Hand' rehabilitation cylinder",
+          "period_detail": "calms compulsive environmental grasping when held in the rogue palm",
+          "physical_behavior": "shows dignified clinical management"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient mannequin",
+          "verb_sequence": "fastens two buttons smoothly with the right hand -> left hand glides in uninvited and unbuttons them -> Patient uses right hand to gently hold their own left wrist while looking at the neurologist"
+        },
+        {
+          "who": "Neurologist mannequin",
+          "verb_sequence": "places the soft foam cylinder into the rogue hand -> compulsive reaching quiets immediately"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Patient mannequin",
+          "reaction": "shakes head in clear-minded disbelief ('It is my hand, Doctor, it just won't listen!')"
+        },
+        {
+          "who": "Neurologist mannequin",
+          "reaction": "maps Frontal SMA vs Callosal fibers on the bedside chart"
+        }
+      ],
+      "wardrobe": "1980s/1990s clinical neurology coat with tie; pale-blue large-button Oxford shirt and chinos.",
+      "lighting": "Bright high-key clinical daylight.",
+      "recognition_hook": "His right hand buttons his shirt to get dressed — and two seconds later his own left hand smoothly unbuttons every single button.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a neurology clinic scene where a seated patient's right hand buttons a pale-blue shirt while their own left hand simultaneously unbuttons it across from a neurologist with an object test tray",
+        "must_show": [
+          "shirt|buttons",
+          "hands",
+          "desk|tray|clinic"
+        ],
+        "source": "M1@00:20-00:28; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Goldberg 1981 Frontal Variant: The Doorframe Grasp That Won't Let Go",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1981, Moss Rehabilitation Hospital corridor, Philadelphia",
+      "layout": {
+        "description": "Bright sunlit hospital corridor doorway with a wooden handrail.",
+        "positions": [
+          {
+            "who": "Patient mannequin",
+            "where": "walking past a doorframe as one hand shoots out automatically to latch onto the wooden rail, requiring the intact hand to gently peel the fingers loose",
+            "facing": "at corridor doorway"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "wooden doorway handle & soft rolled towel",
+          "period_detail": "visualizes unbraked SMA environmental affordance grasping and the towel-holding fix",
+          "physical_behavior": "Goldberg 1981 Case 1"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Rogue hand",
+          "verb_sequence": "latches smoothly onto doorframe -> intact hand peels fingers off and places rolled towel in palm -> patient walks smoothly onward"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Therapist mannequin",
+          "reaction": "nods encouragingly as towel-holding restores smooth walking"
+        }
+      ],
+      "wardrobe": "1981 cardigan and hospital coat.",
+      "lighting": "Bright corridor daylight.",
+      "recognition_hook": "Without the medial-frontal veto brake, every doorknob in sight commands the hand to grab — unless you give the palm something safe to hold.",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Feinberg 1992: One Name, Three Separate Brain Circuits",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1992, New York neurology conference room",
+      "layout": {
+        "description": "Bright teaching table displaying three clean matte-white 3D anatomical brain models highlighting Medial Frontal (SMA), Corpus Callosum, and Posterior Parietal zones.",
+        "positions": [
+          {
+            "who": "Todd Feinberg mannequin",
+            "where": "pointing across the three anatomical zones to explain Grasp vs Intermanual Conflict vs Levitation",
+            "facing": "at teaching table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "trio of color-coded matte-white brain models",
+          "period_detail": "clarifies why Frontal, Callosal, and Parietal lesions look completely different at the bedside",
+          "physical_behavior": "Feinberg 1992 classification"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Feinberg",
+          "verb_sequence": "traces SMA grasp release vs Callosal hand-fighting vs Parietal sensory levitation"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Resident mannequins",
+          "reaction": "take notes resolving decades of clinical confusion"
+        }
+      ],
+      "wardrobe": "1992 suit and physician coat.",
+      "lighting": "Clean seminar daylight.",
+      "recognition_hook": "Not one mysterious curse — three precise wiring breaks separating grasp brakes, hemisphere teamwork, and limb feedback.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Everyday Affordance Hygiene: Out of Sight Saves Your Veto Brake",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern study desk",
+      "layout": {
+        "description": "Sunlit tidy desk where placing a phone and snack bowl inside a closed wooden drawer stops unconscious hand reaches.",
+        "positions": [
+          {
+            "who": "Writer mannequin",
+            "where": "tucking phone into drawer so premotor affordance triggers stop firing every minute",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "closed desk drawer vs open tabletop phone",
+          "period_detail": "eliminates automatic visual-affordance grabs",
+          "physical_behavior": "everyday application of SMA/premotor science"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Writer",
+          "verb_sequence": "places phone out of sight -> types deeply with zero unconscious reaches"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Writer",
+          "reaction": "calm uninterrupted focus"
+        }
+      ],
+      "wardrobe": "Modern casual knit shirt.",
+      "lighting": "Warm window daylight.",
+      "recognition_hook": "Even healthy brains secretly prep a reach every time eyes hit a phone or cookie — put distractions out of sight so your frontal brake can rest.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

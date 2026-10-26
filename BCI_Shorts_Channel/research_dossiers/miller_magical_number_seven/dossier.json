@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "slug": "miller_magical_number_seven",
+  "topic": "George A. Miller (1956): The Magical Number Seven, Plus or Minus Two & Cognitive Chunking",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:28+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Miller's cognitive bottleneck comes alive visually by grouping scattered binary digits or flashcards on a 1956 Harvard seminar table into meaningful chunks, backed by prefrontal working-memory span.",
+  "primary_case": {
+    "title": "George A. Miller's 1956 Psychological Review synthesis & Harvard binary recoding experiments",
+    "year": 1956,
+    "place": "Harvard University Psycho-Acoustic Laboratory, Cambridge, Massachusetts",
+    "people": [
+      {
+        "name": "George Armitage Miller",
+        "role": "Harvard cognitive psychologist who distinguished bits of information from chunks of immediate memory",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Sidney Smith",
+        "role": "Harvard researcher whose binary-to-octal recoding marathon extended immediate recall from ~9 binary digits to 40 straight digits",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Nelson Cowan",
+        "role": "Modern working-memory researcher who later showed pure unchunked capacity without rehearsal sits closer to four chunks",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 1956, George A. Miller opened his landmark Psychological Review paper by playfully joking he was 'persecuted by an integer' across two distinct cognitive limits.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "First, in unidimensional absolute judgment tasks (identifying pitch tones, loudness levels, saltiness, or pointer positions), human channel capacity hits an upper ceiling around 2.5 to 2.6 bits — roughly 5 to 7 distinguishable categories.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Second, in immediate memory span, adults recall roughly 7 items (plus or minus 2) almost regardless of whether each item is a binary digit (1 bit), decimal digit (3.3 bits), letter (4.7 bits), or common English word (~10 bits).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Because 7 English words carry roughly ten times more Shannon information bits than 7 binary zeros and ones, Miller proved immediate memory is constrained by the NUMBER OF CHUNKS rather than raw bit count.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Harvard recoding experiments led by Sidney Smith, baseline subjects recalled only about 9 random binary digits (0s and 1s) in order.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "After learning an octal 3-to-1 recoding table (grouping every three binary digits like 101 into a single digit '5'), Smith's recall soared from 9 binary digits to 40 consecutive binary digits without error.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Miller emphasized that the overlap between ~6.5 absolute-judgment categories and ~7 memory chunks was a humorous coincidence, not a mystical cosmic law.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Subsequent research by Nelson Cowan (2001) demonstrated that when covert verbal rehearsal and spontaneous grouping are blocked, pure working-memory focus holds roughly 4 chunks (plus or minus 1).",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "In Pollack's unidimensional auditory pitch experiments reviewed by Miller (1956), listeners reliably identified only about 5 to 6 distinct pure tones (~2.5 to 2.6 bits) before absolute judgment broke down.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Recoding 12 individual binary or tonal items into 3 structured four-item chunks bypasses the single-item channel bottleneck while keeping working memory well inside the 4-to-7-chunk span.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Your immediate memory holds roughly seven common words almost as easily as seven single binary zeros and ones — even though seven words pack ten times more raw information.",
+      "why_surprising": "Your mental inbox counts envelopes, not how thick the letters inside are.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "By grouping every three zeros and ones into a single octal number, researcher Sidney Smith stretched his live recall from 9 binary digits to 40 straight digits.",
+      "why_surprising": "Smart chunking quadrupled apparent memory span without changing brain hardware.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "George Miller used the phrase 'Magical Number Seven' as a tongue-in-cheek rhetorical joke to glue together two unrelated lectures — and accidentally created psychology's most misquoted slogan.",
+      "why_surprising": "He explicitly warned that the two sevens were a coincidence.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "When modern labs block silent rehearsal, raw unchunked working memory drops to about four items — the exact length of phone-number blocks.",
+      "why_surprising": "Everyday seven-item recall already relies on micro-chunking.",
+      "source_id": "SRC4",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Every human menu, slide, or list must contain exactly seven items because of a hardwired 'Law of Seven'.",
+      "truth": "Miller called the overlap between perceptual judgment bits and memory chunks a coincidence, and pure unchunked span is closer to 4 items.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Human short-term memory has a fixed byte or bit limit like a computer register.",
+      "truth": "Bit capacity expands dramatically through recoding while the count of active chunks stays tightly bounded.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Geniuses who memorize 40-digit strings possess superhuman raw short-term slots.",
+      "truth": "Sidney Smith and memory athletes use ordinary ~7-chunk slots packed with rich learned encodings.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Absolute pitch-category limits and phone-number recall use the exact same neural mechanism.",
+      "truth": "Miller proved unidimensional sensory channel capacity (bits) and immediate memory span (chunks) obey fundamentally different rules.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Reading a 10-digit phone number easily as 555-867-5309 (three chunks) while fumbling 5558675309 as an unbroken wall.",
+    "Remembering acronyms like FBI-NASA-NATO effortlessly while losing the exact same nine letters scrambled as B-N-T-I-A-A-F-S-O.",
+    "Watching a chess master glance at a mid-game board for five seconds and reconstruct 25 pieces as five familiar tactical patterns.",
+    "Drowning during a presentation slide packed with twelve ungrouped bullet points."
+  ],
+  "linked_projects": [
+    "psych_16_miller_magical_number_seven"
+  ]
+}

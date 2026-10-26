@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "slug": "steele_aronson_stereotype_threat",
+  "topic": "Claude Steele & Joshua Aronson (1995): Stereotype Threat — How Working-Memory Anxiety Hijacks High-Stakes Tests",
+  "pillar": "bci_ethics",
+  "created_at": "2026-10-25T22:49:32+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Two identical Stanford GRE verbal booklets differing ONLY by one cover-page sentence ('diagnostic test of intellectual ability' vs 'non-diagnostic problem-solving puzzle') is razor-sharp behavioral design, paired with Sian Beilock & Toni Schmader's prefrontal working-memory hijacking mechanism.",
+  "primary_case": {
+    "title": "Claude Steele & Joshua Aronson's 1995 Stanford GRE verbal framing & race-priming experiments",
+    "year": 1995,
+    "place": "Stanford University Department of Psychology, Palo Alto, California",
+    "people": [
+      {
+        "name": "Claude M. Steele",
+        "role": "Stanford social psychologist who discovered how situational fear of confirming a negative group stereotype taxes high-achieving students mid-exam",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Joshua Aronson",
+        "role": "Co-investigator who designed the four-study GRE diagnostic framing and demographic pre-test checkbox experiments",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Toni Schmader & Sian Beilock",
+        "role": "Cognitive scientists who proved stereotype threat steals scarce dorsolateral prefrontal working-memory capacity via anxious self-monitoring, alongside modern replication effect-size audits",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 1995 at Stanford University, Claude Steele and Joshua Aronson gave high-achieving Black and White Stanford undergraduates an identical 30-minute set of the hardest verbal items from the Graduate Record Examination (GRE), statistically controlling for baseline SAT scores.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Only ONE sentence changed at the top of the room: in the 'Diagnostic' condition, students were told the test measured genuine 'personal intellectual ability and verbal limitations'; in the 'Non-Diagnostic' condition, the EXACT SAME booklet was introduced as a 'laboratory study of psychological problem-solving mechanics unrelated to ability'.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In the Non-Diagnostic puzzle framing, Black Stanford students matched equally prepared White Stanford peers point-for-point.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In the Diagnostic 'ability-judging' framing, Black students' accuracy dropped sharply below both White peers AND Black students in the Non-Diagnostic room — even though every single question on the page was identical.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Study 4 of the exact same 1995 paper, Steele and Aronson kept the test explicitly NON-diagnostic, and merely added a routine demographic question asking students to check their RACE on the cover sheet right before Question 1 — and checking that single box BEFORE starting cut Black students' solved items nearly in half compared with not checking it.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Subsequent experiments proved stereotype threat can hit ANY group when a salient stereotype is cued: White male math majors told an exam compared Asian vs White math ability (Aronson et al. 1999), women in calculus (Spencer, Steele & Quinn 1999), older adults on memory tests, or working-class students in elite interviews.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Cognitive neuroscientists Toni Schmader and Sian Beilock uncovered the exact bottleneck: students who care DEEPLY about doing well suddenly burn dorsolateral prefrontal working-memory slots monitoring 'Am I confirming the stereotype?' right when complex multi-step problems need every slot.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Modern preregistered replications and meta-analyses (Flore & Wicherts 2015; Shewach et al. 2019) tempered exaggerated claims that framing alone erases all educational gaps (average lab effects sit around d ~ 0.25-0.30, smaller when publication bias is trimmed), while validating simple zero-cost fixes like moving demographic checkboxes to the END of exams (adopted by AP/ETS!).",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Large-scale meta-analyses indicate that stereotype threat accounts for a modest effect size around d = 0.2 to 0.3 rather than 100% of real-world achievement gaps, with null (0) effects in several pre-registered replications.",
+      "source_id": "SRC2"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Hand equally brilliant Stanford students the exact same 30-minute GRE packet: introduce it as 'problem-solving mechanics' and scores match; introduce it as 'measuring your real verbal intelligence' and stereotype threat opens a wide gap out of thin air.",
+      "why_surprising": "One introductory sentence stole working memory before Question 1.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "In Study 4, simply moving a 'Check Your Race' box onto Page 1 BEFORE a non-diagnostic test slashed performance compared to leaving Page 1 clean — prompting the College Board to move demographic bubbles to the BACK of AP exams.",
+      "why_surprising": "A two-second form-design tweak protected thousands of test-takers.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Aronson later triggered the EXACT same score drop in high-scoring White male math majors simply by mentioning before the exam that researchers were investigating 'why Asian students outperform White students in math'.",
+      "why_surprising": "Stereotype threat is a universal situational tax on working memory, not a trait of one group.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "Crucial irony: stereotype threat hits HARDEST in students who care most passionately about excelling in that field — apathetic test-takers barely feel it.",
+      "why_surprising": "Caring deeply creates the exact pressure the threat hijacks.",
+      "source_id": "SRC2",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Stereotype threat only happens if a student secretly believes the negative stereotype is true.",
+      "truth": "False: students who fiercely REJECT the stereotype suffer the heaviest working-memory drain trying intently to disprove it.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Stereotype threat only affects minority groups.",
+      "truth": "Any human — White male math students, elderly drivers, men on 'social sensitivity' tests — shows working-memory drag when negatively stereotyped in a valued domain.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "One magic reframing sentence erases 100% of real-world school inequality.",
+      "truth": "Modern large-scale replications (Shewach 2019; Flore & Wicherts) show stereotype threat is a meaningful ~0.2-0.3 SD performance drag on top of — never instead of — unequal schooling resources.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Lowering standards helps anxious test-takers.",
+      "truth": "Geoffrey Cohen and Claude Steele proved the exact opposite ('wise feedback'): communicating HIGH standards + explicit assurance that the student can reach them ('growth mindset') dissolves threat best.",
+      "source_id": "SRC2"
+    }
+  ],
+  "everyday_hooks": [
+    "Blanking on an easy algebra step during an interview right after thinking 'If I miss this, they'll think I don't belong here.'",
+    "Putting demographic checkboxes at the very END of hiring surveys and exams instead of Page 1.",
+    "Giving 'wise critical feedback': 'I'm giving you tough notes because I hold high standards AND I know you have the chops to hit them.'",
+    "Jotting down core values for five minutes before a high-stakes exam to free up prefrontal working memory."
+  ],
+  "linked_projects": [
+    "psych_43_steele_aronson_stereotype_threat"
+  ]
+}

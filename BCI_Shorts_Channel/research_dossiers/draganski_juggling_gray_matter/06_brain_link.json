@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "temporal lobe",
+      "plain": "bilateral hMT+/V5 visual-motion gray-matter expansion (+3–4% at Scan 2)",
+      "function": "tracking three simultaneous parabolic arcs in peripheral sight so trajectory timing is predicted hundreds of milliseconds before catch — expanding at Month 3 and receding at Month 6 idle",
+      "scene_id": "S1",
+      "narration_bridge": "Primary bilateral peak in Draganski et al. 2004 Nature (SRC1)."
+    },
+    {
+      "role": "pivot",
+      "region": "parietal cortex",
+      "plain": "left posterior intraparietal sulcus visuomotor coordinate transformation",
+      "function": "mapping visual arc peaks into precise 3D spatial catch locations (where underlying white matter also thickens in Scholz et al. 2009!)",
+      "scene_id": "S1",
+      "narration_bridge": "Second significant structural peak in Nature 2004."
+    },
+    {
+      "role": "step1",
+      "region": "motor cortex",
+      "plain": "rhythmic bimanual throw-and-catch execution",
+      "function": "executing smooth low-variance throws once visual-parietal trajectory prediction solves the spatial bottleneck",
+      "scene_id": "S2",
+      "narration_bridge": "Completes the V5 to Parietal to Motor cascade."
+    }
+  ]
+}

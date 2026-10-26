@@ -1,0 +1,99 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Why scuba divers remembered 36% more words by jumping BACK into cold Scottish water — and the 1980 & 2021 twists textbooks leave out.",
+    "core_experiment": "Godden & Baddeley (1975) Oban 2×2 Dry/Wet crossover (13.5 / 8.6 vs 8.4 / 11.4) + 1980 recognition null result.",
+    "twist": "Steven Smith's 30-second 'Mental Context Reinstatement' cure, Murre's 2021 pre-registered scuba replication, and why varied study rooms beat one chair."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Oban, Scotland 1975: 18 Divers & Weighted Formica Slates",
+      "beats": [
+        "North Sea oil-diver complaints spark a 20-foot underwater test",
+        "The 2×2 Dry/Wet crossover: 13.5 & 11.4 crush 8.6 & 8.4."
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "pier, scuba divers & 2x2 board"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "1980 Plot Twist: Why Multiple-Choice Exams Are Immune.",
+      "beats": [
+        "Godden & Baddeley send divers back in with recognition sheets to 0% gap.",
+        "Blank-page search cues vs direct familiarity"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "1980 Multiple-Choice slate"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Kitchen Doorways, Police Interviews & 2021 Replication",
+      "beats": [
+        "Why walking back to the bedroom doorway brings 'Scissors!' right back",
+        "Murre 2021: honest boundary conditions on subtle room shifts"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "study-to-kitchen doorway"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Flooding the Exam Hall Inside Your Imagination (Smith 1979)",
+      "beats": [
+        "30 seconds of picturing your study lamp restores lost cues",
+        "Police 'Cognitive Interview' mental reinstatement"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "20-second eyes-closed exam reset"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Room-Proofing Your Knowledge",
+      "beats": [
+        "Study in 2–3 different spots to cut wallpaper dependence",
+        "Revisit context mentally when stuck"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "portable room-proof outline"
+      ]
+    }
+  ]
+}

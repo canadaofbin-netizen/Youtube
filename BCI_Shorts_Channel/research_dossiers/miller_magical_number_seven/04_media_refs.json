@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "The Magical Number Seven (plus or minus two)",
+      "url": "https://www.youtube.com/watch?v=B0FsAMhs89c",
+      "channel": "Michael Jones",
+      "source_id": "SRC_M1",
+      "duration_sec": 305,
+      "timecodes": [
+        {
+          "t": "00:09-00:15",
+          "what": "At kf_003.jpg (10.0s) (widescreen camera frame), Michael Jones's recording states \"this video will not be seven minutes long but i do want to share with you a video yes about the magical number seven\" — providing spoken context for grouping 40 binary 0-and-1 tiles into crisp 3-digit octal chunks on the Harvard seminar table."
+        },
+        {
+          "t": "00:19-00:25",
+          "what": "Mid-segment widescreen camera frame at kf_005.jpg (20.0s) as narration explains \"magical number seven is it's actually something that that's referred to as miller's law there was in 1956 there was\", clarifying key empirical findings in George A. Miller's 1956 Psychological Review synthesis & Harvard binary recoding experiments."
+        },
+        {
+          "t": "01:06-01:11",
+          "what": "Around kf_014.jpg (65.0s) (widescreen camera frame), commentary states \"and by saying that i reference miller's law or the magical number seven and when i say that basically we're all\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (widescreen live-action camera recording (480x270, 14 frames sampled across 0.0s–65.0s)) from Michael Jones's \"The Magical Number Seven (plus or minus two)\" (305s total runtime).",
+          "Deduplicated English transcript (50 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "lecture",
+      "title": "Seven, plus minus two",
+      "url": "https://www.youtube.com/watch?v=fyCaekbbOoI",
+      "channel": "Ben Vincent",
+      "source_id": "SRC_M2",
+      "duration_sec": 1006,
+      "timecodes": [
+        {
+          "t": "14:58-15:12",
+          "what": "Around kf_001.jpg (910.8s) (widescreen camera frame), speaker commentary notes \"bits we've um talked already about how these findings show that these studies um\", anchoring the research context of grouping 40 binary 0-and-1 tiles into crisp 3-digit octal chunks on the Harvard seminar table."
+        },
+        {
+          "t": "15:52-16:06",
+          "what": "At kf_009.jpg (961.4s) (widescreen camera frame), audio continues with \"lots of complicated information like digits in a phone number and i can chunk these up into let's say pairs or triples of numbers maybe um i can...\", detailing experimental methodology and behavioral observations for George A. Miller's 1956 Psychological Review synthesis & Harvard binary recoding experiments."
+        },
+        {
+          "t": "16:19-16:33",
+          "what": "Later widescreen camera frame at kf_013.jpg (986.7s) accompanied by \"as cognitive psychology developed this notion of information processing um became kind of increasingly important and so um hopefully this gives...\", summarizing mechanism and boundary conditions in George A. Miller's 1956 Psychological Review synthesis & Harvard binary recoding experiments."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (640x360, 14 frames sampled across 910.8s–993.0s)) from Ben Vincent's \"Seven, plus minus two\" (1006s total runtime).",
+          "Deduplicated English transcript (15 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (910.8s–993.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "PFC anatomy correctedlabels.png",
+      "url": "https://commons.wikimedia.org/wiki/File:PFC_anatomy_correctedlabels.png",
+      "channel": "Wikimedia Commons (Eko321)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"PFC anatomy correctedlabels.png\" (960x628 px, CC0): prefrontal cortex regions. Provides anatomical and structural brain reference relevant to the neural mechanism in George A. Miller's 1956 Psychological Review synthesis & Harvard binary recoding experiments."
+        }
+      ],
+      "license_note": "Archival photo (CC0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x628 px, CC0, Eko321) — neuroanatomy reference: prefrontal cortex regions.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

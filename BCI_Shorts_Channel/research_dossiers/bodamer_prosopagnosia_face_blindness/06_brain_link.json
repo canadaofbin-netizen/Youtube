@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "primary visual cortex",
+      "plain": "intact 20/20 feature vision",
+      "function": "delivering crystal-clear edges, print, eyeglasses, and individual eyes/nose/lips with zero blur",
+      "scene_id": "S1",
+      "narration_bridge": "Explains why Patient S. read small text and named objects effortlessly."
+    },
+    {
+      "role": "pivot",
+      "region": "fusiform face area",
+      "plain": "broken holistic face-identity lookup",
+      "function": "failing to bind facial configuration on the right ventral occipitotemporal cortex to stored personal identities",
+      "scene_id": "S1",
+      "narration_bridge": "Captures Bodamer's (1947) selective face-blindness lesion."
+    },
+    {
+      "role": "step1",
+      "region": "auditory cortex",
+      "plain": "instant voice-to-identity rescue (plus limbic covert trace)",
+      "function": "unlocking immediate warm recognition in temporal identity hubs the instant the loved one speaks a single word",
+      "scene_id": "S1",
+      "narration_bridge": "Matches Patient S.'s immediate vocal recognition and Tranel & Damasio's parallel covert path."
+    }
+  ]
+}

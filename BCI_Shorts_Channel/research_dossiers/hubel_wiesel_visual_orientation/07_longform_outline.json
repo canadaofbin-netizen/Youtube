@@ -1,0 +1,101 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Five hours of silence, one jammed glass slide, and a machine-gun burst of spikes: how Hubel & Wiesel cracked V1's edge code and inspired modern AI.",
+    "core_experiment": "Hubel & Wiesel (1959/1968 J. Physiol.): V1 orientation tuning, Simple to Complex hierarchy, orientation/ocular columns + 1963 critical periods.",
+    "twist": "Why uniform floodlight cancels to zero, how infant cataract surgery saved millions of kids' sight, and how Simple/Complex cells became AI CNNs."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Baltimore 1958: Five Hours of Dots & One Stuck Glass Slide",
+      "beats": [
+        "Expecting Kuffler's circular retinal spots",
+        "The crooked glass edge unleashes a machine-gun spike burst.",
+        "Silent at 90°, roaring at 45°"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "angled glass slide, screen & oscilloscope"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Simple Cells, Complex Cells & Cortical Pinwheel Columns",
+      "beats": [
+        "Why 3 aligned dots build 1 edge detector (and why floodlights cancel to 0!)",
+        "Why minimal black-and-white line art looks so vivid"
+      ],
+      "scene_ids": [
+        "S2",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "3-dot-to-bar plaque & line sketch"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "1963 Critical Periods: Saving Millions of Children's Eyesight",
+      "beats": [
+        "Left-eye vs Right-eye competition for V1 columns",
+        "Why pediatricians stopped waiting until age 7 to fix cataracts & amblyopia"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2"
+      ],
+      "new_shots_needed": [
+        "pediatric pirate eye-patch & 3D stereo card"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "From Johns Hopkins Microelectrodes to Deep Learning CNNs",
+      "beats": [
+        "Fukushima's Neocognitron & Yann LeCun's ConvNets",
+        "Simple Cell = Convolution; Complex Cell = Pooling"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "Layer-1 AI edge filters vs 1959 tuning"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Investigating Your Own 'Jammed Glass Slides'",
+      "beats": [
+        "Speaking V1's crisp high-contrast edge language in design",
+        "Prepared minds catching serendipity"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "clean edge-contrast diagram"
+      ]
+    }
+  ]
+}

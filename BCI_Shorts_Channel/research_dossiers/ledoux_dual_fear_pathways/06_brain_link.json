@@ -1,0 +1,37 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "thalamus",
+      "plain": "two-road sensory splitter",
+      "function": "dispatching incoming sight or sound simultaneously along a fast direct shortcut and a slower cortical loop",
+      "scene_id": "S1",
+      "narration_bridge": "Marks T=0 where the trail shape splits onto two neural highways."
+    },
+    {
+      "role": "crisis",
+      "region": "amygdala",
+      "plain": "threat-defense trigger",
+      "function": "receiving the blurry Low-Road sketch first (~12 ms in auditory model) to launch an immediate protective flinch",
+      "scene_id": "S1",
+      "narration_bridge": "Explains why feet jump back from the curved stick before conscious recognition."
+    },
+    {
+      "role": "pivot",
+      "region": "primary visual cortex",
+      "plain": "High-Road detail analyzer",
+      "function": "resolving bark texture and twig twigs ~150+ ms later so prefrontal brakes call off the false alarm",
+      "scene_id": "S1",
+      "narration_bridge": "Shows the sharp cortical High Road catching up to cancel the false snake alarm."
+    },
+    {
+      "role": "step1",
+      "region": "ventromedial prefrontal cortex",
+      "plain": "all-clear brake",
+      "function": "quieting the amygdala once the High Road confirms 'just a wooden branch'",
+      "scene_id": "S3",
+      "narration_bridge": "Completes the calming top-down reset."
+    }
+  ]
+}

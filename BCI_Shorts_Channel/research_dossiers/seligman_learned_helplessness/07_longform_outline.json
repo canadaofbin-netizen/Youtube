@@ -1,0 +1,103 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Wired to the exact same stress clock yesterday, one subject leaps a low wall in two seconds while its yoked partner never tries.",
+    "core_experiment": "Seligman, Maier & Overmier's 1967 triadic yoked shuttle-box study (~90% escape with control vs 67% passivity without control).",
+    "twist": "Maier & Seligman's historic 2016 plot twist: passivity is unlearned brainstem default; MASTERY is what the prefrontal cortex learns."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Same Clock, Opposite Destinies",
+      "beats": [
+        "Triadic yoked design: Live button vs Dead button",
+        "Identical milliseconds of stress",
+        "Next-day low-hurdle shuttle box"
+      ],
+      "scene_ids": [
+        "S2",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "yoked twin panels wired to one clock"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Two-Thirds Freeze, One-Third Jump",
+      "beats": [
+        "90% escape in Group 1 vs 67% passivity in Group 2",
+        "The overlooked resilient one-third",
+        "Why pep talks failed without guided action"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "shuttle-box hurdle leap"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "2016: 'We Had It Backwards!'",
+      "beats": [
+        "Maier's dorsal raphe brainstem recordings",
+        "Passivity is the ancient factory default",
+        "vmPFC learns control and brakes the brainstem"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "1967 vs 2016 whiteboard reversal"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Behavioral Immunization",
+      "beats": [
+        "How mastering Stress A protects against Stress B",
+        "Plasticity of the vmPFC-to-raphe brake"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2"
+      ],
+      "new_shots_needed": [
+        "circuit immunization diagram"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Flipping Your Prefrontal Brake Back On",
+      "beats": [
+        "Why burnout feels like a locked door that's actually unlatched",
+        "Engineering immediate 5-minute controllable wins"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "modern 5-minute action cards"
+      ]
+    }
+  ]
+}

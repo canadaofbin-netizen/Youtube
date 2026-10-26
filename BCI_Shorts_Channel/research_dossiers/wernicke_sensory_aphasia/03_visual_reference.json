@@ -1,0 +1,208 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1874 Breslau Clinic: 26-Year-Old Carl Wernicke Testing Object Pointing vs Fluent Paraphasic Speech Beside His Two-Hub Brain Sketch",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1874, Allerheiligen Hospital, Breslau",
+      "layout": {
+        "description": "Sunlit 1874 European hospital consultation room with a clean oak desk holding three simple everyday objects (a silver key, a water glass, and a hairbrush), a tuning bell proving intact hearing, and Carl Wernicke's hand-drawn 1874 left-hemisphere wiring diagram linking posterior temporal 'a1' to frontal 'b' via an arcuate fiber curve.",
+        "positions": [
+          {
+            "who": "Carl Wernicke (26-year-old mannequin in 1874 physician frock coat and spectacles)",
+            "where": "gently ringing a small desk bell behind the patient (she turns instantly!) then asking verbally 'Please hand me the key' while gesturing NOT at all with his eyes",
+            "facing": "across oak consultation desk"
+          },
+          {
+            "who": "Patient Susanne Adam (59-year-old mannequin in neat 1874 shawl and dress)",
+            "where": "speaking animatedly with warm, natural hand gestures and fluent cadence while reaching uncertainly past the key toward the hairbrush",
+            "facing": "seated at oak desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "three-object comprehension tray (key, water glass, hairbrush) & desk bell",
+          "period_detail": "bell proves intact hearing; verbal-only request exposes lost spoken-word comprehension",
+          "physical_behavior": "Wernicke's crisp 1874 bedside dissociation"
+        },
+        {
+          "name": "Wernicke's 1874 hand-inked 'a1 -> b' cortical network diagram",
+          "period_detail": "the historic sketch connecting posterior temporal sensory hub to Broca's frontal motor hub",
+          "physical_behavior": "history's first connectome disease diagram"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Carl Wernicke",
+          "verb_sequence": "taps the soft desk bell out of sight -> Patient turns briskly proving normal hearing -> Wernicke asks verbally for the key -> Patient replies in smooth, rhythmic, cheerful sentences yet picks up the brush"
+        },
+        {
+          "who": "Carl Wernicke",
+          "verb_sequence": "switches to a friendly visual mime of unlocking a door -> Patient nods immediately in clear visual understanding and hands him the key!"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Patient mannequin",
+          "reaction": "relaxes warmly once visual demonstration bypasses the broken acoustic-word decoder"
+        },
+        {
+          "who": "Carl Wernicke",
+          "reaction": "traces the posterior temporal hub and connecting fiber arc on his 1874 diagram"
+        }
+      ],
+      "wardrobe": "1874 German medical frock coat, high collar, cravat; modest 19th-century wool shawl over buttoned dress.",
+      "lighting": "Bright high-key European hospital window light.",
+      "recognition_hook": "She hears a quiet bell across the room and speaks in smooth, musical sentences — yet spoken words land like an unknown language until you mime unlocking a door.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "an 1874 physician at a sunlit clinic desk with a key, glass, and brush tray plus a hand-drawn two-hub brain diagram testing a fluently speaking seated patient",
+        "must_show": [
+          "tray|key|glass|brush",
+          "diagram|chart|sketch",
+          "desk|clinic"
+        ],
+        "source": "M1@00:08-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Predicting 'Conduction Aphasia' Before Seeing the Tract",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1874, Breslau study desk",
+      "layout": {
+        "description": "Warm sunlit desk where Wernicke draws a small red 'X' strictly across the connecting pathway between intact Hub A1 (temporal) and intact Hub B (frontal).",
+        "positions": [
+          {
+            "who": "Carl Wernicke",
+            "where": "drawing the predicted third syndrome: Understands YES, Speaks Fluently YES, Repeats Aloud NO!",
+            "facing": "at study desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "3-column syndrome prediction chart (Broca / Wernicke / Conduction)",
+          "period_detail": "deduced a real neurological disorder from circuit logic alone",
+          "physical_behavior": "milestone of theoretical neuroscience"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Wernicke",
+          "verb_sequence": "inks the fiber-cut prediction between temporal and frontal centers"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Colleague mannequin",
+          "reaction": "marvels as real bedside conduction-aphasia cases confirm his sketch"
+        }
+      ],
+      "wardrobe": "1874 waistcoat and frock coat.",
+      "lighting": "Warm morning window light.",
+      "recognition_hook": "Just like Mendeleev predicting undiscovered elements from gaps in the periodic table, 26-year-old Wernicke predicted a new brain syndrome from a wiring sketch.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "2015 MRI Upgrade: Sound Monitor vs Semantic Meaning Network",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2015, Modern stroke-neurology MRI conference (Binder)",
+      "layout": {
+        "description": "Clean bright neuroimaging suite comparing posterior STG phonological monitoring against broader middle/anterior temporal meaning hubs.",
+        "positions": [
+          {
+            "who": "Neurologist mannequin",
+            "where": "overlaying hundreds of stroke MRIs to separate sound-form decoding (pSTG) from conceptual meaning (MTG/angular gyrus)",
+            "facing": "at large display"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Dual-Stream Dorsal/Ventral language map",
+          "period_detail": "resolves 140 years of textbook drift over where 'Wernicke's Area' sits",
+          "physical_behavior": "Binder 2015 Neurology"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Neurologist",
+          "verb_sequence": "highlights pSTG self-monitor loop vs ventral middle-temporal meaning hub"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Clinical team",
+          "reaction": "updates stroke-localization protocols"
+        }
+      ],
+      "wardrobe": "Modern white coats and blazers.",
+      "lighting": "Clean high-key clinical light.",
+      "recognition_hook": "Modern MRI proved Wernicke's spot is your voice's live headphone monitor — while word meanings spread across a wider temporal neighborhood.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Visual Pictures & Gestures: Communicating Respectfully After Receptive Stroke",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern speech-rehabilitation clinic",
+      "layout": {
+        "description": "Sunlit rehab table with crisp photo communication cards, written keywords, and calm gestures.",
+        "positions": [
+          {
+            "who": "Therapist & Patient mannequins",
+            "where": "communicating smoothly using picture cards and clear visual context instead of raising voice volume",
+            "facing": "at table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "visual communication board",
+          "period_detail": "routes intact visual meaning straight past damaged auditory phoneme decoding",
+          "physical_behavior": "practical clinical care"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Therapist",
+          "verb_sequence": "points to clear visual card while speaking calmly -> Patient nods and points accurately"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Both",
+          "reaction": "warm, dignified connection"
+        }
+      ],
+      "wardrobe": "Modern smart-casual attire.",
+      "lighting": "Warm sunlit room.",
+      "recognition_hook": "Speaking LOUDER never fixes Wernicke's aphasia — pairing calm speech with visual pictures and gestures opens the side door immediately.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "sources": [
+    {
+      "id": "SRC1",
+      "type": "primary",
+      "citation": "Peter J. Bayley, Jennifer C. Frascino, Larry R. Squire (2005). Robust habit learning in the absence of awareness and independent of the medial temporal lobe. Nature.",
+      "doi": "10.1038/nature03857",
+      "url": "https://doi.org/10.1038/nature03857",
+      "year": 2005,
+      "verified": true,
+      "notes": "Bayley, Frascino & Squire (2005 Nature) primary experimental study of amnesic Patient E.P. mastering the 8-pair object discrimination habit across 36 sessions (72 trials/session) to >95% accuracy despite 0% explicit awareness."
+    },
+    {
+      "id": "SRC2",
+      "type": "follow_up",
+      "citation": "Mandar S. Jog, Yasuo Kubota, Christopher I. Connolly, Viveka Hillegaart et al. (1999). Building Neural Representations of Habits. Science.",
+      "doi": "10.1126/science.286.5445.1745",
+      "url": "https://doi.org/10.1126/science.286.5445.1745",
+      "year": 1999,
+      "verified": true,
+      "notes": "Jog, Kubota, Connolly, Hillegaart & Graybiel (1999 Science) tetrode recordings discovering the start-and-end task-bracketing neural ensemble in dorsolateral striatum during T-maze overtraining."
+    },
+    {
+      "id": "SRC3",
+      "type": "follow_up",
+      "citation": "Kyle S. Smith, Arti Virkud, Karl Deisseroth, Ann M. Graybiel (2012). Reversible online control of habitual behavior by optogenetic perturbation of medial prefrontal cortex. Proceedings of the National Academy of Sciences.",
+      "doi": "10.1073/pnas.1216264109",
+      "url": "https://doi.org/10.1073/pnas.1216264109",
+      "year": 2012,
+      "verified": true,
+      "notes": "Smith, Virkud, Deisseroth & Graybiel (2012 PNAS) reversible online optogenetic silencing of infralimbic cortex toggling ingrained T-maze habits off within seconds and revealing latent habits."
+    },
+    {
+      "id": "SRC4",
+      "type": "review",
+      "citation": "Kyle S. Smith, Ann M. Graybiel (2014). Investigating habits: strategies, technologies and models. Frontiers in Behavioral Neuroscience.",
+      "doi": "10.3389/fnbeh.2014.00039",
+      "url": "https://doi.org/10.3389/fnbeh.2014.00039",
+      "year": 2014,
+      "verified": true,
+      "notes": "Smith & Graybiel (2014) synthesis of dorsal striatal habit chunking, outcome-devaluation insensitivity, and dual cortico-striatal circuit dynamics."
+    },
+    {
+      "id": "SRC5",
+      "type": "follow_up",
+      "citation": "M. G. Packard (2001). Task-Dependent Role for Dorsal Striatum Metabotropic Glutamate Receptors in Memory. Learning & Memory.",
+      "doi": "10.1101/lm.8.2.96",
+      "url": "https://doi.org/10.1101/lm.8.2.96",
+      "year": 2001,
+      "verified": true,
+      "notes": "Subsequent empirical and theoretical investigation (2001) in Learning & Memory extending the foundational findings."
+    },
+    {
+      "id": "SRC_M1",
+      "type": "documentary",
+      "citation": "MIT Video Productions. \"Ann Graybiel 2001 National Medal of Science (Brain Anatomy & Physiology) - Interview, MIT 2002.\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=D6GFMsiSphc",
+      "year": null,
+      "verified": true,
+      "notes": "Primary video reference analyzed locally in media/M1/ (14 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_M2",
+      "type": "documentary",
+      "citation": "The Kavli Prize. \"Ann Graybiel Kavli Prize Laureate Lecture.\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=WVLnuBgw3Mc",
+      "year": null,
+      "verified": true,
+      "notes": "Complementary video reference analyzed locally in media/M2/ (14 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_STILL",
+      "type": "archive",
+      "citation": "Colder B (CC BY 4.0). \"Cortical surface with an overlay of the basal ganglia and thalamus.jpg.\" Wikimedia Commons.",
+      "doi": null,
+      "url": "https://commons.wikimedia.org/wiki/File:Cortical_surface_with_an_overlay_of_the_basal_ganglia_and_thalamus.jpg",
+      "year": null,
+      "verified": true,
+      "notes": "Verified archival image (960x544 px) stored locally in media/M3/still.jpg for reference analysis only (never reused raw). The figure shows the cortical surface with an overlay of the basal ganglia and thalamus. The blue dots on the cortical surface represent the neuronal activity for a notional emulation. This emulation is abstrac."
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Four cards ('E — K — 4 — 7') fool 90% of educated adults — until a pub bouncer rule flips accuracy to 80% and exposes how confirmation bias really works.",
+    "core_experiment": "Wason (1966/1968): <10% pick E & 7 while ~50% pick E & 4, plus Wason's 1960 '2-4-6' confirmation trap.",
+    "twist": "Why 'If Beer to Over 21' (`Beer` + `16`) jumps to 80% accuracy AND Evans's 'matching bias' twist."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Play Along: The 4-Card Trap That Fools 90% of PhDs",
+      "beats": [
+        "E, K, 4, 7 on the London baize table",
+        "Why '4' is a wasted flip and '7' is the only rule-breaker"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "E-K-4-7 oversized cards"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Piling Up 'Yeses': Wason's 2-4-6 Origin of Confirmation Bias",
+      "beats": [
+        "Guessing '8-10-12' forever without testing '1-2-3'",
+        "Stubborn rationalizations even AFTER flipping Card 7 (1969)"
+      ],
+      "scene_ids": [
+        "S2",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "failure"
+      ],
+      "new_shots_needed": [
+        "2-4-6 notepad & flipped 7 to E card"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "The Pub Bouncer Miracle: <10% Jumps to 80%",
+      "beats": [
+        "1972 sealed postal envelopes",
+        "Beer, Soda, 25, 16: why nobody flips the 25-year-old.",
+        "Evans's spotlight 'Matching Bias'"
+      ],
+      "scene_ids": [
+        "S1",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step1",
+        "step2"
+      ],
+      "new_shots_needed": [
+        "Beer/Soda/25/16 row & postal envelopes"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Why Piaget's Pure-Logic Myth Crumbled",
+      "beats": [
+        "Context-bound human reasoning vs formal symbol logic",
+        "System 1 spotlight vs System 2 falsification"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "abstract vs concrete accuracy bars"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "How to Flip 'Card 7' Before Reality Does",
+      "beats": [
+        "Google the counterargument first",
+        "The 1-minute Card-7 pre-mortem"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "Card-7 Pre-Mortem pad"
+      ]
+    }
+  ]
+}

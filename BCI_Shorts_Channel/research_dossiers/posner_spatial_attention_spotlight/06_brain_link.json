@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "pivot",
+      "region": "parietal cortex",
+      "plain": "spotlight steering hub",
+      "function": "disengaging covert attention from the old box and aiming spatial priority to the cued side before the eyes ever move",
+      "scene_id": "S1",
+      "narration_bridge": "Connects the 60-millisecond valid-vs-invalid reaction gap to dorsal parietal orienting."
+    },
+    {
+      "role": "step1",
+      "region": "thalamus",
+      "plain": "pulvinar focus amplifier",
+      "function": "locking onto and boosting signal clarity inside the validly cued box",
+      "scene_id": "S1",
+      "narration_bridge": "Shows thalamic engagement sharpening target detection."
+    },
+    {
+      "role": "step2",
+      "region": "primary visual cortex",
+      "plain": "early visual map",
+      "function": "firing stronger sensory responses at the spotlighted coordinates even with frozen eye gaze",
+      "scene_id": "S2",
+      "narration_bridge": "Explains why targets inside the spotlight register faster on a single-button press."
+    }
+  ]
+}

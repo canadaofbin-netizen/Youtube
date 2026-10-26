@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "primary visual cortex",
+      "plain": "lesioned conscious sight screen (right V1)",
+      "function": "darkening conscious awareness across the left visual field so Patient D.B. truthfully reports seeing nothing at all",
+      "scene_id": "S1",
+      "narration_bridge": "Establishes why standard clinical perimetry scored D.B. as 100% blind on the left."
+    },
+    {
+      "role": "pivot",
+      "region": "optic nerve",
+      "plain": "10% subcortical midbrain bypass",
+      "function": "routing intact retinal signals past damaged V1 directly into midbrain/thalamic relays (superior colliculus & pulvinar) and dorsal parietal action maps",
+      "scene_id": "S1",
+      "narration_bridge": "Explains how location and orientation survive without V1."
+    },
+    {
+      "role": "step1",
+      "region": "parietal cortex",
+      "plain": "unconscious hand-pointing & obstacle guidance",
+      "function": "guiding D.B.'s index finger dead-center onto the silent light target at >90% accuracy while conscious speech still says 'pure guess'",
+      "scene_id": "S1",
+      "narration_bridge": "Links subcortical-dorsal bypass to the iconic 1974 pointing score."
+    }
+  ]
+}

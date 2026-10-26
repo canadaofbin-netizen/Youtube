@@ -1,0 +1,101 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Two paintbrushes, a divider board, and 60 seconds: how Botvinick & Cohen (1998) proved your brain redraws the boundary of 'your body' in real time.",
+    "core_experiment": "Botvinick & Cohen (1998 Nature) synchronous brushing + proprioceptive drift, plus Ehrsson's premotor fMRI & sweat-spike threat proof.",
+    "twist": "Why a 500-ms brush delay or wooden block kills the spell, Lush's suggestibility critique vs physiological controls, and bionic limb embodiment."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "60 Seconds to Claim a Lifeless Hand",
+      "beats": [
+        "The 1998 Pittsburgh partition-and-paintbrush setup",
+        "Feeling touch come straight out of dead rubber",
+        "Blindfolded under-table pointing drifts centimeters"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "partition, prosthetic hand & twin paintbrushes"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Panic Sweat Over a Fake Finger (Ehrsson 2007)",
+      "beats": [
+        "Ventral premotor + intraparietal ownership snap",
+        "Palmar skin-conductance spikes when the fake hand is threatened",
+        "Subtle cooling of the 'replaced' real hand"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step1",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "skin-conductance spike monitor"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "The Two Guardrails: Millisecond Timing & Anatomy",
+      "beats": [
+        "500-ms asynchronous strokes kill the illusion",
+        "Why wooden blocks and twisted wrists fail + suggestibility debates"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "step2"
+      ],
+      "new_shots_needed": [
+        "asynchronous control & wooden block"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "From Somatoparaphrenia to Bionic Touch",
+      "beats": [
+        "Stroke patients disowning real arms vs healthy brains owning prosthetics",
+        "Wiring fingertip sensors back to human nerves"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "touch-feedback bionic hand"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Your Malleable Body Map in Everyday Skill",
+      "beats": [
+        "Why VR avatars, cars, and rackets feel like extensions of skin",
+        "Harnessing multisensory plasticity"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "seamless cup grasp"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "slug": "zihl_akinetopsia_motion_blindness",
+  "topic": "Josef Zihl (1983): Akinetopsia ('Motion Blindness') — Why Patient L.M. Saw Pouring Tea Freeze Like a Solid Glacier",
+  "pillar": "brain_mysteries",
+  "created_at": "2026-10-25T22:49:34+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Josef Zihl, Detlev von Cramon, and Norbert Mai's 1983 Brain study of Patient L.M. — whose bilateral V5/MT stroke erased smooth visual motion so pouring tea looked frozen like an icicle and cars jumped in strobe-light teleportation frames — is neurology's purest proof of modular motion cortex.",
+  "primary_case": {
+    "title": "Josef Zihl, Detlev von Cramon & Norbert Mai's 1983 Brain discovery of selective 'Motion Blindness' (Akinetopsia) in Patient L.M.",
+    "year": 1983,
+    "place": "Max Planck Institute for Psychiatry, Munich, Germany",
+    "people": [
+      {
+        "name": "Josef Zihl, Detlev von Cramon & Norbert Mai",
+        "role": "Munich neuropsychologists and neurologists who mapped Patient L.M.'s visual world across color, form, depth, auditory motion, and tactile motion in 1983",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Patient 'L.M.' (43-year-old Munich woman)",
+        "role": "Suffered a rare symmetrical bilateral cerebral venous thrombosis hitting lateral temporo-occipital motion area V5/MT — leaving color and form sharp while turning all fast visual movement into terrifying strobe jumps.",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Semir Zeki",
+        "role": "UCL visual neurobiologist who had just discovered motion-specialized area V5 in macaques and named L.M.'s human syndrome 'Cerebral Akinetopsia'",
+        "source_id": "SRC3"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In October 1978, a 43-year-old woman in Munich (**Patient L.M.**) suffered a rare bilateral superior sagittal sinus venous stroke affecting symmetrical patches of lateral temporo-occipital cortex (**human V5 / hMT+**) on BOTH sides of her brain — and walked into Josef Zihl's Max Planck clinic with a complaint neurology had almost never heard.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Her color vision was 100% normal, her static reading acuity and stereo depth perception were completely intact, and she named stationary objects effortlessly — yet **smooth visual motion had vanished from her universe**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In the single most unforgettable bedside description in visual neuroscience, **L.M. could not pour a cup of tea or coffee without overflowing it**: the dark stream pouring out of the teapot spout looked **'frozen in mid-air like a solid glacier or icicle'**, and she could not see the liquid level rising inside the cup until a puddle suddenly appeared overflowing across the table.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Crossing a Munich street was terrifying: L.M. remarked *'When I'm looking at the car first, it seems far away; suddenly, when I want to cross the road, it is VERY NEAR!'* — approaching cars never glided smoothly, they **teleported in discrete strobe-frame jumps**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Busy rooms and conversations felt unbearable too: people *'were suddenly here or there, without having seen them moving,'* and watching lips move while someone spoke scrambled speech because mouth shapes jumped in choppy stills.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Zihl et al.'s rigorous 1983 psychophysics pinpointed the exact speed cliff: below ~6-10 degrees/second on clean backgrounds L.M. detected slow drift, whereas above **12-14 degrees/second** her smooth-pursuit eye tracking and speed discrimination collapsed completely.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Crucially, L.M.'s **auditory motion** (tracking a sound moving left-to-right with eyes closed) and **tactile motion** (feeling a brush glide across her skin) were **100% NORMAL** — proving the brain doesn't have one generic 'motion center,' it has a dedicated **VISUAL motion module (V5/hMT+)**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Eight years later (Zihl et al., 1991, *Brain*, SRC2), high-res MRI confirmed bilateral V5 lesions with intact V1; L.M. had learned to pour tea by **listening to the rising acoustic pitch inside the cup** and cross streets by **judging approaching engine sound**, while Beckers & Zeki (SRC3) proved a brief TMS pulse over healthy V5 recreates temporary motion blindness in the lab.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Despite 20/20 static visual acuity and normal color naming, Patient L.M. showed persistent V5/MT motion blindness across Zihl, von Cramon, and Mai's 1983 report and 8-year 1991 follow-up.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Tilt a teapot over a white ceramic cup: to Patient L.M., the pouring stream looks **frozen solid in mid-air like an icicle**, and the cup overflows across the saucer before she ever sees the liquid rise.",
+      "why_surprising": "Your brain paints 'motion' on a separate canvas from shape and color.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Look down a city street without area V5: a car 100 meters away doesn't drive closer — **frame 1 it is down the block, frame 2 it teleports right in front of your knees** like a broken 1-fps webcam.",
+      "why_surprising": "Smooth reality is stitched continuously by lateral occipital V5/hMT+.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Eight years later (Zihl 1991), how did L.M. pour hot coffee safely every morning? By **closing her eyes or listening to the rising hollow-to-high sound pitch** inside the mug — because her *auditory* motion brain was 100% untouched.",
+      "why_surprising": "Human ingenuity routing acoustic physics around a broken visual module.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "Pulse a magnetic coil over healthy human V5 for 50 milliseconds (Beckers & Zeki), and moving dots freeze right on the display while their color and sharpness stay crystal-clear.",
+      "why_surprising": "Reversible causal proof of Zeki & Zihl's motion module.",
+      "source_id": "SRC3",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Your eyes send 'moving video' straight to one master television screen at the back of your head.",
+      "truth": "Retinas send changing pixel flashes; separate specialized cortical areas compute shape (LOC), color (V4), faces (FFA), and motion vectors (V5/hMT+) before binding them together.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Why didn't millions of stroke patients complain of frozen-glacier tea before 1983?",
+      "truth": "Unilateral V5 damage is largely compensated by the opposite hemisphere; it took L.M.'s extraordinarily rare symmetrical BILATERAL venous stroke sparing V1 to unmask pure motion blindness.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Medication-triggered motion trails ('palinopsia' / visual trailing) are identical to L.M.'s cerebral akinetopsia.",
+      "truth": "Visual trailing leaves ghostly after-streaks behind moving hands, whereas true bilateral V5 akinetopsia erases velocity continuity into discrete stationary snapshots.",
+      "source_id": "SRC2"
+    }
+  ],
+  "everyday_hooks": [
+    "Watching a dancer under a nightclub strobe light teleport from pose A to pose B with zero fluid motion in between.",
+    "Knowing instantly when your opaque thermos bottle is almost full at a water fountain just from the rising 'glug-glug-shhh!' pitch (L.M.'s exact trick!).",
+    "Lagging on a 2-frames-per-second video call where lips jump out of sync with words."
+  ],
+  "linked_projects": [
+    "psych_62_zihl_akinetopsia_motion_blindness"
+  ]
+}

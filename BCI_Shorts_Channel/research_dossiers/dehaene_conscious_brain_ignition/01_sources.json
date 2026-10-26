@@ -1,0 +1,84 @@
+{
+  "sources": [
+    {
+      "id": "SRC1",
+      "type": "primary",
+      "citation": "Stanislas Dehaene, Jean-Pierre Changeux, Lionel Naccache, Jérôme Sackur et al. (2006). Conscious, preconscious, and subliminal processing: a testable taxonomy. Trends in Cognitive Sciences.",
+      "doi": "10.1016/j.tics.2006.03.007",
+      "url": "https://doi.org/10.1016/j.tics.2006.03.007",
+      "year": 2006,
+      "verified": true,
+      "notes": "Foundational primary study (2006) in Trends in Cognitive Sciences establishing the core experimental paradigm and quantitative parameters."
+    },
+    {
+      "id": "SRC2",
+      "type": "follow_up",
+      "citation": "George A. Mashour, Pieter Roelfsema, Jean-Pierre Changeux, Stanislas Dehaene (2020). Conscious Processing and the Global Neuronal Workspace Hypothesis. Neuron.",
+      "doi": "10.1016/j.neuron.2020.01.026",
+      "url": "https://doi.org/10.1016/j.neuron.2020.01.026",
+      "year": 2020,
+      "verified": true,
+      "notes": "Subsequent empirical and theoretical investigation (2020) in Neuron extending the foundational findings."
+    },
+    {
+      "id": "SRC3",
+      "type": "follow_up",
+      "citation": "Antoine Del Cul, Sylvain Baillet, Stanislas Dehaene (2007). Brain Dynamics Underlying the Nonlinear Threshold for Access to Consciousness. PLoS Biology.",
+      "doi": "10.1371/journal.pbio.0050260",
+      "url": "https://doi.org/10.1371/journal.pbio.0050260",
+      "year": 2007,
+      "verified": true,
+      "notes": "Backward-masking ERP study demonstrating linear early visual progression followed by an abrupt ~270–300 ms nonlinear P3b frontoparietal ignition threshold."
+    },
+    {
+      "id": "SRC4",
+      "type": "critique",
+      "citation": "Oscar Ferrante, Urszula Górska, Simon E. Henin, Rony Hirschhorn, Aya F. Khalaf et al. (2025). Adversarial testing of global neuronal workspace and integrated information theories of consciousness. Nature.",
+      "doi": "10.1038/s41586-025-08888-1",
+      "url": "https://doi.org/10.1038/s41586-025-08888-1",
+      "year": 2025,
+      "verified": true,
+      "notes": "Cogitate Consortium multimodal fMRI, MEG, and intracranial EEG adversarial test challenging both GNW offset-ignition and IIT posterior-synchrony predictions."
+    },
+    {
+      "id": "SRC5",
+      "type": "follow_up",
+      "citation": "Lionel Naccache, Stanislas Dehaene (2007). Reportability and illusions of phenomenality in the light of the global neuronal workspace model. Behavioral and Brain Sciences.",
+      "doi": "10.1017/s0140525x07002993",
+      "url": "https://doi.org/10.1017/s0140525x07002993",
+      "year": 2007,
+      "verified": true,
+      "notes": "Subsequent empirical and theoretical investigation (2007) in Behavioral and Brain Sciences extending the foundational findings."
+    },
+    {
+      "id": "SRC_M1",
+      "type": "documentary",
+      "citation": "BrainFacts.org. \"The Brain Prize Presents: Stanislas Dehaene.\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=wlYZBi_07vk",
+      "year": null,
+      "verified": true,
+      "notes": "Primary video reference analyzed locally in media/M1_dehaene_conscious_brain_igni/ (14 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_M2",
+      "type": "documentary",
+      "citation": "Center for Science and Society. \"Educating the Brain - Stanislas Dehaene.\"",
+      "doi": null,
+      "url": "https://www.youtube.com/watch?v=0esnsHI4opA",
+      "year": null,
+      "verified": true,
+      "notes": "Complementary video reference analyzed locally in media/M2/ (14 extracted keyframes, contact_sheet.jpg, and transcript.txt); never reused in channel videos."
+    },
+    {
+      "id": "SRC_STILL",
+      "type": "archive",
+      "citation": "Per Henning/NTNU (CC BY 2.0). \"Stanislas Dehaene 2014.jpg.\" Wikimedia Commons.",
+      "doi": null,
+      "url": "https://commons.wikimedia.org/wiki/File:Stanislas_Dehaene_2014.jpg",
+      "year": null,
+      "verified": true,
+      "notes": "Verified archival image (960x1233 px) stored locally in media/M3/still.jpg for reference analysis only (never reused raw). Stanislas Dehaene, Kavli Prize Committee in Neuroscience."
+    }
+  ]
+}

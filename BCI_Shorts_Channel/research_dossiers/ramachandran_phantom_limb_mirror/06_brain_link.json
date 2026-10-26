@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "somatosensory cortex",
+      "plain": "body map strip (S1)",
+      "function": "sitting face-beside-hand along the postcentral strip where missing sensory return leaves the phantom hand feeling locked",
+      "scene_id": "S1",
+      "narration_bridge": "Explains both cotton-swab cheek referral and missing hand feedback."
+    },
+    {
+      "role": "crisis",
+      "region": "motor cortex",
+      "plain": "command sender",
+      "function": "dispatching 'open fingers!' signals that bounce back 'no movement,' locking in learned cramping spasms",
+      "scene_id": "S1",
+      "narration_bridge": "Shows the jammed motor-to-sensory loop before the mirror."
+    },
+    {
+      "role": "pivot",
+      "region": "parietal cortex",
+      "plain": "multisensory body integrator",
+      "function": "accepting crisp visual proof from the vertical mirror reflection to update body posture and unclench the phantom fist",
+      "scene_id": "S1",
+      "narration_bridge": "Captures the instant visual-proprioceptive resolution inside the Mirror Box."
+    }
+  ]
+}

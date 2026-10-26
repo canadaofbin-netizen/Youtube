@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "slug": "ebbinghaus_forgetting_curve",
+  "topic": "Hermann Ebbinghaus (1885): 2,300 Nonsense Syllables ('WID, ZOF, KAF') & the Brutal Mathematics of Forgetting",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:33+00:00",
+  "status": "ready",
+  "visual_mode": "BEHAVIORAL_PSYCH",
+  "visual_mode_reason": "Hermann Ebbinghaus sitting alone with a metronome reciting 2,300 three-letter nonsense syllables ('WID, ZOF, KAF') across 7 intervals from 20 minutes to 31 days is a heroic one-man quantitative behavioral experiment staged cleanly with index cards, metronome, and logarithmic curves.",
+  "primary_case": {
+    "title": "Hermann Ebbinghaus's 1879-1885 Berlin one-man Nonsense-Syllable Forgetting Curve & Savings experiments (replicated by Murre & Dros, 2015)",
+    "year": 1885,
+    "place": "Hermann Ebbinghaus's private study, University of Berlin",
+    "people": [
+      {
+        "name": "Hermann Ebbinghaus",
+        "role": "30-year-old German philosopher-psychologist who acted as his own sole subject for years, memorizing thousands of meaningless 3-letter syllables to the tick of a 150-bpm metronome",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Jaap M. J. Murre & Joeri Dros",
+        "role": "University of Amsterdam psychologists who painstakingly replicated Ebbinghaus's entire 7-interval 1880-1885 protocol in 2015 — matching his 130-year-old curve almost point for point.",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In the late 1870s, Wilhelm Wundt declared 'higher mental processes like memory can NEVER be measured experimentally.' Hermann Ebbinghaus disagreed — and spent 1879-1880 and 1883-1884 alone in Berlin testing his own memory with ruthless mathematical discipline (Über das Gedächtnis, 1885).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "To strip away prior poetry or word meanings, Ebbinghaus constructed ~2,300 consonant-vowel-consonant 'nonsense syllables' (like WID, ZOF, KAF, DAX), drew random lists of 13 syllables, and read them aloud at a strict 150-strokes-per-minute metronome beat (0.4 s per syllable) at the exact same hour each day.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Instead of crude 'do you remember it yes/no?', Ebbinghaus invented the brilliant 'Savings Score' — if learning a 13-syllable list from scratch took 1,000 seconds, and relearning it tomorrow took 400 seconds, your subconscious brain 'saved' 600 seconds (60% hidden retention even when conscious recall felt like 0%).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Across 163 seven-list experiments spanning 7 retention intervals, Ebbinghaus's Savings plummeted steepest in the VERY FIRST HOUR: 58.2% saved after 20 minutes to 44.2% after 1 hour to 35.8% after 9 hours to 33.7% after 1 day to 27.8% after 2 days to 25.4% after 6 days to 21.1% after 31 days.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Look closely at 9 hours (35.8%, tested tired in the evening) vs 24 hours (33.7%, almost completely flat after a night's sleep!): Ebbinghaus noticed that overnight sleep suspiciously halted the steep drop — anticipating modern sleep-consolidation neuroscience by a century.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In 2015 (PLOS ONE), Jaap Murre and Joeri Dros put a modern 22-year-old volunteer through 70 hours of Ebbinghaus's exact 1880 nonsense-syllable torture across all 7 intervals — and reproduced Ebbinghaus's 1885 curve almost dot for dot, including the overnight 24-hour sleep plateau.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Ebbinghaus also discovered the 'Spacing Effect' in the exact same 1885 book: 38 repetitions spread across 3 days beat 68 massed cramming repetitions in a single sitting.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "And when Ebbinghaus memorized meaningful verses of Lord Byron's Don Juan instead of nonsense syllables, he needed only ONE-TENTH as many repetitions — proving meaning acts like Velcro against the forgetting cliff.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Ebbinghaus's (1885) relearning-savings tables, retention fell steeply from roughly 58% (58.2%) at 20 minutes to 44% (44.2%) at 1 hour, 33.7% at 1 day, and 21% (21.1%) at 31 days.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "More than HALF of raw unreviewed information (41.8% lost in 20 minutes; 55.8% lost in 1 hour!) falls off the cliff before lunch — then the remaining ~25% clings stubbornly for a whole month.",
+      "why_surprising": "Forgetting isn't a slow linear leak; it is a vertical first-hour waterfall followed by a long tail.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Even when you swear 'I forgot 100% of my college Spanish,' Ebbinghaus's Savings Score proves those traces are hiding underneath — relearning takes a fraction of the original time.",
+      "why_surprising": "Zero conscious recall does NOT mean zero memory left in the brain.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "130 years later (Murre & Dros 2015), a modern student repeated Ebbinghaus's brutal 70-hour syllable marathon and landed almost directly on top of Ebbinghaus's 1885 ink dots — right down to the overnight sleep bump.",
+      "why_surprising": "One obsessively controlled human subject discovered a universal law of human memory.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "38 spaced reviews across three days crushed 68 last-night cramming repetitions in Ebbinghaus's own 1885 ledger — every modern flashcard app (Anki, SuperMemo, Duolingo) runs on his 1885 math.",
+      "why_surprising": "Spaced repetition was born in 1885 on paper cards and a ticking metronome.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "You lose 80% of a meaningful lecture or book story within 24 hours just like WID-ZOF-KAF.",
+      "truth": "The steep 56%-in-one-hour cliff applies to MEANINGLESS rote facts; Ebbinghaus himself showed meaningful connected text (Byron's poetry) takes 10x fewer repetitions and decays dramatically slower.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "If you draw a blank on a test question, your study session was completely erased.",
+      "truth": "Ebbinghaus's Savings method proves sub-threshold traces remain intact and spring back rapidly on a brief review.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Reading notes ten times in a row on Sunday night locks them into long-term memory.",
+      "truth": "Massed cramming inflates short-term fluency for 20 minutes before plunging down the 9-hour cliff; spacing reviews right before the curve bends flattens decay.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Walking out of a 1-hour conference talk feeling inspired, then realizing at dinner you can barely name two bullet points.",
+    "Re-picking up piano chords or high-school French years later and marveling how much faster it comes back ('Savings').",
+    "Using 10 minutes of spaced flashcards (Day 1, Day 3, Day 7) to beat 3 hours of panicked midnight cramming."
+  ],
+  "linked_projects": [
+    "psych_54_ebbinghaus_forgetting_curve"
+  ]
+}

@@ -70,10 +70,18 @@ def resolve_project_video_path(project_dir: Path, project_id: str | None = None)
     if mp4_candidates:
         return mp4_candidates[0]
 
-    workspace_root = Path(__file__).resolve().parents[2]
-    archive_mp4 = workspace_root / "Completed_Psychology_100_Shorts" / f"final_shorts_{pid}.mp4"
-    if archive_mp4.exists():
-        return archive_mp4
+    rel_roots: list[Path] = []
+    for cand in (project_dir.parent, project_dir.parent.parent, project_dir.parent.parent.parent):
+        if cand not in rel_roots:
+            rel_roots.append(cand)
+    if project_dir.resolve().parent == PROJECTS_DIR.resolve():
+        ws_root = Path(__file__).resolve().parents[2]
+        if ws_root not in rel_roots:
+            rel_roots.append(ws_root)
+    for root_cand in rel_roots:
+        archive_mp4 = root_cand / "Completed_Psychology_100_Shorts" / f"final_shorts_{pid}.mp4"
+        if archive_mp4.exists():
+            return archive_mp4
 
     return None
 

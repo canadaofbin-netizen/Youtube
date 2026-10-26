@@ -1,0 +1,223 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Articulated porcelain pigeon spinning counterclockwise before the 15-second grain hopper",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1948, Indiana University operant conditioning laboratory",
+      "layout": {
+        "description": "Sunlit late-1940s experimental psychology room with a clear-walled aluminum-and-acrylic operant conditioning box resting on a wooden bench beside an electromechanical interval timer dial marked in 15-second ticks.",
+        "positions": [
+          {
+            "who": "Articulated matte-white porcelain pigeon sculpture",
+            "where": "inside the clear operant chamber executing a crisp counterclockwise full turn",
+            "facing": "pivoting smoothly toward the lower rectangular grain-hopper aperture"
+          },
+          {
+            "who": "B. F. Skinner (mannequin in 1940s white lab coat over shirt and tie)",
+            "where": "leaning slightly beside the benchtop cumulative recorder drum and 15-second timer",
+            "facing": "observing the matte-white porcelain pigeon's ritual turn"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "clear-walled operant conditioning chamber",
+          "period_detail": "compact aluminum-framed box with wire-mesh floor and recessed lower grain-hopper window",
+          "physical_behavior": "illuminates and swings the grain tray open every 15 seconds on a blind solenoid click"
+        },
+        {
+          "name": "15-second interval timer dial",
+          "period_detail": "1940s round electromechanical sweep timer wired directly to the hopper solenoid",
+          "physical_behavior": "hand sweeps steadily past the 15-second mark without any connection to cage keys"
+        },
+        {
+          "name": "cumulative paper-drum recorder",
+          "period_detail": "rotating white paper cylinder with stepped ink stylus",
+          "physical_behavior": "steps briskly upward during the 10,000-response extinction test"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Porcelain pigeon sculpture",
+          "verb_sequence": "completes two brisk counterclockwise circles in the center of the chamber -> freezes facing the wall -> dips beak as the 15-second grain hopper clicks open"
+        },
+        {
+          "who": "B. F. Skinner",
+          "verb_sequence": "points from the disconnected cage wall to the 15-second timer dial -> notes the ritual turn on a clipboard"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Porcelain pigeon sculpture",
+          "reaction": "immediately launches into an even tighter counterclockwise spin the moment the hopper closes"
+        },
+        {
+          "who": "B. F. Skinner",
+          "reaction": "watches in quiet amazement as pure coincidence locks in a rigid motor ritual"
+        }
+      ],
+      "wardrobe": "Experimenter mannequin in crisp 1940s white cotton lab coat, collared shirt, dark tie; subject staged as an articulated matte-white porcelain pigeon sculpture.",
+      "lighting": "Clean high-key 1940s laboratory daylight across brushed aluminum and clear acrylic.",
+      "recognition_hook": "A hungry porcelain pigeon spins counterclockwise in an operant box because a blind 15-second timer keeps opening the grain tray mid-spin.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "an articulated porcelain pigeon executing a counterclockwise ritual turn inside a clear operant box right as the 15-second grain hopper clicks open",
+        "must_show": [
+          "pigeon",
+          "box|chamber|hopper",
+          "timer|turn|grain"
+        ],
+        "source": "M1@00:08-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Six chambers, six idiosyncratic rituals",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1948, Indiana University laboratory",
+      "layout": {
+        "description": "Row of clear operant boxes on a long wooden table where one porcelain pigeon bows toward an upper corner while another tosses its head upward.",
+        "positions": [
+          {
+            "who": "Two articulated porcelain pigeon sculptures",
+            "where": "in adjacent clear chambers performing distinct head-toss and corner-thrust rituals",
+            "facing": "facing their respective chamber corners"
+          },
+          {
+            "who": "B. F. Skinner",
+            "where": "walking along the bench comparing tally sheets",
+            "facing": "facing the chambers"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "six numbered operant boxes",
+          "period_detail": "identical chambers all wired to one master 15-second timer",
+          "physical_behavior": "all six hoppers click open simultaneously regardless of bird posture"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Porcelain pigeons",
+          "verb_sequence": "repeat distinct corner-bowing and head-tossing loops -> peck when the shared timer clicks"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "B. F. Skinner",
+          "reaction": "compares the six divergent movement logs on his clipboard"
+        }
+      ],
+      "wardrobe": "1940s white lab coat; matte-white porcelain pigeon sculptures.",
+      "lighting": "High-key laboratory daylight.",
+      "recognition_hook": "Identical 15-second timers produce completely personalized rituals across six cages.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Ten thousand hops during disconnected extinction",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1948, Indiana University laboratory",
+      "layout": {
+        "description": "Close view of the cumulative paper-drum recorder beside a single operant chamber with its hopper power cord visibly unplugged.",
+        "positions": [
+          {
+            "who": "Articulated porcelain pigeon sculpture",
+            "where": "performing rapid rhythmic stepping motions inside the chamber",
+            "facing": "facing the closed hopper slot"
+          },
+          {
+            "who": "Lab assistant mannequin",
+            "where": "standing beside the unplugged timer cable and rising cumulative ink curve",
+            "facing": "watching the counter"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "unplugged solenoid plug and mechanical tally counter",
+          "period_detail": "bakelite power plug resting beside the timer while mechanical counter passes 10000",
+          "physical_behavior": "counter digits roll past 10,000 unrewarded responses"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Porcelain pigeon sculpture",
+          "verb_sequence": "continues rhythmic hopping ritual long after the hopper stays dark"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Lab assistant",
+          "reaction": "stares at the 10,000-count paper trace"
+        }
+      ],
+      "wardrobe": "1940s lab coat and trousers.",
+      "lighting": "Clean laboratory daylight.",
+      "recognition_hook": "Over 10,000 unrewarded ritual steps before the accidental habit finally extinguishes.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Modern commuter mashing a disconnected crosswalk button",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern urban intersection",
+      "layout": {
+        "description": "Bright sunlit city crosswalk where a pedestrian mannequin taps a metal push-button repeatedly just as the automated traffic signal happens to turn white.",
+        "positions": [
+          {
+            "who": "Commuter mannequin in trench coat",
+            "where": "standing at the curb pressing the metal crosswalk button five times",
+            "facing": "facing the walk signal"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "automated crosswalk button housing",
+          "period_detail": "yellow metal pedestrian box controlled by a fixed intersection cycle",
+          "physical_behavior": "walk icon illuminates on its preset schedule right after the fifth tap"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Commuter mannequin",
+          "verb_sequence": "taps the button rapidly -> sees the walk sign light up -> nods with false satisfaction"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Commuter mannequin",
+          "reaction": "steps briskly off the curb convinced the rapid tapping changed the light"
+        }
+      ],
+      "wardrobe": "Modern tailored trench coat and commuter bag.",
+      "lighting": "Bright outdoor morning daylight.",
+      "recognition_hook": "Your brain stamps in button-mashing the exact same way Skinner's timer stamped in the matte-white porcelain pigeon's spin.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

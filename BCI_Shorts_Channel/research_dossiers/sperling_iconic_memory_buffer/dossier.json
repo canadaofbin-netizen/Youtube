@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "slug": "sperling_iconic_memory_buffer",
+  "topic": "George Sperling (1960): The 50-Millisecond Letter Grid & Proving You Briefly See 3x More Than You Can Say",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:36+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "George Sperling's ingenious 1960 Harvard dissertation ('Partial Report' tone-cued 3×4 letter grid flashed for 50 milliseconds) — proving humans actually capture ~9–10 of 12 letters in a fleeting 300-ms retinal/V1 'iconic memory' buffer even though 'Whole Report' speech can only read out 4.5 before the image fades — bridges crisp psychophysics directly to early visual cortex persistence.",
+  "primary_case": {
+    "title": "George Sperling's 1960 Harvard Psychological Monographs 50-ms 'Whole vs Partial Report' Iconic Memory Experiment",
+    "year": 1960,
+    "place": "Psychological Laboratories, Harvard University, Cambridge, Massachusetts",
+    "people": [
+      {
+        "name": "George Sperling",
+        "role": "25-year-old Harvard doctoral student (advised by George A. Miller of 'Magical Number 7' fame!) who used High, Medium, and Low audio tones AFTER the screen went dark to prove our eyes capture far more than our mouths can report.",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Ulric Neisser",
+        "role": "Cognitive psychologist who named Sperling's ultra-brief visual buffer 'Iconic Memory' in his landmark 1967 book Cognitive Psychology — launching the three-stage Atkinson-Shiffrin memory model",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Ned Block & Stanislas Dehaene",
+        "role": "Modern consciousness philosophers/neuroscientists still debating Sperling's 1960 grid today ('phenomenal overflow' vs 'preconscious V1 buffer'!)",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "For nearly a century since J. M. Cattell (1886), flashing a card of **12 consonants (3 rows of 4 letters)** for **50 milliseconds** (1/20th of a second — too fast for a single eye movement!) produced a rock-solid brick wall: subjects could ONLY report **~4.3 to 4.5 letters** (**Whole Report**), yet insisted frustratedly: ***'I SAW all twelve letters clearly — they just vanished while I was writing the first four!'***",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Behaviorists scoffed at that excuse (*'If you can only report 4.5, you only saw 4.5!'*) — until 25-year-old Harvard grad student **George Sperling (1960, *Psychological Monographs*)** invented the **Partial Report** sampling trick.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Sperling flashed the exact same 3×4 grid of 12 letters for **50 milliseconds**, waited until the screen was **already completely dark**, and THEN played one random audio tone: **High Tone (2500 Hz) = report ONLY Top Row; Medium Tone (650 Hz) = Middle Row; Low Tone (250 Hz) = Bottom Row**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Because the tone sounded **AFTER** the letters disappeared, subjects could NOT cheat by looking at one row in advance. Yet whichever random row the tone picked, subjects suddenly read off **3+ out of 4 letters (~76% — meaning ~9.1 out of ALL 12 letters were sitting vivid and readable inside their visual brain right after the flash ended)**.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Then Sperling delayed the audio tone step-by-step after the screen went dark (**0 ms to 150 ms to 300 ms to 500 ms to 1.0 second**): accuracy plunged along a razor-sharp curve down to the old 4.5-letter ceiling within **~300 to 500 milliseconds** (less than half a second!).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Sperling proved the fading ghost image was genuinely **sensory/visual** (later named **Iconic Memory** by Ulric Neisser, 1967): follow the 50-ms flash with a **bright white flash** (vs dark screen) and the bright mask **wiped the afterimage out immediately**, whereas asking people to pull letters by *category* ('report only numbers mixed with letters') gave zero advantage because category sorting takes longer than 300 ms.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Sperling's single 1960 paper forced psychology to build the **Three-Stage Memory Architecture** (Sensory Buffer [high capacity, ~300 ms] to Working Memory [4-item bottleneck] to Long-Term Memory).",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Sixty-five years later, Sperling's 3×4 grid sits at the white-hot center of **21st-century consciousness science** (Graziano & Sigman 2009, SRC5): does Iconic Memory prove rich conscious awareness *overflows* working memory ('we consciously see all 12!'), or is V1 holding a rich *preconscious* sensory buffer until a top-down attention cue promotes 4 items into conscious ignition?",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "Sperling's (1960) post-offset tone cue resolved a 74-year psychophysical puzzle dating back to Cattell (1886), proving that ~9.1 of 12 flashed letters (~76%) remain briefly readable across a ~300-millisecond iconic buffer.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Flash 12 letters for **1/20th of a second** and ask for ALL of them: every human hits a hard wall at **4.5 letters**. Play a High, Medium, or Low beep **AFTER the screen is already pitch-blank**, and people read off **any row on command — proving 9+ of the 12 letters were sitting right inside their skull**.",
+      "why_surprising": "One musical beep proved people really DO see twice as much as they can say.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Wait just **one-half of a second (500 ms)** before playing that beep, and the extra 5 letters **evaporate into thin air** — dropping right back down to 4.5.",
+      "why_surprising": "Every half-second, a high-resolution ghost photograph dissolves inside your visual cortex.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Flash a bright white screen right after the letters instead of darkness, and the ghost photograph gets **bleached away instantly** — proving Iconic Memory lives in early retinal-to-V1 visual persistence.",
+      "why_surprising": "Bright post-masks erase iconic memory before attention can copy it.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "Philosophers and neuroscientists STILL battle over Sperling's 1960 grid today: it is the #1 test separating **'What hits your visual cortex'** from **'What makes it into conscious working memory'**.",
+      "why_surprising": "A 1960 student thesis still refereeing modern theories of consciousness.",
+      "source_id": "SRC3",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "If you didn't catch every license-plate digit after a 1-second glance, your eyes 'failed to see' the rest.",
+      "truth": "Your retina and V1 almost certainly captured all 7 characters clearly for ~300 milliseconds — the bottleneck is copying only ~4 items into working memory before the 300-ms iconic buffer fades.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "'Photographic / eidetic memory' lets healthy adults read pages off their eyelids minutes later.",
+      "truth": "Real human iconic visual persistence decays exponentially within **0.3 to 0.5 seconds** — anyone remembering rich pages minutes later is using semantic/spatial chunking, not raw retinal persistence.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Rapidly scrolling social feeds lets you absorb dozens of slides per minute because your eyes 'saw' them.",
+      "truth": "Flashing a new bright screen 200 ms later acts just like Sperling's **backward visual mask** — bleaching the iconic trace of the previous slide before working memory copies a single thought.",
+      "source_id": "SRC3"
+    }
+  ],
+  "everyday_hooks": [
+    "Waving a sparkler wand or phone flashlight in the dark to draw a glowing circle in mid-air — your ~300-ms **iconic memory** holds the tail of the circle while the tip finishes.",
+    "Glancing at a passing license plate and realizing if you mentally lock onto the *last four digits immediately* (Partial Report!), you grab them cleanly — whereas trying to read all 7 from scratch loses the end.",
+    "Seeing why rapid-fire TikTok/slide scrolling ('bright backward masking') leaves your memory feeling completely empty 5 minutes later."
+  ],
+  "linked_projects": [
+    "psych_76_sperling_iconic_memory_buffer"
+  ]
+}

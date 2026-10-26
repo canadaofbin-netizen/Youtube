@@ -1,0 +1,29 @@
+{
+  "visual_mode": "HYBRID",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "Broca's area",
+      "plain": "2-second Phonological Loop busy with 8 digits",
+      "function": "silently or vocally cycling the 8-digit sequence with left inferior parietal phonological storage",
+      "scene_id": "S1",
+      "narration_bridge": "Occupies 100% of verbal rehearsal capacity during Baddeley & Hitch's dual task."
+    },
+    {
+      "role": "pivot",
+      "region": "dorsolateral prefrontal cortex",
+      "plain": "Central Executive reasoning intact (95% accuracy!)",
+      "function": "evaluating 'A is not preceded by B — BA' logic cleanly with only ~1s latency cost despite the full verbal loop",
+      "scene_id": "S1",
+      "narration_bridge": "Proves reasoning doesn't live inside a single unitary verbal STM box."
+    },
+    {
+      "role": "step1",
+      "region": "parietal cortex",
+      "plain": "independent right-dominant Visuospatial Sketchpad",
+      "function": "holding spatial 'B-before-A' geometry and 3D imagery on a separate cortical channel from verbal speech",
+      "scene_id": "S2",
+      "narration_bridge": "Matches human PET/fMRI dissociation of verbal vs visuospatial working memory."
+    }
+  ]
+}

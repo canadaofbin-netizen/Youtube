@@ -1,0 +1,99 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Why peers laughed at Eric Kandel's 20,000-neuron sea slug — until it proved long-term memory turns on CREB genes and doubles physical synapses.",
+    "core_experiment": "Kandel, Castellucci, Pinsker & Kupfermann (1970 Science trio) + Bailey & Kandel's 1,300 to 2,600 terminal doubling & 2000 Nobel Prize.",
+    "twist": "Short-term chemical dial (cAMP) vs long-term structural remodeling (CREB), conserved across 500 million years, and why cramming fails at the gene level."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Riskiest Bet in Neuroscience: Leaving Mammals for a Sea Snail",
+      "beats": [
+        "86 billion tiny human cells vs Aplysia's 20,000 naked-eye 1-mm giants",
+        "January 1970 Science: catching one memory inside one synapse."
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "Aplysia dish & dual probes"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "1,300 to 2,600 Terminals: Memory Grows Real Hardware.",
+      "beats": [
+        "Short-term chemical boost vs long-term anatomical doubling",
+        "Blocking protein synthesis erases long-term while sparing short-term"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "850 / 1300 / 2600 terminal plaque"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Why Spaced Study Flips CREB On (And Cramming Doesn't)",
+      "beats": [
+        "Sending PKA into the nucleus to lift the CREB-2 brake",
+        "100-year molecular proof of Ebbinghaus's Spacing Effect"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2"
+      ],
+      "new_shots_needed": [
+        "Crammed vs Spaced CREB board"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "500 Million Years of Conserved Memory Alphabet",
+      "beats": [
+        "Mouse hippocampus & fruit flies run the exact same CREB switch",
+        "2000 Nobel Prize in Stockholm"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "3-species CREB plaque"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Building Structural Brain Hardware Every Day",
+      "beats": [
+        "4 spaced blocks + consolidation sleep",
+        "Experience physically remodeling your synapses"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "4-day spaced schedule"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "slug": "hippocampal_memory_prosthesis",
+  "topic": "Robert Hampson, Dong Song, Sam Deadwyler & Theodore Berger (2018): Hippocampal CA3-to-CA1 MIMO Memory Prosthesis",
+  "pillar": "bci_tech",
+  "created_at": "2026-10-25T22:49:28+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "The entire study takes place via depth microelectrodes implanted inside human hippocampal subfields CA3 and CA1, translating real-time spike trains through a nonlinear MIMO model and writing electrical patterns back into CA1.",
+  "primary_case": {
+    "title": "Closed-loop human hippocampal CA3-to-CA1 MIMO neural prosthesis trial (37% short-term & 35% delayed recall boost)",
+    "year": 2018,
+    "place": "Wake Forest Baptist Medical Center (Winston-Salem, NC) & University of Southern California (Los Angeles)",
+    "people": [
+      {
+        "name": "Robert E. Hampson",
+        "role": "Wake Forest neuroscientist and first author who led the human surgical epilepsy memory trials",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Theodore W. Berger",
+        "role": "USC biomedical engineer who pioneered mathematical silicon replacement of hippocampal subfields",
+        "source_id": "SRC3"
+      },
+      {
+        "name": "Dong Song",
+        "role": "USC computational neuroengineer who formulated the sparse Volterra MIMO CA3-to-CA1 spike translation model",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Sam A. Deadwyler",
+        "role": "Wake Forest physiologist who co-developed the rodent and primate hippocampal prosthetic foundation",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Brent M. Roeder",
+        "role": "Wake Forest researcher who led the 2024 stimulus-feature memory prosthetic replication",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 2018 in the Journal of Neural Engineering, Robert Hampson, Dong Song, Sam Deadwyler, Theodore Berger, and colleagues tested a closed-loop hippocampal memory prosthesis in 17 surgical epilepsy patients (8 subset in full closed-loop stimulation).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Patients already had bilateral depth electrodes with microscopic microwires implanted into hippocampal subfields CA3 (input layer) and CA1 (output layer) for clinical seizure mapping.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Conventional constant-frequency deep brain stimulation fails or even impairs episodic memory because real hippocampal encoding relies on precise spatiotemporal spike patterns, not flat pulses.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "During Phase 1, patients played a delayed match-to-sample (DMS) visual memory game on a touchscreen while researchers recorded single-neuron spike trains simultaneously in CA3 and CA1 on successful recall trials.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Dong Song's multi-input, multi-output (MIMO) nonlinear Volterra model learned each individual patient's mathematical transfer function predicting healthy CA1 output spikes from incoming CA3 input spikes.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "During Phase 2 stimulation trials, as a patient viewed a sample image, the prosthesis read live CA3 spikes and delivered biphasic microampere pulses patterned to match predicted CA1 firing directly into CA1.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Playing the personalized MIMO code into CA1 boosted short-term delayed-match-to-sample memory performance by an average of 37 percent over non-stimulated baseline trials.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "On a separate delayed recognition test conducted up to 75 minutes later (long-term retention), items encoded with MIMO stimulation showed a 35 percent memory improvement.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Control trials delivering randomized/scrambled pulse patterns at identical total current produced zero memory gain, proving the specific spatiotemporal code — not generic electrical arousal — drove the 37% boost.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In 2024, Roeder and colleagues extended the human prosthesis using stimulus-feature codes, improving recall in over half of participants and especially those with baseline impaired memory.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "In Hampson, Song, Deadwyler, and Berger (2018), 17 epilepsy patients implanted with CA3-to-CA1 microwires showed +37% short-term and +35% 75-minute delayed recognition gains under MIMO stimulation, compared with 0% gain under random/scrambled control pulses.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Writing a patient's own mathematical CA3-to-CA1 spike code back into their hippocampus boosted short-term visual memory by 37 percent and 75-minute delayed recall by 35 percent.",
+      "why_surprising": "It was the first time scientists wrote a personalized neural memory code back into the human brain to strengthen real recall.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Delivering the exact same electrical energy in a scrambled random rhythm gave zero benefit.",
+      "why_surprising": "Memory is a temporal melody, not a voltage battery — only the right rhythm unlocks CA1.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "The computer never needed to know whether the patient was looking at a house, a flower, or a landscape — it translated pure CA3 spike timing into CA1 spike timing.",
+      "why_surprising": "The MIMO chip acted like a biological synaptic bridge speaking native hippocampal dialect.",
+      "source_id": "SRC2",
+      "rank": 3
+    },
+    {
+      "fact": "A 2024 follow-up trial showed the biggest memory rescue occurred in patients who started with clinically impaired baseline memory.",
+      "why_surprising": "That points directly toward future prosthetics for traumatic brain injury and early dementia.",
+      "source_id": "SRC3",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "The memory chip uploads fake movie memories like The Matrix or Total Recall.",
+      "truth": "The prosthesis cannot implant foreign memories; it only reinforces the CA3-to-CA1 synaptic handoff of what the patient is genuinely looking at right now.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "More electricity always equals better memory.",
+      "truth": "Flat continuous high-frequency stimulation often disrupts hippocampal encoding; microampere patterned timing is what works.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "One universal memory code can be copied straight from one person's brain into another's without tuning.",
+      "truth": "In the 2018 trial, every MIMO model was fit individually to each patient's own CA3-CA1 microwire geometry.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "The chip stores memories permanently on silicon.",
+      "truth": "The chip acts as a real-time encoding bridge so the patient's own neocortex and hippocampus consolidate the memory naturally, lasting 75+ minutes after stimulation ends.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Walking out of a parking garage and realizing the floor number vanished because your tired brain dropped the handoff during encoding.",
+    "Studying a flashcard when distracted versus locking it in crisply on the first look.",
+    "Hearing a hearing aid clarify speech syllables rather than just cranking up loud static.",
+    "Meeting someone at an event and forgetting their name ten seconds later because CA3-to-CA1 encoding faltered."
+  ],
+  "linked_projects": [
+    "psych_07_hippocampal_memory_prosthesis"
+  ]
+}

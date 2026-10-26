@@ -1,0 +1,102 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Five ruthless fMRI controls in 1997 — and an awake brain zap in 2012 — proved a pea-sized fusiform patch builds upright human faces.",
+    "core_experiment": "Kanwisher, McDermott & Chun's 1997 individual-brain fMRI discovery (2x face surge over houses, hands, and scrambled pixels) + 1998 inversion drop.",
+    "twist": "The Gauthier 'Greeble/car expertise' debate and Parvizi's 2012 electrical stimulation morphing ONLY the doctor's real face."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Climbing Into Your Own Scanner to Break Your Theory",
+      "beats": [
+        "Why group-averaging hid cortical modules",
+        "Five controls: Houses, Objects, Scrambled, Spoons, Hands",
+        "The 2x Fusiform Face Area spike"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "5 control cards & 2x fMRI bar"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Why Upside-Down Faces Break Your Brain",
+      "beats": [
+        "1998 Face Inversion fMRI study",
+        "The Margaret Thatcher Illusion",
+        "Holistic spacing vs slow part-by-part scanning"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "180-degree Thatcher plaque flip"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Faces vs Expertise: The Greeble Debate",
+      "beats": [
+        "Gauthier's bird and car experts",
+        "4-month-old infant face selectivity",
+        "Adjacent Place (PPA) and Body (EBA) patches"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "ventral visual neighborhood map"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "2012 Causal Proof: Melting Only the Doctor's Face",
+      "beats": [
+        "Parvizi's awake intracranial stimulation",
+        "Doctor's face morphs while clipboard stays 100% still"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "clinical bedside stimulation check"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Working With Holistic Human Sight",
+      "beats": [
+        "200-ms airport recognition vs face-blindness",
+        "Eye-level upright communication"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "eye-level studio framing"
+      ]
+    }
+  ]
+}

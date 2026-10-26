@@ -1,0 +1,103 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Seven clangs of a steel bar behind an 11-month-old infant launched emotional conditioning — and a century of textbook myths, detective hunts, and ethics reform.",
+    "core_experiment": "Watson & Rayner (1920): fearless 9-month baseline to 7 rat + steel-bar pairings to fur generalization vs wooden-block control.",
+    "twist": "Why textbooks hid fading fear, why Watson never cured Albert, Mary Cover Jones's 1924 'Little Peter' exposure cure, and the Barger vs Merritte archival mystery."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The 1920 Silent Film Reel at Johns Hopkins",
+      "beats": [
+        "9-month fearless baseline with rat, rabbit, and dog",
+        "The 4-foot steel bar & claw hammer startle test",
+        "Seven pairings at 11 months, 3 days"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "steel bar, hammer & rat"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Fur Generalization vs Wooden Control Blocks",
+      "beats": [
+        "Rabbit, dog, fur coat & bearded mask 5 days later",
+        "Why happy play with wooden blocks mattered scientifically"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "wooden blocks vs white rabbit"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "What Textbooks Hid: Fading Fear & Zero Cure",
+      "beats": [
+        "Harris & Powell's audit of invented textbook myths",
+        "Having to 'freshen' fading fear after 10-30 days",
+        "Leaving the hospital without extinction + who was Albert B.?"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "1920 lab diary vs textbook myths"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "1924: Mary Cover Jones Invents the Cure ('Little Peter')",
+      "beats": [
+        "Snacks + 12-foot safe distance gradually closing to 0 ft",
+        "Birth of modern behavioral exposure therapy"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "12ft-to-0ft exposure markers"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Un-Wiring Everyday Conditioned Alarms",
+      "beats": [
+        "Why preparedness favors biological cues",
+        "Safe graduated exposure in everyday anxiety"
+      ],
+      "scene_ids": [
+        "S3",
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "IRB charter & calm mastery"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "A 7-second memory island, thousands of crossed-out 'NOW I am awake!' diary lines, and unbroken mastery at the piano: the extraordinary neuroscience of Clive Wearing.",
+    "core_experiment": "Wilson, Baddeley & Kapur (1995 / 2008) 23-year longitudinal study: bilateral hippocampal + temporal-pole encephalitis vs intact basal-ganglia music & limbic love.",
+    "twist": "Why real amnesia resets in 20 seconds (not midnight), how Clive's feet learned the way to the kettle over 20 years, and why music unlocks dementia care."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "March 1985: The 7-Second Island & The Crossed-Out Diaries",
+      "beats": [
+        "Herpes simplex encephalitis hits bilateral hippocampi + temporal poles",
+        "'8:31 AM awake' — '8:35 AM NOW truly awake!'"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "crossed-out time-stamped diary"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Miracle 1 at the Piano: Music Lives Outside the Hippocampus",
+      "beats": [
+        "Sight-reading, playing harpsichord & conducting his old choir flawlessly",
+        "Why basal ganglia & cerebellum need zero episodic memory"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "walnut upright piano & choral score"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Miracle 2 at the Doorway: Love Every Thirty Seconds",
+      "beats": [
+        "Deborah steps out for 30 seconds to desert-island reunion every return",
+        "20-year follow-up (2008): feet find the kettle while words say 'first second here!'"
+      ],
+      "scene_ids": [
+        "S2",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "doorway reunion & kitchenette kettle"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Hollywood Midnight Reset vs Real Working-Memory Biology",
+      "beats": [
+        "Why working memory holds ~7-30 seconds until distracted",
+        "Calmer emotional adaptation over decades"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "20-second phonological loop chart"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "How Clive & Deborah Transformed Memory Care",
+      "beats": [
+        "Stop quizzing broken calendars",
+        "Meet loved ones inside intact music and emotional warmth"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "family music songbook"
+      ]
+    }
+  ]
+}

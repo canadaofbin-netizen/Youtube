@@ -1,0 +1,100 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "25,000 streets, zero GPS, and a physically larger posterior hippocampus: how Eleanor Maguire's (2000 PNAS) London Taxi study rewrote adult human brain plasticity.",
+    "core_experiment": "Maguire et al. (2000 PNAS structural VBM) + Maguire (1997 J Neurosci PET) + 2006 Bus-Driver & 2011 Before/After trainee proofs.",
+    "twist": "Posterior expansion vs anterior trade-off, why fixed-route buses grew zero gray matter, and protecting your hippocampus in the GPS age."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Queen Square 2000: Putting 'The Knowledge' Inside an MRI Scanner",
+      "beats": [
+        "25,000 streets & 20,000 landmarks memorized over 2–4 years",
+        "Posterior hippocampus enlarged — scaling with years behind the wheel."
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "London map, green badge & MRI lightbox"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Crushing Two Skeptics: Fixed-Route Red Buses (2006) & Day-1 Trainees (2011)",
+      "beats": [
+        "Why London bus drivers in identical traffic showed zero growth",
+        "Scanning 79 trainees BEFORE Day 1: only qualifiers grew gray matter."
+      ],
+      "scene_ids": [
+        "S2",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "Cab vs Bus comparison & 4-year trainee chart"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "No Free Lunch Inside the Skull: The Posterior-vs-Anterior Trade-Off",
+      "beats": [
+        "Posterior spatial map expands while anterior visual-figure zone trims slightly",
+        "Parietal & prefrontal partners in route detours"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "3D hippocampus posterior/anterior balance"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "The Modern Smartphone Warning: Turn-by-Turn GPS Idles the Map",
+      "beats": [
+        "Caudate autopilot ('Turn right in 200 ft') vs hippocampal landmark mapping",
+        "Why effortless routines stop structural remodeling"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "GPS autopilot vs mental map contrast"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Weekly 'Taxi Mode' Workouts for Every Age",
+      "beats": [
+        "Navigating local neighborhoods by landmarks without voice prompts",
+        "Novel, effortful learning vs fixed-route repetition"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "sunlit GPS-off landmark navigation"
+      ]
+    }
+  ]
+}

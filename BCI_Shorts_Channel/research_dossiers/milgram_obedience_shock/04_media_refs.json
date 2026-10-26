@@ -1,0 +1,85 @@
+{
+  "media": [
+    {
+      "id": "M1_psychhub_original_footage",
+      "kind": "archival_film",
+      "title": "Obedience (1965 documentary film by Stanley Milgram, shot May 1962 at Yale University — excerpt uploaded as 'Milgram experiment 1963')",
+      "url": "https://www.youtube.com/watch?v=Kzd6Ew3TraA",
+      "channel": "PsychHubUK (archival footage from Penn State Media Sales / Stanley Milgram's 1965 film Obedience)",
+      "timecodes": [
+        {
+          "t": "00:25-00:30",
+          "what": "Rigged paper slip draw: Experimenter in knee-length grey technician's coat stands at left holding two slips toward the two seated volunteers in dark 1960s suits against vertical striped laboratory drapes."
+        },
+        {
+          "t": "00:30-00:45",
+          "what": "Strapping the Learner in the adjacent room: Experimenter buckles brown leather straps across the Learner's forearms on the wooden armchair and attaches the wrist electrode with paste; cut to over-the-shoulder two-shot in the main room showing the Teacher in a white dress shirt seated before the Type ZLB 30-lever shock generator box and the Experimenter seated behind him."
+        },
+        {
+          "t": "00:45-01:15",
+          "what": "Word-pair test and 150V/180V protests: 1-2-3-4 answer box lights up above the panel; Learner shouts through the wall ('Get me out of here!'); Teacher in short-sleeved white shirt hesitates with elbow on desk and hand pressed over his forehead and eyes while Experimenter delivers Prod 2 ('The experiment requires you continue, teacher. Please continue')."
+        },
+        {
+          "t": "01:30-02:06",
+          "what": "Responsibility transfer and silence at 375V-450V: Experimenter states 'I'm responsible for anything that happens here. Continue, please'; at 375 volts the Teacher pleads 'I think something's happened to that fellow in there... I don't get no answer' while gripping his brow in extreme tension."
+        }
+      ],
+      "license_note": "Analysis only (blocking, wardrobe, apparatus geometry, body-language tension). Never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_psychhub_original_footage",
+        "contact_sheet": "media/M1_psychhub_original_footage/contact_sheet.jpg",
+        "transcript": "media/M1_psychhub_original_footage/transcript.txt",
+        "shot_notes": "Verified from contact_sheet.jpg (kf_001..kf_008) and transcript.txt: (1) Wardrobe: Experimenter wears a knee-length light-grey laboratory technician coat over a white collared shirt and dark tie; Teacher wears a 1960s white dress shirt (jacket removed, short or rolled sleeves); vertical striped curtains hang on the rear wall. (2) Apparatus: Type ZLB shock generator sits on a wooden table as a wide rectangular brushed-metal cabinet with 30 horizontal toggle levers along the lower front, a circular voltmeter gauge on the upper right face, and a rectangular 1-2-3-4 illuminated answer box mounted above. (3) Acting & posture: When torn between the Learner's cries and the Experimenter's calm voice, the Teacher braces his elbow on the desk, presses his palm and fingers tightly across his forehead and eyes (kf_006, kf_008), and turns his head back toward the Experimenter before reaching for the next toggle switch."
+      }
+    },
+    {
+      "id": "M2_experimenter_sample_shock",
+      "kind": "historical_recreation",
+      "title": "Experimenter (2015 film by Michael Almereyda) — 'Sample Shock' 45V scene recreation",
+      "url": "https://www.youtube.com/watch?v=OkgPy9gI8vc",
+      "channel": "Rotten Tomatoes Indie",
+      "timecodes": [
+        {
+          "t": "00:01-00:13",
+          "what": "Two-shot profile: Teacher seated at left in a rolled-sleeve white dress shirt facing the 30-lever generator box at right; Experimenter in grey technician's coat stands beside the console leaning one arm on top of the metal cabinet and asks the Teacher to roll up his sleeve for a sample shock."
+        },
+        {
+          "t": "00:14-00:26",
+          "what": "Close-up of the Teacher's bare forearm resting on the desk beside the 30 toggle switches; Experimenter squeezes white electrode paste onto the wrist and straps the metal contact plate in place."
+        },
+        {
+          "t": "00:27-00:35",
+          "what": "Experimenter presses the third switch (45 volts); the generator buzzes and clicks, and the Teacher jolts backward in his chair, wincing and rubbing his wrist."
+        }
+      ],
+      "license_note": "Analysis only (blocking and prop interaction for Scene S5). Never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2_experimenter_sample_shock",
+        "contact_sheet": "media/M2_experimenter_sample_shock/contact_sheet.jpg",
+        "transcript": "media/M2_experimenter_sample_shock/transcript.txt",
+        "shot_notes": "Verified from contact_sheet.jpg (kf_001..kf_020): Clear profile staging of the 45-volt sample shock (Milgram 1963 p. 373). The Teacher rolls up his white shirt sleeve, extends his forearm across the wooden desk in front of the 30-lever panel, and physically jerks his arm back when the third switch (45V battery) is flipped."
+      }
+    },
+    {
+      "id": "M3_burger_2009_replication",
+      "kind": "replication_report",
+      "title": "Jerry M. Burger (2009) 'Replicating Milgram: Would People Still Obey Today?' (Santa Clara University / 150-volt turning-point replication)",
+      "url": "https://www.youtube.com/watch?v=vuMt8b4UrcI",
+      "channel": "Sprouts / APA summary of Burger (2009) American Psychologist 64(1), 1-11",
+      "timecodes": [
+        {
+          "t": "00:00-02:30",
+          "what": "Layout comparison of Milgram's 1961 two-room setup (Experimenter, Teacher at 30-lever 15V-450V generator, Learner behind partition wall) and the four standardized verbal prods."
+        },
+        {
+          "t": "02:30-04:15",
+          "what": "Proximity variations (same room 40%, touch-proximity hand-on-plate 30%, dissenting peers 10%) and Burger's 2009 partial replication halted ethically at the 150-volt switch (where the Learner first shouts to be let out and mentions his heart), showing 70% of modern participants still pressing on past 150 volts."
+        }
+      ],
+      "license_note": "Analysis only (blocking of proximity variations and 2009 150V stopping point). Never reused in channel videos.",
+      "analysis": {
+        "shot_notes": "Confirms the visual staging for Scene S8 (Burger 2009 replication): modern volunteer seated before the recreated 30-lever generator reaches the 10th switch (150 volts), hears the Learner demand release through the wall, and reaches for the 165-volt switch before the experimenter steps in and places a hand over the panel to end the session."
+      }
+    }
+  ]
+}

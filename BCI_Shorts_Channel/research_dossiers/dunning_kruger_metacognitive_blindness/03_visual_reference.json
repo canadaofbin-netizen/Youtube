@@ -1,0 +1,218 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Cornell classroom desk contrasting the REAL flat-sloping 1999 Figure-1 graph (12% actual vs 62% guessed) against the crossed-out fake 'Mount Stupid' cartoon",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1999, Cornell University psychology classroom, Ithaca, New York",
+      "layout": {
+        "description": "Sunlit 1999 Cornell seminar classroom with oak desks holding 20-item logical reasoning booklets, self-rating percentile slips ('62nd Percentile'), red-graded actual score sheets ('12th Percentile'), and a front chalkboard displaying Kruger & Dunning's REAL two-line Figure 1.",
+        "positions": [
+          {
+            "who": "David Dunning & Justin Kruger (mannequins in 1999 blazer and sweater)",
+            "where": "standing at the chalkboard pointing to the real 1999 graph where 'Perceived Ability' slopes gently from 62% to 74% while 'Actual Score' climbs steeply from 12% to 87%",
+            "facing": "facing the classroom"
+          },
+          {
+            "who": "Student Participant in Study 4 (mannequin in 1999 fleece pullover)",
+            "where": "reading a 10-minute logic training packet at the front desk, then erasing '55th Percentile' on their self-rating slip and writing '32nd Percentile' as newfound insight reveals earlier mistakes",
+            "facing": "at oak desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "authentic 1999 two-line chalkboard graph + crossed-out 'Mount Stupid' myth card",
+          "period_detail": "chalkboard shows gently rising Perceived line (62% -> 74%) vs steep Actual line (12% -> 87%), beside a crossed-out 'Internet Myth Peak' sketch",
+          "physical_behavior": "visually corrects psychology's most misdrawn chart"
+        },
+        {
+          "name": "paired 'Self-Estimate: 62%' vs 'Actual Score: 12%' test sheet",
+          "period_detail": "crisp paper sheets side-by-side on the student's desk",
+          "physical_behavior": "makes the 50-percentile calibration gap concrete"
+        },
+        {
+          "name": "Study 4 '10-Minute Wason Logic Packet'",
+          "period_detail": "brief instructional booklet on the desk",
+          "physical_behavior": "raises actual skill while lowering inflated self-rating"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Student Participant",
+          "verb_sequence": "finishes initial logic test writing 'Estimate: 62nd Percentile' over a 12th-percentile paper -> studies the 10-minute logic training packet -> flips back, spots five obvious logic errors, and revises estimate down to a realistic 32%"
+        },
+        {
+          "who": "Justin Kruger",
+          "verb_sequence": "traces how learning the rule switched the student's internal error-detector ON"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Student Participant",
+          "reaction": "nods with genuine 'aha!' humility seeing the missed counterexamples"
+        },
+        {
+          "who": "David Dunning",
+          "reaction": "points to the top quartile's small dip (74% vs 87%), noting experts simply assumed peers aced it too"
+        }
+      ],
+      "wardrobe": "1999 Ivy League attire: tweed sport coat and collared shirt on Dunning; crew-neck wool sweater on Kruger; late-1990s fleece vest and flannel shirt on student.",
+      "lighting": "Crisp high-key New York autumn classroom daylight.",
+      "recognition_hook": "Forget the fake internet 'Mount Stupid' cartoon — in Cornell's real 1999 lab, 12th-percentile scorers guessed 62nd, and ten minutes of logic training dropped their overconfidence by teaching them how to see mistakes.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "two 1999 Cornell psychologists beside the real two-line 12%-vs-62% chalkboard graph while a student uses a 10-minute logic packet to spot errors and lower an inflated self-rating",
+        "must_show": [
+          "graph|chalkboard|board",
+          "test|sheet|packet",
+          "desk"
+        ],
+        "source": "M1@00:18-00:32; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Study 3 Peer-Comparison Test: Why bottom scorers stay unmoved while top scorers adjust",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1999, Cornell University desk",
+      "layout": {
+        "description": "Oak table where five anonymous classmates' grammar tests are spread out for inspection.",
+        "positions": [
+          {
+            "who": "Top-Quartile Student mannequin",
+            "where": "inspecting five messy peer tests and raising self-estimate accurately from 70% to 86%",
+            "facing": "left table"
+          },
+          {
+            "who": "Bottom-Quartile Student mannequin",
+            "where": "glancing over five superior peer tests unable to tell their grammar was stronger",
+            "facing": "right table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "five anonymous peer grammar packets",
+          "period_detail": "identical feedback packets",
+          "physical_behavior": "produce opposite updates depending on baseline grammar skill"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Top-Quartile Student",
+          "verb_sequence": "spots peer errors and updates rank upward -> Bottom-Quartile Student leaves 62% self-rating unchanged"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Justin Kruger",
+          "reaction": "documents that recognizing excellence requires the exact rules that build it"
+        }
+      ],
+      "wardrobe": "1999 collegiate sweaters.",
+      "lighting": "Bright classroom light.",
+      "recognition_hook": "Shown five classmates' better tests, novices still couldn't tell they were outscored — while experts realized not everyone found it easy.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Statistical Reality Check: Noise + Regression to the Mean",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2020, modern psychometrics seminar",
+      "layout": {
+        "description": "Clean whiteboard showing how random measurement noise plus human 'above-average (~65%)' optimism explains part of the gap alongside real metacognitive learning.",
+        "positions": [
+          {
+            "who": "Psychometrician mannequin",
+            "where": "overlaying simulation baseline beside Study 4's real training shift",
+            "facing": "at whiteboard"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "noise-control comparison chart",
+          "period_detail": "clean modern statistical audit",
+          "physical_behavior": "keeps behavioral science honest and precise"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Psychometrician mannequin",
+          "verb_sequence": "separates statistical boundary compression from true skill-based error detection"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Students",
+          "reaction": "appreciate why sharing fake internet memes about Dunning-Kruger is peak irony"
+        }
+      ],
+      "wardrobe": "Modern smart-casual blazer.",
+      "lighting": "High-key seminar daylight.",
+      "recognition_hook": "Good science audits itself: statistical noise contributes to quartile gaps, AND real training genuinely sharpens self-calibration.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Using an external pre-flight checklist outside your core expertise",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern studio / workshop",
+      "layout": {
+        "description": "Sunlit workshop bench where a builder checks an objective printed safety/quality rubric with a peer instead of eyeballing an unfamiliar step.",
+        "positions": [
+          {
+            "who": "Two Colleague mannequins",
+            "where": "walking down a printed 8-point verification checklist together",
+            "facing": "at workbench"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "printed 8-point objective rubric",
+          "period_detail": "externalizes error detection",
+          "physical_behavior": "bypasses solo metacognitive blind spots"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Builder mannequin",
+          "verb_sequence": "catches missed step #5 using the objective checklist before launch"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Peer mannequin",
+          "reaction": "gives a crisp nod as the flaw gets fixed early"
+        }
+      ],
+      "wardrobe": "Modern work overshirts.",
+      "lighting": "Bright natural daylight.",
+      "recognition_hook": "Because no brain can proofread its own unknown unknowns alone, external checklists and honest peers are universal armor.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

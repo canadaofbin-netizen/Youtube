@@ -1,0 +1,223 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Two Stanford GRE test booklets side-by-side — identical inside, differing only by the Page-1 'Diagnostic Ability' vs 'Problem-Solving Puzzle' cover",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1995, Stanford University testing classroom, Palo Alto, California",
+      "layout": {
+        "description": "Sunlit 1995 Stanford lecture room with oak tablet-arm desks holding two side-by-side 30-minute GRE verbal test packets and No. 2 pencils in front of a chalkboard timer.",
+        "positions": [
+          {
+            "who": "Claude Steele & Joshua Aronson (mannequins in 1995 blazer and collared shirt)",
+            "where": "standing beside the front desk comparing the two cover sheets that unlock vs hijack equal SAT-matched students",
+            "facing": "facing the classroom desks"
+          },
+          {
+            "who": "Test-Taker mannequin A (Diagnostic / Page-1 Checkbox)",
+            "where": "rubbing temples tensely over Question 4 after checking a Page-1 demographic box, working-memory scratchpad crowded",
+            "facing": "at left desk"
+          },
+          {
+            "who": "Test-Taker mannequin B (Non-Diagnostic Cover)",
+            "where": "working smoothly and briskly through the exact same GRE passages with full focus",
+            "facing": "at right desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Packet A ('DIAGNOSTIC INTELLECTUAL ABILITY TEST' + Page-1 Demographic Box)",
+          "period_detail": "cream 1995 test cover with demographic bubble right above Question 1",
+          "physical_behavior": "triggers anxious self-monitoring that steals working memory"
+        },
+        {
+          "name": "Packet B ('NON-DIAGNOSTIC PROBLEM-SOLVING STUDY' — Demographics on Last Page)",
+          "period_detail": "identical interior GRE verbal items with clean Page 1",
+          "physical_behavior": "allows SAT-matched cohorts to perform equally"
+        },
+        {
+          "name": "adjusted SAT-matched score bar chart",
+          "period_detail": "crisp white placard showing the artificial gap appearing ONLY under Diagnostic / Page-1 priming and closing under Non-Diagnostic framing",
+          "physical_behavior": "isolates situational threat"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Test-Taker A",
+          "verb_sequence": "checks the Page-1 demographic box -> reads 'measures innate ability' -> hesitates and double-checks simple lines repeatedly as the 30-minute clock ticks"
+        },
+        {
+          "who": "Claude Steele",
+          "verb_sequence": "swaps the cover sheet to Packet B ('Problem-Solving Mechanics') and moves the demographic sheet to the very back -> Test-Taker B solves items cleanly at full capacity"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Joshua Aronson",
+          "reaction": "points out every single GRE word inside both booklets was 100% identical"
+        },
+        {
+          "who": "Test-Taker B",
+          "reaction": "finishes the final passage with calm concentration"
+        }
+      ],
+      "wardrobe": "1995 Stanford attire: tailored tweed/navy blazer over open shirt on researchers; collegiate sweatshirts, button-downs, and denim on students.",
+      "lighting": "Clean high-key California classroom daylight.",
+      "recognition_hook": "Every tough GRE question inside both packets was identical — changing one sentence on the cover page or moving one checkbox to the back changed how much working memory walked into Question 1.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "two 1995 Stanford researchers comparing two GRE test booklets ('Diagnostic Ability' with Page-1 checkbox vs 'Problem-Solving Study') across sunlit classroom desks",
+        "must_show": [
+          "booklet|packet|test",
+          "desk",
+          "chart|board|pencil"
+        ],
+        "source": "M1@00:04-00:11; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "White male math majors hit by the exact same threat in 1999",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1999, university math classroom",
+      "layout": {
+        "description": "Bright math exam room where high-SAT White male math students receive a cover note mentioning an 'Asian vs White math comparison'.",
+        "positions": [
+          {
+            "who": "Math Major mannequin",
+            "where": "pausing tensely mid-equation as anxious self-monitoring steals calculus RAM",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "calculus problem sheet",
+          "period_detail": "multi-step working-memory test",
+          "physical_behavior": "demonstrates stereotype threat is a universal human cognitive tax"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Math Major mannequin",
+          "verb_sequence": "reads comparison header -> second-guesses steps and runs short on time"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researcher mannequin",
+          "reaction": "confirms any valued identity can experience working-memory drag"
+        }
+      ],
+      "wardrobe": "Late-1990s polo shirt and khakis.",
+      "lighting": "Bright classroom light.",
+      "recognition_hook": "Even top-scoring White male math majors dropped on calculus the instant a cover note cued a comparison stereotype.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "College Board moving demographic bubbles to the END of the exam",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern standardized testing design desk",
+      "layout": {
+        "description": "Clean exam-design table showing 'Demographics' moved from Page 1 behind the final 'STOP — Test Complete' page.",
+        "positions": [
+          {
+            "who": "Assessment Designer mannequin",
+            "where": "sliding the demographic form behind the final test page",
+            "facing": "at light table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "reordered exam packet ('Questions First -> Demographics Last')",
+          "period_detail": "zero-cost institutional design fix",
+          "physical_behavior": "prevents Page-1 priming"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Assessment Designer mannequin",
+          "verb_sequence": "places demographic bubbles after the last question"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Colleague mannequin",
+          "reaction": "approves the clean structural fix"
+        }
+      ],
+      "wardrobe": "Modern professional shirt.",
+      "lighting": "High-key studio daylight.",
+      "recognition_hook": "Moving one demographic page from the front cover to the back cover costs zero dollars and protects working memory.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Delivering 'Wise Feedback': High standards + explicit belief",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern professor/manager office",
+      "layout": {
+        "description": "Sunlit office table where a mentor hands back an essay marked with detailed margin edits AND a clear top note: 'High standards + I know you can reach them.'",
+        "positions": [
+          {
+            "who": "Mentor mannequin",
+            "where": "pointing constructively to margin notes and the encouraging standard card",
+            "facing": "across table"
+          },
+          {
+            "who": "Student mannequin",
+            "where": "leaning in energized to revise the draft without defensive threat",
+            "facing": "across table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "essay draft with 'High Standards + Full Confidence' header",
+          "period_detail": "Cohen & Steele's 'wise feedback' formula",
+          "physical_behavior": "doubles revision effort"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Mentor mannequin",
+          "verb_sequence": "frames tough critique as belief in high potential -> Student dives eagerly into edits"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Student mannequin",
+          "reaction": "smiles with focused determination"
+        }
+      ],
+      "wardrobe": "Modern blazer and knit sweater.",
+      "lighting": "Warm window daylight.",
+      "recognition_hook": "Tough standards paired with 'I know you have what it takes' unlocks prefrontal focus instead of defensive alarm.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

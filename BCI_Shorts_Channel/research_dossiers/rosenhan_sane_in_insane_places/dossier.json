@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "slug": "rosenhan_sane_in_insane_places",
+  "topic": "David Rosenhan (1973): 'On Being Sane in Insane Places', Diagnostic Stickiness & Susannah Cahalan's Archival Investigation",
+  "pillar": "bci_ethics",
+  "created_at": "2026-10-25T22:49:30+00:00",
+  "status": "ready",
+  "visual_mode": "BEHAVIORAL_PSYCH",
+  "visual_mode_reason": "Rosenhan's psychiatric ward scenes — healthy pseudopatients taking calm field notes in a dayroom while nurses chart 'engages in writing behavior' — are pure institutional behavioral observation.",
+  "primary_case": {
+    "title": "David L. Rosenhan's eight-pseudopatient psychiatric admission study & modern archival scrutiny",
+    "year": 1973,
+    "place": "12 psychiatric hospitals across five U.S. states (coordinated from Stanford University)",
+    "people": [
+      {
+        "name": "David L. Rosenhan",
+        "role": "Stanford law-and-psychology professor who reported admitting himself and seven healthy peers to psychiatric wards using a single three-word symptom",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Hospital ward patients vs clinical staff",
+        "role": "Fellow patients frequently spotted the pseudopatients ('You're a journalist or professor checking up on the hospital!') while clinicians saw everything through the admission label",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Susannah Cahalan",
+        "role": "Investigative author whose 2019 archival research (The Great Pretender) uncovered troubling discrepancies and omissions in Rosenhan's personal files alongside validated pseudopatient Bill Underwood",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In January 1973, Stanford professor David Rosenhan published 'On Being Sane in Insane Places' in Science, reporting that eight healthy 'pseudopatients' presented at 12 psychiatric hospitals complaining ONLY of hearing a vague voice say 'empty,' 'hollow,' and 'thud'.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "According to Rosenhan's report, the instant each pseudopatient stepped onto the ward, they stopped simulating any symptom whatsoever, acted completely calm and cooperative, and said the voices were gone.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "All admissions were accepted (11 diagnosed with schizophrenia, 1 with manic-depressive psychosis), and hospital stays lasted from 7 to 52 days (averaging 19 days) before discharge — almost always labeled 'schizophrenia IN REMISSION' rather than 'healthy'.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Once the diagnostic label stuck, ordinary behavior got pathologized on charts: when pseudopatients calmly wrote observations in notebooks, nursing notes recorded 'Patient engages in writing behavior'; arriving early outside the cafeteria for lunch was charted as 'oral-acquisitive syndrome'.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "While doctors and nurses missed the ruse, 35 of 118 fellow patients on the wards voiced suspicion ('You're not crazy — you're a journalist or a professor checking up on the place!').",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Study 2, an offended teaching hospital challenged Rosenhan to try sending pseudopatients over the next three months: staff confidently flagged 41 of 193 real incoming patients as likely 'impostors' — when Rosenhan had actually sent ZERO.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Psychiatrist Robert Spitzer fiercely critiqued Rosenhan (1975): if someone walks into an ER faking 'I coughed up red foam' and stops on the ward, 'peptic ulcer in remission' is cautious medicine, not malpractice — yet Spitzer used the shockwave to overhaul vague Freudian labels into structured DSM-III checklists (1980).",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Modern investigative twist: journalist Susannah Cahalan (2019) dug through Rosenhan's private papers after his death, verifying real pseudopatients like Stanford grad student Bill Underwood and Harry Lando (whose positive ward experience Rosenhan dropped!), while discovering Rosenhan himself exaggerated symptom minimalness in his own Haverford admission chart and left other pseudopatients unlocatable.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Rosenhan's (1973) Study 2 reverse challenge, ward staff flagged 41 of 193 genuine incoming patients as suspected impostors when Rosenhan had actually sent 0 pseudopatients.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "When a healthy graduate student calmly jotted notes in a spiral notebook in the hospital dayroom, the official medical chart recorded: 'Patient engages in writing behavior.'",
+      "why_surprising": "Once a diagnostic lens locks on, even taking notes looks like a symptom.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Clinicians never guessed the healthy visitors were researchers — yet 35 actual psychiatric patients on the ward walked up and said, 'You're a reporter or professor!'",
+      "why_surprising": "Fellow patients looked at the person instead of the chart folder.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Warned that fake patients might arrive over the next 90 days, an elite hospital flagged 41 real patients as frauds — and Rosenhan hadn't sent a single soul.",
+      "why_surprising": "Flipping expectancy flipped false positives into false negatives overnight.",
+      "source_id": "SRC3",
+      "rank": 3
+    },
+    {
+      "fact": "Nearly fifty years later, journalist Susannah Cahalan opened Rosenhan's own locked filing cabinet and discovered he had omitted a ninth upbeat pseudopatient AND embellished his own clean intake story.",
+      "why_surprising": "The famous study exposing institutional blind spots had a giant scientific blind spot of its own.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Rosenhan proved mental illnesses don't exist at all.",
+      "truth": "Severe psychiatric illnesses are profoundly real; the lesson was that 1970s unstructured diagnostic labels lacked objective reliability and created confirmation bias.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Psychiatrists are uniquely foolish compared to medical doctors.",
+      "truth": "As Robert Spitzer noted, faking a hallmark symptom in cardiology or neurology also earns cautious observation; structured DSM-III criteria fixed vague 1972 intake habits.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Every detail of Rosenhan's 1973 Science paper withstood archival verification.",
+      "truth": "Susannah Cahalan's 2019 archival audit confirmed real core cases like Bill Underwood's 9-day stay ('writing behavior'), while exposing selective omission of Harry Lando and serious record gaps.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Once discharged 'in remission,' labels vanish harmlessly.",
+      "truth": "Diagnostic anchoring can color how future clinicians interpret ordinary frustration or boredom for years.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Notice how once a coworker gets labeled 'defensive' or 'flaky,' even asking a sensible question gets read as 'there they go again'.",
+    "Why second-opinion doctors deliberately read raw lab scans BEFORE reading the first doctor's summary impression.",
+    "Standing outside a lunchroom five minutes early because you're bored — vs having an authority interpret it through a pre-existing file.",
+    "Why peer-reviewed science demands raw open data archives alongside compelling narratives."
+  ],
+  "linked_projects": [
+    "psych_30_rosenhan_sane_in_insane_places"
+  ]
+}

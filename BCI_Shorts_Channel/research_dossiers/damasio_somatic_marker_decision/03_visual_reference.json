@@ -1,0 +1,213 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Participant wired to palm skin-conductance sensors hesitating over rigged Deck B vs vmPFC flatline on the four-deck Iowa Gambling table",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1994-1996, University of Iowa Department of Neurology testing suite, Iowa City",
+      "layout": {
+        "description": "Sunlit 1994 Iowa clinical neuropsychology room with a green-baize tabletop holding four neat face-down card decks labeled 'A', 'B', 'C', and 'D', two small fingertip skin-conductance sensors taped to the non-drawing palm, and a dual-channel polygraph monitor.",
+        "positions": [
+          {
+            "who": "Healthy Participant / Patient comparison mannequin (in 1994 collared sweater)",
+            "where": "seated at the four-deck table with right hand hovering two inches above high-risk Deck B — then pulling back smoothly to draw from safe Deck D as the palm sensor trace spikes",
+            "facing": "facing Decks A, B, C, D"
+          },
+          {
+            "who": "Antonio Damasio & Antoine Bechara (mannequins in tailored suit and white clinical coat)",
+            "where": "standing beside the polygraph monitor pointing to the sharp 5-second 'Pre-Deck-B Warning Spike' versus Patient Elliot's dead-flat pre-draw line",
+            "facing": "observing hand and polygraph"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "four labeled card decks ('A', 'B' trap decks vs 'C', 'D' steady decks)",
+          "period_detail": "four crisp white card stacks where flipped Deck B card reveals '+100 / PENALTY -1250'",
+          "physical_behavior": "visualizes immediate lure vs long-term ruin"
+        },
+        {
+          "name": "fingertip galvanic skin-conductance leads",
+          "period_detail": "two clean silver sensor clips on left index and middle fingers wired to the polygraph",
+          "physical_behavior": "capture the 5-second pre-reach somatic warning"
+        },
+        {
+          "name": "split polygraph trace ('Healthy Pre-Reach Warning Spike' vs 'vmPFC Flat Pre-Reach')",
+          "period_detail": "large clean monitor comparing a sharp warning peak before Deck B against a flat horizontal line",
+          "physical_behavior": "proves emotion guides rational avoidance"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Participant's right hand",
+          "verb_sequence": "starts reaching toward flashy Deck B -> 5-second palm conductance spike leaps up on the monitor -> hand pivots smoothly across to draw from safe Deck D"
+        },
+        {
+          "who": "Antoine Bechara",
+          "verb_sequence": "contrasts that anticipatory spike against Patient Elliot's flat pre-draw trace despite intact 97th-percentile IQ folder"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Antonio Damasio",
+          "reaction": "taps the 'IQ: Superior / Real-Life Choice: Impaired' clinical chart, overturning Descartes"
+        },
+        {
+          "who": "Participant mannequin",
+          "reaction": "stacks steady net winnings beside Decks C and D"
+        }
+      ],
+      "wardrobe": "1994 Iowa neurology attire: Damasio in classic dark tailored European suit and tie; Bechara in crisp white physician coat; participant in knit sweater.",
+      "lighting": "Clean high-key clinical daylight across four crisp card decks and monitor.",
+      "recognition_hook": "Five seconds before a healthy player's fingers even touch rigged Deck B, palm sensors fire a warning spike — erase that emotional circuit, and a 97th-percentile genius goes broke.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1994 neurology test table with four card decks labeled A, B, C, D and fingertip skin-conductance leads beside a monitor showing a pre-reach warning spike",
+        "must_show": [
+          "decks|cards",
+          "sensor|monitor|trace",
+          "table"
+        ],
+        "source": "M1@14:05-14:19; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Patient Elliot paralyzed for 30 minutes choosing between two Tuesday appointment slots",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1990, Iowa neurology office",
+      "layout": {
+        "description": "Sunlit doctor's desk covered in six pages of neat handwritten pros-and-cons weather/traffic calculations just to pick 'Tuesday 1:30 vs Wednesday 2:00'.",
+        "positions": [
+          {
+            "who": "Patient Elliot mannequin",
+            "where": "calmly filling page six of pros-and-cons for a trivial calendar slot with zero emotional tie-breaker",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "six pages of endless pros-and-cons notes & desk calendar",
+          "period_detail": "hyper-logical gridlock",
+          "physical_behavior": "shows pure reason without somatic weights spinning forever"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient Elliot mannequin",
+          "verb_sequence": "weighs Tuesday afternoon sunlight vs Wednesday parking endlessly -> Antonio Damasio gently says 'Let's do Tuesday' -> Elliot calmly says 'Fine' and closes book"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Antonio Damasio",
+          "reaction": "realizes emotion isn't reason's enemy — it's reason's tie-breaker"
+        }
+      ],
+      "wardrobe": "Crisp business suit on both.",
+      "lighting": "Bright office daylight.",
+      "recognition_hook": "With a 97th-percentile IQ and zero emotional tags, Elliot spent half an hour unable to pick a Tuesday appointment slot.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Knowing vs Feeling: Saying 'Deck B is bad' while still drawing Deck B",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1997, Iowa Gambling lab",
+      "layout": {
+        "description": "Close view of the four card decks at Card #80.",
+        "positions": [
+          {
+            "who": "vmPFC Patient mannequin",
+            "where": "pointing verbally to 'C & D = Good' on a question sheet, then immediately reaching right back onto Bad Deck B",
+            "facing": "at table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "flat pre-draw polygraph line at Card 80",
+          "period_detail": "zero visceral deterrent despite intact verbal knowledge",
+          "physical_behavior": "explains self-destructive 'I know better' loops"
+        }
+      ],
+      "actions": [
+        {
+          "who": "vmPFC Patient mannequin",
+          "verb_sequence": "states aloud 'A and B lose' -> reaches onto Deck B anyway as palm line stays flat"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Antoine Bechara",
+          "reaction": "documents knowledge-action dissociation"
+        }
+      ],
+      "wardrobe": "1990s collared shirt and lab coat.",
+      "lighting": "High-key clinical light.",
+      "recognition_hook": "Saying 'that deck is a trap' out loud didn't stop the hand when the brain's somatic warning bridge was offline.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Separating real experienced gut alarms from trivial 'toaster paralysis'",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern home desk",
+      "layout": {
+        "description": "Bright desk where a shopper closes 15 identical appliance review tabs with a 2-minute timer while pausing seriously on a major contract red flag.",
+        "positions": [
+          {
+            "who": "Decision-maker mannequin",
+            "where": "closing 15 trivial comparison tabs briskly, then circling a risky penalty clause in a contract carefully",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "2-minute tie-breaker timer & contract highlight",
+          "period_detail": "smart pairing of data + somatic experience",
+          "physical_behavior": "applies Damasio & Maia's lesson"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Decision-maker mannequin",
+          "verb_sequence": "caps trivial tie choice in 2 minutes -> inspects real high-stakes penalty clause thoroughly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Decision-maker mannequin",
+          "reaction": "decides cleanly without paralysis"
+        }
+      ],
+      "wardrobe": "Modern smart-casual shirt.",
+      "lighting": "Bright morning daylight.",
+      "recognition_hook": "Cap equal-value minor choices at two minutes — and when experienced intuition flags a 'Deck B' contract, read the fine print twice.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

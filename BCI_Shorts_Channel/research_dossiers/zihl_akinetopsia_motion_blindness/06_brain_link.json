@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "primary visual cortex",
+      "plain": "intact static color, print & shape",
+      "function": "rendering the white teapot, amber tea color, and sharp cup rim in crystal-clear stationary detail",
+      "scene_id": "S1",
+      "narration_bridge": "Shows early V1 and ventral color/form streams working normally."
+    },
+    {
+      "role": "pivot",
+      "region": "temporal lobe",
+      "plain": "bilateral V5 / hMT+ motion-module lesion",
+      "function": "failing on lateral temporo-occipital motion cortex to compute continuous velocity above 12 deg/s — turning smooth flow into frozen strobe snapshots",
+      "scene_id": "S1",
+      "narration_bridge": "Captures Zihl et al. (1983/1991) bilateral V5 pathology."
+    },
+    {
+      "role": "step1",
+      "region": "auditory cortex",
+      "plain": "intact acoustic-pitch pouring rescue",
+      "function": "tracking moving car engines and the rising resonant pitch of liquid filling the ceramic cup to stop pouring right on time",
+      "scene_id": "S2",
+      "narration_bridge": "Captures L.M.'s 1991 cross-modal compensation."
+    }
+  ]
+}

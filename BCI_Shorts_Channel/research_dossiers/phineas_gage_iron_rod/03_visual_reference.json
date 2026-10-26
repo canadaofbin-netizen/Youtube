@@ -1,0 +1,309 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "The 1848 Cavendish Railroad Rock-Cut Blast",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "September 13, 1848, 4:30 p.m., Rutland and Burlington Railroad rock cut near Cavendish, Vermont",
+      "layout": {
+        "description": "An open-air New England granite railroad cut carved into a wooded hillside. Pale blasted granite ledges rise on both sides of a raw dirt and rubble railbed, with a timber derrick and wooden platform car in the pit a few feet behind the rock shelf.",
+        "positions": [
+          {
+            "who": "Phineas Gage (25-year-old blasting foreman)",
+            "where": "Centre foreground on a flat granite shelf directly above a vertical drilled blasting hole",
+            "facing": "Body angled toward the drilled hole, head turning sharply over his right shoulder toward his crew in the pit behind him"
+          },
+          {
+            "who": "Assistant blaster with sand bucket",
+            "where": "Left foreground beside a wooden black-powder keg and clay-sand pail",
+            "facing": "Facing Gage, reaching for the sand scoop"
+          },
+          {
+            "who": "Two railroad quarry workmen",
+            "where": "Background pit near the timber derrick and wooden platform car",
+            "facing": "Facing Gage, calling out and lifting granite blocks"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Tamping iron",
+          "period_detail": "Hand-forged cylindrical iron bar, 3 feet 7 inches (110 cm) long, 1.25 inches (3.2 cm) thick, tapering over 12 inches to a 0.25-inch point, weighing 13.25 pounds, worn smooth from use",
+          "physical_behavior": "Drops pointed-end first into the un-sanded granite hole, strikes a bright orange spark against the rock wall, and shoots vertically upward like a rocket through Gage's left cheek and out the top of his skull, arcing high into the air and thudding onto the granite rubble 20 to 25 yards behind him"
+        },
+        {
+          "name": "Drilled granite blasting hole and black powder charge",
+          "period_detail": "Deep narrow cylindrical bore drilled vertically into the grey granite ledge, filled with coarse black blasting powder and a braided hemp fuse, missing its protective sand plug",
+          "physical_behavior": "Flashes bright orange-white and erupts in a dense plume of white black-powder smoke and flying granite dust"
+        },
+        {
+          "name": "Wooden black-powder keg and sand bucket",
+          "period_detail": "Coopered oak powder keg with iron hoops resting beside a wooden bucket of pale tamping sand",
+          "physical_behavior": "Rattles and tips on the rock ledge as shockwave dust scatters across the stone"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Phineas Gage",
+          "verb_sequence": "Grips the 3-foot-7-inch iron tamping bar vertically over the drilled granite hole, twists his head over his right shoulder toward his men, and drives the pointed iron bar down into the un-sanded hole"
+        },
+        {
+          "who": "Railroad workmen",
+          "verb_sequence": "Flinch and duck behind the platform car as the charge explodes, then sprint forward across the rubble toward Gage"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Phineas Gage",
+          "reaction": "Jolts backward from the upward blast and collapses onto his back across the granite ledge, his hands clutching toward his left cheek as white smoke billows around his shoulders"
+        },
+        {
+          "who": "Railroad workmen",
+          "reaction": "Drop their iron pry bars, recoil with raised hands shielding their faces, and drop to their knees beside the fallen foreman"
+        }
+      ],
+      "wardrobe": "1840s New England railroad work clothes: Gage in rolled-up white linen shirtsleeves, dark buttoned waistcoat, heavy canvas trousers with leather braces, and a broad-brimmed felt work hat knocked off by the blast; workmen in dust-stained cotton shirts, vests, and leather boots",
+      "lighting": "Crisp late-afternoon New England sunlight raking across pale granite walls, punctuated by the sharp orange-white flash and sunlit white black-powder smoke plume",
+      "recognition_hook": "A 1840s railroad foreman tamping black powder into a granite hole with a 3-foot-7-inch iron rod turns his head, sparks the rock, and the rod blasts straight up through his left cheek and skull.",
+      "sources": [
+        "SRC01",
+        "SRC02",
+        "SRC06",
+        "SRC08"
+      ],
+      "key_visual": {
+        "description": "the tamping iron shoots straight up through the porcelain foreman's left cheek below the eye and out the top of his frosted-glass cranium, clean white porcelain chips scattering",
+        "must_show": [
+          "iron|rod|bar",
+          "cheek",
+          "cranium|skull|head"
+        ],
+        "source": "dossier S1 props[Tamping iron].physical_behavior; Harlow 1868"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Sitting Upright in the Ox Cart and Greeting Dr. Harlow",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "September 13, 1848, 5:00-6:00 p.m., dirt road and Joseph Adams's hotel porch in Cavendish, Vermont",
+      "layout": {
+        "description": "A rutted New England dirt road leading up to the wooden veranda and long front staircase of Joseph Adams's tavern-hotel in Cavendish.",
+        "positions": [
+          {
+            "who": "Phineas Gage",
+            "where": "Sitting upright on the wooden bench of a two-wheeled ox cart halted beside the hotel steps",
+            "facing": "Facing Dr. John Harlow and Dr. Edward Williams at the foot of the veranda stairs"
+          },
+          {
+            "who": "Dr. John Martyn Harlow",
+            "where": "Standing beside the ox cart wheel holding his leather medical bag",
+            "facing": "Facing Gage, leaning in to inspect the wound"
+          },
+          {
+            "who": "Railroad workman and ox driver",
+            "where": "Standing by the wooden yoke of the oxen and at the rear tailboard of the cart",
+            "facing": "Facing Gage, steadying the cart"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Two-wheeled wooden ox cart and hotel ledger",
+          "period_detail": "Rough-plank 1840s New England ox cart with tall spoked wooden wheels and iron rims",
+          "physical_behavior": "Creaks and settles as Gage swings his boots over the tailboard and steps down onto the gravel road"
+        },
+        {
+          "name": "Linen head bandage and doctor's leather bag",
+          "period_detail": "White linen cloth wrapped around the top of Gage's head and Dr. Harlow's brass-clasped black leather medical satchel",
+          "physical_behavior": "Harlow snaps open the brass clasp of his medical bag on the porch steps while Gage lifts his hand to touch his left cheek"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Phineas Gage",
+          "verb_sequence": "Rides sitting upright in the wooden ox cart, grips the wooden side rail, steps down onto the road, and walks steadily up the wooden hotel stairs while touching his left cheekbone"
+        },
+        {
+          "who": "Dr. John Martyn Harlow",
+          "verb_sequence": "Sets his leather medical bag onto the porch rail, snaps open the brass clasp, and steps beside Gage to support his elbow"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Dr. John Martyn Harlow and bystanders",
+          "reaction": "Freeze in disbelief with shoulders stiffened and hands raised half-open as the injured foreman walks upright up the stairs and speaks coherently"
+        }
+      ],
+      "wardrobe": "Gage in his singed white linen shirt and dark waistcoat with a white linen bandage wrapped around his crown; Dr. Harlow in a dark 1840s wool frock coat, high collar, and cravat",
+      "lighting": "Clear golden-hour daylight across the clapboard hotel porch and dirt road",
+      "recognition_hook": "Minutes after the iron bar pierced his skull, Phineas Gage sits upright in an ox cart, climbs the hotel stairs, and calmly tells Dr. Harlow how the iron passed through his head.",
+      "sources": [
+        "SRC01",
+        "SRC02"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Impulsive Outburst in a Cavendish Tavern and Refusal of the Foreman Job",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Spring 1849, Cavendish, Vermont tavern and railroad contractor office",
+      "layout": {
+        "description": "A timber-beamed 1849 Vermont tavern and contractor pay room with heavy oak tables, pewter tankards, and a railroad work-schedule ledger spread open near sunlit multipane windows.",
+        "positions": [
+          {
+            "who": "Phineas Gage",
+            "where": "Standing at the centre oak table, leaning forward on both fists",
+            "facing": "Facing the railroad contractor and former crewmen across the table"
+          },
+          {
+            "who": "Railroad contractor (boss)",
+            "where": "Behind the oak table beside the open work ledger and inkstand",
+            "facing": "Facing Gage, pulling the ledger back"
+          },
+          {
+            "who": "Two railroad crewmen",
+            "where": "Beside the tavern bench to the right",
+            "facing": "Facing Gage, stepping back"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Pewter tavern mug and oak table",
+          "period_detail": "Heavy 1840s pewter tankard and thick plank oak tavern table",
+          "physical_behavior": "Topples over and clatters across the oak tabletop, spilling amber ale across the wood when Gage slams his fist down"
+        },
+        {
+          "name": "Railroad contractor ledger and quill pen",
+          "period_detail": "Leather-bound railroad crew roster and payroll ledger",
+          "physical_behavior": "Slams shut as the contractor pulls it away from Gage's reach"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Phineas Gage",
+          "verb_sequence": "Slams his fist onto the oak tavern table, knocks over a pewter mug, and shoves his wooden chair backward when refused his foreman post"
+        },
+        {
+          "who": "Railroad contractor",
+          "verb_sequence": "Slams the leather roster ledger shut and slides it back across the desk away from Gage"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Railroad contractor and crewmen",
+          "reaction": "Recoil a step backward from the table, folding their arms and shaking their heads as Gage storms toward the door clutching his iron rod"
+        }
+      ],
+      "wardrobe": "1849 New England civilian clothes: Gage in a wool waistcoat, white shirt, and dark trousers with his left eyelid drooped shut; contractor in a dark broadcloth coat",
+      "lighting": "Bright daylight streaming through multipane tavern windows with floating dust motes",
+      "recognition_hook": "Friends and bosses say he is 'no longer Gage' as the once-calm foreman slams a tavern table in a sudden burst of temper and loses his old job.",
+      "sources": [
+        "SRC02",
+        "SRC08"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Driving a Six-Horse Stagecoach in Chile and the 1850 Daguerreotype Pose",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "1850-1859, Boston daguerreotype studio and the Valparaiso-to-Santiago mountain road in Chile",
+      "layout": {
+        "description": "Sunlit mountain coach road between Valparaiso and Santiago, Chile (paired with the 1850 portrait studio composition): a wooden Concord-style stagecoach hitched to six horses on a dusty coastal mountain road.",
+        "positions": [
+          {
+            "who": "Phineas Gage",
+            "where": "Perched high on the wooden driver's box of the stagecoach (and seated upright in the portrait frame)",
+            "facing": "Facing forward down the mountain road, holding the separated leather reins of six horses in his hands with his tamping iron secured beside the seat"
+          },
+          {
+            "who": "Stagecoach passengers and stable groom",
+            "where": "Stepping into the coach door below and loading leather trunks onto the roof rack",
+            "facing": "Looking up toward Gage on the driver's box"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Six-horse leather reins and wooden Concord stagecoach",
+          "period_detail": "Heavy leather multi-rein harness attached to six porcelain carriage horses pulling a painted wooden stagecoach with iron-rimmed wheels",
+          "physical_behavior": "The leather reins snap taut in Gage's hands, the heavy wooden coach wheels roll forward kicking up golden dust, and the coach lanterns sway in rhythm"
+        },
+        {
+          "name": "Inscribed iron tamping bar",
+          "period_detail": "The smooth 3-foot-7-inch tapered iron rod held upright between Gage's knees as in his 1850 daguerreotype portrait",
+          "physical_behavior": "Gleams in the bright sunlight as Gage grips the iron bar upright against his shoulder"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Phineas Gage",
+          "verb_sequence": "Climbs onto the high wooden stagecoach box, gathers the six leather reins cleanly between his fingers, and flicks the reins to drive the six-horse team smoothly along the road"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Phineas Gage and passengers",
+          "reaction": "Gage sits tall with squared shoulders and steady hands while passengers nod and settle calmly into the rolling coach"
+        }
+      ],
+      "wardrobe": "Well-kept 1850s attire matching the Wilgus daguerreotype: tailored dark vest, crisp collar and cravat, dark trousers, and wide-brimmed Chile driver's hat, with his left eyelid closed",
+      "lighting": "Bright high-altitude Andean daylight with crisp shadows and golden road dust",
+      "recognition_hook": "Far from the textbook myth of a ruined drifter, a well-dressed Phineas Gage drives a six-horse stagecoach in Chile and poses proudly with the iron bar that pierced his skull.",
+      "sources": [
+        "SRC02",
+        "SRC09",
+        "SRC14"
+      ]
+    },
+    {
+      "id": "S5",
+      "title": "Harvard Warren Anatomical Museum Skull, Tamping Iron, and CT Connectome Mapping",
+      "iconic": false,
+      "shorts_priority": 3,
+      "era": "1868 to 2012, Warren Anatomical Museum at Harvard Medical School and modern neuroimaging lab",
+      "layout": {
+        "description": "Bright museum gallery at Harvard's Warren Anatomical Museum with a glass display case holding Gage's exhumed skull with its hinged forehead bone flap, the 1850 plaster life mask, and the 110-cm tapered iron rod on brass cradles.",
+        "positions": [
+          {
+            "who": "Neuroscientist / museum curator",
+            "where": "Standing beside the glass museum case and a sunlit examination table",
+            "facing": "Facing the mounted skull and tamping iron, aligning the rod along the left cheek-to-forehead trajectory"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Exhumed Phineas Gage skull and 110-cm tamping iron on brass stand",
+          "period_detail": "Real human skull specimen with entry defect beneath the left zygomatic arch and healed exit opening in the superior frontal bone, paired with the 3-foot-7-inch tapered iron bar",
+          "physical_behavior": "The brass turntable rotates smoothly in the light as the scientist aligns the tapered rod beside the left cheekbone entry path"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Neuroscientist figure",
+          "verb_sequence": "Lifts the tapered steel rod from its brass cradle, aligns it beside the left cheekbone of the mounted skull model, and rotates the brass stand"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Two researcher figures",
+          "reaction": "Lean forward over the glass display table, bracing their hands on the rim in quiet amazement as the left-sided trajectory lines up"
+        }
+      ],
+      "wardrobe": "Crisp museum curator / researcher attire: tailored blazer and white laboratory coat",
+      "lighting": "High-key museum gallery daylight with clean specular highlights on the glass case and brass stand",
+      "recognition_hook": "At Harvard's Warren Museum, Gage's actual skull and 3-foot-7-inch tamping iron sit side by side, allowing modern CT and connectome scans to map the exact left-frontal wiring the rod severed.",
+      "sources": [
+        "SRC04",
+        "SRC05",
+        "SRC06",
+        "SRC07"
+      ]
+    }
+  ]
+}

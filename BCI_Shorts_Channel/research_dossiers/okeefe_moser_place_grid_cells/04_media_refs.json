@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "\"When I saw the place cells, I realized this may be important.\" John O'Keefe on a breakthrough",
+      "url": "https://www.youtube.com/watch?v=AYq0UygG_qs",
+      "channel": "Nobel Prize",
+      "source_id": "SRC_M1",
+      "duration_sec": 82,
+      "timecodes": [
+        {
+          "t": "00:09-00:21",
+          "what": "Around kf_004.jpg (16.5s) (widescreen camera frame), speaker commentary notes \"I very quickly realized that if my interpretation of these cells was correct, and of course one never knows, one has to do further experiments...\", anchoring the research context of 1971 UCL & 2005 Trondheim 2-Meter Open Arena: Single-Corner 'Place Cell' Bullseye Beside the Honeycomb 'Hexagonal Grid Cell' Lattice."
+        },
+        {
+          "t": "00:29-00:43",
+          "what": "At kf_008.jpg (38.5s) (widescreen camera frame), audio continues with \"to be something much, much more simple when it was looked into it carefully, but when I saw the place cells and realized that they might be...\", detailing experimental methodology and behavioral observations for John O'Keefe & Dostrovsky's 1971 Hippocampal Place Cells + May-Britt & Edvard Moser's 2005 Entorhinal Hexagonal Grid Cells (2014 Nobel Prize)."
+        },
+        {
+          "t": "00:44-00:48",
+          "what": "Later widescreen camera frame at kf_009.jpg (44.0s) accompanied by \"and not...\", summarizing mechanism and boundary conditions in John O'Keefe & Dostrovsky's 1971 Hippocampal Place Cells + May-Britt & Edvard Moser's 2005 Entorhinal Hexagonal Grid Cells (2014 Nobel Prize)."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_okeefe_moser_place_grid_cell/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_okeefe_moser_place_grid_cell",
+        "contact_sheet": "media/M1_okeefe_moser_place_grid_cell/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1_okeefe_moser_place_grid_cell/contact_sheet.jpg (widescreen live-action camera recording (480x270, 12 frames sampled across 0.0s–60.5s)) from Nobel Prize's \"\"When I saw the place cells, I realized this may be important.\" John O'Keefe on a breakthrough\" (82s total runtime).",
+          "Deduplicated English transcript (6 timestamped cues in media/M1_okeefe_moser_place_grid_cell/transcript.txt) aligned directly to keyframe timestamps (0.0s–60.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "\"That was crazy.\" May-Britt Moser on discovering the hexagonal structure of cells in the brain",
+      "url": "https://www.youtube.com/watch?v=KoNTBy5RtO0",
+      "channel": "Nobel Prize",
+      "source_id": "SRC_M2",
+      "duration_sec": 95,
+      "timecodes": [
+        {
+          "t": "00:08-00:18",
+          "what": "Widescreen camera frame at kf_004.jpg (15.0s) paired with transcript segment \"of these HS forms a strictly hexagonal structure so very very regular almost like a coordinate system then was so\", introducing core background on 1971 UCL & 2005 Trondheim 2-Meter Open Arena: Single-Corner 'Place Cell' Bullseye Beside the Honeycomb 'Hexagonal Grid Cell' Lattice."
+        },
+        {
+          "t": "00:19-00:24",
+          "what": "Around kf_005.jpg (20.0s) (widescreen camera frame), transcript records \"like a coordinate system then was so different from what anyone had expected that we knew this would be kind of\", examining procedural mechanics and evidence in John O'Keefe & Dostrovsky's 1971 Hippocampal Place Cells + May-Britt & Edvard Moser's 2005 Entorhinal Hexagonal Grid Cells (2014 Nobel Prize)."
+        },
+        {
+          "t": "01:02-01:11",
+          "what": "At kf_014.jpg (65.0s) (widescreen camera frame), speaker remarks \"find out is there spe a specific odor and does the rat see something specific that makes this grid pattern and there's\", addressing theoretical interpretation and downstream implications of John O'Keefe & Dostrovsky's 1971 Hippocampal Place Cells + May-Britt & Edvard Moser's 2005 Entorhinal Hexagonal Grid Cells (2014 Nobel Prize)."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (480x270, 14 frames sampled across 0.0s–65.0s)) from Nobel Prize's \"\"That was crazy.\" May-Britt Moser on discovering the hexagonal structure of cells in the brain\" (95s total runtime).",
+          "Deduplicated English transcript (31 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Place cell and grid cell.png",
+      "url": "https://commons.wikimedia.org/wiki/File:Place_cell_and_grid_cell.png",
+      "channel": "Wikimedia Commons (Takuma Kitanishi & Naoki Matsuo 北西卓磨・松尾直毅)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Place cell and grid cell.png\" (500x261 px, CC BY 2.1 jp): (a) Place cell. (b) Grid cell. Documents authentic physical instrument geometry and period materials relevant to John O'Keefe & Dostrovsky's 1971 Hippocampal Place Cells + May-Britt & Edvard Moser's 2005 Entorhinal Hexagonal Grid Cells (2014 Nobel Prize)."
+        }
+      ],
+      "license_note": "Archival photo (CC BY 2.1 jp) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (500x261 px, CC BY 2.1 jp, Takuma Kitanishi & Naoki Matsuo 北西卓磨・松尾直毅) — apparatus reference: (a) Place cell. (b) Grid cell.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

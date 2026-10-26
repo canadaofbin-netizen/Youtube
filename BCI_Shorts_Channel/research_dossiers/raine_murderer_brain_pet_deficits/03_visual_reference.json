@@ -1,0 +1,203 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1997 UC Irvine PET Imaging Suite: 41 Matched Brain Scans Reveal the 'Missing Frontal Brake' — Plus the 1998 Impulsive vs Planned Twist!",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1997–1998, Brain Imaging Center, University of California, Irvine",
+      "layout": {
+        "description": "Sunlit high-key 1997 university neuroimaging viewing gallery featuring a sleek circular **medical PET scanner gantry** in the background and a bright **4-Panel Lightbox Display** comparing **Healthy Control (Warm Active Frontal Pole)** vs **Impulsive Offender (Dim Frontal Brake)** vs **Planned Offender (Normal Frontal Activity!)** vs **Non-Violent Professor With Safe Childhood (Buffered Outcome!)**.",
+        "positions": [
+          {
+            "who": "Adrian Raine (mannequin in 1997 British-academic tailored suit and tie)",
+            "where": "standing at the illuminated 4-panel PET lightbox pointing from the dimmed frontal lobe of the Impulsive subgroup across to the intact Planned subgroup and the Biosocial Protection chart",
+            "facing": "at illuminated neuroimaging lightbox"
+          },
+          {
+            "who": "Monte Buchsbaum & Neuroimaging Fellow mannequins (in crisp white clinical lab coats)",
+            "where": "comparing the 41-vs-41 matched Continuous Performance Task data sheets with clean museum-grade scientific rigor",
+            "facing": "beside PET console desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Planned Normal-PFC | Safe-Home Buffer)",
+          "period_detail": "tells BOTH the famous 1997 finding AND the essential 1998 anti-determinism twist in one clean frame",
+          "physical_behavior": "prevents sensationalist misreading"
+        },
+        {
+          "name": "41-vs-41 Matched FDG-PET & Biosocial Interaction Stand",
+          "period_detail": "shows biology × childhood environment interaction clearly",
+          "physical_behavior": "anchors Raine 1997, 1998 & Gatzke-Kopp 2001"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Adrian Raine",
+          "verb_sequence": "places the 41-vs-41 matched PET axial maps onto the bright lightbox -> highlights dimmed prefrontal braking in the Impulsive group -> places the 1998 Planned (Normal-PFC) and Safe-Childhood Professor scans right beside it to shatter 'born criminal' determinism!"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Neuroimaging Fellow mannequin",
+          "reaction": "leans in stunned that Planned offenders had normal frontal fuel AND peaceful professors carried similar scans"
+        },
+        {
+          "who": "Adrian Raine",
+          "reaction": "underscores: 'Vulnerability is NOT destiny — childhood care changes the ending!'"
+        }
+      ],
+      "wardrobe": "1997 California medical-research attire: tailored charcoal suit and tie; crisp white laboratory coats over collared shirts.",
+      "lighting": "Clean high-key clinical gallery daylight balanced with crisp illuminated viewing panels.",
+      "recognition_hook": "In 1997, PET scans of 41 homicide defendants revealed dimmed prefrontal brakes — then one year later, splitting Impulsive from Planned offenders AND scanning two peaceful professors blew 'born bad' myths wide open!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a sunlit 1997 UC Irvine neuroimaging gallery where Adrian Raine stands at a 4-panel PET brain-scan lightbox comparing Control, Impulsive low-frontal, and Planned normal-frontal scans before clinical researchers",
+        "must_show": [
+          "lightbox|scans|panels",
+          "scanner|console",
+          "chart|researchers"
+        ],
+        "source": "M1@00:12-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "1998 Subgroup Fork: Hot Impulsive Rage vs Intact Executive Planning",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1998, UC Irvine data seminar room (Raine et al. SRC2)",
+      "layout": {
+        "description": "Bright seminar gallery with two translucent 3D brain models contrasting Affective/Impulsive (low PFC + hot amygdala) vs Predatory/Planned (intact PFC + high subcortical drive).",
+        "positions": [
+          {
+            "who": "Raine & Co-investigator mannequins",
+            "where": "demonstrating why executive planning requires intact prefrontal glucose",
+            "facing": "beside paired 3D brain models"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Affective vs Predatory Subgroup Chart (1998)",
+          "period_detail": "explains heterogeneity hidden inside group averages",
+          "physical_behavior": "Raine et al. 1998 SRC2"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Raine",
+          "verb_sequence": "splits the 41-scan average into two distinct neural profiles"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researchers",
+          "reaction": "confirm there is NO single 'offender brain'"
+        }
+      ],
+      "wardrobe": "Late-1990s blazers and collared shirts.",
+      "lighting": "Bright gallery daylight.",
+      "recognition_hook": "Average 41 scans together and you miss half the story — separate hot-tempered impulse from cold planning and frontal metabolism splits down the middle!",
+      "sources": [
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "The Professor's Own Scan: How Warm Childhood Homes Defeat Biological Risk",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2005–2013, UC Irvine neuroanatomy office (Fallon & Raine)",
+      "layout": {
+        "description": "Sunlit professor's study pairing a low-orbital-prefrontal scan with a 'Warm Non-Violent Childhood = Protected Trajectory' chart.",
+        "positions": [
+          {
+            "who": "Two Professor mannequins",
+            "where": "unmasking a blinded low-frontal scan only to laugh in amazement when it belongs to a peaceful scientist raised in a supportive family!",
+            "facing": "at sunlit faculty desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Biosocial 2×2 Matrix ('Biological Risk × Childhood Abuse vs Safe Loving Home')",
+          "period_detail": "viscerally refutes genetic/neural fatalism",
+          "physical_behavior": "biosocial neurolaw milestone"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Professor",
+          "verb_sequence": "peels name tape off blinded scan -> sees own name -> credits safe childhood environment"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Both professors",
+          "reaction": "humble awe at environmental resilience"
+        }
+      ],
+      "wardrobe": "Academic tweed blazer and open-collar shirt.",
+      "lighting": "Warm sunny office light.",
+      "recognition_hook": "When two UC Irvine neuroscientists peeled the name tape off textbook 'low-frontal risk scans' and saw their OWN names, 'biology equals destiny' died on the spot!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Public Health Payoff: Protecting Developing Frontal Lobes Early",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit pediatric & community wellness center",
+      "layout": {
+        "description": "Bright welcoming room highlighting bike helmets, clean lead-free water, omega-3 brain nutrition, and calm supportive parenting.",
+        "positions": [
+          {
+            "who": "Pediatrician & Parent/Child mannequins",
+            "where": "building strong frontal executive health through nutrition, concussion protection, and warm guidance",
+            "facing": "in sunlit clinic room"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "4 Frontal-Protection Pillars Card (Lead-Free Water | Helmets | Nutrition | Safe Parenting)",
+          "period_detail": "turns neurocriminology into compassionate prevention",
+          "physical_behavior": "Raine's public-health mission"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Parent & Clinician",
+          "verb_sequence": "fit child's cycling helmet and review healthy nutrition & calm coaching"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Family",
+          "reaction": "safe, thriving confidence"
+        }
+      ],
+      "wardrobe": "Modern casual wear and clean clinical jacket.",
+      "lighting": "Warm morning sunlight.",
+      "recognition_hook": "Because frontal brakes grow across twenty-five years of childhood and youth, clean water, helmets, nutrition, and loving homes are powerhouse brain protection!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

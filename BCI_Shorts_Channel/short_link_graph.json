@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-10-26T02:30:40.317429+00:00",
+  "mode": "seed_boost",
+  "node_count": 5,
+  "edge_count": 5,
+  "two_cycle_count": 0,
+  "two_cycles": [],
+  "nodes": [
+    {
+      "project_id": "psych_01_habit_loop_basal_ganglia",
+      "video_id": "p4ou90cHt50",
+      "title": "Why Deep Brain Loops Lock Habits on Autopilot",
+      "pillar": "brain_health",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "public",
+      "views": 1563,
+      "impressions": 1690,
+      "apv_pct": 63.2,
+      "regions": [
+        "hippocampus",
+        "basal ganglia",
+        "motor cortex",
+        "prefrontal cortex"
+      ]
+    },
+    {
+      "project_id": "psych_02_inner_speech_decoding",
+      "video_id": "p0etX4iMJ7Q",
+      "title": "How a Brain Implant Decodes 62 Words Per Minute",
+      "pillar": "bci_tech",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "public",
+      "views": 15,
+      "impressions": 1,
+      "apv_pct": 51.8,
+      "regions": [
+        "brainstem",
+        "premotor cortex",
+        "motor cortex",
+        "Broca's area"
+      ]
+    },
+    {
+      "project_id": "psych_03_split_brain_dual_consciousness",
+      "video_id": "nGNIl26te0w",
+      "title": "Two Conscious Minds Inside One Human Skull",
+      "pillar": "brain_mysteries",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "public",
+      "views": 211,
+      "impressions": 830,
+      "apv_pct": 59.4,
+      "regions": [
+        "corpus callosum",
+        "primary visual cortex",
+        "Broca's area",
+        "motor cortex",
+        "retina",
+        "optic nerve",
+        "white matter"
+      ]
+    },
+    {
+      "project_id": "psych_05_capgras_imposter_delusion",
+      "video_id": "lZv3_UAWScI",
+      "title": "When You Believe Your Family Are Imposters",
+      "pillar": "brain_mysteries",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "public",
+      "views": 7,
+      "impressions": 10,
+      "apv_pct": 94.7,
+      "regions": [
+        "fusiform face area",
+        "amygdala",
+        "auditory cortex",
+        "prefrontal cortex",
+        "retina",
+        "white matter",
+        "optic nerve",
+        "primary visual cortex",
+        "temporal lobe"
+      ]
+    },
+    {
+      "project_id": "psych_06_glymphatic_sleep_toxins",
+      "video_id": "31_O2CmlKOk",
+      "title": "What One Sleepless Night Does to Your Brain",
+      "pillar": "brain_health",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "public",
+      "views": 1983,
+      "impressions": 2304,
+      "apv_pct": 90.3,
+      "regions": [
+        "prefrontal cortex",
+        "thalamus",
+        "hippocampus"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source_project_id": "psych_01_habit_loop_basal_ganglia",
+      "source_video_id": "p4ou90cHt50",
+      "source_title": "Why Deep Brain Loops Lock Habits on Autopilot",
+      "source_pillar": "brain_health",
+      "source_visual_mode": "NEURO_BIOLOGY",
+      "source_visibility": "public",
+      "source_views": 1563,
+      "source_impressions": 1690,
+      "target_type": "short",
+      "target_project_id": "psych_02_inner_speech_decoding",
+      "target_video_id": "p0etX4iMJ7Q",
+      "target_title": "How a Brain Implant Decodes 62 Words Per Minute",
+      "affinity_score": 0.4368,
+      "affinity_breakdown": {
+        "total": 0.4368,
+        "anatomy": 0.3929,
+        "pillar_mode": 0.45,
+        "lexical": 0.0857,
+        "retention_seed": 1.0,
+        "behavioral_reweighted": false
+      },
+      "link_reason": "seed_rescue_anchor_to_starved",
+      "playlist_title": "Brain Health & Optimization | Sleep, Glymphatic Flush & Dopamine",
+      "existing_playlist_verified": true,
+      "action": "already_linked"
+    },
+    {
+      "source_project_id": "psych_02_inner_speech_decoding",
+      "source_video_id": "p0etX4iMJ7Q",
+      "source_title": "How a Brain Implant Decodes 62 Words Per Minute",
+      "source_pillar": "bci_tech",
+      "source_visual_mode": "NEURO_BIOLOGY",
+      "source_visibility": "public",
+      "source_views": 15,
+      "source_impressions": 1,
+      "target_type": "short",
+      "target_project_id": "psych_06_glymphatic_sleep_toxins",
+      "target_video_id": "31_O2CmlKOk",
+      "target_title": "What One Sleepless Night Does to Your Brain",
+      "affinity_score": 0.2816,
+      "affinity_breakdown": {
+        "total": 0.2816,
+        "anatomy": 0.0,
+        "pillar_mode": 0.45,
+        "lexical": 0.0957,
+        "retention_seed": 1.0,
+        "behavioral_reweighted": false
+      },
+      "link_reason": "binge_loop_closure",
+      "playlist_title": "BCI Tech Explained | Neural Interfaces & Mind Decoding",
+      "existing_playlist_verified": true,
+      "action": "already_linked"
+    },
+    {
+      "source_project_id": "psych_03_split_brain_dual_consciousness",
+      "source_video_id": "nGNIl26te0w",
+      "source_title": "Two Conscious Minds Inside One Human Skull",
+      "source_pillar": "brain_mysteries",
+      "source_visual_mode": "NEURO_BIOLOGY",
+      "source_visibility": "public",
+      "source_views": 211,
+      "source_impressions": 830,
+      "target_type": "short",
+      "target_project_id": "psych_05_capgras_imposter_delusion",
+      "target_video_id": "lZv3_UAWScI",
+      "target_title": "When You Believe Your Family Are Imposters",
+      "affinity_score": 0.6515,
+      "affinity_breakdown": {
+        "total": 0.6515,
+        "anatomy": 0.5833,
+        "pillar_mode": 1.0,
+        "lexical": 0.166,
+        "retention_seed": 0.9,
+        "behavioral_reweighted": false
+      },
+      "link_reason": "same_pillar_seed_handoff",
+      "playlist_title": "Brain Mysteries & Paradoxes | Consciousness & Perception",
+      "existing_playlist_verified": true,
+      "action": "already_linked"
+    },
+    {
+      "source_project_id": "psych_05_capgras_imposter_delusion",
+      "source_video_id": "lZv3_UAWScI",
+      "source_title": "When You Believe Your Family Are Imposters",
+      "source_pillar": "brain_mysteries",
+      "source_visual_mode": "NEURO_BIOLOGY",
+      "source_visibility": "public",
+      "source_views": 7,
+      "source_impressions": 10,
+      "target_type": "short",
+      "target_project_id": "psych_01_habit_loop_basal_ganglia",
+      "target_video_id": "p4ou90cHt50",
+      "target_title": "Why Deep Brain Loops Lock Habits on Autopilot",
+      "affinity_score": 0.4105,
+      "affinity_breakdown": {
+        "total": 0.4105,
+        "anatomy": 0.3333,
+        "pillar_mode": 0.45,
+        "lexical": 0.088,
+        "retention_seed": 0.9802,
+        "behavioral_reweighted": false
+      },
+      "link_reason": "anchor_handoff",
+      "playlist_title": "Brain Mysteries & Paradoxes | Consciousness & Perception",
+      "existing_playlist_verified": true,
+      "action": "already_linked"
+    },
+    {
+      "source_project_id": "psych_06_glymphatic_sleep_toxins",
+      "source_video_id": "31_O2CmlKOk",
+      "source_title": "What One Sleepless Night Does to Your Brain",
+      "source_pillar": "brain_health",
+      "source_visual_mode": "NEURO_BIOLOGY",
+      "source_visibility": "public",
+      "source_views": 1983,
+      "source_impressions": 2304,
+      "target_type": "short",
+      "target_project_id": "psych_05_capgras_imposter_delusion",
+      "target_video_id": "lZv3_UAWScI",
+      "target_title": "When You Believe Your Family Are Imposters",
+      "affinity_score": 0.4338,
+      "affinity_breakdown": {
+        "total": 0.4338,
+        "anatomy": 0.3409,
+        "pillar_mode": 0.45,
+        "lexical": 0.1747,
+        "retention_seed": 1.0,
+        "behavioral_reweighted": false
+      },
+      "link_reason": "seed_rescue_anchor_to_starved",
+      "playlist_title": "Brain Health & Optimization | Sleep, Glymphatic Flush & Dopamine",
+      "existing_playlist_verified": true,
+      "action": "already_linked"
+    }
+  ],
+  "execution_results": [
+    {
+      "project_id": "psych_01_habit_loop_basal_ganglia",
+      "source_video_id": "p4ou90cHt50",
+      "target_video_id": "p0etX4iMJ7Q",
+      "playlist_verified": true,
+      "status": "already_linked",
+      "verified": true
+    },
+    {
+      "project_id": "psych_02_inner_speech_decoding",
+      "source_video_id": "p0etX4iMJ7Q",
+      "target_video_id": "31_O2CmlKOk",
+      "playlist_verified": true,
+      "status": "already_linked",
+      "verified": true
+    },
+    {
+      "project_id": "psych_03_split_brain_dual_consciousness",
+      "source_video_id": "nGNIl26te0w",
+      "target_video_id": "lZv3_UAWScI",
+      "playlist_verified": true,
+      "status": "already_linked",
+      "verified": true
+    },
+    {
+      "project_id": "psych_05_capgras_imposter_delusion",
+      "source_video_id": "lZv3_UAWScI",
+      "target_video_id": "p4ou90cHt50",
+      "playlist_verified": true,
+      "status": "already_linked",
+      "verified": true
+    },
+    {
+      "project_id": "psych_06_glymphatic_sleep_toxins",
+      "source_video_id": "31_O2CmlKOk",
+      "target_video_id": "lZv3_UAWScI",
+      "playlist_verified": true,
+      "status": "already_linked",
+      "verified": true
+    }
+  ],
+  "verified_count": 5
+}

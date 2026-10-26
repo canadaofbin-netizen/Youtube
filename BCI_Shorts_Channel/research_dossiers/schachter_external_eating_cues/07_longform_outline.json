@@ -1,0 +1,99 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Real time: 5:35 PM. Wall dial: 6:05 PM. How Stanley Schachter (1968 Science) proved external time and sightlines nearly double snacking right past a full stomach.",
+    "core_experiment": "Schachter (1968 Science): roast-beef preload + Schachter & Gross 0.5x/2x wall dial (19.3g vs 37.1g) + Ross bright-lamp cashews.",
+    "twist": "Hypothalamus/insula satiety vs prefrontal cue override, Polivy & Herman's Restraint update, Wansink retraction audit, and opaque-cupboard design."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Columbia 1968: Taking Off Your Watch Before the Wall Lies",
+      "beats": [
+        "5:35 PM real time split into fake 5:20 vs fake 6:05",
+        "37.1g vs 19.3g crackers — and why internal regulators ate LESS at 6:05."
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "5:20 vs 6:05 smooth wall dials & cracker boxes"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Roast-Beef Sandwiches & Spotlighted Cashews",
+      "beats": [
+        "Eating MORE crackers right after roast beef.",
+        "Shining a 40W lamp on cashews more than doubles snacking"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "spotlighted vs shaded cashew tins"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Brain & Modern Audit: Interoception, Dieting & Retraction Hygiene",
+      "beats": [
+        "Hypothalamus/insula fullness vs prefrontal 'dinner time' override",
+        "Polivy & Herman's chronic-dieting insight + separating solid science from Wansink's 2018 retractions"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "3D brain & replicated-science audit card"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Why Staring at Desk Snacks Drains Willpower Dry",
+      "beats": [
+        "Visual salience triggers automatic motor reaching",
+        "The 12:00 PM screen-time fake-hunger reflex"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "desk snack friction check"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "The 60-Second Sightline Reset at Home",
+      "beats": [
+        "Opaque cabinets for treats, bright bowls for real food",
+        "Checking physical stomach hunger before the wall decides"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "sunlit kitchen opaque cabinet & fruit bowl"
+      ]
+    }
+  ]
+}

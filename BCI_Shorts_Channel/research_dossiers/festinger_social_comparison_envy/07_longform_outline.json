@@ -1,0 +1,100 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Why 3rd-place Bronze winners smile wider than 2nd-place Silver winners — and how Leon Festinger's 1954 Social Comparison Theory explains modern envy.",
+    "core_experiment": "Festinger (1954 Human Relations, 9 hypotheses): fuzzy objective rulers to close-peer comparison + upward ability drive + 1995 Olympic 7.1 vs 4.8 proof.",
+    "twist": "Why distant billionaires don't sting while close classmates do, 150 villagers vs 10,000 highlight reels, and Lyubomirsky's Temporal Comparison cure."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Olympic Podium Paradox: Bronze (7.1) Beats Silver (4.8).",
+      "beats": [
+        "Silver looks UP one step at Gold ('I lost!'); Bronze looks DOWN at 4th ('I made the podium!')",
+        "Festinger's 1954 Hypothesis I & II: when objective rulers vanish"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "3-tier podium & 7.1 vs 4.8 chart"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Why Your Neighbor Stings & Federer Doesn't (Hypothesis III)",
+      "beats": [
+        "Similarity closeness & the unidirectional upward treadmill",
+        "Why 50% chose $50k over $100k just to outrank neighbors."
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "Similarity Bell-Curve plaque"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "150-Person Village Brain vs 10,000 Algorithmic Highlight Reels",
+      "beats": [
+        "How curated feeds hack Festinger's 1954 gauge",
+        "Turning Contrast envy into Assimilation learning blueprints"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "150 Lives vs 10,000 Highlights board"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "What Chronically Happy Brains Do Differently (Lyubomirsky)",
+      "beats": [
+        "Ignoring sideways peer noise during lab puzzles",
+        "Albert's Temporal Self-Comparison ('Me vs Past Me')"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "6-Month Personal Progress chart"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Two Switches for Everyday Peace & Drive",
+      "beats": [
+        "Bronze-Medalist gratitude check",
+        "Tracking your own 6-month trajectory"
+      ],
+      "scene_ids": [
+        "S4",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "rising personal timeline"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Bernard Baars demonstrating the Global Workspace blackboard/stage diagram beside a binocular-rivalry stereoscope",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1988-2005, San Diego cognitive neuroscience seminar laboratory",
+      "layout": {
+        "description": "Sunlit academic neuroscience room featuring a brass-and-optical table stereoscope feeding a 'House' card to the left eye and 'Face' card to the right eye, alongside a large crisp architectural diagram of the 'Global Workspace' showing one bright central bulletin board connected by clean lines to 'Language', 'Episodic Memory', 'Motor', and 'Visual' desks.",
+        "positions": [
+          {
+            "who": "Observer mannequin (in collared shirt)",
+            "where": "peering into the twin-lens tabletop stereoscope pressing left button for '100% House' then right button for '100% Face' — never both mixed",
+            "facing": "at the stereoscope table"
+          },
+          {
+            "who": "Bernard Baars (mannequin in blazer and glasses)",
+            "where": "standing beside the Global Workspace schematic pointing to the single central broadcast hub linking isolated specialist desks",
+            "facing": "facing the table and board"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "tabletop twin-card binocular rivalry stereoscope",
+          "period_detail": "optical divider presenting a crisp line-drawn House to the left eye and a Face to the right eye simultaneously",
+          "physical_behavior": "proves both retinas get input continuously while conscious broadcast allows only ONE winner on stage"
+        },
+        {
+          "name": "Global Workspace architectural board",
+          "period_detail": "clean museum-grade schematic showing one central 'Broadcast Stage' radiating clean lines to silent specialist modules",
+          "physical_behavior": "illustrates why serial bottleneck buys parallel teamwork"
+        },
+        {
+          "name": "alternating winner-take-all toggle strip",
+          "period_detail": "chart showing clean square-wave flips between 'FACE ONLY' and 'HOUSE ONLY'",
+          "physical_behavior": "demonstrates conscious exclusivity"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Observer mannequin",
+          "verb_sequence": "looks through the stereoscope at both cards simultaneously -> presses 'Face' key -> three seconds later switches cleanly to 'House' key as the conscious winner flips"
+        },
+        {
+          "who": "Bernard Baars",
+          "verb_sequence": "traces the winning 'Face' card jumping from isolated visual input onto the central Global Broadcast board"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Observer mannequin",
+          "reaction": "steps back amazed that two wide-open eyes still yield only one conscious scene at a time"
+        },
+        {
+          "who": "Bernard Baars",
+          "reaction": "points out how one shared microphone lets forty silent brain systems collaborate on novel problems"
+        }
+      ],
+      "wardrobe": "Clean academic attire: tailored navy blazer over light blue shirt on Baars; knit sweater and slacks on observer.",
+      "lighting": "High-key California laboratory daylight.",
+      "recognition_hook": "Show a house to your left eye and a face to your right eye at once — both eyes fire nonstop, yet only ONE winner gets the brain's global loudspeaker at a time.",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a cognitive neuroscientist beside a 'Global Workspace' broadcast diagram while a participant looks into a two-card 'House vs Face' tabletop stereoscope",
+        "must_show": [
+          "stereoscope|viewer|cards",
+          "diagram|board",
+          "table"
+        ],
+        "source": "M1@61:20-61:35; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "AI 'Blackboard' inspiration: six silent specialists reading one shared board",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1988, cognitive science seminar room",
+      "layout": {
+        "description": "Bright round seminar room where six specialist mannequins (labeled 'Syntax', 'Memory', 'Motor', 'Vision') sit silently at separate desks until ONE problem card is posted on the central whiteboard.",
+        "positions": [
+          {
+            "who": "Six Specialist mannequins",
+            "where": "looking up simultaneously the instant one card is pinned on the center whiteboard, raising one matching solution card",
+            "facing": "facing center board"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "central shared 'WANTED: Word Starting With A...' card",
+          "period_detail": "models tip-of-the-tongue broadcast",
+          "physical_behavior": "one unconscious specialist desk holds up 'ARCHIMEDES'"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Moderator",
+          "verb_sequence": "pins 'Greek bathtub Eureka scientist?' on center board -> Memory desk raises 'Archimedes!' card"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Room",
+          "reaction": "solves together what no isolated desk could solve alone"
+        }
+      ],
+      "wardrobe": "Clean smart-casual shirts and blazers.",
+      "lighting": "Bright seminar daylight.",
+      "recognition_hook": "Like engineers sharing one central whiteboard, consciousness broadcasts a question to modules you don't even know you have.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Podcast + Email collision on the single serial stage",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern desk",
+      "layout": {
+        "description": "Sunlit desk where a worker wearing headphones tries typing an email while a spoken podcast plays — then rewinds the podcast realizing zero words registered for two minutes.",
+        "positions": [
+          {
+            "who": "Worker mannequin",
+            "where": "pausing headphones with a rueful smile after missing the entire spoken paragraph while writing",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "rewound audio progress bar",
+          "period_detail": "visual proof that only one verbal coalition held the workspace",
+          "physical_behavior": "debunks verbal multitasking"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Worker mannequin",
+          "verb_sequence": "types three sentences -> realizes podcast vanished from awareness -> hits pause to finish writing cleanly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Worker mannequin",
+          "reaction": "respects the single-microphone rule"
+        }
+      ],
+      "wardrobe": "Modern knit sweater.",
+      "lighting": "Bright window light.",
+      "recognition_hook": "Two voices grabbing one PA microphone at once just make static — your Global Workspace only broadcasts one.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Posting one clear problem before a quiet walk lets the auditorium answer",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit study & courtyard",
+      "layout": {
+        "description": "Clean desk where an engineer writes ONE crisp bottleneck question on an index card, steps outside into sunlit air, and has the solution click into place.",
+        "positions": [
+          {
+            "who": "Engineer mannequin",
+            "where": "writing one clear question card, then pausing mid-stroll with a sudden flash of clarity",
+            "facing": "courtyard"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "single-question index card",
+          "period_detail": "loads a crisp query onto the workspace before stepping back",
+          "physical_behavior": "harnesses parallel unconscious specialists"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Engineer mannequin",
+          "verb_sequence": "defines the exact puzzle clearly -> steps away from screen clutter -> jots down the insight that surfaces"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Engineer mannequin",
+          "reaction": "nods gratefully as background modules deliver"
+        }
+      ],
+      "wardrobe": "Modern casual overshirt.",
+      "lighting": "Warm courtyard sunlight.",
+      "recognition_hook": "Load one crystal-clear question onto your conscious stage, then stop crowding the microphone so your unconscious experts can answer.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

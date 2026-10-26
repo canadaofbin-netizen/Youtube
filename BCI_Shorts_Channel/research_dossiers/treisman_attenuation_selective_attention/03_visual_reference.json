@@ -1,0 +1,217 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1964 Oxford Dichotic Console: Mid-Sentence Story Swap Pulling the Listener's Voice Across Headphone Ears + Dimmer-Knob Threshold Board",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1964, Institute of Experimental Psychology, University of Oxford",
+      "layout": {
+        "description": "Sunlit high-key 1964 Oxford psychology laboratory featuring a clean brushed-aluminum **dual-channel studio audio console** wired to **padded over-ear headphones**, a glowing **Attenuator Rotary Dimmer Dial** contrast plaque ('Broadbent ON/OFF Switch [Wrong] vs Treisman Dimmer Knob: 86.5% Attended / 8.7% Attenuated'), and a split sentence-swap card showing **Right Ear: 'SITTING AT A MAHOGANY -> [random words]'** crossing diagonally into **Left Ear: '-> TABLE WITH HER HEAD!'**.",
+        "positions": [
+          {
+            "who": "Anne Treisman (mannequin in 1964 tailored Oxford cardigan twinset and skirt)",
+            "where": "seated at the dual-channel studio audio console flipping the silent mid-sentence crossover switch while tracking the listener's spoken words on her transcript sheet",
+            "facing": "at studio audio console"
+          },
+          {
+            "who": "Oxford Student Listener mannequin (wearing padded over-ear headphones in 1964 V-neck sweater)",
+            "where": "shadowing the Right Ear briskly aloud — accidentally blurting out **'TABLE!'** from the ignored Left Ear right at the crossover, then blinking in amused surprise!",
+            "facing": "seated at microphone desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "dual-channel studio audio console & padded headphones",
+          "period_detail": "reconstructs Treisman's dichotic crossover",
+          "physical_behavior": "authentic 1964 Oxford setup"
+        },
+        {
+          "name": "Diagonal Sentence-Crossover Card ('Right Ear: MAHOGANY \\ Left Ear: TABLE!')",
+          "period_detail": "demonstrates the semantic ear-jump",
+          "physical_behavior": "Treisman's famous 1960/1964 proof"
+        },
+        {
+          "name": "Dictionary Threshold Bar Chart ('Random Word: High Bar | Primed Word & [OWN NAME]: Hair-Trigger Low Bar!')",
+          "period_detail": "shows how a small 10% attenuated signal clears a low bar while missing a high bar",
+          "physical_behavior": "explains the Cocktail Party own-name effect"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Anne Treisman",
+          "verb_sequence": "flips the silent channel-crossover switch mid-sentence -> Listener's mouth automatically follows the meaningful sentence onto the 'ignored' Left Ear for two words before snapping back to the Right Ear"
+        },
+        {
+          "who": "Anne Treisman",
+          "verb_sequence": "points on the Threshold Bar Chart showing why attenuated signals clear low-threshold '[Own Name]' and primed words (86.5% vs 8.7%)"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Listener mannequin",
+          "reaction": "laughs realizing their own mouth proved the 'ignored' ear wasn't 100% off!"
+        },
+        {
+          "who": "Anne Treisman",
+          "reaction": "smiles reconciling Early vs Late Selection in one stroke"
+        }
+      ],
+      "wardrobe": "1964 British Oxford academic style: classic knit cardigan twinset and pleated skirt; collegiate V-neck jumper over Oxford shirt.",
+      "lighting": "Warm, bright high-key Oxford window daylight.",
+      "recognition_hook": "Swap the story into the 'ignored' headphone cup mid-sentence, and the listener's own mouth blurts out the jumped word before they even realize it!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1964 Oxford lab with a researcher at a dual-channel studio audio console and a diagonal sentence-crossover chart as a listener in padded headphones blurts out the jumped word",
+        "must_show": [
+          "headphones",
+          "console|chart|board",
+          "desk|microphone"
+        ],
+        "source": "M1@00:15-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "1964 Bilingual Proof: Hearing the Same Meaning Across English & French!",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1964, Oxford bilingual session",
+      "layout": {
+        "description": "Bright testing booth where an English-French bilingual shadows English in the Right Ear while French plays softly offset in the Left Ear.",
+        "positions": [
+          {
+            "who": "Bilingual listener mannequin",
+            "where": "raising a hand smiling: 'Wait — the French speaker in my left ear is translating the exact same story!'",
+            "facing": "at headphone desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "English Right / French Left parallel script card",
+          "period_detail": "proves attenuated input reaches deep conceptual meaning, not just English word sounds",
+          "physical_behavior": "Treisman 1964 JVLVB landmark"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Treisman",
+          "verb_sequence": "offsets French translation slightly in Left Ear -> Bilingual spots the shared story meaning"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Treisman",
+          "reaction": "logs cross-language semantic priming"
+        }
+      ],
+      "wardrobe": "1964 blazer and sweater.",
+      "lighting": "Clean high-key daylight.",
+      "recognition_hook": "Strangers miss foreign German completely — yet play a French translation of the SAME story to a bilingual, and primed concepts recognize their twin!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "1967 Ruler-Tap Showdown: 86.5% vs 8.7% Settles the Filter War",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1967, Oxford laboratory (Treisman & Geffen)",
+      "layout": {
+        "description": "Clean table where a shadowing listener holds a wooden ruler to tap the desk whenever a target word occurs in EITHER ear.",
+        "positions": [
+          {
+            "who": "Listener mannequin",
+            "where": "tapping crisply 86.5% of the time for Right-Ear targets vs only 8.7% for Left-Ear targets",
+            "facing": "at desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "86.5% Attended vs 8.7% Unattended bar plaque & wooden tap ruler",
+          "period_detail": "contrasts early-filter and late-selection predictions",
+          "physical_behavior": "Treisman & Geffen 1967"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Listener",
+          "verb_sequence": "taps reliably on attended targets while missing 9 out of 10 ordinary unattended targets"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researchers",
+          "reaction": "confirm the Dimmer-Knob middle ground"
+        }
+      ],
+      "wardrobe": "Late-1960s collared shirts.",
+      "lighting": "Bright daylight.",
+      "recognition_hook": "Not zero percent and not a hundred percent — 86.5% vs 8.7% proved human attention is a biological dimmer switch!",
+      "sources": [
+        "SRC3"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "The 'Name-First' Rule in Cockpits, Operating Rooms & Home",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern hospital surgical / aviation communication room",
+      "layout": {
+        "description": "Sunlit modern clinical station where a nurse says 'Dr. Patel — [half-second pause as head turns] — potassium is 3.1' instead of blurting numbers first.",
+        "positions": [
+          {
+            "who": "Nurse / communicator mannequin",
+            "where": "speaking the doctor's name first to trip the low-threshold alarm",
+            "facing": "beside station"
+          },
+          {
+            "who": "Doctor mannequin",
+            "where": "turning full 100% attention immediately BEFORE the critical number is spoken",
+            "facing": "at chart desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Name -> Pause -> Data communication card",
+          "period_detail": "harnesses Treisman's low-threshold own-name trigger to prevent missed medical/cockpit numbers",
+          "physical_behavior": "life-saving real-world application"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Communicator",
+          "verb_sequence": "says Name first -> waits 0.5s for eye contact -> delivers number at 100% gain"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Both",
+          "reaction": "zero missed numbers under busy workload"
+        }
+      ],
+      "wardrobe": "Crisp modern clinical attire.",
+      "lighting": "Clean bright clinical light.",
+      "recognition_hook": "Never start an urgent sentence with the number — start with their NAME so Treisman's hair-trigger switch turns their dimmer knob up to 100%!",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

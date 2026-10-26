@@ -1,0 +1,29 @@
+{
+  "visual_mode": "HYBRID",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "primary visual cortex",
+      "plain": "high-capacity 300-ms V1 persistence (9.1 / 12 letters)",
+      "function": "holding crisp neural persistence of nearly all 12 flashed consonants across V1 for ~300 milliseconds after the physical light turns off",
+      "scene_id": "S1",
+      "narration_bridge": "Explains why any randomly cued row is still readable at 0-ms delay."
+    },
+    {
+      "role": "pivot",
+      "region": "auditory cortex",
+      "plain": "High / Mid / Low post-flash tone cue",
+      "function": "decoding the 2500-Hz, 650-Hz, or 250-Hz audio tone rapidly to steer spatial attention toward Top, Middle, or Bottom row before V1 fades",
+      "scene_id": "S1",
+      "narration_bridge": "Captures Sperling's ingenious post-stimulus sampling cue."
+    },
+    {
+      "role": "step1",
+      "region": "dorsolateral prefrontal cortex",
+      "plain": "4-item working-memory readout gate",
+      "function": "copying the cued 4-letter row safely into durable conscious working memory before the remaining uncued V1 letters vanish at 500 ms",
+      "scene_id": "S1",
+      "narration_bridge": "Explains both the 4.5-item Whole-Report ceiling and Partial-Report rescue."
+    }
+  ]
+}

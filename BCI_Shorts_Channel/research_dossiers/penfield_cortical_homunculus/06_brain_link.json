@@ -1,0 +1,29 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "somatosensory cortex",
+      "plain": "giant-hand & giant-lip touch map (postcentral S1)",
+      "function": "producing crisp thumb and lip tingles proportional to receptor density rather than physical limb size",
+      "scene_id": "S1",
+      "narration_bridge": "Captures Penfield & Boldrey's 1937 postcentral sensory ticket map."
+    },
+    {
+      "role": "pivot",
+      "region": "motor cortex",
+      "plain": "numbered precentral M1 strip + interleaved SCAN hubs",
+      "function": "triggering involuntary finger and mouth movements from gentle 2-mA pulses while interleaving three whole-body mind-body action nodes (2023 update)",
+      "scene_id": "S1",
+      "narration_bridge": "Unites Penfield (1937) with Gordon et al. (2023 Nature)."
+    },
+    {
+      "role": "step1",
+      "region": "prefrontal cortex",
+      "plain": "goal-to-action SCAN integration",
+      "function": "feeding conscious action plans into M1's SCAN nodes while preserving the patient's clear awareness ('You moved my hand, I didn't!')",
+      "scene_id": "S2",
+      "narration_bridge": "Explains both voluntary agency vs M1 twitch and 2023 mind-body planning."
+    }
+  ]
+}

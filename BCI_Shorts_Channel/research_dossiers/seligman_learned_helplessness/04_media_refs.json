@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "lecture",
+      "title": "The new era of positive psychology | Martin Seligman",
+      "url": "https://www.youtube.com/watch?v=9FBxfd7DL3E",
+      "channel": "TED",
+      "source_id": "SRC_M1",
+      "duration_sec": 1422,
+      "timecodes": [
+        {
+          "t": "00:00-00:04",
+          "what": "Non-vocal widescreen camera frame at kf_001.jpg (2.0s) in TED's \"The new era of positive psychology | Martin Seligman\", visually recording timing and visual layout relevant to two-compartment shuttle box with low center hurdle where the Escapable dog hops cleanly across while the Yoked case lies still."
+        },
+        {
+          "t": "00:09-00:11",
+          "what": "Visual-only 4:3 camera frame at kf_007.jpg (11.9s) in \"The new era of positive psychology | Martin Seligman\", capturing movement progression and frame composition without spoken English commentary."
+        },
+        {
+          "t": "00:28-00:40",
+          "what": "At kf_011.jpg (36.5s) (widescreen camera frame), speaker remarks \"The editor of Discover told us 10 of them; I'm going to give you the eleventh. So they came to me, CNN, and they said, \"Professor Seligman --\", addressing theoretical interpretation and downstream implications of Overmier, Seligman & Maier's 1967 triadic yoked shuttle-box experiment & 50-year dorsal raphe reversal."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (13 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 13,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (live-action speaker/interview recording intercut with 1 visual slide frames (480x270, sampled across 2.0s–145.2s)) from TED's \"The new era of positive psychology | Martin Seligman\" (1422s total runtime).",
+          "Deduplicated English transcript (30 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (2.0s–145.2s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "I Couldn't Make 1/3 of my Subjects Feel Helpless. Here's Why | Martin Seligman | Google Zeitgeist",
+      "url": "https://www.youtube.com/watch?v=A2y8N_PKAUA",
+      "channel": "Google Zeitgeist",
+      "source_id": "SRC_M2",
+      "duration_sec": 159,
+      "timecodes": [
+        {
+          "t": "00:21-00:28",
+          "what": "At kf_004.jpg (26.7s) (widescreen camera frame), Google Zeitgeist's recording states \"what makes life worth living and can there be a science of the positive side of life so my mission for the last 12\" — providing spoken context for two-compartment shuttle box with low center hurdle where the Escapable dog hops cleanly across while the Yoked case lies still."
+        },
+        {
+          "t": "00:39-00:47",
+          "what": "Mid-segment widescreen camera frame at kf_006.jpg (42.4s) as narration explains \"and a useful practice of what makes life worth living 40 years ago I discovered a phenomenon called learned helplessness\", clarifying key empirical findings in Overmier, Seligman & Maier's 1967 triadic yoked shuttle-box experiment & 50-year dorsal raphe reversal."
+        },
+        {
+          "t": "01:38-01:50",
+          "what": "Around kf_013.jpg (103.0s) (lecture slide / diagram frame), commentary states \"is uh before going to the laboratory or before uh uh a divorce um what's your theory of setbacks in life and it turned\", connecting the empirical results to broader cognitive and neural science."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (live-action speaker/interview recording intercut with 2 visual slide frames (640x360, sampled across 0.0s–109.2s)) from Google Zeitgeist's \"I Couldn't Make 1/3 of my Subjects Feel Helpless. Here's Why | Martin Seligman | Google Zeitgeist\" (159s total runtime).",
+          "Deduplicated English transcript (44 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–109.2s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Shuttle Box Dog Orange.png",
+      "url": "https://commons.wikimedia.org/wiki/File:Shuttle_Box_Dog_Orange.png",
+      "channel": "Wikimedia Commons (Rose M. Spielman, PhD)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Shuttle Box Dog Orange.png\" (960x646 px, CC BY 4.0): Figure 14.22 Seligman’s learned helplessness experiments with dogs used an apparatus that measured when the animals would move from a floor delivering shocks to one without. Provides visual morphology reference for the focal organism/stimulus discussed in Overmier, Seligman & Maier's 1967 triadic yoked shuttle-box experiment & 50-year dorsal raphe reversal."
+        }
+      ],
+      "license_note": "Archival photo (CC BY 4.0) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (960x646 px, CC BY 4.0, Rose M. Spielman, PhD) — subject organism reference: Figure 14.22 Seligman’s learned helplessness experiments with dogs used an apparatus that measured when the animals would move from a floor delivering shocks to one without.",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}

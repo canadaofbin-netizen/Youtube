@@ -1,0 +1,217 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Five-minute impromptu dream-job speech prep: 'Why am I panicking?' vs 'Okay [Name], you've got this' before stony evaluators",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2014, University of Michigan Emotion & Self-Control Laboratory",
+      "layout": {
+        "description": "Bright split-zone psychology laboratory: in the foreground prep desk sits a 5:00 digital countdown clock and two contrasting prep notepad prompts — Card A ('First-Person: Why am I feeling this way?') and Card B ('Named Self-Talk: Why is [Alex] feeling this way?') — separated by a glass partition from a podium facing two stone-faced evaluator mannequins and a pedestal-mounted studio camera.",
+        "positions": [
+          {
+            "who": "Immersed Speaker A (mannequin in smart-casual shirt)",
+            "where": "hunched tensely over the 'I / Me' prep card gripping temples as the 5:00 clock ticks down",
+            "facing": "at left prep desk"
+          },
+          {
+            "who": "Distanced Speaker B (mannequin in matching smart-casual shirt)",
+            "where": "sitting upright before the '[Own Name]' coaching card with calm open shoulders, stepping smoothly to the podium",
+            "facing": "moving from prep desk to podium"
+          },
+          {
+            "who": "Two Evaluator mannequins with clipboards",
+            "where": "seated behind the evaluation table scoring speech confidence blind to pronoun condition",
+            "facing": "facing the podium"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "5:00 countdown speech-prep timer",
+          "period_detail": "crisp tabletop LED clock counting down the 5-minute preparation window",
+          "physical_behavior": "creates authentic acute social-evaluative pressure"
+        },
+        {
+          "name": "paired 'I' vs '[Own Name]' silent-reflection cards",
+          "period_detail": "two clean white instruction placards showing the single-pronoun shift",
+          "physical_behavior": "anchors Kross's exact experimental manipulation"
+        },
+        {
+          "name": "blind judge rating clipboards ('Confidence / Composure')",
+          "period_detail": "evaluator scorecards showing higher objective speech scores for Named Self-Talk",
+          "physical_behavior": "proves behavioral impact beyond self-report"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Speaker A",
+          "verb_sequence": "stares at 'Why am I nervous?' card -> shoulders tighten and speech notes tremble"
+        },
+        {
+          "who": "Speaker B",
+          "verb_sequence": "reads 'Why is [Alex] nervous?' card -> exhales, squares shoulders, and delivers a clear, poised speech at the podium while blind judges mark high confidence scores"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Evaluator mannequins",
+          "reaction": "nod and mark noticeably higher composure bars for Speaker B"
+        },
+        {
+          "who": "Speaker B",
+          "reaction": "steps down calm without post-speech cringing"
+        }
+      ],
+      "wardrobe": "2014 university smart-casual shirts, blazers for evaluators.",
+      "lighting": "Clean high-key studio daylight.",
+      "recognition_hook": "Five minutes to prepare a surprise dream-job speech in front of stone-faced judges — and changing 'I' to your own first name visibly transforms how calm you sound.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a psychology speech-test room with a 5-minute countdown clock and 'I' versus '[Own Name]' reflection cards in front of a podium and two clipboard evaluators",
+        "must_show": [
+          "podium|evaluators|clipboards",
+          "cards|notepad",
+          "clock|timer|desk"
+        ],
+        "source": "M1@00:08-00:16; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "2017 Sub-Second EEG Calming Without Extra Effort",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2017, Michigan State / U-Michigan neurophysiology suite",
+      "layout": {
+        "description": "Sunlit EEG recording room where an electrode-capped volunteer views intense photo cards using 'I' vs '[Name]' prompts while waveform traces drop within 1 second.",
+        "positions": [
+          {
+            "who": "Participant mannequin in clean white EEG cap",
+            "where": "sitting calmly as the Late Positive Potential emotional wave drops smoothly on '[Name]' trials",
+            "facing": "facing monitor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1-second ERP waveform comparison screen",
+          "period_detail": "shows emotional wave dropping under 1000 ms with flat frontoparietal effort",
+          "physical_behavior": "visualizes Moser & Kross 2017"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Participant",
+          "verb_sequence": "switches silent prompt from 'I' to '[Name]' -> emotional waveform drops inside one second"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Neuroscientist mannequin",
+          "reaction": "notes zero spike in effortful frontal load"
+        }
+      ],
+      "wardrobe": "Clean knit sweater and lab coat.",
+      "lighting": "Bright clinical daylight.",
+      "recognition_hook": "Brainwaves calm down in less than one second — without burning extra mental willpower.",
+      "sources": [
+        "SRC3",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Stopping the Midnight 'Why Did I Say That?' Replay",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2014, Evening follow-up check",
+      "layout": {
+        "description": "Warmly lit desk hours after the speech where a participant closes a notebook calmly instead of spiraling.",
+        "positions": [
+          {
+            "who": "Participant mannequin",
+            "where": "writing one brief coaching takeaway by name and closing the notebook peacefully",
+            "facing": "at home desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "journal page ('What did Alex learn for next time?')",
+          "period_detail": "replaces self-attack with coach perspective",
+          "physical_behavior": "cuts post-event shame"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Participant",
+          "verb_sequence": "jots one constructive line by name -> closes notebook and relaxes"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Participant",
+          "reaction": "calm upright posture, rumination loop broken"
+        }
+      ],
+      "wardrobe": "Comfortable evening cardigan.",
+      "lighting": "Soft warm high-key lamp and window light.",
+      "recognition_hook": "Pronoun distance doesn't just help on stage — it shuts off the 2 a.m. embarrassment replay hours later.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Silent First-Name Coaching Before Any High-Stakes Door",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern workplace hallway outside a boardroom",
+      "layout": {
+        "description": "Bright glass-walled hallway outside an interview room.",
+        "positions": [
+          {
+            "who": "Candidate mannequin",
+            "where": "pausing 3 seconds at the door handle, taking one slow breath with silent first-name coaching, then walking in composed",
+            "facing": "at boardroom door"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "portfolio folder",
+          "period_detail": "held steadily rather than clutched tightly",
+          "physical_behavior": "visible physical composure"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Candidate",
+          "verb_sequence": "steadies breath silently coaching by name -> opens door with calm eye contact"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Hiring panel inside",
+          "reaction": "welcomes composed entrance"
+        }
+      ],
+      "wardrobe": "Tailored modern interview blazer.",
+      "lighting": "Bright architectural daylight.",
+      "recognition_hook": "You keep it silent so nobody thinks you're eccentric — and inside your skull, your wisest coach takes the microphone.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

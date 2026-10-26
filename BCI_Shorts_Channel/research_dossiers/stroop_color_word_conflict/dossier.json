@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "slug": "stroop_color_word_conflict",
+  "topic": "J. Ridley Stroop (1935): Why You Cannot Stop Reading the Word 'RED' Printed in Blue Ink",
+  "pillar": "brain_basics",
+  "created_at": "2026-10-25T22:49:33+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Stroop's 1935 stopwatch ink-naming collision (74.3% slower!) is an iconic behavioral demonstration whose neural conflict detector — dorsal anterior cingulate cortex signaling dorsolateral prefrontal control — made the Stroop task the single most cited test in cognitive neuroscience.",
+  "primary_case": {
+    "title": "John Ridley Stroop's 1935 George Peabody College 3-experiment Color-Word Interference dissertation",
+    "year": 1935,
+    "place": "Jesup Psychological Laboratory, George Peabody College for Teachers (now Vanderbilt), Nashville",
+    "people": [
+      {
+        "name": "J. Ridley Stroop",
+        "role": "Nashville doctoral student who hand-printed 100 incongruent color words on white cardstock and timed 70 undergraduates with a stopwatch in 1935 — then left research psychology to teach biblical studies.",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Colin M. MacLeod",
+        "role": "Cognitive psychologist whose monumental 1991 review synthesized 55 years and 700+ replications of the Stroop Effect",
+        "source_id": "SRC2"
+      },
+      {
+        "name": "Jonathan D. Cohen & Matthew Botvinick",
+        "role": "Neuroscientists who modeled automatic reading vs controlled color naming and pinpointed anterior cingulate conflict monitoring",
+        "source_id": "SRC6"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 1935 at George Peabody College in Nashville, doctoral student J. Ridley Stroop tested college undergraduates across 3 elegant cardstock-and-stopwatch experiments using 10×10 grids of 100 items printed in red, blue, green, brown, and purple.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Experiment 1 carried the first shock: reading color WORDS aloud when printed in mismatched ink ('RED' in blue ink) took 43.3 seconds vs 41.0 seconds in black ink — virtually ZERO interference (+2.3 s, just 5.6%).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Experiment 2 flipped the instruction — ignore the word and name ONLY the INK COLOR across 100 mismatched words — and human brains jammed. Naming solid color squares took 63.3 seconds, whereas naming ink on mismatched words shot up to 110.3 seconds: a massive +47.0-second (+74.3%) slowdown across 70 students, with EVERY SINGLE participant slowed down.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Experiment 3, Stroop gave 32 students 8 consecutive days of intensive ink-naming practice: interference shrank with training, and on Day 9 a brief 'Reverse Stroop' appeared where newly strengthened ink naming momentarily slowed word reading.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Preschoolers who cannot yet read breeze through mismatched Stroop cards with zero slowdown; interference spikes abruptly in 1st-2nd grade the moment reading becomes automatic, then climbs again in older adulthood as prefrontal inhibition weakens.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Cold-War legend (partially inspired by bilingual Stroop labs like Dalrymple-Alford & Preston/Lambert) noted you suffer heaviest Stroop lag in a language you actually read fluently — you can pretend not to know Russian, unless 'КРАСНЫЙ' (RED) printed in blue ink delays your voice by 200 milliseconds.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Why didn't 'word reading wins a simple speed race' explain everything? Delaying the word slightly AFTER the color patch appears STILL causes interference — proving lifelong reading practice forged a thick highway (pathway strength, Cohen et al. 1990) that overrides less-practiced ink naming unless anterior cingulate and dorsolateral prefrontal cortex actively brake it.",
+      "source_id": "SRC6"
+    },
+    {
+      "fact": "Ironically, J. Ridley Stroop published almost nothing else in experimental psychology after 1938, spending decades as a quiet college registrar and Bible professor unaware his dissertation would become one of the 10 most cited papers in psychology history.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "In J. Ridley Stroop's (1935) Experiment 2 across 70 college undergraduates, incongruent color-word ink naming slowed mean completion time by 74.3% (about 74%, adding 47.0 seconds from 63.3 s on solid color squares to 110.3 s on mismatched words).",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Every literate viewer watching the screen can prove it in 3 seconds: try shouting the INK COLOR of 'BLUE' printed in red, 'GREEN' printed in yellow, 'RED' printed in blue — 70 out of 70 people in Stroop's 1935 room stumbled, slowing down by a staggering 74.3%.",
+      "why_surprising": "Literacy rewired your visual cortex so deeply you CANNOT turn reading off on command.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Flip the instruction — read the WORDS aloud while ignoring mismatched ink (Stroop Experiment 1) — and interference vanishes to 5.6%. It is a brutal one-way street.",
+      "why_surprising": "Automatic highways crush unpracticed dirt roads.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "A 4-year-old who hasn't learned to read beats an Ivy League professor on the Stroop interference ratio because the child sees pure color without an automatic word highway hijacking their mouth.",
+      "why_surprising": "Sometimes expertise creates an unbreakable cognitive reflex.",
+      "source_id": "SRC3",
+      "rank": 3
+    },
+    {
+      "fact": "Claim you don't speak a foreign language, and mismatched color words in that script immediately betray your fluency by lagging your ink-naming reaction time.",
+      "why_surprising": "You cannot fake turning off an automatic language highway.",
+      "source_id": "SRC2",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Stroop interference happens simply because eyes read words faster than eyes see color ('horse-race myth').",
+      "truth": "Even if the color patch flashes BEFORE the word appears, interference still strikes — it is lifetime pathway strength (millions of read words vs rarely naming ink aloud), not raw sensory speed, as Stroop's own 8-day Reverse-Stroop training proved.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "High willpower lets you completely shut off reading the word.",
+      "truth": "Even under huge cash incentives, healthy literate adults still show robust Stroop cost unless they physically blur their eyes or stare at a single corner pixel.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "J. Ridley Stroop spent his life famous for the Stroop test.",
+      "truth": "His 1935 paper drew modest attention until the 1960s cognitive revolution; Stroop spent his career as a quiet registrar and professor at David Lipscomb College.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Pressing a green button labeled 'DELETE / CANCEL' by mistake because color and text shouted opposite commands.",
+    "Watching a toddler name ink colors effortlessly while adults stammer and laugh at the exact same card.",
+    "Feeling mentally drained at 4 p.m. after a day of suppressing automatic habits and phone notifications."
+  ],
+  "linked_projects": [
+    "psych_51_stroop_color_word_conflict"
+  ]
+}

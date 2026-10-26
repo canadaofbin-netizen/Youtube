@@ -1,0 +1,209 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "1976 Surrey AV Studio: Covering the Monitor Screen Flips 'DA-DA' Instantly Back to 'BA-BA'",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1976, University of Surrey Audiovisual Psychology Suite, Guildford, UK",
+      "layout": {
+        "description": "Sunlit 1976 British university audiovisual control room with a crisp wooden-cabinet studio monitor displaying a close-up face pronouncing open-mouth 'GA-GA', a freestanding desktop loudspeaker cone beside acoustic waveform meters consistently reading 'BA-BA', and an opaque white occlusion paddle used to cover and uncover the screen.",
+        "positions": [
+          {
+            "who": "Harry McGurk (mannequin in 1976 British tweed jacket and wide-lapel shirt)",
+            "where": "holding a white cardstock screen-cover paddle inches in front of the studio monitor — pulling it aside ('98% Hear DA!') then sliding it back ('100% Hear BA!')",
+            "facing": "beside studio monitor and speaker"
+          },
+          {
+            "who": "John MacDonald & Adult Subject mannequins",
+            "where": "leaning toward the loudspeaker in disbelief as closing their eyes or blocking the screen switches what their ears hear on an unchanged audio loop",
+            "facing": "seated facing monitor and speaker"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "1976 studio video monitor ('Visual Lips: GA') paired with desktop loudspeaker ('Audio Wave: BA')",
+          "period_detail": "side-by-side display + speaker making the conflicting sensory inputs crystal clear",
+          "physical_behavior": "stages the exact 1976 dubbing accident"
+        },
+        {
+          "name": "sliding white 'Eyes Open = DA / Screen Covered = BA' test paddle",
+          "period_detail": "simple hand-held occlusion board blocking ONLY the visual face while the speaker cone plays unobstructed",
+          "physical_behavior": "proves instantly that the sound room never changed the audio"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Harry McGurk",
+          "verb_sequence": "plays the repeating 'BA' loudspeaker loop with the monitor uncovered -> Subject points confidently to the 'DA' response card -> McGurk slides the white paddle in front of the monitor screen without touching the speaker -> Subject gasps and points immediately to 'BA'"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Adult Subject mannequin",
+          "reaction": "opens and closes hands over eyes repeatedly laughing as 'DA' and 'BA' flip back and forth"
+        },
+        {
+          "who": "John MacDonald",
+          "reaction": "logs 98% adult fusion in the 1976 Nature data sheet"
+        }
+      ],
+      "wardrobe": "1976 British academic attire: warm tweed jacket, patterned tie, collared shirt, knit jumper.",
+      "lighting": "Clean high-key 1976 British studio daylight.",
+      "recognition_hook": "Don't touch the volume knob — just cover the TV screen with a piece of cardboard and watch 'DA-DA' turn instantly into 'BA-BA'.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2",
+        "SRC_STILL"
+      ],
+      "key_visual": {
+        "description": "a 1976 researcher in an audiovisual lab sliding a white paddle across a video monitor showing 'GA' lips beside a desktop loudspeaker playing 'BA' while a seated subject flips between 'DA' and 'BA' cards",
+        "must_show": [
+          "monitor|screen",
+          "speaker|loudspeaker",
+          "paddle|cards|desk"
+        ],
+        "source": "M1@00:13-00:21; M3@still; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "3-Year-Olds vs Adults: Growing Stronger Visual Lip Weighting",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1976, University of Surrey child lab",
+      "layout": {
+        "description": "Bright play-testing table where a 4-year-old and an adult listen to the same dubbed clip.",
+        "positions": [
+          {
+            "who": "Child mannequin & Adult mannequin",
+            "where": "comparing 59% child fusion vs 98% adult fusion as lip-reading experience matures",
+            "facing": "at testing table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "age-curve placard ('Age 3-4: 59% -> Adult: 98%')",
+          "period_detail": "shows lifelong speech watching strengthens audiovisual coupling",
+          "physical_behavior": "McGurk & MacDonald 1976 developmental data"
+        }
+      ],
+      "actions": [
+        {
+          "who": "MacDonald",
+          "verb_sequence": "tests child vs adult cohort across identical dub clips"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researchers",
+          "reaction": "plot developmental rise in visual speech influence"
+        }
+      ],
+      "wardrobe": "1976 child sweater and academic shirt.",
+      "lighting": "Warm sunny lab light.",
+      "recognition_hook": "Even four-year-olds fuse sight and sound — and by adulthood 98% of us let lips rewrite our ears.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "2010 TMS Proof: Switching Off the pSTS Mixing Board",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2010, Human cognitive neuroscience TMS suite",
+      "layout": {
+        "description": "Clean bright neurophysiology room where a figure-eight TMS coil rests gently over the left posterior temporal scalp.",
+        "positions": [
+          {
+            "who": "Neuroscientist mannequin",
+            "where": "delivering a single harmless magnetic pulse over left pSTS right as the 'BA+GA' clip plays",
+            "facing": "beside seated volunteer"
+          },
+          {
+            "who": "Volunteer mannequin",
+            "where": "suddenly reporting the true acoustic 'BA' during pSTS disruption while seeing and hearing normally",
+            "facing": "facing screen"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "handheld figure-eight TMS coil & pSTS target diagram",
+          "period_detail": "temporarily uncouples visual lips from auditory speech",
+          "physical_behavior": "Beauchamp, Nath & Pasalar 2010 causal proof"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Neuroscientist",
+          "verb_sequence": "triggers brief pSTS pulse -> Volunteer taps 'BA' instead of 'DA'"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Volunteer",
+          "reaction": "amazed that 'DA' returns the next second without stimulation"
+        }
+      ],
+      "wardrobe": "Crisp white lab coat and casual shirt.",
+      "lighting": "Clean high-key clinical daylight.",
+      "recognition_hook": "Pause one thumbnail-sized patch in the temporal lobe for a tenth of a second, and the phantom 'DA' disappears.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "The Free 15-Decibel Hearing Boost in Noisy Rooms",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern bustling cafe table",
+      "layout": {
+        "description": "Sunlit lively cafe where two friends turn chairs to face each other directly in clear window light.",
+        "positions": [
+          {
+            "who": "Two friend mannequins",
+            "where": "leaning in face-to-face effortlessly catching every word despite background espresso noise",
+            "facing": "at cafe table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "well-lit face-to-face seating",
+          "period_detail": "lets 120-ms visual lip lead prime auditory cortex",
+          "physical_behavior": "everyday communication superpower"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Friend A",
+          "verb_sequence": "turns toward window light speaking clearly -> Friend B understands effortlessly without shouting"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Both",
+          "reaction": "relaxed, clear conversation"
+        }
+      ],
+      "wardrobe": "Modern smart-casual knitwear.",
+      "lighting": "Warm window key light.",
+      "recognition_hook": "Putting on your glasses in a loud restaurant genuinely helps you HEAR — because your temporal lobe lip-reads every syllable.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    }
+  ]
+}

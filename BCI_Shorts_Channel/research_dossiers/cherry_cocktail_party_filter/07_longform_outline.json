@@ -1,0 +1,101 @@
+{
+  "target_minutes": 11,
+  "shorts_extract": {
+    "hook": "Why you spot a 400-Hz beep in your ignored ear yet miss English turning into German: Colin Cherry's 1953 Cocktail Party breakthrough.",
+    "core_experiment": "Cherry (1953 JASA) dichotic speech shadowing + Cherry & Taylor (1954) ~180-ms attention-switching dip + 2012 human cortical voice gain.",
+    "twist": "Coarse physical cues (pitch/tone = YES) vs lexical meaning (German/35x words = NO), cockpit alarm design, and setting up Treisman's own-name puzzle."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "London 1953: How Do Brains Solve a Noisy Party?",
+      "beats": [
+        "Same-channel voice mashup vs split Left/Right headphones",
+        "Inventing continuous 'Speech Shadowing'"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "dual-channel console & padded headphones"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Beep = YES, German = ZERO. Inside the Ignored Ear",
+      "beats": [
+        "Catching male-to-female pitch & 400-Hz tones",
+        "Missing German, backwards speech & 35x repeated words.",
+        "The 180-ms ear-hopping crash (1954)"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "Left-Ear toggle board & 180ms dip graph"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Live Inside Human Auditory Cortex (2012) & Cockpit Alarms",
+      "beats": [
+        "Mesgarani & Chang decode ONLY the attended speaker",
+        "Why cockpit stall warnings use distinct pitch/tones to pierce radio chatter"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "Mixed vs Cortical spectrogram"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Wait — Why Did My Own Name Break Through?.",
+      "beats": [
+        "Moray's 1959 crack in Broadbent's rigid filter wall",
+        "Handing the baton to 24-year-old Anne Treisman"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "own-name breakthrough note"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Single-Lane Verbal Hygiene for Deep Work",
+      "beats": [
+        "Why 'listening to a podcast while writing emails' drops one to zero",
+        "Instrumental audio vs competing words"
+      ],
+      "scene_ids": [
+        "S4"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "Spoken OFF / Instrumental ON desk"
+      ]
+    }
+  ]
+}

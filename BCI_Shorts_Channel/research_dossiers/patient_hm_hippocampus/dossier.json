@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "slug": "patient_hm_hippocampus",
+  "topic": "William Scoville & Brenda Milner (1953-1957): Patient H.M. (Henry Molaison) & Bilateral Hippocampal Anterograde Amnesia",
+  "pillar": "brain_history",
+  "created_at": "2026-10-25T22:49:28+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Patient H.M.'s selective loss of new conscious memory consolidation while keeping childhood memories and IQ intact directly maps the medial temporal lobe and hippocampus versus neocortical storage.",
+  "primary_case": {
+    "title": "Bilateral medial temporal lobe resection in Patient H.M. (Henry Gustav Molaison) & Milner's neuropsychological dissociation",
+    "year": 1953,
+    "place": "Hartford Hospital, Connecticut & Montreal Neurological Institute",
+    "people": [
+      {
+        "name": "Henry Gustav Molaison (Patient H.M., 1926-2008)",
+        "role": "27-year-old Connecticut assembly-line worker who underwent experimental surgery for intractable epilepsy and lost the ability to form new declarative memories",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "William Beecher Scoville",
+        "role": "Hartford neurosurgeon who performed the bilateral 8-centimeter medial temporal lobe suction resection on August 25, 1953",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Brenda Milner",
+        "role": "Montreal Neurological Institute neuropsychologist whose decades of testing with H.M. founded modern memory neuroscience",
+        "source_id": "SRC1"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "On August 25, 1953, at Hartford Hospital, neurosurgeon William Scoville removed bilateral medial temporal lobe tissue in 27-year-old Henry Molaison to halt severe seizures that had resisted maximum anticonvulsant doses.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Scoville estimated an 8-centimeter rostrocaudal resection encompassing the anterior hippocampus, parahippocampal gyrus, uncus, and amygdala in both hemispheres (later refined via post-mortem histology to ~5 cm plus entorhinal cortex).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Henry's major seizures dropped dramatically and his Wechsler-Bellevue IQ actually rose from 104 preoperatively to 112-118 postoperatively because he was less sedated.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Yet from the moment he woke up in 1953, Henry suffered profound anterograde amnesia: he forgot hospital staff minutes after they stepped out of the room and re-read the same magazine endlessly without recognition.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Scoville and Milner's 1957 report across 10 medial temporal patients, severe memory loss appeared ONLY when hippocampal removal was bilateral and extended posteriorly.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Henry retained vivid childhood memories from the 1930s and early 1940s alongside intact grammar, manners, and arithmetic, proving long-term memories are not permanently stored inside the hippocampus.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Using active rehearsal without distraction, Henry could hold a three-digit number such as 584 in working memory for 15 minutes — but the instant his attention was diverted, both the number and the test vanished.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "On Brenda Milner's 28-choice stylus stepping-stone maze (1965), Henry failed to learn the full spatial path even after 215 trials, revealing how heavily spatial declarative sequences depend on the hippocampus.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Post-mortem 2,401-slice histological reconstruction after Henry's death in 2008 revealed spared posterior hippocampal tissue (~2 cm) that remained functionally disconnected because his entorhinal gateway was excised.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Across 55 years of testing, Brenda Milner had to re-introduce herself to Henry at the start of every single session.",
+      "source_id": "SRC2"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Henry Molaison could hold the number '584' in his head for 15 straight minutes by whispering clever math tricks — then forget the number AND the test 30 seconds after someone changed the subject.",
+      "why_surprising": "Working memory and long-term memory run on completely separate hardware.",
+      "source_id": "SRC2",
+      "rank": 1
+    },
+    {
+      "fact": "Brenda Milner studied Henry for more than fifty years, yet she was a brand-new stranger to him every single morning she walked through his door.",
+      "why_surprising": "Without the hippocampal gateway, experience evaporates the moment attention moves.",
+      "source_id": "SRC2",
+      "rank": 2
+    },
+    {
+      "fact": "Henry's IQ score actually went UP to 118 after the surgery that erased his ability to remember eating lunch 30 minutes earlier.",
+      "why_surprising": "Intelligence, personality, and vocabulary live outside the hippocampus.",
+      "source_id": "SRC1",
+      "rank": 3
+    },
+    {
+      "fact": "Scoville's unilateral patients kept normal everyday memory, proving one intact hippocampus can carry conscious episodic encoding, whereas losing both freezes life in the present tense.",
+      "why_surprising": "Bilateral loss crossed an irreversible threshold.",
+      "source_id": "SRC1",
+      "rank": 4
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "The hippocampus is the permanent hard drive where all your life memories are stored.",
+      "truth": "Henry kept childhood memories from decades before 1953, proving the hippocampus consolidates new memories before cortical networks store them long-term.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Patient H.M. lost his intelligence, language, and immediate short-term span.",
+      "truth": "His IQ measured 118 and his immediate digit span remained completely intact as long as he rehearsed uninterrupted.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Scoville removed 100 percent of Henry's hippocampus cleanly and nothing else.",
+      "truth": "2014 post-mortem histology showed posterior hippocampal remnants survived, while bilateral entorhinal and perirhinal cortex removal severed its cortical input.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Memory is one single mental faculty across the whole cortex.",
+      "truth": "H.M. overturned Karl Lashley's equipotentiality dogma overnight by localizing declarative consolidation to the medial temporal lobe.",
+      "source_id": "SRC2"
+    }
+  ],
+  "everyday_hooks": [
+    "Repeating a new phone verification code under your breath across the room, getting interrupted for two seconds by a text, and realizing the digits vanished.",
+    "Remembering every lyric of a song from age twelve while forgetting why you just walked into the pantry.",
+    "Pulling an all-nighter that leaves your sleep-deprived hippocampus sluggish at filing tomorrow's exam chapters.",
+    "Meeting three people at a loud reception and losing their names thirty seconds after shaking hands because your attention jumped."
+  ],
+  "linked_projects": [
+    "psych_14_patient_hm_hippocampus"
+  ]
+}

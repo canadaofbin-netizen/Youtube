@@ -1,0 +1,805 @@
+{
+  "schema_version": 1,
+  "compiled_at": "2026-10-26T04:09:55.363292+00:00",
+  "project_id": "shorts_v5",
+  "dossier": "pavlov_dogs_conditioning",
+  "visual_mode": "HYBRID",
+  "aspect": "9:16",
+  "clip_count": 10,
+  "has_brain_clips": true,
+  "shared_brain_master_anchor": "ref_brain_master",
+  "cross_brain_continuity_contract": {
+    "enabled": true,
+    "brain_clip_numbers": [
+      6,
+      7
+    ],
+    "master_anchor_id": "ref_brain_master",
+    "min_pairwise_silhouette_iou": 0.45,
+    "min_pairwise_spatial_corr": 0.52,
+    "max_bg_luma_spread": 45.0,
+    "require_consistent_facing": true
+  },
+  "r53_particle_ban": {
+    "enabled": true,
+    "max_brain_neon_green_cyan_ratio": 0.0025,
+    "max_floating_particle_dots": 2
+  },
+  "audio_contract": {
+    "max_true_peak_dbfs": -1.0,
+    "limiter_ceiling_dbfs": -1.5
+  },
+  "source_hashes": {
+    "visual_plan_sha256": "b3a2fc8edf74535475b2b18e9ea78d816aa52bad377ed1db71a0c2aacf6010e5",
+    "script_sha256": "3574521cd61ec3ac8021d7a860336457c9cba4103193b89549fc6b52e136be5b"
+  },
+  "clips": [
+    {
+      "clip_number": 1,
+      "role": "setup",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": true,
+      "narration": "In nineteen oh three Russia, Ivan Pavlov starts a ticking metronome near a harnessed dog. Nine seconds later, eleven drops of drool fill a cheek tube.",
+      "required_entities": [
+        "metronome|bell",
+        "saliva|drip|drool",
+        "tube|vial|glass",
+        "iconic_scene: A harnessed dog drooling into a glass tube at the sound of a ticking metronome, with no food in sight - '",
+        "cast (physiologist): matte-white porcelain mannequin wearing white laboratory coat and full white beard",
+        "cast (assistant): matte-white porcelain mannequin wearing white laboratory coat and dark trousers",
+        "action: A matte-white porcelain dog stands in brown leather straps inside a wooden frame while a white-coate",
+        "prop_progression: The metronome pendulum swings and ticks while clear saliva beads at a glass cheek funnel and drips i"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "In nineteen oh three Russia, Ivan Pavlov starts a ticking metronome near a harnessed dog.",
+          "Nine seconds later, eleven drops of drool fill a cheek tube."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "In nineteen oh three Russia, Ivan Pavlov starts a ticking metronome near a harnessed dog."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "Nine seconds later, eleven drops of drool fill a cheek tube."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_01",
+        "must_match_ref_ids": [
+          "ref_clip_01",
+          "ref_clip_01_key"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 2,
+      "role": "symptom",
+      "scene_id": "S2",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "There is no food in the room at all. Yet the dog drools into the glass funnel on cue. For its brain, this was a total nightmare.",
+      "required_entities": [
+        "iconic_scene: The glass tube sticking out of the dog's cheek.",
+        "cast (assistant): matte-white porcelain mannequin wearing white laboratory coat and dark trousers",
+        "cast (dog): matte-white porcelain mannequin wearing brown leather harness straps suspended from an overhead wooden crossbar",
+        "action: The matte-white porcelain dog pricks its ears at the metronome, licks its muzzle, and salivates as t",
+        "prop_progression: The brass pendulum swings while clear drops drip from the glass cheek funnel down a thin tube and sp"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "There is no food in the room at all.",
+          "Yet the dog drools into the glass funnel on cue.",
+          "For its brain, this was a total nightmare."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "There is no food in the room at all."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "Yet the dog drools into the glass funnel on cue. For its brain, this was a total nightmare."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_02",
+        "must_match_ref_ids": [
+          "ref_clip_02"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 3,
+      "role": "failure",
+      "scene_id": "S4",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Pavlov actually won his nineteen oh four Nobel Prize for digestion, not this test. At first, one blink or breath from the scientist spoiled every trial.",
+      "required_entities": [
+        "iconic_scene: The scientist himself spoils the experiment.",
+        "cast (dog): matte-white porcelain mannequin wearing brown leather harness straps suspended from an overhead wooden crossbar",
+        "action: A white-coated experimenter mannequin on a wooden chair shifts posture, coughs, and slams his notebo",
+        "prop_progression: The leather straps sway, the notebook slams shut on his knee, and clear liquid drips early into the "
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Pavlov actually won his nineteen oh four Nobel Prize for digestion, not this test.",
+          "At first, one blink or breath from the scientist spoiled every trial."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Pavlov actually won his nineteen oh four Nobel Prize for digestion, not this test."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "At first, one blink or breath from the scientist spoiled every trial."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_03",
+        "must_match_ref_ids": [
+          "ref_clip_03"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 4,
+      "role": "crisis",
+      "scene_id": "S5",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Order mattered too. Playing a loud bell after a meal failed three hundred seventy-four times. The brain ignores a sound that comes too late.",
+      "required_entities": [
+        "iconic_scene: Same sound, opposite result - only the order changed.",
+        "cast (assistant): matte-white porcelain mannequin wearing white laboratory coat and dark trousers",
+        "cast (dog): matte-white porcelain mannequin wearing brown leather harness straps suspended from an overhead wooden crossbar",
+        "action: The assistant mannequin pulls back an empty enamel food bowl first and only then presses the wall bu",
+        "prop_progression: The metal hammer on the wall box vibrates and buzzes after the meal is over, while the graduated gla"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Order mattered too.",
+          "Playing a loud bell after a meal failed three hundred seventy-four times.",
+          "The brain ignores a sound that comes too late."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Order mattered too."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "Playing a loud bell after a meal failed three hundred seventy-four times. The brain ignores a sound that comes too late."
+          }
+        ],
+        "requires_scale_pullback": true,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_04",
+        "must_match_ref_ids": [
+          "ref_clip_04"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "pullback_windowed",
+        "min_continuity_score": 0.45,
+        "max_late_morph_drop": 0.42
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.08,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 5,
+      "role": "pivot",
+      "scene_id": "S3",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Instead of ringing a bell after meals, Pavlov's team played the ticking sound right before the food bowl slid in. A random click became a warning.",
+      "required_entities": [
+        "iconic_scene: Sound first, food second - the pairing everyone learns in school.",
+        "cast (physiologist): matte-white porcelain mannequin wearing white laboratory coat and full white beard",
+        "cast (assistant): matte-white porcelain mannequin wearing white laboratory coat and dark trousers",
+        "action: The white-coated assistant mannequin flicks the brass metronome pendulum first, then swings an ename",
+        "prop_progression: The metronome ticks steadily, food crumbs scatter across the sliding bowl, and clear saliva drips ra"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Instead of ringing a bell after meals, Pavlov's team played the ticking sound right before the food bowl slid in.",
+          "A random click became a warning."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Instead of ringing a bell after meals, Pavlov's team played the ticking sound right before the food bowl slid in."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "A random click became a warning."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_05",
+        "must_match_ref_ids": [
+          "ref_clip_05"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 6,
+      "role": "step1",
+      "scene_id": "S3",
+      "setting": "brain_void",
+      "is_brain_clip": true,
+      "is_key_visual_clip": false,
+      "narration": "First, each tick races from the ears into the auditory cortex, the brain's hearing center. It lights up just before the meal hits the tongue.",
+      "required_entities": [
+        "porcelain_brain_anatomy: auditory cortex",
+        "r53_signal: restrained internal warm-amber/ivory tract conduction (zero green/blue flying particles)"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles",
+        "flying_sparks_or_scattered_bokeh",
+        "mismatched_brain_bust_angle_or_mid_clip_morph"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "First, each tick races from the ears into the auditory cortex, the brain's hearing center.",
+          "It lights up just before the meal hits the tongue."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "First, each tick races from the ears into the auditory cortex, the brain's hearing center."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "It lights up just before the meal hits the tongue."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": false
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_06",
+        "must_match_ref_ids": [
+          "ref_clip_06"
+        ],
+        "shared_master_anchor": "ref_brain_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.52,
+        "max_late_morph_drop": 0.28
+      },
+      "anatomical_contract": {
+        "canonical_region": "auditory cortex",
+        "region_group": "cortical_tract",
+        "hemisphere": "bilateral_or_medial",
+        "view_plane": "anatomical_cross_section",
+        "expected_facing": "any",
+        "forbid_symmetric_coronal": false,
+        "require_crimson_lesion": false,
+        "forbid_crimson_lesion": false,
+        "expected_signal_roi_norm": [
+          0.08,
+          0.06,
+          0.92,
+          0.82
+        ],
+        "forbidden_roi_norm": []
+      },
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.4,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 7,
+      "role": "step2",
+      "scene_id": "S1",
+      "setting": "brain_void",
+      "is_brain_clip": true,
+      "is_key_visual_clip": false,
+      "narration": "Next, food follows that sound again and again. Soon the hearing center links straight to the brainstem, the reflex center that drives drooling.",
+      "required_entities": [
+        "porcelain_brain_anatomy: brainstem",
+        "r53_signal: restrained internal warm-amber/ivory tract conduction (zero green/blue flying particles)"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles",
+        "flying_sparks_or_scattered_bokeh",
+        "mismatched_brain_bust_angle_or_mid_clip_morph"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Next, food follows that sound again and again.",
+          "Soon the hearing center links straight to the brainstem, the reflex center that drives drooling."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Next, food follows that sound again and again."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "Soon the hearing center links straight to the brainstem, the reflex center that drives drooling."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": false
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_07",
+        "must_match_ref_ids": [
+          "ref_clip_07"
+        ],
+        "shared_master_anchor": "ref_brain_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.52,
+        "max_late_morph_drop": 0.28
+      },
+      "anatomical_contract": {
+        "canonical_region": "brainstem",
+        "region_group": "cortical_tract",
+        "hemisphere": "bilateral_or_medial",
+        "view_plane": "anatomical_cross_section",
+        "expected_facing": "any",
+        "forbid_symmetric_coronal": false,
+        "require_crimson_lesion": false,
+        "forbid_crimson_lesion": false,
+        "expected_signal_roi_norm": [
+          0.08,
+          0.06,
+          0.92,
+          0.82
+        ],
+        "forbidden_roi_norm": []
+      },
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.4,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 8,
+      "role": "step3",
+      "scene_id": "S6",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Finally, inside a soundproof room, an assistant starts the metronome from behind a thick wall. Alone on its stand, the dog still fills the glass tube.",
+      "required_entities": [
+        "iconic_scene: Walls between dog and scientist - and the sound still works.",
+        "cast (dog): matte-white porcelain mannequin wearing brown leather harness straps suspended from an overhead wooden crossbar",
+        "action: In the right room, the experimenter mannequin squeezes a rubber air bulb at a control board, while i",
+        "prop_progression: The rubber bulb collapses, the metronome pendulum swings and ticks, and clear saliva drops fall from"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Finally, inside a soundproof room, an assistant starts the metronome from behind a thick wall.",
+          "Alone on its stand, the dog still fills the glass tube."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Finally, inside a soundproof room, an assistant starts the metronome from behind a thick wall."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "Alone on its stand, the dog still fills the glass tube."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_08",
+        "must_match_ref_ids": [
+          "ref_clip_08"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 9,
+      "role": "breakthrough",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "The researchers were left completely stunned. A buzzer played before food built the reflex in one try. Timing alone wires a new body habit.",
+      "required_entities": [
+        "metronome|bell",
+        "saliva|drip|drool",
+        "tube|vial|glass",
+        "iconic_scene: A harnessed dog drooling into a glass tube at the sound of a ticking metronome, with no food in sight - '",
+        "cast (physiologist): matte-white porcelain mannequin wearing white laboratory coat and full white beard",
+        "cast (assistant): matte-white porcelain mannequin wearing white laboratory coat and dark trousers",
+        "action: The assistant mannequin presses a wall buzzer button once before sliding the bowl, and the porcelain",
+        "prop_progression: The buzzer vibrates, clear saliva drips steadily from the glass cheek funnel, and the liquid rises i"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "The researchers were left completely stunned.",
+          "A buzzer played before food built the reflex in one try.",
+          "Timing alone wires a new body habit."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "The researchers were left completely stunned."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "A buzzer played before food built the reflex in one try. Timing alone wires a new body habit."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_09",
+        "must_match_ref_ids": [
+          "ref_clip_09"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 10,
+      "role": "conclusion",
+      "scene_id": "S8",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Which is why your hand jumps toward a pinging phone before you even think. Any cue that predicts a reward can train your body on cue.",
+      "required_entities": [
+        "iconic_scene: Your phone's notification sound.",
+        "cast (modern person): matte-white porcelain mannequin wearing grey casual hoodie",
+        "action: A matte-white porcelain person in a grey hoodie sits at the counter holding a ceramic mug, then jerk",
+        "prop_progression: The face-down smartphone screen flashes and vibrates across the counter while dark coffee splashes o"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Which is why your hand jumps toward a pinging phone before you even think.",
+          "Any cue that predicts a reward can train your body on cue."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Which is why your hand jumps toward a pinging phone before you even think."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "Any cue that predicts a reward can train your body on cue."
+          }
+        ],
+        "requires_scale_pullback": true,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_10",
+        "must_match_ref_ids": [
+          "ref_clip_10"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "pullback_windowed",
+        "min_continuity_score": 0.45,
+        "max_late_morph_drop": 0.42
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.08,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    }
+  ]
+}

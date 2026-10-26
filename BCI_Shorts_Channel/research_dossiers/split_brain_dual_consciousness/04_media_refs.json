@@ -1,0 +1,95 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "interview",
+      "title": "Geometric puzzle experiments with a Split Brain patient - Michael Gazzaniga",
+      "url": "https://www.youtube.com/watch?v=tgf3uiCZMHo",
+      "channel": "M. C.",
+      "source_id": "SRC_M1",
+      "duration_sec": 91,
+      "timecodes": [
+        {
+          "t": "00:08-00:21",
+          "what": "Around kf_004.jpg (16.5s) (4:3 camera frame), speaker commentary notes \"brain subject provides the answer. As he tries to copy this pattern with blocks we discover his ability is confined to his right half brain. Now...\", anchoring the research context of chicken claw vs snow scene: left hand points at the snow shovel while the mouth invents an excuse."
+        },
+        {
+          "t": "00:22-00:30",
+          "what": "At kf_006.jpg (27.5s) (4:3 camera frame), audio continues with \"the left hand is governed from the right hemisphere and you will say that he has absolutely no problem in solving the problem. When the patient...\", detailing experimental methodology and behavioral observations for Caltech & Dartmouth split-brain tachistoscope experiments (Patients W.J. and P.S.)."
+        },
+        {
+          "t": "00:38-00:52",
+          "what": "Later 4:3 camera frame at kf_009.jpg (44.0s) accompanied by \"kind of visual constructional tasks. It's interesting to note that the whole perspective is gone he has three in one block combinations it doesn't...\", summarizing mechanism and boundary conditions in Caltech & Dartmouth split-brain tachistoscope experiments (Patients W.J. and P.S.)."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1_split_brain_dual_consciousne/ (12 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1_split_brain_dual_consciousne",
+        "contact_sheet": "media/M1_split_brain_dual_consciousne/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1_split_brain_dual_consciousne/contact_sheet.jpg (4:3 broadcast/clinical camera recording (480x360, 12 frames sampled across 0.0s–60.5s)) from M. C.'s \"Geometric puzzle experiments with a Split Brain patient - Michael Gazzaniga\" (91s total runtime).",
+          "Deduplicated English transcript (11 timestamped cues in media/M1_split_brain_dual_consciousne/transcript.txt) aligned directly to keyframe timestamps (0.0s–60.5s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Does the Human Brain Actually Have Two Minds? NOVA | PBS",
+      "url": "https://www.youtube.com/watch?v=eHaJPk9RdKo",
+      "channel": "NOVA PBS Official",
+      "source_id": "SRC_M2",
+      "duration_sec": 318,
+      "timecodes": [
+        {
+          "t": "00:03-00:08",
+          "what": "Widescreen camera frame at kf_002.jpg (6.2s) paired with transcript segment \"For some people, an entire half of their brain can't really communicate with the rest. rest. These are people have undergone split\", introducing core background on chicken claw vs snow scene: left hand points at the snow shovel while the mouth invents an excuse."
+        },
+        {
+          "t": "00:23-00:31",
+          "what": "Around kf_005.jpg (25.7s) (widescreen camera frame), transcript records \"bundle of fibers, it's called the corpus callosum. All the communication from one side of the brain to the other has to\", examining procedural mechanics and evidence in Caltech & Dartmouth split-brain tachistoscope experiments (Patients W.J. and P.S.)."
+        },
+        {
+          "t": "00:58-01:07",
+          "what": "At kf_010.jpg (62.3s) (widescreen camera frame), speaker remarks \"With your left hand, make me the OK sign. To learn more about these fascinating studies, I met two pioneers in the\", addressing theoretical interpretation and downstream implications of Caltech & Dartmouth split-brain tachistoscope experiments (Patients W.J. and P.S.)."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M2/ (14 keyframes, contact_sheet.jpg, transcript.txt); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M2",
+        "contact_sheet": "media/M2/contact_sheet.jpg",
+        "keyframe_count": 14,
+        "shot_notes": [
+          "Inspected media/M2/contact_sheet.jpg (widescreen live-action camera recording (480x270, 14 frames sampled across 3.5s–72.3s)) from NOVA PBS Official's \"Does the Human Brain Actually Have Two Minds? NOVA | PBS\" (318s total runtime).",
+          "Deduplicated English transcript (42 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (3.5s–72.3s).",
+          "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
+        ]
+      }
+    },
+    {
+      "id": "M3",
+      "kind": "photo",
+      "title": "Corpus callosum.png",
+      "url": "https://commons.wikimedia.org/wiki/File:Corpus_callosum.png",
+      "channel": "Wikimedia Commons (Images are generated by Life Science Databases(LSDB).)",
+      "source_id": "SRC_STILL",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Verified photo \"Corpus callosum.png\" (800x455 px, CC BY-SA 2.1 jp): corpus callosum. Images are from Anatomography maintained by Life Science Databases(LSDB). Documents authentic physical instrument geometry and period materials relevant to Caltech & Dartmouth split-brain tachistoscope experiments (Patients W.J. and P.S.)."
+        }
+      ],
+      "license_note": "Archival photo (CC BY-SA 2.1 jp) inspected locally in media/M3/still.jpg for reference only; never reused raw.",
+      "analysis": {
+        "local_dir": "media/M3",
+        "still_image": "media/M3/still.jpg",
+        "shot_notes": [
+          "Inspected media/M3/still.jpg (800x455 px, CC BY-SA 2.1 jp, Images are generated by Life Science Databases(LSDB).) — apparatus reference: corpus callosum. Images are from Anatomography maintained by Life Science Databases(LSDB).",
+          "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
+        ]
+      }
+    }
+  ]
+}
