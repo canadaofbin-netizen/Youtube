@@ -488,6 +488,12 @@ def run_media_integrity_qa(project_id: str | None = None) -> dict[str, Any]:
                 probe["final_mp4_sha256"] = cur_mp4_sha
                 if (p_dir / "05_assembly").exists():
                     probe_cache_file.write_text(json.dumps(probe, indent=2, ensure_ascii=False), encoding="utf-8")
+                    if (p_dir / "00_project_manifest.json").exists() and p_dir.resolve().parent == PROJECTS_DIR.resolve():
+                        try:
+                            from pipeline.storage import ProjectStorage
+                            ProjectStorage(p_dir.name).record_artifact("05_assembly", "probe_report.json", probe_cache_file)
+                        except Exception:
+                            pass
                 autopsy = VideoAutopsyEngine.inspect_project(p_dir, save_report=True)
             valid_clips = [c.name for c in clip_files if c.stat().st_size >= MIN_CLIP_SIZE_BYTES]
             has_multi_clips = len(valid_clips) >= CLIP_COUNT_MIN

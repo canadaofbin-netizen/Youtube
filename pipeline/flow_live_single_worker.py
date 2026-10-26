@@ -838,7 +838,7 @@ def order_downloaded_flow_clips_for_project(project_dir: Path, force_scan_downlo
     def _build_cand_record(f: Path) -> dict[str, Any] | None:
         try:
             st = f.stat()
-            if st.st_size < 1_000_000:
+            if st.st_size < 500_000:
                 return None
         except Exception:
             return None
@@ -894,6 +894,8 @@ def order_downloaded_flow_clips_for_project(project_dir: Path, force_scan_downlo
                 expected_s_from_tile = max(0, (n_expected - 1) - tile_i)
                 if s_idx == expected_s_from_tile:
                     sc += 8.0
+            if f.name.startswith("regen_") and ov >= 0.75:
+                sc += 25.0
             scores.append(sc)
 
         return {
@@ -919,7 +921,7 @@ def order_downloaded_flow_clips_for_project(project_dir: Path, force_scan_downlo
             if not f.is_file():
                 continue
             sz = f.stat().st_size
-            if sz < 1_000_000 or sz in seen_sizes:
+            if sz < 500_000 or sz in seen_sizes:
                 continue
             seen_sizes.add(sz)
             nat_to_analyze.append(f)
@@ -962,7 +964,7 @@ def order_downloaded_flow_clips_for_project(project_dir: Path, force_scan_downlo
                 if not f.is_file():
                     continue
                 sz = f.stat().st_size
-                if sz < 1_000_000 or sz in seen_sizes:
+                if sz < 500_000 or sz in seen_sizes:
                     continue
                 seen_sizes.add(sz)
                 dl_to_analyze.append(f)
@@ -1149,7 +1151,55 @@ def order_downloaded_flow_clips_for_project(project_dir: Path, force_scan_downlo
         except Exception:
             pass
 
+    screenshots_dir = visuals_dir / "flow_screenshots"
+    if screenshots_dir.exists() or len(clips_metadata) >= n_expected:
+        screenshots_dir.mkdir(parents=True, exist_ok=True)
+        _render_v5_contact_sheet(native_dir, screenshots_dir / "flow_gate_v5_ingested_clips.png")
+
     return clips_metadata
+
+
+def _render_v5_contact_sheet(native_dir: Path, v5_ss_path: Path) -> None:
+    import tempfile
+
+    frames = []
+    sorted_native_clips = sorted(
+        native_dir.glob("clip_*.mp4"),
+        key=lambda p: int(re.search(r"(\d+)", p.stem).group(1)) if re.search(r"(\d+)", p.stem) else 999,
+    )
+    for c_file in sorted_native_clips:
+        tmp_c: Path | None = None
+        open_c = c_file
+        if os.name != "nt" and not str(c_file).startswith("/tmp"):
+            try:
+                tmp_c = Path(tempfile.gettempdir()) / f"_tmp_v5_{os.getpid()}_{c_file.name}"
+                shutil.copy2(c_file, tmp_c)
+                open_c = tmp_c
+            except Exception:
+                tmp_c = None
+                open_c = c_file
+        cap = cv2.VideoCapture(str(open_c))
+        total_f = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+        cap.set(cv2.CAP_PROP_POS_FRAMES, max(0, total_f // 2))
+        ok_f, frm = cap.read()
+        cap.release()
+        if tmp_c is not None:
+            tmp_c.unlink(missing_ok=True)
+        if ok_f and frm is not None:
+            frm = cv2.resize(frm, (270, 480))
+            cv2.putText(
+                frm,
+                f"{c_file.name} ({round(c_file.stat().st_size / 1e6, 2)}MB)",
+                (12, 36),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.55,
+                (255, 255, 255),
+                2,
+            )
+            frames.append(frm)
+    if frames:
+        sheet = np.hstack(frames)
+        cv2.imwrite(str(v5_ss_path), sheet)
 
 
 async def allocate_dedicated_flow_project_tab(
@@ -1269,12 +1319,15 @@ async def ensure_manual_video_916_mode(client: DirectCDPClient, target_duration:
     await asyncio.sleep(0.5)
 
     # 3. Ensure Video · Omni 1.1 Flash · 9:16 · 8s/10s · x1 are selected in flow-prompt-box-settings
-    already_10s = await client.eval(f"Boolean(window.__bci_flow_10s_configured === {json.dumps(target_duration)} && window.__bci_flow_0cred_configured)")
+    already_10s = await client.eval(
+        f"Boolean((window.__bci_flow_10s_configured === {json.dumps(target_duration)} || window.__bci_flow_lite_fallback) && window.__bci_flow_0cred_configured)"
+    )
     cur_summary = await client.eval("""(() => {
         const st = document.querySelector('button.settings-trigger-button');
         return st ? (st.innerText || '').trim() : '';
     })()""") or ""
     has_warn = await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))")
+    use_lite = await client.eval("Boolean(window.__bci_flow_lite_fallback)") or bool(has_warn)
 
     if (
         not already_10s
@@ -1297,22 +1350,25 @@ async def ensure_manual_video_916_mode(client: DirectCDPClient, target_duration:
         await asyncio.sleep(0.4)
         from pipeline.flow_ingredients import select_flow_video_model
 
-        if not await select_flow_video_model(client, FLOW_ACTIVE_VIDEO_MODEL):
-            print(f"[R5] could not select {FLOW_ACTIVE_VIDEO_MODEL} in the Flow settings pane")
-        await client.eval(f"""(() => {{
-            const btns = Array.from(document.querySelectorAll('flow-prompt-box-settings button, .cdk-overlay-pane button'));
-            const b916 = btns.find(b => (b.innerText || '').includes('9:16'));
-            if (b916) b916.click();
-            const b720 = btns.find(b => (b.innerText || '').trim() === '720p');
-            if (b720) b720.click();
-            const bDur = btns.find(b => (b.innerText || '').trim() === {json.dumps(target_duration)}) || btns.find(b => (b.innerText || '').trim() === '8s');
-            if (bDur) bDur.click();
-            const bx1 = btns.find(b => (b.innerText || '').trim() === 'x1');
-            if (bx1) bx1.click();
-        }})()""")
-        await asyncio.sleep(0.4)
-        still_warn = await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))")
-        if still_warn:
+        if not use_lite:
+            if not await select_flow_video_model(client, FLOW_ACTIVE_VIDEO_MODEL):
+                print(f"[R5] could not select {FLOW_ACTIVE_VIDEO_MODEL} in the Flow settings pane")
+            await client.eval(f"""(() => {{
+                const btns = Array.from(document.querySelectorAll('flow-prompt-box-settings button, .cdk-overlay-pane button'));
+                const b916 = btns.find(b => (b.innerText || '').includes('9:16'));
+                if (b916) b916.click();
+                const b720 = btns.find(b => (b.innerText || '').trim() === '720p');
+                if (b720) b720.click();
+                const bDur = btns.find(b => (b.innerText || '').trim() === {json.dumps(target_duration)}) || btns.find(b => (b.innerText || '').trim() === '8s');
+                if (bDur) bDur.click();
+                const bx1 = btns.find(b => (b.innerText || '').trim() === 'x1');
+                if (bx1) bx1.click();
+            }})()""")
+            await asyncio.sleep(0.4)
+            still_warn = await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))")
+            if still_warn:
+                use_lite = True
+        if use_lite:
             print("[R5] Insufficient monthly Flow credits for Omni 1.1 Flash; falling back to 0-credit model (8s, 9:16, x1)")
             await select_flow_video_model(client, "Veo 3.1 - Lite [Lower Priority]")
             await client.eval("""(() => {
@@ -1323,6 +1379,7 @@ async def ensure_manual_video_916_mode(client: DirectCDPClient, target_duration:
                 if (b8) b8.click();
                 const bx1 = btns.find(b => (b.innerText || '').trim() === 'x1');
                 if (bx1) bx1.click();
+                window.__bci_flow_lite_fallback = true;
             })()""")
             await asyncio.sleep(0.4)
         await client.eval(f"""(() => {{
@@ -1494,7 +1551,26 @@ async def submit_prompt_in_flow_tab(
             ed.dispatchEvent(new Event('change', {{ bubbles: true }}));
             return true;
         }})()""")
-        await asyncio.sleep(0.3)
+        await asyncio.sleep(0.4)
+
+        warn_after_input = await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))")
+        if warn_after_input:
+            await client.eval("window.__bci_flow_lite_fallback = true; window.__bci_flow_0cred_configured = false;")
+            await ensure_manual_video_916_mode(client, target_duration="8s")
+            await asyncio.sleep(0.3)
+            await client.eval(f"""(() => {{
+                const ed = document.querySelector('.ProseMirror[contenteditable="true"]');
+                if (!ed) return false;
+                if ((ed.innerText || '').trim().length < 10) {{
+                    ed.focus();
+                    document.execCommand('selectAll', false, null);
+                    document.execCommand('insertText', false, {json.dumps(prompt_text)});
+                    ed.dispatchEvent(new InputEvent('input', {{ bubbles: true, cancelable: true, inputType: 'insertText' }}));
+                    ed.dispatchEvent(new Event('change', {{ bubbles: true }}));
+                }}
+                return true;
+            }})()""")
+            await asyncio.sleep(0.2)
 
         # Invoke Angular generate listener or get button coordinates for trusted CDP mouse click
         sub_res = await client.eval("""(() => {
@@ -2056,47 +2132,7 @@ async def run_live_flow_for_single_project(
         raise FlowCircuitBreakerError(f"[{project_id}] Gate V5 failed after live download: {v5_report}")
 
     v5_ss = str(screenshots_dir / "flow_gate_v5_ingested_clips.png")
-    v5_ss_path = Path(v5_ss)
-    if not v5_ss_path.exists() or v5_ss_path.stat().st_size < 1000:
-        frames = []
-        sorted_native_clips = sorted(
-            native_dir.glob("clip_*.mp4"),
-            key=lambda p: int(re.search(r"(\d+)", p.stem).group(1)) if re.search(r"(\d+)", p.stem) else 999,
-        )
-        import tempfile
-        for c_file in sorted_native_clips:
-            tmp_c: Path | None = None
-            open_c = c_file
-            if os.name != "nt" and not str(c_file).startswith("/tmp"):
-                try:
-                    tmp_c = Path(tempfile.gettempdir()) / f"_tmp_v5_{os.getpid()}_{c_file.name}"
-                    shutil.copy2(c_file, tmp_c)
-                    open_c = tmp_c
-                except Exception:
-                    tmp_c = None
-                    open_c = c_file
-            cap = cv2.VideoCapture(str(open_c))
-            total_f = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-            cap.set(cv2.CAP_PROP_POS_FRAMES, max(0, total_f // 2))
-            ok_f, frm = cap.read()
-            cap.release()
-            if tmp_c is not None:
-                tmp_c.unlink(missing_ok=True)
-            if ok_f and frm is not None:
-                frm = cv2.resize(frm, (270, 480))
-                cv2.putText(
-                    frm,
-                    f"{c_file.name} ({round(c_file.stat().st_size / 1e6, 2)}MB)",
-                    (12, 36),
-                    cv2.FONT_HERSHEY_SIMPLEX,
-                    0.55,
-                    (255, 255, 255),
-                    2,
-                )
-                frames.append(frm)
-        if frames:
-            sheet = np.hstack(frames)
-            cv2.imwrite(v5_ss, sheet)
+    _render_v5_contact_sheet(native_dir, Path(v5_ss))
 
     worker.visual_qa_report = {
         "gate_v1": {
@@ -2265,6 +2301,10 @@ async def regenerate_specific_clips_for_project(
 
             pending_shots = list(shots_0based)
             seen_hashes: set[str] = set()
+            newly_harvested_shas: set[str] = set()
+            native_dir = visuals_dir / "flow_native_clips"
+            for s_idx in shots_0based:
+                (native_dir / f"clip_{s_idx + 1}.mp4").unlink(missing_ok=True)
             for attempt_round in range(4):
                 if not pending_shots:
                     break
@@ -2390,7 +2430,7 @@ async def regenerate_specific_clips_for_project(
                             await asyncio.sleep(0.5)
                             cands = [
                                 f for f in USER_DOWNLOADS_DIR.glob("*.mp4")
-                                if f.is_file() and f.stat().st_size >= 1_050_000 and (
+                                if f.is_file() and f.stat().st_size >= 500_000 and (
                                     f.resolve() not in before_user or f.stat().st_mtime >= click_ep - 0.5
                                 )
                             ]
@@ -2421,6 +2461,7 @@ async def regenerate_specific_clips_for_project(
                             if (100.0 <= f0_val <= 165.0) or len(tr_str) >= 12:
                                 dst_f = flow_dl_dir / f"regen_r{attempt_round + 1}_t{tile_idx}_{harvested_orig_name}"
                                 await asyncio.to_thread(shutil.copy2, harvested_tmp, dst_f)
+                                newly_harvested_shas.add(harvested_sha)
                                 any_male_harvested = True
                                 worker.log(
                                     f"[Targeted Regen] Harvested tile {tile_idx}: {dst_f.name} "
@@ -2443,7 +2484,10 @@ async def regenerate_specific_clips_for_project(
                         c["clip_index"] - 1
                         for c in clips_metadata
                         if (c["clip_index"] - 1) in shots_0based
-                        and not (c.get("clip_valid", False) or float(c.get("asr_overlap", 0.0)) >= 0.85)
+                        and not (
+                            c.get("sha256") in newly_harvested_shas
+                            and (c.get("clip_valid", False) or float(c.get("shot_overlap", c.get("asr_overlap", 0.0))) >= 0.85)
+                        )
                     ]
                 worker.log(f"[Targeted Regen Round {attempt_round + 1}/4] Remaining invalid shots: {[s + 1 for s in pending_shots]}")
     finally:

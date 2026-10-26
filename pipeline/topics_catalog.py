@@ -466,7 +466,7 @@ PSYCHOLOGY_TOPICS_1_10 = [{'project_id': 'psych_01_habit_loop_basal_ganglia',
                                         'symptom': 'sweeps his arm across the oak desk knocking a watch down and grips the edge',
                                         'failure': 'strikes the work ledger off the desk and pushes his chair back abruptly',
                                         'breakthrough': 'lifts the steel rod with both hands and places it onto the display stand',
-                                        'conclusion': 'pulls taut leather coach reins with steady hands as the physician writes notes'},
+                                        'conclusion': 'closes a leather journal with both hands on the oak desk and places the steel rod beside it'},
                   'target_region': 'ventromedial prefrontal cortex',
                   'crisis_region': 'white-matter inhibitory tract connecting the ventromedial prefrontal cortex to the '
                                    'amygdala',
@@ -493,13 +493,13 @@ PSYCHOLOGY_TOPICS_1_10 = [{'project_id': 'psych_01_habit_loop_basal_ganglia',
                                       'into the stone hole with both hands, and a bright spark launches the rod upward '
                                       'as he recoils backward into the chair. Wide establishing shot, camera smoothly '
                                       'tracks forward toward his face. Bright daylight lighting.',
-                             'symptom': "Close-up on the clothed railroad foreman mannequin's smooth porcelain face as "
-                                        'he sweeps his arm across the oak desk, knocking a pocket watch and papers to '
-                                        'the floor before gripping the desk edge in tense agitation. The camera slowly '
-                                        'orbits his head, revealing the brain through the translucent frosted-glass '
-                                        'cranium: the lateral speech cortex glows electric cyan-blue, while the lower '
-                                        'anterior frontal lobe fades to dim crimson-red. Strong rim light traces the '
-                                        'porcelain contours.',
+                             'symptom': 'In the bright minimalist white studio room, close-up on the clothed '
+                                        'matte-white porcelain foreman mannequin with a featureless white face as he '
+                                        'sweeps his arm across the oak desk, knocking a pocket watch and papers down '
+                                        'before gripping the desk edge. The camera slowly orbits his translucent '
+                                        'frosted-glass cranium: the lateral speech cortex glows electric cyan-blue, '
+                                        'while the lower frontal lobe fades to dim crimson-red. Bright daylight traces '
+                                        'the porcelain contours.',
                              'failure': 'In the bright minimalist white studio room, a matte-white porcelain '
                                         'co-worker mannequin holds out a work schedule ledger with both hands. The '
                                         'clothed matte-white porcelain foreman mannequin with a featureless white face '

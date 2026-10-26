@@ -1380,6 +1380,7 @@ def assemble_final_shorts_video(
             f.write(f"file '{clip.resolve().as_posix()}'\n")
             f.write(f"inpoint {in_pt}\n")
             f.write(f"outpoint {out_pt}\n")
+    storage.record_artifact("05_assembly", "concat_list.txt", concat_file)
 
     ffmpeg_exe = MediaIntegrityValidator.get_ffmpeg_exe()
 
@@ -1480,16 +1481,19 @@ def assemble_final_shorts_video(
             min_size_bytes=MIN_CLIP_SIZE_BYTES,
             require_30s_shorts=True,
             check_motion=True,
+            check_audio=True,
         )
         probe_report["file_path"] = str(final_video_path)
         video_sha = storage._calculate_sha256(tmp_final_video_path)
         video_sz = tmp_final_video_path.stat().st_size
+        probe_report["final_mp4_sha256"] = video_sha
     finally:
         if use_local_tmp and tmp_stage_dir.exists():
             shutil.rmtree(tmp_stage_dir, ignore_errors=True)
 
     storage.save_json("05_assembly", "probe_report.json", probe_report)
     storage.record_artifact("05_assembly", "final_shorts_1080x1920.mp4", final_video_path, known_sha256=video_sha, known_size_bytes=video_sz)
+    storage.update_stage_status("05_assembly", "completed")
 
     manifest = storage.get_manifest()
     manifest["final_video"] = {

@@ -1865,6 +1865,9 @@ class VideoAutopsyEngine:
                 check_audio=True,
             )
             storage.save_json("05_assembly", "probe_report.json", probe_rep)
+        storage.update_stage_status("05_assembly", "completed")
+        storage.update_stage_status("06_publish", "completed")
+        cls.refresh_manifest_hashes(storage)
 
         return {
             "project_id": project_id,
