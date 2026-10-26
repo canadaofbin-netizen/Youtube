@@ -16,6 +16,7 @@ from typing import Any
 
 from pipeline.config import (
     DEFAULT_CLIP_COUNT,
+    FLOW_CLIP_DURATION_TARGET,
     FLOW_DOWNLOAD_HARVEST_LOCK_FILE,
     FLOW_MAX_PARALLEL_BATCH_SIZE,
     FLOW_MAX_RETRIES,
@@ -413,10 +414,9 @@ class FlowProjectSubagentWorker:
                     errors.append(f"clip_{clip_idx}_file_missing_on_disk")
                     continue
                 st = clip_file.stat()
-                if expected_sz > 0 and st.st_size == expected_sz and len(expected_sha) == 64:
-                    actual_sha = expected_sha
-                else:
-                    actual_sha = cls.compute_file_sha256(clip_file).lower()
+                if expected_sz > 0 and st.st_size != expected_sz:
+                    errors.append(f"clip_{clip_idx}_size_mismatch (receipt={expected_sz} != disk={st.st_size})")
+                actual_sha = cls.compute_file_sha256(clip_file).lower()
                 if not expected_sha or expected_sha != actual_sha:
                     errors.append(f"clip_{clip_idx}_sha256_mismatch (receipt={expected_sha[:12]} != disk={actual_sha[:12]})")
                 if actual_sha in seen_hashes:
@@ -895,6 +895,13 @@ class FlowProjectSubagentWorker:
                     }})()
                     """
                     self.title_set = bool(await client.eval(set_title_js))
+
+                    # 6b. Configure Google Flow UI duration to FLOW_CLIP_DURATION_TARGET ("10s", never "8s")
+                    try:
+                        from pipeline.flow_live_single_worker import ensure_manual_video_916_mode
+                        await ensure_manual_video_916_mode(client, target_duration=FLOW_CLIP_DURATION_TARGET)
+                    except Exception:
+                        pass
 
                     # 7. Layer 1A: Inject Shot 1 prompt with real InputEvent and verify Generate button enabled
                     with FlowDownloadHarvestLock():
@@ -1989,7 +1996,12 @@ class GoogleFlowWhaleController:
         When deep_probe=True, also runs MediaIntegrityValidator 7-point inspection
         (ffprobe/ffmpeg stream check, duration, frame pixel diff, optical flow, and anti-derivative tags).
         """
-        target_dir = PROJECTS_DIR / project_id / "03_visuals" / "flow_native_clips"
+        proj_base = (
+            (Path("/tmp/bci_test_projects") / project_id)
+            if (os.name != "nt" and str(project_id).startswith("test_") and Path("/tmp").exists())
+            else (PROJECTS_DIR / project_id)
+        )
+        target_dir = proj_base / "03_visuals" / "flow_native_clips"
         if not target_dir.exists():
             return {
                 "status": "FAIL",
@@ -2005,8 +2017,8 @@ class GoogleFlowWhaleController:
         invalid_count = 0
         clip_details = []
 
-        autopsy_file = PROJECTS_DIR / project_id / "05_assembly" / "video_autopsy_report.json"
-        receipt_file = PROJECTS_DIR / project_id / "03_visuals" / "flow_provenance_receipt.json"
+        autopsy_file = proj_base / "05_assembly" / "video_autopsy_report.json"
+        receipt_file = proj_base / "03_visuals" / "flow_provenance_receipt.json"
         has_autopsy_cache = (
             (autopsy_file.exists() and autopsy_file.stat().st_size > 200)
             or (receipt_file.exists() and receipt_file.stat().st_size > 200)

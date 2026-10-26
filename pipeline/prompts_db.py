@@ -187,13 +187,13 @@ def _build_contract_v4_narrations(
         f"Instead of relying on surface symptoms, {researcher} traced how the {target} and the {comp} divide the signal across two separate neural routes."
     )
     c6 = _fit_narration_words(
-        f"Step one: sensory signals from the {anat['sensory_organ']} race into the {target}, encoding the incoming experience into rapid electrical spikes."
+        f"First, sensory signals from the {anat['sensory_organ']} race into the {target}, encoding the incoming experience into rapid electrical spikes."
     )
     c7 = _fit_narration_words(
-        f"Step two: those electrical pulses travel along the {crisis}, where any structural disruption scatters the neural message before awareness begins."
+        f"Next, those electrical pulses travel along the {crisis}, where any structural disruption scatters the neural message before awareness begins."
     )
     c8 = _fit_narration_words(
-        f"Step three: the {comp} detects the mismatch and reroutes the active circuit, locking the new behavioral response into place within milliseconds."
+        f"Finally, the {comp} detects the mismatch and reroutes the active circuit, locking the new behavioral response into place within milliseconds."
     )
     c9 = _fit_narration_words(
         f"The researchers were left completely stunned. Controlled recordings proved the {target} and {comp} physically rewired the response in real time."

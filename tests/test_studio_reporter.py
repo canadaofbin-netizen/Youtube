@@ -40,12 +40,11 @@ def test_generate_daily_report_and_charts_self_cleaning():
         assert res_day2["previous_report_date"] == "2026-10-15"
 
         md_text = Path(res_day2["markdown_path"]).read_text(encoding="utf-8")
-        # Verify all 9 standardized sections exist
-        for sec_num in range(1, 10):
+        # Verify all 5 normalized sections exist and zero redundant inline Mermaid charts
+        for sec_num in range(1, 6):
             assert f"## {sec_num}." in md_text
-
-        # Verify all 5 inline Mermaid xychart-beta graphs exist
-        assert md_text.count("xychart-beta") == 5
+        assert "## 6." not in md_text
+        assert md_text.count("xychart-beta") == 0
         assert "2026-10-17_studio_charts.png" in md_text
 
         # Verify JSON schema completeness
@@ -73,10 +72,23 @@ def test_generate_daily_report_and_charts_self_cleaning():
         for item in payload["upcoming_schedule"]:
             assert item["date"] >= "2026-10-17"
 
-        # Verify Unlisted badge, Q1-Q4 table, Section 8-3 Risk Audit, and Section 9-4 Provenance
-        assert "🔒 Unlisted (Staged)" in md_text
-        assert "### 8-3. 🚨 채널 운영 및 파이프라인 7대 위험 진단 매트릭스" in md_text
-        assert "### 9-4. 🔐 Raw Snapshot & Provenance" in md_text
+        # Verify Channel-Level Traffic-Light Scorecard, English numbers-first format, zero redundant '회' units, and Provenance
+        assert "🚦 0. Executive Growth Pulse" in md_text
+        assert "🟢" in md_text and "🟡" in md_text and "🔴" in md_text
+        assert "psych_01" not in md_text
+        assert "회" not in md_text
+        assert "우수 (" not in md_text
+        assert "3초 스와이프 이탈률" not in md_text
+        assert "arecibo observatory collapse" not in md_text
+        assert "Shown in feed" in md_text
+        assert "Engaged Views" in md_text
+        assert "Recent 3" in md_text
+        assert "Q1→Q2" in md_text and "Q2→Q3" in md_text and "Q3→Q4" in md_text
+        assert "Time-to-Seed" in md_text
+        assert "Related Video" in md_text
+        assert "Unlisted (Staged)" in md_text
+        assert "Queue & Operations Health" in md_text
+        assert "🔐 Provenance" in md_text
         assert "Q1 (0–25%)" in md_text
         assert "Q4 (75–100%)" in md_text
         assert "/ 30.0초" not in payload["diagnostics"]["executive_headline"]
@@ -99,7 +111,7 @@ def test_generate_daily_report_and_charts_self_cleaning():
         # Verify custom reports_dir writes LATEST_DAILY_REPORT.md inside tmp_dir, not global root
         assert Path(res_day2["latest_report_path"]).parent == tmp_dir
 
-        # Verify Per-Video Notable Change Detection & 3-Axis Root-Cause Attribution (Section 6-2)
+        # Verify Per-Video Notable Change Detection & 3-Axis Root-Cause Attribution in JSON payload
         assert "notable_video_changes" in payload
         assert len(payload["notable_video_changes"]) >= 3
         change_types = {nc["change_type"] for nc in payload["notable_video_changes"]}
@@ -112,12 +124,8 @@ def test_generate_daily_report_and_charts_self_cleaning():
             assert nc.get("why_retention_and_visuals")
             assert nc.get("why_traffic_and_studio")
             assert nc.get("next_action")
-        assert "### 6-2. 🔎 특정 영상별 눈에 띄는 변화 감지 및 심층 원인 분석" in md_text
-        assert "왜 그런 변화가 발생했는가 ① [대본·사례·훅" in md_text
-        assert "왜 그런 변화가 발생했는가 ② [4분위 리텐션·비주얼 해부" in md_text
-        assert "왜 그런 변화가 발생했는가 ③ [트래픽·검색어·썸네일·슬롯" in md_text
 
-        # Verify Success vs. Failure/Risk Signal Detection & Amplification Playbook (Section 9-1..9-3)
+        # Verify Success vs. Failure/Risk Signal Detection & Amplification Playbook in JSON payload
         assert "signal_radar" in payload
         sr = payload["signal_radar"]
         assert len(sr["success_signals"]) == 5
@@ -126,13 +134,6 @@ def test_generate_daily_report_and_charts_self_cleaning():
         assert [s["signal_id"] for s in sr["success_signals"]] == [f"SIG-WIN-{i}" for i in range(1, 6)]
         assert [s["signal_id"] for s in sr["failure_risk_signals"]] == [f"SIG-FAIL-{i}" for i in range(1, 6)]
         assert [a["strategy_id"] for a in sr["amplification_strategies"]] == [f"AMP-{i}" for i in range(1, 6)]
-        assert "#### 🟢 [표 9-1] 성공 시그널(Success Signals) 조기 감지 매트릭스" in md_text
-        assert "#### 🔴 [표 9-2] 실패 및 위험 시그널(Failure & Risk Signals) 조기 감지 매트릭스" in md_text
-        assert "#### 🚀 [표 9-3] 성공 시그널 증폭(Success Signal Amplification) 5-Gear 실행 플레이북" in md_text
-        for i in range(1, 6):
-            assert f"SIG-WIN-{i}" in md_text
-            assert f"SIG-FAIL-{i}" in md_text
-            assert f"AMP-{i}" in md_text
 
         # Verify no broken empty backticks or stale hardcoded counts when unlisted/quarantine/sim_publish == 0
         assert "초기 `` `0`편" not in md_text
@@ -150,13 +151,11 @@ def test_generate_daily_report_and_charts_self_cleaning():
             assert sig_fail_4["severity"] == "LOW"
             assert "PASS" in sig_fail_4["status_badge"]
 
-        # Verify DAILY_REPORT_MASTER_PROMPT.md template is synchronized with the 9-section schema
+        # Verify DAILY_REPORT_MASTER_PROMPT.md template is synchronized with the normalized 5-section schema
         master_prompt_text = Path(res_day2["master_prompt_path"]).read_text(encoding="utf-8")
-        assert "### 6-2." in master_prompt_text
-        assert "### 8-3." in master_prompt_text
-        assert "[표 9-1]" in master_prompt_text
-        assert "[표 9-2]" in master_prompt_text
-        assert "[표 9-3]" in master_prompt_text
+        assert "Normalized 5-Section" in master_prompt_text
+        assert "Section 1" in master_prompt_text
+        assert "Section 5" in master_prompt_text
         assert "뫼비우스 루프" not in master_prompt_text
 
         # Edge case: future report_date beyond queue dates falls back to last 10 queue items
@@ -164,6 +163,20 @@ def test_generate_daily_report_and_charts_self_cleaning():
         assert len(future_state["upcoming_schedule"]) <= 10
         if future_state["raw_queue_items"]:
             assert future_state["upcoming_schedule"] == future_state["raw_queue_items"][-10:]
+
+        # Verify real MP4 / YouTube Studio duration probing, catalog title/hook recovery, and slot4 20:00 ET alignment
+        assert payload["retention_kpis"]["avg_video_length_sec"] > 65.0
+        for rec in payload["per_video_records"]:
+            if rec["video_id"] == "zs2pv1t_0hs":
+                assert rec["duration_seconds"] == 47.0
+            elif rec["video_id"] == "nGNIl26te0w":
+                assert rec["duration_seconds"] == 31.0
+            else:
+                assert rec["duration_seconds"] > 70.0
+            assert rec["title"] and rec["title"] != "N/A"
+            assert rec["pillar"] and rec["pillar"] != "N/A"
+        assert "19:30 ET" not in md_text
+        assert "72h/var` vs Rule R32 `24h/var" not in md_text
     finally:
         shutil.rmtree(tmp_dir, ignore_errors=True)
 

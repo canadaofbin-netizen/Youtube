@@ -1,6 +1,6 @@
 # Rule: Master QA Loop & Video Validation Protocol
 
-Parent Master Index: [AGENTS.md](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) · Numbers: [production_constants.md](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/production_constants.md)
+Parent Master Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) · Numbers: [production_constants.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/production_constants.md)
 
 Gates enforce rules owned elsewhere; this file owns only the gate definitions (R18, R18-B), delivery (R25) and the quality lock (R37).
 
@@ -19,12 +19,29 @@ Run by `ScriptingStage.validate_qa_gates` (`pipeline/scripting.py`) → `02_scri
 | G4 anatomy | narration traces the anatomical pathway (real region names, no mechanical metaphor) | R3, R38 |
 | G5 conclusion opener | final clip opens with "Which proves" or "Which is why" | R26 |
 | G6 tone | zero first-person pronouns, zero clickbait terms | R15 |
-| G7 setting split | real_env / pull_out prompts name the real environment + porcelain mannequin; drill_down / brain_void prompts name the matte-white brain on midnight navy; colour words follow the 4-point code; no `#hex` | R14-A, R21 |
+| G7 setting split | real_env / pull_out prompts name the real environment + porcelain mannequin; drill_down / brain_void prompts name the matte-white brain on bright studio; colour words follow the 4-point code; no `#hex` | R14-A, R21 |
 | G8 banned tokens | zero `BANNED_PROMPT_TOKENS` / `BANNED_STYLE_TOKENS` | R14-B |
 | G9 camera | exactly one camera move per clip; no angle labels, loop or tripod wording | R14-D |
-| G10 voice line | every prompt ends with `Voice: Puck. Spoken narration: "…"`; no `Audio:` | R13, R40-A |
+| G10 voice line | every prompt ends with `Voice: Consistent deep male baritone documentary narrator. Spoken narration: "…"`; no `Audio:` | R13, R40-A |
 | G11 pivot & memes | pivot clip contains "Instead of"; both signature memes present in their roles | R26, R24 |
 | G12 zero dead air | vocal windows bounded by the R41 envelope; no mid-sentence clipping; inter-clip silence < `DEAD_AIR_FLOOR_SEC` | R41, R43-B |
+
+## R18-V5 — Prompt System v5 Production Gate (before Gear 3)
+`pipeline/prompt_quality_v5.validate_production_v5(plan, narrations, clips)` must return `[]` (`main.py prompt-gate --dir <project or draft>`). It wraps G1/G5/G8/G10/G11 (via the v4 validators) and adds:
+
+| Tag | Checks | Owner rule |
+|---|---|---|
+| `[scene]` | must-have scenes present, exactly one iconic, iconic in clip 1..`ICONIC_SCENE_MAX_CLIP`, every must-have mapped to a clip | R46 |
+| `[acting]` | every reenactment clip has a body verb, a prop physical change, no static-only acting | R47 |
+| `[brain]` | brain clips ≤ mode cap; none in BEHAVIORAL_PSYCH; canonical regions only; narration names the on-screen region; region fields not blended | R45, R48 |
+| `[plain]` | reading grade, jargon cap, anatomy cap + gloss, viewer link, no Step openers / paper voice | R15 v5 |
+| `[tts]` | TTS-safe narration | R49-T |
+| `[keyshot]` | iconic scene has `key_visual`; a clip with that `scene_id` contains every `must_show` token group, in clip 1..`ICONIC_SCENE_MAX_CLIP` | R46-K |
+| `[fact]` | every number in the display narration exists in the linked dossier (`check_narration_facts`, run by `prompt-gate`) | R44-D |
+
+**Reference gate (Gear 3, before the first clip)**: `main.py ref-qa --project <id>` → `pre_generation_ready: true` = every image passes Q1–Q10 + Q11 semantic review and was generated for the pack (provenance `flow_image_generation` / `gemini_image_generation`). `--audit` only inspects finished clips and can never pass this gate (R51). **Blueprint gate**: `main.py packets --project <id>` exits 0 only when `validate_scene_blueprints` returns `[]` (R52).
+
+Research gate (before Gear 2): `validate_dossier(slug)["ready"]` incl. `depth_standard` (R44, R44-D). Voice gate (Gear 3/4): `evaluate_f0_series` semitone limits, then R49 fallback. Back-catalogue audit: `main.py audit-prompts` → `BCI_Shorts_Channel/reports/prompt_v5_score_sheet.md`.
 
 ## R18-B — Visual Browser Gates V1–V5
 Saved under `03_visuals/flow_screenshots/` with `visual_qa_report.json`.
@@ -57,7 +74,7 @@ Flow defense layers (inside Guards 1/5): `.ProseMirror` injection → `<video>` 
 |---|---|---|
 | 1 Pre-flight | `run_preflight_qa` | paid-API lock, Guard 3, Guard 6 cap, contract constants (`production_constants.md`), FFmpeg / OpenCV / Whale binaries |
 | 2 Browser generation | `run_browser_generation_qa` | provenance uniqueness, V1–V5 |
-| 3 Media integrity | `run_media_integrity_qa` | `MediaIntegrityValidator` + `VideoAutopsyEngine`: duration bounds, `MIN_FRAME_DIFF_THRESHOLD`, `MIN_OPTICAL_FLOW_THRESHOLD`, no clipping / truncation |
+| 3 Media integrity | `run_media_integrity_qa` | `MediaIntegrityValidator` + `VideoAutopsyEngine`: duration bounds, `MIN_FRAME_DIFF_THRESHOLD`, `MIN_OPTICAL_FLOW_THRESHOLD`, no clipping / truncation, zero cloned frozen end-frames, word-level subtitle sync drift `<= 0.15s`, zero overlapping subtitle events (`overlapping_events_count == 0`), zero unconverted multi-word numbers in subtitles (`unconverted_number_words_count == 0`), voice F0 continuity / `am_fenrir` R41 broadcast chain, bidirectional spoken-vs-script content word match |
 | 4 Intent & content | `run_intent_content_qa` | G1–G12, three distinct thumbnails (R31), R16 subtitle layout, R36 localization |
 
 Entry point: `run_full_executable_qa`.

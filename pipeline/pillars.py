@@ -53,13 +53,13 @@ PILLARS_DATA: dict[str, ContentPillar] = {
             "paradox_statement": "A paralyzed man plays live chess using only silent thought. It sounds like a cheat code.",
             "hook_text": "In twenty twenty-four, paralyzed patient Noland Arbaugh sat before a laptop screen. He played live chess using silent thought alone, without moving a single muscle.",
             "setup_text": "A diving accident had severed his cervical spinal cord and trapped every motor signal inside his skull. For his brain, this was a total nightmare.",
-            "core_text": "Instead of repairing the broken spinal cord, neural engineers targeted the source. Sixty-four flexible electrode threads entered the hand region of his primary motor cortex. Step one: as his eyes track the chessboard, motor cortex electrodes decode action potentials into wireless cursor moves. The researchers were left completely stunned.",
+            "core_text": "Instead of repairing the broken spinal cord, neural engineers targeted the source. Sixty-four flexible electrode threads entered the hand region of his primary motor cortex. First, as his eyes track the chessboard, motor cortex electrodes decode action potentials into wireless cursor moves. The researchers were left completely stunned.",
             "payoff_text": "Which proves that a direct cortical interface can bypass a severed spinal cord and turn pure human intention into real-time action in seconds.",
             "clip_narrations": [
                 "In twenty twenty-four, paralyzed patient Noland Arbaugh sat before a laptop screen. He played live chess using silent thought alone, without moving a single muscle.",
                 "A diving accident had severed his cervical spinal cord and trapped every motor signal inside his skull. For his brain, this was a total nightmare.",
                 "Instead of repairing the broken spinal cord, neural engineers targeted the source. Sixty-four flexible electrode threads entered the hand region of his primary motor cortex.",
-                "Step one: as his eyes track the chessboard, motor cortex electrodes decode action potentials into wireless cursor moves. The researchers were left completely stunned.",
+                "First, as his eyes track the chessboard, motor cortex electrodes decode action potentials into wireless cursor moves. The researchers were left completely stunned.",
                 "Which proves that a direct cortical interface can bypass a severed spinal cord and turn pure human intention into real-time action in seconds.",
             ],
             "visual_plan": infer_visual_plan(

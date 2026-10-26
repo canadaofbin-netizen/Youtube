@@ -269,11 +269,12 @@ class MediaIntegrityValidator:
         path = Path(file_path)
         import os
         import tempfile
+        import threading
         tmp_path: Path | None = None
         open_path = path
         if os.name != "nt" and path.exists() and not str(path).startswith("/tmp"):
             try:
-                tmp_path = Path(tempfile.gettempdir()) / f"_tmp_motion_{os.getpid()}_{path.name}"
+                tmp_path = Path(tempfile.gettempdir()) / f"_tmp_motion_{os.getpid()}_{threading.get_ident()}_{path.name}"
                 shutil.copy2(path, tmp_path)
                 open_path = tmp_path
             except Exception:
@@ -510,11 +511,12 @@ class MediaIntegrityValidator:
 
         import os
         import tempfile
+        import threading
         tmp_path: Path | None = None
         open_path = path
         if os.name != "nt" and not str(path).startswith("/tmp"):
             try:
-                tmp_path = Path(tempfile.gettempdir()) / f"_tmp_dhash_{os.getpid()}_{path.name}"
+                tmp_path = Path(tempfile.gettempdir()) / f"_tmp_dhash_{os.getpid()}_{threading.get_ident()}_{path.name}"
                 shutil.copy2(path, tmp_path)
                 open_path = tmp_path
             except Exception:

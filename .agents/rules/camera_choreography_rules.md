@@ -1,8 +1,8 @@
 # Rule: Camera Choreography Protocol
 
-Parent Master Index: [AGENTS.md](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) · Scene/setting rules: [visual_prompt_spec.md](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/visual_prompt_spec.md)
+Parent Master Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) · Scene/setting rules: [visual_prompt_spec.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/visual_prompt_spec.md)
 
-Scope: the camera sentence inside each Flow prompt scene. Trimming, holds and speed belong to [audio_assembly_rules.md](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/audio_assembly_rules.md).
+Scope: the camera sentence inside each Flow prompt scene. Trimming, holds and speed belong to [audio_assembly_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/audio_assembly_rules.md).
 
 ---
 
@@ -30,3 +30,15 @@ One clean camera move per clip, written as one sentence in plain film language. 
 | Anatomical anchoring | Name brain regions by anatomy (temporal lobe, ventral surface, behind the forehead), never by screen position (upper-left, upper-right). |
 | Ending | Conclusion is an independent elevated wide scene (R19); it does not return to the clip 1 framing. |
 | Banned camera words | locked-off, tripod, dolly-percentage push-ins, decoupled kinetic, seamless loop, loop back (see R14-B). |
+
+## R14-D v5 — Reenactment Camera (Prompt System v5)
+In v5 plans the setting of each clip comes from the visual mode (R45), so the table above applies to **brain clips only**. Reenactment (`real_env`) clips choose the camera that best shows the action (stored in `visual_plan.shots[role].camera`):
+
+| Purpose | Vocabulary |
+|---|---|
+| Iconic moment (clip 1–2) | low-angle tracking shot, slow push-in on the hands, whip of motion followed by a hold, overhead wide that shows the blocking (E / T / L positions) |
+| Body action + prop | close-up tracking the hand on the prop (switch, rod, ball, food bowl), insert shot of the prop changing (needle jumps, saliva drips, ball bounces) |
+| Reaction | medium shot pushing in as the figure recoils / freezes / turns to someone |
+| Crowd / teams | wide lateral track along the line of players, crane up over the room |
+
+Still one move per clip, and the camera sentence is part of the Action-Physics formula (R47).

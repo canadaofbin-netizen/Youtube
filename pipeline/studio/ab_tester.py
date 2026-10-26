@@ -10,13 +10,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from playwright.async_api import async_playwright
-
 from pipeline.storage import ProjectStorage
 from pipeline.studio.config import (
+    CHANNEL_ID,
     DEFAULT_CDP_PORT,
     THUMBNAIL_SWAP_SELECTORS,
 )
+from pipeline.studio.short_linker import write_studio_publish_receipt
 from pipeline.studio.whale_session import WhaleSessionController
 
 
@@ -26,8 +26,9 @@ class ThumbnailABTester:
     two-proportion Z-test statistical significance analysis on Search & Browse CTR.
     """
 
-    def __init__(self, cdp_port: int = DEFAULT_CDP_PORT):
+    def __init__(self, cdp_port: int = DEFAULT_CDP_PORT, projects_dir: Path | None = None):
         self.cdp_port = cdp_port
+        self.projects_dir = projects_dir
         self.session = WhaleSessionController(cdp_port=cdp_port)
 
     @staticmethod
@@ -95,7 +96,7 @@ class ThumbnailABTester:
 
     def load_manifest(self, project_id: str) -> tuple[dict[str, Any], ProjectStorage]:
         """Loads ab_test_manifest.json for the project."""
-        storage = ProjectStorage(project_id)
+        storage = ProjectStorage(project_id, projects_dir=self.projects_dir)
         manifest = storage.load_json("06_publish", "ab_test_manifest.json")
         if not manifest:
             raise FileNotFoundError(f"ab_test_manifest.json not found in project '{project_id}'. Run PublishStage first.")
@@ -112,53 +113,69 @@ class ThumbnailABTester:
         new_thumb_path: Path,
         dry_run: bool = False
     ) -> bool:
-        """Navigates to Studio video edit page and uploads replacement thumbnail."""
+        """Navigates to Studio video edit page via DirectCDPClient and uploads replacement thumbnail."""
         if dry_run:
             print(f"[ThumbnailABTester] [DRY RUN] Simulating thumbnail swap to {new_thumb_path.name} on video {video_id}...")
             return True
 
+        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+
         studio_edit_url = f"https://studio.youtube.com/video/{video_id}/edit"
-        print(f"[ThumbnailABTester] Navigating to Video Details: {studio_edit_url}...")
+        print(f"[ThumbnailABTester] Navigating to Video Details via DirectCDPClient: {studio_edit_url}...")
 
-        async with async_playwright() as p:
-            browser = await self.session.connect(p)
-            page = await self.session.get_or_open_tab(
-                browser,
-                url_match_pattern=f"/video/{video_id}",
-                default_url=studio_edit_url
+        client = self.session.get_direct_client("studio.youtube.com", default_url=studio_edit_url)
+        async with client:
+            await client.send("Page.enable")
+            await client.send("Runtime.enable")
+            await client.send("Page.bringToFront")
+            await client.send("Page.navigate", {"url": studio_edit_url})
+            ready = await client.wait_for_element(["ytcp-video-metadata-editor"], timeout_sec=20.0)
+            if not ready:
+                print("[ThumbnailABTester] Warning: Studio video edit page timed out.")
+                return False
+            await asyncio.sleep(1.8)
+
+            has_channel = await client.eval(
+                f"""(() => {{
+                    {_DEEP_QUERY_HELPER_JS}
+                    if (location.href.includes('{CHANNEL_ID}')) return true;
+                    return __queryAllDeep('a[href*="{CHANNEL_ID}"]').length > 0;
+                }})()"""
             )
-            await asyncio.sleep(3.0)
+            if not has_channel:
+                print("[ThumbnailABTester] Warning: Active Studio tab is not on ALL ABOUT BRAIN channel.")
+                return False
 
-            # Look for thumbnail options menu (three dots on thumbnail preview)
-            options_btn, _ = await self.session.find_first_matching(
-                page, THUMBNAIL_SWAP_SELECTORS["thumbnail_options_menu"], timeout_ms=5000
+            if await client.find_element(THUMBNAIL_SWAP_SELECTORS["thumbnail_options_menu"]):
+                await client.click(THUMBNAIL_SWAP_SELECTORS["thumbnail_options_menu"])
+                await asyncio.sleep(0.8)
+                await client.click(THUMBNAIL_SWAP_SELECTORS["change_thumbnail_item"])
+                await asyncio.sleep(0.8)
+
+            uploaded = await client.set_file_input(
+                new_thumb_path,
+                selector="input#file-loader, input[type='file'][accept*='image'], ytcp-thumbnail-editor input[type='file'], ytcp-thumbnails-compact-editor-uploader input[type='file']",
             )
+            if not uploaded:
+                print("[ThumbnailABTester] Warning: Could not locate thumbnail file input in Studio edit page.")
+                return False
 
-            file_input = None
-            if options_btn:
-                await options_btn.click()
-                await asyncio.sleep(1.0)
-                # Click Change item
-                await self.session.safe_click(page, THUMBNAIL_SWAP_SELECTORS["change_thumbnail_item"], timeout_ms=3000)
-                await asyncio.sleep(1.0)
-                file_input = await page.query_selector("input[type='file'][accept*='image']")
-            else:
-                # Direct file input query
-                file_input = await page.query_selector("ytcp-thumbnails-compact-editor-uploader input[type='file'], input#file-loader")
-
-            if file_input:
-                print(f"[ThumbnailABTester] Uploading replacement thumbnail: {new_thumb_path}...")
-                await file_input.set_input_files(str(new_thumb_path.resolve()))
-                await asyncio.sleep(2.0)
-
-                # Click Save button
-                print("[ThumbnailABTester] Saving video details...")
-                saved = await self.session.safe_click(page, THUMBNAIL_SWAP_SELECTORS["details_save_button"], timeout_ms=5000)
-                await asyncio.sleep(3.0)
-                return saved
-
-            print("[ThumbnailABTester] Warning: Could not locate thumbnail upload element in Studio edit page.")
-            return False
+            await asyncio.sleep(2.0)
+            saved = await client.click(THUMBNAIL_SWAP_SELECTORS["details_save_button"])
+            if saved:
+                for _ in range(24):
+                    await asyncio.sleep(0.5)
+                    disabled = await client.eval(
+                        f"""(() => {{
+                            {_DEEP_QUERY_HELPER_JS}
+                            const btn = __queryAllDeep('ytcp-button#save, #save')[0];
+                            if (!btn) return false;
+                            return btn.hasAttribute('disabled') || btn.getAttribute('aria-disabled') === 'true';
+                        }})()"""
+                    )
+                    if disabled:
+                        break
+            return bool(saved)
 
     def swap_to_variant(
         self,
@@ -213,6 +230,8 @@ class ThumbnailABTester:
         manifest["status"] = f"active_testing_var_{target}"
 
         storage.save_json("06_publish", "ab_test_manifest.json", manifest)
+        if not dry_run:
+            write_studio_publish_receipt(project_id, projects_dir=self.projects_dir)
 
         return {
             "project_id": project_id,
@@ -335,12 +354,13 @@ class ThumbnailABTester:
             "z_critical": 1.96,
             "conclusive": is_conclusive,
             "winner_variant": winner_candidate if is_conclusive else None,
-            "winner_hypothesis": manifest["variants"][winner_candidate]["hypothesis"] if is_conclusive else None,
+            "winner_hypothesis": manifest["variants"][winner_candidate].get("hypothesis", "Cognitive dissonance & provocative defiance trigger; high-CTR curiosity gap.") if is_conclusive else None,
             "comparisons": comparisons,
             "metrics_input": metrics
         }
 
         # Update manifest
+        manifest.setdefault("statistical_evaluation", {})
         manifest["statistical_evaluation"]["winner_variant"] = winner_candidate
         manifest["statistical_evaluation"]["locked"] = is_conclusive
         manifest["statistical_evaluation"]["last_evaluated_at"] = now_iso

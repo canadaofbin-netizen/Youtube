@@ -8,7 +8,9 @@ and bulk unlisted staging queue management.
 from pipeline.studio.ab_tester import ThumbnailABTester
 from pipeline.studio.community import CommunityManager
 from pipeline.studio.config import (
+    AFFINITY_WEIGHTS,
     AI_CONTENT_DECLARATION,
+    ANCHOR_MIN_VIEWS,
     CHANNEL_HANDLE,
     CHANNEL_ID,
     CHANNEL_LOCALIZATION_SPEC,
@@ -27,7 +29,12 @@ from pipeline.studio.config import (
     MASTER_PROMPT_FILE,
     PILLAR_PLAYLIST_MAP,
     PILLAR_SLOT_MAP,
+    PLAYLIST_SELECTORS,
+    RELATED_VIDEO_SELECTORS,
     REPORTS_ROOT_DIR,
+    SEED_PROTECTION_LOCK_HOURS,
+    SEED_STARVED_MAX_IMPRESSIONS,
+    SHORT_LINK_GRAPH_FILE,
     SLOT_TIMETABLE,
     STUDIO_ANALYTICS_SELECTORS,
     STUDIO_ANALYTICS_URLS,
@@ -35,6 +42,7 @@ from pipeline.studio.config import (
     STUDIO_CONTENT_URL,
     STUDIO_SELECTORS,
     STUDIO_SETTINGS_SELECTORS,
+    STUDIO_TAB_RECYCLE_INTERVAL,
     TARGET_AUDIENCE_REGION,
     THUMBNAIL_SWAP_SELECTORS,
     TITLE_DESCRIPTION_LANGUAGE_CODE,
@@ -50,11 +58,18 @@ from pipeline.studio.config import (
 )
 from pipeline.studio.queue_manager import StagingQueueManager
 from pipeline.studio.reporter import StudioAnalyticsReporter
+from pipeline.studio.short_linker import (
+    ShortLinkGraph,
+    StudioShortLinker,
+    write_studio_publish_receipt,
+)
 from pipeline.studio.uploader import StudioUploader
 from pipeline.studio.whale_session import WhaleSessionController
 
 __all__ = [
+    "AFFINITY_WEIGHTS",
     "AI_CONTENT_DECLARATION",
+    "ANCHOR_MIN_VIEWS",
     "CHANNEL_HANDLE",
     "CHANNEL_ID",
     "CHANNEL_LOCALIZATION_SPEC",
@@ -73,7 +88,12 @@ __all__ = [
     "MASTER_PROMPT_FILE",
     "PILLAR_PLAYLIST_MAP",
     "PILLAR_SLOT_MAP",
+    "PLAYLIST_SELECTORS",
+    "RELATED_VIDEO_SELECTORS",
     "REPORTS_ROOT_DIR",
+    "SEED_PROTECTION_LOCK_HOURS",
+    "SEED_STARVED_MAX_IMPRESSIONS",
+    "SHORT_LINK_GRAPH_FILE",
     "SLOT_TIMETABLE",
     "STUDIO_ANALYTICS_SELECTORS",
     "STUDIO_ANALYTICS_URLS",
@@ -81,6 +101,7 @@ __all__ = [
     "STUDIO_CONTENT_URL",
     "STUDIO_SELECTORS",
     "STUDIO_SETTINGS_SELECTORS",
+    "STUDIO_TAB_RECYCLE_INTERVAL",
     "TARGET_AUDIENCE_REGION",
     "THUMBNAIL_SWAP_SELECTORS",
     "TITLE_DESCRIPTION_LANGUAGE_CODE",
@@ -92,12 +113,15 @@ __all__ = [
     "WHALE_EXECUTABLE",
     "YOUTUBE_WATCH_BASE_URL",
     "CommunityManager",
+    "ShortLinkGraph",
     "StagingQueueManager",
     "StudioAnalyticsReporter",
+    "StudioShortLinker",
     "StudioUploader",
     "ThumbnailABTester",
     "WhaleSessionController",
     "get_pillar_default_slot",
     "get_slot_info",
+    "write_studio_publish_receipt",
 ]
 

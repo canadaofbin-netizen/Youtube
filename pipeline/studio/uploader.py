@@ -7,8 +7,9 @@ and 5-Slot Staggered Scheduling or Unlisted Staging Buffer.
 
 import asyncio
 import json
+import os
 import re
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -38,7 +39,43 @@ from pipeline.studio.config import (
     get_pillar_default_slot,
     get_slot_info,
 )
+from pipeline.studio.short_linker import (
+    StudioShortLinker,
+    is_valid_youtube_video_id,
+    write_studio_publish_receipt,
+)
 from pipeline.studio.whale_session import DirectCDPClient, WhaleSessionController
+
+
+def resolve_project_video_path(project_dir: Path, project_id: str | None = None) -> Path | None:
+    """
+    Resolves compiled vertical Short MP4 for a project:
+    1. 05_assembly/final_shorts_1080x1920.mp4
+    2. Non-burnin *.mp4 in 05_assembly/ or project_dir
+    3. Completed_Psychology_100_Shorts/final_shorts_<project_id>.mp4 archive fallback
+    """
+    pid = project_id or project_dir.name
+    primary = project_dir / "05_assembly" / "final_shorts_1080x1920.mp4"
+    if primary.exists():
+        return primary
+
+    assembly_dir = project_dir / "05_assembly"
+    mp4_candidates = [
+        p for p in (
+            (list(assembly_dir.glob("*.mp4")) if assembly_dir.exists() else [])
+            + list(project_dir.glob("*.mp4"))
+        )
+        if "burnin" not in p.name
+    ]
+    if mp4_candidates:
+        return mp4_candidates[0]
+
+    workspace_root = Path(__file__).resolve().parents[2]
+    archive_mp4 = workspace_root / "Completed_Psychology_100_Shorts" / f"final_shorts_{pid}.mp4"
+    if archive_mp4.exists():
+        return archive_mp4
+
+    return None
 
 
 class StudioUploader:
@@ -48,8 +85,9 @@ class StudioUploader:
     (KR Residence + en-US Video/Title/Description Language), and 5-Slot scheduled releases.
     """
 
-    def __init__(self, cdp_port: int = DEFAULT_CDP_PORT):
+    def __init__(self, cdp_port: int = DEFAULT_CDP_PORT, projects_dir: Path | None = None):
         self.cdp_port = cdp_port
+        self.projects_dir = projects_dir or PROJECTS_DIR
         self.session = WhaleSessionController(cdp_port=cdp_port)
 
     @staticmethod
@@ -71,11 +109,17 @@ class StudioUploader:
         if not output_path:
             output_path = video_path.parent / f"{video_path.stem}_burnin{video_path.suffix}"
 
+        tmp_mp4: Path | None = None
         try:
+            import shutil
             import subprocess
+            import tempfile
 
             import imageio_ffmpeg
             ffmpeg_exe = imageio_ffmpeg.get_ffmpeg_exe()
+            fd, tmp_name = tempfile.mkstemp(prefix="burnin_", suffix=output_path.suffix or ".mp4")
+            os.close(fd)
+            tmp_mp4 = Path(tmp_name)
             cmd = [
                 ffmpeg_exe, "-y",
                 "-i", str(video_path.resolve()),
@@ -85,18 +129,28 @@ class StudioUploader:
                 "-map", "0:a?",
                 "-c:a", "copy",
                 "-c:v", "libx264",
+                "-preset", "ultrafast",
                 "-pix_fmt", "yuv420p",
-                str(output_path.resolve())
+                str(tmp_mp4),
             ]
             from pipeline.config import SUBPROCESS_TIMEOUT_SEC
             res = subprocess.run(cmd, capture_output=True, text=True, timeout=SUBPROCESS_TIMEOUT_SEC)
-            if res.returncode == 0 and output_path.exists():
+            if res.returncode == 0 and tmp_mp4.exists() and tmp_mp4.stat().st_size > 0:
+                output_path.parent.mkdir(parents=True, exist_ok=True)
+                shutil.move(str(tmp_mp4), str(output_path.resolve()))
+                tmp_mp4 = None
                 print(f"[StudioUploader] Successfully burned custom thumbnail into first frame: {output_path.name}")
                 return output_path
             else:
                 print(f"[StudioUploader] Warning: FFmpeg burn-in returned code {res.returncode}: {res.stderr[:200]}")
         except Exception as e:
             print(f"[StudioUploader] Warning: Burn-in exception ({e}), falling back to original video.")
+        finally:
+            if tmp_mp4 is not None and tmp_mp4.exists():
+                try:
+                    tmp_mp4.unlink()
+                except OSError:
+                    pass
 
         return video_path
 
@@ -109,11 +163,11 @@ class StudioUploader:
         burn_first_frame: bool = False
     ) -> dict[str, Any]:
         """Loads and verifies all project artifacts required for publishing."""
-        proj_dir = PROJECTS_DIR / project_id
+        proj_dir = self.projects_dir / project_id
         if not proj_dir.exists():
             raise FileNotFoundError(f"Project directory not found: {proj_dir}")
 
-        storage = ProjectStorage(project_id)
+        storage = ProjectStorage(project_id, projects_dir=self.projects_dir)
         manifest = storage.get_manifest()
         pillar = manifest.get("pillar", "bci_tech")
 
@@ -125,15 +179,11 @@ class StudioUploader:
         with open(metadata_file, "r", encoding="utf-8") as f:
             metadata = json.load(f)
 
-        # Video asset resolution
-        video_path = storage.get_stage_dir("05_assembly") / "final_shorts_1080x1920.mp4"
-        if not video_path.exists():
-            # Check for alternative mp4 files
-            mp4_candidates = list((storage.get_stage_dir("05_assembly")).glob("*.mp4")) or list(proj_dir.glob("*.mp4"))
-            if mp4_candidates:
-                video_path = mp4_candidates[0]
-            else:
-                raise FileNotFoundError(f"No compiled MP4 found in project {project_id}")
+        # Video asset resolution (includes Completed_Psychology_100_Shorts fallback)
+        resolved_video = resolve_project_video_path(proj_dir, project_id)
+        if resolved_video is None:
+            raise FileNotFoundError(f"No compiled MP4 found in project {project_id}")
+        video_path = resolved_video
 
         # Thumbnail asset resolution (prefers Variant A or standard thumbnail.png)
         thumb_path = publish_dir / "thumbnail_var_A.png"
@@ -142,7 +192,9 @@ class StudioUploader:
 
         # Apply First-Frame burn-in fallback if requested or if custom thumbnail UI is locked
         if burn_first_frame and thumb_path.exists():
-            video_path = self.apply_first_frame_burn_in(video_path, thumb_path)
+            burn_out = (proj_dir / "05_assembly" / f"{video_path.stem}_burnin{video_path.suffix}")
+            burn_out.parent.mkdir(parents=True, exist_ok=True)
+            video_path = self.apply_first_frame_burn_in(video_path, thumb_path, output_path=burn_out)
 
         # Determine slot & scheduling time
         if slot_id is None:
@@ -184,25 +236,30 @@ class StudioUploader:
     async def _ensure_all_about_brain_channel(self, client: DirectCDPClient) -> bool:
         """
         Verifies the active YouTube Studio session is on ALL ABOUT BRAIN (UC4FeioYYv9X04Di07_MfZ7g).
-        If signed into another channel on the same account, switches automatically via Switch Account menu.
+        Checks sidebar/header channel links first because on /video/<id>/edit #entity-name is the video title.
         """
         curr_url = await client.eval("location.href") or ""
-        if CHANNEL_ID in curr_url:
+        title_text = await client.eval("document.title") or ""
+        if "Oops" in title_text:
+            await client.send("Page.navigate", {"url": f"https://studio.youtube.com/channel/{CHANNEL_ID}"})
+            await asyncio.sleep(4.5)
+            curr_url = await client.eval("location.href") or ""
+
+        if CHANNEL_ID in curr_url and "Oops" not in (await client.eval("document.title") or ""):
+            return True
+
+        has_channel_anchor = await client.eval(
+            f"Boolean(document.querySelector('a[href*={json.dumps(CHANNEL_ID)}]'))"
+        )
+        if has_channel_anchor:
             return True
 
         entity_res = await client.eval("(() => { const e = document.querySelector('#entity-name'); return e ? e.innerText.trim() : ''; })()") or ""
-        if isinstance(entity_res, dict):
-            if CHANNEL_ID in str(entity_res.get("url") or ""):
-                return True
-            entity_name = str(entity_res.get("entityName") or "")
-        else:
-            entity_name = str(entity_res)
+        entity_name = str(entity_res.get("entityName") or "") if isinstance(entity_res, dict) else str(entity_res)
         if CHANNEL_NAME.lower() in entity_name.lower():
             return True
 
-        state = {"url": curr_url, "entityName": entity_name}
-
-        print(f"[StudioUploader] Current channel is '{state.get('entityName')}'. Switching to {CHANNEL_NAME} ({CHANNEL_ID})...")
+        print(f"[StudioUploader] Current channel is '{entity_name}'. Switching to {CHANNEL_NAME} ({CHANNEL_ID})...")
         await client.click("#avatar-btn, button#avatar-btn, ytcp-button#avatar-btn, img#img")
         await asyncio.sleep(1.5)
         await client.eval(
@@ -490,7 +547,7 @@ class StudioUploader:
             print(f"[StudioUploader] Connected directly to YouTube Studio via CDP.")
             await self._ensure_all_about_brain_channel(client)
 
-            # Dismiss any leftover dialogs and ensure clean /videos/upload URL
+            # Dismiss any leftover dialogs and ensure clean Studio page
             curr_url = await client.eval("location.href") or ""
             has_dialog = await client.eval("Boolean(document.querySelector('ytcp-uploads-dialog, ytcp-video-share-dialog'))")
             if "?d=" in curr_url or "&d=" in curr_url or has_dialog:
@@ -501,8 +558,8 @@ class StudioUploader:
                 await asyncio.sleep(1.0)
                 still_has_dialog = await client.eval("Boolean(document.querySelector('ytcp-uploads-dialog, ytcp-video-share-dialog'))")
                 if still_has_dialog or "?d=" in curr_url:
-                    await client.send("Page.navigate", {"url": f"https://studio.youtube.com/channel/{CHANNEL_ID}/videos/upload"})
-                    await asyncio.sleep(3.0)
+                    await client.send("Page.navigate", {"url": "https://studio.youtube.com/"})
+                    await asyncio.sleep(3.5)
 
             # Step 1: Open Upload Dialog by clicking 'Create' -> 'Upload videos'
             print("[StudioUploader] Clicking 'Create' button...")
@@ -530,7 +587,10 @@ class StudioUploader:
                 body_text = (await client.eval("document.body ? document.body.innerText : ''")) or ""
                 if "Daily upload limit reached" in body_text or "\\uc77c\\uc77c \\uc5c5\\ub85c\\ub4dc \\ud55c\\ub3c4" in body_text:
                     print("[StudioUploader] Notice: YouTube Studio 'Daily upload limit reached' detected at file attach stage. Staging locally as quota-deferred...")
-                    await client.eval(close_js)
+                    await client.eval("""(() => {
+                        const btns = Array.from(document.querySelectorAll('#close-button, ytcp-button#close-button, button[aria-label="Close"], button[aria-label="닫기"], #ytcp-uploads-dialog-close-button'));
+                        for (const b of btns) { try { b.click(); } catch(e) {} }
+                    })()""")
                     await asyncio.sleep(1.0)
                     simulated_video_id = f"quota_staged_{project_id[:10]}"
                     receipt = {
@@ -618,11 +678,15 @@ class StudioUploader:
                 await client.click(STUDIO_SELECTORS["visibility_unlisted_radio"])
             elif visibility == "scheduled":
                 print(f"[StudioUploader] Selecting 'Schedule' for {payload['scheduled_time_et']}...")
-                await client.click(STUDIO_SELECTORS["visibility_schedule_radio"])
-                await asyncio.sleep(1.0)
-                await client.type_into(STUDIO_SELECTORS["schedule_datepicker"], payload["target_date"])
-                time_to_type = payload["slot_info"].get("time_et_12h") or payload["slot_info"]["time_et"]
-                await client.type_into(STUDIO_SELECTORS["schedule_timepicker"], time_to_type)
+                # Convert US ET target_date + time_et to YouTube Studio's local timezone (GMT+0000 / UTC)
+                from zoneinfo import ZoneInfo
+                et_date_str = payload["target_date"]
+                et_time_str = payload["slot_info"]["time_et"]
+                dt_et = datetime.strptime(f"{et_date_str} {et_time_str}", "%Y-%m-%d %H:%M").replace(tzinfo=ZoneInfo("America/New_York"))
+                dt_utc = dt_et.astimezone(timezone.utc)
+                utc_date_label = dt_utc.strftime("%d %b %Y").lstrip("0")
+                utc_time_24h = dt_utc.strftime("%H:%M")
+                await client.set_schedule_datetime_utc(utc_date_label, utc_time_24h)
             elif visibility == "public":
                 print("[StudioUploader] Selecting 'Public' visibility...")
                 await client.click(STUDIO_SELECTORS["visibility_public_radio"])
@@ -757,10 +821,10 @@ class StudioUploader:
                 await asyncio.sleep(1.0)
             await asyncio.sleep(1.5)
 
-            # Cleanly navigate back to channel videos to reset DOM completely for the next upload
+            # Cleanly navigate back to Studio root to reset DOM completely for the next upload
             try:
-                await client.send("Page.navigate", {"url": f"https://studio.youtube.com/channel/{CHANNEL_ID}/videos/upload"})
-                await asyncio.sleep(3.0)
+                await client.send("Page.navigate", {"url": "https://studio.youtube.com/"})
+                await asyncio.sleep(3.5)
             except Exception:
                 pass
 
@@ -787,6 +851,7 @@ class StudioUploader:
             receipt_file = storage.get_stage_dir("06_publish") / "upload_receipt.json"
             storage.save_json("06_publish", "upload_receipt.json", receipt)
             storage.record_artifact("06_publish", "upload_receipt.json", receipt_file)
+            write_studio_publish_receipt(project_id, projects_dir=self.projects_dir)
 
             manifest = storage.get_manifest()
             manifest["youtube_upload"] = receipt
@@ -844,9 +909,11 @@ class StudioUploader:
         target_date: str | None = None,
         visibility: str = "unlisted",
         dry_run: bool = False,
-        burn_first_frame: bool = False
+        burn_first_frame: bool = False,
+        auto_link: bool = False,
+        assign_playlist: bool = False,
     ) -> dict[str, Any]:
-        """Synchronous entry point for uploading a single project."""
+        """Synchronous entry point for uploading a single project, with optional post-upload Related Video & Playlist linking."""
         payload = self.prepare_upload_payload(
             project_id=project_id,
             slot_id=slot_id,
@@ -854,4 +921,25 @@ class StudioUploader:
             visibility=visibility,
             burn_first_frame=burn_first_frame
         )
-        return asyncio.run(self._async_upload(payload, dry_run=dry_run))
+        receipt = asyncio.run(self._async_upload(payload, dry_run=dry_run))
+        if (
+            not dry_run
+            and (auto_link or assign_playlist)
+            and is_valid_youtube_video_id(receipt.get("video_id"))
+        ):
+            try:
+                linker = StudioShortLinker(cdp_port=self.cdp_port, projects_dir=self.projects_dir)
+                link_plan = linker.run(
+                    mode="seed_boost",
+                    assign_playlists=assign_playlist,
+                    dry_run=False,
+                    force=True,
+                    project_id=project_id,
+                )
+                receipt["related_link_summary"] = {
+                    "verified_count": link_plan.get("verified_count", 0),
+                    "edges": link_plan.get("edges", []),
+                }
+            except Exception as link_exc:
+                print(f"[StudioUploader] Warning: Post-upload related-link hook deferred for {project_id}: {link_exc}")
+        return receipt

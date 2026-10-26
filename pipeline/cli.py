@@ -69,7 +69,7 @@ def cmd_info(_args):
 
 5. Production Contract v4 Locks:
    - Voice Lock (R13): Puck (Google Flow Omni 1.1 male narrator, 2.7 native WPS, 1.08x synchronized speedup)
-   - Visual Spec (R14-A/R21/R38): Matte-white porcelain mannequins with translucent frosted-glass craniums in narration-matched real environments; realistic brain anatomy in deep midnight navy void; 4-point colour code
+   - Visual Spec (R14-A/R21/R38): Matte-white porcelain mannequins with translucent frosted-glass craniums in narration-matched real environments; realistic brain anatomy in bright white studio gallery; 4-point colour code
    - Independent Conclusion Ending (R19): Standalone conclusion opener ("Which proves" / "Which is why") with clean 0.20s tail and 0.09s fade-out
    - 12 QA Gates (R18): Strict zero-defect validation before publishing
 ========================================================================
@@ -283,13 +283,17 @@ def cmd_studio_upload(args):
     print(f"      Visibility: {args.visibility.upper()} | Slot: {args.slot or 'Auto-Pillar'} | Dry-Run: {args.dry_run}")
 
     burn_first_frame = getattr(args, "burn_first_frame", False)
+    auto_link = bool(getattr(args, "auto_link", False))
+    assign_playlist = bool(getattr(args, "assign_playlist", False))
     receipt = uploader.upload_project(
         project_id=args.project,
         slot_id=args.slot,
         target_date=args.date,
         visibility=args.visibility,
         dry_run=args.dry_run,
-        burn_first_frame=burn_first_frame
+        burn_first_frame=burn_first_frame,
+        auto_link=auto_link,
+        assign_playlist=assign_playlist,
     )
     print("\n========================================================")
     print(f"  YOUTUBE STUDIO UPLOAD {'[DRY RUN]' if args.dry_run else '[LIVE]'} SUCCESS!")
@@ -301,6 +305,8 @@ def cmd_studio_upload(args):
     print(f"  Localization: Video={receipt.get('video_language', 'en-US')} | Metadata={receipt.get('title_description_language', 'en-US')} | Residence={receipt.get('channel_residence_country', 'KR')}")
     if receipt.get("scheduled_time_et"):
         print(f"  Scheduled Time: {receipt['scheduled_time_et']}")
+    if receipt.get("related_link_summary"):
+        print(f"  Related Video Linked: {receipt['related_link_summary'].get('verified_count', 0)} edge(s)")
     print("  Receipt Artifact: 06_publish/upload_receipt.json")
     print("========================================================\n")
 
@@ -395,15 +401,22 @@ def cmd_studio_queue(args):
     from pipeline.studio.queue_manager import StagingQueueManager
     manager = StagingQueueManager(cdp_port=args.cdp_port)
     action = args.action
+    allow_legacy_v4 = bool(getattr(args, "allow_legacy_v4", False))
+    auto_link = bool(getattr(args, "auto_link", True))
+    assign_playlist = bool(getattr(args, "assign_playlist", True))
 
     if action == "scan":
-        ready = manager.scan_ready_projects()
+        ready = manager.scan_ready_projects(allow_legacy_v4=allow_legacy_v4)
         print(f"\n--- Scan Ready Projects ({len(ready)} found) ---")
         for p in ready:
             print(f"  [{p['project_id']}] {p['title']}")
             print(f"     Pillar: {p['pillar']} | Rec Slot: Slot {p['recommended_slot']} | Staged: {p['is_staged']} ({p['upload_status']})")
     elif action == "plan":
-        plan = manager.plan_5_slot_schedule(days=args.days, start_date=args.start_date)
+        plan = manager.plan_5_slot_schedule(
+            days=args.days,
+            start_date=args.start_date,
+            allow_legacy_v4=allow_legacy_v4,
+        )
         print("\n========================================================")
         print(f"  NORTH AMERICAN 5-SLOT TIMETABLE PLAN ({plan['planned_days']} Days)")
         print(f"  Assigned: {plan['assigned_slots']}/{plan['total_slots']} slots")
@@ -416,13 +429,19 @@ def cmd_studio_queue(args):
         print("========================================================\n")
     elif action == "load-all":
         print(f"\n[CLI] Loading planned projects into Staging Buffer (Visibility: {args.visibility.upper()}, Dry-Run: {args.dry_run})...")
-        res = manager.load_all_to_buffer(visibility=args.visibility, dry_run=args.dry_run)
+        res = manager.load_all_to_buffer(
+            visibility=args.visibility,
+            dry_run=args.dry_run,
+            allow_legacy_v4=allow_legacy_v4,
+            auto_link=auto_link,
+            assign_playlist=assign_playlist,
+        )
         print("\n========================================================")
         print(f"  STAGING BUFFER BATCH LOAD FINISHED: {res['total_processed']} PROCESSED")
         print(f"  Dry-Run Mode: {res['dry_run']}")
         print("========================================================\n")
     else:  # status
-        summary = manager.get_status_summary()
+        summary = manager.get_status_summary(allow_legacy_v4=allow_legacy_v4)
         print("\n========================================================")
         print("  ALL ABOUT BRAIN — STAGING BUFFER STATUS OVERVIEW")
         print("========================================================")
@@ -435,6 +454,64 @@ def cmd_studio_queue(args):
             if it.get("project_id"):
                 print(f"  - [{it['date']} Slot {it['slot_id']}] {it['time_et']} ET -> {it['project_id']} ({it['status']})")
         print("========================================================\n")
+
+
+def cmd_studio_link(args):
+    """Plans or applies Short-to-Short Related Video circular ring & 7-Pillar playlists (R35-B)."""
+    import json
+    from pipeline.studio.short_linker import ShortLinkGraph, StudioShortLinker
+
+    action = args.action
+    mode = "seed_boost" if action == "seed-boost" else getattr(args, "mode", "seed_boost")
+    p_filter = {args.project} if args.project else None
+
+    if action == "status":
+        graph = ShortLinkGraph()
+        nodes = graph.discover_nodes()
+        rows = []
+        for n in nodes:
+            rows.append({
+                "project_id": n["project_id"],
+                "video_id": n["video_id"],
+                "visibility": n["visibility"],
+                "views": n["views"],
+                "impressions": n["impressions"],
+                "existing_target_video_id": n.get("existing_target_video_id"),
+                "playlist_verified": bool(n.get("existing_playlist_verified")),
+            })
+        print(json.dumps({"node_count": len(rows), "nodes": rows}, indent=2, ensure_ascii=False))
+        return
+
+    if action == "plan":
+        graph = ShortLinkGraph()
+        plan_doc = graph.plan_links(
+            mode=mode,
+            force=args.force,
+            project_filter=p_filter,
+            explicit_target_video_id=args.target,
+        )
+        if not args.dry_run:
+            graph.save_graph(plan_doc)
+        print(json.dumps(plan_doc, indent=2, ensure_ascii=False))
+        return
+
+    linker = StudioShortLinker(cdp_port=args.cdp_port)
+    res = linker.run(
+        mode=mode,
+        assign_playlists=args.assign_playlists,
+        dry_run=args.dry_run,
+        force=args.force,
+        project_id=args.project,
+        target_video_id=args.target,
+    )
+    print(json.dumps(res, indent=2, ensure_ascii=False))
+    if not args.dry_run:
+        failed = [
+            r for r in res.get("execution_results", [])
+            if r.get("status") not in ("linked_verified", "verified", "already_linked", "deferred_seed_lock")
+        ]
+        if failed:
+            sys.exit(1)
 
 
 def cmd_research(args):
@@ -594,6 +671,8 @@ def main():
     p_su.add_argument("--date", default=None, help="Target release date YYYY-MM-DD")
     p_su.add_argument("--dry-run", action="store_true", default=False, help="Run in simulation mode without actual browser interaction")
     p_su.add_argument("--burn-first-frame", action="store_true", default=False, help="Burn thumbnail into first frame of video for guaranteed Shorts cover fallback")
+    p_su.add_argument("--auto-link", action=argparse.BooleanOptionalAction, default=False, help="Automatically link Related video post-upload (R35-B)")
+    p_su.add_argument("--assign-playlist", action=argparse.BooleanOptionalAction, default=False, help="Assign 7-Pillar playlist post-upload (R35-B)")
     p_su.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
 
     # studio-pin
@@ -625,8 +704,22 @@ def main():
     p_sq.add_argument("--days", type=int, default=7, help="Number of days to plan (default: 7)")
     p_sq.add_argument("--start-date", default=None, help="Start date for schedule plan (YYYY-MM-DD)")
     p_sq.add_argument("--visibility", default="unlisted", choices=["unlisted", "scheduled", "public"], help="Staging visibility")
+    p_sq.add_argument("--allow-legacy-v4", action="store_true", default=False, help="Allow legacy v4 projects into queue scan/plan (blocked by default)")
+    p_sq.add_argument("--auto-link", action=argparse.BooleanOptionalAction, default=True, help="Link Related video during load-all (default: True)")
+    p_sq.add_argument("--assign-playlist", action=argparse.BooleanOptionalAction, default=True, help="Assign 7-Pillar playlist during load-all (default: True)")
     p_sq.add_argument("--dry-run", action="store_true", default=False, help="Run load-all in simulation mode")
     p_sq.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
+
+    # studio-link (R35-B Short-to-Short Related Video & 7-Pillar Playlist Ring)
+    p_sl = subparsers.add_parser("studio-link", help="Plan or apply Short-to-Short Related Video circular ring & 7-Pillar playlists (R35-B)")
+    p_sl.add_argument("--action", choices=["plan", "apply", "seed-boost", "status"], default="plan", help="Action: plan | apply | seed-boost | status")
+    p_sl.add_argument("--mode", choices=["seed_boost", "semantic_chain"], default="seed_boost", help="Routing strategy (default: seed_boost)")
+    p_sl.add_argument("--project", default=None, help="Optional single source project ID")
+    p_sl.add_argument("--target", default=None, help="Optional explicit 11-char target YouTube video ID")
+    p_sl.add_argument("--assign-playlists", action=argparse.BooleanOptionalAction, default=True, help="Assign/create 7-Pillar playlist on each video (default: True)")
+    p_sl.add_argument("--dry-run", action="store_true", default=False, help="Simulate without writing Studio changes")
+    p_sl.add_argument("--force", action="store_true", default=False, help="Override 24h seed-protection lock and re-apply existing links")
+    p_sl.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
 
     # studio-settings
     p_ss = subparsers.add_parser("studio-settings", help="Configure and verify KR Channel Residence + en-US Upload Defaults in YouTube Studio")
@@ -640,7 +733,104 @@ def main():
     p_sr.add_argument("--dry-run", action="store_true", default=False, help="Generate report without launching/navigating Naver Whale")
     p_sr.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
 
+    # Prompt System v5 (R44-R50)
+    p_ds = subparsers.add_parser("dossier", help="Research dossier: init / validate / seed / doi / yt-search / yt-analyze (R44)")
+    p_ds.add_argument("action", choices=["init", "validate", "seed", "doi", "yt-search", "yt-analyze", "checklist"])
+    p_ds.add_argument("--slug", default=None, help="Dossier slug (BCI_Shorts_Channel/research_dossiers/<slug>)")
+    p_ds.add_argument("--topic", default="", help="Topic title (init)")
+    p_ds.add_argument("--pillar", default="", help="Pillar id (init)")
+    p_ds.add_argument("--mode", default="HYBRID", help="BEHAVIORAL_PSYCH | HYBRID | NEURO_BIOLOGY (init)")
+    p_ds.add_argument("--doi", default=None, help="DOI to verify via Crossref (doi)")
+    p_ds.add_argument("--query", default=None, help="YouTube search query (yt-search)")
+    p_ds.add_argument("--url", default=None, help="Reference video URL (yt-analyze)")
+    p_ds.add_argument("--media-id", default=None, help="Media id folder name under <dossier>/media (yt-analyze)")
+    p_ds.add_argument("--section", default=None, help="Optional '*mm:ss-mm:ss' range (yt-analyze)")
+
+    p_pg = subparsers.add_parser("prompt-gate", help="Run the v5 production gate on a project or a dossier shorts_v5 draft")
+    p_pg.add_argument("--dir", required=True, help="Folder holding 02_script/script.json or script.json, visual_plan.json, 03_visuals/")
+
+    p_ap = subparsers.add_parser("audit-prompts", help="Score every project against Prompt System v5 and write the score sheet")
+    p_ap.add_argument("--out", default=None, help="Output markdown path (default BCI_Shorts_Channel/reports/prompt_v5_score_sheet.md)")
+
+    p_am = subparsers.add_parser("asset-manifest", help="Write 05_assembly/asset_manifest.json + asset library index (R50)")
+    p_am.add_argument("--project", required=True)
+
+    p_vc = subparsers.add_parser("voice-check", help="Semitone voice-consistency report for a project's native Flow clips (R49)")
+    p_vc.add_argument("--project", required=True)
+
+    p_rq = subparsers.add_parser("ref-qa", help="Build Reference Image Bible & run 10-Axis Granular Image QA Gate (R51)")
+    p_rq.add_argument("--project", required=True, help="Target project ID or directory")
+    p_rq.add_argument("--audit", action="store_true", default=False,
+                      help="Audit finished clips: extract raw frames (tagged extracted_from_clip, never pre-generation ready)")
+    p_rq.add_argument("--register", default=None, help="Register an image already saved in reference_images/: <filename>")
+    p_rq.add_argument("--source", default="flow_image_generation",
+                      help="Provenance for --register: flow_image_generation | gemini_image_generation")
+
+    p_pk = subparsers.add_parser("packets", help="Scene blueprint + per-clip generation packets (start / key / end frame, timed prompt) (R52)")
+    p_pk.add_argument("--project", required=True, help="Target project ID or directory")
+    p_pk.add_argument("--backend", default="gemini_app", choices=["gemini_app", "flow"])
+    p_pk.add_argument("--voice-source", default="tts", choices=["tts", "native"])
+    p_pk.add_argument("--chain", type=int, default=None, help="Cut the last frame of clip N as the start frame of clip N+1")
+
+    p_cq = subparsers.add_parser("clip-qa", help="Compile per-video clip_qa_contract.json and verify rendered clips/refs against contract")
+    p_cq.add_argument("--project", required=True, help="Target project ID or directory")
+    p_cq.add_argument("--compile-only", action="store_true", default=False, help="Only compile 03_visuals/clip_qa_contract.json without running video verification")
+    p_cq.add_argument("--no-strips", action="store_true", default=False, help="Skip rendering 6-panel QA contact strips")
+
+    p_ow = subparsers.add_parser("overwatch", help="Run Deliverable Overwatch Verification Loop across Deliverables A, B, and C")
+    p_ow.add_argument("--outputs-dir", default=None, help="Directory holding standalone deliverables (default: Temp_New_R53_Outputs)")
+    p_ow.add_argument("--gage-dir", default=None, help="Phineas Gage project directory (default: /tmp SSD if present else PROJECTS_DIR)")
+    p_ow.add_argument("--out", default=None, help="Optional JSON report output path (also writes .md alongside)")
+    p_ow.add_argument("--save-in-project", action="store_true", default=False, help="Save contract, QA report, and contact strips inside gage-dir")
+
+    p_gp = subparsers.add_parser(
+        "gemini-produce",
+        help="Unified single-pipeline production: Schema v4 prompt build + Gemini Web App 9:16 video generation + Gear 4 assembly & QA",
+    )
+    p_gp.add_argument("--project", required=True, help="Target project ID (e.g. psych_04_phineas_gage_frontal_lobe)")
+    p_gp.add_argument("--clips", default=None, help="Optional comma-separated clip numbers to (re)generate (e.g. 1,2,3)")
+    p_gp.add_argument("--force-clips", action="store_true", default=False, help="Force regenerate existing clip MP4s in Gemini")
+    p_gp.add_argument("--use-refs", action="store_true", default=False, help="Attach optional reference PNGs (default: False, text-only Schema v4)")
+    p_gp.add_argument("--skip-browser", action="store_true", default=False, help="Skip browser generation if all 10 clips already exist")
+    p_gp.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
+
     args = parser.parse_args()
+
+    if args.command == "gemini-produce":
+        cmd_gemini_produce(args)
+        return
+    if args.command == "dossier":
+        cmd_dossier(args)
+        return
+    if args.command == "prompt-gate":
+        cmd_prompt_gate(args)
+        return
+    if args.command == "audit-prompts":
+        cmd_audit_prompts(args)
+        return
+    if args.command == "asset-manifest":
+        import json as _json
+        from pipeline.asset_manifest import build_asset_manifest
+        from pipeline.config import PROJECTS_DIR
+
+        m = build_asset_manifest(Path(PROJECTS_DIR) / args.project)
+        print(_json.dumps({"project_id": m["project_id"], "assets": len(m["assets"])}, indent=2))
+        return
+    if args.command == "voice-check":
+        cmd_voice_check(args)
+        return
+    if args.command == "ref-qa":
+        cmd_ref_qa(args)
+        return
+    if args.command == "packets":
+        cmd_packets(args)
+        return
+    if args.command == "clip-qa":
+        cmd_clip_qa(args)
+        return
+    if args.command == "overwatch":
+        cmd_overwatch(args)
+        return
 
     if args.command == "research":
         cmd_research(args)
@@ -682,6 +872,8 @@ def main():
         cmd_studio_ab_test(args)
     elif args.command == "studio-queue":
         cmd_studio_queue(args)
+    elif args.command == "studio-link":
+        cmd_studio_link(args)
     elif args.command == "studio-settings":
         cmd_studio_settings(args)
     elif args.command == "studio-report":
@@ -718,7 +910,267 @@ def cmd_studio_report(args):
     print("========================================================\n")
 
 
+# ==============================================================================
+# Prompt System v5 commands (R44-R50)
+# ==============================================================================
+def cmd_dossier(args):
+    import json
+
+    from pipeline import research_dossier as rd
+
+    if args.action == "checklist":
+        for key, desc in rd.RESEARCH_CHECKLIST:
+            print(f"- {key}: {desc}")
+        return
+    if args.action == "doi":
+        print(json.dumps(rd.verify_doi(args.doi or ""), indent=2, ensure_ascii=False))
+        return
+    if args.action == "yt-search":
+        print(json.dumps(rd.search_youtube(args.query or args.topic), indent=2, ensure_ascii=False))
+        return
+    if not args.slug:
+        print("--slug is required for this action", file=sys.stderr)
+        sys.exit(2)
+    if args.action == "init":
+        print(rd.init_dossier(args.slug, args.topic or args.slug, pillar=args.pillar, visual_mode=args.mode))
+    elif args.action == "validate":
+        res = rd.validate_dossier(args.slug)
+        print(json.dumps(res, indent=2, ensure_ascii=False))
+        if not res["ready"]:
+            sys.exit(1)
+    elif args.action == "seed":
+        print(json.dumps(rd.plan_seed_from_dossier(args.slug), indent=2, ensure_ascii=False))
+    elif args.action == "yt-analyze":
+        media_id = args.media_id or rd.slugify(args.url or "ref")[-24:]
+        out = rd.dossier_dir(args.slug) / "media" / media_id
+        print(json.dumps(rd.analyze_reference_video(args.url, out, section=args.section), indent=2, ensure_ascii=False))
+
+
+def _load_gate_inputs(folder: Path):
+    import json
+
+    script_path = next((p for p in (folder / "02_script" / "script.json", folder / "script.json") if p.exists()), None)
+    plan_path = next((p for p in (folder / "03_visuals" / "visual_plan.json", folder / "visual_plan.json") if p.exists()), None)
+    if script_path is None or plan_path is None:
+        raise SystemExit(f"script.json / visual_plan.json not found under {folder}")
+    narrations = json.loads(script_path.read_text(encoding="utf-8"))["clip_narrations"]
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    return plan, narrations
+
+
+def cmd_prompt_gate(args):
+    import json
+
+    from pipeline.flow_prompt_builder import build_flow_prompts
+    from pipeline.prompt_quality_v5 import validate_production_v5
+
+    folder = Path(args.dir)
+    plan, narrations = _load_gate_inputs(folder)
+    clips = build_flow_prompts(plan, narrations)
+    issues = validate_production_v5(plan, narrations, clips)
+    if plan.get("dossier"):
+        from pipeline import research_dossier as rd
+
+        if rd.dossier_dir(str(plan["dossier"])).exists():
+            issues += rd.check_narration_facts(str(plan["dossier"]), narrations)
+    contract_compiled = False
+    if not issues and (folder / "03_visuals").exists():
+        from pipeline.clip_qa_contract import compile_clip_qa_contract
+
+        compile_clip_qa_contract(folder, save=True)
+        contract_compiled = True
+    print(json.dumps({"passed": not issues, "issues": issues, "contract_compiled": contract_compiled}, indent=2, ensure_ascii=False))
+    if issues:
+        sys.exit(1)
+
+
+def cmd_audit_prompts(args):
+    import json
+
+    from pipeline.prompt_quality_v5 import audit_projects, render_score_sheet_md
+
+    rows = audit_projects(Path(PROJECTS_DIR))
+    out = Path(args.out) if args.out else Path(PROJECTS_DIR).parent / "reports" / "prompt_v5_score_sheet.md"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(render_score_sheet_md(rows), encoding="utf-8")
+    out.with_suffix(".json").write_text(json.dumps(rows, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"Score sheet: {out} ({len(rows)} projects)")
+
+
+def cmd_voice_check(args):
+    import json
+
+    from pipeline.flow_live_single_worker import analyze_flow_clip_candidate
+    from pipeline.storage import numeric_clip_sort_key
+    from pipeline.voice_consistency import evaluate_f0_series
+
+    clips_dir = Path(PROJECTS_DIR) / args.project / "03_visuals" / "flow_native_clips"
+    files = sorted(clips_dir.glob("clip_*.mp4"), key=numeric_clip_sort_key)
+    f0s = [float(analyze_flow_clip_candidate(f).get("f0_median_hz", 0.0)) for f in files]
+    print(json.dumps(evaluate_f0_series(f0s), indent=2))
+
+
+def cmd_ref_qa(args):
+    import json
+
+    from pipeline.reference_image_qa import build_and_verify_project_reference_pack, register_reference_image
+
+    p_dir = Path(args.project) if Path(args.project).is_dir() else (Path(PROJECTS_DIR) / args.project)
+    if args.register:
+        register_reference_image(p_dir, args.register, args.source)
+    rep = build_and_verify_project_reference_pack(p_dir, audit_extract_from_clips=args.audit)
+    rep.pop("images", None)
+    print(json.dumps(rep, indent=2, ensure_ascii=False))
+    if not rep.get("pre_generation_ready"):
+        sys.exit(1)
+
+
+def cmd_packets(args):
+    import json
+
+    from pipeline.config import GENERATION_PACKETS_DIRNAME, REF_IMAGES_DIRNAME
+    from pipeline.scene_blueprint import extract_last_frame, write_project_blueprint_and_packets
+
+    p_dir = Path(args.project) if Path(args.project).is_dir() else (Path(PROJECTS_DIR) / args.project)
+    if args.chain:
+        src = p_dir / "03_visuals" / "flow_native_clips" / f"clip_{args.chain}.mp4"
+        dst = p_dir / "03_visuals" / REF_IMAGES_DIRNAME / f"chain_clip_{args.chain + 1:02d}_start.png"
+        ok = extract_last_frame(src, dst)
+        print(json.dumps({"chain_from": str(src), "start_frame": str(dst), "ok": ok}, indent=2))
+        sys.exit(0 if ok else 1)
+    out = write_project_blueprint_and_packets(p_dir, backend=args.backend, voice_source=args.voice_source)
+    print(json.dumps(out, indent=2, ensure_ascii=False))
+    print(f"Packets: {p_dir / '03_visuals' / GENERATION_PACKETS_DIRNAME}")
+    if out["blueprint_issues"]:
+        sys.exit(1)
+
+
+def cmd_clip_qa(args):
+    import json
+
+    from pipeline.clip_qa_contract import compile_clip_qa_contract, verify_clips_against_contract
+
+    p_dir = Path(args.project) if Path(args.project).is_dir() else (Path(PROJECTS_DIR) / args.project)
+    contract = compile_clip_qa_contract(p_dir, save=True)
+    if args.compile_only:
+        print(json.dumps({"compiled": True, "project_id": contract["project_id"], "clip_count": contract["clip_count"]}, indent=2))
+        return
+    rep = verify_clips_against_contract(p_dir, contract=contract, save_report=True, render_strips=not args.no_strips)
+    print(json.dumps(rep, indent=2, ensure_ascii=False))
+    if not rep.get("all_passed"):
+        sys.exit(1)
+
+
+def cmd_overwatch(args):
+    import json
+
+    from pipeline.deliverable_overwatch import run_deliverable_overwatch
+
+    rep = run_deliverable_overwatch(
+        outputs_dir=Path(args.outputs_dir) if args.outputs_dir else None,
+        gage_project_dir=Path(args.gage_dir) if args.gage_dir else None,
+        out_report_path=Path(args.out) if args.out else None,
+        save_in_project=args.save_in_project,
+    )
+    print(json.dumps(rep, indent=2, ensure_ascii=False))
+    if not rep.get("all_deliverables_passed"):
+        sys.exit(1)
+
+
+def cmd_gemini_produce(args):
+    """Unified single-pipeline execution: Gear 2 Schema v4 prompts -> Gear 3 Gemini 9:16 clips -> Gear 4 assembly & QA."""
+    import asyncio
+    import json
+    import shutil
+
+    from pipeline.asset_manifest import build_asset_manifest
+    from pipeline.config import PROJECTS_DIR, WORKSPACE_ROOT
+    from pipeline.flow_prompt_builder import (
+        build_flow_prompts,
+        load_visual_plan,
+        validate_flow_prompts,
+        validate_narrations,
+        write_flow_prompts_json,
+    )
+    from pipeline.gemini_web_worker import (
+        enforce_mp4_true_peak_ceiling,
+        generate_project_video_clips,
+        sync_flow_provenance_receipt,
+    )
+    from pipeline.topics_catalog import ALL_PSYCHOLOGY_100_TOPICS
+    from pipeline.video_autopsy import VideoAutopsyEngine
+
+    pid = str(args.project)
+    p_dir = Path(pid) if Path(pid).is_dir() else (Path(PROJECTS_DIR) / pid)
+    pid = p_dir.name
+
+    topic_item = next((t for t in ALL_PSYCHOLOGY_100_TOPICS if t.get("project_id") == pid), None)
+    if topic_item:
+        narrations = [str(s) for s in topic_item["clip_narrations"]]
+        plan = load_visual_plan(topic_item=topic_item)
+        clips = build_flow_prompts(plan, narrations)
+        n_errs = validate_narrations(narrations)
+        p_errs = validate_flow_prompts(clips, check_character_motion=True)
+        if n_errs or p_errs:
+            raise SystemExit(f"Prompt validation failed for {pid}: {n_errs + p_errs}")
+        vis_dir = p_dir / "03_visuals"
+        scr_dir = p_dir / "02_script"
+        vis_dir.mkdir(parents=True, exist_ok=True)
+        scr_dir.mkdir(parents=True, exist_ok=True)
+        (vis_dir / "visual_plan.json").write_text(json.dumps(plan, indent=2, ensure_ascii=False), encoding="utf-8")
+        write_flow_prompts_json(p_dir, clips)
+        scr_path = scr_dir / "script.json"
+        scr_data = json.loads(scr_path.read_text(encoding="utf-8")) if scr_path.exists() else {}
+        scr_data["project_id"] = pid
+        scr_data["topic"] = topic_item.get("topic", pid)
+        scr_data["doi"] = topic_item.get("doi", "")
+        scr_data["clip_narrations"] = narrations
+        scr_data["full_script"] = " ".join(narrations)
+        scr_data["word_count"] = sum(len(s.split()) for s in narrations)
+        scr_path.write_text(json.dumps(scr_data, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    only_clips = [int(x.strip()) for x in str(args.clips).split(",") if x.strip()] if args.clips else None
+    gen_res = {"skipped_browser": True}
+    if not args.skip_browser:
+        gen_res = asyncio.run(
+            generate_project_video_clips(
+                p_dir,
+                only_clips=only_clips,
+                force=bool(args.force_clips),
+                port=int(args.cdp_port),
+                use_reference_images=bool(args.use_refs),
+            )
+        )
+    sync_flow_provenance_receipt(p_dir)
+
+    evolve_rep = VideoAutopsyEngine.evolve_project(pid, force=True)
+    final_mp4 = p_dir / "05_assembly" / "final_shorts_1080x1920.mp4"
+    if final_mp4.exists():
+        enforce_mp4_true_peak_ceiling(final_mp4)
+        evolve_rep = VideoAutopsyEngine.inspect_project(pid, save_report=True)
+    build_asset_manifest(p_dir)
+    completed_dir = Path(WORKSPACE_ROOT) / "Completed_Psychology_100_Shorts"
+    completed_dir.mkdir(parents=True, exist_ok=True)
+    completed_mp4 = completed_dir / f"final_shorts_{pid}.mp4"
+    if final_mp4.exists():
+        shutil.copy2(final_mp4, completed_mp4)
+    print(
+        json.dumps(
+            {
+                "project_id": pid,
+                "gemini_generation": gen_res,
+                "assembly_passed": bool(evolve_rep.get("passed", evolve_rep.get("after_passed", False))),
+                "final_mp4": str(final_mp4),
+                "completed_mp4": str(completed_mp4),
+            },
+            indent=2,
+            ensure_ascii=False,
+        )
+    )
+
+
 
 if __name__ == "__main__":
     main()
+
 

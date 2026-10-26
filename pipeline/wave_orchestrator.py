@@ -116,6 +116,15 @@ async def run_waves(start_idx: int = 1, end_idx: int = 100, batch_size: int = FL
         print(f"\n>>> Launching Wave #{wave_num}: {chunk} <<<", flush=True)
         write_status(wave_num, chunk, f"Running Wave #{wave_num}: {', '.join(chunk)}", errors)
 
+        # Sweep any leaked Google Flow project tabs before launching wave
+        try:
+            tabs = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{cdp_port}/json/list", timeout=5).read())
+            for t in tabs:
+                if t.get("type") == "page" and "flow.google.com/project/" in t.get("url", ""):
+                    urllib.request.urlopen(f"http://127.0.0.1:{cdp_port}/json/close/{t['id']}", timeout=5).read()
+        except Exception:
+            pass
+
         # Stagger tab allocations by 18.0s each to prevent Google Flow 'unusual activity' rate limits
         tasks = [
             run_single_project_with_retries(pid, cdp_port=cdp_port, max_attempts=2, stagger_sec=i * 18.0)

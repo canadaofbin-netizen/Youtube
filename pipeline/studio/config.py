@@ -105,14 +105,14 @@ SLOT_TIMETABLE: dict[int, dict[str, Any]] = {
     4: {
         "slot_id": 4,
         "name": "Evening Prime",
-        "time_et": "19:30",
-        "time_et_12h": "7:30 PM",
-        "time_pt": "16:30",
-        "time_kst": "08:30",
+        "time_et": "20:00",
+        "time_et_12h": "8:00 PM",
+        "time_pt": "17:00",
+        "time_kst": "09:00",
         "kst_day_offset": 1,
         "recommended_pillars": ["brain_history"],
         "target_cognitive_state": "Sofa relaxation, full SIMUL-ARC historical drama immersion.",
-        "description": "07:30 PM ET (08:30 KST +1) - Evening Prime (brain_history)"
+        "description": "08:00 PM ET (09:00 KST +1) - Evening Prime (brain_history)"
     },
     5: {
         "slot_id": 5,
@@ -419,27 +419,150 @@ COMMUNITY_SELECTORS: dict[str, list[str]] = {
 # A/B Testing Studio Thumbnail Replacement Selectors
 THUMBNAIL_SWAP_SELECTORS: dict[str, list[str]] = {
     "thumbnail_container": [
+        "ytcp-thumbnail-editor",
         "ytcp-thumbnails-compact-editor-uploader",
         "#thumbnail-editor",
-        "ytcp-thumbnail-editor"
     ],
     "thumbnail_options_menu": [
+        "ytcp-thumbnail-editor ytcp-button#options-button",
+        "ytcp-thumbnail-editor button[aria-label='Options']",
+        "ytcp-thumbnail-editor button[aria-label='\\uc635\\uc158']",
+        "ytcp-button#options-button",
         "ytcp-thumbnails-compact-editor-uploader yt-icon-button#options-menu",
         "ytcp-thumbnails-compact-editor-uploader #options-menu",
-        "ytcp-thumbnail-editor yt-icon-button"
+        "ytcp-thumbnail-editor yt-icon-button",
     ],
     "change_thumbnail_item": [
+        "tp-yt-paper-item[test-id='CHANGE']",
         "tp-yt-paper-item:has-text('Change')",
         "tp-yt-paper-item:has-text('\\ubcc0\\uacbd')",
         "tp-yt-paper-item:has-text('Upload')",
-        "tp-yt-paper-item:has-text('\\uc5c5\\ub85c\\ub4dc')"
+        "tp-yt-paper-item:has-text('\\uc5c5\\ub85c\\ub4dc')",
     ],
     "details_save_button": [
+        "ytcp-video-metadata-editor #save button",
+        "ytcp-button#save",
+        "#save",
         "#save-button",
         "ytcp-button#save-button",
         "button:has-text('Save')",
-        "button:has-text('\\uc800\\uc7a5')"
-    ]
+        "button:has-text('\\uc800\\uc7a5')",
+    ],
+}
+
+# Short-to-Short Related Video & Seed-Rescue Graph Configuration (R35-B)
+_WIN_LINK_GRAPH = Path(r"g:\My Drive\Kyubin_Yun_Workspace\07_Youtube\BCI_Shorts_Channel\short_link_graph.json")
+SHORT_LINK_GRAPH_FILE = (
+    _WIN_LINK_GRAPH
+    if _os.name == "nt" and _WIN_LINK_GRAPH.parent.exists()
+    else Path(__file__).resolve().parents[2] / "BCI_Shorts_Channel" / "short_link_graph.json"
+)
+SEED_PROTECTION_LOCK_HOURS: float = 24.0
+ANCHOR_MIN_VIEWS: int = 250
+SEED_STARVED_MAX_IMPRESSIONS: int = 100
+STUDIO_TAB_RECYCLE_INTERVAL: int = 3
+AFFINITY_WEIGHTS: dict[str, float] = {
+    "anatomy": 0.40,
+    "pillar_mode": 0.25,
+    "lexical": 0.20,
+    "retention_seed": 0.15,
+}
+
+RELATED_VIDEO_SELECTORS: dict[str, list[str]] = {
+    "trigger": [
+        "#linked-video-editor-link ytcp-dropdown-trigger",
+        "#linked-video-editor-link",
+        "ytcp-shorts-content-links #linked-video-editor-link",
+        "ytcp-video-metadata-related-video #select-button",
+        "ytcp-video-metadata-related-video ytcp-dropdown-trigger",
+        "ytcp-video-metadata-related-video",
+    ],
+    "readback_container": [
+        "#linked-video-editor-link",
+        "ytcp-shorts-content-links #linked-video-editor-link",
+        "ytcp-video-metadata-related-video",
+    ],
+    "picker_dialog": [
+        "ytcp-video-pick-dialog",
+        "ytcp-dialog#inner-dialog",
+    ],
+    "search_input": [
+        "ytcp-video-pick-dialog input#search-yours",
+        "input#search-yours",
+        "ytcp-video-pick-dialog input[placeholder*='Search your videos']",
+        "ytcp-video-pick-dialog input[placeholder*='\\ub0b4 \\ub3d9\\uc601\\uc0c1 \\uac80\\uc0c9']",
+    ],
+    "entity_card": [
+        "ytcp-video-pick-dialog ytcp-entity-card",
+        "ytcp-entity-card.card",
+    ],
+    "save_button": [
+        "ytcp-video-metadata-editor #save button",
+        "ytcp-button#save",
+        "#save",
+        "button:has-text('Save')",
+        "button:has-text('\\uc800\\uc7a5')",
+    ],
+}
+
+PLAYLIST_SELECTORS: dict[str, list[str]] = {
+    "trigger": [
+        "ytcp-video-metadata-playlists ytcp-dropdown-trigger",
+        "ytcp-video-metadata-playlists ytcp-text-dropdown-trigger",
+        "ytcp-video-metadata-playlists",
+    ],
+    "dialog": [
+        "ytcp-playlist-dialog tp-yt-paper-dialog#dialog",
+        "ytcp-playlist-dialog",
+    ],
+    "search_input": [
+        "ytcp-playlist-dialog input#search-input",
+        "ytcp-playlist-dialog input[aria-label*='playlist']",
+        "ytcp-playlist-dialog input[aria-label*='\\uc7ac\\uc0dd\\ubaa9\\ub85d']",
+    ],
+    "new_playlist_button": [
+        "ytcp-playlist-dialog ytcp-button.new-playlist-button",
+        "ytcp-playlist-dialog #new-playlist-button",
+        "ytcp-playlist-dialog button:has-text('Create playlist')",
+        "ytcp-playlist-dialog button:has-text('New playlist')",
+        "ytcp-playlist-dialog button:has-text('\\uc0c8 \\uc7ac\\uc0dd\\ubaa9\\ub85d')",
+    ],
+    "new_playlist_menu_item": [
+        "ytcp-playlist-dialog ytcp-text-menu#action-menu tp-yt-paper-item#text-item-0",
+        "tp-yt-paper-item:has-text('New playlist')",
+        "tp-yt-paper-item:has-text('Create playlist')",
+        "tp-yt-paper-item:has-text('\\uc0c8 \\uc7ac\\uc0dd\\ubaa9\\ub85d')",
+    ],
+    "creation_dialog": [
+        "ytcp-playlist-creation-dialog tp-yt-paper-dialog#dialog",
+    ],
+    "creation_title_input": [
+        "ytcp-playlist-creation-dialog div#textbox[aria-label*='Add title']",
+        "ytcp-playlist-creation-dialog #title-textarea #textbox",
+        "ytcp-playlist-creation-dialog div#textbox[aria-label*='title']",
+        "ytcp-playlist-creation-dialog div#textbox[aria-label*='Title']",
+        "ytcp-playlist-creation-dialog div#textbox[aria-label*='\\uc81c\\ubaa9']",
+    ],
+    "creation_description_input": [
+        "ytcp-playlist-creation-dialog div#textbox[aria-label*='Add description']",
+        "ytcp-playlist-creation-dialog #description-textarea #textbox",
+        "ytcp-playlist-creation-dialog div#textbox[aria-label*='description']",
+        "ytcp-playlist-creation-dialog div#textbox[aria-label*='Description']",
+        "ytcp-playlist-creation-dialog div#textbox[aria-label*='\\uc124\\uba85']",
+    ],
+    "creation_submit_button": [
+        "ytcp-playlist-creation-dialog ytcp-button#create-button",
+        "ytcp-playlist-creation-dialog #create-button",
+    ],
+    "done_button": [
+        "ytcp-playlist-dialog ytcp-button.save-button",
+        "ytcp-playlist-dialog ytcp-button.done-button",
+        "ytcp-playlist-dialog #done-button",
+        "ytcp-playlist-dialog button:has-text('Save')",
+        "ytcp-playlist-dialog button:has-text('Done')",
+        "ytcp-playlist-dialog button:has-text('\\uc800\\uc7a5')",
+        "ytcp-playlist-dialog button:has-text('\\uc644\\ub8cc')",
+    ],
 }
 
 # AI Content Disclosure Policy Config
@@ -451,7 +574,12 @@ AI_CONTENT_DECLARATION = {
 }
 
 # Daily Analytics & Growth Reporting Paths
-REPORTS_ROOT_DIR = Path(r"g:\My Drive\Kyubin_Yun_Workspace\07_Youtube\BCI_Shorts_Channel\reports")
+_WIN_REPORTS = Path(r"g:\My Drive\Kyubin_Yun_Workspace\07_Youtube\BCI_Shorts_Channel\reports")
+REPORTS_ROOT_DIR = (
+    _WIN_REPORTS
+    if _os.name == "nt" and _WIN_REPORTS.parent.exists()
+    else Path(__file__).resolve().parents[2] / "BCI_Shorts_Channel" / "reports"
+)
 DAILY_REPORTS_DIR = REPORTS_ROOT_DIR / "daily"
 LATEST_REPORT_FILE = REPORTS_ROOT_DIR / "LATEST_DAILY_REPORT.md"
 MASTER_PROMPT_FILE = REPORTS_ROOT_DIR / "DAILY_REPORT_MASTER_PROMPT.md"

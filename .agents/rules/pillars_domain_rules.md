@@ -1,6 +1,6 @@
 # Rule: 7 Content Pillars & Domain Isolation Protocol
 
-Parent Master Index: [AGENTS.md](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) · Code: [`pipeline/pillars.py`](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/pipeline/pillars.py), `PILLAR_DEFAULT_STYLE_MAP` (`pipeline/config.py`), `PILLAR_SLOT_MAP` (`pipeline/studio/config.py`)
+Parent Master Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) · Code: [`pipeline/pillars.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/pillars.py), `PILLAR_DEFAULT_STYLE_MAP` (`pipeline/config.py`), `PILLAR_SLOT_MAP` (`pipeline/studio/config.py`)
 
 ---
 
@@ -15,7 +15,7 @@ Parent Master Index: [AGENTS.md](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Y
 | `brain_health` | Brain Health | `caveman_brain` | retinal light receptors → glymphatic channels, cortex | `PILLAR_SLOT_MAP` |
 | `bci_ethics` | BCI Ethics | `forbidden_lab` | auditory nerve, subvocal larynx nerves → superior temporal gyrus, prefrontal cortex, reward tract | `PILLAR_SLOT_MAP` |
 
-The mapping is a starting point for `visual_plan.signal_path` / `target_region` ([visual_prompt_spec.md](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/visual_prompt_spec.md) R40-C); the topic's paper (R1) always wins.
+The mapping is a starting point for `visual_plan.signal_path` / `target_region` ([visual_prompt_spec.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/visual_prompt_spec.md) R40-C); the topic's paper (R1) always wins.
 
 ## Domain Isolation
 - Each project locks to one `pillar_id`; its `visual_plan`, archetype and slot follow that pillar.

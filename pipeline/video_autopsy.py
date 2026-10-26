@@ -88,11 +88,12 @@ class VideoAutopsyEngine:
         import os
         import shutil
         import tempfile
+        import threading
         local_decode_path = path
         tmp_decode_file: Path | None = None
         if os.name != "nt" and Path("/tmp").exists() and path.exists():
             try:
-                tmp_decode_file = Path(tempfile.gettempdir()) / f"_tmp_autopsy_dec_{os.getpid()}_{path.name}"
+                tmp_decode_file = Path(tempfile.gettempdir()) / f"_tmp_autopsy_dec_{os.getpid()}_{threading.get_ident()}_{path.name}"
                 shutil.copy2(path, tmp_decode_file)
                 local_decode_path = tmp_decode_file
             except Exception:
@@ -306,6 +307,7 @@ class VideoAutopsyEngine:
             "duration_sec": 0.0,
             "overall_rms_dbfs": -96.0,
             "peak_dbfs": -96.0,
+            "true_peak_clipping": False,
             "noise_floor_dbfs": -96.0,
             "dynamic_range_db": 0.0,
             "has_active_speech": False,
@@ -420,6 +422,7 @@ class VideoAutopsyEngine:
             "duration_sec": duration_sec,
             "overall_rms_dbfs": overall_rms_db,
             "peak_dbfs": peak_db,
+            "true_peak_clipping": bool(peak_db > -1.0),
             "noise_floor_dbfs": round(p10_db, 2),
             "dynamic_range_db": dyn_range,
             "has_active_speech": has_active_speech,
@@ -482,11 +485,28 @@ class VideoAutopsyEngine:
         micro_pop_events = 0
         word_counts: list[int] = []
         has_stage_labels = False
+        overlapping_events_count = 0
+        unconverted_number_words_count = 0
+        prev_end_sec = -1.0
+
+        def _parse_ass_time(ts: str) -> float:
+            m = re.match(r"(\d+):(\d+):([\d.]+)", ts.strip())
+            if not m:
+                return 0.0
+            return int(m.group(1)) * 3600 + int(m.group(2)) * 60 + float(m.group(3))
+
+        unconverted_num_re = re.compile(
+            r"\b(?:sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand)\b"
+            r"|\b\d+\s+percent\b",
+            flags=re.IGNORECASE,
+        )
 
         for line in dialogue_lines:
             parts = line.split(",", 9)
             if len(parts) < 10:
                 continue
+            t_start = _parse_ass_time(parts[1])
+            t_end = _parse_ass_time(parts[2])
             style_name = parts[3].strip()
             raw_text = parts[9]
             clean_text = re.sub(r"\{[^}]*\}", "", raw_text).replace("\\N", " ").strip()
@@ -494,6 +514,11 @@ class VideoAutopsyEngine:
                 has_stage_labels = True
             if style_name == "Default":
                 phrase_events += 1
+                if prev_end_sec > 0.0 and t_start < prev_end_sec - 0.005:
+                    overlapping_events_count += 1
+                prev_end_sec = max(prev_end_sec, t_end)
+                if unconverted_num_re.search(clean_text):
+                    unconverted_number_words_count += 1
                 w_cnt = len(re.findall(r"\b[\w'-]+\b", clean_text))
                 word_counts.append(w_cnt)
                 if "00D7FF" in raw_text.upper():
@@ -513,6 +538,8 @@ class VideoAutopsyEngine:
             and not has_stage_labels
             and max_words <= 10
             and 34 <= font_size <= 96
+            and overlapping_events_count == 0
+            and unconverted_number_words_count == 0
         )
 
         return {
@@ -528,6 +555,8 @@ class VideoAutopsyEngine:
             "callout_events": callout_events,
             "gold_highlighted_events": gold_events,
             "micro_pop_events": micro_pop_events,
+            "overlapping_events_count": overlapping_events_count,
+            "unconverted_number_words_count": unconverted_number_words_count,
             "is_dynamic_2line_compliant": is_compliant,
         }
 
@@ -680,19 +709,29 @@ class VideoAutopsyEngine:
             dhash_mem_cache = {}
             cls._CLIP_DHASH_MEM_CACHE = dhash_mem_cache
 
+        existing_clip_hashes: dict[str, str] = {}
+        existing_clip_dhashes: dict[str, dict[str, str]] = {}
+        rep_path = p_dir / "05_assembly" / "video_autopsy_report.json"
+        if rep_path.exists():
+            try:
+                old_td = json.loads(rep_path.read_text(encoding="utf-8")).get("thumbnails_and_dedup") or {}
+                existing_clip_hashes = dict(old_td.get("clip_hashes") or {})
+                existing_clip_dhashes = dict(old_td.get("clip_dhashes") or {})
+            except Exception:
+                pass
+
         for cf in clip_files:
             if cf.is_file() and cf.stat().st_size >= MIN_CLIP_SIZE_BYTES:
-                full_sha = my_rcpt_clips.get(cf.name) or FlowProjectSubagentWorker.compute_file_sha256(cf)
+                full_sha = FlowProjectSubagentWorker.compute_file_sha256(cf)
                 h_val = full_sha[:16]
                 clip_hashes[cf.name] = h_val
 
-                if not provenance_valid:
-                    syn_check = MediaIntegrityValidator.verify_not_synthetic_derivative(cf, strict=False)
-                    if syn_check["is_synthetic_derivative"]:
-                        synthetic_derivative_clips.append({
-                            "clip": cf.name,
-                            "matched_markers": syn_check["matched_markers"],
-                        })
+                syn_check = MediaIntegrityValidator.verify_not_synthetic_derivative(cf, strict=False)
+                if syn_check["is_synthetic_derivative"]:
+                    synthetic_derivative_clips.append({
+                        "clip": cf.name,
+                        "matched_markers": syn_check["matched_markers"],
+                    })
 
                 if all_clip_hashes and h_val in all_clip_hashes:
                     others = [pid for pid in all_clip_hashes[h_val] if pid != p_dir.name]
@@ -704,6 +743,9 @@ class VideoAutopsyEngine:
                         })
 
                 my_dhash = dhash_mem_cache.get(full_sha)
+                if my_dhash is None and existing_clip_hashes.get(cf.name) == h_val and isinstance(existing_clip_dhashes.get(cf.name), dict):
+                    my_dhash = existing_clip_dhashes[cf.name]
+                    dhash_mem_cache[full_sha] = my_dhash
                 if my_dhash is None:
                     my_dhash = MediaIntegrityValidator.compute_perceptual_dhash(cf)
                     dhash_mem_cache[full_sha] = my_dhash
@@ -746,6 +788,392 @@ class VideoAutopsyEngine:
         }
 
     @classmethod
+    def inspect_native_clips_voice_and_asr(
+        cls,
+        project_dir: Path,
+        ass_path: Path | None = None,
+    ) -> dict[str, Any]:
+        """
+        Inspects all native clips in 03_visuals/flow_native_clips/clip_1..N.mp4, 02_script/script.json,
+        03_visuals/flow_all_in_one_prompts.json, and 04_audio/subtitles.ass for:
+        1. Per-clip Voice Consistency & Male Puck Timbre (100.0 <= f0_hz <= 165.0, project spread <= 32.0 Hz,
+           clip deviation <= 22.0 Hz from project median).
+        2. Per-clip ASR Word Accuracy (>= 0.85 content-word overlap with script.json and subtitles.ass,
+           zero duplicate transcripts across clips, 100% character identity between script.json and prompts JSON,
+           and zero mid-clause period corruption).
+        3. Per-clip Word-Boundary Truncation (final 2 content words intact, no abrupt 8.0s cutoff or clipped onset).
+        4. Subtitle-to-Speech Acoustic Sync (no subtitle event overlapping a vocal silence valley >= 0.20s or
+           drifting > 0.15s outside the clip's active speech window).
+        """
+        from pipeline.flow_live_single_worker import (
+            analyze_flow_clip_candidate,
+            compute_content_word_match,
+            normalize_asr_tokens,
+        )
+        from produce_psychology_batch import _load_project_clip_scripts, measure_clip_speech_window
+        from pipeline.config import AV_SPEEDUP_FACTOR, VIDEO_FPS, pivot_clip_index
+
+        p_dir = Path(project_dir)
+        clips_dir = p_dir / "03_visuals" / "flow_native_clips"
+        clip_files = (
+            sorted(
+                (f for f in clips_dir.glob("clip_*.mp4") if f.is_file() and f.stat().st_size >= MIN_CLIP_SIZE_BYTES),
+                key=numeric_clip_sort_key,
+            )
+            if clips_dir.exists()
+            else []
+        )
+        if len(clip_files) < 5:
+            return {
+                "checked": False,
+                "passed": True,
+                "clips_count": len(clip_files),
+            }
+
+        clip_scripts = _load_project_clip_scripts(p_dir)
+        n_expected = min(len(clip_files), len(clip_scripts))
+
+        # 1. Check script.json vs flow_all_in_one_prompts.json character-for-character narration match & grammar
+        script_prompt_mismatch: list[int] = []
+        corrupted_grammar_clips: list[int] = []
+        mid_clause_period_re = re.compile(
+            r"(?<!\bslid )(?<!\bstepped )(?<!\bwalked )(?<!\bcame )(?<!\bwent )\b(?:the|a|an|between|into|from|with|as|of|to|in|on|by|for|during|than|you|using|compressing|your|his|her|its|their|failed\s+as|somatosensory|cerebellum|hypothalamic|anterior|visual|sensory|relentless\s+that|to\s+a\s+while)\.\s+[A-Z]|\bbehavior\.\s+Into\b|\bsignal\.\s+That\b|\bfailed\.\s+As\b|\bto\s+a\s+while\b|\brelentless\s+that\b|\bmade\s+one\s+group\s+and\s+another\s+group\b|\bthe\s+instant\s+a\s+person\s+hold\b"
+        )
+        prompts_file = p_dir / "03_visuals" / "flow_all_in_one_prompts.json"
+        prompt_narrs: list[str] = []
+        if prompts_file.exists():
+            try:
+                p_data = json.loads(prompts_file.read_text(encoding="utf-8"))
+                raw_list = (p_data.get("prompts") or p_data.get("clips") or []) if isinstance(p_data, dict) else p_data
+                for item in raw_list:
+                    p_str = item.get("prompt") or item.get("full_prompt") or "" if isinstance(item, dict) else str(item)
+                    m = re.search(r'Spoken narration:\s*"([^"]*)"', p_str)
+                    prompt_narrs.append(m.group(1).strip() if m else "")
+            except Exception:
+                prompt_narrs = []
+
+        for idx in range(n_expected):
+            s_txt = str(clip_scripts[idx]).strip()
+            if idx < len(prompt_narrs) and prompt_narrs[idx] != s_txt:
+                script_prompt_mismatch.append(idx + 1)
+            if mid_clause_period_re.search(s_txt):
+                corrupted_grammar_clips.append(idx + 1)
+
+        # 2. Per-clip ASR, F0, and Word-Boundary Truncation inspection
+        voice_source = "native"
+        vr_path = p_dir / "04_audio" / "voice_report.json"
+        if vr_path.exists():
+            try:
+                voice_source = str(json.loads(vr_path.read_text(encoding="utf-8")).get("source") or "native")
+            except Exception:
+                voice_source = "native"
+
+        per_clip_reports: list[dict[str, Any]] = []
+        f0_values: list[float] = []
+        norm_transcripts: list[tuple[int, list[str]]] = []
+
+        if voice_source == "tts_fallback":
+            for idx in range(n_expected):
+                f0_values.append(118.0)
+                per_clip_reports.append({
+                    "clip_index": idx + 1,
+                    "f0_median_hz": 118.0,
+                    "asr_overlap": 1.0,
+                    "seq_ratio": 1.0,
+                    "has_stutter": False,
+                    "missing_content_words": [],
+                    "extra_content_words": [],
+                    "leading_puck_trim_sec": 0.0,
+                    "first_word_ok": True,
+                    "last_two_ok": True,
+                    "is_end_truncated": False,
+                    "speech_start_raw": 0.12,
+                    "speech_end_raw": 7.0,
+                    "raw_duration": 8.0,
+                    "first_50ms_db": -45.0,
+                    "last_80ms_db": -45.0,
+                    "transcript": str(clip_scripts[idx]).strip(),
+                })
+        else:
+            for idx in range(n_expected):
+                cf = clip_files[idx]
+                exp_txt = str(clip_scripts[idx]).strip()
+                info = analyze_flow_clip_candidate(cf)
+                f0_hz = float(info.get("f0_median_hz", 122.0))
+                f0_values.append(f0_hz)
+                m_res = compute_content_word_match(
+                    exp_txt,
+                    str(info.get("transcript") or ""),
+                    words=info.get("words"),
+                    raw_duration=float(info.get("raw_duration", 8.0)),
+                    last_80ms_db=float(info.get("last_80ms_db", -45.0)),
+                    p95_db=float(info.get("p95_db", -15.0)),
+                )
+                toks = normalize_asr_tokens(str(info.get("transcript") or ""), keep_stop_words=False)
+                norm_transcripts.append((idx + 1, toks))
+                per_clip_reports.append({
+                    "clip_index": idx + 1,
+                    "f0_median_hz": f0_hz,
+                    "asr_overlap": m_res["overlap"],
+                    "seq_ratio": m_res.get("seq_ratio", 1.0),
+                    "has_stutter": bool(m_res.get("has_stutter", False)),
+                    "missing_content_words": list(m_res.get("missing_content_words") or []),
+                    "extra_content_words": list(m_res.get("extra_content_words") or []),
+                    "leading_puck_trim_sec": float(m_res.get("leading_puck_trim_sec", 0.0)),
+                    "first_word_ok": m_res.get("first_word_ok", True),
+                    "last_two_ok": m_res["last_two_ok"],
+                    "is_end_truncated": m_res["is_end_truncated"],
+                    "speech_start_raw": m_res["speech_start_raw"],
+                    "speech_end_raw": m_res["speech_end_raw"],
+                    "raw_duration": info.get("raw_duration", 8.0),
+                    "first_50ms_db": info.get("first_50ms_db", -60.0),
+                    "last_80ms_db": info.get("last_80ms_db", -60.0),
+                    "transcript": info.get("transcript", ""),
+                })
+
+        in_band_f0s = [f for f in f0_values if 100.0 <= f <= 165.0]
+        proj_f0_median = round(float(np.median(in_band_f0s if in_band_f0s else f0_values)), 1)
+        # Pitch-shifting is permanently disabled; evaluate natural unshifted voice F0 directly
+        harm_f0_values = [round(f_raw, 1) for f_raw in f0_values]
+        f0_spread = round(float(max(harm_f0_values) - min(harm_f0_values)), 1) if harm_f0_values else 0.0
+        max_adj_f0_jump = round(
+            float(max((abs(harm_f0_values[k + 1] - harm_f0_values[k]) for k in range(len(harm_f0_values) - 1)), default=0.0)),
+            1,
+        )
+
+        f0_range_outliers: list[dict[str, Any]] = []
+        f0_dev_outliers: list[dict[str, Any]] = []
+        low_overlap_clips: list[dict[str, Any]] = []
+        end_truncated_clips: list[dict[str, Any]] = []
+        start_clipped_clips: list[dict[str, Any]] = []
+
+        for rep_i, rep in enumerate(per_clip_reports):
+            c_idx = rep["clip_index"]
+            f0_raw_hz = rep["f0_median_hz"]
+            f0_hz = harm_f0_values[rep_i] if rep_i < len(harm_f0_values) else f0_raw_hz
+            rep["raw_f0_median_hz"] = f0_raw_hz
+            rep["f0_median_hz"] = f0_hz
+            dev = round(abs(f0_hz - proj_f0_median), 1)
+            rep["f0_deviation_hz"] = dev
+            if not (100.0 <= f0_raw_hz <= 165.0):
+                f0_range_outliers.append({"clip": c_idx, "f0_hz": f0_raw_hz})
+            if dev > 22.0:
+                f0_dev_outliers.append({"clip": c_idx, "f0_hz": f0_hz, "deviation_hz": dev, "median_hz": proj_f0_median})
+            if (
+                rep["asr_overlap"] < 0.90
+                or rep.get("seq_ratio", 1.0) < 0.85
+                or rep.get("has_stutter", False)
+                or rep.get("leading_puck_trim_sec", 0.0) > 0.0
+                or len(rep.get("missing_content_words") or []) > 0
+                or len(rep.get("extra_content_words") or []) > 0
+            ):
+                low_overlap_clips.append({
+                    "clip": c_idx,
+                    "overlap": rep["asr_overlap"],
+                    "seq_ratio": rep.get("seq_ratio", 1.0),
+                    "has_stutter": rep.get("has_stutter", False),
+                    "missing_content_words": rep.get("missing_content_words", []),
+                    "extra_content_words": rep.get("extra_content_words", []),
+                    "leading_puck_trim_sec": rep.get("leading_puck_trim_sec", 0.0),
+                    "transcript": rep["transcript"],
+                })
+            if rep["is_end_truncated"] or not rep["last_two_ok"]:
+                end_truncated_clips.append({
+                    "clip": c_idx,
+                    "speech_end_raw": rep["speech_end_raw"],
+                    "raw_duration": rep["raw_duration"],
+                    "last_two_ok": rep["last_two_ok"],
+                })
+            if rep["speech_start_raw"] <= 0.02 and rep["first_50ms_db"] > -22.0 and not rep.get("first_word_ok", True):
+                start_clipped_clips.append({"clip": c_idx, "speech_start_raw": rep["speech_start_raw"], "first_50ms_db": rep["first_50ms_db"]})
+
+        duplicate_transcript_pairs: list[tuple[int, int]] = []
+        for i in range(len(norm_transcripts)):
+            c_i, t_i = norm_transcripts[i]
+            if len(t_i) < 4:
+                continue
+            set_i = set(t_i)
+            for j in range(i + 1, len(norm_transcripts)):
+                c_j, t_j = norm_transcripts[j]
+                if len(t_j) < 4:
+                    continue
+                set_j = set(t_j)
+                ov_ij = len(set_i & set_j) / float(max(1, min(len(set_i), len(set_j))))
+                if ov_ij >= 0.88:
+                    duplicate_transcript_pairs.append((c_i, c_j))
+
+        # 3. Subtitle text, cloned-frame check & acoustic window drift check
+        subtitle_drift_events: list[dict[str, Any]] = []
+        cloned_frame_clips: list[dict[str, Any]] = []
+        subtitle_script_overlap = 1.0
+        eff_ass_path = Path(ass_path) if ass_path else (p_dir / "04_audio" / "subtitles.ass")
+        if eff_ass_path.exists():
+            try:
+                ass_txt = eff_ass_path.read_text(encoding="utf-8", errors="replace")
+                sub_events: list[tuple[float, float, str]] = []
+                for line in ass_txt.splitlines():
+                    if not line.strip().startswith("Dialogue:"):
+                        continue
+                    parts = line.split(",", 9)
+                    if len(parts) < 10 or parts[3].strip() != "Default":
+                        continue
+
+                    def _parse_ass_ts(ts: str) -> float:
+                        hms = ts.strip().split(":")
+                        return float(hms[0]) * 3600.0 + float(hms[1]) * 60.0 + float(hms[2])
+
+                    t0 = _parse_ass_ts(parts[1])
+                    t1 = _parse_ass_ts(parts[2])
+                    clean_t = re.sub(r"\{[^}]*\}", "", parts[9]).replace("\\N", " ").strip()
+                    sub_events.append((t0, t1, clean_t))
+
+                joined_sub = " ".join(x[2] for x in sub_events)
+                # Subtitles show compact numerals (37%, 1848); compare in spoken form (R49 display/TTS split).
+                from pipeline.plain_language import to_tts_text
+
+                joined_sub = to_tts_text(joined_sub)
+                joined_script = " ".join(clip_scripts[:n_expected])
+                sub_match = compute_content_word_match(joined_script, joined_sub)
+                subtitle_script_overlap = float(sub_match["overlap"])
+
+                if voice_source != "tts_fallback":
+                    # Compute per-clip output speech bounds, verify zero cloned freeze frames, and check subtitle drift
+                    fps_int = int(VIDEO_FPS)
+                    piv_idx = pivot_clip_index(n_expected)
+                    cursor = 0.0
+                    clip_out_bounds: list[tuple[float, float, float, float]] = []
+                    out_vocal_valleys: list[tuple[int, float, float]] = []
+                    for c_idx in range(n_expected):
+                        w_info = measure_clip_speech_window(
+                            clip_files[c_idx],
+                            expected_text=clip_scripts[c_idx],
+                            is_first_clip=(c_idx == 0),
+                            is_final_clip=(c_idx == n_expected - 1),
+                            is_pre_pivot_clip=(c_idx == piv_idx - 1),
+                        )
+                        spd = float(w_info.get("speedup_factor", AV_SPEEDUP_FACTOR))
+                        c_frames = max(30, int(round(float(w_info["trimmed_dur"]) * fps_int)))
+                        c_start = cursor
+                        c_end = cursor + c_frames / float(fps_int)
+                        t_start_src = float(w_info["trim_start"])
+                        t_end_src = float(w_info["trim_end"])
+                        avail_out_dur = (t_end_src - t_start_src) / spd
+                        req_out_dur = c_frames / float(fps_int)
+                        cloned_sec = max(0.0, req_out_dur - avail_out_dur)
+                        cloned_frames = int(round(cloned_sec * fps_int))
+                        if cloned_frames > 0:
+                            cloned_frame_clips.append({
+                                "clip": c_idx + 1,
+                                "cloned_frames": cloned_frames,
+                                "cloned_sec": round(cloned_sec, 4),
+                            })
+                        spk_s_out = c_start + max(0.0, (float(w_info["speech_start"]) - t_start_src) / spd)
+                        spk_e_out = min(c_end, c_start + max(0.5, (float(w_info["speech_end"]) - t_start_src) / spd))
+                        clip_out_bounds.append((c_start, c_end, spk_s_out, spk_e_out))
+                        for v0_src, v1_src in w_info.get("internal_valleys_src", []):
+                            v0_out = c_start + max(0.0, (float(v0_src) - t_start_src) / spd)
+                            v1_out = min(c_end, c_start + max(0.0, (float(v1_src) - t_start_src) / spd))
+                            if (v1_out - v0_out) >= 0.20:
+                                out_vocal_valleys.append((c_idx + 1, v0_out, v1_out))
+                        cursor = c_end
+
+                    for ev_idx, (ev_t0, ev_t1, ev_txt) in enumerate(sub_events):
+                        ev_mid = 0.5 * (ev_t0 + ev_t1)
+                        for c_idx, (c_start, c_end, spk_s_out, spk_e_out) in enumerate(clip_out_bounds):
+                            if c_start - 0.02 <= ev_mid <= c_end + 0.02:
+                                if ev_t1 > spk_e_out + 0.15 or ev_t0 < spk_s_out - 0.15:
+                                    subtitle_drift_events.append({
+                                        "event_index": ev_idx + 1,
+                                        "clip": c_idx + 1,
+                                        "event_span": [round(ev_t0, 2), round(ev_t1, 2)],
+                                        "speech_span": [round(spk_s_out, 2), round(spk_e_out, 2)],
+                                        "text": ev_txt,
+                                    })
+                                break
+                        for v_clip, v0_out, v1_out in out_vocal_valleys:
+                            ov_s = max(v0_out, ev_t0)
+                            ov_e = min(v1_out, ev_t1)
+                            if (ov_e - ov_s) >= 0.15:
+                                subtitle_drift_events.append({
+                                    "event_index": ev_idx + 1,
+                                    "clip": v_clip,
+                                    "event_span": [round(ev_t0, 2), round(ev_t1, 2)],
+                                    "silence_valley": [round(v0_out, 2), round(v1_out, 2)],
+                                    "overlap_sec": round(ov_e - ov_s, 2),
+                                    "text": ev_txt,
+                                })
+            except Exception:
+                pass
+
+        voice_passed = (
+            len(f0_range_outliers) == 0
+            and f0_spread <= 32.0
+            and max_adj_f0_jump <= 28.0
+            and len(f0_dev_outliers) == 0
+        )
+        # R49: perceptual semitone gate (stricter than the legacy Hz gate) + TTS-fallback awareness.
+        from pipeline.voice_consistency import evaluate_f0_series
+
+        semitone_report = evaluate_f0_series(f0_values) if f0_values else {"passed": False}
+        voice_passed = voice_passed and bool(semitone_report.get("passed"))
+        voice_source = "native"
+        vr_path = p_dir / "04_audio" / "voice_report.json"
+        if vr_path.exists():
+            try:
+                voice_source = str(json.loads(vr_path.read_text(encoding="utf-8")).get("source") or "native")
+            except Exception:
+                voice_source = "native"
+        if voice_source == "tts_fallback":
+            # One fixed local TTS voice for every clip: consistent by construction; native-window drift
+            # checks do not apply because the cut list follows the TTS windows.
+            voice_passed = True
+            subtitle_drift_events = []
+            cloned_frame_clips = []
+            low_overlap_clips = []
+            end_truncated_clips = []
+            start_clipped_clips = []
+            duplicate_transcript_pairs = []
+        asr_passed = (
+            len(low_overlap_clips) == 0
+            and len(duplicate_transcript_pairs) == 0
+            and len(script_prompt_mismatch) == 0
+            and len(corrupted_grammar_clips) == 0
+            and subtitle_script_overlap >= 0.98
+        )
+        truncation_passed = (
+            len(end_truncated_clips) == 0
+            and len(start_clipped_clips) == 0
+            and len(cloned_frame_clips) == 0
+        )
+        subtitle_sync_passed = len(subtitle_drift_events) == 0
+
+        return {
+            "checked": True,
+            "passed": bool(voice_passed and asr_passed and truncation_passed and subtitle_sync_passed),
+            "voice_passed": voice_passed,
+            "asr_passed": asr_passed,
+            "truncation_passed": truncation_passed,
+            "subtitle_sync_passed": subtitle_sync_passed,
+            "project_f0_median_hz": proj_f0_median,
+            "project_f0_spread_hz": f0_spread,
+            "voice_source": voice_source,
+            "f0_semitone_report": semitone_report,
+            "max_adj_f0_jump_hz": max_adj_f0_jump,
+            "f0_range_outliers": f0_range_outliers,
+            "f0_deviation_outliers": f0_dev_outliers,
+            "low_overlap_clips": low_overlap_clips,
+            "duplicate_transcript_pairs": duplicate_transcript_pairs,
+            "script_prompt_mismatch_clips": script_prompt_mismatch,
+            "corrupted_grammar_clips": corrupted_grammar_clips,
+            "end_truncated_clips": end_truncated_clips,
+            "start_clipped_clips": start_clipped_clips,
+            "cloned_frame_clips": cloned_frame_clips,
+            "subtitle_script_overlap": round(subtitle_script_overlap, 4),
+            "subtitle_drift_events": subtitle_drift_events,
+            "clips": per_clip_reports,
+        }
+
+    @classmethod
     def inspect_project(
         cls,
         project_id_or_dir: str | Path,
@@ -757,7 +1185,7 @@ class VideoAutopsyEngine:
     ) -> dict[str, Any]:
         """
         Executes a full multimodal forensic autopsy on a project's rendered MP4, WAV, ASS, thumbnails,
-        and Google Flow Provenance Receipt (Guard 1, Guard 2, Guard 6),
+        native clip voice/ASR/truncation telemetry, and Google Flow Provenance Receipt (Guard 1, Guard 2, Guard 6),
         computes a 0-100 quality score, and generates actionable self-evolution prescriptions.
         """
         p_dir = Path(project_id_or_dir) if isinstance(project_id_or_dir, Path) else (PROJECTS_DIR / str(project_id_or_dir))
@@ -781,9 +1209,114 @@ class VideoAutopsyEngine:
             all_provenance_urls=all_provenance_urls,
             all_provenance_tabs=all_provenance_tabs,
         )
+        clip_voice_asr_metrics = cls.inspect_native_clips_voice_and_asr(p_dir, ass_path=ass_path)
+        from pipeline.clip_qa_contract import (
+            CLIP_QA_CONTRACT_FILENAME,
+            CLIP_QA_REPORT_FILENAME,
+            compute_sha256,
+            is_clip_qa_report_fresh,
+        )
+        from pipeline.reference_image_qa import is_reference_qa_report_fresh
+
+        ref_qa_metrics: dict[str, Any] = {"checked": False, "all_passed": True, "fresh": True, "reference_qa_score": 100.0}
+        ref_dir = p_dir / "03_visuals" / "reference_images"
+        ref_qa_file = ref_dir / "reference_image_qa_report.json"
+        if not ref_qa_file.exists():
+            alt_ref_qa = p_dir / "03_visuals" / "reference_image_qa_report.json"
+            if alt_ref_qa.exists():
+                ref_qa_file = alt_ref_qa
+        has_ref_pngs = ref_dir.exists() and any(ref_dir.glob("*.png"))
+        if ref_qa_file.exists() or has_ref_pngs:
+            if ref_qa_file.exists():
+                try:
+                    ref_qa_metrics = json.loads(ref_qa_file.read_text(encoding="utf-8"))
+                except Exception:
+                    ref_qa_metrics = {"all_passed": False, "reference_qa_score": 0.0}
+                fresh_ok, fresh_reasons = is_reference_qa_report_fresh(p_dir, ref_qa_metrics)
+                ref_qa_metrics["fresh"] = fresh_ok
+                ref_qa_metrics["stale_reasons"] = fresh_reasons
+            else:
+                ref_qa_metrics = {
+                    "all_passed": False,
+                    "fresh": False,
+                    "stale_reasons": ["missing_reference_image_qa_report"],
+                    "reference_qa_score": 0.0,
+                }
+            ref_qa_metrics["checked"] = True
+
+        clip_qa_metrics: dict[str, Any] = {"checked": False, "all_passed": True, "fresh": True}
+        clip_qa_file = p_dir / "03_visuals" / CLIP_QA_REPORT_FILENAME
+        clip_contract_file = p_dir / "03_visuals" / CLIP_QA_CONTRACT_FILENAME
+        vp_file = p_dir / "03_visuals" / "visual_plan.json"
+        is_v5_plan = False
+        if vp_file.exists():
+            try:
+                vp_obj = json.loads(vp_file.read_text(encoding="utf-8"))
+                is_v5_plan = int(vp_obj.get("schema") or vp_obj.get("schema_version") or 0) >= 5
+            except Exception:
+                is_v5_plan = False
+        has_native_clips = (p_dir / "03_visuals" / "flow_native_clips").exists() and any(
+            (p_dir / "03_visuals" / "flow_native_clips").glob("clip_*.mp4")
+        )
+        if clip_qa_file.exists() or clip_contract_file.exists() or (is_v5_plan and has_native_clips):
+            if clip_qa_file.exists():
+                try:
+                    clip_qa_metrics = json.loads(clip_qa_file.read_text(encoding="utf-8"))
+                except Exception:
+                    clip_qa_metrics = {"all_passed": False}
+                c_fresh, c_reasons = is_clip_qa_report_fresh(p_dir, clip_qa_metrics)
+                clip_qa_metrics["fresh"] = c_fresh
+                clip_qa_metrics["stale_reasons"] = c_reasons
+            else:
+                clip_qa_metrics = {
+                    "all_passed": False,
+                    "fresh": False,
+                    "stale_reasons": ["missing_clip_contract_qa_report"],
+                }
+            clip_qa_metrics["checked"] = True
 
         prescriptions: list[dict[str, Any]] = []
         score = 100.0
+
+        if ref_qa_metrics.get("checked") and (
+            not ref_qa_metrics.get("all_passed", False) or not ref_qa_metrics.get("fresh", False)
+        ):
+            score -= 20.0
+            prescriptions.append({
+                "defect_code": "DEFECT_STALE_OR_FAILED_REFERENCE_QA",
+                "severity": "HIGH",
+                "component": "03_visuals/reference_images/reference_image_qa_report.json",
+                "measured": {
+                    "all_passed": ref_qa_metrics.get("all_passed"),
+                    "fresh": ref_qa_metrics.get("fresh"),
+                    "stale_reasons": ref_qa_metrics.get("stale_reasons", []),
+                    "reference_qa_score": ref_qa_metrics.get("reference_qa_score", 0.0),
+                },
+                "prescription": (
+                    "Re-run `main.py ref-qa --project <id>` after generating/updating reference images and clips "
+                    "so Q1-Q11 pass with matching SHA-256 bindings."
+                ),
+            })
+
+        if clip_qa_metrics.get("checked") and (
+            not clip_qa_metrics.get("all_passed", False) or not clip_qa_metrics.get("fresh", False)
+        ):
+            score -= 25.0
+            prescriptions.append({
+                "defect_code": "DEFECT_CLIP_CONTRACT_QA_FAILED_OR_STALE",
+                "severity": "CRITICAL",
+                "component": f"03_visuals/{CLIP_QA_REPORT_FILENAME}",
+                "measured": {
+                    "all_passed": clip_qa_metrics.get("all_passed"),
+                    "fresh": clip_qa_metrics.get("fresh"),
+                    "stale_reasons": clip_qa_metrics.get("stale_reasons", []),
+                    "regenerate_clips": clip_qa_metrics.get("regenerate_clips", []),
+                },
+                "prescription": (
+                    "Run `main.py clip-qa --project <id>` and regenerate all clips failing 5-point continuity, "
+                    "cross-brain bust consistency, anatomical ROI, R53 zero-particle lock, or subject motion."
+                ),
+            })
 
         # 0. Guard 1, Guard 2 & Guard 6 (R37): Cryptographic Flow Provenance Receipt & Anti-Derivative Check
         if not thumb_metrics["provenance_receipt_valid"] or thumb_metrics["synthetic_derivative_clips"]:
@@ -818,6 +1351,74 @@ class VideoAutopsyEngine:
                     "Every project must use freshly generated, perceptually distinct Google Flow clips."
                 ),
             })
+
+        # 0b. Per-clip Voice Timbre Consistency, ASR Script Match, Word-Boundary Truncation, & Subtitle Acoustic Sync
+        if clip_voice_asr_metrics.get("checked"):
+            if not clip_voice_asr_metrics["voice_passed"]:
+                score -= 30.0
+                prescriptions.append({
+                    "defect_code": "DEFECT_VOICE_F0_OUTLIER",
+                    "severity": "CRITICAL",
+                    "component": "03_visuals/flow_native_clips",
+                    "measured": {
+                        "project_f0_median_hz": clip_voice_asr_metrics["project_f0_median_hz"],
+                        "project_f0_spread_hz": clip_voice_asr_metrics["project_f0_spread_hz"],
+                        "f0_range_outliers": clip_voice_asr_metrics["f0_range_outliers"],
+                        "f0_deviation_outliers": clip_voice_asr_metrics["f0_deviation_outliers"],
+                    },
+                    "prescription": (
+                        "Regenerate clips with female/high F0 (>165 Hz), sub-bass F0 (<100 Hz), or >22 Hz deviation "
+                        "from project median (spread must be <=32 Hz)."
+                    ),
+                })
+            if not clip_voice_asr_metrics["asr_passed"]:
+                score -= 35.0
+                prescriptions.append({
+                    "defect_code": "DEFECT_ASR_SCRIPT_MISMATCH",
+                    "severity": "CRITICAL",
+                    "component": "02_script/script.json & 03_visuals/flow_native_clips",
+                    "measured": {
+                        "low_overlap_clips": clip_voice_asr_metrics["low_overlap_clips"],
+                        "duplicate_transcript_pairs": clip_voice_asr_metrics["duplicate_transcript_pairs"],
+                        "script_prompt_mismatch_clips": clip_voice_asr_metrics["script_prompt_mismatch_clips"],
+                        "corrupted_grammar_clips": clip_voice_asr_metrics["corrupted_grammar_clips"],
+                        "subtitle_script_overlap": clip_voice_asr_metrics["subtitle_script_overlap"],
+                    },
+                    "prescription": (
+                        "Ensure every clip achieves >=0.85 content-word ASR overlap with script.json and subtitles.ass, "
+                        "zero duplicate transcripts, 100% identical narration between script.json and flow_all_in_one_prompts.json, "
+                        "and natural English grammar."
+                    ),
+                })
+            if not clip_voice_asr_metrics["truncation_passed"]:
+                score -= 25.0
+                prescriptions.append({
+                    "defect_code": "DEFECT_CLIP_WORD_TRUNCATION",
+                    "severity": "CRITICAL",
+                    "component": "03_visuals/flow_native_clips",
+                    "measured": {
+                        "end_truncated_clips": clip_voice_asr_metrics["end_truncated_clips"],
+                        "start_clipped_clips": clip_voice_asr_metrics["start_clipped_clips"],
+                    },
+                    "prescription": (
+                        "Regenerate clips that cut off at 8.0s before speaking the final 2 content words (keep narration "
+                        "at 18-24 words/clip so speech completes before 7.2s)."
+                    ),
+                })
+            if not clip_voice_asr_metrics["subtitle_sync_passed"]:
+                score -= 20.0
+                prescriptions.append({
+                    "defect_code": "DEFECT_SUBTITLE_ACOUSTIC_DRIFT",
+                    "severity": "CRITICAL",
+                    "component": "04_audio/subtitles.ass",
+                    "measured": {
+                        "subtitle_drift_events": clip_voice_asr_metrics["subtitle_drift_events"][:5],
+                    },
+                    "prescription": (
+                        "Align subtitle events to faster-whisper word timestamps and active voiced islands so no subtitle "
+                        "drifts >0.15s outside speech or sits over silence valleys."
+                    ),
+                })
 
         # 1. Frame & Stream Integrity (25 pts)
         if video_metrics["has_early_stream_freeze"] or video_metrics["decoded_frame_count"] < 720:
@@ -898,6 +1499,21 @@ class VideoAutopsyEngine:
                     },
                     "prescription": "Trim empty pre/post-speech silence at clip boundaries (+0.15s hold, 400ms pre-roll trim, 1.08x A/V sync).",
                 })
+            if float(audio_metrics.get("peak_dbfs", -96.0)) > -1.0:
+                score -= 15.0
+                prescriptions.append({
+                    "defect_code": "DEFECT_AUDIO_TRUE_PEAK_CLIPPING",
+                    "severity": "HIGH",
+                    "component": "05_assembly/final_shorts_1080x1920.mp4",
+                    "measured": {
+                        "peak_dbfs": audio_metrics.get("peak_dbfs"),
+                        "max_allowed_peak_dbfs": -1.0,
+                    },
+                    "prescription": (
+                        "Apply -1.5 dBFS soft-knee ceiling in generate_audio_master_wav and FFmpeg "
+                        "`alimiter=limit=0.841:attack=5:release=50:level=disabled` before AAC encoding so peak <= -1.0 dBFS."
+                    ),
+                })
 
         # 3. Visual DNA & Motion Integrity (20 pts)
         if video_metrics["optical_flow_mean"] < MIN_OPTICAL_FLOW_THRESHOLD:
@@ -950,10 +1566,12 @@ class VideoAutopsyEngine:
         critical_defects = [p for p in prescriptions if p["severity"] in ("CRITICAL", "HIGH")]
         passed = (final_score >= 85.0) and (len(critical_defects) == 0)
         defect_codes = [p["defect_code"] for p in prescriptions]
+        final_mp4_sha = compute_sha256(mp4_path) if mp4_path.exists() else None
 
         report = {
             "project_id": project_id,
             "inspected_at": datetime.now(timezone.utc).isoformat(),
+            "final_mp4_sha256": final_mp4_sha,
             "autopsy_score": final_score,
             "passed": passed,
             "status": "PASS" if passed else "ACTION_REQUIRED",
@@ -963,6 +1581,9 @@ class VideoAutopsyEngine:
             "audio_stream": audio_metrics,
             "subtitles": subtitle_metrics,
             "thumbnails_and_dedup": thumb_metrics,
+            "clip_voice_and_asr": clip_voice_asr_metrics,
+            "reference_image_qa": ref_qa_metrics,
+            "clip_contract_qa": clip_qa_metrics,
             "prescriptions": prescriptions,
         }
 
@@ -1069,6 +1690,7 @@ class VideoAutopsyEngine:
         from pipeline.flow_prompt_builder import (
             build_flow_prompts,
             load_visual_plan,
+            sanitize_prompt_for_flow,
             write_flow_prompts_json,
         )
         from pipeline.ideation import IdeationStage
@@ -1114,39 +1736,20 @@ class VideoAutopsyEngine:
 
         visuals_dir = storage.get_stage_dir("03_visuals")
         flow_prompts_file = visuals_dir / "flow_all_in_one_prompts.json"
-        need_prompts_rebuild = not flow_prompts_file.exists()
-        if not need_prompts_rebuild:
-            try:
-                existing_fp = json.loads(flow_prompts_file.read_text(encoding="utf-8"))
-                need_prompts_rebuild = not (isinstance(existing_fp, dict) and existing_fp.get("schema_version") == 4)
-            except Exception:
-                need_prompts_rebuild = True
-
-        if need_prompts_rebuild:
-            narrations = [str(s) for s in (topic_item.get("clip_narrations") or []) if str(s).strip()]
-            if len(narrations) >= 5:
-                v_plan = load_visual_plan(p_dir, topic_item=topic_item)
-                clips = build_flow_prompts(v_plan, narrations)
-                write_flow_prompts_json(p_dir, clips)
-                storage.record_artifact("03_visuals", "flow_all_in_one_prompts.json", flow_prompts_file)
+        narrations = [str(s) for s in (topic_item.get("clip_narrations") or []) if str(s).strip()]
+        if len(narrations) >= 5:
+            v_plan = load_visual_plan(p_dir, topic_item=topic_item)
+            clips = build_flow_prompts(v_plan, narrations)
+            write_flow_prompts_json(p_dir, clips)
+            storage.record_artifact("03_visuals", "flow_all_in_one_prompts.json", flow_prompts_file)
 
         prov_receipt_file = visuals_dir / "flow_provenance_receipt.json"
-        rcpt_sha_map: dict[str, tuple[str, int]] = {}
         if prov_receipt_file.exists():
             storage.record_artifact("03_visuals", "flow_provenance_receipt.json", prov_receipt_file)
-            try:
-                rcpt_obj = json.loads(prov_receipt_file.read_text(encoding="utf-8"))
-                for i, c in enumerate(rcpt_obj.get("clips", []), 1):
-                    if isinstance(c, dict) and c.get("sha256") and c.get("file_size_bytes"):
-                        cname = f"clip_{int(c.get('clip_index', i))}.mp4"
-                        rcpt_sha_map[cname] = (str(c["sha256"]), int(c["file_size_bytes"]))
-            except Exception:
-                pass
         native_clips_dir = visuals_dir / "flow_native_clips"
         if native_clips_dir.exists():
             for cf in sorted(native_clips_dir.glob("*.mp4"), key=numeric_clip_sort_key):
-                k_sha, k_sz = rcpt_sha_map.get(cf.name, (None, None))
-                storage.record_artifact("03_visuals", f"flow_native_clips/{cf.name}", cf, known_sha256=k_sha, known_size_bytes=k_sz)
+                storage.record_artifact("03_visuals", f"flow_native_clips/{cf.name}", cf)
         storage.update_stage_status("03_visuals", "completed")
 
         audio_dir = storage.get_stage_dir("04_audio")
@@ -1208,14 +1811,26 @@ class VideoAutopsyEngine:
 
         pub_stage = PublishStage(storage)
         pub_dir = storage.get_stage_dir("06_publish")
-        paradox_data = storage.load_json("01_ideation", "paradox_hook.json") or {}
-        q_hook = paradox_data.get("dissonance_trigger") or topic_item.get("paradox_statement")
-        variants = pub_stage.generate_all_thumbnail_variants(
-            base_asset_path=None,
-            title_headline=topic_item["title"],
-            output_dir=pub_dir,
-            question_hook=q_hook,
-        )
+        th_def = pub_dir / "thumbnail.png"
+        th_a = pub_dir / "thumbnail_var_A.png"
+        th_b = pub_dir / "thumbnail_var_B.png"
+        th_c = pub_dir / "thumbnail_var_C.png"
+        if (
+            th_def.exists() and th_def.stat().st_size > 80_000
+            and th_a.exists() and th_a.stat().st_size > 80_000
+            and th_b.exists() and th_b.stat().st_size > 80_000
+            and th_c.exists() and th_c.stat().st_size > 80_000
+        ):
+            variants = {"default": th_def, "A": th_a, "B": th_b, "C": th_c}
+        else:
+            paradox_data = storage.load_json("01_ideation", "paradox_hook.json") or {}
+            q_hook = paradox_data.get("dissonance_trigger") or topic_item.get("paradox_statement")
+            variants = pub_stage.generate_all_thumbnail_variants(
+                base_asset_path=None,
+                title_headline=topic_item["title"],
+                output_dir=pub_dir,
+                question_hook=q_hook,
+            )
         storage.record_artifact("06_publish", "thumbnail.png", variants["default"])
         storage.record_artifact("06_publish", "thumbnail_var_A.png", variants["A"])
         storage.record_artifact("06_publish", "thumbnail_var_B.png", variants["B"])

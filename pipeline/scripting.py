@@ -255,7 +255,7 @@ class ScriptingStage:
 
         # G12: Causal momentum connectives & measured dead air
         propulsive_connectors = [
-            "instead of", "step one", "here is how it works", "which proves", "which is why",
+            "instead of", "first,", "next,", "finally,", "from there", "here is how it works", "which proves", "which is why",
             "which", "yet", "until", "instead", "except", "before", "the moment", "leaving",
             "triggering", "collapsing", "turning", "transforming", "forcing", "without",
             "acting like", "instantly", "moving", "proving that", "so", "meaning",

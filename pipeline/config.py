@@ -72,6 +72,23 @@ MASTER_TAIL_MUTE_SEC = 0.095             # Linear mute across all 4 mixed layers
 # ==============================================================================
 NATIVE_FLOW_WPS = 2.7                    # Speaking rate requested from Google Flow (Puck)
 EFFECTIVE_WPS = round(NATIVE_FLOW_WPS * AV_SPEEDUP_FACTOR, 3)  # ~2.92 WPS after the 1.08x A/V speedup
+# Flow video models as shown in the settings pane (verified live 2026-10-24). Production uses OMNI ONLY (owner decision
+# 2026-10-24; matches ALLOWED_FLOW_MODELS). Veo is listed only so the guard can recognise and refuse it.
+#   Omni 1.1 Flash -> 4s / 6s / 8s / 10s, 12 credits without an ingredient; with an ingredient attached the length is
+#                     locked ("Length based on ingredient · 8s") and the cost is 20 credits
+#   Veo 3.1 - Lite [Lower Priority] -> 4s / 6s / 8s, 0 credits (NOT USED)
+FLOW_VIDEO_MODEL_PROFILES: dict[str, dict] = {
+    "Omni 1.1 Flash": {"durations": ("4s", "6s", "8s", "10s"), "max_sec": 10, "max_sec_with_ingredient": 8},
+    "Veo 3.1 - Lite [Lower Priority]": {"durations": ("4s", "6s", "8s"), "max_sec": 8, "max_sec_with_ingredient": 8},
+}
+FLOW_ACTIVE_VIDEO_MODEL = "Omni 1.1 Flash"
+FLOW_BANNED_VIDEO_MODEL_MARKERS: tuple[str, ...] = ("Veo",)
+FLOW_ZERO_CREDIT_TEXT = "Generating will use 0 credits"   # informational; Omni always costs Flow plan credits
+FLOW_ALLOWED_DURATION_TARGETS: tuple[str, ...] = tuple(FLOW_VIDEO_MODEL_PROFILES[FLOW_ACTIVE_VIDEO_MODEL]["durations"])
+FLOW_CLIP_DURATION_TARGET = "10s"        # Omni, no ingredient; clamps to 8s automatically when an ingredient is attached
+FLOW_SHORT_CLIP_MAX_WORDS = 19           # Clips <= 19 words & <= 32 syllables dynamically route to "8s"
+FLOW_SHORT_CLIP_MAX_SYLLABLES = 32
+FLOW_CLIP_SAFE_MAX_SYLLABLES = 48        # Ceiling above which 10s Omni clips risk tail speech truncation (native voice only)
 FLOW_CLIP_TARGET_SEC_MIN = 8.0           # Target native Flow clip length (prompt design)
 FLOW_CLIP_TARGET_SEC_MAX = 12.0
 CLIP_WORDS_MIN = 18                      # Spoken words per clip
@@ -145,6 +162,130 @@ FLOW_ALLOWED_VOICES = ("Puck",)
 FLOW_VOICE_TONE_DIRECTION = (
     f"male documentary narrator speaking clear English at {NATIVE_FLOW_WPS} words per second"
 )
+FLOW_VOICE_PROMPT_DESCRIPTOR = "Consistent deep male baritone documentary narrator"
+# v5 voice line (R49): identical, detailed descriptor in every clip so Flow re-creates the same narrator.
+# Must stay a single sentence without periods (prompt parser splits on the first period).
+FLOW_VOICE_PROMPT_DESCRIPTOR_V5 = (
+    "Same calm male documentary narrator in every clip, warm mid-low baritone, steady even pitch, "
+    "relaxed measured pace, neutral American accent, no dramatic pitch swings"
+)
+FLOW_LEGACY_VOICE_LABELS: tuple[str, ...] = (
+    FLOW_VOICE_PROMPT_DESCRIPTOR,
+    "Deep male baritone documentary narrator",
+)
+
+# ==============================================================================
+# Prompt System v5 (2026-10-24) — research dossier, visual modes, action physics, brain link,
+# plain-language and voice-consistency gates. Documented 1:1 in production_constants.md (v5 block).
+# ==============================================================================
+PROMPT_SCHEMA_VERSION_V5 = 5
+PROMPT_SCENE_WORDS_MAX_V5 = 95           # v5 scenes carry camera + body verb + prop change + reaction
+FLOW_ASPECT_SHORTS = "9:16"
+FLOW_ASPECT_LONGFORM = "16:9"
+FLOW_ASPECT_LABELS: dict[str, str] = {"9:16": "9:16 vertical", "16:9": "16:9 horizontal"}
+# Appended after every v5 scene (outside the scene word budget): fluid acting, centred safe framing for reuse.
+FLOW_MOTION_STYLE_V5 = (
+    "Articulated matte-white porcelain figures move with fluid, natural human motion; "
+    "key action stays centred in frame."
+)
+
+VISUAL_MODES: tuple[str, ...] = ("BEHAVIORAL_PSYCH", "HYBRID", "NEURO_BIOLOGY")
+BRAIN_SETTINGS: tuple[str, ...] = ("drill_down", "brain_void")     # clips counted as brain clips
+ALLOWED_SETTINGS_V5: tuple[str, ...] = ("real_env", "drill_down", "brain_void", "pull_out")
+MAX_BRAIN_CLIPS_BY_MODE: dict[str, int] = {"BEHAVIORAL_PSYCH": 0, "HYBRID": 2, "NEURO_BIOLOGY": 4}
+MAX_ANATOMY_TERMS_BY_MODE: dict[str, int] = {"BEHAVIORAL_PSYCH": 1, "HYBRID": 2, "NEURO_BIOLOGY": 4}
+# Default per-role setting by mode (a shot may override with visual_plan.shots[role].setting within the caps).
+MODE_ROLE_SETTINGS: dict[str, dict[str, str]] = {
+    "BEHAVIORAL_PSYCH": {r: "real_env" for r in ROLE_SETTINGS},
+    "HYBRID": {
+        **{r: "real_env" for r in ROLE_SETTINGS},
+        "pivot": "drill_down",
+        "mechanism": "brain_void",
+        "step1": "brain_void",
+        "step2": "pull_out",
+    },
+    "NEURO_BIOLOGY": {
+        **{r: "real_env" for r in ROLE_SETTINGS},
+        "crisis": "drill_down",
+        "pivot": "brain_void",
+        "mechanism": "brain_void",
+        "step1": "brain_void",
+        "step2": "brain_void",
+        "step3": "pull_out",
+    },
+}
+ICONIC_SCENE_MAX_CLIP = 2                # The must-have iconic scene appears in clip 1 or 2 (hook)
+READABILITY_SCRIPT_FK_MAX = 8.0          # Flesch-Kincaid grade, whole script
+READABILITY_CLIP_FK_MAX = 11.0           # Flesch-Kincaid grade, any single clip
+JARGON_TERMS_MAX = 1                     # Non-anatomical technical terms per script
+SECOND_PERSON_CLIPS_MIN = 1              # Clips that connect the story to "you" (everyday consequence)
+
+# Voice consistency (R49) — semitone gates on per-clip median F0, never corrected by pitch shifting.
+VOICE_F0_CLIP_DEV_MAX_ST = 1.5           # |clip F0 - project median| in semitones
+VOICE_F0_ADJ_JUMP_MAX_ST = 2.0           # |clip k+1 - clip k| in semitones
+VOICE_F0_SPREAD_MAX_ST = 3.0             # max - min across the project, semitones
+VOICE_REGEN_MAX_ROUNDS = 4               # Flow regeneration rounds for voice outliers before the TTS fallback
+VOICE_FALLBACK_ENABLED = True            # Decision 2026-10-24: local free TTS fallback when Flow voice stays inconsistent
+VOICE_FALLBACK_ENGINE = "kokoro-onnx"    # Apache-2.0 local model, zero paid APIs
+VOICE_FALLBACK_VOICE = "am_fenrir"       # Deep cinematic American male baritone; fixed for the whole channel
+VOICE_FALLBACK_SPEED = 1.12              # ~EFFECTIVE_WPS without A/V speed-up on the voice
+VOICE_FALLBACK_MODEL_DIR = Path.home() / ".cache" / "aab_tts"
+VOICE_FALLBACK_VIDEO_SPEED_RANGE: tuple[float, float] = (0.85, 1.25)  # video setpts factor range to fit TTS length
+
+# Research dossier + longform reuse (R44, R50)
+RESEARCH_DOSSIERS_DIRNAME = "research_dossiers"
+ASSET_LIBRARY_DIRNAME = "asset_library"
+LONGFORM_TARGET_MIN_SEC = 480            # 8-15 min longform built from proven Shorts
+LONGFORM_TARGET_MAX_SEC = 900
+
+# Reference Image Consistency & 10-Axis Granular Image QA (R51)
+REF_IMAGES_DIRNAME = "reference_images"
+MIN_REF_IMAGES_PER_PROJECT = 6           # Minimum reference images per project (cast, env, hero prop, scenes/clips)
+MIN_REF_IMAGE_SIZE_BYTES = 30_000        # Minimum valid PNG/JPG size (30 KB)
+REF_IMAGE_MIN_WIDTH_SHORTS = 720         # Minimum width for 9:16 reference image
+REF_IMAGE_MIN_HEIGHT_SHORTS = 1280       # Minimum height for 9:16 reference image
+REF_IMAGE_LUMA_MIN = 70.0                # R14-A high-key daylight floor (mean luma 0-255)
+REF_IMAGE_LUMA_MAX = 242.0               # R14-A ceiling (avoids pure whiteout)
+REF_IMAGE_CONTRAST_STD_MIN = 22.0        # Minimum luma standard deviation (dynamic contrast)
+REF_IMAGE_SHARPNESS_MIN = 45.0           # Minimum Laplacian variance sharpness
+REF_IMAGE_EDGE_DENSITY_MIN = 0.015       # Minimum Canny edge density
+REF_IMAGE_PORCELAIN_RATIO_MIN = 0.04     # Minimum matte-white/neutral porcelain highlight ratio in subject zone
+REF_IMAGE_HUMAN_SKIN_MAX = 0.12          # Maximum allowed human flesh-tone ratio in mannequin head/body zone
+REF_IMAGE_CROSS_HIST_CORR_MIN = 0.55     # Minimum HSV histogram correlation across same-scene reference images
+REF_IMAGE_CROSS_LUMA_SPREAD_MAX = 55.0   # Maximum luma mean spread across same-scene reference images
+REF_IMAGE_CAST_CHROMA_DRIFT_MAX = 16.0   # Maximum LAB chrominance drift across cast appearances
+REF_IMAGE_CLIP_CONTINUITY_CORR_MIN = 0.55  # Minimum HSV correlation between rendered video clip and its reference image
+REF_IMAGE_MAX_REGEN_ROUNDS = 3           # Automatic regeneration rounds in Flow Image mode when a reference image fails QA
+REF_IMAGE_MIN_DHASH_DISTANCE = 6         # Q10: two clip keyframes closer than this (64-bit dHash) are duplicates
+REF_IMAGE_BIOLUM_MIN = 0.005             # Q6: minimum saturated 4-point colour-code pixel ratio in brain shots
+# Provenance: only images generated for the pack count before clip generation. Frames pulled out of
+# already-rendered clips ("extracted_from_clip") are audit-only and can never satisfy the pre-generation gate.
+REF_IMAGE_SOURCES_PRE_GENERATION: tuple[str, ...] = ("flow_image_generation", "gemini_image_generation")
+REF_IMAGE_SOURCE_EXTRACTED = "extracted_from_clip"
+
+# Source-to-prompt architecture (R52): research dossier -> scene blueprint -> reference frames -> clip packets
+SCENE_BLUEPRINT_FILENAME = "scene_blueprint.json"
+GENERATION_PACKETS_DIRNAME = "generation_packets"
+GENERATION_BACKENDS: tuple[str, ...] = ("flow", "gemini_app")
+VOICE_SOURCES: tuple[str, ...] = ("tts", "native")   # tts = am_fenrir voiceover added in Gear 4 (default)
+DEFAULT_VOICE_SOURCE = "tts"
+CLIP_MAX_RENDER_SEC = int(FLOW_VIDEO_MODEL_PROFILES[FLOW_ACTIVE_VIDEO_MODEL]["max_sec"])  # Omni 10 s (no ingredient)
+CLIP_MAX_RENDER_SEC_WITH_REFERENCE = int(FLOW_VIDEO_MODEL_PROFILES[FLOW_ACTIVE_VIDEO_MODEL]["max_sec_with_ingredient"])  # 8 s
+GEMINI_APP_MAX_RENDER_SEC = 8
+TIMED_BEAT_WINDOWS: tuple[tuple[int, int], ...] = ((0, 3), (3, 6), (6, 8))  # action / prop change / reaction
+BLUEPRINT_MIN_EVIDENCE_ICONIC = 1        # iconic scene needs >= 1 media timecode or source citation per beat set
+
+# Research depth standard (R44 depth): enforced by validate_dossier
+DOSSIER_MIN_SOURCES = 6
+DOSSIER_MIN_FOLLOWUP_SOURCES = 2         # replication / follow_up / review
+DOSSIER_MIN_CORE_FACTS = 8               # each with a source_id that exists in 01_sources.json
+DOSSIER_MIN_MEDIA = 2
+DOSSIER_MIN_ANALYZED_MEDIA = 1           # media/<id>/analysis.json with keyframes
+DOSSIER_MIN_KEYFRAMES = 8
+DOSSIER_MIN_MEDIA_TIMECODES = 2          # per media entry
+DOSSIER_MIN_STORY_CHARS = 6000
+DOSSIER_MIN_ICONIC_POSITIONS = 2         # who / where / facing entries in the iconic layout
+DOSSIER_MIN_ICONIC_PROPS = 2             # each with period_detail + physical_behavior
 
 # Thumbnail renderer palette (pipeline/publish.py)
 RGB_SECONDARY_TEAL = (14, 154, 167)

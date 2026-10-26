@@ -9,9 +9,11 @@ from pathlib import Path
 from pipeline.config import CLIP_ROLE_SEQUENCES, clip_roles, pivot_clip_index
 from pipeline.flow_prompt_builder import (
     build_flow_prompts,
+    compute_clip_target_duration,
     infer_visual_plan,
     load_visual_plan,
     sanitize_prompt_for_flow,
+    validate_character_motion,
     validate_flow_prompts,
     validate_narrations,
 )
@@ -58,19 +60,19 @@ def _dummy_narrations_for_count(n: int) -> list[str]:
         elif r in ("mechanism", "step1"):
             if r == "mechanism" and not has_breakthrough:
                 out.append(
-                    "Step one: incoming sensory signals race along intact nerve tracts into the sensory cortex. The researchers were left completely stunned."
+                    "First, incoming sensory signals race along intact nerve tracts into the sensory cortex. The researchers were left completely stunned."
                 )
             else:
                 out.append(
-                    "Step one: incoming sensory signals enter the primary receptor organ and race along intact nerve tracts into the primary sensory cortex."
+                    "First, incoming sensory signals enter the primary receptor organ and race along intact nerve tracts into the primary sensory cortex."
                 )
         elif r == "step2":
             out.append(
-                "Step two: that decoded signal tries to cross the white-matter bridge toward the limbic target, but crashes at the severed junction."
+                "Next, that decoded signal tries to cross the white-matter bridge toward the limbic target, but crashes at the severed junction."
             )
         elif r == "step3":
             out.append(
-                "Step three: deprived of autonomic confirmation, the prefrontal cortex resolves the mismatch by concluding that the familiar person must be an impostor."
+                "Finally, deprived of autonomic confirmation, the prefrontal cortex resolves the mismatch by concluding that the familiar person must be an impostor."
             )
         elif r == "breakthrough":
             out.append(
@@ -131,8 +133,8 @@ def test_validator_rejects_banned_tokens_and_invalid_structures() -> None:
     ):
         mutated = [dict(c) for c in base_clips]
         mutated[0]["prompt"] = mutated[0]["prompt"].replace(
-            "Cinematic chiaroscuro lighting.",
-            f"Cinematic chiaroscuro lighting with {bad_snippet}.",
+            "Bright daylight lighting.",
+            f"Bright daylight lighting with {bad_snippet}.",
         )
         errs = validate_flow_prompts(mutated)
         assert errs, f"Expected validator to reject snippet: {bad_snippet}"
@@ -149,7 +151,7 @@ def test_role_sequences_and_pivot_mapping_5_to_10() -> None:
 
 
 def test_sanitizer_preserves_allow_listed_anatomy_and_environments() -> None:
-    raw = "A dimly lit hospital room with a hospital bed and an EKG monitor. Patient H.M. sits near the severed amygdala and hippocampus."
+    raw = "A brightly lit hospital room with a hospital bed and an EKG monitor. Patient H.M. sits near the severed amygdala and hippocampus."
     cleaned = sanitize_prompt_for_flow(raw, is_spoken_dialogue=False)
     assert "hospital room" in cleaned
     assert "EKG monitor" in cleaned
@@ -185,3 +187,62 @@ def test_preflight_qa_passes_contract_v4_lock() -> None:
     report = run_preflight_qa(require_live_cdp=False)
     assert report["passed"] is True
     assert report["checks"]["contract_v4_golden_prompt_lock"]["passed"] is True
+
+
+def test_dynamic_8s_10s_duration_routing_and_cutoff_risk() -> None:
+    short_hook = compute_clip_target_duration(
+        "In 1923, one man looked at his wife and swore a cold stranger had taken her place.",
+        role="setup",
+    )
+    assert short_hook["target_duration"] == "8s"
+    assert short_hook["cutoff_risk"] is False
+
+    dense_mech = compute_clip_target_duration(
+        "First, visual signals travel from your retina into the fusiform face area, where the cortex decodes exact facial geometry in milliseconds.",
+        role="step1",
+    )
+    assert dense_mech["target_duration"] == "10s"
+    assert dense_mech["target_duration"] == "10s"
+    assert dense_mech["cutoff_risk"] is False
+
+    overstuffed = compute_clip_target_duration(
+        "Simultaneously, hyper-synchronized electrophysiological oscillations reverberate uncontrollably across interconnected thalamocortical and parahippocampal neuroanatomical pathways during stimulation.",
+        role="step2",
+    )
+    assert overstuffed["target_duration"] == "10s"
+    assert overstuffed["cutoff_risk"] is True
+
+
+def test_character_motion_2beat_actions_and_31_O2CmlKOk_brain_lock() -> None:
+    target_prefixes = ("psych_04", "psych_08", "psych_11", "psych_18")
+    for prefix in target_prefixes:
+        topic_item = next(t for t in ALL_PSYCHOLOGY_100_TOPICS if str(t.get("project_id", "")).startswith(prefix))
+        narrations = [str(s) for s in topic_item["clip_narrations"]]
+        plan = load_visual_plan(topic_item=topic_item)
+        clips = build_flow_prompts(plan, narrations)
+        assert validate_flow_prompts(clips, check_character_motion=True) == [], f"Failed for {prefix}"
+        assert validate_character_motion(clips) == [], f"Character motion failed for {prefix}"
+        for idx in (3, 4):
+            assert "bright white studio gallery" in clips[idx]["scene"].lower()
+            assert "matte-white brain" in clips[idx]["scene"].lower()
+        for idx in (5, 6, 7):
+            assert "bioluminescent green" in clips[idx]["scene"].lower()
+
+    inferred_plan = infer_visual_plan(topic="Synaptic Plasticity", pillar_id=1)
+    inferred_clips = build_flow_prompts(inferred_plan, _dummy_narrations_for_count(10))
+    assert validate_flow_prompts(inferred_clips, check_character_motion=True) == []
+
+    static_mutated = [dict(c) for c in inferred_clips]
+    static_mutated[0]["scene"] = (
+        "A minimalist bright hospital room with a clinical desk and a glass water cup. "
+        "A matte-white porcelain mannequin of a clinical subject sits upright at the table, "
+        "its translucent frosted-glass cranium catching the light. A doctor mannequin stands nearby. "
+        "Wide establishing shot, camera smoothly tracks forward toward the subject. Bright daylight lighting."
+    )
+    static_mutated[0]["prompt"] = (
+        f'{static_mutated[0]["scene"]} Voice: Consistent deep male baritone documentary narrator. '
+        f'Spoken narration: "{_dummy_narrations_for_count(10)[0]}"'
+    )
+    motion_errs = validate_character_motion(static_mutated)
+    assert any("static pose" in e or "physical action verb" in e for e in motion_errs)
+

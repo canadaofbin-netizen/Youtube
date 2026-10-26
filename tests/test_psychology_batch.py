@@ -125,7 +125,73 @@ def test_contract_v4_flow_prompts_wrapper_and_puck_lock(tmp_path: Path):
 
         for p in prompts:
             p_low = p.lower()
-            assert "voice: puck. spoken narration:" in p_low
+            assert (
+                "voice: consistent deep male baritone documentary narrator. spoken narration:" in p_low
+                or "voice: puck. spoken narration:" in p_low
+            )
             assert "aoede" not in p_low
             assert "all about brain" not in p_low
             assert not re.search(r"#[0-9a-f]{6}\b", p_low), f"Hex code found in Flow prompt: {p}"
+
+
+def test_speech_window_trailing_stopword_and_acoustic_f0(tmp_path: Path):
+    """Validates trailing post-gap ASR burst cutoff and true acoustic pitch-shifted F0 estimation."""
+    import subprocess
+    import imageio_ffmpeg
+    import numpy as np
+    from pipeline.flow_live_single_worker import compute_content_word_match, measure_harmonized_clip_f0_hz
+
+    expected = "Without that label, your pounding heart is just noise searching for a mood."
+    words_with_trailing_the = [
+        {"word": "Without", "start": 0.0, "end": 0.4},
+        {"word": "that", "start": 0.4, "end": 0.7},
+        {"word": "label,", "start": 0.7, "end": 1.2},
+        {"word": "your", "start": 1.5, "end": 1.8},
+        {"word": "pounding", "start": 1.8, "end": 2.3},
+        {"word": "heart", "start": 2.3, "end": 2.7},
+        {"word": "is", "start": 2.7, "end": 2.9},
+        {"word": "just", "start": 2.9, "end": 3.3},
+        {"word": "noise", "start": 3.3, "end": 3.9},
+        {"word": "searching", "start": 4.2, "end": 4.8},
+        {"word": "for", "start": 4.8, "end": 5.0},
+        {"word": "a", "start": 5.0, "end": 5.2},
+        {"word": "mood.", "start": 5.2, "end": 7.1},
+        {"word": "The", "start": 7.9, "end": 8.0},
+    ]
+    res_gap = compute_content_word_match(expected, " ".join(w["word"] for w in words_with_trailing_the), words=words_with_trailing_the)
+    assert res_gap["overlap"] == 1.0
+    assert res_gap["extra_content_words"] == []
+    assert res_gap["speech_end_raw"] == 7.1
+
+    # Immediate trailing stop-word (<0.20s gap) should be flagged as extra_content_words
+    words_immediate = list(words_with_trailing_the[:-1]) + [{"word": "The", "start": 7.15, "end": 7.25}]
+    res_imm = compute_content_word_match(expected, " ".join(w["word"] for w in words_immediate), words=words_immediate)
+    assert "the" in res_imm["extra_content_words"]
+
+    # Synthesize a 140 Hz pulse train clip and verify acoustic F0 after 0.85x pitch shift (~119 Hz)
+    sr = 16000
+    dur = 2.0
+    t = np.arange(int(sr * dur), dtype=np.float32) / sr
+    f0_true = 140.0
+    sig = (
+        0.5 * np.sin(2 * np.pi * f0_true * t)
+        + 0.25 * np.sin(2 * np.pi * (2 * f0_true) * t)
+        + 0.12 * np.sin(2 * np.pi * (3 * f0_true) * t)
+    ).astype(np.float32)
+    pcm_path = tmp_path / "raw.pcm"
+    pcm_path.write_bytes((sig * 16000).astype(np.int16).tobytes())
+    mp4_path = tmp_path / "synth_clip.mp4"
+    subprocess.run(
+        [
+            imageio_ffmpeg.get_ffmpeg_exe(), "-y",
+            "-f", "lavfi", "-i", "color=c=black:s=160x90:d=2:r=24",
+            "-f", "s16le", "-ar", "16000", "-ac", "1", "-i", str(pcm_path),
+            "-c:v", "libx264", "-preset", "ultrafast", "-c:a", "aac", "-shortest",
+            str(mp4_path),
+        ],
+        capture_output=True,
+        check=True,
+    )
+    f0_shifted = measure_harmonized_clip_f0_hz(mp4_path, pitch_ratio=0.85, trim_start=0.1, trim_end=1.9)
+    assert 114.0 <= f0_shifted <= 124.0, f"Expected acoustic F0 ~119 Hz after 0.85x shift, got {f0_shifted}"
+

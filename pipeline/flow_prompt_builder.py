@@ -3,11 +3,11 @@ ALL ABOUT BRAIN - Canonical Google Flow Prompt Builder (Production Contract v4).
 
 Single source of truth for every Google Flow (Gemini Omni 1.1) clip prompt:
 
-    {FLOW_PROMPT_PREFIX} <scene 50-80 words> Voice: Puck. Spoken narration: "<line>"
+    {FLOW_PROMPT_PREFIX} <scene 50-80 words> Voice: Consistent deep male baritone documentary narrator. Spoken narration: "<line>"
 
 - One clip = one narrative role (config.clip_roles) = one clean camera move.
 - Context clips use a narration-matched photoreal environment with matte-white porcelain mannequins;
-  brain clips use a realistic matte-white brain on a deep midnight navy void.
+  brain clips use a realistic matte-white brain in a bright white studio gallery.
 - 4-point colour code: crimson-red = crisis, electric cyan-blue = target region,
   warm amber-gold = active/compensatory circuit, bioluminescent green = signal transmission.
 - The sanitizer is applied to template-generated scene text only, never to narration.
@@ -21,15 +21,32 @@ import re
 from typing import Any
 
 from pipeline.config import (
+    ALLOWED_SETTINGS_V5,
+    BRAIN_SETTINGS,
     CLIP_COUNT_MAX,
     CLIP_COUNT_MIN,
+    CLIP_MAX_RENDER_SEC,
     CLIP_WORDS_MAX,
     CLIP_WORDS_MIN,
+    FLOW_ALLOWED_DURATION_TARGETS,
+    FLOW_ASPECT_LABELS,
+    FLOW_ASPECT_SHORTS,
+    FLOW_CLIP_DURATION_TARGET,
+    FLOW_CLIP_SAFE_MAX_SYLLABLES,
     FLOW_DEFAULT_VOICE,
+    FLOW_LEGACY_VOICE_LABELS,
+    FLOW_MOTION_STYLE_V5,
     FLOW_PROMPT_PREFIX,
+    FLOW_SHORT_CLIP_MAX_SYLLABLES,
+    FLOW_SHORT_CLIP_MAX_WORDS,
+    FLOW_VOICE_PROMPT_DESCRIPTOR,
+    FLOW_VOICE_PROMPT_DESCRIPTOR_V5,
+    MODE_ROLE_SETTINGS,
     PROMPT_SCENE_WORDS_MAX,
     PROMPT_SCENE_WORDS_MIN,
+    PROMPT_SCHEMA_VERSION_V5,
     ROLE_SETTINGS,
+    VISUAL_MODES,
     clip_roles,
     script_word_range,
 )
@@ -111,7 +128,7 @@ _HEX_RE = re.compile(r"#[0-9A-Fa-f]{3,8}\b")
 _AUDIO_RE = re.compile(r"\bAudio\s*:", re.IGNORECASE)
 _CAMERA_ANGLE_RE = re.compile(r"\bCamera\s+Angle\b", re.IGNORECASE)
 _PROMPT_RE = re.compile(
-    r'^(?P<scene>.*?) Voice: (?P<voice>[A-Za-z]+)\. Spoken narration: "(?P<narration>[^"]*)"$',
+    r'^(?P<scene>.*?) Voice: (?P<voice>[^.]+)\. Spoken narration: "(?P<narration>[^"]*)"$',
     re.DOTALL,
 )
 
@@ -333,9 +350,29 @@ def sanitize_prompt_for_flow(text: str, is_spoken_dialogue: bool = False) -> str
     """
     Cleans visual scene text for Google Flow. Narration (is_spoken_dialogue=True) is returned unchanged:
     it is the canonical script and must match subtitles word for word.
+    If called on a full prompt containing 'Voice: <voice>. Spoken narration: "..."', only the visual scene
+    portion before 'Voice:' is sanitized and the spoken narration tail is preserved verbatim.
     """
     if is_spoken_dialogue:
         return text
+    m_tail = re.search(r'(\s*Voice:\s*[^.]+\.\s*Spoken narration:\s*"[^"]*"\s*)$', text, flags=re.DOTALL)
+    if m_tail:
+        scene_part = text[: m_tail.start()].strip()
+        tail_part = m_tail.group(1).strip()
+        tail_part = re.sub(
+            r"^Voice:\s*Puck\.",
+            f"Voice: {FLOW_VOICE_PROMPT_DESCRIPTOR}.",
+            tail_part,
+        )
+        prefix = ""
+        if scene_part.startswith(FLOW_PROMPT_PREFIX):
+            prefix = FLOW_PROMPT_PREFIX + " "
+            scene_part = scene_part[len(FLOW_PROMPT_PREFIX) :].strip()
+        cleaned_scene = sanitize_prompt_for_flow(scene_part, is_spoken_dialogue=False)
+        if cleaned_scene and not cleaned_scene.endswith("."):
+            cleaned_scene += "."
+        return f"{prefix}{cleaned_scene} {tail_part}".strip()
+
     out, kept = _protect_allow_list(text)
     for name in sorted(_PERSON_NAMES, key=len, reverse=True):
         out = re.sub(rf"(?<![A-Za-z]){re.escape(name)}(?![A-Za-z])", _PERSON_NAMES[name], out)
@@ -361,6 +398,53 @@ def sanitize_prompt_for_flow(text: str, is_spoken_dialogue: bool = False) -> str
 def count_words(text: str) -> int:
     """Whitespace word count used by every budget check (scene 50-80, narration 18-28)."""
     return len(str(text or "").split())
+
+
+def count_english_syllables(text: str) -> int:
+    """Estimates spoken English syllable count across a sentence or clip narration."""
+    total = 0
+    for raw_w in str(text or "").split():
+        w = re.sub(r"[^a-z]", "", raw_w.lower())
+        if not w:
+            if any(ch.isdigit() for ch in raw_w):
+                total += max(1, sum(1 for ch in raw_w if ch.isdigit()))
+            continue
+        if len(w) <= 3:
+            total += 1
+            continue
+        w = re.sub(r"(?:es|ed|e)$", "", w)
+        groups = re.findall(r"[aeiouy]+", w)
+        total += max(1, len(groups))
+    return max(1, total)
+
+
+def compute_clip_target_duration(narration: str, role: str = "") -> dict[str, Any]:
+    """
+    Dynamically selects '8s' vs '10s' Google Flow (Omni 1.1 Flash) generation duration from spoken syllable density,
+    clause pauses, and narrative role so short punchy hooks avoid trailing dead air / prompt bleed
+    while dense mechanism explanations never suffer tail speech cut-off.
+    """
+    clean_narr = str(narration or "").strip()
+    wc = count_words(clean_narr)
+    syls = count_english_syllables(clean_narr)
+    internal_pauses = len(re.findall(r"[,;:—\-]", clean_narr))
+    sentence_breaks = max(0, len(re.findall(r"[.!?]", clean_narr)) - 1)
+    est_sec = round((syls / 4.5) + (0.18 * internal_pauses) + (0.28 * sentence_breaks) + 0.55, 2)
+    is_short_role = role in {"setup", "symptom", "failure", "pivot", ""}
+    if is_short_role and wc <= FLOW_SHORT_CLIP_MAX_WORDS and syls <= FLOW_SHORT_CLIP_MAX_SYLLABLES and est_sec <= 6.8:
+        target_dur = "8s"
+    else:
+        target_dur = "10s"
+    # Omni 1.1 Flash renders up to CLIP_MAX_RENDER_SEC (10 s) without an ingredient. With a reference image attached
+    # Omni locks 8 s, and the Gemini app renders 8 s: native speech must then fit 8 s (see scene_blueprint packets).
+    cutoff_risk = bool(syls > FLOW_CLIP_SAFE_MAX_SYLLABLES or est_sec > float(CLIP_MAX_RENDER_SEC) + 0.2)
+    return {
+        "target_duration": target_dur,
+        "word_count": wc,
+        "expected_syllables": syls,
+        "estimated_speech_sec": est_sec,
+        "cutoff_risk": cutoff_risk,
+    }
 
 
 def _clean(text: Any) -> str:
@@ -425,11 +509,11 @@ def _env_short(environment: str) -> str:
 # visual_plan normalization
 # ==============================================================================
 _DEFAULT_ACTIONS: dict[str, str] = {
-    "setup": "sits upright and slowly turns its head toward the light",
-    "symptom": "stares ahead with a frozen, puzzled expression",
-    "failure": "turns its head away and lowers its hands",
-    "breakthrough": "lifts its head and leans forward in recognition",
-    "conclusion": "sits calmly at the center of the room",
+    "setup": "reaches across the table to grip the apparatus as the researcher steps closer",
+    "symptom": "sweeps its hand across the desk and grips the edge in sudden tension",
+    "failure": "pushes the test chart away across the desk and rises from the chair",
+    "breakthrough": "lifts the test instrument with steady hands and nods toward the researcher",
+    "conclusion": "operates the apparatus with steady hands while the researcher records notes nearby",
 }
 
 
@@ -443,7 +527,7 @@ def normalize_visual_plan(visual_plan: dict[str, Any] | None) -> dict[str, Any]:
     actions_raw = vp.get("mannequin_actions") if isinstance(vp.get("mannequin_actions"), dict) else {}
     actions = {k: _cap_words(actions_raw.get(k) or v, 14) for k, v in _DEFAULT_ACTIONS.items()}
 
-    environment = _cap_words(vp.get("real_environment") or "a dimly lit clinical examination room", 9)
+    environment = _cap_words(vp.get("real_environment") or "a brightly lit clinical examination room", 9)
     props = [_cap_words(p, 4) for p in (vp.get("environment_props") or []) if _clean(p)][:3]
     if not props:
         props = ["examination table", "desk lamp"]
@@ -458,7 +542,7 @@ def normalize_visual_plan(visual_plan: dict[str, Any] | None) -> dict[str, Any]:
         steps.append(
             [
                 f"A pattern of bioluminescent green particles streams into the {target}",
-                f"The signal reaches the {crisis_region} and scatters into darkness",
+                f"The signal reaches the {crisis_region} and scatters into space",
                 f"The {compensatory} lights warm amber-gold as it reroutes the signal",
             ][len(steps)]
         )
@@ -491,16 +575,16 @@ def normalize_visual_plan(visual_plan: dict[str, Any] | None) -> dict[str, Any]:
 # Role templates (one clean camera move per clip)
 # ==============================================================================
 _REAL_ENV_FILLERS = (
-    "Cinematic chiaroscuro lighting.",
+    "Bright daylight lighting.",
     "Strong rim light traces the porcelain contours.",
     "Soft volumetric haze hangs in the air.",
-    "The rest of the room falls into deep shadow.",
+    "The rest of the room glows in soft daylight.",
 )
 _BRAIN_FILLERS = (
     "Strong rim light grazes the folds of the cortex.",
-    "Fine particles drift through the dark void.",
-    "The rest of the brain stays matte white in soft shadow.",
-    "Cinematic chiaroscuro lighting.",
+    "Fine particles drift through the bright air.",
+    "The rest of the brain stays matte white in soft daylight.",
+    "Bright daylight lighting.",
 )
 
 
@@ -564,7 +648,7 @@ def _scene_setup(plan: dict[str, Any]) -> str:
             (f"{_cap_first(others)} {verb} nearby." if others else "", "opt"),
             (f"{_cap_first(_with_article(anchor))} anchors the scale in the foreground." if anchor and not anchor_listed else "", "opt"),
             ("Wide establishing shot, camera smoothly tracks forward toward the subject.", "req"),
-            ("Cinematic chiaroscuro lighting.", "req"),
+            ("Bright daylight lighting.", "req"),
         ],
         _REAL_ENV_FILLERS,
     )
@@ -579,7 +663,7 @@ def _scene_symptom(plan: dict[str, Any]) -> str:
                 f"the {plan['target_region']} glows electric cyan-blue while the {plan['crisis_region']} fades to dim crimson-red.",
                 "req",
             ),
-            (f"Strong rim light traces the porcelain contours; the {plan['environment_short']} falls into shadow.", "req"),
+            (f"Strong rim light traces the porcelain contours; the {plan['environment_short']} glows in daylight.", "req"),
         ],
         _REAL_ENV_FILLERS,
     )
@@ -594,7 +678,7 @@ def _scene_failure(plan: dict[str, Any]) -> str:
             (f"In the same {plan['environment_short']}, {others} {verb} toward the {subj} mannequin with pleading gestures.", "req"),
             (f"The {subj} mannequin {plan['mannequin_actions']['failure']}.", "req"),
             ("The camera tracks smoothly sideways between the figures, capturing the distance.", "req"),
-            (f"Warm amber light falls on the other figures while the {subj} mannequin stays in cool shadow.", "req"),
+            (f"Warm amber light falls on the other figures while the {subj} mannequin sits in soft daylight.", "req"),
         ]
     else:
         props = _join([_the(p) for p in plan["environment_props"][:2]])
@@ -602,7 +686,7 @@ def _scene_failure(plan: dict[str, Any]) -> str:
             (f"In the same {plan['environment_short']}, the {subj} mannequin {plan['mannequin_actions']['failure']}.", "req"),
             (f"Nearby, {props} stand unused.", "req"),
             ("The camera tracks smoothly sideways past the props toward the lone figure, capturing its isolation.", "req"),
-            ("Cool shadow surrounds the porcelain figure while warm light spills across the empty room.", "req"),
+            ("Soft daylight surrounds the porcelain figure while warm light spills across the empty room.", "req"),
         ]
     return _fit_scene(parts, _REAL_ENV_FILLERS)
 
@@ -611,13 +695,13 @@ def _scene_crisis(plan: dict[str, Any]) -> str:
     return _fit_scene(
         [
             (
-                f"The camera dives smoothly through the {plan['subject']} mannequin's translucent frosted-glass cranium into a deep "
-                "midnight navy void holding a realistic matte-white brain with visible gyri and sulci.",
+                f"The camera dives smoothly through the {plan['subject']} mannequin's translucent frosted-glass cranium into a bright "
+                "white studio gallery holding a realistic matte-white brain with visible gyri and sulci.",
                 "req",
             ),
             (
                 f"It glides over the cortex and zooms into the {plan['target_region']}, which pulses electric cyan-blue, while the "
-                f"{plan['crisis_region']} is {plan['crisis_lesion']} and glowing crimson-red, its signal particles scattering into darkness.",
+                f"{plan['crisis_region']} is {plan['crisis_lesion']} and glowing crimson-red, its signal particles colliding and scattering into space.",
                 "req",
             ),
             (_descriptor_sentence(plan, plan["crisis_region"]) or _descriptor_sentence(plan, plan["target_region"]), "opt"),
@@ -630,11 +714,11 @@ def _scene_pivot(plan: dict[str, Any]) -> str:
     return _fit_scene(
         [
             (
-                "Inside the matte-white brain on a deep midnight navy void, the camera smoothly orbits the "
+                "Inside the matte-white brain in a bright white studio gallery, the camera smoothly orbits the "
                 f"{plan['target_region']} glowing electric cyan-blue and the {plan['crisis_region']} dimmed crimson-red.",
                 "req",
             ),
-            (f"Nearby, the {plan['compensatory_region']} ignites warm amber-gold, opening an intact alternative route.", "req"),
+            (f"Nearby, the {plan['compensatory_region']} ignites warm amber-gold, opening an intact bypass route across the circuit.", "req"),
             ("The camera slowly pushes in on the glowing amber-gold route.", "req"),
             (_descriptor_sentence(plan, plan["compensatory_region"]), "opt"),
         ],
@@ -646,14 +730,14 @@ def _path_sentence(plan: dict[str, Any]) -> str:
     path = plan["signal_path"]
     middle = _join([_the(p) for p in path[1:-1]])
     via = f" through {middle}" if middle else ""
-    return f"Bioluminescent green signal particles flow like fluid from the {path[0]}{via} into the {path[-1]}."
+    return f"Bioluminescent green signal particles stream in a collimated flow from the {path[0]}{via} into the {path[-1]}."
 
 
 def _scene_step(plan: dict[str, Any], role: str) -> str:
     steps = plan["mechanism_steps"]
     if role == "step1":
         parts = [
-            ("Macro view inside the matte-white brain against deep midnight navy.", "req"),
+            ("Macro view inside the matte-white brain in bright studio daylight.", "req"),
             (_path_sentence(plan), "req"),
             (f"{_cap_first(steps[0])}.", "req"),
             ("The camera tracks the flowing signal along the pathway.", "req"),
@@ -661,7 +745,7 @@ def _scene_step(plan: dict[str, Any], role: str) -> str:
     elif role == "step2":
         parts = [
             (
-                f"Inside the matte-white brain on deep midnight navy, the camera follows the bioluminescent green signal as it "
+                f"Inside the matte-white brain in bright studio daylight, the camera follows the bioluminescent green signal as it "
                 f"leaves the electric cyan-blue {plan['target_region']}.",
                 "req",
             ),
@@ -671,18 +755,18 @@ def _scene_step(plan: dict[str, Any], role: str) -> str:
         ]
     elif role == "step3":
         parts = [
-            ("The camera pulls back to reveal the whole circuit inside the matte-white brain against deep midnight navy.", "req"),
+            ("The camera pulls back to reveal the whole circuit inside the matte-white brain in bright studio daylight.", "req"),
             (
                 f"The {plan['target_region']} glows electric cyan-blue, the {plan['crisis_region']} crimson-red and the "
                 f"{plan['compensatory_region']} warm amber-gold.",
                 "req",
             ),
             (f"{_cap_first(steps[2])}.", "req"),
-            ("The full brain turns slowly in the void.", "opt"),
+            ("The full brain turns slowly in the light.", "opt"),
         ]
     else:  # single mechanism clip for 5-7 clip Shorts
         parts = [
-            ("Macro view inside the matte-white brain against deep midnight navy.", "req"),
+            ("Macro view inside the matte-white brain in bright studio daylight.", "req"),
             (_path_sentence(plan), "req"),
             (f"{_cap_first(steps[1])}.", "req"),
             (_hardware_sentence(plan), "opt"),
@@ -765,8 +849,8 @@ def infer_visual_plan(
     t_low = f"{topic} {core_facts}".lower()
 
     if "capgras" in t_low or "imposter" in t_low or "impostor" in t_low:
-        env = "a dimly lit hospital room"
-        props = ["hospital bed", "EKG monitor", "window with drawn blinds"]
+        env = "a brightly lit hospital room"
+        props = ["hospital bed", "EKG monitor", "window with open blinds"]
         anchor = "EKG monitor beside the bed"
         target = "fusiform face area"
         crisis = "white-matter tract to the amygdala"
@@ -783,7 +867,7 @@ def infer_visual_plan(
         path = ["retina", "thalamus", "prefrontal cortex", "motor cortex"]
         hw = "micro-electrode array"
     elif any(k in t_low for k in ("sleep", "glymphatic", "dream", "circadian", "insomnia", "rem")):
-        env = "a dimly lit bedroom"
+        env = "a brightly lit bedroom"
         props = ["hospital bed", "EKG monitor"]
         anchor = "EKG monitor beside the bed"
         target = "thalamus"
@@ -810,7 +894,7 @@ def infer_visual_plan(
         path = ["retina", "thalamus", "amygdala", "prefrontal cortex"]
         hw = None
     elif any(k in t_low for k in ("speech", "broca", "wernicke", "language", "aphasia", "voice")):
-        env = "a dimly lit clinical examination room"
+        env = "a brightly lit clinical examination room"
         props = ["examination table", "telephone"]
         anchor = "telephone on the table"
         target = "Broca's area"
@@ -819,7 +903,7 @@ def infer_visual_plan(
         path = ["auditory nerve", "thalamus", "Wernicke's area", "Broca's area"]
         hw = None
     else:
-        env = "a dimly lit clinical laboratory"
+        env = "a brightly lit clinical laboratory"
         props = ["examination table", "EKG monitor"]
         anchor = "EKG monitor on the table"
         target = _cap_words(ctx.get("brain_regions") or "prefrontal cortex", 4)
@@ -844,7 +928,7 @@ def infer_visual_plan(
             "signal_path": path,
             "mechanism_steps": [
                 f"Bioluminescent green signal particles stream into the {target} and light it electric cyan-blue",
-                f"At the severed crimson-red {crisis}, the glowing signal particles scatter into darkness",
+                f"At the severed crimson-red {crisis}, the glowing signal particles scatter into space",
                 f"The {comp} ignites warm amber-gold and routes a clean signal pulse across the circuit",
             ],
             "anatomy_descriptors": {
@@ -856,65 +940,285 @@ def infer_visual_plan(
     )
 
 
-def render_prompt(scene: str, narration: str, voice: str = FLOW_DEFAULT_VOICE) -> str:
-    """Renders a single Google Flow Omni 1.1 prompt string."""
+def flow_prompt_prefix(aspect: str = FLOW_ASPECT_SHORTS) -> str:
+    """FLOW_PROMPT_PREFIX for the requested aspect (9:16 Shorts default, 16:9 for longform re-generation)."""
+    if aspect == FLOW_ASPECT_SHORTS:
+        return FLOW_PROMPT_PREFIX
+    label = FLOW_ASPECT_LABELS.get(aspect)
+    if not label:
+        raise ValueError(f"Unsupported aspect '{aspect}' (allowed: {sorted(FLOW_ASPECT_LABELS)})")
+    return FLOW_PROMPT_PREFIX.replace(FLOW_ASPECT_LABELS[FLOW_ASPECT_SHORTS], label)
+
+
+def render_prompt(
+    scene: str,
+    narration: str,
+    voice: str = FLOW_DEFAULT_VOICE,
+    aspect: str = FLOW_ASPECT_SHORTS,
+    style_suffix: str | None = None,
+    voice_label: str | None = None,
+) -> str:
+    """Renders a single Google Flow Omni 1.1 prompt string (v4 when style_suffix/voice_label are None)."""
     clean_scene = _clean(scene)
     if clean_scene and not clean_scene.endswith("."):
         clean_scene += "."
+    if style_suffix:
+        suf = _clean(style_suffix)
+        if suf and not suf.endswith("."):
+            suf += "."
+        clean_scene = f"{clean_scene} {suf}"
     clean_narr = str(narration or "").strip().replace('"', "'")
-    return f'{FLOW_PROMPT_PREFIX} {clean_scene} Voice: {voice}. Spoken narration: "{clean_narr}"'
+    if voice_label is None:
+        voice_label = FLOW_VOICE_PROMPT_DESCRIPTOR if voice == FLOW_DEFAULT_VOICE else voice
+    return f'{flow_prompt_prefix(aspect)} {clean_scene} Voice: {voice_label}. Spoken narration: "{clean_narr}"'
+
+
+# ==============================================================================
+# Prompt System v5: visual-mode routing + shot composer (R45-R47)
+# ==============================================================================
+def is_v5_plan(visual_plan: dict[str, Any] | None) -> bool:
+    return isinstance(visual_plan, dict) and str(visual_plan.get("visual_mode") or "").upper() in VISUAL_MODES
+
+
+def plan_visual_mode(visual_plan: dict[str, Any] | None) -> str | None:
+    return str(visual_plan.get("visual_mode")).upper() if is_v5_plan(visual_plan) else None
+
+
+def resolve_clip_setting(visual_plan: dict[str, Any] | None, role: str) -> str:
+    """v5: shots[role].setting (if valid) > MODE_ROLE_SETTINGS[mode][role]; v4: ROLE_SETTINGS[role]."""
+    if not is_v5_plan(visual_plan):
+        return ROLE_SETTINGS[role]
+    shot = _shot(visual_plan, role)
+    setting = str(shot.get("setting") or "").strip()
+    if setting in ALLOWED_SETTINGS_V5:
+        return setting
+    return MODE_ROLE_SETTINGS[plan_visual_mode(visual_plan)][role]
+
+
+def _shot(visual_plan: dict[str, Any], role: str) -> dict[str, Any]:
+    shots = visual_plan.get("shots") if isinstance(visual_plan.get("shots"), dict) else {}
+    shot = shots.get(role)
+    return shot if isinstance(shot, dict) else {}
+
+
+def _sentence(text: Any) -> str:
+    t = _clean(text)
+    if not t:
+        return ""
+    t = _cap_first(t)
+    return t if t.endswith((".", "!", "?")) else t + "."
+
+
+def compose_shot_scene(visual_plan: dict[str, Any], role: str) -> str:
+    """
+    Action-Physics composer (R47): [camera] + [environment/era] + [body verb action] + [prop physical change]
+    + [body-language reaction]. Used when visual_plan.scenes[role] is absent but shots[role] is authored.
+    """
+    shot = _shot(visual_plan, role)
+    parts = [
+        _sentence(shot.get("camera")),
+        _sentence(shot.get("environment") or ""),
+        _sentence(shot.get("action")),
+        _sentence(shot.get("prop_change")),
+        _sentence(shot.get("reaction")),
+        _sentence(shot.get("detail") or ""),
+    ]
+    return " ".join(p for p in parts if p)
+
+
+def _v4_template_for_setting(setting: str, role: str, plan: dict[str, Any]) -> str:
+    """Brain-setting fallback for v5 HYBRID / NEURO plans that keep v4 region fields."""
+    if setting == "drill_down":
+        return sanitize_prompt_for_flow(_scene_crisis(plan))
+    if setting == "pull_out":
+        return sanitize_prompt_for_flow(_scene_breakthrough(plan))
+    if role in ("mechanism", "step1", "step2", "step3", "pivot"):
+        return compose_scene(role, plan)
+    return sanitize_prompt_for_flow(_scene_pivot(plan))
 
 
 def build_flow_prompts(
     visual_plan: dict[str, Any] | None,
     narrations: list[str],
     voice: str = FLOW_DEFAULT_VOICE,
+    aspect: str = FLOW_ASPECT_SHORTS,
 ) -> list[dict[str, Any]]:
     """
     Builds 5-10 Google Flow clip prompt dicts from a visual_plan and per-clip narrations.
     If visual_plan['scenes'][role] is present, uses that exact scene string verbatim.
+
+    v5 plans (visual_plan['visual_mode'] in VISUAL_MODES) route each clip's setting by mode, compose
+    real-environment scenes from visual_plan['shots'][role] (Action-Physics), append FLOW_MOTION_STYLE_V5,
+    use FLOW_VOICE_PROMPT_DESCRIPTOR_V5 and carry scene_id / visual_mode / aspect for the asset manifest.
+    v4 plans render exactly as before.
     """
     cleaned_narrs = [str(n).strip() for n in (narrations or []) if str(n).strip()]
     n_clips = len(cleaned_narrs)
     roles = clip_roles(n_clips)
     plan = normalize_visual_plan(visual_plan)
     explicit_scenes = (visual_plan or {}).get("scenes") if isinstance((visual_plan or {}).get("scenes"), dict) else {}
+    v5 = is_v5_plan(visual_plan)
+    mode = plan_visual_mode(visual_plan)
 
     clips: list[dict[str, Any]] = []
     for idx, (role, narr) in enumerate(zip(roles, cleaned_narrs), start=1):
+        setting = resolve_clip_setting(visual_plan, role)
+        shot = _shot(visual_plan, role) if v5 else {}
         if role in explicit_scenes and str(explicit_scenes[role]).strip():
             scene = str(explicit_scenes[role]).strip()
+        elif v5 and shot.get("action"):
+            scene = compose_shot_scene(visual_plan, role)
+        elif v5 and setting == "real_env":
+            raise ValueError(
+                f"v5 plan clip {idx} ({role}) is a real_env reenactment: author visual_plan.scenes['{role}'] "
+                f"or visual_plan.shots['{role}'] (camera, action, prop_change, reaction)."
+            )
+        elif v5:
+            scene = _v4_template_for_setting(setting, role, plan)
         else:
             scene = compose_scene(role, plan)
-        prompt_str = render_prompt(scene=scene, narration=narr, voice=voice)
-        clips.append(
-            {
-                "clip_number": idx,
-                "role": role,
-                "setting": ROLE_SETTINGS[role],
-                "camera_move": ROLE_CAMERA_MOVES[role],
-                "scene": scene,
-                "spoken_narration": narr,
-                "prompt": prompt_str,
-                "full_prompt": prompt_str,
-            }
-        )
+        if v5:
+            from pipeline.depiction_rules import BrainDepictionRule
+
+            if setting in BRAIN_SETTINGS:
+                scene = BrainDepictionRule.sanitize_brain_signal_text(scene)
+                v5_suffix = BrainDepictionRule.RESTRAINT_LOCK
+            else:
+                v5_suffix = FLOW_MOTION_STYLE_V5
+            prompt_str = render_prompt(
+                scene=scene,
+                narration=narr,
+                voice=voice,
+                aspect=aspect,
+                style_suffix=v5_suffix,
+                voice_label=FLOW_VOICE_PROMPT_DESCRIPTOR_V5,
+            )
+        else:
+            prompt_str = render_prompt(scene=scene, narration=narr, voice=voice, aspect=aspect)
+        dur_meta = compute_clip_target_duration(narr, role=role)
+        clip = {
+            "clip_number": idx,
+            "role": role,
+            "setting": setting,
+            "camera_move": (shot.get("camera") if v5 and shot.get("camera") else ROLE_CAMERA_MOVES[role]),
+            "target_duration": dur_meta["target_duration"],
+            "expected_syllables": dur_meta["expected_syllables"],
+            "estimated_speech_sec": dur_meta["estimated_speech_sec"],
+            "cutoff_risk": dur_meta["cutoff_risk"],
+            "scene": scene,
+            "spoken_narration": narr,
+            "prompt": prompt_str,
+            "full_prompt": prompt_str,
+        }
+        if v5:
+            clip.update(
+                {
+                    "schema_version": PROMPT_SCHEMA_VERSION_V5,
+                    "visual_mode": mode,
+                    "scene_id": shot.get("scene_id"),
+                    "shot_type": shot.get("shot_type") or _shot_type_from_camera(clip["camera_move"]),
+                    "brain_clip": setting in BRAIN_SETTINGS,
+                    "aspect": aspect,
+                }
+            )
+        clips.append(clip)
     return clips
 
 
-def validate_flow_prompts(prompts: list[str | dict[str, Any]]) -> list[str]:
-    """Validates a list of Flow prompts against Production Contract v4. Returns [] on pass."""
+def _shot_type_from_camera(camera: str) -> str:
+    c = str(camera or "").lower()
+    for key, label in (
+        ("extreme close", "ecu"), ("close-up", "cu"), ("close up", "cu"), ("macro", "macro"), ("wide", "wide"),
+        ("establishing", "wide"), ("over-the-shoulder", "ots"), ("medium", "medium"), ("dive", "dive"),
+        ("pull", "pullout"), ("orbit", "orbit"), ("track", "track"), ("low-angle", "low"), ("overhead", "overhead"),
+    ):
+        if key in c:
+            return label
+    return "shot"
+
+
+_CHARACTER_ROLES: frozenset[str] = frozenset({"setup", "symptom", "failure", "breakthrough", "conclusion"})
+_DYNAMIC_ACTION_VERBS_RE = re.compile(
+    r"\b(?:drives?|tamps?|slams?|sweeps?|strikes?|knocks?|pushes?|pulls?|lifts?|grips?|grasps?|presses?|"
+    r"flips?|reaches?|holds?|points?|traces?|places?|sets?|steers?|passes?|catches?|thumps?|writes?|"
+    r"records?|opens?|closes?|shakes?|turns?|rises?|steps?|walks?|leans?|tilts?|taps?|recoils?|flinches?|"
+    r"drops?|sparks?|launches?|slides?|nods?|waves?|snatches?|jerks?|twists?|clenches?|operates?|"
+    r"releases?|extends?|withdraws?|inspects?|examines?|striking|tamping|slamming|sweeping|pushing|"
+    r"pulling|lifting|gripping|pressing|flipping|reaching|holding|pointing|tracing|placing|steering|"
+    r"passing|catching|thumping|writing|recording|opening|closing|shaking|turning|rising|stepping|"
+    r"walking|leaning|tilting|tapping|recoiling|flinching|dropping|launching|sliding|nodding)\b",
+    re.IGNORECASE,
+)
+_STATIC_POSE_ONLY_RE = re.compile(
+    r"\b(?:sits upright in the (?:wooden )?(?:examination )?chair|stares ahead with a frozen|"
+    r"sits calmly (?:at|beside|in)|stands quietly beside|sits composed in the wooden chair)\b",
+    re.IGNORECASE,
+)
+
+
+def validate_character_motion(prompts: list[str | dict[str, Any]]) -> list[str]:
+    """
+    Validates that character clips (setup, symptom, failure, breakthrough, conclusion) use a 2-Beat
+    expressive physical action chain (at least two active hand/arm/body verbs and no static-only pose).
+    """
+    issues: list[str] = []
+    if not isinstance(prompts, list) or not (CLIP_COUNT_MIN <= len(prompts) <= CLIP_COUNT_MAX):
+        return issues
+    roles = clip_roles(len(prompts))
+    prefixes = [flow_prompt_prefix(a) for a in FLOW_ASPECT_LABELS]
+    for idx, (default_role, item) in enumerate(zip(roles, prompts), start=1):
+        role = str(item.get("role") or default_role) if isinstance(item, dict) else default_role
+        if role not in _CHARACTER_ROLES:
+            continue
+        if isinstance(item, dict) and item.get("scene"):
+            scene = str(item["scene"]).strip()
+        else:
+            p_str = (item.get("prompt") or item.get("full_prompt") or "") if isinstance(item, dict) else str(item or "")
+            p_str = p_str.strip()
+            prefix = next((p for p in prefixes if p_str.startswith(p)), None)
+            body = p_str[len(prefix) :].strip() if prefix else p_str
+            m = _PROMPT_RE.match(body)
+            scene = m.group("scene").strip() if m else body
+        # Strip camera movement sentences before counting character action verbs
+        actor_text = re.sub(
+            r"[^.]*\b(?:wide establishing shot|the camera\b|camera smoothly|slow pull-back|strong rim light|bright daylight lighting)[^.]*\.?",
+            " ",
+            scene,
+            flags=re.IGNORECASE,
+        )
+        verbs = _DYNAMIC_ACTION_VERBS_RE.findall(actor_text)
+        if _STATIC_POSE_ONLY_RE.search(actor_text):
+            issues.append(
+                f"Clip {idx} ({role}): contains static pose phrase ('{_STATIC_POSE_ONLY_RE.search(actor_text).group(0)}'); "
+                "use a 2-Beat physical action chain"
+            )
+        elif len(verbs) < 2:
+            issues.append(
+                f"Clip {idx} ({role}): found {len(verbs)} physical action verb(s) {verbs}; "
+                "requires >= 2 verbs for a 2-Beat physical action chain"
+            )
+    return issues
+
+
+def validate_flow_prompts(
+    prompts: list[str | dict[str, Any]],
+    scene_words_max: int = PROMPT_SCENE_WORDS_MAX,
+    check_character_motion: bool = False,
+) -> list[str]:
+    """Validates a list of Flow prompts against Production Contract v4 (v5 voice/aspect/suffix accepted). Returns [] on pass."""
     issues: list[str] = []
     if not isinstance(prompts, list) or not (CLIP_COUNT_MIN <= len(prompts) <= CLIP_COUNT_MAX):
         return [f"Prompt count must be {CLIP_COUNT_MIN}-{CLIP_COUNT_MAX} (got {len(prompts) if isinstance(prompts, list) else 0})"]
 
+    prefixes = [flow_prompt_prefix(a) for a in FLOW_ASPECT_LABELS]
     for idx, item in enumerate(prompts, start=1):
         p_str = item.get("prompt") or item.get("full_prompt") or "" if isinstance(item, dict) else str(item or "")
         p_str = p_str.strip()
-        if not p_str.startswith(FLOW_PROMPT_PREFIX):
+        prefix = next((p for p in prefixes if p_str.startswith(p)), None)
+        if prefix is None:
             issues.append(f"Clip {idx}: does not start with FLOW_PROMPT_PREFIX")
             continue
-        body = p_str[len(FLOW_PROMPT_PREFIX) :].strip()
+        body = p_str[len(prefix) :].strip()
         m = _PROMPT_RE.match(body)
         if not m:
             issues.append(f"Clip {idx}: missing or malformed 'Voice: <voice>. Spoken narration: \"...\"' tail")
@@ -925,16 +1229,22 @@ def validate_flow_prompts(prompts: list[str | dict[str, Any]]) -> list[str]:
         scene = m.group("scene").strip()
         voice = m.group("voice").strip()
         narration = m.group("narration").strip()
+        suf_clean = _clean(FLOW_MOTION_STYLE_V5)
+        for suf_candidate in (FLOW_MOTION_STYLE_V5, f"{suf_clean}.", suf_clean):
+            if suf_candidate and scene.endswith(suf_candidate):
+                scene = scene[: -len(suf_candidate)].strip()
+                break
 
-        if voice != FLOW_DEFAULT_VOICE:
-            issues.append(f"Clip {idx}: voice must be '{FLOW_DEFAULT_VOICE}' (got '{voice}')")
+        allowed_voice_labels = {FLOW_DEFAULT_VOICE, FLOW_VOICE_PROMPT_DESCRIPTOR_V5, *FLOW_LEGACY_VOICE_LABELS}
+        if voice not in allowed_voice_labels:
+            issues.append(f"Clip {idx}: voice must be '{FLOW_VOICE_PROMPT_DESCRIPTOR_V5}' (got '{voice}')")
         if not narration:
             issues.append(f"Clip {idx}: spoken narration is empty")
 
         scene_words = count_words(scene)
-        if not (PROMPT_SCENE_WORDS_MIN <= scene_words <= PROMPT_SCENE_WORDS_MAX):
+        if not (PROMPT_SCENE_WORDS_MIN <= scene_words <= scene_words_max):
             issues.append(
-                f"Clip {idx}: scene word count {scene_words} outside {PROMPT_SCENE_WORDS_MIN}-{PROMPT_SCENE_WORDS_MAX}"
+                f"Clip {idx}: scene word count {scene_words} outside {PROMPT_SCENE_WORDS_MIN}-{scene_words_max}"
             )
 
         if _HEX_RE.search(p_str):
@@ -950,6 +1260,9 @@ def validate_flow_prompts(prompts: list[str | dict[str, Any]]) -> list[str]:
         for tok, rx in _PROP_REGEXES:
             if rx.search(scene):
                 issues.append(f"Clip {idx}: scene contains banned mechanical/toy prop token '{tok}'")
+
+    if check_character_motion:
+        issues.extend(validate_character_motion(prompts))
 
     return issues
 
@@ -1050,15 +1363,19 @@ def load_visual_plan(
 
 
 def write_flow_prompts_json(project_dir: Path, clips: list[dict[str, Any]], voice: str = FLOW_DEFAULT_VOICE) -> Path:
-    """Writes 03_visuals/flow_all_in_one_prompts.json in Schema v4 format."""
+    """Writes 03_visuals/flow_all_in_one_prompts.json (Schema v4, or v5 when the clips carry v5 metadata)."""
     vis_dir = Path(project_dir) / "03_visuals"
     vis_dir.mkdir(parents=True, exist_ok=True)
     out_path = vis_dir / FLOW_PROMPTS_FILENAME
+    v5 = any(int(c.get("schema_version") or 0) == PROMPT_SCHEMA_VERSION_V5 for c in clips)
     payload = {
-        "schema_version": SCHEMA_VERSION,
+        "schema_version": PROMPT_SCHEMA_VERSION_V5 if v5 else SCHEMA_VERSION,
         "voice": voice,
         "clips": clips,
         "prompts": [c.get("prompt") or c.get("full_prompt") or "" for c in clips],
     }
+    if v5:
+        payload["visual_mode"] = clips[0].get("visual_mode")
+        payload["aspect"] = clips[0].get("aspect")
     out_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     return out_path

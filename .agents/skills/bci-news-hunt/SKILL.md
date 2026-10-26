@@ -5,7 +5,10 @@ description: Researches clinical, historical and BCI neuroscience cases with ver
 
 # BCI & Neuroscience Case Hunter (`TopicResearcher`)
 
-Master: [AGENTS.md](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) · Rules: [content_quality_rules.md](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/content_quality_rules.md) (R1, R3) · [pillars_domain_rules.md](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/pillars_domain_rules.md) (P1, R20) · [visual_prompt_spec.md](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/visual_prompt_spec.md) (R40-C) · Code: [`pipeline/researcher.py`](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/pipeline/researcher.py)
+Master: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) · Rules: [content_quality_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/content_quality_rules.md) (R1, R3) · [pillars_domain_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/pillars_domain_rules.md) (P1, R20) · [visual_prompt_spec.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/visual_prompt_spec.md) (R40-C) · Code: [`pipeline/researcher.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/researcher.py)
+
+> [!IMPORTANT]
+> This skill **finds and shortlists** cases (topic discovery, DOI, duplicate check). The research that prompts are written from is the dossier built by [bci-deep-research](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/bci-deep-research/SKILL.md) (R44). After step 3 below, continue there — not straight to bci-script-gen. `infer_visual_plan` drafts are v4 templates and must not be used for production prompts.
 
 ---
 
@@ -15,8 +18,8 @@ Master: [AGENTS.md](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/.agent
 | 1 | Pick the pillar (P1) and query; check `BCI_Shorts_Channel/database/` and the weekly batch for duplicate topics / DOIs. | P1, R20 |
 | 2 | Find **one** case in a peer-reviewed paper; open the DOI (`https://doi.org/<doi>`) and confirm authors, year, journal, subject and the key measurement. Use `search_web` for anything unknown — never guess. | R1 |
 | 3 | Fill `research_card.json` (fields below). | R1, R3 |
-| 4 | Draft `visual_plan` from the paper (`researcher.infer_visual_plan` gives a template draft): real environment of the case, cast as mannequins, regions, `signal_path`. | R40-C |
-| 5 | Hand off to [bci-script-gen](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/bci-script-gen/SKILL.md). | — |
+| 4 | Run [bci-deep-research](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/bci-deep-research/SKILL.md) to build the dossier (visual mode, iconic scene, media analysis, plain language, brain links, longform outline). | R44–R48 |
+| 5 | When `dossier validate` is ready, hand off to [bci-script-gen](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/bci-script-gen/SKILL.md). | — |
 
 ## `research_card.json` Fields
 | Field | Content |

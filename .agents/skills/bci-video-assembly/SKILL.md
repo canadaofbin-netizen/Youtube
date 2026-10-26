@@ -5,9 +5,9 @@ description: Assembles downloaded Google Flow Omni 1.1 clips (clip_1..clip_N) in
 
 # BCI Video Assembly & Audio Engineering
 
-Master: [AGENTS.md](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) · Rules: [audio_assembly_rules.md](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/audio_assembly_rules.md) (R13, R16, R17, R39, R41, R43-A, R43-B) · [qa_gates_rules.md](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/qa_gates_rules.md) (R18, R25, R37) · Numbers: [production_constants.md](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/production_constants.md)
+Master: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) · Rules: [audio_assembly_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/audio_assembly_rules.md) (R13, R16, R17, R39, R41, R43-A, R43-B) · [qa_gates_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/qa_gates_rules.md) (R18, R25, R37) · Numbers: [production_constants.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/production_constants.md)
 
-Code: [`produce_psychology_batch.py`](file:///g:/My%20Drive/Kyubin_Yun_Workspace/07_Youtube/produce_psychology_batch.py) (`measure_clip_speech_window`, `extract_native_flow_clip_speech`, `generate_audio_master_wav`, `generate_ass_subtitles`, `assemble_final_shorts_video`), `pipeline/flow_live_single_worker.py` (`order_downloaded_flow_clips_for_project`), `pipeline/video_autopsy.py` (`VideoAutopsyEngine`).
+Code: [`produce_psychology_batch.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/produce_psychology_batch.py) (`measure_clip_speech_window`, `extract_native_flow_clip_speech`, `generate_audio_master_wav`, `generate_ass_subtitles`, `assemble_final_shorts_video`), `pipeline/flow_live_single_worker.py` (`order_downloaded_flow_clips_for_project`), `pipeline/video_autopsy.py` (`VideoAutopsyEngine`).
 
 ---
 

@@ -455,22 +455,18 @@ PSYCHOLOGY_TOPICS_1_10 = [{'project_id': 'psych_01_habit_loop_basal_ganglia',
   'doi': '10.1126/science.8178168',
   'source_url': 'https://doi.org/10.1126/science.8178168',
   'source_tier': 1,
-  'visual_plan': {'real_environment': 'a nineteenth-century New England medical study room',
-                  'environment_props': ['wooden examination chair',
-                                        'glass display case holding an iron rod',
+  'visual_plan': {'real_environment': 'a brightly lit minimalist medical studio room',
+                  'environment_props': ['drilled stone block with a steel rod',
+                                        'wooden examination chair',
                                         'oak writing desk'],
-                  'scale_anchor_object': 'iron tamping rod resting in the display case',
-                  'cast': {'subject': 'a railroad foreman mannequin',
+                  'scale_anchor_object': 'steel tamping rod beside the chair',
+                  'cast': {'subject': 'a clothed railroad foreman mannequin',
                            'others': ['physician mannequin', 'co-worker mannequin']},
-                  'mannequin_actions': {'setup': 'sits upright in the wooden examination chair beside the glass '
-                                                 'display case',
-                                        'symptom': 'slams his porcelain hand onto the oak desk in sudden agitation',
-                                        'failure': 'turns sharply away as the physician and co-worker mannequins '
-                                                   'gesture over a work ledger',
-                                        'breakthrough': 'stands quietly beside a neuroimaging display table as '
-                                                        'researchers examine a cranial model',
-                                        'conclusion': 'sits composed in the wooden chair beside the physician '
-                                                      'mannequin'},
+                  'mannequin_actions': {'setup': 'drives a long steel rod into the stone hole as a spark launches it upward',
+                                        'symptom': 'sweeps his arm across the oak desk knocking a watch down and grips the edge',
+                                        'failure': 'strikes the work ledger off the desk and pushes his chair back abruptly',
+                                        'breakthrough': 'lifts the steel rod with both hands and places it onto the display stand',
+                                        'conclusion': 'pulls taut leather coach reins with steady hands as the physician writes notes'},
                   'target_region': 'ventromedial prefrontal cortex',
                   'crisis_region': 'white-matter inhibitory tract connecting the ventromedial prefrontal cortex to the '
                                    'amygdala',
@@ -491,36 +487,38 @@ PSYCHOLOGY_TOPICS_1_10 = [{'project_id': 'psych_01_habit_loop_basal_ganglia',
                   'anatomy_descriptors': {'ventromedial prefrontal cortex': 'anterior orbital frontal gyrus',
                                           'amygdala': 'almond-shaped temporal nucleus'},
                   'bci_hardware': None,
-                  'scenes': {'setup': 'A nineteenth-century New England medical study room with a wooden examination '
-                                      'chair, an oak writing desk and a glass display case holding an iron rod. A '
-                                      'matte-white porcelain mannequin of a railroad foreman with a translucent '
-                                      'frosted-glass cranium sits upright in the chair while a physician mannequin '
-                                      'stands nearby. Wide establishing shot, camera smoothly tracks forward toward '
-                                      'his face. Cinematic chiaroscuro lighting.',
-                             'symptom': "Close-up on the railroad foreman mannequin's smooth porcelain face as he "
-                                        'slams his hand onto the oak desk. The camera slowly orbits his head, '
-                                        'revealing the brain through the translucent frosted-glass cranium: the '
-                                        'lateral speech cortex glows electric cyan-blue, while the lower anterior '
-                                        'frontal lobe fades to dim crimson-red. Strong rim light traces the porcelain '
-                                        'contours against the shadowed study.',
-                             'failure': 'In the same medical study room, the physician and co-worker mannequins hold '
-                                        'out a railroad schedule ledger across the desk. The foreman mannequin rises '
-                                        'from his chair and turns his head away abruptly. The camera tracks smoothly '
-                                        'sideways between them, capturing the distance. Warm amber light falls on the '
-                                        'visitors while the foreman stays in cool shadow.',
+                  'scenes': {'setup': 'A brightly lit minimalist studio room with a drilled stone block and a wooden '
+                                      'examination chair. A clothed matte-white porcelain mannequin of a railroad '
+                                      'foreman with a translucent frosted-glass cranium drives a long steel rod down '
+                                      'into the stone hole with both hands, and a bright spark launches the rod upward '
+                                      'as he recoils backward into the chair. Wide establishing shot, camera smoothly '
+                                      'tracks forward toward his face. Bright daylight lighting.',
+                             'symptom': "Close-up on the clothed railroad foreman mannequin's smooth porcelain face as "
+                                        'he sweeps his arm across the oak desk, knocking a pocket watch and papers to '
+                                        'the floor before gripping the desk edge in tense agitation. The camera slowly '
+                                        'orbits his head, revealing the brain through the translucent frosted-glass '
+                                        'cranium: the lateral speech cortex glows electric cyan-blue, while the lower '
+                                        'anterior frontal lobe fades to dim crimson-red. Strong rim light traces the '
+                                        'porcelain contours.',
+                             'failure': 'In the same minimalist studio room, a co-worker mannequin holds out a work '
+                                        'schedule ledger with both hands. The foreman mannequin strikes the ledger '
+                                        'away with the back of his hand, sending it sliding across the floor, and '
+                                        'pushes his chair back as the co-worker and physician mannequins step back in '
+                                        'alarm. The camera tracks smoothly sideways between the figures, capturing the '
+                                        'distance in soft daylight.',
                              'crisis': "The camera dives smoothly through the foreman mannequin's translucent "
-                                       'frosted-glass cranium into a deep midnight navy void holding a realistic '
+                                       'frosted-glass cranium into a bright white studio gallery holding a realistic '
                                        'matte-white brain with visible gyri and sulci. It glides over the frontal pole '
                                        'and zooms into the base of the frontal lobe: the ventromedial prefrontal '
                                        'cortex and its white-matter tract to the amygdala are shattered and glowing '
                                        'crimson-red.',
-                             'pivot': 'Inside the matte-white brain on a deep midnight navy void, the camera smoothly '
-                                      'orbits two structures: the damaged ventromedial prefrontal cortex dimmed '
-                                      'crimson-red and the deep amygdala glowing electric cyan-blue. Above them, the '
-                                      'dorsolateral language and motor cortices ignite warm amber-gold, completely '
-                                      'spared by the injury. The camera slowly pushes in on the glowing amber-gold '
-                                      'dorsal circuit.',
-                             'step1': 'Macro view inside the matte-white brain against deep midnight navy. A sudden '
+                             'pivot': 'Inside the matte-white brain in a bright white studio gallery, the camera '
+                                      'smoothly orbits two structures: the damaged ventromedial prefrontal cortex '
+                                      'dimmed crimson-red and the deep amygdala glowing electric cyan-blue. Above '
+                                      'them, the dorsolateral language and motor cortices ignite warm amber-gold, '
+                                      'completely spared by the injury. The camera slowly pushes in on the glowing '
+                                      'amber-gold dorsal circuit.',
+                             'step1': 'Macro view inside the matte-white brain in bright studio daylight. A sudden '
                                       'emotional trigger ignites a dense wave of bioluminescent green signal particles '
                                       'inside the almond-shaped amygdala deep in the temporal lobe, which lights up '
                                       'electric cyan-blue. The camera tracks the flowing bioluminescent green signal '
@@ -528,25 +526,28 @@ PSYCHOLOGY_TOPICS_1_10 = [{'project_id': 'psych_01_habit_loop_basal_ganglia',
                              'step2': 'The camera follows the bioluminescent green signal as it leaves the electric '
                                       'cyan-blue amygdala and travels along the ventral white-matter tract toward the '
                                       'ventromedial prefrontal cortex. At the severed crimson-red lesion cavity, the '
-                                      'particles crash and scatter into darkness without triggering frontal '
-                                      'inhibition. The camera slowly orbits the broken tract.',
+                                      'particles crash and scatter into space without triggering frontal inhibition. '
+                                      'The camera slowly orbits the broken tract.',
                              'step3': 'The camera pulls back to reveal the whole circuit inside the matte-white brain: '
                                       'the almond-shaped amygdala active in electric cyan-blue, the ventromedial '
                                       'prefrontal cortex silent in crimson-red, and the intact dorsal motor pathways '
                                       'glowing warm amber-gold as uninhibited bioluminescent green impulses stream '
-                                      'outward toward the motor cortex. The full brain turns slowly against deep '
-                                      'midnight navy.',
+                                      'outward toward the motor cortex. The full brain turns slowly in bright studio '
+                                      'daylight.',
                              'breakthrough': 'The camera pulls smoothly out of the brain, back through the translucent '
-                                             'frosted-glass cranium, into the nineteenth-century medical study room. '
-                                             'The railroad foreman mannequin stands beside the glass display case '
-                                             'holding the iron rod as the physician mannequin inspects the cranial '
-                                             'trajectory. Inside his cranium, the intact dorsal cortex glows warm '
-                                             'amber-gold, bathed in warm light.',
-                             'conclusion': 'Wide shot of the medical study room at dusk: the foreman mannequin sits in '
-                                           'the wooden examination chair beside the physician mannequin and the oak '
-                                           'desk. Inside his translucent frosted-glass cranium, the dorsal cortex '
-                                           'glows electric cyan-blue and the spared motor route glows warm amber-gold. '
-                                           'The camera slowly pulls back and rises to an elevated angle.'}},
+                                             'frosted-glass cranium, into the bright minimalist studio room. The '
+                                             'physician mannequin traces the cranial trajectory across a translucent '
+                                             'skull model with a silver pointer while the clothed foreman mannequin '
+                                             'lifts the steel rod with both hands and places it onto the display '
+                                             'stand. Inside his cranium, the intact dorsal cortex glows warm '
+                                             'amber-gold.',
+                             'conclusion': 'Wide shot of the bright studio room: the clothed foreman mannequin sits on '
+                                           'a wooden coach bench and pulls taut leather reins left and right with '
+                                           'steady hands, while the physician mannequin nods beside him and writes '
+                                           'notes in a ledger. Inside his translucent frosted-glass cranium, the '
+                                           'dorsal cortex glows electric cyan-blue and the spared motor route glows '
+                                           'warm amber-gold. The camera slowly pulls back and rises to an elevated '
+                                           'angle.'}},
   'clip_narrations': ['In 1848 in Cavendish, Vermont, an accidental blast drove a thirteen-pound iron tamping rod '
                       "straight through railroad foreman Phineas Gage's skull.",
                       'He stood up and spoke within minutes, yet his calm personality vanished into reckless rage. For '
@@ -609,8 +610,8 @@ PSYCHOLOGY_TOPICS_1_10 = [{'project_id': 'psych_01_habit_loop_basal_ganglia',
   'doi': '10.1098/rspb.1997.0062',
   'source_url': 'https://doi.org/10.1098/rspb.1997.0062',
   'source_tier': 1,
-  'visual_plan': {'real_environment': 'a dimly lit hospital room',
-                  'environment_props': ['hospital bed', 'EKG monitor', 'window with drawn blinds'],
+  'visual_plan': {'real_environment': 'a brightly lit hospital room',
+                  'environment_props': ['hospital bed', 'EKG monitor', 'window with open blinds'],
                   'scale_anchor_object': 'EKG monitor beside the bed',
                   'cast': {'subject': 'a young man mannequin', 'others': ['mother mannequin', 'father mannequin']},
                   'mannequin_actions': {'setup': 'lies in the bed and slowly turns his head toward her and pulls back',
@@ -636,37 +637,37 @@ PSYCHOLOGY_TOPICS_1_10 = [{'project_id': 'psych_01_habit_loop_basal_ganglia',
                                       'mismatch, then cools to a flat neutral white'],
                   'anatomy_descriptors': {'amygdala': 'small almond-shaped nucleus'},
                   'bci_hardware': None,
-                  'scenes': {'setup': 'A dimly lit hospital room with a hospital bed, an EKG monitor and a window with '
-                                      'drawn blinds. A matte-white porcelain mannequin of a young man lies in the bed, '
+                  'scenes': {'setup': 'A brightly lit hospital room with a hospital bed, an EKG monitor and a window with '
+                                      'open blinds. A matte-white porcelain mannequin of a young man lies in the bed, '
                                       'his translucent frosted-glass cranium catching the light. A mother mannequin '
                                       'stands at the bedside. He slowly turns his head toward her and pulls back. Wide '
-                                      'establishing shot, camera smoothly tracks forward toward his face. Cinematic '
-                                      'chiaroscuro lighting.',
+                                      'establishing shot, camera smoothly tracks forward toward his face. Bright '
+                                      'daylight lighting.',
                              'symptom': "Close-up on the young man mannequin's smooth porcelain face as he stares at "
                                         'his mother. The camera slowly orbits his head, revealing the brain through '
                                         'the translucent frosted-glass cranium: the fusiform face area glows electric '
                                         'cyan-blue, while the pathway toward the amygdala fades to dim crimson-red. '
-                                        'Strong rim light traces the porcelain contours; the hospital room falls into '
-                                        'shadow.',
+                                        'Strong rim light traces the porcelain contours; the hospital room glows in '
+                                        'daylight.',
                              'failure': 'In the same hospital room, the mother and father mannequins hold out a framed '
                                         'family photo with pleading gestures. The young man mannequin sits on the edge '
                                         'of the bed and turns his head away. The camera tracks smoothly sideways '
                                         'between them, capturing the distance. Warm amber light falls on the parents '
-                                        'while the patient stays in cool shadow.',
+                                        'while the patient sits in soft daylight.',
                              'crisis': "The camera dives smoothly through the young man mannequin's translucent "
-                                       'frosted-glass cranium into a deep midnight navy void holding a realistic '
+                                       'frosted-glass cranium into a bright white studio gallery holding a realistic '
                                        'matte-white brain with visible gyri and sulci. It glides over the cortex and '
                                        'zooms into the temporal lobe: the fusiform face area pulses electric '
                                        'cyan-blue, but the white-matter tract leading to the almond-shaped amygdala is '
                                        'severed and glowing crimson-red, its signal particles scattering into '
-                                       'darkness.',
-                             'pivot': 'Inside the matte-white brain on a deep midnight navy void, the camera smoothly '
+                                       'space.',
+                             'pivot': 'Inside the matte-white brain in a bright white studio gallery, the camera smoothly '
                                       'orbits two separate structures: the fusiform face area glowing electric '
                                       'cyan-blue and the almond-shaped amygdala dimmed crimson-red, linked by a broken '
                                       'white-matter tract. Below them, a second pathway from the auditory cortex '
                                       'ignites warm amber-gold, its route to the amygdala still intact. The camera '
                                       'slowly pushes in on the glowing amber-gold route.',
-                             'step1': 'Macro view inside the matte-white brain against deep midnight navy. A '
+                             'step1': 'Macro view inside the matte-white brain in bright studio daylight. A '
                                       'face-shaped pattern of bioluminescent green signal particles enters from the '
                                       'retina and optic nerve, flows like fluid through the visual pathway to the '
                                       'occipital cortex, then streams forward along the ventral surface into the '
@@ -676,19 +677,19 @@ PSYCHOLOGY_TOPICS_1_10 = [{'project_id': 'psych_01_habit_loop_basal_ganglia',
                                       'cyan-blue fusiform face area and flows along a white-matter tract toward the '
                                       'small almond-shaped amygdala deep in the temporal lobe. At the severed '
                                       'crimson-red junction the particles crash and scatter like water hitting a wall. '
-                                      'The amygdala stays dark and silent. The camera slowly orbits the gap.',
+                                      'The amygdala stays muted and silent. The camera slowly orbits the gap.',
                              'step3': 'The camera pulls back to reveal the whole circuit inside the matte-white brain: '
                                       'the fusiform face area active in electric cyan-blue, the amygdala silent in '
                                       'crimson-red. Above them the prefrontal cortex flickers warm amber-gold as it '
                                       'weighs the mismatch, then cools to a flat neutral white. The broken tract '
-                                      'remains clearly visible as the full brain turns slowly against deep midnight '
-                                      'navy.',
+                                      'remains clearly visible as the full brain turns slowly in bright studio '
+                                      'daylight.',
                              'breakthrough': 'The camera pulls smoothly out of the brain, back through the translucent '
                                              'frosted-glass cranium, into the hospital room. The young man mannequin '
                                              'sits upright on the bed holding a telephone receiver to his ear. Inside '
                                              'his cranium, the auditory pathway to the amygdala glows warm amber-gold. '
                                              'His head tilts forward in recognition, bathed in warm light.',
-                             'conclusion': 'Wide shot of the hospital room at dusk: the young man mannequin sits on '
+                             'conclusion': 'Wide shot of the hospital room in daylight: the young man mannequin sits on '
                                            'the bed beside his mother mannequin, the EKG monitor glowing softly. '
                                            'Inside his translucent frosted-glass cranium, the fusiform face area glows '
                                            'electric cyan-blue and the auditory route glows warm amber-gold. The '
@@ -754,7 +755,7 @@ PSYCHOLOGY_TOPICS_1_10 = [{'project_id': 'psych_01_habit_loop_basal_ganglia',
   'doi': '10.1126/science.1241224',
   'source_url': 'https://doi.org/10.1126/science.1241224',
   'source_tier': 1,
-  'visual_plan': {'real_environment': 'a dimly lit university sleep research bedroom',
+  'visual_plan': {'real_environment': 'a brightly lit university sleep research bedroom',
                   'environment_props': ['hospital sleep bed', 'polysomnography monitor', 'bedside lamp'],
                   'scale_anchor_object': 'polysomnography monitor beside the bed',
                   'cast': {'subject': 'an adult volunteer mannequin',
@@ -788,37 +789,37 @@ PSYCHOLOGY_TOPICS_1_10 = [{'project_id': 'psych_01_habit_loop_basal_ganglia',
                                                                               'blood vessels',
                                           'cerebral cortex': 'folded outer grey-matter mantle'},
                   'bci_hardware': None,
-                  'scenes': {'setup': 'A dimly lit university sleep research bedroom with a hospital sleep bed, a '
+                  'scenes': {'setup': 'A brightly lit university sleep research bedroom with a hospital sleep bed, a '
                                       'polysomnography monitor and a bedside lamp. A matte-white porcelain mannequin '
                                       'of an adult volunteer with a translucent frosted-glass cranium sits awake on '
                                       'the edge of the bed while a sleep researcher mannequin stands nearby. Wide '
                                       "establishing shot, camera smoothly tracks forward toward the volunteer's face. "
-                                      'Cinematic chiaroscuro lighting.',
+                                      'Bright daylight lighting.',
                              'symptom': "Close-up on the adult volunteer mannequin's smooth porcelain face as it "
                                         'presses one hand to its forehead. The camera slowly orbits the head, '
                                         'revealing the brain through the translucent frosted-glass cranium: the '
                                         'perivascular cortical channels glow electric cyan-blue, while dense metabolic '
                                         'clusters along the sulci glow dim crimson-red. Strong rim light traces the '
-                                        'porcelain contours against the shadowed bedroom.',
+                                        'porcelain contours inside the sunlit bedroom.',
                              'failure': 'In the same sleep research bedroom, the sleep researcher and technician '
                                         'mannequins hold out a reaction-time chart beside the bed. The volunteer '
                                         'mannequin sits hunched on the mattress and turns its head away in fatigue. '
                                         'The camera tracks smoothly sideways between them, capturing the distance. '
-                                        'Warm amber light falls on the researchers while the volunteer stays in cool '
-                                        'shadow.',
+                                        'Warm amber light falls on the researchers while the volunteer sits in soft '
+                                        'daylight.',
                              'crisis': "The camera dives smoothly through the volunteer mannequin's translucent "
-                                       'frosted-glass cranium into a deep midnight navy void holding a realistic '
+                                       'frosted-glass cranium into a bright white studio gallery holding a realistic '
                                        'matte-white brain with visible gyri and sulci. It glides over the cortex and '
                                        'zooms into the cortical surface: the perivascular channels pulse electric '
                                        'cyan-blue, but the awake interstitial gaps are tightly constricted and glowing '
                                        'crimson-red with trapped protein debris.',
-                             'pivot': 'Inside the matte-white brain on a deep midnight navy void, the camera smoothly '
+                             'pivot': 'Inside the matte-white brain in a bright white studio gallery, the camera smoothly '
                                       'orbits two states of the cortical tissue: the constricted crimson-red waking '
                                       'gaps and the electric cyan-blue perivascular vessels. As slow-wave sleep '
                                       'begins, astrocytic aquaporin-4 channels along the vessel walls ignite warm '
                                       'amber-gold and widen. The camera slowly pushes in on the glowing amber-gold '
                                       'channels.',
-                             'step1': 'Macro view inside the matte-white brain against deep midnight navy. Slow-wave '
+                             'step1': 'Macro view inside the matte-white brain in bright studio daylight. Slow-wave '
                                       'pulses sweep across the cortex as glial cells contract by sixty percent, '
                                       'opening wide tunnels around the cortical vessels that light up electric '
                                       'cyan-blue. A stream of bioluminescent green cerebrospinal fluid enters along '
@@ -833,9 +834,9 @@ PSYCHOLOGY_TOPICS_1_10 = [{'project_id': 'psych_01_habit_loop_basal_ganglia',
                                       'matte-white brain: the arterial perivascular channels glowing electric '
                                       'cyan-blue, the venous drainage routes glowing warm amber-gold, and the '
                                       'crimson-red waste fading away as bioluminescent green fluid flushes the cortex. '
-                                      'The full brain turns slowly against deep midnight navy.',
+                                      'The full brain turns slowly in bright studio daylight.',
                              'breakthrough': 'The camera pulls smoothly out of the brain, back through the translucent '
-                                             'frosted-glass cranium, into the dimly lit university sleep research '
+                                             'frosted-glass cranium, into the brightly lit university sleep research '
                                              'bedroom. The adult volunteer mannequin lies peacefully asleep on the '
                                              'hospital sleep bed while the polysomnography monitor displays slow waves '
                                              'beside him. Inside the cranium, the glymphatic pathway glows warm '
@@ -1059,21 +1060,16 @@ PSYCHOLOGY_TOPICS_1_10 = [{'project_id': 'psych_01_habit_loop_basal_ganglia',
   'doi': '10.1068/p281059',
   'source_url': 'https://doi.org/10.1068/p281059',
   'source_tier': 1,
-  'visual_plan': {'real_environment': 'a darkened university visual perception laboratory',
-                  'environment_props': ['desktop video monitor', 'wooden laboratory desk', 'tally notepad'],
+  'visual_plan': {'real_environment': 'a brightly lit visual perception studio room',
+                  'environment_props': ['desktop video monitor', 'wooden laboratory desk', 'tally counter'],
                   'scale_anchor_object': 'desktop video monitor on the desk',
-                  'cast': {'subject': 'a student observer mannequin',
+                  'cast': {'subject': 'a clothed student observer mannequin',
                            'others': ['experimenter mannequin', 'fellow student mannequin']},
-                  'mannequin_actions': {'setup': 'leans forward at the laboratory desk staring intently at the glowing '
-                                                 'video monitor',
-                                        'symptom': 'tracks the screen with fixed porcelain eyes while tapping a tally '
-                                                   'count on the desk',
-                                        'failure': 'shakes its head in disbelief as the experimenter mannequin points '
-                                                   'at the paused video screen',
-                                        'breakthrough': 'watches the replayed video on the monitor and tilts its head '
-                                                        'forward in sudden recognition',
-                                        'conclusion': 'sits upright at the laboratory desk beside the experimenter '
-                                                      'mannequin'},
+                  'mannequin_actions': {'setup': 'leans forward gripping the desk edge and taps a tally counter',
+                                        'symptom': 'presses the tally counter repeatedly as a gorilla figure thumps its chest',
+                                        'failure': 'pushes the tally notepad across the desk and shakes his head in disbelief',
+                                        'breakthrough': 'leans forward and points both hands at the gorilla on the replayed screen',
+                                        'conclusion': 'passes an orange basketball across the desk to the experimenter mannequin'},
                   'target_region': 'dorsal frontoparietal attention network and thalamic relay',
                   'crisis_region': 'ventral visual stream carrying unexpected background stimuli',
                   'crisis_lesion': 'suppressed',
@@ -1089,35 +1085,37 @@ PSYCHOLOGY_TOPICS_1_10 = [{'project_id': 'psych_01_habit_loop_basal_ganglia',
                   'anatomy_descriptors': {'thalamus': 'egg-shaped central sensory relay hub',
                                           'parietal cortex': 'upper posterior spatial attention lobe'},
                   'bci_hardware': None,
-                  'scenes': {'setup': 'A darkened university visual perception laboratory with a desktop video '
-                                      'monitor, a wooden laboratory desk and a tally notepad. A matte-white porcelain '
-                                      'mannequin of a student observer with a translucent frosted-glass cranium leans '
-                                      'forward at the desk staring at the monitor while an experimenter mannequin '
-                                      'stands nearby. Wide establishing shot, camera smoothly tracks forward toward '
-                                      "the observer's face. Cinematic chiaroscuro lighting.",
-                             'symptom': "Close-up on the student observer mannequin's smooth porcelain face as its "
-                                        'eyes lock onto the monitor screen. The camera slowly orbits the head, '
-                                        'revealing the brain through the translucent frosted-glass cranium: the dorsal '
-                                        'parietal cortex glows electric cyan-blue, while the ventral '
+                  'scenes': {'setup': 'A brightly lit visual perception studio room with a desktop video monitor and a '
+                                      'wooden desk. A clothed matte-white porcelain mannequin of a student observer '
+                                      'with a translucent frosted-glass cranium leans forward gripping the desk edge '
+                                      'and taps a tally counter with his finger as the experimenter mannequin switches '
+                                      'on the monitor. Wide establishing shot, camera smoothly tracks forward toward '
+                                      "the observer's face. Bright daylight lighting.",
+                             'symptom': "Close-up on the clothed student observer mannequin's smooth porcelain face as "
+                                        'he presses the tally counter repeatedly while a dark gorilla figure walks '
+                                        'across the background and thumps its chest. The camera slowly orbits his '
+                                        'head, revealing the brain through the translucent frosted-glass cranium: the '
+                                        'dorsal parietal cortex glows electric cyan-blue, while the ventral '
                                         'unexpected-stimulus pathway fades to dim crimson-red. Strong rim light traces '
-                                        'the porcelain contours against the dark lab.',
-                             'failure': 'In the same visual perception laboratory, the experimenter and fellow student '
-                                        'mannequins point directly at the paused monitor screen. The student observer '
-                                        'mannequin sits back in the chair and shakes its head in disbelief. The camera '
-                                        'tracks smoothly sideways between them, capturing the distance. Warm amber '
-                                        'light falls on the experimenter while the observer stays in cool shadow.',
+                                        'the porcelain contours.',
+                             'failure': 'In the same visual perception studio room, the experimenter mannequin points '
+                                        'a pen directly at the paused monitor screen. The student observer mannequin '
+                                        'pushes his tally notepad across the desk and shakes his head in disbelief as '
+                                        'the fellow student mannequin leans in to inspect the frame. The camera tracks '
+                                        'smoothly sideways between them, capturing the distance in soft daylight.',
                              'crisis': "The camera dives smoothly through the observer mannequin's translucent "
-                                       'frosted-glass cranium into a deep midnight navy void holding a realistic '
+                                       'frosted-glass cranium into a bright white studio gallery holding a realistic '
                                        'matte-white brain with visible gyri and sulci. It glides along the optic tract '
                                        'and zooms into the central thalamus: the dorsal attention pathway pulses '
                                        'electric cyan-blue, but the unattended ventral visual stream is suppressed and '
                                        'glowing crimson-red.',
-                             'pivot': 'Inside the matte-white brain on a deep midnight navy void, the camera smoothly '
-                                      'orbits two structures: the suppressed ventral stream dimmed crimson-red and the '
-                                      'dorsal parietal cortex glowing electric cyan-blue. Around the central thalamus, '
-                                      'the thalamic reticular nucleus ignites warm amber-gold as an active sensory '
-                                      'filter. The camera slowly pushes in on the glowing amber-gold thalamic gate.',
-                             'step1': 'Macro view inside the matte-white brain against deep midnight navy. A dense '
+                             'pivot': 'Inside the matte-white brain in a bright white studio gallery, the camera '
+                                      'smoothly orbits two structures: the suppressed ventral stream dimmed crimson-red '
+                                      'and the dorsal parietal cortex glowing electric cyan-blue. Around the central '
+                                      'thalamus, the thalamic reticular nucleus ignites warm amber-gold as an active '
+                                      'sensory filter. The camera slowly pushes in on the glowing amber-gold thalamic '
+                                      'gate.',
+                             'step1': 'Macro view inside the matte-white brain in bright studio daylight. A dense '
                                       'flood of bioluminescent green signal particles enters from the retina and optic '
                                       'nerve, streaming into the central thalamic relay and the electric cyan-blue '
                                       'primary visual cortex. The camera tracks the flowing bioluminescent green '
@@ -1132,19 +1130,19 @@ PSYCHOLOGY_TOPICS_1_10 = [{'project_id': 'psych_01_habit_loop_basal_ganglia',
                                       'matte-white brain: the dorsal parietal network active in electric cyan-blue, '
                                       'the thalamic gate glowing warm amber-gold, and the blocked background pathway '
                                       'silent in crimson-red. Bioluminescent green particles flow exclusively along '
-                                      'the narrow attended route as the brain turns against deep midnight navy.',
+                                      'the narrow attended route as the brain turns in bright studio daylight.',
                              'breakthrough': 'The camera pulls smoothly out of the brain, back through the translucent '
-                                             'frosted-glass cranium, into the darkened university visual perception '
-                                             'laboratory. The student observer mannequin watches the replayed desktop '
-                                             'video monitor without counting basketball passes and tilts its head '
-                                             'forward in sudden recognition. Inside its cranium, the visual attention '
-                                             'pathway glows warm amber-gold in warm light.',
-                             'conclusion': 'Wide shot of the visual perception laboratory at dusk: the student '
-                                           'observer mannequin sits at the wooden desk beside the experimenter '
-                                           'mannequin, the desktop monitor glowing softly. Inside its translucent '
-                                           'frosted-glass cranium, the parietal cortex glows electric cyan-blue and '
-                                           'the thalamic relay glows warm amber-gold. The camera slowly pulls back and '
-                                           'rises to an elevated angle.'}},
+                                             'frosted-glass cranium, into the bright visual perception studio room. '
+                                             'The experimenter mannequin presses the replay button on the desktop '
+                                             'monitor, and the student observer mannequin leans forward and points both '
+                                             'hands at the gorilla on screen in sudden recognition. Inside its cranium, '
+                                             'the visual attention pathway glows warm amber-gold.',
+                             'conclusion': 'Wide shot of the visual perception studio room in daylight: the student '
+                                           'observer mannequin passes an orange basketball across the wooden desk to '
+                                           'the experimenter mannequin, who catches it with both hands and nods. Inside '
+                                           'its translucent frosted-glass cranium, the parietal cortex glows electric '
+                                           'cyan-blue and the thalamic relay glows warm amber-gold. The camera slowly '
+                                           'pulls back and rises to an elevated angle.'}},
   'clip_narrations': ['In 1999 at Harvard University, Daniel Simons and Christopher Chabris asked volunteers to count '
                       'basketball passes on a screen while a gorilla walked through.',
                       'Half of all viewers stared directly at the screen yet missed the gorilla completely. For your '
@@ -1563,18 +1561,16 @@ PSYCH_BATCH_11_20_TOPICS = [{'project_id': 'psych_11_pavlov_classical_conditioni
                'brainstem autonomic nucleus and triggers salivation within milliseconds. The researchers were left '
                'completely stunned. Controlled measurements proved that a neutral external sound physically rewired '
                'subcortical autonomic synapses to command the body on cue.',
-  'visual_plan': {'real_environment': 'a dimly lit physiology laboratory',
-                  'environment_props': ['wooden laboratory table', 'acoustic tone generator', 'glass collection tube'],
+  'visual_plan': {'real_environment': 'a minimalist bright physiology laboratory room',
+                  'environment_props': ['wooden laboratory table', 'brass metronome bell', 'glass collection tube'],
                   'scale_anchor_object': 'glass collection tube on the table',
-                  'cast': {'subject': 'a laboratory observer mannequin',
+                  'cast': {'subject': 'a physiology subject mannequin',
                            'others': ['researcher mannequin', 'clinical assistant mannequin']},
-                  'mannequin_actions': {'setup': 'sits upright at the main table facing the experimental apparatus',
-                                        'symptom': 'freezes with a tense posture as the unexpected neurological '
-                                                   'reaction begins',
-                                        'failure': 'turns its head away from the apparatus in silent confusion',
-                                        'breakthrough': 'leans forward toward the apparatus as the new neural pathway '
-                                                        'locks in',
-                                        'conclusion': 'sits calmly beside the researcher mannequin in the quiet room'},
+                  'mannequin_actions': {'setup': 'taps the brass metronome bell on the table and grips the glass tube',
+                                        'symptom': 'leans forward toward the ringing metronome and grips the glass tube',
+                                        'failure': 'pushes the empty food tray aside and leans toward the ticking metronome',
+                                        'breakthrough': 'places its hand on the metronome base and lifts the glass tube',
+                                        'conclusion': 'holds the glass collection tube and nods toward the researcher mannequin'},
                   'target_region': 'auditory cortex and lateral amygdala',
                   'crisis_region': 'unconditioned brainstem salivary reflex pathway',
                   'crisis_lesion': 'bypassed',
@@ -1587,7 +1583,7 @@ PSYCH_BATCH_11_20_TOPICS = [{'project_id': 'psych_11_pavlov_classical_conditioni
                   'mechanism_steps': ['A dense burst of bioluminescent green signal particles flows from the cochlea '
                                       'into the auditory cortex and lateral amygdala, which blazes electric cyan-blue',
                                       'At the bypassed crimson-red unconditioned brainstem salivary reflex pathway, '
-                                      'the bioluminescent green particles collide and scatter into the dark void',
+                                      'the bioluminescent green particles collide and scatter into the studio',
                                       'The cerebellar and amygdala associative synapse circuit ignites warm amber-gold '
                                       'and routes a clean bioluminescent green signal stream across the cortical '
                                       'circuit'],
@@ -1596,72 +1592,72 @@ PSYCH_BATCH_11_20_TOPICS = [{'project_id': 'psych_11_pavlov_classical_conditioni
                                           'cerebellar and amygdala associative synapse circuit': 'intact compensatory '
                                                                                                  'neural pathway'},
                   'bci_hardware': None,
-                  'scenes': {'setup': 'A dimly lit physiology laboratory with a wooden laboratory table, an acoustic '
-                                      'tone generator and a glass collection tube. A matte-white porcelain mannequin '
-                                      'of a laboratory observer sits upright at the main table facing the experimental '
-                                      'apparatus, its translucent frosted-glass cranium catching the light. A '
+                  'scenes': {'setup': 'A minimalist bright physiology laboratory room with a wooden laboratory table, a brass '
+                                      'metronome bell and a glass collection tube. A matte-white porcelain mannequin '
+                                      'of a physiology subject taps the brass metronome bell on the table and grips the glass tube, '
+                                      'its translucent frosted-glass cranium catching the light. A '
                                       'researcher mannequin and a clinical assistant mannequin stand nearby. Wide '
-                                      'establishing shot, camera smoothly tracks forward toward the subject. Cinematic '
-                                      'chiaroscuro lighting.',
-                             'symptom': "Close-up on the laboratory observer mannequin's smooth porcelain face as it "
-                                        'freezes with a tense posture as the unexpected neurological reaction begins. '
+                                      'establishing shot, camera smoothly tracks forward toward the subject. Bright '
+                                      'daylight lighting.',
+                             'symptom': "Close-up on the physiology subject mannequin's smooth porcelain face as it "
+                                        'leans forward toward the ringing metronome and grips the glass tube. '
                                         'The camera slowly orbits the head, revealing the brain through the '
                                         'translucent frosted-glass cranium: the auditory cortex and lateral amygdala '
                                         'glows electric cyan-blue while the unconditioned brainstem salivary reflex '
-                                        'pathway fades to dim crimson-red. Strong rim light traces the porcelain '
-                                        'contours; the physiology laboratory falls into shadow.',
-                             'failure': 'In the same physiology laboratory, the researcher and clinical assistant '
-                                        'mannequins reach toward the laboratory observer mannequin with pleading '
-                                        'gestures. The laboratory observer mannequin turns its head away from the '
-                                        'apparatus in silent confusion. The camera tracks smoothly sideways between '
+                                        'pathway fades to dim crimson-red. Soft studio light traces the porcelain '
+                                        'contours; the physiology laboratory room stays softly lit.',
+                             'failure': 'In the same physiology laboratory room, the researcher and clinical assistant '
+                                        'mannequins reach toward the physiology subject mannequin with pleading '
+                                        'gestures. The physiology subject mannequin pushes the empty food tray aside and leans '
+                                        'toward the ticking metronome. The camera tracks smoothly sideways between '
                                         'the figures, capturing the distance. Warm amber light falls on the other '
-                                        'figures while the laboratory observer mannequin stays in cool shadow.',
-                             'crisis': "The camera dives smoothly through the laboratory observer mannequin's "
-                                       'translucent frosted-glass cranium into a deep midnight navy void holding a '
+                                        'figures while the physiology subject mannequin stays in cool studio light.',
+                             'crisis': "The camera dives smoothly through the physiology subject mannequin's "
+                                       'translucent frosted-glass cranium into a bright white studio gallery holding a '
                                        'realistic matte-white brain with visible gyri and sulci. It glides over the '
                                        'cortex and zooms into the auditory cortex and lateral amygdala, which pulses '
                                        'electric cyan-blue, while the unconditioned brainstem salivary reflex pathway '
                                        'is bypassed and glowing crimson-red, its signal particles scattering into '
-                                       'darkness. The auditory cortex and lateral amygdala appears as a folded '
+                                       'the studio. The auditory cortex and lateral amygdala appears as a folded '
                                        'cortical and subcortical neural hub.',
-                             'pivot': 'Inside the matte-white brain on a deep midnight navy void, the camera smoothly '
+                             'pivot': 'Inside the matte-white brain in a bright white studio gallery, the camera smoothly '
                                       'orbits the auditory cortex and lateral amygdala glowing electric cyan-blue and '
                                       'the unconditioned brainstem salivary reflex pathway dimmed crimson-red. Nearby, '
                                       'the cerebellar and amygdala associative synapse circuit ignites warm '
                                       'amber-gold, opening an intact alternative route. The camera slowly pushes in on '
                                       'the glowing amber-gold route. The cerebellar and amygdala associative synapse '
                                       'circuit appears as an intact compensatory neural pathway.',
-                             'step1': 'Macro view inside the matte-white brain against deep midnight navy. '
+                             'step1': 'Macro view inside the matte-white brain in a bright white studio gallery. '
                                       'Bioluminescent green signal particles flow like fluid from the cochlea through '
                                       'the auditory nerve, the thalamus and the lateral amygdala into the brainstem '
                                       'autonomic nucleus. A dense burst of bioluminescent green signal particles flows '
                                       'from the cochlea into the auditory cortex and lateral amygdala, which blazes '
                                       'electric cyan-blue. The camera tracks the flowing signal along the pathway.',
-                             'step2': 'Inside the matte-white brain on deep midnight navy, the camera follows the '
+                             'step2': 'Inside the matte-white brain in a bright white studio gallery, the camera follows the '
                                       'bioluminescent green signal as it leaves the electric cyan-blue auditory cortex '
                                       'and lateral amygdala. At the bypassed crimson-red unconditioned brainstem '
                                       'salivary reflex pathway, the bioluminescent green particles collide and scatter '
-                                      'into the dark void. The camera slowly orbits the junction.',
+                                      'into the studio. The camera slowly orbits the junction.',
                              'step3': 'The camera pulls back to reveal the whole circuit inside the matte-white brain '
-                                      'against deep midnight navy. The auditory cortex and lateral amygdala glows '
+                                      'in a bright white studio gallery. The auditory cortex and lateral amygdala glows '
                                       'electric cyan-blue, the unconditioned brainstem salivary reflex pathway '
                                       'crimson-red and the cerebellar and amygdala associative synapse circuit warm '
                                       'amber-gold. The cerebellar and amygdala associative synapse circuit ignites '
                                       'warm amber-gold and routes a clean bioluminescent green signal stream across '
-                                      'the cortical circuit. The full brain turns slowly in the void.',
+                                      'the cortical circuit. The full brain turns slowly in the studio.',
                              'breakthrough': 'The camera pulls smoothly out of the brain, back through the translucent '
-                                             'frosted-glass cranium, into the physiology laboratory. The laboratory '
-                                             'observer mannequin leans forward toward the apparatus as the new neural '
-                                             'pathway locks in. Inside its cranium, the cerebellar and amygdala '
+                                             'frosted-glass cranium, into the physiology laboratory room. The physiology '
+                                             'subject mannequin places its hand on the metronome base and lifts the glass tube. '
+                                             'Inside its cranium, the cerebellar and amygdala '
                                              'associative synapse circuit glows warm amber-gold. Warm light bathes the '
                                              'porcelain figure.',
-                             'conclusion': 'Wide shot of the physiology laboratory: the laboratory observer mannequin '
-                                           'sits calmly beside the researcher mannequin in the quiet room. The '
+                             'conclusion': 'Wide shot of the physiology laboratory room: the physiology subject mannequin '
+                                           'holds the glass collection tube and nods toward the researcher mannequin. The '
                                            'researcher and clinical assistant mannequins stand beside it. Inside its '
                                            'translucent frosted-glass cranium, the auditory cortex and lateral '
                                            'amygdala glows electric cyan-blue and the cerebellar and amygdala '
                                            'associative synapse circuit glows warm amber-gold. The camera slowly pulls '
-                                           'back and rises to an elevated wide shot. Strong rim light outlines the '
+                                           'back and rises to an elevated wide shot. Soft studio light outlines the '
                                            'porcelain figures.'}},
   'clip_narrations': ['In 1897, a physiologist investigated how a simple bell rewired the brain during a landmark '
                       'clinical experiment that challenged every textbook model of the brain.',
@@ -2828,20 +2824,18 @@ PSYCH_BATCH_11_20_TOPICS = [{'project_id': 'psych_11_pavlov_classical_conditioni
                'empathy alarms, allowing the motor cortex to press the switch as a passive relay. The researchers were '
                'left completely stunned. Controlled measurements proved that ordinary volunteers trembled in distress '
                'yet obeyed every command once their brains offloaded agency to the experimenter.',
-  'visual_plan': {'real_environment': 'a dimly lit basement psychology laboratory',
+  'visual_plan': {'real_environment': 'a minimalist bright psychology laboratory room',
                   'environment_props': ['high-voltage switch console',
                                         'intercom speaker box',
                                         'wooden laboratory desk'],
                   'scale_anchor_object': 'high-voltage switch console on the desk',
                   'cast': {'subject': 'a volunteer teacher mannequin',
                            'others': ['researcher mannequin', 'clinical assistant mannequin']},
-                  'mannequin_actions': {'setup': 'sits upright at the main table facing the experimental apparatus',
-                                        'symptom': 'freezes with a tense posture as the unexpected neurological '
-                                                   'reaction begins',
-                                        'failure': 'turns its head away from the apparatus in silent confusion',
-                                        'breakthrough': 'leans forward toward the apparatus as the new neural pathway '
-                                                        'locks in',
-                                        'conclusion': 'sits calmly beside the researcher mannequin in the quiet room'},
+                  'mannequin_actions': {'setup': 'reaches out and flips a metal toggle switch on the console desk',
+                                        'symptom': 'presses the high-voltage lever down while its free hand grips the desk edge',
+                                        'failure': 'pulls its hand back from the switch console and turns toward the researcher mannequin',
+                                        'breakthrough': 'releases the toggle switch and pushes the console box across the wooden desk',
+                                        'conclusion': 'steps back from the wooden desk and nods toward the researcher mannequin'},
                   'target_region': 'dorsolateral prefrontal executive cortex',
                   'crisis_region': 'anterior insula and parietal personal agency circuit',
                   'crisis_lesion': 'suppressed',
@@ -2855,8 +2849,8 @@ PSYCH_BATCH_11_20_TOPICS = [{'project_id': 'psych_11_pavlov_classical_conditioni
                                       'cortex into the dorsolateral prefrontal executive cortex, which blazes electric '
                                       'cyan-blue',
                                       'At the suppressed crimson-red anterior insula and parietal personal agency '
-                                      'circuit, the bioluminescent green particles collide and scatter into the dark '
-                                      'void',
+                                      'circuit, the bioluminescent green particles collide and scatter into the '
+                                      'studio',
                                       'The prefrontal hierarchical command relay ignites warm amber-gold and routes a '
                                       'clean bioluminescent green signal stream across the cortical circuit'],
                   'anatomy_descriptors': {'dorsolateral prefrontal executive cortex': 'folded cortical and subcortical '
@@ -2864,73 +2858,73 @@ PSYCH_BATCH_11_20_TOPICS = [{'project_id': 'psych_11_pavlov_classical_conditioni
                                           'prefrontal hierarchical command relay': 'intact compensatory neural '
                                                                                    'pathway'},
                   'bci_hardware': None,
-                  'scenes': {'setup': 'A dimly lit basement psychology laboratory with a high-voltage switch console, '
+                  'scenes': {'setup': 'A minimalist bright psychology laboratory room with a high-voltage switch console, '
                                       'an intercom speaker box and a wooden laboratory desk. A matte-white porcelain '
-                                      'mannequin of a volunteer teacher sits upright at the main table facing the '
-                                      'experimental apparatus, its translucent frosted-glass cranium catching the '
+                                      'mannequin of a volunteer teacher reaches out and flips a metal toggle switch on '
+                                      'the console desk, its translucent frosted-glass cranium catching the '
                                       'light. A researcher mannequin and a clinical assistant mannequin stand nearby. '
                                       'Wide establishing shot, camera smoothly tracks forward toward the subject. '
-                                      'Cinematic chiaroscuro lighting.',
+                                      'Bright daylight lighting.',
                              'symptom': "Close-up on the volunteer teacher mannequin's smooth porcelain face as it "
-                                        'freezes with a tense posture as the unexpected neurological reaction begins. '
+                                        'presses the high-voltage lever down while its free hand grips the desk edge. '
                                         'The camera slowly orbits the head, revealing the brain through the '
                                         'translucent frosted-glass cranium: the dorsolateral prefrontal executive '
                                         'cortex glows electric cyan-blue while the anterior insula and parietal '
-                                        'personal agency circuit fades to dim crimson-red. Strong rim light traces the '
-                                        'porcelain contours; the psychology laboratory falls into shadow.',
-                             'failure': 'In the same psychology laboratory, the researcher and clinical assistant '
+                                        'personal agency circuit fades to dim crimson-red. Soft studio light traces the '
+                                        'porcelain contours; the psychology laboratory room stays softly lit.',
+                             'failure': 'In the same psychology laboratory room, the researcher and clinical assistant '
                                         'mannequins reach toward the volunteer teacher mannequin with pleading '
-                                        'gestures. The volunteer teacher mannequin turns its head away from the '
-                                        'apparatus in silent confusion. The camera tracks smoothly sideways between '
+                                        'gestures. The volunteer teacher mannequin pulls its hand back from the switch '
+                                        'console and turns toward the researcher mannequin. The camera tracks smoothly sideways between '
                                         'the figures, capturing the distance. Warm amber light falls on the other '
-                                        'figures while the volunteer teacher mannequin stays in cool shadow.',
+                                        'figures while the volunteer teacher mannequin stays in cool studio light.',
                              'crisis': "The camera dives smoothly through the volunteer teacher mannequin's "
-                                       'translucent frosted-glass cranium into a deep midnight navy void holding a '
+                                       'translucent frosted-glass cranium into a bright white studio gallery holding a '
                                        'realistic matte-white brain with visible gyri and sulci. It glides over the '
                                        'cortex and zooms into the dorsolateral prefrontal executive cortex, which '
                                        'pulses electric cyan-blue, while the anterior insula and parietal personal '
                                        'agency circuit is suppressed and glowing crimson-red, its signal particles '
-                                       'scattering into darkness. The dorsolateral prefrontal executive cortex appears '
+                                       'scattering into the studio. The dorsolateral prefrontal executive cortex appears '
                                        'as a folded cortical and subcortical neural hub.',
-                             'pivot': 'Inside the matte-white brain on a deep midnight navy void, the camera smoothly '
+                             'pivot': 'Inside the matte-white brain in a bright white studio gallery, the camera smoothly '
                                       'orbits the dorsolateral prefrontal executive cortex glowing electric cyan-blue '
                                       'and the anterior insula and parietal personal agency circuit dimmed '
                                       'crimson-red. Nearby, the prefrontal hierarchical command relay ignites warm '
                                       'amber-gold, opening an intact alternative route. The camera slowly pushes in on '
                                       'the glowing amber-gold route. The prefrontal hierarchical command relay appears '
                                       'as an intact compensatory neural pathway.',
-                             'step1': 'Macro view inside the matte-white brain against deep midnight navy. '
+                             'step1': 'Macro view inside the matte-white brain in a bright white studio gallery. '
                                       'Bioluminescent green signal particles flow like fluid from the auditory cortex '
                                       'through the dorsolateral prefrontal cortex, the inferior parietal lobule and '
                                       'the anterior insula into the motor cortex. A dense burst of bioluminescent '
                                       'green signal particles flows from the auditory cortex into the dorsolateral '
                                       'prefrontal executive cortex, which blazes electric cyan-blue. The camera tracks '
                                       'the flowing signal along the pathway.',
-                             'step2': 'Inside the matte-white brain on deep midnight navy, the camera follows the '
+                             'step2': 'Inside the matte-white brain in a bright white studio gallery, the camera follows the '
                                       'bioluminescent green signal as it leaves the electric cyan-blue dorsolateral '
                                       'prefrontal executive cortex. At the suppressed crimson-red anterior insula and '
                                       'parietal personal agency circuit, the bioluminescent green particles collide '
-                                      'and scatter into the dark void. The camera slowly orbits the junction.',
+                                      'and scatter into the studio. The camera slowly orbits the junction.',
                              'step3': 'The camera pulls back to reveal the whole circuit inside the matte-white brain '
-                                      'against deep midnight navy. The dorsolateral prefrontal executive cortex glows '
+                                      'in a bright white studio gallery. The dorsolateral prefrontal executive cortex glows '
                                       'electric cyan-blue, the anterior insula and parietal personal agency circuit '
                                       'crimson-red and the prefrontal hierarchical command relay warm amber-gold. The '
                                       'prefrontal hierarchical command relay ignites warm amber-gold and routes a '
                                       'clean bioluminescent green signal stream across the cortical circuit. The full '
-                                      'brain turns slowly in the void.',
+                                      'brain turns slowly in the studio.',
                              'breakthrough': 'The camera pulls smoothly out of the brain, back through the translucent '
-                                             'frosted-glass cranium, into the psychology laboratory. The volunteer '
-                                             'teacher mannequin leans forward toward the apparatus as the new neural '
-                                             'pathway locks in. Inside its cranium, the prefrontal hierarchical '
+                                             'frosted-glass cranium, into the psychology laboratory room. The volunteer '
+                                             'teacher mannequin releases the toggle switch and pushes the console box across '
+                                             'the wooden desk. Inside its cranium, the prefrontal hierarchical '
                                              'command relay glows warm amber-gold. Warm light bathes the porcelain '
                                              'figure.',
-                             'conclusion': 'Wide shot of the psychology laboratory: the volunteer teacher mannequin '
-                                           'sits calmly beside the researcher mannequin in the quiet room. The '
+                             'conclusion': 'Wide shot of the psychology laboratory room: the volunteer teacher mannequin '
+                                           'steps back from the wooden desk and nods toward the researcher mannequin. The '
                                            'researcher and clinical assistant mannequins stand beside it. Inside its '
                                            'translucent frosted-glass cranium, the dorsolateral prefrontal executive '
                                            'cortex glows electric cyan-blue and the prefrontal hierarchical command '
                                            'relay glows warm amber-gold. The camera slowly pulls back and rises to an '
-                                           'elevated wide shot. Strong rim light outlines the porcelain figures.'}},
+                                           'elevated wide shot. Soft studio light outlines the porcelain figures.'}},
   'clip_narrations': ['In 1961, a social psychologist investigated why normal brains obey lethal orders during a '
                       'landmark clinical experiment that challenged every textbook model of the brain.',
                       'Volunteers showed a paradoxical response where sixty-five percent of ordinary citizens flipped '

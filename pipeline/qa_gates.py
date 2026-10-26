@@ -23,6 +23,9 @@ from pipeline.config import (
     FLOW_MAX_PARALLEL_BATCH_SIZE,
     MIN_CLIP_SIZE_BYTES,
     PROJECTS_DIR,
+    PROMPT_SCENE_WORDS_MAX,
+    PROMPT_SCENE_WORDS_MAX_V5,
+    PROMPT_SCHEMA_VERSION_V5,
     SCRIPT_WORD_MAX,
     SCRIPT_WORD_MIN,
     WORKSPACE_ROOT,
@@ -214,24 +217,26 @@ def run_preflight_qa(cdp_port: int = 9222, require_live_cdp: bool = False) -> di
         "path": str(WHALE_EXECUTABLE),
     }
 
-    # 6. CDP Port 9222 inspection
+    # 6. CDP Port 9222 inspection (probed ONLY when require_live_cdp=True to avoid touching active browser sessions)
     cdp_reachable = False
     flow_tabs_count = 0
-    try:
-        req = urllib.request.Request(f"http://127.0.0.1:{cdp_port}/json/list")
-        tabs = json.loads(urllib.request.urlopen(req, timeout=3).read().decode("utf-8"))
-        cdp_reachable = True
-        flow_tabs_count = sum(
-            1 for t in tabs if "flow.google" in t.get("url", "") or "labs.google" in t.get("url", "")
-        )
-    except Exception as exc:
-        checks["cdp_connection_note"] = str(exc)
+    if require_live_cdp:
+        try:
+            req = urllib.request.Request(f"http://127.0.0.1:{cdp_port}/json/list")
+            tabs = json.loads(urllib.request.urlopen(req, timeout=3).read().decode("utf-8"))
+            cdp_reachable = True
+            flow_tabs_count = sum(
+                1 for t in tabs if "flow.google" in t.get("url", "") or "labs.google" in t.get("url", "")
+            )
+        except Exception as exc:
+            checks["cdp_connection_note"] = str(exc)
 
     checks["whale_cdp_port"] = {
         "passed": cdp_reachable if require_live_cdp else True,
         "cdp_reachable": cdp_reachable,
         "cdp_port": cdp_port,
         "active_flow_tabs": flow_tabs_count,
+        "live_probe_executed": bool(require_live_cdp),
     }
 
     stage_passed = all(
@@ -300,7 +305,7 @@ def run_browser_generation_qa(project_id: str | None = None) -> dict[str, Any]:
         if PROJECTS_DIR.exists():
             target_projects = sorted([
                 d for d in PROJECTS_DIR.iterdir()
-                if d.is_dir() and (d / "00_project_manifest.json").exists()
+                if d.is_dir() and (d / "05_assembly" / "final_shorts_1080x1920.mp4").exists()
             ])
 
     seen_urls: dict[str, str] = {}
@@ -404,21 +409,74 @@ def run_media_integrity_qa(project_id: str | None = None) -> dict[str, Any]:
         clip_files = sorted(clips_dir.glob("*.mp4"), key=numeric_clip_sort_key) if clips_dir.exists() else []
 
         try:
-            receipt_file = p_dir / "03_visuals" / "flow_provenance_receipt.json"
-            if not receipt_file.exists():
-                for cf in clip_files:
-                    MediaIntegrityValidator.verify_not_synthetic_derivative(cf, strict=True)
+            from pipeline.clip_qa_contract import (
+                CLIP_QA_CONTRACT_FILENAME,
+                CLIP_QA_REPORT_FILENAME,
+                compute_sha256,
+                is_clip_qa_report_fresh,
+            )
+            from pipeline.flow_browser import FlowProjectSubagentWorker
+            from pipeline.reference_image_qa import is_reference_qa_report_fresh
+
+            for cf in clip_files:
+                MediaIntegrityValidator.verify_not_synthetic_derivative(cf, strict=True)
 
             probe_cache_file = p_dir / "05_assembly" / "probe_report.json"
             autopsy_cache_file = p_dir / "05_assembly" / "video_autopsy_report.json"
-            if (
-                probe_cache_file.exists()
-                and autopsy_cache_file.exists()
-                and final_mp4.exists()
-                and abs(autopsy_cache_file.stat().st_mtime - final_mp4.stat().st_mtime) < 900.0
-            ):
-                probe = json.loads(probe_cache_file.read_text(encoding="utf-8"))
-                autopsy = json.loads(autopsy_cache_file.read_text(encoding="utf-8"))
+            cur_mp4_sha = compute_sha256(final_mp4) if final_mp4.exists() else None
+
+            ref_dir = p_dir / "03_visuals" / "reference_images"
+            has_ref_artifacts = (
+                (ref_dir.exists() and any(ref_dir.glob("*.png")))
+                or (ref_dir / "reference_image_qa_report.json").exists()
+                or (p_dir / "03_visuals" / "reference_image_qa_report.json").exists()
+            )
+            vp_file = p_dir / "03_visuals" / "visual_plan.json"
+            is_v5_plan = False
+            if vp_file.exists():
+                try:
+                    vp_obj = json.loads(vp_file.read_text(encoding="utf-8"))
+                    is_v5_plan = int(vp_obj.get("schema") or vp_obj.get("schema_version") or 0) >= 5
+                except Exception:
+                    is_v5_plan = False
+            has_clip_contract_artifacts = (
+                (p_dir / "03_visuals" / CLIP_QA_CONTRACT_FILENAME).exists()
+                or (p_dir / "03_visuals" / CLIP_QA_REPORT_FILENAME).exists()
+                or is_v5_plan
+            )
+
+            cached_probe = None
+            cached_autopsy = None
+            if probe_cache_file.exists() and autopsy_cache_file.exists() and cur_mp4_sha is not None:
+                try:
+                    cand_p = json.loads(probe_cache_file.read_text(encoding="utf-8"))
+                    cand_a = json.loads(autopsy_cache_file.read_text(encoding="utf-8"))
+                    live_prov_ok = bool(FlowProjectSubagentWorker.validate_provenance_receipt(p_dir).get("valid"))
+                    cached_prov_ok = bool((cand_a.get("thumbnails_and_dedup") or {}).get("provenance_receipt_valid"))
+                    ref_cache_ok = (not has_ref_artifacts) or (
+                        is_reference_qa_report_fresh(p_dir)[0]
+                        and bool((cand_a.get("reference_image_qa") or {}).get("checked"))
+                    )
+                    clip_cache_ok = (not has_clip_contract_artifacts) or (
+                        is_clip_qa_report_fresh(p_dir)[0]
+                        and bool((cand_a.get("clip_contract_qa") or {}).get("checked"))
+                    )
+                    if (
+                        cand_p.get("final_mp4_sha256") == cur_mp4_sha
+                        and cand_a.get("final_mp4_sha256") == cur_mp4_sha
+                        and live_prov_ok == cached_prov_ok
+                        and ref_cache_ok
+                        and clip_cache_ok
+                    ):
+                        cached_probe = cand_p
+                        cached_autopsy = cand_a
+                except Exception:
+                    cached_probe = None
+                    cached_autopsy = None
+
+            if cached_probe is not None and cached_autopsy is not None:
+                probe = cached_probe
+                autopsy = cached_autopsy
             else:
                 probe = MediaIntegrityValidator.validate_video_file(
                     final_mp4,
@@ -427,6 +485,9 @@ def run_media_integrity_qa(project_id: str | None = None) -> dict[str, Any]:
                     check_motion=True,
                     check_audio=True,
                 )
+                probe["final_mp4_sha256"] = cur_mp4_sha
+                if (p_dir / "05_assembly").exists():
+                    probe_cache_file.write_text(json.dumps(probe, indent=2, ensure_ascii=False), encoding="utf-8")
                 autopsy = VideoAutopsyEngine.inspect_project(p_dir, save_report=True)
             valid_clips = [c.name for c in clip_files if c.stat().st_size >= MIN_CLIP_SIZE_BYTES]
             has_multi_clips = len(valid_clips) >= CLIP_COUNT_MIN
@@ -480,14 +541,147 @@ def run_media_integrity_qa(project_id: str | None = None) -> dict[str, Any]:
     }
 
 
+class ExecutableQASuite:
+    """
+    Cryptographic Post-Assembly QA Gate Enforcer.
+    Blocks final sign-off if per-clip contract QA (`clip_contract_qa_report.json`), reference image QA
+    (`reference_image_qa_report.json`), audio true-peak ceiling (`<= -1.0 dBFS`), or Flow provenance
+    SHA-256 bindings are missing, stale, or failing.
+    """
+
+    @staticmethod
+    def run_post_assembly_gates(project_dir: Path) -> dict[str, Any]:
+        from pipeline.clip_qa_contract import (
+            AUDIO_TRUE_PEAK_MAX_DBFS,
+            CLIP_QA_CONTRACT_FILENAME,
+            CLIP_QA_REPORT_FILENAME,
+            is_clip_qa_report_fresh,
+        )
+        from pipeline.flow_browser import FlowProjectSubagentWorker
+        from pipeline.reference_image_qa import REF_QA_REPORT_FILENAME, is_reference_qa_report_fresh
+        from pipeline.video_autopsy import VideoAutopsyEngine
+
+        p_dir = Path(project_dir)
+        vis_dir = p_dir / "03_visuals"
+        ref_dir = vis_dir / "reference_images"
+        clips_dir = vis_dir / "flow_native_clips"
+        final_mp4 = p_dir / "05_assembly" / "final_shorts_1080x1920.mp4"
+
+        has_native_clips = clips_dir.exists() and any(clips_dir.glob("clip_*.mp4"))
+        vp_file = vis_dir / "visual_plan.json"
+        is_v5_plan = False
+        if vp_file.exists():
+            try:
+                vp_obj = json.loads(vp_file.read_text(encoding="utf-8"))
+                is_v5_plan = int(vp_obj.get("schema") or vp_obj.get("schema_version") or 0) >= 5
+            except Exception:
+                is_v5_plan = False
+
+        issues: list[str] = []
+
+        # 1. Reference Image QA freshness & pass status (when reference pack is present)
+        ref_rep_file = ref_dir / REF_QA_REPORT_FILENAME
+        if not ref_rep_file.exists() and (vis_dir / REF_QA_REPORT_FILENAME).exists():
+            ref_rep_file = vis_dir / REF_QA_REPORT_FILENAME
+        has_ref_pack = (ref_dir.exists() and any(ref_dir.glob("*.png"))) or ref_rep_file.exists()
+        ref_qa_ok = True
+        if has_ref_pack:
+            if not ref_rep_file.exists():
+                ref_qa_ok = False
+                issues.append("missing_reference_image_qa_report")
+            else:
+                try:
+                    ref_rep = json.loads(ref_rep_file.read_text(encoding="utf-8"))
+                except Exception:
+                    ref_rep = {}
+                r_fresh, r_reasons = is_reference_qa_report_fresh(p_dir, ref_rep)
+                if not r_fresh:
+                    ref_qa_ok = False
+                    issues.append(f"stale_reference_image_qa_report: {r_reasons}")
+                axes_sum = ref_rep.get("axes_summary") or {}
+                req_pre_gen = "Q11_semantic_content_review" in axes_sum or "pre_generation_ready" in ref_rep
+                if not bool(ref_rep.get("all_passed")) or (req_pre_gen and not bool(ref_rep.get("pre_generation_ready"))):
+                    ref_qa_ok = False
+                    issues.append("failed_or_unreviewed_reference_image_qa_report")
+
+        # 2. Per-Clip Contract QA freshness & pass status (when contract or schema-5 plan is present)
+        from pipeline.clip_qa_contract import CLIP_SEMANTIC_REVIEW_FILENAME, validate_clip_semantic_review
+
+        clip_rep_file = vis_dir / CLIP_QA_REPORT_FILENAME
+        clip_contract_file = vis_dir / CLIP_QA_CONTRACT_FILENAME
+        clip_sem_file = vis_dir / CLIP_SEMANTIC_REVIEW_FILENAME
+        require_clip_qa = clip_rep_file.exists() or clip_contract_file.exists() or (is_v5_plan and has_native_clips)
+        clip_qa_ok = True
+        if require_clip_qa:
+            if not clip_rep_file.exists():
+                clip_qa_ok = False
+                issues.append("missing_clip_contract_qa_report")
+            else:
+                try:
+                    clip_rep = json.loads(clip_rep_file.read_text(encoding="utf-8"))
+                except Exception:
+                    clip_rep = {}
+                c_fresh, c_reasons = is_clip_qa_report_fresh(p_dir, clip_rep)
+                if not c_fresh:
+                    clip_qa_ok = False
+                    issues.append(f"stale_clip_contract_qa_report: {c_reasons}")
+                if not bool(clip_rep.get("all_passed")):
+                    clip_qa_ok = False
+                    issues.append(f"failed_clip_contract_qa_report: regenerate_clips={clip_rep.get('regenerate_clips', [])}")
+            if clip_sem_file.exists():
+                sem_val = validate_clip_semantic_review(p_dir)
+                if not sem_val.get("complete") or sem_val.get("failed_clips"):
+                    clip_qa_ok = False
+                    issues.append(
+                        f"invalid_or_stale_clip_semantic_review: pending={sem_val.get('pending_clips', [])}, failed={sem_val.get('failed_clips', [])}"
+                    )
+
+        # 3. Audio True-Peak Gate on assembled MP4 (`peak_dbfs <= -1.0`)
+        audio_peak_ok = True
+        peak_dbfs = None
+        if final_mp4.exists():
+            aud = VideoAutopsyEngine.inspect_audio_stream(final_mp4)
+            peak_dbfs = float(aud.get("peak_dbfs", 0.0))
+            if peak_dbfs > AUDIO_TRUE_PEAK_MAX_DBFS or bool(aud.get("true_peak_clipping")):
+                audio_peak_ok = False
+                issues.append(f"audio_true_peak_clipping: peak_dbfs={peak_dbfs:.2f}>{AUDIO_TRUE_PEAK_MAX_DBFS:.1f}")
+
+        # 4. Flow Provenance SHA-256 Receipt Gate (when native clips exist)
+        prov_ok = True
+        if has_native_clips:
+            prov_res = FlowProjectSubagentWorker.validate_provenance_receipt(p_dir)
+            if not prov_res.get("valid"):
+                prov_ok = False
+                issues.append(f"invalid_flow_provenance_receipt: {prov_res.get('errors', [])[:3]}")
+
+        return {
+            "project_id": p_dir.name,
+            "passed": bool(ref_qa_ok and clip_qa_ok and audio_peak_ok and prov_ok),
+            "reference_image_qa_ok": ref_qa_ok,
+            "clip_contract_qa_ok": clip_qa_ok,
+            "audio_true_peak_ok": audio_peak_ok,
+            "peak_dbfs": peak_dbfs,
+            "provenance_receipt_ok": prov_ok,
+            "issues": issues,
+        }
+
+    @classmethod
+    def run_all(
+        cls,
+        project_id: str | None = None,
+        cdp_port: int = 9222,
+        require_live_cdp: bool = False,
+    ) -> dict[str, Any]:
+        return run_full_executable_qa(project_id=project_id, cdp_port=cdp_port, require_live_cdp=require_live_cdp)
+
+
 def run_intent_content_qa(project_id: str | None = None) -> dict[str, Any]:
     """
     Stage 4: Intent & Content QA
-    Verifies narrative and channel compliance per project:
+    Verifies narrative, contract, and channel compliance per project:
       - SCRIPT_WORD_MIN-SCRIPT_WORD_MAX word count & 12 Master QA Gates (qa_report.json)
-      - CLIP_COUNT_MIN-CLIP_COUNT_MAX Google Flow prompts; schema-4 prompt files (flow_all_in_one_prompts.json with
-        "schema_version": 4) must also pass flow_prompt_builder.validate_flow_prompts. Older prompt files are
-        reported as legacy_prompt_schema without failing (existing projects are not rewritten).
+      - CLIP_COUNT_MIN-CLIP_COUNT_MAX Google Flow prompts; schema-4/5 prompt files must pass validate_flow_prompts
+      - Fresh passing `clip_contract_qa_report.json` & `reference_image_qa_report.json` on v5 / reference projects
       - Non-blank, visually distinct A/B thumbnails (thumbnail_var_A.png > 80KB)
       - Single-line phrase-synced ASS subtitles without raw stage labels
       - en-US metadata with KR channel residence
@@ -535,10 +729,12 @@ def run_intent_content_qa(project_id: str | None = None) -> dict[str, Any]:
         from pipeline.flow_prompt_builder import validate_flow_prompts
 
         prompt_schema_version = raw_prompts.get("schema_version") if isinstance(raw_prompts, dict) else None
-        words_ok = SCRIPT_WORD_MIN <= word_count <= SCRIPT_WORD_MAX
-        prompt_issues = validate_flow_prompts(flow_prompts)
+        w_min, w_max = script_word_range(len(flow_prompts) if flow_prompts else 5)
+        words_ok = w_min <= word_count <= w_max
+        scene_max = PROMPT_SCENE_WORDS_MAX_V5 if prompt_schema_version == PROMPT_SCHEMA_VERSION_V5 else PROMPT_SCENE_WORDS_MAX
+        prompt_issues = validate_flow_prompts(flow_prompts, scene_words_max=scene_max)
         prompts_ok = (
-            prompt_schema_version == FLOW_PROMPTS_SCHEMA_VERSION
+            prompt_schema_version in (FLOW_PROMPTS_SCHEMA_VERSION, PROMPT_SCHEMA_VERSION_V5)
             and CLIP_COUNT_MIN <= len(flow_prompts) <= CLIP_COUNT_MAX
             and not prompt_issues
         )
@@ -565,6 +761,15 @@ def run_intent_content_qa(project_id: str | None = None) -> dict[str, Any]:
             and meta_data.get("channel_residence_country") == "KR"
         )
 
+        post_gates = ExecutableQASuite.run_post_assembly_gates(p_dir) if has_final_mp4 else {
+            "passed": True,
+            "reference_image_qa_ok": True,
+            "clip_contract_qa_ok": True,
+            "audio_true_peak_ok": True,
+            "provenance_receipt_ok": True,
+            "issues": [],
+        }
+
         proj_pass = (
             gates_passed
             and words_ok
@@ -573,6 +778,9 @@ def run_intent_content_qa(project_id: str | None = None) -> dict[str, Any]:
             and thumb_distinct_ok
             and sub_ok
             and r36_localization_ok
+            and bool(post_gates["clip_contract_qa_ok"])
+            and bool(post_gates["reference_image_qa_ok"])
+            and bool(post_gates["audio_true_peak_ok"])
         )
         if not proj_pass:
             all_passed = False
@@ -590,6 +798,7 @@ def run_intent_content_qa(project_id: str | None = None) -> dict[str, Any]:
             "thumbnail_distinct_ok": thumb_distinct_ok,
             "subtitles_single_line_ok": sub_ok,
             "r36_localization_ok": r36_localization_ok,
+            "post_assembly_contract_gates": post_gates,
         }
 
     return {

@@ -99,7 +99,9 @@ class WhaleSessionController:
             return matching[0]
 
         if default_url:
-            req = urllib.request.Request(f"{self.cdp_url}/json/new?{default_url}", method="PUT")
+            import urllib.parse
+            encoded_url = urllib.parse.quote(default_url, safe="")
+            req = urllib.request.Request(f"{self.cdp_url}/json/new?{encoded_url}", method="PUT")
             res = urllib.request.urlopen(req, timeout=5).read().decode("utf-8")
             return json.loads(res)
 
@@ -113,11 +115,200 @@ class WhaleSessionController:
             raise RuntimeError(f"Target '{target.get('title')}' has no webSocketDebuggerUrl.")
         return DirectCDPClient(ws_url)
 
+    def open_temp_direct_client(self, target_url: str) -> tuple["DirectCDPClient", str]:
+        """
+        Opens a dedicated temporary tab via PUT /json/new?<encoded_url> and returns
+        (DirectCDPClient, target_id) so callers can close ONLY that temporary tab
+        without hijacking or touching existing user tabs (R36-B).
+        """
+        import json
+        import urllib.parse
+        import urllib.request
+
+        encoded_url = urllib.parse.quote(target_url, safe="")
+        try:
+            req = urllib.request.Request(f"{self.cdp_url}/json/new?{encoded_url}", method="PUT")
+            raw = urllib.request.urlopen(req, timeout=8).read().decode("utf-8")
+        except Exception as e:
+            print(f"[WhaleSession] Could not open temp tab on {self.cdp_url}: {e}. Launching Whale...")
+            self.launch_whale_with_cdp()
+            time.sleep(2.0)
+            req = urllib.request.Request(f"{self.cdp_url}/json/new?{encoded_url}", method="PUT")
+            raw = urllib.request.urlopen(req, timeout=8).read().decode("utf-8")
+        target = json.loads(raw)
+        ws_url = target.get("webSocketDebuggerUrl")
+        target_id = str(target.get("id") or "")
+        if not ws_url or not target_id:
+            raise RuntimeError(f"Temporary tab for '{target_url}' missing webSocketDebuggerUrl or id.")
+        return DirectCDPClient(ws_url), target_id
+
+    def close_tab_by_id(self, target_id: str) -> bool:
+        """Closes a specific CDP page target by exact target_id."""
+        if not target_id:
+            return False
+        import urllib.request
+        try:
+            urllib.request.urlopen(f"{self.cdp_url}/json/close/{target_id}", timeout=5).read()
+            return True
+        except Exception:
+            return False
+
+    def recycle_studio_tab(
+        self,
+        target_id: str | None = None,
+        reopen_url: str | None = None,
+    ) -> dict[str, Any]:
+        """
+        Recycles a YouTube Studio tab via CDP HTTP endpoints (R36-B memory hygiene).
+        Strictly refuses to close any tab outside studio.youtube.com so active user tabs are untouched.
+        Opens the replacement Studio tab BEFORE closing the stale Studio tab.
+        """
+        import json
+        import urllib.parse
+        import urllib.request
+        from pipeline.studio.config import STUDIO_CONTENT_URL
+
+        next_url = reopen_url or STUDIO_CONTENT_URL
+        res = urllib.request.urlopen(f"{self.cdp_url}/json/list", timeout=5).read().decode("utf-8")
+        targets = json.loads(res)
+
+        stale_studio_ids: list[str] = []
+        for t in targets:
+            if t.get("type") != "page":
+                continue
+            t_id = str(t.get("id") or "")
+            t_url = str(t.get("url") or "").lower()
+            if "studio.youtube.com" not in t_url:
+                continue
+            if target_id is None or t_id == target_id:
+                if t_id:
+                    stale_studio_ids.append(t_id)
+
+        encoded_next = urllib.parse.quote(next_url, safe="")
+        req = urllib.request.Request(f"{self.cdp_url}/json/new?{encoded_next}", method="PUT")
+        new_raw = urllib.request.urlopen(req, timeout=8).read().decode("utf-8")
+        new_target = json.loads(new_raw)
+        new_id = str(new_target.get("id") or "")
+
+        for old_id in stale_studio_ids:
+            if old_id and old_id != new_id:
+                try:
+                    urllib.request.urlopen(f"{self.cdp_url}/json/close/{old_id}", timeout=5).read()
+                except Exception:
+                    pass
+        return new_target
+
+
+_DEEP_QUERY_HELPER_JS = r"""
+const __collectRoots = (node, out) => {
+    if (!node) return;
+    out.push(node);
+    const tree = node.querySelectorAll ? node.querySelectorAll('*') : [];
+    for (const el of tree) {
+        if (el.shadowRoot) __collectRoots(el.shadowRoot, out);
+    }
+};
+const __queryInScope = (scopeNode, simpleSel) => {
+    const roots = [];
+    if (scopeNode === document) {
+        __collectRoots(document, roots);
+    } else {
+        if (scopeNode.shadowRoot) __collectRoots(scopeNode.shadowRoot, roots);
+        __collectRoots(scopeNode, roots);
+    }
+    const seen = new Set();
+    const out = [];
+    for (const r of roots) {
+        try {
+            for (const el of r.querySelectorAll(simpleSel)) {
+                if (!seen.has(el)) { seen.add(el); out.push(el); }
+            }
+        } catch (e) {}
+    }
+    return out;
+};
+const __splitDescendantSelector = (sel) => {
+    const parts = [];
+    let cur = '';
+    let depthBracket = 0;
+    let depthParen = 0;
+    let quote = null;
+    for (let i = 0; i < sel.length; i++) {
+        const ch = sel[i];
+        if (quote) {
+            cur += ch;
+            if (ch === quote && sel[i - 1] !== '\\') quote = null;
+            continue;
+        }
+        if (ch === '"' || ch === "'") { quote = ch; cur += ch; continue; }
+        if (ch === '[') { depthBracket++; cur += ch; continue; }
+        if (ch === ']') { depthBracket = Math.max(0, depthBracket - 1); cur += ch; continue; }
+        if (ch === '(') { depthParen++; cur += ch; continue; }
+        if (ch === ')') { depthParen = Math.max(0, depthParen - 1); cur += ch; continue; }
+        if (ch === ' ' && depthBracket === 0 && depthParen === 0) {
+            if (cur.trim()) parts.push(cur.trim());
+            cur = '';
+            continue;
+        }
+        cur += ch;
+    }
+    if (cur.trim()) parts.push(cur.trim());
+    return parts;
+};
+const __queryAllDeep = (rawSel) => {
+    if (!rawSel) return [];
+    let baseSel = rawSel;
+    let textNeedle = null;
+    if (rawSel.includes(':has-text(')) {
+        const m = rawSel.match(/^(.*?):has-text\(['"](.*?)['"]\)$/);
+        if (m) {
+            baseSel = (m[1] || '*').trim() || '*';
+            textNeedle = m[2];
+        }
+    }
+    let matches = __queryInScope(document, baseSel);
+    if (matches.length === 0 && baseSel.includes(' ') && !baseSel.includes(',')) {
+        const parts = __splitDescendantSelector(baseSel);
+        if (parts.length > 1) {
+            let current = [document];
+            for (const part of parts) {
+                const next = [];
+                const seen = new Set();
+                for (const scope of current) {
+                    for (const el of __queryInScope(scope, part)) {
+                        if (!seen.has(el)) { seen.add(el); next.push(el); }
+                    }
+                }
+                current = next;
+                if (current.length === 0) break;
+            }
+            matches = current;
+        }
+    }
+    if (textNeedle !== null) {
+        matches = matches.filter(e => ((e.innerText || e.textContent || '')).includes(textNeedle));
+    }
+    return matches;
+};
+const __isVisibleEl = (el, sel) => {
+    if (!el) return false;
+    if (sel && (sel.includes("type='file'") || sel.includes('type="file"'))) return true;
+    const style = window.getComputedStyle ? window.getComputedStyle(el) : null;
+    if (style && (style.display === 'none' || style.visibility === 'hidden')) return false;
+    const r = el.getBoundingClientRect ? el.getBoundingClientRect() : null;
+    if (r) {
+        return r.width > 0 && r.height > 0;
+    }
+    return el.offsetParent !== null;
+};
+"""
+
 
 class DirectCDPClient:
     """
     Direct WebSocket CDP Client for Naver Whale.
     Bypasses Playwright connect_over_cdp multi-target hanging issues on Chromium 150.
+    Supports recursive open Shadow-DOM piercing across Polymer/Lit web components.
     """
     def __init__(self, ws_url: str):
         self.ws_url = ws_url
@@ -170,22 +361,12 @@ class DirectCDPClient:
         import json
         js = f"""
         (() => {{
+            {_DEEP_QUERY_HELPER_JS}
             const selList = {json.dumps(selectors)};
             for (const sel of selList) {{
                 try {{
-                    if (sel.includes(':has-text(')) {{
-                        const m = sel.match(/^(.*?):has-text\\(['"](.*?)['"]\\)$/);
-                        if (m) {{
-                            const baseSel = m[1] || '*';
-                            const text = m[2];
-                            const els = Array.from(document.querySelectorAll(baseSel));
-                            const match = els.find(e => e.innerText && e.innerText.includes(text));
-                            if (match && match.offsetParent !== null) return true;
-                        }}
-                    }} else {{
-                        const el = document.querySelector(sel);
-                        if (el && (el.offsetParent !== null || (el.getClientRects && el.getClientRects().length > 0) || sel.includes("input") || sel.includes("textbox"))) return true;
-                    }}
+                    const els = __queryAllDeep(sel);
+                    if (els.some(el => __isVisibleEl(el, sel))) return true;
                 }} catch (e) {{}}
             }}
             return false;
@@ -210,26 +391,53 @@ class DirectCDPClient:
         import json
         js = f"""
         (() => {{
+            {_DEEP_QUERY_HELPER_JS}
             const selList = {json.dumps(selectors)};
+            const __isEnabledEl = (el) => {{
+                if (!el) return false;
+                if (el.disabled === true || el.hasAttribute('disabled') || el.getAttribute('aria-disabled') === 'true') return false;
+                const inner = el.querySelector ? (el.querySelector('button') || (el.shadowRoot && el.shadowRoot.querySelector('button'))) : null;
+                if (inner && (inner.disabled === true || inner.hasAttribute('disabled') || inner.getAttribute('aria-disabled') === 'true')) return false;
+                return true;
+            }};
+            const __clickTarget = (target) => {{
+                target.scrollIntoView({{block: 'center'}});
+                const tag = (target.tagName || '').toUpperCase();
+                if (tag === 'YTCP-TEXT-DROPDOWN-TRIGGER') {{
+                    const dt = target.querySelector('ytcp-dropdown-trigger') || (target.shadowRoot && target.shadowRoot.querySelector('ytcp-dropdown-trigger'));
+                    if (dt) {{ dt.click(); return true; }}
+                }}
+                const shouldPierceBtn = (
+                    tag.startsWith('YTCP-')
+                    || tag === 'YTD-BUTTON-RENDERER'
+                    || tag === 'YT-BUTTON-SHAPE'
+                    || tag === 'YT-ICON-BUTTON'
+                    || tag === 'YT-BUTTON-RENDERER'
+                );
+                const innerBtn = shouldPierceBtn
+                    ? (target.querySelector('button') || (target.shadowRoot && target.shadowRoot.querySelector('button')))
+                    : null;
+                if (innerBtn) {{
+                    innerBtn.click();
+                }} else {{
+                    target.click();
+                }}
+                return true;
+            }};
+            // Pass 1: strictly visible AND enabled match across selector priority list
             for (const sel of selList) {{
                 try {{
-                    let target = null;
-                    if (sel.includes(':has-text(')) {{
-                        const m = sel.match(/^(.*?):has-text\\(['"](.*?)['"]\\)$/);
-                        if (m) {{
-                            const baseSel = m[1] || '*';
-                            const text = m[2];
-                            const els = Array.from(document.querySelectorAll(baseSel));
-                            target = els.find(e => e.innerText && e.innerText.includes(text));
-                        }}
-                    }} else {{
-                        target = document.querySelector(sel);
-                    }}
-                    if (target) {{
-                        target.scrollIntoView({{block: 'center'}});
-                        target.click();
-                        return true;
-                    }}
+                    const els = __queryAllDeep(sel);
+                    const target = els.find(el => __isVisibleEl(el, sel) && __isEnabledEl(el));
+                    if (target) return __clickTarget(target);
+                }} catch (e) {{}}
+            }}
+            // Pass 2: visible match fallback
+            for (const sel of selList) {{
+                try {{
+                    const els = __queryAllDeep(sel);
+                    const target = els.find(el => __isVisibleEl(el, sel));
+                    if (target) return __clickTarget(target);
                 }} catch (e) {{}}
             }}
             return false;
@@ -241,37 +449,137 @@ class DirectCDPClient:
         if isinstance(selectors, str):
             selectors = [selectors]
         import json
-        js = f"""
-        (() => {{
-            const selList = {json.dumps(selectors)};
-            for (const sel of selList) {{
-                try {{
-                    const el = document.querySelector(sel);
+        focused = await self.eval(
+            f"""(() => {{
+                {_DEEP_QUERY_HELPER_JS}
+                const selList = {json.dumps(selectors)};
+                for (const sel of selList) {{
+                    try {{
+                        const candidates = __queryAllDeep(sel);
+                        const el = candidates.find(e => e.getBoundingClientRect().width > 0) || candidates[0];
+                        if (el) {{
+                            el.scrollIntoView({{block: 'center'}});
+                            el.focus();
+                            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {{
+                                el.select();
+                            }} else {{
+                                const range = document.createRange();
+                                range.selectNodeContents(el);
+                                const s = window.getSelection();
+                                s.removeAllRanges();
+                                s.addRange(range);
+                            }}
+                            return true;
+                        }}
+                    }} catch (e) {{}}
+                }}
+                return false;
+            }})()"""
+        )
+        if not focused:
+            return False
+        await self.send("Input.dispatchKeyEvent", {"type": "keyDown", "key": "Backspace", "code": "Backspace", "windowsVirtualKeyCode": 8})
+        await self.send("Input.dispatchKeyEvent", {"type": "keyUp", "key": "Backspace", "code": "Backspace", "windowsVirtualKeyCode": 8})
+        await asyncio.sleep(0.15)
+        await self.send("Input.insertText", {"text": text})
+        await asyncio.sleep(0.25)
+        await self.eval(
+            f"""(() => {{
+                {_DEEP_QUERY_HELPER_JS}
+                const selList = {json.dumps(selectors)};
+                for (const sel of selList) {{
+                    const candidates = __queryAllDeep(sel);
+                    const el = candidates.find(e => e.getBoundingClientRect().width > 0) || candidates[0];
                     if (el) {{
-                        el.focus();
-                        document.execCommand('selectAll', false, null);
-                        document.execCommand('insertText', false, {json.dumps(text)});
-                        el.dispatchEvent(new Event('input', {{ bubbles: true }}));
-                        el.dispatchEvent(new Event('change', {{ bubbles: true }}));
+                        el.dispatchEvent(new Event('input', {{ bubbles: true, composed: true }}));
+                        el.dispatchEvent(new Event('change', {{ bubbles: true, composed: true }}));
                         return true;
                     }}
-                }} catch (e) {{}}
-            }}
-            return false;
-        }})()
+                }}
+                return false;
+            }})()"""
+        )
+        return True
+
+    async def set_schedule_datetime_utc(self, date_str_dd_mmm_yyyy: str, time_24h_utc: str) -> bool:
         """
-        return bool(await self.eval(js))
+        Sets YouTube Studio schedule date (e.g. '19 Oct 2026') and 24h UTC time (e.g. '16:00' or '00:00')
+        on the active ytcp-visibility-scheduler widget.
+        """
+        import json
+        # 1. Expand Schedule container if collapsed
+        await self.eval(
+            """(() => {
+                const sched = document.querySelector('ytcp-visibility-scheduler');
+                if (!sched || sched.getBoundingClientRect().height === 0) {
+                    const btn = document.querySelector('#second-container-expand-button, #second-container, tp-yt-paper-radio-button[name="SCHEDULE"]');
+                    if (btn) btn.click();
+                }
+            })()"""
+        )
+        await asyncio.sleep(1.0)
+        # 2. Click datepicker-trigger and submit date_str_dd_mmm_yyyy via form submit
+        await self.eval(
+            """(() => {
+                const dp = document.querySelector('ytcp-visibility-scheduler #datepicker-trigger, #datepicker-trigger');
+                if (dp) dp.click();
+            })()"""
+        )
+        await asyncio.sleep(0.8)
+        await self.eval(
+            f"""(() => {{
+                const dp = document.querySelector('ytcp-date-picker');
+                if (!dp) return false;
+                const inp = dp.querySelector('input');
+                const form = dp.querySelector('form');
+                if (inp) {{
+                    inp.focus();
+                    const nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+                    nativeSetter.call(inp, {json.dumps(date_str_dd_mmm_yyyy)});
+                    inp.dispatchEvent(new Event('input', {{ bubbles: true, composed: true }}));
+                    inp.dispatchEvent(new Event('change', {{ bubbles: true, composed: true }}));
+                }}
+                if (form) {{
+                    form.dispatchEvent(new Event('submit', {{ bubbles: true, cancelable: true }}));
+                }}
+                return true;
+            }})()"""
+        )
+        await asyncio.sleep(0.8)
+        # 3. Click time-of-day input and select matching tp-yt-paper-item (e.g. '16:00' or '00:00')
+        await self.eval(
+            """(() => {
+                const inp = document.querySelector('ytcp-visibility-scheduler #time-of-day-container input, #time-of-day-container input');
+                if (inp) { inp.click(); inp.focus(); }
+            })()"""
+        )
+        await asyncio.sleep(0.8)
+        time_clicked = await self.eval(
+            f"""(() => {{
+                const items = Array.from(document.querySelectorAll('tp-yt-paper-item'));
+                const target = items.find(e => (e.innerText || '').trim() === {json.dumps(time_24h_utc)});
+                if (target) {{
+                    target.scrollIntoView({{block: 'center'}});
+                    target.click();
+                    return true;
+                }}
+                return false;
+            }})()"""
+        )
+        await asyncio.sleep(0.6)
+        return bool(time_clicked)
 
     async def set_file_input(
         self,
         file_path: Path,
-        selector: str = "input[type='file'][name='Filedata'], input[type='file']"
+        selector: str | list[str] = "input[type='file'][name='Filedata'], input[type='file']"
     ) -> bool:
+        import json
         import os
         import shutil
         resolved_path = file_path.resolve()
         cdp_file_str = str(resolved_path)
-        if os.name != "nt":
+        if os.name != "nt" and Path("/home/canadaofbin/chrome-profile").exists():
             host_dl_dir = Path("/home/canadaofbin/chrome-profile/flow_bridge")
             host_dl_dir.mkdir(parents=True, exist_ok=True)
             staged_name = f"studio_upload_{resolved_path.parent.parent.name}_{resolved_path.name}"
@@ -280,17 +588,35 @@ class DirectCDPClient:
                 shutil.copy2(resolved_path, host_staged)
             cdp_file_str = f"/home/seluser/chrome-profile/flow_bridge/{staged_name}"
 
-        # 1. Primary: Fast & 100% reliable objectId resolution via Runtime.evaluate
+        if isinstance(selector, list):
+            sel_parts = [s.strip() for s in selector if isinstance(s, str) and s.strip()]
+            selector_css = ", ".join(sel_parts)
+        else:
+            sel_parts = [s.strip() for s in selector.split(",") if s.strip()]
+            selector_css = selector
+        deep_expr = f"""(() => {{
+            {_DEEP_QUERY_HELPER_JS}
+            const sels = {json.dumps(sel_parts)};
+            for (const s of sels) {{
+                try {{
+                    const found = __queryAllDeep(s);
+                    if (found.length > 0) return found[0];
+                }} catch (e) {{}}
+            }}
+            return document.querySelector({json.dumps(selector_css)});
+        }})()"""
+
+        # 1. Primary: Fast & Shadow-DOM-piercing objectId resolution via Runtime.evaluate
         try:
             eval_res = await self.send("Runtime.evaluate", {
-                "expression": f"document.querySelector({json.dumps(selector)})",
-                "returnByValue": False
+                "expression": deep_expr,
+                "returnByValue": False,
             })
             obj_id = eval_res.get("result", {}).get("objectId")
             if obj_id:
                 await self.send("DOM.setFileInputFiles", {
                     "files": [cdp_file_str],
-                    "objectId": obj_id
+                    "objectId": obj_id,
                 })
                 return True
         except Exception:
@@ -302,13 +628,13 @@ class DirectCDPClient:
             root_node_id = doc.get("root", {}).get("nodeId")
             input_node = await self.send("DOM.querySelector", {
                 "nodeId": root_node_id,
-                "selector": selector
+                "selector": selector_css,
             })
             node_id = input_node.get("nodeId")
             if node_id:
                 await self.send("DOM.setFileInputFiles", {
                     "files": [cdp_file_str],
-                    "nodeId": node_id
+                    "nodeId": node_id,
                 })
                 return True
         except Exception:

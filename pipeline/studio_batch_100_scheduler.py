@@ -34,44 +34,64 @@ from pipeline.studio.config import (
     STAGING_QUEUE_FILE,
     get_slot_info,
 )
-from pipeline.studio.queue_manager import StagingQueueManager
-from pipeline.studio.uploader import StudioUploader
+from pipeline.studio.queue_manager import (
+    StagingQueueManager,
+    is_live_youtube_receipt,
+    passes_v5_publish_gate,
+)
+from pipeline.studio.uploader import StudioUploader, resolve_project_video_path
 from pipeline.topics_catalog import ALL_PSYCHOLOGY_100_TOPICS
 
 
 def build_100_video_2_per_day_schedule(
     start_date: str | None = None,
     save_to_queue: bool = True,
+    allow_legacy_v4: bool = False,
 ) -> dict[str, Any]:
     """
-    Assigns all 100 catalog projects (psych_01 .. psych_100) to 50 days × 2 slots/day
-    (Slot 2: 12:00 PM ET, Slot 4: 07:30 PM ET).
+    Assigns all 100 catalog projects (psych_01 .. psych_100) to 2 slots/day
+    spaced by 8 hours at peak US viewing hours:
+    - Slot 2: 12:00 PM US ET (16:00 UTC)
+    - Slot 4: 08:00 PM US ET (00:00 UTC +1d)
+    Preserves already-live published status (R34) and marks legacy v4 drafts as blocked_legacy_v4.
     """
     if not start_date:
-        start_dt = datetime.now(timezone.utc) + timedelta(days=1)
+        start_dt = datetime(2026, 10, 18, tzinfo=timezone.utc)
     else:
         start_dt = datetime.strptime(start_date, "%Y-%m-%d").replace(tzinfo=timezone.utc)
 
-    daily_slots = [2, 4]  # 2 videos per day: 12:00 PM ET and 07:30 PM ET
     planned_items: list[dict[str, Any]] = []
 
     for idx, topic_obj in enumerate(ALL_PSYCHOLOGY_100_TOPICS[:100]):
         pid = topic_obj.get("project_id") or topic_obj.get("id")
         pillar = topic_obj["pillar"]
-        day_offset = idx // 2
-        slot_id = daily_slots[idx % 2]
+        slot_pos = idx + 1
+        day_offset = slot_pos // 2
+        slot_id = 2 if (slot_pos % 2 == 1) else 4
         slot_info = get_slot_info(slot_id)
 
         cur_dt = start_dt + timedelta(days=day_offset)
         date_str = cur_dt.strftime("%Y-%m-%d")
 
         storage = ProjectStorage(pid)
+        proj_dir = PROJECTS_DIR / pid
         metadata = storage.load_json("06_publish", "metadata.json") or {}
         receipt = storage.load_json("06_publish", "upload_receipt.json")
-        vid_path = storage.get_stage_dir("05_assembly") / "final_shorts_1080x1920.mp4"
+        vid_path = resolve_project_video_path(proj_dir, pid)
+        video_ready = vid_path is not None
 
-        title = metadata.get("title") or topic_obj.get("topic") or pid
-        item_status = "staged" if receipt else ("ready_to_stage" if vid_path.exists() else "awaiting_render")
+        title = metadata.get("title") or topic_obj.get("title") or topic_obj.get("topic") or pid
+        is_live = is_live_youtube_receipt(receipt)
+        v5_ok, _ = passes_v5_publish_gate(proj_dir, allow_legacy_v4=allow_legacy_v4) if not is_live else (True, [])
+
+        if is_live:
+            item_status = receipt.get("status", "published_public")
+        elif video_ready and v5_ok:
+            item_status = "ready_to_stage"
+        elif video_ready and not v5_ok:
+            item_status = "blocked_legacy_v4"
+        else:
+            item_status = "awaiting_render"
 
         planned_items.append({
             "schedule_id": f"{date_str}_slot{slot_id}",
@@ -89,24 +109,33 @@ def build_100_video_2_per_day_schedule(
             "title": title,
             "pillar": pillar,
             "doi": topic_obj.get("source_doi", ""),
-            "video_ready": vid_path.exists(),
+            "video_ready": video_ready,
+            "v5_ready": v5_ok,
             "status": item_status,
-            "video_id": receipt.get("video_id") if receipt else None,
-            "shorts_url": receipt.get("shorts_url") if receipt else None,
+            "video_id": receipt.get("video_id") if is_live else None,
+            "shorts_url": receipt.get("shorts_url") if is_live else None,
         })
 
+    existing_history: list[dict[str, Any]] = []
+    if STAGING_QUEUE_FILE.exists():
+        try:
+            existing_history = list(json.loads(STAGING_QUEUE_FILE.read_text(encoding="utf-8")).get("history") or [])
+        except Exception:
+            existing_history = []
+
     queue_payload = {
-        "version": "2.0-100video-2perday",
+        "version": "2.2-100video-v5-gated",
         "channel_handle": "@AllAboutBrainOfficial",
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "slots_per_day": 2,
-        "daily_slots_et": ["12:00", "19:30"],
-        "total_days": 50,
+        "interval_hours": 8,
+        "daily_slots_et": ["12:00", "20:00"],
+        "total_days": 51,
         "total_videos": len(planned_items),
-        "start_date": start_dt.strftime("%Y-%m-%d"),
-        "end_date": (start_dt + timedelta(days=49)).strftime("%Y-%m-%d"),
+        "start_date": planned_items[0]["date"],
+        "end_date": planned_items[-1]["date"],
         "scheduled_items": planned_items,
-        "history": [],
+        "history": existing_history,
     }
 
     if save_to_queue:
@@ -122,15 +151,19 @@ def upload_and_schedule_ready_batch(
     dry_run: bool = False,
     pin_comments: bool = True,
     cdp_port: int = DEFAULT_CDP_PORT,
+    allow_legacy_v4: bool = False,
+    auto_link: bool = True,
+    assign_playlists: bool = True,
 ) -> dict[str, Any]:
     """
-    Uploads all ready projects in staging_queue.json to YouTube Studio as Private/Scheduled
-    (releasing Public at 2 videos/day: 12:00 PM ET and 07:30 PM ET) and pins their DOI comments.
+    Uploads all v5-ready projects in staging_queue.json to YouTube Studio as Private/Scheduled
+    (releasing Public at 2 videos/day: 12:00 PM ET and 08:00 PM ET), links Related Video + Playlist,
+    and pins their DOI comments. Strictly skips already-live videos (R34) and legacy v4 videos (R18-V5).
     """
     qm = StagingQueueManager(cdp_port=cdp_port)
     queue_data = qm.load_queue()
     if not queue_data.get("scheduled_items") or len(queue_data.get("scheduled_items", [])) < 100:
-        queue_data = build_100_video_2_per_day_schedule(save_to_queue=True)
+        queue_data = build_100_video_2_per_day_schedule(save_to_queue=True, allow_legacy_v4=allow_legacy_v4)
 
     uploader = StudioUploader(cdp_port=cdp_port)
     pinner = CommunityManager(cdp_port=cdp_port)
@@ -144,17 +177,24 @@ def upload_and_schedule_ready_batch(
         if not pid:
             continue
 
+        proj_dir = PROJECTS_DIR / pid
         storage = ProjectStorage(pid)
-        vid_path = storage.get_stage_dir("05_assembly") / "final_shorts_1080x1920.mp4"
-        if not vid_path.exists():
-            continue
-
         existing_receipt = storage.load_json("06_publish", "upload_receipt.json")
-        if existing_receipt and existing_receipt.get("status") == "uploaded" and not dry_run:
-            item["status"] = "scheduled_public"
+        if is_live_youtube_receipt(existing_receipt) and not dry_run:
+            item["status"] = existing_receipt.get("status", "published_public")
             item["video_id"] = existing_receipt.get("video_id")
             item["shorts_url"] = existing_receipt.get("shorts_url")
             results.append(existing_receipt)
+            continue
+
+        vid_path = resolve_project_video_path(proj_dir, pid)
+        if vid_path is None:
+            continue
+
+        v5_ok, v5_issues = passes_v5_publish_gate(proj_dir, allow_legacy_v4=allow_legacy_v4)
+        if not v5_ok:
+            item["status"] = "blocked_legacy_v4"
+            item["gate_issues"] = v5_issues[:3]
             continue
 
         print(
@@ -169,6 +209,8 @@ def upload_and_schedule_ready_batch(
                 visibility=visibility,
                 dry_run=(dry_run or quota_exhausted),
                 burn_first_frame=False,
+                auto_link=auto_link,
+                assign_playlist=assign_playlists,
             )
             if receipt.get("quota_limit_reached"):
                 quota_exhausted = True
@@ -187,7 +229,7 @@ def upload_and_schedule_ready_batch(
 
             if pin_comments:
                 try:
-                    pinner.pin_project_comment(
+                    pinner.post_and_pin_comment(
                         project_id=pid,
                         video_id=receipt.get("video_id"),
                         dry_run=(dry_run or quota_exhausted),
@@ -216,9 +258,14 @@ def main() -> int:
     parser.add_argument("--start-date", type=str, default=None, help="YYYY-MM-DD start date (default: tomorrow UTC)")
     parser.add_argument("--visibility", type=str, default="scheduled", choices=["scheduled", "private", "unlisted"])
     parser.add_argument("--dry-run", action="store_true", help="Run in dry-run staging mode")
+    parser.add_argument("--allow-legacy-v4", action="store_true", help="Allow legacy v4 drafts into upload queue")
     args = parser.parse_args()
 
-    q = build_100_video_2_per_day_schedule(start_date=args.start_date, save_to_queue=True)
+    q = build_100_video_2_per_day_schedule(
+        start_date=args.start_date,
+        save_to_queue=True,
+        allow_legacy_v4=args.allow_legacy_v4,
+    )
     print(
         f"[Batch100Scheduler] Built 50-day (2/day) schedule for {q['total_videos']} videos: "
         f"{q['start_date']} .. {q['end_date']} -> {STAGING_QUEUE_FILE}"
@@ -230,6 +277,7 @@ def main() -> int:
         visibility=args.visibility,
         dry_run=args.dry_run,
         pin_comments=True,
+        allow_legacy_v4=args.allow_legacy_v4,
     )
     print(json.dumps(summary, indent=2, ensure_ascii=False))
     return 0
