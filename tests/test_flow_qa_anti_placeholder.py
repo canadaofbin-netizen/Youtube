@@ -135,6 +135,7 @@ def test_circuit_breaker_trips_after_max_retries():
         fb_mod.FLOW_TRIGGER_VERIFY_TIMEOUT_SEC = orig_timeout
 
 
+@pytest.mark.integration
 def test_executable_qa_preflight_and_browser_gates():
     """Validates Phase 5 Executable Pre-Flight QA and Browser Generation QA gates."""
     from pipeline.qa_gates import run_browser_generation_qa, run_preflight_qa
