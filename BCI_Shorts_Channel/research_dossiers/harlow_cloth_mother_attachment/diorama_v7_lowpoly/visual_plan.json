@@ -1,0 +1,688 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "harlow_cloth_mother_attachment",
+  "topic": "Harry Harlow (1958) Wire Milk Surrogate vs Soft Terrycloth Contact Comfort (17 Hours vs 1 Hour), Drumming Toy Safe-Haven Sprint, Open-Field Secure Base Exploration, Ethics Reform, and Kangaroo Care (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Integration of Harlow's contact-comfort findings with John Bowlby's Attachment Theory transforming sterile neonatal nurseries into warm skin-to-skin newborn care alongside institutional animal-welfare reforms.",
+  "outro_title_lines": [
+    "HARLOW (1958)",
+    "UNIVERSITY OF WISCONSIN"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "CUPBOARD LOVE?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "TOUCH OVER MILK"
+    },
+    {
+      "sentence_index": 10,
+      "text": "17 HOURS DAILY"
+    },
+    {
+      "sentence_index": 19,
+      "text": "SAFE HAVEN"
+    },
+    {
+      "sentence_index": 28,
+      "text": "BRAVE BASE"
+    },
+    {
+      "sentence_index": 36,
+      "text": "ETHICS REFORM"
+    },
+    {
+      "sentence_index": 44,
+      "text": "WARM LAUNCHPAD"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "CUPBOARD LOVE?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "TOUCH OVER MILK"
+    },
+    {
+      "sentence_index": 10,
+      "text": "17 HOURS DAILY"
+    },
+    {
+      "sentence_index": 19,
+      "text": "SAFE HAVEN"
+    },
+    {
+      "sentence_index": 28,
+      "text": "BRAVE BASE"
+    },
+    {
+      "sentence_index": 36,
+      "text": "ETHICS REFORM"
+    },
+    {
+      "sentence_index": 44,
+      "text": "WARM LAUNCHPAD"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 17,
+      "mode": "split_hstack",
+      "left_clip_index": 19,
+      "right_clip_index": 20,
+      "left_label": "WIRE MILK: 1 HR",
+      "right_label": "SOFT CLOTH: 17 HRS"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands beside an inclined silver wire-mesh cylinder",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift a clean glass milk bottle and place it into the chest ring of the bare silver wire-mesh cylinder",
+      "consequence": "the glass milk bottle gleams inside the cold bare wire frame"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit pastel observation chamber with a glass viewing window holding an inclined bare wire cylinder with a milk bottle beside a milkless dove-gray terrycloth-wrapped cylinder",
+      "action": "viewed strictly from behind a researcher in a white coat and cap outside the window, a matte-cream faceted low-poly miniature monkey sculpture steps past the wire bottle and clasps the soft dove-gray terrycloth cylinder"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved low-poly hands over two mechanical contact timer boxes",
+      "prop_action": "one cool porcelain-white gloved low-poly hand taps a tall seventeen-bar amber column beside the cloth switch while the other hand points to a single low bar beside the wire switch",
+      "consequence": "the tall amber cloth column towers beside the tiny single wire bar"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands wrapping a wooden cylinder in soft dove-gray terrycloth towel fabric",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and press thick dove-gray terrycloth towel fabric snugly around the inclined cylinder base",
+      "consequence": "the cushioned dove-gray terrycloth cylinder stands warm and soft beside the bare wire frame"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit Wisconsin observation suite with a wide glass viewing window overlooking the dual-cylinder chamber",
+      "action": "viewed strictly from behind, a clothed low-poly psychologist in a white lab coat, trousers, and boots steps up to the glass window and presses a silver stopwatch as the matte-cream low-poly monkey sculpture rests on the dove-gray cloth cylinder"
+    },
+    {
+      "sentence_index": 4,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "maternity_care_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sterile pastel-mint mid-century hospital nursery row with glass partitions separating neat white metal cribs",
+      "action": "viewed strictly from behind, clothed low-poly nurses in crisp white coats, caps, and boots walk past the glass partition and set a bottle rack on a side cart"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal suit sleeves and cool porcelain-white gloved low-poly hands over a pale-stone demonstration desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place a glass milk bottle beside a silver bell model and slide a wooden arrow between them",
+      "consequence": "the glass bottle and silver bell model sit aligned on the sunlit desk"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in white coats and boots carry two inclined cylinder frames and place them inside the sunlit chamber"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands comparing the two inclined surrogate cylinders side by side",
+      "prop_action": "the left cool porcelain-white gloved low-poly hand taps the cold silver welded wire mesh while the right hand presses gently into the cushioned dove-gray terrycloth wrap",
+      "consequence": "the soft dove-gray terrycloth dimples warmly beside the rigid silver wire grid"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lock the full milk bottle onto the bare silver wire cylinder and leave the dove-gray terrycloth cylinder completely empty",
+      "consequence": "only the bare wire frame holds the white milk bottle"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean side-profile architectural cross-section of the dual-cylinder floor showing spring-loaded pressure switches beneath both bases",
+      "internal_mechanism": "as the dove-gray terrycloth base depresses its floor switch, warm amber light flows along a cable to the tall contact counter"
+    },
+    {
+      "sentence_index": 10,
+      "end_sentence_index": 11,
+      "act": 2,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands checking two identical glass milk bottles on a sunlit counter",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set two equally half-empty milk bottles side by side and slide two matching pastel weight blocks together",
+      "consequence": "both pastel weight blocks stand at the exact same height in clear daylight"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved low-poly hands beside the bare silver wire cylinder",
+      "prop_action": "one cool porcelain-white gloved low-poly hand opens the chamber latch and points toward the untouched bare silver wire cylinder",
+      "consequence": "the bare silver wire feeder stands empty in bright daylight"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster miniature raceway pit lane featuring a brushed-silver fuel pump beside a pastel sky-blue race car",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in jacket sleeves lift the silver fuel nozzle briefly to the sky-blue car and push the car swiftly back onto the track"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit cool-alabaster bench displaying a thick plush dove-gray patchwork quilt beside seventeen glowing amber hour blocks",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in sweater sleeves lift and place the plush dove-gray patchwork quilt snugly around a warm cream ceramic sculpture"
+    },
+    {
+      "sentence_index": 15,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a close sunlit view inside the glass chamber showing the dove-gray terrycloth cylinder next to the bare wire bottle frame",
+      "action": "viewed from behind a researcher's white coat shoulder at the glass, the matte-cream faceted low-poly miniature monkey sculpture locks both back feet onto the dove-gray cloth cylinder and leans sideways toward the bottle"
+    },
+    {
+      "sentence_index": 15,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean geometric diagram of the dove-gray cloth cylinder and adjacent silver wire cylinder separated by a narrow floor gap",
+      "internal_mechanism": "the matte-cream low-poly monkey sculpture anchors its hind feet on the dove-gray cloth cylinder while bridging its arms across the gap to the glass bottle"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster architectural model of two pale-limestone towers linked by a hinged wooden drawbridge",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in coat sleeves pull a brushed-silver cord and set the hinged wooden drawbridge from the warm dove-gray home tower across to the silver supply tower"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands beside the bare silver wire feeder timer",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift the glass bottle check gauge and tap the single low pastel-slate hour block under the wire frame",
+      "consequence": "the bare silver wire frame stands idle with one low slate block"
+    },
+    {
+      "sentence_index": 17,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands beside the soft dove-gray terrycloth base timer",
+      "prop_action": "both cool porcelain-white gloved low-poly hands stack and align seventeen warm amber hour blocks beside the dove-gray terrycloth cylinder where the matte-cream low-poly monkey sculpture rests",
+      "consequence": "seventeen warm amber blocks glow beside the soft dove-gray cloth cylinder"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a wide sunlit view of the Wisconsin observation gallery with the dual-surrogate chamber and tall amber timer column",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in white coats, trousers, and boots step back from the viewing glass and fold an old food-drive chart shut"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "open_field_playroom",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands holding a small vintage wind-up tin drumming toy",
+      "prop_action": "both cool porcelain-white gloved low-poly hands turn the brushed-silver wind-up key on the back of the miniature tin drumming toy and set it on the floor",
+      "consequence": "the tiny wooden drumsticks tap rapidly against the miniature tin drum"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "open_field_playroom",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved low-poly hands open the floor hatch and slide the tapping tin drumming toy onto the white playroom mat",
+      "consequence": "crisp coral sound rings ripple outward from the miniature tin drum"
+    },
+    {
+      "sentence_index": 21,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "open_field_playroom",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright sunlit fear-test chamber containing the bare wire bottle frame on one side and the dove-gray terrycloth cylinder on the other",
+      "action": "viewed strictly from behind a clothed observer in a white coat and cap at the window, the matte-cream low-poly monkey sculpture dashes past the wire bottle and leaps onto the dove-gray cloth cylinder"
+    },
+    {
+      "sentence_index": 21,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "open_field_playroom",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands tallying ten sky-blue wooden beads on an observation counter",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide all ten sky-blue wooden beads cleanly across to the dove-gray cloth side of the wooden bar",
+      "consequence": "every single bead rests on the dove-gray terrycloth side while the wire side stays empty"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "somatosensory cortex",
+      "anatomy_label": "SOMATOSENSORY CORTEX\nWARM TOUCH MAP",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper sensory strip of the matte warm-ivory 3D brain model, gentle warm amber-gold light spreads smoothly through the somatosensory cortex"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nQUIETED ALARM",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat mid-sagittal half-brain cross-section, a soothing sky-blue pathway travels down to calm the coral glow of the deep almond-shaped amygdala"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster limestone climbing wall fitted with a solid brushed-silver anchor bolt and woven sky-blue safety rope",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in jacket sleeves clip a brushed-silver carabiner into the anchor bolt and pull the sky-blue rope taut"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "open_field_playroom",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands arranging colorful pastel wooden blocks across a spacious white floor",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set pastel wooden cubes and a small climbing step around the central dove-gray terrycloth cylinder",
+      "consequence": "the sunlit open-field playroom gleams with colorful geometric wooden toys"
+    },
+    {
+      "sentence_index": 26,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "open_field_playroom",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands placing three pastel step markers beside the cloth base",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set and align three pastel wooden step markers leading outward from the dove-gray terrycloth base",
+      "consequence": "the three wooden step markers form a neat path toward the play blocks"
+    },
+    {
+      "sentence_index": 26,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "open_field_playroom",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the spacious sunlit white open-field playroom with the dove-gray terrycloth cylinder standing at center surrounded by pastel wooden blocks",
+      "action": "viewed strictly from behind a clothed researcher in a white coat and boots at the observation window, the matte-cream low-poly monkey sculpture touches the dove-gray cloth base and steps out to lift a sky-blue wooden cube"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "open_field_playroom",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved low-poly hands lifting the dove-gray terrycloth cylinder out of the playroom",
+      "prop_action": "both cool porcelain-white gloved low-poly hands unlatch the base plate and lift the dove-gray terrycloth cylinder up and away from the white floor",
+      "consequence": "an empty circular socket remains in the middle of the wooden blocks"
+    },
+    {
+      "sentence_index": 28,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "open_field_playroom",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit white open-field room with wooden blocks scattered around the empty center floor",
+      "action": "viewed strictly from behind a clothed observer in a white coat and cap at the window, the matte-cream low-poly monkey sculpture curls motionless in the corner while every wooden block stays untouched"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "open_field_playroom",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands returning the dove-gray terrycloth cylinder to the center floor",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lock the warm dove-gray terrycloth cylinder back into the floor socket and place a pastel block beside it",
+      "consequence": "the matte-cream low-poly monkey sculpture steps briskly back out toward the pastel block"
+    },
+    {
+      "sentence_index": 31,
+      "end_sentence_index": 32,
+      "act": 4,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands inserting a frost-blue cooling coil inside a cloth cylinder core",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide a pale frost-blue cooling core inside the cylinder base and close the bottom cap",
+      "consequence": "pale ice-blue frost crystals shimmer faintly around the chilled cylinder base"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster table holding a quilted pastel fabric heating pad beside a wall outlet block",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in sweater sleeves pull the power plug out of the wall outlet block and push the cooled fabric heating pad aside"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean cross-section of the dove-gray terrycloth cylinder showing a warm amber radiant bulb glowing gently inside cushioned sponge foam",
+      "internal_mechanism": "soft golden warmth radiates outward through the sponge cushion into the dove-gray terrycloth wrap"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the quiet sunlit observation chamber with the motionless dove-gray terrycloth cylinder standing alone",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in tweed blazers, coats, and boots stand outside the glass and lower their clipboards thoughtfully"
+    },
+    {
+      "sentence_index": 36,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands at a sunlit university ethics review table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands open a sky-blue welfare binder and place a protective silver shield emblem beside a miniature chamber model",
+      "consequence": "the silver welfare emblem rests centered on the sunlit review table"
+    },
+    {
+      "sentence_index": 36,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit university ethics seminar room with a cool-slate conference table and welfare binders",
+      "action": "viewed strictly from behind, three clothed low-poly committee members in blazers, coats, and boots lean over the slate-stone table and open the sky-blue welfare binders"
+    },
+    {
+      "sentence_index": 37,
+      "end_sentence_index": 38,
+      "act": 5,
+      "location_id": "open_field_playroom",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands placing a pastel ball beside the motionless cloth cylinder",
+      "prop_action": "one cool porcelain-white gloved low-poly hand rolls a pastel wooden ball gently against the dove-gray cloth cylinder where it bounces back unreturned, then lifts the ball",
+      "consequence": "the inanimate cloth cylinder stands completely still without moving"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "wisconsin_surrogate_chamber",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands stamping an institutional animal-care charter",
+      "prop_action": "both cool porcelain-white gloved low-poly hands close a thick sage care-standards binder and press a brushed-silver seal onto its cover",
+      "consequence": "the sealed care-standards binder sits firmly on the slate-stone desk"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "maternity_care_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit London clinical study room with tall paned windows, bookshelves, and a pediatric cradle model on a desk",
+      "action": "viewed strictly from behind, a clothed low-poly psychiatrist in a charcoal suit, coat, and boots steps to the desk and links two attachment model blocks together"
+    },
+    {
+      "sentence_index": 41,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "maternity_care_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage hospital scrub sleeves and cool porcelain-white gloved low-poly hands wheeling an empty metal crib aside",
+      "prop_action": "both cool porcelain-white gloved low-poly hands push the cold metal crib rail away and unfold a warm cream cotton wrap blanket",
+      "consequence": "the warm cream cotton blanket lies open in golden morning window light"
+    },
+    {
+      "sentence_index": 41,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "maternity_care_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a warm sunlit modern family maternity suite with a cushioned armchair beside a tall window and a clean wave monitor",
+      "action": "viewed strictly from behind, a clothed low-poly nurse in sage scrubs and cap drapes a warm cream blanket around the shoulders of a seated parent figure cradling a swaddled bundle"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "maternity_care_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white clinical coat sleeves and cool porcelain-white gloved low-poly hands beside the sunlit bedside wave monitor",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift a calm sky-blue vitality card and clip it beside the steady bedside monitor",
+      "consequence": "the calm sky-blue wave trace shines evenly across the screen"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "maternity_care_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit modern pediatric family suite bathed in warm morning daylight",
+      "action": "viewed strictly from behind, two clothed low-poly clinicians in white coats and boots step back quietly beside the doorway and press their hands together as the bedside wave monitor glows calm sky-blue"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster console pairing a warm-slate-stone pyramid metronome beside a smooth sky-blue pulse ribbon display",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in coat sleeves release the silver metronome pendulum and align its steady swing with the calm sky-blue wave"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "maternity_care_suite",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "oatmeal knit sweater sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved low-poly hands fold a soft cream knit scarf on a sunlit wooden table and set a warm ceramic teacup beside it",
+      "consequence": "gentle steam rises from the ceramic teacup in morning sunlight"
+    },
+    {
+      "sentence_index": 45,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "maternity_care_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue child sweater sleeves and cool porcelain-white gloved low-poly hands rushing past a wooden snack bowl",
+      "prop_action": "both cool porcelain-white gloved low-poly hands push past the untouched bowl of red apples and reach eagerly toward a warm wool cardigan sleeve",
+      "consequence": "the bowl of apples stays untouched on the low wooden table"
+    },
+    {
+      "sentence_index": 45,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "maternity_care_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit home living room with a low wooden snack table holding a bowl of apples beside a cozy armchair",
+      "action": "viewed strictly from behind, a small clothed low-poly child figure in a sky-blue sweater, cap, and boots runs past the snack table and steps into the open arms of a seated parent in a wool cardigan"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "maternity_care_suite",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate cardigan sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved low-poly hands reach across a couch cushion, lift a thick woven dove-gray throw blanket, and pull it warmly across the lap",
+      "consequence": "the thick woven dove-gray blanket settles softly in warm lamp light"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nBOLD PLANNER",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front lobe of the matte warm-ivory 3D brain model, clear sky-blue and warm amber-gold light illuminates the prefrontal cortex while the lower alarm stays calm"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "open_field_playroom",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit park courtyard with stone stepping blocks leading out from a wooden garden bench",
+      "action": "viewed strictly from behind, a clothed low-poly mentor in a wool coat and hat waves reassuringly from the bench as a young figure in a jacket and boots steps boldly onto the stone blocks"
+    },
+    {
+      "sentence_index": 49,
+      "end_sentence_index": 50,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "camel coat sleeves and cool porcelain-white gloved low-poly hands over a sunlit architectural launchpad model",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lock a cushioned dove-gray base block onto a pale-stone platform and slide a sky-blue glider cleanly forward off the ramp",
+      "consequence": "the sky-blue glider rests poised at the front edge of the sunlit ramp"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "maternity_care_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a sunlit tree-lined family garden path beside pastel brick cottages",
+      "action": "viewed strictly from behind, clothed low-poly family figures in sweaters, coats, caps, and boots hold gloved hands and walk calmly down the sunlit stone path"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "maternity_care_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a peaceful sunlit university lakeside lawn framed by pastel green trees rising into a clear sky-blue horizon with geometric white clouds",
+      "action": "viewed strictly from behind, clothed low-poly figures in wool coats, hats, and boots step and walk calmly along the sunlit path as the camera tilts smoothly upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "TOUCH OVER MILK",
+    "cover_sentence_index": 3,
+    "cover_brief": "matte-cream faceted low-poly miniature monkey sculpture clinging to tan terrycloth cylinder beside bare silver wire bottle frame in sunlit lab"
+  }
+}

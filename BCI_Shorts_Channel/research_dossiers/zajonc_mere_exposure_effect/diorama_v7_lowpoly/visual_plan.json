@@ -1,0 +1,674 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "zajonc_mere_exposure_effect",
+  "topic": "Robert Zajonc Mere Exposure Effect, Visual Perceptual Fluency, Subliminal Millisecond Polygon Preference & Mirror-Reversed Orientation Liking (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Theodore Mita testing mirror-flipped versus true camera orientation so people pick their daily mirror view while close friends pick the real unflipped view.",
+  "outro_title_lines": [
+    "ROBERT ZAJONC (1968)",
+    "ANN ARBOR, MICHIGAN"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "NEED MEMORY?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "HIDDEN WARMTH"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FLASH COUNT"
+    },
+    {
+      "sentence_index": 19,
+      "text": "SAFETY FLUENCY"
+    },
+    {
+      "sentence_index": 28,
+      "text": "ZERO RECALL"
+    },
+    {
+      "sentence_index": 37,
+      "text": "MIRROR TWIST"
+    },
+    {
+      "sentence_index": 45,
+      "text": "EIGHT CALM TRIES"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "NEED MEMORY?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "HIDDEN WARMTH"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FLASH COUNT"
+    },
+    {
+      "sentence_index": 19,
+      "text": "SAFETY FLUENCY"
+    },
+    {
+      "sentence_index": 28,
+      "text": "ZERO RECALL"
+    },
+    {
+      "sentence_index": 37,
+      "text": "MIRROR TWIST"
+    },
+    {
+      "sentence_index": 45,
+      "text": "EIGHT CALM TRIES"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 39,
+      "mode": "split_hstack",
+      "left_clip_index": 43,
+      "right_clip_index": 44,
+      "left_label": "MIRROR FLIP",
+      "right_label": "TRUE CAMERA"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate cardigan cuffs and cool porcelain-white gloved low-poly hands holding two unmarked pastel geometric relief tiles on a cool slate-stone tabletop",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and tilt a powder-blue wave relief tile beside a pale lavender star relief tile",
+      "consequence": "neither unmarked sculptural tile carries any prior story or reward"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit cool mist-white Michigan psychology lab with a brushed-silver shutter aperture box resting on a cool slate-stone bench",
+      "action": "viewed strictly from behind, clothed low-poly students in powder-blue and sage sweaters sit before the silver shutter box and lean forward placing gloved hands on the bench"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater cuffs and cool porcelain-white gloved low-poly hands sliding a mint-sage preference token toward a flashed pastel relief tile on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand pushes and sets the mint-sage heart-shaped sculpture token beside the powder-blue wave tile",
+      "consequence": "brief silent flashes pull preference toward the repeated shape"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved low-poly hands loading unmarked pastel geometric sculptural reliefs into a brushed-silver shutter aperture on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide and place a tray of twelve pastel sculptural relief tiles into the silver shutter slot",
+      "consequence": "the precision shutter box stands ready to flash novel shapes cleanly"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the bright Ann Arbor laboratory with tall cool-toned windows, a cool slate-stone bench, and the brushed-silver shutter aperture box",
+      "action": "viewed strictly from behind, a clothed low-poly psychologist in a charcoal blazer steps to the shutter box and turns a silver timing dial with gloved hands"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a cool powder-blue seminar hall where two opposing silver balance arms sit tilted on a cool mist-white pedestal",
+      "action": "viewed strictly from behind, two clothed low-poly scholars in slate jackets walk up to the tilted balance arms and lift gloved hands in debate"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket cuffs and cool porcelain-white gloved low-poly hands pushing away a repeated gray cube across a cool slate-stone tabletop",
+      "prop_action": "one cool porcelain-white gloved low-poly hand taps and slides the plain gray cube away toward a dim coral-rose tray",
+      "consequence": "old folk wisdom assumed frequent encounters always bred annoyance"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved low-poly hands arranging unmarked pastel sculptural tiles beside the brushed-silver shutter box on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align and push the unmarked pastel relief tiles into separate frequency slots",
+      "consequence": "pure unrewarded repetition gets isolated under controlled lab timing"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "charcoal cuffs and cool porcelain-white gloved low-poly hands fanning twelve unmarked pastel geometric relief tiles across cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands spread and align the twelve unfamiliar symmetric and asymmetric pastel relief tiles in two neat rows",
+      "consequence": "every novel geometric relief starts completely unfamiliar to the viewer"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a matte powder-blue coastal lighthouse tower sweeping a soft cyan light cone across a cool mist-white harbor model",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in coat cuffs turn and push the silver lantern housing sweeping a clean two-second beam"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved low-poly hands opening an empty cool mist-white prize tray beside the shutter box",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift the mist-white cover and turn both palms open above the empty tray",
+      "consequence": "zero prizes or praise accompany any of the silent flashes"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Michigan lab with the brushed-silver shutter aperture clicking softly in front of seated clothed low-poly volunteers",
+      "action": "viewed strictly from behind, clothed low-poly volunteers in pastel sweaters watch the shutter window and rest gloved hands calmly on the slate bench"
+    },
+    {
+      "sentence_index": 10,
+      "end_sentence_index": 11,
+      "act": 2,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "inside the brushed-silver shutter aperture housing where unmarked pastel geometric relief tiles cycle past a sliding silver window on cool slate-stone",
+      "internal_mechanism": "one lavender tile slides past once while a powder-blue wave relief tile cycles briskly back and forth through the window twenty-five times"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan cuffs and cool porcelain-white gloved low-poly hands sliding a silver pointer along a cool mist-white rating slider bar on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts a pastel relief tile while the other slides the silver pointer toward a glowing mint-sage end",
+      "consequence": "volunteers rate how positive each unfamiliar item feels by pure intuition"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved low-poly hands turning an unmarked powder-blue wave relief tile over on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and rotate the blank-backed pastel sculptural tile searching for hidden clues",
+      "consequence": "the abstract tile holds zero inherent meaning yet feels oddly welcoming"
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cuffs and cool porcelain-white gloved low-poly hands pushing the silver slider all the way into the bright mint-sage zone on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides and locks the silver pointer at the top mint-sage column beside the repeated powder-blue tile",
+      "consequence": "the frequently flashed tile wins the highest warmth score"
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright Ann Arbor lab showing a rising staircase of glowing mint-sage columns on a cool mist-white display stand",
+      "action": "viewed strictly from behind, clothed low-poly students in pastel cardigans step beside the slate bench and place mint-sage tokens onto the tallest column with gloved hands"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a faceted matte slate-blue ship anchor hanging on a silver chain inside a clear cool powder-blue water tank",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in blazer cuffs lift and drop the silver chain letting the heavy slate-blue anchor sink to the bottom"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "charcoal blazer cuffs and cool porcelain-white gloved low-poly hands placing twelve unmarked curved porcelain ribbon reliefs onto cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide and arrange the curved pastel ribbon reliefs along the exact same rising mint-sage column curve",
+      "consequence": "unfamiliar curved sculptural forms climb the exact same warmth curve"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sleeves and cool porcelain-white gloved low-poly hands lifting a glowing mint-sage warmth sphere beside the repeated relief tile on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands cradle and set the glowing mint-sage sphere onto a silver cradle beside the repeated tile",
+      "consequence": "sheer exposure manufactures genuine liking without a single reward"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "the quiet Michigan lab with rows of rising mint-sage bar sculptures standing across the cool slate-stone table",
+      "action": "viewed strictly from behind, two clothed low-poly psychologists in charcoal blazers walk beside the table and place gloved hands on the bench edge"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright cool mist-white studio room linking the silver shutter aperture box to a matte-pastel 3D brain model on a slate pedestal",
+      "action": "viewed strictly from behind, the clothed low-poly researcher in a charcoal blazer steps between the shutter box and brain pedestal and points gloved hands across both"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nTHREAT ALARM",
+      "brain_scene": "a matte-pastel sagittal cutaway 3D brain model on a cool mist-white stand where the deep almond-shaped amygdala glows alert coral-rose on first sight"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "daily_mirror_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a stylized low-poly pastel forest clearing with cool sage-green pine trees and an unfamiliar faceted lavender boulder on the path",
+      "action": "viewed strictly from behind, a clothed low-poly hiker in a slate jacket pauses on the path and raises gloved hands cautiously before the unfamiliar boulder"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal cuffs and cool porcelain-white gloved low-poly hands sliding a brushed-silver safety shield gate ahead of a pastel sorting tray on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lower and latch the silver safety check gate first before opening the sorting tray",
+      "consequence": "survival circuits verify harmlessness before slower reasoning begins"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "locked_tripod",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nTHREAT ALARM",
+      "brain_scene": "a matte-pastel sagittal cutaway 3D brain model where the deep amygdala softens from coral-rose into calm pale mint-sage as safe encounters repeat"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "pan_right",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "VISUAL CORTEX\nVISION CENTER",
+      "brain_scene": "a matte-pastel 3D cortical brain model highlighting the rear primary visual cortex in crisp electric cyan pulsing swiftly and smoothly"
+    },
+    {
+      "sentence_index": 25,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan cuffs and cool porcelain-white gloved low-poly hands gliding a powder-blue relief tile effortlessly along a polished silver track on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand pushes and glides the powder-blue tile smoothly right into a glowing mint-sage cradle",
+      "consequence": "frictionless visual fluency triggers an instant feeling of comfort"
+    },
+    {
+      "sentence_index": 25,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Michigan lab with the smooth silver track glowing soft cyan across the cool slate-stone bench",
+      "action": "viewed strictly from behind, clothed low-poly volunteers in powder-blue sweaters nod and slide mint-sage preference tokens forward with gloved hands"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nWARMTH PLANNER",
+      "brain_scene": "a matte-pastel 3D cortical brain model where smooth cyan waves from the back reach the front prefrontal cortex lighting it in soft mint-sage"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved low-poly hands turning the brushed-silver shutter speed dial to its fastest notch on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands twist and click the silver speed dial to an ultra-brief flash setting",
+      "consequence": "the shutter prepares to flash shapes faster than conscious recall can catch"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "inside the high-speed brushed-silver shutter aperture holding irregular multi-sided pastel geometric reliefs on cool slate-stone",
+      "internal_mechanism": "the twin silver shutter blades flick open and shut in an instant blip over an asymmetric powder-blue polygon relief"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a clean brushed-silver spring mousetrap resting cocked on a cool slate-stone block",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in shirt cuffs tap and trip the silver release lever snapping the spring bar shut in an instant"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater cuffs and cool porcelain-white gloved low-poly hands hesitating between two irregular pastel polygon reliefs on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands reach and pull uncertainly between a powder-blue polygon tile and a lavender polygon tile",
+      "consequence": "conscious memory cannot tell which polygon flashed inside the shutter"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a blank faceted brushed-silver disc coin poised above a cool mist-white felt pad on cool slate-stone",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in sweater cuffs flip and catch the blank brushed-silver coin onto the mist-white pad"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan sleeves and cool porcelain-white gloved low-poly hands reaching straight for the previously flashed powder-blue polygon tile on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides and pulls the flashed powder-blue polygon tile into a glowing mint-sage tray",
+      "consequence": "gut preference still selects the familiar polygon without conscious recall"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "gentle_push_in",
+      "analogy_world": "a matte powder-blue horseshoe magnet sliding beneath a thin cool mist-white stone slab topped with brushed-silver spheres",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in coat cuffs push and glide the hidden powder-blue magnet underneath pulling the silver spheres smoothly across"
+    },
+    {
+      "sentence_index": 34,
+      "end_sentence_index": 35,
+      "act": 4,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright Ann Arbor archive room filled with neat stacks of cool mist-white study folders beside glowing cyan preference columns",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in slate blazers walk past the stacked folders and align tall cyan summary bars with gloved hands"
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal cuffs and cool porcelain-white gloved low-poly hands setting a glowing mint-sage warmth token ahead of a silver gear wheel on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place the mint-sage token first while the silver reasoning gear sits still behind it",
+      "consequence": "warm preference arrives before deliberate reasoning even turns"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "daily_mirror_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit cool powder-blue dressing room with a tall brushed-silver mirror frame and an asymmetric clothed torso bust on a slate stand",
+      "action": "viewed strictly from behind, a clothed low-poly researcher in a navy blazer walks in and sets an asymmetric jacket bust with one mint-sage lapel pin before the silver mirror frame using gloved hands"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "daily_mirror_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and cool porcelain-white gloved low-poly hands holding two unmarked cards showing asymmetric geometric jacket silhouettes on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands tilt and compare a left-pinned silhouette card against a right-pinned silhouette card",
+      "consequence": "the unflipped camera silhouette feels strangely unfamiliar to its owner"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "daily_mirror_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands rotating an asymmetric pastel sculpture with a left cyan wing before a silver mirror frame",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set and align the asymmetric sculpture as the silver mirror reverses the cyan wing left to right",
+      "consequence": "the mirror reverses every asymmetric detail horizontally"
+    },
+    {
+      "sentence_index": 39,
+      "cut_role": "split_right",
+      "act": 5,
+      "location_id": "daily_mirror_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cardigan cuffs and cool porcelain-white gloved low-poly hands framing the same asymmetric pastel sculpture through a brushed-silver camera lens ring",
+      "prop_action": "both cool porcelain-white gloved low-poly hands hold and center the silver lens ring showing the true unflipped cyan wing position",
+      "consequence": "the camera captures the unreversed orientation seen by friends"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "daily_mirror_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "sage cardigan cuffs and cool porcelain-white gloved low-poly hands placing a toothbrush cup beside the silver mirror frame on a cool mist-white counter",
+      "prop_action": "one cool porcelain-white gloved low-poly hand sets the powder-blue cup down and straightens a mint-sage lapel pin reflected in the mirror",
+      "consequence": "thousands of morning routines build deep fluency for the reversed view"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a soft matte sage-green felt house slipper resting beside a stiff slate-gray boot on a cool powder-blue stone mat",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in cardigan cuffs reach and slide the comfortable sage-green felt slipper smoothly forward"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "daily_mirror_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue jacket cuffs and cool porcelain-white gloved low-poly hands placing a mint-sage preference ring onto the true camera silhouette card on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lower and snap the mint-sage ring around the unflipped silhouette card",
+      "consequence": "close friends consistently pick the unflipped version they meet across tables"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "daily_mirror_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright cool-toned cafe table with two clothed low-poly friends seated across a cool slate-stone tabletop",
+      "action": "viewed strictly from behind, two clothed low-poly friends in powder-blue and sage jackets slide the unflipped silhouette card forward and tap it happily with gloved hands"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the bright research room displaying two opposite tall cyan preference columns side by side on a cool slate-stone table",
+      "action": "viewed strictly from behind, two clothed low-poly scientists in navy and charcoal blazers step back from the twin columns and spread gloved hands in amazement"
+    },
+    {
+      "sentence_index": 44,
+      "act": 5,
+      "location_id": "daily_mirror_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy cuffs and cool porcelain-white gloved low-poly hands balancing the mirror-flipped and true-camera silhouette tiles side by side on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set a mint-sage token beside each opposite tile cleanly",
+      "consequence": "daily viewing history alone makes two observers love opposite orientations"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "daily_mirror_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a calm sunlit cool mist-white kitchen and study counter with pastel headphones and a bowl of sage-green greens on slate-stone",
+      "action": "viewed strictly from behind, a clothed low-poly person in a powder-blue sweater walks along the slate counter and touches the headphones and bowl with gloved hands"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "daily_mirror_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved low-poly hands picking up an unfamiliar pastel geometric bowl beside sleek silver headphones on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and inspect the unfamiliar bowl cautiously before setting it gently down",
+      "consequence": "brand-new songs and habits start with low fluency on day one"
+    },
+    {
+      "sentence_index": 47,
+      "end_sentence_index": 48,
+      "act": 6,
+      "location_id": "daily_mirror_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cuffs and cool porcelain-white gloved low-poly hands lining up eight calm mint-sage stepping stones while pushing away a jagged coral-rose block on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align eight smooth mint-sage tokens in a row and slide the harsh coral-rose block off the tray",
+      "consequence": "gentle spaced tries build comfort for neutral habits while noxious things stay unpleasant"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket cuffs and cool porcelain-white gloved low-poly hands pausing a row of identical echoing pastel megaphone cones on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts and places a silver divider wall blocking the row of repeating pastel cones",
+      "consequence": "pausing breaks the spell of sheer viral repetition"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and cool porcelain-white gloved low-poly hands comparing a solid brushed-silver cube beside a hollow repeated pastel shell on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and slide the solid brushed-silver cube over the hollow pastel shell",
+      "consequence": "checking solid evidence separates real truth from mere familiarity"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "daily_mirror_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater cuffs and cool porcelain-white gloved low-poly hands placing a tenth glowing mint-sage token onto a neat desk rack on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands click the tenth mint-sage token into place completing a smooth glowing arc",
+      "consequence": "ten spaced calm sessions turn awkward effort into warm ease"
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved low-poly hands resting a glowing mint-sage warmth token beside the brushed-silver shutter box on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands center and align the mint-sage warmth token beside the pastel wave relief tile",
+      "consequence": "steady gentle encounters quietly shape what feels like home"
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the serene sunlit Ann Arbor laboratory with the brushed-silver shutter aperture box, pastel geometric reliefs on cool slate-stone, and tall windows opening to pale sky",
+      "action": "viewed strictly from behind, the clothed low-poly psychologist in a charcoal blazer walks calmly toward the tall sunlit window as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "HIDDEN WARMTH",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered brushed-silver shutter aperture box on cool slate-stone flashing an unmarked pastel geometric wave relief beside a glowing mint-sage token"
+  }
+}

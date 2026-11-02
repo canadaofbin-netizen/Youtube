@@ -1,0 +1,677 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "hochberg_braingate_robotic_coffee",
+  "topic": "Leigh Hochberg & BrainGate2 96-Channel Motor Cortex Array, Five-Year Chronic Survival & Cathy Hutchinson's Thought-Controlled Robotic Arm Coffee Sip (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Cathy Hutchinson using her five-year-old motor cortex sensor to steer a silver five-fingered robotic arm across a tabletop, grasp an insulated coffee bottle, and sip independently after fifteen years of paralysis.",
+  "outro_title_lines": [
+    "LEIGH HOCHBERG (2012)",
+    "BROWN UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "LOST MOVEMENT?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "THOUGHT COFFEE"
+    },
+    {
+      "sentence_index": 10,
+      "text": "TINY SENSOR"
+    },
+    {
+      "sentence_index": 19,
+      "text": "DIRECTION CODE"
+    },
+    {
+      "sentence_index": 28,
+      "text": "FIVE YEAR TEST"
+    },
+    {
+      "sentence_index": 37,
+      "text": "FIRST SOLO SIP"
+    },
+    {
+      "sentence_index": 45,
+      "text": "REWIRED FUTURE"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "LOST MOVEMENT?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "THOUGHT COFFEE"
+    },
+    {
+      "sentence_index": 10,
+      "text": "TINY SENSOR"
+    },
+    {
+      "sentence_index": 19,
+      "text": "DIRECTION CODE"
+    },
+    {
+      "sentence_index": 28,
+      "text": "FIVE YEAR TEST"
+    },
+    {
+      "sentence_index": 37,
+      "text": "FIRST SOLO SIP"
+    },
+    {
+      "sentence_index": 45,
+      "text": "REWIRED FUTURE"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 22,
+      "mode": "split_hstack",
+      "left_clip_index": 25,
+      "right_clip_index": 26,
+      "left_label": "WORD MYTH",
+      "right_label": "VECTOR CODE"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cardigan cuffs and cool porcelain-white gloved low-poly hands resting completely still on padded slate wheelchair armrests beside a cool slate-stone table",
+      "prop_action": "a clinician's cool porcelain-white gloved low-poly hand places a matte powder-blue insulated bottle with a bent straw onto the cool slate-stone table",
+      "consequence": "the insulated coffee bottle sits just beyond the still gloved hands"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit cool mist-white clinical room with a slate motorized wheelchair facing a cool slate-stone tabletop and a pedestal-mounted brushed-silver robotic arm",
+      "action": "viewed strictly from behind, a clothed low-poly volunteer in a powder-blue cardigan sits still in the slate wheelchair as two clinicians in white coats walk beside the silver robotic arm"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "a sleek brushed-silver five-fingered robotic hand gliding beside still cool porcelain-white gloved low-poly hands over a cool slate-stone tabletop",
+      "prop_action": "the five brushed-silver robotic fingers close smoothly around the matte powder-blue insulated bottle and lift it cleanly upward",
+      "consequence": "silent movement signals command real metal fingers across open space"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands connecting a slim silver signal cable into the base of the brushed-silver robotic arm on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align and push the silver connector plug into the robotic arm base lighting a soft cyan ring",
+      "consequence": "the five-fingered robotic arm powers on beside the tabletop"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the bright clinical trial room with the rear-viewed slate wheelchair, matte powder-blue insulated bottle with straw, and brushed-silver robotic arm on cool slate-stone",
+      "action": "viewed strictly from behind, a clothed low-poly neurologist in a charcoal blazer steps beside the robotic arm pedestal and adjusts the silver joint smoothly with gloved hands"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a matte-pastel vertical neural highway column on cool slate-stone linking an upper cyan cortical dome to lower silver limb cables",
+      "internal_mechanism": "a coral-rose barrier block drops across the narrow middle bottleneck stopping cyan pulses from reaching the lower cables"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "rehab_morning_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a quiet cool powder-blue hospital recovery room with a slate-stone side table and pale mist-white curtains",
+      "action": "viewed strictly from behind, a clothed low-poly doctor in a white coat walks gently to the bedside chair and places gloved hands onto the slate rail"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "brainstem",
+      "anatomy_label": "BRAINSTEM\nREFLEX CENTER",
+      "brain_scene": "a matte-pastel sagittal cutaway 3D brain model on a cool mist-white stand where the lower brainstem glows muted coral-rose blocking descending pathways while the upper cortex shines bright cyan"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "rehab_morning_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cardigan cuffs and still cool porcelain-white gloved low-poly hands resting on a padded slate armrest beside a glowing cyan cortical dome model",
+      "prop_action": "a caregiver's cool porcelain-white gloved low-poly hand slides and aligns a bright cyan wave token beside the still gloved hand",
+      "consequence": "inner awareness stays vivid while limb pathways remain disconnected"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "rehab_morning_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage scrub sleeves and cool porcelain-white gloved low-poly hands lifting a pastel powder-blue cup with a bent straw from a cool slate-stone tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and steady the powder-blue cup and straw above the slate-stone tray",
+      "consequence": "every single sip requires another person's hands for fifteen years"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands sliding a dim gray cover away from a glowing cyan cortical tile on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and pull the gray cover back revealing crisp cyan pulses underneath",
+      "consequence": "the movement map beneath the quiet exterior is far from silent"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright Brown clinical engineering room with a cool slate-stone workbench holding a miniature silver silicon sensor model and decoder console",
+      "action": "viewed strictly from behind, two clothed low-poly scientists in charcoal blazer and white coat lean over the slate workbench and lift the tiny silver sensor model with gloved hands"
+    },
+    {
+      "sentence_index": 10,
+      "end_sentence_index": 11,
+      "act": 2,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved low-poly hands testing a disconnected pastel pathway bridge on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands tap the upper cyan cortical block and lift a silver bridge arch across the gap",
+      "consequence": "the team asks whether decade-old movement circuits still remember how to reach"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit neuroengineering lab with a large matte-pastel brain arch linked by a brushed-silver cable to a tabletop robotic arm",
+      "action": "viewed strictly from behind, the clothed low-poly neurologist in a charcoal blazer walks between the brain model and robotic arm and connects a silver bridge bar with gloved hands"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a tiny round matte mist-white baby aspirin tablet resting beside a four-millimeter brushed-silver sensor square on cool slate-stone",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in coat cuffs lift and place the tiny brushed-silver square right beside the small mist-white tablet for scale"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "motor cortex",
+      "anatomy_label": "MOTOR CORTEX\nMOVEMENT STRIP",
+      "brain_scene": "a matte-pastel 3D cortical brain model on a cool mist-white stand where the upper motor cortex strip glows bright electric cyan beneath a tiny silver square"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a neat grid of miniature brushed-silver boom microphones arranged around a pastel mint-sage stage ring on cool slate-stone",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in shirt cuffs turn and push the miniature brushed-silver boom microphones inward together"
+    },
+    {
+      "sentence_index": 16,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands watching a row of cyan wave bars leap upward on a blank cool slate-stone console",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides a silver gain fader up as crisp cyan wave bars jump brightly across the console",
+      "consequence": "imagined hand motion lights up dozens of channels immediately"
+    },
+    {
+      "sentence_index": 16,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the bright clinical control room with glowing cyan wave bars rising beside the rear-viewed slate wheelchair",
+      "action": "viewed strictly from behind, two clothed low-poly engineers in white coat and slate blazer step closer and point gloved hands excitedly at the active cyan wave bars"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved low-poly hands setting three orthogonal pastel axis rods beside a five-fingered silver robot hand on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align the three pastel spatial rods and open the five silver robotic fingers wide",
+      "consequence": "three spatial axes plus finger grip must all coordinate simultaneously"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands steadying an empty pastel practice cylinder bumped by an uncalibrated silver gripper on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands catch and upright the tipped pastel practice cylinder on the cool stone surface",
+      "consequence": "tiny velocity errors could easily tip a real drink without smooth decoding"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit studio room showing a matte-pastel 3D brain model wired via a silver decoder box to the five-fingered silver robotic arm",
+      "action": "viewed strictly from behind, the clothed low-poly scientist in a charcoal blazer walks in and traces gloved hands along the silver cable from the brain stand to the robot hand"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "locked_tripod",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "VISUAL CORTEX\nVISION CENTER",
+      "brain_scene": "a matte-pastel 3D cortical brain model where the rear primary visual cortex lights up crisp cyan locking onto target coordinates"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "pan_right",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nSPATIAL MAP",
+      "brain_scene": "a matte-pastel 3D cortical brain model highlighting the upper-back parietal cortex in soft mint-sage streaming spatial trajectory waves forward"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands sweeping aside blank cloud-shaped blocks on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands push and clear away the blank cloud blocks from the decoder tray",
+      "consequence": "the decoder ignores abstract words entirely"
+    },
+    {
+      "sentence_index": 22,
+      "cut_role": "split_right",
+      "act": 3,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands converging six small cyan arrow rods into one large silver direction arrow on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide and snap the small cyan arrow rods together pointing one smooth vector forward",
+      "consequence": "summed cell directions point along the exact intended reach path"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the calm clinical room with the rear-viewed slate wheelchair facing the matte powder-blue insulated bottle on cool slate-stone",
+      "action": "viewed strictly from behind, the clothed low-poly volunteer in a powder-blue cardigan sits poised in the slate wheelchair while a clinician steadies the decoder cart with gloved hands"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "motor cortex",
+      "anatomy_label": "MOTOR CORTEX\nMOVEMENT STRIP",
+      "brain_scene": "a matte-pastel 3D cortical brain model where the upper motor cortex strip pulses rhythmic electric cyan waves straight into the tiny silver sensor"
+    },
+    {
+      "sentence_index": 25,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "the matte-pastel neural column model where an external brushed-silver bypass cable arcs cleanly around the blocked coral-rose brainstem segment",
+      "internal_mechanism": "bright cyan pulses travel briskly through the silver bypass cable straight into the articulated robotic wrist joint"
+    },
+    {
+      "sentence_index": 25,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "charcoal cuffs and cool porcelain-white gloved low-poly hands observing the brushed-silver five-fingered robotic hand glide smoothly across cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand sets a pastel sphere down as the silver robotic hand glides forward and hovers cleanly over it",
+      "consequence": "the digital detour restores continuous movement across open space"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands sliding a curved cyan trajectory arch between the silver robotic hand and target on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and lock the smooth curved cyan arch guiding the silver robotic fingers",
+      "consequence": "velocity filtering smooths raw sparks into graceful three-dimensional motion"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands holding a frosted lavender shell ring beside the tiny silver sensor model on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands tilt and inspect the frosted lavender ring near the tiny silver pins",
+      "consequence": "engineers wonder whether tissue buildup will mute the tiny pins over time"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "gray suit cuffs and cool porcelain-white gloved low-poly hands flipping down three pastel calendar Flip-blocks on a cool slate-stone desk",
+      "prop_action": "one cool porcelain-white gloved low-poly hand taps and folds down three blank pastel blocks then slides a stop bar across",
+      "consequence": "skeptics expected intracortical sensors to fade after a few short months"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sturdy matte powder-blue marine sea beacon buoy floating upright on gentle cool slate-blue waves",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in jacket cuffs lift and set the floating marine sea beacon as its cyan light pulses brightly"
+    },
+    {
+      "sentence_index": 30,
+      "end_sentence_index": 31,
+      "act": 4,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved low-poly hands lining up five glowing cyan milestone rings beside the silver robotic arm on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and align all five glowing cyan rings leading up to the five-fingered silver hand",
+      "consequence": "nearly two thousand days post-surgery, the ultimate robotic reach test begins"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a close cutaway of the tiny brushed-silver sensor square resting cleanly on a matte-pastel cortical ridge",
+      "internal_mechanism": "dozens of fine silver pins glow crisp electric cyan sending steady wave trains up the slim silver lead"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands setting staggered mint-sage foam spheres on slender silver stalks across cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand positions a high stalk as the silver robotic hand glides up and closes around the mint-sage sphere",
+      "consequence": "the robotic fingers grasp soft spheres accurately across high and low positions"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "gentle_push_in",
+      "analogy_world": "a sleek brushed-silver arcade claw crane suspended inside a cool powder-blue frame above pastel spheres",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in sweater cuffs push and pull a silver lever lowering the claw cleanly around a mint-sage sphere"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal cuffs and cool porcelain-white gloved low-poly hands aligning a glowing cyan cortical map tile beside the open silver robotic hand on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide and match the glowing cyan map tile with the five articulated silver fingers",
+      "consequence": "fifteen years of paralysis never erased the hand blueprint"
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands clearing away the foam target stalks and placing the matte powder-blue insulated coffee bottle on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift away the test stalks and set the matte powder-blue bottle with its bent straw center stage",
+      "consequence": "practice spheres give way to a real morning drink"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright Massachusetts clinical trial room with the matte powder-blue insulated bottle and bent straw centered on cool slate-stone before the rear-viewed slate wheelchair",
+      "action": "viewed strictly from behind, two clothed low-poly engineers in white coat and charcoal blazer step back from the cool slate-stone table and fold gloved hands quietly"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved clinician low-poly hands beside the brushed-silver five-fingered robotic hand poised open at the edge of the cool slate-stone table",
+      "prop_action": "the clinician's cool porcelain-white gloved low-poly hands step clear and pull back as the five silver robotic fingers spread open toward the bottle",
+      "consequence": "zero human hands touch the bottle or robot once the trial starts"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cardigan cuffs and still cool porcelain-white gloved low-poly hands resting peacefully on the slate wheelchair armrest beside a pulsing cyan cable",
+      "prop_action": "bright cyan light pulses travel along the slim silver cable as the nearby robotic wrist rotates and advances",
+      "consequence": "pure imagined arm movement drives the robotic joint forward"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "the articulated brushed-silver five-fingered robotic hand reaching across cool slate-stone while clinician gloved hands watch from the far corner",
+      "prop_action": "one clinician's cool porcelain-white gloved low-poly hand points quietly from afar as the five silver fingers glide around the powder-blue bottle and close firmly",
+      "consequence": "the robotic grip secures the cylindrical coffee bottle without wobble"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a round brushed-silver serving tray holding an upright matte powder-blue tumbler over a cool slate-stone counter",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in blazer cuffs lift and carry the round brushed-silver serving tray smoothly without tilting a drop"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "the brushed-silver five-fingered robotic hand lifting and tilting the matte powder-blue insulated bottle and bent straw smoothly upward beside a powder-blue cardigan shoulder",
+      "prop_action": "the silver robotic hand raises and tilts the bottle steadily then lowers and places it upright onto cool slate-stone as clinician gloved hands clap softly",
+      "consequence": "the bottle returns upright to the table after a clean self-served sip"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit clinical room viewed from behind the slate wheelchair as the brushed-silver robotic arm holds the powder-blue bottle steadily upward",
+      "action": "viewed strictly from behind, the clothed low-poly volunteer in a powder-blue cardigan leans gently toward the angled straw while two clinicians raise gloved hands in joy"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the wide clinical trial room with glowing cyan trajectory arcs displayed behind the silver robotic arm and cool slate-stone table",
+      "action": "viewed strictly from behind, three clothed low-poly researchers in white coats and charcoal blazer step back and spread gloved hands in quiet awe"
+    },
+    {
+      "sentence_index": 44,
+      "act": 5,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved low-poly hands setting four glowing mint-sage success tokens beside the powder-blue bottle on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and align the four glowing mint-sage tokens beside the upright coffee bottle",
+      "consequence": "four successful self-served coffee lifts prove human thought can restore independence"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a modern cool mist-white neurotech studio showing a progression of sleek silver arm supports and wireless receiver domes on cool slate-stone",
+      "action": "viewed strictly from behind, two clothed low-poly engineers in slate blazers walk along the studio bench and arrange next-generation silver modules with gloved hands"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "rehab_morning_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands wrapping a soft mist-white stimulation cuff around a powder-blue clothed forearm on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide and press a slim silver signal lead directly into the soft forearm cuff",
+      "consequence": "brain signals prepare to reanimate a patient's own limb"
+    },
+    {
+      "sentence_index": 47,
+      "end_sentence_index": 48,
+      "act": 6,
+      "location_id": "rehab_morning_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "a powder-blue sleeve with a soft mist-white forearm cuff and cool porcelain-white gloved low-poly hand resting in a silver mobile support cradle over cool slate-stone",
+      "prop_action": "guided by cyan cuff pulses, the cool porcelain-white gloved low-poly hand closes around a matte sage-green cup and lifts it smoothly",
+      "consequence": "bypassing the spine lets a paralyzed arm lift its own drink and trace smooth strokes"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal cuffs and cool porcelain-white gloved low-poly hands placing a compact cordless silver puck beside soft cyan fingertip pads on a robotic hand",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set the cordless silver puck down and tap a glowing cyan pad on the robotic fingertip",
+      "consequence": "wireless transmitters and artificial touch sensors mark the next frontier"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "rehab_morning_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and cool porcelain-white gloved low-poly hands reaching across a sunlit cool slate-stone kitchen counter toward a matte powder-blue morning mug",
+      "prop_action": "one cool porcelain-white gloved low-poly hand reaches out, grasps the powder-blue mug handle, and lifts it effortlessly",
+      "consequence": "an everyday morning reach coordinates millions of silent movement signals"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "rehab_morning_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "sage sweater cuffs and cool porcelain-white gloved low-poly hands holding the matte powder-blue mug steadily above a cool mist-white saucer",
+      "prop_action": "both cool porcelain-white gloved low-poly hands cradle and set the powder-blue mug gently onto the mist-white saucer",
+      "consequence": "every smooth reach reflects an enduring blueprint inside the brain"
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved low-poly hands resting beside the brushed-silver five-fingered robotic hand and upright powder-blue bottle on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align the tiny silver sensor model beside the upright coffee bottle as calm cyan light glows",
+      "consequence": "human intention endures across decades waiting for a bridge to move again"
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "braingate_trial_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the serene sunlit clinical room with the brushed-silver five-fingered robotic arm, matte powder-blue bottle on cool slate-stone, and tall windows opening to pale sky",
+      "action": "viewed strictly from behind, the clothed low-poly neurologist in a charcoal blazer walks calmly toward the tall sunlit window as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "THOUGHT COFFEE",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered brushed-silver five-fingered robotic hand lifting a matte powder-blue insulated coffee bottle with straw off cool slate-stone"
+  }
+}

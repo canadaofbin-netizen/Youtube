@@ -1,0 +1,181 @@
+# Neuro-Diorama 3-Minute Long-Short Protocol (Schema v6 — R56–R61)
+
+Owner specification for the **`neuro_diorama` (`DEFAULT_PRODUCTION_PROFILE`)** flagship production format of **ALL ABOUT BRAIN** (`@AllAboutBrainOfficial`, **100% US English `en-US` only**). All numeric thresholds live exclusively in [production_constants.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/production_constants.md) (`pipeline/config.py`).
+
+---
+
+## R56 — Dark Midnight-Navy Diorama, Matte Bisque-Ceramic Scale Figures & Frosted-Crystal Cranium Lock
+
+1. **Zero Biological Anatomy, Zero Department-Store Mannequins & Zero Uncanny Valley (`DIORAMA_ZERO_FLESH_LOCK`)**:
+   - Real human skin, faces, eyes, noses, mouths, hair, fingernails, real fabric clothing, department-store `"mannequin"` figures, crowds, and live animals are **100% forbidden** across all `neuro_diorama` frames and prompts.
+   - Instead, whenever human experimenters/subjects appear, they MUST be rendered unmistakably as **crafted scale models**: **`sculpted matte-white unglazed bisque-ceramic architectural scale figures`** with a **`smooth featureless ovoid ceramic head (zero eyes, zero nose, zero mouth)`** and **`sculpted ceramic limbs and hands`**.
+   - **R56-C — Period Hats & Tailored Miniature Wardrobe**: Bisque-ceramic miniature figures wear **period-accurate miniature headwear and attire** (e.g., brimmed railroad cap, wide-brimmed driver hat, surgeon cap, charcoal waistcoat, duster coat, lab coat, work apron, boots) while keeping the ovoid head 100% smooth matte-white ceramic (`zero skin, zero eyes, zero mouth`).
+   - **R56-M & R56-I — Expressive Action-Physics & Bloodless Ceramic Trauma Depiction**: Because matte-white featureless bisque-ceramic miniature figures have `0%` uncanny valley and `0%` biological gore, scenes MUST depict **active 2-beat physical motions and direct bloodless physical trauma/events** (e.g., an iron rod piercing cleanly upward through a smooth matte-white ceramic ovoid head and knocking its brimmed cap into the air with crisp hairline porcelain fracture lines and zero blood, gripping drills, climbing stairs, steering six leather reins).
+2. **Signature Dark Backdrop, Plinth & Tilt-Shift Miniature Lens Lock (`DIORAMA_BACKDROP_STYLE`, `DIORAMA_LIGHTING_STYLE`, `RGB_DEEP_NAVY`)**:
+   - Every `neuro_diorama` clip is staged on a **`thick dark-oak cutaway diorama base / plinth`** floating in our channel's signature **`deep midnight-navy studio void`** under **`cinematic chiaroscuro rim lighting`** with **`macro tabletop miniature cinematography and shallow tilt-shift depth of field`** (never full-screen life-size rooms or bright white studio walls).
+   - This makes every frame read within 0.5 seconds as a crafted museum exhibition diorama and maximizes contrast for `Y=64%` pure-white `#FFFFFF` subtitles.
+3. **Primary Visual Grammars (`DIORAMA_VISUAL_GRAMMARS`)**:
+   - **`arch_cutaway_diorama`**: High-angle `40°` isometric architectural cross-section cutaway miniature models on a thick dark-oak diorama base floating in a `deep midnight-navy studio void`, populated either as an uninhabited Ghost-Lab or with small featureless matte-white bisque-ceramic architectural scale figures.
+   - **`kinetic_trace_automata`**: Macro tabletop close-ups of experimental instruments and physical actions (either self-actuating or operated by a featureless matte-white bisque-ceramic scale figure with simplified sculpted ceramic hands) against a `deep midnight-navy void`.
+   - **`recurring_gauge_motif`**: One recurring physical analog sensor prop (`motif_prop`: clear glass of water, brass voltmeter needle, graduated liquid drop-tube, polygraph ink needle, or mechanical stopwatch) appearing `DIORAMA_MOTIF_APPEARANCES_MIN..DIORAMA_MOTIF_APPEARANCES_MAX` times across Acts 1–6 against a `deep midnight-navy void`.
+   - **`tactile_token_grid`**: Physical 3D tabletop objects replacing crowds and 2D charts (turned-oak cylinders lighting up amber for participant ratios, glass hourglasses of memory cubes, translucent acrylic ratio bars) on a dark oak drafting table against a `deep midnight-navy void`.
+   - **`literal_analogy_cutaway` (`R57-V` — Literal 1:1 Everyday Analogy Dioramas)**: Whenever narration speaks a physical comparison (*"a quarter of a football field"*, *"heavier than a bowling ball"*, *"longer than a baseball bat"*, *"filled a coffee cup"*), the bound clip MUST literally depict that exact real-world object/stadium as a crafted miniature diorama in the `deep midnight-navy studio void` (e.g., lush green-turf football stadium field with crisp white yard lines, glossy three-hole bowling ball on a brass balance, turned wooden baseball bat) — abstract wooden token substitutes are strictly forbidden when a literal analogy is spoken.
+   - **`arch_brain_maquette` (`DIORAMA_BRAIN_RENDER_MODES` — 2-Mode Isolated Dark-Void 3D Brain Visualization, golden refs in `BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/`)**:
+     - Brain scenes float **cleanly isolated in a deep midnight-navy / pitch-black void with zero wooden tables or background furniture**, using two clinical 3D modes:
+       1. **`matte_white_cortical_sulcal_glow` (Cortical Lobes)**: Anatomically accurate **opaque sculpted matte-white 3D whole brain** (gyri, sulci, cerebellum, brainstem) where ONLY the target cortical lobe glows with **soft luminous electric cyan-blue subsurface light concentrated brightest inside the recessed sulcal grooves** (while brainstem/damaged pathways glow **soft crimson-red** and compensatory routes **warm amber-gold**).
+       2. **`translucent_smoked_glass_subcortical_xray` (Deep Subcortical Structures)**: Intact whole 3D brain rendered with a **semi-translucent frosted smoked-glass outer cerebral cortex and cerebellum** with delicate rim-lit gyri contours, revealing **3D internal subcortical structures** (e.g., bilateral hippocampi, amygdalae, thalamus, basal ganglia) glowing in **smooth volumetric cyan-blue luminescence** alongside **soft crimson-red** descending brainstem pathways (`R21`, `R53`, zero flying sparks/particles; real titanium BCI implants/micro-threads allowed on `D5` topics).
+4. **Brain & Trajectory Specimen Highlight — `<= DIORAMA_CRYSTAL_SPECIMEN_MAX_RATIO` Faceless Pedestal Sculptures (`frosted_crystal_specimen`)**:
+   - Human head busts with eyes, noses, mouths, or ears are **100% forbidden**. Prefer our **2-mode isolated dark-void 3D brain (`arch_brain_maquette`)** conditioned on `brain_v6_refs/`. When `frosted_crystal_specimen` is used, it must be a **faceless smooth ovoid matte-white ceramic and `satin-frosted borosilicate optical crystal` dome or hand sculpture** (`zero eyes, zero nose, zero mouth, zero ears`), mounted on a **plain unlabelled dark-oak and brushed-brass pedestal block** (`zero plaques, zero nameplates, zero engravings`).
+5. **Zero In-Scene AI Text & Default Dynamic 3D Cinema Camera Choreography (`DIORAMA_CAMERA_MOVES`, `camera_profile: "dynamic_3d_cinema_rig"`)**:
+   - Every Flow/Gemini prompt must include the hard negative lock (`ZERO_FLESH_AND_TEXT_LOCK`): `"Crafted architectural scale model on a plain unlabelled dark-oak base in a deep midnight-navy void only, zero human skin, zero facial features, zero eyes, zero plaques, zero nameplates, zero text, zero letters, zero numbers, blank matte surfaces"`.
+   - **Empirical Zero-Plaque Vocabulary Lock**: Never write `"9:16"`, `"museum"`, `"plinth"`, `"foreman"`, `"sign"`, `"label"`, or 4-digit years (`"1848"`) inside visual scene descriptions, as Veo renders brass plaques or wall signs when those tokens appear; use `"close interior framing without outer base borders"` on cutaway rooms and prefer isolated dark-void `arch_brain_maquette` over pedestal blocks whenever depicting skull/brain trajectories.
+   - **Default Camera Standard (`camera_profile: "dynamic_3d_cinema_rig"`)**: Every new `neuro_diorama` production defaults to front-loaded **Dynamic 3D Cinema Camera Moves** (`dynamic_dolly_rush_in`, `orbital_3d_arc_sweep`, `crane_swoop_dive`, `low_angle_chase_track`, `vertical_rocket_ascent`, `fpv_trench_passthrough`, `pullback_parallax_reveal`) placed at token #1 immediately after the clip prefix via `DioramaPromptComposer.compose_clip_prompt` for full volumetric 3D parallax (only the final sky-void outro card uses `smooth_tilt_up` / `sky_tilt_up_outro`). Classic miniature tabletop moves remain supported in `DIORAMA_CAMERA_MOVES` for fallback/archive compatibility.
+
+---
+
+## R57 — 6-Act 3-Minute (`<= SHORTS_HARD_CEILING_SEC`) US English Spine, Immediate Paradox Cold-Open & Poised Tempo
+
+1. **100% US English (`en-US`) Lock (`R36`)**:
+   - Script, continuous voiceover, single-line subtitles, top-space metric callouts, outro title card, and YouTube metadata are authored exclusively in plain, vivid US English (`READABILITY_SCRIPT_FK_MAX`). Zero multi-language dubbing or Korean on-screen text.
+2. **Zero Channel-Slogan & Weak Hypothetical Opening (`DIORAMA_BANNED_SLOGAN_OPENERS`, `DIORAMA_BANNED_WEAK_HOOK_PREFIXES` — `R57-H`) + Immediate `0.0s` Triple-Lock Paradox Cold-Open (`DIORAMA_REQUIRE_SIGNATURE_HOOKS`)**:
+   - Generic channel self-intro slogans (such as `"University brain science, made simple."` or `"ALL ABOUT BRAIN · UNIVERSITY NEUROSCIENCE"` badges) AND weak hypothetical cold-openers (`"Imagine..."`, `"Picture this..."`, `"Have you ever..."`, `"What if..."`, `"Suppose..."`) are **100% forbidden** on Sentence 1 (`R57-H`).
+   - **Sentences 1–2 (`0.0–5.0s`, targeting `Viewed >= 80%`)** immediately drop a concrete, shocking historical/clinical paradox, climax-first 2-beat visual cut (`<= 1.45s` Cut #1 + Cut #2 inside `3.0s`), and specific paradox `ChapterHeadline` #1 before backtracking cleanly to the setup.
+   - **R57-H2 — Schema v7 3-Sentence Cold-Open (default, `DIORAMA_V7_REQUIRE_COLD_OPEN`, enforced by `prompt-gate` via `validate_cold_open_v7`; golden = `projects/diorama_01_hm_lab_B_dynamic`)**:
+     - **S1 Myth-flip / paradox shock** (`<= DIORAMA_V7_COLD_OPEN_S1_MAX_WORDS` words, ends with `!` → `rush` gear, breathless): *"People joke about goldfish memory — real goldfish remember months, but he forgot faces in minutes!"*
+     - **S2 Contrast** (opens with `DIORAMA_V7_COLD_OPEN_S2_PREFIXES` — `Yet / But / And yet / Still / Meanwhile`, `<= DIORAMA_V7_COLD_OPEN_S2_MAX_WORDS` words → `rush` gear): *"Yet his hands mastered a brand-new skill in just three days!"*
+     - **S3 Case stamp** (`DIORAMA_V7_COLD_OPEN_CASE_STAMP_PREFIX` + case name → `stamp` gear, `~0.24s` pre-beat, BGM dip, matching `ChapterHeadline`): *"This is the true story of Patient H.M."*
+     - Timing verified post-render by Prosody QA `P2` (`S2 end <= PROSODY_P2_HOOK_END_MAX_SEC`, `S3 end <= PROSODY_P2_STAMP_END_MAX_SEC`). Opt-out only with `visual_plan.require_cold_open_v7 = false`.
+   - **R57-R — Re-hook spacing**: no gap longer than `PROSODY_P10_OPEN_LOOP_MAX_GAP_SEC` between open-loop markers (`?` questions, `stamp` sentences, `DIORAMA_V7_PROSODY_REHOOK_PHRASES` such as *"But here's…"*). Fix long gaps by rewriting an existing mid-act sentence into a re-hook — never by loosening the gate.
+   - **R57-C — Concrete, Ear-First `YouTube Natural Script` Narration (Zero Flow-Censorship Vagueness & Zero AI-Clichés)**: Because `neuro_diorama` uses local/neural `DIORAMA_TTS_VOICE` (`! -> .` tear-free normalization + proper-noun phonetic dictionary in `plain_language.py`) rather than Flow speech generation, scripts MUST name real patients/researchers (`Patient H.M.`, `Henry Molaison`, `Paul Broca`, `Patient Tan`, `Doctor Harlow`), allow up to `DIORAMA_V7_SENTENCE_WORDS_MAX` words per sentence, and follow the **YouTube Natural Script** spoken lock: write for the **ear** using breathable `—` clauses and immediate conversational glosses (`GLOSSABLE_NEURO_TERMS`), strictly ban AI-essay clichés (`DIORAMA_BANNED_AI_CLICHES`: *delve into, let's unpack, underscore, pivotal, paramount, tapestry, furthermore, moreover, consequently*) AND academic slide-seminar transitions (`DIORAMA_BANNED_SEMINAR_TRANSITIONS`: *"Moving on to...", "This paper looks at...", "The main region here is...", "To wrap up..."*), and avoid repeating stock analogy idioms across Acts.
+   - **R57-M — Midpoint Open-Loop & Mid-Act Cut Ceiling (`AVD >= 120s+`)**: Every Schema v7 script must plant a Midpoint Open-Loop `?` question across the Act 3 -> Act 4 transition (`~60–90s`) so the mystery stays open past the halfway mark, while enforcing `<= DIORAMA_V7_MID_ACT_MAX_CUT_SEC` on single-sentence cuts and `<= DIORAMA_V7_LONG_TAKE_MAX_SEC` on 2-sentence holds.
+   - **Restored Classic Signature Hooks (`R24`, `R26`)**:
+     - Diagnostic transition into setup / 3D brain anatomy: **`"Here is what went wrong..."`**
+     - Crisis signature catchphrase (`Meme #1`): **`"For his/her/your brain, this was/is a total nightmare."`**
+     - Paradigm-flip pivot opener: **`"Instead of..."`**
+     - Breakthrough signature catchphrase (`Meme #2`): **`"The researchers were left completely stunned."`**
+     - Final takeaway conclusion opener: **`"Which proves..."`** or **`"Which is why..."`**
+3. **6-Act Unhurried Documentary Architecture (`DIORAMA_ACT_COUNT`, `DIORAMA_SENTENCE_COUNT_MIN..DIORAMA_SENTENCE_COUNT_MAX`, `DIORAMA_WORD_COUNT_MIN..DIORAMA_WORD_COUNT_MAX`)**:
+   - Trim filler recap/transition lines and weave `[Number] + [Everyday Analogy]` into tight, resonant clauses (`<= DIORAMA_SENTENCE_WORDS_MAX` words) so the script stays unhurried (`~140 WPM`):
+   - **Act 1 — Immediate `0.10s` Paradox Money-Shot & Physical Scene Setup**
+   - **Act 2 — Trajectory / Experiment Escalation & Behavioral Shift**
+   - **Act 3 — 3D Dark-Void Brain Mechanism, Split-Screen Proof & `"total nightmare"` Crisis**
+   - **Act 4 — Textbook Myth / Conventional Expectation vs. `"Instead of..."` Paradigm Flip**
+   - **Act 5 — Vivid Crisis Climax & Comeback Proof + `"The researchers were left completely stunned."`**
+   - **Act 6 — Quantified Outcome, Viewer Takeaway (`"Which proves..."`) & Midnight-Navy Tilt-Up Outro (`DIORAMA_OUTRO_SWELL_SEC`)**
+4. **Mandatory `[Number] -> [Immediate Everyday Analogy]` Pairing (`DIORAMA_NUMBER_ANALOGY_MAX_SENTENCE_GAP`)**:
+   - Every core quantitative metric in the script (mass, duration, voltage, distance, trial count, percentage) must be paired in the same sentence or the very next sentence with a concrete everyday physical comparison (*"thirteen pounds—heavier than a bowling ball"*).
+5. **Hard 3-Minute Shorts Ceiling (`DIORAMA_DURATION_MIN_SEC..DIORAMA_DURATION_MAX_SEC`, `SHORTS_HARD_CEILING_FRAMES`)**:
+   - Final assembled MP4 must land inside `DIORAMA_DURATION_MIN_SEC..DIORAMA_DURATION_MAX_SEC` and is hard-clamped at `SHORTS_HARD_CEILING_FRAMES` (`SHORTS_HARD_CEILING_SEC` @ `VIDEO_FPS`) so YouTube never reclassifies the vertical video as Long-form (`> 180.00s`).
+
+---
+
+## R58 — Audio-First Master Clock & Unlimited 1:1 Zero-Reuse Dedicated Clip EDL (`DIORAMA_MAX_CLIP_REUSE`)
+
+1. **Continuous Conversational Storyteller Voiceover Master First (`DIORAMA_TTS_ENGINE`, `DIORAMA_TTS_VOICE`, `DIORAMA_MIN_CONVERSATIONAL_QUESTIONS`)**:
+   - Author the 6-Act script in warm, curious, conversational storytelling English (`@신비한_건축사전` cadence — speaking *with* the viewer using `>= DIORAMA_MIN_CONVERSATIONAL_QUESTIONS` rhetorical questions `?`, natural spoken transitions, `—` parenthetical asides, and `...` dramatic pauses rather than dry textbook declarative lines).
+   - Synthesize each Act continuously in one unbroken neural pass via free `DIORAMA_TTS_ENGINE` (`DIORAMA_TTS_VOICE` @ `DIORAMA_TTS_RATE`, preserving cross-sentence human breath and pitch contour via `SentenceBoundary` spans + `faster-whisper` word alignment, with `VOICE_FALLBACK_ENGINE` as offline fallback) and `DIORAMA_ACT_BOUNDARY_PAUSE_SEC` transitions between Acts.
+   - Auto-fit total runtime (speech + `DIORAMA_OUTRO_SWELL_SEC`) into `DIORAMA_DURATION_MIN_SEC..DIORAMA_DURATION_MAX_SEC` using `DIORAMA_PAUSE_TUNE_RANGE_SEC` and pitch-preserving `DIORAMA_ATEMPO_FIT_RANGE` (never `asetrate`).
+2. **Unlimited Sharded Dedicated Motion Pool (`zero_clip_reuse: true`, `DIORAMA_SHARD_MAX_CLIPS`)**:
+   - Generate one dedicated unique motion clip per spoken sentence/beat (plus secondary split-screen clip and dedicated outro clip — typically `60–75` unique clips, uncapped up to `DIORAMA_CLIP_COUNT_MAX`) across parallel sharded Flow tabs (`<= FLOW_MAX_PARALLEL_BATCH_SIZE`), conditioning brain clips on `brain_v6_refs/` and verifying zero OCR text, zero faces/skin/animals, and smooth optical flow before ingest.
+3. **1:1 Sentence-Locked Zero-Reuse EDL (`05_assembly/edit_decision_list.json`)**:
+   - Every cut maps 1:1 by `sentence_index` to its dedicated unique clip at **`1.00x` full framing** (`max_clip_reuse == DIORAMA_MAX_CLIP_REUSE == 1`, **0% clip reuse**, zero round-robin carousel, zero cross-act leaks, and exact `fps=30` + `tpad` frame parity `decoded_frames == total_frames`). Legacy 20–26 clip plans remain supported via fallback cross-cutting when `zero_clip_reuse` is omitted.
+
+---
+
+## R59 — Documentary Restraint Audio & Pure-White `Y=64%` Single-Line Subtitles
+
+1. **Restrained Documentary Soundscape**:
+   - Continuous `DIORAMA_BGM_BPM` minimal documentary pulse bed ducked at `DIORAMA_BGM_DUCK_DB` under speech, swelling by `+DIORAMA_OUTRO_SWELL_GAIN_DB` over the final `DIORAMA_OUTRO_SWELL_SEC` sky tilt-up title card.
+   - **Zero digital UI cut ticks/whooshes** on visual cuts; sparse realistic physical foley only on key prop actions.
+   - Master integrated loudness locked to `DIORAMA_TARGET_LUFS` (`LRA <= DIORAMA_MAX_LRA_LU`, true peak `<= -1.0 dBFS`).
+2. **Pure-White Hard-Cut Subtitles & Clean Programmatic English Overlays**:
+   - `Default` dialogue subtitles: single line (`SUBTITLE_MAX_LINES`), `<= DIORAMA_SUBTITLE_MAX_WORDS` words per card, `DIORAMA_SUBTITLE_FONT_SIZE` `SUBTITLE_FONT_NAME`, `MarginV = DIORAMA_SUBTITLE_MARGIN_V` (`Y ≈ 64%`), pure `#FFFFFF` fill + `#000000` `DIORAMA_SUBTITLE_OUTLINE_WIDTH` outline, `0-frame` hard cut, **zero gold/colour highlights (`DIORAMA_SUBTITLE_HIGHLIGHT_GOLD == False`)**, **zero bounce/scale-pop animation**.
+   - `Callout` style: `DIORAMA_CALLOUT_COUNT_RANGE` minimal uppercase English year/metric anchors (`1848`, `374 TRIALS`, `450 VOLTS`) at `MarginV = DIORAMA_CALLOUT_MARGIN_V` (`Y ≈ 21%`).
+   - `OutroTitle` style: 2-line uppercase English title card at `MarginV = DIORAMA_OUTRO_TITLE_MARGIN_V` during the final `DIORAMA_OUTRO_SWELL_SEC` sky tilt-up.
+
+---
+
+## R60 — 2-Clause US English Paradox Title Formula
+
+- Titles in `neuro_diorama` use up to `TITLE_MAX_CHARS_DIORAMA` characters (never truncated at 60 characters) and follow a **2-Clause Physical Paradox + Discovery Formula** in plain US English:
+  - Pattern A: `"Why [Concrete Physical Event / Experiment] Happened—And How It Unlocked [Brain Discovery]"`
+  - Pattern B: `"There Is a [Lab / Brain Surgery] Where [Paradox]—Here Is What Science Found"`
+
+---
+
+## R61 — `validate_production_diorama_v6` Pre-Flow & Autopsy Gate
+
+- `main.py prompt-gate --dir <dir>` automatically enforces Schema v6 checks when `is_diorama_profile(visual_plan)` is true:
+  1. Zero-flesh / zero-full-body / zero-animal / zero-in-scene-text compliance + pedestal & `satin-frosted optical crystal` lock on any crystal specimen clip (`R56`).
+  2. Recurring analog `motif_prop` present in `DIORAMA_MOTIF_APPEARANCES_MIN..DIORAMA_MOTIF_APPEARANCES_MAX` clips (`R56`).
+  3. 6-Act sentence/word budget + `100%` `[Number] -> [Immediate Everyday Analogy]` pairing + Act 5 crisis episode presence (`R57`).
+  4. Base clip count inside `DIORAMA_CLIP_COUNT_MIN..DIORAMA_CLIP_COUNT_MAX` and single-axis `DIORAMA_CAMERA_MOVES` (`R56`, `R58`).
+
+
+---
+
+## R62 — Dynamic Per-Episode QA Contract & 3-Stage Multimodal Gate (`pipeline/dynamic_episode_qa.py`)
+
+- Every episode dynamically compiles `03_visuals/episode_qa_contract.json` from its `dossier` + `script.json` + `visual_plan.json` and enforces three zero-tolerance gates:
+  1. **Gate 1 (`Pre-Flow` Prompt Contract)**: Blocks abstract substitutes on literal analogies (`R57-V`), enforces period headwear/wardrobe (`R56-C`), `>= 2` physical action verbs (`R56-M`), direct bloodless ceramic trauma/event reenactment (`R56-I`), and anatomy-to-brain clip alignment.
+  2. **Gate 2 (`Clip-Harvest` Multimodal CV Gate)**: Verifies per-clip optical flow, zero `0.5s` freeze, dark-navy backdrop, MSER plaque absence, and scene-specific visual feature signatures (e.g., green stadium turf HSV on `"football field"`, matte-white ceramic cast contrast, 3D brain subsurface glow) with automatic `0-credit` in-tab regeneration on failure.
+  3. **Gate 3 (`Post-Assembly` 12-Axis Hard Gate `DQ1–DQ12`)**: Runs `faster-whisper` ASR on the final `final_shorts_1080x1920.mp4` audio track to verify spoken-timestamp <-> decoded-frame visual sync (`<= 0.25s`), brisk WPM, 3-Gear cut rhythm, `0%` clip reuse, zero flesh/plaque leaks, subtitle geometry, LUFS, and 3 distinct thumbnails (`100.0/100.0` required).
+
+---
+
+## R63 — Schema v7 Full-Bleed Low-Poly Pastel Architecture Protocol (`PROMPT_SCHEMA_VERSION_V7`, `DIORAMA_V7_STYLE_PROFILE`)
+
+`DIORAMA_V7_STYLE_PROFILE` (`"lowpoly_pastel_v7"`) is preserved with full backward compatibility when `style_profile == DIORAMA_V7_STYLE_PROFILE` (while `DEFAULT_DIORAMA_STYLE_PROFILE` defaults to `PORCELAIN_V7_STYLE_PROFILE` under **R66**; shared Schema v7 cadence, camera rig, `dynamic_rush_v7` prosody, condensed typography, and `AnatomyLabel` rules below apply across all `DIORAMA_V7_STYLE_PROFILES`). When `is_diorama_v7_plan(visual_plan)` is true with `DIORAMA_V7_STYLE_PROFILE`, the pipeline renders `@신비한_건축사전` low-poly pastel parity:
+1. **World, Shader, Pastel Grade, Deep-Brain Clarity & Optics**: Full-bleed viewport `DIORAMA_V7_WORLD_STYLE` (`Mean Y` inside `DIORAMA_V7_LUMA_RANGE`, dark shadow pixel fraction `<= DIORAMA_V7_DARK_VOID_RATIO_MAX`, episode mean HSV saturation normalized inside `DIORAMA_V7_SATURATION_RANGE`), unified `DIORAMA_V7_SHADER_STYLE` across environments, analogies, and `DIORAMA_V7_BRAIN_RENDER_MODES` (`<= DIORAMA_V7_CUTAWAY_MAX_RATIO` cutaway sections), and `DIORAMA_V7_OPTICS_LOCK` (zero bokeh/tilt-shift blur, zero dark-oak museum plinths). Macroscopic anatomical locations use color-blocked `lowpoly_matte_brain` models (`matte_pastel_cortical_model` for surface lobes vs `matte_pastel_sagittal_cutaway` for deep subcortical structures, optionally anchored via `lowpoly_v7_refs/`) while circuit/microscopic dynamics use dedicated `lowpoly_literal_analogy` / `lowpoly_cutaway_section` 1:1 physical models.
+2. **3-Tier Face-Excluding Low-Poly Cast & Positive Prompting**: Uses `DIORAMA_V7_VISUAL_GRAMMARS` (`lowpoly_hands_closeup`, `lowpoly_pov_hands`, `lowpoly_fullbleed_world` rear/elevated/wide hatted & clothed low-poly crew, `lowpoly_cutaway_section`, `lowpoly_literal_analogy`, `lowpoly_matte_brain`) with **positive phrasing only** (zero negative noun lists that trigger T5 Pink-Elephant hallucinations, zero text-inducing prop modifiers or rocket/missile verb traps) and optional `0-credit` reference-image style anchors.
+3. **Native `DIORAMA_V7_VIDEO_FPS` (`DIORAMA_V7_VISUAL_PLAYBACK_SPEED`) Cadence, Camera Rig, Dynamic Cut Rhythm & `hstack` Split**: Renders natively at `DIORAMA_V7_VIDEO_FPS` and `DIORAMA_V7_VISUAL_PLAYBACK_SPEED` (`<= SHORTS_HARD_CEILING_FRAMES_V7`, zero `24->30` pulldown judder, zero entry speed-ramp knee), single camera directive per prompt (`>= DIORAMA_V7_LOCKED_CAMERA_MIN_RATIO` `locked_tripod` + 4-way orthogonal pan/tilt + `<= DIORAMA_V7_ZOOM_CAMERA_MAX_RATIO` push/pull), dynamic cut `CV >= DIORAMA_V7_CUT_CV_MIN` (`DIORAMA_V7_RAPID_CUT_MIN_SEC` impact sub-cuts + `DIORAMA_V7_LONG_TAKE_MAX_SEC` multi-sentence continuous holds, `A-B-A` location returns, episode-specific props only), and `DIORAMA_V7_SPLIT_MODE` (`DIORAMA_V7_SPLIT_DIVIDER_PX` black divider).
+4. **Dynamic Prosody (`R63-P`: `DIORAMA_V7_PROSODY_MODE = "dynamic_rush_v7"`, native per-gear `DIORAMA_V7_PROSODY_GEAR_RATES` rush `+12%` / stamp `+8%` / brisk `+15%`, zero WSOLA), High-Tenor Silk Clean Voice (`DIORAMA_V7_TTS_PITCH` / `DIORAMA_V7_TTS_VOLUME`, `STORYTELLER_VOCAL_FILTER` + single `DIORAMA_V7_MASTER_DEESSER`), Bundled Condensed Typography, Programmatic `AnatomyLabel` Badges & Stereo Score**: Burns bundled `FONT_CONDENSED_BLACK_PATH` (`DIORAMA_V7_SUBTITLE_FONT_NAME` with uncondensed word-space advance width, `Shadow = DIORAMA_V7_SUBTITLE_SHADOW_DEPTH`, `MarginV = DIORAMA_V7_SUBTITLE_MARGIN_V`, `0-frame` contiguous frame-quantized handoffs, zero `1-frame` mid-act strobes, zero speech blackouts) + `DIORAMA_V7_CHAPTER_HEADLINE_FONT_SIZE` (`ScaleX = DIORAMA_V7_CHAPTER_HEADLINE_SCALE_X`, `MarginL/R = DIORAMA_V7_CHAPTER_HEADLINE_MARGIN_LR`, rendered width `<= DIORAMA_V7_CHAPTER_HEADLINE_MAX_WIDTH_PX`) top chapter headlines + collision-free upper-viewport programmatic `AnatomyLabel` region + plain-function badges (`DIORAMA_V7_ANATOMY_LABEL_FONT_SIZE`, `ScaleX = DIORAMA_V7_ANATOMY_LABEL_SCALE_X`, `Outline = DIORAMA_V7_ANATOMY_LABEL_OUTLINE_WIDTH`, `MarginV = DIORAMA_V7_ANATOMY_LABEL_MARGIN_V`, zero AI-rendered text inside Flow clips), paired with `dynamic_rush_v7` sentence-level prosody (each Act synthesized once per needed gear rate from `DIORAMA_V7_PROSODY_GEAR_RATES`, sentences sliced from their gear's stream, `wsola_factor = 1.0`; `DIORAMA_V7_PROSODY_BASE_RATE` / `DIORAMA_V7_TTS_RATE` only as fallback; `DIORAMA_V7_TTS_PITCH`, `DIORAMA_V7_TTS_VOLUME` tear-free Silk Clean `48kHz soxr` linear EQ) `en-US-AndrewMultilingualNeural` (`DIORAMA_V7_TTS_SPEED` offline `kokoro-onnx` fallback, `DIORAMA_V7_WPM_MIN..DIORAMA_V7_WPM_MAX`) waveform breath-trimmed speech (`>= DIORAMA_V7_ACTIVE_VOICED_RMS_RATIO_MIN` true RMS voiced ratio) and `DIORAMA_V7_AUDIO_CHANNELS`-channel stereo acoustic/orchestral BGM (`DIORAMA_V7_BGM_DUCK_DB`) verified across every clip and cut.
+
+---
+
+## R64 — Post-Hoc Clip-by-Clip Expressive Clarity Verification QA (`pipeline/posthoc_semantic_qa.py`)
+
+Every assembled project (`neuro_diorama` v6/v7 and `classic_v5`) runs **Post-Hoc Expressive Clarity Verification QA** (`main.py posthoc-qa --project <id>`) across **100% of assembled cuts** and their underlying `03_visuals/flow_native_clips/clip_*.mp4` source windows to verify whether what each clip intends to express is visually clear to a human viewer:
+1. **Dual-Stream 5-Axis Clarity Scoring (`05_assembly/posthoc_semantic_qa_report.json`)**:
+   - Samples `5` intra-cut decoded frames per cut (`12%`, `31%`, `50%`, `69%`, `88%`) inside the clean action ROI (excluding top headline and bottom subtitle bands) and computes five weighted sub-scores (`0..100`):
+     - `visual_legibility`: clean-ROI focus (`POSTHOC_MIN_SHARPNESS_LAPLACIAN`), structural edge density (`POSTHOC_MIN_EDGE_DENSITY`), foreground-to-periphery LAB contrast (`POSTHOC_MIN_FG_BG_CONTRAST_DE`), and profile exposure/dark-void bounds.
+     - `action_and_camera`: camera/prop motion activity (`POSTHOC_MIN_MOVING_CAM_DIFF` on moving cameras, `POSTHOC_LOCKED_TRIPOD_MIN_P95_DIFF` localized hand/prop motion on `locked_tripod` cuts).
+     - `temporal_coherence`: intra-cut HSV histogram stability (`<= POSTHOC_MAX_STEP_HIST_JUMP`, catching mid-cut AI morphs, flashes, or abrupt subject disappearance).
+     - `intent_grammar_alignment`: grammar-specific visual proof (`POSTHOC_SPLIT_PANE_MIN_DIFF` + black divider on `split_hstack`, `POSTHOC_BRAIN_HIGHLIGHT_MIN_CHROMA` focal region accent on brain lesion/pathway cuts, literal analogy object contrast, and `<= POSTHOC_ANALOGY_SYNC_TOLERANCE_SEC` spoken-to-visual timestamp lock).
+     - `composition_and_sync`: unobstructed central action zone (`Y=22%..62%`), subtitle timing coverage, and source-clip duration headroom.
+   - Every cut must reach `>= POSTHOC_MIN_CUT_CLARITY_SCORE` and the episode mean must reach `>= POSTHOC_MIN_EPISODE_MEAN_CLARITY_SCORE`.
+2. **Source-Clip Root-Cause Attribution**:
+   - For any weak cut (`clarity_score < POSTHOC_MIN_CUT_CLARITY_SCORE`), `posthoc_semantic_qa.py` inspects candidate windows across the raw `flow_native_clips/clip_k.mp4` source file to distinguish **`shift_edl_source_window`** (when an alternate sharp, active window exists inside `clip_k.mp4`), **`regenerate_flow_clip`** (when the entire generated Flow clip is blurry, frozen, dark, or missing its focal subject), and **`rebuild_assembly_edl_or_subtitles`** (when source clip quality is high but mux/split/subtitle alignment degraded the cut).
+3. **Annotated Viewer Contact Strips & SHA-256-Bound Semantic Review**:
+   - Renders `05_assembly/posthoc_viewer_strips/sheet_01.jpg..sheet_NN.jpg` (`POSTHOC_CUTS_PER_VIEWER_SHEET` cuts per sheet showing `[START | MID | END]` frames, 5 sub-score bars, spoken narration, intended scene/action, and defect badges) for rapid human/multimodal inspection.
+   - `05_assembly/posthoc_semantic_review.json` (`POSTHOC_SEMANTIC_REVIEW_FILENAME`) binds per-cut `observed_visual_summary` (`>= POSTHOC_MIN_REVIEW_NOTE_CHARS` chars, `<= POSTHOC_MAX_IDENTICAL_REVIEW_NOTES` identical notes anti-boilerplate guard) and `expresses_intended_meaning` to the exact `final_mp4_sha256`.
+
+---
+
+## R65 — Thumbnail Studio & In-Video Cover Frame (`pipeline/thumbnail_studio.py`)
+
+Every new Schema v7 `neuro_diorama` episode designs its Shorts shelf cover into both the cold-open video timeline and `06_publish/` (`DIORAMA_V7_REQUIRE_THUMBNAIL_BLOCK`):
+1. **Pre-Flow Blueprint Contract (`visual_plan.thumbnail`, enforced by `prompt-gate`)**:
+   - Authors `visual_plan.thumbnail = {"hook_text": "<2-4 UPPERCASE WORDS>", "cover_sentence_index": 3, "cover_brief": "<hero composition>"}` where `hook_text` obeys `THUMB_HOOK_MAX_WORDS` and `THUMB_HOOK_MAX_CHARS` and complements (never repeats word-for-word) the video title.
+   - Aligns `chapter_headlines` at `cover_sentence_index` (`1..3`, typically the `R57-H2` S3 case stamp) to `hook_text`, and appends a centered single-subject silhouette hero clause on the matching `porcelain_fullbleed_world` / `lowpoly_fullbleed_world` Flow clip so selecting `cover_frame_sec` in the YouTube mobile app yields a finished, legible cover frame without static flash frames.
+2. **Scored Multi-Cut Selection & v7 Typography (`main.py thumbnail`)**:
+   - Samples `THUMB_CANDIDATE_SAMPLES_PER_CUT` clean frames across every eligible EDL cut (excluding `THUMB_EXCLUDE_MODES` and `THUMB_EXCLUDE_OUTRO`), scores `THUMB_SCORE_WEIGHTS` (`sharpness`, `contrast`, `colorfulness`, `center_salience`, and `THUMB_INTENT_BONUS`), picks top-3 distinct clips (`>= THUMB_MIN_PAIRWISE_DIFF`), re-renders exact EDL frames, and composites `FONT_CONDENSED_BLACK_PATH` (`THUMB_HOOK_FONT_SIZE_RANGE`, `THUMB_HOOK_STROKE_PX` dark stroke + feathered halo, zero rectangular boxes/pills).
+3. **7-Gate Thumbnail QA (`TQ1–TQ7`) & Contact Sheet**:
+   - Verifies `TQ1` `THUMB_LEGIBILITY_PREVIEW_W` WCAG contrast (`>= THUMB_MIN_TEXT_CONTRAST`), `TQ2` centre-`3:4` salience (`>= THUMB_MIN_CENTER_SALIENCE`), `TQ3` sharpness & contrast (`>= THUMB_MIN_SHARPNESS`, `>= THUMB_MIN_LUMA_STD`), `TQ4` safe-zone geometry (`THUMB_SAFE_Y_RANGE`, `THUMB_SAFE_MARGIN_X`), `TQ5` pairwise diff (`>= THUMB_MIN_PAIRWISE_DIFF`), `TQ6` PNG integrity (`> THUMB_MIN_FILE_BYTES`), and `TQ7` hook lexical rules, saving `06_publish/thumbnail_report.json` (`THUMBNAIL_REPORT_FILENAME`) and `06_publish/thumbnail_contact_sheet.png` (`THUMBNAIL_CONTACT_SHEET_FILENAME`).
+
+---
+
+## R66 — Default Schema v7 `porcelain_cinematic_v7` Style Profile & Contained Living 4-Color 3D Brain Protocol (`DEFAULT_DIORAMA_STYLE_PROFILE = PORCELAIN_V7_STYLE_PROFILE`)
+
+`DEFAULT_DIORAMA_STYLE_PROFILE` (`PORCELAIN_V7_STYLE_PROFILE`, `"porcelain_cinematic_v7"`) is the channel-default Schema v7 style profile (`is_porcelain_v7_plan`), keeping `100%` of Schema v7's narrative spine (`R57-H2`, `R57-R`), `dynamic_rush_v7` prosody (`R63-P`), camera choreography ratios (`R63`), 1:1 Zero-Reuse EDL, `DIORAMA_V7_SPLIT_MODE`, `FONT_CONDENSED_BLACK_PATH` subtitles / `ChapterHeadline` / `AnatomyLabel` overlays, and `R65` Thumbnail Studio while upgrading the visual skin to bright photorealistic documentary environments, clothed matte-white porcelain figures/hands, and a **Contained Living 4-Color 3D Brain**:
+1. **Photorealistic High-Key Documentary World & Articulated Porcelain Cast (`PORCELAIN_V7_WORLD_STYLE`, `PORCELAIN_V7_CAST_STYLE`, `PORCELAIN_V7_OPTICS_LOCK`)**:
+   - Replaces flat clay/low-poly facets with photorealistic sunlit / softbox-lit interiors and outdoor environments (`PORCELAIN_V7_LUMA_RANGE`, dark shadow ratio `<= PORCELAIN_V7_DARK_VOID_RATIO_MAX`, native HSV saturation `PORCELAIN_V7_SATURATION_RANGE` with `_compute_v7_pastel_eq_filter` bypassed so subsurface colors stay vivid).
+   - Preserves all 6 Schema v7 action-choreography slots via `PORCELAIN_V7_VISUAL_GRAMMARS` (`porcelain_hands_closeup`, `porcelain_pov_hands`, `porcelain_fullbleed_world`, `porcelain_cutaway_section`, `porcelain_literal_analogy`, `porcelain_living_brain` — `PorcelainV7PromptComposer` in `pipeline/depiction_rules.py`), staging ball-jointed matte-white porcelain forearms/hands in tailored sleeves and clothed articulated matte-white porcelain figures with smooth featureless heads and translucent frosted-glass craniums (zero human skin or facial features, HSV peach ratio `<= PORCELAIN_V7_HUMAN_SKIN_MAX`, positive phrasing only).
+2. **Contained Living 4-Color 3D Brain (`porcelain_living_brain`, `PORCELAIN_V7_BRAIN_RENDER_MODES`, `ContainedLiving3DBrainRule`)**:
+   - Renders an ultra-detailed life-size matte-ivory 3D human brain on a brushed-silver laboratory stand in a bright white gallery using 4 sub-modes: `cortical_vascular_whole`, `sagittal_coronal_cutaway`, `frosted_glass_subcortical_xray`, and `bounded_micro_channel`.
+   - **Strict 4-Color Internal Containment Lock**: Every luminous color and fluid/impulse motion MUST remain physically enclosed inside anatomical walls (recessed sulcal grooves, translucent perivascular tubes, or myelinated white-matter fiber sheaths) against clean matte-white studio air:
+     - **`Clear Cyan-Blue`**: Active target hub / intact executive cortical or subcortical glow inside sulcal walls.
+     - **`Deep Crimson-Red`**: Lesion, metabolic overload, hyperactive alarm, or severed tract inside enclosed tissue.
+     - **`Warm Amber-Gold`**: Compensatory rerouting or memory consolidation inside bounded myelinated fiber bundles.
+     - **`Luminous Pearl-Aqua` fluid / `Champagne-White` impulse**: Smooth laminar cerebrospinal / glymphatic fluid streaming inside translucent perivascular channels or crisp traveling light pulses inside enclosed axon tracts.
+   - **Zero Uncontained Fluorescent Green / Particle Spill (`PORCELAIN_V7_NEON_GREEN_SPILL_MAX`, `PORCELAIN_V7_BRAIN_MARGIN_SAT_MAX`)**: Prompt gate (`validate_porcelain_v7_scene`), live Flow CV gate (`inspect_diorama_clip_cv`), `DQ8` (`dynamic_episode_qa.py`), and `R64` (`posthoc_semantic_qa.py`) strictly forbid `"bioluminescent green"`, `"neon green"`, `"fluorescent"`, `"particles"`, `"sparks"`, `"mist"`, `"fog"`, `"smoke"`, `"slime"`, `"ooze"`, and `"splatter"`, and reject any clip whose neon-green HSV spill exceeds `PORCELAIN_V7_NEON_GREEN_SPILL_MAX` or whose outer studio margin saturation exceeds `PORCELAIN_V7_BRAIN_MARGIN_SAT_MAX`.

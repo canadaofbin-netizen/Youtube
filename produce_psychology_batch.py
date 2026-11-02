@@ -287,6 +287,9 @@ def resolve_topic_item(project_dir: Path) -> dict[str, Any]:
     narrations = _script_clip_narrations(script_data)
     if narrations:
         item["clip_narrations"] = narrations
+    elif isinstance(script_data.get("sentences"), list) and script_data["sentences"]:
+        item["sentences"] = [str(s).strip() for s in script_data["sentences"] if str(s).strip()]
+        item["profile"] = str(script_data.get("profile") or "neuro_diorama")
     elif not item["hook_text"]:
         raise ValueError(
             f"{script_file} has neither {CLIP_COUNT_MIN}-{CLIP_COUNT_MAX} clip_narrations nor stage texts."
@@ -572,12 +575,12 @@ def generate_ass_subtitles(
     output_path: Path,
     speech_end_sec: float | None = None,
     project_dir: Path | None = None,
+    precomputed_events: list[tuple[float, float, list[str]]] | None = None,
 ) -> Path:
     """
     Generates single-line Y=74% ASS subtitles (MarginV=440, 2-3 words per event, 86px Arial Black, 7px outline):
-    - When the project's native Flow clips are present, each clip's narration is force-aligned to its vocal
-      envelope (10ms resolution) inside the same speech window used by the audio master and the video cut
-      list, then mapped onto the AV_SPEEDUP_FACTOR (1.08x) timeline.
+    - When precomputed_events (Kokoro TTS am_fenrir) or project clips are present, each clip's narration is
+      frame-locked to its exact vocal timeline.
     - One gold keyword (&H00D7FF&) per event with a 110% micro-pop.
     - Without aligned clips, phrases are distributed by syllable weight over [0.08s, speech_end_sec];
       speech_end_sec defaults to total words / EFFECTIVE_WPS.
@@ -643,58 +646,91 @@ def generate_ass_subtitles(
     dialogue_lines: list[str] = []
     used_acoustic_alignment = False
 
-    if project_dir is not None:
+    if precomputed_events:
+        for t0, t1, p_words in precomputed_events:
+            text_formatted = _format_phrase_lines(p_words)
+            dialogue_lines.append(
+                f"Dialogue: 0,{_format_ass_time(t0)},{_format_ass_time(t1)},Default,,0,0,0,,{text_formatted}"
+            )
+        if len(dialogue_lines) >= 10:
+            used_acoustic_alignment = True
+        else:
+            dialogue_lines = []
+
+    if not used_acoustic_alignment and project_dir is not None:
         clips_dir = project_dir / "03_visuals" / "flow_native_clips"
         clip_files = sorted(clips_dir.glob("clip_*.mp4"), key=numeric_clip_sort_key) if clips_dir.exists() else []
         clip_scripts = _load_project_clip_scripts(project_dir, topic_item=topic_item)
         n_expected = len(clip_scripts)
         if CLIP_COUNT_MIN <= n_expected <= CLIP_COUNT_MAX and len(clip_files) >= n_expected:
-            fps_int = int(VIDEO_FPS)
-            pivot_clip_idx = pivot_clip_index(n_expected)
-            timeline_cursor = 0.0
-            for c_idx, (cf, c_text) in enumerate(zip(clip_files[:n_expected], clip_scripts)):
-                win_info = measure_clip_speech_window(
-                    cf,
-                    expected_text=c_text,
-                    is_first_clip=(c_idx == 0),
-                    is_final_clip=(c_idx == n_expected - 1),
-                    is_pre_pivot_clip=(c_idx == pivot_clip_idx - 1),
-                )
-                speedup = float(win_info.get("speedup_factor", AV_SPEEDUP_FACTOR))
-                c_frames = max(30, int(round(float(win_info["trimmed_dur"]) * fps_int)))
-                c_start_sec = timeline_cursor
-                c_end_sec = timeline_cursor + c_frames / float(fps_int)
-
-                src_trim_start = float(win_info["trim_start"])
-                src_trim_end = float(win_info["trim_end"])
-                active_spk_end_src = min(
-                    src_trim_end,
-                    max(src_trim_start + 1.4, float(win_info.get("speech_end") or src_trim_end)),
-                )
-                clip_events_src = align_clip_phrases_to_vocal_envelope(
-                    clip_path=cf,
-                    trim_start=src_trim_start,
-                    trim_end=active_spk_end_src,
-                    clip_text=c_text,
-                    timeline_offset_sec=0.0,
-                    max_words_per_event=SUBTITLE_MAX_WORDS_PER_EVENT,
-                )
-                prev_end = c_start_sec
-                for rel_t0, rel_t1, p_words in clip_events_src:
-                    t0 = round(max(prev_end, c_start_sec + (rel_t0 / speedup)), 2)
-                    t1 = round(min(c_end_sec - 0.04, max(t0 + 0.36, c_start_sec + (rel_t1 / speedup))), 2)
-                    if t1 <= t0 + 0.25:
-                        t1 = round(min(c_end_sec, t0 + 0.36), 2)
-                    prev_end = t1
+            from pipeline.config import DEFAULT_VOICE_SOURCE
+            force_mode = None
+            vs_file = project_dir / "04_audio" / "voice_source.json"
+            if vs_file.exists():
+                try:
+                    force_mode = json.loads(vs_file.read_text(encoding="utf-8")).get("force")
+                except Exception:
+                    force_mode = None
+            if (DEFAULT_VOICE_SOURCE == "tts" and force_mode != "native") or force_mode in ("tts", "tts_fallback"):
+                from pipeline.voice_fallback import resolve_voice_track
+                v_dec = resolve_voice_track(project_dir, clip_files[:n_expected], clip_scripts, native_res=None, sr=48000)
+                tts_ev = v_dec.get("events") or []
+                for t0, t1, p_words in tts_ev:
                     text_formatted = _format_phrase_lines(p_words)
                     dialogue_lines.append(
                         f"Dialogue: 0,{_format_ass_time(t0)},{_format_ass_time(t1)},Default,,0,0,0,,{text_formatted}"
                     )
-                timeline_cursor = c_end_sec
-            if len(dialogue_lines) >= 10:
-                used_acoustic_alignment = True
+                if len(dialogue_lines) >= 10:
+                    used_acoustic_alignment = True
+                else:
+                    dialogue_lines = []
             else:
-                dialogue_lines = []
+                fps_int = int(VIDEO_FPS)
+                pivot_clip_idx = pivot_clip_index(n_expected)
+                timeline_cursor = 0.0
+                for c_idx, (cf, c_text) in enumerate(zip(clip_files[:n_expected], clip_scripts)):
+                    win_info = measure_clip_speech_window(
+                        cf,
+                        expected_text=c_text,
+                        is_first_clip=(c_idx == 0),
+                        is_final_clip=(c_idx == n_expected - 1),
+                        is_pre_pivot_clip=(c_idx == pivot_clip_idx - 1),
+                    )
+                    speedup = float(win_info.get("speedup_factor", AV_SPEEDUP_FACTOR))
+                    c_frames = max(30, int(round(float(win_info["trimmed_dur"]) * fps_int)))
+                    c_start_sec = timeline_cursor
+                    c_end_sec = timeline_cursor + c_frames / float(fps_int)
+
+                    src_trim_start = float(win_info["trim_start"])
+                    src_trim_end = float(win_info["trim_end"])
+                    active_spk_end_src = min(
+                        src_trim_end,
+                        max(src_trim_start + 1.4, float(win_info.get("speech_end") or src_trim_end)),
+                    )
+                    clip_events_src = align_clip_phrases_to_vocal_envelope(
+                        clip_path=cf,
+                        trim_start=src_trim_start,
+                        trim_end=active_spk_end_src,
+                        clip_text=c_text,
+                        timeline_offset_sec=0.0,
+                        max_words_per_event=SUBTITLE_MAX_WORDS_PER_EVENT,
+                    )
+                    prev_end = c_start_sec
+                    for rel_t0, rel_t1, p_words in clip_events_src:
+                        t0 = round(max(prev_end, c_start_sec + (rel_t0 / speedup)), 2)
+                        t1 = round(min(c_end_sec - 0.04, max(t0 + 0.36, c_start_sec + (rel_t1 / speedup))), 2)
+                        if t1 <= t0 + 0.25:
+                            t1 = round(min(c_end_sec, t0 + 0.36), 2)
+                        prev_end = t1
+                        text_formatted = _format_phrase_lines(p_words)
+                        dialogue_lines.append(
+                            f"Dialogue: 0,{_format_ass_time(t0)},{_format_ass_time(t1)},Default,,0,0,0,,{text_formatted}"
+                        )
+                    timeline_cursor = c_end_sec
+                if len(dialogue_lines) >= 10:
+                    used_acoustic_alignment = True
+                else:
+                    dialogue_lines = []
 
     if not used_acoustic_alignment:
         narrations = _clean_narrations(topic_item.get("clip_narrations"))
@@ -1120,7 +1156,31 @@ def generate_audio_master_wav(
     sr = 48000
     project_dir = output_path.parent.parent
 
-    native_res = precomputed_native_res if precomputed_native_res is not None else extract_native_flow_clip_speech(project_dir, sr=sr, return_windows=True, topic_item=topic_item)
+    if precomputed_native_res is not None:
+        native_res = precomputed_native_res
+    else:
+        from pipeline.config import DEFAULT_VOICE_SOURCE
+        from pipeline.voice_fallback import resolve_voice_track
+        clips_dir = project_dir / "03_visuals" / "flow_native_clips"
+        clip_files = sorted(clips_dir.glob("clip_*.mp4"), key=numeric_clip_sort_key) if clips_dir.exists() else []
+        clip_scripts = _load_project_clip_scripts(project_dir, topic_item=topic_item)
+        force_mode = None
+        vs_file = project_dir / "04_audio" / "voice_source.json"
+        if vs_file.exists():
+            try:
+                force_mode = json.loads(vs_file.read_text(encoding="utf-8")).get("force")
+            except Exception:
+                force_mode = None
+        if len(clip_files) >= len(clip_scripts) and len(clip_scripts) >= CLIP_COUNT_MIN:
+            raw_native = (
+                None
+                if (DEFAULT_VOICE_SOURCE == "tts" and force_mode != "native") or force_mode in ("tts", "tts_fallback")
+                else extract_native_flow_clip_speech(project_dir, sr=sr, return_windows=True, topic_item=topic_item)
+            )
+            v_dec = resolve_voice_track(project_dir, clip_files[: len(clip_scripts)], clip_scripts, native_res=raw_native, sr=sr)
+            native_res = v_dec["res"]
+        else:
+            native_res = extract_native_flow_clip_speech(project_dir, sr=sr, return_windows=True, topic_item=topic_item)
     if native_res is None:
         raise RuntimeError(
             f"Native Google Flow clip speech unavailable for '{project_dir.name}': "
@@ -1278,7 +1338,7 @@ def generate_audio_master_wav(
     if tail_mute_n > 0:
         mixed_mono[-tail_mute_n:] *= np.linspace(1.0, 0.0, tail_mute_n, dtype=np.float32)
     mixed_mono = np.nan_to_num(mixed_mono, nan=0.0, posinf=0.0, neginf=0.0)
-    mixed_mono = np.clip(mixed_mono, -0.98, 0.98)
+    mixed_mono = np.clip(mixed_mono, -0.84, 0.84)
     stereo_pcm = np.column_stack((mixed_mono, mixed_mono)).flatten()
     pcm_int16 = (stereo_pcm * 32767.0).astype(np.int16)
 
@@ -1299,19 +1359,55 @@ def assemble_final_shorts_video(
     """
     Renders the 1080x1920 @ 30fps Short from the project's 5-10 native Google Flow clips:
     - Every clip in 03_visuals/flow_native_clips (>= MIN_CLIP_SIZE_BYTES) must pass MediaIntegrityValidator.
-    - Each clip's video and native voice are trimmed to the same measured speech window and sped up
-      AV_SPEEDUP_FACTOR (setpts / atempo) so lip-sync and cuts stay frame-locked; native Flow colour is untouched.
+    - Routes narration through resolve_voice_track (Kokoro am_fenrir at 1.00x when DEFAULT_VOICE_SOURCE == 'tts').
     - audio_master.wav and subtitles.ass are regenerated on every render; 05_assembly/concat_list.txt records the
       per-clip in point and output-timeline duration used for cut-sync auditing.
     Raises RuntimeError ("FATAL ERROR [Anti-Placeholder Policy]") for missing/invalid clips and RuntimeError when
-    native clip speech cannot be extracted.
+    clip speech cannot be resolved.
     """
+    from pipeline.config import DEFAULT_VOICE_SOURCE, is_diorama_profile
     from pipeline.media_integrity import MediaIntegrityValidator
+    from pipeline.voice_fallback import resolve_voice_track
 
     assembly_dir = storage.get_stage_dir("05_assembly")
     final_video_path = assembly_dir / "final_shorts_1080x1920.mp4"
     if final_video_path.exists() and final_video_path.stat().st_size >= MIN_CLIP_SIZE_BYTES and not force:
         return final_video_path
+
+    vp_doc = _read_json_dict(storage.project_dir / "03_visuals" / "visual_plan.json")
+    scr_doc = _read_json_dict(storage.project_dir / "02_script" / "script.json")
+    if is_diorama_profile(vp_doc) or is_diorama_profile(scr_doc):
+        from pipeline.diorama_assembler import assemble_diorama_project
+
+        d_res = assemble_diorama_project(storage.project_dir, force_rebuild=True)
+        out_mp4 = Path(d_res["final_mp4"])
+        probe_rep = MediaIntegrityValidator.validate_video_file(
+            out_mp4,
+            min_size_bytes=MIN_CLIP_SIZE_BYTES,
+            require_30s_shorts=True,
+            check_motion=True,
+            check_audio=True,
+        )
+        storage.save_json("05_assembly", "probe_report.json", probe_rep)
+        storage.record_artifact("05_assembly", "final_shorts_1080x1920.mp4", out_mp4)
+        storage.record_artifact("05_assembly", "edit_decision_list.json", Path(d_res["edl_path"]))
+        storage.record_artifact("04_audio", "audio_master.wav", Path(d_res["wav_path"]))
+        storage.record_artifact("04_audio", "subtitles.ass", Path(d_res["ass_path"]))
+        vr_f = storage.project_dir / "04_audio" / "voice_report.json"
+        if vr_f.exists():
+            storage.record_artifact("04_audio", "voice_report.json", vr_f)
+        storage.update_stage_status("04_audio", "completed")
+        storage.update_stage_status("05_assembly", "completed")
+        manifest = storage.get_manifest()
+        manifest["final_video"] = {
+            "path": str(out_mp4),
+            "size_bytes": probe_rep["file_size_bytes"],
+            "duration": probe_rep["duration_seconds"],
+            "resolution": f"{probe_rep['width']}x{probe_rep['height']}",
+            "source": "neuro_diorama_v6_crosscut_assembly",
+        }
+        storage._write_manifest(manifest)
+        return out_mp4
 
     clips_dir = storage.project_dir / "03_visuals" / "flow_native_clips"
     raw_candidates = (
@@ -1355,18 +1451,50 @@ def assemble_final_shorts_video(
     audio_path = audio_dir / "audio_master.wav"
     ass_path = audio_dir / "subtitles.ass"
 
-    native_res = extract_native_flow_clip_speech(storage.project_dir, sr=48000, return_windows=True, topic_item=topic_item)
-    if native_res is None:
+    clip_scripts = _load_project_clip_scripts(storage.project_dir, topic_item=topic_item)
+    force_mode = None
+    vs_file = audio_dir / "voice_source.json"
+    if vs_file.exists():
+        try:
+            force_mode = json.loads(vs_file.read_text(encoding="utf-8")).get("force")
+        except Exception:
+            force_mode = None
+
+    raw_native = (
+        None
+        if (DEFAULT_VOICE_SOURCE == "tts" and force_mode != "native") or force_mode in ("tts", "tts_fallback")
+        else extract_native_flow_clip_speech(storage.project_dir, sr=48000, return_windows=True, topic_item=topic_item)
+    )
+    voice_decision = resolve_voice_track(
+        storage.project_dir,
+        raw_candidates[: len(clip_scripts)],
+        clip_scripts,
+        native_res=raw_native,
+        sr=48000,
+    )
+    voice_res = voice_decision["res"]
+    if voice_res is None:
         raise RuntimeError(
-            f"Native Google Flow clip speech unavailable for '{storage.project_id}': "
+            f"Voice track unavailable for '{storage.project_id}': "
             f"{_native_audio_unavailable_reason(storage.project_dir, topic_item)}."
         )
-    _native_pcm, clip_windows = native_res
+    _voice_pcm, clip_windows = voice_res
+    tts_events = voice_decision.get("events")
     clip_candidates = raw_candidates[: len(clip_windows)]
 
-    generate_audio_master_wav(topic_item=topic_item, output_path=audio_path, force=True, precomputed_native_res=native_res)
+    vr_file = audio_dir / "voice_report.json"
+    if vr_file.exists():
+        storage.record_artifact("04_audio", "voice_report.json", vr_file)
+
+    generate_audio_master_wav(topic_item=topic_item, output_path=audio_path, force=True, precomputed_native_res=voice_res)
     total_speech_sec = round(sum(float(w["trimmed_dur"]) for w in clip_windows), 2)
-    generate_ass_subtitles(topic_item, ass_path, speech_end_sec=total_speech_sec, project_dir=storage.project_dir)
+    generate_ass_subtitles(
+        topic_item,
+        ass_path,
+        speech_end_sec=total_speech_sec,
+        project_dir=storage.project_dir,
+        precomputed_events=tts_events,
+    )
     clip_frame_targets = [max(30, int(round(float(w["trimmed_dur"]) * fps_int))) for w in clip_windows]
     target_total_frames = sum(clip_frame_targets)
     target_total_dur = round(target_total_frames / float(fps_int), 3)

@@ -1,0 +1,696 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "olds_milner_pleasure_center",
+  "topic": "Olds & Milner (1954) Bent Septal Electrode & Berridge & Kringelbach (2015) Dopamine Wanting vs Liking Dissociation (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Clinical and modern neurochemical mapping by a senior researcher proves Olds's famous self-stimulation highway drives relentless dopamine 'wanting' (incentive salience) completely separate from tiny hedonic 'liking' hotspots.",
+  "outro_title_lines": [
+    "OLDS & MILNER (1954)",
+    "MCGILL UNIVERSITY, MONTREAL"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "BENT WIRE"
+    },
+    {
+      "sentence_index": 10,
+      "text": "7,500 PRESSES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "POWER OFF"
+    },
+    {
+      "sentence_index": 28,
+      "text": "JOY MYTH"
+    },
+    {
+      "sentence_index": 36,
+      "text": "PURE WANTING"
+    },
+    {
+      "sentence_index": 44,
+      "text": "YOUR THUMB"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "BENT WIRE"
+    },
+    {
+      "sentence_index": 10,
+      "text": "7,500 PRESSES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "POWER OFF"
+    },
+    {
+      "sentence_index": 28,
+      "text": "JOY MYTH"
+    },
+    {
+      "sentence_index": 36,
+      "text": "PURE WANTING"
+    },
+    {
+      "sentence_index": 44,
+      "text": "YOUR THUMB"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 47,
+      "mode": "split_hstack",
+      "left_clip_index": 15,
+      "right_clip_index": 54,
+      "left_label": "1954 BRASS LEVER",
+      "right_label": "MIDNIGHT SWIPE"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white cotton lab coat cuffs and matte-ivory geometric hands adjusting a fine silver wire guide on a cool pale-ash bench",
+      "prop_action": "both low-poly hands lift the slender silver wire holder and turn a brass micrometer dial gently",
+      "consequence": "crisp morning window light gleams off the tiny silver tip"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "an elevated rear view of a bright sunlit 1953 Montreal laboratory with pale-oak workbenches, brass dials, and an open-top wooden test arena",
+      "action": "viewed strictly from behind, James Olds in a white lab coat leans over the pale-ash arena table and adjusts an overhead suspension cord"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "sunlit 1953 McGill brick arches and laboratory windows overlooking autumn maple trees in Montreal",
+      "action": "viewed strictly from behind, two clothed researchers in white coats walk into the bright laboratory carrying brass instrument boxes"
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "rolled plaid shirt sleeves and white coat cuffs soldering a tiny brass connector onto a flexible spring lead",
+      "prop_action": "Peter Milner's low-poly hands grip the miniature brass connector and clip the flexible overhead spring wire cleanly into place",
+      "consequence": "the lightweight spring sways freely above the wooden arena"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool slate display tray comparing a single fine silver wire beside a thin golden silk thread",
+      "comparison_action": "two low-poly hands in white coat cuffs lift and align the hair-thin silver wire right beside the silk thread"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean pastel geometric cross-section model on a pale-ash plinth showing a straight dotted target line toward the back base",
+      "internal_mechanism": "a slender silver pointer slides partway down toward the lower back target mark"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool slate ruler block holding three tiny pale-ivory sesame seeds lined end to end",
+      "comparison_action": "a low-poly hand in white coat sleeves places a thin silver pin tip curving three millimeters forward past the three sesame seeds"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs pressing a small round bakelite pulse button beside the open wooden arena",
+      "prop_action": "Olds's low-poly thumb taps the handheld pulse button once as a matte-ivory low-poly miniature rat figurine pauses at the sunny corner",
+      "consequence": "the sculpted matte-ivory miniature rat lifts its nose curiously toward the sunlit corner"
+    },
+    {
+      "sentence_index": 8,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "an open-top pastel birch four-corner arena where one sunny front-right corner glows with a soft golden floor tile",
+      "internal_mechanism": "the matte-ivory geometric rat figurine steps away briefly then turns briskly and trots straight back onto the golden corner tile"
+    },
+    {
+      "sentence_index": 8,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves extending from bottom frame holding a brass stopwatch beside the arena wall",
+      "prop_action": "both low-poly hands click the brass stopwatch and point toward the golden corner where the miniature figurine stays planted",
+      "consequence": "all three other arena corners sit completely empty"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "white coat sleeves holding a translucent pastel X-ray film up against a bright cool-white light panel",
+      "prop_action": "both low-poly hands clip the crisp silhouette film onto the light box and point to the forward-bent silver line",
+      "consequence": "the forward curve away from the midbrain shines unmistakably"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit Montreal workbench with the square wooden arena in center view",
+      "action": "viewed strictly from behind, Olds in his white coat taps the pulse switch guiding the miniature ivory figurine smoothly from left corner to right corner",
+      "end_sentence_index": 11
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "plaid shirt cuffs sketching a wide brass pedal lever inside a clear-walled chamber diagram",
+      "prop_action": "Milner's low-poly hands draw the lever circuit and tap the switch symbol twice with a blue pencil",
+      "consequence": "sunlight illuminates the clean wiring sketch",
+      "end_sentence_index": 12,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves bolting a wide polished brass pedal lever into a clear pastel chamber wall",
+      "prop_action": "both low-poly hands tighten two small brass thumbscrews securing the spring-loaded lever cleanly",
+      "consequence": "the brass lever bounces crisply when tested by one finger",
+      "end_sentence_index": 12,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-ash console holding a vintage brass sixty-cycle bell chime beside a small transformer dial",
+      "comparison_action": "a low-poly hand in white coat cuffs lifts and taps the brass chime gently setting its tone humming smoothly"
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clear pastel test chamber where the matte-ivory geometric rat figurine rests both front paws on the wide brass lever",
+      "internal_mechanism": "the brass lever bobs up and down in rapid steady rhythm as a paper cumulative pen climbs steeply upward"
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat cuffs guiding a brass cumulative paper drum unrolling a steep rising ink staircase",
+      "prop_action": "both low-poly hands steady the rotating paper drum as the blue ink pen climbs nearly straight up the sheet",
+      "consequence": "nineteen hundred crisp ink steps fill the sunlit paper roll"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-ash shelf holding a classic round brass laboratory clock alongside tall stacked tally reels",
+      "comparison_action": "two low-poly hands in white coat sleeves grip and turn the brass clock key as the hour hand glides from six to six"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a pastel runway chamber holding an untouched ceramic bowl of golden grain pellets on the left and the brass lever on the right",
+      "internal_mechanism": "the matte-ivory geometric rat figurine trots straight past the full grain bowl to press the brass lever repeatedly"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "nucleus accumbens",
+      "anatomy_label": "NUCLEUS ACCUMBENS\nFORE-BRAIN REWARD HUB",
+      "camera": "gentle_push_in",
+      "brain_scene": "deep in the lower front forebrain core of the flat half-brain cross-section model, vivid golden-amber and sky-blue pastel facets illuminate the reward center",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_03_sagittal_brain_neutral.png"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs lifting the untouched full porcelain food dish from the corner of the chamber",
+      "prop_action": "both low-poly hands lift the full porcelain grain bowl and weigh it unchanged on a small brass scale",
+      "consequence": "every single grain pellet remains untouched in the dish"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Montreal laboratory with two researchers observing the cumulative recorder drum",
+      "action": "viewed strictly from behind, Olds and Milner in white coats lean forward comparing food-reward curves against wire-pulse curves"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-ash balance scale contrasting a full porcelain dinner bowl on the left against a small brass switch key on the right",
+      "comparison_action": "a low-poly hand in white coat sleeves sets the tiny brass switch key onto the right pan tipping it decisively downward"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "plaid shirt sleeves reaching cleanly for the main black toggle switch on the brass power box",
+      "prop_action": "Milner's low-poly hand grips the black toggle switch and flips it crisply downward to off",
+      "consequence": "the small amber pilot light dims immediately"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pastel-mint kitchen counter holding a chrome two-slice toaster popping warm golden toast upward",
+      "comparison_action": "two low-poly hands in cream sleeves lift the warm toast onto a cool white plate as rising steam vanishes quickly"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "the clear pastel chamber where the brass lever now stands still and unpressed",
+      "internal_mechanism": "leaving the silent brass lever behind, the matte-ivory geometric rat figurine curls peacefully into a calm ball in the sunny corner",
+      "end_sentence_index": 23,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs extending from bottom frame tracing the cumulative ink line flattening abruptly to horizontal",
+      "prop_action": "the right low-poly index finger traces the steep ink line up to the switch-off mark and glides along the flat horizontal tail",
+      "consequence": "pressing stops cold the moment current ends",
+      "end_sentence_index": 23,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "white coat sleeves placing pastel sky-blue and gray pin markers onto a large transparent brain atlas board",
+      "prop_action": "both low-poly hands press bright golden pins along one narrow lower forebrain corridor while placing cool gray pins outside",
+      "consequence": "one unmistakable golden pathway lights the center of the map",
+      "end_sentence_index": 25
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_fiber_tract",
+      "brain_region": "ventral tegmental area",
+      "anatomy_label": "DOPAMINE FACTORY\nMIDBRAIN TO FOREBRAIN",
+      "camera": "gentle_push_in",
+      "brain_scene": "rising from the deep midbrain ventral tegmental area forward through the translucent low-poly brain model, luminous golden-amber fiber tracts sweep into the front core",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_04_fiber_tract_neutral.png"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "mcgill_lab_1953",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed blazer cuffs holding a vintage brass magnifying glass over a pastel diagram of a single glowing button",
+      "prop_action": "both low-poly hands set the brass magnifier down beside a question-mark token on the pale-ash desk",
+      "consequence": "bright daylight highlights the oversimplified single-button sketch"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-ash pedestal displaying an oversized glossy golden push-button dome",
+      "comparison_action": "a low-poly hand in navy blazer sleeves presses the giant golden dome button expecting warm confetti"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clear glass vessel on a pale-ash base filling with bright sky-blue geometric droplets",
+      "internal_mechanism": "streams of sky-blue geometric droplets pour steadily into the vessel raising the level smoothly",
+      "end_sentence_index": 29,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "modern_neuro_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs placing two sugar-drop pipettes onto a clean pale-ash tray",
+      "prop_action": "both low-poly hands align a sweet sucrose dropper beside a dopamine-tracker dial on the sunlit bench",
+      "consequence": "clear sugar droplets glisten at the glass pipette tip",
+      "end_sentence_index": 29,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "modern_neuro_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright modern Michigan behavioral neuroscience lab with high-speed cameras and pastel sorting charts",
+      "action": "viewed strictly from behind, a senior researcher in a navy shirt and white coat leans over dual video monitors comparing chasing speed against taste reactions",
+      "end_sentence_index": 31
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "modern_neuro_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves separating sky-blue chasing cards into a left tray and warm-rose liking cards into a right tray",
+      "prop_action": "both low-poly hands lift and place the two distinct pastel card stacks cleanly into separate wooden trays",
+      "consequence": "two independent piles stand clearly apart on the pale-ash desk"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "modern_neuro_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "two side-by-side pastel gauge bars where the sky-blue wanting bar shoots sky-high while the warm-rose liking bar stays flat",
+      "internal_mechanism": "the tall sky-blue bar surges to the top stop while the adjacent rose bar remains completely level",
+      "end_sentence_index": 34
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "modern_neuro_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs extending from bottom frame sliding a cool gray blocker filter over the blue channel",
+      "prop_action": "one low-poly hand slides the gray filter shutting down the blue bar while tapping the unchanged rose liking bar",
+      "consequence": "the warm-rose enjoyment bar glows steady and intact",
+      "end_sentence_index": 35,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "modern_neuro_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "navy blazer cuffs lifting the 1954 brass lever onto the modern sunlit comparison table",
+      "prop_action": "both low-poly hands set the historic brass lever down and point toward the tall sky-blue wanting gauge",
+      "consequence": "sixty years of puzzle pieces click into alignment",
+      "end_sentence_index": 35,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "clinical_observation_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright sunlit clinical neurology room with an armchair and a small handheld grey push-button box",
+      "action": "viewed strictly from behind, a clothed patient in a tan sweater sits in the armchair holding the small button box while a clinician takes notes"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "clinical_observation_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan knit sweater cuffs pressing the small grey thumb button repeatedly without resting",
+      "prop_action": "the right low-poly thumb clicks the handheld button rapidly again and again while the left hand taps restlessly on the armrest",
+      "consequence": "each click triggers another immediate restless tap",
+      "end_sentence_index": 37,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "clinical_observation_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan sweater sleeves extending from bottom frame over a clinical comfort scale from one to ten",
+      "prop_action": "while the right thumb keeps clicking the button box, the left low-poly hand places a wooden marker at neutral middle five",
+      "consequence": "endless clicking pairs with flat middle satisfaction",
+      "end_sentence_index": 37,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "modern_neuro_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves placing a bright sky-blue magnet block pulling iron filings across glass",
+      "prop_action": "both low-poly hands slide the sky-blue magnet beneath the glass sheet pulling every filing sharply forward",
+      "consequence": "pure magnetic pull operates without warmth",
+      "end_sentence_index": 39
+    },
+    {
+      "sentence_index": 40,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "nucleus accumbens",
+      "anatomy_label": "TINY LIKING HOTSPOTS\nFRAGILE JOY ISLANDS",
+      "camera": "gentle_push_in",
+      "brain_scene": "deep inside the front core of the flat half-brain cross-section model, one tiny pinhead of warm coral-rose facets nestles inside a wide sky-blue shell",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_03_sagittal_brain_neutral.png"
+    },
+    {
+      "sentence_index": 40,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a wide pale-blue porcelain platter holding one tiny warm-gold pearl in the middle of a vast blue bowl",
+      "comparison_action": "two low-poly hands in white coat cuffs point with brass pointers to the tiny gold pearl surrounded by the wide blue platter"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_fiber_tract",
+      "brain_region": "ventral tegmental area",
+      "anatomy_label": "VAST WANTING HIGHWAY\nCHASE-AGAIN ENGINE",
+      "camera": "pan_right",
+      "brain_scene": "sweeping broadly across the translucent low-poly brain model, wide electric sky-blue fiber lanes surge forward from the midbrain",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_04_fiber_tract_neutral.png",
+      "end_sentence_index": 41,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "modern_neuro_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright neuroscience seminar room displaying dual wanting-versus-liking brain maps",
+      "action": "viewed strictly from behind, three clothed researchers in blazers lean over the pale-ash table and point across the separated circuit maps",
+      "end_sentence_index": 41,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "two separate pastel wooden gears on a pale-ash frame — a large spinning sky-blue chase gear uncoupled from a calm warm-gold peace gear",
+      "internal_mechanism": "the large sky-blue gear spins rapidly on the left while the uncoupled golden gear turns gently at its own calm pace",
+      "end_sentence_index": 43
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_bedroom_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a cozy lamp-lit modern study corner at dusk with pale-oak desk, cushioned chair, and soft lavender window light",
+      "action": "viewed strictly from behind, a clothed person in a slate hoodie sits hunched over a glowing smartphone screen",
+      "end_sentence_index": 44,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_bedroom_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate hoodie cuffs extending from bottom frame endlessly flicking upward on a pastel feed screen",
+      "prop_action": "the right low-poly thumb reaches down and slides upward mechanically four times across the glass",
+      "consequence": "colorful pastel cards blur past without a pause",
+      "end_sentence_index": 44,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "modern_bedroom_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate hoodie sleeves tapping a refresh icon as tiny notification dots pop unpredictably",
+      "prop_action": "the low-poly thumb pulls down and releases the screen triggering a spinning pastel refresh ring",
+      "consequence": "one bright coral badge flashes on the glass",
+      "end_sentence_index": 46
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-ash split board pairing a modern glass smartphone beside Olds's 1954 brass lever",
+      "comparison_action": "one low-poly hand in slate cuffs taps the glass phone in exact unison with a white-coat hand pressing the brass lever"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "modern_bedroom_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate hoodie cuffs pausing mid-scroll and clicking the phone screen off",
+      "prop_action": "both low-poly hands press the side button turning the screen dark and set the phone face-down on a linen mat",
+      "consequence": "calm morning light replaces the restless screen glare"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-oak kitchen counter with a matte-cream ceramic teapot steeping beside an open window",
+      "comparison_action": "two low-poly hands in sage sweater sleeves pour warm amber tea calmly into a white porcelain cup"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "modern_bedroom_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater cuffs cradling the warm white porcelain tea cup beside an open paper sketchbook",
+      "prop_action": "both low-poly hands hold the warm porcelain cup calmly and open the crisp cream sketchbook flat",
+      "consequence": "gentle steam rises into clear morning sunbeams"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "montreal_park_walk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a peaceful sunlit Montreal park overlook with golden maple trees, wooden bench, and pastel city rooftops",
+      "action": "viewed strictly from behind in wide view, two clothed walkers in sweaters stroll calmly along the sunlit park path without phones"
+    },
+    {
+      "cut_role": "split_right",
+      "act": 6,
+      "location_id": "modern_bedroom_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate hoodie cuffs swiping rapidly upward across a bright smartphone glass screen",
+      "prop_action": "the low-poly thumb flicks and taps the glowing feed non-stop in the exact rhythm of a lever",
+      "consequence": "endless cards stream across the glass"
+    },
+    {
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "montreal_park_walk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "sunlit golden maple canopies above Montreal stone rooftops rising into a vast clear sky-blue horizon with soft white low-poly clouds",
+      "action": "warm morning sunlight glides over the maple treetops as the view rises smoothly into open sky"
+    }
+  ]
+}

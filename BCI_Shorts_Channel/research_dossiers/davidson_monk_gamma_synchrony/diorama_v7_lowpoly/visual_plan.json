@@ -1,0 +1,717 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "davidson_monk_gamma_synchrony",
+  "topic": "Richard Davidson & Antoine Lutz (2004, 2008) Tibetan Monk 40 Hz Gamma Synchrony on 256-Channel EEG, Dose-Response Baseline Plasticity, and Insula/Premotor Compassion Readiness (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Davidson and Weng's short-term compassion training study proving that just 2 weeks (30 min/day) of compassion practice measurably increases altruistic helping and strengthens prefrontal-to-reward/insula connectivity.",
+  "outro_title_lines": [
+    "LUTZ & DAVIDSON (2004, 2008)",
+    "UNIVERSITY OF WISCONSIN"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "SLEEPY BRAIN?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "30X BRAIN SURGE!"
+    },
+    {
+      "sentence_index": 10,
+      "text": "40-HZ GAMMA"
+    },
+    {
+      "sentence_index": 19,
+      "text": "30X POWER"
+    },
+    {
+      "sentence_index": 28,
+      "text": "READY TO HELP"
+    },
+    {
+      "sentence_index": 36,
+      "text": "2-WEEK PROOF"
+    },
+    {
+      "sentence_index": 44,
+      "text": "TRAIN YOURS"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "SLEEPY BRAIN?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "30X BRAIN SURGE!"
+    },
+    {
+      "sentence_index": 10,
+      "text": "40-HZ GAMMA"
+    },
+    {
+      "sentence_index": 19,
+      "text": "30X POWER"
+    },
+    {
+      "sentence_index": 28,
+      "text": "READY TO HELP"
+    },
+    {
+      "sentence_index": 36,
+      "text": "2-WEEK PROOF"
+    },
+    {
+      "sentence_index": 44,
+      "text": "TRAIN YOURS"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 17,
+      "mode": "split_hstack",
+      "left_clip_index": 19,
+      "right_clip_index": 20,
+      "left_label": "NOVICE BASELINE",
+      "right_label": "30X MONK GAMMA"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands over a pale-gray EEG chart table",
+      "prop_action": "both matte-white gloved low-poly hands lay a slow, drowsy blue wave strip onto the slate-stone table and set a small pillow block beside it",
+      "consequence": "the gentle slow wave lies flat across the paper"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-slate sweater sleeves and matte-white gloved low-poly hands resting calmly on a pale-stone desk beside a brushed-silver wave meter",
+      "prop_action": "as both matte-white gloved low-poly hands rest still on the pale-stone desk, the brushed-silver stylus beside them traces a dense soft-sage harmonic wave ribbon",
+      "consequence": "smooth soft-sage wave ribbons glide across the unlabelled pale-alabaster strip"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "HIGH-AMPLITUDE GAMMA\nRECORD SYNCHRONY",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front and upper-rear domes of the matte warm-ivory 3D brain model on its pale-wood stand, brilliant amber-gold and cyan-blue facets pulse in rapid unison"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands lifting a geodesic sensor net",
+      "prop_action": "both matte-white gloved low-poly hands lift a soft pastel geodesic sensor cap woven with dozens of silver nodes from a pale-gray stand",
+      "consequence": "the intricate sensor net gleams in the sunlit lab"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a sunlit 2004 University of Wisconsin neuroimaging laboratory with pale-pale-stone walls, multi-channel EEG screens, and a quiet meditation chair",
+      "action": "viewed strictly from behind, a clothed low-poly neuroscientist in a white coat stands beside a seated monk in a maroon robe and checks the sensor console"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands sweeping aside a sleepy wave chart",
+      "prop_action": "both matte-white gloved low-poly hands roll up the old slow-wave chart and unroll a soft pastel soft-sage high-frequency chart across the slate-stone desk",
+      "consequence": "the soft-sage high-frequency chart covers the desk",
+      "end_sentence_index": 5
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster bench with a brushed-silver metronome ticking at a slow, sleepy pace",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves slide the brushed-silver pendulum weight up the rod slowing the swing down",
+      "end_sentence_index": 6,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit Wisconsin university reception hall with tall windows and pale maple floors",
+      "action": "viewed strictly from behind, eight clothed low-poly monks in maroon and saffron robes walk calmly across the hall beside researchers in white coats",
+      "end_sentence_index": 6,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-gray archive shelf holding twenty-five thick bound volumes",
+      "comparison_action": "two matte-white gloved low-poly hands in robe sleeves lift and set the twenty-fifth soft-sage volume onto the end of the long slate-stone shelf",
+      "end_sentence_index": 8
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit student practice room with ten clothed low-poly university students in pastel sweaters seated on cushions",
+      "action": "viewed strictly from behind, the ten clothed low-poly students in sweaters sit in a row and follow a seven-day practice timer on the front desk",
+      "end_sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands fitting the dense geodesic sensor net",
+      "prop_action": "both matte-white gloved low-poly hands gently place and align the two-hundred-fifty-six-node sensor net over a cool-ivory head model",
+      "consequence": "every silver sensor node sits evenly spaced across the dome",
+      "end_sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the quiet sunlit meditation chamber with a clothed practitioner in a soft-ochre robe seated upright wearing a pastel geodesic sensor cap",
+      "action": "viewed strictly from behind, the clothed low-poly practitioner rests both hands calmly as the technician in a white coat steps forward and presses the console switch",
+      "end_sentence_index": 11
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster table holding a cool soft-sage lantern surrounded by concentric rings of miniature pale-gray figures",
+      "comparison_action": "two matte-white gloved low-poly hands in robe sleeves lift the soft-sage lantern shade sending cool-white light outward across every ring of figures",
+      "end_sentence_index": 12,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands extending from the lower edge beside a pale-stone wave block",
+      "prop_action": "one matte-white gloved low-poly hand flips a smooth silver toggle key as three soft-sage wave ribbons rise in synchronized arches across the blank stone desk",
+      "consequence": "the three tall soft-sage wave arches oscillate smoothly in unison",
+      "end_sentence_index": 12,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands checking the insulated wall power cables",
+      "prop_action": "both matte-white gloved low-poly hands lift and test the heavy brushed-silver ground plug with a voltmeter while the soft-sage EEG waves keep pulsing cleanly",
+      "consequence": "the voltmeter confirms zero electrical leakage from the wall",
+      "end_sentence_index": 14
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-gray acoustic bench holding a forty-cycle brushed-silver tuning fork and a vibrating string",
+      "comparison_action": "two matte-white gloved low-poly hands in shirt sleeves strike the brushed-silver fork setting the soft-sage string humming in a tight forty-hertz standing wave",
+      "end_sentence_index": 15,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater sleeves and matte-white gloved low-poly hands snapping two puzzle pieces together",
+      "prop_action": "as the matte-white gloved low-poly hands snap the pale-gray puzzle pieces together, a small soft-sage indicator lamp flashes for one brief second then dims",
+      "consequence": "the ordinary gamma spark fades right after the puzzle click",
+      "end_sentence_index": 15,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "src_start_sec": 1.98
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands unrolling a continuous soft-sage wave strip",
+      "prop_action": "both matte-white gloved low-poly hands pull and slide a long paper strip where the tall soft-sage gamma wave continues unbroken across the entire table",
+      "consequence": "the sustained soft-sage wave band spans from end to end"
+    },
+    {
+      "sentence_index": 17,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster stage comparing a single small wax candle on the left beside a towering thirty-lamp brushed-silver stadium floodlight on the right",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves reach and flip the brushed-silver master switch igniting all thirty soft-sage floodlight lamps at once"
+    },
+    {
+      "sentence_index": 17,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands placing a towering soft-sage bar beside a tiny blue control bar",
+      "prop_action": "both matte-white gloved low-poly hands set the tall thirty-fold monk gamma bar next to the flat student bar on the slate-stone chart",
+      "consequence": "the soft-sage bar towers thirty times higher than the baseline"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Wisconsin control room with the softly glowing golden gamma traces across all monitors",
+      "action": "viewed strictly from behind, three clothed low-poly engineers and neuroscientists in white coats step back from the rack and raise their hands in disbelief"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands placing a brushed-silver conductor baton beside the 3D brain model",
+      "prop_action": "both matte-white gloved low-poly hands align the brushed-silver baton in front of the cool-ivory brain model on the slate-stone desk",
+      "consequence": "soft-sage light bands link the front and rear lobes of the model",
+      "end_sentence_index": 20
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-gray stage with four mechanical brushed-silver pendulums linked by a soft-sage coupling bar",
+      "comparison_action": "two matte-white gloved low-poly hands in blazer sleeves lift and slide the soft-sage coupling bar locking all four pendulums into one synchronized swing",
+      "end_sentence_index": 21,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "FRONTOPARIETAL SYNCHRONY\nUNIFIED 40-HZ CHORD",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the matte warm-ivory 3D brain model, the front prefrontal cortex behind the forehead and upper-rear parietal cortex glow in synchronized amber-gold and sky-blue",
+      "end_sentence_index": 21,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands plotting eight monk data pins on a pale-gray graph",
+      "prop_action": "both matte-white gloved low-poly hands lay a brushed-silver ruler under the monk's resting baseline strip showing high soft-sage waves even before meditation begins",
+      "consequence": "the resting baseline already gleams with strong gamma waves",
+      "end_sentence_index": 23
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands plotting eight monk data pins on a pale-gray graph",
+      "prop_action": "both matte-white gloved low-poly hands lift and align eight soft-sage marker pins to test whether hours of practice predict baseline gamma",
+      "consequence": "the eight soft-sage pins sit ready beside the ascending grid",
+      "end_sentence_index": 24,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands placing eight soft-sage pins along a rising diagonal line",
+      "prop_action": "both matte-white gloved low-poly hands press eight smooth soft-sage pins into an unlabelled pale-stone pegboard along a clean ascending diagonal",
+      "consequence": "a smooth rising soft-sage cord connects all eight pins across the unlabelled board",
+      "end_sentence_index": 24,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "DOSE-RESPONSE TRAIT\nPERMANENT BASELINE SHIFT",
+      "camera": "locked_tripod",
+      "brain_scene": "across the matte warm-ivory 3D brain model, a steady golden-cyan glow radiates across the frontoparietal network"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands locking a soft-sage gear into a clockwork brain model",
+      "prop_action": "both matte-white gloved low-poly hands press a permanent soft-sage synchrony gear into the center of the pale-gray mechanism",
+      "consequence": "the mechanism hums in a smooth continuous rhythm"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "wisconsin_fmri_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit Wisconsin fMRI scanner suite with a monk in a maroon robe resting on the scanner bed",
+      "action": "viewed strictly from behind, the clothed low-poly researcher in a white coat fits padded acoustic headphones over the monk's ears and steps to the console"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "wisconsin_fmri_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the sunlit 2008 Wisconsin fMRI control room overlooking the cylindrical scanner bore",
+      "action": "viewed strictly from behind, two clothed low-poly scientists in white lab coats lean over the fMRI console and start the emotional sound trial"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "wisconsin_fmri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands extending from the lower frame edge toward an unlabelled pale-stone switch block",
+      "prop_action": "one matte-white gloved low-poly hand reaches from the bottom edge and presses a smooth soft-lavender playback key sending soft-sage acoustic rings along the headphone cord",
+      "consequence": "concentric pastel sound-wave rings glide smoothly across the open pale-stone console"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "insula",
+      "anatomy_label": "INSULA CORTEX\nINTENSE EMPATHY RESONANCE",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the deep insula fold glows softly in warm amber-gold"
+    },
+    {
+      "sentence_index": 31,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "premotor cortex",
+      "anatomy_label": "PREMOTOR CORTEX\nREADINESS TO HELP",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the matte warm-ivory 3D brain model, the upper premotor strip ignites in soft pastel sky-blue and golden facets"
+    },
+    {
+      "sentence_index": 31,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "wisconsin_fmri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands overlaying the insula and premotor scan sheets",
+      "prop_action": "both matte-white gloved low-poly hands align the glowing insula empathy sheet with the premotor action sheet on the light box",
+      "consequence": "a direct bridge connects feeling and action readiness"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster bench comparing a folded lawn chair on the left beside a rescue life-ring on the right",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves push the folded chair aside and lift the soft soft-lavender-and-white life-ring forward"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit pale-gray rescue station where a clothed low-poly figure in a jacket stands poised at the door",
+      "comparison_action": "viewed strictly from behind, the clothed low-poly figure in a jacket steps forward and opens the station door ready to assist"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-slate blazer sleeves and matte-white gloved low-poly hands tapping a wristwatch beside a busy calendar",
+      "prop_action": "one matte-white gloved low-poly hand taps the wristwatch dial while the other hand flips a crowded weekly planner page",
+      "consequence": "the open planner shows a thirty-minute daily slot"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands comparing a massive hourglass with a small fourteen-day calendar",
+      "prop_action": "both matte-white gloved low-poly hands slide a compact fourteen-day pale-gray calendar block into the center of the slate-stone table",
+      "consequence": "the fourteen-day block sits ready for the short-term test"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit modern training room with clothed low-poly adults in sweaters and blazers listening to guided audio headphones",
+      "action": "viewed strictly from behind, clothed low-poly adults in sweaters sit calmly with headphones while a thirty-minute sand timer runs on the desk",
+      "prop_action": "both low-poly hands slide a generous stack of green charity tokens across the pale-stone table into a stranger's relief tray"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater sleeves and matte-white gloved low-poly hands extending over a pale-gray transfer tray",
+      "prop_action": "both matte-white gloved low-poly hands slide a generous stack of green ayudar tokens across the slate-stone table into a stranger's relief tray",
+      "consequence": "the relief tray fills with green tokens"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL TO REWARD HUB\n2-WEEK EMPATHY LINK",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, a soft pastel sky-blue pathway links the front prefrontal lobe directly to the warm golden ventral reward center"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "wisconsin_fmri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands placing a soft-sage bridge bar on the two-week chart",
+      "prop_action": "both matte-white gloved low-poly hands set the rising two-week compassion bar beside the control group bar on the desk",
+      "consequence": "the two-week training bar stands clearly higher"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "maroon robe sleeves and matte-white gloved low-poly hands setting a soft-sage sphere onto a pedestal",
+      "prop_action": "both matte-white gloved low-poly hands place a glowing soft-sage sphere onto an slate-stone pedestal where it shines steadily",
+      "consequence": "cool soft-sage light fills the tabletop"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "soft-sage sweater sleeves and matte-white gloved low-poly hands turning a brushed-silver tuning peg on a stringed board",
+      "prop_action": "both matte-white gloved low-poly hands turn the brushed-silver peg tightening the soft-sage string until it vibrates in a clean harmonic wave",
+      "consequence": "the soft-sage string shimmers in tune"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster table comparing a fixed stone heart block beside a tunable pale-gray violin",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves push the stone block aside and draw a pale-gray bow across the violin strings"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Wisconsin laboratory with clothed practitioners in soft-ochre robes and scientists in white coats gathered around the 3D brain model",
+      "action": "viewed strictly from behind, the clothed low-poly practitioners and scientists stand together around the glowing brain model and nod in shared respect"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "TRAINABLE KINDNESS\nSYNCHRONIZED CORTEX",
+      "camera": "locked_tripod",
+      "brain_scene": "across the entire matte warm-ivory 3D brain model, golden and sky-blue facets pulse in a calm, unified wave"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_quiet_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan sleeves and matte-white gloved low-poly hands extending over a sunlit pale-gray desk",
+      "prop_action": "both matte-white gloved low-poly hands set a laptop screen down and rest palms-up on the cool slate-stone surface",
+      "consequence": "morning sunlight streams across the quiet desk"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "modern_quiet_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "sage cardigan cuffs and matte-white gloved low-poly hands placing a small two-minute sandglass beside a teacup",
+      "prop_action": "both matte-white gloved low-poly hands flip the small brushed-silver two-minute sandglass on the corner of the office desk",
+      "consequence": "fine soft-sage sand trickles smoothly through the glass bulb"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "modern_quiet_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit glass-walled office conference room before a meeting",
+      "action": "viewed strictly from behind, a clothed low-poly professional in a sage cardigan sits calmly at the table and looks toward a colleague entering the room"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "insula",
+      "anatomy_label": "INSULA EMPATHY BRIDGE\nCALM THREAT ALARM",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the deep insula glows warm amber-gold while the coral amygdala settles into a calm blue state"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "modern_quiet_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan sleeves and matte-white gloved low-poly hands opening a notebook",
+      "prop_action": "both matte-white gloved low-poly hands open a clean cool-white notebook and place a slate-stone pencil beside it ready to listen",
+      "consequence": "the open pages lie flat and calm in the sunlight"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "FRONTAL-EMPATHY LINK\nDAILY STRENGTHENING",
+      "camera": "locked_tripod",
+      "brain_scene": "on the matte warm-ivory 3D brain model, a soft golden-cyan bridge connects the front prefrontal lobe and side insula zone"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "modern_quiet_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan sleeves and muted-slate blazer sleeves shaking hands across the slate-stone table",
+      "prop_action": "two low-poly right hands in cardigan and blazer sleeves meet and clasp warmly above the sunlit table",
+      "consequence": "both hands hold a steady welcoming grip"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Wisconsin laboratory with the geodesic sensor net and golden gamma chart on the pale-stone table",
+      "action": "viewed strictly from behind, clothed low-poly monks in maroon robes and scientists in white coats step toward the wide window overlooking the lake"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "wisconsin_eeg_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a soft sunlit lakeside terrace in Madison with calm pastel water and clear sky",
+      "action": "viewed from behind, clothed low-poly figures in robes, coats, and sweaters walk peacefully along the sunlit shore as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "30X BRAIN SURGE!",
+    "cover_sentence_index": 3,
+    "cover_brief": "meditating monk in saffron robes wearing high-density sensor cap centered in quiet pastel lab"
+  }
+}

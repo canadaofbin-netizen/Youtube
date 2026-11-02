@@ -14,6 +14,8 @@ from pipeline.config import (
     AV_SPEEDUP_FACTOR,
     CLIP_COUNT_MAX,
     CLIP_COUNT_MIN,
+    DIORAMA_SENTENCE_COUNT_MAX,
+    DIORAMA_SENTENCE_COUNT_MIN,
     EFFECTIVE_WPS,
     FINAL_SHORTS_DURATION_MAX_SEC,
     FLOW_DEFAULT_VOICE,
@@ -22,9 +24,12 @@ from pipeline.config import (
     SCRIPT_WORD_MAX,
     SCRIPT_WORD_MIN,
     clip_roles,
+    is_diorama_profile,
     max_allowed_dead_air_sec,
     pivot_clip_index,
     script_word_range,
+    shorts_duration_range_for_profile,
+    word_count_range_for_profile,
 )
 from pipeline.storage import ProjectStorage
 
@@ -48,6 +53,22 @@ _MECHANISM_ROLES = ("crisis", "pivot", "mechanism", "step1", "step2", "step3", "
 
 def _count_words(text: str) -> int:
     return len(_WORD_RE.findall(text))
+
+
+def _term_wb_pattern(term: str) -> re.Pattern[str]:
+    clean = term.strip()
+    esc = re.escape(clean)
+    prefix = r"\b" if clean and re.match(r"^\w", clean) else ""
+    suffix = r"\b" if clean and re.search(r"\w$", clean) else ""
+    return re.compile(f"{prefix}{esc}{suffix}", re.IGNORECASE)
+
+
+def _has_any_term_wb(text: str, terms: list[str] | tuple[str, ...]) -> bool:
+    return any(_term_wb_pattern(t).search(text) is not None for t in terms if t)
+
+
+def _find_matching_terms_wb(text: str, terms: list[str] | tuple[str, ...]) -> list[str]:
+    return [t for t in terms if t and _term_wb_pattern(t).search(text) is not None]
 
 
 def _extract_clip_narrations(script_data: dict[str, Any]) -> list[str] | None:
@@ -75,10 +96,33 @@ class ScriptingStage:
         if "script_stages" in script_data and isinstance(script_data["script_stages"], dict):
             nested_stages = dict(script_data["script_stages"])
             # preserve top-level metadata if not present in nested
-            for k in ["actual_speech_duration", "audio_truncated", "cumulative_dead_air_sec", "clip_narrations"]:
+            for k in [
+                "actual_speech_duration",
+                "audio_truncated",
+                "cumulative_dead_air_sec",
+                "clip_narrations",
+                "sentences",
+                "profile",
+                "production_profile",
+                "style_profile",
+            ]:
                 if k in script_data and k not in nested_stages:
                     nested_stages[k] = script_data[k]
             script_data = nested_stages
+
+        profile_val = str(
+            script_data.get("profile")
+            or script_data.get("production_profile")
+            or script_data.get("style_profile")
+            or ""
+        ).strip()
+        raw_sentences = script_data.get("sentences")
+        diorama_sents = (
+            [str(s).strip() for s in raw_sentences if str(s).strip()]
+            if isinstance(raw_sentences, list)
+            else []
+        )
+        diorama_mode = is_diorama_profile(profile_val) or bool(diorama_sents)
 
         hook_obj = script_data.get("hook", {})
         setup_obj = script_data.get("setup", script_data.get("dilemma", {}))
@@ -95,15 +139,23 @@ class ScriptingStage:
         payoff_raw = str(payoff_obj.get("text", "")).strip()
 
         narrations = _extract_clip_narrations(script_data)
-        n_clips = len(narrations) if narrations else 0
+        n_clips = len(diorama_sents) if diorama_mode and diorama_sents else (len(narrations) if narrations else 0)
         roles: tuple[str, ...] = ()
-        if narrations and CLIP_COUNT_MIN <= n_clips <= CLIP_COUNT_MAX:
+        if not diorama_mode and narrations and CLIP_COUNT_MIN <= n_clips <= CLIP_COUNT_MAX:
             roles = clip_roles(n_clips)
 
         def _role_text(wanted: tuple[str, ...]) -> str:
             return " ".join(t for t, r in zip(narrations or [], roles) if r in wanted)
 
-        if roles:
+        if diorama_mode and (diorama_sents or narrations):
+            active_lines = diorama_sents or (narrations or [])
+            full_text = " ".join(active_lines)
+            opening_text = " ".join(active_lines[:8])
+            crisis_text = " ".join(active_lines[:18])
+            mechanism_text = " ".join(active_lines[16:]) or full_text
+            conclusion_text = active_lines[-1]
+            pivot_text = full_text
+        elif roles:
             full_text = " ".join(narrations)
             opening_text = _role_text(_OPENING_ROLES)
             crisis_text = _role_text(_CRISIS_ROLES)
@@ -134,14 +186,28 @@ class ScriptingStage:
         wps = round(word_count / effective_duration, 2) if effective_duration > 0 else 0.0
 
         # G1: Clip narrations (count, per-clip words, openers), total word count & timing
-        if roles:
+        effective_profile = "neuro_diorama" if diorama_mode else profile_val
+        if diorama_mode:
+            range_min, range_max = word_count_range_for_profile(effective_profile)
+        elif roles:
             range_min, range_max = script_word_range(n_clips)
         else:
-            range_min, range_max = SCRIPT_WORD_MIN, SCRIPT_WORD_MAX
+            range_min, range_max = word_count_range_for_profile(effective_profile)
+        _, max_duration_sec = shorts_duration_range_for_profile(effective_profile)
         effective_min = min_words if min_words is not None else range_min
         effective_max = max_words if max_words is not None else range_max
         g1_issues: list[str] = []
-        if not narrations:
+        if diorama_mode:
+            active_lines = diorama_sents or (narrations or [])
+            if not active_lines:
+                g1_issues.append(
+                    f"diorama sentences missing ({DIORAMA_SENTENCE_COUNT_MIN}-{DIORAMA_SENTENCE_COUNT_MAX} sentences required)"
+                )
+            elif not (DIORAMA_SENTENCE_COUNT_MIN <= len(active_lines) <= DIORAMA_SENTENCE_COUNT_MAX):
+                g1_issues.append(
+                    f"{len(active_lines)} sentences (must be {DIORAMA_SENTENCE_COUNT_MIN}-{DIORAMA_SENTENCE_COUNT_MAX})"
+                )
+        elif not narrations:
             g1_issues.append(f"clip_narrations missing ({CLIP_COUNT_MIN}-{CLIP_COUNT_MAX} per-clip narrations required)")
         elif not roles:
             g1_issues.append(f"{n_clips} clip_narrations (must be {CLIP_COUNT_MIN}-{CLIP_COUNT_MAX})")
@@ -151,9 +217,9 @@ class ScriptingStage:
             g1_issues.extend(validate_narrations(narrations))
         if not (effective_min <= word_count <= effective_max):
             g1_issues.append(f"Word count is {word_count} (Target: {effective_min}-{effective_max})")
-        if actual_speech_duration is not None and actual_speech_duration > FINAL_SHORTS_DURATION_MAX_SEC:
+        if actual_speech_duration is not None and actual_speech_duration > max_duration_sec:
             g1_issues.append(
-                f"Actual speech duration {actual_speech_duration:.2f}s exceeds {FINAL_SHORTS_DURATION_MAX_SEC}s Shorts limit"
+                f"Actual speech duration {actual_speech_duration:.2f}s exceeds {max_duration_sec}s Shorts limit"
             )
         if audio_truncated:
             g1_issues.append("Audio speech was truncated")
@@ -177,7 +243,7 @@ class ScriptingStage:
             "cheat code", "nightmare", "panic mode", "autopilot", "stranger", "two",
             "opposite", "silent", "rewire", "blind", "wash", "stole", "hijack"
         ]
-        g2_pass = any(k in opening_lower for k in paradox_triggers)
+        g2_pass = _has_any_term_wb(opening_lower, paradox_triggers)
         g2_reason = "Opening contains a counter-intuitive paradox." if g2_pass else "Opening lacks a paradox trigger."
 
         # G3: Crisis (physical, biological or neurological jeopardy)
@@ -191,7 +257,7 @@ class ScriptingStage:
             "vanished", "hostility", "rage", "shattered", "fled", "delusion", "overload",
             "clash", "trapped", "blind", "steal"
         ]
-        g3_pass = any(k in crisis_lower for k in crisis_triggers)
+        g3_pass = _has_any_term_wb(crisis_lower, crisis_triggers)
         g3_reason = "Crisis clips establish physical or biological jeopardy." if g3_pass else "Crisis clips lack jeopardy."
 
         # G4: Concrete anatomical mechanism
@@ -206,7 +272,7 @@ class ScriptingStage:
             "pump", "battery", "processor", "chip", "implant", "shield", "conduit",
             "insulation", "drain", "bridge", "switchboard", "port", "hemisphere", "dopamine"
         ]
-        g4_pass = any(k in mechanism_lower for k in mechanism_triggers)
+        g4_pass = _has_any_term_wb(mechanism_lower, mechanism_triggers)
         g4_reason = (
             "Mechanism clips trace an explicit anatomical pathway." if g4_pass
             else "Mechanism clips lack a concrete anatomical mechanism."
@@ -221,7 +287,7 @@ class ScriptingStage:
         )
 
         # G6: Tone & prohibited words (3rd person objective documentary tone)
-        found_prohibited = [p for p in PROHIBITED_WORDS if p in full_text.lower()]
+        found_prohibited = _find_matching_terms_wb(full_text, PROHIBITED_WORDS)
         first_person_tokens = re.findall(r"\b(i|we|my|our)\b", full_text, re.IGNORECASE)
         g6_pass = (len(found_prohibited) == 0 and len(first_person_tokens) == 0)
         if found_prohibited:
@@ -245,7 +311,7 @@ class ScriptingStage:
         )
 
         # G11: Pivot clip contains "Instead of"
-        g11_pass = PIVOT_PHRASE in pivot_text.lower()
+        g11_pass = _has_any_term_wb(pivot_text, (PIVOT_PHRASE,))
         if g11_pass:
             g11_reason = "Pivot clip contains 'Instead of'."
         elif roles:
@@ -261,7 +327,7 @@ class ScriptingStage:
             "acting like", "instantly", "moving", "proving that", "so", "meaning",
             "revealing", "allowing", "causing"
         ]
-        has_propulsive_conn = any(c in full_text.lower() for c in propulsive_connectors)
+        has_propulsive_conn = _has_any_term_wb(full_text, propulsive_connectors)
         max_dead_air = max_allowed_dead_air_sec(effective_duration)
         dead_air_ok = (cumulative_dead_air_sec is None) or (float(cumulative_dead_air_sec) <= max_dead_air)
         g12_pass = has_propulsive_conn and dead_air_ok
@@ -337,14 +403,15 @@ class ScriptingStage:
         if narrations:
             script_data["clip_narrations"] = narrations
 
-        citations = fact_citations or [
-            {"claim": "1,024 electrodes on motor cortex", "source": "Neuralink First Human Clinical Trial (PRIME Study, 2024)"},
-            {"claim": "Direct wireless mind-control for computer cursor", "source": "Nature / NEJM Brain-Computer Interface Publications"}
-        ]
+        citations = list(fact_citations) if fact_citations else []
 
         qa_report = self.validate_qa_gates(script_data, citations)
 
-        target_min, target_max = script_word_range(len(narrations)) if roles else (SCRIPT_WORD_MIN, SCRIPT_WORD_MAX)
+        target_min, target_max = (
+            script_word_range(len(narrations))
+            if roles
+            else word_count_range_for_profile(narrative_style)
+        )
         spine_label = " -> ".join(script_data["narrative_spine"])
 
         full_script = f"""# Stage 2: Script & Master QA Report

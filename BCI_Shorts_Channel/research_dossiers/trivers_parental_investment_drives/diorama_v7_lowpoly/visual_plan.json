@@ -1,0 +1,757 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "trivers_parental_investment_drives",
+  "topic": "Robert Trivers (1971–1974) Harvard Evolutionary Trilogy: Parental Investment, Sex-Role-Reversed Pipefish Dads, Reciprocal Altruism & 100%-vs-50% Sibling Math (Low-Poly Pastel v7)",
+  "act5_climax_episode": "1974 parent-offspring relatedness math (50%/50% parent vs 100%/50% child) alongside cross-cultural flexibility in human biparental partnerships.",
+  "outro_title_lines": [
+    "ROBERT TRIVERS (1972)",
+    "HARVARD UNIVERSITY"
+  ],
+  "thumbnail": {
+    "hook_text": "PIPEFISH DAD LAW",
+    "cover_sentence_index": 3,
+    "cover_brief": "Centered matte-white and powder-blue faceted low-poly miniature brooding pipefish sculpture beside a pastel shorebird sculpture on a cool slate-stone lab tray"
+  },
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "FIXED ROLES?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "PIPEFISH DAD LAW"
+    },
+    {
+      "sentence_index": 10,
+      "text": "CARE PRICE TAG"
+    },
+    {
+      "sentence_index": 19,
+      "text": "ROLES FLIPPED"
+    },
+    {
+      "sentence_index": 27,
+      "text": "CLEANER REEF"
+    },
+    {
+      "sentence_index": 35,
+      "text": "SIBLING MATH"
+    },
+    {
+      "sentence_index": 43,
+      "text": "SHARED CARE"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "FIXED ROLES?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "PIPEFISH DAD LAW"
+    },
+    {
+      "sentence_index": 10,
+      "text": "CARE PRICE TAG"
+    },
+    {
+      "sentence_index": 19,
+      "text": "ROLES FLIPPED"
+    },
+    {
+      "sentence_index": 27,
+      "text": "CLEANER REEF"
+    },
+    {
+      "sentence_index": 35,
+      "text": "SIBLING MATH"
+    },
+    {
+      "sentence_index": 43,
+      "text": "SHARED CARE"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 17,
+      "mode": "split_hstack",
+      "left_clip_index": 19,
+      "right_clip_index": 20,
+      "left_label": "NEST GUARDING DAD",
+      "right_label": "ORNAMENTED FEMALE"
+    }
+  ],
+  "clips": [
+    {
+      "index": 1,
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "role": "hook",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "harvard_zoology_hall",
+      "attire_and_hands": "slate corduroy blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "lift a matte-white faceted low-poly miniature peacock sculpture with a wide pastel fan tail and set it on a slate-stone tray",
+      "consequence": "the ornate fan-tailed bird sculpture gleams softly in diffused daylight"
+    },
+    {
+      "index": 2,
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "role": "hook",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "harvard_zoology_hall",
+      "environment": "sunlit mist-white Harvard zoology hall with two cool slate-stone display stands holding matte-white faceted low-poly bird and marine sculptures",
+      "action": "viewed strictly from behind, clothed low-poly scholars in slate coats step closer and point between the two contrasting zoological trays"
+    },
+    {
+      "index": 3,
+      "sentence_index": 2,
+      "role": "hook",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "marine_lab_bench",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "turn a powder-blue faceted low-poly miniature brooding pipefish sculpture beside two larger lavender-finned pipefish sculptures and align them",
+      "consequence": "the pouch-carrying pipefish model sits selectively at the center of the cool slate tray"
+    },
+    {
+      "index": 4,
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "role": "case_stamp",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "harvard_zoology_hall",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "place three unmarked pastel folio volumes onto a cool slate-stone seminar table and align their spines",
+      "consequence": "three crisp mint, sky-blue, and lavender volumes rest side by side"
+    },
+    {
+      "index": 5,
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "role": "case_stamp",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_right",
+      "location_id": "harvard_zoology_hall",
+      "environment": "clean architectural cutaway of a bright Harvard biology seminar gallery linking marine sculpture trays to a mist-white seminar table",
+      "action": "viewed strictly from behind, Robert Trivers in a slate blazer walks between the slate trays and sets a silver balance beside the pipefish sculpture"
+    },
+    {
+      "index": 6,
+      "sentence_index": 4,
+      "role": "pivot",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "harvard_zoology_hall",
+      "attire_and_hands": "grey coat sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "close an unmarked grey folio volume and slide a rigid one-way silver arrow off the slate table",
+      "consequence": "the old fixed-arrow model clears the biology bench"
+    },
+    {
+      "index": 7,
+      "sentence_index": 5,
+      "role": "context",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "harvard_zoology_hall",
+      "attire_and_hands": "grey sweater sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "place an ornate fan-tailed low-poly bird sculpture opposite a plain matte-white peahen sculpture and push them toward the center",
+      "consequence": "only one familiar courtship pattern occupies the tray"
+    },
+    {
+      "index": 8,
+      "sentence_index": 6,
+      "role": "setup",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "harvard_zoology_hall",
+      "environment": "bright pastel Harvard seminar room with tall mist-white windows, slate-stone tables, and brushed-silver care balances",
+      "action": "viewed strictly from behind, Robert Trivers in a slate blazer leans over the central table and lifts a heavy mint-green care weight"
+    },
+    {
+      "index": 9,
+      "sentence_index": 7,
+      "role": "setup",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "location_id": "harvard_zoology_hall",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "fan out three unmarked pastel study binders across the slate tabletop and tap each cover in sequence",
+      "consequence": "three connected biological frameworks span the seminar bench"
+    },
+    {
+      "index": 10,
+      "sentence_index": 8,
+      "role": "setup",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "harvard_zoology_hall",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "drop a heavy stack of mint-green care discs into the left silver pan and place a single tiny disc into the right pan",
+      "consequence": "the left pan sinks deeply under the heavier care cost"
+    },
+    {
+      "index": 11,
+      "sentence_index": 9,
+      "role": "rehook",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "marine_lab_bench",
+      "attire_and_hands": "slate coat sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "slide two geometric chromosome tiles aside and lift a powder-blue brooding pipefish sculpture into center frame",
+      "consequence": "care weight replaces chromosome shape at the center of the tray"
+    },
+    {
+      "index": 12,
+      "sentence_index": 10,
+      "role": "question",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "location_id": "harvard_zoology_hall",
+      "environment": "sunlit mist-white biology gallery where a tilted silver pan balance stands beside matte-white mammal sculptures on a slate bench",
+      "action": "viewed strictly from behind, two seminar students in navy sweaters lean forward and point toward the deeply weighted maternal pan"
+    },
+    {
+      "index": 13,
+      "sentence_index": 11,
+      "role": "analogy",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "location_id": "harvard_zoology_hall",
+      "analogy_world": "clean mist-white corridor holding a large matte powder-blue travel trunk strapped with silver clasps on a slate-stone dolly",
+      "comparison_action": "navy coat sleeves and cool porcelain-white gloved low-poly hands latch the heavy powder-blue travel trunk shut and push the loaded dolly steadily forward"
+    },
+    {
+      "index": 14,
+      "sentence_index": 12,
+      "end_sentence_index": 13,
+      "role": "experiment",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "tilt_down",
+      "location_id": "marine_lab_bench",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "turn the silver pan balance halfway around so the heavy mint-green care stack now rests on the paternal side",
+      "consequence": "a reversible silver directional pointer swings cleanly to the opposite tray"
+    },
+    {
+      "index": 15,
+      "sentence_index": 14,
+      "role": "experiment",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "marine_lab_bench",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "lift a cool slate marine specimen tray holding matte-white and pastel faceted pipefish and shorebird sculptures onto the center bench",
+      "consequence": "male-brooding marine and wetland models gleam under soft diffused light"
+    },
+    {
+      "index": 16,
+      "sentence_index": 15,
+      "role": "question",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "marine_lab_bench",
+      "environment": "cool powder-blue and mist-white marine biology room with geometric seagrass prisms and faceted low-poly pipefish sculptures on slate trays",
+      "action": "viewed strictly from behind, Trivers and two researchers in slate coats lean in around the marine diorama tray"
+    },
+    {
+      "index": 17,
+      "sentence_index": 16,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "result",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "marine_lab_bench",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "cradle a matte powder-blue faceted miniature pipefish father sculpture and point to smooth pearl-white egg spheres nestled in its ventral pouch",
+      "consequence": "tiny geometric pearl spheres rest securely inside the father model's pouch"
+    },
+    {
+      "index": 18,
+      "sentence_index": 16,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "result",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "location_id": "marine_lab_bench",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "place heavy mint-green care weights onto the father pipefish side of the silver tray and press them steady",
+      "consequence": "the father side carries the full brooding load"
+    },
+    {
+      "index": 19,
+      "sentence_index": 17,
+      "role": "comparison_left",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "marine_lab_bench",
+      "attire_and_hands": "slate coat sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "set a compact matte-white faceted shorebird father sculpture gently over three pastel egg spheres in a reed nest tray",
+      "consequence": "the quiet father bird model shelters the nest alone"
+    },
+    {
+      "index": 20,
+      "sentence_index": 17,
+      "cut_role": "split_right",
+      "role": "comparison_right",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "marine_lab_bench",
+      "attire_and_hands": "slate coat sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "place two larger lavender-winged faceted female shorebird sculptures with spread geometric plumes and slide them around the nest edge",
+      "consequence": "larger ornamented female bird models vie for the selective nest-guarding father"
+    },
+    {
+      "index": 21,
+      "sentence_index": 18,
+      "role": "nightmare_stamp",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "location_id": "harvard_zoology_hall",
+      "environment": "sunlit Harvard zoology gallery contrasting the standard peacock tray on the left with the reversed brooding pipefish and shorebird tray on the right",
+      "action": "viewed strictly from behind, scholars in grey coats step back as Trivers in a slate blazer aligns the silver care balance between both stands"
+    },
+    {
+      "index": 22,
+      "sentence_index": 19,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "mechanism",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "marine_lab_bench",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "turn the powder-blue brooding pipefish father sculpture selectively toward one lavender-finned female sculpture and slide the rival model back",
+      "consequence": "courtship selectivity flips cleanly onto the pouch-bearing father"
+    },
+    {
+      "index": 23,
+      "sentence_index": 19,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "mechanism",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_left",
+      "location_id": "marine_lab_bench",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "snap a curved silver reversal arc between the two zoological trays and press it flat into the slate base",
+      "consequence": "both trays lock into one unified care-cost equation"
+    },
+    {
+      "index": 24,
+      "sentence_index": 20,
+      "role": "instead_pivot",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "harvard_zoology_hall",
+      "attire_and_hands": "navy sweater sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "place heavy mint-green care discs onto whichever pan broods and tilt the silver choice indicator straight toward that pan",
+      "consequence": "investment weight alone steers the choice arrow"
+    },
+    {
+      "index": 25,
+      "sentence_index": 21,
+      "role": "question",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "family_home_table",
+      "environment": "bright pastel mist-white and sage home study with a round slate-stone table and a shared pastel cradle model",
+      "action": "viewed strictly from behind, two clothed low-poly partners in sky-blue and sage sweaters stand side by side reaching toward the cradle model"
+    },
+    {
+      "index": 26,
+      "sentence_index": 22,
+      "end_sentence_index": 23,
+      "role": "context",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "family_home_table",
+      "attire_and_hands": "sky-blue and sage sweater sleeves with cool porcelain-white gloved low-poly hands",
+      "prop_action": "place equal stacks of mint-green care discs onto both pans of a brushed-silver balance simultaneously",
+      "consequence": "both pans level out in mutual long-term commitment"
+    },
+    {
+      "index": 27,
+      "sentence_index": 24,
+      "role": "brain_link",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "location_id": "bright_brain_studio",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "hypothalamus",
+      "anatomy_label": "HORMONE CONTROL\\nCARE BONDING HUB",
+      "brain_scene": "matte-white low-poly sagittal brain model in a bright mist-white studio where the deep midline hormone hub glows soft cyan-blue with gentle green fiber pulses"
+    },
+    {
+      "index": 28,
+      "sentence_index": 25,
+      "role": "setup",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "location_id": "marine_lab_bench",
+      "environment": "bright marine biology bench holding a pastel coral-reef arch sculpture with a large slate-blue grouper sculpture and a tiny mint-green cleaner fish sculpture",
+      "action": "viewed strictly from behind, Trivers in a slate coat leans over the coral-reef arch and positions the tiny cleaner fish sculpture"
+    },
+    {
+      "index": 29,
+      "sentence_index": 26,
+      "role": "twist_question",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "marine_lab_bench",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "glide the tiny mint-green faceted cleaner wrasse sculpture right beside the large powder-blue grouper sculpture on a coral stand and hold it steady",
+      "consequence": "giant predator and tiny helper rest peacefully side by side"
+    },
+    {
+      "index": 30,
+      "sentence_index": 27,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "experiment",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "marine_lab_bench",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "lift a tiny dark grey parasite pebble off the large powder-blue grouper sculpture with a smooth silver scoop and drop it into a dish",
+      "consequence": "the large reef fish sculpture gleams clean and smooth"
+    },
+    {
+      "index": 31,
+      "sentence_index": 27,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "experiment",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "location_id": "marine_lab_bench",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "glide the tiny mint-green cleaner fish sculpture safely out along a curved silver track and return it for a second pass",
+      "consequence": "repeated return visits accumulate mint-green benefit tokens"
+    },
+    {
+      "index": 32,
+      "sentence_index": 28,
+      "role": "mechanism",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "marine_lab_bench",
+      "attire_and_hands": "slate coat sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "align one tiny grey snack disc against a tall stack of future mint-green health discs and push the tiny snack disc away",
+      "consequence": "long-term return visits far outweigh one selfish bite"
+    },
+    {
+      "index": 33,
+      "sentence_index": 29,
+      "role": "mechanism",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "harvard_zoology_hall",
+      "attire_and_hands": "navy sweater sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "pass interlocking sky-blue and mint-green favor tokens back and forth across a slate table and stack them high",
+      "consequence": "both sides build tall symmetrical trust stacks"
+    },
+    {
+      "index": 34,
+      "sentence_index": 30,
+      "role": "question",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "family_home_table",
+      "environment": "cool mist-white studio room where teammates exchange pastel favor tokens across a round slate-stone table",
+      "action": "viewed strictly from behind, three teammates in pastel blazers pass mint-green tokens while one figure in a grey coat holds back"
+    },
+    {
+      "index": 35,
+      "sentence_index": 31,
+      "role": "brain_link",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "location_id": "bright_brain_studio",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "insula",
+      "anatomy_label": "GUT-FEELING CENTER\\nFAIRNESS ALARM",
+      "brain_scene": "matte-white low-poly lateral brain cutaway in a bright mist-white studio where the deep folded insula glows soft crimson-rose and cyan-blue along internal fibers"
+    },
+    {
+      "index": 36,
+      "sentence_index": 32,
+      "role": "context",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "location_id": "family_home_table",
+      "attire_and_hands": "sky-blue blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "slide a warm lavender gratitude token toward a helper and set a frosted barrier before the empty freeloader tray",
+      "consequence": "cooperative partners keep trading smoothly"
+    },
+    {
+      "index": 37,
+      "sentence_index": 33,
+      "role": "setup",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_left",
+      "location_id": "family_home_table",
+      "environment": "clean architectural cutaway of a bright pastel family dining room with a round slate-stone table and pastel geometric pie slices",
+      "action": "viewed strictly from behind, a parent in a sage cardigan stands at the table dividing pastel pie wedges between two smaller figures in sky-blue sweaters"
+    },
+    {
+      "index": 38,
+      "sentence_index": 34,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "experiment",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "family_home_table",
+      "attire_and_hands": "sage cardigan sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "slice a pastel mint-green round tart cleanly in half with a silver server and slide equal halves onto two sky-blue plates",
+      "consequence": "two identical pastel wedges sit side by side"
+    },
+    {
+      "index": 39,
+      "sentence_index": 34,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "experiment",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "family_home_table",
+      "attire_and_hands": "small sky-blue sweater sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "reach eagerly across the slate tabletop and pull a third tiny pastel berry wedge toward the near plate",
+      "consequence": "the child's plate nudges past an even half-and-half split"
+    },
+    {
+      "index": 40,
+      "sentence_index": 35,
+      "role": "question",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "location_id": "family_home_table",
+      "environment": "sunlit mist-white dining room with the two sky-blue plates and pastel geometric wedges on a clean slate table",
+      "action": "viewed strictly from behind, the parent in a sage cardigan rests both hands calmly on the chair backs between the two children"
+    },
+    {
+      "index": 41,
+      "sentence_index": 36,
+      "role": "analogy",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "location_id": "family_home_table",
+      "analogy_world": "cool slate-stone counter holding a brushed-silver twin-pan balance with equal mint-green geometric cubes resting in each pan",
+      "comparison_action": "sage cardigan sleeves and cool porcelain-white gloved low-poly hands place matching mint-green cubes into both silver pans and align the crossbar level"
+    },
+    {
+      "index": 42,
+      "sentence_index": 37,
+      "role": "analogy",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "location_id": "family_home_table",
+      "analogy_world": "bright pastel alcove holding a tall brushed-silver standing mirror reflecting a single sky-blue geometric prism",
+      "comparison_action": "sky-blue sweater sleeves and cool porcelain-white gloved low-poly hands place a sky-blue geometric prism before the silver mirror and tilt the frame straight"
+    },
+    {
+      "index": 43,
+      "sentence_index": 38,
+      "role": "climax",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "location_id": "family_home_table",
+      "attire_and_hands": "sage cardigan sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "slide two full sky-blue blocks beside one half-height lavender sibling block and align them with the silver balance",
+      "consequence": "the two-to-one self-versus-sibling ratio appears cleanly in pastel blocks"
+    },
+    {
+      "index": 44,
+      "sentence_index": 39,
+      "role": "brain_link",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "location_id": "bright_brain_studio",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "JUDGMENT CENTER\\nFAMILY SHARE SCALE",
+      "brain_scene": "matte-white low-poly medial brain cutaway in a bright gallery where the lower frontal judgment hub glows calm cyan-blue with balanced green fiber arcs"
+    },
+    {
+      "index": 45,
+      "sentence_index": 40,
+      "role": "climax",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_left",
+      "location_id": "family_home_table",
+      "environment": "bright modern studio cutaway showing two partners in tailored pastel blazers sharing equal silver briefcases and shared home care trays",
+      "action": "viewed strictly from behind, both partners walk together and place matching mint-green tokens onto a central slate balance"
+    },
+    {
+      "index": 46,
+      "sentence_index": 41,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "stunned_stamp",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "harvard_zoology_hall",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "align the brooding pipefish sculpture, the cleaner fish reef arch, and the twin-pan silver balance along one slate bench and rest both hands",
+      "consequence": "all three evolutionary models stand unified on one table"
+    },
+    {
+      "index": 47,
+      "sentence_index": 41,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "stunned_stamp",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "location_id": "harvard_zoology_hall",
+      "environment": "sunlit mist-white Harvard zoology hall with the three pastel sculptural models gleaming along the central slate bench",
+      "action": "viewed strictly from behind, Robert Trivers and colleagues in slate coats and sweaters stand together admiring the three linked models"
+    },
+    {
+      "index": 48,
+      "sentence_index": 42,
+      "role": "question",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "family_home_table",
+      "environment": "cool sage-and-white modern living room with a round slate table and three pastel trays",
+      "action": "viewed strictly from behind, two partners in sky-blue and sage sweaters sit across the round slate table and reach toward the center"
+    },
+    {
+      "index": 49,
+      "sentence_index": 43,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "takeaway",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "family_home_table",
+      "attire_and_hands": "sky-blue and sage sweater sleeves with cool porcelain-white gloved low-poly hands",
+      "prop_action": "lift two matching mint-green care blocks together and snap them onto a shared silver foundation plate",
+      "consequence": "both blocks lock evenly onto the base"
+    },
+    {
+      "index": 50,
+      "sentence_index": 43,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "takeaway",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "family_home_table",
+      "attire_and_hands": "sky-blue and sage sleeves with cool porcelain-white gloved low-poly hands",
+      "prop_action": "stack a second pastel tier atop the shared silver plate and press the joint arch level",
+      "consequence": "a sturdy symmetrical arch rises in soft daylight"
+    },
+    {
+      "index": 51,
+      "sentence_index": 44,
+      "role": "takeaway",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "location_id": "family_home_table",
+      "environment": "bright pastel home study with the completed symmetrical arch glowing softly on the round slate table",
+      "action": "viewed strictly from behind, both partners in sky-blue and sage sweaters stand shoulder to shoulder and rest gloved hands on the arch"
+    },
+    {
+      "index": 52,
+      "sentence_index": 45,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "takeaway",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "family_home_table",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "slide a frosted cover over an empty freeloader tray and pass a mint-green token to a helping colleague's gloved hand",
+      "consequence": "active helpers receive immediate return tokens"
+    },
+    {
+      "index": 53,
+      "sentence_index": 45,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "takeaway",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "location_id": "family_home_table",
+      "attire_and_hands": "navy and sage blazer sleeves with cool porcelain-white gloved low-poly hands",
+      "prop_action": "interlock four pastel favor prisms into a closed cooperative ring on the slate desk and tap the center",
+      "consequence": "the team reciprocity ring holds firm"
+    },
+    {
+      "index": 54,
+      "sentence_index": 46,
+      "role": "brain_link",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "location_id": "bright_brain_studio",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PLANNER\\nRECIPROCAL TRUST",
+      "brain_scene": "matte-white low-poly cortical brain model in a bright mist-white gallery where the front planning cortex glows soft cyan-blue with steady green fiber pulses"
+    },
+    {
+      "index": 55,
+      "sentence_index": 47,
+      "end_sentence_index": 48,
+      "role": "takeaway",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "location_id": "family_home_table",
+      "attire_and_hands": "sage cardigan sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "align two equal pastel berry wedges calmly on sky-blue plates and slide both plates gently across the slate table",
+      "consequence": "dinner sharing settles peacefully in soft pastel light"
+    },
+    {
+      "index": 56,
+      "sentence_index": 49,
+      "role": "conclusion",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "location_id": "marine_lab_bench",
+      "environment": "serene marine biology gallery showing the matte powder-blue brooding pipefish sculpture and coral cleaner-fish arch side by side",
+      "action": "elevated wide view from behind as researchers in slate coats place a silver balance peacefully between the marine models"
+    },
+    {
+      "index": 57,
+      "sentence_index": 50,
+      "role": "conclusion_stamp",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "harvard_zoology_hall",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "rest the powder-blue brooding pipefish sculpture beside the level twin-pan silver balance and align both on the slate tray",
+      "consequence": "care weight and courtship balance gleam in calm symmetry"
+    },
+    {
+      "index": 58,
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "role": "outro",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "location_id": "harvard_zoology_hall",
+      "environment": "serene sunlit Harvard zoology hall with matte-white and pastel faceted pipefish and shorebird sculptures on cool slate-stone stands",
+      "action": "wide elevated view strictly from behind as Robert Trivers in a slate blazer stands quietly before tall mist-white windows"
+    }
+  ]
+}

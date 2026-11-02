@@ -1,0 +1,668 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "zeigarnik_uncompleted_task_loop",
+  "topic": "Bluma Zeigarnik Berlin Cafe Waiter & Interrupted Puzzle Memory Discovery, Working-Memory Goal Tension & Concrete Shutdown Plans (Low-Poly Pastel v7)",
+  "act5_climax_episode": "End-of-day planning experiments proving a sixty-second concrete place-and-time plan silences intrusive unfinished-task loops without midnight labor.",
+  "outro_title_lines": [
+    "BLUMA ZEIGARNIK (1927)",
+    "UNIVERSITY OF BERLIN"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "FINISHED WINS?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "OPEN LOOP GRIP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "TWENTY PUZZLES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "TENSION SPRING"
+    },
+    {
+      "sentence_index": 28,
+      "text": "HIDDEN LIMITS"
+    },
+    {
+      "sentence_index": 37,
+      "text": "SIXTY-SEC PLAN"
+    },
+    {
+      "sentence_index": 45,
+      "text": "SHUTDOWN RITUAL"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "FINISHED WINS?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "OPEN LOOP GRIP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "TWENTY PUZZLES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "TENSION SPRING"
+    },
+    {
+      "sentence_index": 28,
+      "text": "HIDDEN LIMITS"
+    },
+    {
+      "sentence_index": 37,
+      "text": "SIXTY-SEC PLAN"
+    },
+    {
+      "sentence_index": 45,
+      "text": "SHUTDOWN RITUAL"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 34,
+      "mode": "split_hstack",
+      "left_clip_index": 37,
+      "right_clip_index": 38,
+      "left_label": "ONE CLIFFHANGER",
+      "right_label": "TWENTY OPEN TABS"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cardigan sleeves and cool porcelain-white gloved low-poly hands over a cool slate-gray workbench with a completed folded pastel star beside a nearly finished mint-sage puzzle",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides the unfinished mint-sage puzzle into an open slate drawer while the other rests on a closed pastel notebook",
+      "consequence": "the unfinished puzzle disappears inside the slate workbench drawer"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit Berlin psychology room with a cool slate-gray workbench, pastel geometric puzzle tiles, clay dog figurine, sliding drawer, and closed pastel notebook",
+      "action": "viewed strictly from behind, a clothed low-poly researcher in a lavender-gray cardigan leans beside a seated volunteer in a slate vest and closes the workbench drawer"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate vest sleeves and cool porcelain-white gloved low-poly hands hovering above the closed slate-gray workbench drawer beside the ignored finished star",
+      "prop_action": "both cool porcelain-white gloved low-poly hands reach toward the closed slate drawer and hold the final two mint-sage puzzle pieces",
+      "consequence": "attention stays locked on the unfinished puzzle hidden inside the drawer"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved low-poly hands comparing two solid pastel bar columns on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and align a tall coral-rose unfinished column beside a half-height powder-blue completed column",
+      "consequence": "the tall coral-rose column stands nearly twice as high on the cool stone desk"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the bright Berlin laboratory featuring the cool slate-gray workbench, twenty pastel craft tasks, closed pastel notebook, and tall comparison bar columns",
+      "action": "viewed strictly from behind, the clothed low-poly psychologist in a lavender-gray cardigan steps beside the workbench and points toward the tall coral-rose bar"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "berlin_cafe_terrace",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright cool-limestone cafe terrace with round marble-gray bistro tables, powder-blue ceramic coffee cups, and pastel pastry plates",
+      "action": "viewed strictly from behind, a clothed low-poly waiter in a white apron walks briskly to a six-chair limestone table and sets down ceramic cups"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "berlin_cafe_terrace",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "crisp white apron cuffs and cool porcelain-white gloved low-poly hands arranging twelve powder-blue coffee cups and pastel saucers on a cool limestone tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and align all twelve ceramic cups smoothly without any notepad on the tray",
+      "consequence": "all twelve orders sit organized in exact sequence on the cool limestone table"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a miniature matte powder-blue and lavender-gray theater stage with draped pastel side curtains on a cool slate-gray platform",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in blazer cuffs pull a silver cord drawing the pastel stage curtains smoothly open and shut"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "berlin_cafe_terrace",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket cuffs and cool porcelain-white gloved low-poly hands placing smooth silver coins into a matte slate-gray bill folder on a cool limestone table",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides three silver coins onto the folder while a white-cuffed gloved hand closes the slate folder firmly",
+      "consequence": "closing the slate folder marks the table account officially finished"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sleek matte slate-gray street signal post displaying a soft coral-rose circle that flips to calm mint-sage above a cool limestone curb",
+      "comparison_action": "viewed strictly from behind, a clothed low-poly pedestrian in a powder-blue coat waits briefly at the limestone curb then steps forward as mint-sage lights"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "berlin_cafe_terrace",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit limestone cafe terrace beside the cleared bistro table and closed slate bill folder",
+      "action": "viewed strictly from behind, the clothed low-poly waiter in a white apron turns back three steps from the table and lifts empty gloved hands in a blank shrug"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the Berlin institute hall lined with cool slate-gray workbenches holding rows of pastel geometric puzzles, bead cords, and clay figurines",
+      "action": "viewed strictly from behind, clothed low-poly volunteers in cardigans and vests walk inside and step beside the slate-gray workbenches"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate vest cuffs and cool porcelain-white gloved low-poly hands sculpting a chalk-white clay figure beside pastel beads and puzzle frames on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides mint-sage beads onto a silver cord while the other presses a faceted clay dog",
+      "consequence": "twenty varied hands-on craft tasks fill the cool slate-gray workbench"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt cuffs and cool porcelain-white gloved low-poly hands folding a crisp pale-lavender paper star on cool limestone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands press the final crease of the pastel paper star flat and set it neatly at the table corner",
+      "consequence": "the finished pastel star rests completed and forgotten on the corner"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate vest sleeves and cool porcelain-white gloved low-poly hands fitting the second-to-last mint-sage geometric piece into a puzzle frame on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lean close and align the final mint-sage triangle inches above the last empty slot",
+      "consequence": "only one open gap remains inside the nearly completed puzzle frame"
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved low-poly hands stepping in over the cool slate-gray workbench right before the last piece drops",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and slide the unfinished mint-sage puzzle frame away from the volunteer's hovering gloved hands",
+      "consequence": "the final mint-sage piece never reaches the open puzzle slot"
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the Berlin workbench as the researcher slides the interrupted puzzle and half-strung pastel beads toward the open slate drawer",
+      "action": "viewed strictly from behind, the clothed low-poly volunteer in a slate vest leans forward and reaches gloved hands above the empty table spot"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "tilt_down",
+      "attire_and_hands": "lavender-gray cardigan sleeves and cool porcelain-white gloved low-poly hands placing interrupted craft tasks inside the deep cool slate-gray drawer",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set the unfinished puzzle inside and push the slate-gray drawer smoothly shut",
+      "consequence": "every unfinished piece is hidden completely out of visual sight"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate vest cuffs and cool porcelain-white gloved low-poly hands placing coral-rose recall tokens onto a cool limestone tray first",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and slide six coral-rose unfinished tokens into the front row before touching a pale-blue finished token",
+      "consequence": "unfinished coral-rose tokens dominate the very front of the recall tray"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "clean_pullback_reveal",
+      "analogy_world": "a matte powder-blue miniature city bus with open roof on cool slate-gray stone filled nearly bumper to bumper with coral-rose geometric pegs",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in cardigan cuffs place one more coral-rose peg row into the packed pastel bus and roll it forward"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved low-poly hands holding the completed pastel paper star over the cool slate-gray workbench",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts the finished pastel star while the volunteer's gloved hand points instead toward the closed drawer",
+      "consequence": "completed work sits forgotten right on the open workbench"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands comparing two plain tick-mark sweep timers on cool limestone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and align a wider-angle completed timer beside a shorter-angle interrupted timer",
+      "consequence": "the timers show completed puzzles actually used more total minutes"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "twin plain sweep clocks on a cool slate-gray base paired with opposite height pastel recall columns",
+      "internal_mechanism": "the clock with longer elapsed sweep pairs with a short pale-blue recall bar while the shorter interrupted clock pairs with a tall coral-rose bar"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a thick matte coral-rose elastic band stretched taut between two brushed-silver posts on a cool slate-gray stone block",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in blazer cuffs pull and hold the coral-rose band onto the second silver post with steady inward tension"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL CORTEX\nWORKING-MEMORY DESK",
+      "brain_scene": "a matte-pastel 3D cortical brain model on a cool alabaster stand where the upper front dorsolateral prefrontal cortex glows bright cyan-blue holding an active goal online"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "pan_left",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nCONFLICT DETECTOR",
+      "brain_scene": "a matte-pastel sagittal cutaway brain model highlighting the inner anterior cingulate cortex pulsing coral-rose whenever an active goal stays incomplete"
+    },
+    {
+      "sentence_index": 24,
+      "end_sentence_index": 25,
+      "act": 3,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate vest cuffs and cool porcelain-white gloved low-poly hands snapping the final mint-sage triangle into the puzzle frame on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and press the last mint-sage piece flush into the frame releasing a small silver tension spring beside it",
+      "consequence": "the silver spring relaxes flat the instant the final piece clicks home"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Berlin workbench after the session with the closed slate drawer holding unfinished puzzles",
+      "action": "viewed strictly from behind, two smaller clothed low-poly figures in coats and caps lean beside the slate workbench and point gloved hands eagerly toward the drawer handle"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan sleeves and cool porcelain-white gloved low-poly hands turning a silver balance bar between two pastel puzzle tiles on cool limestone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand tilts the silver bar while the other places a boundary marker beside the coral-rose tile",
+      "consequence": "three clear boundary tiles line up across the cool limestone desk"
+    },
+    {
+      "sentence_index": 28,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-gray sweater cuffs and cool porcelain-white gloved low-poly hands beside a depleted pastel battery gauge on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lean and rest slowly beside an unfinished puzzle while both pastel recall bars stay equally low",
+      "consequence": "with low energy, no coral-rose tension spike forms"
+    },
+    {
+      "sentence_index": 28,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the Berlin workbench showing two equal low pastel bars beside the depleted battery gauge on the cool slate-gray table",
+      "action": "viewed strictly from behind, a tired clothed low-poly volunteer in a gray sweater leans back from the workbench and rests gloved hands on knees"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved low-poly hands sweeping away an untouched puzzle before the first piece is lifted on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts and slides the untouched frame aside while the silver spring beside it stays completely unstretched",
+      "consequence": "without engagement, the tension spring never stretches"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "morning sunlight streaming into the Berlin laboratory as the cool slate-gray workbench drawer slides open again",
+      "action": "viewed strictly from behind, the clothed low-poly researcher in a cardigan opens the slate drawer and slides the unfinished puzzle back to a seated volunteer"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate vest cuffs and cool porcelain-white gloved low-poly hands snapping the last piece in so the tall coral-rose column drops level with the pale-blue column",
+      "prop_action": "both cool porcelain-white gloved low-poly hands press the final piece down and slide the coral-rose bar down to baseline height",
+      "consequence": "finishing the task erases the extra recall boost right away"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands sliding a frosted shield over a coral-rose fault token on cool limestone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands push the coral-rose token under the frosted cover and pull a mint-sage success token forward",
+      "consequence": "self-protective shielding hides the painful interrupted task"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a sleek matte-pastel goal beacon on a cool slate-gray stand wired to an open silver switch circuit",
+      "internal_mechanism": "as long as the silver circuit switch remains unlatched, a soft coral-rose pulse continues circling inside the beacon"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater cuffs and cool porcelain-white gloved low-poly hands resting beside a single glowing cyan bookmark tile on a tidy cool slate-gray desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and align the single cyan cliffhanger tile cleanly at the center of the desk",
+      "consequence": "one intentional open loop points forward with calm focus"
+    },
+    {
+      "sentence_index": 34,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray sweater cuffs and cool porcelain-white gloved low-poly hands surrounded by twenty scattered coral-rose square tiles across a cool slate-gray desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands push and slide through the twenty blinking coral-rose tiles trying to clear a spot",
+      "consequence": "twenty unplanned open loops crowd every inch of the workspace"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a dim cool-toned evening study room where twenty small coral-rose task tiles glow softly across a slate-gray desk beside an armchair",
+      "action": "viewed strictly from behind, a clothed low-poly worker in a lavender-gray sweater leans in the armchair and turns back toward the glowing desk"
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray sweater sleeves and cool porcelain-white gloved low-poly hands reaching between a laptop lid and a blank mint-sage planning card on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand holds a brushed-silver stylus while the other slides the blank mint-sage planning card center stage",
+      "consequence": "the clean mint-sage planning card sits ready to park open tasks"
+    },
+    {
+      "sentence_index": 37,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands placing a mint-sage appointment token onto a coral-rose open-loop tile on cool limestone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and press the mint-sage appointment token onto the coral-rose tile switching its light calm",
+      "consequence": "the coral-rose alert dims immediately to serene powder-blue"
+    },
+    {
+      "sentence_index": 37,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a modern university psychology lab with cool limestone desks, blank pastel planning cards, and calm powder-blue indicator columns",
+      "action": "viewed strictly from behind, two clothed low-poly psychologists in blazers walk along the limestone desks and lift completed focus trays"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt cuffs and cool porcelain-white gloved low-poly hands setting an unfinished puzzle tray beside a new focus sorting board on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides the unfinished tray aside while the other aligns the new pastel sorting board",
+      "consequence": "the unfinished task waits right beside the new focus test"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage cardigan sleeves and cool porcelain-white gloved low-poly hands tracing two crisp geometric slot icons on a blank pastel card with a silver stylus",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and press a miniature desk icon and a morning-sun icon into two neat slots on the pastel card",
+      "consequence": "the concrete plan locks into the two geometric card slots"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage cardigan cuffs and cool porcelain-white gloved low-poly hands docking a desk emblem and a quarter-tick morning dial icon together on cool limestone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide and press the desk emblem and morning dial icon together into a single holder",
+      "consequence": "exact place and morning hour lock together as one clear appointment"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a clean matte powder-blue athletic shoe resting on a cool limestone bench with crisp white low-poly laces",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate cuffs pull and press the crisp white laces into one neat symmetrical bow"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "gentle_push_in",
+      "structure": "the matte-pastel goal beacon on cool slate-gray stone receiving the docked mint-sage plan card into its side slot",
+      "internal_mechanism": "sliding the mint-sage plan card into the slot closes the silver switch and quiets the pulsing coral-rose light completely"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide view of the modern psychology laboratory showing matching calm mint-sage focus bars for both the finished group and the planned group",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in blazers step back beside the limestone counter and shake gloved hands warmly"
+    },
+    {
+      "sentence_index": 44,
+      "act": 5,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands placing a crisp mint-sage receipt token into a brushed-silver tray on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set the mint-sage token neatly into the tray and close its clear cover",
+      "consequence": "the parked goal rests safely inside the covered silver tray"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a matte powder-blue shopfront door set in a cool limestone wall fitted with a smooth brushed-silver latch bar",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in coat cuffs close the powder-blue door gently and slide the brushed-silver latch bar into its catch"
+    },
+    {
+      "sentence_index": 46,
+      "end_sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray sweater sleeves and cool porcelain-white gloved low-poly hands gathering scattered coral-rose task tiles onto one tidy mint-sage card on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide and set the loose coral-rose tiles neatly onto the mint-sage card at the center of the desk",
+      "consequence": "twelve scattered open loops consolidate onto one clean shutdown card"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "lavender-gray sweater cuffs and cool porcelain-white gloved low-poly hands docking small morning-dial pegs beside three task tokens on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and press three matching place-and-hour pegs into the mint-sage shutdown tray",
+      "consequence": "all three open items turn calm mint-sage in unison"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
+      "brain_scene": "a matte-pastel 3D cortical brain model where serene cyan-blue light settles across the prefrontal cortex as open-loop conflict signals quiet down"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray sweater cuffs and cool porcelain-white gloved low-poly hands placing one sleek cyan bookmark ribbon inside a pastel notebook on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand sets the cyan ribbon mid-page while the other hand aligns a silver stylus beside it",
+      "consequence": "one intentional starting point waits cleanly for tomorrow morning"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "tilt_down",
+      "attire_and_hands": "lavender-gray sweater sleeves and cool porcelain-white gloved low-poly hands closing both the matte silver laptop lid and the pastel notebook on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands close the pastel notebook smoothly and rest it centered atop the closed silver laptop",
+      "consequence": "the entire cool slate-gray desk sits serene and clutter-free"
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the calm sunlit office with the closed pastel notebook and silver laptop resting neatly on the cool slate-gray desk",
+      "action": "viewed strictly from behind, the clothed low-poly worker in a lavender-gray sweater rises smoothly from the desk chair and walks toward the sunlit doorway"
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the serene Berlin psychology laboratory with the cool slate-gray workbench, pastel geometric puzzle frame, closed drawer, and tall windows opening to pale pastel sky",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in cardigan and blazer walk calmly toward the tall window as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "OPEN LOOP GRIP",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered low-poly pastel jigsaw puzzle missing one final mint-sage piece hovering above an open cool-slate drawer"
+  }
+}

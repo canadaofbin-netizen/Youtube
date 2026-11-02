@@ -1,0 +1,696 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "asch_conformity_pressure",
+  "topic": "Solomon Asch (1951) Swarthmore Line-Judgment Group Conformity Experiments & Berns et al. (2005) fMRI Perceptual-Amygdala Mechanism (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Solomon Asch's lone-ally variation crashing conformity from 37% down to 5%, paired with Gregory Berns's 2005 fMRI replication showing parietal spatial-map reshaping and amygdala alarm during group disagreement.",
+  "outro_title_lines": [
+    "SOLOMON ASCH (1951)",
+    "SWARTHMORE COLLEGE"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "99% SOLO"
+    },
+    {
+      "sentence_index": 3,
+      "text": "ASCH 1951"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SEAT SIX"
+    },
+    {
+      "sentence_index": 19,
+      "text": "75% CAVED"
+    },
+    {
+      "sentence_index": 28,
+      "text": "SECRET VOTE"
+    },
+    {
+      "sentence_index": 36,
+      "text": "ONE ALLY"
+    },
+    {
+      "sentence_index": 44,
+      "text": "SPEAK FIRST"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "99% SOLO"
+    },
+    {
+      "sentence_index": 3,
+      "text": "ASCH 1951"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SEAT SIX"
+    },
+    {
+      "sentence_index": 19,
+      "text": "75% CAVED"
+    },
+    {
+      "sentence_index": 28,
+      "text": "SECRET VOTE"
+    },
+    {
+      "sentence_index": 36,
+      "text": "ONE ALLY"
+    },
+    {
+      "sentence_index": 44,
+      "text": "SPEAK FIRST"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 36,
+      "mode": "split_hstack",
+      "left_clip_index": 19,
+      "right_clip_index": 42,
+      "left_label": "UNANIMOUS: 37% ERR",
+      "right_label": "ONE ALLY: 5% ERR"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-gray blazer sleeves and matte-white gloved low-poly hands holding a brushed-silver ruler against two white display cards on an slate-stone easel",
+      "prop_action": "the matte-white gloved low-poly hands lift and align a vertical black pale-gray bar on the left card with the matching middle black bar on the right card",
+      "consequence": "the brushed-silver ruler bridges both matching vertical black bars at the exact same height"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan cardigan sleeves and matte-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "the right matte-white gloved low-poly hand holds a slate-stone pencil and writes a geometric token on a pale-gray tally block on a sunlit slate-stone desk",
+      "consequence": "ninety-nine small ivory tally pegs sit neatly aligned in a pale-gray tray"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "an elevated rear view of a sunlit 1951 Swarthmore College seminar room with pale-sage walls and a long curved pale-stone table",
+      "action": "viewed strictly from behind, five clothed low-poly students in wool blazers lift their right hands in unison while the sixth student in a soft-sage sweater leans back"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal suit cuffs and matte-white gloved low-poly hands beside the pale-gray easel",
+      "prop_action": "both matte-white gloved low-poly hands lift and set two large crisp white display cards with bold black vertical bars onto the slate-stone easel ledge",
+      "consequence": "morning sunlight falls cleanly across the contrasting vertical black bars"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the soft 1951 Swarthmore seminar room with tall sunlit windows and a curved row of seven light-gray chairs",
+      "action": "seen strictly from behind, the clothed low-poly researcher in a grey suit steps beside the pale-stone easel and turns toward the row of seven seated students"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "swarthmore_campus_walk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit 1951 Pennsylvania college courtyard with stone archways, autumn trees, and pale-alabaster walkways",
+      "action": "viewed strictly from behind, clothed low-poly male students in varsity sweaters and flat caps walk briskly toward the building and push open the pale-stone doors",
+      "end_sentence_index": 5
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "grey suit sleeves and matte-white gloved low-poly hands holding a brushed-silver pointer rod",
+      "prop_action": "the experimenter's matte-white gloved low-poly hand opens the classroom slate-stone door and points toward the curved row of pale-gray chairs",
+      "consequence": "sunlight streams across the polished slate-stone tabletop",
+      "end_sentence_index": 6,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "an elevated rear view of the sunlit Swarthmore seminar room with seven light-gray chairs arranged in a crescent facing the easel",
+      "action": "viewed strictly from behind, seven clothed low-poly students in wool jackets and sweaters step forward and rest their hands on the curved table facing the line cards",
+      "end_sentence_index": 6,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "grey suit cuff and matte-white gloved low-poly hand holding a brushed-silver pointer",
+      "prop_action": "the matte-white gloved low-poly hand reaches out and taps the tip of the brushed-silver pointer against the single vertical black bar on the left white card",
+      "consequence": "the single black reference bar stands crisp against the matte-ivory card",
+      "end_sentence_index": 8
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit pale-alabaster garden path lined with three carved pale-gray fence posts of short, medium, and tall heights",
+      "comparison_action": "two matte-white gloved low-poly hands in shirt sleeves hold and align a brushed-silver measuring rod across the three pale-gray fence posts showing their unequal heights",
+      "end_sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "five muted-slate blazer sleeves resting in a synchronized row along the curved slate-stone table edge",
+      "prop_action": "all five matte-white gloved low-poly hands lift and tap their index fingers simultaneously in a rehearsed rhythm on the slate-stone tabletop",
+      "consequence": "the five matching blazer cuffs move in lockstep along the table",
+      "end_sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "rear view of the curved pale-stone seminar table focusing on the sixth light-gray chair near the right end",
+      "action": "viewed strictly from behind, the clothed low-poly student in a soft-sage sweater steps to seat six and rests his hands on the pale-stone table between muted-slate blazers",
+      "end_sentence_index": 11
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater sleeves and matte-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "the volunteer's low-poly right hand lifts and points calmly toward the matching middle black bar on the easel card",
+      "consequence": "adjacent muted-slate blazer sleeves point to the exact same middle bar in agreement",
+      "end_sentence_index": 12,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster bench holding a folded cool-ivory wool blanket",
+      "comparison_action": "two matte-white gloved low-poly hands in cardigan sleeves open and place the soft wool blanket smoothly across the pale-gray bench",
+      "end_sentence_index": 12,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit slate-stone easel holding the comparison card beside a carved pale-gray thumb block",
+      "comparison_action": "a low-poly hand in a cool-white sleeve lifts and places a carved pale-gray thumb upright between the short bar and the tall bar showing the wide gap",
+      "end_sentence_index": 14
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-slate blazer sleeve at the far left end of the curved slate-stone table",
+      "prop_action": "the first actor's matte-white gloved low-poly hand grips and slides a dark pale-gray marker block firmly onto the blatantly short line slot",
+      "consequence": "the dark pale-gray marker sits mismatched beside the tall reference bar",
+      "end_sentence_index": 15,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "a row of muted-slate blazer sleeves along the curved slate-stone table",
+      "prop_action": "one after another, four more matte-white gloved low-poly hands push and slide identical dark pale-gray markers into the exact same wrong short-line slot",
+      "consequence": "five dark pale-gray markers line up in a unanimous row on the wrong slot",
+      "end_sentence_index": 15,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 16,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater cuffs and matte-white gloved low-poly hands gripping the edge of the slate-stone table",
+      "prop_action": "the volunteer's matte-white gloved low-poly hands lift a smooth silver cylinder and set them back down on the table",
+      "consequence": "his fingers tap tensely against the polished slate-stone edge"
+    },
+    {
+      "sentence_index": 16,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "rear over-the-shoulder view from behind seat six toward the sunlit easel cards",
+      "action": "viewed strictly from behind, the clothed low-poly student in the soft-sage sweater leans forward and grips the table edge while five muted-slate-suited figures sit still"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster game table holding carved ivory pale-gray dice cubes",
+      "comparison_action": "two matte-white gloved low-poly hands in blazer sleeves roll and flip the pale-gray dice cubes across the tabletop landing on matching faces"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater sleeves and matte-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "the volunteer's matte-white gloved low-poly hand reaches over the correct slot then slowly pushes his pale-gray marker into the wrong slot beside the five dark markers",
+      "consequence": "both sleeves drop downward against the table edge"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "grey suit sleeves and matte-white gloved low-poly hands opening a pale-gray tally case",
+      "prop_action": "both matte-white gloved low-poly hands open the case and place rows of ivory and soft-lavender pale-gray counting blocks across the sunlit slate-stone desk",
+      "consequence": "the soft-lavender error blocks form a tall stack beside the ivory blocks",
+      "end_sentence_index": 20
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a sunlit architectural cutaway model of four college classrooms arranged side by side",
+      "comparison_action": "viewed from behind, rows of clothed low-poly students in wool jackets walk in and sit across all four sunlit miniature classrooms",
+      "end_sentence_index": 21,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-alabaster courtyard with a soft-sage soft-sage dome on a pale-gray platform",
+      "comparison_action": "two matte-white gloved low-poly hands in shirt sleeves hold a silver needle and place it beside the tall soft-sage soft-sage dome",
+      "end_sentence_index": 21,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster table holding three carved pale-gray figures",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves grasp and tilt one of the three pale-gray figures sideways onto a soft-lavender-shaded tile while two remain upright"
+    },
+    {
+      "sentence_index": 23,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster workbench displaying four clothed low-poly miniature figures in wool coats on circular pedestals",
+      "comparison_action": "a low-poly hand in a cool-white sleeve grips and turns three of the four pedestals so three figures face leftward with the crowd"
+    },
+    {
+      "sentence_index": 23,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "grey suit sleeves and matte-white gloved low-poly hands over an slate-stone sorting tray",
+      "prop_action": "the matte-white gloved low-poly hands push and slide three quarters of the pale-gray subject tokens into the conformity tray on the right",
+      "consequence": "the conformity tray fills nearly to the brim"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater cuffs and matte-white gloved low-poly hands at the slate-stone table",
+      "prop_action": "both matte-white gloved low-poly hands lift and place a soft ivory marker block firmly into the correct middle slot despite the five dark blocks beside it",
+      "consequence": "the lone ivory block stands straight and unmoved in the sunlight",
+      "end_sentence_index": 25
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "tilt_down",
+      "structure": "a clean architectural overhead diagram of the curved seven-seat seminar table and the two easel line cards",
+      "internal_mechanism": "five red directional arrows arc from seats one through five toward seat six, bending seat six's blue sightline away from the true bar",
+      "end_sentence_index": 26,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "grey suit sleeve on the left and soft-sage sweater sleeve on the right across an interview desk",
+      "prop_action": "the volunteer's matte-white gloved low-poly hand points directly to the true middle bar on the miniature card while the researcher's hand sets a pen down",
+      "consequence": "the brushed-silver pointer rests squarely on the true match",
+      "end_sentence_index": 26,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit Swarthmore seminar room as a fourth student in a tan vest prepares to speak",
+      "action": "viewed strictly from behind, the clothed low-poly student in the tan vest in seat four turns slightly toward seat six and points toward the true middle line"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "swarthmore_campus_walk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit 1950s college quadrangle with a brick clock tower and neat hedges",
+      "action": "viewed strictly from behind, a line of clothed low-poly students in identical grey coats walk single-file along the stone path and step through a gate"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "grey suit cuffs and matte-white gloved low-poly hands at the seminar table",
+      "prop_action": "both matte-white gloved low-poly hands lift and place a private pale-gray writing folder and slate-stone pencil in front of seat six",
+      "consequence": "the hinged pale-gray folder shields the paper pad from neighboring seats"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater sleeves and matte-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "shielded inside the pale-gray folder, the right matte-white gloved low-poly hand holds a slate-stone pencil and writes a geometric token on the true middle slot",
+      "consequence": "the pencil mark lands squarely on the true line column"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "grey suit sleeves and matte-white gloved low-poly hands comparing two stacks of soft-lavender pale-gray error blocks",
+      "prop_action": "the matte-white gloved low-poly hands push and slide two thirds of the tall soft-lavender error stack away leaving only a tiny three-block stack",
+      "consequence": "the private-ballot stack stands dramatically shorter than the public stack"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster table with a carved pale-gray hand model",
+      "comparison_action": "a low-poly hand in a shirt cuff wraps and ties a soft soft-lavender cloth strip around the upright pale-gray thumb while the four pale-gray fingers stay pale ivory"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "rear view of the sunlit Swarthmore seminar table focusing on seat four and seat six",
+      "action": "viewed strictly from behind, the clothed low-poly student in a cool-ochre cardigan in seat four lifts his hand and points straight at the true middle bar"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cool-ochre cardigan sleeve in seat four and soft-sage sweater sleeve in seat six",
+      "prop_action": "the ochre-sleeved matte-white gloved low-poly hand places an ivory marker into the true middle slot and the soft-sage sleeve immediately slides a matching ivory marker beside it",
+      "consequence": "the two ivory markers stand side by side in the correct slot"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean architectural cross-section of a dark stone wall blocking a sunlit path",
+      "internal_mechanism": "a single golden wedge drives into the center seam and splits the dark wall open letting warm sunlight flood through"
+    },
+    {
+      "sentence_index": 36,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "grey suit sleeves and matte-white gloved low-poly hands at the slate-stone sorting tray",
+      "prop_action": "both matte-white gloved low-poly hands push and slide the tall stack of soft-lavender conformity blocks off the board leaving just one single soft-lavender block beside nineteen ivory blocks",
+      "consequence": "nineteen ivory truth blocks dominate the sunlit slate-stone tray"
+    },
+    {
+      "sentence_index": 36,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Swarthmore seminar room with seat four and seat six sitting tall",
+      "action": "viewed strictly from behind, both clothed low-poly students in the ochre cardigan and soft-sage sweater lift their hands and point confidently toward the true easel bar"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-alabaster studio table holding an inflated matte-soft-lavender rubber balloon on a pale-gray ring",
+      "comparison_action": "a low-poly hand in a cool-white sleeve reaches out and presses a brushed-silver pin to the balloon popping it cleanly"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "emory_mri_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit modern neuroimaging room with a matte-ivory cylindrical MRI scanner and observation window",
+      "action": "viewed strictly from behind, a clothed low-poly researcher in a white lab coat walks to the scanner console and presses a control button while a subject lies inside"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "emory_mri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "patient gown cuff and matte-white gloved low-poly hand resting on an MRI button box",
+      "prop_action": "the matte-white gloved low-poly fingers reach between two response buttons on the fiber-optic pad then press the left button",
+      "consequence": "a green indicator light flashes on the console"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nSPATIAL MAP",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper-back parietal facets of the matte warm-ivory 3D brain model, sky-blue and amber polygons shift their pattern across the rear lobes"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nEMOTIONAL ALARM",
+      "camera": "locked_tripod",
+      "brain_scene": "deep inside the lower medial temporal zone of the flat side-profile half-brain cross-section, the almond-shaped amygdala facets glow soft terracotta-red"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "emory_mri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands over a light-box viewing table",
+      "prop_action": "both matte-white gloved low-poly hands lift and align two transparent brain-slice overlays side by side showing the soft cyan alarm spot",
+      "consequence": "cool-white light shines through the matched anatomical overlays"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "emory_mri_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit neuroimaging control room with a large 3D brain display above the console",
+      "action": "viewed strictly from behind, two clothed low-poly scientists in white lab coats step back from the console and lift their hands in astonishment"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_boardroom",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "an elevated rear view of a soft sunlit modern office conference room with a long pale-ash table and tall glass windows",
+      "action": "viewed strictly from behind, six clothed low-poly workers in blazers lift their hands while one worker in a sage sweater rests both hands flat on the table"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "SOCIAL PAIN ALARM\nTRIBAL REJECTION SIGNAL",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the deep terracotta-red amygdala pulse radiates upward toward the anterior cingulate arch"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit cool-alabaster table with a curved row of seven standing ivory pale-gray dominoes",
+      "comparison_action": "a low-poly hand in a blazer cuff taps and pushes the lead pale-gray domino causing all seven dominoes to topple sequentially"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_boardroom",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-slate blazer cuffs and matte-white gloved low-poly hands at the head of the pale-ash conference table",
+      "prop_action": "both matte-white gloved low-poly hands lift and place seven blank cool-white note cards and slate-stone pencils around the table",
+      "consequence": "each seat receives a clean private ballot card"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "modern_boardroom",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and matte-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "the matte-white gloved low-poly hands place a smooth geometric token on the private cool-white card and flip it cleanly face-down",
+      "consequence": "the ballot card rests squarely on the pale-stone table"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "modern_boardroom",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeve and matte-white gloved low-poly hand at the conference table",
+      "prop_action": "the matte-white gloved low-poly hand lifts its index finger upright and places a soft ivory block onto the center of the table",
+      "consequence": "neighboring blazer sleeves turn toward the center block"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "modern_boardroom",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the sunlit modern conference room around the pale-ash table",
+      "action": "viewed strictly from behind, three clothed low-poly workers in muted-slate blazers and coats step forward and lift their hands alongside the sage-sweatered speaker"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "swarthmore_seminar_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Swarthmore seminar room with the two white line cards gleaming on the pale-stone easel",
+      "action": "viewed strictly from behind, the clothed low-poly students in wool jackets stand up around the curved table and turn toward the tall sunlit windows"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "swarthmore_campus_walk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the soft sunlit Swarthmore stone courtyard and tree-lined lawn under a clear pastel sky",
+      "action": "viewed from behind, clothed low-poly students in sweaters and caps walk across the sunlit quad and step onto the terrace as the camera tilts upward"
+    }
+  ]
+}

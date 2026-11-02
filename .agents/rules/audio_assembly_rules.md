@@ -2,7 +2,7 @@
 
 Parent Master Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) · Numbers: [production_constants.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/production_constants.md) · Code: [`produce_psychology_batch.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/produce_psychology_batch.py)
 
-Scope: voice, clip trimming, speed, subtitles, soundscape and final mux. Replaces `audio_voice_rules.md`. No HUD, no punch-in, no loop.
+Scope: voice, clip trimming, speed, subtitles, soundscape and final mux. Replaces `audio_voice_rules.md`. No HUD, no punch-in, no loop. For Schema v7 (`lowpoly_pastel_v7`, unified `DIORAMA_V7_TTS_RATE` / `DIORAMA_V7_TTS_SPEED` + `DIORAMA_V7_TTS_PITCH` / `DIORAMA_V7_TTS_VOLUME` tear-free Silk Clean waveform breath-trimmed `en-US-AndrewMultilingualNeural`, `DIORAMA_V7_VIDEO_FPS` 1:1 Zero-Reuse EDL, condensed frame-grid subtitles, and 2ch stereo `DIORAMA_TARGET_LUFS` score; `R63`, `R64`) and Schema v6 `neuro_diorama` (`R58`, `R59`), see [neuro_diorama_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/neuro_diorama_rules.md) and [`pipeline/diorama_assembler.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/diorama_assembler.py).
 
 ---
 

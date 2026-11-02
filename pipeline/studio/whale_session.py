@@ -5,10 +5,12 @@ reuses active tabs, prunes duplicate windows/tabs, and safely handles Polymer UI
 """
 
 import asyncio
+from datetime import datetime, timezone
 from pathlib import Path
 import subprocess
 import time
 from typing import Any
+from zoneinfo import ZoneInfo
 
 from playwright.async_api import (
     Browser,
@@ -21,6 +23,43 @@ from pipeline.studio.config import (
     DEFAULT_CDP_PORT,
     WHALE_EXECUTABLE,
 )
+
+_FLOW_BRIDGE_DIR = Path("/home/canadaofbin/chrome-profile/flow_bridge")
+_STAGED_BRIDGE_FILES: set[Path] = set()
+_EN_MONTH_ABBR = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+
+
+def cleanup_staged_bridge_files(max_age_hours: float = 6.0) -> int:
+    """
+    Removes tracked upload files staged in `/home/canadaofbin/chrome-profile/flow_bridge/`
+    and prunes stale `flow_bridge` files older than `max_age_hours` (default 6h).
+    """
+    removed = 0
+    tracked_snapshot = list(_STAGED_BRIDGE_FILES)
+    _STAGED_BRIDGE_FILES.clear()
+    for p in tracked_snapshot:
+        try:
+            if p.exists() and p.is_file():
+                p.unlink(missing_ok=True)
+                removed += 1
+        except OSError:
+            pass
+
+    if _FLOW_BRIDGE_DIR.exists() and _FLOW_BRIDGE_DIR.is_dir():
+        cutoff = time.time() - (float(max_age_hours) * 3600.0)
+        try:
+            for item in _FLOW_BRIDGE_DIR.iterdir():
+                if not item.is_file():
+                    continue
+                try:
+                    if item.stat().st_mtime < cutoff:
+                        item.unlink(missing_ok=True)
+                        removed += 1
+                except OSError:
+                    pass
+        except OSError:
+            pass
+    return removed
 
 
 class WhaleSessionController:
@@ -198,6 +237,11 @@ class WhaleSessionController:
                     pass
         return new_target
 
+    @staticmethod
+    def cleanup_staged_bridge_files(max_age_hours: float = 6.0) -> int:
+        """Delegates to module-level `cleanup_staged_bridge_files`."""
+        return cleanup_staged_bridge_files(max_age_hours=max_age_hours)
+
 
 _DEEP_QUERY_HELPER_JS = r"""
 const __collectRoots = (node, out) => {
@@ -255,8 +299,9 @@ const __splitDescendantSelector = (sel) => {
     if (cur.trim()) parts.push(cur.trim());
     return parts;
 };
-const __queryAllDeep = (rawSel) => {
+const __queryAllDeep = (rawSel, rootScope) => {
     if (!rawSel) return [];
+    const startScope = rootScope || document;
     let baseSel = rawSel;
     let textNeedle = null;
     if (rawSel.includes(':has-text(')) {
@@ -266,11 +311,11 @@ const __queryAllDeep = (rawSel) => {
             textNeedle = m[2];
         }
     }
-    let matches = __queryInScope(document, baseSel);
+    let matches = __queryInScope(startScope, baseSel);
     if (matches.length === 0 && baseSel.includes(' ') && !baseSel.includes(',')) {
         const parts = __splitDescendantSelector(baseSel);
         if (parts.length > 1) {
-            let current = [document];
+            let current = [startScope];
             for (const part of parts) {
                 const next = [];
                 const seen = new Set();
@@ -290,6 +335,7 @@ const __queryAllDeep = (rawSel) => {
     }
     return matches;
 };
+const deepQueryAll = __queryAllDeep;
 const __isVisibleEl = (el, sel) => {
     if (!el) return false;
     if (sel && (sel.includes("type='file'") || sel.includes('type="file"'))) return true;
@@ -314,11 +360,17 @@ class DirectCDPClient:
         self.ws_url = ws_url
         self.ws = None
         self.msg_id = 0
+        self._send_lock: asyncio.Lock | None = None
+        self._staged_bridge_files: set[Path] = set()
 
     async def __aenter__(self):
         import websockets
         self._ctx = websockets.connect(self.ws_url, max_size=25_000_000, ping_interval=None, open_timeout=30.0)
         self.ws = await self._ctx.__aenter__()
+        try:
+            await self.send("Page.enable", timeout_sec=10.0)
+        except Exception:
+            pass
         return self
 
     async def __aexit__(self, exc_type, exc_val, exc_tb):
@@ -331,27 +383,50 @@ class DirectCDPClient:
 
     async def send(self, method: str, params: dict | None = None, timeout_sec: float = 90.0) -> dict[str, Any]:
         import json
-        from pipeline.config import MAX_LOOP_ITERATIONS
-        self.msg_id += 1
-        cur_id = self.msg_id
-        req = {"id": cur_id, "method": method}
-        if params:
-            req["params"] = params
-        await asyncio.wait_for(self.ws.send(json.dumps(req)), timeout=timeout_sec)
-        for _ in range(MAX_LOOP_ITERATIONS * 10):
-            raw = await asyncio.wait_for(self.ws.recv(), timeout=timeout_sec)
-            resp = json.loads(raw)
-            if resp.get("id") == cur_id:
-                if "error" in resp:
-                    raise RuntimeError(f"CDP Error ({method}): {resp['error']}")
-                return resp.get("result", {})
-        raise TimeoutError(f"CDP response loop exceeded max iterations for method {method}")
+        if self._send_lock is None:
+            self._send_lock = asyncio.Lock()
+        async with self._send_lock:
+            self.msg_id += 1
+            cur_id = self.msg_id
+            req = {"id": cur_id, "method": method}
+            if params:
+                req["params"] = params
+            deadline = time.monotonic() + float(timeout_sec)
+            send_timeout = max(0.1, deadline - time.monotonic())
+            await asyncio.wait_for(self.ws.send(json.dumps(req)), timeout=send_timeout)
+            while True:
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    raise TimeoutError(f"CDP response timed out after {timeout_sec:.1f}s for method {method}")
+                raw = await asyncio.wait_for(self.ws.recv(), timeout=remaining)
+                resp = json.loads(raw)
+                if resp.get("method") == "Page.javascriptDialogOpening":
+                    try:
+                        self.msg_id += 1
+                        await self.ws.send(json.dumps({
+                            "id": self.msg_id,
+                            "method": "Page.handleJavaScriptDialog",
+                            "params": {"accept": True},
+                        }))
+                    except Exception:
+                        pass
+                    continue
+                if resp.get("id") == cur_id:
+                    if "error" in resp:
+                        raise RuntimeError(f"CDP Error ({method}): {resp['error']}")
+                    return resp.get("result", {})
 
-    async def eval(self, expression: str, include_command_line_api: bool = True) -> Any:
+    async def eval(
+        self,
+        expression: str,
+        include_command_line_api: bool = True,
+        await_promise: bool = False,
+    ) -> Any:
         res = await self.send("Runtime.evaluate", {
             "expression": expression,
             "returnByValue": True,
             "includeCommandLineAPI": include_command_line_api,
+            "awaitPromise": bool(await_promise),
         })
         return res.get("result", {}).get("value")
 
@@ -463,11 +538,14 @@ class DirectCDPClient:
                             if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {{
                                 el.select();
                             }} else {{
+                                try {{ document.execCommand('selectAll', false, null); }} catch (e) {{}}
                                 const range = document.createRange();
                                 range.selectNodeContents(el);
                                 const s = window.getSelection();
-                                s.removeAllRanges();
-                                s.addRange(range);
+                                if (s) {{
+                                    s.removeAllRanges();
+                                    s.addRange(range);
+                                }}
                             }}
                             return true;
                         }}
@@ -478,96 +556,263 @@ class DirectCDPClient:
         )
         if not focused:
             return False
+        await self.send(
+            "Input.dispatchKeyEvent",
+            {"type": "keyDown", "modifiers": 2, "key": "a", "code": "KeyA", "windowsVirtualKeyCode": 65},
+        )
+        await self.send(
+            "Input.dispatchKeyEvent",
+            {"type": "keyUp", "modifiers": 2, "key": "a", "code": "KeyA", "windowsVirtualKeyCode": 65},
+        )
+        await asyncio.sleep(0.05)
         await self.send("Input.dispatchKeyEvent", {"type": "keyDown", "key": "Backspace", "code": "Backspace", "windowsVirtualKeyCode": 8})
         await self.send("Input.dispatchKeyEvent", {"type": "keyUp", "key": "Backspace", "code": "Backspace", "windowsVirtualKeyCode": 8})
-        await asyncio.sleep(0.15)
-        await self.send("Input.insertText", {"text": text})
-        await asyncio.sleep(0.25)
-        await self.eval(
+        await asyncio.sleep(0.1)
+        inserted_via_dom = await self.eval(
             f"""(() => {{
                 {_DEEP_QUERY_HELPER_JS}
                 const selList = {json.dumps(selectors)};
+                const targetText = {json.dumps(text)};
                 for (const sel of selList) {{
-                    const candidates = __queryAllDeep(sel);
-                    const el = candidates.find(e => e.getBoundingClientRect().width > 0) || candidates[0];
-                    if (el) {{
-                        el.dispatchEvent(new Event('input', {{ bubbles: true, composed: true }}));
-                        el.dispatchEvent(new Event('change', {{ bubbles: true, composed: true }}));
+                    try {{
+                        const candidates = __queryAllDeep(sel);
+                        const el = candidates.find(e => e.getBoundingClientRect().width > 0) || candidates[0];
+                        if (el) {{
+                            el.focus();
+                            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {{
+                                const nativeSetter = Object.getOwnPropertyDescriptor(
+                                    el.tagName === 'TEXTAREA' ? window.HTMLTextAreaElement.prototype : window.HTMLInputElement.prototype,
+                                    'value'
+                                )?.set;
+                                if (nativeSetter) nativeSetter.call(el, targetText);
+                                else el.value = targetText;
+                                el.dispatchEvent(new Event('input', {{ bubbles: true, composed: true }}));
+                                el.dispatchEvent(new Event('change', {{ bubbles: true, composed: true }}));
+                                return true;
+                            }} else {{
+                                try {{
+                                    document.execCommand('selectAll', false, null);
+                                    document.execCommand('delete', false, null);
+                                }} catch (e) {{}}
+                                if ((el.innerText || el.textContent || '').length > 0) {{
+                                    el.textContent = '';
+                                }}
+                                el.focus();
+                                let ok = false;
+                                try {{
+                                    ok = document.execCommand('insertText', false, targetText);
+                                }} catch (e) {{ ok = false; }}
+                                if (!ok || !(el.innerText || el.textContent || '').trim()) {{
+                                    el.textContent = targetText;
+                                }}
+                                el.dispatchEvent(new InputEvent('input', {{ bubbles: true, composed: true, data: targetText, inputType: 'insertText' }}));
+                                el.dispatchEvent(new Event('change', {{ bubbles: true, composed: true }}));
+                                el.dispatchEvent(new Event('blur', {{ bubbles: true, composed: true }}));
+                                return Boolean((el.innerText || el.textContent || '').trim());
+                            }}
+                        }}
+                    }} catch (e) {{}}
+                }}
+                return false;
+            }})()"""
+        )
+        await asyncio.sleep(0.15)
+        if not inserted_via_dom:
+            await self.send("Input.insertText", {"text": text})
+            await asyncio.sleep(0.25)
+        return True
+
+    async def set_schedule_datetime_utc(
+        self,
+        date_str_dd_mmm_yyyy: str = "",
+        time_24h_utc: str = "",
+        *,
+        dt_et: datetime | None = None,
+    ) -> bool:
+        """
+        Sets YouTube Studio schedule date & time on `ytcp-visibility-scheduler` in the browser's
+        exact resolved timezone (`Intl.DateTimeFormat().resolvedOptions().timeZone`), supporting
+        multiple Studio locale date formats (`Oct 30, 2026`, `30 Oct 2026`, `2026. 10. 30.`, `2026-10-30`)
+        and both 24-hour (`09:00`) and 12-hour (`9:00 AM`, `오전 9:00`, `오후 12:00`) time pickers.
+        """
+        import json
+
+        raw_tz = await self.eval("Intl.DateTimeFormat().resolvedOptions().timeZone")
+        browser_tz_name = str(raw_tz or "").strip() or "Asia/Seoul"
+        try:
+            browser_tz = ZoneInfo(browser_tz_name)
+        except Exception:
+            browser_tz_name = "Asia/Seoul"
+            browser_tz = ZoneInfo("Asia/Seoul")
+
+        target_local_dt: datetime | None = None
+        if dt_et is not None:
+            aware_et = dt_et if dt_et.tzinfo is not None else dt_et.replace(tzinfo=ZoneInfo("America/New_York"))
+            target_local_dt = aware_et.astimezone(browser_tz)
+        elif date_str_dd_mmm_yyyy and time_24h_utc:
+            hm_parts = str(time_24h_utc).strip().split(":")
+            hh_u = int(hm_parts[0]) if hm_parts and hm_parts[0].isdigit() else 0
+            mm_u = int(hm_parts[1]) if len(hm_parts) > 1 and hm_parts[1].isdigit() else 0
+            for fmt in ("%d %b %Y", "%b %d, %Y", "%Y-%m-%d", "%Y. %m. %d."):
+                try:
+                    d_parsed = datetime.strptime(date_str_dd_mmm_yyyy.strip(), fmt)
+                    dt_utc = datetime(d_parsed.year, d_parsed.month, d_parsed.day, hh_u, mm_u, tzinfo=timezone.utc)
+                    target_local_dt = dt_utc.astimezone(browser_tz)
+                    break
+                except ValueError:
+                    continue
+
+        if target_local_dt is not None:
+            d_loc = target_local_dt.date()
+            mon = _EN_MONTH_ABBR[d_loc.month - 1]
+            date_candidates = [
+                f"{mon} {d_loc.day}, {d_loc.year}",
+                f"{d_loc.day} {mon} {d_loc.year}",
+                f"{d_loc.year}. {d_loc.month}. {d_loc.day}.",
+                f"{d_loc.year:04d}-{d_loc.month:02d}-{d_loc.day:02d}",
+                f"{mon} {d_loc.day:02d}, {d_loc.year}",
+                f"{d_loc.day:02d} {mon} {d_loc.year}",
+                f"{d_loc.year}. {d_loc.month:02d}. {d_loc.day:02d}.",
+            ]
+            h24 = target_local_dt.hour
+            m24 = target_local_dt.minute
+            h12 = 12 if (h24 % 12 == 0) else (h24 % 12)
+            ampm_en = "AM" if h24 < 12 else "PM"
+            ampm_ko = "오전" if h24 < 12 else "오후"
+            time_candidates = [
+                f"{h24:02d}:{m24:02d}",
+                f"{h24}:{m24:02d}",
+                f"{h12}:{m24:02d} {ampm_en}",
+                f"{h12:02d}:{m24:02d} {ampm_en}",
+                f"{ampm_ko} {h12}:{m24:02d}",
+                f"{ampm_ko} {h12:02d}:{m24:02d}",
+            ]
+        else:
+            date_candidates = [date_str_dd_mmm_yyyy] if date_str_dd_mmm_yyyy else []
+            time_candidates = [time_24h_utc] if time_24h_utc else []
+
+        if not date_candidates or not time_candidates:
+            return False
+
+        # 1. Expand Schedule container if collapsed
+        await self.eval(
+            f"""(() => {{
+                {_DEEP_QUERY_HELPER_JS}
+                const sched = __queryAllDeep('ytcp-visibility-scheduler')[0];
+                if (!sched || sched.getBoundingClientRect().height === 0) {{
+                    const btn = __queryAllDeep('#second-container-expand-button, #second-container, tp-yt-paper-radio-button[name="SCHEDULE"]')[0];
+                    if (btn) btn.click();
+                }}
+            }})()"""
+        )
+        await asyncio.sleep(1.0)
+
+        # 2. Click datepicker-trigger and set date matching Studio's active locale format
+        await self.eval(
+            f"""(() => {{
+                {_DEEP_QUERY_HELPER_JS}
+                const dp = __queryAllDeep('ytcp-visibility-scheduler #datepicker-trigger, #datepicker-trigger')[0];
+                if (dp) dp.click();
+            }})()"""
+        )
+        await asyncio.sleep(0.8)
+
+        date_ok = bool(await self.eval(
+            f"""(() => {{
+                {_DEEP_QUERY_HELPER_JS}
+                const cands = {json.dumps(date_candidates)};
+                const dp = __queryAllDeep('ytcp-date-picker')[0];
+                if (!dp) return false;
+                const inp = dp.querySelector('input') || __queryAllDeep('ytcp-date-picker input')[0];
+                const form = dp.querySelector('form') || __queryAllDeep('ytcp-date-picker form')[0];
+                if (!inp) return false;
+
+                const curVal = (inp.value || '').trim();
+                let ordered = cands.slice();
+                if (/^\\d{{4}}\\.\\s*\\d{{1,2}}\\.\\s*\\d{{1,2}}/.test(curVal)) {{
+                    ordered.sort((a, b) => (/^\\d{{4}}\\./.test(b) ? 1 : 0) - (/^\\d{{4}}\\./.test(a) ? 1 : 0));
+                }} else if (/^[A-Za-z]{{3}}\\s+\\d{{1,2}},\\s*\\d{{4}}/.test(curVal)) {{
+                    ordered.sort((a, b) => (/^[A-Za-z]{{3}}\\s+/.test(b) ? 1 : 0) - (/^[A-Za-z]{{3}}\\s+/.test(a) ? 1 : 0));
+                }} else if (/^\\d{{1,2}}\\s+[A-Za-z]{{3}}\\s+\\d{{4}}/.test(curVal)) {{
+                    ordered.sort((a, b) => (/^\\d{{1,2}}\\s+[A-Za-z]{{3}}/.test(b) ? 1 : 0) - (/^\\d{{1,2}}\\s+[A-Za-z]{{3}}/.test(a) ? 1 : 0));
+                }} else if (/^\\d{{4}}-\\d{{2}}-\\d{{2}}/.test(curVal)) {{
+                    ordered.sort((a, b) => (/^\\d{{4}}-\\d{{2}}-\\d{{2}}/.test(b) ? 1 : 0) - (/^\\d{{4}}-\\d{{2}}-\\d{{2}}/.test(a) ? 1 : 0));
+                }}
+
+                const nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set;
+                const isInvalid = () => (
+                    dp.hasAttribute('invalid')
+                    || inp.hasAttribute('invalid')
+                    || inp.getAttribute('aria-invalid') === 'true'
+                );
+
+                for (const candidate of ordered) {{
+                    inp.focus();
+                    if (nativeSetter) nativeSetter.call(inp, candidate);
+                    else inp.value = candidate;
+                    inp.dispatchEvent(new Event('input', {{ bubbles: true, composed: true }}));
+                    inp.dispatchEvent(new Event('change', {{ bubbles: true, composed: true }}));
+                    inp.dispatchEvent(new KeyboardEvent('keydown', {{ key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true, composed: true }}));
+                    if (form) {{
+                        form.dispatchEvent(new Event('submit', {{ bubbles: true, cancelable: true }}));
+                    }}
+                    if (!isInvalid() && (inp.value || '').trim().length > 0) {{
                         return true;
                     }}
                 }}
                 return false;
             }})()"""
-        )
-        return True
-
-    async def set_schedule_datetime_utc(self, date_str_dd_mmm_yyyy: str, time_24h_utc: str) -> bool:
-        """
-        Sets YouTube Studio schedule date (e.g. '19 Oct 2026') and 24h UTC time (e.g. '16:00' or '00:00')
-        on the active ytcp-visibility-scheduler widget.
-        """
-        import json
-        # 1. Expand Schedule container if collapsed
-        await self.eval(
-            """(() => {
-                const sched = document.querySelector('ytcp-visibility-scheduler');
-                if (!sched || sched.getBoundingClientRect().height === 0) {
-                    const btn = document.querySelector('#second-container-expand-button, #second-container, tp-yt-paper-radio-button[name="SCHEDULE"]');
-                    if (btn) btn.click();
-                }
-            })()"""
-        )
-        await asyncio.sleep(1.0)
-        # 2. Click datepicker-trigger and submit date_str_dd_mmm_yyyy via form submit
-        await self.eval(
-            """(() => {
-                const dp = document.querySelector('ytcp-visibility-scheduler #datepicker-trigger, #datepicker-trigger');
-                if (dp) dp.click();
-            })()"""
-        )
+        ))
         await asyncio.sleep(0.8)
+
+        # 3. Click time-of-day input and select matching 24h or 12h (EN/KO) tp-yt-paper-item
         await self.eval(
             f"""(() => {{
-                const dp = document.querySelector('ytcp-date-picker');
-                if (!dp) return false;
-                const inp = dp.querySelector('input');
-                const form = dp.querySelector('form');
-                if (inp) {{
-                    inp.focus();
-                    const nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
-                    nativeSetter.call(inp, {json.dumps(date_str_dd_mmm_yyyy)});
-                    inp.dispatchEvent(new Event('input', {{ bubbles: true, composed: true }}));
-                    inp.dispatchEvent(new Event('change', {{ bubbles: true, composed: true }}));
-                }}
-                if (form) {{
-                    form.dispatchEvent(new Event('submit', {{ bubbles: true, cancelable: true }}));
-                }}
-                return true;
+                {_DEEP_QUERY_HELPER_JS}
+                const inp = __queryAllDeep('ytcp-visibility-scheduler #time-of-day-container input, #time-of-day-container input')[0];
+                if (inp) {{ inp.click(); inp.focus(); }}
             }})()"""
         )
         await asyncio.sleep(0.8)
-        # 3. Click time-of-day input and select matching tp-yt-paper-item (e.g. '16:00' or '00:00')
-        await self.eval(
-            """(() => {
-                const inp = document.querySelector('ytcp-visibility-scheduler #time-of-day-container input, #time-of-day-container input');
-                if (inp) { inp.click(); inp.focus(); }
-            })()"""
-        )
-        await asyncio.sleep(0.8)
-        time_clicked = await self.eval(
+        time_clicked = bool(await self.eval(
             f"""(() => {{
-                const items = Array.from(document.querySelectorAll('tp-yt-paper-item'));
-                const target = items.find(e => (e.innerText || '').trim() === {json.dumps(time_24h_utc)});
+                {_DEEP_QUERY_HELPER_JS}
+                const norm = (s) => (s || '').replace(/\\u202f|\\u00a0/g, ' ').replace(/\\s+/g, ' ').trim().toLowerCase();
+                const wanted = new Set({json.dumps([c.lower() for c in time_candidates])}.map(norm));
+                const items = __queryAllDeep('tp-yt-paper-item');
+                const target = items.find(e => wanted.has(norm(e.innerText || e.textContent || '')));
                 if (target) {{
                     target.scrollIntoView({{block: 'center'}});
                     target.click();
                     return true;
                 }}
+                const inp = __queryAllDeep('ytcp-visibility-scheduler #time-of-day-container input, #time-of-day-container input')[0];
+                if (inp) {{
+                    const cur = norm(inp.value || '');
+                    let pick = {json.dumps(time_candidates[0])};
+                    if (/오전|오후/.test(cur)) {{
+                        pick = ({json.dumps(time_candidates)}.find(x => /오전|오후/.test(x))) || pick;
+                    }} else if (/am|pm/i.test(cur)) {{
+                        pick = ({json.dumps(time_candidates)}.find(x => /AM|PM/.test(x))) || pick;
+                    }}
+                    const nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set;
+                    inp.focus();
+                    if (nativeSetter) nativeSetter.call(inp, pick);
+                    else inp.value = pick;
+                    inp.dispatchEvent(new Event('input', {{ bubbles: true, composed: true }}));
+                    inp.dispatchEvent(new Event('change', {{ bubbles: true, composed: true }}));
+                    inp.dispatchEvent(new KeyboardEvent('keydown', {{ key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true, composed: true }}));
+                    const host = inp.closest('ytcp-form-input-container, #time-of-day-container');
+                    const inv = inp.hasAttribute('invalid')
+                        || inp.getAttribute('aria-invalid') === 'true'
+                        || (host ? host.hasAttribute('invalid') : false);
+                    return !inv && norm(inp.value || '').length > 0;
+                }}
                 return false;
             }})()"""
-        )
+        ))
         await asyncio.sleep(0.6)
-        return bool(time_clicked)
+        return bool(date_ok and time_clicked)
 
     async def set_file_input(
         self,
@@ -580,12 +825,14 @@ class DirectCDPClient:
         resolved_path = file_path.resolve()
         cdp_file_str = str(resolved_path)
         if os.name != "nt" and Path("/home/canadaofbin/chrome-profile").exists():
-            host_dl_dir = Path("/home/canadaofbin/chrome-profile/flow_bridge")
+            host_dl_dir = _FLOW_BRIDGE_DIR
             host_dl_dir.mkdir(parents=True, exist_ok=True)
             staged_name = f"studio_upload_{resolved_path.parent.parent.name}_{resolved_path.name}"
             host_staged = host_dl_dir / staged_name
             if resolved_path != host_staged:
                 shutil.copy2(resolved_path, host_staged)
+                _STAGED_BRIDGE_FILES.add(host_staged)
+                self._staged_bridge_files.add(host_staged)
             cdp_file_str = f"/home/seluser/chrome-profile/flow_bridge/{staged_name}"
 
         if isinstance(selector, list):
@@ -641,6 +888,11 @@ class DirectCDPClient:
             pass
 
         return False
+
+    @staticmethod
+    def cleanup_staged_bridge_files(max_age_hours: float = 6.0) -> int:
+        """Delegates to module-level `cleanup_staged_bridge_files`."""
+        return cleanup_staged_bridge_files(max_age_hours=max_age_hours)
 
 
     async def get_or_open_tab(

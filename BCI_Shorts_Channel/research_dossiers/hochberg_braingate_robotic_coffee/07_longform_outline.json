@@ -1,0 +1,51 @@
+{
+  "published_longform_video_id": "",
+  "shorts_extract": {
+    "hook": "Paralyzed for nearly 15 years after a brainstem stroke, Cathy Hutchinson lifted and sipped coffee on her own using a 4-millimeter chip inside her movement strip and a silver robotic arm.",
+    "core_experiment": "Leigh Hochberg and the BrainGate2 team decoded 96 motor-cortex channels 5 years (1,975 days) post-implant into 3D robotic velocity plus hand grasp across foam targets and a real coffee bottle (4 of 6 successes).",
+    "twist": "Not only did motor cortex keep its reach map alive after 15 years of paralysis, five years later the same team routed those brain signals into arm muscle cuffs so another paralyzed patient drank coffee using his own biological hand."
+  },
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "1996: Awake Inside a Locked Body",
+      "scene_ids": [
+        "S1"
+      ],
+      "summary": "How a brainstem stroke cut Cathy Hutchinson's descending motor highway for nearly 15 years while leaving her cortex completely intact."
+    },
+    {
+      "chapter": 2,
+      "title": "A Baby-Aspirin Sensor That Refused to Die",
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "summary": "Implanting the 4x4 mm 96-channel array in 2005 and proving usable cortical spikes survived 1,000 to 1,975 days."
+    },
+    {
+      "chapter": 3,
+      "title": "From 2D Cursors to 3D Reach and Grasp",
+      "scene_ids": [
+        "S2"
+      ],
+      "summary": "Population-vector math (Georgopoulos 1986) and Kalman filtering across X, Y, Z, and grip aperture on DLR and DEKA arms (49%–96% target success)."
+    },
+    {
+      "chapter": 4,
+      "title": "April 11, 2011: Four Sips That Made History",
+      "scene_ids": [
+        "S1"
+      ],
+      "summary": "Step-by-step physics of grasping, lifting, tilting, sipping cinnamon latte coffee, and setting the thermos down in 4 of 6 trials."
+    },
+    {
+      "chapter": 5,
+      "title": "Own-Arm Reanimation, 90-CPM Handwriting & Remaining Hurdles",
+      "scene_ids": [
+        "S3"
+      ],
+      "summary": "Collinger 7-DOF replication (2013), Ajiboye own-arm FES coffee (2017), Willett handwriting (2021), and wireless / touch-feedback frontiers."
+    }
+  ]
+}

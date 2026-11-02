@@ -1,0 +1,715 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "greene_trolley_dilemma_dual_process",
+  "topic": "Joshua Greene (2001, 2008) fMRI Trolley vs Footbridge Dilemma Dual-Process Moral Psychology (dLPFC Utilitarian Control vs vmPFC/Amygdala Emotional Alarm) & Koenigs (2007) Lesion Proof (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Greene's 2008 cognitive-load experiment and Koenigs's 2007 vmPFC lesion study proving that utilitarian moral judgment requires effortful dLPFC control to override automatic vmPFC/amygdala emotional taboos.",
+  "outro_title_lines": [
+    "GREENE ET AL. (2001) & KOENIGS (2007)",
+    "PRINCETON UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "5 FOR 1?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "SWITCH VS PUSH?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "THE BRIDGE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "RIVAL BRAINS"
+    },
+    {
+      "sentence_index": 28,
+      "text": "BROKEN ALARM"
+    },
+    {
+      "sentence_index": 36,
+      "text": "MODERN ETHICS"
+    },
+    {
+      "sentence_index": 44,
+      "text": "YOUR BALANCE"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "5 FOR 1?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "SWITCH VS PUSH?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "THE BRIDGE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "RIVAL BRAINS"
+    },
+    {
+      "sentence_index": 28,
+      "text": "BROKEN ALARM"
+    },
+    {
+      "sentence_index": 36,
+      "text": "MODERN ETHICS"
+    },
+    {
+      "sentence_index": 44,
+      "text": "YOUR BALANCE"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 17,
+      "mode": "split_hstack",
+      "left_clip_index": 19,
+      "right_clip_index": 20,
+      "left_label": "SWITCH: COOL MATH",
+      "right_label": "BRIDGE: GUT ALARM"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-slate blazer sleeves and matte-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "the matte-white gloved low-poly right hand grips a brushed-silver track-switch lever and pulls it briskly to divert a miniature soft-lavender trolley car away from five pale-gray figures",
+      "consequence": "the brushed-silver track points snap cleanly onto the side spur"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-slate blazer cuffs and matte-white gloved low-poly hands hovering near a pale-gray footbridge model",
+      "prop_action": "both matte-white gloved low-poly hands reach toward a lone clothed miniature figure on the pale-gray bridge then recoil and pull back",
+      "consequence": "the miniature figure stands untouched on the bridge rail"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands over a brushed-silver balance scale",
+      "prop_action": "both matte-white gloved low-poly hands place five soft-sage pale-gray figures on the left tray and one soft-lavender figure on the right tray",
+      "consequence": "the five-figure tray tips down with identical weight"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands setting up a Y-shaped pale-gray railway model",
+      "prop_action": "both matte-white gloved low-poly hands align the brushed-silver rail tracks and place a cyan trolley car at the top of the slope",
+      "consequence": "the architectural track model gleams on the slate-stone table"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "princeton_fmri_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a sunlit 2001 Princeton neuroimaging laboratory with an fMRI viewing console and the light-gray trolley track model on an pale-stone table",
+      "action": "viewed strictly from behind, a clothed low-poly neuroscientist in a white coat stands beside the console and compares two glowing brain scans"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-gray blazer sleeves and matte-white gloved low-poly hands stacking antique ethics volumes",
+      "prop_action": "both matte-white gloved low-poly hands close two thick leather ethics books and set the brushed-silver track switch on top",
+      "consequence": "the brushed-silver switch rests squarely on the stacked volumes",
+      "end_sentence_index": 5
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit university seminar room with two light-gray track models side by side on a long pale-stone table",
+      "action": "viewed strictly from behind, clothed low-poly scholars in soft-gray blazers lean over the two models and point at the switch and the bridge",
+      "end_sentence_index": 6,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a sunlit architectural railway track model where a coral trolley car rolls down the main line toward five light-gray marker blocks",
+      "internal_mechanism": "the brushed-silver wheels of the trolley car roll briskly toward the Y-junction switch",
+      "end_sentence_index": 6,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater sleeves and matte-white gloved low-poly hands pulling the brushed-silver switch lever",
+      "prop_action": "one matte-white gloved low-poly hand pulls the brushed-silver switch lever while the other hand guides the trolley car onto the side track with one figure",
+      "consequence": "the five figures on the main line remain safe",
+      "end_sentence_index": 8
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands placing nine soft-sage cylinders beside one soft-lavender cylinder",
+      "prop_action": "both matte-white gloved low-poly hands arrange nine smooth soft-sage cylinders and one smooth soft-lavender cylinder along a pale-stone groove",
+      "consequence": "the nine soft-sage cylinders fill the pale-stone tray",
+      "end_sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands placing a pale-gray arch footbridge over the straight track",
+      "prop_action": "both matte-white gloved low-poly hands lift the switch lever away and set an arched pale-gray footbridge directly across the main track",
+      "consequence": "the pale-gray footbridge spans high above the steel rails",
+      "end_sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the sunlit architectural footbridge model spanning the railway track ahead of five workers",
+      "action": "viewed strictly from behind, two clothed low-poly figures in coats and backpacks step onto the top of the light-gray footbridge and lean over the rail",
+      "end_sentence_index": 11
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean architectural diagram of the footbridge above the track with a heavy light-gray barrier block",
+      "internal_mechanism": "the heavy block drops onto the track in front of the rolling trolley car and halts it before the five figures",
+      "end_sentence_index": 12,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands comparing two pale-gray ratio tiles",
+      "prop_action": "both matte-white gloved low-poly hands align two identical five-to-one pale-gray ratio blocks side by side on the slate-stone desk",
+      "consequence": "both pale-gray blocks display the exact same balance of figures",
+      "end_sentence_index": 12,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands arranging ten smooth pastel cylinders",
+      "prop_action": "both matte-white gloved low-poly hands slide nine smooth soft-lavender cylinders forward along a pale-stone tray beside one soft-sage cylinder",
+      "consequence": "nine smooth soft-lavender cylinders rest along the pale-stone tray",
+      "end_sentence_index": 14
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "princeton_fmri_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit Princeton fMRI scanner bay with a volunteer holding a two-button response box on the padded bed",
+      "action": "viewed strictly from behind, the clothed low-poly scientist in a white coat presses the scanner control switch and slides the volunteer into the bore",
+      "end_sentence_index": 15,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL PREFRONTAL\nWORKING-MEMORY DESK",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper-side dorsolateral prefrontal ridge of the matte warm-ivory 3D brain model, soft pastel sky-blue facets light up cleanly",
+      "end_sentence_index": 15,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster accounting desk with a brushed-silver abacus and two stacks of pale-gray blocks",
+      "comparison_action": "two matte-white gloved low-poly hands in shirt sleeves lift and slide five blue beads on the brushed-silver abacus against one soft-lavender bead"
+    },
+    {
+      "sentence_index": 17,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "VM-PREFRONTAL & AMYGDALA\nEMOTIONAL ALARM",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the deep amygdala and lower-front ventromedial prefrontal cortex behind the eyes blaze in warm coral-gold"
+    },
+    {
+      "sentence_index": 17,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "princeton_fmri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands comparing two smooth pastel geometric prisms",
+      "prop_action": "both matte-white gloved low-poly hands place a smooth sky-blue prism beside a smooth soft-lavender prism on a sunlit pale-alabaster stand",
+      "consequence": "the two contrasting pastel prisms rest side by side on the stand"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "princeton_fmri_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Princeton control room with both glowing brain maps displayed on the wide monitor",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in white coats lean toward the screen and point at the competing regions"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "princeton_fmri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands wiring a digital millisecond timer to the two-button response box",
+      "prop_action": "both matte-white gloved low-poly hands lift the brushed-silver response cable and press it into the precision timer console while turning the dial",
+      "consequence": "the timer needles sit poised at zero",
+      "end_sentence_index": 20
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "princeton_fmri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands holding a brushed-silver stopwatch beside the button box",
+      "prop_action": "one matte-white gloved low-poly hand presses the stopwatch crown as the other hand taps the response button",
+      "consequence": "the brushed-silver sweep hand marks the exact decision interval",
+      "end_sentence_index": 21,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "princeton_fmri_suite",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater sleeves and matte-white gloved low-poly hands extending over the button box",
+      "prop_action": "the volunteer's low-poly left hand immediately presses the soft-lavender No button as the timer stops short at five seconds",
+      "consequence": "the soft-lavender indicator lamp flashes in an instant",
+      "end_sentence_index": 21,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA ALARM\nINSTANT MORAL BRAKE",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the almond-shaped amygdala flashes soft coral-red and sends an instant stop wave forward"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "princeton_fmri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tan cardigan sleeves and matte-white gloved low-poly hands hesitating above the blue Yes button",
+      "prop_action": "the matte-white gloved low-poly right hand hovers tensely above the button box before slowly pressing the soft-sage Yes button down",
+      "consequence": "the brushed-silver timer hand sweeps much farther around the dial"
+    },
+    {
+      "sentence_index": 24,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster table where a thick braided rope stretches between a soft-lavender alarm weight and a blue logic winch",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves turn the blue winch and pull the heavy soft-lavender weight across the center line"
+    },
+    {
+      "sentence_index": 24,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "princeton_fmri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands comparing the short five-second bar and tall seven-second bar",
+      "prop_action": "both matte-white gloved low-poly hands set the tall blue seven-second override bar beside the short soft-lavender five-second bar on the chart",
+      "consequence": "the two-second tug-of-war delay stands out clearly"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL PREFRONTAL\nCOGNITIVE OVERRIDE",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the matte warm-ivory 3D brain model, intense sky-blue light in the upper dorsolateral prefrontal cortex expands and dims the lower coral glow",
+      "end_sentence_index": 26
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean pale-alabaster architectural two-gear mechanism showing a muted-peach bell housing on the left and a pale-slate gear train on the right",
+      "internal_mechanism": "the muted-peach clapper taps once while the pale-slate gears turn steadily to tilt a brushed-silver balance beam",
+      "end_sentence_index": 27,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "iowa_lesion_clinic",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit clinical neuropsychology testing room with a 3D brain model showing a lower-front lesion",
+      "action": "viewed strictly from behind, a clothed low-poly neurologist in a white coat places the footbridge dilemma card on the table before a seated patient",
+      "end_sentence_index": 27,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "iowa_lesion_clinic",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands lining up six patient case folders",
+      "prop_action": "both matte-white gloved low-poly hands open six cool-white clinical folders in a neat row across the sunlit slate-stone desk",
+      "consequence": "each folder displays a matching lower-front brain diagram"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "VM-PREFRONTAL LESION\nSILENCED MORAL ALARM",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the lower-front ventromedial prefrontal zone behind the eyes sits dimmed while the upper math cortex glows sky-blue"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "iowa_lesion_clinic",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "tan blazer sleeves and matte-white gloved low-poly hands pulling the brushed-silver switch lever on the impersonal track",
+      "prop_action": "both matte-white gloved low-poly hands pull the brushed-silver track switch and place a green token matching the healthy control bar",
+      "consequence": "the two switch bars sit at equal height"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "iowa_lesion_clinic",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands extending from the lower frame edge to slide the pale-gray footbridge model into the center",
+      "prop_action": "both matte-white gloved low-poly hands set the arched pale-gray footbridge model onto the center of the sunlit slate-stone desk",
+      "consequence": "the smooth matte-ivory miniature silhouette on the bridge arch stands in sharp focus"
+    },
+    {
+      "sentence_index": 32,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "iowa_lesion_clinic",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan blazer sleeves and matte-white gloved low-poly hands extending over the button box",
+      "prop_action": "without hesitation, the patient's low-poly right hand reaches forward and presses the soft-sage Yes button for the footbridge push",
+      "consequence": "the blue indicator lamp lights up immediately"
+    },
+    {
+      "sentence_index": 32,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "iowa_lesion_clinic",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands placing a tall blue bar on the lesion chart",
+      "prop_action": "both matte-white gloved low-poly hands lock a blue utilitarian bar more than twice as tall as the healthy control bar onto the board",
+      "consequence": "the doubled blue bar towers over the baseline column"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster bench with a mechanical brushed-silver calculator beside an unhooked alarm bell",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves lift and set aside the unhooked alarm clapper while turning the brushed-silver calculator gears"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "princeton_fmri_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit 2008 Harvard-Princeton cognitive testing room with dual task screens",
+      "action": "viewed strictly from behind, a clothed low-poly researcher in a muted-slate blazer steps to the console and sets a streaming number-search task beside the trolley screen"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "princeton_fmri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater sleeves and matte-white gloved low-poly hands working two smooth pastel button blocks",
+      "prop_action": "the left matte-white gloved low-poly hand presses a smooth sky-blue button block while the right matte-white gloved low-poly hand presses a smooth soft-lavender button block",
+      "consequence": "both matte-white gloved low-poly hands alternate rapidly across the two unlabelled blocks"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "princeton_fmri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "muted-slate blazer sleeves and matte-white gloved low-poly hands comparing the slowed blue bar and unchanged soft-lavender bar",
+      "prop_action": "both matte-white gloved low-poly hands slide a pale-gray load weight onto the blue utilitarian bar slowing its clock while the soft-lavender bar stays fast",
+      "consequence": "the soft-lavender alarm bar remains rapid and unaffected"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "EFFORTFUL MATH VS AUTOMATIC TABOO\nDUAL-PROCESS PROOF",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the matte warm-ivory 3D brain model, the upper sky-blue dorsolateral prefrontal zone works slowly against the fast lower coral pulse"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a sunlit pale-alabaster diorama comparing direct hand-to-shoulder contact on the left with a long mechanical lever on the right",
+      "comparison_action": "two matte-white gloved low-poly hands in shirt sleeves place a cyan stop barrier over the direct push side while the distant lever moves freely"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-gray stage showing two clothed low-poly figures in coats standing arm-to-arm in an ancient stone clearing",
+      "comparison_action": "viewed strictly from behind, two clothed low-poly figures in coats step back and set their pale-gray staffs onto the ground"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-slate blazer cuff and matte-white gloved low-poly hand pressing a sleek sky-blue button",
+      "prop_action": "the matte-white gloved low-poly index finger taps a smooth sky-blue button on an unlabelled pale-stone console while a miniature track switch across the table flips cleanly",
+      "consequence": "the distant miniature switch pivots smoothly on the pale-stone table"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "modern_av_ethics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit modern autonomous-vehicle engineering studio with a miniature pastel city street and sensor-equipped model car",
+      "action": "viewed strictly from behind, two clothed low-poly engineers in blazers and sweaters place path markers along a branching street model"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "princeton_fmri_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Princeton lab with the trolley model, timer chart, and 3D brain model on the center pale-stone table",
+      "action": "viewed strictly from behind, three clothed low-poly scientists in coats and blazers step back from the table and raise their hands in awe"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands setting the soft-lavender alarm bell and blue abacus onto a balanced beam",
+      "prop_action": "both matte-white gloved low-poly hands place the soft-lavender bell on the left tray and the blue abacus on the right tray of a pale-gray balance",
+      "consequence": "the two moral engines balance on the sunlit slate-stone desk"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_av_ethics_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan sleeves and matte-white gloved low-poly hands extending over a laptop keyboard and pale-gray desk",
+      "prop_action": "both matte-white gloved low-poly hands rest poised above the laptop trackpad in soft morning sunlight",
+      "consequence": "the screen reflects softly across the pale-gray desk"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "modern_av_ethics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan cuff and matte-white gloved low-poly hand hovering over a smooth pale-gray mouse",
+      "prop_action": "the matte-white gloved low-poly index finger pauses above the smooth pale-gray mouse button and lifts calmly back onto the pale-alabaster wrist cushion",
+      "consequence": "the smooth pale-gray mouse rests untouched on the sunlit desk"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "DISTANT SCREEN EFFECT\nQUIET AMYGDALA",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the almond-shaped amygdala deep in the lower-inner temporal lobe glows faintly in muted coral-red while the surrounding warm-ivory cortex remains completely calm and unlit"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_av_ethics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "sage cardigan sleeves and matte-white gloved low-poly hands moving a spotlight lens across a pale-gray board",
+      "prop_action": "both matte-white gloved low-poly hands turn and slide the brushed-silver lens ring so cool-white light covers both the single figure in front and the five figures behind",
+      "consequence": "all six miniature figures stand illuminated together"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster desk with a brushed-silver seven-second timer beside a calm glass water sphere",
+      "comparison_action": "two matte-white gloved low-poly hands in cardigan sleeves press and turn the brushed-silver timer dial and rest calmly until the seven-second chime rings"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "modern_av_ethics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "sage cardigan sleeves and matte-white gloved low-poly hands aligning a soft-lavender heart token and blue abacus tile",
+      "prop_action": "both matte-white gloved low-poly hands slide the soft-lavender heart token and blue abacus tile together into a central pale-gray frame",
+      "consequence": "the two tiles interlock cleanly at the center of the desk"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "MORAL INTEGRATION\nFEELING & REASON",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, warm coral-gold emotion pathways and soft pastel sky-blue prefrontal reason pathways glow in balanced harmony"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Princeton seminar room with the light-gray railway model and balanced scale on the center pale-stone table",
+      "action": "viewed strictly from behind, clothed low-poly scientists in coats and students in sweaters step beside the table and turn toward the tall windows"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "princeton_trolley_table",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a soft sunlit Princeton courtyard with gothic stone arches and pastel green lawns",
+      "action": "viewed from behind, clothed low-poly figures in coats and cardigans walk calmly along the sunlit path toward the archway as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "SWITCH VS PUSH?",
+    "cover_sentence_index": 3,
+    "cover_brief": "runaway low-poly rail car approaching a track switch lever centered against clean pastel valley"
+  }
+}

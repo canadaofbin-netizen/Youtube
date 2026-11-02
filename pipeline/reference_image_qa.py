@@ -136,6 +136,24 @@ def _shannon_entropy(gray: np.ndarray) -> float:
     return round(float(-np.sum(p * np.log2(p))), 3)
 
 
+def _extract_script_lines(s_obj: Any) -> list[str]:
+    if not isinstance(s_obj, dict):
+        return []
+    if isinstance(s_obj.get("clip_narrations"), list) and s_obj["clip_narrations"]:
+        return [str(x).strip() for x in s_obj["clip_narrations"] if str(x).strip()]
+    if isinstance(s_obj.get("sentences"), list) and s_obj["sentences"]:
+        return [str(x).strip() for x in s_obj["sentences"] if str(x).strip()]
+    if isinstance(s_obj.get("acts"), list) and s_obj["acts"]:
+        return [
+            str(s).strip()
+            for act in s_obj["acts"]
+            if isinstance(act, dict)
+            for s in (act.get("sentences") or [])
+            if str(s).strip()
+        ]
+    return []
+
+
 def build_reference_image_specs(
     plan: dict[str, Any],
     narrations: list[str] | None = None,
@@ -147,9 +165,16 @@ def build_reference_image_specs(
       - 3 Master Anchors (`ref_cast_subject`, `ref_env_master`, `ref_prop_hero`)
       - N Per-Clip Keyframe Reference Anchors (`ref_clip_01 .. ref_clip_N`)
     """
+    from pipeline.flow_prompt_builder import is_diorama_v6_plan
+
     mode = str(plan.get("visual_mode") or "NEURO_BIOLOGY").upper()
-    n_clips = len(narrations) if narrations else 10
-    roles = clip_roles(n_clips)
+    diorama_mode = is_diorama_v6_plan(plan)
+    if diorama_mode:
+        n_clips = len(plan.get("clips") or []) or (len(narrations) if narrations else 60)
+        roles: tuple[str, ...] = ()
+    else:
+        n_clips = len(narrations) if narrations and 5 <= len(narrations) <= 10 else 10
+        roles = clip_roles(n_clips)
     prefix = flow_prompt_prefix(aspect)
     still_suffix = (
         "Still reference keyframe photograph, razor-sharp macro focus, bright high-key documentary daylight, "
@@ -174,7 +199,11 @@ def build_reference_image_specs(
 
     # If v5 shots exist, extract rich environment/action/prop descriptions
     shots = plan.get("shots") or {}
-    first_shot = shots.get(roles[0]) or next(iter(shots.values()), {}) if isinstance(shots, dict) else {}
+    first_shot = (
+        (shots.get(roles[0]) if roles else None) or next(iter(shots.values()), {})
+        if isinstance(shots, dict)
+        else {}
+    )
     if not plan.get("real_environment") and isinstance(first_shot, dict) and first_shot.get("environment"):
         env_desc = str(first_shot["environment"]).strip()
     if not props_list and isinstance(first_shot, dict) and first_shot.get("prop_change"):
@@ -247,19 +276,39 @@ def build_reference_image_specs(
     cast_ids = [m["ref_id"] for m in master_anchors if m["category"] == "cast_anchor"]
 
     # Per-clip START frames (+ KEY frame for the clip that must show the money shot), aligned with build_flow_prompts
-    dummy_narrs = narrations if narrations and len(narrations) == n_clips else [
-        "In this historical case, a single moment changed neuroscience forever." for _ in range(n_clips)
-    ]
+    if diorama_mode:
+        dummy_narrs = list(narrations) if narrations else [
+            "In this historical case, a single moment changed neuroscience forever."
+        ]
+    else:
+        dummy_narrs = narrations if narrations and len(narrations) == n_clips else [
+            "In this historical case, a single moment changed neuroscience forever." for _ in range(n_clips)
+        ]
     built_clips = build_flow_prompts(plan, dummy_narrs, aspect=aspect)
+
+    def _safe_clip_setting(clip_item: dict[str, Any]) -> str:
+        if clip_item.get("setting"):
+            return str(clip_item["setting"])
+        if diorama_mode:
+            return "brain_studio" if clip_item.get("brain_clip") else "real_env"
+        try:
+            return resolve_clip_setting(plan, str(clip_item["role"]))
+        except KeyError:
+            return "real_env"
+
     has_brain_clips = any(
-        str(c.get("setting") or resolve_clip_setting(plan, str(c["role"]))) in BRAIN_SETTINGS
+        bool(c.get("brain_clip")) or _safe_clip_setting(c) in (*BRAIN_SETTINGS, "brain_studio")
         for c in built_clips
     )
     if has_brain_clips:
         from pipeline.depiction_rules import BrainDepictionRule, PromptComposer
 
         first_brain_scene = next(
-            (str(c.get("scene") or "") for c in built_clips if str(c.get("setting") or "") in BRAIN_SETTINGS),
+            (
+                str(c.get("scene") or "")
+                for c in built_clips
+                if bool(c.get("brain_clip")) or _safe_clip_setting(c) in (*BRAIN_SETTINGS, "brain_studio")
+            ),
             "Matte-white porcelain mannequin bust with clean anatomical brain cross-section exposing internal white-matter tracts.",
         )
         master_anchors.append(
@@ -293,11 +342,15 @@ def build_reference_image_specs(
     for c in built_clips:
         c_num = int(c["clip_number"])
         role = str(c["role"])
-        setting = str(c.get("setting") or resolve_clip_setting(plan, role))
-        scene_id = str(c.get("scene_id") or ("BRAIN" if setting in BRAIN_SETTINGS else "S1"))
+        setting = _safe_clip_setting(c)
+        is_brain = bool(c.get("brain_clip")) or setting in (*BRAIN_SETTINGS, "brain_studio")
+        scene_id = str(c.get("scene_id") or ("BRAIN" if is_brain else "S1"))
         scene_txt = str(c.get("scene") or "").strip()
-        is_brain = setting in BRAIN_SETTINGS
-        narr_txt = dummy_narrs[c_num - 1] if 1 <= c_num <= len(dummy_narrs) else ""
+        if diorama_mode:
+            s_idx = int(c.get("sentence_index") or 0)
+            narr_txt = dummy_narrs[s_idx - 1] if 1 <= s_idx <= len(dummy_narrs) else ""
+        else:
+            narr_txt = dummy_narrs[c_num - 1] if 1 <= c_num <= len(dummy_narrs) else ""
         # only the cast sheets of people who are actually in this shot (era variants filtered by year)
         shot_cast_ids = [f"ref_cast_{e['id']}" for e in cast_for_shot(plan, role)] if not is_brain else []
         shot_cast_ids = [x for x in shot_cast_ids if x in cast_ids] or cast_ids[:1]
@@ -366,6 +419,7 @@ def inspect_single_reference_image(
     """
     path = Path(image_path)
     ref_id = str(spec.get("ref_id") or path.stem)
+    category = str(spec.get("category") or "clip_keyframe_anchor")
     setting = str(spec.get("setting") or "real_env")
     role = str(spec.get("role") or "setup")
     scene_id = str(spec.get("scene_id") or "S1")
@@ -373,6 +427,7 @@ def inspect_single_reference_image(
     if not path.exists() or not path.is_file():
         return {
             "ref_id": ref_id,
+            "category": category,
             "filename": path.name,
             "exists": False,
             "passed": False,
@@ -385,6 +440,7 @@ def inspect_single_reference_image(
     if bgr is None or bgr.size == 0:
         return {
             "ref_id": ref_id,
+            "category": category,
             "filename": path.name,
             "exists": True,
             "file_size_bytes": file_size,
@@ -479,13 +535,21 @@ def inspect_single_reference_image(
     hue = hsv[:, :, 0]
     crimson_ratio = float(np.mean(active_c & ((hue <= 12) | (hue >= 166))))
     amber_ivory_ratio = float(np.mean(active_c & (hue >= 13) & (hue <= 34)))
+    c_active = (center_hsv[:, :, 1] >= 18) & (center_hsv[:, :, 2] >= 70)
+    c_hue = center_hsv[:, :, 0]
+    center_biolum = float(np.mean(c_active & (((c_hue <= 12) | (c_hue >= 166)) | ((c_hue >= 13) & (c_hue <= 34)))))
     neon_sat = (hsv[:, :, 1] >= 75) & val_mask
     green_ratio = float(np.mean(neon_sat & (hue >= 36) & (hue <= 82)))
     cyan_ratio = float(np.mean(neon_sat & (hue >= 85) & (hue <= 118)))
     biolum_total = round(crimson_ratio + amber_ivory_ratio, 4)
+    effective_biolum = max(biolum_total, round(center_biolum, 4))
     neon_green_blue = round(green_ratio + cyan_ratio, 4)
     if setting in BRAIN_SETTINGS:
-        q6_ok = bool(porcelain_ratio >= REF_IMAGE_PORCELAIN_RATIO_MIN and neon_green_blue <= 0.015)
+        q6_ok = bool(
+            porcelain_ratio >= REF_IMAGE_PORCELAIN_RATIO_MIN
+            and effective_biolum >= REF_IMAGE_BIOLUM_MIN
+            and neon_green_blue <= 0.015
+        )
     else:
         q6_ok = True
 
@@ -509,6 +573,7 @@ def inspect_single_reference_image(
     center_lab = lab[cy0:cy1, cx0:cx1]
     return {
         "ref_id": ref_id,
+        "category": category,
         "filename": path.name,
         "role": role,
         "scene_id": scene_id,
@@ -568,7 +633,7 @@ def inspect_reference_image_pack(
     if script_path.exists():
         try:
             s_obj = json.loads(script_path.read_text(encoding="utf-8"))
-            narrations = [str(x) for x in (s_obj.get("clip_narrations") or [])]
+            narrations = _extract_script_lines(s_obj)
         except Exception:
             narrations = []
 
@@ -1081,10 +1146,15 @@ def validate_semantic_review(project_dir: Path, specs: list[dict[str, Any]]) -> 
         checks = entry.get("checks") or {}
         expected_keys = list(_expected_semantic_checks(spec).keys())
 
-        # Check SHA-256 freshness if recorded on entry and image exists on disk
-        rec_sha = entry.get("image_sha256")
+        # Require non-empty matching SHA-256 whenever the reference image exists on disk
+        rec_sha = str(entry.get("image_sha256") or "").strip()
         img_p = ref_dir / fname
-        if rec_sha and img_p.exists() and compute_sha256(img_p) != rec_sha:
+        if img_p.exists():
+            if not rec_sha or compute_sha256(img_p) != rec_sha:
+                pending.append(rid)
+                stale_sha_ids.append(rid)
+                continue
+        elif rec_sha:
             pending.append(rid)
             stale_sha_ids.append(rid)
             continue
@@ -1167,7 +1237,7 @@ def build_and_verify_project_reference_pack(
     script_path = p_dir / "02_script" / "script.json"
     if script_path.exists():
         try:
-            narrations = [str(x) for x in (json.loads(script_path.read_text(encoding="utf-8")).get("clip_narrations") or [])]
+            narrations = _extract_script_lines(json.loads(script_path.read_text(encoding="utf-8")))
         except Exception:  # noqa: BLE001
             narrations = []
 

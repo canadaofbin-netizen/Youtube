@@ -1,0 +1,656 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "stroop_color_word_conflict",
+  "topic": "J. Ridley Stroop (1935) Automatic Interference, 8-Day Reverse Practice, and Anterior Cingulate Conflict Monitoring (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Stroop's 1935 stopwatch test replicated over 700 times and guiding modern cockpit human-factors design and ACC brain mapping.",
+  "outro_title_lines": [
+    "J. RIDLEY STROOP (1935)",
+    "PEABODY COLLEGE NASHVILLE"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "IGNORE READING?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BRAIN CLASH TRAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "STOPWATCH JAM"
+    },
+    {
+      "sentence_index": 19,
+      "text": "CONFLICT ALARM"
+    },
+    {
+      "sentence_index": 28,
+      "text": "REVERSE PRACTICE"
+    },
+    {
+      "sentence_index": 36,
+      "text": "FLUENCY TELL"
+    },
+    {
+      "sentence_index": 44,
+      "text": "ALIGN YOUR CUES"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "IGNORE READING?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BRAIN CLASH TRAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "STOPWATCH JAM"
+    },
+    {
+      "sentence_index": 19,
+      "text": "CONFLICT ALARM"
+    },
+    {
+      "sentence_index": 28,
+      "text": "REVERSE PRACTICE"
+    },
+    {
+      "sentence_index": 36,
+      "text": "FLUENCY TELL"
+    },
+    {
+      "sentence_index": 44,
+      "text": "ALIGN YOUR CUES"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 13,
+      "mode": "split_hstack",
+      "left_clip_index": 15,
+      "right_clip_index": 16,
+      "left_label": "SOLID HUES",
+      "right_label": "CLASH TOKENS"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool vest suit sleeves and cool porcelain-white gloved low-poly hands over a cool slate-stone bench",
+      "prop_action": "cool porcelain-white gloved low-poly hands set down a grid tray of nested geometric tokens where muted-coral outer triangle frames hold contrasting powder-blue inner blocks",
+      "consequence": "rows of clashing dual-hue nested tokens sit beside a brushed-silver stopwatch"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit cool mist-white psychology classroom with two upright slate-stone easel grids and brushed-silver stopwatch stands",
+      "action": "viewed strictly from behind, a clothed low-poly student in a sage-green sweater steps before the twin easel grids while a researcher holds a silver stopwatch"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green sweater cuffs and cool porcelain-white gloved low-poly hands hovering over pastel sorting slots",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift a muted-coral outer frame holding a powder-blue inner cube and hesitate midair between two pastel bins",
+      "consequence": "the brushed-silver stopwatch needle sweeps steadily onward during the hesitation"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright Nashville testing hall pairing a matched single-hue square grid stand on the left with a clashing nested-token grid stand on the right",
+      "action": "viewed strictly from behind, a clothed low-poly researcher in a slate-gray three-piece suit steps between the twin easel stands and presses a brushed-silver stopwatch"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "gentle_push_in",
+      "structure": "a clean architectural side cutaway of two converging pastel sorting chutes meeting at a narrow brushed-silver gate",
+      "internal_mechanism": "a wide fast muted-coral outer frame and a smaller powder-blue inner core arrive together and jam briefly at the silver gate"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "pastel_control_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a cool powder-blue cognitive studio with slate-stone tables and parallel brushed-silver track models",
+      "action": "elevated wide view from behind as clothed low-poly scholars in slate blazer coats walk forward and point across two unequal pastel track lanes"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "the sunlit university testing room with neat rows of cool mist-white student desks and slate-stone sorting trays",
+      "action": "viewed strictly from behind, the clothed low-poly researcher in a slate-gray suit walks down the aisle and sets brushed-silver stopwatches beside the sorting trays"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-gray suit cuffs and cool porcelain-white gloved low-poly hands over a ten-by-ten cool mist-white matrix board",
+      "prop_action": "cool porcelain-white gloved low-poly hands snap nested dual-hue geometric tokens into neat ten-by-ten recesses across the matrix board",
+      "consequence": "every slot holds an outer pastel frame contrasting sharply with its inner pastel core"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white shirt cuffs and cool porcelain-white gloved low-poly hands inspecting two nested geometric tokens on cool slate-stone",
+      "prop_action": "cool porcelain-white gloved low-poly hands rotate a powder-blue outer shell holding a muted-coral core beside a sage-green shell holding a lavender core",
+      "consequence": "outer shell geometry and inner core hue pull attention in opposite directions"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a smooth sunlit cool limestone walkway with one tiny powder-blue pebble resting near the center",
+      "comparison_action": "viewed strictly from behind, a clothed low-poly walker in slate trousers steps effortlessly right over the tiny pebble without losing stride"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green cuffs and cool porcelain-white gloved low-poly hands sorting by outer shape along row one",
+      "prop_action": "cool porcelain-white gloved low-poly hands glide briskly down the matrix tapping each outer frame smoothly",
+      "consequence": "two nearly equal short mint-sage timing bars sit side by side on the stand"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "slate-gray suit sleeves and cool porcelain-white gloved low-poly hands at the easel stand",
+      "prop_action": "cool porcelain-white gloved low-poly hands rotate a brushed-silver selector arrow from outer-frame mode to inner-hue mode and reset the silver stopwatch",
+      "consequence": "the silver stopwatch hand snaps cleanly to the top tick mark"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green sweater sleeves and cool porcelain-white gloved low-poly hands above four pastel hue trays",
+      "prop_action": "cool porcelain-white gloved low-poly hands reach and lift nested tokens strictly by their tiny inner core hue while ignoring the wide outer frame",
+      "consequence": "the gloved hand pauses and corrects mid-reach over the trays"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "PRIMARY VISUAL CORTEX\nSIGHT SCREEN",
+      "camera": "gentle_push_in",
+      "brain_scene": "at the rear occipital pole of the matte-pastel 3D cortical brain model, the primary visual cortex launches parallel powder-blue and muted-coral ribbons forward together"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sweater cuffs and cool porcelain-white gloved low-poly hands over solid single-hue pastel squares",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift and place solid powder-blue, sage-green, and lavender cubes smoothly into matching pastel slots",
+      "consequence": "the silver stopwatch stops early beside a moderate mint-sage bar"
+    },
+    {
+      "sentence_index": 13,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sweater cuffs and cool porcelain-white gloved low-poly hands over clashing nested dual-hue tokens",
+      "prop_action": "cool porcelain-white gloved low-poly hands reach and pull back repeatedly while placing clashing nested tokens into inner-hue slots",
+      "consequence": "the silver stopwatch keeps sweeping as a tall muted-coral delay bar towers upward"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool mist-white winter path model where smooth slate flagstones transition into a knee-deep matte-white faceted snow pile",
+      "comparison_action": "viewed strictly from behind, a clothed low-poly figure in a slate-blue coat walks briskly on clear stone then climbs slowly through a deep white snow pile"
+    },
+    {
+      "sentence_index": 15,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "suit cuffs and cool porcelain-white gloved low-poly hands beside a row of brushed-silver bar gauges",
+      "prop_action": "cool porcelain-white gloved low-poly hands slide and align a silver straightedge across dozens of muted-coral delay bars",
+      "consequence": "every single muted-coral bar rises far above the baseline bar"
+    },
+    {
+      "sentence_index": 15,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright Nashville classroom with rows of students seated before nested-token easels",
+      "action": "elevated wide view from behind as every clothed low-poly student in a sweater leans forward and points mid-row while the researcher presses the silver stopwatch"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the cool mist-white testing station showing the tall muted-coral slowdown bar beside the nested-token easel",
+      "action": "viewed strictly from behind, the clothed low-poly student in a sage-green sweater steps back and lifts both gloved hands before the clashing grid"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a miniature cool slate-stone four-lane highway model where streams of smooth powder-blue low-poly cars glide forward",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in white coat sleeves steer and slide one tiny muted-coral coupe upstream against four lanes of powder-blue cars"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit psychology classroom with the towering muted-coral delay bar dwarfing the modest mint-sage baseline bar",
+      "action": "viewed strictly from behind, researcher and student stand side by side examining the huge height gap between the two bars"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "pastel_control_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "blazer cuffs and cool porcelain-white gloved low-poly hands over two equal narrow silver chutes",
+      "prop_action": "cool porcelain-white gloved low-poly hands release two pastel marbles simultaneously down two identical narrow chutes",
+      "consequence": "both marbles reach the bottom gate at nearly the same moment"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "pastel_control_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands at a staggered pastel slot display",
+      "prop_action": "cool porcelain-white gloved low-poly hands place the solid powder-blue inner cube first and snap the muted-coral outer frame around it a beat later",
+      "consequence": "even with a head start, the wide outer frame still crowds the sorting gate"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "pastel_control_studio",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean side cutaway of a wide four-lane mint-sage express ramp merging into a narrow single-lane powder-blue ramp",
+      "internal_mechanism": "heavy flow from the wide automatic ramp still blocks the narrow side lane despite its early entry"
+    },
+    {
+      "sentence_index": 22,
+      "end_sentence_index": 23,
+      "act": 3,
+      "location_id": "pastel_control_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright cool mist-white cognitive studio displaying a wide polished brushed-silver expressway model beside a thin gravel-textured slate path",
+      "action": "viewed strictly from behind, two clothed low-poly neuroscientists in blazers trace the thick polished expressway dwarfing the thin side lane"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "pastel_control_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a modern cool mist-white brain-imaging bay with a pastel ring scanner and slate-stone control desk",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in white coats lean toward a medial brain projection on the mist-white wall"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nCONFLICT ALARM",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the medial sagittal cutaway of the matte-pastel 3D brain model, the curved dorsal anterior cingulate cortex glows brightly in muted coral as two rival ribbons meet"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL PFC\nMENTAL BRAKE",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the outer front surface of the matte-pastel 3D cortical brain model, the powder-blue dorsolateral prefrontal cortex sends a steady calming ribbon downward to quiet the competing stream"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-gray suit cuffs and cool porcelain-white gloved low-poly hands beside eight progressive practice trays",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift and align eight cool mist-white practice trays in a neat row beside the silver stopwatch",
+      "consequence": "the descending row of delay bars hints at a surprising reversal at the end"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Nashville laboratory with students seated at practice benches sorting inner-hue tokens repeatedly",
+      "action": "viewed strictly from behind, clothed low-poly students in pastel coats and trousers lift and place nested tokens rapidly while the researcher logs stopwatch speeds"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit cool mist-white alpine slope model where repeated passes carve a crisp smooth twin groove down faceted powder snow",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in white coat sleeves push and glide a miniature powder-blue ski sled cleanly down the freshly deepened twin track"
+    },
+    {
+      "sentence_index": 30,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sweater cuffs and cool porcelain-white gloved low-poly hands over the nested-token matrix",
+      "prop_action": "cool porcelain-white gloved low-poly hands sort the inner-hue blocks swiftly across the pastel slots without hesitation",
+      "consequence": "the muted-coral delay bar shrinks down step by step across eight slots"
+    },
+    {
+      "sentence_index": 30,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a side cutaway of the once-narrow powder-blue side lane widened into a smooth dual-lane brushed-silver channel",
+      "internal_mechanism": "inner-hue tokens glide briskly down the widened powder-blue channel without jamming"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green cuffs and cool porcelain-white gloved low-poly hands switching back to outer-frame sorting",
+      "prop_action": "cool porcelain-white gloved low-poly hands reach for an outer frame yet pause briefly pulled toward the newly practiced inner-hue bin",
+      "consequence": "a small reverse delay bar rises on the ninth slot of the stand"
+    },
+    {
+      "sentence_index": 32,
+      "end_sentence_index": 33,
+      "act": 4,
+      "location_id": "pastel_control_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright cool mist-white developmental clinic table where a small low-poly child figure in a pastel sweater and a tall professor figure in a tweed coat sit side by side",
+      "action": "viewed strictly from behind, the small low-poly child figure lifts and places nested color tokens effortlessly while the tweed coat professor figure reaches and pauses"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "pastel_control_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "blazer sleeves and cool porcelain-white gloved low-poly hands sliding progressive age bars along a slate-stone track",
+      "prop_action": "cool porcelain-white gloved low-poly hands place a flat bar at early childhood followed by a steep rising mint-sage bar right after school entry",
+      "consequence": "the interference bar jumps sharply once automatic habit strength locks in"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "pastel_control_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands comparing two brushed-silver cable bundles",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift a thick multi-strand silver cable beside a single thin silver wire",
+      "consequence": "the thick practiced bundle clearly outweighs the thin unpracticed wire"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "pastel_control_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a clean cool mist-white acoustic timing booth with a brushed-silver desk microphone and two geometric pattern trays",
+      "action": "viewed strictly from behind, a clothed low-poly subject in a dark coat and trousers walks past unfamiliar geometric shapes then leans over familiar paired tokens"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool slate-stone music stand holding a minimalist octave of matte cool-white and powder-blue piano keys",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in white coat sleeves press and tap crisp keys smoothly until one sticky muted-coral key sinks slowly"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a quiet sunlit lecture room with cool slate-stone desks and neat unlined pastel folders",
+      "action": "viewed strictly from behind, the clothed low-poly professor in a modest wool suit sets the silver stopwatch inside a drawer and walks calmly toward a lectern"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "pastel_control_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored blazer cuffs and cool porcelain-white gloved low-poly hands beside tall archive shelves of unlined pastel binders",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift and slide another sage-green volume neatly into a wide wall of matching research binders",
+      "consequence": "hundreds of uniform pastel spines fill the bright gallery shelves"
+    },
+    {
+      "sentence_index": 40,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "modern_ux_cockpit",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "flight jacket sleeves and cool porcelain-white gloved low-poly hands over a brushed-silver cockpit switch panel",
+      "prop_action": "cool porcelain-white gloved low-poly hands test clean color-matched geometric switches across the cool slate-stone flight deck",
+      "consequence": "every switch shape and pastel hue aligns cleanly without hesitation"
+    },
+    {
+      "sentence_index": 40,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "modern_ux_cockpit",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright modern human-factors design studio pairing a flight simulator console with a cortical scan monitor",
+      "action": "viewed strictly from behind, two clothed low-poly engineers in powder-blue shirts evaluate switch response speeds on a silver bar gauge"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nCLASH DETECTOR",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the sagittal cutaway of the matte-pastel 3D brain model, the anterior cingulate cortex lights sharply whenever a sage-green cue clashes with a stop ribbon"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "pastel_control_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit cognitive neuroscience gallery uniting the vintage silver stopwatch, nested geometric trays, and modern brain model",
+      "action": "viewed strictly from behind, three clothed low-poly scientists in blazers stand together nodding before the aligned display"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands beside the classic brushed-silver stopwatch",
+      "prop_action": "cool porcelain-white gloved low-poly hands set the brushed-silver stopwatch onto a central cool mist-white pedestal beside a nested geometric token",
+      "consequence": "the simple stopwatch and geometric token stand together in clear daylight"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_ux_cockpit",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit cool mist-white interface design desk with a brushed-silver display panel and cool slate-stone surface",
+      "action": "viewed strictly from behind, a clothed low-poly designer in a sage-green overshirt sits before two contrasting control pad layouts"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "modern_ux_cockpit",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green overshirt cuffs and cool porcelain-white gloved low-poly hands over a modular control pad",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift out a clashing sage-green cross-shaped cancel cap and set it aside",
+      "consequence": "the confusing mismatched cap leaves the control board"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "modern_ux_cockpit",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green cuffs and cool porcelain-white gloved low-poly hands snapping aligned geometric caps onto a brushed-silver pad",
+      "prop_action": "cool porcelain-white gloved low-poly hands snap a muted-coral octagon stop cap on the left and a mint-sage circle go cap on the right",
+      "consequence": "shape and hue match cleanly across both controls"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_ux_cockpit",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "powder-blue shirt sleeves and cool porcelain-white gloved low-poly hands tapping the aligned control pad",
+      "prop_action": "cool porcelain-white gloved low-poly hands press the mint-sage circle cap smoothly in one swift motion",
+      "consequence": "the response timing bar drops low and fast on the gauge"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL PFC\nENERGY SAVED",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the matte-pastel 3D cortical brain model, the powder-blue dorsolateral prefrontal cortex rests in calm steady balance without conflict strain"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "modern_ux_cockpit",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "knit cuffs and cool porcelain-white gloved low-poly hands over a minimalist brushed-silver tablet",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift and slide cluttered coral tiles off the home screen leaving one clean powder-blue workspace icon",
+      "consequence": "the screen displays a calm single-focus pastel layout"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "modern_ux_cockpit",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright sunlit cool mist-white workspace with color-coded pastel trays neatly aligned along the slate-stone desk",
+      "action": "viewed strictly from behind, the clothed low-poly designer in a sage-green shirt leans forward and slides pastel trays smoothly across the aligned workspace"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Nashville psychology hall uniting the brushed-silver stopwatch and aligned single-hue pastel geometric grids",
+      "action": "elevated wide view from behind as the clothed low-poly researcher in a slate-gray suit steps forward and points beside the aligned pastel stands"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "nashville_timing_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "wide sunlit architectural vista of the cool mist-white Nashville hall with soft skylight beams across slate-stone floors",
+      "action": "viewed strictly from behind, the clothed low-poly scientist in a white coat steps beside the silver stopwatch stand and lifts a silver pointer as the camera tilts smoothly toward the bright skylight"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "BRAIN CLASH TRAP",
+    "cover_sentence_index": 3,
+    "cover_brief": "nested clashing coral-and-blue low-poly geometric token beside brushed-silver stopwatch"
+  }
+}

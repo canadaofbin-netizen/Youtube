@@ -3,6 +3,7 @@
 Parent Master Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) · Numbers: [production_constants.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/production_constants.md) · Code: [`pipeline/flow_prompt_builder.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/flow_prompt_builder.py), [`pipeline/depiction_rules.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/depiction_rules.py)
 
 Single source of truth for **Schema v4 (`31_O2CmlKOk`)** 10-clip video prompts (`50–80 words`, 3 sentences + `Voice:` + `Spoken narration:`) and modular composition.
+For the default **Schema v7 (`neuro_diorama`, `DEFAULT_PRODUCTION_PROFILE = "neuro_diorama"`, `DEFAULT_DIORAMA_STYLE_PROFILE = "lowpoly_pastel_v7"`)** Full-Bleed Low-Poly Pastel Architecture (`R63`) and Schema v6 Ghost-Lab Kinetic Diorama (`R56`, `R61`), see [neuro_diorama_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/neuro_diorama_rules.md).
 
 > [!IMPORTANT]
 > **Proven Golden Standard (`31_O2CmlKOk` Schema v4 + 2-Beat Character Acting)**:
@@ -37,9 +38,10 @@ Generate a 9:16 vertical video clip (video animation with spoken voiceover only,
 
 ---
 
-## R5 — Engine Lock: Google Flow Omni 1.1
-- Primary engine: **Google Flow Omni 1.1** (`FLOW_ACTIVE_VIDEO_MODEL`, `ALLOWED_FLOW_MODELS`) in the visible Naver Whale browser.
-- Dynamic clip duration routing (`compute_clip_target_duration`): `8s` for concise hooks/transitions, `10s` for mechanism/dense narration clips (`cutoff_risk == False`).
+## R5 — Credit-Aware Dual-Tier Engine Policy: Google Flow (`Omni 1.1 Flash` -> `0-Credit` Auto-Fallback)
+- **Primary Engine (when AI credits > 0)**: **Google Flow `Omni 1.1 Flash`** (`FLOW_PRIMARY_VIDEO_MODEL`, `omni_1_1_flash`) in the visible Naver Whale browser.
+- **Zero-Credit Auto-Fallback (when monthly AI credits are insufficient or exhausted mid-episode)**: Automatically switches across all active shard tabs to **`Veo 3.1 - Lite [Lower Priority]`** (`FLOW_ZERO_CREDIT_MODEL`, `veo_3_1_lite_low_priority`, verified `"Generating will use 0 credits"`). Never clicks `Add AI credits` top-up checkout links.
+- Dynamic clip duration routing (`compute_clip_target_duration`): `8s` for `neuro_diorama` / concise hooks / reference-conditioned clips, `10s` for native-voice Omni mechanism clips (`cutoff_risk == False`).
 - Zero paid external APIs (`ALLOW_EXTERNAL_PAID_APIS = False`) and zero static slideshow fallbacks (`ALLOW_STATIC_IMAGE_VIDEO_FALLBACK = False`).
 
 ## R14-B — Banned Prompt Tokens (`BANNED_PROMPT_TOKENS`)

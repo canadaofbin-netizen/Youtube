@@ -1,0 +1,667 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "mischel_marshmallow_self_control",
+  "topic": "Walter Mischel Stanford Marshmallow Test, Opaque Dome Attention Steering, Cool Cloud Framing & Celeste Kidd / Tyler Watts Trust Replication (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Large-scale replication and sixty-second cool framing lesson showing environment design and reliable promises shape self-control.",
+  "outro_title_lines": [
+    "WALTER MISCHEL (1970)",
+    "STANFORD UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "PURE GRIT MYTH"
+    },
+    {
+      "sentence_index": 3,
+      "text": "HIDE THE TREAT"
+    },
+    {
+      "sentence_index": 10,
+      "text": "ONE MINUTE TRAP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "COOL CLOUD TRICK"
+    },
+    {
+      "sentence_index": 28,
+      "text": "KEPT PROMISES"
+    },
+    {
+      "sentence_index": 37,
+      "text": "STABLE HOMES"
+    },
+    {
+      "sentence_index": 45,
+      "text": "OUT OF SIGHT"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "PURE GRIT MYTH"
+    },
+    {
+      "sentence_index": 3,
+      "text": "HIDE THE TREAT"
+    },
+    {
+      "sentence_index": 10,
+      "text": "ONE MINUTE TRAP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "COOL CLOUD TRICK"
+    },
+    {
+      "sentence_index": 28,
+      "text": "KEPT PROMISES"
+    },
+    {
+      "sentence_index": 37,
+      "text": "STABLE HOMES"
+    },
+    {
+      "sentence_index": 45,
+      "text": "OUT OF SIGHT"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 15,
+      "mode": "split_hstack",
+      "left_clip_index": 18,
+      "right_clip_index": 19,
+      "left_label": "EXPOSED PLATE",
+      "right_label": "COVERED DOME"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cardigan cuffs and cool porcelain-white gloved low-poly hands bracing tensely beside one matte chalk-white marshmallow cylinder and a brushed-silver bell on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands grip the table edge tightly then twitch forward toward the exposed chalk-white marshmallow cylinder",
+      "consequence": "tense direct proximity strains self-control immediately"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit minimalist cool mist-white preschool testing room with a small slate-stone table holding a white plate, one chalk-white marshmallow cylinder, and a brushed-silver call bell",
+      "action": "viewed strictly from behind, a small clothed low-poly child figure in a powder-blue cardigan leans forward over the slate-stone table and reaches gloved hands toward the exposed plate"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands slapping the brushed-silver call bell beside the exposed chalk-white marshmallow cylinder on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand reaches across the cool slate-stone and presses the silver bell plunger down sharply",
+      "consequence": "leaving the treat exposed collapses waiting almost immediately"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands lowering a round brushed-silver opaque dome over a chalk-white marshmallow plate on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift the brushed-silver dome and set it cleanly over the white marshmallow plate",
+      "consequence": "hiding the tempting visual cue sets up the true Stanford discovery"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit Stanford observation suite divided by a frosted viewing window overlooking the cool mist-white testing room and small slate-stone table",
+      "action": "viewed strictly from behind, a clothed low-poly researcher in a slate blazer walks to the viewing window and presses a brushed-silver stopwatch with gloved hands"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands sweeping aside an old heavy iron dumbbell token on cool mist-white stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand pushes the heavy iron token aside while the other places a light pastel attention-prism frame on the stone",
+      "consequence": "old muscle-grit theories give way to attention design"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright Stanford nursery corridor opening into the calm mist-white testing room with one small powder-blue chair and a slate-stone table",
+      "action": "viewed strictly from behind, a clothed low-poly researcher in a sage-green jacket walks beside a small clothed low-poly child figure in a cardigan and opens the door"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green jacket cuffs and cool porcelain-white gloved low-poly hands setting one mist-white plate with one chalk-white marshmallow cylinder beside a brushed-silver bell on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand places the mist-white plate down while the other aligns the brushed-silver bell right beside it",
+      "consequence": "the iconic single-treat and call-bell choice sits ready"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands hovering above the brushed-silver call bell and single marshmallow plate on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand points toward the silver bell button then pulls slightly back above the single chalk-white cylinder",
+      "consequence": "ringing early claims one small immediate treat"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a matte powder-blue ceramic teapot steeping quietly on a cool slate-stone trivet beside two small mist-white porcelain cups",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in coat cuffs set the powder-blue teapot lid in place and rest calmly as soft pale steam rises"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "sage-green jacket cuffs and cool porcelain-white gloved low-poly hands lifting the silver cover completely off two chalk-white marshmallow cylinders on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift the silver cover away and set both exposed chalk-white cylinders in plain view",
+      "consequence": "leaving both treats uncovered launches the crucial visibility test"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit observation glass overlooking the mist-white testing room where two uncovered chalk-white marshmallow cylinders sit brightly on the slate-stone table",
+      "action": "viewed strictly from behind, the clothed low-poly researcher in a slate blazer leans toward the glass and traces a rising arrow on a blank pastel pad with gloved hands"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a brushed-silver timer ring on cool slate-stone sweeping rapidly to a single coral-rose minute mark beside two uncovered chalk-white cylinders",
+      "internal_mechanism": "direct exposure to the uncovered cylinders drives the silver sweep arm straight into the early stop notch"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a matte slate-gray miniature three-lamp traffic light post standing on a cool mist-white stone curb",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in blazer cuffs reach and tap a silver pedestrian button as the top coral-rose lamp switches briskly to mint-sage"
+    },
+    {
+      "sentence_index": 13,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the cool mist-white testing room where the small clothed figure sits inches from the uncovered white marshmallow plate on the slate-stone table",
+      "action": "viewed strictly from behind, a small clothed low-poly child figure in a powder-blue cardigan leans forward over the plate and reaches a gloved hand to the silver bell"
+    },
+    {
+      "sentence_index": 13,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cardigan cuffs and cool porcelain-white gloved low-poly hands pressing the brushed-silver bell and grabbing one chalk-white marshmallow cylinder",
+      "prop_action": "one cool porcelain-white gloved low-poly hand presses the silver bell while the other lifts the single chalk-white marshmallow cylinder off the plate",
+      "consequence": "the second treat is forfeited in barely one minute"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "nucleus accumbens",
+      "anatomy_label": "NUCLEUS ACCUMBENS\nREWARD CENTER",
+      "brain_scene": "a matte-pastel sagittal 3D brain cutaway on a cool mist-white stand where the deep ventral nucleus accumbens pulses bright coral-rose with urgent reward craving"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cardigan cuffs and cool porcelain-white gloved low-poly hands fidgeting right beside two uncovered chalk-white cylinders on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand reaches out early and taps the silver bell beside the uncovered white plate",
+      "consequence": "exposed treats trigger rapid bell-ringing in one minute"
+    },
+    {
+      "sentence_index": 15,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green cardigan cuffs and cool porcelain-white gloved low-poly hands resting calmly beside a brushed-silver opaque dome covering the plate on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands fold and rest steadily on the cool slate-stone while the silver dome hides the treats",
+      "consequence": "hiding the treats stretches calm waiting tenfold"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a matte powder-blue low-poly city bus gliding smoothly along a clean cool slate-stone boulevard lined with pastel sage trees",
+      "comparison_action": "the matte powder-blue low-poly bus rolls steadily down the slate-stone lane and pulls calmly up to a mist-white shelter stop"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "two side-by-side pastel progress bars on cool slate-stone showing a short coral-rose exposed bar beside a ten-times-longer mint-sage covered bar",
+      "internal_mechanism": "the mint-sage covered bar extends ten times farther across the slate-stone track than the tiny coral-rose bar"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "tilt_down",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands clenching and trembling inches from an uncovered marshmallow plate on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands grip each other tightly then drop onto the silver bell in defeat",
+      "consequence": "white-knuckle staring against open temptation fails again and again"
+    },
+    {
+      "sentence_index": 19,
+      "end_sentence_index": 20,
+      "act": 3,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Stanford observation booth looking through frosted glass into the mist-white room where the uncovered white plate sits untouched",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in slate blazers lean at the glass and point gloved hands toward the small turned chair inside"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green sweater cuffs and cool porcelain-white gloved low-poly hands pushing the mist-white marshmallow plate gently toward the far edge of the cool slate-stone table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide the white plate away and turn palm-down on the near edge of the table",
+      "consequence": "successful waiters break direct visual contact with the treat"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_left",
+      "attire_and_hands": "sage-green sweater sleeves and cool porcelain-white gloved low-poly hands drumming a playful rhythm on the back rail of a powder-blue chair away from the table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands tap and glide rhythmically along the smooth powder-blue chair rail",
+      "consequence": "playful self-distraction replaces tense staring"
+    },
+    {
+      "sentence_index": 23,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright mist-white testing room where the powder-blue chair faces the far sage-green wall completely opposite the slate-stone marshmallow table",
+      "action": "viewed strictly from behind, a small clothed low-poly child figure in a sage-green sweater turns the powder-blue chair backward and tilts its hooded head toward the ceiling skylight"
+    },
+    {
+      "sentence_index": 23,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands clicking a brushed-silver stopwatch past the fifteen-minute mark on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand presses the stopwatch button while the other sets a second chalk-white marshmallow cylinder onto the plate",
+      "consequence": "turning away earns both treats effortlessly"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands placing a thin brushed-silver empty picture frame around a sculpted matte-white cloud puff on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set and align the brushed-silver picture frame neatly around the matte-white cloud sculpture",
+      "consequence": "imagining a flat cloud picture transforms a hot treat into a cool shape"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "gentle_push_in",
+      "analogy_world": "a tall frosted-glass and brushed-silver tabletop sand hourglass standing on cool slate-stone as pale mint-sage sand streams steadily downward",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in coat cuffs flip the brushed-silver hourglass upright and rest beside it as pale mint-sage sand flows"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "pan_right",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nCOOL PLANNER",
+      "brain_scene": "a matte-pastel 3D cortical brain model on a cool mist-white stand where the front prefrontal cortex glows calm cyan sending cooling pathways downward"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "rochester_trust_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands setting a question-shaped pastel prism beside a marshmallow plate and an art caddy on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide the marshmallow plate and pastel art caddy side by side onto the center mat",
+      "consequence": "researchers test whether trust rather than fixed destiny drives waiting"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "rochester_trust_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal coat cuffs and cool porcelain-white gloved low-poly hands stacking tall blank pastel book blocks beside a single chalk-white marshmallow model on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands stack and align four tall blank pastel blocks towering beside the tiny white cylinder",
+      "consequence": "popular myth inflated one preschool game into lifelong fate"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "rochester_trust_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a modern cool mist-white brain-imaging suite featuring a smooth pastel cylindrical scanner arch and clean slate-stone control console",
+      "action": "viewed strictly from behind, two clothed low-poly scientists in white lab coats stand at the console and point gloved hands toward blank pastel brain-wave plots"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "rochester_trust_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright developmental playroom with a cool mist-white table holding pastel drawing paper and two distinct supply trays",
+      "action": "viewed strictly from behind, a clothed low-poly researcher in a powder-blue blazer steps up to the mist-white table carrying a deluxe pastel art caddy with gloved hands"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "rochester_trust_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer cuffs and cool porcelain-white gloved low-poly hands pulling back a promised pastel art box and leaving a tiny cup with two stubby slate sticks",
+      "prop_action": "one cool porcelain-white gloved low-poly hand pulls the bright pastel box away while the other sets down the tiny two-stick cup on cool slate-stone",
+      "consequence": "breaking an early promise teaches the room cannot be trusted"
+    },
+    {
+      "sentence_index": 32,
+      "end_sentence_index": 33,
+      "act": 4,
+      "location_id": "rochester_trust_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "powder-blue blazer sleeves and cool porcelain-white gloved low-poly hands comparing the tiny two-stick cup on the left with a full tiered pastel art caddy on the right",
+      "prop_action": "one cool porcelain-white gloved low-poly hand sets the tiny cup left while the other places and opens the full pastel art caddy right on cool slate-stone",
+      "consequence": "broken versus kept promises create opposite expectations before the marshmallow arrives"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a matte powder-blue two-slot kitchen toaster sitting on a cool mist-white stone counter",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in cardigan cuffs reach and press the silver toaster lever down as two crisp cream geometric slices pop briskly upward"
+    },
+    {
+      "sentence_index": 35,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "rochester_trust_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage cardigan cuffs and cool porcelain-white gloved low-poly hands resting calmly beside the full pastel art caddy and untouched marshmallow plate on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align a pastel drawing stick neatly while leaving the chalk-white marshmallow untouched",
+      "consequence": "reliable adult promises make waiting four times longer completely logical"
+    },
+    {
+      "sentence_index": 35,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "rochester_trust_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the developmental playroom showing the full pastel art caddy and two earned chalk-white marshmallow cylinders on the mist-white table",
+      "action": "viewed strictly from behind, the clothed low-poly researcher in a powder-blue blazer steps back to the table and places the second marshmallow cylinder down with gloved hands"
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "rochester_trust_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a balanced brushed-silver fulcrum scale on cool slate-stone weighing one solid mint-sage certainty cube against a fading translucent outline",
+      "internal_mechanism": "the solid mint-sage certainty cube tips the silver arm cleanly downward whenever future delivery is uncertain"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "rochester_trust_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a spacious sunlit research hall with wide cool slate-stone tables displaying tidy grids of hundreds of small pastel house-and-child tokens",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in charcoal blazers walk along the slate-stone table and align trays of pastel tokens with gloved hands"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "rochester_trust_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer cuffs and cool porcelain-white gloved low-poly hands sliding pastel home-resource blocks alongside tiny marshmallow tokens on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and align the broad sage-green home blocks next to the small white cylinder tokens",
+      "consequence": "controlling for family background shrinks the standalone marshmallow prediction"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "rochester_trust_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved low-poly hands fitting sturdy powder-blue foundation blocks beneath a miniature pastel house model on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide and align three wide powder-blue foundation blocks firmly under the pastel house",
+      "consequence": "family stability and resources carry most of the long-term weight"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "rochester_trust_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green coat cuffs and cool porcelain-white gloved low-poly hands placing two chalk-white marshmallow cylinders reliably onto a clean mist-white plate",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set and align both promised white cylinders squarely in the center of the plate",
+      "consequence": "predictable environments teach children that waiting pays off"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a crisp blank matte powder-blue and chalk-white cloud postcard standing inside a slim brushed-silver tabletop holder on cool slate-stone",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in blazer cuffs lift and slide the blank cloud postcard smoothly into the silver holder in one quick motion"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nCOOL PLANNER",
+      "brain_scene": "a matte-pastel 3D cortical brain model where bright mint-sage pathways across the prefrontal cortex light up smoothly during learned cognitive reframing"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the Stanford observation room uniting the silver dome cover, cloud frame sculpture, and pastel brain model on cool slate-stone",
+      "action": "viewed strictly from behind, three clothed low-poly researchers in slate blazers and white lab coats turn toward the table and shake gloved hands"
+    },
+    {
+      "sentence_index": 44,
+      "act": 5,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands interlocking a brushed-silver dome token and a mint-sage house token on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide and latch the two pastel geometric tokens seamlessly together",
+      "consequence": "smart room design and reliable trust work as one system"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "calm_study_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a clean sunlit modern home study with a cool mist-white desk where an open bowl of pastel treats sits distractingly beside a silver laptop",
+      "action": "viewed strictly from behind, a clothed low-poly worker in a powder-blue sweater steps up to the mist-white desk and lifts the open treat bowl away with gloved hands"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "calm_study_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved low-poly hands placing a matte sage-green opaque lid cleanly over a ceramic snack jar on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lower and press the matte sage-green lid flush onto the ceramic jar",
+      "consequence": "Mischel's opaque cover rule works immediately at home"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "calm_study_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "powder-blue sweater cuffs and cool porcelain-white gloved low-poly hands sliding the covered sage-green ceramic bin onto a high mist-white pantry shelf",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift the opaque sage-green bin and set it neatly behind a sliding frosted cabinet door",
+      "consequence": "putting snacks out of sight removes sixty-second temptation battles"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "calm_study_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater cuffs and cool porcelain-white gloved low-poly hands sliding a matte slate smartphone block into a smooth mist-white desk drawer",
+      "prop_action": "one cool porcelain-white gloved low-poly hand places the slate phone block inside while the other pushes the mist-white drawer completely shut",
+      "consequence": "closing the drawer frees deep focus without willpower strain"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sturdy matte sage-green pillar mailbox with a brushed-silver latch standing calmly on a cool slate-stone platform",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in coat cuffs slip a blank pastel card inside the mailbox slot and latch the silver door shut"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "nucleus accumbens",
+      "anatomy_label": "NUCLEUS ACCUMBENS\nREWARD CENTER",
+      "brain_scene": "a matte-pastel sagittal 3D brain cutaway where hot coral-rose glow in the deep nucleus accumbens settles into serene powder-blue calm"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "calm_study_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater cuffs and cool porcelain-white gloved low-poly hands placing three small mint-sage completion tokens in a neat row on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set and align the third mint-sage token cleanly completing the promised row",
+      "consequence": "kept daily promises build rock-solid trust in future goals"
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "calm_study_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the serene clutter-free mist-white study desk with the closed drawer and calm blank notebook",
+      "action": "viewed strictly from behind, the clothed low-poly worker in a powder-blue sweater leans comfortably at the clean desk and glides a silver stylus across the blank pad with gloved hands"
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "stanford_surprise_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the serene sunlit Stanford room displaying the brushed-silver opaque dome, two chalk-white marshmallow cylinders, pastel brain model, and tall windows opening to pale sky",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in slate blazers walk and step calmly toward the tall bright window as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "HIDE THE TREAT",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered brushed-silver opaque dome lifting cleanly above two matte chalk-white marshmallow cylinders and a silver call bell on cool slate-stone"
+  }
+}

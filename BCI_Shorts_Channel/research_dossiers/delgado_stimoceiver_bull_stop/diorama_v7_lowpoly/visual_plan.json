@@ -1,0 +1,713 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "delgado_stimoceiver_bull_stop",
+  "topic": "Jose Delgado (1955, 1964) Wireless Stimoceiver Bull Stop in Cordoba, Caudate Nucleus (Basal Ganglia) Forced Motor Turning vs Mind-Control Myth, and Evolution into Modern Deep Brain Stimulation (Low-Poly Pastel v7)",
+  "act5_climax_episode": "The transformation of Delgado's 1955-1964 wireless basal-ganglia stimoceiver into modern FDA-approved Deep Brain Stimulation (DBS) and closed-loop neuro-pacemakers restoring movement to over 250,000 Parkinson's and epilepsy patients.",
+  "outro_title_lines": [
+    "DELGADO (1955, 1964)",
+    "CORDOBA & YALE UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "RADIO BUTTON?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BULL RADIO STOP?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "MIND CONTROL?"
+    },
+    {
+      "sentence_index": 19,
+      "text": "MOTOR TURN"
+    },
+    {
+      "sentence_index": 28,
+      "text": "ETHICS CLASH"
+    },
+    {
+      "sentence_index": 36,
+      "text": "MODERN DBS"
+    },
+    {
+      "sentence_index": 44,
+      "text": "TECH LIMITS"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "RADIO BUTTON?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BULL RADIO STOP?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "MIND CONTROL?"
+    },
+    {
+      "sentence_index": 19,
+      "text": "MOTOR TURN"
+    },
+    {
+      "sentence_index": 28,
+      "text": "ETHICS CLASH"
+    },
+    {
+      "sentence_index": 36,
+      "text": "MODERN DBS"
+    },
+    {
+      "sentence_index": 44,
+      "text": "TECH LIMITS"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 17,
+      "mode": "split_hstack",
+      "left_clip_index": 19,
+      "right_clip_index": 20,
+      "left_label": "MYTH: TAMED RAGE",
+      "right_label": "FACT: MOTOR TURN"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and cool pale-slate barriers",
+      "action": "a matte geometric low-poly dark-charcoal bull sculpture with ivory horns charges briskly across the pale-limestone ground sending up small geometric dust puffs"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-gray shirt sleeves and matte-white gloved low-poly hands extending from the bottom frame edge holding a brushed-brushed-silver radio box",
+      "prop_action": "the matte-white gloved low-poly right thumb presses a silver button on the brushed-silver radio transmitter box extending a telescopic silver antenna",
+      "consequence": "concentric soft-sage radio rings pulse outward from the antenna tip"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit pale-limestone ground arena in front of the cyan light-gray barrier",
+      "action": "viewed from behind the researcher in a light-gray shirt and trousers, the low-poly charcoal bull braces its geometric front hooves on the pale-stone court and pivots smoothly to the side"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "yale_bci_workshop",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands over a pale-gray electronics bench",
+      "prop_action": "both matte-white gloved low-poly hands set a miniature circular brushed-silver stimoceiver capsule beside the handheld radio transmitter on the slate-stone bench",
+      "consequence": "the twin wireless devices gleam in soft studio light"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit Spanish ranch ring with pale-slate walls and clear blue sky",
+      "action": "viewed strictly from behind, the clothed low-poly scientist in a light-gray shirt stands in the limestone ring holding the radio box as the low-poly bull trots along the outer wall"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "yale_bci_workshop",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands placing a brushed-silver radio switch over an instinct chart",
+      "prop_action": "both matte-white gloved low-poly hands slide a pale-gray radio-wave block across a cyan instinct arrow on the slate-stone board",
+      "consequence": "the cyan arrow diverts cleanly at a right angle",
+      "end_sentence_index": 5
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit entrance gate of the Cordoba testing ring with light-gray fences",
+      "action": "viewed strictly from behind, the clothed low-poly scientist in a light-gray shirt and dark trousers steps out from behind the light-gray barrier and walks onto the pale-limestone ground",
+      "end_sentence_index": 6,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-gray shirt sleeves and matte-white gloved low-poly hands holding the rectangular aluminum-and-brushed-silver radio transmitter",
+      "prop_action": "both matte-white gloved low-poly hands pull out the telescoping brushed-silver antenna and flip the toggle switch on the top plate",
+      "consequence": "a small soft-sage ready jewel lights up on the transmitter",
+      "end_sentence_index": 6,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster balance platform comparing the low-poly charcoal bull beside a pastel vintage compact car",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves slide and set the brushed-silver balance weight showing both sides weighing five hundred fifty kilograms",
+      "end_sentence_index": 8
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the sunlit center of the pale-limestone ground arena",
+      "action": "viewed from behind the clothed low-poly researcher in a light-gray shirt who braces and holds the radio box, the low-poly charcoal bull gallops straight forward across the pale-stone court",
+      "end_sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-gray shirt sleeves and matte-white gloved low-poly hands holding the radio box two meters ahead of the charging hooves",
+      "prop_action": "the matte-white gloved low-poly right thumb presses the brushed-silver transmit button firmly down to the click stop",
+      "consequence": "a soft cyan-blue radio pulse flashes from the antenna",
+      "end_sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit pale-limestone ground ring at the two-meter mark",
+      "action": "viewed from behind the researcher in the light-gray shirt, the low-poly bull plants its hooves in a puff of golden dust, turns ninety degrees left, and walks calmly away",
+      "end_sentence_index": 11
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "yale_bci_workshop",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands assembling a miniature brushed-silver-and-resin stimoceiver disc",
+      "prop_action": "both matte-white gloved low-poly hands lift and place a fine silver coil inside the round transceiver capsule with a brushed-silver tool",
+      "consequence": "the compact wireless receiver gleams on the pale-gray block",
+      "end_sentence_index": 12,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster desk comparing a tangled bundle of long silver cables beside a tiny postage-stamp-sized brushed-silver disc",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves push the tangled cable bundle aside and set the tiny wireless disc on a pale-gray square",
+      "end_sentence_index": 12,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "yale_bci_workshop",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-gray blazer sleeves and matte-white gloved low-poly hands unfolding a broadsheet folio on an slate-stone table",
+      "prop_action": "both matte-white gloved low-poly hands open a large cool-white broadsheet showing a two-frame sequence of the charging and halting bull",
+      "consequence": "the two-frame visual comparison sits centered on the slate-stone desk",
+      "end_sentence_index": 14
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-gray console holding a large silver button next to a dimming soft-lavender flame",
+      "comparison_action": "two matte-white gloved low-poly hands in blazer sleeves press the large silver button causing the soft-lavender flame model to drop flat",
+      "end_sentence_index": 15,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA ALARM?\nEMOTION MYTH",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, a question-like coral glow hovers around the lower amygdala while the actual probe path points higher up",
+      "end_sentence_index": 15,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "yale_bci_workshop",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands lifting the outer shell of a 3D brain model",
+      "prop_action": "both matte-white gloved low-poly hands open the upper hemisphere of the cool-ivory brain model to reveal the actual deep electrode target",
+      "consequence": "a silver probe tip rests inside the curved motor striatum"
+    },
+    {
+      "sentence_index": 17,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA (CAUDATE)\nMOTOR STEERING HUB",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the C-shaped caudate nucleus of the basal ganglia glows softly in soft pastel cyan-blue and amber-gold"
+    },
+    {
+      "sentence_index": 17,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "yale_bci_workshop",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands turning a pale-gray steering wheel linked to the basal ganglia model",
+      "prop_action": "both matte-white gloved low-poly hands turn the small brushed-silver-and-pale-stone steering wheel rotating a miniature bull figure ninety degrees on a turntable",
+      "consequence": "the miniature bull pivots mechanically on the pale-gray disc"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "yale_bci_workshop",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Yale neurophysiology workshop with the radio transmitter and 3D brain model on the center table",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in white coats step back from the table and look at the radio box in serious reflection"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "an overhead architectural plan of the bullring showing the straight red charge line bending sharply into a blue left turn arc",
+      "internal_mechanism": "a glowing cyan radio wave hits the two-meter mark and deflects the bull token onto the curved blue rail"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "CAUDATE NUCLEUS\nHABIT & MOVEMENT ENGINE",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the deep caudate arch of the basal ganglia glows soft pastel sky-blue and connects up to the motor strip",
+      "end_sentence_index": 21
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "yale_bci_workshop",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands setting a frequency dial to one hundred hertz",
+      "prop_action": "both matte-white gloved low-poly hands turn the brushed-silver pulse generator dial to one hundred cycles per second as the miniature turntable spins left",
+      "consequence": "the forced head-turn angle locks at ninety degrees",
+      "end_sentence_index": 22,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster workbench where a radio servo arm is linked directly to the steering tie-rod of a rolling pale-gray cart",
+      "comparison_action": "two matte-white gloved low-poly hands in shirt sleeves press a radio switch causing the brushed-silver servo arm to pull the front wheels sharply left",
+      "end_sentence_index": 22,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "thalamus",
+      "anatomy_label": "THALAMUS RELAY\nSENSORY SWITCHBOARD",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the central egg-shaped thalamus relay station glows warm amber-gold",
+      "end_sentence_index": 24
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "yale_bci_workshop",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit primate observation enclosure with a light-gray lever on the wall and a food tray",
+      "action": "viewed from behind the observation window, a clothed low-poly technician in a white coat watches a small low-poly monkey press the light-gray lever to calm the enclosure",
+      "end_sentence_index": 25,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "yale_bci_workshop",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands arranging twenty-five clinical chart folders",
+      "prop_action": "both matte-white gloved low-poly hands place a small brushed-silver stimoceiver model beside twenty-five cool-white clinical folders on the slate-stone desk",
+      "consequence": "the twenty-five patient charts sit organized in a neat stack",
+      "end_sentence_index": 25,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "washington_hearing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit 1970 stone-panelled committee hearing room with green baize tables and brushed-silver microphones",
+      "action": "viewed strictly from behind, clothed low-poly senators and scientists in dark suits lean toward the microphones and hold up ethics reports"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "washington_hearing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal suit sleeves and matte-white gloved low-poly hands striking a pale-gray gavel beside the radio box",
+      "prop_action": "one matte-white gloved low-poly hand brings the pale-gray gavel down onto the sound block while the other hand closes a cover over the radio transmitter",
+      "consequence": "the gavel rests firm beside the covered transmitter"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "washington_hearing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "charcoal suit cuffs and matte-white gloved low-poly hands placing a heavy brushed-silver padlock over a radio tower model",
+      "prop_action": "both matte-white gloved low-poly hands snap a brushed-silver safety lock onto the miniature transmitter tower on the hearing table",
+      "consequence": "the locked tower sits disabled on the green baize cloth"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "yale_bci_workshop",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands comparing a blunt brushed-silver probe with an intricate soft-sage neural tapestry",
+      "prop_action": "both matte-white gloved low-poly hands hold the thick brushed-silver rod above a delicate web of thousands of fine soft-sage threads",
+      "consequence": "the thick rod is far too coarse to touch a single thread"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "motor cortex",
+      "anatomy_label": "MOTOR CORTEX\nROBOTIC MUSCLE TWITCH",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the central motor strip of the matte warm-ivory 3D brain model, a localized coral spark flashes while the front prefrontal planner stays unlit"
+    },
+    {
+      "sentence_index": 31,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "yale_bci_workshop",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage cardigan sleeves and matte-white gloved low-poly hands resting on a clinical armrest",
+      "prop_action": "when a small soft-sage pulse lamp flashes, the right matte-white gloved low-poly hand curls automatically while the left hand points at the pulse lamp",
+      "consequence": "the patient's left hand clearly identifies the external pulse as the cause"
+    },
+    {
+      "sentence_index": 31,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "yale_bci_workshop",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands comparing two smooth unlabelled pastel geometric blocks",
+      "prop_action": "both matte-white gloved low-poly hands place a smooth sky-blue prism above a smooth soft-lavender cylinder on the pale-stone desk",
+      "consequence": "the two smooth pastel blocks remain clearly separate on the pale-stone board"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster table where a heavy brushed-silver hammer sits beside a delicate Swiss watch movement",
+      "comparison_action": "two matte-white gloved low-poly hands in shirt sleeves lift the heavy hammer away and pick up a fine jeweler's screwdriver instead"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "yale_bci_workshop",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the quiet 1974 Yale laboratory with light-gray packing crates stacked by the door",
+      "action": "viewed strictly from behind, the clothed low-poly scientist in a soft-gray blazer lifts and places the vintage brushed-silver radio transmitter into a padded pale-stone crate"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "yale_bci_workshop",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-gray blazer cuffs and matte-white gloved low-poly hands resting on the slate-stone crate beside a modern titanium medical case",
+      "prop_action": "one matte-white gloved low-poly hand closes the vintage slate-stone crate while the other hand opens a sleek white medical instrument case",
+      "consequence": "a modern miniature neurostimulator gleams inside the white case"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "modern_dbs_clinic",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands holding the 1955 stimoceiver beside a modern Deep Brain Stimulator",
+      "prop_action": "both matte-white gloved low-poly hands align the vintage brushed-silver stimoceiver disc next to the sleek titanium neuro-pacemaker over a velvet tray",
+      "consequence": "the direct technological lineage is unmistakable"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA TARGET\nMODERN DBS THERAPY",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, a slender golden lead reaches the deep basal ganglia and calms chaotic coral ripples into smooth sky-blue flow"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "modern_dbs_clinic",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan sleeve and matte-white gloved low-poly hand holding a porcelain teacup on a saucer",
+      "prop_action": "the matte-white gloved low-poly hand trembles and rattles the porcelain teacup against the saucer before the therapy switch turns on",
+      "consequence": "the teacup shakes on the pale-gray table"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "modern_dbs_clinic",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuff and sage cardigan sleeve beside a wireless clinical programmer",
+      "prop_action": "the doctor's matte-white gloved low-poly hand taps the blue activation key on the wireless programmer as the patient's hand holding the teacup becomes rock-steady",
+      "consequence": "the porcelain teacup lifts smoothly without a single ripple"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit cool-alabaster bench with a titanium cardiac pacemaker beside a neural pacemaker",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves align and press both titanium pacemakers so their soft-sage indicator lamps pulse in steady rhythm"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "modern_dbs_clinic",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a soft sunlit rehabilitation courtyard with clothed low-poly patients in sweaters and coats walking freely",
+      "action": "viewed strictly from behind, clothed low-poly patients in cardigans walk briskly and steadily across the sunlit courtyard garden"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "modern_dbs_clinic",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean architectural console model showing a miniature brushed-silver sensor unit calming a soft-coral wave ribbon into a smooth sky-blue ribbon",
+      "internal_mechanism": "as the soft-coral wave ribbon rises, a gentle sky-blue counter-wave smooths it into a level line"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "modern_dbs_clinic",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands placing the 1964 radio box beside the 2012 closed-loop chip",
+      "prop_action": "both matte-white gloved low-poly hands connect the vintage radio box to the modern closed-loop chip with a soft-sage timeline bar on the slate-stone desk",
+      "consequence": "the fifty-year evolution gleams across the table"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "modern_dbs_clinic",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit modern neurotechnology clinic with the 3D brain model and steady teacup on the table",
+      "action": "viewed strictly from behind, three clothed low-poly neurologists and engineers in white coats and blazers applaud the patient's steady hand"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "RESTORED MOVEMENT\nBASAL GANGLIA BALANCE",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the basal ganglia and upper motor strip glow in harmonious amber-gold and sky-blue"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_dbs_clinic",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-slate blazer sleeves and matte-white gloved low-poly hands holding a modern neural interface chip on a glass slide",
+      "prop_action": "both matte-white gloved low-poly hands hold the tiny silver-pinned chip up to the soft morning window light",
+      "consequence": "sunlight glints off the microscopic silver contacts"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "modern_dbs_clinic",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "muted-slate blazer cuffs and matte-white gloved low-poly hands clearing smooth pastel blocks on a pale-stone desk",
+      "prop_action": "both matte-white gloved low-poly hands push a stack of unlabelled soft-lavender blocks aside and set a matte warm-ivory 3D brain sculpture onto the center of the desk",
+      "consequence": "the matte warm-ivory brain sculpture rests cleanly on the sunlit pale-stone surface"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster table comparing a brushed-silver ship steering wheel on the left beside a captain's chart room on the right",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves point from the mechanical wheel to the captain's compass and sea chart"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA\nMOTOR STEERING ONLY",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the deep basal ganglia glows sky-blue while the vast outer cortex remains independent"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nBILLIONS OF NEURONS",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the entire matte warm-ivory 3D brain model, an intricate constellation of golden and sky-blue facets shimmers across the prefrontal lobe"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "modern_dbs_clinic",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan sleeves and matte-white gloved low-poly hands writing in a personal journal",
+      "prop_action": "both matte-white gloved low-poly hands hold a brushed-silver fountain pen and trace steady, flowing lines across a cool-white journal page",
+      "consequence": "the steady handwriting fills the sunlit page"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "modern_dbs_clinic",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat sleeves and sage cardigan sleeves with matte-white gloved low-poly hands over a pale-stone console",
+      "prop_action": "one matte-white gloved low-poly hand in a white coat sleeve places a smooth brushed-silver wireless controller into a steady matte-white gloved low-poly hand in a sage sleeve",
+      "consequence": "the steady matte-white gloved low-poly hand holds the brushed-silver controller calmly"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Spanish testing ring alongside the modern neurotechnology studio display",
+      "action": "viewed strictly from behind, clothed low-poly scientists in coats and light-gray shirts stand beside the light-gray barrier and look out across the sunlit arena"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a soft sunlit Andalusian hillside olive grove overlooking cool pale-slate arches and clear sky",
+      "action": "viewed from behind, clothed low-poly figures in coats and shirts walk calmly along the sunlit stone path as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "BULL RADIO STOP?",
+    "cover_sentence_index": 3,
+    "cover_brief": "charging low-poly bull halting cleanly in sunlit pastel arena beside researcher holding radio transmitter"
+  }
+}

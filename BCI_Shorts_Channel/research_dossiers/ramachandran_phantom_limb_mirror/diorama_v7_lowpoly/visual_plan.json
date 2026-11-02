@@ -1,0 +1,743 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "ramachandran_phantom_limb_mirror",
+  "topic": "V. S. Ramachandran 1995 Cardboard Mirror Box, Cortical Remapping & Phantom Limb Unclenching (Low-Poly Pastel v7)",
+  "act5_climax_episode": "1995 UC San Diego vertical cardboard Mirror Box trial where upper-limb amputee Philip Martinez watches his intact right hand stretch wide open in a $10 mirror and feels his ten-year clenched phantom left fist unclench immediately.",
+  "outro_title_lines": [
+    "RAMACHANDRAN MIRROR BOX (1995)",
+    "UC SAN DIEGO, LA JOLLA"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "10 YEARS"
+    },
+    {
+      "sentence_index": 10,
+      "text": "CHEEK MAP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "$10 MIRROR"
+    },
+    {
+      "sentence_index": 28,
+      "text": "THE MYTH"
+    },
+    {
+      "sentence_index": 36,
+      "text": "OPEN HAND"
+    },
+    {
+      "sentence_index": 45,
+      "text": "YOUR BRAIN"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "10 YEARS"
+    },
+    {
+      "sentence_index": 10,
+      "text": "CHEEK MAP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "$10 MIRROR"
+    },
+    {
+      "sentence_index": 28,
+      "text": "THE MYTH"
+    },
+    {
+      "sentence_index": 36,
+      "text": "OPEN HAND"
+    },
+    {
+      "sentence_index": 45,
+      "text": "YOUR BRAIN"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 27,
+      "mode": "split_hstack",
+      "left_clip_index": 31,
+      "right_clip_index": 60,
+      "left_label": "10-YEAR CRAMP",
+      "right_label": "MIRROR PROOF"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 1,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "a pale-blue Oxford shirt with the left sleeve neatly folded and pinned above the elbow beside a single intact right low-poly hand resting on an oak tabletop",
+      "prop_action": "the intact right matte low-poly hand reaches gently across the sunlit oak desk and smooths the neatly folded empty left shirt cuff flat against the wood",
+      "consequence": "warm California morning sunlight casts a crisp geometric shadow beside the empty sleeve"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 1,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "an elevated rear view of a bright 1995 La Jolla neurology room with pale-sand walls, tall sunlit windows, and a light-oak table",
+      "action": "viewed strictly from behind, a clothed low-poly patient in a sky-blue collared shirt with a pinned left cuff steps to the oak table and places his right hand steadily on the tabletop"
+    },
+    {
+      "sentence_index": 2,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 1,
+      "location_id": "patient_bedroom_morning",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft slate-blue cotton pajama sleeves and a single intact right matte low-poly hand over crisp pale linen",
+      "prop_action": "the right low-poly hand grips and presses tightly into the sunlit cotton blanket",
+      "consequence": "deep geometric radial creases tighten across the linen around the clenched knuckles"
+    },
+    {
+      "sentence_index": 2,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 1,
+      "location_id": "patient_bedroom_morning",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cotton pajama sleeves and shirt cuffs extending from the bottom frame edge",
+      "prop_action": "the right low-poly hand reaches over to grip and brace the empty left cuff above the mattress",
+      "consequence": "a translucent pale-coral wireframe fist silhouette pulses tensely in open air beside the cuff"
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "dark navy blazer cuff and matte geometric examiner hand beside a carved wooden hand model on an oak desk",
+      "prop_action": "the blazer-cuffed low-poly hand lifts and turns a jointed wooden hand sculpture whose five wooden fingers stay locked in a tight curl",
+      "consequence": "bright window light shifts across the curled wooden joints"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a sunlit pale-stone courtyard where ten clothed low-poly figures in pastel jackets and caps stand in a neat row",
+      "comparison_action": "viewed from an elevated rear angle, nine of the ten clothed low-poly figures step forward and lift one arm casting nine long crisp geometric afternoon shadows across the pale courtyard stone"
+    },
+    {
+      "sentence_index": 5,
+      "end_sentence_index": 6,
+      "act": 1,
+      "location_id": "hospital_consult_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean schematic low-poly architectural diagram of a pale-ivory upper arm channel connected upward to a central vertical relay column",
+      "internal_mechanism": "a sliding slate-grey gate closes across the lower arm channel while warm terracotta-red signal bands continue pulsing steadily higher up the central relay column"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "somatosensory cortex",
+      "anatomy_label": "ADULT CORTEX\nBODY MAP LOOP",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper-middle lateral arch of the matte warm-ivory 3D whole brain model on the pale-wood stand, the central sensory-motor strip glows in contrasting terracotta-coral and sky-blue pastel facets",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_02_cortical_brain_neutral.png"
+    },
+    {
+      "sentence_index": 8,
+      "end_sentence_index": 9,
+      "act": 1,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark navy blazer sleeves, crisp white shirt cuffs, and matte low-poly hands over a sunlit oak clinic tray",
+      "prop_action": "a steady low-poly hand lifts a slender wooden-stem cotton swab from a clean ceramic dish and holds it poised above the oak desk",
+      "consequence": "soft California daylight illuminates the white cotton tip cleanly against the pale wood"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit 1992 La Jolla neurology exam room with pale-sage walls, light-oak chair, and tall airy windows",
+      "action": "seen strictly from behind in three-quarter rear view, a clothed low-poly patient in a tan collared shirt and soft cloth blindfold band rests his hands on the chair while a clothed low-poly neurologist in a navy blazer steps forward and reaches toward the tray"
+    },
+    {
+      "sentence_index": 11,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 2,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuff and matte geometric hand holding a wooden cotton swab",
+      "prop_action": "the low-poly hand dips the clean cotton tip lightly against a smooth ivory testing pad and lifts it steadily",
+      "consequence": "the slender wooden stem aligns horizontally in bright window light"
+    },
+    {
+      "sentence_index": 11,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 2,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "an elevated rear over-the-shoulder view inside the sunlit La Jolla exam room",
+      "action": "viewed from behind the seated patient's shoulder, the neurologist in a navy blazer gently brushes the wooden cotton swab along the side of the blindfolded patient's left jawline while the patient sits upright"
+    },
+    {
+      "sentence_index": 12,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 2,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan collared shirt cuff and intact right matte low-poly hand resting on a wooden chair armrest",
+      "prop_action": "the patient's right low-poly hand lifts abruptly off the oak armrest and points directly toward the thumb of a carved wooden hand model on the side table",
+      "consequence": "the pointed index finger taps the carved wooden thumb cleanly"
+    },
+    {
+      "sentence_index": 12,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 2,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan shirt cuff extending from the bottom frame edge toward a carved wooden hand sculpture",
+      "prop_action": "the low-poly hand traces smoothly from the carved wooden thumb tip across to the wooden index finger",
+      "consequence": "warm amber highlight bands glow briefly along the wooden thumb and index facets"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "tilt_down",
+      "analogy_world": "a sunlit pale-birch workbench holding a tilted smooth porcelain pitcher and two parallel carved wooden channels",
+      "comparison_action": "a clear sky-blue water droplet rolls down the first wooden channel while a matching sky-blue droplet glides in unison down the adjacent forearm-shaped channel"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "somatosensory cortex",
+      "anatomy_label": "SOMATOSENSORY CORTEX\nBODY MAP STRIP",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the vertical postcentral sensory strip of the matte warm-ivory 3D whole brain model, a warm amber lower face facet sits directly beside an adjacent sky-blue hand territory facet",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_02_cortical_brain_neutral.png"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_right",
+      "structure": "two side-by-side sunlit pastel architectural studio rooms separated by a sliding wooden partition",
+      "internal_mechanism": "as the right room's sky-blue floor lamps dim, warm amber light cords from the neighboring left room slide smoothly through the open partition to illuminate the quiet floor"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue collared shirt cuff and a single right matte low-poly hand on a sunlit oak table",
+      "prop_action": "the low-poly hand squeezes a firm terracotta rubber grip ring tightly until the ring compresses oval",
+      "consequence": "the compressed ring holds rigid tension without springing back"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "motor cortex",
+      "anatomy_label": "MOTOR CORTEX\nMOVEMENT STRIP",
+      "camera": "locked_tripod",
+      "brain_scene": "along the precentral motor strip just forward of the central groove on the matte warm-ivory 3D whole brain model, bright terracotta-coral facets pulse repeatedly downward while return pathways stay dim slate",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_02_cortical_brain_neutral.png"
+    },
+    {
+      "sentence_index": 18,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 2,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean two-way pastel relay track linking an upper command bell to a lower hinged wooden hand model",
+      "internal_mechanism": "amber pulses travel down the upper track toward an open gap while the return track stays dark slate and the wooden fingers stay locked shut"
+    },
+    {
+      "sentence_index": 18,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 2,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue shirt cuff and right matte geometric hand beside the pinned empty left cuff",
+      "prop_action": "the right low-poly hand presses palm-down on the oak tabletop while the empty left cuff trembles slightly against the desk edge",
+      "consequence": "harsh noon window shadows fall sharply across the locked wooden hand model nearby"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuff and matte geometric hand operating a brass-and-wood mechanical stamp press",
+      "prop_action": "the low-poly hand presses a heavy wooden lever downward three times onto a soft pale-clay block",
+      "consequence": "each press stamps a deeper curled groove into the matte clay surface"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pastel office desk holding a compact beige desktop paper printer with its thick power cord lying unplugged beside the socket",
+      "comparison_action": "a low-poly hand in a rolled shirt sleeve taps the square feed button repeatedly while the unplugged cord rests loose on the oak desk and the blank white paper stack stays motionless"
+    },
+    {
+      "sentence_index": 21,
+      "end_sentence_index": 22,
+      "act": 3,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright 1995 UC San Diego research office with light-oak worktables, bookshelves of unlabelled pastel binders, and sunlit windows",
+      "action": "viewed from behind, a clothed low-poly neurologist in a dark blazer stands at a sunlit worktable setting a plain brown cardboard box beside an upright rectangular glass mirror"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark navy blazer sleeves, white shirt cuffs, and matte geometric hands at a sunlit oak workbench",
+      "prop_action": "both low-poly hands fold open the top flaps of a clean Kraft cardboard shoebox and set it squarely in the center of the oak table",
+      "consequence": "the open rectangular cardboard frame sits crisp and level in bright daylight"
+    },
+    {
+      "sentence_index": 24,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 3,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and matte geometric hands above the open cardboard box",
+      "prop_action": "both low-poly hands lower a frameless rectangular vertical glass mirror straight down into the center slot of the cardboard box",
+      "consequence": "the upright mirror locks cleanly dividing the open box into left and right chambers"
+    },
+    {
+      "sentence_index": 24,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 3,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "navy blazer cuffs and matte-ivory geometric hands framed at tabletop level beside the mirror box base",
+      "prop_action": "both low-poly hands lift and press two sky-blue corner wedges firmly against the cool pale-ash mirror base",
+      "consequence": "crisp morning daylight gleams across the sturdy vertical glass frame"
+    },
+    {
+      "sentence_index": 25,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 3,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue rolled shirt cuff on the right forearm beside the open cardboard mirror box",
+      "prop_action": "the patient's right matte low-poly hand slides forward into the open right compartment directly beside the upright glass mirror",
+      "consequence": "the hidden left side of the cardboard box shields the empty sleeve out of sight"
+    },
+    {
+      "sentence_index": 25,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 3,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "an elevated three-quarter rear view of the sunlit UCSD clinic table with the open vertical cardboard mirror box",
+      "action": "seen strictly from behind, the clothed low-poly patient in a sky-blue collared shirt leans slightly rightward to align his sightline into the vertical glass mirror while the blazer-clad neurologist stands beside the table"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_left",
+      "attire_and_hands": "sky-blue rolled right shirt sleeve extending from the bottom-right frame edge beside the vertical mirror",
+      "prop_action": "the intact right low-poly hand rests palm-down beside the vertical mirror while its crisp reflection appears seamlessly in the left visual space",
+      "consequence": "two symmetrical low-poly hands appear aligned side by side across the oak tabletop"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue shirt cuff and right matte low-poly hand curled in a tight fist beside a carved curled wooden fist",
+      "prop_action": "the low-poly fist holds a tight tense curl on the oak desk before the mirror box",
+      "consequence": "deep shadow creases mark the tightly folded geometric knuckles"
+    },
+    {
+      "sentence_index": 28,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "hospital_consult_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a quiet sunlit lecture hall with pale-birch desks, unlabelled pastel wall charts, and a solid grey stone brain sculpture on a wooden table",
+      "action": "viewed strictly from behind, two clothed low-poly doctors in white coats stand beside the rigid grey stone sculpture tapping its motionless surface with a wooden pointer"
+    },
+    {
+      "sentence_index": 30,
+      "end_sentence_index": 31,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream lab coat cuffs and matte geometric hands on a sunlit pale-birch table",
+      "prop_action": "one low-poly hand flips a small brass sandglass timer upright and taps the wooden frame lightly",
+      "consequence": "a tiny trickle of pale-gold sand drops through the narrow glass waist in seconds"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "modern_rehab_clinic",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright modern neuroimaging suite with a smooth ivory cylindrical scanner arch and sunlit control window",
+      "action": "viewed from behind in three-quarter silhouette, two clothed low-poly researchers in sage scrubs and cream coats lean forward observing a clean 3D cortical model display"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "somatosensory cortex",
+      "anatomy_label": "LATENT HAND MAP\n5 FINGERS INTACT",
+      "camera": "locked_tripod",
+      "brain_scene": "along the sensory strip of the matte warm-ivory 3D whole brain model, five delicate sky-blue finger facets glow clearly underneath a translucent warm-amber cheek overlay",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_02_cortical_brain_neutral.png"
+    },
+    {
+      "sentence_index": 34,
+      "end_sentence_index": 35,
+      "act": 4,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "an elevated rear view of the sunlit 1995 UCSD clinic room centered on the open cardboard mirror box on the oak table",
+      "action": "viewed strictly from behind, the clothed low-poly neurologist in a navy blazer gestures gently toward the mirror while the seated patient in a sky-blue shirt readies his hand inside the box"
+    },
+    {
+      "sentence_index": 36,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 5,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue rolled shirt sleeves and cuffs extending from the bottom frame edge beside the upright mirror",
+      "prop_action": "the right matte low-poly hand slides forward and grips all five fingers into a tight fist right beside the vertical glass mirror",
+      "consequence": "the mirror reflects an identical clenched left low-poly fist in the missing hand's space"
+    },
+    {
+      "sentence_index": 36,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 5,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue shirt sleeves and cuffs on the right matte low-poly fist framed below the collar beside the cardboard mirror wall",
+      "prop_action": "the curled low-poly knuckles hold steady for a beat and then turn slightly to align with the glass",
+      "consequence": "crisp daylight glints along the mirror edge beside the loosening thumb"
+    },
+    {
+      "sentence_index": 37,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 5,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue rolled shirt sleeves and cuffs extending from the bottom frame edge into the cardboard mirror box",
+      "prop_action": "the right low-poly hand opens smoothly and extends all five geometric fingers wide across the sunlit base",
+      "consequence": "the mirrored left hand opens wide in perfect simultaneous symmetry"
+    },
+    {
+      "sentence_index": 37,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 5,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "sky-blue shirt cuff and open right low-poly hand beside its crisp glass reflection",
+      "prop_action": "all five matte geometric fingers flex gently open and close in calm rhythmic unison with the mirrored twin hand",
+      "consequence": "both real and reflected palms lie flat, open, and relaxed in warm sunlight"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-birch studio table holding a folded pastel-ivory wooden hand fan",
+      "comparison_action": "a steady low-poly hand in a sky-blue sleeve sweeps the wooden fan ribs smoothly open into a wide semicircular arc"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 5,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "sky-blue shirt cuff extending from bottom frame beside the frameless vertical mirror",
+      "prop_action": "the open right low-poly palm lifts slightly and spreads all five fingers effortlessly in front of the mirror",
+      "consequence": "the reflected left hand floats open and uncramped in clear daylight"
+    },
+    {
+      "sentence_index": 39,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 5,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit rear three-quarter view of the UCSD clinic table and open cardboard mirror box",
+      "action": "seen strictly from behind, the clothed low-poly patient in the sky-blue shirt drops both shoulders visibly in sudden relief while keeping his open right hand aligned with the mirror"
+    },
+    {
+      "sentence_index": 39,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 5,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue shirt cuff and relaxed right matte low-poly hand resting flat inside the cardboard mirror box",
+      "prop_action": "the low-poly fingers rest wide and calm against the smooth Kraft floor beside their twin reflection",
+      "consequence": "warm afternoon light fills both halves of the open box evenly"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "navy blazer cuff and matte geometric researcher hand over an oak tray holding ten smooth wooden peg tokens",
+      "prop_action": "the low-poly hand slides six warm sky-blue wooden tokens forward out of the row of ten wooden pegs",
+      "consequence": "six aligned sky-blue pegs catch the bright window sunlight cleanly"
+    },
+    {
+      "sentence_index": 41,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 5,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "a navy blazer cuff entering from the left and a sky-blue shirt cuff resting at the right beside the mirror",
+      "prop_action": "the blazer-cuffed low-poly index finger gently taps the back of the patient's open right hand right beside the vertical mirror",
+      "consequence": "the mirror displays the tap landing squarely on the reflected left hand"
+    },
+    {
+      "sentence_index": 41,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 5,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue shirt cuff extending from bottom frame beside the mirror glass",
+      "prop_action": "the open right low-poly fingers wiggle lightly in response to the mirrored touch",
+      "consequence": "soft sky-blue light ripples gently across the reflected fingertips"
+    },
+    {
+      "sentence_index": 42,
+      "end_sentence_index": 43,
+      "act": 5,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a wide sunlit architectural view of the 1995 La Jolla neurology room with oak table, cardboard mirror box, and tall windows",
+      "action": "seen from behind in three-quarter rear silhouette, two clothed low-poly researchers in blazer and cream coat lean in beside the seated patient as he opens and closes his mirrored hand smoothly"
+    },
+    {
+      "sentence_index": 44,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "somatosensory cortex",
+      "anatomy_label": "LIVE BODY MAP\nDYNAMIC REWEIGHTING",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper lateral sensory-motor arch of the matte warm-ivory 3D whole brain model, calm sky-blue and sage-green pastel facets illuminate smoothly in balanced harmony",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_02_cortical_brain_neutral.png"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuff and matte geometric hand beside the vertical cardboard mirror box",
+      "prop_action": "the low-poly hand tilts the upright glass mirror slightly and aligns it flush along the center divider",
+      "consequence": "a crisp reflection of the sunlit window frame locks into symmetry"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nSPATIAL MAP",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper-posterior parietal crown of the matte warm-ivory 3D whole brain model on the pale-wood stand, vivid sky-blue and warm amber-gold pastel facets converge linking rear visual cortex forward to the sensory strip",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_02_cortical_brain_neutral.png"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "motor cortex",
+      "anatomy_label": "MOTOR CORTEX\nJAM CLEARED",
+      "camera": "locked_tripod",
+      "brain_scene": "along the upper medial motor-parietal arch of the flat side-profile half-brain cross-section model, harsh coral facets soften smoothly into calm sage-green and sky-blue pastel facets",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_03_sagittal_brain_neutral.png"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "modern_rehab_clinic",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit modern physical therapy table holding a warm ceramic coffee cup beside a sleek folding tabletop therapy mirror",
+      "comparison_action": "a low-poly hand in a sage clinic sweater sets the ceramic coffee cup down gently and begins smooth rhythmic finger taps in front of the folding mirror"
+    },
+    {
+      "sentence_index": 49,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 6,
+      "location_id": "modern_rehab_clinic",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage knit sweater cuff extending from bottom frame beside a folding tabletop mirror",
+      "prop_action": "the low-poly hand taps thumb to each fingertip one by one in calm steady rhythm before the mirror",
+      "consequence": "the mirrored opposite hand matches every finger tap cleanly"
+    },
+    {
+      "sentence_index": 49,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 6,
+      "location_id": "modern_rehab_clinic",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white clinic polo cuff and matte geometric therapist hand beside four wooden week blocks on an oak table",
+      "prop_action": "the therapist's low-poly hand flips all four pastel wooden blocks upright in a neat completed row",
+      "consequence": "sage-green top facets align evenly across all four blocks"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "modern_rehab_clinic",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket cuffs and matte-ivory geometric hands framed cleanly over a cool pale-ash table",
+      "prop_action": "one low-poly hand lifts and rolls a smooth sky-blue geometric sphere across the cool slate mat toward the other open palm",
+      "consequence": "the watching matte-ivory fingers open calmly in smooth rhythm"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "modern_rehab_clinic",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright sunlit movement studio with pale-oak flooring and a tall frameless wall mirror",
+      "action": "viewed strictly from behind in silhouette, a clothed low-poly figure in a pastel track jacket steps before the wall mirror and lifts both arms slowly and symmetrically as shoulder posture settles calmly"
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "modern_rehab_clinic",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pastel track jacket sleeves and both matte geometric hands framed below the collar",
+      "prop_action": "both low-poly hands open palms upward and press fingertips together smoothly in bright daylight",
+      "consequence": "even natural sunlight balances across both symmetrical geometric hands"
+    },
+    {
+      "sentence_index": 53,
+      "act": 6,
+      "location_id": "lajolla_coastal_park",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a serene sunlit La Jolla coastal bluff path with Torrey pines, sage coastal hills, and calm pastel ocean horizon",
+      "action": "viewed from behind in elevated wide view, a clothed low-poly neurologist in a navy blazer and a clothed low-poly patient in a sky-blue shirt walk calmly side by side and step steadily along the sunlit bluff path"
+    },
+    {
+      "cut_role": "split_right",
+      "act": 3,
+      "location_id": "ucsd_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue rolled right shirt sleeve extending from bottom frame beside the vertical glass mirror",
+      "prop_action": "the intact right low-poly hand opens all five fingers wide while its crisp reflection opens symmetrically in the left mirror space",
+      "consequence": "two calm open geometric palms shine evenly in bright daylight"
+    },
+    {
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "lajolla_coastal_park",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a peaceful wide sunlit California coastal bluff with pastel eucalyptus trees and calm turquoise cove rising into a vast clear sky-blue horizon with soft white low-poly clouds",
+      "action": "warm golden afternoon sunlight glides smoothly across the coastal treetops as the view rises into open sky"
+    }
+  ]
+}

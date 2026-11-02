@@ -76,5 +76,6 @@ Flow defense layers (inside Guards 1/5): `.ProseMirror` injection → `<video>` 
 | 2 Browser generation | `run_browser_generation_qa` | provenance uniqueness, V1–V5 |
 | 3 Media integrity | `run_media_integrity_qa` | `MediaIntegrityValidator` + `VideoAutopsyEngine`: duration bounds, `MIN_FRAME_DIFF_THRESHOLD`, `MIN_OPTICAL_FLOW_THRESHOLD`, no clipping / truncation, zero cloned frozen end-frames, word-level subtitle sync drift `<= 0.15s`, zero overlapping subtitle events (`overlapping_events_count == 0`), zero unconverted multi-word numbers in subtitles (`unconverted_number_words_count == 0`), voice F0 continuity / `am_fenrir` R41 broadcast chain, bidirectional spoken-vs-script content word match |
 | 4 Intent & content | `run_intent_content_qa` | G1–G12, three distinct thumbnails (R31), R16 subtitle layout, R36 localization |
+| 5 Post-hoc expressive clarity | `run_posthoc_semantic_qa` (`pipeline/posthoc_semantic_qa.py`, `main.py posthoc-qa`) | 100%-cut dual-stream clarity scoring (`>= POSTHOC_MIN_CUT_CLARITY_SCORE`, mean `>= POSTHOC_MIN_EPISODE_MEAN_CLARITY_SCORE`), 5-axis sub-scores, viewer contact strips (`POSTHOC_VIEWER_STRIPS_DIRNAME`), SHA-256-bound semantic review (`POSTHOC_SEMANTIC_REVIEW_FILENAME`), and source-clip root-cause attribution (`R64` in [neuro_diorama_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/neuro_diorama_rules.md)) |
 
-Entry point: `run_full_executable_qa`.
+Entry point: `run_full_executable_qa` + `main.py posthoc-qa --project <id>`.

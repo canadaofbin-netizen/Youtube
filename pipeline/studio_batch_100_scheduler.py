@@ -4,8 +4,8 @@ ALL ABOUT BRAIN — 100-Video YouTube Studio Staging & 2-Per-Day Public Schedule
 Implements Phase 3 of the 100-Video Production Plan:
 - Maps all 100 projects (psych_01 .. psych_100) across 50 consecutive days at
   2 videos per day:
-    * Video 1 of Day d -> Slot 2 (12:00 PM US ET / 02:00 AM KST+1)
-    * Video 2 of Day d -> Slot 4 (07:30 PM US ET / 09:30 AM KST+1)
+    * Video 1 of Day d -> Slot 2 (12:00 PM US ET / 01:00-02:00 AM KST+1)
+    * Video 2 of Day d -> Slot 4 (08:00 PM US ET / 09:00-10:00 AM KST+1)
 - Saves the complete 100-video schedule to BCI_Shorts_Channel/staging_queue.json.
 - Uploads ready projects to YouTube Studio (@AllAboutBrainOfficial) with:
     * Private/Unlisted staging or Scheduled Public release at the assigned Slot 2 / Slot 4 date & time
@@ -21,6 +21,7 @@ import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo
 
 _ROOT = Path(__file__).resolve().parents[1]
 if str(_ROOT) not in sys.path:
@@ -55,10 +56,13 @@ def build_100_video_2_per_day_schedule(
     - Slot 4: 08:00 PM US ET (00:00 UTC +1d)
     Preserves already-live published status (R34) and marks legacy v4 drafts as blocked_legacy_v4.
     """
+    et_tz = ZoneInfo("America/New_York")
     if not start_date:
-        start_dt = datetime(2026, 10, 18, tzinfo=timezone.utc)
+        start_dt = (datetime.now(et_tz) + timedelta(days=1)).replace(
+            hour=0, minute=0, second=0, microsecond=0
+        )
     else:
-        start_dt = datetime.strptime(start_date, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+        start_dt = datetime.strptime(start_date, "%Y-%m-%d").replace(tzinfo=et_tz)
 
     planned_items: list[dict[str, Any]] = []
 
@@ -68,10 +72,10 @@ def build_100_video_2_per_day_schedule(
         slot_pos = idx + 1
         day_offset = slot_pos // 2
         slot_id = 2 if (slot_pos % 2 == 1) else 4
-        slot_info = get_slot_info(slot_id)
 
         cur_dt = start_dt + timedelta(days=day_offset)
         date_str = cur_dt.strftime("%Y-%m-%d")
+        slot_info = get_slot_info(slot_id, ref_date=cur_dt.date())
 
         storage = ProjectStorage(pid)
         proj_dir = PROJECTS_DIR / pid

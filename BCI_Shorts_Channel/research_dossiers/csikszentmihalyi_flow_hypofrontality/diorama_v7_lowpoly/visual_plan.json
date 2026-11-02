@@ -1,0 +1,695 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "csikszentmihalyi_flow_hypofrontality",
+  "topic": "Mihaly Csikszentmihalyi Experience Sampling Flow Channel & Arne Dietrich (2004) Transient Hypofrontality — Silencing Medial Self-Criticism to Let Basal Ganglia Skill Fly (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Modern network-neuroscience refinement and calibrated 45-minute deep-craft flow protocols (+8% task challenge stretch with instant sensory feedback) proving active absorbed craft restores human mood far better than three hours of passive scrolling.",
+  "outro_title_lines": [
+    "CSIKSZENTMIHALYI & DIETRICH (2004)",
+    "CHICAGO & BEIRUT"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "100% BRAIN MYTH"
+    },
+    {
+      "sentence_index": 3,
+      "text": "INNER CRITIC OFF?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FLOW CHANNEL"
+    },
+    {
+      "sentence_index": 19,
+      "text": "QUIET EGO"
+    },
+    {
+      "sentence_index": 28,
+      "text": "JAZZ MRI PROOF"
+    },
+    {
+      "sentence_index": 36,
+      "text": "45-MIN SPRINT"
+    },
+    {
+      "sentence_index": 44,
+      "text": "YOUR FLOW SETUP"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "100% BRAIN MYTH"
+    },
+    {
+      "sentence_index": 3,
+      "text": "INNER CRITIC OFF?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FLOW CHANNEL"
+    },
+    {
+      "sentence_index": 19,
+      "text": "QUIET EGO"
+    },
+    {
+      "sentence_index": 28,
+      "text": "JAZZ MRI PROOF"
+    },
+    {
+      "sentence_index": 36,
+      "text": "45-MIN SPRINT"
+    },
+    {
+      "sentence_index": 44,
+      "text": "YOUR FLOW SETUP"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 14,
+      "mode": "split_hstack",
+      "left_clip_index": 16,
+      "right_clip_index": 57,
+      "left_label": "BOREDOM SLUMP",
+      "right_label": "ANXIETY SPIKE"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "neuro_scanner_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands over a pale-stone control console",
+      "prop_action": "both cool porcelain-white gloved low-poly hands push all six pastel sliders up at once toward a glowing warm-ivory brain sculpture",
+      "consequence": "every pastel slider locks stiffly at the top stop"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "chicago_cello_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "rolled linen shirt sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved low-poly hands grip a warm maple cello bow and draw it smoothly across four taut silver strings",
+      "consequence": "the maple bow glides effortlessly in steady rhythm"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "neuro_scanner_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed blazer sleeves and cool porcelain-white gloved low-poly hands over a brushed-silver mixer console",
+      "prop_action": "one cool porcelain-white gloved low-poly hand pulls a coral dimmer fader smoothly down while the other hand taps a calm sky-blue rhythm pad",
+      "consequence": "a soft coral lamp dims out as a clean sky-blue bar illuminates"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "chicago_cello_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed blazer cuffs and cool porcelain-white gloved low-poly hands beside a pale-wood side stool",
+      "prop_action": "both cool porcelain-white gloved low-poly hands clip a compact charcoal electronic pager beside an open cream booklet on the stool",
+      "consequence": "a tiny sage indicator jewel blinks gently on the pager"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "chicago_cello_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a sunlit Chicago practice studio with tall windows, a maple cello stand, and a pale-slate diagonal channel board",
+      "action": "viewed strictly from behind, a clothed low-poly cellist in rolled linen sleeves leans forward and draws the bow smoothly while a researcher in a tweed blazer stands by the diagonal channel board"
+    },
+    {
+      "sentence_index": 4,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "chicago_cello_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "an elevated wide view of a bright university studio hallway with sunlit slate-stone workbenches and clinical prep desks",
+      "action": "viewed strictly from behind, a clothed low-poly psychologist in a tweed blazer walks past a painter in an apron and hands compact electronic pagers to a surgeon in a scrub coat"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster kitchen counter holding a round pastel-mint mechanical kitchen timer beside a compact charcoal pager",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in shirt sleeves turn and set the round mint kitchen timer knob as both the timer bell and pager pulse together"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "chicago_cello_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "linen shirt cuffs and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "one cool porcelain-white gloved low-poly hand holds open a small cream pocket booklet while the other hand places three sky-blue pegs along a rating slider",
+      "consequence": "the three sky-blue pegs align neatly inside the middle groove"
+    },
+    {
+      "sentence_index": 8,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "home_craft_workbench",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a soft sunlit living room with a pale-oatmeal sofa facing a blank matte-slate television box",
+      "action": "viewed strictly from behind, a clothed low-poly figure in a grey sweater leans back on the oatmeal sofa and rests one hand beside a remote control"
+    },
+    {
+      "sentence_index": 8,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "home_craft_workbench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "grey sweater sleeves and cool porcelain-white gloved low-poly hands resting on a pale-oatmeal sofa cushion",
+      "prop_action": "one cool porcelain-white gloved low-poly hand presses a grey remote button repeatedly while the other hand drops flat onto the cushion",
+      "consequence": "a small amber mood meter beside the cushion stays low"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "chicago_cello_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tweed blazer sleeves and cool porcelain-white gloved low-poly hands over a sunlit pale-stone sorting tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands stack three tall sky-blue craft blocks beside one short grey couch block on the tray",
+      "consequence": "the triple-height sky-blue column rises cleanly in the morning light"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "chicago_cello_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit Chicago cello studio with a blank round wall dial high above the maple music stand",
+      "action": "viewed strictly from behind, the clothed low-poly cellist in linen sleeves leans into the maple cello and draws sweeping bow strokes while the wall dial hands sweep smoothly around"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster architectural table showing a sleek pastel sky-blue commuter train track linking two close miniature stations",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in coat sleeves release the pastel sky-blue train car so it glides briskly from the first platform straight into the second platform"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "chicago_cello_studio",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_right",
+      "structure": "a clean three-zone diagonal channel model with an upper coral cliff, a lower slate valley, and a bright sky-blue central ramp",
+      "internal_mechanism": "hundreds of small warm-ivory pegs slide into the central diagonal sky-blue ramp and glide smoothly upward"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nEMOTIONAL ALARM",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the deep almond-shaped amygdala flashes in warm terracotta-coral facets as overload ripples upward"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "home_craft_workbench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "knit cardigan sleeves and cool porcelain-white gloved low-poly hands at a sunlit practice desk",
+      "prop_action": "one cool porcelain-white gloved low-poly hand taps a single wooden piano key slowly and repeatedly while the other hand props up a drooping sleeve cuff",
+      "consequence": "the single wooden key bounces slowly with minimal motion"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pastel-turquoise water basin where a crisp ivory-sailed low-poly sailboat catches a steady breeze",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in linen sleeves angle the rudder slightly so the ivory sail fills taut and glides straight across the calm turquoise basin"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "chicago_cello_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_left",
+      "attire_and_hands": "linen shirt sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over a cello fingerboard",
+      "prop_action": "both cool porcelain-white gloved low-poly hands hesitate, stop the maple bow mid-stroke, and point stiffly at the left wrist angle",
+      "consequence": "the maple bow wobbles and stalls against the silver strings"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nOVERTHINKING PLANNER",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front forehead pole of the matte warm-ivory 3D whole brain model, bright coral facets flare across the prefrontal cortex and interrupt smooth sky-blue motor pathways"
+    },
+    {
+      "sentence_index": 18,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "chicago_cello_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sport polo cuffs and cool porcelain-white gloved low-poly hands gripping a pastel tennis racket handle",
+      "prop_action": "both cool porcelain-white gloved low-poly hands twist and tighten awkwardly around the racket grip mid-swing",
+      "consequence": "a pastel soft-mint ball drops short against a miniature net cord"
+    },
+    {
+      "sentence_index": 18,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "chicago_cello_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit practice studio with the maple cello resting silent beside the diagonal channel board",
+      "action": "viewed strictly from behind, the clothed low-poly cellist in rolled linen sleeves lowers the maple bow onto the music stand and leans forward with slumped shoulders"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "neuro_scanner_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "a bright cognitive neuroscience laboratory with a warm-ivory 3D brain sculpture and energy balance blocks on a pale-wood table",
+      "action": "viewed strictly from behind, a clothed low-poly neuroscientist in a crisp lab shirt steps up to the table and aligns pastel energy blocks beside the brain model"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster stadium court holding a tall brushed-silver floodlight tower with twelve lamps",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in blazer sleeves flip a master lever lighting all twelve floodlight lamps until the power meter dips"
+    },
+    {
+      "sentence_index": 21,
+      "end_sentence_index": 22,
+      "act": 3,
+      "location_id": "neuro_scanner_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "open-collar Oxford shirt sleeves and cool porcelain-white gloved low-poly hands over a pale-stone metabolic budget tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift three amber energy cubes out of a noisy front tray and place them into a sleek central skill track",
+      "consequence": "the central skill track glides smoothly without draining the tray"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "default mode network",
+      "anatomy_label": "DEFAULT MODE NETWORK\nINNER CRITIC DIMS",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the medial midline hubs of the default mode network soften from warm coral down to calm cool-ivory repose"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pastel glass radio booth overlooking a miniature wooden basketball court",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in shirt sleeves slide the booth microphone fader smoothly down and close the glass window so the court action runs uninterrupted"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA\nHABIT ENGINE",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the deep C-shaped basal ganglia hub illuminates in steady sky-blue and sage-green facets"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "chicago_cello_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "linen shirt cuffs and cool porcelain-white gloved low-poly hands beside a small brushed-silver desk clock and a hand mirror",
+      "prop_action": "both cool porcelain-white gloved low-poly hands turn the blank desk clock and small mirror face-down onto the pale-wood stand and lift the maple cello bow",
+      "consequence": "the maple bow sweeps cleanly across the strings in calm daylight"
+    },
+    {
+      "sentence_index": 27,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "neuro_scanner_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands holding a translucent sky-blue lens over a brain model",
+      "prop_action": "both cool porcelain-white gloved low-poly hands rotate the front hemisphere of the warm-ivory brain model to inspect two separate frontal zones",
+      "consequence": "one inner zone rests dim while an upper lateral strip shines sky-blue"
+    },
+    {
+      "sentence_index": 27,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "neuro_scanner_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "one cool porcelain-white gloved low-poly hand taps the lit upper sky-blue strip while the other hand points to the quiet inner midline groove",
+      "consequence": "the contrast between focused control and quieted ego stands clear"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "neuro_scanner_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit neuroimaging music laboratory with a pale-ivory cylindrical MRI scanner arch and a non-magnetic piano keyboard",
+      "action": "viewed strictly from behind, a clothed low-poly neuroscientist in a white coat stands at a glass window watching a pianist’s sleeves rest over the non-magnetic keyboard"
+    },
+    {
+      "sentence_index": 29,
+      "end_sentence_index": 30,
+      "act": 4,
+      "location_id": "neuro_scanner_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "casual denim shirt sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over a white piano keyboard",
+      "prop_action": "both cool porcelain-white gloved low-poly hands shift from tapping a rigid step-by-step scale into gliding freely across rich jazz chords",
+      "consequence": "smooth sky-blue light ribbons ripple across the keyboard frame"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nTHREAT ALARM COOLS",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, both the medial self-judging wall and the deep amygdala cool smoothly into soft pastel slate-blue"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nATTENTION SPOTLIGHT",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper-back crown of the matte warm-ivory 3D whole brain model, the parietal cortex glows crisply in bright sky-blue and warm amber-gold facets"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "chicago_cello_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "plaid shirt sleeves and cool porcelain-white gloved low-poly hands gripping a maple cello bow for the first time",
+      "prop_action": "both cool porcelain-white gloved low-poly hands press the maple bow unevenly across two strings at an awkward angle",
+      "consequence": "the strings vibrate unevenly and the bow slips sideways"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA\nTRAINED SKILL LOOP",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, unpracticed pathways stay dim in the basal ganglia while coral stress flares in the lower alarm hub"
+    },
+    {
+      "sentence_index": 35,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "chicago_cello_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "linen shirt sleeves and cool porcelain-white gloved low-poly hands practicing steady finger placements on a maple neck",
+      "prop_action": "the matte-white gloved low-poly fingers press and release four polished string positions in clean repeatable cadence",
+      "consequence": "each string settles into crisp geometric alignment"
+    },
+    {
+      "sentence_index": 35,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "chicago_cello_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "linen shirt cuffs and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved low-poly hands sweep the maple cello bow across the strings in one fluid practiced arc",
+      "consequence": "warm amber light gleams smoothly along the polished maple wood"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "home_craft_workbench",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit modern woodworking and design studio with a clean maple workbench, wooden plane, and mechanical timer",
+      "action": "viewed strictly from behind, a clothed low-poly craftsperson in a sage overshirt steps up to the maple workbench and arranges clean chisels and wood blocks"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "neuro_scanner_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a balanced two-bridge architectural network model linking an upper sky-blue attention arch with a deep sage motor ring",
+      "internal_mechanism": "smooth golden pulses glide effortlessly around the coupled sky-blue and sage loop while a lower coral noise valve stays shut"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster listening table holding a pastel-sage turntable spinning a matte-charcoal vinyl record",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in overshirt sleeves lift and place the brushed-silver tonearm gently onto the outer groove so the record spins and glides smoothly"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster luthier bench holding the carved scroll and tuning pegs of a maple cello",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in linen sleeves turn one ebony tuning peg slightly clockwise until the silver string hums taut and true"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "home_craft_workbench",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "sage overshirt sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved low-poly hands push a wooden hand plane smoothly along a pale-cedar beam curling up a crisp wood shaving",
+      "consequence": "the planed cedar surface gleams satin-smooth in warm sunlight"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster dining table comparing a steaming ceramic bowl of warm soup beside a crumpled grey wrapper",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in sweater sleeves push the empty grey wrapper aside and draw the warm ceramic bowl into the center"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "neuro_scanner_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands aligning two pastel mood columns on a pale-stone board",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place a tall golden craft bar beside a tiny grey passive-rest bar",
+      "consequence": "the golden craft bar stands three times taller in crisp daylight"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "neuro_scanner_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Chicago and Beirut research studio with the diagonal channel board and 3D brain sculpture on the center table",
+      "action": "viewed strictly from behind, three clothed low-poly researchers in tweed blazers and white coats step back and applaud the completed flow map"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "home_craft_workbench",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the warm afternoon woodworking studio with finished dovetail cedar boxes neatly joined on the maple bench",
+      "action": "viewed strictly from behind, the clothed low-poly maker in a sage overshirt sets down the wooden mallet and stands tall beside the finished craft"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "home_craft_workbench",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_left",
+      "attire_and_hands": "navy knit sweater sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved low-poly hands clear clutter off a sunlit cool-slate desk and set a clean sketchbook in the center",
+      "consequence": "the uncluttered slate-stone desk opens cleanly in afternoon light"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "home_craft_workbench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy sweater sleeves and cool porcelain-white gloved low-poly hands beside a wooden desk drawer",
+      "prop_action": "one cool porcelain-white gloved low-poly hand flips a dark pocket phone silent, places it inside the slate-stone drawer, and pushes the drawer shut",
+      "consequence": "the closed slate-stone drawer latch clicks cleanly flush"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster study desk holding a tall brushed-silver-and-glass sandglass timer beside a single ivory task block",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in sweater sleeves flip the sandglass timer upright so golden sand streams steadily into the lower bulb"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pastel-sage hillside walking trail model with an adjustable incline ramp",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in jacket sleeves lift and set the hillside trail wedge one notch steeper as a clothed hiker figure climbs briskly from behind"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "home_craft_workbench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "navy sweater cuffs and cool porcelain-white gloved low-poly hands over a sunlit slate-stone desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands separate one heavy slate block into four neat bite-sized sky-blue cubes in a straight row",
+      "consequence": "the first small sky-blue cube slides smoothly forward"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA\nEFFORTLESS AUTOPILOT",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the deep basal ganglia glows in calm sky-blue and warm amber-gold harmony while the inner critic stays quiet"
+    },
+    {
+      "sentence_index": 50,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "home_craft_workbench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy sweater sleeves and cool porcelain-white gloved low-poly hands beside a dark phone slab and a wooden guitar neck",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides the dark phone slab away while the other hand lifts the warm cedar guitar neck",
+      "consequence": "sunlight catches the polished cedar strings"
+    },
+    {
+      "sentence_index": 50,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "chicago_cello_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "linen shirt sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved low-poly hands draw the maple cello bow across the strings in effortless resonant flow",
+      "consequence": "the bow and strings move as one seamless instrument"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "chicago_cello_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Chicago music and research studio opening onto a tranquil pastel park courtyard",
+      "action": "viewed strictly from behind, the clothed low-poly cellist in linen sleeves and researchers in tweed blazers stand together overlooking the sunlit courtyard"
+    },
+    {
+      "sentence_index": 14,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "home_craft_workbench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "knit cardigan sleeves and cool porcelain-white gloved low-poly hands over a crowded practice desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands fumble rapidly across a towering stack of complex music sheets knocking two wooden pegs loose",
+      "consequence": "the tangled sheets slide askew across the pale-wood desk"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "chicago_cello_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a serene sunlit lakeshore park promenade with pastel maple trees and pale-limestone arches opening into a clear sky",
+      "action": "viewed from behind, clothed low-poly figures in coats and sweaters walk calmly along the sunlit lakeside path as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "INNER CRITIC OFF?",
+    "cover_sentence_index": 3,
+    "cover_brief": "absorbed low-poly cellist drawing bow in sunlit pastel studio beside diagonal flow channel board"
+  }
+}

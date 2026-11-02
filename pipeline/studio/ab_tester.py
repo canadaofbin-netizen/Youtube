@@ -146,16 +146,42 @@ class ThumbnailABTester:
                 print("[ThumbnailABTester] Warning: Active Studio tab is not on ALL ABOUT BRAIN channel.")
                 return False
 
+            shorts_thumb_locked = await client.eval(
+                f"""(() => {{
+                    {_DEEP_QUERY_HELPER_JS}
+                    const host = __queryAllDeep(
+                        'ytcp-thumbnails-compact-editor, ytcp-thumbnails-compact-editor-uploader, ytcp-video-thumbnail-editor, ytcp-still-picker'
+                    )[0];
+                    const bodyTxt = ((host ? host.innerText : '') || (document.body ? document.body.innerText : '') || '');
+                    if (/can't change the thumbnail on your Short|cannot change the thumbnail on your Short|for now, you can't change the thumbnail|Shorts에서는 아직 썸네일을 변경할 수 없|모바일 YouTube 앱에서 썸네일/i.test(bodyTxt)) {{
+                        return bodyTxt.slice(0, 180).trim();
+                    }}
+                    if (host && (host.hasAttribute('disabled') || host.getAttribute('aria-disabled') === 'true')) {{
+                        return 'shorts_desktop_thumbnail_uploader_disabled';
+                    }}
+                    return '';
+                }})()"""
+            )
+            if shorts_thumb_locked:
+                print(
+                    f"[ThumbnailABTester] Desktop custom thumbnail upload is disabled by YouTube Studio for Shorts ({shorts_thumb_locked}). Skipping gracefully."
+                )
+                return False
+
             if await client.find_element(THUMBNAIL_SWAP_SELECTORS["thumbnail_options_menu"]):
                 await client.click(THUMBNAIL_SWAP_SELECTORS["thumbnail_options_menu"])
                 await asyncio.sleep(0.8)
                 await client.click(THUMBNAIL_SWAP_SELECTORS["change_thumbnail_item"])
                 await asyncio.sleep(0.8)
 
-            uploaded = await client.set_file_input(
-                new_thumb_path,
-                selector="input#file-loader, input[type='file'][accept*='image'], ytcp-thumbnail-editor input[type='file'], ytcp-thumbnails-compact-editor-uploader input[type='file']",
-            )
+            try:
+                uploaded = await client.set_file_input(
+                    new_thumb_path,
+                    selector="input#file-loader, input[type='file'][accept*='image'], ytcp-thumbnail-editor input[type='file'], ytcp-thumbnails-compact-editor-uploader input[type='file']",
+                )
+            except Exception as exc:
+                print(f"[ThumbnailABTester] Warning: Custom thumbnail file input unavailable ({exc}).")
+                return False
             if not uploaded:
                 print("[ThumbnailABTester] Warning: Could not locate thumbnail file input in Studio edit page.")
                 return False
@@ -177,6 +203,33 @@ class ThumbnailABTester:
                         break
             return bool(saved)
 
+    def _is_shorts_video(self, storage: ProjectStorage) -> bool:
+        """Returns True when the project is a Short (`<= SHORTS_HARD_CEILING_SEC` or `neuro_diorama` Shorts profile)."""
+        from pipeline.config import SHORTS_HARD_CEILING_SEC, is_diorama_profile
+
+        vp = storage.load_json("03_visuals", "visual_plan.json") or {}
+        sc = storage.load_json("02_script", "script.json") or {}
+        meta = storage.load_json("06_publish", "metadata.json") or {}
+        if is_diorama_profile(vp) or is_diorama_profile(sc) or is_diorama_profile(meta):
+            return True
+        edl = storage.load_json("05_assembly", "edit_decision_list.json") or {}
+        if edl.get("total_duration_sec") and float(edl["total_duration_sec"]) <= SHORTS_HARD_CEILING_SEC:
+            return True
+        final_mp4 = storage.get_stage_dir("05_assembly") / "final_shorts_1080x1920.mp4"
+        if final_mp4.exists():
+            try:
+                import cv2
+
+                cap = cv2.VideoCapture(str(final_mp4))
+                fps = float(cap.get(cv2.CAP_PROP_FPS) or 0.0)
+                fc = float(cap.get(cv2.CAP_PROP_FRAME_COUNT) or 0.0)
+                cap.release()
+                if fps > 0 and fc > 0 and (fc / fps) <= SHORTS_HARD_CEILING_SEC:
+                    return True
+            except Exception:
+                return True
+        return False
+
     def swap_to_variant(
         self,
         project_id: str,
@@ -184,7 +237,32 @@ class ThumbnailABTester:
         video_id: str | None = None,
         dry_run: bool = False
     ) -> dict[str, Any]:
-        """Swaps active thumbnail to a specific target variant ('A', 'B', or 'C')."""
+        """
+        Swaps active thumbnail to a specific target variant ('A', 'B', or 'C') for long-form videos.
+        R32 / R65: Desktop YouTube Studio locks custom thumbnail swapping on Shorts (`<= SHORTS_HARD_CEILING_SEC`),
+        so live Shorts swaps and `neuro_diorama` Shorts return `status='not_applicable_shorts'` without opening CDP.
+        """
+        from pipeline.config import is_diorama_profile
+
+        p_dir = (self.projects_dir / project_id) if self.projects_dir else None
+        storage_probe = ProjectStorage(project_id, projects_dir=self.projects_dir) if p_dir else ProjectStorage(project_id)
+        vp = storage_probe.load_json("03_visuals", "visual_plan.json") or {}
+        sc = storage_probe.load_json("02_script", "script.json") or {}
+        is_diorama = is_diorama_profile(vp) or is_diorama_profile(sc)
+        if is_diorama or (not dry_run and self._is_shorts_video(storage_probe)):
+            now_iso = datetime.now(timezone.utc).isoformat()
+            manifest_opt = storage_probe.load_json("06_publish", "ab_test_manifest.json") or {}
+            cur_var = manifest_opt.get("current_active_variant", "A")
+            return {
+                "project_id": project_id,
+                "status": "not_applicable_shorts",
+                "previous_variant": cur_var,
+                "active_variant": cur_var,
+                "swapped_at": now_iso,
+                "swap_success": False,
+                "reason": "Desktop YouTube Studio locks custom thumbnail rotation on Shorts (R32 applies to long-form only; use R65 cover_frame_sec).",
+            }
+
         manifest, storage = self.load_manifest(project_id)
         target = target_variant.upper()
         if target not in manifest["variants"]:
@@ -268,13 +346,34 @@ class ThumbnailABTester:
         """
         manifest, storage = self.load_manifest(project_id)
 
-        # Default sample metrics if none provided (for evaluation testing)
         if not metrics:
-            metrics = {
-                "A": {"impressions": 1250, "clicks": 68},   # 5.44% CTR
-                "B": {"impressions": 1180, "clicks": 98},   # 8.31% CTR
-                "C": {"impressions": 1150, "clicks": 112}   # 9.74% CTR
-            }
+            manifest_vars = manifest.get("variants") or {}
+            extracted_metrics: dict[str, dict[str, int]] = {}
+            for v_key in ("A", "B", "C"):
+                v_obj = manifest_vars.get(v_key) or {}
+                extracted_metrics[v_key] = {
+                    "impressions": int(v_obj.get("impressions") or 0),
+                    "clicks": int(v_obj.get("clicks") or 0),
+                }
+            has_real_metrics = any(v["impressions"] > 0 for v in extracted_metrics.values())
+            if has_real_metrics:
+                metrics = extracted_metrics
+            elif not dry_run:
+                return {
+                    "project_id": project_id,
+                    "status": "awaiting_real_metrics",
+                    "significant": False,
+                    "conclusive": False,
+                    "locked": False,
+                    "winner_variant": None,
+                }
+            else:
+                # Demo metrics ONLY when dry_run=True explicitly
+                metrics = {
+                    "A": {"impressions": 1250, "clicks": 68},   # 5.44% CTR
+                    "B": {"impressions": 1180, "clicks": 98},   # 8.31% CTR
+                    "C": {"impressions": 1150, "clicks": 112}   # 9.74% CTR
+                }
 
         pairs = [("A", "B"), ("A", "C"), ("B", "C")]
         comparisons = []
@@ -348,11 +447,14 @@ class ThumbnailABTester:
         report = {
             "project_id": project_id,
             "evaluated_at": now_iso,
+            "status": "conclusive" if is_conclusive else "inconclusive",
             "metric": "Search & Browse CTR",
             "statistical_test": "Two-Proportion Z-Test",
             "alpha_threshold": 0.05,
             "z_critical": 1.96,
+            "significant": is_conclusive,
             "conclusive": is_conclusive,
+            "locked": is_conclusive and not dry_run,
             "winner_variant": winner_candidate if is_conclusive else None,
             "winner_hypothesis": manifest["variants"][winner_candidate].get("hypothesis", "Cognitive dissonance & provocative defiance trigger; high-CTR curiosity gap.") if is_conclusive else None,
             "comparisons": comparisons,

@@ -1,0 +1,37 @@
+{
+  "visual_mode": "HYBRID",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "brainstem",
+      "plain": "reflex center and highway at the top of the spine",
+      "function": "carries voluntary movement commands from the cortex down to the spinal cord; blocked by S3's 1996 stroke",
+      "scene_id": "S1",
+      "narration_bridge": "Explains why Cathy Hutchinson's mind stayed 100% sharp while signals could not reach her arms."
+    },
+    {
+      "role": "pivot",
+      "region": "motor cortex",
+      "plain": "movement strip",
+      "function": "generates directional 3D reach-and-grasp firing patterns when S3 imagines moving her own arm, even 15 years after paralysis",
+      "scene_id": "S1",
+      "narration_bridge": "Houses the 4-millimeter 96-channel BrainGate sensor that persisted for 1,975 days (5 years)."
+    },
+    {
+      "role": "step1",
+      "region": "parietal cortex",
+      "plain": "spatial map",
+      "function": "maps the 3D tabletop location of the coffee bottle relative to the robotic hand and sends reach goals forward to motor cortex",
+      "scene_id": "S2",
+      "narration_bridge": "Guides continuous 3D trajectory corrections so the robotic hand grasps the bottle without knocking it over."
+    },
+    {
+      "role": "step2",
+      "region": "primary visual cortex",
+      "plain": "vision center",
+      "function": "provides real-time visual feedback of robotic finger aperture and bottle position in the absence of robotic touch sensors",
+      "scene_id": "S1",
+      "narration_bridge": "Closes the visual-motor loop while S3 steers the straw smoothly upward."
+    }
+  ]
+}

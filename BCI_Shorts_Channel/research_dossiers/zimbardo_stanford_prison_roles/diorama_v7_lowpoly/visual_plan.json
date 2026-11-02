@@ -1,0 +1,686 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "zimbardo_stanford_prison_roles",
+  "topic": "Philip Zimbardo & Christina Maslach (1971) Stanford Jordan Hall Role Simulation, Day-5 Moral Dissent & 2018 Archival Coaching Revelations (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Archival orientation transcripts and engaged-followership research proving leader coaching plus zero external oversight drove the collapse, catalyzing modern independent ethics review boards.",
+  "outro_title_lines": [
+    "ZIMBARDO & MASLACH (1971)",
+    "STANFORD UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "UNIFORM MYTH"
+    },
+    {
+      "sentence_index": 3,
+      "text": "GUARD TAPE TWIST"
+    },
+    {
+      "sentence_index": 10,
+      "text": "3 GUARD GROUPS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "MASLACH STANDS"
+    },
+    {
+      "sentence_index": 28,
+      "text": "ARCHIVE PROOF"
+    },
+    {
+      "sentence_index": 36,
+      "text": "OUTSIDE REFEREE"
+    },
+    {
+      "sentence_index": 44,
+      "text": "SPEAK UP EARLY"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "UNIFORM MYTH"
+    },
+    {
+      "sentence_index": 3,
+      "text": "GUARD TAPE TWIST"
+    },
+    {
+      "sentence_index": 10,
+      "text": "3 GUARD GROUPS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "MASLACH STANDS"
+    },
+    {
+      "sentence_index": 28,
+      "text": "ARCHIVE PROOF"
+    },
+    {
+      "sentence_index": 36,
+      "text": "OUTSIDE REFEREE"
+    },
+    {
+      "sentence_index": 44,
+      "text": "SPEAK UP EARLY"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 28,
+      "mode": "split_hstack",
+      "left_clip_index": 32,
+      "right_clip_index": 57,
+      "left_label": "UNIFORM MYTH",
+      "right_label": "COACHED SCRIPT"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "cool_slate_screening_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-sage shirt sleeves and cool porcelain-white gloved low-poly hands in gloves over a cool slate tabletop",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and place silver-tinted low-poly sunglasses beside a folded muted-sage shirt",
+      "consequence": "the silver-tinted low-poly sunglasses rest centered on the cool slate tabletop"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "jordan_hall_corridor",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer sleeves and cool porcelain-white gloved low-poly hands in gloves extending from the bottom frame edge over a cool slate desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands open a pale-slate archive box and lift out an unmarked cool-cream briefing folder",
+      "consequence": "the unmarked cool-cream briefing folder opens cleanly under soft matte light"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "cool_slate_screening_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-grey jacket cuffs and cool porcelain-white gloved low-poly hands in gloves over a powder-blue stone table",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides an old dove-grey summary cover aside while the other hand places an archival folder forward",
+      "consequence": "the archival folder rests squarely in full view"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "cool_slate_screening_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer cuffs and cool porcelain-white gloved low-poly hands in gloves over a cool ceramic counter",
+      "prop_action": "one cool porcelain-white gloved low-poly hand reaches across and presses down a raised dove-grey schedule clipboard",
+      "consequence": "the dove-grey schedule clipboard rests flat on the cool ceramic counter"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "jordan_hall_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a brightly lit pastel-slate Stanford psychology corridor with frosted partition doors and soft diffused ceiling panels",
+      "action": "viewed strictly from behind, a clothed low-poly psychologist figure in a powder-blue blazer and slacks steps forward and raises an open hand halting a clothed figure in a dark suit"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "jordan_hall_corridor",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_right",
+      "structure": "a clean architectural cross-section of a bright university psychology building above a partitioned cool-slate lower corridor",
+      "internal_mechanism": "clothed low-poly researcher figures in coats and trousers step down an interior staircase and arrange movable frosted corridor partitions"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "cool_slate_screening_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-slate blazer sleeves and cool porcelain-white gloved low-poly hands in gloves over a cool slate sorting desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands sort a wide stack of unmarked cool-cream applicant folders into one neat stack of twenty-four",
+      "consequence": "the neat stack of twenty-four cool-cream folders aligns squarely"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a bright pastel-sage schoolyard court bench holding a matte ceramic bowl filled with equal powder-blue and muted-sage team draw tokens",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in sleeves and gloves draw pastel tokens one by one and place them into two equal team rows"
+    },
+    {
+      "sentence_index": 7,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "cool_slate_screening_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-sage shirt cuffs and cool porcelain-white gloved low-poly hands in gloves over a cool ceramic bench",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift a folded muted-sage button shirt and silver-tinted sunglasses from a dove-grey supply tray",
+      "consequence": "twelve neat muted-sage supply trays sit aligned in a row"
+    },
+    {
+      "sentence_index": 7,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "cool_slate_screening_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-sage shirt sleeves and cool porcelain-white gloved low-poly hands in gloves extending from the bottom frame edge over a cool slate table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands unfold the silver-tinted sunglasses hinges and lift them smoothly upward",
+      "consequence": "soft diffused ceiling light reflects cleanly off the matte silver lenses"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "jordan_hall_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the brightly lit pastel-slate Jordan Hall corridor lined with three clean frosted alcove doors",
+      "action": "viewed strictly from behind, clothed low-poly student figures in loose cool-cream smocks and caps step in and walk calmly along the bright corridor wall"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "cool_slate_screening_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "dark suit cuffs and cool porcelain-white gloved low-poly hands in gloves over a cool slate schedule board",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides a brushed-silver bar across eight remaining pastel-lavender day blocks after block six",
+      "consequence": "only the first six pastel day blocks stay uncovered on the schedule board"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "jordan_hall_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the bright pastel-slate corridor divided into three distinct lighting bays under soft matte ceiling panels",
+      "action": "elevated wide view from behind showing three clothed low-poly student figures in muted-sage shirts and trousers stepping in and turning into three separate posture groups"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "cool_slate_screening_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-sage shirt sleeves and cool porcelain-white gloved low-poly hands in gloves over a cool slate counter",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set silver-tinted sunglasses beside plain geometric badge tiles replacing personal folder cards",
+      "consequence": "the plain geometric badge tiles rest in a rigid impersonal line"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "fusiform face area",
+      "anatomy_label": "FUSIFORM FACE AREA\nFACE DETECTOR",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the lower ventral temporal curve of the matte-pastel 3D brain model, the fusiform face area dims into cool dove-grey"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a clean pastel-slate factory shift station with three rotating powder-blue duty boards and a brushed-silver shift dial",
+      "comparison_action": "clothed low-poly worker figures in muted-sage jackets and caps step past the shift dial and pass a clipboard baton from behind"
+    },
+    {
+      "sentence_index": 14,
+      "end_sentence_index": 15,
+      "act": 2,
+      "location_id": "cool_slate_screening_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-grey blazer sleeves and cool porcelain-white gloved low-poly hands in gloves over a powder-blue sorting table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and place twelve muted-sage figure pegs into one small coral group of four and two calm powder-blue groups of eight",
+      "consequence": "the two calm powder-blue groups outnumber the single coral group two to one"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "jordan_hall_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a quiet side office off the pastel-slate Jordan Hall corridor with five empty cool-cream rest chairs",
+      "action": "viewed strictly from behind, a clothed low-poly assistant figure in a sweater and trousers opens the side exit door for a departing student figure in a coat"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "jordan_hall_corridor",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark suit sleeves and cool porcelain-white gloved low-poly hands in gloves extending from the bottom frame edge over a cool slate superintendent desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set aside the neutral science notebook and grip a warden shift clipboard tightly",
+      "consequence": "the neutral science notebook slides closed at the corner of the desk"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "jordan_hall_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the windowless pastel-slate superintendent office overlooking the partitioned basement hallway",
+      "action": "viewed strictly from behind, the clothed low-poly director figure in a dark suit and trousers leans forward and points over shift schedules alone"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "jordan_hall_corridor",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_left",
+      "structure": "a longitudinal cutaway of the pastel-slate basement hallway and visitor observation vestibule",
+      "internal_mechanism": "clothed low-poly visitor figures in muted coats and blazers walk slowly through the observation vestibule and step back upstairs without pausing"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "jordan_hall_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright pastel-slate hallway doorway with a neat stack of unmarked dove-grey visitor passes on a cool-slate stand",
+      "action": "viewed strictly from behind, clothed low-poly guest figures in coats and slacks walk past the cool-slate stand and nod quietly"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "VMPFC BRAKE\nSOCIAL JUDGMENT",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat matte-pastel sagittal half-brain cutaway, the lower front ventromedial prefrontal cortex dims softly in pale slate"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "jordan_hall_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "the bright pale-stone stairwell leading into the pastel-slate Jordan Hall corridor",
+      "action": "viewed strictly from behind, a clothed low-poly psychologist figure in a powder-blue blazer and slacks walks briskly down the steps and stops in the corridor"
+    },
+    {
+      "sentence_index": 23,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "jordan_hall_corridor",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer sleeves and cool porcelain-white gloved low-poly hands in gloves over a cool slate corridor rail",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts firmly in a clear stop gesture while the other hand points to the superintendent clipboard",
+      "consequence": "the superintendent clipboard halts mid-air above the cool slate rail"
+    },
+    {
+      "sentence_index": 23,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "jordan_hall_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the brightly lit pastel-slate Jordan Hall corridor between the frosted doors and schedule desk",
+      "action": "viewed strictly from behind, the clothed low-poly psychologist in a powder-blue blazer stands steady facing the clothed director in a dark suit who lowers his clipboard"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a crisp powder-blue ceramic washbasin filled with clear cool water under bright morning skylight",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in sleeves and gloves reach into the basin and pour a brisk clear splash across a fogged glass pane clearing it instantly"
+    },
+    {
+      "sentence_index": 25,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "cool_slate_screening_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark suit sleeves and cool porcelain-white gloved low-poly hands in gloves over the cool slate schedule desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands close the shift binder firmly and slide the corridor partition bolt open",
+      "consequence": "the frosted corridor partition swings wide open"
+    },
+    {
+      "sentence_index": 25,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "jordan_hall_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit exit stairwell of Jordan Hall opening from the pastel-slate basement toward bright outdoor daylight",
+      "action": "viewed strictly from behind, clothed low-poly student figures in ordinary jackets and trousers walk together up the sunlit stairs"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "cool_slate_screening_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-sage shirt sleeves and cool porcelain-white gloved low-poly hands in gloves extending from the bottom frame edge over a cool slate table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands fold twelve pairs of silver-tinted sunglasses and place them neatly back into a dove-grey storage tray",
+      "consequence": "the dove-grey storage tray closes smoothly"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "stanford_archive_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a quiet sunlit pastel-stone university archive room lined with rows of pale-slate archival storage boxes",
+      "action": "viewed strictly from behind, a clothed low-poly researcher figure in a dove-grey coat and trousers reaches up and lifts down a sealed pale-slate archive box"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "cool_slate_screening_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-grey blazer sleeves and cool porcelain-white gloved low-poly hands in gloves over a cool slate desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and set a folded muted-sage shirt upright alone on a pedestal block",
+      "consequence": "the lone muted-sage shirt sits isolated without context"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "stanford_archive_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "dove-grey coat sleeves and cool porcelain-white gloved low-poly hands in gloves extending from the bottom frame edge over a cool slate reading table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands untie a pale-slate archive box ribbon and lift out neat stacks of cool-cream briefing folders",
+      "consequence": "the original cool-cream briefing folders spread cleanly across the reading table"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "stanford_archive_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-grey cuffs and cool porcelain-white gloved low-poly hands in gloves over a powder-blue stone reading desk",
+      "prop_action": "one cool porcelain-white gloved low-poly hand opens the orientation folder while the other hand traces highlighted pastel-coral lines with a silver pointer",
+      "consequence": "the silver pointer lands squarely on the highlighted coaching lines"
+    },
+    {
+      "sentence_index": 31,
+      "end_sentence_index": 32,
+      "act": 4,
+      "location_id": "jordan_hall_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright 1970s seminar orientation room with cool-slate tables and a standing briefing easel",
+      "action": "viewed strictly from behind, a clothed low-poly warden figure in a blazer and trousers leans forward and passes briefing folders to seated clothed student figures"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "stanford_archive_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer sleeves and cool porcelain-white gloved low-poly hands in gloves over a cool ceramic table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place two recruitment flyer cards side by side and slide different colored profile pegs beneath each",
+      "consequence": "one card attracts tall coral pegs while the neutral card attracts balanced sage pegs"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "stanford_archive_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean side-by-side cutaway sorting funnel built from pale-birch and cool-slate channels",
+      "internal_mechanism": "matte pastel-coral spheres roll preferentially into the left recruitment chute while balanced powder-blue spheres roll into the neutral chute"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nDIRECTED PLANNER",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the matte-pastel 3D cortical model, top-down pastel-coral pathways steer the front prefrontal cortex while calm powder-blue social circuits sit quiet"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "ethics_review_chamber",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit modern pastel-sage university ethics conference room with a wide oval cool-slate table",
+      "action": "viewed strictly from behind, clothed low-poly ethics panel figures in coats and blazers lean forward and open study binders around the oval cool-slate table"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "stanford_archive_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-slate jacket sleeves and cool porcelain-white gloved low-poly hands in gloves over a cool slate desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands connect a leader briefing block and a hierarchy block together on a brushed-silver track",
+      "consequence": "the two connected blocks push a boundary marker off center"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "cool_slate_screening_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_left",
+      "attire_and_hands": "powder-blue shirt sleeves and cool porcelain-white gloved low-poly hands in gloves extending from the bottom frame edge over a cool slate table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and place a smooth pastel-lavender ribbon over a sharp coral block",
+      "consequence": "the sharp coral block hides beneath the polite pastel-lavender ribbon"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nCONFLICT DETECTOR",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat matte-pastel sagittal half-brain cutaway, the medial anterior cingulate cortex dims quietly under soft lavender-slate shading"
+    },
+    {
+      "sentence_index": 40,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "ethics_review_chamber",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer cuffs and cool porcelain-white gloved low-poly hands in gloves over the oval cool-slate table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place a muted-sage independent monitor seal onto an unmarked cool-cream study binder",
+      "consequence": "the muted-sage seal locks cleanly onto the study binder cover"
+    },
+    {
+      "sentence_index": 40,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "ethics_review_chamber",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the bright modern pastel-sage ethics chamber with frosted glass walls and natural daylight",
+      "action": "viewed strictly from behind, the clothed low-poly ethics chair in a powder-blue blazer hands the approved safeguard binder across the table to a researcher in a coat"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a clean sunlit powder-blue tennis court sidelines stand where an impartial referee platform overlooks both halves of the court",
+      "comparison_action": "viewed strictly from behind, a clothed low-poly referee figure in a crisp white shirt and cap steps up and raises a calm open hand halting play cleanly"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "stanford_archive_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Stanford archive room with open pale-slate boxes and neat cool-cream folders on the reading table",
+      "action": "viewed strictly from behind, two clothed low-poly historian figures in coats and trousers lean in and point across the complete archival timeline"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "ethics_review_chamber",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-grey blazer sleeves and cool porcelain-white gloved low-poly hands in gloves over a cool slate conference desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and slide the researcher folder and the safety referee folder onto opposite sides of a silver divider",
+      "consequence": "a crisp brushed-silver divider stands firmly between both roles"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "ethics_review_chamber",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright modern pastel-slate team studio with open glass doors and a round cool-slate meeting table",
+      "action": "viewed strictly from behind, clothed low-poly colleague figures in sweaters and shirts pull out an extra chair welcoming an outside reviewer in a powder-blue coat"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "cool_slate_screening_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-slate shirt cuffs and cool porcelain-white gloved low-poly hands in gloves over a cool ceramic counter",
+      "prop_action": "both cool porcelain-white gloved low-poly hands unclip a heavy metal lanyard badge and set it gently down beside an open notebook",
+      "consequence": "the open cool-cream notebook lies accessible and level"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "ethics_review_chamber",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark blazer sleeves and cool porcelain-white gloved low-poly hands in gloves extending from the bottom frame edge over a cool slate table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide the referee whistle and audit checklist across the table to an independent colleague's gloved hands",
+      "consequence": "the independent colleague's gloved hands grip and hold the audit checklist"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "ethics_review_chamber",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit modern team studio with pale-birch acoustic panels and a cool-slate project board",
+      "action": "viewed strictly from behind, the clothed low-poly outside reviewer in a powder-blue coat steps up and points calmly to a blind spot on the project board"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nEMOTIONAL ALARM",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat matte-pastel sagittal half-brain cutaway, the deep almond-shaped amygdala cools from coral-pink into calm powder-blue and muted sage"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "cool_slate_screening_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-sage shirt sleeves and cool porcelain-white gloved low-poly hands in gloves over a cool slate bench",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place eight calm powder-blue figure pegs forward ahead of four dove-grey pegs",
+      "consequence": "the eight powder-blue pegs stand bright and steady in the foreground"
+    },
+    {
+      "sentence_index": 50,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "cool_slate_screening_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer cuffs and cool porcelain-white gloved low-poly hands in gloves over a cool ceramic table",
+      "prop_action": "one cool porcelain-white gloved low-poly hand closes a scripted coaching binder while the other hand lifts a clear brushed-silver compass",
+      "consequence": "the brushed-silver compass needle settles steadily north"
+    },
+    {
+      "sentence_index": 50,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "jordan_hall_corridor",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "muted-sage shirt sleeves and cool porcelain-white gloved low-poly hands in gloves extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved low-poly hands push open a frosted basement door revealing a sunlit pastel courtyard outside",
+      "consequence": "soft natural daylight streams across the cool-slate threshold"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "ethics_review_chamber",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Stanford courtyard outside Jordan Hall with pale-stone arches and muted-sage trees",
+      "action": "viewed strictly from behind, the clothed low-poly psychologist figure in a powder-blue blazer and colleagues in coats step forward and walk together in the open daylight"
+    },
+    {
+      "sentence_index": 28,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "stanford_archive_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "dove-grey blazer cuffs and cool porcelain-white gloved low-poly hands in gloves over a cool slate archive desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands open the archival orientation script folder right beside the folded muted-sage shirt",
+      "consequence": "the open coaching script folder reveals what drove the role-play"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "ethics_review_chamber",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a serene sunlit pastel-stone Stanford campus arcade with muted-sage trees opening upward into a clear powder-blue sky",
+      "action": "viewed strictly from behind, clothed low-poly figures in coats and blazers step and walk calmly through the sunlit arcade as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "GUARD TAPE TWIST",
+    "cover_sentence_index": 3,
+    "cover_brief": "low-poly psychologist raising palm to halt clipboard director beside mirrored sunglasses in bright pastel corridor"
+  }
+}

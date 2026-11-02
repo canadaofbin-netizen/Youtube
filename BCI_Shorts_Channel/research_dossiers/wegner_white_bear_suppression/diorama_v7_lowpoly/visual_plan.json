@@ -1,0 +1,679 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "wegner_white_bear_suppression",
+  "topic": "Daniel Wegner (1987, 1994) White Bear Thought-Suppression Bell Booth, 40% Post-Suppression Rebound Surge, Ironic Process Theory (Prefrontal Search vs Anterior Cingulate Monitor), and Single Replacement Focus Cure (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Wegner's Experiment 2 discovery that anchoring attention on a single concrete positive replacement object eliminates the 40% post-suppression rebound completely by aligning prefrontal focus.",
+  "outro_title_lines": [
+    "WEGNER ET AL. (1987, 1994)",
+    "TRINITY UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "FORCE IT OUT?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "WHITE BEAR TRAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "REBOUND SURGE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "IRONIC RADAR"
+    },
+    {
+      "sentence_index": 28,
+      "text": "STRESS SLIPS"
+    },
+    {
+      "sentence_index": 36,
+      "text": "ONE ANCHOR CURE"
+    },
+    {
+      "sentence_index": 44,
+      "text": "FEED THE TARGET"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "FORCE IT OUT?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "WHITE BEAR TRAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "REBOUND SURGE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "IRONIC RADAR"
+    },
+    {
+      "sentence_index": 28,
+      "text": "STRESS SLIPS"
+    },
+    {
+      "sentence_index": 36,
+      "text": "ONE ANCHOR CURE"
+    },
+    {
+      "sentence_index": 44,
+      "text": "FEED THE TARGET"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 16,
+      "mode": "split_hstack",
+      "left_clip_index": 16,
+      "right_clip_index": 17,
+      "left_label": "EXPRESS FIRST: 11",
+      "right_label": "SUPPRESS FIRST: 16+"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over a cool slate-gray booth desk",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand presses a cool brushed-silver desk bell beside a silver stand microphone while the left hand grips the slate desk edge",
+      "consequence": "soft mint-sage sound rings ripple outward from the cool brushed-silver desk bell"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cuffs and cool porcelain-white gloved low-poly hands trying to slide a matte chalk-white faceted low-poly geometric polar-bear sculpture off a slate tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands push the matte chalk-white faceted low-poly geometric polar-bear sculpture aside on a spring track where it slides right back to center",
+      "consequence": "the matte chalk-white geometric polar-bear sculpture stands squarely beside the brushed-silver desk bell"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and cool porcelain-white gloved low-poly hands compressing a spring-mounted pedestal on a limestone base",
+      "prop_action": "both cool porcelain-white gloved low-poly hands press the matte chalk-white geometric polar-bear sculpture downward onto a silver spring platform and lift back",
+      "consequence": "the matte chalk-white geometric polar-bear sculpture rises higher atop the extended silver platform"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands over an observation sill",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and set a matte chalk-white faceted low-poly geometric polar-bear sculpture beside a cool brushed-silver desk bell on a slate ledge",
+      "consequence": "the chalk-white geometric polar-bear sculpture and silver desk bell sit side by side in crisp studio daylight"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a bright cool-limestone psychology recording booth with an observation glass window, a cool slate-gray desk, a silver stand microphone, and a brushed-silver desk bell",
+      "action": "viewed strictly from behind a researcher in a navy blazer and boots outside the glass, a clothed low-poly student in a powder-blue sweater leans forward at the slate desk and taps the brushed-silver desk bell"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved low-poly hands over a cool slate tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and place a frosted glass cover over the matte chalk-white geometric polar-bear sculpture as soft light shines through",
+      "consequence": "the chalk-white geometric polar-bear silhouette remains completely visible inside the frosted cover"
+    },
+    {
+      "sentence_index": 5,
+      "end_sentence_index": 6,
+      "act": 1,
+      "location_id": "stone_study_corner",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit pale-limestone study room corner with a slate wall shelf holding a small matte chalk-white faceted low-poly geometric polar-bear sculpture",
+      "action": "viewed strictly from behind, a young clothed low-poly figure in a powder-blue coat, trousers, and boots steps into the pale-limestone corner while an older figure in a slate blazer points to the chalk-white bear sculpture"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright university hallway lined with cool-limestone recording booth doors and observation windows",
+      "action": "viewed strictly from behind, clothed low-poly students in pastel sweaters, slacks, caps, and boots walk and step quietly into the bright recording booths as a researcher in a navy blazer holds a silver tally clicker"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-limestone hotel reception counter displaying a polished cool brushed-silver service tap-bell beside a plain tick-only silver timer dial without numbers",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in navy sleeves set the cool brushed-silver tap-bell centered on the limestone counter and tap the plain tick-only silver timer"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "powder-blue shirt sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge beside the silver stand microphone",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand holds defensively above the brushed-silver desk bell then drops down to tap the silver dome",
+      "consequence": "a crisp silver chime ring expands across the cool slate tabletop"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright cool-limestone recording booth with bare pale-slate walls, a desk lamp, and the brushed-silver desk bell",
+      "action": "viewed strictly from behind, the clothed low-poly student in a powder-blue sweater and slacks turns their faceless low-poly head toward the desk lamp then reaches down to tap the silver bell"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool limestone basin mounted with a brushed-silver water faucet turning tightly shut",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves turn the brushed-silver faucet handle tightly shut as six clear powder-blue droplets still drop steadily into the basin"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands outside the booth window lining up six silver counter beads",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide and align six brushed-silver tally beads one by one along a cool slate counting rail",
+      "consequence": "six brushed-silver tally beads gleam in a row beside the matte chalk-white polar-bear sculpture"
+    },
+    {
+      "sentence_index": 13,
+      "end_sentence_index": 14,
+      "act": 2,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands setting eleven mint-sage blocks on a slate comparison tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands flip a blank mint-sage cue tile open on the slate ledge and place eleven mint-sage counter blocks neatly",
+      "consequence": "the moderate eleven-block mint-sage column stands complete on the left side of the slate tray"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "tilt_up",
+      "analogy_world": "a clear powder-blue water tank on a cool limestone base holding a buoyant pastel mint-and-white striped beach ball",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves push the pastel beach ball deep beneath the water surface and lift back so it arcs high above the rim"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands over the left slate counter rail",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align and tap the moderate stack of eleven mint-sage blocks beside a calm brushed-silver desk bell",
+      "consequence": "the left mint-sage column stays at a modest mid-level height"
+    },
+    {
+      "sentence_index": 16,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands over the right slate counter rail",
+      "prop_action": "one cool porcelain-white gloved low-poly hand taps the brushed-silver desk bell rapidly while the other hand places sixteen rose-coral blocks towering above",
+      "consequence": "the right rose-coral rebound column towers high above the left column"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool slate-gray test bench mounting a heavy coiled brushed-silver metal compression spring beneath a clear latch",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves press the brushed-silver metal spring tightly flat and open the side latch so the spring snaps upward forcefully"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the bright recording booth with sixteen silver chime rings surrounding the desk and observation window",
+      "action": "viewed strictly from behind, the clothed low-poly student in a powder-blue sweater leans forward at the slate desk as the researcher in a navy blazer places the tall block stack"
+    },
+    {
+      "sentence_index": 19,
+      "end_sentence_index": 20,
+      "act": 3,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a split two-level architectural gear box on a cool limestone base showing a slow upper search wheel above a fast tireless lower scanner ring",
+      "internal_mechanism": "the upper powder-blue wheel turns effortfully from slot to slot while the lower rose-coral ring spins effortlessly checking a tiny white bear silhouette"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright cool-limestone booth containing a slate desk lamp, a gray chair, and pale-slate wall tiles",
+      "action": "viewed strictly from behind, the clothed low-poly student in a powder-blue sweater turns rapidly toward the desk lamp and reaches toward the gray chair away from the silver bell"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL PFC\nDISTRACTION SEARCH",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the upper lateral forehead of the matte cool-porcelain 3D brain model, soft powder-blue light works busily across the dorsolateral prefrontal cortex"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nCONFLICT DETECTOR",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, muted rose-coral radar pulses fire rhythmically along the inner anterior cingulate cortex"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool limestone rooftop dome supporting a rotating matte-silver parabolic radar dish under pastel sky",
+      "comparison_action": "the matte-silver radar dish turns and glides smoothly around the limestone base illuminating a tiny chalk-white geometric polar-bear sculpture on every pass"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a cool pale-slate hallway coat rack fitted with a long row of twenty brushed-silver hooks",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in sweater sleeves lift and place tiny chalk-white bear charm blocks onto hook after hook along the slate coat rack"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt cuffs and cool porcelain-white gloved low-poly hands touching a silver desk lamp beside a small chalk-white bear block",
+      "prop_action": "one cool porcelain-white gloved low-poly hand taps the silver lamp base as a linked lever slides the matte chalk-white geometric polar-bear sculpture right back into view",
+      "consequence": "even the desk lamp now triggers the chalk-white geometric polar-bear sculpture"
+    },
+    {
+      "sentence_index": 27,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands adding heavy slate load weights onto a balance arm",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set two heavy slate load blocks onto the upper search pan so the lower radar pointer tilts sharply upward",
+      "consequence": "the rose-coral radar pointer dominates under heavy load"
+    },
+    {
+      "sentence_index": 27,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the cool-limestone booth under dim evening window light with the silver desk bell gleaming center stage",
+      "action": "viewed strictly from behind, a tired clothed low-poly student in a slate cardigan leans forward on elbows and taps the brushed-silver desk bell repeatedly"
+    },
+    {
+      "sentence_index": 28,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a two-tank architectural fuel gauge comparing an emptying powder-blue upper cylinder against a self-spinning rose-coral flywheel below",
+      "internal_mechanism": "as the upper powder-blue cylinder drains low, the lower rose-coral flywheel keeps spinning at full effortless speed"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nTIRED PLANNER",
+      "camera": "locked_tripod",
+      "brain_scene": "across the front lobe of the matte cool-porcelain 3D brain model, soft powder-blue light dims gently across the fatigued prefrontal cortex"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nTIRELESS MONITOR",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, muted rose-coral pulses keep firing briskly along the anterior cingulate cortex"
+    },
+    {
+      "sentence_index": 32,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "putting_green_terrace",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage shirt cuffs and cool porcelain-white gloved low-poly hands gripping a brushed-silver putter shaft on pastel green turf",
+      "prop_action": "both cool porcelain-white gloved low-poly hands grip the brushed-silver putter shaft and push a matte-white golf ball off line toward a powder-blue pond edge",
+      "consequence": "the matte-white golf ball rolls straight into the shallow powder-blue water basin"
+    },
+    {
+      "sentence_index": 32,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "putting_green_terrace",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright pastel mint-sage putting green bordered on the right by a calm powder-blue pond and a white center flagstick",
+      "action": "viewed strictly from behind, a clothed low-poly golfer in a slate sweater, slacks, cap, and boots steps forward and turns slightly toward the powder-blue pond"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "putting_green_terrace",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "slate sweater sleeves and cool porcelain-white gloved low-poly hands retrieving the matte-white ball beside the limestone pond rim",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts the matte-white golf ball from the stone rim while the other hand points the silver putter head toward the center white pin",
+      "consequence": "the silver putter face aligns squarely toward the center flagstick"
+    },
+    {
+      "sentence_index": 34,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands over the cool slate booth desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift a single muted rose-coral faceted low-poly compact car miniature and place it centered beside the silent silver bell",
+      "consequence": "the single muted rose-coral compact car miniature sits clearly in front of the microphone"
+    },
+    {
+      "sentence_index": 34,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright cool-limestone recording booth with the single muted rose-coral compact car miniature centered on the slate desk",
+      "action": "viewed strictly from behind, a clothed low-poly researcher in a navy blazer and boots steps out of the booth and closes the glass door beside the student"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved low-poly hands resting calmly on the slate desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands hold and turn the single muted rose-coral compact car miniature gently in place away from the brushed-silver desk bell",
+      "consequence": "the cool brushed-silver desk bell remains completely untouched and silent"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit cool-limestone booth with the silent silver desk bell and the single muted rose-coral compact car miniature",
+      "action": "viewed strictly from behind, the clothed low-poly student in a powder-blue sweater leans calmly toward the silver stand microphone while both gloved hands rest on the slate desk"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool slate-gray shelf holding a minimalist matte powder-blue tabletop radio with a brushed-silver rotary tuning dial and plain tick marks without numbers",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves grip and turn the brushed-silver radio dial smoothly onto one crisp mint-sage indicator notch"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands clearing tiny white bear charms off a slate board",
+      "prop_action": "both cool porcelain-white gloved low-poly hands push the scattered bear tokens into a slate drawer and close it beside the single compact car model",
+      "consequence": "the room tray stays clean around the single positive anchor"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "gentle_push_in",
+      "analogy_world": "a wide shallow cool-limestone reflecting pool filled with crystal-still powder-blue water",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves lift and set a smooth mint-sage stone gently onto the limestone pool rim beside glass-smooth powder-blue water"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "putting_green_terrace",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit pastel mint-sage putting green with a crisp white center flagstick",
+      "action": "viewed strictly from behind, the clothed low-poly golfer in a slate sweater, slacks, cap, and boots aligns squarely with the white flagstick and rolls the ball cleanly into the center cup"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean twin-arrow architectural channel on a cool limestone base where upper and lower guide tracks merge into one straight mint-sage lane",
+      "internal_mechanism": "pastel spheres from both tracks roll smoothly side by side into the same single target basin"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands over the slate comparison tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and align two equal low mint-sage block stacks side by side showing zero rebound spike",
+      "consequence": "both Period Two stacks sit level without any surge"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright Trinity University observation gallery overlooking the silent silver desk bell",
+      "action": "viewed strictly from behind, three clothed low-poly psychologists in blazers, shirts, slacks, and boots step around the slate counter tray and point toward the flat mint-sage bars"
+    },
+    {
+      "sentence_index": 43,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cuffs and cool porcelain-white gloved low-poly hands beside the silent silver desk bell",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides the chalk-white bear sculpture away while the other hand taps the single compact car model calmly",
+      "consequence": "the brushed-silver desk bell sits quiet in soft studio daylight"
+    },
+    {
+      "sentence_index": 43,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "trinity_bell_booth",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the bright cool-limestone booth and observation hallway",
+      "action": "viewed strictly from behind, the clothed low-poly student in a powder-blue sweater steps calmly from the slate desk and walks out toward the researcher"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "stone_study_corner",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a calm pastel evening bedroom study with cool powder-blue walls, a slate nightstand, and a soft frosted bedside lamp",
+      "action": "viewed strictly from behind, a clothed low-poly person in a soft mint-sage cardigan and trousers leans calmly on the bed edge and reaches to dim the frosted lamp"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "stone_study_corner",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage cardigan sleeves and cool porcelain-white gloved low-poly hands beside a plain tick-only bedside clock without numbers",
+      "prop_action": "both cool porcelain-white gloved low-poly hands turn the plain tick-only silver clock away from the pillow and set a smooth lavender stone onto the slate nightstand",
+      "consequence": "the slate nightstand looks calm and uncluttered under soft pastel light"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nBEDTIME LOOP",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, muted rose-coral tension along the anterior cingulate cortex softens gently to calm ivory"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nSINGLE TARGET",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front third of the matte cool-porcelain 3D brain model, steady soft mint-sage and powder-blue light focuses cleanly inside the prefrontal cortex"
+    },
+    {
+      "sentence_index": 48,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "stone_study_corner",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate sweater sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge carrying a matte-white porcelain coffee cup",
+      "prop_action": "both cool porcelain-white gloved low-poly hands hold a matte-white porcelain coffee cup level on a cool saucer and glide smoothly forward across pale-limestone tiles",
+      "consequence": "the dark liquid stays completely level inside the porcelain coffee cup without a ripple"
+    },
+    {
+      "sentence_index": 48,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "stone_study_corner",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate sweater cuffs and cool porcelain-white gloved low-poly hands setting the porcelain coffee cup onto a slate table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and set the matte-white porcelain coffee cup cleanly onto a mint-sage stone coaster",
+      "consequence": "the porcelain coffee cup rests dry and steady at center table"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit cool-limestone coastal point crowned by a single crisp matte-white lighthouse tower overlooking calm powder-blue water",
+      "comparison_action": "viewed strictly from behind a figure in a navy coat and cap on the pier, a sleek pastel mint-sage sailboat steers and glides straight toward the single white coastal lighthouse"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "putting_green_terrace",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright sunlit limestone garden path leading straight toward a pastel mint-sage pavilion",
+      "action": "viewed strictly from behind, two clothed low-poly figures in pastel jackets, caps, trousers, and boots walk and step steadily forward along the straight limestone path"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "putting_green_terrace",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit pastel campus courtyard with calm stone walkways and mint-sage trees",
+      "action": "viewed strictly from behind, clothed low-poly students in sweaters, coats, caps, and boots walk and step calmly across the open limestone courtyard"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "putting_green_terrace",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a serene sunlit limestone courtyard framed by pastel mint-sage trees opening into a clear powder-blue sky with soft white geometric clouds",
+      "action": "viewed strictly from behind, clothed low-poly figures in pastel coats, caps, and boots walk and step calmly forward as the camera tilts smoothly upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "WHITE BEAR TRAP",
+    "cover_sentence_index": 3,
+    "cover_brief": "matte chalk-white faceted low-poly geometric polar-bear sculpture beside a cool brushed-silver desk bell on a cool slate-gray booth table"
+  }
+}

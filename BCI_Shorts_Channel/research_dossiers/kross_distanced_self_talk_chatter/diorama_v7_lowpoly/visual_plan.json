@@ -1,0 +1,692 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "kross_distanced_self_talk_chatter",
+  "topic": "Ethan Kross (2014) University of Michigan Five-Minute Speech Stress & Silent Named Self-Talk Experiments, Moser (2017) One-Second Effortless Brain Calming, and Midnight Replay Shutdown (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Keeping first-name coaching completely silent inside your head to boost stage composure and shut down late-night shame replays across seven studies at zero cost.",
+  "outro_title_lines": [
+    "ETHAN KROSS (2014)",
+    "MICHIGAN SPEECH STUDY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "I AM CALM?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "USE YOUR NAME"
+    },
+    {
+      "sentence_index": 10,
+      "text": "ONE TINY WORD"
+    },
+    {
+      "sentence_index": 19,
+      "text": "FRIEND OR TRAP"
+    },
+    {
+      "sentence_index": 27,
+      "text": "UNDER A SECOND"
+    },
+    {
+      "sentence_index": 35,
+      "text": "KEEP IT SILENT"
+    },
+    {
+      "sentence_index": 43,
+      "text": "COACH YOURSELF"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "I AM CALM?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "USE YOUR NAME"
+    },
+    {
+      "sentence_index": 10,
+      "text": "ONE TINY WORD"
+    },
+    {
+      "sentence_index": 19,
+      "text": "FRIEND OR TRAP"
+    },
+    {
+      "sentence_index": 27,
+      "text": "UNDER A SECOND"
+    },
+    {
+      "sentence_index": 35,
+      "text": "KEEP IT SILENT"
+    },
+    {
+      "sentence_index": 43,
+      "text": "COACH YOURSELF"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 15,
+      "mode": "split_hstack",
+      "left_clip_index": 18,
+      "right_clip_index": 19,
+      "left_label": "FIRST PERSON: TENSE",
+      "right_label": "OWN NAME: POISED"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt sleeves and matte-white faceted low-poly gloved hands setting two cool cream reflection cards beside a soft-slate countdown clock on a desk",
+      "prop_action": "both matte-white faceted low-poly gloved hands place a pale-lavender card and a muted-sage card onto a pale ash-wood desk beside a notepad",
+      "consequence": "a wooden podium and two judge clipboards wait across the room in soft diffused light"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge gripping a pale-lavender prep card",
+      "prop_action": "both matte-white faceted low-poly gloved hands squeeze the edges of the pale-lavender card tightly and tap the desk tensely",
+      "consequence": "the soft-slate countdown clock ticks steadily beside the notepad"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted sage sweater sleeves and matte-white faceted low-poly gloved hands sliding the muted-sage coaching card center stage",
+      "prop_action": "one matte-white faceted low-poly gloved hand pushes the pale-lavender card aside and sets the muted-sage card cleanly beside the notepad",
+      "consequence": "calm posture settles smoothly over the pale ash-wood prep desk"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a calm psychology speech laboratory in soft diffused daylight with a prep desk, soft-slate clock, wooden podium, and two evaluator clipboards",
+      "action": "viewed strictly from behind, a clothed low-poly speaker in a powder-blue shirt stands at the podium facing two seated clothed low-poly judges in navy blazers holding clipboards"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and matte-white faceted low-poly gloved hands aligning two cool cream rating clipboards on the judge table",
+      "prop_action": "both matte-white faceted low-poly gloved hands set the two cool cream clipboards flat and place soft-slate pens across them",
+      "consequence": "the evaluation table stands ready opposite the wooden podium"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "soft slate cardigan sleeves and matte-white faceted low-poly gloved hands pushing aside a stack of dove-gray pep-talk cards",
+      "prop_action": "both matte-white faceted low-poly gloved hands slide the old dove-gray cards off the mat and open a clean cool cream study folder",
+      "consequence": "controlled experiment sheets replace old guesswork on the desk"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and matte-white faceted low-poly gloved hands lining up seven muted-sage study binders on a pale ash-wood shelf",
+      "prop_action": "one matte-white faceted low-poly gloved hand lifts the seventh muted-sage binder into place and aligns the row neatly",
+      "consequence": "seven matched pastel study binders stand side by side"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a calm university reception hallway leading into the speech-testing room with pale ash-wood doors",
+      "action": "viewed strictly from behind, clothed low-poly volunteers in muted sage, slate, and powder-blue sweaters walk calmly down the corridor toward the lab door"
+    },
+    {
+      "sentence_index": 7,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the quiet speech room with a tripod camera, wooden podium, and two evaluator desks",
+      "action": "viewed strictly from behind, a clothed low-poly speaker in a powder-blue shirt steps up before the podium as two blazer-clad evaluators hold clipboards"
+    },
+    {
+      "sentence_index": 7,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and matte-white faceted low-poly gloved hands starting the tripod camera beside two clipboards",
+      "prop_action": "one matte-white faceted low-poly gloved hand presses the matte slate record switch on the tripod camera and lifts a clipboard",
+      "consequence": "the camera lens points steadily toward the wooden podium"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a calm cool-cream countertop holding a matte powder-blue mechanical kitchen egg timer shaped like a smooth low-poly dome",
+      "comparison_action": "two matte-white faceted low-poly gloved hands in sage sleeves twist the top half of the matte powder-blue kitchen egg timer to a short notch and set it down ticking softly"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "clean_pullback_reveal",
+      "attire_and_hands": "soft slate blazer sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge flipping one small pronoun tile",
+      "prop_action": "both matte-white faceted low-poly gloved hands flip a single pale-lavender tile over to reveal a muted-sage tile on the prep card",
+      "consequence": "one swapped tile transforms the entire silent prompt"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a symmetrical muted-pastel cutaway of two side-by-side prep booths tinted soft pale-lavender on the left and muted sage on the right",
+      "internal_mechanism": "two clothed low-poly speakers review contrasting single-word prompt cards on identical pale ash-wood desks"
+    },
+    {
+      "sentence_index": 11,
+      "end_sentence_index": 12,
+      "act": 2,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-lavender sweater sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge over a cramped notepad",
+      "prop_action": "one matte-white faceted low-poly gloved hand traces a tight inward spiral on the cool cream notepad and taps the pencil anxiously",
+      "consequence": "tightly knotted pale-lavender loops crowd the prep page"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted sage sweater sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge over a clean coaching notepad",
+      "prop_action": "both matte-white faceted low-poly gloved hands align the muted-sage prompt card and write three clear bullet lines calmly",
+      "consequence": "neat structured talking points line up on the cool cream sheet"
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and matte-white faceted low-poly gloved hands watching playback monitors with two clipboards",
+      "prop_action": "both matte-white faceted low-poly gloved hands hold cool cream score clipboards and slide a slate pen down anonymous rating columns",
+      "consequence": "blind speech ratings get logged cleanly without knowing group assignment"
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the calm judge screening room with two cool cream clipboards and a matte slate monitor on a pale ash-wood table",
+      "action": "viewed strictly from behind, two clothed low-poly judges in navy blazers compare their clipboards and align wooden score bars"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-lavender shirt sleeves and matte-white faceted low-poly gloved hands fidgeting tightly with crumpled notes on a podium",
+      "prop_action": "both matte-white faceted low-poly gloved hands grip the sides of the wooden podium and fold the cool cream note card nervously",
+      "consequence": "a short pale-lavender confidence bar sits beside the podium"
+    },
+    {
+      "sentence_index": 15,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted sage shirt sleeves and matte-white faceted low-poly gloved hands resting open and steady on the wooden podium",
+      "prop_action": "both matte-white faceted low-poly gloved hands set the neat note card flat on the podium and gesture smoothly outward",
+      "consequence": "a tall muted-sage confidence bar stands beside the podium"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "evening_study_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a quiet evening bedroom desk in soft cool twilight with a crumpled notepad and soft-slate desk lamp",
+      "action": "viewed strictly from behind, a clothed low-poly speaker in a pale-lavender cardigan sits hunched at the desk flipping back through crumpled speech notes"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "evening_study_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-lavender cardigan sleeves and matte-white faceted low-poly gloved hands rolling a small dove-gray wheel deeper into a groove track",
+      "prop_action": "both matte-white faceted low-poly gloved hands spin the dove-gray wheel back and forth inside the rutted wooden track",
+      "consequence": "the repetitive loop stays stuck in the exact same groove"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "evening_study_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "pale-lavender cardigan sleeves and matte-white faceted low-poly gloved hands piling crumpled cool cream paper balls onto the desk",
+      "prop_action": "both matte-white faceted low-poly gloved hands crumple another cool cream note sheet and drop it onto the crowded blotter",
+      "consequence": "a heap of crumpled replay notes covers the evening desk"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and matte-white faceted low-poly gloved hands placing matching tall muted-sage gain blocks for both shy and outgoing groups",
+      "prop_action": "both matte-white faceted low-poly gloved hands set two equal-height muted-sage wooden bars side by side on the chart mat and tap them level",
+      "consequence": "both groups rise by the exact same calm margin"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a muted pastel camera-lens cutaway shifting from a tight cramped close-up box on the left to a wide calm coaching view on the right",
+      "internal_mechanism": "sliding the matte slate lens ring outward expands the cramped pale-lavender frame into a spacious powder-blue coaching view"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a calm sunlit lounge bench with two muted-sage mugs on a pale ash-wood side table",
+      "action": "viewed strictly from behind, two clothed low-poly friends in muted sage and powder-blue sweaters sit side by side sharing an open notebook calmly"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nFEAR CENTER",
+      "camera": "gentle_push_in",
+      "brain_scene": "deep inside the flat side-profile half-brain cross-section, the almond-shaped amygdala pulses rapidly with soft rose-lavender threat ripples"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nCHATTER BRAKE",
+      "camera": "locked_tripod",
+      "brain_scene": "across the front forehead lobes of the matte cool-ivory 3D brain model, busy rose-lavender ripples quiet smoothly into calm powder-blue facets"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nCALM CONTROL",
+      "camera": "locked_tripod",
+      "brain_scene": "along the inner midline arch of the flat side-profile half-brain model, soft muted-sage facets pulse evenly across the anterior cingulate"
+    },
+    {
+      "sentence_index": 25,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "neuro_wave_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white faceted low-poly gloved hands preparing a clean white sensor cap on a pale ash-wood stand",
+      "prop_action": "both matte-white faceted low-poly gloved hands align soft powder-blue sensor leads along the white cap and set a prompt card ready",
+      "consequence": "the millisecond brainwave station stands ready in soft light"
+    },
+    {
+      "sentence_index": 25,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "neuro_wave_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a calm sunlit neurophysiology suite with a matte slate waveform screen and a scanner console",
+      "action": "viewed strictly from behind, a clothed low-poly volunteer in a muted sage sweater and white sensor cap sits calmly while a white-coated researcher aligns the trace"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "neuro_wave_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and matte-white faceted low-poly gloved hands pointing a slate stylus at the start mark of a waveform sheet",
+      "prop_action": "the right matte-white faceted low-poly gloved hand taps the zero-second start line on a cool cream waveform chart and slides right",
+      "consequence": "two contrasting pastel wave curves wait to diverge"
+    },
+    {
+      "sentence_index": 27,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a calm cool-cream plaster wall panel fitted with a minimalist matte powder-blue rocker wall light switch",
+      "comparison_action": "a matte-white faceted low-poly gloved hand in a slate sleeve reaches up and flips the matte powder-blue wall light switch cleanly down in one crisp click"
+    },
+    {
+      "sentence_index": 28,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "neuro_wave_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and matte-white faceted low-poly gloved hands tracing a flat effort meter beside a dropping wave curve",
+      "prop_action": "one matte-white faceted low-poly gloved hand traces the dropping pale-lavender wave while the other taps a completely flat muted-sage effort bar",
+      "consequence": "the frontal effort gauge stays level at zero extra load"
+    },
+    {
+      "sentence_index": 28,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "neuro_wave_suite",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a muted pastel dual-meter cutaway showing an emotional wave dropping smoothly on top while an effort battery bar stays completely full below",
+      "internal_mechanism": "the upper wave glides gently downward as the lower muted-sage battery blocks remain untouched"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "neuro_wave_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "dove-gray sweater sleeves and matte-white faceted low-poly gloved hands straining to push back a heavy spring block on a track",
+      "prop_action": "both matte-white faceted low-poly gloved hands push hard against a stiff metal spring block until it rebounds backward",
+      "consequence": "forced suppression drains energy quickly on the bench"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "neuro_wave_suite",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge sliding a smooth wooden gear effortlessly",
+      "prop_action": "one matte-white faceted low-poly gloved hand nudges a balanced muted-sage wooden gear with one finger so it glides smoothly into place",
+      "consequence": "the effortless habit track engages without resistance"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit cafe table with two cool cream cups and a notebook",
+      "action": "viewed strictly from behind, a clothed low-poly person in a navy sweater leans calmly across the table offering steady encouragement to a friend"
+    },
+    {
+      "sentence_index": 32,
+      "end_sentence_index": 33,
+      "act": 4,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a calm playroom corner with wooden puzzle blocks and a small powder-blue cape draped on a chair",
+      "action": "viewed strictly from behind, a clothed low-poly five-year-old child in a powder-blue cape stands calmly fitting wooden puzzle blocks together with steady focus"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a calm indoor court sideline bench in soft diffused stadium light with folded muted-sage towels",
+      "action": "viewed strictly from behind, a clothed low-poly athlete in a navy warm-up jacket stands composed at the sideline squaring shoulders calmly"
+    },
+    {
+      "sentence_index": 35,
+      "act": 5,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and matte-white faceted low-poly gloved hands comparing an open loudspeaker icon vs a quiet thought bubble icon",
+      "prop_action": "both matte-white faceted low-poly gloved hands slide a dove-gray cover over the loudspeaker icon and tap the calm silent bubble card",
+      "consequence": "the silent inner bubble card rests centered on the table"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a calm pastel dinner party table with cool cream plates and water pitchers",
+      "action": "viewed strictly from behind, clothed low-poly guests in sweaters turn puzzled toward one standing speaker gesturing dramatically out loud"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge holding a small muted-sage name card",
+      "prop_action": "both matte-white faceted low-poly gloved hands lift the neat muted-sage coaching card and slide it smoothly inside a jacket pocket",
+      "consequence": "the coaching stays completely private and silent"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the calm pastel dinner table with cool cream dishes in soft daylight",
+      "action": "viewed strictly from behind, clothed low-poly diners in muted sage and powder-blue sweaters sit conversing naturally and calmly around the table"
+    },
+    {
+      "sentence_index": 39,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "evening_study_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted sage cardigan sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge over an evening journal",
+      "prop_action": "the right matte-white faceted low-poly gloved hand writes one short calm line on the cool cream journal page while the left holds the cover",
+      "consequence": "the single constructive takeaway sits neatly on the page"
+    },
+    {
+      "sentence_index": 39,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "evening_study_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted sage cardigan sleeves and matte-white faceted low-poly gloved hands closing the evening journal peacefully",
+      "prop_action": "both matte-white faceted low-poly gloved hands fold the muted-sage journal cover shut and set the slate pen beside it",
+      "consequence": "the evening desk stays tidy, calm, and free of crumpled paper"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "navy blazer sleeves and matte-white faceted low-poly gloved hands lining up seven muted-sage completion cubes beside a single pronoun tile",
+      "prop_action": "one matte-white faceted low-poly gloved hand places the single muted-sage tile in front of all seven aligned study blocks and taps it",
+      "consequence": "all seven study blocks align cleanly behind one simple word shift"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the Michigan speech laboratory and brainwave suite charts spread across a long pale ash-wood table",
+      "action": "viewed strictly from behind, clothed low-poly psychologists and neuroscientists in navy and white coats step back and set down their pens in quiet wonder"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy interview blazer sleeves and matte-white faceted low-poly gloved hands holding a cool cream portfolio folder outside a glass door",
+      "prop_action": "both matte-white faceted low-poly gloved hands align the edges of the cool cream portfolio folder and pause before a brushed-slate door handle",
+      "consequence": "the boardroom door handle waits just ahead in calm daylight"
+    },
+    {
+      "sentence_index": 43,
+      "act": 6,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright glass-walled workplace hallway outside a conference room door with pale ash-wood trim",
+      "action": "viewed strictly from behind, a clothed low-poly candidate in a navy blazer pauses outside the closed conference room door holding a portfolio"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and matte-white faceted low-poly gloved hands gripping a cool cream portfolio too tightly before loosening",
+      "prop_action": "both matte-white faceted low-poly gloved hands unclench from the portfolio spine and slide smoothly down to hold it lightly",
+      "consequence": "tense grip gives way to balanced composure"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nALARM COOLED",
+      "camera": "gentle_push_in",
+      "brain_scene": "deep inside the flat side-profile half-brain cross-section, the almond-shaped amygdala settles smoothly into soft powder-blue and muted-sage facets"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge opening the portfolio cover",
+      "prop_action": "the right matte-white faceted low-poly gloved hand taps a small muted-sage first-name tab at the top of the speaking notes",
+      "consequence": "clean step-one talking points appear in calm order"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "navy blazer sleeves and matte-white faceted low-poly gloved hands placing one muted-sage step block onto a clean card",
+      "prop_action": "both matte-white faceted low-poly gloved hands set the single muted-sage step-one block centered and close the outer flap",
+      "consequence": "advice looks simple and supportive like coaching a friend"
+    },
+    {
+      "sentence_index": 48,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and matte-white faceted low-poly gloved hands pressing down the matte slate conference door handle",
+      "prop_action": "the right matte-white faceted low-poly gloved hand presses the matte slate lever smoothly down and pushes the door open",
+      "consequence": "soft daylight streams across the conference room threshold"
+    },
+    {
+      "sentence_index": 48,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright glass-walled conference room with a pale ash-wood table and seated panelists",
+      "action": "viewed strictly from behind, the clothed low-poly candidate in a navy blazer walks smoothly inside and sets the portfolio calmly on the table"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "evening_study_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted sage cardigan sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge over a cool cream notebook",
+      "prop_action": "one matte-white faceted low-poly gloved hand writes one brief coaching line on the cool cream notebook and closes the cover gently",
+      "consequence": "the closed muted-sage notebook rests peacefully on the desk"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the calm sunlit Michigan speech room with the muted-sage coaching card resting on the wooden podium before neat empty chairs",
+      "action": "viewed strictly from behind, clothed low-poly speakers and researchers stand together looking calmly out the tall sunlit windows"
+    },
+    {
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "michigan_speech_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a calm sunlit Ann Arbor campus diag with pale stone walkways, muted sage slate-stone trees, and a soft powder-blue sky",
+      "action": "viewed strictly from behind, clothed low-poly students and professors walk peacefully along the campus path as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "USE YOUR NAME",
+    "cover_sentence_index": 3,
+    "cover_brief": "clothed low-poly speaker from behind at a wooden podium facing two clipboard judges with a countdown clock"
+  }
+}

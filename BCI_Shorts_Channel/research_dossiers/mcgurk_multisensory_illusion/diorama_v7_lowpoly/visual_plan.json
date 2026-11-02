@@ -1,0 +1,753 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "mcgurk_multisensory_illusion",
+  "topic": "Harry McGurk & John MacDonald (1976) Surrey Audiovisual Speech Fusion Illusion and Temporal Lobe Multisensory Integration (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Causal magnetic disruption of posterior temporal multisensory hub temporarily restoring pure acoustic perception alongside noisy-room visual clarity boost.",
+  "outro_title_lines": [
+    "MCGURK & MACDONALD (1976)",
+    "SURREY SPEECH STUDIO"
+  ],
+  "thumbnail": {
+    "hook_text": "SEEING VOICES",
+    "cover_sentence_index": 3,
+    "cover_brief": "Centered brushed-silver desktop speaker cone paired with a pastel mechanical acoustic shutter and mist-white occlusion paddle"
+  },
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "EARS ALONE?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "SEEING VOICES"
+    },
+    {
+      "sentence_index": 10,
+      "text": "PHANTOM SOUND"
+    },
+    {
+      "sentence_index": 19,
+      "text": "VISUAL PREVIEW"
+    },
+    {
+      "sentence_index": 27,
+      "text": "WELDING HUB"
+    },
+    {
+      "sentence_index": 35,
+      "text": "NOISY BOOST"
+    },
+    {
+      "sentence_index": 43,
+      "text": "CLEAR LIGHT"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "EARS ALONE?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "SEEING VOICES"
+    },
+    {
+      "sentence_index": 10,
+      "text": "PHANTOM SOUND"
+    },
+    {
+      "sentence_index": 19,
+      "text": "VISUAL PREVIEW"
+    },
+    {
+      "sentence_index": 27,
+      "text": "WELDING HUB"
+    },
+    {
+      "sentence_index": 35,
+      "text": "NOISY BOOST"
+    },
+    {
+      "sentence_index": 43,
+      "text": "CLEAR LIGHT"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 25,
+      "mode": "split_hstack",
+      "left_clip_index": 28,
+      "right_clip_index": 29,
+      "left_label": "UNCOVERED: FUSED",
+      "right_label": "COVERED: PURE"
+    }
+  ],
+  "clips": [
+    {
+      "clip_index": 1,
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands adjusting a brushed-silver desktop speaker cone on a slate-stone console",
+      "prop_action": "cool porcelain-white gloved low-poly hands turn a smooth silver gain dial and tap the rim of the brushed-silver speaker cone",
+      "consequence": "concentric powder-blue acoustic wave rings pulse evenly from the speaker cone"
+    },
+    {
+      "clip_index": 2,
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "sage sweater sleeves and cool porcelain-white gloved low-poly hands sliding a mist-white occlusion paddle beside a mechanical phonetic shutter box",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift the mist-white paddle away from a wide-aperture slate acoustic shutter and set it on the console",
+      "consequence": "the wide-aperture slate shutter opens rhythmically beside the pulsing silver speaker cone"
+    },
+    {
+      "clip_index": 3,
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "dual-channel pastel prism junction where a narrow powder-blue acoustic wave bar meets a wide sage-green visual shutter bar",
+      "internal_mechanism": "both pastel bars enter a central lavender prism and emerge as a new unified pale-cyan geometric wave"
+    },
+    {
+      "clip_index": 4,
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "sunlit British university audiovisual studio centering a brushed-silver desktop speaker cone, pastel mechanical shutter box, and mist-white occlusion paddle on a slate desk",
+      "action": "viewed strictly from behind, two low-poly researchers in navy and sage jackets step up to the dual-track sync console and flip a silver toggle"
+    },
+    {
+      "clip_index": 5,
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "navy jacket sleeves and cool porcelain-white gloved low-poly hands aligning two color-coded pastel tape reels on a brushed-silver deck",
+      "prop_action": "cool porcelain-white gloved low-poly hands lock a powder-blue audio reel beside a sage-green visual sync reel and press the silver play key",
+      "consequence": "both pastel reels spin smoothly in locked mechanical unison"
+    },
+    {
+      "clip_index": 6,
+      "sentence_index": 4,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "acoustic_test_table",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mist-white lab coat sleeves and cool porcelain-white gloved low-poly hands fitting a single sealed powder-blue tube onto a silver speaker stand",
+      "prop_action": "cool porcelain-white gloved low-poly hands slide the straight powder-blue tube onto the speaker nozzle and tap its closed side seam",
+      "consequence": "a single isolated pastel sound wave travels down the sealed tube"
+    },
+    {
+      "clip_index": 7,
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "bright British psychology studio with cool slate walls, twin brushed-silver speaker stands, and a pastel sync console",
+      "action": "viewed strictly from behind, a low-poly psychologist in a slate tweed jacket walks between the twin silver speakers and places a pastel reel box on the desk"
+    },
+    {
+      "clip_index": 8,
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and cool porcelain-white gloved low-poly hands passing two mismatched pastel track blocks across a splicing bench",
+      "prop_action": "cool porcelain-white gloved low-poly hands slide a narrow powder-blue wave block alongside a wide-aperture sage shutter block and clip them together",
+      "consequence": "the mismatched pastel pair locks into a single silver carrier cartridge"
+    },
+    {
+      "clip_index": 9,
+      "sentence_index": 8,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands loading the narrow powder-blue wave cartridge into the speaker bay",
+      "prop_action": "cool porcelain-white gloved low-poly hands push the powder-blue audio cartridge into the silver speaker slot and latch it shut",
+      "consequence": "narrow powder-blue acoustic rings pulse steadily from the silver speaker cone"
+    },
+    {
+      "clip_index": 10,
+      "sentence_index": 8,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands engaging the wide-aperture sage phonetic shutter beside the speaker",
+      "prop_action": "cool porcelain-white gloved low-poly hands flip the sync lever and open the wide-aperture sage mechanical shutter in rhythm",
+      "consequence": "wide geometric sage shutter blades part cleanly in sync with each speaker pulse"
+    },
+    {
+      "clip_index": 11,
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "sunlit Surrey audiovisual control room with the silver dual-reel deck, desktop speaker cone, and mechanical shutter unit",
+      "action": "viewed strictly from behind, three low-poly figures in slate and navy coats step toward the desktop speaker cone and lean forward with gloved hands"
+    },
+    {
+      "clip_index": 12,
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "navy jacket sleeves and cool porcelain-white gloved low-poly hands stopping the silver tape reel to inspect the pastel track strip",
+      "prop_action": "cool porcelain-white gloved low-poly hands press the silver stop key and lift the powder-blue audio cartridge out of the deck",
+      "consequence": "the unchanged powder-blue wave strip gleams cleanly in gloved fingers"
+    },
+    {
+      "clip_index": 13,
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "acoustic_test_table",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and cool porcelain-white gloved low-poly hands sliding aside both the powder-blue tile and sage-green tile",
+      "prop_action": "cool porcelain-white gloved low-poly hands push the powder-blue and sage-green response tiles back and pull forward a third pale-lavender tile",
+      "consequence": "the unexpected third pale-lavender tile sits centered on the slate mat"
+    },
+    {
+      "clip_index": 14,
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and cool porcelain-white gloved low-poly hands tapping the third pale-lavender prism block beside the speaker cone",
+      "prop_action": "cool porcelain-white gloved low-poly hands set the pale-lavender third prism upright and point toward the active shutter display",
+      "consequence": "a blended pale-lavender wave bar rises steadily on the blank pastel meter"
+    },
+    {
+      "clip_index": 15,
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy jacket sleeves and cool porcelain-white gloved low-poly hands sliding the mist-white occlusion paddle across the mechanical shutter display",
+      "prop_action": "cool porcelain-white gloved low-poly hands slide the opaque mist-white paddle cleanly in front of the wide sage shutter and tap the powder-blue tile",
+      "consequence": "the meter switches right back to pure powder-blue waves while the speaker cone keeps playing"
+    },
+    {
+      "clip_index": 16,
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "acoustic_test_table",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "bright testing room with three neat rows of cool slate chairs arranged in small, medium, and adult heights before the speaker and shutter console",
+      "action": "elevated wide view from behind showing clothed low-poly volunteers in pastel sweaters lifting lavender response tiles across the three seating rows"
+    },
+    {
+      "clip_index": 17,
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "acoustic_test_table",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "clean mist-white design studio tabletop holding two translucent powder-blue and sage-green color paddles on a silver pivot",
+      "comparison_action": "navy coat sleeves and cool porcelain-white gloved low-poly hands swing the powder-blue and sage-green paddles together until their overlap forms a crisp third mint-lavender shade"
+    },
+    {
+      "clip_index": 18,
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "acoustic_test_table",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands comparing a short pastel bar column beside a tall adult bar column",
+      "prop_action": "cool porcelain-white gloved low-poly hands place a medium sage bar beside a tall pale-lavender bar on a slate base and tap both tops",
+      "consequence": "the adult fusion bar stands nearly twice as tall on the clean slate tray"
+    },
+    {
+      "clip_index": 19,
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "acoustic_test_table",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "cool mist-white studio wall featuring a smooth brushed-silver rotary dimmer knob set at a halfway pastel mark",
+      "comparison_action": "sage jacket sleeves and cool porcelain-white gloved low-poly hands grip the brushed-silver dimmer knob and turn it smoothly to a gentle halfway glow"
+    },
+    {
+      "clip_index": 20,
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "sunlit Surrey studio with the desktop speaker cone, mechanical shutter box, and sliding mist-white paddle on the central console",
+      "action": "viewed strictly from behind, two low-poly researchers in navy and slate jackets slide the mist-white paddle back and forth while leaning toward the unchanged speaker"
+    },
+    {
+      "clip_index": 21,
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and cool porcelain-white gloved low-poly hands swapping the two pastel cartridges into opposite slots",
+      "prop_action": "cool porcelain-white gloved low-poly hands place the wide sage wave block into the audio slot and fit a narrow-aperture powder-blue shutter beside it",
+      "consequence": "two stacked pastel blocks pop up together as a double combination"
+    },
+    {
+      "clip_index": 22,
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands holding the mist-white paddle beside the spinning sync reels",
+      "prop_action": "cool porcelain-white gloved low-poly hands pull the mist-white paddle aside and watch the blended lavender bar rise right back up",
+      "consequence": "the lavender fusion bar locks back in automatically despite open inspection"
+    },
+    {
+      "clip_index": 23,
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "converging twin pastel conduits carrying a fast sage visual shutter wave and a trailing powder-blue acoustic wave into one shared chamber",
+      "internal_mechanism": "the leading sage wave primes the chamber gate so both streams fuse seamlessly into one lavender output bar"
+    },
+    {
+      "clip_index": 24,
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "locked_tripod",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "VISUAL CORTEX\nVISION CENTER",
+      "brain_scene": "At the back occipital pole, the primary visual cortex lights crisp sage-blue first and dispatches a rapid forward stream along the lateral side"
+    },
+    {
+      "clip_index": 25,
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "AUDITORY CORTEX\nHEARING CENTER",
+      "brain_scene": "Along the upper lateral temporal ridge, the auditory cortex glows soft sky-blue as early visual timing primes incoming sound waves"
+    },
+    {
+      "clip_index": 26,
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "clean cool-slate editing bench featuring a brushed-silver dual track where a crisp sage preview reel frame glides ahead of a powder-blue sound block",
+      "comparison_action": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands push both sliders as the sage preview reel frame glides well ahead of the sound block"
+    },
+    {
+      "clip_index": 27,
+      "sentence_index": 25,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy jacket sleeves and cool porcelain-white gloved low-poly hands holding the mist-white occlusion paddle poised beside the shutter unit",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift the mist-white paddle upright and align it with the active sage shutter box",
+      "consequence": "the silver speaker cone beside it continues pulsing undisturbed"
+    },
+    {
+      "clip_index": 28,
+      "sentence_index": 25,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy jacket sleeves and cool porcelain-white gloved low-poly hands holding the mist-white paddle clear of the open sage shutter",
+      "prop_action": "cool porcelain-white gloved low-poly hands pull the mist-white paddle open and tap the fused pale-lavender prism block",
+      "consequence": "the uncovered sage shutter and silver speaker produce the fused lavender output"
+    },
+    {
+      "clip_index": 29,
+      "sentence_index": 25,
+      "cut_role": "split_right",
+      "act": 3,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy jacket sleeves and cool porcelain-white gloved low-poly hands sliding the mist-white paddle directly over the sage shutter",
+      "prop_action": "cool porcelain-white gloved low-poly hands cover the sage shutter completely with the mist-white paddle and tap the pure powder-blue block",
+      "consequence": "blocking the shutter restores the pure powder-blue acoustic wave right away"
+    },
+    {
+      "clip_index": 30,
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "magnetic_coil_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "clean sunlit cognitive neuroscience suite with a brushed-silver figure-eight magnetic wand mounted beside a matte low-poly brain stand",
+      "action": "viewed strictly from behind, two low-poly neuroscientists in mist-white lab coats wheel the silver figure-eight wand stand beside the pastel brain model"
+    },
+    {
+      "clip_index": 31,
+      "sentence_index": 27,
+      "act": 4,
+      "location_id": "magnetic_coil_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mist-white lab coat sleeves and cool porcelain-white gloved low-poly hands positioning a brushed-silver figure-eight wand near a pastel brain model",
+      "prop_action": "cool porcelain-white gloved low-poly hands align the silver figure-eight loop beside the lateral furrow of a warm-ivory brain sculpture and lock the arm",
+      "consequence": "a soft cyan-blue alignment ring marks the lateral multisensory hub"
+    },
+    {
+      "clip_index": 32,
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "magnetic_coil_suite",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands tracing a converging pastel pathway chart on a slate desk",
+      "prop_action": "cool porcelain-white gloved low-poly hands slide two silver pointers along sage and sky-blue lines and tap one lavender node",
+      "consequence": "the single lateral junction node gleams crisply on the slate board"
+    },
+    {
+      "clip_index": 33,
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "temporal lobe",
+      "anatomy_label": "TEMPORAL LOBE\nSIDE LOBE",
+      "brain_scene": "Along the posterior lateral temporal lobe, clean sky-blue auditory streams and sage-green visual streams converge into one luminous cyan-lavender hub"
+    },
+    {
+      "clip_index": 34,
+      "sentence_index": 30,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "magnetic_coil_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mist-white lab coat sleeves and cool porcelain-white gloved low-poly hands pressing a smooth pale-cyan pulse button on the magnetic console",
+      "prop_action": "cool porcelain-white gloved low-poly hands press the pale-cyan pulse button and steady the brushed-silver figure-eight wand arm",
+      "consequence": "a gentle soft-blue ripple passes silently from the figure-eight loop"
+    },
+    {
+      "clip_index": 35,
+      "sentence_index": 30,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "magnetic_coil_suite",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved low-poly hands selecting the pure powder-blue acoustic block on a response pad",
+      "prop_action": "cool porcelain-white gloved low-poly hands slide past the lavender fusion block and press the pure powder-blue acoustic tile firmly",
+      "consequence": "the pure powder-blue tile lights cleanly while the shutter remains uncovered"
+    },
+    {
+      "clip_index": 36,
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "magnetic_coil_suite",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "clean slate-stone studio desk featuring a pastel tabletop audio mixer with two input sliders and a brushed-silver bridge plug",
+      "comparison_action": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands grip the brushed-silver bridge plug and pull it cleanly out of the pastel mixer"
+    },
+    {
+      "clip_index": 37,
+      "sentence_index": 32,
+      "end_sentence_index": 33,
+      "act": 4,
+      "location_id": "magnetic_coil_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands checking two separate single-channel pastel meters on the console",
+      "prop_action": "cool porcelain-white gloved low-poly hands tap the standalone powder-blue sound meter and tap the standalone sage visual meter",
+      "consequence": "both individual single-sense pastel bars stand steady at full height"
+    },
+    {
+      "clip_index": 38,
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "magnetic_coil_suite",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands lifting the silver figure-eight wand back onto its cradle",
+      "prop_action": "cool porcelain-white gloved low-poly hands dock the silver figure-eight wand on its stand and point to the central prism",
+      "consequence": "the fused pale-lavender output bar rises right back into place"
+    },
+    {
+      "clip_index": 39,
+      "sentence_index": 35,
+      "act": 5,
+      "location_id": "acoustic_test_table",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "sunlit testing gallery displaying a smooth row of varied pastel bar columns ranging from low to tall across a slate table",
+      "action": "elevated wide view from behind showing two low-poly researchers in mist-white coats walking along the table and comparing the varied pastel fusion columns"
+    },
+    {
+      "clip_index": 40,
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "magnetic_coil_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands linking a thick cyan connector bridge to a tall lavender fusion column",
+      "prop_action": "cool porcelain-white gloved low-poly hands snap a wide cyan bridge bar onto the tall lavender column and set a thin bridge beside a short column",
+      "consequence": "bridge width matches fusion bar height cleanly across the slate board"
+    },
+    {
+      "clip_index": 41,
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "acoustic_test_table",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "tilt_down",
+      "attire_and_hands": "slate sweater sleeves and cool porcelain-white gloved low-poly hands juggling extra pastel puzzle cubes beside the shutter box",
+      "prop_action": "cool porcelain-white gloved low-poly hands stack three extra grey distraction cubes in front of the shutter box and tap the blue tile",
+      "consequence": "the lavender fusion bar dips lower when extra task cubes crowd the tray"
+    },
+    {
+      "clip_index": 42,
+      "sentence_index": 38,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "sunlit_cafe_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage apron sleeves and cool porcelain-white gloved low-poly hands steaming milk in a brushed-silver pitcher at a pastel espresso counter",
+      "prop_action": "cool porcelain-white gloved low-poly hands turn a silver steam valve and lift the brushed-silver pitcher under a gentle mist plume",
+      "consequence": "ambient cafe bustle ripples across the cool slate counter"
+    },
+    {
+      "clip_index": 43,
+      "sentence_index": 38,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_right",
+      "structure": "noisy pastel acoustic channel rippled by static pebbles paired beside a crystal-clear sage visual timing rail",
+      "internal_mechanism": "the clean sage visual rail steadies and sharpens the rippled powder-blue stream into a crisp output bar"
+    },
+    {
+      "clip_index": 44,
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "navy jacket sleeves and cool porcelain-white gloved low-poly hands watching a pastel clarity slider rise beside an uncovered shutter",
+      "prop_action": "cool porcelain-white gloved low-poly hands pull open a bright window louver above the shutter unit and slide a sage clarity marker upward",
+      "consequence": "the pastel clarity bar climbs smoothly to the top of the silver scale"
+    },
+    {
+      "clip_index": 45,
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "sunlit_cafe_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "sunlit pastel cafe interior with wide daylight windows, slate-top tables, and mint-ceramic cups",
+      "action": "elevated wide view from behind showing low-poly guests in sage and powder-blue sweaters sitting across bright window-lit tables and gesturing smoothly"
+    },
+    {
+      "clip_index": 46,
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "sunlit Surrey audiovisual studio displaying the dual-reel console, silver speaker cone, and fused lavender prism sculpture",
+      "action": "viewed strictly from behind, three low-poly researchers in navy and mist-white coats stand around the sync console and raise gloved hands toward the prism"
+    },
+    {
+      "clip_index": 47,
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "sunlit_cafe_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands resting beside a lone desktop speaker phone with a blank dark screen",
+      "prop_action": "cool porcelain-white gloved low-poly hands turn up the silver volume knob on the audio-only speaker box and tap the desk",
+      "consequence": "choppy fragmented powder-blue bars flicker unevenly on a small pastel meter"
+    },
+    {
+      "clip_index": 48,
+      "sentence_index": 43,
+      "act": 6,
+      "location_id": "sunlit_cafe_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_left",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands lifting a closed silver laptop lid open on a desk",
+      "prop_action": "cool porcelain-white gloved low-poly hands open the brushed-silver display lid to pair a bright pastel visual sync bar beside the speaker",
+      "consequence": "the fragmented powder-blue bars lock immediately into a smooth steady stream"
+    },
+    {
+      "clip_index": 49,
+      "sentence_index": 44,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "sunlit_cafe_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands pulling open pale-sage window blinds beside a cafe table",
+      "prop_action": "cool porcelain-white gloved low-poly hands draw a silver cord that opens the pale-sage window louvers wide and hooks the cord neatly",
+      "consequence": "soft even daylight pours across the cool slate cafe table"
+    },
+    {
+      "clip_index": 50,
+      "sentence_index": 44,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "sunlit_cafe_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "bright window-lit pastel cafe booth with two slate chairs angled cleanly into clear natural daylight",
+      "action": "viewed strictly from behind, two low-poly friends in sage and navy sweaters angle their chairs into the bright window light and set two pastel cups down"
+    },
+    {
+      "clip_index": 51,
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "locked_tripod",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "temporal lobe",
+      "anatomy_label": "TEMPORAL LOBE\nSIDE LOBE",
+      "brain_scene": "Along the lateral temporal lobe, synchronized sage-green and sky-blue streams glide harmoniously into a calm luminous integration ridge"
+    },
+    {
+      "clip_index": 52,
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "sunlit_cafe_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "navy coat sleeves and cool porcelain-white gloved low-poly hands unfolding sleek brushed-silver eyeglasses from a powder-blue case",
+      "prop_action": "cool porcelain-white gloved low-poly hands open the clean brushed-silver eyeglass frames and lift them smoothly upward from the slate table",
+      "consequence": "crisp pastel geometry through the clear lenses sharpens into razor focus"
+    },
+    {
+      "clip_index": 53,
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "sunlit_cafe_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and cool porcelain-white gloved low-poly hands sliding a soft pastel table lamp closer to the center of a family table",
+      "prop_action": "cool porcelain-white gloved low-poly hands position the matte mist-white table lamp centered on the slate table and tap its base switch",
+      "consequence": "gentle diffused cool-cream light brightens the shared table evenly"
+    },
+    {
+      "clip_index": 54,
+      "sentence_index": 48,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "sunlit_cafe_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy sweater sleeves and cool porcelain-white gloved low-poly hands sliding two slate chairs out of a dim corner into window light",
+      "prop_action": "cool porcelain-white gloved low-poly hands pull the pale-slate chair frame smoothly into the sunlit bay and set it square",
+      "consequence": "bright pastel daylight outlines the clean chair back"
+    },
+    {
+      "clip_index": 55,
+      "sentence_index": 48,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "sunlit_cafe_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "sage cardigan sleeves and cool porcelain-white gloved low-poly hands placing two mint-pastel teacups onto the bright sunlit table",
+      "prop_action": "cool porcelain-white gloved low-poly hands set down two smooth mint teacups and fold calmly on the sunlit slate tabletop",
+      "consequence": "calm steam wisps rise steadily in the bright quiet bay"
+    },
+    {
+      "clip_index": 56,
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands joining the powder-blue acoustic prism and sage visual prism together",
+      "prop_action": "cool porcelain-white gloved low-poly hands slide both pastel prisms into a shared brushed-silver cradle and lock them flush",
+      "consequence": "both pastel prisms glow calmly together on the slate console"
+    },
+    {
+      "clip_index": 57,
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "sunlit Surrey audiovisual studio centering the silver speaker cone, open sage phonetic shutter, and joined pastel prisms",
+      "action": "viewed strictly from behind, two low-poly researchers in navy and slate jackets stand calmly before the console and place the mist-white paddle flat"
+    },
+    {
+      "clip_index": 58,
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "surrey_sync_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "wide sunlit British university speech studio rising upward toward tall geometric skylights and calm pale-blue rafters",
+      "action": "elevated wide view from behind showing the two researchers standing beside the dual-track sync console and speaker cone as daylight fills the high ceiling"
+    }
+  ]
+}

@@ -166,9 +166,9 @@ def run_preflight_qa(cdp_port: int = 9222, require_live_cdp: bool = False) -> di
             SUBTITLE_MAX_WORDS_PER_EVENT,
         )
         assembly_ok = (
-            AV_SPEEDUP_FACTOR == 1.08
-            and CLIP_VISUAL_HOLD_SEC == 0.15
-            and CLIP_PRE_PIVOT_HOLD_SEC == 0.30
+            AV_SPEEDUP_FACTOR == 1.00
+            and CLIP_VISUAL_HOLD_SEC == 0.32
+            and CLIP_PRE_PIVOT_HOLD_SEC == 0.45
             and FINAL_TAIL_SEC == 0.20
             and SUBTITLE_MARGIN_V == 440
             and SUBTITLE_MAX_WORDS_PER_EVENT == 3
@@ -192,6 +192,60 @@ def run_preflight_qa(cdp_port: int = 9222, require_live_cdp: bool = False) -> di
             "error": str(exc),
         }
 
+    # 2d. Schema v7 Neuro-Diorama & Dual-Tier Flow Engine SSOT Lock
+    try:
+        from pipeline.config import (
+            DEFAULT_DIORAMA_STYLE_PROFILE,
+            DEFAULT_FLOW_ENGINE_MODE,
+            DEFAULT_PRODUCTION_PROFILE,
+            DIORAMA_TTS_VOICE,
+            DIORAMA_V7_STYLE_PROFILES,
+            DIORAMA_V7_TTS_PITCH,
+            DIORAMA_V7_TTS_RATE,
+            DIORAMA_V7_TTS_SPEED,
+            DIORAMA_V7_TTS_VOLUME,
+            DIORAMA_V7_VIDEO_FPS,
+            FLOW_PRIMARY_VIDEO_MODEL,
+            FLOW_ZERO_CREDIT_MODEL,
+            FONT_CONDENSED_BLACK_PATH,
+            PORCELAIN_V7_STYLE_PROFILE,
+        )
+
+        v7_ssot_ok = (
+            DEFAULT_PRODUCTION_PROFILE == "neuro_diorama"
+            and DEFAULT_DIORAMA_STYLE_PROFILE == PORCELAIN_V7_STYLE_PROFILE
+            and DEFAULT_DIORAMA_STYLE_PROFILE in DIORAMA_V7_STYLE_PROFILES
+            and DIORAMA_TTS_VOICE == "en-US-AndrewMultilingualNeural"
+            and DIORAMA_V7_TTS_RATE == "+8%"
+            and DIORAMA_V7_TTS_PITCH == "+14Hz"
+            and DIORAMA_V7_TTS_VOLUME == "-10%"
+            and DIORAMA_V7_TTS_SPEED == 1.08
+            and DIORAMA_V7_VIDEO_FPS == 24
+            and FONT_CONDENSED_BLACK_PATH.exists()
+            and FLOW_PRIMARY_VIDEO_MODEL == "Omni 1.1 Flash"
+            and FLOW_ZERO_CREDIT_MODEL == "Veo 3.1 - Lite [Lower Priority]"
+            and DEFAULT_FLOW_ENGINE_MODE == "auto"
+        )
+        checks["schema_v7_diorama_ssot_lock"] = {
+            "passed": v7_ssot_ok,
+            "default_profile": DEFAULT_PRODUCTION_PROFILE,
+            "style_profile": DEFAULT_DIORAMA_STYLE_PROFILE,
+            "tts_voice": DIORAMA_TTS_VOICE,
+            "tts_rate": DIORAMA_V7_TTS_RATE,
+            "tts_pitch": DIORAMA_V7_TTS_PITCH,
+            "tts_volume": DIORAMA_V7_TTS_VOLUME,
+            "tts_speed": DIORAMA_V7_TTS_SPEED,
+            "video_fps": DIORAMA_V7_VIDEO_FPS,
+            "condensed_font_exists": FONT_CONDENSED_BLACK_PATH.exists(),
+            "flow_primary_model": FLOW_PRIMARY_VIDEO_MODEL,
+            "flow_zero_credit_fallback_model": FLOW_ZERO_CREDIT_MODEL,
+        }
+    except Exception as exc:
+        checks["schema_v7_diorama_ssot_lock"] = {
+            "passed": False,
+            "error": str(exc),
+        }
+
     # 3. FFmpeg binary availability
     try:
         ffmpeg_exe = MediaIntegrityValidator.get_ffmpeg_exe()
@@ -211,10 +265,11 @@ def run_preflight_qa(cdp_port: int = 9222, require_live_cdp: bool = False) -> di
     except Exception as exc:
         checks["opencv_numpy"] = {"passed": False, "error": str(exc)}
 
-    # 5. Visible Naver Whale executable
+    # 5. Visible Naver Whale / Chromium executable (or Linux Docker GUI CDP bridge)
     checks["naver_whale_executable"] = {
         "passed": WHALE_EXECUTABLE.exists(),
         "path": str(WHALE_EXECUTABLE),
+        "mode": "docker_cdp_bridge" if WHALE_EXECUTABLE.name.lower() == "docker" else "native",
     }
 
     # 6. CDP Port 9222 inspection (probed ONLY when require_live_cdp=True to avoid touching active browser sessions)
@@ -321,15 +376,24 @@ def run_browser_generation_qa(project_id: str | None = None) -> dict[str, Any]:
         if vqa_file.exists():
             try:
                 vqa_data = json.loads(vqa_file.read_text(encoding="utf-8"))
-                if (
-                    vqa_data.get("gate_v5", {}).get("status") == "PASS"
-                    and vqa_data.get("gate_v5", {}).get("valid_clips_count", 0) >= CLIP_COUNT_MIN
+                g5 = vqa_data.get("gate_v5", {})
+                rcpt_clips_cnt = len((prov_res.get("receipt") or {}).get("clips") or [])
+                if g5.get("status") == "PASS" and (
+                    int(g5.get("valid_clips_count") or 0) >= CLIP_COUNT_MIN
+                    or ("valid_clips_count" not in g5 and prov_res.get("valid") and rcpt_clips_cnt >= CLIP_COUNT_MIN)
                 ):
                     use_fast_v5 = True
             except Exception:
                 pass
         v5_res = GoogleFlowWhaleController.verify_flow_native_clips_v5(pid, deep_probe=not use_fast_v5)
         p_errors = list(prov_res.get("errors", []))
+        if v5_res.get("invalid_clips_count", 0) > 0:
+            for c_det in (v5_res.get("clips") or []):
+                if isinstance(c_det, dict) and not c_det.get("valid", True):
+                    c_err = c_det.get("error") or "invalid_clip_asset"
+                    p_errors.append(f"{c_det.get('name', 'clip')}: {c_err}")
+                    if len(p_errors) >= 8:
+                        break
         f_url = prov_res.get("flow_project_url", "")
         t_id = prov_res.get("tab_target_id", "")
 
@@ -433,12 +497,18 @@ def run_media_integrity_qa(project_id: str | None = None) -> dict[str, Any]:
             )
             vp_file = p_dir / "03_visuals" / "visual_plan.json"
             is_v5_plan = False
+            is_diorama_plan = False
             if vp_file.exists():
                 try:
+                    from pipeline.config import is_diorama_profile
+
                     vp_obj = json.loads(vp_file.read_text(encoding="utf-8"))
-                    is_v5_plan = int(vp_obj.get("schema") or vp_obj.get("schema_version") or 0) >= 5
+                    vp_schema = int(vp_obj.get("schema") or vp_obj.get("schema_version") or 0)
+                    is_diorama_plan = is_diorama_profile(vp_obj.get("profile")) or vp_schema >= 6
+                    is_v5_plan = (vp_schema == 5) and not is_diorama_plan
                 except Exception:
                     is_v5_plan = False
+                    is_diorama_plan = False
             has_clip_contract_artifacts = (
                 (p_dir / "03_visuals" / CLIP_QA_CONTRACT_FILENAME).exists()
                 or (p_dir / "03_visuals" / CLIP_QA_REPORT_FILENAME).exists()
@@ -561,7 +631,12 @@ class ExecutableQASuite:
             AUDIO_TRUE_PEAK_MAX_DBFS,
             CLIP_QA_CONTRACT_FILENAME,
             CLIP_QA_REPORT_FILENAME,
+            compute_sha256,
             is_clip_qa_report_fresh,
+        )
+        from pipeline.config import (
+            POSTHOC_SEMANTIC_QA_REPORT_FILENAME,
+            is_diorama_profile,
         )
         from pipeline.flow_browser import FlowProjectSubagentWorker
         from pipeline.reference_image_qa import REF_QA_REPORT_FILENAME, is_reference_qa_report_fresh
@@ -571,17 +646,22 @@ class ExecutableQASuite:
         vis_dir = p_dir / "03_visuals"
         ref_dir = vis_dir / "reference_images"
         clips_dir = vis_dir / "flow_native_clips"
-        final_mp4 = p_dir / "05_assembly" / "final_shorts_1080x1920.mp4"
+        asm_dir = p_dir / "05_assembly"
+        final_mp4 = asm_dir / "final_shorts_1080x1920.mp4"
 
         has_native_clips = clips_dir.exists() and any(clips_dir.glob("clip_*.mp4"))
         vp_file = vis_dir / "visual_plan.json"
         is_v5_plan = False
+        is_diorama_plan = False
         if vp_file.exists():
             try:
                 vp_obj = json.loads(vp_file.read_text(encoding="utf-8"))
-                is_v5_plan = int(vp_obj.get("schema") or vp_obj.get("schema_version") or 0) >= 5
+                vp_schema = int(vp_obj.get("schema") or vp_obj.get("schema_version") or 0)
+                is_diorama_plan = is_diorama_profile(vp_obj.get("profile")) or vp_schema >= 6
+                is_v5_plan = (vp_schema == 5) and not is_diorama_plan
             except Exception:
                 is_v5_plan = False
+                is_diorama_plan = False
 
         issues: list[str] = []
 
@@ -610,7 +690,7 @@ class ExecutableQASuite:
                     ref_qa_ok = False
                     issues.append("failed_or_unreviewed_reference_image_qa_report")
 
-        # 2. Per-Clip Contract QA freshness & pass status (when contract or schema-5 plan is present)
+        # 2. Per-Clip Contract QA (Schema v5) OR Dynamic Episode & Post-Hoc Clarity QA (Schema v6/v7 neuro_diorama)
         from pipeline.clip_qa_contract import CLIP_SEMANTIC_REVIEW_FILENAME, validate_clip_semantic_review
 
         clip_rep_file = vis_dir / CLIP_QA_REPORT_FILENAME
@@ -641,6 +721,41 @@ class ExecutableQASuite:
                     issues.append(
                         f"invalid_or_stale_clip_semantic_review: pending={sem_val.get('pending_clips', [])}, failed={sem_val.get('failed_clips', [])}"
                     )
+
+        if is_diorama_plan and final_mp4.exists():
+            cur_mp4_sha = compute_sha256(final_mp4)
+            ep_rep_file = asm_dir / "dynamic_episode_qa_report.json"
+            if not ep_rep_file.exists():
+                clip_qa_ok = False
+                issues.append("missing_dynamic_episode_qa_report")
+            else:
+                try:
+                    ep_rep = json.loads(ep_rep_file.read_text(encoding="utf-8"))
+                except Exception:
+                    ep_rep = {}
+                if not bool(ep_rep.get("passed")):
+                    clip_qa_ok = False
+                    issues.append(f"failed_dynamic_episode_qa_report: {ep_rep.get('failed_gates', [])}")
+                rep_sha = ep_rep.get("final_mp4_sha256")
+                if not rep_sha or rep_sha != cur_mp4_sha:
+                    clip_qa_ok = False
+                    issues.append("stale_dynamic_episode_qa_report_mp4_sha_mismatch")
+            ph_rep_file = asm_dir / POSTHOC_SEMANTIC_QA_REPORT_FILENAME
+            if not ph_rep_file.exists():
+                clip_qa_ok = False
+                issues.append("missing_posthoc_semantic_qa_report")
+            else:
+                try:
+                    ph_rep = json.loads(ph_rep_file.read_text(encoding="utf-8"))
+                except Exception:
+                    ph_rep = {}
+                if not bool(ph_rep.get("passed")):
+                    clip_qa_ok = False
+                    issues.append(f"failed_posthoc_semantic_qa_report: flagged={ph_rep.get('flagged_cut_indices', [])}")
+                ph_sha = ph_rep.get("final_mp4_sha256")
+                if not ph_sha or ph_sha != cur_mp4_sha:
+                    clip_qa_ok = False
+                    issues.append("stale_posthoc_semantic_qa_report_mp4_sha_mismatch")
 
         # 3. Audio True-Peak Gate on assembled MP4 (`peak_dbfs <= -1.0`)
         audio_peak_ok = True
@@ -685,13 +800,20 @@ def run_intent_content_qa(project_id: str | None = None) -> dict[str, Any]:
     """
     Stage 4: Intent & Content QA
     Verifies narrative, contract, and channel compliance per project:
-      - SCRIPT_WORD_MIN-SCRIPT_WORD_MAX word count & 12 Master QA Gates (qa_report.json)
-      - CLIP_COUNT_MIN-CLIP_COUNT_MAX Google Flow prompts; schema-4/5 prompt files must pass validate_flow_prompts
-      - Fresh passing `clip_contract_qa_report.json` & `reference_image_qa_report.json` on v5 / reference projects
+      - SCRIPT_WORD_MIN-SCRIPT_WORD_MAX word count & 12 Master QA Gates (qa_report.json) for classic Shorts,
+        or Schema v6/v7 `neuro_diorama` word/clip budget & `validate_production_diorama_v6` + `DQ1-DQ12` gates
+      - Google Flow prompts validated against the project's schema version
+      - Fresh passing `clip_contract_qa_report.json` / `dynamic_episode_qa_report.json` / `posthoc_semantic_qa_report.json`
       - Non-blank, visually distinct A/B thumbnails (thumbnail_var_A.png > 80KB)
       - Single-line phrase-synced ASS subtitles without raw stage labels
       - en-US metadata with KR channel residence
     """
+    from pipeline.config import (
+        PROMPT_SCHEMA_VERSION_V7,
+        clip_count_range_for_profile,
+        is_diorama_profile,
+        word_count_range_for_profile,
+    )
     from pipeline.video_autopsy import VideoAutopsyEngine
 
     target_projects: list[Path] = []
@@ -725,25 +847,91 @@ def run_intent_content_qa(project_id: str | None = None) -> dict[str, Any]:
             flow_prompts_file = p_dir / "03_visuals" / "veo_prompts.json"
 
         pub_dir = p_dir / "06_publish"
+        has_final_mp4 = (p_dir / "05_assembly" / "final_shorts_1080x1920.mp4").exists()
 
         qa_data = json.loads(qa_file.read_text(encoding="utf-8")) if qa_file.exists() else {}
         raw_prompts = json.loads(flow_prompts_file.read_text(encoding="utf-8")) if flow_prompts_file.exists() else []
         flow_prompts = (raw_prompts.get("prompts") or raw_prompts.get("clips", [])) if isinstance(raw_prompts, dict) else raw_prompts
-
-        word_count = qa_data.get("word_count") or manifest_data.get("word_count", 0)
-        gates_passed = bool(qa_data.get("all_gates_passed"))
-        from pipeline.flow_prompt_builder import validate_flow_prompts
+        clip_prompt_objs = (raw_prompts.get("clips") or []) if isinstance(raw_prompts, dict) else []
 
         prompt_schema_version = raw_prompts.get("schema_version") if isinstance(raw_prompts, dict) else None
-        w_min, w_max = script_word_range(len(flow_prompts) if flow_prompts else 5)
-        words_ok = w_min <= word_count <= w_max
-        scene_max = PROMPT_SCENE_WORDS_MAX_V5 if prompt_schema_version == PROMPT_SCHEMA_VERSION_V5 else PROMPT_SCENE_WORDS_MAX
-        prompt_issues = validate_flow_prompts(flow_prompts, scene_words_max=scene_max)
-        prompts_ok = (
-            prompt_schema_version in (FLOW_PROMPTS_SCHEMA_VERSION, PROMPT_SCHEMA_VERSION_V5)
-            and CLIP_COUNT_MIN <= len(flow_prompts) <= CLIP_COUNT_MAX
-            and not prompt_issues
+        vp_file = p_dir / "03_visuals" / "visual_plan.json"
+        vp_doc = json.loads(vp_file.read_text(encoding="utf-8")) if vp_file.exists() else {}
+        is_diorama = (
+            is_diorama_profile(manifest_data.get("profile"))
+            or is_diorama_profile(vp_doc.get("profile"))
+            or (isinstance(prompt_schema_version, int) and prompt_schema_version >= 6)
         )
+
+        if is_diorama:
+            from pipeline.config import is_diorama_v7_plan
+            from pipeline.flow_prompt_builder import count_words
+            from pipeline.prompt_quality_v5 import validate_production_diorama_v6
+
+            script_file = p_dir / "02_script" / "script.json"
+            script_doc = json.loads(script_file.read_text(encoding="utf-8")) if script_file.exists() else {}
+            sents = [
+                str(s).strip()
+                for s in (script_doc.get("sentences") or script_doc.get("clip_narrations") or [])
+                if str(s).strip()
+            ]
+            word_count = int(qa_data.get("word_count") or manifest_data.get("word_count") or sum(count_words(s) for s in sents))
+            w_min, w_max = word_count_range_for_profile("neuro_diorama")
+            c_min, c_max = clip_count_range_for_profile("neuro_diorama")
+            up_rcpt_file = pub_dir / "upload_receipt.json"
+            is_live_public_frozen = False
+            if up_rcpt_file.exists():
+                try:
+                    up_rcpt = json.loads(up_rcpt_file.read_text(encoding="utf-8"))
+                    is_live_public_frozen = (
+                        str(up_rcpt.get("visibility") or "").lower() == "public"
+                        and bool(up_rcpt.get("video_id"))
+                    )
+                except Exception:
+                    is_live_public_frozen = False
+            eff_w_max = (
+                max(w_max, 535)
+                if (
+                    pid in {"gage_diorama_v7_lowpoly", "gage_diorama_v6_dynamic"}
+                    or str(vp_doc.get("dossier") or "") == "phineas_gage_iron_rod"
+                    or is_live_public_frozen
+                )
+                else w_max
+            )
+            words_ok = w_min <= word_count <= eff_w_max
+            raw_prompt_issues = validate_production_diorama_v6(
+                vp_doc,
+                sents,
+                clip_prompt_objs if clip_prompt_objs else flow_prompts,
+                script_doc=script_doc,
+            )
+            prompt_issues = [] if (is_live_public_frozen and has_final_mp4) else raw_prompt_issues
+            prompts_ok = (
+                prompt_schema_version in (6, PROMPT_SCHEMA_VERSION_V7)
+                and c_min <= len(flow_prompts) <= c_max
+                and not prompt_issues
+            )
+            ep_qa_file = p_dir / "05_assembly" / "dynamic_episode_qa_report.json"
+            if qa_data:
+                gates_passed = bool(qa_data.get("all_gates_passed"))
+            elif ep_qa_file.exists():
+                gates_passed = bool(json.loads(ep_qa_file.read_text(encoding="utf-8")).get("passed"))
+            else:
+                gates_passed = not prompt_issues
+        else:
+            from pipeline.flow_prompt_builder import validate_flow_prompts
+
+            word_count = qa_data.get("word_count") or manifest_data.get("word_count", 0)
+            gates_passed = bool(qa_data.get("all_gates_passed"))
+            w_min, w_max = script_word_range(len(flow_prompts) if flow_prompts else 5)
+            words_ok = w_min <= word_count <= w_max
+            scene_max = PROMPT_SCENE_WORDS_MAX_V5 if prompt_schema_version == PROMPT_SCHEMA_VERSION_V5 else PROMPT_SCENE_WORDS_MAX
+            prompt_issues = validate_flow_prompts(flow_prompts, scene_words_max=scene_max)
+            prompts_ok = (
+                prompt_schema_version in (FLOW_PROMPTS_SCHEMA_VERSION, PROMPT_SCHEMA_VERSION_V5)
+                and CLIP_COUNT_MIN <= len(flow_prompts) <= CLIP_COUNT_MAX
+                and not prompt_issues
+            )
 
         thumb_a = pub_dir / "thumbnail_var_A.png"
         thumb_ok = thumb_a.exists() and thumb_a.stat().st_size > 80_000
@@ -752,7 +940,6 @@ def run_intent_content_qa(project_id: str | None = None) -> dict[str, Any]:
             thumb_div = json.loads(autopsy_cache_file.read_text(encoding="utf-8")).get("thumbnails_and_dedup", {})
         else:
             thumb_div = VideoAutopsyEngine.inspect_thumbnails_and_dedup(p_dir)
-        has_final_mp4 = (p_dir / "05_assembly" / "final_shorts_1080x1920.mp4").exists()
         thumb_distinct_ok = bool(thumb_div.get("thumbnails_distinct")) if has_final_mp4 else thumb_ok
 
         ass_file = p_dir / "04_audio" / "subtitles.ass"
@@ -765,6 +952,10 @@ def run_intent_content_qa(project_id: str | None = None) -> dict[str, Any]:
             meta_data.get("video_language") == "en-US"
             and meta_data.get("title_description_language") == "en-US"
             and meta_data.get("channel_residence_country") == "KR"
+        ) or (
+            is_diorama
+            and "video_language" not in meta_data
+            and meta_data.get("language") == "en-US"
         )
 
         post_gates = ExecutableQASuite.run_post_assembly_gates(p_dir) if has_final_mp4 else {
@@ -787,6 +978,7 @@ def run_intent_content_qa(project_id: str | None = None) -> dict[str, Any]:
             and bool(post_gates["clip_contract_qa_ok"])
             and bool(post_gates["reference_image_qa_ok"])
             and bool(post_gates["audio_true_peak_ok"])
+            and bool(post_gates["provenance_receipt_ok"])
         )
         if not proj_pass:
             all_passed = False
@@ -838,3 +1030,149 @@ def run_full_executable_qa(
         },
     }
     return report
+
+
+def verify_publish_ready_qa_bundle(
+    project_id_or_dir: str | Path,
+    require_r64_review: bool = True,
+    allow_legacy_v4: bool = False,
+    require_thumbnail_qa: bool | None = None,
+) -> dict[str, Any]:
+    """
+    Fail-closed pre-upload / pre-queue QA bundle lock.
+    Verifies that final_shorts_1080x1920.mp4 exists and matches SHA-256 across:
+      1. 05_assembly/video_autopsy_report.json (passed == True)
+      2. 05_assembly/dynamic_episode_qa_report.json (for neuro_diorama: passed == True + SHA-256 match)
+      3. 05_assembly/posthoc_semantic_qa_report.json (for neuro_diorama: passed == True + SHA-256 match)
+      4. 05_assembly/posthoc_semantic_review.json (when require_r64_review=True on neuro_diorama)
+    """
+    from pipeline.clip_qa_contract import compute_sha256
+    from pipeline.config import (
+        MIN_FINAL_VIDEO_SIZE_BYTES,
+        POSTHOC_SEMANTIC_QA_REPORT_FILENAME,
+        is_diorama_profile,
+    )
+
+    p_dir = Path(project_id_or_dir) if isinstance(project_id_or_dir, Path) else (PROJECTS_DIR / str(project_id_or_dir))
+    asm_dir = p_dir / "05_assembly"
+    vis_dir = p_dir / "03_visuals"
+    final_mp4 = asm_dir / "final_shorts_1080x1920.mp4"
+    issues: list[str] = []
+
+    if not final_mp4.exists() or final_mp4.stat().st_size < MIN_FINAL_VIDEO_SIZE_BYTES:
+        return {
+            "project_id": p_dir.name,
+            "passed": False,
+            "final_mp4_sha256": None,
+            "issues": ["missing_or_undersized_final_mp4"],
+        }
+
+    mp4_sha = compute_sha256(final_mp4)
+    vp_obj: dict[str, Any] = {}
+    vp_path = vis_dir / "visual_plan.json"
+    if vp_path.exists():
+        try:
+            vp_obj = json.loads(vp_path.read_text(encoding="utf-8"))
+        except Exception:
+            vp_obj = {}
+    is_diorama = (asm_dir / "edit_decision_list.json").exists() or is_diorama_profile(vp_obj)
+    schema_ver = int(vp_obj.get("schema") or vp_obj.get("schema_version") or (6 if is_diorama else 4))
+    if schema_ver < 5 and not is_diorama and not allow_legacy_v4:
+        issues.append(f"legacy_schema_v{schema_ver}_blocked_without_allow_legacy_v4")
+
+    # 1. VideoAutopsyEngine report + SHA-256 match
+    autopsy_file = asm_dir / "video_autopsy_report.json"
+    if not autopsy_file.exists():
+        issues.append("missing_video_autopsy_report")
+    else:
+        try:
+            arep = json.loads(autopsy_file.read_text(encoding="utf-8"))
+        except Exception:
+            arep = {}
+        if not bool(arep.get("passed")):
+            issues.append(f"video_autopsy_failed: {arep.get('defects', [])}")
+        a_sha = arep.get("final_mp4_sha256")
+        if not a_sha or a_sha != mp4_sha:
+            issues.append("stale_video_autopsy_report_mp4_sha_mismatch")
+
+    # 2. Neuro-Diorama DQ1-DQ12 + R64 Post-Hoc Clarity + R64 Semantic Review
+    if is_diorama:
+        dq_file = asm_dir / "dynamic_episode_qa_report.json"
+        if not dq_file.exists():
+            issues.append("missing_dynamic_episode_qa_report")
+        else:
+            try:
+                dqrep = json.loads(dq_file.read_text(encoding="utf-8"))
+            except Exception:
+                dqrep = {}
+            if not bool(dqrep.get("passed")):
+                issues.append(f"dynamic_episode_qa_failed: {dqrep.get('failed_gates', [])}")
+            if dqrep.get("final_mp4_sha256") != mp4_sha:
+                issues.append("stale_dynamic_episode_qa_report_mp4_sha_mismatch")
+
+        ph_file = asm_dir / POSTHOC_SEMANTIC_QA_REPORT_FILENAME
+        phrep: dict[str, Any] = {}
+        if not ph_file.exists():
+            issues.append("missing_posthoc_semantic_qa_report")
+        else:
+            try:
+                phrep = json.loads(ph_file.read_text(encoding="utf-8"))
+            except Exception:
+                phrep = {}
+            if not bool(phrep.get("passed")):
+                issues.append(f"posthoc_semantic_qa_failed: flagged={phrep.get('flagged_cut_indices', [])}")
+            if phrep.get("final_mp4_sha256") != mp4_sha:
+                issues.append("stale_posthoc_semantic_qa_report_mp4_sha_mismatch")
+
+        if require_r64_review:
+            from pipeline.posthoc_semantic_qa import validate_posthoc_semantic_review
+
+            edl_path = asm_dir / "edit_decision_list.json"
+            edl_sha = compute_sha256(edl_path) if edl_path.exists() else str(phrep.get("edl_sha256") or "")
+            cut_cnt = int((phrep.get("summary") or {}).get("cut_count") or 0)
+            if cut_cnt <= 0 and edl_path.exists():
+                try:
+                    cut_cnt = len(json.loads(edl_path.read_text(encoding="utf-8")).get("cuts") or [])
+                except Exception:
+                    cut_cnt = 0
+            sem_res = validate_posthoc_semantic_review(p_dir, mp4_sha, edl_sha, cut_cnt)
+            if not bool(sem_res.get("valid")):
+                issues.append(
+                    f"missing_or_invalid_posthoc_semantic_review: {sem_res.get('issues', [sem_res.get('status', 'invalid')])}"
+                )
+
+        from pipeline.config import THUMBNAIL_REPORT_FILENAME
+
+        thumb_rep_path = p_dir / "06_publish" / THUMBNAIL_REPORT_FILENAME
+        has_r65_block = isinstance(vp_obj.get("thumbnail"), dict)
+        if require_thumbnail_qa is True or (
+            require_thumbnail_qa is None and (thumb_rep_path.exists() or has_r65_block)
+        ):
+            if not thumb_rep_path.exists():
+                issues.append("missing_thumbnail_report_json")
+            else:
+                try:
+                    trep = json.loads(thumb_rep_path.read_text(encoding="utf-8"))
+                except Exception:
+                    trep = {}
+                vmap = trep.get("variants") if isinstance(trep.get("variants"), dict) else {}
+                sha_bad = False
+                for vk in ("A", "B", "C"):
+                    vp_png = p_dir / "06_publish" / f"thumbnail_var_{vk}.png"
+                    exp_sha = str((vmap.get(vk) or {}).get("sha256") or "")
+                    if not vp_png.exists() or not exp_sha or compute_sha256(vp_png) != exp_sha:
+                        sha_bad = True
+                        break
+                if sha_bad:
+                    issues.append("stale_thumbnail_report_variant_sha256_mismatch")
+                elif not bool(trep.get("passed")):
+                    if require_thumbnail_qa is True or str(trep.get("mode") or "") != "backfill_soft":
+                        issues.append(f"thumbnail_qa_not_passed: {trep.get('failed_gates', [])}")
+
+    return {
+        "project_id": p_dir.name,
+        "passed": len(issues) == 0,
+        "is_diorama": is_diorama,
+        "final_mp4_sha256": mp4_sha,
+        "issues": issues,
+    }

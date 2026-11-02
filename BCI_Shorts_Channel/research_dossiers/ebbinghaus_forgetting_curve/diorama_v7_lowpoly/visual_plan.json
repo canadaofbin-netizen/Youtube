@@ -1,0 +1,679 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "ebbinghaus_forgetting_curve",
+  "topic": "Hermann Ebbinghaus (1885) 2,300 Nonsense-Syllable Self-Experimentation, First-Hour Forgetting Waterfall, Hidden Relearning Savings Score, 2015 Replication, and Spaced Repetition (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Transformation of Ebbinghaus's 1885 Berlin Savings and Spacing discoveries into modern spaced-repetition science confirmed across all seven retention intervals in Murre and Dros's 2015 replication.",
+  "outro_title_lines": [
+    "EBBINGHAUS (1885)",
+    "UNIVERSITY OF BERLIN"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "CRAM ALL NIGHT?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "ONE HOUR CLIFF"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FAST WATERFALL"
+    },
+    {
+      "sentence_index": 19,
+      "text": "HIDDEN SAVINGS"
+    },
+    {
+      "sentence_index": 28,
+      "text": "EXACT REPLICA"
+    },
+    {
+      "sentence_index": 36,
+      "text": "SPACED RAMP"
+    },
+    {
+      "sentence_index": 44,
+      "text": "BEAT THE CLIFF"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "CRAM ALL NIGHT?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "ONE HOUR CLIFF"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FAST WATERFALL"
+    },
+    {
+      "sentence_index": 19,
+      "text": "HIDDEN SAVINGS"
+    },
+    {
+      "sentence_index": 28,
+      "text": "EXACT REPLICA"
+    },
+    {
+      "sentence_index": 36,
+      "text": "SPACED RAMP"
+    },
+    {
+      "sentence_index": 44,
+      "text": "BEAT THE CLIFF"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 15,
+      "mode": "split_hstack",
+      "left_clip_index": 15,
+      "right_clip_index": 16,
+      "left_label": "ROTE: 80 REPS",
+      "right_label": "MEANING: 8 REPS"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal wool coat sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over a cool slate-gray desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and place blank unlined pastel geometric ceramic memory tiles rapidly into one tall precarious tower",
+      "consequence": "the tall unlinked ceramic tile stack wobbles at the edge of a cool limestone step"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal coat cuffs and cool porcelain-white gloved low-poly hands beside a stepped slate ramp",
+      "prop_action": "one cool porcelain-white gloved low-poly hand pushes the unlinked ceramic tile tower as more than half the blank pastel tiles slide down a steep slate chute",
+      "consequence": "only a small base stack of blank pastel ceramic tiles remains on the upper shelf"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "tilt_down",
+      "structure": "a clean architectural cliff curve sculpted in cool pale limestone dropping steeply on the left before leveling into a long gentle mint-sage tail",
+      "internal_mechanism": "matte powder-blue spheres roll rapidly down the steep first-hour drop and coast slowly along the flat lower tail"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark wool coat cuffs and cool porcelain-white gloved low-poly hands over a cool slate-gray study desk",
+      "prop_action": "one cool porcelain-white gloved low-poly hand sets a pyramid-shaped brushed-silver metronome ticking while the other hand aligns thirteen blank unlined pastel ceramic tiles in a smooth stone tray",
+      "consequence": "the brushed-silver pendulum arm swings rhythmically beside the thirteen blank ceramic tiles"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a sunlit European scholar study with tall arched casement windows, a cool slate-gray desk, compartmentalized stone tile trays, and an unmarked curved glass slope",
+      "action": "viewed strictly from behind, a clothed low-poly scholar in a charcoal frock coat, shirt, trousers, and boots leans at the slate desk and flips blank unlined pastel ceramic tiles in time with the silver metronome"
+    },
+    {
+      "sentence_index": 4,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright cool-limestone university lecture hall where senior low-poly professors stand before an empty unmarked glass frame",
+      "action": "viewed strictly from behind, two clothed low-poly professors in dark coats, hats, and boots turn and step away while the young scholar holds a silver metronome"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the quiet sunlit Berlin slate study lined with cool limestone shelves holding neat stone boxes of blank geometric ceramic tiles",
+      "action": "viewed strictly from behind, the clothed low-poly scholar in a charcoal coat and boots closes the study door and sets a plain tick-only silver pocket chronometer without numbers on the slate desk"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "charcoal coat cuffs and cool porcelain-white gloved low-poly hands over compartmentalized cool-limestone trays",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and place neat rows of blank unlined powder-blue and mint-sage geometric ceramic memory tiles into smooth stone compartments",
+      "consequence": "hundreds of uniform blank unlined pastel ceramic tiles fill the unmarked stone compartments cleanly"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-limestone pedestal supporting a sleek pyramid-shaped matte powder-blue and brushed-silver mechanical metronome without numbers",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in dark sleeves open the side latch so the brushed-silver metronome arm swings crisply left and right in rapid even rhythm"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "charcoal coat sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge holding a plain tick-only silver chronometer without numbers",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand presses the top crown of the plain tick-only silver chronometer while the left hand places a rose-coral peg low on an unmarked slate curve",
+      "consequence": "the rose-coral peg marks a dramatic drop right after the starting post"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal cuffs and cool porcelain-white gloved low-poly hands over seven descending pastel stone columns on a slate base",
+      "prop_action": "both cool porcelain-white gloved low-poly hands hold and trace a steep brushed-silver rail plunging from the tall starting column down across the second and third columns",
+      "consequence": "the steepest drop occurs across the very first two columns"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool limestone courtyard platform holding a matte powder-blue cylindrical stave barrel with an open upper spigot and a low trickle spout",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves open the upper silver spigot so clear water pours fast from the top half then slows near the base"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark wool sleeves and cool porcelain-white gloved low-poly hands dividing thirteen blank ceramic tiles on a cool slate mat",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides seven blank gray tiles off the mat edge while the other hand aligns the remaining six mint-sage tiles",
+      "consequence": "fewer than half of the blank pastel ceramic tiles remain on the slate mat"
+    },
+    {
+      "sentence_index": 13,
+      "end_sentence_index": 14,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a cool slate sculptor bench holding a smooth wet mint-sage potter clay block resting solidly on a brushed-silver turntable",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves press and trace three crisp geometric grooves into the firm mint-sage potter clay block"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal coat sleeves and cool porcelain-white gloved low-poly hands over the left slate tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place a towering eighty-tile gray column of loose unlinked blank tiles that tilts and slides downward",
+      "consequence": "the tall unlinked gray stack requires massive height on the left slate tray"
+    },
+    {
+      "sentence_index": 15,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal coat sleeves and cool porcelain-white gloved low-poly hands over the right slate tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align and snap eight interlocking mint-sage puzzle tiles cleanly together into a compact arch",
+      "consequence": "the tiny eight-tile interlocking mint-sage arch stands rock-solid on the right tray"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "HIPPOCAMPUS\nMEMORY MAKER",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, soft mint-sage and powder-blue light illuminates the curved inner hippocampus ridge"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool limestone bench displaying a wide matte powder-blue and mint-sage interlocking hook-and-loop fabric strap",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves press the mint-sage hook strap firmly onto the powder-blue loop strap and pull upward to show the tight grip"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "modern_study_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp",
+      "action": "viewed strictly from behind, a clothed low-poly student in a navy sweater, trousers, and boots leans tiredly over the slate desk and rests both arms beside the spilled unlinked tiles"
+    },
+    {
+      "sentence_index": 19,
+      "end_sentence_index": 20,
+      "act": 3,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal coat cuffs and cool porcelain-white gloved low-poly hands comparing two plain tick-only silver chronometers without numbers on a slate mat",
+      "prop_action": "one cool porcelain-white gloved low-poly hand taps a full-sweep silver chronometer on the left while the other hand presses a second silver chronometer less than halfway around",
+      "consequence": "the second chronometer hand stops far earlier showing massive saved time"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright sunlit Berlin slate study with thirteen blank ceramic tiles arranged neatly beside the brushed-silver metronome",
+      "action": "viewed strictly from behind, the clothed low-poly scholar in a charcoal coat and boots flips smoothly through the thirteen blank ceramic tiles and presses the silver timer"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit cool-limestone garden walkway dusted with powdery white snow ahead of a sleek powder-blue snowplow blade",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves push and slide the sleek powder-blue snowplow blade smoothly forward revealing clean pre-laid slate pavers"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "HIPPOCAMPUS\nHIDDEN TRACE",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, a faint powder-blue pathway inside the hippocampus brightens smoothly back to mint-sage"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "charcoal coat sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge with a brushed-silver pointer",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand holds and traces a brushed-silver pointer across a flat horizontal shelf between the third and fourth mint-sage columns",
+      "consequence": "the curve stays remarkably flat across the overnight span"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a cool-limestone bridge span connecting an evening crescent moon block on the left to a morning sun block on the right at the exact same height",
+      "internal_mechanism": "mint-sage memory spheres glide horizontally across the overnight bridge without losing height"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool slate pedestal holding delicate mint-sage ceramic tiles sheltered safely beneath a clear protective glass dome",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves lift the clear protective glass dome off the pedestal and tap the intact mint-sage tiles"
+    },
+    {
+      "sentence_index": 27,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "amsterdam_replication_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands placing a modern frosted glass curve plate over a classic slate curve model",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and place the modern frosted glass curve plate onto guide pins above the classic mint-sage pegs",
+      "consequence": "the modern frosted curve hovers ready for comparison"
+    },
+    {
+      "sentence_index": 27,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "amsterdam_replication_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright modern Amsterdam psychology lab with cool slate-gray benches and an unmarked glass curve display",
+      "action": "viewed strictly from behind, two clothed low-poly psychologists in blazers, lab coats, and boots step beside a seated volunteer flipping blank ceramic tiles"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "amsterdam_replication_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright modern laboratory contrasting a classic silver metronome on the left pedestal with a modern frosted display on the right pedestal",
+      "action": "viewed strictly from behind, a clothed low-poly researcher in a navy blazer and boots walks from the classic metronome pedestal and places a hand on the modern display bench"
+    },
+    {
+      "sentence_index": 29,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "amsterdam_replication_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater cuffs and cool porcelain-white gloved low-poly hands over a modern slate tile tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and slide thirteen blank unlined ceramic tiles briskly across a cool slate slot in time with a blinking powder-blue pulse light",
+      "consequence": "the thirteen blank ceramic tiles stack neatly at the right stop"
+    },
+    {
+      "sentence_index": 29,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "amsterdam_replication_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Amsterdam lab with a clothed low-poly volunteer seated before the blank tile tray and blinking powder-blue tempo light",
+      "action": "viewed strictly from behind, the clothed low-poly volunteer in a powder-blue sweater, slacks, and boots slides the final tile into place as the researcher sets a mint-sage peg"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sleek pastel powder-blue passenger train car gliding smoothly along an elevated cool-limestone viaduct under soft daylight",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in blazer sleeves place a blank mint-sage tile on the window sill as the powder-blue train car glides steadily across the viaduct"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "amsterdam_replication_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved low-poly hands aligning seven powder-blue rings over seven classic mint-sage pegs",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align and press the frosted overlay down so all seven powder-blue rings land squarely around the seven classic mint-sage pegs",
+      "consequence": "both seven-point curves match dot for dot across the entire slate board"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "amsterdam_replication_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands pointing to the matching overnight shelf on the dual-curve board",
+      "prop_action": "one cool porcelain-white gloved low-poly hand traces the flat overnight step while the other hand places a small silver moon block beside the flat bridge",
+      "consequence": "both curves show the exact same flat overnight step"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal coat cuffs and cool porcelain-white gloved low-poly hands comparing one overloaded tray against three spaced trays on a slate bench",
+      "prop_action": "one cool porcelain-white gloved low-poly hand pushes back a tall single-stack gray tray while the other hand slides forward three neat spaced mint-sage trays",
+      "consequence": "the three spaced mint-sage trays sit balanced and orderly"
+    },
+    {
+      "sentence_index": 34,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal sleeves and cool porcelain-white gloved low-poly hands placing two block stacks onto a brushed-silver fulcrum rocker",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place a compact spaced stack of mint-sage blocks on the right pan tilting a tall gray crammed stack upward on the left",
+      "consequence": "the compact mint-sage spaced stack tips the silver fulcrum rocker decisively"
+    },
+    {
+      "sentence_index": 34,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a sawtooth architectural ramp in cool limestone where three spaced mint-sage support pillars lift a falling curve higher at each step",
+      "internal_mechanism": "a powder-blue sphere rebounds upward off each of the three spaced mint-sage pillars staying near the top rail"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "modern_study_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright modern sunlit study room with a cool slate-gray desk holding three spaced pastel tile trays and a rising mint-sage curve model",
+      "action": "viewed strictly from behind, a clothed low-poly learner in a powder-blue cardigan and slacks reaches out and lifts a blank ceramic tile from the second spaced tray"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool limestone windowsill holding a healthy pastel mint-sage potted plant beside a sleek brushed-silver watering can",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves tilt the brushed-silver watering can and pour a gentle measured stream onto the soil"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nACTIVE RECALL",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front third of the matte cool-porcelain 3D brain model, soft powder-blue light activates the prefrontal cortex and sends signals deep inward"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "HIPPOCAMPUS\nTRACE LOCKED",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, bright mint-sage light strengthens the curved inner hippocampus bridge"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "modern_study_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands tapping a sleek matte-slate tablet displaying three unmarked mint-sage step bars",
+      "prop_action": "one cool porcelain-white gloved low-poly hand taps the sleek matte-slate glass surface while the other hand slides a blank porcelain tile into the mastered tray",
+      "consequence": "all three unmarked mint-sage step bars glow evenly near the top edge"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "modern_study_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright university library reading hall with cool limestone arches and neat slate study tables",
+      "action": "viewed strictly from behind, clothed low-poly medical and language students in white coats, sweaters, caps, and boots lift and place small stacks of blank pastel tiles calmly"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands lifting a hinged silver curve bar from a steep drop up into a gentle high ramp",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift the hinged silver bar and place three mint-sage pillars beneath it near the top level",
+      "consequence": "the steep cliff transforms into a high gentle mint-sage ramp"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "amsterdam_replication_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved low-poly hands resting beside the matched seven-point dual-curve sculpture",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set the brushed-silver metronome beside the modern dual-curve sculpture and align their bases",
+      "consequence": "the classic metronome and modern seven-point curve sit aligned in bright studio light"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "amsterdam_replication_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright Amsterdam psychology lab displaying the matched seven-point curve sculpture on the central slate bench",
+      "action": "viewed strictly from behind, three clothed low-poly researchers in lab coats, blazers, and boots step around the slate bench and lean toward the matched curve"
+    },
+    {
+      "sentence_index": 43,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal coat cuffs and cool porcelain-white gloved low-poly hands closing the brushed-silver metronome latch",
+      "prop_action": "one cool porcelain-white gloved low-poly hand latches the silver metronome pendulum upright while the other hand closes the smooth stone tile box lid",
+      "consequence": "the Berlin slate desk rests neat and complete in crisp window light"
+    },
+    {
+      "sentence_index": 43,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "berlin_slate_study",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit Berlin slate study with the curved mint-sage sculpture glowing softly beside tall arched windows",
+      "action": "viewed strictly from behind, the clothed low-poly scholar in a charcoal coat, shirt, and boots steps calmly to the arched window and rests one hand beside the finished curve model"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a tidy sunlit modern desk in cool slate-gray holding four spaced pastel ceramic trays under a clear window",
+      "action": "viewed strictly from behind, a clothed low-poly learner in a mint-sage sweater, slacks, and boots leans calmly at the slate desk and reaches for the first tray"
+    },
+    {
+      "sentence_index": 45,
+      "end_sentence_index": 46,
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "mint-sage sweater sleeves and cool porcelain-white gloved low-poly hands connecting blank powder-blue puzzle tiles together on a slate mat",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align and snap three interlocking powder-blue tiles firmly together into a connected chain",
+      "consequence": "the connected pastel tile chain lifts cleanly as one solid unit"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage cuffs and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over four spaced ceramic slots",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and place four small silver check pins into four spaced pastel slots along a cool limestone bar",
+      "consequence": "the four spaced silver pins form an ascending step line"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a calm shallow powder-blue garden stream spanned by a sturdy arched pale-limestone stone bridge",
+      "comparison_action": "viewed strictly from behind, a clothed low-poly walker in a slate jacket, trousers, cap, and boots walks and steps briskly across the sturdy pale-limestone stone bridge"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nRETRIEVAL SPARK",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front lobe of the matte cool-porcelain 3D brain model, crisp powder-blue and mint-sage light illuminates the prefrontal cortex smoothly"
+    },
+    {
+      "sentence_index": 50,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage cardigan sleeves and cool porcelain-white gloved low-poly hands closing a smooth pastel ceramic tile box for the night",
+      "prop_action": "one cool porcelain-white gloved low-poly hand closes the ceramic tile box lid while the other hand presses a soft frosted bedside lamp switch",
+      "consequence": "the tidy slate desk rests peacefully under calm evening pastel light"
+    },
+    {
+      "sentence_index": 50,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright morning sunlit study desk as crisp daylight streams across the four spaced ceramic trays",
+      "action": "viewed strictly from behind, the clothed low-poly learner in a powder-blue jacket and boots opens the ceramic box calmly and closes it with confidence"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a sunlit limestone university courtyard bordered by pastel mint-sage trees",
+      "action": "viewed strictly from behind, clothed low-poly learners in pastel jackets, sweaters, caps, and boots walk and step briskly together across the bright limestone courtyard"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a serene sunlit limestone university quad framed by soft mint-sage trees opening into a clear powder-blue sky with geometric white clouds",
+      "action": "viewed strictly from behind, clothed low-poly students in pastel coats, caps, and boots walk and step calmly down the sunlit path as the camera tilts smoothly upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "ONE HOUR CLIFF",
+    "cover_sentence_index": 3,
+    "cover_brief": "stack of blank unlined pastel geometric ceramic memory tiles beside a brushed-silver pyramid metronome on a cool slate-gray desk"
+  }
+}

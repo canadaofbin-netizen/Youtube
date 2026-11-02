@@ -131,13 +131,13 @@ ANATOMY_FUNCTION_MAP: dict[str, dict[str, Any]] = {
         "location": "on the side of the head, above the ears",
     },
     "Broca's area": {
-        "aliases": ("broca", "brocas area"),
+        "aliases": ("broca's area", "broca s area", "brocas area", "broca area", "broca's region", "inferior frontal gyrus"),
         "plain": ("speech producer", "speech center"),
         "functions": ("producing speech",),
         "location": "left side, behind the temple",
     },
     "Wernicke's area": {
-        "aliases": ("wernicke", "wernickes area"),
+        "aliases": ("wernicke's area", "wernicke s area", "wernickes area", "wernicke area", "wernicke's region", "superior temporal gyrus"),
         "plain": ("language decoder", "word-understanding center"),
         "functions": ("understanding language",),
         "location": "left side, behind the ear",
@@ -230,6 +230,10 @@ def resolve_region(name: str) -> str | None:
     n = _norm(name)
     if not n:
         return None
+    if n == "broca":
+        return "Broca's area"
+    if n == "wernicke":
+        return "Wernicke's area"
     for alias, canon in _NAME_INDEX:
         if n == alias:
             return canon

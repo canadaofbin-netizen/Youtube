@@ -36,13 +36,13 @@ def cmd_info(_args):
     """Displays ALL ABOUT BRAIN channel blueprint and architectural guidelines."""
     print("""
 ========================================================================
-  ALL ABOUT BRAIN — CHANNEL BLUEPRINT & PRODUCTION ARCHITECTURE (v4)
+  ALL ABOUT BRAIN — CHANNEL BLUEPRINT & PRODUCTION ARCHITECTURE (v7)
 ========================================================================
 
 1. Channel One-Line Definition:
    "Combining UCL Neuroscience academic rigor with 100% AI production to
     explain Brain-Computer Interfaces and the mysteries of the brain in
-    5-10 clip documentary Shorts."
+    3-minute Neuro-Diorama Long-Shorts (Schema v7 porcelain_cinematic_v7)."
 
 2. Core Profile:
    - Channel Name: ALL ABOUT BRAIN
@@ -50,28 +50,24 @@ def cmd_info(_args):
    - Channel ID: UC4FeioYYv9X04Di07_MfZ7g
    - Channel Residence (Tax/AdSense): South Korea (KR)
    - Video & Metadata Language Lock: English (United States) (en-US)
-   - Format: YouTube Shorts <= 105.0s (5-10 clips, 18-28 words/clip, 90-280 words total)
-   - Cadence: Daily uploads (5 slots per day distributed across North American peaks)
+   - Default Format: Neuro-Diorama v7 Long-Short 148.0-179.0s @ 24fps (6-Act spine, 56-66+ 1:1 Zero-Reuse clips)
+   - Classic Format: Schema v5 Shorts <= 105.0s @ 30fps (5-10 clips)
+   - Cadence: Daily uploads (5 slots per day distributed across North American ET peaks)
 
 3. 7 Content Pillars & 5-Slot Mapping (with Default Narrative Archetype):
    [bci_tech]        BCI Tech Explained -> Slot 2 (12:00 PM ET) [chronicle_cutaway]
    [brain_news]      Brain News         -> Slot 2 (12:00 PM ET) [chronicle_cutaway]
-   [brain_history]   Brain History      -> Slot 4 (07:30 PM ET) [delusion_museum]
+   [brain_history]   Brain History      -> Slot 4 (08:00 PM ET) [delusion_museum]
    [brain_basics]    Brain Basics       -> Slot 3 (04:00 PM ET) [icon_autopsy]
    [brain_mysteries] Brain Mysteries    -> Slot 3 / Slot 5      [case_file]
    [brain_health]    Brain Health       -> Slot 1 (07:30 AM ET) [caveman_brain]
    [bci_ethics]      BCI Ethics         -> Slot 5 (10:30 PM ET) [forbidden_lab]
 
-4. Deep-Mechanism Role Spine (R42):
-   - 5-10 clips mapped by CLIP_ROLE_SEQUENCES (setup -> symptom -> failure -> crisis -> pivot -> step1..3 -> breakthrough -> conclusion)
-   - 6 Historical Archetype Lenses via --style:
-     case_file | delusion_museum | forbidden_lab | icon_autopsy | caveman_brain | chronicle_cutaway
-
-5. Production Contract v4 Locks:
-   - Voice Lock (R13): Puck (Google Flow Omni 1.1 male narrator, 2.7 native WPS, 1.08x synchronized speedup)
-   - Visual Spec (R14-A/R21/R38): Matte-white porcelain mannequins with translucent frosted-glass craniums in narration-matched real environments; realistic brain anatomy in bright white studio gallery; 4-point colour code
-   - Independent Conclusion Ending (R19): Standalone conclusion opener ("Which proves" / "Which is why") with clean 0.20s tail and 0.09s fade-out
-   - 12 QA Gates (R18): Strict zero-defect validation before publishing
+4. Neuro-Diorama System v7 & Dual-Tier Flow Locks (R5, R56-R66):
+   - Flow Engine (R5): Credit-aware Dual-Tier (`Omni 1.1 Flash` when credits available -> automatic `0-credit` `Veo 3.1 - Lite [Lower Priority]` fallback, zero paid APIs)
+   - Voice Lock (R58/R63/R63-P): `en-US-AndrewMultilingualNeural` (`dynamic_rush_v7` per-gear rates, `+14Hz`, `-10%` Silk Clean EQ, `kokoro-onnx` offline fallback)
+   - Visual Spec (R66 default / R63 legacy): Photorealistic high-key porcelain cast & Contained Living 4-Color 3D Brain (`porcelain_cinematic_v7` default; `lowpoly_pastel_v7` legacy preserved), 3-tier face-excluding framing, `hstack` split, condensed frame-grid subtitles
+   - Triple Post-Assembly QA Lock (R18/R62/R64): VideoAutopsyEngine + DynamicEpisodeQA (`DQ1-DQ12`) + PostHocSemanticQA (`R64`) + SHA-256 upload gate
 ========================================================================
 """)
 
@@ -273,6 +269,8 @@ def cmd_verify(args):
     master_qa = storage.load_json("05_assembly", "master_qa_report.json")
     if master_qa:
         print(f"Master QA Status: {'[ALL GATES PASS]' if master_qa.get('all_gates_passed') else '[FAILED]'}")
+    if not integrity["all_intact"] or (master_qa and not master_qa.get("all_gates_passed")):
+        sys.exit(1)
 
 
 def cmd_studio_upload(args):
@@ -330,21 +328,38 @@ def cmd_studio_settings(args):
 
 def cmd_studio_pin(args):
     """Posts academic DOI source & cognitive dissonance question comment and pins it to top."""
+    import json
     from pipeline.studio.community import CommunityManager
+
     manager = CommunityManager(cdp_port=args.cdp_port)
+    if getattr(args, "all_public", False):
+        print(f"\n[CLI] Scanning projects to stage prepared comments and pin unpinned Public Shorts (Dry-Run: {args.dry_run}, Replace-Existing: {args.replace_existing})...")
+        summary = manager.pin_all_public_unpinned(
+            dry_run=args.dry_run,
+            replace_existing=args.replace_existing,
+            project_filter={args.project} if args.project else None,
+        )
+        print(json.dumps(summary, indent=2, ensure_ascii=False))
+        return
+
+    if not args.project:
+        print("[ERROR] Provide --project <project_id> or --all-public.")
+        sys.exit(1)
+
     print(f"\n[CLI] Posting & Pinning DOI verification comment for '{args.project}'...")
-    print(f"      Video ID: {args.video_id or 'from receipt'} | Dry-Run: {args.dry_run}")
+    print(f"      Video ID: {args.video_id or 'from receipt'} | Replace-Existing: {args.replace_existing} | Dry-Run: {args.dry_run}")
 
     receipt = manager.post_and_pin_comment(
         project_id=args.project,
         video_id=args.video_id,
-        dry_run=args.dry_run
+        dry_run=args.dry_run,
+        replace_existing=args.replace_existing,
     )
     print("\n========================================================")
-    print(f"  COMMUNITY COMMENT PINNED {'[DRY RUN]' if args.dry_run else '[LIVE]'}!")
+    print(f"  COMMUNITY COMMENT STATUS: {receipt.get('status', '').upper()} {'[DRY RUN]' if args.dry_run else '[LIVE]'}!")
     print(f"  Project: {receipt['project_id']}")
     print(f"  Shorts URL: {receipt['shorts_url']}")
-    print(f"  Pinned Status: {receipt['pinned']}")
+    print(f"  Pinned Status: {receipt['pinned']} (Deleted Previous: {receipt.get('deleted_previous_count', 0)})")
     print("---------------- Comment Body --------------------------")
     print(receipt["comment_text"])
     print("========================================================\n")
@@ -362,8 +377,14 @@ def cmd_studio_ab_test(args):
         if args.impressions_a is not None and args.clicks_a is not None:
             custom_metrics = {
                 "A": {"impressions": args.impressions_a, "clicks": args.clicks_a},
-                "B": {"impressions": args.impressions_b or 1000, "clicks": args.clicks_b or 50},
-                "C": {"impressions": args.impressions_c or 1000, "clicks": args.clicks_c or 50}
+                "B": {
+                    "impressions": args.impressions_b if args.impressions_b is not None else 1000,
+                    "clicks": args.clicks_b if args.clicks_b is not None else 50,
+                },
+                "C": {
+                    "impressions": args.impressions_c if args.impressions_c is not None else 1000,
+                    "clicks": args.clicks_c if args.clicks_c is not None else 50,
+                },
             }
         report = tester.evaluate_significance(args.project, metrics=custom_metrics, dry_run=args.dry_run)
         print("\n========================================================")
@@ -384,8 +405,11 @@ def cmd_studio_ab_test(args):
 
     if args.set_variant:
         res = tester.swap_to_variant(args.project, target_variant=args.set_variant, video_id=args.video_id, dry_run=args.dry_run)
-    else:
+    elif args.swap_next:
         res = tester.swap_next(args.project, video_id=args.video_id, dry_run=args.dry_run)
+    else:
+        print("[ERROR] Specify an explicit action: --evaluate, --swap-next, or --set-variant A|B|C.")
+        sys.exit(2)
 
     print("\n========================================================")
     print(f"  THUMBNAIL SWAP {'[DRY RUN]' if args.dry_run else '[APPLIED]'}!")
@@ -677,8 +701,10 @@ def main():
 
     # studio-pin
     p_sp = subparsers.add_parser("studio-pin", help="Post and pin academic DOI verification and debate question comment")
-    p_sp.add_argument("--project", required=True, help="Target project ID")
+    p_sp.add_argument("--project", default=None, help="Target project ID (optional when --all-public is set)")
     p_sp.add_argument("--video-id", default=None, help="Target YouTube Video ID (optional)")
+    p_sp.add_argument("--all-public", action="store_true", default=False, help="Stage prepared comments across projects and pin any unpinned Public Shorts")
+    p_sp.add_argument("--replace-existing", action="store_true", default=False, help="Delete previous @AllAboutBrainOfficial comment before posting and pinning the updated comment")
     p_sp.add_argument("--dry-run", action="store_true", default=False, help="Run in simulation mode")
     p_sp.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
 
@@ -733,20 +759,122 @@ def main():
     p_sr.add_argument("--dry-run", action="store_true", default=False, help="Generate report without launching/navigating Naver Whale")
     p_sr.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
 
-    # Prompt System v5 (R44-R50)
+    # Prompt System v5 & Neuro-Diorama System v6 (R44-R61)
     p_ds = subparsers.add_parser("dossier", help="Research dossier: init / validate / seed / doi / yt-search / yt-analyze (R44)")
     p_ds.add_argument("action", choices=["init", "validate", "seed", "doi", "yt-search", "yt-analyze", "checklist"])
     p_ds.add_argument("--slug", default=None, help="Dossier slug (BCI_Shorts_Channel/research_dossiers/<slug>)")
     p_ds.add_argument("--topic", default="", help="Topic title (init)")
     p_ds.add_argument("--pillar", default="", help="Pillar id (init)")
     p_ds.add_argument("--mode", default="HYBRID", help="BEHAVIORAL_PSYCH | HYBRID | NEURO_BIOLOGY (init)")
+    p_ds.add_argument("--profile", default="neuro_diorama", choices=["classic_v5", "neuro_diorama"], help="Seed profile (seed)")
+    p_ds.add_argument(
+        "--style-profile",
+        default=None,
+        choices=["porcelain_cinematic_v7", "lowpoly_pastel_v7"],
+        help="Schema v7 style profile override for seed (default: porcelain_cinematic_v7)",
+    )
     p_ds.add_argument("--doi", default=None, help="DOI to verify via Crossref (doi)")
     p_ds.add_argument("--query", default=None, help="YouTube search query (yt-search)")
     p_ds.add_argument("--url", default=None, help="Reference video URL (yt-analyze)")
     p_ds.add_argument("--media-id", default=None, help="Media id folder name under <dossier>/media (yt-analyze)")
     p_ds.add_argument("--section", default=None, help="Optional '*mm:ss-mm:ss' range (yt-analyze)")
 
-    p_pg = subparsers.add_parser("prompt-gate", help="Run the v5 production gate on a project or a dossier shorts_v5 draft")
+    p_da = subparsers.add_parser(
+        "diorama-assemble",
+        help="Assemble a Schema v7 porcelain_cinematic_v7 / lowpoly_pastel_v7 (+14Hz Andrew Silk Clean, 24fps) or v6 Neuro-Diorama Short (<= 179.0s) (R56-R66)",
+    )
+    p_da.add_argument("--project", required=True, help="Target project ID or directory")
+    p_da.add_argument("--force", action=argparse.BooleanOptionalAction, default=True, help="Force rebuild of EDL, WAV, ASS, and MP4 (default: True)")
+    p_da.add_argument(
+        "--posthoc-qa",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Run R64 post-hoc clip-by-clip expressive clarity QA, DQ1-DQ12, Autopsy, and sync Knowledge Hub after assembly (default: True)",
+    )
+    p_da.add_argument(
+        "--prosody-mode",
+        default=None,
+        choices=["uniform_108x", "uniform_110x", "dynamic_rush_v7"],
+        help="Sentence-level prosody engine mode (default: script.json `prosody_mode`, else config default)",
+    )
+    p_da.add_argument("--preview-sec", type=float, default=None, help="Render only the first N seconds to 05_assembly/preview_0-Ns.mp4 (skips QA)")
+    p_da.add_argument("--allow-published-overwrite", action="store_true", default=False, help="Allow rebuilding a project that already has an upload receipt")
+    p_da.add_argument("--plaque-optimize", action=argparse.BooleanOptionalAction, default=True, help="F-1 pre-render plaque-safe source window refinement (default: True)")
+
+    p_rc = subparsers.add_parser("diorama-recut", help="F-3 re-render only the given EDL cuts from the segment cache and re-mux")
+    p_rc.add_argument("--project", required=True, help="Target project ID or directory")
+    p_rc.add_argument("--cuts", required=True, help="Comma-separated 1-based cut indices")
+    p_rc.add_argument("--allow-published-overwrite", action="store_true", default=False)
+
+    p_pq = subparsers.add_parser("prosody-qa", help="Run Prosody QA gates P1-P10 on an assembled project")
+    p_pq.add_argument("--project", required=True, help="Target project ID or directory")
+    p_pq.add_argument("--no-asr", action="store_true", default=False, help="Skip P6 ASR match")
+
+    p_df = subparsers.add_parser(
+        "diorama-flow",
+        help="Sharded 5-tab Dual-Tier (Omni 1.1 Flash -> 0-credit auto-fallback) Google Flow generator for Schema v7/v6 neuro_diorama (1:1 Zero-Reuse)",
+    )
+    p_df.add_argument("--project", required=True, help="Target project ID under BCI_Shorts_Channel/projects/")
+    p_df.add_argument("--tabs", type=int, default=5, help="Max concurrent Google Flow shard tabs (<=5)")
+    p_df.add_argument("--clips", default="", help="Optional comma-separated 1-based clip numbers to regenerate")
+    p_df.add_argument("--clean", action="store_true", default=False, help="Purge existing clips before generating fresh")
+    p_df.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
+    p_df.add_argument(
+        "--engine",
+        default="auto",
+        choices=["auto", "omni", "zero_credit", "zero-credit"],
+        help="Flow engine policy: auto (Omni 1.1 Flash when credits > 0 else 0-credit fallback), omni, or zero-credit",
+    )
+
+    p_db = subparsers.add_parser(
+        "diorama-batch",
+        help="Resumable Wave 1-4 (20-episode) Schema v7/v6 neuro_diorama precheck, Flow generation, assembly & QA orchestrator",
+    )
+    p_db.add_argument("--wave", default="all", help="Wave selector: 1, 2, 3, 4, or all (default: all)")
+    p_db.add_argument("--projects", default="", help="Optional comma-separated project_ids subset")
+    p_db.add_argument("--precheck-only", action="store_true", default=False, help="Run prompt-gate + TTS duration lock only")
+    p_db.add_argument("--tabs", type=int, default=5, help="Max concurrent Google Flow shard tabs per project (<=5)")
+    p_db.add_argument("--force", action="store_true", default=False, help="Force regenerate even if already completed")
+    p_db.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
+    p_db.add_argument(
+        "--engine",
+        default="auto",
+        choices=["auto", "omni", "zero_credit", "zero-credit"],
+        help="Flow engine policy: auto (Omni 1.1 Flash -> 0-credit auto-fallback), omni, or zero-credit",
+    )
+
+    p_pg = subparsers.add_parser("prompt-gate", help="Run the v5/v6/v7 production gate on a project or dossier draft")
+    p_de = subparsers.add_parser(
+        "diorama-episode",
+        help="One-shot production of ANY dossier-backed Schema v7 episode: sync draft -> precheck -> Flow -> assembly -> full QA",
+    )
+    p_de.add_argument(
+        "--slug",
+        required=True,
+        help="research_dossiers/<slug>/ with a diorama_v7_porcelain/ (or diorama_v7_lowpoly/) draft",
+    )
+    p_de.add_argument("--project", required=True, help="Target project ID under BCI_Shorts_Channel/projects/")
+    p_de.add_argument("--pillar", required=True, help="Content pillar id (P1)")
+    p_de.add_argument("--precheck-only", action="store_true", default=False, help="Sync + prompt-gate + TTS clock only (no Flow credits)")
+    p_de.add_argument("--tabs", type=int, default=5, help="Max concurrent Google Flow shard tabs (<=5)")
+    p_de.add_argument("--force", action="store_true", default=False, help="Purge existing clips and regenerate")
+    p_de.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
+    p_de.add_argument("--engine", default="auto", choices=["auto", "omni", "zero_credit", "zero-credit"], help="Flow engine policy")
+
+    p_dp = subparsers.add_parser(
+        "diorama-pipeline",
+        help="Pipelined multi-episode Schema v7 production: up-front precheck + overlapped Flow producer & Assembly+QA consumer",
+    )
+    p_dp.add_argument(
+        "--projects",
+        required=True,
+        help="Comma-separated 'slug:project_id:pillar' specs or project_ids",
+    )
+    p_dp.add_argument("--precheck-only", action="store_true", default=False, help="Run sync + preflight prosody/contract precheck only")
+    p_dp.add_argument("--tabs", type=int, default=5, help="Max concurrent Google Flow shard tabs (<=5)")
+    p_dp.add_argument("--force", action="store_true", default=False, help="Purge existing clips and regenerate")
+    p_dp.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
+    p_dp.add_argument("--engine", default="auto", choices=["auto", "omni", "zero_credit", "zero-credit"], help="Flow engine policy")
     p_pg.add_argument("--dir", required=True, help="Folder holding 02_script/script.json or script.json, visual_plan.json, 03_visuals/")
 
     p_ap = subparsers.add_parser("audit-prompts", help="Score every project against Prompt System v5 and write the score sheet")
@@ -777,6 +905,50 @@ def main():
     p_cq.add_argument("--compile-only", action="store_true", default=False, help="Only compile 03_visuals/clip_qa_contract.json without running video verification")
     p_cq.add_argument("--no-strips", action="store_true", default=False, help="Skip rendering 6-panel QA contact strips")
 
+    p_eq = subparsers.add_parser(
+        "episode-qa",
+        help="Run R62 Dynamic Per-Episode QA Contract compiler + 12-Axis DQ1-DQ12 multimodal verification",
+    )
+    p_eq.add_argument("--project", required=True, help="Target project ID or directory")
+    p_eq.add_argument("--compile-only", action="store_true", default=False, help="Only compile episode_qa_contract.json + Gate 1 check")
+
+    p_ph = subparsers.add_parser(
+        "posthoc-qa",
+        help="Run R64 Post-Hoc Clip-by-Clip Expressive Clarity Verification QA on assembled MP4 + source clips",
+    )
+    p_ph.add_argument("--project", required=True, help="Target project ID or directory")
+    p_ph.add_argument("--no-strips", action="store_true", default=False, help="Skip rendering posthoc_viewer_strips/sheet_*.jpg")
+    p_ph.add_argument("--no-asr", action="store_true", default=False, help="Skip faster-whisper ASR analogy timestamp check")
+    p_ph.add_argument("--init-review", action="store_true", default=False, help="Write/refresh 05_assembly/posthoc_semantic_review.json template")
+    p_ph.add_argument("--auto-populate-review", action="store_true", default=False, help="Populate review notes from measured CV telemetry when initializing")
+    p_ph.add_argument("--require-review", action="store_true", default=False, help="Require valid SHA-256-bound posthoc_semantic_review.json to pass")
+    p_ph.add_argument("--sync-kb", action=argparse.BooleanOptionalAction, default=True, help="Sync results into BCI_Shorts_Channel/knowledge_base/ (default: True)")
+
+    p_th = subparsers.add_parser(
+        "thumbnail",
+        help="Run R65 Thumbnail Studio: candidate scoring, v7 hook overlay, TQ1-TQ7 QA & contact sheet",
+    )
+    p_th.add_argument("--project", default=None, help="Target project ID or directory")
+    p_th.add_argument("--all-diorama", action="store_true", default=False, help="Run across assembled neuro_diorama projects")
+    p_th.add_argument("--unpublished-only", action="store_true", default=False, help="Skip projects that already have upload_receipt.json")
+    p_th.add_argument("--force", action="store_true", default=False, help="Force rebuild even if cached thumbnail_report.json matches")
+    p_th.add_argument("--soft", action="store_true", default=False, help="Warn instead of exiting non-zero on TQ1-TQ7 gate failures")
+
+    p_kb = subparsers.add_parser(
+        "kb",
+        help="Manage & query BCI_Shorts_Channel/knowledge_base/ (sync | stats | search)",
+    )
+    p_kb.add_argument("action", choices=["sync", "stats", "search"], help="Knowledge Base action")
+    p_kb.add_argument("--project", default=None, help="Optional single project ID/dir to sync")
+    p_kb.add_argument("--run-missing-posthoc", action="store_true", default=False, help="Run posthoc-qa on assembled projects missing R64 reports during sync")
+    p_kb.add_argument("--pack", default="clips", choices=["clips", "prompts", "analogies", "brain_models", "locations"], help="Target reusable pack for search")
+    p_kb.add_argument("--query", default="", help="Keyword query for search")
+    p_kb.add_argument("--grammar", default=None, help="Filter by visual grammar")
+    p_kb.add_argument("--camera", default=None, help="Filter by camera move")
+    p_kb.add_argument("--min-clarity", type=float, default=None, help="Minimum R64 clarity score filter")
+    p_kb.add_argument("--style-profile", default=None, help="Filter by style_profile (e.g., lowpoly_pastel_v7)")
+    p_kb.add_argument("--limit", type=int, default=20, help="Max search results")
+
     p_ow = subparsers.add_parser("overwatch", help="Run Deliverable Overwatch Verification Loop across Deliverables A, B, and C")
     p_ow.add_argument("--outputs-dir", default=None, help="Directory holding standalone deliverables (default: Temp_New_R53_Outputs)")
     p_ow.add_argument("--gage-dir", default=None, help="Phineas Gage project directory (default: /tmp SSD if present else PROJECTS_DIR)")
@@ -799,6 +971,107 @@ def main():
     if args.command == "gemini-produce":
         cmd_gemini_produce(args)
         return
+    if args.command == "diorama-batch":
+        import json as _json
+        from pipeline.diorama_batch_orchestrator import run_diorama_batch
+
+        pids = [x.strip() for x in args.projects.split(",") if x.strip()] if args.projects.strip() else None
+        eng_mode = str(args.engine).replace("-", "_")
+        rep = run_diorama_batch(
+            wave=str(args.wave),
+            project_ids=pids,
+            precheck_only=bool(args.precheck_only),
+            tabs=int(args.tabs),
+            force_regenerate=bool(args.force),
+            cdp_port=int(args.cdp_port),
+            engine_mode=eng_mode,
+        )
+        print(_json.dumps(rep, indent=2, ensure_ascii=False))
+        return
+    if args.command == "diorama-episode":
+        import json as _json
+        from pipeline.diorama_batch_orchestrator import run_single_diorama_episode
+
+        rep = run_single_diorama_episode(
+            slug=str(args.slug),
+            project_id=str(args.project),
+            pillar=str(args.pillar),
+            precheck_only=bool(args.precheck_only),
+            tabs=int(args.tabs),
+            force_regenerate=bool(args.force),
+            cdp_port=int(args.cdp_port),
+            engine_mode=str(args.engine).replace("-", "_"),
+        )
+        print(_json.dumps(rep, indent=2, ensure_ascii=False, default=str))
+        return
+    if args.command == "diorama-pipeline":
+        import json as _json
+        from pipeline.diorama_pipeline_runner import parse_pipeline_specs, run_diorama_pipeline
+
+        specs = parse_pipeline_specs(str(args.projects))
+        rep = run_diorama_pipeline(
+            specs=specs,
+            precheck_only=bool(args.precheck_only),
+            tabs=int(args.tabs),
+            force_regenerate=bool(args.force),
+            cdp_port=int(args.cdp_port),
+            engine_mode=str(args.engine).replace("_", "-"),
+        )
+        print(_json.dumps(rep, indent=2, ensure_ascii=False, default=str))
+        return
+    if args.command == "diorama-flow":
+        import asyncio
+        import inspect
+        from pipeline.flow_diorama_sharded_worker import run_sharded_diorama_flow_generation
+
+        only = [int(x.strip()) for x in args.clips.split(",") if x.strip()] if args.clips.strip() else None
+        eng_mode = str(args.engine).replace("-", "_")
+        flow_sig = inspect.signature(run_sharded_diorama_flow_generation)
+        flow_kwargs = {
+            "project_id": args.project,
+            "clean_existing": bool(args.clean),
+            "only_clips": only,
+            "max_parallel_tabs": int(args.tabs),
+        }
+        if "cdp_port" in flow_sig.parameters:
+            flow_kwargs["cdp_port"] = int(args.cdp_port)
+        if "engine_mode" in flow_sig.parameters:
+            flow_kwargs["engine_mode"] = eng_mode
+        asyncio.run(run_sharded_diorama_flow_generation(**flow_kwargs))
+        return
+    if args.command == "diorama-assemble":
+        cmd_diorama_assemble(args)
+        return
+    if args.command == "diorama-recut":
+        import json as _json
+
+        from pipeline.diorama_assembler import recut_diorama_cuts
+
+        cut_ids = [int(x) for x in str(args.cuts).split(",") if x.strip()]
+        print(_json.dumps(recut_diorama_cuts(args.project, cut_ids, allow_published_overwrite=bool(args.allow_published_overwrite)), indent=2))
+        return
+    if args.command == "prosody-qa":
+        import json as _json
+
+        from pipeline.prosody import evaluate_prosody_gates
+
+        rep = evaluate_prosody_gates(args.project, run_asr=not bool(args.no_asr))
+        print(_json.dumps(rep, indent=2, ensure_ascii=False))
+        if not rep["passed"]:
+            sys.exit(1)
+        return
+    if args.command == "episode-qa":
+        cmd_episode_qa(args)
+        return
+    if args.command == "posthoc-qa":
+        cmd_posthoc_qa(args)
+        return
+    if args.command == "thumbnail":
+        cmd_thumbnail(args)
+        return
+    if args.command == "kb":
+        cmd_kb(args)
+        return
     if args.command == "dossier":
         cmd_dossier(args)
         return
@@ -813,7 +1086,8 @@ def main():
         from pipeline.asset_manifest import build_asset_manifest
         from pipeline.config import PROJECTS_DIR
 
-        m = build_asset_manifest(Path(PROJECTS_DIR) / args.project)
+        p_dir = Path(args.project) if Path(args.project).is_dir() else (Path(PROJECTS_DIR) / args.project)
+        m = build_asset_manifest(p_dir)
         print(_json.dumps({"project_id": m["project_id"], "assets": len(m["assets"])}, indent=2))
         return
     if args.command == "voice-check":
@@ -905,6 +1179,9 @@ def cmd_studio_report(args):
     print(f"  Dashboard Charts:    {res['charts_path']}")
     print(f"  Markdown Report:     {res['markdown_path']}")
     print(f"  Latest Report Copy:  {res['latest_report_path']}")
+    print(f"  Video Detail Charts: {res['video_detail_charts_path']}")
+    print(f"  Video Detail Report: {res['video_detail_markdown_path']}")
+    print(f"  Latest Video Detail: {res['latest_video_detail_report_path']}")
     print(f"  Raw JSON Snapshot:   {res['json_path']}")
     print(f"  Master Prompt File:  {res['master_prompt_path']}")
     print("========================================================\n")
@@ -939,7 +1216,16 @@ def cmd_dossier(args):
         if not res["ready"]:
             sys.exit(1)
     elif args.action == "seed":
-        print(json.dumps(rd.plan_seed_from_dossier(args.slug), indent=2, ensure_ascii=False))
+        if getattr(args, "profile", "neuro_diorama") == "neuro_diorama":
+            print(
+                json.dumps(
+                    rd.diorama_seed_from_dossier(args.slug, style_profile=getattr(args, "style_profile", None)),
+                    indent=2,
+                    ensure_ascii=False,
+                )
+            )
+        else:
+            print(json.dumps(rd.plan_seed_from_dossier(args.slug), indent=2, ensure_ascii=False))
     elif args.action == "yt-analyze":
         media_id = args.media_id or rd.slugify(args.url or "ref")[-24:]
         out = rd.dossier_dir(args.slug) / "media" / media_id
@@ -949,13 +1235,30 @@ def cmd_dossier(args):
 def _load_gate_inputs(folder: Path):
     import json
 
+    from pipeline.flow_prompt_builder import is_diorama_v6_plan
+
     script_path = next((p for p in (folder / "02_script" / "script.json", folder / "script.json") if p.exists()), None)
     plan_path = next((p for p in (folder / "03_visuals" / "visual_plan.json", folder / "visual_plan.json") if p.exists()), None)
     if script_path is None or plan_path is None:
         raise SystemExit(f"script.json / visual_plan.json not found under {folder}")
-    narrations = json.loads(script_path.read_text(encoding="utf-8"))["clip_narrations"]
+    script_doc = json.loads(script_path.read_text(encoding="utf-8"))
     plan = json.loads(plan_path.read_text(encoding="utf-8"))
-    return plan, narrations
+    if is_diorama_v6_plan(plan) or script_doc.get("profile") == "neuro_diorama":
+        if isinstance(script_doc.get("sentences"), list) and script_doc["sentences"]:
+            narrations = [str(s).strip() for s in script_doc["sentences"] if str(s).strip()]
+        elif isinstance(script_doc.get("acts"), list):
+            narrations = [
+                str(s).strip()
+                for act in script_doc["acts"]
+                if isinstance(act, dict)
+                for s in (act.get("sentences") or [])
+                if str(s).strip()
+            ]
+        else:
+            narrations = [str(s).strip() for s in (script_doc.get("clip_narrations") or []) if str(s).strip()]
+    else:
+        narrations = script_doc["clip_narrations"]
+    return plan, narrations, script_doc
 
 
 def cmd_prompt_gate(args):
@@ -963,17 +1266,32 @@ def cmd_prompt_gate(args):
 
     from pipeline.flow_prompt_builder import (
         build_flow_prompts,
+        is_diorama_v6_plan,
         is_v5_plan,
         validate_character_motion,
         validate_flow_prompts,
         validate_narrations,
     )
-    from pipeline.prompt_quality_v5 import validate_production_v5
+    from pipeline.prompt_quality_v5 import validate_production_diorama_v6, validate_production_v5
 
     folder = Path(args.dir)
-    plan, narrations = _load_gate_inputs(folder)
+    plan, narrations, script_doc = _load_gate_inputs(folder)
     clips = build_flow_prompts(plan, narrations)
-    if is_v5_plan(plan):
+    if is_diorama_v6_plan(plan):
+        import re as _re
+        from pipeline.diorama_batch_orchestrator import _PLAQUE_TRIGGER_NOUNS_RE
+        from pipeline.publish import validate_diorama_paradox_title
+
+        issues = validate_production_diorama_v6(plan, narrations, clips, script_doc=script_doc)
+        raw_title = str(script_doc.get("title") or plan.get("title") or "").strip()
+        if raw_title:
+            issues.extend(validate_diorama_paradox_title(raw_title))
+        for c in clips:
+            sc = _re.sub(r"\b(?:without|zero|no)\s+[a-z\s,-]{1,35}", " ", str(c.get("scene") or ""), flags=_re.IGNORECASE)
+            hits = sorted({m.group(0).lower() for m in _PLAQUE_TRIGGER_NOUNS_RE.finditer(sc)})
+            if hits:
+                issues.append(f"[plaque_lock] clip {c['clip_number']} positive scene contains plaque-trigger word(s) {hits}")
+    elif is_v5_plan(plan):
         issues = validate_production_v5(plan, narrations, clips)
     else:
         issues = []
@@ -991,7 +1309,12 @@ def cmd_prompt_gate(args):
         if rd.dossier_dir(str(plan["dossier"])).exists():
             issues += rd.check_narration_facts(str(plan["dossier"]), narrations)
     contract_compiled = False
-    if not issues and is_v5_plan(plan) and (folder / "03_visuals").exists():
+    if not issues and is_diorama_v6_plan(plan):
+        from pipeline.dynamic_episode_qa import write_episode_qa_contract
+
+        write_episode_qa_contract(folder, plan, narrations, clips)
+        contract_compiled = True
+    elif not issues and is_v5_plan(plan) and (folder / "03_visuals").exists():
         from pipeline.clip_qa_contract import compile_clip_qa_contract
 
         compile_clip_qa_contract(folder, save=True)
@@ -999,6 +1322,252 @@ def cmd_prompt_gate(args):
     print(json.dumps({"passed": not issues, "issues": issues, "contract_compiled": contract_compiled}, indent=2, ensure_ascii=False))
     if issues:
         sys.exit(1)
+
+
+def cmd_episode_qa(args):
+    import json
+
+    from pipeline.dynamic_episode_qa import (
+        verify_final_mp4_against_contract,
+        verify_pre_flow_contract,
+        write_episode_qa_contract,
+    )
+    from pipeline.flow_prompt_builder import build_flow_prompts
+
+    p_dir = Path(args.project) if Path(args.project).is_dir() else (Path(PROJECTS_DIR) / args.project)
+    plan, narrations, script_doc = _load_gate_inputs(p_dir)
+    clips = build_flow_prompts(plan, narrations)
+    _, contract = write_episode_qa_contract(p_dir, plan, narrations, clips)
+    gate1_issues = verify_pre_flow_contract(plan, narrations, clips, script_doc=script_doc)
+    if args.compile_only:
+        rep = {"passed": not gate1_issues, "gate1_issues": gate1_issues, "clips": len(clips)}
+        print(json.dumps(rep, indent=2, ensure_ascii=False))
+        if gate1_issues:
+            sys.exit(1)
+        return
+    rep = verify_final_mp4_against_contract(p_dir, contract=contract)
+    if gate1_issues:
+        rep["passed"] = False
+        rep["gate1_issues"] = gate1_issues
+    print(json.dumps(rep, indent=2, ensure_ascii=False))
+    if not rep.get("passed"):
+        sys.exit(1)
+
+
+def cmd_diorama_assemble(args):
+    import json
+
+    from pipeline.diorama_assembler import assemble_diorama_project
+    from pipeline.dynamic_episode_qa import verify_final_mp4_against_contract
+    from pipeline.knowledge_hub import sync_project_to_knowledge_base
+    from pipeline.video_autopsy import VideoAutopsyEngine
+
+    run_ph = bool(getattr(args, "posthoc_qa", True))
+    preview_sec = getattr(args, "preview_sec", None)
+    res = assemble_diorama_project(
+        args.project,
+        force_rebuild=bool(args.force),
+        run_posthoc_qa=(run_ph and preview_sec is None),
+        prosody_mode=getattr(args, "prosody_mode", None),
+        preview_sec=preview_sec,
+        allow_published_overwrite=bool(getattr(args, "allow_published_overwrite", False)),
+        optimize_plaque_windows=bool(getattr(args, "plaque_optimize", True)),
+    )
+    if preview_sec is not None:
+        print(json.dumps(res, indent=2, ensure_ascii=False))
+        return
+    p_dir = Path(res["project_dir"])
+    qa_all_ok = True
+    if run_ph:
+        ep_rep = verify_final_mp4_against_contract(p_dir, save_report=True)
+        aut_rep = VideoAutopsyEngine.inspect_project(p_dir, save_report=True)
+        ph_ok = bool((res.get("posthoc_qa") or {}).get("passed", True))
+        ep_ok = bool(ep_rep.get("passed"))
+        aut_ok = bool(aut_rep.get("passed"))
+        res["episode_qa_passed"] = ep_ok
+        res["autopsy_passed"] = aut_ok
+        th_file = p_dir / "06_publish" / "thumbnail_report.json"
+        if th_file.exists():
+            th_doc = json.loads(th_file.read_text(encoding="utf-8"))
+            res["thumbnail_passed"] = bool(th_doc.get("passed"))
+            res["cover_frame_sec"] = th_doc.get("cover_frame_sec")
+        qa_all_ok = ph_ok and ep_ok and aut_ok
+        if qa_all_ok:
+            sync_project_to_knowledge_base(p_dir)
+    print(json.dumps(res, indent=2, ensure_ascii=False))
+    if not qa_all_ok:
+        sys.exit(1)
+
+
+def cmd_thumbnail(args):
+    import json
+
+    from pipeline import thumbnail_studio
+    from pipeline.config import PROJECTS_DIR, is_diorama_profile
+    from pipeline.knowledge_hub import sync_project_to_knowledge_base
+    from pipeline.storage import ProjectStorage
+
+    strict = not bool(args.soft)
+    mode = "backfill_soft" if args.soft else "production"
+    targets: list[Path] = []
+    if args.all_diorama:
+        for p in sorted(Path(PROJECTS_DIR).iterdir()):
+            if not p.is_dir():
+                continue
+            if not (p / "05_assembly" / "final_shorts_1080x1920.mp4").exists():
+                continue
+            if args.unpublished_only and (p / "06_publish" / "upload_receipt.json").exists():
+                continue
+            vp = thumbnail_studio._read_json(p / "03_visuals" / "visual_plan.json")
+            sc = thumbnail_studio._read_json(p / "02_script" / "script.json")
+            if is_diorama_profile(vp) or is_diorama_profile(sc):
+                targets.append(p)
+    elif args.project:
+        cand = Path(args.project)
+        targets.append(cand if cand.exists() else (Path(PROJECTS_DIR) / str(args.project)))
+    else:
+        raise SystemExit("Pass --project <id> or --all-diorama")
+
+    summaries = []
+    any_failed = False
+    for p_dir in targets:
+        rep = thumbnail_studio.run(p_dir, force=bool(args.force), strict=False, mode=mode)
+        if (p_dir / "00_project_manifest.json").exists():
+            ProjectStorage.sync_existing_manifest_from_disk(p_dir)
+        try:
+            sync_project_to_knowledge_base(p_dir)
+        except Exception:
+            pass
+        if not rep.get("passed"):
+            any_failed = True
+        summaries.append(
+            {
+                "project_id": rep["project_id"],
+                "passed": rep["passed"],
+                "failed_gates": rep["failed_gates"],
+                "hook_text": rep["hook_text"],
+                "hook_source": rep["hook_source"],
+                "cover_frame_sec": rep["cover_frame_sec"],
+                "primary_cut_index": rep["variants"]["A"]["cut_index"],
+                "primary_clip_index": rep["variants"]["A"]["clip_index"],
+                "primary_score": rep["variants"]["A"]["total_score"],
+            }
+        )
+    out_obj = summaries[0] if (len(summaries) == 1 and not args.all_diorama) else {"count": len(summaries), "all_passed": not any_failed, "projects": summaries}
+    print(json.dumps(out_obj, indent=2, ensure_ascii=False))
+    if strict and any_failed:
+        sys.exit(1)
+
+
+def cmd_posthoc_qa(args):
+    import json
+
+    from pipeline.config import POSTHOC_SEMANTIC_QA_REPORT_FILENAME
+    from pipeline.posthoc_semantic_qa import (
+        _resolve_project_dir,
+        init_posthoc_semantic_review_template,
+        run_posthoc_semantic_qa,
+        validate_posthoc_semantic_review,
+    )
+
+    rep = run_posthoc_semantic_qa(
+        project_id_or_dir=args.project,
+        render_strips=not bool(args.no_strips),
+        run_asr_sync=not bool(args.no_asr),
+        require_review=bool(args.require_review),
+        save_report=True,
+        sync_knowledge_base=bool(args.sync_kb),
+    )
+    if args.init_review:
+        rev_path = init_posthoc_semantic_review_template(
+            args.project,
+            qa_report=rep,
+            auto_populate_from_cv=bool(args.auto_populate_review),
+        )
+        p_dir = _resolve_project_dir(args.project)
+        if args.require_review:
+            rep = run_posthoc_semantic_qa(
+                project_id_or_dir=args.project,
+                render_strips=False,
+                run_asr_sync=not bool(args.no_asr),
+                require_review=True,
+                save_report=True,
+                sync_knowledge_base=bool(args.sync_kb),
+            )
+        else:
+            rep["semantic_review"] = validate_posthoc_semantic_review(
+                p_dir,
+                rep.get("final_mp4_sha256", ""),
+                rep.get("edl_sha256", ""),
+                int(rep["summary"]["cut_count"]),
+            )
+            (p_dir / "05_assembly" / POSTHOC_SEMANTIC_QA_REPORT_FILENAME).write_text(
+                json.dumps(rep, indent=2, ensure_ascii=False) + "\n",
+                encoding="utf-8",
+            )
+        rep["review_template_written"] = str(rev_path)
+    slim_out = {
+        "project_id": rep["project_id"],
+        "rule": rep["rule"],
+        "schema_version": rep["schema_version"],
+        "style_profile": rep["style_profile"],
+        "passed": rep["passed"],
+        "cv_passed": rep["cv_passed"],
+        "summary": rep["summary"],
+        "act_clarity_summary": rep["act_clarity_summary"],
+        "grammar_clarity_summary": rep["grammar_clarity_summary"],
+        "semantic_review": rep["semantic_review"],
+        "viewer_sheets_count": len(rep.get("viewer_sheets") or []),
+    }
+    if "review_template_written" in rep:
+        slim_out["review_template_written"] = rep["review_template_written"]
+    print(json.dumps(slim_out, indent=2, ensure_ascii=False))
+    if not rep.get("passed"):
+        sys.exit(1)
+
+
+def cmd_kb(args):
+    import json
+
+    from pipeline.config import QA_ANALYTICS_SUMMARY_FILENAME
+    from pipeline.knowledge_hub import (
+        ensure_knowledge_base_layout,
+        query_knowledge_base,
+        recompile_knowledge_aggregates,
+        sync_all_projects_to_knowledge_base,
+        sync_project_to_knowledge_base,
+    )
+
+    if args.action == "sync":
+        if args.project:
+            res = sync_project_to_knowledge_base(args.project)
+        else:
+            res = sync_all_projects_to_knowledge_base(run_missing_posthoc=bool(args.run_missing_posthoc))
+        print(json.dumps(res, indent=2, ensure_ascii=False))
+        return
+
+    if args.action == "stats":
+        paths = ensure_knowledge_base_layout()
+        summary_path = paths["telemetry_dir"] / QA_ANALYTICS_SUMMARY_FILENAME
+        if summary_path.exists():
+            stats = json.loads(summary_path.read_text(encoding="utf-8"))
+        else:
+            stats = recompile_knowledge_aggregates()
+        print(json.dumps(stats, indent=2, ensure_ascii=False))
+        return
+
+    if args.action == "search":
+        hits = query_knowledge_base(
+            pack=str(args.pack),
+            query=str(args.query or ""),
+            grammar=args.grammar,
+            camera_move=args.camera,
+            min_clarity=args.min_clarity,
+            style_profile=args.style_profile,
+            limit=int(args.limit),
+        )
+        print(json.dumps({"pack": args.pack, "count": len(hits), "results": hits}, indent=2, ensure_ascii=False))
+        return
 
 
 def cmd_audit_prompts(args):
@@ -1021,10 +1590,29 @@ def cmd_voice_check(args):
     from pipeline.storage import numeric_clip_sort_key
     from pipeline.voice_consistency import evaluate_f0_series
 
-    clips_dir = Path(PROJECTS_DIR) / args.project / "03_visuals" / "flow_native_clips"
-    files = sorted(clips_dir.glob("clip_*.mp4"), key=numeric_clip_sort_key)
+    p_dir = Path(args.project) if Path(args.project).is_dir() else (Path(PROJECTS_DIR) / args.project)
+    clips_dir = p_dir / "03_visuals" / "flow_native_clips"
+    files = sorted(clips_dir.glob("clip_*.mp4"), key=numeric_clip_sort_key) if clips_dir.exists() else []
     f0s = [float(analyze_flow_clip_candidate(f).get("f0_median_hz", 0.0)) for f in files]
-    print(json.dumps(evaluate_f0_series(f0s), indent=2))
+    rep = evaluate_f0_series(f0s)
+    aud_dir = p_dir / "04_audio"
+    aud_dir.mkdir(parents=True, exist_ok=True)
+    vr_path = aud_dir / "voice_report.json"
+    if vr_path.exists():
+        try:
+            existing = json.loads(vr_path.read_text(encoding="utf-8"))
+        except Exception:
+            existing = {}
+        existing["native_f0"] = rep
+        vr_path.write_text(json.dumps(existing, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    else:
+        vr_path.write_text(
+            json.dumps({"source": "native", "native_f0": rep, **rep}, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+    print(json.dumps(rep, indent=2))
+    if not rep.get("passed"):
+        sys.exit(1)
 
 
 def cmd_ref_qa(args):
@@ -1165,25 +1753,28 @@ def cmd_gemini_produce(args):
     if final_mp4.exists():
         enforce_mp4_true_peak_ceiling(final_mp4)
         evolve_rep = VideoAutopsyEngine.inspect_project(pid, save_report=True)
-    build_asset_manifest(p_dir)
+    assembly_passed = bool(evolve_rep.get("passed", evolve_rep.get("after_passed", False)))
     completed_dir = Path(WORKSPACE_ROOT) / "Completed_Psychology_100_Shorts"
     completed_dir.mkdir(parents=True, exist_ok=True)
     completed_mp4 = completed_dir / f"final_shorts_{pid}.mp4"
-    if final_mp4.exists():
+    if assembly_passed and final_mp4.exists():
+        build_asset_manifest(p_dir)
         shutil.copy2(final_mp4, completed_mp4)
     print(
         json.dumps(
             {
                 "project_id": pid,
                 "gemini_generation": gen_res,
-                "assembly_passed": bool(evolve_rep.get("passed", evolve_rep.get("after_passed", False))),
+                "assembly_passed": assembly_passed,
                 "final_mp4": str(final_mp4),
-                "completed_mp4": str(completed_mp4),
+                "completed_mp4": str(completed_mp4) if assembly_passed else None,
             },
             indent=2,
             ensure_ascii=False,
         )
     )
+    if not assembly_passed:
+        sys.exit(1)
 
 
 

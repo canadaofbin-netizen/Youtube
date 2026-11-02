@@ -23,18 +23,20 @@ Owner of all numeric thresholds, budgets, and timing constants across the ALL AB
 
 | Constant / Helper | Value | Unit | Meaning |
 |---|---|---|---|
-| `DEFAULT_FLOW_MODEL` | `"Omni 1.1 Flash"` | model | Default Google Flow video engine |
+| `DEFAULT_FLOW_MODEL` | `"Omni 1.1 Flash"` | model | Default Google Flow primary video engine |
 | `FLOW_MODEL_QUALITY` | `"Omni 1.1 Quality"` | model | High-detail Google Flow video engine |
-| `ALLOWED_FLOW_MODELS` | `["Omni 1.1 Flash", "Omni 1.1 Quality"]` | list | Permitted Google Flow engines (R5) |
+| `ALLOWED_FLOW_MODELS` | `["Omni 1.1 Flash", "Omni 1.1 Quality", "Veo 3.1 - Lite [Lower Priority]"]` | list | Permitted Google Flow Dual-Tier engines (`Omni 1.1` primary -> `0-credit` auto-fallback, R5) |
 | `FLOW_DEFAULT_VOICE` | `"Puck"` | voice | Exclusive male documentary narrator voice (R13) |
 | `FLOW_ALLOWED_VOICES` | `("Puck",)` | tuple | Permitted voices (Aoede and female voices banned) |
 | `FLOW_VOICE_PROMPT_DESCRIPTOR` | `"Consistent deep male baritone documentary narrator"` | str | Voice descriptor injected in the `Voice:` prompt clause (R13, R40-A) |
 | `PUCK_F0_RANGE_HZ` | `(85.0, 185.0)` | Hz | Accepted fundamental-frequency range for Puck voice verification |
 | `NATIVE_FLOW_WPS` | `2.7` | words/s | Target speaking rate in native Google Flow generation |
-| `EFFECTIVE_WPS` | `2.916` (`round(2.7 * 1.08, 3)`) | words/s | Effective speaking rate after `AV_SPEEDUP_FACTOR` |
-| `FLOW_ACTIVE_VIDEO_MODEL` | `"Omni 1.1 Flash"` | model | Omni only (owner decision 2026-10-24); Veo refused |
-| `FLOW_VIDEO_MODEL_PROFILES` | Omni: 4s / 6s / 8s / 10s, max 10, 10 with static PNG reference · Veo Lite: 4s / 6s / 8s (not used) | dict | Settings-pane facts verified 2026-10-26 (clear stale video chips first, re-select `10s` after PNG upload) |
-| `FLOW_BANNED_VIDEO_MODEL_MARKERS` | `("Veo",)` | tuple | Generation refused if the pane shows these |
+| `EFFECTIVE_WPS` | `2.7` (`round(2.7 * 1.00, 3)`) | words/s | Effective speaking rate after `AV_SPEEDUP_FACTOR` (`1.00`) |
+| `FLOW_ACTIVE_VIDEO_MODEL` / `FLOW_PRIMARY_VIDEO_MODEL` | `"Omni 1.1 Flash"` | model | Primary Flow engine when AI credits are available (`omni_1_1_flash`) |
+| `FLOW_ZERO_CREDIT_MODEL` | `"Veo 3.1 - Lite [Lower Priority]"` | model | Automatic `0-credit` fallback engine (`veo_3_1_lite_low_priority`) when monthly credits are exhausted |
+| `FLOW_ENGINE_MODES` / `DEFAULT_FLOW_ENGINE_MODE` | `("auto", "omni", "zero-credit")` / `"auto"` | tuple / str | Credit-aware Dual-Tier engine selection policy (`R5`) |
+| `FLOW_VIDEO_MODEL_PROFILES` | Omni: 4s / 6s / 8s / 10s (`max_sec=10`, `max_sec_with_ingredient=8`) · Veo 3.1 Lite LP: 4s / 6s / 8s (`0 credits`) | dict | Verified Flow settings-pane profiles (`Omni 1.1 Flash` primary -> `Veo 3.1 - Lite [Lower Priority]` `0-credit` fallback) |
+| `FLOW_BANNED_VIDEO_MODEL_MARKERS` / `FLOW_ZERO_CREDIT_TEXT` | `("Veo 2",)` / `"Generating will use 0 credits"` | tuple / str | Banned legacy model marker & `0-credit` UI verification string |
 | `FLOW_CLIP_DURATION_TARGET` | `"10s"` | mode | Omni default (`10s` both with and without static PNG references) |
 | `FLOW_ALLOWED_DURATION_TARGETS` | `("4s", "6s", "8s", "10s")` | tuple | From the active model profile; other requests are clamped |
 | `FLOW_SHORT_CLIP_MAX_WORDS` | `19` | words | Max words for dynamic `"8s"` clip selection (`<= 32` syllables) |
@@ -85,9 +87,9 @@ Owner of all numeric thresholds, budgets, and timing constants across the ALL AB
 | `VOICE_FALLBACK_ENABLED` | `True` | bool | Local TTS fallback allowed (decision 2026-10-24) |
 | `VOICE_FALLBACK_ENGINE` | `"kokoro-onnx"` | — | Free local engine (Apache-2.0) |
 | `VOICE_FALLBACK_VOICE` | `"am_fenrir"` | voice | Fixed fallback narrator (deep cinematic baritone) |
-| `VOICE_FALLBACK_SPEED` | `1.12` | ratio | Kokoro speaking speed (~`EFFECTIVE_WPS`) |
+| `VOICE_FALLBACK_SPEED` | `1.00` | ratio | Kokoro speaking speed (natural `1.00x` documentary pace) |
 | `VOICE_FALLBACK_MODEL_DIR` | `~/.cache/aab_tts` | path | `kokoro-v1.0.onnx`, `voices-v1.0.bin` |
-| `VOICE_FALLBACK_VIDEO_SPEED_RANGE` | `(0.85, 1.25)` | ratio | Video speed range when fitting clips to TTS lines (outside → warning, never frame cloning) |
+| `VOICE_FALLBACK_VIDEO_SPEED_RANGE` | `(0.75, 1.15)` | ratio | Video speed range when fitting clips to TTS lines (outside → warning, never frame cloning) |
 | `RESEARCH_DOSSIERS_DIRNAME` | `"research_dossiers"` | dir | `BCI_Shorts_Channel/research_dossiers/<slug>/` (R44) |
 | `ASSET_LIBRARY_DIRNAME` | `"asset_library"` | dir | `BCI_Shorts_Channel/asset_library/index.jsonl` (R50) |
 | `LONGFORM_TARGET_MIN_SEC` / `LONGFORM_TARGET_MAX_SEC` | `480` / `900` | s | Longform built from proven Shorts |
@@ -114,10 +116,10 @@ Owner of all numeric thresholds, budgets, and timing constants across the ALL AB
 | `GENERATION_PACKETS_DIRNAME` | `"generation_packets"` | dir | R52 per-clip packets (`03_visuals/`) |
 | `GENERATION_BACKENDS` | `("flow", "gemini_app")` | tuple | Clip generators |
 | `VOICE_SOURCES` / `DEFAULT_VOICE_SOURCE` | `("tts", "native")` / `"tts"` | mode | tts = am_fenrir voiceover in Gear 4, clip prompts ask for ambience only |
-| `CLIP_MAX_RENDER_SEC` | `10` | s | Omni 1.1 Flash ceiling |
-| `CLIP_MAX_RENDER_SEC_WITH_REFERENCE` | `10` | s | Omni 1.1 supports `10s` with static PNG references when video chips are cleared and `10s` is re-selected after upload |
+| `CLIP_MAX_RENDER_SEC` | `10` | s | Omni 1.1 Flash ceiling (without ingredient) |
+| `CLIP_MAX_RENDER_SEC_WITH_REFERENCE` | `8` | s | Render ceiling (`8s`) when a reference ingredient is attached (`max_sec_with_ingredient = 8`) |
 | `GEMINI_APP_MAX_RENDER_SEC` | `8` | s | Legacy Gemini app render length (not used for video generation per R5) |
-| `TIMED_BEAT_WINDOWS` | `((0, 3), (3, 7), (7, 10))` | s | action / prop change / reaction windows in the 10s timed video prompt |
+| `TIMED_BEAT_WINDOWS` | `((0, 3), (3, 6), (6, 8))` | s | action / prop change / reaction windows in the 8s timed video prompt |
 | `BLUEPRINT_MIN_EVIDENCE_ICONIC` | `1` | count | timecode evidence required for the iconic scene |
 | `DOSSIER_MIN_SOURCES` | `6` | count | R44-D depth standard |
 | `DOSSIER_MIN_FOLLOWUP_SOURCES` | `2` | count | replication / follow-up / review |
@@ -132,13 +134,127 @@ Owner of all numeric thresholds, budgets, and timing constants across the ALL AB
 
 ---
 
+## 2-C. Prompt & Assembly System v6 — Neuro-Diorama 3-Minute Long-Short (R56–R61, 2026-10-26)
+
+| Constant / Helper | Value | Unit | Meaning |
+|---|---|---|---|
+| `PRODUCTION_PROFILES` | `("classic_v5", "neuro_diorama")` | tuple | Supported channel production profiles |
+| `DEFAULT_PRODUCTION_PROFILE` | `"neuro_diorama"` | str | Default profile for new 3-minute US English Long-Shorts |
+| `PROMPT_SCHEMA_VERSION_V6` | `6` | — | Schema version for `neuro_diorama` plans / prompt packages |
+| `DIORAMA_ZERO_FLESH_LOCK` | `True` | bool | Zero human skin, eyes, faces, full-body mannequins, crowds, or animals (R56) |
+| `DIORAMA_ALLOW_CRYSTAL_SPECIMEN` | `True` | bool | Allows pedestal-mounted `satin-frosted optical crystal` head bust / hand sculpture for trajectory or sensory scenes (R56) |
+| `DIORAMA_CRYSTAL_SPECIMEN_MAX_RATIO` | `0.20` | ratio | Ceiling on crystal partial-specimen clips (`<= 20%`); `>= 80%` uninhabited Ghost-Lab dioramas & automata |
+| `DIORAMA_BACKDROP_STYLE` / `DIORAMA_LIGHTING_STYLE` | `"deep midnight-navy studio void"` / `"cinematic chiaroscuro rim lighting"` | str | Channel-signature dark midnight-navy backdrop (`RGB_DEEP_NAVY`) and dramatic rim lighting across all `neuro_diorama` clips (R56) |
+| `DIORAMA_BRAIN_RENDER_MODES` | `("matte_white_cortical_sulcal_glow", "translucent_smoked_glass_subcortical_xray")` | tuple | 2-mode isolated dark-void 3D anatomical brain visualization (opaque matte-white cortical sulcal glow vs semi-translucent smoked-glass X-ray subcortical glow) (R56) |
+| `DIORAMA_VISUAL_GRAMMARS` | `("arch_cutaway_diorama", "kinetic_trace_automata", "recurring_gauge_motif", "tactile_token_grid", "literal_analogy_cutaway", "arch_brain_maquette", "frosted_crystal_specimen")` | tuple | Permitted `6+1` visual grammars in `neuro_diorama` incl. 1:1 literal analogy dioramas (R56, R57-V) |
+| `DIORAMA_CAMERA_MOVES` | `("smooth_tilt_up", "smooth_tilt_down", "horizontal_tracking_pan", "isometric_push_in", "locked_macro_gauge", "dynamic_dolly_rush_in", "orbital_3d_arc_sweep", "crane_swoop_dive", "low_angle_chase_track", "vertical_rocket_ascent", "fpv_trench_passthrough", "pullback_parallax_reveal")` | tuple | Permitted single-axis smooth & dynamic 3D probe/orbital/crane/chase camera moves in `neuro_diorama` (R56) |
+| `DEFAULT_DIORAMA_CAMERA_PROFILE` / `DIORAMA_DYNAMIC_3D_CAMERA_MOVES` | `"dynamic_3d_cinema_rig"` / `("dynamic_dolly_rush_in", "orbital_3d_arc_sweep", "crane_swoop_dive", "low_angle_chase_track", "vertical_rocket_ascent", "fpv_trench_passthrough", "pullback_parallax_reveal")` | str / tuple | Default Dynamic 3D Cinema Camera Rig profile and 7 volumetric 3D camera moves for all new `neuro_diorama` productions (R56) |
+| `DIORAMA_MOTIF_APPEARANCES_MIN` / `DIORAMA_MOTIF_APPEARANCES_MAX` | `4` / `8` | clips | Recurring analog gauge prop appearances across Acts 1–6 (R56) |
+| `DIORAMA_SCENE_WORDS_MIN` / `DIORAMA_SCENE_WORDS_MAX` | `45` / `115` | words | Visual scene word bounds per `neuro_diorama` Flow clip prompt |
+| `DIORAMA_ACT_COUNT` | `6` | acts | 6-Act Neuro-Documentary narrative spine (R57) |
+| `DIORAMA_SENTENCE_COUNT_MIN` / `DIORAMA_SENTENCE_COUNT_MAX` | `48` / `58` | sentences | High-density US English storyteller sentence count per 3-minute Long-Short (R57) |
+| `DIORAMA_SENTENCE_WORDS_MAX` / `DIORAMA_V7_SENTENCE_WORDS_MAX` | `15` / `18` | words | Max words in any single `neuro_diorama` sentence (`15` in Schema v6; `18` in Schema v7 `R57-C` allowing real historical names + immediate everyday glosses) |
+| `DIORAMA_WORD_COUNT_MIN` / `DIORAMA_WORD_COUNT_MAX` | `440` / `505` | words | Total spoken US English word budget for brisk `~162 WPM` / `~172s` pacing (R57) |
+| `DIORAMA_BANNED_SLOGAN_OPENERS` / `DIORAMA_BANNED_WEAK_HOOK_PREFIXES` / `DIORAMA_REQUIRE_SIGNATURE_HOOKS` | `("university brain science, made simple", ...)` / `("imagine ", "picture this", "have you ever ", "what if ", "suppose ")` / `True` | tuple / tuple / bool | Generic channel-slogan & weak hypothetical cold-opens banned (`0.0s` immediate concrete paradox hook required, `R57` / `R57-H`) + restored R24 / R26 hooks |
+| `DIORAMA_V7_REQUIRE_COLD_OPEN` / `DIORAMA_V7_COLD_OPEN_S1_MAX_WORDS` / `DIORAMA_V7_COLD_OPEN_S2_MAX_WORDS` / `DIORAMA_V7_COLD_OPEN_S2_PREFIXES` / `DIORAMA_V7_COLD_OPEN_CASE_STAMP_PREFIX` | `True` / `18` / `12` / `("yet ", "but ", "and yet ", "still ", "meanwhile ")` / `"this is the true story of "` | bool / words / words / tuple / str | R57-H2 Schema v7 3-sentence cold-open enforced by `prompt-gate` (`validate_cold_open_v7`): S1 myth-flip `!` → S2 contrast → S3 case stamp; opt-out `visual_plan.require_cold_open_v7 = false` |
+| `DIORAMA_BANNED_AI_CLICHES` / `DIORAMA_BANNED_SEMINAR_TRANSITIONS` | `("delve into", "let's unpack", "underscore", "pivotal", "paramount", "tapestry", "furthermore", "moreover", "consequently", ...)` / `("moving on to", "this paper looks at", "the main region here is", "to wrap up and bring everything together", ...)` | tuple / tuple | YouTube Natural Script ear-first spoken lock (`R57-C`): bans AI-essay giveaway vocabulary AND academic slide-seminar transitions while enforcing conversational documentary flow |
+| `DIORAMA_DURATION_MIN_SEC` / `DIORAMA_DURATION_TARGET_SEC` / `DIORAMA_DURATION_MAX_SEC` | `140.0` / `158.0` / `179.0` | s | Target brisk Long-Short duration window (`~150–165s`) safely below YouTube's `180.00s` Long-form cutoff (R57) |
+| `SHORTS_HARD_CEILING_SEC` / `SHORTS_HARD_CEILING_FRAMES` | `179.0` / `5370` | s / frames | Hard mux ceiling at `30 fps` (`179.0s`) preventing accidental `>180s` classification (R57) |
+| `DIORAMA_NUMBER_ANALOGY_MAX_SENTENCE_GAP` | `1` | sentences | Max sentence distance from a core quantitative metric to its everyday physical analogy (R57) |
+| `DIORAMA_CLIP_COUNT_MIN` / `DIORAMA_CLIP_COUNT_DEFAULT` / `DIORAMA_CLIP_COUNT_MAX` | `20` / `60` / `240` | clips | Uncapped 1:1 Zero-Reuse Flow base motion clips (`>= len(sentences)+1`, default `60`) (R58) |
+| `DIORAMA_MAX_CLIP_REUSE` / `DIORAMA_SHARD_MAX_CLIPS` | `1` / `14` | uses / clips | Strict `0%` reuse lock (`1` cut per clip at `1.00x`) and max clips per sharded Flow project tab (R58) |
+| `DIORAMA_CLIP_RENDER_SEC` | `8` | s | Render duration per base Flow clip |
+| `DIORAMA_SLICE_WINDOWS_SEC` | `((0.20, 2.45), (2.60, 4.85), (5.00, 7.25))` | s | Legacy 3-window intra-clip slices (only used when `zero_clip_reuse == False`) (R58) |
+| `DIORAMA_SLICE_CROPS` | `(1.00, 1.12, 1.22)` | zoom | Legacy progressive framing (`1.00x` full framing locked when `zero_clip_reuse == True`) |
+| `DIORAMA_TARGET_CUT_MIN` / `DIORAMA_TARGET_CUT_MAX` | `52` / `110` | cuts | Assembled 3-Gear shot count across the `~172s` timeline (`1:1` sentence + multi-beat pairs) (R58) |
+| `DIORAMA_MIN_CUT_DURATION_SEC` / `DIORAMA_VISUAL_PLAYBACK_SPEED` / `DIORAMA_ENTRY_SPEED_RAMP` | `1.30` / `1.12` / `True` | s / ratio / bool | Gear-1 montage floor (`1.30s`), `1.12x` snappy motion speed, and `0.35s` entry speed-ramp (`1.26x -> 1.10x`) (R58) |
+| `DIORAMA_ENTRY_RAMP_START_SPEED` / `DIORAMA_ENTRY_RAMP_MAIN_SPEED` | `1.26` / `1.10` | ratio / ratio | Entry speed-ramp peak (`0.00–0.35s`) and main cruise speed (`0.35s..end`) per cut (R58) |
+| `DIORAMA_ACT5_MONTAGE_CUT_MIN_SEC` / `DIORAMA_ACT5_MONTAGE_CUT_MAX_SEC` | `0.65` / `1.10` | s | Rhythmic cut window during the Act 5 physical lab crisis climax (legacy cross-cut mode) |
+| `DIORAMA_TTS_ENGINE` / `DIORAMA_TTS_VOICE` / `DIORAMA_TTS_OUTPUT_FORMAT` / `DIORAMA_TTS_BITRATE_BPS` / `DIORAMA_TTS_RATE` / `DIORAMA_TTS_PITCH` | `"edge_tts"` / `"en-US-AndrewMultilingualNeural"` / `"audio-24khz-96kbitrate-mono-mp3"` / `96000` / `"+32%"` / `"+14Hz"` | str / str / str / bps / str / str | Crisp, natural American male high-tenor documentary storyteller voice streamed at `96 kbps` CBR (`2x` over `48 kbps` default, `0.000s` timing diff, R59/R63) |
+| `DIORAMA_TTS_SPEED` / `DIORAMA_MIN_CONVERSATIONAL_QUESTIONS` | `1.10` / `4` | ratio / count | Offline `kokoro-onnx` fallback speed & minimum conversational `?` hooks per script (R57/R59) |
+| `DIORAMA_SPEECH_PAUSE_SEC` / `DIORAMA_ACT_BOUNDARY_PAUSE_SEC` | `0.14` / `0.24` | s / s | Snappy inter-sentence breath gap (`0.14s`) and Act 1–6 boundary breath transition (`0.24s`) (R59) |
+| `DIORAMA_PAUSE_TUNE_RANGE_SEC` | `(0.10, 0.32)` | s | Breath-gap auto-fit range to land inside `DIORAMA_DURATION_MIN_SEC..DIORAMA_DURATION_MAX_SEC` |
+| `DIORAMA_ATEMPO_FIT_RANGE` | `(0.95, 1.04)` | ratio | Bounded pitch-preserving `atempo` fine-tuning range (zero `asetrate` pitch shift) |
+| `DIORAMA_ACTIVE_SPEECH_RATIO_MIN` | `0.84` | ratio | Minimum active voiced speech density before the outro swell (R59) |
+| `DIORAMA_BGM_BPM` / `DIORAMA_BGM_DUCK_DB` | `88` / `-24.0` | BPM / dB | Minimal documentary pulse BGM tempo and speech-ducked level (R59) |
+| `DIORAMA_OUTRO_SWELL_SEC` / `DIORAMA_OUTRO_SWELL_GAIN_DB` | `2.2` / `8.0` | s / dB | Final sky tilt-up title card hold and BGM swell gain |
+| `DIORAMA_TARGET_LUFS` / `DIORAMA_MAX_LRA_LU` | `-15.5` / `4.0` | LUFS / LU | Integrated loudness and loudness-range ceiling (R59) |
+| `DIORAMA_SUBTITLE_FONT_SIZE` / `DIORAMA_SUBTITLE_OUTLINE_WIDTH` / `DIORAMA_SUBTITLE_MARGIN_V` | `76` / `4.5` / `650` | pt / px / px | Single-line `Y≈64%` (`1920 - 650 = 1270` px) pure-white subtitle typography (R59) |
+| `DIORAMA_SUBTITLE_MAX_WORDS` / `DIORAMA_SUBTITLE_HIGHLIGHT_GOLD` | `3` / `False` | words / bool | Strict `2–3` word pure `#FFFFFF` hard-cut subtitle lock with zero color highlights (R59) |
+| `DIORAMA_CALLOUT_FONT_SIZE` / `DIORAMA_CALLOUT_MARGIN_V` / `DIORAMA_CALLOUT_COUNT_RANGE` | `64` / `1520` / `(4, 8)` | pt / px / count | Clean top-space (`Y≈21%`) US English year/metric callout style (R59) |
+| `DIORAMA_OUTRO_TITLE_FONT_SIZE` / `DIORAMA_OUTRO_TITLE_MARGIN_V` | `84` / `1140` | pt / px | Upper-sky (`Y≈41%`) 2-line uppercase English title card on final tilt-up (R59) |
+| `TITLE_MAX_CHARS_DIORAMA` | `95` | chars | Max character length for 2-Clause US English Paradox Titles (R60) |
+| `is_diorama_profile(x)` / `is_diorama_v7_plan(x)` / `is_porcelain_v7_plan(x)` / `resolve_diorama_v7_style_profile(x)` / `clip_count_range_for_profile(p)` / `shorts_duration_range_for_profile(p)` / `word_count_range_for_profile(p)` | helpers | — | Profile-aware contract resolvers in `pipeline/config.py` |
+| `PROMPT_SCHEMA_VERSION_V7` / `PORCELAIN_V7_STYLE_PROFILE` / `DIORAMA_V7_STYLE_PROFILE` / `DIORAMA_V7_STYLE_PROFILES` / `DEFAULT_DIORAMA_STYLE_PROFILE` | `7` / `"porcelain_cinematic_v7"` / `"lowpoly_pastel_v7"` / `("lowpoly_pastel_v7", "porcelain_cinematic_v7")` / `"porcelain_cinematic_v7"` | int / str / str / tuple / str | Schema v7 style profiles: **`porcelain_cinematic_v7` channel default** (R66) with backward-compatible `lowpoly_pastel_v7` preservation (R63) |
+| `PORCELAIN_V7_WORLD_STYLE` / `PORCELAIN_V7_CAST_STYLE` / `PORCELAIN_V7_OPTICS_LOCK` | `"photorealistic bright high-key documentary studio world"` / `"clothed articulated matte-white porcelain figures with translucent frosted-glass craniums"` / `"crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting"` | str / str / str | Photorealistic high-key porcelain/frosted-glass cast & cinema prime optics lock (R66) |
+| `PORCELAIN_V7_LUMA_RANGE` / `PORCELAIN_V7_DARK_VOID_RATIO_MAX` / `PORCELAIN_V7_SATURATION_RANGE` | `(88.0, 226.0)` / `0.24` / `(8.0, 115.0)` | Y / ratio / S | High-key native-color episode exposure, dark-shadow ceiling (`HSV V < 35`), and 4-color luminescence saturation bounds (R66) |
+| `PORCELAIN_V7_NEON_GREEN_SPILL_MAX` / `PORCELAIN_V7_BRAIN_MARGIN_SAT_MAX` / `PORCELAIN_V7_HUMAN_SKIN_MAX` | `0.015` / `48.0` / `0.14` | ratio / S / ratio | Hard CV caps blocking fluorescent neon-green AI slime/mist (`<= 1.5%`), outer studio margin glow bleed on whole-brain gallery cuts (`<= 48.0`), and HSV+YCrCb mannequin-to-human flesh morph (`<= 14%`) (R66) |
+| `PORCELAIN_V7_BRAIN_RENDER_MODES` / `PORCELAIN_V7_VISUAL_GRAMMARS` / `ALL_DIORAMA_V7_VISUAL_GRAMMARS` | 4 brain modes / 6 porcelain grammars / 12 v7 grammars | tuple / tuple / tuple | 4-mode Contained Living 4-Color 3D Brain (`cortical_vascular_whole`, `sagittal_coronal_cutaway`, `frosted_glass_subcortical_xray`, `bounded_micro_channel`) & 6 porcelain grammars (`porcelain_fullbleed_world`, `porcelain_hands_closeup`, `porcelain_pov_hands`, `porcelain_cutaway_section`, `porcelain_literal_analogy`, `porcelain_living_brain`) (R66) |
+| `DIORAMA_V7_WORLD_STYLE` / `DIORAMA_V7_SHADER_STYLE` / `DIORAMA_V7_OPTICS_LOCK` | `"full-bleed bright diffused pastel daylight world"` / `"untextured flat-shaded matte low-poly 3D"` / `"crisp infinite deep focus from foreground to horizon"` | str / str / str | Legacy `lowpoly_pastel_v7` full-bleed low-poly world, matte flat-shaded polygons, and `100%` infinite deep focus (R63) |
+| `DIORAMA_V7_LUMA_RANGE` / `DIORAMA_V7_DARK_VOID_RATIO_MAX` / `DIORAMA_V7_SATURATION_RANGE` | `(105.0, 168.0)` / `0.14` / `(24.0, 52.0)` | Y / ratio / S | Legacy `lowpoly_pastel_v7` episode mean luma window, dark-void pixel ceiling (`HSV V < 35`), and calm low-saturation pastel window (R63) |
+| `DIORAMA_V7_CUTAWAY_MAX_RATIO` / `DIORAMA_V7_BRAIN_RENDER_MODES` | `0.15` / `("matte_pastel_cortical_model", "matte_pastel_sagittal_cutaway")` | ratio / tuple | Cross-section cutaway ceiling (`<= 15%`) and 2-mode bright-studio matte architectural brain models (R63) |
+| `DIORAMA_V7_VISUAL_GRAMMARS` / `DIORAMA_V7_CAMERA_MOVES` | 6 grammars / 7 camera moves | tuple / tuple | 3-tier face-excluding low-poly framing (`lowpoly_hands_closeup`, `lowpoly_pov_hands`, `lowpoly_fullbleed_world`, `lowpoly_cutaway_section`, `lowpoly_literal_analogy`, `lowpoly_matte_brain`) and orthogonal camera rig (R63/R66) |
+| `DIORAMA_V7_LOCKED_CAMERA_MIN_RATIO` / `DIORAMA_V7_ZOOM_CAMERA_MAX_RATIO` | `0.35` / `0.30` | ratio / ratio | Minimum tripod lock-off ratio (`>= 35%`, target `~40%`) and zoom/push-pull ceiling (`<= 30%`) (R63) |
+| `DIORAMA_V7_VIDEO_FPS` / `DIORAMA_V7_VISUAL_PLAYBACK_SPEED` / `DIORAMA_V7_DURATION_MIN_SEC` / `SHORTS_HARD_CEILING_FRAMES_V7` | `24` / `1.00` / `140.0` / `4296` | fps / ratio / s / frames | Native `24.0fps` `1.00x` Flow timeline (`0%` `24->30` pulldown judder, `0%` speed-ramp knees, `140.0..179.0s` `<= 4,296` frames) (R63) |
+| `DIORAMA_V7_RAPID_CUT_MIN_SEC` / `DIORAMA_V7_MID_ACT_MAX_CUT_SEC` / `DIORAMA_V7_LONG_TAKE_MAX_SEC` / `DIORAMA_V7_CUT_CV_MIN` | `0.68` / `4.60` / `6.50` / `0.36` | s / s / s / CV | Rapid impact cuts (`0.68–1.35s`) + `<= 4.60s` single-sentence mid-act cap + `<= 6.50s` 2-sentence continuous holds (`CV >= 0.36`, R57-M/R63) |
+| `DIORAMA_V7_SPLIT_MODE` / `DIORAMA_V7_SPLIT_DIVIDER_PX` | `"split_hstack"` / `6` | str / px | Left/Right vertical split-screen with `6px` solid `#000000` black divider (R63) |
+| `DIORAMA_V7_TTS_RATE` / `DIORAMA_V7_TTS_PITCH` / `DIORAMA_V7_TTS_VOLUME` / `DIORAMA_V7_TTS_SPEED` / `DIORAMA_V7_WPM_MIN` / `DIORAMA_V7_WPM_MAX` / `DIORAMA_V7_ACTIVE_VOICED_RMS_RATIO_MIN` | `"+8%"` / `"+14Hz"` / `"-10%"` / `1.08` / `135.0` / `212.0` / `0.80` | str / str / str / ratio / WPM / WPM / ratio | Unified `1.08x` (`+8%`, `+14Hz` high-tenor pitch, `-10%` tear-free Silk Clean EQ) `en-US-AndrewMultilingualNeural` & offline `kokoro-onnx` speech rate with natural conversational breath preservation (`>= 80%` true RMS voiced ratio) (R63) |
+| `DIORAMA_V7_PROSODY_MODES` / `DIORAMA_V7_PROSODY_MODE` | `("uniform_108x", "uniform_110x", "dynamic_rush_v7")` / `"dynamic_rush_v7"` | tuple / str | Sentence-level prosody profiles; **channel default = `dynamic_rush_v7` (Plan B, approved 2026-10-31)**; per-project override via `script.json` `prosody_mode` or `--prosody-mode` |
+| `DIORAMA_V7_PROSODY_BASE_RATE` / `DIORAMA_V7_PROSODY_UNIFORM_110_RATE` | `"+8%"` / `"+10%"` | str | `dynamic_rush_v7` base / fallback rate (WSOLA only if a gear stream fails or Kokoro is used) and native rate for `uniform_110x` |
+| `DIORAMA_V7_PROSODY_GEAR_RATES` | rush `"+12%"` / stamp `"+8%"` / brisk `"+15%"` | dict | Native per-gear edge-tts rates: each Act is synthesized once per needed rate and every sentence is sliced from its gear's stream → `wsola_factor = 1.0` (no atempo phasiness / consonant smear) |
+| `DIORAMA_V7_PROSODY_SPLICE_FADE_SEC` | `0.014` | s | Smooth `14ms` raised-cosine fade at every sentence edge and emphasis micro-pause splice (studio booth glue) |
+| `DIORAMA_V7_MASTER_DEESSER` | `"deesser=i=0.48:m=0.5:f=0.5:s=o"` | ffmpeg filter | Calibrated Schema v7 master studio velvet de-esser (`< 0.58`; tames `4–10 kHz` vocoder sibilance while preserving `96 kbps` high-band clarity) |
+| `DIORAMA_MUX_TRUE_PEAK_TARGET_DBTP` | `-1.0` | dBTP | Encoded AAC true-peak ceiling: final / recut mux measures `ebur128=peak=true` on the encoded MP4 and re-encodes with a static trim (≤ 3 passes) until met — the sample-peak `alimiter` cannot see AAC intersample overshoot (lab B re-render hit `-0.3 dBTP` from a `-1.7 dBTP` master) |
+| ASR scoring (`_asr_tokens`, P6) | — | — | Hyphen split, dotted-initials join (`H.M.` → `hm`), light inflection fold before SequenceMatcher so Whisper orthography (`brand new`, `juggle`, `tests`) is not scored as mis-speech; threshold `PROSODY_P6_ASR_MATCH_MIN` unchanged |
+| `DIORAMA_V7_PROSODY_GEARS` | rush `1.12x` (trim `0.06→0.02s`, gap `0.025s`) / stamp `1.08x` (trim `0.16→0.06s`, gap `0.17s`) / brisk `1.15x` (trim `0.12→0.04s`, gap `0.065s`) | dict | Per-gear target tempo, internal-silence trim threshold → keep, inserted gap before sentence |
+| `DIORAMA_V7_PROSODY_UNIFORM_110` | trim `0.14→0.045s`, gap `0.085s`, stamp gap `0.17s`, act gap `0.20s` | dict | `uniform_110x` breath/gap profile |
+| `DIORAMA_V7_PROSODY_ACT_GAP_MIN` / `DIORAMA_V7_PROSODY_MAX_ADJ_TEMPO_JUMP` / `DIORAMA_V7_PROSODY_RUSH_MAX_STREAK` | `0.20` / `0.05` / `3` | s / ratio / count | Act boundary gap floor, adjacent gear-tempo jump clamp (when gap `< 0.10s`; clamped sentences synthesize at the nearest integer-% rate), max consecutive auto-rush sentences |
+| `DIORAMA_V7_PROSODY_EMPHASIS_PAUSE_SEC` / `DIORAMA_V7_PROSODY_EMPHASIS_GAIN_DB` | `0.0` / `1.0` | s / dB | Co-articulation-safe smooth `25ms` cosine gain contour lift (`0.0s` default disables mid-word digital zero-slicing) on `script.json` `emphasis_words` |
+| `DIORAMA_V7_PROSODY_STAMP_PHRASES` / `DIORAMA_V7_PROSODY_RUSH_CLIMAX_WORDS` / `DIORAMA_V7_PROSODY_REHOOK_PHRASES` | 6 phrases / `yet, then, suddenly, instead` / 5 phrases | tuple | Rule-based gear classifier inputs (generic, not episode-specific) |
+| `PROSODY_P1_FIRST_ONSET_MAX_SEC` / `PROSODY_P2_HOOK_END_MAX_SEC` / `PROSODY_P2_STAMP_END_MAX_SEC` / `PROSODY_P3_TEMPO_TOLERANCE` / `PROSODY_P4_RUSH_MAX_INTERNAL_SILENCE_SEC` / `PROSODY_P5_STAMP_PRE_SILENCE_RANGE` / `PROSODY_P6_ASR_MATCH_MIN` / `PROSODY_P10_OPEN_LOOP_MAX_GAP_SEC` | `0.10` / `9.0` / `11.5` / `0.03` / `0.07` / `(0.20, 0.32)` / `0.95` / `35.0` | s / s / s / ratio / s / s / ratio / s | Prosody QA Gates `P1–P10` (`pipeline/prosody.py`, `main.py prosody-qa`) — P2 recalibrated 2026-10-31 to the approved 3-sentence cold-open (HM Plan B: S2 ends 8.4s, S3 stamp ends 10.9s) |
+| `DIORAMA_V7_INTERNAL_SILENCE_TRIM_THRESHOLD_SEC` / `DIORAMA_V7_INTERNAL_BREATH_KEEP_SEC` / `DIORAMA_V7_INTER_SENTENCE_PAUSE_SEC` / `DIORAMA_V7_ACT_BOUNDARY_PAUSE_SEC` | `0.28` / `0.14` / `0.15` / `0.32` | s | Conversational breath/silence trimming and Act boundary pause targets (R63) |
+| `DIORAMA_V7_AUDIO_CHANNELS` / `DIORAMA_V7_BGM_DUCK_DB` | `2` / `-22.0` | ch / dB | 2-channel stereo acoustic/orchestral documentary score ducked `-22.0 dB` under centered voice (R63) |
+| `FONT_CONDENSED_BLACK_PATH` / `DIORAMA_V7_SUBTITLE_FONT_NAME` / `DIORAMA_V7_SUBTITLE_FONT_SIZE` / `DIORAMA_V7_SUBTITLE_OUTLINE_WIDTH` / `DIORAMA_V7_SUBTITLE_SHADOW_DEPTH` / `DIORAMA_V7_SUBTITLE_MARGIN_V` | `AABCondensed-Black.ttf` / `"AAB Condensed Black"` / `94` / `5.5` / `0.0` / `672` | path / str / pt / px / px / px | Bundled condensed extra-black `.ttf` (`fontsdir` loaded, uncondensed space glyph, `Shadow=0`, `H_median ≈ 52px`, `Y_center ≈ 1209px`, `0f` contiguous frame-grid handoff) (R63) |
+| `DIORAMA_V7_CHAPTER_HEADLINE_FONT_SIZE` / `DIORAMA_V7_CHAPTER_HEADLINE_OUTLINE_WIDTH` / `DIORAMA_V7_CHAPTER_HEADLINE_MARGIN_V` / `DIORAMA_V7_CHAPTER_HEADLINE_SCALE_X` / `DIORAMA_V7_CHAPTER_HEADLINE_MARGIN_LR` / `DIORAMA_V7_CHAPTER_HEADLINE_MAX_WIDTH_PX` | `276` / `2.5` / `180` / `85` / `85` / `920` | pt / px / px / % / px / px | Giant single-line top chapter impact headline (`~144px` height, `ScaleX=85` horizontal safe margins keeping rendered width `<= 920px` with `>= 80px` side margins, clear word separation + soft drop shadow) (R63) |
+| `DIORAMA_V7_ANATOMY_LABEL_FONT_SIZE` / `DIORAMA_V7_ANATOMY_LABEL_OUTLINE_WIDTH` / `DIORAMA_V7_ANATOMY_LABEL_SCALE_X` / `DIORAMA_V7_ANATOMY_LABEL_MARGIN_V` | `104` / `5.0` / `90` / `190` | pt / px / % / px | Programmatic upper-viewport ASS anatomical region callout badge (`AnatomyLabel` style on `porcelain_living_brain` / `lowpoly_matte_brain` cuts, collision-free vs `ChapterHeadline` & `split_hstack`, zero AI-rendered text inside Flow clips) (R63/R66) |
+
+---
+
+## 2-D. Post-Hoc Clip-by-Clip Expressive Clarity QA (R64) & Knowledge Base Hub (R50-B)
+
+| Constant | Value | Unit | Meaning |
+|---|---|---|---|
+| `POSTHOC_SEMANTIC_QA_REPORT_FILENAME` | `"posthoc_semantic_qa_report.json"` | file | Dual-stream post-hoc visual clarity report (`05_assembly/`) (R64) |
+| `POSTHOC_SEMANTIC_REVIEW_FILENAME` | `"posthoc_semantic_review.json"` | file | SHA-256-bound per-cut semantic review artifact (`05_assembly/`) (R64) |
+| `POSTHOC_VIEWER_STRIPS_DIRNAME` | `"posthoc_viewer_strips"` | dir | Annotated `[START \| MID \| END]` viewer contact sheets (`05_assembly/posthoc_viewer_strips/`) (R64) |
+| `POSTHOC_CUTS_PER_VIEWER_SHEET` | `6` | cuts/sheet | Number of assembled cuts rendered per contact sheet image (R64) |
+| `POSTHOC_MIN_CUT_CLARITY_SCORE` | `75.0` | score (0–100) | Minimum passing expressive clarity score for every individual cut (R64) |
+| `POSTHOC_MIN_EPISODE_MEAN_CLARITY_SCORE` | `82.0` | score (0–100) | Minimum episode-wide mean clarity score across all cuts (R64) |
+| `POSTHOC_MIN_SHARPNESS_LAPLACIAN` | `12.0` | Laplacian var | Minimum clean-ROI Laplacian focus sharpness on `360x640` standardized grid (R64) |
+| `POSTHOC_MIN_EDGE_DENSITY` | `0.005` | ratio | Minimum Canny structural edge ratio in clean action ROI (R64) |
+| `POSTHOC_MIN_FG_BG_CONTRAST_DE` | `4.0` | LAB ΔE | Minimum perceptual LAB foreground-to-periphery separation (R64) |
+| `POSTHOC_MIN_MOVING_CAM_DIFF` | `1.00` | L1 diff | Minimum mean temporal luma diff across moving-camera cuts (R64) |
+| `POSTHOC_LOCKED_TRIPOD_MIN_P95_DIFF` | `1.50` | L1 diff | Minimum 95th-percentile localized hand/prop motion diff on `locked_tripod` cuts (R64) |
+| `POSTHOC_MAX_STEP_HIST_JUMP` | `0.78` | Bhattacharyya | Maximum normalized HSV histogram step distance before flagging mid-cut AI morph/flash (R64) |
+| `POSTHOC_SPLIT_PANE_MIN_DIFF` | `10.0` | L1 diff | Minimum mean pixel difference between `split_hstack` left/right panes (R64) |
+| `POSTHOC_BRAIN_HIGHLIGHT_MIN_CHROMA` | `6.0` | LAB chroma | Minimum `p99.5 - median` LAB chroma accent separation on lesion/anatomy brain cuts (R64) |
+| `POSTHOC_ANALOGY_SYNC_TOLERANCE_SEC` | `0.45` | s | Maximum timing delta between ASR spoken analogy phrase and visual cut (R64) |
+| `POSTHOC_MIN_REVIEW_NOTE_CHARS` | `20` | chars | Minimum length for per-cut `observed_visual_summary` in `posthoc_semantic_review.json` (R64) |
+| `POSTHOC_MAX_IDENTICAL_REVIEW_NOTES` | `3` | cuts | Maximum identical review summaries allowed before flagging copy-paste boilerplate (R64) |
+| `KNOWLEDGE_BASE_DIRNAME` / `KNOWLEDGE_BASE_DIR` | `"knowledge_base"` / `CHANNEL_ROOT / "knowledge_base"` | dir / path | Channel-wide accumulated Knowledge Hub root (`BCI_Shorts_Channel/knowledge_base/`) (R50-B) |
+| `KNOWLEDGE_TELEMETRY_DIRNAME` | `"telemetry"` | dir | Episode & clip clarity telemetry (`knowledge_base/telemetry/`) (R50-B) |
+| `EPISODES_INDEX_FILENAME` / `CLIP_CLARITY_LEDGER_FILENAME` / `QA_ANALYTICS_SUMMARY_FILENAME` | `"episodes_index.jsonl"` / `"clip_clarity_ledger.jsonl"` / `"qa_analytics_summary.json"` | files | Episode registry, per-cut clarity ledger, and aggregated grammar/act failure analytics (R50-B) |
+| `REUSABLE_PACKS_DIRNAME` / `EXPERIMENTS_ARCHIVE_DIRNAME` | `"reusable_packs"` / `"experiments"` | dirs | Reusable prompt/analogy/brain/location JSON packs and dated parameter-tuning experiments archive (R50-B) |
+
+---
+
 ## 3. Assembly Timing, Holds & Speech Window Detection
 
 | Constant | Value | Unit | Meaning |
 |---|---|---|---|
-| `AV_SPEEDUP_FACTOR` | `1.08` | ratio | Synchronized video (`setpts`) and audio (`atempo`) speed-up (R43-A) |
-| `CLIP_VISUAL_HOLD_SEC` | `0.15` | s | Post-speech visual hold on non-pre-pivot clips `1..N-1` (R43-B) |
-| `CLIP_PRE_PIVOT_HOLD_SEC` | `0.30` | s | Post-speech visual hold on the clip immediately before `pivot` (R43-B) |
+| `AV_SPEEDUP_FACTOR` | `1.00` | ratio | Synchronized video (`setpts`) and audio (`atempo`) speed-up (R43-A) |
+| `CLIP_VISUAL_HOLD_SEC` | `0.32` | s | Post-speech visual hold on non-pre-pivot clips `1..N-1` (R43-B) |
+| `CLIP_PRE_PIVOT_HOLD_SEC` | `0.45` | s | Post-speech visual hold on the clip immediately before `pivot` (R43-B) |
 | `CLIP_PRE_ROLL_TRIM_SEC` | `0.40` | s | Minimum pre-roll trim on clips `2..N` when speech starts later |
 | `FINAL_TAIL_SEC` | `0.20` | s | Post-speech hold on the final clip (independent conclusion ending, R19/R43-B) |
 | `END_FADE_SEC` | `0.09` | s | Clean video/audio fade-out at the very end of the final clip (R43-B) |
@@ -174,6 +290,10 @@ Owner of all numeric thresholds, budgets, and timing constants across the ALL AB
 | `SUBTITLE_MARGIN_V` | `440` | px | Vertical margin from bottom (`1920 - 440 = 1480` px, lower-third anchor) |
 | `SUBTITLE_MAX_WORDS_PER_EVENT` | `3` | words | Maximum words per single subtitle burst (R16) |
 | `SUBTITLE_MAX_LINES` | `1` | lines | Strict single-line subtitle lock (zero `\N` line breaks) |
+| `AUDIO_SIBILANCE_BAND_HZ` / `AUDIO_SPEECH_BODY_BAND_HZ` | `(4200.0, 9200.0)` / `(180.0, 3600.0)` | Hz | High-frequency sibilance/harshness band vs speech body band (`VideoAutopsyEngine.inspect_audio_stream`) |
+| `AUDIO_MAX_SIBILANCE_ENERGY_RATIO` / `AUDIO_MAX_SIBILANCE_CREST_DB` | `0.62` / `32.0` | ratio / dB | Max HF/body RMS ratio and HF crest over active 50ms voiced windows before flagging harshness tear |
+| `DIORAMA_V7_TARGET_LUFS` / `DIORAMA_LUFS_TOLERANCE_LU` | `-15.5` / `4.0` | LUFS / LU | BS.1770 (`ebur128`) integrated documentary loudness target and accepted tolerance window (`-19.5..-11.5 LUFS`) |
+| `AUDIO_MAX_OVERSAMPLED_TRUE_PEAK_DBTP` / `AUDIO_MIN_TTS_ASR_WORD_COVERAGE` | `-0.5` / `0.85` | dBTP / ratio | Max 4x oversampled True Peak (`ebur128=peak=true`) and minimum TTS spoken word coverage ratio |
 
 ---
 
@@ -217,3 +337,31 @@ Owner of all numeric thresholds, budgets, and timing constants across the ALL AB
 | `MAX_LOOP_ITERATIONS` | `60` | iterations | Hard safety ceiling on any polling loop |
 | `ALLOW_EXTERNAL_PAID_APIS` | `False` | bool | Zero external paid API policy lock (R5) |
 | `ALLOW_STATIC_IMAGE_VIDEO_FALLBACK` | `False` | bool | Anti-placeholder policy lock (no static images or fake loops) |
+
+---
+
+## 7. R65 Thumbnail Studio & In-Video Cover Frame (`pipeline/thumbnail_studio.py`)
+
+| Constant | Value | Unit | Meaning |
+|---|---|---|---|
+| `THUMBNAIL_REPORT_FILENAME` | `"thumbnail_report.json"` | filename | Per-episode 7-gate thumbnail QA & cover-frame timestamp report (`06_publish/`) |
+| `THUMBNAIL_CONTACT_SHEET_FILENAME` | `"thumbnail_contact_sheet.png"` | filename | Full-size + `160px` mobile-shelf side-by-side contact sheet (`06_publish/`) |
+| `THUMB_CANDIDATE_SAMPLES_PER_CUT` | `3` | frames | Clean intra-cut sample offsets (`25% / 50% / 75%`) evaluated per eligible EDL cut |
+| `THUMB_EXCLUDE_MODES` | `("split_hstack", "split_vstack")` | tuple | Split-screen cut modes excluded from single-subject cover selection |
+| `THUMB_EXCLUDE_OUTRO` | `True` | bool | Excludes Act 6 `outro_sky_card` from cover candidate pool |
+| `THUMB_SCORE_WEIGHTS` | `{"sharpness": 0.25, "contrast": 0.20, "colorfulness": 0.10, "center_salience": 0.25, "intent": 0.20}` | dict | Composite candidate frame scoring weights |
+| `THUMB_INTENT_BONUS` | `{"cover_sentence": 1.0, "act1": 0.6, "brain_badge": 0.4, "default": 0.0}` | dict | Narrative/cover-sentence intent bonus weights |
+| `THUMB_MIN_SHARPNESS` | `60.0` | Laplacian var | Minimum Laplacian focus variance at `540x960` (`TQ3`) |
+| `THUMB_MIN_LUMA_STD` | `38.0` | luma std | Minimum global luminance contrast standard deviation (`TQ3`) |
+| `THUMB_MIN_CENTER_SALIENCE` | `1.15` | ratio | Minimum centre-`3:4` Canny edge density vs outer border density (`TQ2`) |
+| `THUMB_MIN_PAIRWISE_DIFF` | `15.0` | L1 diff | Minimum pairwise ROI pixel difference across variants A, B, and C (`R31` / `TQ5`) |
+| `THUMB_MIN_TEXT_CONTRAST` | `4.5` | WCAG ratio | Minimum hook fill vs local/stroke background contrast at `160px` shelf width (`TQ1`) |
+| `THUMB_LEGIBILITY_PREVIEW_W` | `160` | px | Simulated mobile Shorts shelf width (`TQ1`) |
+| `THUMB_SAFE_Y_RANGE` | `(240, 1440)` | px | Safe vertical band inside centre `3:4` grid crop & above bottom `25%` Shorts UI (`TQ4`) |
+| `THUMB_SAFE_MARGIN_X` | `80` | px | Minimum left/right horizontal safe margin for hook text (`TQ4`) |
+| `THUMB_HOOK_MAX_WORDS` | `4` | words | Maximum word count for thumbnail hook headline (`TQ7`) |
+| `THUMB_HOOK_MAX_CHARS` | `18` | chars | Maximum character count for thumbnail hook headline (`TQ7`) |
+| `THUMB_HOOK_FONT_SIZE_RANGE` | `(150, 96)` | pt | Auto-fit bundled `AABCondensed-Black` hook font size range `(max, min)` |
+| `THUMB_HOOK_STROKE_PX` | `10` | px | Dark outer stroke thickness around pure-white hook glyphs (zero v6 boxes/pills) |
+| `THUMB_MIN_FILE_BYTES` | `80_000` | bytes | Minimum PNG file size per rendered thumbnail variant (`R31` / `TQ6`) |
+| `DIORAMA_V7_REQUIRE_THUMBNAIL_BLOCK` | `True` | bool | Requires `visual_plan.thumbnail` + stamp headline alignment on new Schema v7 episodes (`R65`) |

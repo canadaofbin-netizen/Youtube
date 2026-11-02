@@ -1,0 +1,695 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "clark_doll_experiment_bias",
+  "topic": "Mamie Phipps Clark & Kenneth B. Clark (1939-1950) Four-Doll Identification & Preference Study, Early Social-Status Radar, Brown v. Board Footnote 11, and Proactive Representation (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Unanimous 9-0 U.S. Supreme Court ruling in Brown v. Board of Education (May 17, 1954) citing Kenneth and Mamie Clark at the top of Footnote 11 to strike down 58 years of legal school segregation.",
+  "outro_title_lines": [
+    "MAMIE & KENNETH CLARK (1947)",
+    "HARLEM NORTHSIDE CENTER"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "COLOR BLIND?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FOUR SMALL DOLLS?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "EIGHT QUESTIONS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "STATUS RADAR"
+    },
+    {
+      "sentence_index": 27,
+      "text": "OUTSIDE STIGMA"
+    },
+    {
+      "sentence_index": 35,
+      "text": "NINE TO ZERO"
+    },
+    {
+      "sentence_index": 43,
+      "text": "OPEN WARMTH"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "COLOR BLIND?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FOUR SMALL DOLLS?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "EIGHT QUESTIONS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "STATUS RADAR"
+    },
+    {
+      "sentence_index": 27,
+      "text": "OUTSIDE STIGMA"
+    },
+    {
+      "sentence_index": 35,
+      "text": "NINE TO ZERO"
+    },
+    {
+      "sentence_index": 43,
+      "text": "OPEN WARMTH"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 45,
+      "mode": "split_hstack",
+      "left_clip_index": 50,
+      "right_clip_index": 51,
+      "left_label": "SILENT TABLE",
+      "right_label": "WARM DIALOGUE"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pastel soft-mint sweater sleeves and matte-white gloved low-poly child hands holding wooden toy blocks on a sunlit play table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift two pastel wooden blocks and place them neatly side by side on the pale-maple surface",
+      "consequence": "the colorful wooden blocks rest evenly in morning sunlight"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit pastel city sidewalk beside a toy shop window and miniature bus stop",
+      "action": "viewed strictly from behind, a clothed low-poly child in a soft-mint sweater walks beside an adult in a dove-gray coat and turns to point toward the shop display"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored sage blazer sleeves and cool porcelain-white gloved low-poly hands setting four matched low-poly dolls onto a child-height table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift two warm-brown dolls and two pale-ivory dolls in white cotton rompers and align them evenly in a row",
+      "consequence": "all four matched dolls sit balanced in warm window daylight"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal wool suit sleeves and cool porcelain-white gloved low-poly hands opening an ivory tally folder with a silver fountain pen",
+      "prop_action": "one cool porcelain-white gloved low-poly hand opens the crisp ivory folder while the other hand places the silver pen calmly along the margin",
+      "consequence": "eight clean row lines wait ready on the sunlit page"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a warm sunlit Harlem child-development room with tall windows and a low wooden table",
+      "action": "viewed strictly from behind, a clothed low-poly woman psychologist in a sage blazer sits at the table beside a standing male colleague in a charcoal suit as they align the four matched dolls"
+    },
+    {
+      "sentence_index": 4,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "supreme_court_chamber",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_left",
+      "structure": "a bright pastel architectural model showing two separated miniature schoolhouses divided by a pale-stone fence",
+      "internal_mechanism": "a wooden gate slides shut between the bright two-story schoolhouse on one side and the cramped wooden schoolhouse on the other"
+    },
+    {
+      "sentence_index": 6,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored sage blazer sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over a study desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands open a bound thesis notebook and slide pastel sketch cards across the desk",
+      "consequence": "the neat silhouette sketches spread clearly across the page"
+    },
+    {
+      "sentence_index": 6,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit university research office with wooden bookshelves and a neat study desk",
+      "action": "viewed strictly from behind, the clothed low-poly woman researcher in a sage blazer sits writing notes at the desk and lifts a sketch card toward the window light"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "dove-gray overcoat sleeves and cool porcelain-white gloved low-poly hands inspecting a pastel store shelf holding only pale-ivory dolls",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts a pale-ivory doll in a white romper and sets it back beside three identical pale-ivory dolls",
+      "consequence": "the wooden store shelf shows zero brown-toned dolls anywhere in the row"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster workbench where a smooth unnumbered pale-maple wooden ruler stands upright beside four identical low-poly dolls",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in blazer sleeves lift the pale-maple wooden ruler and align it flush from toe to crown beside the four matched dolls"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "rolled white shirt sleeves and cool porcelain-white gloved low-poly hands holding a fine artist brush and warm-brown matte paint dish",
+      "prop_action": "one cool porcelain-white gloved low-poly hand steadies a sculpted doll while the other hand glides the soft brush smoothly across the doll's arm",
+      "consequence": "even warm-brown matte pigment covers the smooth geometric surface"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "sage blazer cuffs and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place the two newly painted warm-brown dolls right beside the two pale-ivory dolls on a clean cloth",
+      "consequence": "the four matched figures rest together in soft golden light"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-stone display table holding two identical pastel-framed oval mirrors side by side",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in coat sleeves turn and align both twin oval mirrors until their crisp reflections match symmetrically"
+    },
+    {
+      "sentence_index": 11,
+      "end_sentence_index": 12,
+      "act": 2,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the warm sunlit consultation room with small wooden chairs, bright curtains, and the low table holding the four matched dolls",
+      "action": "viewed strictly from behind, a clothed low-poly preschool child in blue overalls steps calmly to the small chair and sits facing the psychologist in the sage blazer"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage blazer sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over the low wooden table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands space the four alternating brown and ivory dolls evenly and rest open palms calmly on the table edge",
+      "consequence": "all four dolls sit equidistant within easy child reach"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit cool-alabaster craft table holding two neat wooden trays filled with bright warm-brown and pale-ivory wax crayons",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in sweater sleeves lift and place each wax crayon briskly into its matching colored tray without hesitation"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-sand studio platform featuring a pastel wooden playground seesaw on a central triangle pivot",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in blazer sleeves place two ivory blocks onto one seat and press it downward so the wooden seesaw tilts steeply"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster kitchen counter holding a ceramic bowl with a smooth pastel apple beside a dented dull-brown pastel apple",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in shirt sleeves lift the dented pastel apple from the bowl and set it aside onto a separate small plate"
+    },
+    {
+      "sentence_index": 17,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal wool suit cuffs and cool porcelain-white gloved low-poly hands sliding a silver pen down to the eighth bottom row of an ivory tally sheet",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand taps the eighth bottom line gently with the silver pen tip and holds steady",
+      "consequence": "the pen tip rests quietly beside the final row"
+    },
+    {
+      "sentence_index": 17,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "small blue jumper cuffs and matte-white gloved low-poly child hands hovering slowly above the warm-brown doll on the table",
+      "prop_action": "one small cool porcelain-white gloved low-poly hand reaches halfway toward the warm-brown doll and pulls back slightly to rest on the table edge",
+      "consequence": "the small hand pauses motionless beside the white cotton romper"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the quiet sunlit Harlem consultation room around the low child-height table",
+      "action": "viewed strictly from behind, the clothed low-poly child in blue overalls leans forward lowering their head onto folded arms while the psychologist in the sage blazer reaches a comforting hand across the table"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage blazer sleeves and cool porcelain-white gloved low-poly hands gently lifting both matched brown and ivory dolls side by side",
+      "prop_action": "both cool porcelain-white gloved low-poly hands hold the two identical smiling dolls level in the warm window light and set them softly down",
+      "consequence": "their identical sculpted smiles catch the same golden ray"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nEMOTIONAL ALARM",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the almond-shaped deep medial amygdala glows warm coral-red and sends subtle ripples upward"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_right",
+      "structure": "a softly lit muted pastel cutaway diorama of a miniature civic plaza with smooth unmarked stone display alcoves, tiered gallery pedestals, and limestone courtyard steps",
+      "internal_mechanism": "soft cool-white beam cones illuminate only pale-ivory sculpted miniature figures on the front pedestals while muted slate-taupe sculpted miniature figures sit in dimmer rear alcoves"
+    },
+    {
+      "sentence_index": 22,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pastel green cardigan sleeves and matte-white gloved low-poly child hands extending from the bottom frame edge over a picture book",
+      "prop_action": "both cool porcelain-white gloved low-poly hands flip open three illustrated story pages showing only pale-ivory characters in crowns and capes",
+      "consequence": "the glossy pages lie flat on the wooden desk"
+    },
+    {
+      "sentence_index": 22,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit mid-century classroom with wooden desks and an illustrated story easel",
+      "action": "viewed strictly from behind, clothed low-poly four-year-olds in colorful sweaters sit at small desks and lean forward watching a teacher in a dove-gray jacket turn pages on the easel"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nCONFLICT DETECTOR",
+      "camera": "locked_tripod",
+      "brain_scene": "along the inner medial wall of the flat side-profile half-brain cross-section, the curved anterior cingulate arch pulses bright coral-amber above the central arch"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nYOUNG PLANNER",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front third of the matte warm-ivory 3D brain model, soft sky-blue facets glimmer faintly across the developing prefrontal cortex"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "blue jumper sleeves and matte-white gloved low-poly child hands stacking pastel status blocks on a low play mat",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place a pale-ivory block atop a tall pedestal and set a warm-brown block onto a lower step",
+      "consequence": "the uneven block steps mirror the outside street display"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a warm sunlit family living room with a woven rug, armchair, and framed geometric family portrait silhouettes",
+      "action": "viewed strictly from behind, a clothed low-poly parent in a soft cardigan kneels on the rug and opens both arms as a child in soft-mint overalls steps into a warm hug"
+    },
+    {
+      "sentence_index": 27,
+      "end_sentence_index": 28,
+      "act": 4,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy tweed blazer sleeves and cool porcelain-white gloved low-poly hands organizing two distinct pastel card stacks on an slate-stone study desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place a warm-gold home heart card on the left and slide a cool-gray street tower card separately to the right",
+      "consequence": "the two separate pastel stacks clarify home love versus outside status"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a cheerful sunlit Harlem kitchen and dining table set with pastel ceramic bowls and warm morning light",
+      "action": "viewed strictly from behind, two clothed low-poly parents in sweaters sit around the table and pass a warm bread basket to two children who reach out happily"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-mint sweater sleeves and matte-white gloved low-poly child hands extending from the bottom frame edge over the low slate-stone table",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand points clearly toward the pale-ivory doll while the left hand rests calmly beside the warm-brown doll",
+      "consequence": "the steady finger indicates the learned outside rule"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a sunlit pale-stone architectural gable topped with a brushed-brushed-silver low-poly rooster weather vane under a pastel sky",
+      "comparison_action": "a visible ribbon of pale-blue breeze glides past the rooftop and turns the brushed-silver weather vane arrow smoothly to point into the wind"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal suit sleeves and cool porcelain-white gloved low-poly hands placing sky-blue summary pins onto a pastel map of northern towns",
+      "prop_action": "both cool porcelain-white gloved low-poly hands press neat sky-blue wooden pins into the northern region board and align an ivory tally card beside it",
+      "consequence": "the sky-blue pins cluster clearly across the northern board"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage blazer cuffs and cool porcelain-white gloved low-poly hands placing warm-amber pins onto the southern region of the pastel map",
+      "prop_action": "both cool porcelain-white gloved low-poly hands press warm-amber wooden pins across the southern board and slide both regional tally stacks together",
+      "consequence": "both northern and southern stacks stand side by side on the desk"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "charcoal wool suit sleeves and cool porcelain-white gloved low-poly hands tying a crisp navy ribbon around the compiled research brief",
+      "prop_action": "both cool porcelain-white gloved low-poly hands close the thick ivory research brief beside the four matched dolls and pull the ribbon snug",
+      "consequence": "the completed scientific brief rests ready beside the four dolls"
+    },
+    {
+      "sentence_index": 35,
+      "act": 5,
+      "location_id": "supreme_court_chamber",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "wide pale-marble courthouse steps bathed in crisp morning sunlight with tall neoclassical columns",
+      "action": "viewed strictly from behind, a clothed low-poly civil-rights attorney in a navy suit carries a leather briefcase and walks briskly up the marble steps beside the two psychologists"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "supreme_court_chamber",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy wool suit sleeves and cool porcelain-white gloved low-poly hands setting the ivory research brief onto a polished dark-slate counsel lectern",
+      "prop_action": "both cool porcelain-white gloved low-poly hands open the bound brief on the lectern and align a small wooden scale model of the four dolls beside it",
+      "consequence": "the empirical brief lies open before the high bench"
+    },
+    {
+      "sentence_index": 37,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "supreme_court_chamber",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "flowing black judicial robe sleeves and cool porcelain-white gloved low-poly hands lifting a bound ivory court opinion on a high dark-slate bench",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift the crisp ivory opinion pages and set a wooden gavel calmly down to rest",
+      "consequence": "stillness settles across the sunlit marble chamber"
+    },
+    {
+      "sentence_index": 37,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "supreme_court_chamber",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a grand sunlit marble courtroom with velvet drapes and a long raised dark-slate bench",
+      "action": "viewed strictly from behind, clothed low-poly attorneys and psychologists in tailored suits sit facing nine robed low-poly Justices seated together along the high bench"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "supreme_court_chamber",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "black robe cuffs and cool porcelain-white gloved low-poly hands aligning nine warm-gold wooden vote tokens in a single unbroken line",
+      "prop_action": "cool porcelain-white gloved low-poly hands slide the ninth warm-gold token smoothly into the row leaving the opposite gray tray completely empty",
+      "consequence": "all nine gold tokens glow together in unison"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "supreme_court_chamber",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "charcoal wool suit sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over a sunlit library table",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand opens the bound ivory court volume and traces a warm-amber highlight bar along the lower footnote margin",
+      "consequence": "the amber citation bar gleams cleanly at the bottom of the page"
+    },
+    {
+      "sentence_index": 40,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "supreme_court_chamber",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray blazer sleeves and cool porcelain-white gloved low-poly hands lifting away the dividing stone barrier from the miniature schoolhouse model",
+      "prop_action": "both cool porcelain-white gloved low-poly hands grip the gray dividing fence and lift it cleanly off the sunlit green courtyard",
+      "consequence": "an open stone walkway now links the bright school doors"
+    },
+    {
+      "sentence_index": 40,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "supreme_court_chamber",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit public school walkway lined with autumn trees and wide open double doors",
+      "action": "viewed strictly from behind, clothed low-poly children of diverse brown and ivory tones in colorful sweaters walk side by side up the steps into the same bright school"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "supreme_court_chamber",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a sunlit marble legal reading room with tall arched windows",
+      "action": "viewed strictly from behind, the clothed low-poly woman psychologist in a sage suit and her husband in a charcoal suit stand beside their attorney holding the open court volume together"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright cheerful Harlem child-development reading room filled with colorful art easels, plants, and low wooden bookshelves",
+      "action": "viewed strictly from behind, the clothed low-poly director in a sage blazer sits in a sunny reading circle and opens a vibrant picture book for gathered children"
+    },
+    {
+      "sentence_index": 43,
+      "act": 6,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft oatmeal sweater sleeves and matte-white gloved low-poly adult hands extending from the bottom frame edge over a family bookshelf",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide colorful illustrated hero biographies upright along the sunny wooden shelf",
+      "consequence": "diverse astronaut and scientist portraits shine side by side"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "modern lavender blazer sleeves and cool porcelain-white gloved low-poly hands arranging five graded skin-tone portrait cards on a classroom table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and align the five smiling low-poly child portrait cards evenly across the pale-maple desk",
+      "consequence": "the balanced spectrum of portrait cards lies ready in bright morning light"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "gray cardigan sleeves and cool porcelain-white gloved low-poly hands closing a plain blank folder silently on a bare table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands fold the blank gray cover shut and pull back away from an uneven stack of blocks",
+      "consequence": "the lopsided block stack remains unchallenged on the table"
+    },
+    {
+      "sentence_index": 45,
+      "cut_role": "split_right",
+      "act": 6,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "warm coral sweater sleeves and matte-white gloved low-poly adult and child hands sharing an open illustrated book",
+      "prop_action": "the adult cool porcelain-white gloved low-poly hand opens the colorful hero book and levels the wooden blocks evenly beside the child's hand",
+      "consequence": "all pastel blocks stand at equal height in warm sunlight"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "soft-mint sweater sleeves and matte-white gloved low-poly child hands lifting a magnifying lens over two mismatched story cards",
+      "prop_action": "both cool porcelain-white gloved low-poly hands hold the round clear lens and slide away the faded gray card to reveal a bright gold star card",
+      "consequence": "the warm gold star card shines clearly on the desk"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nFAIRNESS BUFFER",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front lobe of the matte warm-ivory 3D brain model, steady warm-gold and sky-blue facets illuminate the prefrontal cortex and send a calm stream inward"
+    },
+    {
+      "sentence_index": 48,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "oatmeal sweater cuffs and cool porcelain-white gloved low-poly hands placing matched brown and ivory scientist figurines onto a classroom shelf",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift the smiling astronaut and doctor figurines in white coats and set them together at eye level",
+      "consequence": "every figurine stands tall along the sunny wooden ledge"
+    },
+    {
+      "sentence_index": 48,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a softly lit muted pastel classroom studio corner with cool slate-stone bookshelves, a pale sage woven mat, and blank unlabelled matte pastel hardcover books",
+      "action": "viewed strictly from behind, clothed low-poly children in muted powder-blue and sage sweaters sit together with a teacher in a soft lavender cardigan and reach toward blank unlabelled matte pastel hardcover books on the cool slate-stone bookshelves"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "blue jumper sleeves and matte-white gloved low-poly child hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved low-poly hands open a sunlit storybook showing brown and ivory explorers standing side by side on a mountain peak",
+      "consequence": "warm golden morning light bathes the open illustrated spread"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the warm sunlit Harlem child-development room where the four matched dolls and colorful storybooks rest together on the low slate-stone table",
+      "action": "viewed strictly from behind, clothed low-poly educators and children stand together beside the sunlit window looking out over the bright neighborhood"
+    },
+    {
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "northside_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a sunlit Harlem brownstone tree-lined avenue with children's garden planters and a clear pastel morning sky",
+      "action": "viewed strictly from behind, clothed low-poly families and children walk cheerfully along the sunlit sidewalk as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "FOUR SMALL DOLLS?",
+    "cover_sentence_index": 3,
+    "cover_brief": "four identical twelve-inch brown and ivory low-poly dolls aligned evenly on a sunlit oak child table"
+  }
+}

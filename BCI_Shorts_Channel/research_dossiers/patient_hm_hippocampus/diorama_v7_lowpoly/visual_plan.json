@@ -1,0 +1,767 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "patient_hm_hippocampus",
+  "topic": "Patient H.M. (Henry Molaison) 1953 Bilateral Hippocampal Amnesia & 1962 Mirror-Star Motor Dissociation (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Brenda Milner's 1962 three-day mirror-drawing star tracing experiment (30 trials across 3 days under an angled metal hand shield) proving spared basal ganglia and cerebellar motor skill learning despite zero conscious recall.",
+  "outro_title_lines": [
+    "HENRY MOLAISON (1953)",
+    "HARTFORD & MONTREAL"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "1953 CASE"
+    },
+    {
+      "sentence_index": 11,
+      "text": "15 MINUTES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "MEMORY HUB"
+    },
+    {
+      "sentence_index": 31,
+      "text": "THE MYTH"
+    },
+    {
+      "sentence_index": 40,
+      "text": "3-DAY STAR"
+    },
+    {
+      "sentence_index": 49,
+      "text": "YOUR BRAIN"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "1953 CASE"
+    },
+    {
+      "sentence_index": 11,
+      "text": "15 MINUTES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "MEMORY HUB"
+    },
+    {
+      "sentence_index": 31,
+      "text": "THE MYTH"
+    },
+    {
+      "sentence_index": 40,
+      "text": "3-DAY STAR"
+    },
+    {
+      "sentence_index": 49,
+      "text": "YOUR BRAIN"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 27,
+      "mode": "split_hstack",
+      "left_clip_index": 31,
+      "right_clip_index": 62,
+      "left_label": "FACT GATES LOST",
+      "right_label": "118 IQ INTACT"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 1,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "crisp cream lab coat sleeve, slate blazer cuff, and matte geometric hand",
+      "prop_action": "a low-poly hand in a cream lab coat cuff grips a brushed brass door handle, turns the latch downward, and pushes open a sunlit oak clinic door",
+      "consequence": "warm morning daylight spills smoothly across the pale birch threshold"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 1,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "a crisp cream lab coat sleeve entering from the left and a tan knit cardigan sleeve entering from the right beside a sunlit oak desk",
+      "prop_action": "the cream-cuffed low-poly hand extends forward and clasps the tan-sleeved low-poly hand in a warm steady morning handshake above the desktop",
+      "consequence": "bright morning window sunlight gleams smoothly across the clasped matte geometric hands"
+    },
+    {
+      "sentence_index": 2,
+      "beat_index": 1,
+      "beat_weight": 0.46,
+      "act": 1,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "single pair of cream lab coat cuffs and matte low-poly hands extending from the left frame edge",
+      "prop_action": "two steady low-poly hands lift and flip a smooth brass-and-glass sandglass timer upright on a sunlit birch side table",
+      "consequence": "fine pale-gold sand pours and settles cleanly into the lower glass bulb"
+    },
+    {
+      "sentence_index": 2,
+      "beat_index": 2,
+      "beat_weight": 0.54,
+      "act": 1,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "a cream lab coat cuff extending from the left frame edge and a tan knit cardigan cuff extending from the right frame edge over a sunlit pale-birch table",
+      "prop_action": "the tan-sleeved matte low-poly hand opens its palm freshly and reaches across the sunlit birch tabletop to clasp the cream-cuffed low-poly hand in a brand-new greeting",
+      "consequence": "clear morning window light shifts smoothly across the clasped geometric hands and wooden tabletop"
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan knit cardigan sleeves and neat shirt cuffs extending from the bottom frame edge",
+      "prop_action": "both matte low-poly hands briskly rotate, slide, and press four red-and-ivory geometric wooden puzzle blocks into a crisp square tray",
+      "consequence": "the final wooden triangle snaps cleanly into place completing a symmetrical diamond pattern"
+    },
+    {
+      "sentence_index": 4,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "hartford_clinic_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "an elevated rear view of a bright 1953 Hartford hospital neurology corridor with pale-mint walls, tall sunlit windows, and a quiet consultation room",
+      "action": "viewed strictly from behind, a clothed low-poly surgeon in a crisp white coat and dark trousers walks steadily down the sunlit corridor and steps beside a seated low-poly patient in a pale-blue hospital jacket gripping the wooden chair armrests"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "temporal lobe",
+      "anatomy_label": "TEMPORAL LOBE\nSIDE LOBE",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the sunlit pale-wood stand, both lower lateral temporal lobes along the sides of the matte warm-ivory 3D whole brain model illuminate in soft sky-blue pastel facets",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_02_cortical_brain_neutral.png"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "MEDIAL TEMPORAL\n8-CM DEEP ZONE",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the lower-central medial temporal zone of the flat side-profile half-brain cross-section, the curved C-shaped inner hippocampal arch facets glow warm terracotta-amber and dim smoothly to pale slate-grey",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_03_sagittal_brain_neutral.png",
+      "src_start_sec": 2.0
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-birch studio workbench beside a smooth carved wooden thumb sculpture",
+      "comparison_action": "two steady low-poly hands in cream lab coat sleeves lift and place a curved warm-ivory seahorse model onto a brass cradle directly beside a matching thumb-length matte-coral neural ridge"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 1,
+      "location_id": "hartford_clinic_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue cotton hospital jacket sleeves and matte geometric hands resting on crisp white linen",
+      "prop_action": "both low-poly hands unclench slowly and settle flat and calm across the sunlit white cotton blanket beside a brass sandglass",
+      "consequence": "the falling golden sand inside the glass bulb halts completely mid-stream"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 1,
+      "location_id": "hartford_clinic_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a sunlit 1953 Hartford recovery room with tall open windows overlooking quiet pastel-green trees",
+      "action": "seen strictly directly from behind, a fully clothed low-poly figure wearing a dark navy wool overcoat, buttoned collar, dark trousers, and a grey wool flat cap stands calmly facing the sunlit window and rests one gloved hand on the wooden sill as white curtains sway"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "hartford_clinic_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan knit cardigan sleeves and buttoned linen cuffs at a sunlit oak dining table",
+      "prop_action": "both low-poly hands reach toward an empty white porcelain lunch plate and silver fork, pause in mid-air, and slide the clean wooden tray slightly forward",
+      "consequence": "a folded white linen napkin slips gently beside the empty ceramic plate"
+    },
+    {
+      "sentence_index": 11,
+      "end_sentence_index": 12,
+      "act": 2,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "single pair of crisp cream lab coat sleeves and matte geometric hands extending from the left frame edge at a sunlit oak desk",
+      "prop_action": "both steady low-poly hands lift and slide three smooth unlabelled pastel-blue, sage, and amber wooden counting blocks into a crisp horizontal row across the light-oak desktop",
+      "consequence": "the three solid geometric wooden blocks click neatly into alignment in bright morning window light"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan knit cardigan sleeves and matte geometric hands extending from the bottom frame edge",
+      "prop_action": "both low-poly hands rhythmically tap, slide, and regroup the three pastel wooden counting blocks in a steady repeating triangle loop across the sunlit oak desk",
+      "consequence": "the three wooden blocks cycle smoothly without breaking rhythm as sunlit dust motes drift"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a bright sunlit pale-sand studio courtyard with soft sky-blue backdrop",
+      "comparison_action": "two steady clothed low-poly hands in rolled pastel shirt sleeves keep juggling three pastel balls in crisp continuous overlapping arcs through the sunlit air"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nMENTAL SCRATCHPAD",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front-left prefrontal lobe facets of the matte warm-ivory 3D brain model directly behind the forehead, solid warm-amber surface polygons brighten and pulse steadily in rhythmic waves",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_02_cortical_brain.png"
+    },
+    {
+      "sentence_index": 16,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 2,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit Montreal testing room beside a tall wooden window and side tea table",
+      "action": "viewed from behind, the clothed low-poly researcher in a cream lab coat turns away from the oak desk, walks to the side table, and sets a white ceramic teacup onto a saucer"
+    },
+    {
+      "sentence_index": 16,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 2,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream lab coat sleeve and matte low-poly hand beside the oak desk edge",
+      "prop_action": "a low-poly hand in a cream cuff taps a small brass desk bell once and slides the wooden block tray aside",
+      "consequence": "the brass bell dome vibrates crisply in bright morning sunlight"
+    },
+    {
+      "sentence_index": 17,
+      "beat_index": 1,
+      "beat_weight": 0.46,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "the sunlit pale-sand studio floor under bright diffused daylight",
+      "comparison_action": "three pastel juggling balls drop straight down out of the air, bounce twice across the smooth pale wood planks, and roll rapidly away in separate directions"
+    },
+    {
+      "sentence_index": 17,
+      "beat_index": 2,
+      "beat_weight": 0.54,
+      "act": 2,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan knit cardigan sleeves and matte geometric hands extending from the bottom frame edge",
+      "prop_action": "both low-poly hands open empty palms upward above the bare sunlit oak desk surface and lower slowly onto the empty wood",
+      "consequence": "bright window light stretches across the completely bare tabletop"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a wide sunlit Montreal testing room with long afternoon window shadows slanting across pale birch floorboards",
+      "action": "seen from a high elevated rear angle, a lone clothed low-poly patient in a tan cardigan and slacks leans slightly forward with both hands resting on the empty oak desk as sheer white window curtains sway slowly"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "childhood_street_1930s",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit 1930s Connecticut tree-lined residential street with pastel clapboard houses, white picket fences, and maple trees",
+      "action": "viewed from behind in three-quarter silhouette, a clothed low-poly boy in a flat cap, sweater, and knickers walks briskly along the sunlit sidewalk and waves toward a passing vintage low-poly sedan"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "single pair of crisp cream lab coat cuffs and matte geometric hands extending from the left frame edge along a sunlit birch table",
+      "prop_action": "both steady low-poly hands slide and align ten smooth unlabelled pastel wooden case blocks into two neat parallel comparison rows across the pale birch tabletop",
+      "consequence": "two terracotta-coral wooden blocks stand clearly separated from eight calm sage-green wooden blocks"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "HIPPOCAMPUS\nMEMORY MAKER",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile half-brain cross-section on the sunlit wooden table, the curved C-shaped inner hippocampal arch facets dim to muted terracotta-amber while warm-gold cortical facet shading halts cleanly at the temporal gap",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_03_sagittal_brain_neutral.png",
+      "src_start_sec": 2.8
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "ONE SIDE SPARED\nMEMORY INTACT",
+      "camera": "gentle_push_in",
+      "brain_scene": "in the deep lower-central medial temporal core of the flat side-profile half-brain cross-section, a single curved C-shaped sage-green hippocampal arch brightens and spreads soft warm-gold facet shading smoothly across the upper cortical folds",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_03_sagittal_brain_neutral.png"
+    },
+    {
+      "sentence_index": 23,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "tilt_up",
+      "analogy_world": "a sunlit pastel limestone gorge crossed side by side by two sturdy wooden arch footbridges",
+      "comparison_action": "both parallel wooden bridges crack at their center timbers and drop cleanly into the sunlit canyon mist, leaving the two stone cliff ledges completely separated"
+    },
+    {
+      "sentence_index": 23,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "twin parallel stone canyon abutments where two timber bridge spans once connected an inner island to an outer plateau",
+      "internal_mechanism": "warm golden glowing courier spheres roll up to the open twin bridge gap and stop cleanly at the sheer stone edge"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan knit cardigan sleeves and matte geometric hands extending from the bottom frame edge",
+      "prop_action": "a low-poly hand grips a polished brass stylus rod and taps across a square wooden stepping-stone board set with twenty-eight raised brass pegs",
+      "consequence": "the brass stylus hesitates at a corner peg and slides back to the starting corner peg"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a wide sunlit pale sky-blue frozen pond bordered by snow-dusted sage pines",
+      "comparison_action": "viewed from behind, a clothed low-poly walker in a wool coat, cap, and boots steps onto slick pale ice, slides smoothly backward, and resets at the wooden dock edge"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "ENTORHINAL GATE\nSEVERED INPUT",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the flat cut-open medial interior face beneath the curved white corpus callosum arch, lower-medial entorhinal gateway facets at the base of the inner temporal arch glow muted terracotta-coral and separate cleanly from sage-green inner hippocampal facets while outer gyri stay plain warm-ivory",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_03_sagittal_brain_neutral.png",
+      "src_start_sec": 3.0
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "hippocampus",
+      "camera": "locked_tripod",
+      "brain_scene": "in the deep lower-inner temporal core of the flat side-profile half-brain cross-section, the curved C-shaped inner hippocampal arch dims to muted terracotta-coral as warm-gold facet illumination halts at its front border",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_03_sagittal_brain_neutral.png"
+    },
+    {
+      "sentence_index": 28,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "childhood_street_1930s",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a warm sunlit 1930s Connecticut neighborhood lane with pastel-cream clapboard houses, wooden front porches, and tall green elms",
+      "action": "seen in elevated three-quarter rear view, two clothed low-poly children in flat caps, knit sweaters, and boots roll a wooden hoop and pedal a vintage tricycle smoothly down the sunlit flagstone sidewalk"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a bright sunlit pale-oak archive gallery lined floor-to-ceiling with tall wooden library shelves",
+      "comparison_action": "clothed low-poly hands in cardigan sleeves lift and slide a neat pastel clothbound hardcover book securely into upper wooden bookshelves filled with intact rows of hardcover books"
+    },
+    {
+      "sentence_index": 31,
+      "end_sentence_index": 32,
+      "act": 4,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a quiet sunlit 1950s academic study room with tall oak bookcases, arched windows, and a central birch table",
+      "action": "seen from behind in three-quarter rear view, two clothed low-poly doctors in dark tweed coats lower the heavy lid of a single large brass-bound wooden vault chest on the table and slide its single iron bolt shut"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan knit cardigan sleeves and matte geometric hands resting beside a birch worktable",
+      "prop_action": "both low-poly hands reach halfway toward a carved wooden gear board, hesitate in the sunlit air, and draw gently back onto the wooden armrest",
+      "consequence": "the unspun wooden gears sit motionless in bright window light"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "elevated rear over-the-shoulder view inside the bright sunlit 1962 Montreal testing room facing a clean light-oak desk beside tall pastel-sage windows",
+      "action": "seen strictly from behind their backs and shoulders, a clothed low-poly researcher in a cream lab coat and pale-grey wool cap steps forward and sets a wooden-framed upright mirror squarely onto the sunlit oak desk beside a rear-facing patient in a grey flat cap and tan cardigan"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "single pair of cream lab coat sleeves and matte geometric hands extending from the left frame edge",
+      "prop_action": "two steady low-poly hands place a crisp blank cream paper sheet bearing only a clean dark-slate five-pointed double-outline star flat onto the oak desk in front of the upright mirror",
+      "consequence": "the upright silvered mirror reflects the crisp geometric five-pointed star outline clearly"
+    },
+    {
+      "sentence_index": 36,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 5,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream lab coat cuffs and matte low-poly hands at the oak testing desk",
+      "prop_action": "both low-poly hands position and latch a tilted brushed-aluminum metal shield plate on brass posts directly above the paper star",
+      "consequence": "the angled metal shield blocks the downward view of the paper while leaving the front open toward the mirror"
+    },
+    {
+      "sentence_index": 36,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 5,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan knit cardigan sleeve and matte geometric right hand reaching beneath the angled metal shield",
+      "prop_action": "the low-poly hand slides underneath the tilted metal shield and grips a sharpened yellow hexagonal cedar pencil at the top point of the star",
+      "consequence": "the upright mirror ahead reflects both the low-poly hand and the yellow pencil tip clearly"
+    },
+    {
+      "sentence_index": 37,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 5,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "high-angle rear-side view over a sunlit Montreal oak desk with an angled aluminum hand shield and upright wooden mirror",
+      "action": "seen strictly from behind his grey flat cap and tan cardigan shoulders, the seated low-poly patient reaches beneath the metal shield, grips a yellow pencil, and glides it across flat paper while the mirror reflects only the shielded paper and moving pencil"
+    },
+    {
+      "sentence_index": 37,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 5,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a side-profile architectural diagram of the wooden oak desk, tilted metal hand shield, cream star sheet, and upright silvered mirror",
+      "internal_mechanism": "a crisp sky-blue sightline beam bounces off the upright mirror down beneath the metal shield onto the moving yellow pencil tip tracing the five-pointed star"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a sunlit pale-stone park path bordered by pastel-green hedges",
+      "comparison_action": "two low-poly hands in leather gloves and jacket sleeves crossed left-over-right grip chrome bicycle handlebars and push right while the front bicycle wheel turns sharply left across the path"
+    },
+    {
+      "sentence_index": 39,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 5,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan knit cardigan cuff and matte geometric hand beneath the brushed metal shield",
+      "prop_action": "the low-poly hand grips the yellow hexagonal cedar pencil and zigzags hesitantly back and forth across the angled star corner",
+      "consequence": "dark graphite strokes veer repeatedly outside the double star border lines"
+    },
+    {
+      "sentence_index": 39,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 5,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan cardigan sleeve extending from bottom frame beneath the metal shield",
+      "prop_action": "the low-poly hand pulls and redirects the yellow pencil tip across five sharp star corners",
+      "consequence": "jagged graphite zigzags cross outside the crisp star border along every point"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit Montreal testing room as warm afternoon light shifts across the light-oak desk and tall windows",
+      "action": "viewed from behind, the clothed low-poly neuropsychologist in a cream lab coat lifts completed star sheets from beneath the metal shield and places them neatly into three crisp side-by-side piles"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-oak morning counter beside a white porcelain saucer",
+      "comparison_action": "rich warm dark-roast coffee pours smoothly from a clear unlabelled glass carafe into a matte-white ceramic coffee cup until warm steam curls gently above the rim"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 1,
+      "beat_weight": 0.34,
+      "act": 5,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan knit cardigan sleeve and matte geometric hand resting beside an upright wooden mirror stand on a sunlit oak desk",
+      "prop_action": "the tan-sleeved low-poly hand opens an empty palm upward beside the wooden mirror frame and taps the oak base curiously beside a fresh blank five-pointed star sheet",
+      "consequence": "the upright silvered mirror reflects the clean unmarked star outline in bright third-morning sunlight"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 2,
+      "beat_weight": 0.33,
+      "act": 5,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan knit cardigan sleeve and matte geometric hand beneath the brushed metal shield",
+      "prop_action": "the low-poly hand grips the yellow hexagonal cedar pencil and glides swiftly and smoothly around the five-pointed star corridor without hesitation",
+      "consequence": "a single clean continuous graphite line flows effortlessly inside the narrow double border"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 3,
+      "beat_weight": 0.33,
+      "act": 5,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan knit cardigan cuff and matte low-poly hand extending beneath the metal shield",
+      "prop_action": "the low-poly hand guides the yellow pencil smoothly around the final star apex to close the loop",
+      "consequence": "all five points show a crisp centered graphite star path inside the border"
+    },
+    {
+      "sentence_index": 43,
+      "end_sentence_index": 44,
+      "act": 5,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a wide sunlit view of the Montreal testing room with light-oak desk, upright mirror apparatus, and tall arched windows",
+      "action": "seen from behind in three-quarter rear view, two clothed low-poly researchers in cream lab coats lean in together and hold the jagged first star sheet beside the clean third-day star sheet under bright sunlight"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan knit cardigan sleeve and matte geometric hand over the sunlit oak desk",
+      "prop_action": "the steady low-poly hand lifts the yellow cedar pencil cleanly off the finished five-pointed star sheet and sets it neatly parallel to the wooden mirror base",
+      "consequence": "warm sunlight gleams smoothly across the completed star outline"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA\nHABIT ENGINE",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the flat cut-open medial interior cross-section beneath the curved white corpus callosum arch in a bare minimalist pale-sand studio, only the single central oval striatum core nestled inside the curved white arch illuminates brightly in vivid sage-green and sky-blue pastel facets",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_03_sagittal_brain_neutral.png",
+      "src_start_sec": 3.2
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "cerebellum",
+      "anatomy_label": "CEREBELLUM\nCOORDINATION CENTER",
+      "camera": "tilt_down",
+      "brain_scene": "at the lower-right base of the matte warm-ivory 3D brain model directly behind the brainstem, only the tucked finely folded oval cerebellum facets glow brightly in vivid sky-blue and warm amber-gold pastel while all upper cerebral lobes stay plain uniform warm-ivory",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_02_cortical_brain_neutral.png",
+      "src_start_sec": 4.65
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit tree-lined pastel park lane with smooth pale pavement and sage-green lawns",
+      "comparison_action": "seen from an elevated three-quarter rear angle, a clothed low-poly cyclist in a pastel windbreaker, helmet, and slacks pedals a two-wheeled bicycle smoothly and steers effortlessly along the sunlit lane"
+    },
+    {
+      "sentence_index": 49,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pastel-blue windbreaker sleeves and matte geometric hands extending from the bottom frame edge",
+      "prop_action": "both low-poly hands grip curved bicycle handlebars and steer smoothly along a sunlit tree-lined park path",
+      "consequence": "the front bicycle wheel rolls straight and steady across dappled sunlight"
+    },
+    {
+      "sentence_index": 49,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 6,
+      "location_id": "modern_home_kitchen",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft sage-green knit sweater sleeves and matte geometric hands",
+      "prop_action": "both low-poly hands press and glide smoothly across clean unlabelled ivory wooden piano keys on a sunlit oak console",
+      "consequence": "small felt hammers rise and fall in crisp effortless rhythm"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "modern_home_kitchen",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright sunlit modern pastel kitchen with pale-oak cabinets, sunlit island counter, and open doorway",
+      "action": "viewed strictly from behind in three-quarter silhouette, a clothed low-poly figure in a slate-blue sweater and slacks walks briskly through the doorway, stops beside the oak counter, and rests one hand thoughtfully on the counter edge"
+    },
+    {
+      "sentence_index": 51,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 6,
+      "location_id": "modern_home_kitchen",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-blue knit sweater sleeves and matte geometric hands at a sunlit oak desk",
+      "prop_action": "one low-poly hand arranges three pastel wooden blocks while a dark matte pocket phone vibrates and slides slightly beside a ceramic mug",
+      "consequence": "the low-poly hand turns abruptly to tap and silence the vibrating dark phone slab"
+    },
+    {
+      "sentence_index": 51,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 6,
+      "location_id": "modern_home_kitchen",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-blue sweater sleeves and matte geometric hands extending from bottom frame",
+      "prop_action": "both low-poly hands push and slide three loose blank pastel paper cards off the sunlit oak desk edge",
+      "consequence": "the blank pastel cards drop cleanly away leaving the wooden desktop bare"
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "HIPPOCAMPUS\nFOCUS TO SAVE",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the flat cut-open medial interior cross-section beneath the curved white corpus callosum arch in a bare minimalist pale-sand wall studio, only the curved C-shaped inner hippocampal arch in the lower-central medial core illuminates brightly in calm sky-blue and warm amber-gold pastel facets",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_03_sagittal_brain_neutral.png",
+      "src_start_sec": 3.2
+    },
+    {
+      "sentence_index": 53,
+      "act": 6,
+      "location_id": "mni_testing_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a serene sunlit green maple park path opening onto a wide grassy meadow hillside and clear soft pastel sky with zero buildings",
+      "action": "viewed from behind in elevated wide view, a clothed low-poly neuropsychologist in a cream lab coat and a clothed low-poly patient in a tan cardigan and flat cap walk calmly side by side and step steadily along the sunlit park path"
+    },
+    {
+      "cut_role": "split_right",
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "frontal lobe",
+      "camera": "tilt_down",
+      "brain_scene": "across the outer folds of the matte warm-ivory 3D whole brain model on the sunlit pale-wood table, calm sky-blue and sage-green cortical networks glow brightly and evenly",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_02_cortical_brain_neutral.png"
+    },
+    {
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "childhood_street_1930s",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a peaceful wide sunlit New England maple valley and quiet neighborhood roofs opening upward into a vast clear pastel sky with gentle white low-poly clouds",
+      "action": "warm golden afternoon sunlight glides smoothly across the pastel treetops as the view rises into open sky"
+    }
+  ]
+}

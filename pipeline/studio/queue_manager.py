@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 import re
 from typing import Any
+from zoneinfo import ZoneInfo
 
 from pipeline.config import PROJECTS_DIR
 from pipeline.prompt_quality_v5 import validate_production_v5
@@ -20,7 +21,12 @@ from pipeline.studio.config import (
     get_slot_info,
 )
 from pipeline.studio.short_linker import is_valid_youtube_video_id
-from pipeline.studio.uploader import StudioUploader, resolve_project_video_path
+from pipeline.studio.uploader import (
+    StudioUploader,
+    _is_legacy_hermetic_test_stub,
+    resolve_project_video_path,
+    verify_publish_ready_qa_bundle,
+)
 
 LIVE_RECEIPT_STATUSES = frozenset({
     "uploaded",
@@ -60,17 +66,21 @@ def is_live_youtube_receipt(receipt: dict[str, Any] | None) -> bool:
 def passes_v5_publish_gate(
     project_dir: Path,
     allow_legacy_v4: bool = False,
+    require_semantic_review: bool = True,
 ) -> tuple[bool, list[str]]:
     """
-    Validates that an unpublished project satisfies Prompt System v5 (R18-V5) before Studio upload.
+    Validates that an unpublished project satisfies Prompt System v5/v6/v7 (R18-V5/R61/R63)
+    AND, when `05_assembly/final_shorts_1080x1920.mp4` is present, passes the mandatory
+    post-assembly QA & R64 semantic review lock before Studio upload.
     Blocks legacy v4 projects (e.g., deleted_from_studio drafts) unless allow_legacy_v4=True.
     """
     if allow_legacy_v4:
         return True, []
 
-    vp_path = project_dir / "03_visuals" / "visual_plan.json"
-    prompts_path = project_dir / "03_visuals" / "flow_all_in_one_prompts.json"
-    script_path = project_dir / "02_script" / "script.json"
+    p_dir = Path(project_dir)
+    vp_path = p_dir / "03_visuals" / "visual_plan.json"
+    prompts_path = p_dir / "03_visuals" / "flow_all_in_one_prompts.json"
+    script_path = p_dir / "02_script" / "script.json"
 
     if not vp_path.exists() or not prompts_path.exists():
         return False, ["missing v5 visual_plan.json or flow_all_in_one_prompts.json"]
@@ -79,12 +89,35 @@ def passes_v5_publish_gate(
         plan = json.loads(vp_path.read_text(encoding="utf-8"))
         prompts_doc = json.loads(prompts_path.read_text(encoding="utf-8"))
         clips = prompts_doc.get("clips") or []
-        if script_path.exists():
-            narrations = json.loads(script_path.read_text(encoding="utf-8")).get("clip_narrations") or []
+        script_doc = json.loads(script_path.read_text(encoding="utf-8")) if script_path.exists() else {}
+        from pipeline.config import is_diorama_profile
+
+        if is_diorama_profile(plan) or is_diorama_profile(script_doc):
+            from pipeline.diorama_assembler import load_diorama_script_sentences
+            from pipeline.prompt_quality_v5 import validate_production_diorama_v6
+
+            sentences, s_doc = load_diorama_script_sentences(p_dir)
+            issues = list(validate_production_diorama_v6(plan, sentences, clips, script_doc=s_doc))
         else:
-            narrations = [str(c.get("spoken_narration") or "") for c in clips]
-        issues = validate_production_v5(plan, narrations, clips)
-        return len(issues) == 0, issues
+            if script_path.exists():
+                narrations = script_doc.get("clip_narrations") or []
+            else:
+                narrations = [str(c.get("spoken_narration") or "") for c in clips]
+            issues = list(validate_production_v5(plan, narrations, clips))
+
+        if issues:
+            return False, issues
+
+        final_mp4 = p_dir / "05_assembly" / "final_shorts_1080x1920.mp4"
+        if final_mp4.exists() and not _is_legacy_hermetic_test_stub(p_dir):
+            qa_bundle = verify_publish_ready_qa_bundle(
+                p_dir,
+                require_semantic_review=require_semantic_review,
+            )
+            if not qa_bundle["passed"]:
+                return False, list(qa_bundle["issues"])
+
+        return True, []
     except Exception as exc:
         return False, [f"v5 gate read error: {exc}"]
 
@@ -95,6 +128,8 @@ class StagingQueueManager:
     Dispatches dozens to hundreds of completed Shorts into the North American 5-Slot
     schedule to prevent audience cannibalization and maintain optimal algorithm momentum.
     """
+
+    passes_v5_publish_gate = staticmethod(passes_v5_publish_gate)
 
     def __init__(
         self,
@@ -371,16 +406,18 @@ class StagingQueueManager:
         project_ids: list[str] | None = None,
         daily_prime_only: bool = True,
         allow_legacy_v4: bool = False,
+        slots_per_day: int | None = None,
     ) -> dict[str, Any]:
         """
         Maps available completed projects into a clean 5-Slot (or 2-Prime-Slot) daily distribution.
         Guarantees zero duplicate scheduling (R34) and preserves upcoming booked slots so two Shorts
         never collide on the same timestamp (R30-B).
         """
+        et_tz = ZoneInfo("America/New_York")
         if not start_date:
-            start_date_dt = datetime.now(timezone.utc) + timedelta(days=1)
+            start_date_dt = datetime.now(et_tz) + timedelta(days=1)
         else:
-            start_date_dt = datetime.strptime(start_date, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+            start_date_dt = datetime.strptime(start_date, "%Y-%m-%d").replace(tzinfo=et_tz)
         start_date_str = start_date_dt.strftime("%Y-%m-%d")
 
         queue_data = self.load_queue()
@@ -408,7 +445,12 @@ class StagingQueueManager:
         planned_items: list[dict[str, Any]] = []
         emitted_keys: set[tuple[str, int]] = set()
 
-        active_slots = (2, 4) if daily_prime_only else (1, 2, 3, 4, 5)
+        if slots_per_day == 1:
+            active_slots: tuple[int, ...] = (2,)
+        elif daily_prime_only:
+            active_slots = (2, 4)
+        else:
+            active_slots = (1, 2, 3, 4, 5)
         for day_offset in range(days):
             current_date_dt = start_date_dt + timedelta(days=day_offset)
             date_str = current_date_dt.strftime("%Y-%m-%d")
@@ -420,7 +462,7 @@ class StagingQueueManager:
                     planned_items.append(occupied_slots[key])
                     continue
 
-                slot_info = get_slot_info(slot_id)
+                slot_info = get_slot_info(slot_id, ref_date=current_date_dt.date())
                 assigned_proj = None
 
                 while by_slot[slot_id]:
@@ -581,6 +623,13 @@ class StagingQueueManager:
                 item["status"] = "blocked_legacy_v4"
                 item["gate_issues"] = v5_issues[:3]
                 continue
+
+            if not dry_run:
+                qa_bundle = verify_publish_ready_qa_bundle(p_dir, require_semantic_review=True)
+                if not qa_bundle["passed"]:
+                    item["status"] = "blocked_qa_gate"
+                    item["gate_issues"] = qa_bundle["issues"][:5]
+                    continue
 
             print(f"\n[QueueManager] Staging Project: {project_id} -> Slot {item['slot_id']} ({item['target_time_et']})...")
             try:

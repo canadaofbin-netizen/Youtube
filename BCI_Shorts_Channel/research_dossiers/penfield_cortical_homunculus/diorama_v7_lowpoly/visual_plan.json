@@ -1,0 +1,727 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "penfield_cortical_homunculus",
+  "topic": "Wilder Penfield & Edwin Boldrey (1937) Cortical Homunculus Awake Stimulation Mapping & Gordon et al. (2023) Somato-Cognitive Action Network (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Evan Gordon and Nico Dosenbach's 2023 precision fMRI discovery revealing that Penfield's classic primary motor strip is interrupted by three whole-body Somato-Cognitive Action Network (SCAN) planning hubs wired to prefrontal cortex.",
+  "outro_title_lines": [
+    "PENFIELD (1937) & GORDON (2023)",
+    "MONTREAL & ST. LOUIS"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "30X THUMB?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "PENFIELD"
+    },
+    {
+      "sentence_index": 10,
+      "text": "2 MILLIAMPS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "LITTLE MAN"
+    },
+    {
+      "sentence_index": 28,
+      "text": "THE MYTH"
+    },
+    {
+      "sentence_index": 36,
+      "text": "SCAN HUBS"
+    },
+    {
+      "sentence_index": 44,
+      "text": "YOUR HANDS"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "30X THUMB?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "PENFIELD"
+    },
+    {
+      "sentence_index": 10,
+      "text": "2 MILLIAMPS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "LITTLE MAN"
+    },
+    {
+      "sentence_index": 28,
+      "text": "THE MYTH"
+    },
+    {
+      "sentence_index": 36,
+      "text": "SCAN HUBS"
+    },
+    {
+      "sentence_index": 44,
+      "text": "YOUR HANDS"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 39,
+      "mode": "split_hstack",
+      "left_clip_index": 33,
+      "right_clip_index": 45,
+      "left_label": "1937 RIBBON MYTH",
+      "right_label": "2023 SCAN RINGS"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "crisp cream lab coat cuffs and powder-blue gloved low-poly hands over a sunlit cool-alabaster drafting table",
+      "prop_action": "two steady powder-blue gloved low-poly hands lift and place a massive carved slate-blue thumb sculpture directly beside a tiny miniature slate-blue torso model on the table",
+      "consequence": "the oversized slate-blue thumb rests solidly across the sunlit slate-stone surface"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "cream lab coat sleeve and powder-blue gloved low-poly hand holding brushed-silver calipers",
+      "prop_action": "the powder-blue gloved low-poly hand opens brushed-silver calipers wide across the giant carved thumb model then turns and aligns them over the tiny slate-blue back",
+      "consequence": "the brushed-silver caliper arms lock onto the dramatic scale reversal cleanly"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "mni_operating_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "an elevated rear view of a bright sunlit 1937 Montreal surgical amphitheater with pale-sage tiled walls and tall observation windows",
+      "action": "viewed strictly from behind, a clothed low-poly surgeon in a crisp white gown and cap steps beside a draped table and lifts a slender silver probe"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "rolled slate-blue shirt sleeves and powder-blue gloved low-poly hands at a tilted slate-blue drawing board",
+      "prop_action": "the powder-blue gloved low-poly hands lift and align a sculpted cool-porcelain homunculus figure with giant hands and oversized lips onto a sunlit slate-stone pedestal",
+      "consequence": "the lopsided cool-porcelain sculpture settles firmly in bright morning daylight"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a sunlit 1937 Montreal medical illustration studio with tall wooden windows and pale-sand walls",
+      "action": "seen strictly from behind, a clothed low-poly researcher in a navy cardigan and cap steps back from the oak pedestal and lifts a charcoal sketchpad"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-blue jacket cuffs and powder-blue gloved low-poly hands over a cool-alabaster table",
+      "prop_action": "both powder-blue gloved low-poly hands push three equal-sized slate-blue body blocks aside across the tabletop and set down a brushed-silver magnifying glass",
+      "consequence": "the uniform slate-blue blocks slide neatly to the table edge",
+      "end_sentence_index": 5
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-sand studio workbench with a brushed-silver balance beam and carved slate-blue blocks",
+      "comparison_action": "two powder-blue gloved low-poly hands in coat sleeves lift and place a heavy wide slate-blue torso block onto one brushed-silver tray while the opposite tray tilts upward",
+      "end_sentence_index": 6,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "mni_operating_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright 1937 Montreal neurological corridor with pale-mint walls leading into an operating suite",
+      "action": "viewed strictly from behind, two clothed low-poly surgeons in white coats and caps walk briskly down the sunlit hall and push open the double oak doors",
+      "end_sentence_index": 6,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "mni_operating_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white surgical gown sleeves and gloved low-poly hands above a cool-alabaster tray",
+      "prop_action": "both gloved low-poly hands lift a delicate silver mapping wand and tap its tip against a brushed-silver contact plate",
+      "consequence": "a tiny sky-blue indicator jewel glows softly on the slate-blue box",
+      "end_sentence_index": 8
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster barber counter holding a clean ivory comb and a slate-blue brush",
+      "comparison_action": "two powder-blue gloved low-poly hands in shirt sleeves glide an ivory comb smoothly through a bundle of pale flax fibers and set the comb onto the slate-blue tray",
+      "end_sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a bright sunlit miniature pastel amphitheater filled with rows of neat slate-blue seats",
+      "comparison_action": "viewed from behind, rows of clothed low-poly figures in wool coats and hats rise and lift their right hands in unison across the sunlit hall",
+      "end_sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "mni_operating_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "crisp white surgical cuffs and gloved low-poly hands holding a slender dual-tip silver wand",
+      "prop_action": "the gloved low-poly hand reaches forward and touches the smooth dual-tip silver wand gently onto a curved warm-ivory cortical arch model",
+      "consequence": "the wand tips rest on the central ridge with steady precision"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster workbench holding a small brushed-silver penlight battery beside a silver coil",
+      "comparison_action": "two powder-blue gloved low-poly hands in cream sleeves lift a thin silver wire and press it to the small brushed-silver battery lighting a soft soft-cyan bulb"
+    },
+    {
+      "sentence_index": 12,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "mni_operating_suite",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white surgical sleeves and gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "the gloved low-poly fingers grasp a tiny blank white paper square from a silver dish and place it onto a curved ivory ridge",
+      "consequence": "the small white paper square rests cleanly beside four other paper squares along the groove"
+    },
+    {
+      "sentence_index": 12,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "mni_operating_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white gown sleeves and gloved low-poly hands over the curved ivory cortical model",
+      "prop_action": "the gloved hand places a sixth tiny blank paper square along the upper ridge while the left hand holds the slate-blue stand",
+      "consequence": "a neat row of tiny white paper squares traces the entire central arch"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "somatosensory cortex",
+      "anatomy_label": "SOMATOSENSORY CORTEX\nTOUCH MAP (S1)",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the postcentral sensory ridge just behind the central groove of the matte warm-ivory 3D brain model, bright cyan-blue pastel facets illuminate in a crisp vertical band"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "motor cortex",
+      "anatomy_label": "MOTOR CORTEX\nMOVEMENT STRIP (M1)",
+      "camera": "locked_tripod",
+      "brain_scene": "immediately forward across the central groove on the precentral motor ridge of the matte warm-ivory 3D brain model, warm amber-gold facets pulse and light up down the strip"
+    },
+    {
+      "sentence_index": 15,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "mni_operating_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue hospital jacket cuff and powder-blue gloved low-poly hand resting on a white linen armrest",
+      "prop_action": "the patient's low-poly right hand lifts upward and opens its fingers briskly off the linen armrest",
+      "consequence": "the linen drape ripples under the sudden involuntary motion"
+    },
+    {
+      "sentence_index": 15,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "mni_operating_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue cotton sleeves and powder-blue gloved low-poly hands over the armrest",
+      "prop_action": "the powder-blue gloved low-poly left hand reaches across and grasps the lifted right wrist to hold it steady against the cushion",
+      "consequence": "both geometric hands settle back onto the sunlit linen armrest"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "tilt_down",
+      "analogy_world": "a sunlit pale-sand stage with a slate-blue marionette cross-bar held above a jointed slate-blue hand model",
+      "comparison_action": "two powder-blue gloved low-poly hands in coat sleeves tilt the slate-blue cross-bar and pull taut linen strings that lift the jointed slate-blue fingers upward",
+      "end_sentence_index": 17
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "motor cortex",
+      "anatomy_label": "DESCENDING MOTOR TRACT\nDIRECT MUSCLE WIRE",
+      "camera": "tilt_down",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, a bright amber-gold pathway courses straight down from the top motor ridge through the internal capsule into the lower brainstem",
+      "end_sentence_index": 18,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "mni_operating_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white surgical sleeves and gloved low-poly hands holding a silver pointer above the cortical model",
+      "prop_action": "the gloved low-poly hand reaches toward a crimson-shaded speech ridge, pulls the silver pointer back carefully, and sets it on the tray",
+      "consequence": "the delicate paper squares around the speech zone remain undisturbed",
+      "end_sentence_index": 18,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-blue jacket sleeves and powder-blue gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both powder-blue gloved low-poly hands lift and align dozens of unlabelled pastel brain-outline cards into a tall neat pile on the slate-stone desk",
+      "consequence": "the aligned stack of cards clicks squarely against a brushed-silver desk weight"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "navy cardigan sleeves and powder-blue gloved low-poly hands holding a charcoal pencil over cream drawing paper",
+      "prop_action": "the illustrator's low-poly hand sketches and traces bold sweeping curves of an oversized thumb and giant lips across the sunlit cream sheet",
+      "consequence": "the distorted figure silhouette emerges crisply across the drawing board"
+    },
+    {
+      "sentence_index": 21,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the sunlit Montreal drafting studio centered on a tall oak sculpture stand under a skylight",
+      "action": "viewed from behind, the clothed low-poly surgeon in a white coat and researcher in a navy cardigan step beside the finished homunculus statue and place it on the oak stand"
+    },
+    {
+      "sentence_index": 21,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream lab coat sleeve and powder-blue gloved low-poly hand beside the sculpture stand",
+      "prop_action": "the powder-blue gloved low-poly hand grips and turns the brushed-silver turntable base forty-five degrees to display the statue's giant sculptured thumb",
+      "consequence": "bright skylight gleams across the massive matte-ivory cool-porcelain fingers"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a sunlit architectural street model on a cool-alabaster table",
+      "comparison_action": "two powder-blue gloved low-poly hands in blazer sleeves lift and place two grand pastel manor houses covering half the street block while tiny slate-blue cottages crowd into the corner",
+      "end_sentence_index": 23
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy cardigan cuffs and powder-blue gloved low-poly hands holding slate-blue dividers",
+      "prop_action": "the powder-blue gloved low-poly hand opens and aligns the slate-blue dividers across the tiny sculptured torso then compares it against the huge sculptured thumb",
+      "consequence": "the tiny torso spans barely half the length of the single cool-porcelain thumb",
+      "end_sentence_index": 24,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "somatosensory cortex",
+      "anatomy_label": "LATERAL HAND & LIP ZONE\nMASSIVE CORTICAL TERRITORY",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the wide lower and middle lateral facets of the somatosensory strip on the 3D brain model, expansive sky-blue and warm-amber zones glow brightly while the top trunk sliver stays narrow",
+      "end_sentence_index": 24,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan shirt sleeves and powder-blue gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both powder-blue gloved low-poly hands hold a fine brushed-silver needle and pull linen twine cleanly through the eye over an slate-stone workbench",
+      "consequence": "the fine linen thread pulls taut through the tiny brushed-silver eye",
+      "end_sentence_index": 26
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a bright sunlit pastel concert hall stage with tiered slate-blue risers",
+      "comparison_action": "viewed strictly from behind, a clothed low-poly leader in a dark coat steps onto the podium and lifts a baton as rows of clothed figures raise brushed-silver horns",
+      "end_sentence_index": 27,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "motor cortex",
+      "anatomy_label": "MOTOR CORTEX\nSMOOTH STRIP OR BROKEN?",
+      "camera": "locked_tripod",
+      "brain_scene": "along the precentral motor strip of the matte warm-ivory 3D brain model, three distinct violet-amber bridge nodes pulse between the foot, hand, and mouth zones",
+      "end_sentence_index": 27,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-blue blazer cuffs and powder-blue gloved low-poly hands over a sunlit library desk",
+      "prop_action": "both powder-blue gloved low-poly hands open a heavy cloth-bound anatomical atlas and trace a smooth continuous pastel ribbon along a carved brain relief",
+      "consequence": "the brushed-silver page-weight holds the open folio flat in the sunlight"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "tilt_down",
+      "structure": "a clean coronal cross-section arch of the upper hemisphere showing a continuous colour-coded band from top medial edge down to lower lateral edge",
+      "internal_mechanism": "smooth pastel blocks for foot, leg, trunk, hand, and mouth sit end-to-end like a single unbroken domino chain",
+      "end_sentence_index": 30
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "st_louis_mri_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright sunlit biomechanics studio with a wooden balance platform and tall arched windows",
+      "action": "viewed strictly from behind, a clothed low-poly subject in a sage jacket steps onto the wooden platform and reaches both arms forward to catch a medicine ball",
+      "end_sentence_index": 31,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "st_louis_mri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and powder-blue gloved low-poly hands beside a sunlit kitchen counter",
+      "prop_action": "one powder-blue gloved low-poly hand braces against the slate-stone counter edge for balance while the other hand reaches forward and lifts a warm ceramic coffee cup",
+      "consequence": "the ceramic coffee cup lifts smoothly without spilling a drop",
+      "end_sentence_index": 31,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "st_louis_mri_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit 2023 Washington University neuroimaging suite with a clean matte-ivory cylindrical MRI scanner gantry",
+      "action": "viewed strictly from behind, two clothed low-poly scientists in slate lab coats walk beside a motorized cushioned scanner bed and push it smoothly into the cylindrical bore"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "tilt_up",
+      "analogy_world": "a quiet sunlit hilltop observatory deck with a brushed-silver telescope mounted on a slate-blue tripod",
+      "comparison_action": "viewed from behind, a clothed low-poly scientist in a wool coat and cap turns the brushed-silver telescope wheel and tilts the barrel upward across the pastel twilight dome"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "motor cortex",
+      "anatomy_label": "THREE INTERLEAVED HUBS\nINSIDE MOTOR STRIP",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the precentral motor strip of the matte warm-ivory 3D brain model, three evenly spaced coral-gold diamond hubs illuminate simultaneously between the cyan-blue foot, hand, and mouth zones"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "st_louis_mri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate lab coat sleeves and powder-blue gloved low-poly hands at a sunlit control console",
+      "prop_action": "both powder-blue gloved low-poly hands lift and place three glowing sky-blue crystal pins onto the three gap positions along a 3D-printed ivory motor strip model",
+      "consequence": "the three sky-blue pins snap into a linked triangle across the ridge"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "motor cortex",
+      "anatomy_label": "SCAN PLANNING NODES\nPRE-ACTION IGNITION",
+      "camera": "locked_tripod",
+      "brain_scene": "on the matte warm-ivory 3D brain model, the three coral-gold SCAN bridge nodes flash brightly first and then send ripples into the adjacent hand and foot facets"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nTHE PLANNER",
+      "camera": "pan_left",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, warm amber-gold fiber arches link the front prefrontal planning lobe directly back to the three bridge hubs on the motor strip"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "st_louis_mri_suite",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "tilt_down",
+      "structure": "a clean architectural silhouette diagram of a human torso and upper brain connected by descending golden neural lines",
+      "internal_mechanism": "a warm amber pulse travels down from the three motor-strip bridge hubs to illuminate a rhythmic geometric heart and adrenal core"
+    },
+    {
+      "sentence_index": 39,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster studio table holding a grand slate-blue piano keyboard model",
+      "comparison_action": "two powder-blue gloved low-poly hands in shirt cuffs reach down and press alternating ivory keys and glowing brushed-silver linkage rings woven right between the keys"
+    },
+    {
+      "sentence_index": 39,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "motor cortex",
+      "anatomy_label": "ALTERNATING RING CHAIN\nMUSCLES + PLANNING",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the precentral motor strip of the 3D brain model, concentric sky-blue effector rings alternate cleanly with warm coral-amber whole-body planning hubs"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "st_louis_mri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate lab coat cuffs and powder-blue gloved low-poly hands over a sunlit slate-stone table",
+      "prop_action": "both powder-blue gloved low-poly hands align and snap three curved brushed-silver bridge arcs between the foot, hand, and mouth rings on a 3D cortical model",
+      "consequence": "the entire alternating network illuminates in unified soft-cyan light"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "slate lab coat sleeves and powder-blue gloved low-poly hands holding a brushed-silver magnifying lens over a 1937 brain diagram",
+      "prop_action": "the powder-blue gloved low-poly hand glides the brushed-silver magnifying glass across Penfield's vintage point map and taps the exact three bridge zones",
+      "consequence": "three tiny vintage marker dots align perfectly under the glass lens"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "st_louis_mri_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Washington University brain mapping room with a large 3D cortical model on the center table",
+      "action": "viewed strictly from behind, three clothed low-poly researchers in lab coats step back from the glowing 3D brain model and lift their hands in amazement"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "MIND & BODY RIBBON\nUNIFIED ACTION WEB",
+      "camera": "locked_tripod",
+      "brain_scene": "across the matte warm-ivory 3D brain model, the prefrontal planning lobe and the precentral motor strip glow together in synchronized amber-and-cyan waves"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "rolled pastel shirt sleeves and powder-blue gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both powder-blue gloved low-poly hands open wide in bright morning sunlight and stretch their geometric fingers above a clean slate-blue desk",
+      "consequence": "warm sunlight traces the articulated facets of both open hands"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "sage cardigan sleeves and powder-blue gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both powder-blue gloved low-poly hands press and turn a smooth geometric cool-porcelain vessel on a spinning slate-blue potter wheel",
+      "consequence": "the cool-porcelain rim rises into a symmetrical pastel vase"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "somatosensory cortex",
+      "anatomy_label": "NIMBLE FINGER MAP\nBROAD CORTICAL WAKE-UP",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper and lateral roof of the matte warm-ivory 3D brain model, broad sky-blue and amber-gold facets light up across both hemispheres"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-blue knit sweater sleeves and powder-blue gloved low-poly hands over an acoustic slate-blue guitar neck",
+      "prop_action": "the powder-blue gloved low-poly fingers press and slide cleanly across the brushed-silver frets while the right hand plucks the strings",
+      "consequence": "the brushed-silver strings vibrate crisply in the sunlit studio"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "POSTURE TO PLANNER\nBRAIDED CORTICAL LOOP",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, golden pulses rise from the central trunk-and-core hub straight into the front prefrontal planning lobe"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "st_louis_mri_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a sunlit wooden balcony overlooking a bright pastel park with pine trees",
+      "action": "viewed strictly from behind, a clothed low-poly subject in a crisp navy blazer steps forward and rests both hands calmly on the wooden rail"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream coat sleeves and powder-blue gloved low-poly hands beside the sculptured homunculus model",
+      "prop_action": "both powder-blue gloved low-poly hands tap and set a polished brushed-silver tuning fork vibrating beside the giant sculptured cool-porcelain hand on the slate-stone stand",
+      "consequence": "warm sunlight gleams across the giant cool-porcelain hand and resonating brushed-silver fork"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Montreal drafting studio with the low-poly cortical homunculus sculpture and 3D brain model side by side on an oak table",
+      "action": "viewed strictly from behind, the clothed low-poly surgeon in a white coat and researcher in a cardigan step beside the table and turn toward the tall sunlit window"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "mni_drafting_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the bright sunlit Montreal neurological institute rooftop garden overlooking pastel hills and clear sky",
+      "action": "viewed from behind, clothed low-poly figures in wool coats and hats walk calmly along the sunlit stone path and step onto the terrace as the camera tilts upward"
+    }
+  ]
+}

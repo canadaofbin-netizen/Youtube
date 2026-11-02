@@ -1,0 +1,613 @@
+{
+  "schema": 6,
+  "schema_version": 6,
+  "profile": "neuro_diorama",
+  "camera_profile": "dynamic_3d_cinema_rig",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "phineas_gage_iron_rod",
+  "topic": "Phineas Gage 1848 Iron Tamping Rod & Frontal Connectome Recovery",
+  "act5_climax_episode": "Acute 1848 Cavendish hotel cranial abscess drainage followed by structured eighteen-month stable routine and six-rein mountain stagecoach driving in Chile.",
+  "outro_title_lines": [
+    "PHINEAS GAGE (1848)",
+    "CAVENDISH, VERMONT"
+  ],
+  "motif_prop": {
+    "object": "a clear unprinted glass water tumbler beside a brushed-brass apothecary beam scale on a dark walnut surveyor bench",
+    "tokens": [
+      "water tumbler",
+      "beam scale"
+    ]
+  },
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "CAVENDISH, VERMONT · 1848"
+    },
+    {
+      "sentence_index": 6,
+      "text": "13.25 LB · 110 CM IRON ROD"
+    },
+    {
+      "sentence_index": 18,
+      "text": "2012 CONNECTOME SCAN"
+    },
+    {
+      "sentence_index": 40,
+      "text": "HANOVER STABLE · 18 MONTHS"
+    },
+    {
+      "sentence_index": 43,
+      "text": "VALPARAISO — SANTIAGO ROUTE"
+    },
+    {
+      "sentence_index": 48,
+      "text": "WARREN ANATOMICAL MUSEUM"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 23,
+      "top_clip_index": 26,
+      "bottom_clip_index": 60,
+      "top_label": "4% OUTER CORTEX",
+      "bottom_label": "11% WHITE MATTER CABLES"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "dynamic_dolly_rush_in",
+      "environment": "a stepped grey granite railroad cut miniature with iron rails and timber crane booms",
+      "kinetic_action": "a featureless matte-white bisque-ceramic figure wearing a dark brimmed cap, charcoal waistcoat, and boots stands on the granite shelf as a tapered polished iron rod shoots straight upward cleanly through its smooth matte-white ceramic ovoid head, knocking the dark cap tumbling into the air with warm crimson-amber glow",
+      "lighting": "high-contrast chiaroscuro silver rim lighting and warm amber blast glow"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "grammar": "literal_analogy_cutaway",
+      "camera": "orbital_3d_arc_sweep",
+      "analogy_scene": "a glossy black three-hole bowling ball miniature resting on one brass pan of a dark-oak balance scale opposite a heavy tapered polished iron rod",
+      "comparison_motion": "the heavy tapered iron rod presses its brass pan decisively downward, lifting the glossy black bowling ball high on the opposite pan beside white bowling pins"
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "grammar": "arch_brain_maquette",
+      "brain_mode": "matte_white_cortical_sulcal_glow",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/brain_ref_01_cortical_sulcal_amber_glow.jpg",
+      "camera": "orbital_3d_arc_sweep",
+      "maquette_scene": "Warm amber-gold subsurface light glows cleanly inside the recessed frontal sulcal grooves of the matte-white 3D brain above a dark-oak gallery plinth",
+      "beat_index": 1
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "crane_swoop_dive",
+      "environment": "a nineteenth-century Vermont granite railroad cut interior without outer base borders, featuring miniature timber derricks, iron rails, and a wooden flatcar beside split grey rock",
+      "kinetic_action": "a featureless matte-white bisque-ceramic figure wearing a charcoal waistcoat and boots pushes upright onto the wooden flatcar with both ceramic hands and turns its smooth ceramic head toward two ceramic crew figures in brimmed caps",
+      "lighting": "dramatic chiaroscuro rim lighting and warm amber lantern accents",
+      "beat_index": 2
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "grammar": "recurring_gauge_motif",
+      "camera": "dynamic_dolly_rush_in",
+      "motif_object": "a clear unprinted glass water tumbler beside a brushed-brass apothecary beam scale on a dark walnut surveyor bench",
+      "state_transition": "the clear water surface sits mirror-still under crisp rim lighting until a subtle granite vibration sends fine concentric rings outward"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "fpv_trench_passthrough",
+      "environment": "a stepped grey granite railroad trench miniature with timber crane booms, iron rails, and chiseled boreholes along a rock ledge",
+      "kinetic_action": "three featureless matte-white bisque-ceramic figures wearing dark brimmed caps, charcoal vests, and work boots grip iron rock drills with both ceramic hands and drive them steadily into vertical boreholes along the granite shelf",
+      "lighting": "high-contrast silver rim lighting and warm lantern pools"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "vertical_rocket_ascent",
+      "environment": "close framing filling the entire frame with a chiseled grey granite rock shelf, iron rail track, and coopered cedar bucket with zero outer wooden base",
+      "kinetic_action": "viewed from a three-quarter rear-and-side angle, a faceless matte-white bisque-ceramic figure with a completely blank egg-smooth ovoid head wearing a dark brimmed cap, charcoal waistcoat, dark trousers, and boots grips a tall polished iron tamping rod with both ceramic hands and lifts it upright beside its shoulder",
+      "lighting": "crisp directional silver rim light and warm lantern accents"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "grammar": "literal_analogy_cutaway",
+      "camera": "low_angle_chase_track",
+      "analogy_scene": "a classic turned tan wooden baseball bat miniature standing upright on a crisp green-turf batter box base directly beside a taller polished steel javelin rod",
+      "comparison_motion": "a brushed-brass height bar glides smoothly upward past the top barrel of the wooden baseball bat and stops higher at the pointed steel javelin tip"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "grammar": "kinetic_trace_automata",
+      "camera": "crane_swoop_dive",
+      "prop_setup": "tight full-bleed macro interior cross-section filling the entire frame with split grey granite rock holding dark grains below a cedar scoop with zero wooden base and zero bottom borders",
+      "self_actuating_motion": "pale dry sand pours smoothly from the tilted cedar scoop to form a clean buffer layer above the dark grains inside the stone channel",
+      "physical_consequence": "the pale sand cushion settles evenly across the narrow granite chamber"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "crane_swoop_dive",
+      "environment": "close framing of rough-hewn grey granite bedrock centered on a deep circular borehole with zero wooden borders",
+      "kinetic_action": "a featureless matte-white bisque-ceramic figure wearing a dark brimmed cap and charcoal waistcoat turns its smooth ceramic head backward while plunging the pointed iron rod with both ceramic hands into the granite hole, sparking a bright amber flash",
+      "lighting": "dramatic chiaroscuro rim light and bright warm amber borehole spark"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "vertical_rocket_ascent",
+      "environment": "close framing of a grey granite shelf beneath a timber crane boom with zero wooden base",
+      "kinetic_action": "rear-side view of a faceless matte-white bisque-ceramic figure with a blank egg-smooth head in a dark cap, waistcoat, and trousers standing over the hole as the iron rod rockets straight upward through its white ceramic head, knocking the cap into the air",
+      "lighting": "sharp silver rim light and warm crimson-amber glow",
+      "beat_index": 1
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "grammar": "arch_brain_maquette",
+      "brain_mode": "translucent_smoked_glass_subcortical_xray",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/brain_ref_02_subcortical_xray_limbic_cyan_brainstem_red.jpg",
+      "camera": "dynamic_dolly_rush_in",
+      "maquette_scene": "Inside the semi-translucent smoked-glass 3D brain, the pointed tip of the polished iron rod enters cleanly beneath the left lower frontal-orbital lobe as soft crimson-red light marks the entry path",
+      "beat_index": 2
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "grammar": "arch_brain_maquette",
+      "brain_mode": "translucent_smoked_glass_subcortical_xray",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/brain_ref_02_subcortical_xray_limbic_cyan_brainstem_red.jpg",
+      "camera": "vertical_rocket_ascent",
+      "maquette_scene": "Inside the semi-translucent smoked-glass 3D brain, the tapered polished iron rod passes upward through the left frontal lobe and exits cleanly through the upper dorsal crown as soft crimson-red light traces the vertical path"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "low_angle_chase_track",
+      "environment": "a long granite railroad trench lined with iron rails, wooden flatcars, and crushed grey stone ballast",
+      "kinetic_action": "the slender polished iron rod arcs high above the timber derrick and settles cleanly across grey ballast stones far down the track",
+      "lighting": "crisp directional silver rim lighting across dark granite ledges"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "grammar": "literal_analogy_cutaway",
+      "camera": "pullback_parallax_reveal",
+      "analogy_scene": "a lush green-turf football stadium field miniature with crisp unnumbered white yard-line stripes and yellow goalposts",
+      "comparison_motion": "a glowing amber trajectory arc carrying a miniature polished iron rod launches from the end line and lands cleanly at the first-quarter stripe of the green football field"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "grammar": "recurring_gauge_motif",
+      "camera": "orbital_3d_arc_sweep",
+      "motif_object": "a clear unprinted glass water tumbler beside a brushed-brass apothecary beam scale on a dark walnut surveyor bench",
+      "state_transition": "sharp concentric shock waves surge across the clear glass water tumbler while the polished brass beam scale tips abruptly downward"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "low_angle_chase_track",
+      "environment": "a miniature rural Vermont gravel lane bordered by split-rail cedar fences leading from the granite cut toward town",
+      "kinetic_action": "a featureless matte-white bisque-ceramic figure wearing a charcoal waistcoat, boots, and white linen head wrap rides upright on a rolling two-wheeled wooden cart, grips the oak rail with both ceramic hands, and turns its smooth head toward town",
+      "lighting": "warm amber late-afternoon rim lighting against deep midnight-navy void"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "crane_swoop_dive",
+      "environment": "close interior framing of a wide wooden porch staircase and open timber doorway of a nineteenth-century New England clapboard hotel without signs or base borders",
+      "kinetic_action": "a featureless matte-white bisque-ceramic figure wearing a charcoal waistcoat, boots, and white linen head wrap climbs steadily up the wooden porch steps with one ceramic hand gripping the rail",
+      "lighting": "warm amber porch-lantern pools and crisp architectural rim light",
+      "beat_index": 1
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "fpv_trench_passthrough",
+      "environment": "an upstairs wooden veranda cutaway with turned Windsor chairs and a warm brass oil lamp without wall plaques",
+      "kinetic_action": "the featureless matte-white bisque-ceramic figure in waistcoat and white linen head wrap rises from a wooden chair and extends a ceramic hand to greet a bisque-ceramic physician figure wearing a dark coat and tall hat",
+      "lighting": "focused warm tungsten lantern glow against dark shadows",
+      "beat_index": 2
+    },
+    {
+      "sentence_index": 17,
+      "act": 3,
+      "grammar": "arch_brain_maquette",
+      "brain_mode": "matte_white_cortical_sulcal_glow",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/brain_ref_01_cortical_sulcal_amber_glow.jpg",
+      "camera": "orbital_3d_arc_sweep",
+      "maquette_scene": "Soft cyan-blue subsurface light glows steadily along the intact upper motor and lateral speech sulci of the matte-white 3D brain"
+    },
+    {
+      "sentence_index": 18,
+      "act": 3,
+      "grammar": "arch_brain_maquette",
+      "brain_mode": "translucent_smoked_glass_subcortical_xray",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/brain_ref_02_subcortical_xray_limbic_cyan_brainstem_red.jpg",
+      "camera": "dynamic_dolly_rush_in",
+      "maquette_scene": "Inside the semi-translucent smoked-glass 3D brain, internal white-matter fiber tracts illuminate cleanly in soft cyan-blue and muted crimson-red along the left frontal path"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "grammar": "recurring_gauge_motif",
+      "camera": "dynamic_dolly_rush_in",
+      "motif_object": "a clear unprinted glass water tumbler beside a brushed-brass apothecary beam scale on a dark walnut surveyor bench",
+      "state_transition": "fine concentric water ripples spread across the clear glass tumbler while the polished brass balance beam tilts smoothly downward"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "grammar": "arch_brain_maquette",
+      "brain_mode": "matte_white_cortical_sulcal_glow",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/brain_ref_03_cortical_dual_amber_red_glow.jpg",
+      "camera": "orbital_3d_arc_sweep",
+      "maquette_scene": "Posterior movement gyri glow calmly in soft cyan-blue while muted crimson-red subsurface light isolates the damaged left prefrontal cortex at the front pole"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "grammar": "arch_brain_maquette",
+      "brain_mode": "matte_white_cortical_sulcal_glow",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/brain_ref_03_cortical_dual_amber_red_glow.jpg",
+      "camera": "dynamic_dolly_rush_in",
+      "maquette_scene": "A compact muted crimson-red subsurface patch covers only a narrow four-percent zone of the left outer frontal folds while surrounding matte-white gyri remain intact"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "grammar": "arch_brain_maquette",
+      "brain_mode": "matte_white_cortical_sulcal_glow",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/brain_ref_03_cortical_dual_amber_red_glow.jpg",
+      "camera": "pullback_parallax_reveal",
+      "maquette_scene": "Floating in dark space with zero wooden pedestal, a blank unprinted ivory-and-crimson diamond playing card miniature with zero letters glides smoothly next to the compact crimson-red frontal patch on the matte-white 3D brain, showing the red zone is smaller than the playing card"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "grammar": "arch_brain_maquette",
+      "brain_mode": "matte_white_cortical_sulcal_glow",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/brain_ref_03_cortical_dual_amber_red_glow.jpg",
+      "camera": "orbital_3d_arc_sweep",
+      "maquette_scene": "On the outer matte-white cortex, a small muted crimson-red surface zone sits confined to the left front orbital fold while ninety-six percent of the outer surface stays calm"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "grammar": "kinetic_trace_automata",
+      "camera": "low_angle_chase_track",
+      "prop_setup": "a miniature dark-oak wagon chassis resting on a sloped granite ramp held steady by a taut braided brass brake cable",
+      "self_actuating_motion": "the taut braided brass brake cable unlatches cleanly at its front clevis pin",
+      "physical_consequence": "the unbraked wooden wagon wheels roll forward down the sloped oak ramp",
+      "beat_index": 1
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "grammar": "arch_brain_maquette",
+      "brain_mode": "translucent_smoked_glass_subcortical_xray",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/brain_ref_02_subcortical_xray_limbic_cyan_brainstem_red.jpg",
+      "camera": "dynamic_dolly_rush_in",
+      "maquette_scene": "Deep inside the semi-translucent smoked-glass brain, severed left front white-matter tracts glow in muted crimson-red disconnection beneath the dark cortical shell",
+      "beat_index": 2
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "grammar": "arch_brain_maquette",
+      "brain_mode": "translucent_smoked_glass_subcortical_xray",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/brain_ref_02_subcortical_xray_limbic_cyan_brainstem_red.jpg",
+      "camera": "orbital_3d_arc_sweep",
+      "maquette_scene": "Deep temporal amygdala hubs glow in bright volumetric cyan-blue while the severed uncinate fiber bridge toward the front orbital pole dims into muted crimson-red"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "grammar": "arch_brain_maquette",
+      "brain_mode": "translucent_smoked_glass_subcortical_xray",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/brain_ref_02_subcortical_xray_limbic_cyan_brainstem_red.jpg",
+      "camera": "vertical_rocket_ascent",
+      "maquette_scene": "Smooth muted crimson-red subcortical luminance glides upward from the deep limbic hub and pauses cleanly along the unlinked left frontal pathway"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "grammar": "arch_brain_maquette",
+      "brain_mode": "matte_white_cortical_sulcal_glow",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/brain_ref_03_cortical_dual_amber_red_glow.jpg",
+      "camera": "crane_swoop_dive",
+      "maquette_scene": "Viewed from above, the intact right frontal hemisphere glows in steady warm amber-gold sulcal lines while the left frontal pole stays quiet muted crimson-red"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "fpv_trench_passthrough",
+      "environment": "close interior framing inside an orderly nineteenth-century timber drafting room without outer base borders or signs, featuring neatly stacked cedar rail ties, brass calipers, and rolled blank linen plans",
+      "kinetic_action": "a featureless smooth ovoid matte-white bisque-ceramic architectural scale figure wearing a dark brimmed cap and charcoal waistcoat leans over the drafting table, aligns brass calipers with steady hands, and turns its smooth head toward the tracks",
+      "lighting": "warm balanced tungsten rim lighting and clean architectural shadows"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "grammar": "arch_brain_maquette",
+      "brain_mode": "matte_white_cortical_sulcal_glow",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/brain_ref_03_cortical_dual_amber_red_glow.jpg",
+      "camera": "orbital_3d_arc_sweep",
+      "maquette_scene": "On the upper left crown of the matte-white 3D brain, a smooth chalk-white healed contour covers the dorsal exit fold while muted crimson-red subsurface light lingers quietly inside the left front orbital sulci"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "grammar": "kinetic_trace_automata",
+      "camera": "low_angle_chase_track",
+      "prop_setup": "a dark-oak workbench holding interlocking brass gear wheels and a row of upright ivory domino blocks",
+      "self_actuating_motion": "the interlocking brass gears mesh and rotate smoothly at constant speed without skipping a tooth",
+      "physical_consequence": "every upright ivory block stays balanced in crisp formation beside the turning gears"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "grammar": "recurring_gauge_motif",
+      "camera": "orbital_3d_arc_sweep",
+      "motif_object": "a clear unprinted glass water tumbler beside a brushed-brass apothecary beam scale on a dark walnut surveyor bench",
+      "state_transition": "the polished brass beam scale rocks sharply from side to side without settling while restless ripples cross the clear water tumbler"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "grammar": "kinetic_trace_automata",
+      "camera": "dynamic_dolly_rush_in",
+      "prop_setup": "a dark-oak planning table holding rolled blank cream linen blueprints, brass dividers, and wooden survey pegs",
+      "self_actuating_motion": "the rolled blank linen blueprints snap shut violently by themselves and knock two wooden survey pegs sideways across the blotter",
+      "physical_consequence": "brass dividers slide abruptly off the center line toward the table edge"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "fpv_trench_passthrough",
+      "environment": "close interior framing of a nineteenth-century railway office partition with a heavy plain dark-walnut desk without signs, a brass gate latch, and paneled timber walls",
+      "kinetic_action": "a lone featureless matte-white bisque-ceramic figure wearing a dark coat and brimmed cap steps toward the walnut desk as the heavy oak office door swings shut and bolts in front of its torso",
+      "lighting": "cool stark silver rim lighting and deep dramatic floor shadows",
+      "beat_index": 1
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "pullback_parallax_reveal",
+      "environment": "a quiet miniature wooden railway platform beneath an iron station lamp in the midnight-navy void",
+      "kinetic_action": "two featureless matte-white bisque-ceramic figures wearing dark coats and tall hats step backward onto the platform while a lone ceramic figure in waistcoat and cap stands apart gripping a tapered iron rod",
+      "lighting": "cool chiaroscuro rim lighting separating the lone figure from the pair",
+      "beat_index": 2
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "grammar": "kinetic_trace_automata",
+      "camera": "orbital_3d_arc_sweep",
+      "prop_setup": "an angled unprinted brass magnifying lens suspended on a pivoted brass bracket above a small bone-white plaster cast fragment on plain dark oak",
+      "self_actuating_motion": "the pivoted brass lens bracket swings closer and casts an exaggerated distorted dark shadow ten times larger across a blank slate screen",
+      "physical_consequence": "an unprinted brass pointer needle swings erratically inside a smooth blank mahogany ring without markings"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "crane_swoop_dive",
+      "environment": "an empty rain-darkened miniature cobblestone alley diorama with shuttered wooden doors and a single dim brass lantern",
+      "kinetic_action": "an unlatched wooden shutter swings slowly in the draft beside an empty wooden bench under cold rim light",
+      "lighting": "moody low-key silver rim lighting and one dim amber lantern pool"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "crane_swoop_dive",
+      "environment": "an uninhabited upstairs nineteenth-century timber guest room cutaway with a neatly draped wooden bedstead, plain porcelain washbasin, and dim amber oil lamp",
+      "kinetic_action": "the dim amber oil-lamp flame flickers softly beside the quiet white porcelain washbasin as long dark shadows cross the pine floor with zero figures",
+      "lighting": "dim warm amber oil-lamp glow against deep midnight-navy shadows",
+      "beat_index": 1
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "fpv_trench_passthrough",
+      "environment": "a narrow wooden hotel hallway outside a closed guest room door with a plain unfinished pine box resting on low trestles",
+      "kinetic_action": "warm amber light flickers beneath the closed wooden guest room door beside the silent unfinished pine box",
+      "lighting": "stark cool rim lighting across raw pine boards",
+      "beat_index": 2
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "grammar": "kinetic_trace_automata",
+      "camera": "dynamic_dolly_rush_in",
+      "prop_setup": "polished unprinted brass calipers arranged beside a smooth unprinted clear glass vessel without markings on a plain white porcelain tray",
+      "self_actuating_motion": "clear warm amber liquid rises smoothly inside the unprinted clear glass vessel and stops cleanly near the upper rim",
+      "physical_consequence": "a plain brushed-brass balance beam beside the porcelain tray resumes a calm steady swing without numbers"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "grammar": "kinetic_trace_automata",
+      "camera": "orbital_3d_arc_sweep",
+      "prop_setup": "a smooth unprinted matte-white porcelain coffee cup sitting beside the clear glass cylinder on a dark walnut tray",
+      "self_actuating_motion": "warm amber liquid fills the matte-white porcelain coffee cup nearly to its upper brim without spilling",
+      "physical_consequence": "the surface inside the porcelain cup settles into a calm level mirror"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "grammar": "recurring_gauge_motif",
+      "camera": "dynamic_dolly_rush_in",
+      "motif_object": "a clear unprinted glass water tumbler beside a brushed-brass apothecary beam scale on a dark walnut surveyor bench",
+      "state_transition": "the swaying brass apothecary beam scale slows its oscillation and glides smoothly back toward horizontal balance"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "fpv_trench_passthrough",
+      "environment": "a timber-framed New Hampshire livery stable courtyard cutaway with six clean empty cedar stalls, carriage wheels, and hanging leather harnesses",
+      "kinetic_action": "a featureless matte-white bisque-ceramic figure wearing a work apron, waistcoat, and boots walks briskly along the stable aisle on steady legs and latches six cedar stall gates with both hands",
+      "lighting": "warm golden barn-lantern glow and crisp chiaroscuro rim lighting"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "grammar": "kinetic_trace_automata",
+      "camera": "low_angle_chase_track",
+      "prop_setup": "a split matte-white ceramic beam held straight inside a fitted dark-oak and brushed-brass external splint jig",
+      "self_actuating_motion": "four brushed-brass thumb clamps tighten in unison along the dark-oak splint rails",
+      "physical_consequence": "the split ceramic beam aligns into a straight load-bearing horizontal line"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "low_angle_chase_track",
+      "environment": "a miniature nineteenth-century coastal timber pier and wooden sailing hull model set above dark polished slate water",
+      "kinetic_action": "the miniature wooden sailing vessel glides smoothly away from the timber pier toward terraced coastal cliffs",
+      "lighting": "crisp silver moonlight rim lighting and warm deck-lantern glow"
+    },
+    {
+      "sentence_index": 43,
+      "beat_index": 1,
+      "act": 5,
+      "grammar": "kinetic_trace_automata",
+      "camera": "dynamic_dolly_rush_in",
+      "prop_setup": "an oak driver box holding six parallel dark leather rein straps threaded through polished brass terret rings",
+      "self_actuating_motion": "sculpted matte-white ceramic hands in dark cuffs tension all six parallel leather rein straps in crisp coordinated rhythm",
+      "physical_consequence": "a wooden wheel brake shoe engages smoothly against an iron-rimmed coach wheel"
+    },
+    {
+      "sentence_index": 43,
+      "beat_index": 2,
+      "act": 5,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "low_angle_chase_track",
+      "environment": "a terraced Andean mountain switchback road carved into dark stone cliffs with plain stone guard posts",
+      "kinetic_action": "a featureless matte-white bisque-ceramic driver wearing a wide-brimmed hat and dark duster coat sits atop a four-wheeled cedar stagecoach miniature and steers taut reins smoothly around a steep cliffside hairpin turn",
+      "lighting": "dramatic silver cliff rim lighting and warm twin coach lanterns"
+    },
+    {
+      "sentence_index": 44,
+      "act": 5,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "orbital_3d_arc_sweep",
+      "environment": "an uninhabited nineteenth-century Chilean physician walnut study cutaway with a polished examination desk, level brass balance, and two turned chairs",
+      "kinetic_action": "an unprinted polished brass pendulum swings in steady even beats beside a dead-level brass balance on the walnut desk with zero figures",
+      "lighting": "warm serene tungsten rim light and balanced soft shadows"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "grammar": "arch_brain_maquette",
+      "brain_mode": "translucent_smoked_glass_subcortical_xray",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/brain_ref_02_subcortical_xray_limbic_cyan_brainstem_red.jpg",
+      "camera": "dynamic_dolly_rush_in",
+      "maquette_scene": "Inside the semi-translucent smoked-glass 3D brain, intact right-hemisphere fiber pathways glow in warm amber-gold beside the quiet crimson-red left orbital scar"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "grammar": "frosted_crystal_specimen",
+      "camera": "orbital_3d_arc_sweep",
+      "specimen_kind": "faceless ovoid trajectory model",
+      "mount_detail": "a plain unlabelled dark-oak pedestal block without plaques or nameplates",
+      "trajectory_action": "steady warm amber-gold internal fiber pathways illuminate cleanly across the intact right frontal lobe inside the satin-frosted crystal dome"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "grammar": "tactile_token_grid",
+      "camera": "low_angle_chase_track",
+      "token_layout": "twelve smooth ivory milestone pegs set along a dark-oak timeline rail beside a miniature polished iron rod",
+      "ratio_animation": "all twelve ivory milestone pegs illuminate sequentially under a warm spotlight beam gliding steadily down the oak rail"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "fpv_trench_passthrough",
+      "environment": "a quiet mahogany-and-glass display case holding only a slender tapered polished iron tamping rod resting horizontally on dark velvet cradles beside a clear glass brain sphere",
+      "kinetic_action": "a warm spotlight beam glides slowly along the slender tapered iron rod resting on dark velvet mounts",
+      "lighting": "focused warm gallery spotlighting in the midnight-navy void"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "grammar": "recurring_gauge_motif",
+      "camera": "orbital_3d_arc_sweep",
+      "motif_object": "a clear unprinted glass water tumbler beside a brushed-brass apothecary beam scale on a dark walnut surveyor bench",
+      "state_transition": "the polished brass apothecary beam scale settles into dead-level equilibrium while the clear water tumbler becomes calm and mirror-still"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "grammar": "arch_brain_maquette",
+      "brain_mode": "translucent_smoked_glass_subcortical_xray",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/brain_ref_02_subcortical_xray_limbic_cyan_brainstem_red.jpg",
+      "camera": "orbital_3d_arc_sweep",
+      "maquette_scene": "Deep cyan-blue limbic hubs connect smoothly along intact right-side warm amber-gold fiber pathways to the prefrontal cortex behind the forehead"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "grammar": "kinetic_trace_automata",
+      "camera": "dynamic_dolly_rush_in",
+      "prop_setup": "a bundle of ultra-fine luminous glass threads stretched across a plain dark-oak bridge beside an unpainted plain hexagonal cedar wood dowel without markings or ferrules",
+      "self_actuating_motion": "warm amber light glides smoothly through the ultra-fine glass threads thinner than the plain unpainted cedar wood dowel beside them",
+      "physical_consequence": "both brass anchor posts at either end of the oak bridge glow in calm balance"
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "grammar": "arch_brain_maquette",
+      "brain_mode": "matte_white_cortical_sulcal_glow",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/brain_ref_01_cortical_sulcal_amber_glow.jpg",
+      "camera": "orbital_3d_arc_sweep",
+      "maquette_scene": "Warm amber-gold sulcal light spreads harmoniously across the intact right frontal folds of the matte-white 3D brain above its dark-oak plinth"
+    },
+    {
+      "cut_role": "split_bottom",
+      "act": 3,
+      "grammar": "arch_brain_maquette",
+      "brain_mode": "translucent_smoked_glass_subcortical_xray",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/brain_v6_refs/brain_ref_02_subcortical_xray_limbic_cyan_brainstem_red.jpg",
+      "camera": "dynamic_dolly_rush_in",
+      "maquette_scene": "Inside the semi-translucent smoked-glass 3D brain, deep front white-matter fiber cables glow in muted crimson-red where the left orbital hub was unlinked"
+    },
+    {
+      "cut_role": "outro",
+      "act": 6,
+      "grammar": "arch_cutaway_diorama",
+      "camera": "smooth_tilt_up",
+      "environment": "a low plain dark-oak velvet rail resting along the very bottom edge of the frame holding a slender polished tapered iron tamping rod below a vast empty deep midnight-navy sky void",
+      "kinetic_action": "a soft warm rim beam glints off the low iron rod before the camera tilts smoothly upward into pure empty unobstructed deep midnight-navy studio void",
+      "lighting": "subtle low gallery rim light opening upward into pure empty deep midnight-navy studio void"
+    }
+  ]
+}

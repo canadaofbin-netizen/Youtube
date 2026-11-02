@@ -1,0 +1,524 @@
+{
+  "schema": "episode_qa_contract_v2",
+  "is_v7": true,
+  "dossier": "patient_hm_hippocampus",
+  "project_id": "",
+  "sentence_count": 53,
+  "clip_count": 63,
+  "analogy_locks": [
+    {
+      "analogy_id": "juggling",
+      "spoken_phrase": "juggling",
+      "sentence_index": 14,
+      "sentence_text": "That took focus like a performer juggling three balls nonstop.",
+      "bound_clip_numbers": [
+        15
+      ],
+      "required_any_nouns": [
+        "juggling",
+        "three pastel balls",
+        "three balls",
+        "arcing balls"
+      ],
+      "forbidden_abstract": [
+        "turned-oak cylinders"
+      ],
+      "cv_signature": "high_contrast_object"
+    },
+    {
+      "analogy_id": "bookshelf",
+      "spoken_phrase": "library shelves",
+      "sentence_index": 30,
+      "sentence_text": "Old memories rested in library shelves across outer cortex.",
+      "bound_clip_numbers": [
+        33
+      ],
+      "required_any_nouns": [
+        "bookshelf",
+        "bookshelves",
+        "library shelves",
+        "hardcover books",
+        "wooden shelves",
+        "wall cabinets"
+      ],
+      "forbidden_abstract": [
+        "turned-oak cylinders"
+      ],
+      "cv_signature": "high_contrast_object"
+    },
+    {
+      "analogy_id": "pencil",
+      "spoken_phrase": "pencil",
+      "sentence_index": 36,
+      "sentence_text": "A metal shield hid Henry's hand and yellow pencil.",
+      "bound_clip_numbers": [
+        38,
+        39
+      ],
+      "required_any_nouns": [
+        "pencil",
+        "hexagonal cedar",
+        "graphite pencil",
+        "yellow pencil"
+      ],
+      "forbidden_abstract": [
+        "turned-oak cylinders"
+      ],
+      "cv_signature": "high_contrast_object"
+    },
+    {
+      "analogy_id": "pencil",
+      "spoken_phrase": "pencil",
+      "sentence_index": 39,
+      "sentence_text": "On day one, his pencil crossed borders thirty times.",
+      "bound_clip_numbers": [
+        43,
+        44
+      ],
+      "required_any_nouns": [
+        "pencil",
+        "hexagonal cedar",
+        "graphite pencil",
+        "yellow pencil"
+      ],
+      "forbidden_abstract": [
+        "turned-oak cylinders"
+      ],
+      "cv_signature": "high_contrast_object"
+    },
+    {
+      "analogy_id": "coffee_cup",
+      "spoken_phrase": "coffee cup",
+      "sentence_index": 41,
+      "sentence_text": "Each session lasted barely longer than pouring a coffee cup.",
+      "bound_clip_numbers": [
+        46
+      ],
+      "required_any_nouns": [
+        "coffee cup",
+        "porcelain cup",
+        "ceramic coffee cup"
+      ],
+      "forbidden_abstract": [
+        "turned-oak cylinders",
+        "ceramic square tiles"
+      ],
+      "cv_signature": "high_contrast_object"
+    },
+    {
+      "analogy_id": "bicycle",
+      "spoken_phrase": "bicycle",
+      "sentence_index": 48,
+      "sentence_text": "Ever ride a bicycle after ten years without falling?",
+      "bound_clip_numbers": [
+        54
+      ],
+      "required_any_nouns": [
+        "bicycle",
+        "two-wheeled bike",
+        "pedals",
+        "handlebars"
+      ],
+      "forbidden_abstract": [
+        "turned-oak cylinders",
+        "ceramic square tiles"
+      ],
+      "cv_signature": "high_contrast_object"
+    }
+  ],
+  "cast_clip_locks": [
+    {
+      "clip_number": 1,
+      "sentence_index": 1,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 2,
+      "sentence_index": 1,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 3,
+      "sentence_index": 2,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 4,
+      "sentence_index": 2,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 5,
+      "sentence_index": 3,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 6,
+      "sentence_index": 4,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 9,
+      "sentence_index": 8,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 10,
+      "sentence_index": 9,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 11,
+      "sentence_index": 9,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 12,
+      "sentence_index": 10,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 13,
+      "sentence_index": 11,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 14,
+      "sentence_index": 13,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 15,
+      "sentence_index": 14,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 17,
+      "sentence_index": 16,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 18,
+      "sentence_index": 16,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 20,
+      "sentence_index": 17,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 21,
+      "sentence_index": 18,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 23,
+      "sentence_index": 20,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 28,
+      "sentence_index": 24,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 33,
+      "sentence_index": 30,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 35,
+      "sentence_index": 33,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 36,
+      "sentence_index": 34,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 37,
+      "sentence_index": 35,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 38,
+      "sentence_index": 36,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 39,
+      "sentence_index": 36,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 40,
+      "sentence_index": 37,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 42,
+      "sentence_index": 38,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 43,
+      "sentence_index": 39,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 44,
+      "sentence_index": 39,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 45,
+      "sentence_index": 40,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 47,
+      "sentence_index": 42,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 48,
+      "sentence_index": 42,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 49,
+      "sentence_index": 42,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 51,
+      "sentence_index": 45,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 54,
+      "sentence_index": 48,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 55,
+      "sentence_index": 49,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 56,
+      "sentence_index": 49,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 57,
+      "sentence_index": 50,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 58,
+      "sentence_index": 51,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 59,
+      "sentence_index": 51,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 61,
+      "sentence_index": 53,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    }
+  ],
+  "cold_open_impact_locks": [],
+  "anatomy_locks": [
+    {
+      "sentence_index": 6,
+      "sentence_text": "Surgeon Scoville targeted each temporal lobe, the side lobe.",
+      "anatomy_terms": [
+        "temporal lobe"
+      ],
+      "bound_clip_numbers": [
+        7
+      ]
+    },
+    {
+      "sentence_index": 15,
+      "sentence_text": "Behind the forehead, his prefrontal cortex, the planner, held on.",
+      "anatomy_terms": [
+        "prefrontal cortex"
+      ],
+      "bound_clip_numbers": [
+        16
+      ]
+    },
+    {
+      "sentence_index": 21,
+      "sentence_text": "Only losing both sides of the hippocampus, the memory maker, froze time.",
+      "anatomy_terms": [
+        "hippocampus"
+      ],
+      "bound_clip_numbers": [
+        24
+      ]
+    },
+    {
+      "sentence_index": 46,
+      "sentence_text": "Deep inside, his basal ganglia, the habit engine, wired each stroke.",
+      "anatomy_terms": [
+        "basal ganglia"
+      ],
+      "bound_clip_numbers": [
+        52
+      ]
+    },
+    {
+      "sentence_index": 47,
+      "sentence_text": "Below, his cerebellum, the coordination center, tuned smooth timing.",
+      "anatomy_terms": [
+        "cerebellum"
+      ],
+      "bound_clip_numbers": [
+        53
+      ]
+    }
+  ],
+  "early_hook_sentences": [],
+  "require_early_ceramic_reenactment_min_clips": 0,
+  "tempo_targets": {
+    "wpm_min": 135.0,
+    "wpm_max": 205.0,
+    "avg_cut_max_sec": 3.45,
+    "fast_cut_threshold_sec": 1.5,
+    "fast_cut_ratio_min": 0.2,
+    "cut_duration_cv_min": 0.5,
+    "max_single_speech_cut_sec": 7.2,
+    "max_clip_reuse": 1
+  }
+}

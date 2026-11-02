@@ -1,0 +1,666 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "deci_overjustification_reward",
+  "topic": "Edward Deci University of Rochester Puzzle Cube Experiment: How Piece-Rate Cash Rewards Undermine Intrinsic Motivation and Dampen Striatal Valuation (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Follow-up MRI brain-scanning replication showing that once performance pay stops, spontaneous reward activity in the nucleus accumbens and striatum drops below unpaid peers during solitary play.",
+  "outro_title_lines": [
+    "EDWARD DECI (1971)",
+    "UNIVERSITY OF ROCHESTER"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "BONUS MYTH?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "PAID TO QUIT?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SECRET BREAK"
+    },
+    {
+      "sentence_index": 19,
+      "text": "FUNDS RUN OUT"
+    },
+    {
+      "sentence_index": 28,
+      "text": "HONEST PRAISE"
+    },
+    {
+      "sentence_index": 37,
+      "text": "SILENT BRAIN"
+    },
+    {
+      "sentence_index": 45,
+      "text": "GUARD PURE PLAY"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "BONUS MYTH?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "PAID TO QUIT?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SECRET BREAK"
+    },
+    {
+      "sentence_index": 19,
+      "text": "FUNDS RUN OUT"
+    },
+    {
+      "sentence_index": 28,
+      "text": "HONEST PRAISE"
+    },
+    {
+      "sentence_index": 37,
+      "text": "SILENT BRAIN"
+    },
+    {
+      "sentence_index": 45,
+      "text": "GUARD PURE PLAY"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 23,
+      "mode": "split_hstack",
+      "left_clip_index": 26,
+      "right_clip_index": 27,
+      "left_label": "FORMERLY PAID",
+      "right_label": "NEVER PAID"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit pastel university lab room with a maple table holding seven carved wooden puzzle blocks, pastel magazines, and a wide observation mirror window",
+      "action": "viewed strictly from behind, a clothed low-poly college student in a plaid flannel shirt sits at the maple table and reaches toward the wooden puzzle blocks"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "plaid flannel shirt cuffs and cool porcelain-white gloved low-poly hands over the maple table holding wooden puzzle cubes, a pastel magazine, and crisp green cash bills",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides the crisp green cash bills into an empty envelope while the other hand pushes the wooden puzzle cubes aside",
+      "consequence": "the carved maple puzzle blocks scatter untouched beside the magazine stack"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "plaid flannel sleeves and cool porcelain-white gloved low-poly hands resting beside disassembled maple puzzle cubes and a glossy pastel magazine on the table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands push the seven maple puzzle cubes away and flip open the glossy pastel magazine",
+      "consequence": "the wooden puzzle cubes sit abandoned near the far edge of the sunlit table"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool blazer cuffs and matte-white gloved low-poly researcher hands holding a brushed-brushed-silver stopwatch behind the wide observation mirror window",
+      "prop_action": "one cool porcelain-white gloved low-poly hand presses the brushed-silver stopwatch crown while the other hand braces a clean wooden timing board on the ledge",
+      "consequence": "the slender sweep hand glides steadily around the brushed-silver stopwatch dial"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit Rochester psychology room and adjacent observation window overlooking the maple puzzle table",
+      "action": "viewed strictly from behind, a clothed low-poly psychologist in a wool blazer and tie stands behind the observation window and points toward the puzzle table"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a pastel mechanical scale cutaway where dropping a green coin block onto a warm-gold curiosity spring compresses the spring flat instead of lifting it",
+      "internal_mechanism": "once the green coin block lifts away, the compressed warm-gold spring stays low beneath its starting mark"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "grey blazer sleeves and cool porcelain-white gloved low-poly hands stacking pastel-green bonus blocks atop sky-blue play blocks on an slate-stone desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set three green bonus cubes neatly onto three sky-blue cubes and align the tall column",
+      "consequence": "the stacked wooden column stands neat and tall on the slate-stone desk"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "cozy_living_study",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "dove-gray cardigan sleeves and cool porcelain-white gloved low-poly hands placing a small brushed-silver coin pouch beside a wooden geometric puzzle tray",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides the brushed-silver coin pouch next to the wooden puzzle tray and taps the top cube",
+      "consequence": "warm window light gleams across both the coins and maple cubes"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit New York university hallway outside the psychology laboratory where wooden chairs line a bright corridor",
+      "action": "viewed strictly from behind, clothed low-poly college students in flannel shirts, sweaters, and jackets walk down the bright corridor and step into the lab room"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool blazer cuffs and cool porcelain-white gloved low-poly hands arranging the sunlit maple test table before the session",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place seven smooth L-shaped maple puzzle blocks in the center and set three pastel magazines on the corner",
+      "consequence": "the seven carved wooden blocks and pastel magazines sit side by side in bright daylight"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_left",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands lining up three crisp ivory session folders across the observation counter",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides the three ivory folders into an even row and rests a cedar pencil beside the third folder",
+      "consequence": "the third ivory folder gleams at the end of the sunlit counter"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Rochester puzzle room with the maple table, wooden blocks, magazines, and white wooden door",
+      "action": "viewed strictly from behind, the clothed low-poly researcher in a wool blazer walks to the white door, opens it, and steps quietly outside"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-maple cafe counter holding a steaming pastel ceramic coffee cup on a saucer beside an eight-minute sandglass timer",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in sweater sleeves flip the eight-minute sandglass upright and set the pastel ceramic coffee cup gently onto the saucer"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool blazer sleeves and cool porcelain-white gloved low-poly hands holding a brushed-silver stopwatch right behind the observation glass window",
+      "prop_action": "one cool porcelain-white gloved low-poly hand presses the stopwatch start button while the other hand traces a pencil line along a timing sheet",
+      "consequence": "beyond the glass window, the solitary student leans toward the wooden blocks"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "oatmeal knit sweater cuffs and matte-white gloved low-poly student hands working eagerly over the seven maple puzzle blocks",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift two carved maple corner blocks and press them snugly onto a symmetrical wooden cube while magazines stay untouched",
+      "consequence": "all seven maple pieces lock cleanly into a solid geometric cube"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool blazer cuffs opposite plaid flannel shirt cuffs with cool porcelain-white gloved low-poly hands across the maple puzzle table",
+      "prop_action": "the researcher matte-white gloved hand slides a crisp pastel-green dollar bill across the slate-stone grain as the student hand completes a wooden shape and pulls the bill close",
+      "consequence": "a neat stack of pastel-green bills grows beside the puzzle mat"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit pastel commuter platform where a sleek sky-blue low-poly train car glides smoothly along clean steel rails between two nearby stations",
+      "comparison_action": "viewed strictly from behind, a clothed low-poly commuter in a dove-gray coat steps onto the platform and holds a pocket watch as the sky-blue train car pulls smoothly into the next stop"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the quiet observation booth overlooking the sunlit Rochester table where green bills sit beside the wooden puzzle cubes",
+      "action": "viewed strictly from behind, the clothed low-poly researcher in a wool blazer leans toward the glass window and holds the brushed-silver stopwatch steady"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "plaid flannel shirt sleeves and cool porcelain-white gloved low-poly hands practicing fast cube combinations beside the green dollar bills",
+      "prop_action": "both cool porcelain-white gloved low-poly hands flip an isometric shape card upright and snap three maple blocks rapidly together",
+      "consequence": "the wooden blocks click briskly into a tall tower shape"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_left",
+      "structure": "a pastel hourglass timer mounted beside a small coin tray that tips empty onto a cool-slate shelf",
+      "internal_mechanism": "the moment the last pastel-green token drops out of the coin tray, the warm-gold sand stream shuts off abruptly"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Rochester lab room on the final day with an empty powder-blue payout tray resting on the maple puzzle table",
+      "action": "viewed strictly from behind, the clothed low-poly researcher in a wool blazer opens the empty powder-blue tray and sets it flat beside the student"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool blazer sleeves and cool porcelain-white gloved low-poly hands turning an empty powder-blue cash envelope upside down over the maple desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands shake the empty powder-blue envelope gently and slide the empty cash box shut",
+      "consequence": "zero bills rest anywhere on the sunlit tabletop"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the dim pastel observation booth overlooking the solitary student at the sunlit puzzle and magazine table",
+      "action": "viewed strictly from behind, the clothed low-poly researcher in a wool blazer steps up to the observation glass and presses the brushed-silver stopwatch"
+    },
+    {
+      "sentence_index": 22,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "plaid flannel shirt cuffs and cool porcelain-white gloved low-poly hands resting beside the seven maple puzzle blocks",
+      "prop_action": "one cool porcelain-white gloved low-poly hand pushes the seven maple puzzle blocks away across the table while the other hand reaches for the pastel magazines",
+      "consequence": "the wooden puzzle blocks slide apart into an unfinished heap"
+    },
+    {
+      "sentence_index": 22,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Rochester test room with the abandoned wooden blocks on one side of the maple table",
+      "action": "viewed strictly from behind, the clothed low-poly formerly paid student in a plaid flannel shirt leans back in the chair and flips through a glossy magazine"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "plaid flannel sleeves and cool porcelain-white gloved low-poly hands turning glossy pastel magazine pages beside untouched wooden cubes",
+      "prop_action": "both cool porcelain-white gloved low-poly hands hold the pastel magazine wide open and flip casually to the next spread",
+      "consequence": "the maple puzzle blocks sit completely ignored in the background"
+    },
+    {
+      "sentence_index": 23,
+      "cut_role": "split_right",
+      "act": 3,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "oatmeal knit sweater sleeves and matte-white gloved low-poly unpaid student hands building a tall wooden castle from the seven maple blocks",
+      "prop_action": "both cool porcelain-white gloved low-poly hands fit the seventh maple piece onto the geometric castle and draw a fresh shape card eagerly",
+      "consequence": "the completed maple castle stands proud beside the unopened magazines"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pastel street corner featuring a clean matte-cream traffic signal post glowing bright coral-red above a quiet white crosswalk",
+      "comparison_action": "viewed strictly from behind, a clothed low-poly cyclist in a navy jacket rolls up to the white stop line, presses the hand brake, and rests one foot on the curb beneath the red light"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_right",
+      "structure": "a pastel reversible wooden block mechanism where a bright sky-blue play gear flips over into a dull slate-grey punch-clock gear",
+      "internal_mechanism": "once the green coin key pulls out, the dull slate-grey gear grinds immediately to a halt"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA\nHABIT ENGINE",
+      "brain_scene": "a matte-pastel sagittal cutaway brain model on an alabaster stand where warm amber-gold curiosity glow inside the central basal ganglia fades softly downward after external payout stops"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_left",
+      "attire_and_hands": "wool blazer cuffs and cool porcelain-white gloved low-poly hands comparing a green cash envelope against a warm-ivory feedback card on the slate-stone desk",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides the green cash envelope aside while the other hand lifts the warm-ivory mastery feedback card into sunlight",
+      "consequence": "the clean ivory feedback card takes center place on the desk"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright sunlit Rochester puzzle room with zero cash envelopes on the maple table and seven carved wooden blocks ready",
+      "action": "viewed strictly from behind, the clothed low-poly researcher in a wool blazer steps beside a student in a collegiate cardigan and points warmly to a fast stopwatch dial"
+    },
+    {
+      "sentence_index": 29,
+      "end_sentence_index": 30,
+      "act": 4,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool blazer sleeves beside mint cardigan sleeves with cool porcelain-white gloved low-poly hands over a brushed-silver solve-time stopwatch and maple cube",
+      "prop_action": "the researcher matte-white gloved hand points to the fast sweep position on the brushed-silver stopwatch while placing zero cash onto the empty slate-stone tray",
+      "consequence": "the student gloved hands reach eagerly toward a fresh geometric shape card"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool blazer cuffs and cool porcelain-white gloved low-poly hands restarting the brushed-silver stopwatch behind the observation mirror window",
+      "prop_action": "one cool porcelain-white gloved low-poly hand presses the stopwatch crown briskly while the other hand holds a cedar pencil above the free-play column",
+      "consequence": "through the glass window, the praised student leans straight over the wooden blocks"
+    },
+    {
+      "sentence_index": 32,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint cardigan cuffs and matte-white gloved low-poly student hands snapping carved maple puzzle pieces together rapidly",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align the final maple L-block onto a complex geometric arch and reach straight for another card",
+      "consequence": "two completed wooden sculptures stand side by side on the sunny table"
+    },
+    {
+      "sentence_index": 32,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the Rochester lab room as the praised student builds shape after shape alone while magazines stay closed",
+      "action": "viewed strictly from behind, the clothed low-poly student in a mint cardigan leans forward and places the top maple block onto a third sculpture"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "wool blazer cuffs and cool porcelain-white gloved low-poly hands comparing a rising sky-blue wooden bar beside a falling coral wooden bar",
+      "prop_action": "one cool porcelain-white gloved low-poly hand sets a tall sky-blue block onto the praise column while tapping the short coral cash-cutoff column",
+      "consequence": "the sky-blue mastery column towers cleanly above the coral column"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL CORTEX\nWORKING MEMORY",
+      "brain_scene": "a matte-pastel 3D cortical brain model where bright electric cyan-blue glow illuminates the upper dorsolateral prefrontal cortex and links smoothly with internal curiosity circuits"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pastel turquoise water basin where a small wooden sailboat is pulled stiffly by a thick braided hemp tow rope attached to a mechanical winch",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in coat sleeves turn the brushed-silver winch handle and pull the heavy braided tow rope taut, sliding the wooden boat along a rigid track"
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit pastel harbor cove with gentle sky-blue ripples and a crisp white-sailed wooden dinghy gliding freely without any tow line",
+      "action": "viewed strictly from behind, a clothed low-poly sailor in a navy windbreaker holds the wooden tiller and steers the white-sailed boat smoothly across open water"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit university conference room with stacks of pastel research binders arranged across a long slate-stone table",
+      "action": "viewed strictly from behind, clothed low-poly scholars in tweed blazer jackets stand around the slate-stone table and open the thick pastel research binders"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "tilt_up",
+      "analogy_world": "a sunlit tall pastel wooden library alcove lined floor-to-ceiling with neat rows of colorful cloth-bound study volumes",
+      "comparison_action": "viewed strictly from behind, a clothed low-poly researcher in a navy blazer steps beside the wooden library shelves, pulls down a cloth-bound volume, and opens it on the reading lectern"
+    },
+    {
+      "sentence_index": 39,
+      "end_sentence_index": 40,
+      "act": 5,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands sorting pastel summary cards into two clear trays on the slate-stone table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place a tall stack of expected-prize cards into the declining left tray and slide the praise cards into the rising right tray",
+      "consequence": "the two clean stacks separate the exact boundary of the reward rule"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright modern pastel neuroimaging suite featuring a smooth matte-ivory cylindrical scanner arch behind a control window",
+      "action": "viewed strictly from behind, clothed low-poly neuroscientists in white lab coats stand at the control console and point toward the scanner window"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "nucleus accumbens",
+      "anatomy_label": "NUCLEUS ACCUMBENS\nREWARD CENTER",
+      "brain_scene": "a matte-pastel sagittal cutaway brain model where the deep nucleus accumbens reward hub dims to cool muted slate after piece-rate payment is withdrawn"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit neuroimaging control gallery displaying twin side-by-side pastel brain wave ribbons on a clean glass screen",
+      "action": "viewed strictly from behind, three clothed low-poly scientists in lab coats and blazers lean forward together and point to the quiet lower wave ribbon"
+    },
+    {
+      "sentence_index": 44,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "grey sweater cuffs and cool porcelain-white gloved low-poly hands sitting alone beside an untouched game controller in a quiet waiting room",
+      "prop_action": "one cool porcelain-white gloved low-poly hand touches the puzzle controller lightly and then pulls back to rest flat on the knee",
+      "consequence": "the solitary puzzle controller stays dark and still on the side table"
+    },
+    {
+      "sentence_index": 44,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a pastel twin-dial curiosity meter on an alabaster stand comparing a glowing unpaid needle on the right against a resting paid-cutoff needle on the left",
+      "internal_mechanism": "the right unpaid needle holds steady in the warm-gold zone while the left cutoff needle settles quietly at the bottom stop"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "cozy_living_study",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a warm sunlit modern living room with a plush cream sofa, wooden bookshelves, and morning light pouring across an slate-stone coffee table",
+      "action": "viewed strictly from behind, a clothed low-poly parent in a sage sweater and a child in a soft-mint cardigan sit side by side on the sofa holding open picture books"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "cozy_living_study",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater cuffs and small soft-mint cardigan cuffs with cool porcelain-white gloved low-poly hands over an open adventure paperback",
+      "prop_action": "the adult matte-white gloved hand slides a coin-tally grid sheet off the table while the child hand eagerly flips to the next illustrated page",
+      "consequence": "the open adventure book stays center stage in warm morning sunlight"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "cozy_living_study",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "chambray shirt sleeves and cool porcelain-white gloved low-poly hands setting a vintage pastel camera beside an invoice stack on a home desk",
+      "prop_action": "one cool porcelain-white gloved low-poly hand pushes the stack of billing envelopes into a drawer and lifts the pastel camera cleanly toward the sunlit window",
+      "consequence": "the drawer closes smoothly leaving the desk clear for creative play"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "cozy_living_study",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands placing a solid pastel-green foundation block beneath an open studio workbench",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set the wide pastel-green base block level under the workbench and align wooden craft tools on top",
+      "consequence": "the entire studio workbench rests balanced and rock-steady"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "cozy_living_study",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "tweed jacket cuffs and cool porcelain-white gloved low-poly hands placing a ribbon-tied pastel gift box beside an already completed wooden architectural model",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set the small pastel ribbon box gently beside the finished maple sculpture and tap the table warmly",
+      "consequence": "the unexpected thank-you gift gleams beside the completed craftwork"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
+      "brain_scene": "a matte-pastel 3D cortical brain model where calm electric cyan-blue light in the prefrontal cortex connects in a steady golden loop with the deep basal ganglia curiosity hub"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "oatmeal sweater sleeves and cool porcelain-white gloved low-poly hands snapping seven smooth maple puzzle blocks into a symmetrical cube on a sunny desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands press the seventh carved maple block seamlessly into the top corner and turn the finished cube in sunlight",
+      "consequence": "the smooth maple cube gleams whole and complete with zero vouchers nearby"
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "cozy_living_study",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit cozy living room where books, wooden puzzles, and a vintage camera rest on warm slate-stone tables without a single tally sheet",
+      "action": "viewed strictly from behind, the clothed low-poly parent in a sage sweater and child in a soft-mint cardigan turn pages together in quiet morning sunlight"
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a sunlit brick university riverfront quadrangle lined with green maple trees, limestone columns, and a clear pastel-blue sky",
+      "action": "viewed strictly from behind, clothed low-poly figures in blazer jackets and knit sweaters walk and step calmly along the sunlit path as the camera tilts upward into the sky"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "PAID TO QUIT?",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered seven-piece maple low-poly puzzle cube pushed aside next to a crisp dollar voucher on sunlit wooden desk"
+  }
+}

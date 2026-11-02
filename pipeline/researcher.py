@@ -14,9 +14,11 @@ Combines:
 
 from datetime import datetime, timezone
 import json
+import logging
 from pathlib import Path
 import re
 from typing import Any
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -28,8 +30,12 @@ from pipeline.config import (
 )
 from pipeline.pillars import get_pillar
 
-NEWS_DIR = CHANNEL_ROOT / "news"
+logger = logging.getLogger(__name__)
+
+NEWS_DIR = CHANNEL_ROOT / "research" / "news"
 USER_AGENT = "AllAboutBrainResearchBot/1.0 (https://youtube.com/@AllAboutBrainOfficial; Academic-Neuroscience-Shorts)"
+_DOI_RE = re.compile(r"^10\.\d{4,9}/\S+$")
+_VAULT_STOPWORDS = frozenset({"the", "and", "for", "with", "into", "from", "that", "this", "when", "your"})
 
 
 # ==============================================================================
@@ -627,7 +633,15 @@ class TopicResearcher:
                 if resp.status == 200:
                     raw = resp.read().decode("utf-8", errors="replace")
                     return json.loads(raw)
-        except Exception:
+                logger.warning("HTTP status %s when fetching %s", resp.status, url)
+        except urllib.error.HTTPError as exc:
+            logger.warning("HTTP error %s when fetching %s: %s", exc.code, url, exc.reason)
+            return None
+        except (urllib.error.URLError, TimeoutError, OSError, ValueError) as exc:
+            logger.warning("Request/timeout error when fetching %s: %s", url, exc)
+            return None
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("Unexpected error when fetching %s: %s", url, exc)
             return None
         return None
 
@@ -639,19 +653,44 @@ class TopicResearcher:
     ) -> dict[str, Any] | None:
         """Finds the best-matching verified historical/clinical case from HISTORICAL_CASE_VAULT."""
         q_lower = (query or "").strip().lower()
-        q_words = set(re.findall(r"[a-z0-9]+", q_lower))
 
         best_entry = None
         best_score = 0
         for entry in HISTORICAL_CASE_VAULT:
             score = 0
-            for kw in entry["keywords"]:
-                if kw in q_lower:
-                    score += 5
-                elif any(w in kw for w in q_words if len(w) >= 4):
-                    score += 2
-            if entry["id"] in q_lower:
-                score += 10
+            phrase_hit = False
+            distinct_sig_words: set[str] = set()
+
+            if q_lower:
+                entry_id_low = str(entry["id"]).strip().lower()
+                if re.search(rf"\b{re.escape(entry_id_low)}\b", q_lower):
+                    score += 10
+                    phrase_hit = True
+
+                for kw in entry["keywords"]:
+                    kw_low = str(kw).strip().lower()
+                    if not kw_low:
+                        continue
+                    is_multi = (" " in kw_low) or ("-" in kw_low)
+                    if is_multi and re.search(rf"\b{re.escape(kw_low)}\b", q_lower):
+                        score += 6
+                        phrase_hit = True
+                        for w in re.findall(r"[a-z0-9]+", kw_low):
+                            if len(w) >= 3 and w not in _VAULT_STOPWORDS:
+                                distinct_sig_words.add(w)
+                    elif not is_multi and re.search(rf"\b{re.escape(kw_low)}\b", q_lower):
+                        if len(kw_low) >= 3 and kw_low not in _VAULT_STOPWORDS:
+                            distinct_sig_words.add(kw_low)
+                    else:
+                        for w in re.findall(r"[a-z0-9]+", kw_low):
+                            if len(w) >= 4 and w not in _VAULT_STOPWORDS and re.search(rf"\b{re.escape(w)}\b", q_lower):
+                                distinct_sig_words.add(w)
+
+                score += 2 * len(distinct_sig_words)
+                qualified_query_match = phrase_hit or len(distinct_sig_words) >= 2
+                if not qualified_query_match:
+                    continue
+
             if pillar_id and entry["pillar_id"] == pillar_id:
                 score += 1
             if style not in ("auto", "", None) and entry["narrative_style"] == style:
@@ -661,11 +700,13 @@ class TopicResearcher:
                 best_score = score
                 best_entry = entry
 
-        # Require at least one keyword hit if query was provided
-        if q_lower and best_score >= 2:
+        # Require either an exact multi-word phrase/id match or >= 2 distinct significant words (best_score >= 4)
+        if q_lower and best_entry is not None and best_score >= 4:
             return dict(best_entry)
-        if not q_lower and best_entry:
+        if not q_lower and best_entry is not None:
             return dict(best_entry)
+        if not q_lower and HISTORICAL_CASE_VAULT:
+            return dict(HISTORICAL_CASE_VAULT[0])
         return None
 
     def search_pubmed_doi(self, query: str, max_results: int = 3) -> list[dict[str, Any]]:
@@ -702,11 +743,13 @@ class TopicResearcher:
             item = result_block.get(str(pmid))
             if not isinstance(item, dict):
                 continue
-            doi = None
+            doi = ""
             for aid in item.get("articleids", []):
                 if isinstance(aid, dict) and aid.get("idtype") == "doi" and aid.get("value"):
-                    doi = str(aid["value"]).strip()
-                    break
+                    cand_doi = str(aid["value"]).strip()
+                    if _DOI_RE.match(cand_doi):
+                        doi = cand_doi
+                        break
             authors = [a.get("name", "") for a in item.get("authors", [])[:3] if isinstance(a, dict)]
             papers.append({
                 "pmid": str(pmid),
@@ -714,7 +757,8 @@ class TopicResearcher:
                 "journal": str(item.get("fulljournalname") or item.get("source") or "PubMed Indexed Journal"),
                 "pubdate": str(item.get("pubdate", "N/A")),
                 "authors": authors,
-                "doi": doi or f"10.1038/s41586-023-06377-x",
+                "doi": doi,
+                "verified_doi": bool(doi),
                 "source_url": f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/",
             })
         return papers
@@ -819,14 +863,35 @@ class TopicResearcher:
             story_context = dict(vault_hit["story_context"])
             story_context.setdefault("sensory_organ_link", inferred_pathway["sensory_organ_link"])
             story_context.setdefault("brain_regions", inferred_pathway["brain_regions"])
-            doi = vault_hit["doi"]
+            raw_vault_doi = str(vault_hit.get("doi") or "").strip()
+            doi = raw_vault_doi if _DOI_RE.match(raw_vault_doi) else ""
+            verified_doi = bool(doi)
             source_url = vault_hit["source_url"]
             source_tier = vault_hit["source_tier"]
             core_facts = vault_hit["core_facts"]
-            if pubmed_papers and pubmed_papers[0].get("doi"):
-                # Append live PubMed citation if discovered
-                top_p = pubmed_papers[0]
-                core_facts = f"{core_facts} [Cross-verified PubMed PMID {top_p['pmid']}: {top_p['title'][:90]} ({top_p['journal']}, {top_p['pubdate']})]"
+            if pubmed_papers:
+                vault_corpus = f"{vault_hit.get('topic', '')} {vault_hit.get('core_facts', '')} {(vault_hit.get('story_context') or {}).get('protagonist', '')}"
+                matched_pub = None
+                for cand_p in pubmed_papers:
+                    cand_doi = str(cand_p.get("doi") or "").strip()
+                    if not (cand_doi and _DOI_RE.match(cand_doi)):
+                        continue
+                    if doi and cand_doi.lower() == doi.lower():
+                        matched_pub = cand_p
+                        break
+                    for auth in cand_p.get("authors") or []:
+                        parts = [tok for tok in re.split(r"[\s,]+", str(auth).strip()) if tok]
+                        surname = parts[0] if parts else ""
+                        if len(surname) >= 4 and re.search(rf"\b{re.escape(surname)}\b", vault_corpus, re.IGNORECASE):
+                            matched_pub = cand_p
+                            break
+                    if matched_pub:
+                        break
+                if matched_pub:
+                    core_facts = (
+                        f"{core_facts} [Cross-verified PubMed PMID {matched_pub['pmid']}: "
+                        f"{matched_pub['title'][:90]} ({matched_pub['journal']}, {matched_pub['pubdate']})]"
+                    )
             physical_metaphor = vault_hit["physical_metaphor"]
             paradox_statement = vault_hit["paradox_statement"]
             dissonance_trigger = vault_hit["dissonance_trigger"]
@@ -834,16 +899,21 @@ class TopicResearcher:
             title = vault_hit["title"]
             topic_label = vault_hit["topic"]
         else:
-            top_paper = pubmed_papers[0] if pubmed_papers else None
-            doi = (
-                top_paper["doi"]
-                if top_paper and top_paper.get("doi")
-                else pillar_obj.production_blueprint.get("doi", "10.1038/s41586-023-06377-x")
+            verified_paper = next(
+                (p for p in pubmed_papers if _DOI_RE.match(str(p.get("doi") or "").strip())),
+                None,
             )
+            top_paper = verified_paper or (pubmed_papers[0] if pubmed_papers else None)
+            doi = str(verified_paper["doi"]).strip() if verified_paper else ""
+            verified_doi = bool(doi)
             source_url = (
                 top_paper["source_url"]
                 if top_paper and top_paper.get("source_url")
-                else pillar_obj.production_blueprint.get("source_url", "https://pubmed.ncbi.nlm.nih.gov/")
+                else (
+                    wiki_context["page_url"]
+                    if wiki_context and wiki_context.get("page_url")
+                    else "https://pubmed.ncbi.nlm.nih.gov/"
+                )
             )
             source_tier = 1
             era_year = wiki_context["era_year"] if wiki_context else "Clinical Neuropathology Archive"
@@ -906,6 +976,7 @@ class TopicResearcher:
             "paradox_statement": paradox_statement,
             "dissonance_trigger": dissonance_trigger,
             "doi": doi,
+            "verified_doi": verified_doi,
             "source_url": source_url,
             "source_tier": source_tier,
             "core_facts": core_facts,
@@ -953,7 +1024,7 @@ class TopicResearcher:
             if pillar_id and entry["pillar_id"] != pillar_id and len(results) > 0:
                 continue
             pkg = self.research_topic(
-                query=entry["keywords"][0],
+                query=entry["id"],
                 pillar_id=entry["pillar_id"],
                 style=entry["narrative_style"],
                 allow_network=False,
@@ -968,7 +1039,7 @@ class TopicResearcher:
             if entry["topic"].lower() in seen_topics:
                 continue
             pkg = self.research_topic(
-                query=entry["keywords"][0],
+                query=entry["id"],
                 pillar_id=entry["pillar_id"],
                 style=entry["narrative_style"],
                 allow_network=False,
@@ -984,7 +1055,7 @@ class TopicResearcher:
         output_date: str | None = None,
     ) -> dict[str, Path]:
         """
-        Saves the researched topic cards to `BCI_Shorts_Channel/news/[YYYY-MM-DD]_news_hunt.md`
+        Saves the researched topic cards to `BCI_Shorts_Channel/research/news/[YYYY-MM-DD]_news_hunt.md`
         and `[YYYY-MM-DD]_news_hunt.json` following the `bci-news-hunt` skill specification.
         """
         NEWS_DIR.mkdir(parents=True, exist_ok=True)

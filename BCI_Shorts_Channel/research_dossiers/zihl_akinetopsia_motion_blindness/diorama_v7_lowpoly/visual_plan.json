@@ -1,0 +1,670 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "zihl_akinetopsia_motion_blindness",
+  "topic": "Josef Zihl Munich Motion Blindness Discovery, Frozen Teapot Column, Strobe Street Jumps, Intact Auditory Tracking & Acoustic Pitch Compensation (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Eight-year follow-up showing bilateral motion-blindness bypassed in daily life by listening to rising acoustic resonance inside a filling ceramic mug.",
+  "outro_title_lines": [
+    "JOSEF ZIHL ET AL. (1983)",
+    "MAX PLANCK INSTITUTE, MUNICH"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "ONE MOVIE SCREEN?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FROZEN TEA POUR"
+    },
+    {
+      "sentence_index": 10,
+      "text": "STROBE WORLD"
+    },
+    {
+      "sentence_index": 19,
+      "text": "MOTION WORKSHOP"
+    },
+    {
+      "sentence_index": 28,
+      "text": "SOUND GLIDES ON"
+    },
+    {
+      "sentence_index": 37,
+      "text": "POURING BY EAR"
+    },
+    {
+      "sentence_index": 45,
+      "text": "KITCHEN PITCH"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "ONE MOVIE SCREEN?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FROZEN TEA POUR"
+    },
+    {
+      "sentence_index": 10,
+      "text": "STROBE WORLD"
+    },
+    {
+      "sentence_index": 19,
+      "text": "MOTION WORKSHOP"
+    },
+    {
+      "sentence_index": 28,
+      "text": "SOUND GLIDES ON"
+    },
+    {
+      "sentence_index": 37,
+      "text": "POURING BY EAR"
+    },
+    {
+      "sentence_index": 45,
+      "text": "KITCHEN PITCH"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 34,
+      "mode": "split_hstack",
+      "left_clip_index": 37,
+      "right_clip_index": 38,
+      "left_label": "FROZEN SIGHT",
+      "right_label": "SMOOTH SOUND"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved low-poly hands tilting a matte chalk-white ceramic teapot over a teacup and saucer on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands tilt and hold the white teapot spout steady as a rigid frosted crystal rod hangs motionless down into the cup",
+      "consequence": "the pouring stream looks frozen solid in mid-air above the ceramic teacup"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit Munich clinical testing room with a cool slate-gray table, matte chalk-white teapot, teacup and saucer, and a curved pastel dot-speed perimeter screen",
+      "action": "viewed strictly from behind, a clothed low-poly patient in a lavender-gray cardigan tilts the teapot while a researcher in a white coat leans beside the table"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "the matte chalk-white teapot tilted over a pastel powder-blue teacup on a cool limestone tray where the stream stands rigid as solid crystal",
+      "internal_mechanism": "without visible rising motion inside the cup, pale powder-blue liquid abruptly brims out across the saucer rim"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands sliding a pastel speed bar gauge beside the teapot and saucer on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand places a brushed-silver timer down while the other aligns a steep coral-rose speed drop bar",
+      "consequence": "the speed bar drops cleanly past the slow drift threshold"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the bright Munich clinic room featuring the cool slate-gray table, chalk-white teapot, overflowing saucer, and curved pastel dot-speed screen",
+      "action": "viewed strictly from behind, the clothed low-poly neurologist in a white coat steps beside the perimeter screen and points toward the stationary target dot"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a tidy cool-toned Munich kitchen with a cool limestone counter, matte chalk-white teapot, and powder-blue ceramic breakfast cups",
+      "action": "viewed strictly from behind, the clothed low-poly woman in a lavender-gray coat walks to the limestone counter and lifts the white teapot handle with gloved hands"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands placing two symmetrical coral-rose markers onto both sides of a matte-pastel brain cast on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set and press the matching coral-rose markers onto the left and right side hubs simultaneously",
+      "consequence": "matching side patches glow coral-rose while the back vision hub stays calm cyan"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands arranging crisp geometric shape tiles and pastel color swatches on cool limestone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides a mint-sage color swatch forward while a cardigan-cuffed gloved hand places and aligns its twin cleanly",
+      "consequence": "every stationary color and shape tile aligns without error"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved low-poly hands aligning three stepped pastel depth blocks on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and align the three pastel depth blocks in exact front-to-back order",
+      "consequence": "stationary depth and crisp geometric edges remain razor sharp"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan sleeves and cool porcelain-white gloved low-poly hands lifting and tilting the matte chalk-white teapot above a powder-blue cup on cool limestone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands tilt the white spout forward and brace the teapot lid steady",
+      "consequence": "a translucent pale-blue column emerges rigidly between spout and cup"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved low-poly hands holding the tilted white teapot above the motionless translucent column on cool limestone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands hold the teapot still then set it abruptly back down onto the cool limestone counter",
+      "consequence": "the rigid-looking stream gives zero hint of rising cup depth"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "gentle_push_in",
+      "analogy_world": "a crisp faceted translucent powder-blue glass icicle suspended vertically from a brushed-silver eave bar over a cool slate-gray stone ledge",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in coat cuffs reach beside the faceted glass icicle and tap it gently showing its solid frozen stillness"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved low-poly hands steady on the white teapot handle beside the powder-blue teacup on cool limestone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands hold and tilt the teapot while the cup interior appears unchangingly still",
+      "consequence": "no smooth upward climb registers inside the ceramic cup"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan sleeves and cool porcelain-white gloved low-poly hands pulling back as pale powder-blue tea pools suddenly across the white saucer and cool limestone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift the teapot upright and place a folded mint-sage cloth beside the sudden saucer puddle",
+      "consequence": "a wide pale-blue puddle appears all at once across the saucer"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "munich_street_crosswalk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a quiet sunlit Munich avenue with cool slate-gray pavement, pale limestone sidewalks, and a distant powder-blue low-poly sedan far down the block",
+      "action": "viewed strictly from behind, the clothed low-poly woman in a slate trench coat steps to the limestone curb and leans slightly to check the distant car"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "clean_pullback_reveal",
+      "analogy_world": "a long matte mint-sage green-turf football field framed by clean white yard-line stripes and brushed-silver goalposts on a cool limestone base",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in blazer cuffs place a tiny powder-blue car token at the far goalpost end and point across the entire football field span"
+    },
+    {
+      "sentence_index": 15,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "munich_street_crosswalk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands demonstrating the strobe jump on a tabletop street model over cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts the miniature powder-blue car from the far end and sets it straight beside the curb figure skipping the middle",
+      "consequence": "the miniature car jumps from far distance to immediate curb with zero middle path"
+    },
+    {
+      "sentence_index": 15,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "munich_street_crosswalk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Munich street curb as the powder-blue low-poly sedan now sits abruptly right in front of the crosswalk",
+      "action": "viewed strictly from behind, the clothed low-poly woman in a slate trench coat steps sharply back onto the limestone sidewalk and braces one gloved hand on a silver post"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "three separate frozen matte-pastel walking silhouettes spaced across a cool slate-gray gallery floor under brief crisp white light pulses",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate cuffs reach and tap three silver pulse switches lighting pose one, pose two, and pose three in discrete jumps"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "two side-by-side pastel signal tracks on a cool slate-gray display contrasting a smooth mint-sage sound wave above choppy separated coral-rose blocks",
+      "internal_mechanism": "the upper mint-sage sound wave glides continuously while the lower coral-rose visual blocks jump out of alignment"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the quiet Munich clinical room with the curved dot-speed screen and cool slate-gray testing table",
+      "action": "viewed strictly from behind, the clothed low-poly patient in a cardigan rests gloved hands on the slate-gray table while the doctor in a white coat leans attentively nearby"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands separating three pastel module blocks for color, shape, and speed on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align the glowing mint-sage color and shape blocks while sliding the dimmed coral-rose speed block apart",
+      "consequence": "color and shape stay bright while only the speed module sits dark"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the Max Planck testing suite with the curved white perimeter arc and a sliding cyan light dot on a cool limestone stand",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in white coats slide the target control lever and point along the perimeter arc"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "PRIMARY VISUAL CORTEX\nVISION CENTER",
+      "brain_scene": "a matte-pastel 3D cortical brain model on a cool alabaster stand where the rear primary visual cortex glows steady cyan-blue preserving crisp color and stationary form"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands connecting three separate pastel workshop tiles into one central frame on cool limestone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and slide silver fiber bridges from the three specialist tiles into the central picture frame",
+      "consequence": "three independent specialist workshops feed one combined scene"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "pan_right",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "temporal lobe",
+      "anatomy_label": "TEMPORAL LOBE\nMOTION MODULE",
+      "brain_scene": "a matte-pastel 3D cortical brain model rotating slightly to show symmetrical coral-rose lesion patches on the back-side temporal lobe motion zones of both hemispheres"
+    },
+    {
+      "sentence_index": 24,
+      "end_sentence_index": 25,
+      "act": 3,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands demonstrating twin hemisphere backup switches on a cool slate-gray console",
+      "prop_action": "one cool porcelain-white gloved low-poly hand flips the left switch off while the right mint-sage backup switch stays lit and carries the signal",
+      "consequence": "one healthy hemisphere keeps the smooth motion bar glowing"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands flipping both left and right motion switches off together on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands press both side switches down simultaneously turning both motion bars coral-rose",
+      "consequence": "losing both side modules at once drops continuous visual speed to zero"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands lifting a brushed-silver acoustic chime slider and a soft pastel brush on cool limestone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand sets the silver chime track center stage while the other aligns the soft pastel brush beside it",
+      "consequence": "hearing and touch motion tools sit ready for blindfolded testing"
+    },
+    {
+      "sentence_index": 28,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands placing a frosted screen shield in front of the curved silver chime rail on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set and align the frosted shield blocking sight of the sliding silver chime",
+      "consequence": "visual cues are completely screened off for the pure listening test"
+    },
+    {
+      "sentence_index": 28,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit Munich clinic room with the curved silver chime rail and frosted screen shield resting on the cool slate-gray table",
+      "action": "viewed strictly from behind, the seated clothed low-poly patient in a cardigan rests gloved hands calmly as the researcher in a white coat steps to the chime rail"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands gliding a ringing brushed-silver chime carriage smoothly along a curved track on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand pushes and glides the silver chime carriage steadily from left to right along the smooth rail",
+      "consequence": "soft concentric cyan sound ripples travel smoothly across the rail"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved low-poly hands raised attentively behind the frosted screen over cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts its index finger ready to trace the sound while the other hand rests steady on the table",
+      "consequence": "the gloved finger tracks the exact starting point of the hidden chime"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved low-poly hands pointing smoothly from left to right in exact lockstep with the hidden silver chime",
+      "prop_action": "the cool porcelain-white gloved low-poly hand glides and points continuously across the arc matching the moving chime position millimeter for millimeter",
+      "consequence": "auditory motion tracking stays completely fluid and accurate"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands gliding a soft powder-blue brush along a lavender-gray cardigan sleeve over cool limestone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides the soft brush steadily up the sleeve while the patient's gloved hand traces the direction on a pad",
+      "consequence": "tactile motion sensation registers with complete smoothness"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "AUDITORY CORTEX\nSOUND CENTER",
+      "brain_scene": "a matte-pastel 3D cortical brain model highlighting the upper side auditory cortex in bright mint-sage processing continuous sound movement without interruption"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands beside three choppy coral-rose snapshot blocks on a cool slate-gray track",
+      "prop_action": "both cool porcelain-white gloved low-poly hands tap and set the separated coral-rose blocks with wide empty gaps between them",
+      "consequence": "visual motion fractures into frozen disconnected stills"
+    },
+    {
+      "sentence_index": 34,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved low-poly hands gliding a silver slider along an unbroken mint-sage wave ribbon on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands push and glide the silver slider smoothly along the continuous mint-sage wave",
+      "consequence": "sound motion flows in one unbroken stream"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a compact matte powder-blue and brushed-silver rangefinder camera mounted on a cool limestone pedestal",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in coat cuffs reach and press the silver shutter button triggering one crisp brief white flash pulse"
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a matte slate-gray display screen filled with crisp cyan and mint-sage dots beside a brushed-silver figure-eight magnetic loop",
+      "internal_mechanism": "when the silver loop pulses briefly, the drifting pastel dots pause motionless in place while their crisp colors stay unchanged"
+    },
+    {
+      "sentence_index": 37,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage sweater cuffs and cool porcelain-white gloved low-poly hands setting a tall ceramic mug and matte-white teapot onto a sunlit cool limestone table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place the tall powder-blue mug centered on its clean saucer and align the white teapot spout",
+      "consequence": "the clean saucer sits dry and ready for the morning pour"
+    },
+    {
+      "sentence_index": 37,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright Munich home kitchen with the cool limestone table, tall powder-blue mug, matte-white teapot, and sunlit window",
+      "action": "viewed strictly from behind, two visiting clothed low-poly neurologists in coats step beside the kitchen table and lean gloved hands attentively"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage sweater sleeves and cool porcelain-white gloved low-poly hands lifting the matte-white teapot calmly above the tall powder-blue mug on cool limestone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand tilts the teapot handle steadily while the other rests relaxed beside the dry saucer",
+      "consequence": "liquid begins filling the tall ceramic mug at a steady pace"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "close rear view at the sunlit limestone kitchen table as liquid pours from the matte-white teapot into the tall powder-blue mug",
+      "action": "viewed strictly from behind, the clothed low-poly woman in a mint-sage coat leans toward the mug listening closely and tilts the teapot with gloved hands"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a cutaway tall powder-blue ceramic mug on cool limestone showing rising liquid shrinking the upper air column inside",
+      "internal_mechanism": "as the air space narrows near the top, soft mint-sage acoustic wave rings tighten into faster higher-pitched ripples"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "pan_left",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "AUDITORY CORTEX\nSOUND CENTER",
+      "brain_scene": "a matte-pastel 3D cortical brain model where the side auditory cortex glows vibrant mint-sage sending a crisp stop cue forward to hand control"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a single crisp matte chalk-white geometric sugar cube resting beside the upper rim of a powder-blue ceramic mug on cool slate-gray stone",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in mint-sage cuffs place and hold the white sugar cube flush against the mug rim matching the exact clean gap above the liquid"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the Munich kitchen showing the perfectly filled mug and completely dry white saucer on the cool limestone table",
+      "action": "viewed strictly from behind, both clothed low-poly neurologists in coats step back beside the kitchen table and shake gloved hands warmly"
+    },
+    {
+      "sentence_index": 44,
+      "act": 5,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage sweater cuffs and cool porcelain-white gloved low-poly hands lifting the filled powder-blue mug cleanly off its dry white saucer on cool limestone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift the mug smoothly and set the teapot down without a single drop on the stone",
+      "consequence": "the white saucer gleams dry and spotless in morning light"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a modern cool-slate kitchen sink counter with a brushed-silver faucet and a tall matte powder-blue ceramic mug",
+      "action": "viewed strictly from behind, a clothed low-poly person in a powder-blue coat steps up to the cool-slate sink and places the mug beneath the faucet with gloved hands"
+    },
+    {
+      "sentence_index": 46,
+      "end_sentence_index": 47,
+      "act": 6,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved low-poly hands turning the brushed-silver water tap open into the tall ceramic mug on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand holds the mug handle steady while the other opens the silver tap lever smoothly",
+      "consequence": "clear water streams steadily into the tall ceramic mug"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "powder-blue sweater cuffs and cool porcelain-white gloved low-poly hands closing the brushed-silver tap right as water nears the mug rim",
+      "prop_action": "one cool porcelain-white gloved low-poly hand pushes the silver tap lever shut cleanly while the other lifts the full mug without spilling",
+      "consequence": "water stops cleanly just below the rim purely by acoustic pitch"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "temporal lobe",
+      "anatomy_label": "TEMPORAL LOBE\nMOTION MODULE",
+      "brain_scene": "a matte-pastel 3D cortical brain model where healthy cyan-blue light flows across the side temporal lobe motion zone stitching discrete snapshots into fluid motion"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands interlocking pastel color, shape, and motion tiles into one unified frame on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide and press the three pastel specialist tiles flush into a single seamless square",
+      "consequence": "separate sensory workshops unite into one vivid coherent picture"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "mint-sage sweater sleeves and cool porcelain-white gloved low-poly hands routing a silver sound bridge around a dimmed visual block on cool limestone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and press a mint-sage acoustic bridge smoothly into the main output hub",
+      "consequence": "adaptive cross-sensory routing restores everyday precision"
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the calm cool-limestone kitchen table with the matte-white teapot and neatly filled powder-blue cup",
+      "action": "viewed strictly from behind, the clothed low-poly woman in a mint-sage coat lifts her morning cup with gloved hands and turns toward the bright window"
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "munich_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the serene Munich clinical room with the matte-white teapot, dry saucer, pastel brain model, and tall windows opening to pale pastel sky",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in white coats walk and step calmly toward the tall window as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "FROZEN TEA POUR",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered matte-white low-poly teapot tilted above a powder-blue cup with a rigid crystal-like frozen pour column"
+  }
+}

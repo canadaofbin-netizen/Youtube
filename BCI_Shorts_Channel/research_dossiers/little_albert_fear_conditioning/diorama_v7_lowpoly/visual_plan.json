@@ -1,0 +1,693 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "little_albert_fear_conditioning",
+  "topic": "John B. Watson & Rosalie Rayner (1920) Little Albert Conditioned Emotional Reactions, Amygdala Fear Generalization vs Wooden Control Blocks, Ben Harris's Textbook Audit, and Mary Cover Jones's (1924) Exposure Cure (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Mary Cover Jones's 1924 Columbia University 'Little Peter' graduated counterconditioning study moving a white rabbit toy model from twelve feet to zero feet during calm snacks to extinguish fear.",
+  "outro_title_lines": [
+    "WATSON & RAYNER (1920) · JONES (1924)",
+    "JOHNS HOPKINS & COLUMBIA UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "BORN AFRAID?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "WIRED TO FEAR?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SEVEN CLANGS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "ALARM WIRING"
+    },
+    {
+      "sentence_index": 28,
+      "text": "THE MYTHS"
+    },
+    {
+      "sentence_index": 36,
+      "text": "EXPOSURE CURE"
+    },
+    {
+      "sentence_index": 44,
+      "text": "CALM STEPS"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "BORN AFRAID?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "WIRED TO FEAR?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SEVEN CLANGS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "ALARM WIRING"
+    },
+    {
+      "sentence_index": 28,
+      "text": "THE MYTHS"
+    },
+    {
+      "sentence_index": 36,
+      "text": "EXPOSURE CURE"
+    },
+    {
+      "sentence_index": 44,
+      "text": "CALM STEPS"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 17,
+      "mode": "split_hstack",
+      "left_clip_index": 21,
+      "right_clip_index": 22,
+      "left_label": "FURRY TOY: RETREAT",
+      "right_label": "WOOD BLOCKS: CALM"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft cream cotton romper sleeves and cool porcelain-white gloved low-poly hands over a padded cream nursery mattress",
+      "prop_action": "both cool porcelain-white gloved low-poly hands reach calmly forward and pat a matte-white geometric low-poly plush rat toy sculpture beside pastel wooden blocks",
+      "consequence": "the plush rat toy sculpture rests steady on the sunlit cream sheet"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit Baltimore hospital nursery room with tall paned windows and a raised cream-sheeted padded testing table",
+      "action": "viewed strictly from behind, a small clothed low-poly child figure in a cream cotton romper and soft knit cap leans forward and reaches calmly to pat a matte-white plush rabbit toy sculpture beside wooden blocks"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark wool suit sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "the matte-white gloved low-poly right hand swings a wooden-handled carpenter hammer and strikes a suspended brushed-silver steel bar",
+      "consequence": "the suspended brushed-silver steel bar vibrates briskly with crisp coral sound rings"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white clinical coat sleeves and cool porcelain-white gloved low-poly hands beside the raised padded cream table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set a matte-white low-poly plush rabbit toy sculpture gently beside three pastel wooden blocks",
+      "consequence": "the plush rabbit toy sculpture and wooden blocks sit centered in bright window light"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit hospital nursery with tall windows, the raised cream padded table, and a suspended brushed-silver steel bar behind the table head",
+      "action": "viewed strictly from behind, a clothed low-poly researcher in a dark wool suit holds a hammer near the steel bar while a small clothed low-poly child figure in a cream romper and knit cap sits facing the plush rabbit toy sculpture"
+    },
+    {
+      "sentence_index": 4,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright hospital nursery room with a vintage hand-cranked cinema camera on a wooden stand aimed at the padded cream testing table",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in a white smock and dark suit step beside the cinema camera and turn its brushed-silver crank smoothly"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster bench displaying nine smooth pastel calendar blocks beside a compact sage carry-on travel bag",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in coat sleeves place and slide nine pastel calendar blocks beside the compact sage carry-on bag and lift its top handle"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream cotton romper sleeves and cool porcelain-white gloved low-poly hands over the sunlit white nursery mattress",
+      "prop_action": "both cool porcelain-white gloved low-poly hands reach forward and tap a plush rat toy sculpture, a white plush rabbit toy sculpture, and a soft cotton wool tuft",
+      "consequence": "all three soft white props rest peacefully side by side on the mattress"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a sunlit cool-alabaster table comparing a four-foot brushed-silver steel bar directly alongside a turned pale-ash wooden baseball bat",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in suit sleeves place and align the brushed-silver steel bar parallel to the wooden baseball bat showing matching length"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the sunlit nursery room behind the head of the raised cream padded testing table",
+      "action": "viewed strictly from behind, the clothed low-poly researcher in a dark wool suit steps quietly behind the suspended brushed-silver steel bar out of the child figure's sightline and lifts the hammer"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark wool suit cuffs and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved low-poly hands grip the wooden claw hammer handle and raise the steel head beside the hanging brushed-silver bar",
+      "consequence": "the suspended steel bar hangs still on its cord just inches from the poised hammer"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster table holding a miniature pastel striped summer beach umbrella beside two smooth flip-calendar leaves",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in white smock sleeves flip two pastel calendar leaves open and set a silver stopwatch beside the beach umbrella"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream cotton romper sleeves and cool porcelain-white gloved low-poly hands reaching across the white cotton mattress",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand extends forward and touches the nose of the matte-white plush rat toy sculpture",
+      "consequence": "behind the table edge a suspended silver bar swings sharply as it is struck"
+    },
+    {
+      "sentence_index": 12,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark wool suit cuffs and cool porcelain-white gloved low-poly hands behind the padded table head",
+      "prop_action": "the cool porcelain-white gloved low-poly hand drives the carpenter hammer briskly against the suspended brushed-silver steel bar",
+      "consequence": "the steel bar shudders and sends crisp coral acoustic rings through the air"
+    },
+    {
+      "sentence_index": 12,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean side-profile architectural cross-section of the raised nursery table and the suspended silver steel bar behind it",
+      "internal_mechanism": "concentric pastel-coral sound rings ripple forward from the vibrating steel bar across the white padded tabletop"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white clinical smock sleeves and cool porcelain-white gloved low-poly hands over a pale-stone tally board",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide seven smooth coral wooden beads into alignment beside a miniature white plush rat figure",
+      "consequence": "all seven coral wooden beads sit locked in a neat row on the pale-stone track"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white clinical smock cuffs and cool porcelain-white gloved low-poly hands over the quiet white nursery mattress",
+      "prop_action": "both cool porcelain-white gloved low-poly hands gently place and release the matte-white plush rat toy sculpture alone at the center of the mattress",
+      "consequence": "the suspended steel bar in the background hangs completely motionless and silent"
+    },
+    {
+      "sentence_index": 15,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream cotton romper sleeves and cool porcelain-white gloved low-poly hands on the padded white sheet",
+      "prop_action": "both cool porcelain-white gloved low-poly hands pull sharply backward away from the silent plush rat toy sculpture and press against the mattress",
+      "consequence": "creases ripple across the white cotton sheet as the hands retreat"
+    },
+    {
+      "sentence_index": 15,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit nursery room with the raised white-sheeted testing table at center",
+      "action": "viewed strictly from behind, the small clothed low-poly child figure in a cream romper and knit cap leans back, turns, and pushes briskly across the mattress away from the plush rat toy sculpture"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white clinical smock sleeves and cool porcelain-white gloved low-poly hands clearing the plush rat toy sculpture aside",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts the plush rat toy sculpture away while the other hand sets four pastel wooden blocks onto the mattress",
+      "consequence": "the smooth sage and sky-blue wooden blocks rest ready in bright daylight"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream cotton romper sleeves and cool porcelain-white gloved low-poly hands near the matte-white plush rat toy sculpture",
+      "prop_action": "both cool porcelain-white gloved low-poly hands draw back and slide away from the white plush rat toy sculpture on the padded sheet",
+      "consequence": "the plush rat toy sculpture stays untouched on the left side of the mattress"
+    },
+    {
+      "sentence_index": 17,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream cotton romper sleeves and cool porcelain-white gloved low-poly hands over pastel wooden toy blocks",
+      "prop_action": "both cool porcelain-white gloved low-poly hands calmly lift and stack three smooth pastel wooden blocks into a neat upright tower",
+      "consequence": "the three-block pastel tower stands steady on the sunlit white sheet"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a wide view of the sunlit Baltimore hospital nursery with the suspended steel bar, hammer, and padded table",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in a white smock and dark suit step back beside the cinema camera and look across the testing table"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean architectural pathway model showing a silver bar wave channel and a white plush fur channel converging into one central bell arch",
+      "internal_mechanism": "a coral wave ribbon and a sky-blue touch ribbon merge together and ring the central pastel-coral alarm bell"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "AUDITORY CORTEX\nHEARING CENTER",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the lateral temporal side of the matte warm-ivory 3D brain model, the auditory cortex glows in crisp pastel coral-amber as sound pathways travel inward"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "thalamus",
+      "anatomy_label": "THALAMUS\nSENSORY RELAY STATION",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat mid-sagittal half-brain cross-section, the central egg-shaped thalamus relay station glows warm amber-gold where sound and touch streams meet"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nFEAR ALARM HUB",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat mid-sagittal half-brain cross-section, a fast shortcut from the thalamus lights the lower almond-shaped amygdala in vivid pastel terracotta-coral while the outer prefrontal planner stays dim"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white clinical smock sleeves and cool porcelain-white gloved low-poly hands preparing a sunlit prop tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and place five pastel day blocks beside a white plush rabbit toy sculpture and slide the tray forward",
+      "consequence": "the generalization test props sit lined up on the pale-wood tray"
+    },
+    {
+      "sentence_index": 24,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white clinical smock cuffs and cool porcelain-white gloved low-poly hands over the cream padded table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place the matte-white plush rabbit toy sculpture and soft cotton wool tuft onto the center of the mattress",
+      "consequence": "the fluffy white props sit quietly in bright nursery daylight"
+    },
+    {
+      "sentence_index": 24,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream cotton romper sleeves and cool porcelain-white gloved low-poly hands on the white padded mattress",
+      "prop_action": "both cool porcelain-white gloved low-poly hands pull briskly back from the white plush rabbit toy sculpture and cotton wool tuft",
+      "consequence": "the small gloved hands rest withdrawn near the wooden side rail"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "cream cotton romper sleeves and cool porcelain-white gloved low-poly hands beside a folded soft-taupe fur collar prop",
+      "prop_action": "as the folded soft-taupe fur collar slides onto the cream sheet, both cool porcelain-white gloved low-poly hands pull away and grip the mattress edge",
+      "consequence": "a wide gap remains between the small gloved hands and the fur collar"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream cotton romper sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved low-poly hands reach forward smoothly and stack four pastel wooden blocks into a balanced arch",
+      "consequence": "the pastel wooden arch stands steady on the sunlit white mattress"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "modern_archive_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "tweed blazer sleeves and cool porcelain-white gloved low-poly hands over a sunlit university archive desk",
+      "prop_action": "one cool porcelain-white gloved low-poly hand turns a glass sand hourglass upright while the other hand opens a cream archival folder",
+      "consequence": "pale sand begins flowing steadily down the clean glass hourglass"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "modern_archive_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright university history archive room lined with wooden bookshelves holding over a hundred pastel hardcover volumes",
+      "action": "viewed strictly from behind, a clothed low-poly historian in a tweed blazer and trilby hat walks along the wooden shelves and lifts bound volumes onto a reading table"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "modern_archive_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed blazer cuffs and cool porcelain-white gloved low-poly hands sorting pastel hardcover volumes on a pale-wood table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands push more than half of the bound volumes into a coral discard tray while keeping a smaller stack beside an archival film reel",
+      "consequence": "the coral discard tray overflows with mismatched pastel volumes"
+    },
+    {
+      "sentence_index": 30,
+      "end_sentence_index": 31,
+      "act": 4,
+      "location_id": "modern_archive_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "tweed blazer sleeves and cool porcelain-white gloved low-poly hands comparing a brown plush bear toy with a vintage cream notebook",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides the brown plush bear toy off the desk while the other hand opens the vintage cream diary notebook",
+      "consequence": "the open vintage cream diary lies centered beside a silver magnifying glass"
+    },
+    {
+      "sentence_index": 32,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "modern_archive_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean architectural row of thirty vertical pastel columns across a pale-sand studio platform",
+      "internal_mechanism": "the pastel columns step steadily downward from tall terracotta-coral at the left end to low calm sky-blue at the right end"
+    },
+    {
+      "sentence_index": 32,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark wool suit cuffs and cool porcelain-white gloved low-poly hands behind the nursery table",
+      "prop_action": "the cool porcelain-white gloved low-poly hand lifts the claw hammer again and taps the suspended brushed-silver steel bar a second time",
+      "consequence": "a fresh coral ring pulses briefly from the vibrating steel bar"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cream wall mounting a clean thirty-square pastel wall calendar grid beside a packed dove-gray suitcase",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in dark suit sleeves place a bright coral marker ring around the final square on the wall calendar and lift the dove-gray suitcase handle"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "dark wool suit sleeves and cool porcelain-white gloved low-poly hands packing up the nursery table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands snap a matte-slate briefcase shut and leave the white plush rat toy sculpture sitting alone on the folded sheet",
+      "consequence": "the unhooked steel bar hangs idle behind the empty testing table"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "hopkins_nursery_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a sunlit Baltimore hospital hallway outside the nursery room with tall arched windows",
+      "action": "viewed strictly from behind, a clothed low-poly woman in a long coat and brimmed hat carries a small clothed child figure in a knit cap out through the bright hallway doors"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "columbia_playroom",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a cheerful sunlit Columbia Teachers College playroom with pale-wood floors, tall windows, and a small child-sized snack table",
+      "action": "viewed strictly from behind, a clothed low-poly researcher in a sage cardigan and long skirt steps into the playroom carrying a small open wire basket"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "columbia_playroom",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright sunlit Columbia playroom with the wooden snack table at one end and an open wire basket by the far door",
+      "action": "viewed strictly from behind, a small clothed low-poly boy figure in a sky-blue sweater and cap sits at the wooden table and leans back as the white plush rabbit toy sculpture is set down far away"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a sunlit cool-alabaster court where a pastel sky-blue vintage compact car sits parked between a wooden snack tray and a matte-white plush rabbit toy sculpture",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in sage cardigan sleeves set a porcelain milk cup on the snack tray at the front bumper while the plush rabbit toy sculpture rests beyond the rear bumper"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-wood playroom floor laid with twelve smooth pastel wooden ruler segments stretching toward a snack chair",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in sage cardigan sleeves slide the open basket holding the white plush rabbit toy sculpture forward by one wooden ruler segment"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nCALM PLANNER",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front lobe of the matte warm-ivory 3D brain model, the prefrontal cortex glows serene sky-blue and sends a soothing pathway down to dim the coral amygdala"
+    },
+    {
+      "sentence_index": 41,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "columbia_playroom",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan sleeves and cool porcelain-white gloved low-poly hands beside the sunlit wooden snack table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands open the small wire basket latch and place the white plush rabbit toy sculpture gently onto the table beside a bowl of crackers",
+      "consequence": "the white plush rabbit toy sculpture sits peacefully next to the porcelain snack bowl"
+    },
+    {
+      "sentence_index": 41,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "columbia_playroom",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue knit sweater sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "one cool porcelain-white gloved low-poly hand holds a cracker while the other hand reaches out and pats the soft ears of the white plush rabbit toy sculpture",
+      "consequence": "both hands rest relaxed and steady beside the plush rabbit toy sculpture"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "columbia_playroom",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit Columbia playroom with warm window beams across the wooden floor",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in a sage cardigan and white coat stand together and applaud gently as the child figure in a blue sweater pats the plush rabbit sculpture"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "modern_archive_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tweed blazer sleeves and cool porcelain-white gloved low-poly hands over the sunlit university archive table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align a cream hospital census folder with a long pastel sage life-span bar on the pale-wood desk",
+      "consequence": "the long pastel sage bar spans cleanly across the sunlit archive table"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "columbia_playroom",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-slate jacket sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place a pastel wooden block beside the white plush rabbit toy sculpture on a sunlit desk",
+      "consequence": "soft morning sunlight illuminates both calm props side by side"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "modern_archive_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands at a sunlit ethics board table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands close a sky-blue child-safety shield binder and press a brushed-silver seal onto its cover",
+      "consequence": "the sky-blue binder rests securely at the center of the pale-stone table"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nFAST THREAT ALARM",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat mid-sagittal half-brain cross-section, the deep almond-shaped amygdala glows briefly in pastel coral when a sharp sensory cue arrives"
+    },
+    {
+      "sentence_index": 47,
+      "end_sentence_index": 48,
+      "act": 6,
+      "location_id": "modern_archive_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "a sunlit pale-mint clinic corridor with a clean frosted glass door at the end of the hall",
+      "action": "viewed strictly from behind, a clothed low-poly person in a slate jacket and cap pauses in the corridor, takes a step back, and clasps both hands behind their coat"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "columbia_playroom",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright sunlit courtyard walkway marked with spaced pastel stepping stones leading toward an open garden bench",
+      "action": "viewed strictly from behind, a clothed low-poly person in a slate jacket breathes steadily and steps calmly onto the first pastel stone at a comfortable distance"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nSAFETY SIGNAL",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front third of the matte warm-ivory 3D brain model, smooth sky-blue and warm amber-gold light spreads across the prefrontal cortex into calm balance"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "columbia_playroom",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit university garden courtyard with pale-stone benches and soft green trees",
+      "action": "viewed strictly from behind, clothed low-poly figures in wool coats, caps, and boots step off the curb and walk calmly forward across the sunlit courtyard path"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "columbia_playroom",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a peaceful sunlit university stone courtyard framed by soft pastel green elm trees rising into a clear sky-blue horizon with geometric white clouds",
+      "action": "viewed strictly from behind, clothed low-poly figures in long coats, hats, and boots step and walk calmly along the sunlit walkway as the camera tilts smoothly upward into open sky"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "WIRED TO FEAR?",
+    "cover_sentence_index": 3,
+    "cover_brief": "clothed low-poly researcher holding hammer behind suspended steel bar and child figure facing white plush rabbit toy sculpture on sunlit pastel nursery table"
+  }
+}

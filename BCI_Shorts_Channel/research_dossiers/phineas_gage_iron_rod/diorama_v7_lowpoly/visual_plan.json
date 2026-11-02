@@ -1,0 +1,732 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "phineas_gage_iron_rod",
+  "topic": "Phineas Gage 1848 Iron Tamping Rod & Frontal Connectome Recovery (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Acute 1848 Cavendish hotel cranial abscess drainage followed by structured eighteen-month Hanover stable routine and six-horse Andean mountain stagecoach driving in Chile.",
+  "outro_title_lines": [
+    "PHINEAS GAGE (1848)",
+    "CAVENDISH, VERMONT"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "IRON SKULL"
+    },
+    {
+      "sentence_index": 13,
+      "text": "25 YARDS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "2012 SCAN"
+    },
+    {
+      "sentence_index": 35,
+      "text": "THE MYTH"
+    },
+    {
+      "sentence_index": 46,
+      "text": "6 HORSES"
+    },
+    {
+      "sentence_index": 54,
+      "text": "YOUR BRAIN"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "IRON SKULL"
+    },
+    {
+      "sentence_index": 13,
+      "text": "25 YARDS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "2012 SCAN"
+    },
+    {
+      "sentence_index": 35,
+      "text": "THE MYTH"
+    },
+    {
+      "sentence_index": 46,
+      "text": "6 HORSES"
+    },
+    {
+      "sentence_index": 54,
+      "text": "YOUR BRAIN"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 24,
+      "mode": "split_hstack",
+      "left_clip_index": 29,
+      "right_clip_index": 60,
+      "left_label": "4% CORTEX",
+      "right_label": "11% CABLES"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.46,
+      "act": 1,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "rolled tan canvas shirt sleeves, dark waistcoat cuff, and matte geometric hands",
+      "prop_action": "both low-poly hands grip a tapered polished iron tamping rod and drive its flat base into a grey granite borehole",
+      "consequence": "bright amber geometric sparks burst cleanly from the stone rim"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.54,
+      "act": 1,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a close sunlit grey granite railroad ledge under a bright pastel-blue Vermont sky",
+      "action": "in a close elevated rear angle viewed strictly from behind, a clothed low-poly foreman in a charcoal waistcoat, tan sleeves, and boots recoils beside the borehole as a smooth tapered dark-iron tamping rod shoots straight upward cleanly through the top of his smooth faceless geometric head, knocking his dark cap spinning high into the bright pastel sky",
+      "src_start_sec": 0.78
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "pastel_scale_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-sand outdoor wooden workbench beside crisp white bowling pins",
+      "comparison_action": "a heavy tapered polished iron bar presses down one wooden balance pan, lifting a dark three-hole bowling ball cleanly upward on the opposite pan"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.45,
+      "act": 1,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dusty tan canvas sleeves, charcoal waistcoat edge, and matte low-poly forearms",
+      "prop_action": "both low-poly hands brace firmly against rough cedar flatcar planks and push the torso upward",
+      "consequence": "loose grey gravel slides cleanly off the wooden plank edge"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.55,
+      "act": 1,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright sunlit Vermont grey granite railroad trench with wooden flatcar, iron rails, and sage pine slopes",
+      "action": "viewed from behind at an elevated three-quarter rear angle, a clothed low-poly worker in a charcoal waistcoat, dark cap, and boots pushes upright onto a seated posture on the wooden flatcar planks while two hatted low-poly crewmates step back along the iron rails",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_01_vermont_cut.png"
+    },
+    {
+      "sentence_index": 4,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "an elevated rear view looking down a wide sunlit Cavendish Vermont grey granite railroad cut with timber derricks, iron rails, and green pine hills",
+      "action": "viewed strictly from behind in three-quarter rear silhouette, four clothed low-poly rail workers in wide flat-brimmed caps, canvas shirts, vests, and boots hammer and drill vertical boreholes steadily along the stepped grey granite shelf",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_01_vermont_cut.png"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal waistcoat torso, tan rolled canvas shirt sleeves, and matte brown leather work gloves",
+      "prop_action": "both gloved low-poly hands grip a long tapered iron tamping rod diagonally across the waistcoat and slide their grip firmly along the smooth faceted iron shaft beside a cedar sand bucket",
+      "consequence": "crisp morning sunlight glints steadily down the three-foot-seven-inch iron bar"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "pastel_ballfield",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a sunlit pale-ochre baseball infield dugout bench beside green turf and crisp white foul lines",
+      "comparison_action": "a tapered polished steel javelin rod rolls and slides smoothly across the wooden dugout bench alongside a turned wooden baseball bat, extending visibly longer past the wooden bat barrel as sunlit pennants wave in the breeze"
+    },
+    {
+      "sentence_index": 8,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 1,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "canvas work sleeves and thick leather work gloves on low-poly hands",
+      "prop_action": "gloved low-poly hands tilt a wooden scoop and pour pale dry sand smoothly into a carved grey granite borehole",
+      "consequence": "a neat cone of pale sand settles cleanly down the stone shaft"
+    },
+    {
+      "sentence_index": 8,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 1,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a grey granite bedrock ledge showing a clean vertical cylindrical borehole",
+      "internal_mechanism": "a thick pale-sand plug pours down and seals tightly above dark coarse blasting powder granules at the bottom of the stone channel"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.34,
+      "act": 1,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan canvas sleeves and charcoal waistcoat cuffs extending from bottom frame",
+      "prop_action": "both low-poly hands plunge the heavy iron tamping rod straight down into an unsealed granite hole holding bare dark powder",
+      "consequence": "the flat iron base strikes hard against raw grey granite rock"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.32,
+      "act": 1,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "the vertical grey granite borehole cross-section holding bare black powder",
+      "internal_mechanism": "the iron tamping rod strikes the granite wall, igniting a bright warm-amber spark that flashes rapidly through the dark powder pocket"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 3,
+      "beat_weight": 0.34,
+      "act": 1,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a sunlit Vermont grey granite railroad trench with wooden timber derricks, stacked cedar ties, and iron rails",
+      "action": "a tall billowing plume of pale-grey geometric smoke and bright warm-amber spark polygons erupts straight upward out of the vertical grey granite borehole, scattering angular grey granite chips across the sunlit rock shelf",
+      "src_start_sec": 1.6
+    },
+    {
+      "sentence_index": 10,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 2,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a close sunlit Cavendish grey granite railroad ledge seen from an elevated rear angle behind a smoking vertical borehole under bright pastel sky",
+      "action": "viewed strictly from behind, a clothed low-poly foreman in a charcoal waistcoat, rolled tan sleeves, and flat cap steps back and braces beside the flashing borehole as a smooth tapered dark-iron bar launches straight upward in a crisp white geometric burst",
+      "src_start_sec": 2.4
+    },
+    {
+      "sentence_index": 10,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 2,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit grey granite ledge against a bright pastel sky-blue horizon",
+      "action": "viewed from behind, a clothed low-poly foreman in a waistcoat and boots steps backward and braces onto the rock shelf as the smooth plain iron bar streaks straight upward knocking his dark brimmed cap airborne",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_01_vermont_cut.png"
+    },
+    {
+      "sentence_index": 11,
+      "beat_index": 1,
+      "beat_weight": 0.5,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "camera": "locked_tripod",
+      "brain_scene": "on a sunlit light-birch drafting stand, an open matte warm-ivory low-poly sagittal brain model shows a smooth straight slate-grey iron cylinder passing cleanly upward through the front left frontal lobe",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_03_sagittal_brain.png"
+    },
+    {
+      "sentence_index": 11,
+      "beat_index": 2,
+      "beat_weight": 0.5,
+      "act": 2,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "bright clear pastel blue sky with blocky white clouds above green Vermont low-poly pine ridges",
+      "action": "a plain smooth unadorned slender iron bar tumbles end over end and climbs cleanly across the open sunlit sky above the pine ridge",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_01_vermont_cut.png"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a wide aerial view of the sunlit Vermont grey granite cut, iron rail bed, and pine valley",
+      "action": "the slender iron rod launches high and arcs cleanly above the granite trench while clothed low-poly workers in brimmed caps and vests turn upward along the track",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_01_vermont_cut.png"
+    },
+    {
+      "sentence_index": 13,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 2,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a long stretch of crushed grey granite ballast stones beside iron railroad ties",
+      "action": "the falling iron rod drops and arcs diagonally downward toward the sunlit grey stones far down the railroad track",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_01_vermont_cut.png"
+    },
+    {
+      "sentence_index": 13,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 2,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "close sunlit grey granite stones beside stacked timber railroad ties",
+      "action": "the heavy tapered iron rod lands hard onto the grey stones, kicking up pale stone dust before rolling to a stop",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_01_vermont_cut.png"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "pastel_stadium",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit green-turf athletic pitch divided by plain solid-white chalk stripes between yellow goalposts and pastel wooden bleachers",
+      "comparison_action": "a straight rigid three-foot dark-iron bar flies horizontally forward in mid-air above the green-turf grass past two white stripes and lands flat on the turf"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the upper stepped grey granite railroad ledge overlooking the deep track trench and pine hills",
+      "action": "seen from a high elevated rear angle behind their backs, five clothed low-poly rail workers in wide-brimmed caps, waistcoats, trousers, and boots stand complete along the grey granite rim, lower their iron hand drills, and lean forward looking down into the deep track trench",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_01_vermont_cut.png"
+    },
+    {
+      "sentence_index": 16,
+      "end_sentence_index": 17,
+      "act": 2,
+      "location_id": "cavendish_hotel_porch",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit pale-cream clapboard Vermont hotel with wide wooden porch stairs and an open front doorway",
+      "action": "viewed strictly from behind in elevated rear view, a clothed low-poly foreman in a white linen head wrap, charcoal waistcoat, and boots walks side by side beside a hatted low-poly physician in a dark coat up the wide wooden porch stairs toward the empty open hotel doorway"
+    },
+    {
+      "sentence_index": 18,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "camera": "gentle_push_in",
+      "brain_scene": "soft slate-blue shading highlights the motor strip and temporal speech ridges while the left frontal pole shows a clean geometric channel",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_02_cortical_brain.png"
+    },
+    {
+      "sentence_index": 19,
+      "end_sentence_index": 20,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the open sagittal brain cutaway, crisp terracotta-coral faceted fiber bundles trace the exact upward path through the left frontal lobe",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_03_sagittal_brain.png"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "camera": "locked_tripod",
+      "brain_scene": "warm terracotta-coral color fills the front prefrontal cortex region while the rear motor cortex strip stays cool calm sage-blue",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_02_cortical_brain.png"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "camera": "tilt_down",
+      "brain_scene": "a small bounded terracotta-coral patch covers four percent of the outer left frontal cortex surface on the warm-ivory geometric brain model",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_02_cortical_brain.png"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit light-birch architectural drafting table beside a matte warm-ivory low-poly brain model",
+      "comparison_action": "a single crisp blank solid-color ivory card slides smoothly across the light-birch tabletop beside the frontal pole, covering a wider rectangle than the small coral cortical patch"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "camera": "locked_tripod",
+      "brain_scene": "seen in three-quarter side profile on a light-birch drafting table, the intact closed matte warm-ivory outer cortical brain model displays a small flat terracotta-coral four-percent surface zone on its front left frontal gyri",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_02_cortical_brain.png"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a sloped sunlit gravel hill road with a heavy wooden freight wagon rolling forward",
+      "comparison_action": "a thick hemp wagon brake rope snaps cleanly apart beside the iron lever, sending the heavy wooden wagon wheels rolling fast downhill"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the matte warm-ivory sagittal brain model, severed white-matter cable bridges separate the deep almond-shaped amygdala hub from the front prefrontal cortex",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_03_sagittal_brain.png"
+    },
+    {
+      "sentence_index": 27,
+      "end_sentence_index": 28,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "camera": "clean_pullback_reveal",
+      "brain_scene": "warm coral-amber pulses flare rapidly in the deep left amygdala hub while the intact right prefrontal cortex hemisphere glows steady calm slate-blue across the midline",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_03_sagittal_brain.png"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a tidy sunlit Vermont railroad camp with stacked iron rails, wooden surveyor tripod, and pine trees",
+      "action": "a clothed low-poly crew leader in a neat waistcoat and dark brimmed cap extends an arm along rolled blueprints while three hatted workers lift and align an iron rail",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_01_vermont_cut.png"
+    },
+    {
+      "sentence_index": 30,
+      "end_sentence_index": 31,
+      "act": 4,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit New England timber yard with sawn cedar beams and stacked granite blocks",
+      "action": "viewed strictly from behind in over-the-shoulder rear view, a clothed low-poly worker in a wide-brimmed flat cap, canvas shirt, waistcoat, and boots grips and lifts a heavy squared cedar beam steadily forward onto a wooden trestle",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_01_vermont_cut.png"
+    },
+    {
+      "sentence_index": 32,
+      "end_sentence_index": 33,
+      "act": 4,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_left",
+      "attire_and_hands": "single pair of rolled tan canvas sleeves and matte brown leather work gloves extending cleanly from the bottom frame edge",
+      "prop_action": "both gloved low-poly hands forcefully push and slide rolled blank paper track plans and a wooden carpenter square across a sunlit cedar railroad workbench",
+      "consequence": "blank paper rolls tumble and scatter continuously off the wooden table edge onto the gravel floor"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated rear view of a sunlit wooden railroad depot entrance with sturdy timber posts and a hinged wooden barrier beam under pastel sky",
+      "action": "viewed strictly from behind, two clothed low-poly rail leaders in dark coats and tall hats swing and latch the hinged wooden barrier beam closed onto its timber post while a lone worker in a waistcoat and flat cap walks away down the gravel track path",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_01_vermont_cut.png",
+      "src_start_sec": 4.8
+    },
+    {
+      "sentence_index": 35,
+      "end_sentence_index": 36,
+      "act": 4,
+      "location_id": "study_desk_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "single pair of pressed tweed coat sleeves and matte tan leather gloves extending cleanly from the bottom frame edge",
+      "prop_action": "both gloved low-poly hands push and tilt a neat row of upright blank clothbound books across a sunlit birch study desk",
+      "consequence": "the heavy clothbound volumes topple smoothly one after another in a continuous domino wave across the sunlit wood"
+    },
+    {
+      "sentence_index": 37,
+      "act": 4,
+      "location_id": "study_desk_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pressed navy coat cuffs, crisp linen shirt sleeves, and matte tan leather gloves",
+      "prop_action": "both gloved low-poly hands push aside stacked blank clothbound volumes across a sunlit oak desk and set a coiled leather stagecoach rein in the center",
+      "consequence": "bright morning sunlight streams cleanly across the cleared wooden desk surface"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 5,
+      "location_id": "cavendish_hotel_porch",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "a quiet upstairs clapboard hotel hallway with pale pastel walls and wooden shutters",
+      "action": "a clothed low-poly doctor in a dark coat and boots walks briskly down the wooden corridor holding a leather medical satchel and reaches for the guest room door"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 5,
+      "location_id": "cavendish_hotel_porch",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a quiet sunlit pale-cream clapboard hotel upstairs porch with tall sage-green wooden shutters and wooden railing",
+      "action": "a plain smooth unlabelled pale-pine hexagonal wooden coffin rests horizontally on two sturdy wooden sawhorse trestles beside a closed paneled guest-room door while a crisp white linen window curtain sways gently in the morning breeze"
+    },
+    {
+      "sentence_index": 39,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 5,
+      "location_id": "cavendish_hotel_porch",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright sunlit upstairs Vermont hotel guest room with pale-cream walls, tall open window shutters, and a wooden bedside table",
+      "action": "viewed strictly from behind in an elevated rear view, a hatted low-poly physician in a dark wool coat steps beside the sunlit wooden bedside table and sets crisp folded white linen bandages next to a clean white porcelain basin and closed brass medical case",
+      "src_start_sec": 1.6
+    },
+    {
+      "sentence_index": 39,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 5,
+      "location_id": "cavendish_hotel_porch",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "single pair of white linen cuffs and dark wool sleeves extending cleanly from the left frame edge",
+      "prop_action": "two steady low-poly hands tilt a smooth unlabelled white porcelain pitcher and pour pale amber liquid smoothly into a clean shallow white ceramic basin",
+      "consequence": "the calm amber liquid rises steadily inside the smooth porcelain rim"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "cavendish_hotel_porch",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-oak side table beside a white saucer in a bright morning room",
+      "comparison_action": "clear amber tea pours smoothly from a plain unlabelled glass carafe into a matte-white ceramic coffee cup on a white saucer until the cup fills nearly to the porcelain brim"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "cavendish_hotel_porch",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "tilt_up",
+      "attire_and_hands": "neat rolled tan linen sleeves and matte low-poly forearms anchored from the bottom frame edge",
+      "prop_action": "both low-poly hands push and swing open tall sunlit sage-green louvered wooden window shutters",
+      "consequence": "warm pastel morning daylight floods across the wide wooden windowsill revealing rolling green low-poly hills outside"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "hanover_horse_stable",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a spacious sunlit New Hampshire timber livery stable with tidy stalls, hay bales, and brass harness pegs",
+      "action": "a clothed low-poly coachman in a brimmed hat, vest, and boots lifts oiled leather harnesses onto neat pegs and turns a wooden carriage wheel"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "hanover_horse_stable",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a bright sunlit carpenter workbench in the wooden stable",
+      "comparison_action": "two straight cedar splint boards press firmly along a cracked ivory rod as canvas straps pull tight around the splint to hold it straight and steady"
+    },
+    {
+      "sentence_index": 44,
+      "end_sentence_index": 45,
+      "act": 5,
+      "location_id": "chile_stagecoach_road",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit coastal Chilean stagecoach courtyard with pastel adobe arches, wooden Concord coach, and distant Andean peaks",
+      "action": "a clothed low-poly driver in a wide-brimmed hat, tan duster coat, and boots pulls and latches leather traces onto low-poly carriage horses, then climbs onto the high driver seat",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_04_chile_road.png"
+    },
+    {
+      "sentence_index": 46,
+      "act": 5,
+      "location_id": "chile_stagecoach_road",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a sunlit winding Andean mountain cliffside road with crisp hairpin turns overlooking a pastel valley",
+      "comparison_action": "a clothed low-poly driver in a brimmed hat and tan coat steers a wooden stagecoach pulled by six low-poly horses trotting in three neat pairs smoothly around a steep cliffside bend"
+    },
+    {
+      "sentence_index": 47,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 5,
+      "location_id": "chile_stagecoach_road",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan stagecoach driver coat sleeves and crisp linen cuffs extending from the bottom frame edge",
+      "prop_action": "two steady matte low-poly hands slide and align six smooth blank brass coins into two crisp even columns beside a closed brown leather notebook and a brass stethoscope on a sunlit wooden medical desk",
+      "consequence": "all six smooth brass coins rest neatly aligned in two equal stacks under bright daylight"
+    },
+    {
+      "sentence_index": 47,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 5,
+      "location_id": "chile_stagecoach_road",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan duster coat sleeves and leather driving gloves extending from bottom frame",
+      "prop_action": "both low-poly gloved hands grip and pull six leather stagecoach reins cleanly between the fingers",
+      "consequence": "each leather strap tensions evenly forward toward the team"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "chile_stagecoach_road",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit Andean mountain ridge road overlooking a wide pastel valley under soft white low-poly clouds",
+      "action": "seen from a high elevated rear angle behind the coachman's wide-brimmed hat and tan duster coat, six low-poly horses trot in three neat pairs pulling the wooden stagecoach smoothly around the sunlit mountain curve",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_04_chile_road.png"
+    },
+    {
+      "sentence_index": 49,
+      "end_sentence_index": 50,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the sunlit matte warm-ivory brain model, steady warm sage-and-gold pathways illuminate smoothly across the spared right frontal hemisphere like a guide rail",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_03_sagittal_brain.png"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "chile_stagecoach_road",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a wide sunlit Andean valley road stretching toward coastal hills under soft pastel clouds",
+      "action": "seen in crisp elevated side-rear view, a clothed low-poly coachman in a wide-brimmed hat and tan coat steers a wooden stagecoach pulled by six low-poly horses trotting in three neat pairs steadily along the sunlit valley road",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_04_chile_road.png"
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright sunlit pale-sand Harvard museum archive hall with tall arched windows, sheer white linen curtains swaying gently in the morning breeze, and a clean light-birch display table",
+      "action": "a long tapered polished dark-iron tamping rod settles horizontally onto two brass display cradles directly side by side next to a smooth featureless matte warm-ivory low-poly cranial dome model while sunlit window curtains sway steadily behind the table",
+      "src_start_sec": 0.6
+    },
+    {
+      "sentence_index": 53,
+      "beat_index": 1,
+      "beat_weight": 0.48,
+      "act": 6,
+      "location_id": "modern_light_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft slate-blue knit sweater sleeves and matte geometric hands at a sunlit desk",
+      "prop_action": "both low-poly hands grip the pale oak desk edge and press down impatiently beside a matte laptop keyboard",
+      "consequence": "a ceramic pen cup slides slightly across the wooden tabletop"
+    },
+    {
+      "sentence_index": 53,
+      "beat_index": 2,
+      "beat_weight": 0.52,
+      "act": 6,
+      "location_id": "modern_light_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft slate-blue knit sweater sleeves and matte geometric hands",
+      "prop_action": "both low-poly hands open smoothly and rest flat and calm upon the sunlit pale oak desk surface",
+      "consequence": "the sleeves settle quietly into stillness"
+    },
+    {
+      "sentence_index": 54,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "camera": "tilt_down",
+      "brain_scene": "inside the matte warm-ivory sagittal brain model, a warm amber signal rises from the deep amygdala hub along intact white-matter cables into the calm slate-blue prefrontal cortex",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_03_sagittal_brain.png"
+    },
+    {
+      "sentence_index": 55,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit light-birch drafting table beside the open matte warm-ivory sagittal brain model",
+      "comparison_action": "a yellow hexagonal cedar pencil slides gently beside the delicate internal white-matter cable bundle, showing the neural cables thinner than the wooden pencil shaft"
+    },
+    {
+      "sentence_index": 56,
+      "act": 6,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the peaceful sunlit Vermont valley where completed iron rails run smoothly between green pine hills",
+      "action": "two clothed low-poly rail workers in flat caps and vests walk calmly side by side and step steadily along the finished wooden ties under warm afternoon light",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_01_vermont_cut.png"
+    },
+    {
+      "cut_role": "split_right",
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "camera": "tilt_down",
+      "brain_scene": "inside the open sagittal brain cutaway, eleven percent of deep white-matter cable bundles glow terracotta-coral where the upward shaft severed frontal connections",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_03_sagittal_brain.png"
+    },
+    {
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "vermont_granite_cut",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a serene wide Vermont pine ridge and sunlit rail valley opening upward into a vast clear pastel sky with gentle white low-poly clouds",
+      "action": "gentle afternoon sunlight glides across the pine hilltops as the view rises into open pastel sky",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_01_vermont_cut.png"
+    }
+  ]
+}

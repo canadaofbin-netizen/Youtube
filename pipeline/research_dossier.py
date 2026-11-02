@@ -25,6 +25,7 @@ import re
 import shutil
 import subprocess
 import tempfile
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
@@ -36,6 +37,27 @@ from pipeline.config import RESEARCH_DOSSIERS_DIRNAME, VISUAL_MODES
 
 WORKSPACE_ROOT = Path(__file__).resolve().parent.parent
 DOSSIERS_ROOT = WORKSPACE_ROOT / "BCI_Shorts_Channel" / RESEARCH_DOSSIERS_DIRNAME
+_DOI_SYNTAX_RE = re.compile(r"^10\.\d{4,9}/\S+$")
+_VIDEO_FILE_EXTS = frozenset({".mp4", ".mkv", ".webm", ".mov"})
+_FACT_META_EXCLUDED_KEYS = frozenset(
+    {
+        "created_at",
+        "updated_at",
+        "doi",
+        "url",
+        "schema",
+        "schema_version",
+        "shorts_priority",
+        "id",
+        "source_id",
+        "media_id",
+        "published_longform_video_id",
+        "slug",
+        "linked_projects",
+        "local_dir",
+        "t",
+    }
+)
 
 DOSSIER_FILES: tuple[str, ...] = (
     "dossier.json",
@@ -199,9 +221,31 @@ def load_dossier(slug_or_dir: str | Path, root: Path | None = None) -> dict[str,
 def _nonempty(v: Any) -> bool:
     if v is None:
         return False
-    if isinstance(v, (list, dict, str)):
+    if isinstance(v, str):
+        return bool(v.strip())
+    if isinstance(v, (list, dict)):
         return len(v) > 0
     return True
+
+
+def _is_valid_doi_syntax(raw_doi: Any) -> bool:
+    clean = str(raw_doi or "").strip()
+    return bool(clean and _DOI_SYNTAX_RE.match(clean))
+
+
+def _is_valid_source_record(entry: Any, *, require_title_key: bool = False) -> bool:
+    if not isinstance(entry, dict):
+        return False
+    claimed_doi = str(entry.get("doi") or "").strip()
+    if claimed_doi and not _is_valid_doi_syntax(claimed_doi):
+        return False
+    has_title = (
+        _nonempty(entry.get("title"))
+        if require_title_key
+        else (_nonempty(entry.get("title")) or _nonempty(entry.get("citation")))
+    )
+    has_locator = bool(claimed_doi and _is_valid_doi_syntax(claimed_doi)) or _nonempty(entry.get("url"))
+    return bool(has_title and has_locator)
 
 
 def validate_dossier(slug_or_dir: str | Path, root: Path | None = None) -> dict[str, Any]:
@@ -214,7 +258,9 @@ def validate_dossier(slug_or_dir: str | Path, root: Path | None = None) -> dict[
         elif isinstance(ds.get(name), dict) and ds[name].get("_error"):
             issues.append(f"{name}: invalid JSON ({ds[name]['_error']})")
     meta = ds.get("dossier.json") or {}
-    sources = (ds.get("01_sources.json") or {}).get("sources") or []
+    sources_doc = ds.get("01_sources.json") or {}
+    sources = sources_doc.get("sources") or []
+    extra_followups = sources_doc.get("followups_replications_critiques") or []
     scenes = (ds.get("03_visual_reference.json") or {}).get("scenes") or []
     media = (ds.get("04_media_refs.json") or {}).get("media") or []
     plain = ds.get("05_plain_language.json") or {}
@@ -230,14 +276,28 @@ def validate_dossier(slug_or_dir: str | Path, root: Path | None = None) -> dict[
 
     stypes = [str(s.get("type")) for s in sources if isinstance(s, dict)]
     for s in sources:
-        if isinstance(s, dict) and s.get("type") not in SOURCE_TYPES:
+        if not isinstance(s, dict):
+            continue
+        if s.get("type") not in SOURCE_TYPES:
             issues.append(f"source {s.get('id')}: unknown type '{s.get('type')}'")
+        claimed_doi = str(s.get("doi") or "").strip()
+        if claimed_doi and not _is_valid_doi_syntax(claimed_doi):
+            issues.append(f"source {s.get('id')}: invalid DOI syntax '{claimed_doi}'")
+    for idx_fu, fu_entry in enumerate(extra_followups, start=1):
+        if not isinstance(fu_entry, dict):
+            continue
+        claimed_doi = str(fu_entry.get("doi") or "").strip()
+        if claimed_doi and not _is_valid_doi_syntax(claimed_doi):
+            issues.append(f"followups_replications_critiques[{idx_fu}]: invalid DOI syntax '{claimed_doi}'")
+
+    valid_sources = [s for s in sources if _is_valid_source_record(s, require_title_key=False)]
+    valid_extra_followups = [f for f in extra_followups if _is_valid_source_record(f, require_title_key=True)]
+
     primary_ok = any(
-        isinstance(s, dict)
-        and s.get("type") in ("primary", "primary_historical")
+        s.get("type") in ("primary", "primary_historical")
         and s.get("verified")
-        and (s.get("doi") or (s.get("type") == "primary_historical" and s.get("url")))
-        for s in sources
+        and (_is_valid_doi_syntax(s.get("doi")) or (s.get("type") == "primary_historical" and _nonempty(s.get("url"))))
+        for s in valid_sources
     )
     method_ok = sum(1 for s in scenes if isinstance(s, dict) and _nonempty(s.get("layout"))) >= 1 and len(story) > 1500
     people_ok = len((meta.get("primary_case") or {}).get("people") or []) >= 1
@@ -283,7 +343,10 @@ def validate_dossier(slug_or_dir: str | Path, root: Path | None = None) -> dict[
     checklist = {
         "primary_source": primary_ok,
         "method_details": method_ok,
-        "follow_up": any(t in ("replication", "follow_up", "review") for t in stypes),
+        "follow_up": (
+            any(s.get("type") in ("replication", "follow_up", "review") for s in valid_sources)
+            or len(valid_extra_followups) >= 1
+        ),
         "critique": any(t == "critique" for t in stypes) or len(meta.get("misconceptions") or []) >= 1,
         "people": people_ok,
         "visual_media": len(media) >= 1,
@@ -301,8 +364,13 @@ def validate_dossier(slug_or_dir: str | Path, root: Path | None = None) -> dict[
         if not ok and key in dict(RESEARCH_CHECKLIST):
             desc = dict(RESEARCH_CHECKLIST)[key]
             issues.append(f"checklist '{key}' incomplete: {desc}")
-    return {"dir": ds["_dir"], "ready": all(checklist.values()) and not any("invalid JSON" in i for i in issues),
-            "checklist": checklist, "issues": issues}
+    has_fatal_source_issue = any("invalid DOI syntax" in i for i in issues)
+    return {
+        "dir": ds["_dir"],
+        "ready": all(checklist.values()) and not has_fatal_source_issue and not any("invalid JSON" in i for i in issues),
+        "checklist": checklist,
+        "issues": issues,
+    }
 
 
 # ------------------------------------------------------------------------------
@@ -337,11 +405,27 @@ def research_depth_report(
 
     issues: list[str] = []
     d = Path(ds["_dir"])
-    srcs = [s for s in sources if isinstance(s, dict)]
+    raw_srcs = [s for s in sources if isinstance(s, dict)]
+    sources_doc = ds.get("01_sources.json") or {}
+    extra_followups = [
+        f for f in (sources_doc.get("followups_replications_critiques") or []) if isinstance(f, dict)
+    ]
+    for s in raw_srcs:
+        if s.get("type") in ("primary", "primary_historical", "replication", "follow_up", "review"):
+            claimed_doi = str(s.get("doi") or "").strip()
+            if claimed_doi and not _is_valid_doi_syntax(claimed_doi):
+                issues.append(f"source {s.get('id')}: invalid DOI syntax '{claimed_doi}'")
+    for idx_fu, fu_entry in enumerate(extra_followups, start=1):
+        claimed_doi = str(fu_entry.get("doi") or "").strip()
+        if claimed_doi and not _is_valid_doi_syntax(claimed_doi):
+            issues.append(f"followups_replications_critiques[{idx_fu}]: invalid DOI syntax '{claimed_doi}'")
+    srcs = [s for s in raw_srcs if _is_valid_source_record(s, require_title_key=False)]
+    valid_extra_fu = [f for f in extra_followups if _is_valid_source_record(f, require_title_key=True)]
     src_ids = {str(s.get("id")) for s in srcs if s.get("id")}
-    if len(srcs) < DOSSIER_MIN_SOURCES:
-        issues.append(f"{len(srcs)} sources < {DOSSIER_MIN_SOURCES}")
-    fu = sum(1 for s in srcs if s.get("type") in ("replication", "follow_up", "review"))
+    total_valid_sources = len(srcs) + len(valid_extra_fu)
+    if total_valid_sources < DOSSIER_MIN_SOURCES:
+        issues.append(f"{total_valid_sources} valid sources < {DOSSIER_MIN_SOURCES}")
+    fu = sum(1 for s in srcs if s.get("type") in ("replication", "follow_up", "review")) + len(valid_extra_fu)
     if fu < DOSSIER_MIN_FOLLOWUP_SOURCES:
         issues.append(f"{fu} follow-up / replication / review sources < {DOSSIER_MIN_FOLLOWUP_SOURCES}")
     facts = [f for f in (meta.get("core_facts") or []) if isinstance(f, dict)]
@@ -392,16 +476,42 @@ def research_depth_report(
     return {"passed": not issues, "issues": issues}
 
 
+def _extract_dossier_prose_chunks(node: Any, out: list[str]) -> None:
+    if isinstance(node, dict):
+        for k, v in node.items():
+            if str(k) in _FACT_META_EXCLUDED_KEYS:
+                continue
+            _extract_dossier_prose_chunks(v, out)
+    elif isinstance(node, list):
+        for item in node:
+            _extract_dossier_prose_chunks(item, out)
+    elif isinstance(node, str):
+        if node.strip():
+            out.append(node.strip())
+    elif isinstance(node, (int, float)) and not isinstance(node, bool):
+        out.append(str(node))
+
+
 def check_narration_facts(slug_or_dir: str | Path, narrations: list[str], root: Path | None = None) -> list[str]:
     """Every number shown in the subtitles must appear somewhere in the dossier (facts, story, sources)."""
     from pipeline.plain_language import to_display_text
 
     ds = load_dossier(slug_or_dir, root)
-    corpus = json.dumps(
-        [ds.get("dossier.json"), ds.get("01_sources.json"), ds.get("03_visual_reference.json"), ds.get("04_media_refs.json")],
-        ensure_ascii=False,
-    ) + " " + str(ds.get("02_master_story.md") or "")
-    corpus_digits = set(re.findall(r"\d+(?:\.\d+)?", corpus.replace(",", "")))
+    prose_chunks: list[str] = []
+    for doc_name in (
+        "dossier.json",
+        "01_sources.json",
+        "03_visual_reference.json",
+        "04_media_refs.json",
+        "05_plain_language.json",
+        "06_brain_link.json",
+        "07_longform_outline.json",
+    ):
+        _extract_dossier_prose_chunks(ds.get(doc_name), prose_chunks)
+    prose_chunks.append(str(ds.get("02_master_story.md") or ""))
+    raw_corpus = " ".join(prose_chunks)
+    norm_corpus = to_display_text(raw_corpus)
+    corpus_digits = set(re.findall(r"\d+(?:\.\d+)?", norm_corpus.replace(",", "")))
     issues = []
     for i, line in enumerate(narrations, 1):
         for num in re.findall(r"\d+(?:\.\d+)?", to_display_text(str(line)).replace(",", "")):
@@ -415,7 +525,11 @@ def check_narration_facts(slug_or_dir: str | Path, narrations: list[str], root: 
 # ------------------------------------------------------------------------------
 def plan_seed_from_dossier(slug_or_dir: str | Path, root: Path | None = None) -> dict[str, Any]:
     """Draft v5 visual_plan fields (mode, must_have_scenes, cast hints, brain_link) for bci-script-gen to finish."""
-    ds = load_dossier(slug_or_dir, root)
+    raw_str = str(slug_or_dir)
+    target_dir = Path(slug_or_dir) if Path(raw_str).is_dir() else dossier_dir(raw_str, root)
+    if not target_dir.exists():
+        raise FileNotFoundError(f"Research dossier directory not found: {target_dir}")
+    ds = load_dossier(target_dir, root)
     meta = ds.get("dossier.json") or {}
     scenes = (ds.get("03_visual_reference.json") or {}).get("scenes") or []
     links = (ds.get("06_brain_link.json") or {}).get("links") or []
@@ -431,46 +545,188 @@ def plan_seed_from_dossier(slug_or_dir: str | Path, root: Path | None = None) ->
         for s in sorted(scenes, key=lambda s: (not s.get("iconic"), s.get("shorts_priority", 99)))
         if isinstance(s, dict) and s.get("shorts_priority", 1) is not None and int(s.get("shorts_priority", 1) or 1) <= 3
     ]
+    brain_link_map: dict[str, Any] = {}
+    for i, l in enumerate(links):
+        if not isinstance(l, dict):
+            continue
+        role_key = str(l.get("role") or l.get("scene_id") or i)
+        if role_key not in brain_link_map:
+            brain_link_map[role_key] = l
+        elif isinstance(brain_link_map[role_key], list):
+            brain_link_map[role_key].append(l)
+        else:
+            brain_link_map[role_key] = [brain_link_map[role_key], l]
     return {
         "schema": 5,
         "visual_mode": str(meta.get("visual_mode") or "HYBRID").upper(),
         "dossier": slugify(meta.get("slug") or Path(ds["_dir"]).name),
         "must_have_scenes": must,
-        "brain_link": {str(l.get("role") or l.get("scene_id") or i): l for i, l in enumerate(links) if isinstance(l, dict)},
+        "brain_link": brain_link_map,
         "shots": {},
         "scenes": {},
     }
 
 
+def diorama_seed_from_dossier(
+    slug_or_dir: str | Path,
+    root: Path | None = None,
+    schema_version: int = 7,
+    style_profile: str | None = None,
+) -> dict[str, Any]:
+    """Draft Schema v7 (`porcelain_cinematic_v7` default or `lowpoly_pastel_v7`) or Schema v6 `neuro_diorama` visual_plan seed."""
+    from pipeline.config import (
+        DEFAULT_DIORAMA_STYLE_PROFILE,
+        PROMPT_SCHEMA_VERSION_V6,
+        PROMPT_SCHEMA_VERSION_V7,
+        resolve_diorama_v7_style_profile,
+    )
+
+    base = plan_seed_from_dossier(slug_or_dir, root=root)
+    if int(schema_version) >= PROMPT_SCHEMA_VERSION_V7:
+        resolved_style = resolve_diorama_v7_style_profile(
+            {"style_profile": style_profile} if style_profile else None,
+            fallback=DEFAULT_DIORAMA_STYLE_PROFILE,
+        )
+        iconic_scenes = [s for s in (base.get("must_have_scenes") or []) if isinstance(s, dict) and s.get("iconic")]
+        cover_brief = ""
+        if iconic_scenes:
+            kv = iconic_scenes[0].get("key_visual") if isinstance(iconic_scenes[0].get("key_visual"), dict) else {}
+            cover_brief = str(kv.get("description") or iconic_scenes[0].get("title") or "").strip()
+        return {
+            "schema": PROMPT_SCHEMA_VERSION_V7,
+            "schema_version": PROMPT_SCHEMA_VERSION_V7,
+            "profile": "neuro_diorama",
+            "style_profile": resolved_style,
+            "camera_profile": "orthogonal_tripod_v7",
+            "zero_clip_reuse": True,
+            "require_signature_hooks": True,
+            "visual_mode": base["visual_mode"],
+            "dossier": base["dossier"],
+            "thumbnail": {
+                "hook_text": "TODO",
+                "cover_sentence_index": 3,
+                "cover_brief": cover_brief,
+            },
+            "act5_climax_episode": "",
+            "must_have_scenes": base["must_have_scenes"],
+            "brain_link": base["brain_link"],
+            "chapter_headlines": [{"sentence_index": 3, "text": "TODO"}],
+            "split_comparisons": [],
+            "target_clip_count": 61,
+            "clips": [],
+            "outro_title_lines": ["", ""],
+        }
+    return {
+        "schema": PROMPT_SCHEMA_VERSION_V6,
+        "schema_version": PROMPT_SCHEMA_VERSION_V6,
+        "profile": "neuro_diorama",
+        "camera_profile": "dynamic_3d_cinema_rig",
+        "zero_clip_reuse": True,
+        "require_signature_hooks": True,
+        "visual_mode": base["visual_mode"],
+        "dossier": base["dossier"],
+        "motif_prop": {
+            "id": "analog_gauge_motif",
+            "object": "a clear unprinted glass water tumbler beside a brushed-brass apothecary beam scale on a dark walnut workbench",
+            "tokens": ["water tumbler", "beam scale"],
+            "states": {
+                "baseline": "calm mirror-flat surface",
+                "crisis": "concentric high-frequency ripples across the water surface",
+                "pivot": "steady rhythmic pulse",
+                "breakthrough": "settled crystal-still reflection",
+            },
+        },
+        "act5_climax_episode": "",
+        "must_have_scenes": base["must_have_scenes"],
+        "brain_link": base["brain_link"],
+        "target_clip_count": 61,
+        "clips": [],
+        "top_callouts": [],
+        "outro_title_lines": ["", ""],
+    }
+
+
+seed_diorama_visual_plan = diorama_seed_from_dossier
+
+
 # ------------------------------------------------------------------------------
 # Free reference tools
 # ------------------------------------------------------------------------------
+def _parse_section_bounds(section: str) -> tuple[int, int]:
+    """Parses optional '*MM:SS-MM:SS' or '*HH:MM:SS-HH:MM:SS' into (start_sec, end_sec)."""
+    raw = str(section or "").strip()
+    m = re.match(r"^\*?(?:(\d+):)?(\d{1,2}):(\d{2})-(?:(\d+):)?(\d{1,2}):(\d{2})$", raw)
+    if not m:
+        raise ValueError(
+            f"Invalid section format {section!r}; expected 'MM:SS-MM:SS' or 'HH:MM:SS-HH:MM:SS'"
+        )
+    h1, m1, s1, h2, m2, s2 = m.groups()
+    sec1, sec2 = int(s1), int(s2)
+    min1, min2 = int(m1), int(m2)
+    if sec1 >= 60 or sec2 >= 60 or (h1 is not None and min1 >= 60) or (h2 is not None and min2 >= 60):
+        raise ValueError(f"Invalid section clock bounds in {section!r}")
+    start_sec = (int(h1) * 3600 if h1 is not None else 0) + min1 * 60 + sec1
+    end_sec = (int(h2) * 3600 if h2 is not None else 0) + min2 * 60 + sec2
+    if end_sec <= start_sec:
+        raise ValueError(f"Invalid section range {section!r}: end ({end_sec}s) must exceed start ({start_sec}s)")
+    return start_sec, end_sec
+
+
 def verify_doi(doi: str, timeout: float = 10.0) -> dict[str, Any]:
-    """Crossref lookup (free, no key). Returns {'verified', 'title', 'journal', 'year', 'authors'}."""
+    """Crossref lookup with doi.org/api/handles fallback (DataCite/non-Crossref DOIs)."""
     clean = re.sub(r"^https?://(dx\.)?doi\.org/", "", str(doi or "").strip(), flags=re.IGNORECASE)
     if not clean:
         return {"verified": False, "error": "empty DOI"}
+    if not _is_valid_doi_syntax(clean):
+        return {"verified": False, "doi": clean, "error": f"invalid DOI syntax: {clean}"}
+    headers = {"User-Agent": "AllAboutBrain-Research/1.0 (mailto:kbforuni@gmail.com)"}
     url = "https://api.crossref.org/works/" + urllib.parse.quote(clean, safe="/")
-    req = urllib.request.Request(url, headers={"User-Agent": "AllAboutBrain-Research/1.0 (mailto:kbforuni@gmail.com)"})
+    req = urllib.request.Request(url, headers=headers)
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             msg = json.loads(resp.read().decode("utf-8")).get("message", {})
+        year = None
+        for key in ("published-print", "published-online", "issued", "created"):
+            parts = (msg.get(key) or {}).get("date-parts") or []
+            if parts and parts[0]:
+                year = parts[0][0]
+                break
+        return {
+            "verified": True,
+            "doi": clean,
+            "title": (msg.get("title") or [""])[0],
+            "journal": (msg.get("container-title") or [""])[0],
+            "year": year,
+            "authors": [f"{a.get('given', '')} {a.get('family', '')}".strip() for a in (msg.get("author") or [])][:8],
+        }
+    except urllib.error.HTTPError as exc:
+        if exc.code != 404:
+            return {"verified": False, "doi": clean, "error": str(exc)}
     except Exception as exc:  # noqa: BLE001
         return {"verified": False, "doi": clean, "error": str(exc)}
-    year = None
-    for key in ("published-print", "published-online", "issued", "created"):
-        parts = (msg.get(key) or {}).get("date-parts") or []
-        if parts and parts[0]:
-            year = parts[0][0]
-            break
-    return {
-        "verified": True,
-        "doi": clean,
-        "title": (msg.get("title") or [""])[0],
-        "journal": (msg.get("container-title") or [""])[0],
-        "year": year,
-        "authors": [f"{a.get('given', '')} {a.get('family', '')}".strip() for a in (msg.get("author") or [])][:8],
-    }
+
+    handle_url = "https://doi.org/api/handles/" + urllib.parse.quote(clean, safe="/")
+    handle_req = urllib.request.Request(handle_url, headers=headers)
+    try:
+        with urllib.request.urlopen(handle_req, timeout=timeout) as resp:
+            handle_doc = json.loads(resp.read().decode("utf-8"))
+        if int(handle_doc.get("responseCode", 0) or 0) == 1 and handle_doc.get("values"):
+            return {
+                "verified": True,
+                "doi": clean,
+                "title": "",
+                "journal": "",
+                "year": None,
+                "authors": [],
+                "resolver": "doi.org",
+            }
+        return {
+            "verified": False,
+            "doi": clean,
+            "error": f"doi.org handle responseCode={handle_doc.get('responseCode')}",
+        }
+    except Exception as exc:  # noqa: BLE001
+        return {"verified": False, "doi": clean, "error": str(exc)}
 
 
 def _ffmpeg() -> str:
@@ -520,85 +776,111 @@ def analyze_reference_video(
     """
     import yt_dlp  # type: ignore
 
+    section_bounds: tuple[int, int] | None = None
+    if section is not None and str(section).strip() != "":
+        section_bounds = _parse_section_bounds(section)
+    elif section is not None:
+        raise ValueError(f"Invalid empty section format: {section!r}")
+
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     tmp = Path(tempfile.mkdtemp(prefix="aab_ref_"))
-    opts: dict[str, Any] = {
-        "quiet": True,
-        "no_warnings": True,
-        "format": "bv*[height<=480]+ba/b[height<=480]/b",
-        "noprogress": True,
-        "outtmpl": str(tmp / "ref.%(ext)s"),
-        "merge_output_format": "mp4",
-        "ffmpeg_location": _ffmpeg(),
-    }
-    if section:
-        from yt_dlp.utils import download_range_func  # type: ignore
+    try:
+        opts: dict[str, Any] = {
+            "quiet": True,
+            "no_warnings": True,
+            "format": "bv*[height<=480]+ba/b[height<=480]/b",
+            "noprogress": True,
+            "outtmpl": str(tmp / "ref.%(ext)s"),
+            "merge_output_format": "mp4",
+            "ffmpeg_location": _ffmpeg(),
+        }
+        if section_bounds is not None:
+            from yt_dlp.utils import download_range_func  # type: ignore
 
-        m = re.match(r"\*?(\d+):(\d+)-(\d+):(\d+)", section)
-        if m:
-            a = int(m.group(1)) * 60 + int(m.group(2))
-            b = int(m.group(3)) * 60 + int(m.group(4))
-            opts["download_ranges"] = download_range_func(None, [(a, b)])
-    with yt_dlp.YoutubeDL(opts) as ydl:
-        info = ydl.extract_info(url, download=True)
-    video = next(iter(sorted(tmp.glob("ref.*"))), None)
-    if video is None:
-        raise RuntimeError(f"download failed for {url}")
-    ff = _ffmpeg()
-    kf_dir = out_dir / "keyframes"
-    kf_dir.mkdir(exist_ok=True)
-    subprocess.run(
-        [ff, "-nostdin", "-hide_banner", "-loglevel", "error", "-y", "-i", str(video),
-         "-vf", f"select='gt(scene,{scene_threshold})',scale=480:-2,showinfo", "-vsync", "vfr",
-         "-frames:v", str(max_keyframes), str(kf_dir / "kf_%03d.jpg")],
-        check=False, capture_output=True, timeout=600, stdin=subprocess.DEVNULL,
-    )
-    if len(list(kf_dir.glob("kf_*.jpg"))) < 8:  # static footage: fall back to a frame every 3 seconds
+            opts["download_ranges"] = download_range_func(None, [section_bounds])
+        with yt_dlp.YoutubeDL(opts) as ydl:
+            info = ydl.extract_info(url, download=True)
+        video_candidates = [
+            p
+            for p in sorted(tmp.glob("ref.*"))
+            if p.is_file()
+            and p.suffix.lower() in _VIDEO_FILE_EXTS
+            and not p.name.lower().endswith(".part")
+        ]
+        video = video_candidates[0] if video_candidates else None
+        if video is None:
+            raise RuntimeError(f"download failed for {url}")
+        ff = _ffmpeg()
+        kf_dir = out_dir / "keyframes"
+        kf_dir.mkdir(exist_ok=True)
+        for stale_kf in kf_dir.glob("kf_*.jpg"):
+            stale_kf.unlink(missing_ok=True)
         subprocess.run(
-            [ff, "-nostdin", "-hide_banner", "-loglevel", "error", "-y", "-i", str(video), "-vf", "fps=1/3,scale=480:-2",
+            [ff, "-nostdin", "-hide_banner", "-loglevel", "error", "-y", "-i", str(video),
+             "-vf", f"select='gt(scene,{scene_threshold})',scale=480:-2,showinfo", "-vsync", "vfr",
              "-frames:v", str(max_keyframes), str(kf_dir / "kf_%03d.jpg")],
             check=False, capture_output=True, timeout=600, stdin=subprocess.DEVNULL,
         )
-    frames = sorted(kf_dir.glob("kf_*.jpg"))
-    sheet = out_dir / "contact_sheet.jpg"
-    if frames:
-        cols = 4
-        rows = (len(frames) + cols - 1) // cols
-        subprocess.run(
-            [ff, "-nostdin", "-hide_banner", "-loglevel", "error", "-y", "-pattern_type", "glob", "-i", str(kf_dir / "kf_*.jpg"),
-             "-vf", f"scale=320:-2,tile={cols}x{rows}:padding=4", "-frames:v", "1", str(sheet)],
-            check=False, capture_output=True, timeout=300, stdin=subprocess.DEVNULL,
-        )
-    transcript_path = None
-    if transcribe:
-        try:
-            from faster_whisper import WhisperModel  # type: ignore
+        if len(list(kf_dir.glob("kf_*.jpg"))) < 8:
+            for partial_kf in kf_dir.glob("kf_*.jpg"):
+                partial_kf.unlink(missing_ok=True)
+            clip_dur = (
+                float(section_bounds[1] - section_bounds[0])
+                if section_bounds is not None
+                else float((info or {}).get("duration") or 0.0)
+            )
+            fps_val = max(1.0 / 3.0, 9.0 / max(1.0, clip_dur)) if clip_dur > 0 else (1.0 / 3.0)
+            subprocess.run(
+                [ff, "-nostdin", "-hide_banner", "-loglevel", "error", "-y", "-i", str(video),
+                 "-vf", f"fps={fps_val:.6f},scale=480:-2",
+                 "-frames:v", str(max_keyframes), str(kf_dir / "kf_%03d.jpg")],
+                check=False, capture_output=True, timeout=600, stdin=subprocess.DEVNULL,
+            )
+        frames = sorted(kf_dir.glob("kf_*.jpg"))
+        sheet = out_dir / "contact_sheet.jpg"
+        if frames:
+            cols = 4
+            rows = (len(frames) + cols - 1) // cols
+            subprocess.run(
+                [ff, "-nostdin", "-hide_banner", "-loglevel", "error", "-y", "-pattern_type", "glob", "-i", str(kf_dir / "kf_*.jpg"),
+                 "-vf", f"scale=320:-2,tile={cols}x{rows}:padding=4", "-frames:v", "1", str(sheet)],
+                check=False, capture_output=True, timeout=300, stdin=subprocess.DEVNULL,
+            )
+        transcript_path = None
+        asr_error: str | None = None
+        if transcribe:
+            try:
+                from faster_whisper import WhisperModel  # type: ignore
 
-            model = WhisperModel("base.en", device="cpu", compute_type="int8")
-            segs, _ = model.transcribe(str(video), vad_filter=True)
-            lines = [f"[{s.start:7.2f}-{s.end:7.2f}] {s.text.strip()}" for s in segs]
-            transcript_path = out_dir / "transcript.txt"
-            transcript_path.write_text("\n".join(lines), encoding="utf-8")
-        except Exception as exc:  # noqa: BLE001
-            (out_dir / "transcript_error.txt").write_text(str(exc), encoding="utf-8")
-    meta = {
-        "url": url,
-        "title": (info or {}).get("title"),
-        "channel": (info or {}).get("channel") or (info or {}).get("uploader"),
-        "duration_sec": (info or {}).get("duration"),
-        "section": section,
-        "keyframes": [str(f.relative_to(out_dir)) for f in frames],
-        "contact_sheet": str(sheet.relative_to(out_dir)) if sheet.exists() else None,
-        "transcript": str(transcript_path.relative_to(out_dir)) if transcript_path else None,
-        "analyzed_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "usage": "analysis only - never reused in channel videos",
-    }
-    (out_dir / "analysis.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
-    if keep_video:
-        shutil.copy2(video, out_dir / video.name)
-    shutil.rmtree(tmp, ignore_errors=True)
-    return meta
+                model = WhisperModel("base.en", device="cpu", compute_type="int8")
+                segs, _ = model.transcribe(str(video), vad_filter=True)
+                lines = [f"[{s.start:7.2f}-{s.end:7.2f}] {s.text.strip()}" for s in segs]
+                transcript_path = out_dir / "transcript.txt"
+                transcript_path.write_text("\n".join(lines), encoding="utf-8")
+            except Exception as exc:  # noqa: BLE001
+                asr_error = str(exc)
+                (out_dir / "transcript_error.txt").write_text(asr_error, encoding="utf-8")
+        meta: dict[str, Any] = {
+            "url": url,
+            "title": (info or {}).get("title"),
+            "channel": (info or {}).get("channel") or (info or {}).get("uploader"),
+            "duration_sec": (info or {}).get("duration"),
+            "section": section,
+            "keyframes": [str(f.relative_to(out_dir)) for f in frames],
+            "contact_sheet": str(sheet.relative_to(out_dir)) if sheet.exists() else None,
+            "transcript": str(transcript_path.relative_to(out_dir)) if transcript_path else None,
+            "analyzed_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "usage": "analysis only - never reused in channel videos",
+        }
+        if asr_error is not None:
+            meta["asr_error"] = asr_error
+        (out_dir / "analysis.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
+        if keep_video:
+            shutil.copy2(video, out_dir / video.name)
+        return meta
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
 
 
 __all__ = [

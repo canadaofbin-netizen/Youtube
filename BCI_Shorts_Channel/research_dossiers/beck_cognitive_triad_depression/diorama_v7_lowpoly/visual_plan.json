@@ -1,0 +1,670 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "beck_cognitive_triad_depression",
+  "topic": "Aaron T. Beck Automatic Negative Thoughts, the Negative Cognitive Triad, and Two-Column Empirical Cognitive Behavioral Therapy (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Randomized clinical trials demonstrating that Beck's two-column written evidence-testing therapy matched antidepressant medication for mild-to-moderate depression while cutting long-term relapse in half.",
+  "outro_title_lines": [
+    "AARON T. BECK (1963)",
+    "UNIVERSITY OF PENNSYLVANIA"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "SUDDEN GLOOM?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "TWO-COLUMN CURE?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "HIDDEN WHISPER"
+    },
+    {
+      "sentence_index": 19,
+      "text": "DARK TRIAD"
+    },
+    {
+      "sentence_index": 28,
+      "text": "EMPTY COUCH"
+    },
+    {
+      "sentence_index": 37,
+      "text": "TRIAL PROOF"
+    },
+    {
+      "sentence_index": 45,
+      "text": "PAPER AUDIT"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "SUDDEN GLOOM?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "TWO-COLUMN CURE?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "HIDDEN WHISPER"
+    },
+    {
+      "sentence_index": 19,
+      "text": "DARK TRIAD"
+    },
+    {
+      "sentence_index": 28,
+      "text": "EMPTY COUCH"
+    },
+    {
+      "sentence_index": 37,
+      "text": "TRIAL PROOF"
+    },
+    {
+      "sentence_index": 45,
+      "text": "PAPER AUDIT"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 34,
+      "mode": "split_hstack",
+      "left_clip_index": 36,
+      "right_clip_index": 37,
+      "left_label": "LEFT: DARK GUESS",
+      "right_label": "RIGHT: REAL FACTS"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a softly lit matte pastel Philadelphia consulting office with a cool slate-stone desk, tall bookshelves, and an unused matte slate-fabric couch against the side wall",
+      "action": "viewed strictly from behind, a clothed low-poly patient in a wool cardigan steps to the armchair, leans forward across the slate-stone desk, and reaches toward a soft-mint legal pad"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted slate jacket sleeves, crisp white cuffs, and cool porcelain-white gloved low-poly hands holding a brushed-silver stylus over a smooth blank ivory board",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide the smooth blank ivory board forward and set a thin brushed-silver divider rod down its center",
+      "consequence": "the clean two-zone ivory board sits centered on the cool pale-slate desk"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool cardigan sleeves and cool porcelain-white gloved low-poly hands resting near a small grey storm token on the left side of the desk",
+      "prop_action": "one cool porcelain-white gloved low-poly hand taps the small grey storm token before sliding it onto the left column of the soft-mint pad",
+      "consequence": "the sudden grey token sits isolated in the left column ready for inspection"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed jacket sleeves and cool porcelain-white gloved low-poly hands placing a pastel triangle model beside the soft-mint pad",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set the smooth three-cornered pastel triangle frame beside the fountain pen on the slate-stone desk",
+      "consequence": "the geometric triad frame and divided notepad gleam in warm window light"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit University of Pennsylvania consulting office showing the empty matte-slate couch behind the face-to-face slate-stone desk",
+      "action": "viewed strictly from behind, the clothed low-poly psychiatrist in a tweed jacket and bow tie leans across the slate-stone desk and points to the soft-mint pad opposite the patient in a cardigan"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted slate jacket cuffs and cool porcelain-white gloved low-poly hands sliding a closed powder-blue archive box aside on a cool pale-slate stone desk",
+      "prop_action": "one cool porcelain-white gloved low-poly hand pushes the closed powder-blue archive box to the corner while the other hand places a clean blank ivory tray at center",
+      "consequence": "the clean blank ivory tray rests calmly at the center of the cool stone desk"
+    },
+    {
+      "sentence_index": 5,
+      "end_sentence_index": 6,
+      "act": 1,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the quiet sunlit study corner of the Philadelphia psychiatry department with two neat stacks of powder-blue folders on a long slate-stone table",
+      "action": "viewed strictly from behind, the clothed low-poly psychiatrist in a tweed jacket walks along the slate-stone table and lifts a powder-blue interview folder to inspect"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster courtyard displaying a pastel vintage city coach bus filled with clothed low-poly passengers",
+      "comparison_action": "viewed strictly from behind, clothed low-poly passengers in coats and hats step aboard the pastel coach bus and take seats along every window row"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a bright sunlit pastel seminar classroom with neat rows of pale-oak desks",
+      "comparison_action": "viewed strictly from behind, thirty-one clothed low-poly students in cardigan sweaters sit upright at pale-oak desks and lift ivory folders in unison"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted slate jacket sleeves and cool porcelain-white gloved low-poly hands comparing two smooth blank sage specimen trays side by side on a cool stone desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align matching powder-blue geometric bar tokens across the two smooth trays and push an empty grey cube aside",
+      "consequence": "the matching powder-blue geometric bar tokens sit evenly aligned across both cool sage trays"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed jacket cuffs and cool porcelain-white gloved low-poly hands lifting a translucent pastel overlay sheet above a session page",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align and lower the translucent sheet revealing a second hidden row of rapid marks underneath",
+      "consequence": "a hidden parallel track of amber marks shines clearly beneath the surface line"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Philadelphia consulting room with the armchair facing the slate-stone desk",
+      "action": "viewed strictly from behind, the clothed low-poly patient in a wool cardigan leans forward, points sharply with one hand, then drops shoulders in the armchair"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed jacket sleeves and cool porcelain-white gloved low-poly hands resting calmly beside the open soft-mint pad",
+      "prop_action": "one cool porcelain-white gloved low-poly hand turns the soft-mint pad slightly toward the armchair and sets the silver fountain pen gently beside it",
+      "consequence": "the open soft-mint pad invites a calm collaborative look"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean two-track pastel acoustic display where a calm upper sky-blue ribbon runs above a rapid lower coral pulse track",
+      "internal_mechanism": "just before the upper ribbon dips downward, a fast coral spark races across the hidden lower track and pulls the upper ribbon down"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool cardigan cuffs and cool porcelain-white gloved low-poly hands pointing to the hidden lower track model on the desk",
+      "prop_action": "the matte-white gloved low-poly right hand taps the small coral spark block and slides it onto the left side of the soft-mint pad",
+      "consequence": "the hidden trigger sits exposed in bright afternoon light"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tweed jacket cuffs and cool porcelain-white gloved low-poly hands arranging three sequential domino blocks on the slate-stone desk",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts the middle domino block showing the last sadness block cannot fall on its own",
+      "consequence": "the first hidden-thought domino is revealed as the true starter"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA ALARM\nINSTANT EMOTIONAL DROP",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, a sudden pastel coral pulse flashes inside the deep almond-shaped amygdala emotional alarm"
+    },
+    {
+      "sentence_index": 16,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "office_hallway_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright sunlit office corridor with pale-terrazzo flooring and tall glass transoms",
+      "action": "viewed strictly from behind, a clothed low-poly worker in a cardigan steps near the wall as a hurried coworker in a grey suit tilts a wristwatch and walks briskly past"
+    },
+    {
+      "sentence_index": 16,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "office_hallway_corridor",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "grey suit sleeve and cool porcelain-white gloved low-poly hand clutching a thick stack of folders while checking a silver wristwatch",
+      "prop_action": "the cool porcelain-white gloved low-poly hand tilts the silver wristwatch into view and pulls the folder stack tight while striding forward",
+      "consequence": "the wristwatch hands show the coworker rushing late to a meeting"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "office_hallway_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit office corridor after the hurried coworker turns the far corner",
+      "action": "viewed strictly from behind, the clothed low-poly worker in a cardigan stops walking, lowers shoulders, and clasps both gloved hands together"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Philadelphia consulting office with fifty powder-blue folders stacked neatly across the slate-stone desk",
+      "action": "viewed strictly from behind, the clothed low-poly psychiatrist in a tweed jacket steps back from the desk and places one gloved hand on the chair back in quiet reflection"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed jacket sleeves and cool porcelain-white gloved low-poly hands placing three dark-slate prism lenses beside a clear glass cube",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide a clear glass logic cube aside and align three dark-tinted prism lenses in a triangle",
+      "consequence": "warm daylight passing through the three dark lenses casts muted grey shadows"
+    },
+    {
+      "sentence_index": 20,
+      "end_sentence_index": 21,
+      "act": 3,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit University of Pennsylvania study desk with neat open folders and three pastel sorting trays",
+      "action": "viewed strictly from behind, the clothed low-poly psychiatrist in a tweed jacket turns pages briskly and sorts small coral markers into three distinct trays"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean triangular pastel mechanism linking three hinged dark-tinted flaps over a warm-gold lamp",
+      "internal_mechanism": "when one rapid trigger bar strikes the base, all three dark-tinted flaps swing closed over the warm-gold lamp simultaneously"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster gallery bench holding three tall wooden window frames fitted with dark smoky-tinted panes overlooking a bright garden",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves tilt and align the three dark-tinted window frames side by side dimming the bright garden view"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed jacket cuffs and cool porcelain-white gloved low-poly hands tracing a three-point triangle model on the slate-stone desk",
+      "prop_action": "the matte-white gloved low-poly right hand taps each of the three muted-coral corner nodes around the triangle frame in turn",
+      "consequence": "the three linked corner nodes form a closed grey loop"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "tweed jacket sleeves and cool porcelain-white gloved low-poly hands laying out five distinct geometric lens blocks across the desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place five curved distortion lenses in a neat row beside the powder-blue folders",
+      "consequence": "all five thinking-trap lenses sit clearly identified in daylight"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster studio table displaying a glowing mosaic of nine bright golden tiles beside one tiny dark charcoal square",
+      "comparison_action": "two matte-white gloved low-poly hands in shirt sleeves hold a brass magnifying glass and slide it straight over the single tiny dark square ignoring the nine bright golden tiles"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed jacket sleeves and cool porcelain-white gloved low-poly hands lifting the dark magnifying glass away from the desk",
+      "prop_action": "one cool porcelain-white gloved low-poly hand sets the magnifying glass aside while the other hand taps a fresh divided soft-mint legal pad",
+      "consequence": "all nine bright golden tiles shine clearly across the full view"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit Philadelphia consulting room showing the classic matte slate-fabric couch left empty against the bookcase wall",
+      "action": "viewed strictly from behind, the clothed low-poly psychiatrist in a tweed jacket pulls a wooden armchair away from the empty couch and places it directly facing the slate-stone desk"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the warm sunlit slate-stone desk between two facing armchairs in the university office",
+      "action": "viewed strictly from behind at an elevated angle, the clothed low-poly psychiatrist in a tweed jacket and patient in a wool cardigan sit across the desk leaning toward the shared soft-mint pad"
+    },
+    {
+      "sentence_index": 30,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed jacket cuffs and cool porcelain-white gloved low-poly hands uncapping a brushed-silver fountain pen",
+      "prop_action": "both cool porcelain-white gloved low-poly hands pull the silver cap off the fountain pen and align a wooden ruler down the middle of the soft-mint pad",
+      "consequence": "the ruler divides the soft-mint legal pad into two equal halves"
+    },
+    {
+      "sentence_index": 30,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed jacket sleeves and cool porcelain-white gloved low-poly hands holding the fountain pen against the wooden ruler",
+      "prop_action": "the matte-white gloved low-poly right hand draws one straight crisp ink line from top to bottom of the soft-mint sheet",
+      "consequence": "two clean columns stand ready side by side"
+    },
+    {
+      "sentence_index": 31,
+      "end_sentence_index": 32,
+      "act": 4,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed jacket sleeves and cool porcelain-white gloved low-poly hands sweeping aside a flimsy pastel-pink paper mask",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts and removes the flimsy pink mask while the other hand places solid brushed-silver balance weights onto the desk",
+      "consequence": "the solid brushed-silver weights rest firmly beside the two-column pad"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "tweed jacket cuff and wool cardigan cuff with cool porcelain-white gloved low-poly hands over the divided soft-mint pad",
+      "prop_action": "both clothed low-poly hands place a small glass test tube holder beside the soft-mint pad treating the grey token as a hypothesis",
+      "consequence": "the two-column pad works like a clean tabletop science bench"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool cardigan sleeve and matte-white gloved low-poly left hand over the left column of the soft-mint pad",
+      "prop_action": "the matte-white gloved low-poly left hand sets the single small grey storm token onto the left column and traces one short line beneath it",
+      "consequence": "the lone hallway guess sits isolated on the left side"
+    },
+    {
+      "sentence_index": 34,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed jacket sleeve and matte-white gloved low-poly right hand over the right column of the soft-mint pad",
+      "prop_action": "the matte-white gloved low-poly right hand places three solid warm-gold fact blocks neatly down the right column and taps each block",
+      "consequence": "three bright golden fact blocks outweigh the lone grey guess"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Philadelphia consulting desk with three golden fact blocks gleaming on the right side of the soft-mint pad",
+      "action": "viewed strictly from behind, the clothed low-poly patient in a wool cardigan rises upright in the armchair and points to the three golden blocks"
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL PREFRONTAL\nMENTAL SCRATCHPAD",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the upper-side forehead ridge of the matte warm-ivory 3D brain model, the dorsolateral prefrontal cortex lights up in bright sky-blue and sends a calming golden arc inward"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit university lecture room with wooden tiers where clothed low-poly clinicians in dark suits sit with arms folded",
+      "action": "viewed strictly from behind, the clothed low-poly psychiatrist in a tweed jacket stands at the slate-stone lectern holding up the divided soft-mint pad before the skeptical hall"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark suit cuffs and cool porcelain-white gloved low-poly hands waving away a small adhesive strip beside the soft-mint pad",
+      "prop_action": "one cool porcelain-white gloved low-poly hand pushes the tiny adhesive strip aside while another hand in tweed places thick clinical trial binders onto the slate-stone desk",
+      "consequence": "the heavy clinical data binders anchor the center of the desk"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands setting a soft-mint two-column pad beside an amber medicine bottle on a testing tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align the ruled notepad and the small amber bottle side by side on the clinical tray",
+      "consequence": "both treatments stand ready for head-to-head comparison"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright multi-desk clinical research center where clothed low-poly therapists and patients in cardigans work over two-column pads",
+      "action": "viewed strictly from behind, clothed low-poly researchers in white coats walk along the sunlit aisle collecting completed two-column sheets"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean twin-column pastel bar display comparing recovery heights for the notepad group and capsule group",
+      "internal_mechanism": "both sky-blue vertical bars rise smoothly side by side and lock at the exact same high level"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster pedestal table where a broad brushed-silver geometric shield stands before a clean golden lamp",
+      "comparison_action": "two matte-white gloved low-poly hands in blazer sleeves brace and angle the brushed-silver shield so rolling grey spheres bounce cleanly away leaving half the track clear"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit clinical research hall with the twin-bar display and stacks of two-column pads on the center table",
+      "action": "viewed strictly from behind, three clothed low-poly researchers in white coats and tweed jackets step forward and applaud beside the center table"
+    },
+    {
+      "sentence_index": 44,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA QUIETED\nEVIDENCE CALMS ALARM",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, a cool sky-blue pathway descends from the upper prefrontal ridge to the deep amygdala softening coral sparks into calm ivory"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "modern_cafe_table",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a warm sunlit neighborhood cafe table with a pocket notebook, silver pen, porcelain mug, and silent phone",
+      "action": "viewed strictly from behind, a clothed low-poly young adult in a casual jacket sits at the sunlit cafe table and opens the pocket notebook"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit cool-alabaster projection table holding a vintage pastel cinema reel projector beside a silent pocket phone",
+      "comparison_action": "two matte-white gloved low-poly hands in jacket sleeves turn and guide the pastel cinema reel smoothly as its ribbon unspools across two full reels"
+    },
+    {
+      "sentence_index": 47,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "modern_cafe_table",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "casual jacket sleeves and cool porcelain-white gloved low-poly hands reaching nervously toward the silent dark phone on the cafe table",
+      "prop_action": "the matte-white gloved low-poly left hand taps the silent phone glass then pulls back toward the pocket notebook",
+      "consequence": "a tiny coral indicator beside the phone pauses"
+    },
+    {
+      "sentence_index": 47,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "modern_cafe_table",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "casual jacket cuffs and cool porcelain-white gloved low-poly hands picking up the silver pen beside the silent phone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides the silent phone aside while the other hand lifts the silver pen over the open notebook",
+      "consequence": "the open pocket notebook takes focus in warm morning light"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pastel city crosswalk corner with crisp white stripes and a tall brushed-silver pedestrian lamp post",
+      "comparison_action": "viewed strictly from behind, a clothed low-poly pedestrian in a jacket stands calmly at the curb and steps forward cleanly when the lamp turns soft-sage green"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "modern_cafe_table",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "casual jacket sleeves and cool porcelain-white gloved low-poly hands ruling a crisp center line down the pocket notebook page",
+      "prop_action": "the matte-white gloved low-poly right hand draws a vertical ink line down the page and places one small grey dot on the left",
+      "consequence": "the right column opens wide and bright for factual reasons"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "modern_cafe_table",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "casual jacket cuffs and cool porcelain-white gloved low-poly hands writing three neat lines in the right notebook column",
+      "prop_action": "the matte-white gloved low-poly right hand sketches three crisp bullet lines in the right column and sets the silver pen calmly down",
+      "consequence": "three grounded alternative facts fill the sunlit page"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nCALM EVIDENCE AUDITOR",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front pole of the matte warm-ivory 3D brain model, the prefrontal cortex shines in steady amber-gold and sky-blue harmony"
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Philadelphia consulting room with the empty matte-slate couch in the background and the two-column soft-mint pad glowing on the slate-stone desk",
+      "action": "viewed strictly from behind, the clothed low-poly psychiatrist in a tweed jacket and patient in a cardigan rise and shake gloved hands across the desk"
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "upenn_consulting_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a soft sunlit Philadelphia campus walkway lined with autumn maples, pale-stone arches, and clear pastel-blue sky",
+      "action": "viewed strictly from behind, clothed low-poly figures in coats and cardigan jackets walk and step calmly along the sunlit walkway as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "TWO-COLUMN CURE?",
+    "cover_sentence_index": 3,
+    "cover_brief": "low-poly psychiatrist in tweed jacket drawing vertical line down yellow notepad across walnut desk before empty couch"
+  }
+}

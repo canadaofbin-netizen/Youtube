@@ -1,0 +1,676 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "shapiro_emdr_trauma_saccades",
+  "topic": "Francine Shapiro (1989) Bilateral Tracking Trauma Trial, Working-Memory Taxation in Dorsolateral Prefrontal Cortex, and Jinhee Baek (2019) Nature Brainstem-Thalamus-Amygdala Fear-Suppression Circuit (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Baek et al.'s 2019 Nature optogenetic proof showing alternating bilateral visual tracking drives midbrain orienting circuits and mediodorsal thalamus to silence basolateral amygdala fear cells and block relapse.",
+  "outro_title_lines": [
+    "SHAPIRO (1989) & BAEK (2019)",
+    "PALO ALTO & KAIST NATURE"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "MOVING LIGHT?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "EYE TRACKING BRAKE"
+    },
+    {
+      "sentence_index": 10,
+      "text": "PANIC DROPS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "MEMORY TAX"
+    },
+    {
+      "sentence_index": 28,
+      "text": "THREE-STEP WIRE"
+    },
+    {
+      "sentence_index": 36,
+      "text": "RELAPSE BLOCKED"
+    },
+    {
+      "sentence_index": 44,
+      "text": "SAFE GROUNDING"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "MOVING LIGHT?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "EYE TRACKING BRAKE"
+    },
+    {
+      "sentence_index": 10,
+      "text": "PANIC DROPS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "MEMORY TAX"
+    },
+    {
+      "sentence_index": 28,
+      "text": "THREE-STEP WIRE"
+    },
+    {
+      "sentence_index": 36,
+      "text": "RELAPSE BLOCKED"
+    },
+    {
+      "sentence_index": 44,
+      "text": "SAFE GROUNDING"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 15,
+      "mode": "split_hstack",
+      "left_clip_index": 16,
+      "right_clip_index": 17,
+      "left_label": "PLAIN TALK: HIGH",
+      "right_label": "TRACKING: CALM"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "clinical_tracking_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer sleeves and cool porcelain-white gloved low-poly hands beside a horizontal brushed-silver tracking rail",
+      "prop_action": "one cool porcelain-white gloved low-poly hand presses a silver start switch while the other hand guides a soft powder-blue light sphere smoothly along the cool slate rail",
+      "consequence": "the soft powder-blue light sphere glides cleanly from left to right across the rail"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "clinical_tracking_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a calm sunlit pastel therapy room with two cool slate-gray armchairs facing a horizontal brushed-silver tracking rail",
+      "action": "viewed strictly from behind a faceless matte cool-porcelain low-poly head and slate-sweatered shoulders, the soft powder-blue light sphere sweeps smoothly left to right as the figure relaxes its shoulders"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "kaist_circuit_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands over an unmarked frosted glass wave console",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide a mint-sage rhythm bar across the console so jagged rose-coral peaks flatten into a smooth horizontal line",
+      "consequence": "a calm flat mint-sage trace stretches cleanly across the frosted glass panel"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "clinical_tracking_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands over a smooth unmarked ceramic slider bar",
+      "prop_action": "both cool porcelain-white gloved low-poly hands pull a rose-coral slider block from the top notch all the way down to the bottom mint-sage notch and lock it",
+      "consequence": "the slider block rests calmly at the lowest mint-sage position"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "clinical_tracking_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the bright pastel clinical suite with cool limestone walls, two slate armchairs, and the horizontal tracking rail",
+      "action": "viewed strictly from behind the faceless matte cool-porcelain patient head and clinician in a navy blazer and boots, the clinician's cool porcelain-white gloved low-poly hand sweeps smoothly left to right above the slate rail"
+    },
+    {
+      "sentence_index": 4,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "clinical_tracking_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a quiet pastel therapy corner with a single slate armchair beside an unmoving gray stand",
+      "action": "viewed strictly from behind, a clothed low-poly patient in a powder-blue sweater, slacks, and boots leans forward tense in the slate armchair and grips both armrests tightly"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "park_walk_promenade",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright cool-limestone park walkway lined on both sides by neat alternating rows of pastel mint-sage trees",
+      "action": "viewed strictly from behind, a clothed low-poly psychologist in a slate jacket, trousers, cap, and boots walks briskly along the limestone path past the alternating mint-sage tree trunks"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster court holding a matte powder-blue ping-pong table divided by a crisp white mesh net",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in slate sleeves holding mint-sage paddles swing and tap a matte-white sphere smoothly left and right across the net"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a bright cool-limestone seminar classroom arranged with neat rows of slate-gray desks and twenty-two miniature porcelain figures",
+      "comparison_action": "viewed strictly from behind, a clothed low-poly instructor in a navy blazer and boots steps before the front slate desk and sets two mint-sage group trays side by side"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "clinical_tracking_suite",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge beside a plain tick-only chronometer dial without numbers",
+      "prop_action": "one cool porcelain-white gloved low-poly hand clicks the silver chronometer button while the other hand slides the horizontal powder-blue light sphere to center rest",
+      "consequence": "the plain tick-only chronometer hand completes one clean arc without numbers"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "clinical_tracking_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright pastel therapy room with the horizontal silver tracking rail switched off and dark",
+      "action": "viewed strictly from behind a faceless matte cool-porcelain low-poly head and gray-sweatered shoulders, the figure sits motionless before the dark unlit rail and clasps both gloved hands tightly"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nFEAR ALARM",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, the deep almond-shaped amygdala pulses intensely with muted rose-coral alarm light"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool slate-gray studio pedestal supporting a domed muted rose-coral alarm siren bell with brushed-silver striker arms",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves press the test lever as the brushed-silver striker swings and taps rapidly against the rose-coral siren bell"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a tall cool-limestone arch suspending a sleek brushed-silver pendulum bob over a powder-blue stone base",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in navy sleeves release the brushed-silver pendulum bob so it swings in a calm even arc left to right"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "tilt_down",
+      "analogy_world": "a cool slate countertop holding a matte powder-blue ceramic tea kettle resting on an unlit stone trivet",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in cardigan sleeves lift the kettle off the heater ring and set it onto the cool stone trivet as wispy steam subsides"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "clinical_tracking_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands over the left unmarked ceramic slider track",
+      "prop_action": "both cool porcelain-white gloved low-poly hands tap a tall rose-coral bar column stuck near the top of the left unmarked ceramic track",
+      "consequence": "the left rose-coral bar column stays high and unchanged"
+    },
+    {
+      "sentence_index": 15,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "clinical_tracking_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands over the right unmarked ceramic slider track",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide the right indicator block smoothly down to a flat mint-sage floor bar",
+      "consequence": "the right indicator settles quietly at the bottom mint-sage base"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "clinical_tracking_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved low-poly hands over a cool limestone tray of blank geometric memory tiles",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift a rose-coral shell off a stack of intact blank porcelain tiles and set the calm white tiles neatly in line",
+      "consequence": "every blank porcelain memory tile remains intact in neat order without alarm tint"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a cool slate-gray miniature theater stage with pastel lavender curtains and a matte-silver top hat prop on a stand",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in dark sleeves tip the matte-silver top hat prop open and slide it aside on the slate stage"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "kaist_circuit_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a bright neuroscience seminar room with two debating groups of clothed low-poly scientists flanking a matte porcelain brain sculpture",
+      "action": "viewed strictly from behind, clothed low-poly researchers in lab coats, blazers, and boots step toward the central slate bench and remove a false bridge wire between the brain halves"
+    },
+    {
+      "sentence_index": 19,
+      "end_sentence_index": 20,
+      "act": 3,
+      "location_id": "clinical_tracking_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a modern cognitive laboratory with a horizontal powder-blue light rail mounted in front of a cool slate chair",
+      "action": "viewed strictly from behind a faceless matte cool-porcelain low-poly head and navy-jacketed shoulders, a researcher in a white lab coat and boots slides the powder-blue sphere briskly left and right along the rail"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "kaist_circuit_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a bounded cool-limestone tray holding exactly four recessed square slots for pastel geometric blocks",
+      "internal_mechanism": "three powder-blue tracking cubes slide into three of the four slots leaving room for only one small pale-rose cube"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL PFC\nMENTAL SCRATCHPAD",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the upper lateral forehead surface of the matte cool-porcelain 3D brain model, soft powder-blue light fills the dorsolateral prefrontal cortex"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool slate-gray desk holding a brushed-silver dual-antenna Wi-Fi router feeding two translucent glass tubes",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in shirt sleeves push and slide a second powder-blue data cable into the silver router so the rose-coral flow in the first tube drops low"
+    },
+    {
+      "sentence_index": 24,
+      "end_sentence_index": 25,
+      "act": 3,
+      "location_id": "clinical_tracking_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "powder-blue blazer sleeves and cool porcelain-white gloved low-poly hands over a smooth ceramic storage tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands swap a vivid rose-coral prism for a soft pale-lavender prism and slide it calmly into the ceramic storage slot",
+      "consequence": "the pale-lavender prism rests muted and calm inside the ceramic tray"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-limestone bridge arch connecting a classic slate pavilion on the left to a modern frosted-glass lab pavilion on the right",
+      "comparison_action": "viewed strictly from behind, a clothed low-poly scientist in a white coat, cap, and boots walks across the limestone arch and sets a silver relay model inside the modern pavilion"
+    },
+    {
+      "sentence_index": 27,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "kaist_circuit_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place a clear acrylic cylindrical arena ringed with unlit silver light strips onto a cool slate lab bench",
+      "consequence": "soft powder-blue light bars illuminate sequentially left and right around the cylinder rim"
+    },
+    {
+      "sentence_index": 27,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "kaist_circuit_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright modern neuroscience laboratory centered on a cool slate-gray bench holding the clear acrylic alternating-light cylinder",
+      "action": "viewed strictly from behind, two clothed low-poly neuroscientists in white lab coats, trousers, and boots lean toward the clear acrylic cylinder as powder-blue lights alternate left and right"
+    },
+    {
+      "sentence_index": 28,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "kaist_circuit_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands beside a brushed-silver rhythm controller",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand turns a plain tick-only silver dial without numbers while the left hand taps the alternating left-right mode switch",
+      "consequence": "twin powder-blue indicator bars alternate cleanly left and right"
+    },
+    {
+      "sentence_index": 28,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "kaist_circuit_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a close elevated view of the clear acrylic cylinder on the cool slate bench ringed by left-right powder-blue light strips",
+      "action": "viewed from behind a scientist's white lab coat sleeve, a matte cool-porcelain faceted low-poly miniature mouse sculpture turns its smooth geometric head calmly left and right toward the alternating powder-blue bars"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a calm powder-blue harbor mole flanking a channel with twin matte-white limestone lighthouse beacons",
+      "comparison_action": "the left limestone beacon sweeps a soft mint-sage light cone inward and dims as the right limestone beacon sweeps its matching mint-sage cone in smooth alternation"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "kaist_circuit_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved low-poly hands comparing two unmarked frosted glass wave tiles",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides aside a jagged rose-coral flicker tile while the other hand locks a flat calm mint-sage alternating tile in center view",
+      "consequence": "the flat mint-sage trace sits steady on the cool slate stand"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "kaist_circuit_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a three-step architectural relay bridge on a cool limestone base linking an upper orienting gate through a middle hub into a lower alarm chamber",
+      "internal_mechanism": "rhythmic powder-blue spheres pass through the upper gate and middle hub to close a mint-sage damper lid over the lower rose-coral chamber"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "brainstem",
+      "anatomy_label": "BRAINSTEM\nORIENTING REFLEX",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, soft powder-blue pulses activate the upper brainstem orienting hub"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "thalamus",
+      "anatomy_label": "THALAMUS\nRELAY STATION",
+      "camera": "tilt_up",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, soft powder-blue signals rise from the brainstem into the central oval thalamus"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nFEAR SILENCED",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, a soft mint-sage inhibitory stream from the thalamus cools the almond-shaped amygdala from rose-coral to calm ivory"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "kaist_circuit_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands over three sequential unmarked pastel day blocks on a slate tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align three low calm mint-sage bars across all three sequential day blocks and tap the final block",
+      "consequence": "all three sequential blocks stay flat and calm without any rose-coral rebound"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "kaist_circuit_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright modern neuroscience laboratory with the clear acrylic cylinder and a calm mint-sage wave wall",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in white lab coats and boots watch the matte cool-porcelain miniature mouse sculpture walk freely across the calm acrylic floor"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool limestone mechanical bench mounting three interlocking matte powder-blue and mint-sage gears coupled to a silver brake caliper",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves turn the first powder-blue gear so the middle mint-sage gear drives the third brake pad smoothly against a spinning silver disc"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "kaist_circuit_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand lifts a silver bridge link out of a three-node circuit model while the left hand holds the base",
+      "consequence": "the third rose-coral block immediately pops back upright when the relay link disconnects"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "kaist_circuit_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands reconnecting the silver relay bridge",
+      "prop_action": "both cool porcelain-white gloved low-poly hands snap the silver relay link back into the center slot and press it flush",
+      "consequence": "the third block settles smoothly back down into calm mint-sage position"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "clinical_tracking_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright international medical council hall with curved cool-limestone desks and a central matte porcelain brain emblem",
+      "action": "viewed strictly from behind, clothed low-poly clinicians in navy suits, coats, and boots stand in agreement around the central limestone table holding two mint-sage protocol folders"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "kaist_circuit_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a dual-path architectural model joining an upper powder-blue workspace channel and a lower mint-sage relay channel onto one calm central basin",
+      "internal_mechanism": "both smooth pastel streams converge simultaneously to quiet ripples inside the central basin"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "park_walk_promenade",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright cool-limestone park walkway lined with alternating pastel mint-sage trees under clear diffused daylight",
+      "action": "viewed strictly from behind, a clothed low-poly researcher in a slate coat, hat, and boots walks beside a limestone bench and places a silver tracking rail model next to a porcelain brain cast"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "kaist_circuit_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved low-poly hands over the slate lab bench",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align three glowing mint-sage prism blocks along a smooth limestone channel",
+      "consequence": "a continuous calm powder-blue line connects all three prism blocks"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "kaist_circuit_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright neuroscience laboratory with the three-node pastel brain sculpture illuminated softly on the slate table",
+      "action": "viewed strictly from behind, three clothed low-poly scientists in lab coats, slacks, and boots stand still around the slate table and lean slightly forward toward the calm model"
+    },
+    {
+      "sentence_index": 43,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "clinical_tracking_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands beside the horizontal silver tracking rail",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide the soft powder-blue light sphere gently to the center stop and switch the rail to standby",
+      "consequence": "the horizontal tracking rail glows with a calm steady mint-sage center dot"
+    },
+    {
+      "sentence_index": 43,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "clinical_tracking_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the calm sunlit clinical therapy suite with tall windows and cool slate armchairs",
+      "action": "viewed strictly from behind a faceless matte cool-porcelain patient head in a powder-blue sweater and clinician in a navy blazer, the patient rests relaxed hands openly on the armrests"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "park_walk_promenade",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright open limestone park overlook facing a calm powder-blue lake and soft sage hills",
+      "action": "viewed strictly from behind, a clothed low-poly walker in a mint-sage jacket, trousers, cap, and boots stands at the stone railing and looks across the wide horizon"
+    },
+    {
+      "sentence_index": 45,
+      "end_sentence_index": 46,
+      "act": 6,
+      "location_id": "clinical_tracking_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the reassuring sunlit clinical suite with two angled cool slate armchairs separated by a small limestone side table",
+      "action": "viewed strictly from behind, a clothed low-poly clinician in a navy blazer and boots welcomes a clothed low-poly visitor in a powder-blue coat and gestures calmly to the armchair"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nFROZEN LOOP",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, muted rose-coral tension lingers inside the amygdala before cooling"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool limestone bench holding a pyramid-shaped matte powder-blue mechanical metronome with a plain tick-only silver pendulum arm without numbers",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in jacket sleeves release the silver metronome latch so the pendulum arm ticks smoothly left and right in steady cadence"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nPRESENT SAFETY",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front third of the matte cool-porcelain 3D brain model, calm powder-blue and mint-sage light fills the prefrontal cortex smoothly"
+    },
+    {
+      "sentence_index": 50,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "park_walk_promenade",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage jacket sleeves and cool porcelain-white gloved low-poly hands swinging gently at the bottom frame edges above a limestone path",
+      "prop_action": "both cool porcelain-white gloved low-poly hands swing naturally in alternating walking rhythm as booted low-poly feet step forward onto sunlit limestone pavers",
+      "consequence": "pastel mint-sage park trees glide steadily past both sides of the open path"
+    },
+    {
+      "sentence_index": 50,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "park_walk_promenade",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a wide sunlit limestone park trail flanked by pastel sage trees beside a calm powder-blue pond",
+      "action": "viewed strictly from behind, two clothed low-poly friends in pastel jackets, caps, trousers, and boots walk steadily forward side by side along the open trail"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "park_walk_promenade",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit limestone park pathway winding through soft mint-sage hills",
+      "action": "viewed strictly from behind, the two clothed low-poly walkers in jackets, caps, and boots stride calmly down the bright open trail with relaxed shoulders"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "park_walk_promenade",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a peaceful sunlit limestone park promenade lined with mint-sage trees rising into a wide powder-blue sky with soft white geometric clouds",
+      "action": "viewed strictly from behind, clothed low-poly walkers in pastel coats, caps, and boots walk steadily along the sunlit path as the camera tilts smoothly upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "EYE TRACKING BRAKE",
+    "cover_sentence_index": 3,
+    "cover_brief": "rear over-shoulder view of faceless matte cool-porcelain low-poly figure watching a soft powder-blue light sphere glide across a silver rail"
+  }
+}

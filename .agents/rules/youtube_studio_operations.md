@@ -9,21 +9,24 @@ Studio scheduling values are owned here (source: `pipeline/studio/config.py`); p
 ## R30 — North American 5-Slot Timetable & 3-Notification Cap
 YouTube allows at most 3 subscriber push notifications per rolling 24 h. Slots 1, 3, 4 notify; slots 2 and 5 are feed-only.
 
-| Slot | US ET | KST | `notify_subscribers` | Pillars (`PILLAR_SLOT_MAP`) |
+| Slot | US ET (`America/New_York`) | KST (`Asia/Seoul`, EDT / EST) | `notify_subscribers` | Pillars (`PILLAR_SLOT_MAP`) |
 |---|---|---|---|---|
-| 1 | 07:30 | 21:30 | True | `brain_health` |
-| 2 | 12:00 | 02:00 (+1d) | False | `bci_tech`, `brain_news` |
-| 3 | 16:00 | 06:00 (+1d) | True | `brain_basics`, `brain_mysteries` |
-| 4 | 20:00 | 09:00 (+1d) | True | `brain_history` |
-| 5 | 22:30 | 12:30 (+1d) | False | `bci_ethics` |
+| 1 | 07:30 | 20:30 / 21:30 | True | `brain_health` |
+| 2 | 12:00 | 01:00 / 02:00 (+1d) | False | `bci_tech`, `brain_news` |
+| 3 | 16:00 | 05:00 / 06:00 (+1d) | True | `brain_basics`, `brain_mysteries` |
+| 4 | 20:00 | 09:00 / 10:00 (+1d) | True | `brain_history` |
+| 5 | 22:30 | 11:30 / 12:30 (+1d) | False | `bci_ethics` |
 
-**R30-B — Seed-audience protection (`StagingQueueManager.enforce_seed_protection_window`):** never publish 2+ Shorts at the same timestamp; keep ≥ 4.0 h between public releases; channels under 10,000 subscribers enforce `daily_prime_only=True` (scheduling only into prime Slots 2 `12:00 ET / 16:00 UTC` and 4 `20:00 ET / 00:00 UTC +1d`, spaced by 8 hours) and keep the rest staged as unlisted.
+**R30-B — Seed-audience protection & DST-aware scheduling (`StagingQueueManager.enforce_seed_protection_window`):** never publish 2+ Shorts at the same timestamp; keep ≥ 4.0 h between public releases; channels under 10,000 subscribers enforce `daily_prime_only=True` (scheduling only into prime Slots 2 `12:00 ET` and 4 `20:00 ET`, spaced by 8 hours, dynamically converted from `ZoneInfo("America/New_York")` into the browser's `ZoneInfo("Asia/Seoul")` local schedule picker across US DST transitions) and keep the rest staged as unlisted.
 
-## R31 — Thumbnails (`PublishStage`)
-Three visually distinct portrait variants (`thumbnail_var_A.png` cool blue, `B` crimson alert, `C` emerald/gold question), each > 80 KB, pairwise background diff ≥ 15.0. Optional `--burn-first-frame` prepends variant A as frame 0.
+**Pre-Upload QA Bundle Lock (`verify_publish_ready_qa_bundle`):** `StudioUploader` and `StagingQueueManager` block uploading or queueing any Short unless `05_assembly/final_shorts_1080x1920.mp4` passes SHA-256-bound `video_autopsy_report.json` (`passed == True`), and for `neuro_diorama` projects also `dynamic_episode_qa_report.json` (`DQ1–DQ12` `passed == True`), `posthoc_semantic_qa_report.json` (`R64` `passed == True`), `posthoc_semantic_review.json` (`valid == True`), and SHA-256-bound `06_publish/thumbnail_report.json` (`R65` `TQ1–TQ7` `passed == True` on production builds).
 
-## R32 — 72 h Sequential A/B/C Z-Test (`ThumbnailABTester`)
-A (0–24 h) → B (24–48 h) → C (48–72 h). `evaluate_significance` runs a two-proportion Z-test on CTR; |Z| > 1.96 (p < 0.05) locks the winner.
+## R31 — Thumbnails & In-Video Cover Frame (`thumbnail_studio` / `PublishStage`)
+- **Flagship `neuro_diorama` Shorts (`R65`, `pipeline/thumbnail_studio.py`)**: Scores clean frames across every eligible EDL cut (`THUMB_CANDIDATE_SAMPLES_PER_CUT`, excluding `THUMB_EXCLUDE_MODES` and outro), selects top-3 visually distinct cuts (`thumbnail_var_A/B/C.png`, each `> THUMB_MIN_FILE_BYTES`, pairwise ROI diff `>= THUMB_MIN_PAIRWISE_DIFF`), overlays the hand-authored `visual_plan.thumbnail.hook_text` in bundled `AABCondensed-Black` (`THUMB_HOOK_STROKE_PX` dark stroke + soft halo, zero legacy v6 boxes/pills), and enforces `TQ1–TQ7` (`06_publish/thumbnail_report.json` + `thumbnail_contact_sheet.png`). When desktop Studio locks custom Shorts thumbnail uploads, `upload_receipt.json` records `cover_frame_sec` (aligned with the cold-open stamp headline) for 1-tap mobile frame selection. `--burn-first-frame` is deprecated and skipped on `neuro_diorama` to protect the `R57-H2` cold-open.
+- **Legacy v4/v5 (`PublishStage`)**: Retains three portrait variants (`A`, `B`, `C`) for backward compatibility.
+
+## R32 — Sequential A/B/C Z-Test (`ThumbnailABTester` — Long-Form Only)
+Desktop YouTube Studio disables custom thumbnail swapping on Shorts (`<= SHORTS_HARD_CEILING_SEC`). `ThumbnailABTester.swap_to_variant` returns `status: "not_applicable_shorts"` without opening CDP on Shorts; `evaluate_significance` (two-proportion Z-test, `|Z| > 1.96`, `p < 0.05`) is reserved for long-form documentaries (`> SHORTS_HARD_CEILING_SEC`). Shorts cover optimization accumulates cross-episode hook/grammar telemetry in `BCI_Shorts_Channel/knowledge_base/`.
 
 ## R33 — Unlisted Staging Vault
 Upload as `unlisted` ≥ 24 h before publication so transcoding and suitability checks finish (`upload_receipt.json`).
@@ -31,16 +34,16 @@ Upload as `unlisted` ≥ 24 h before publication so transcoding and suitability 
 ## R34 — Zero-Duplicate & v5-Gated Queue
 `StagingQueueManager` (`BCI_Shorts_Channel/staging_queue.json`) never assigns the same `project_id` to two slots, preserves already-published releases (`published_public` / `published`) in `history`, and blocks legacy v4 drafts (`passes_v5_publish_gate`) from automatic staging unless `--allow-legacy-v4` is explicitly passed.
 
-## R35 — Pinned Editorial Case & DOI Comment (`CommunityManager`)
-Post and pin a top editorial commentary comment (`community_receipt.json`) designed so viewers read the full study context while the Short loops in the background:
+## R35 — Pinned Editorial Case & DOI Comment (`CommunityManager` — `YouTube Natural Script` Tone)
+Post and pin a top editorial commentary comment (`community_receipt.json`) written in **human-sounding, ear-first conversational US English** (adapted from `/natural_script`: zero AI-essay clichés, zero stiff medical jargon like *rostrocaudal resection* or *efference-copy*, smooth `—` explanatory clauses) so viewers read the full study story while the Short loops in the background:
 - **Zero emojis/icons and zero bullet points (`•`)** in the comment body.
-- **Line 1 Header**: `[Headline of the Clinical Case or Experiment]`
-- **5 Short Editorial Paragraphs** (1–2 sentences each, separated by blank lines, ~110–150 words total):
-  1. **Overview / Phenomenon**: What clinical case or neuroscience experiment is drawing attention and what core phenomenon it reveals.
-  2. **Experimental Method**: According to the peer-reviewed study (`Author, Year, Journal`), how the researchers conducted the experiment or tested the patient.
-  3. **Striking Scene / Neural Mechanism**: The specific test outcome or brain circuit transition that stood out during the study.
-  4. **Scientific Nuance / Clarification**: What the finding actually means neurobiologically versus common misconceptions.
-  5. **Takeaway + DOI + Viewer Question**: 1-sentence conclusion, clean citation line (`Source: https://doi.org/<doi>`), and one natural viewer question (`social_comment_trigger`).
+- **Line 1 Header**: `[Concise, Complete Case Headline — never mid-word truncated]`
+- **5 Short Conversational Paragraphs** (1–2 sentences each, separated by blank lines, ~110–155 words total):
+  1. **Overview / Phenomenon**: Concrete human story & what makes the clinical case or experiment astonishing.
+  2. **Experimental Method**: Cleanly attributed peer-reviewed study (`Author, Year, Journal` parsed accurately from `citation` or `authors`) explaining in plain language what the team actually tested.
+  3. **Striking Scene / Neural Mechanism**: The most memorable concrete moment from the experiment and the brain pathway behind it.
+  4. **Myth vs. Reality**: What people usually assume versus what the data actually proved, explained conversationally without textbook jargon.
+  5. **Everyday Takeaway + DOI + Debate Question**: 1-sentence human takeaway, clean citation line (`Source: https://doi.org/<doi>`), and a **specific A-vs-B or concrete personal-choice debate question** (`social_comment_trigger`) that invites immediate viewer replies.
 
 ## R35-B — Short-to-Short `Related video` & 7-Pillar Playlist Ring (`ShortLinkGraph`, `StudioShortLinker`)
 - **4-Axis Affinity & Seed-Rescue Ring (`pipeline/studio/short_linker.py`)**: Scores candidate links across canonical neuroanatomy (`0.40`), pillar/visual-mode (`0.25`), lexical/psychological mechanism (`0.20`), and retention quality (`0.15`), redistributing anatomy weight onto pillar + lexical axes when either Short uses `BEHAVIORAL_PSYCH` (R45). `seed_boost` alternates high-view Anchors (`views >= ANCHOR_MIN_VIEWS`) and seed-starved high-retention Shorts (`impressions <= SEED_STARVED_MAX_IMPRESSIONS`) into a closed Hamiltonian ring with zero 2-cycles (`two_cycle_count == 0` for `N >= 3`), prioritizing `published_longform_video_id` when a parent longform documentary is live.

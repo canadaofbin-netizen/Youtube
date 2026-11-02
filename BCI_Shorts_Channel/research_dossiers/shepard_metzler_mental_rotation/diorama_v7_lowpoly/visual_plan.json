@@ -1,0 +1,658 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "shepard_metzler_mental_rotation",
+  "topic": "Roger Shepard & Jacqueline Metzler (1971) 10-Cube 3D Mental Rotation, Linear 60-Degrees-Per-Second Slope, and Parietal-Premotor Simulation (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Neuroimaging and spatial training proving parietal and premotor hand circuits physically simulate 3D block rotation.",
+  "outro_title_lines": [
+    "SHEPARD & METZLER (1971)",
+    "STANFORD UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "INSTANT IMAGE?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "MIND'S EYE SPEED"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FOUR SEC FLIP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "STRAIGHT LINE"
+    },
+    {
+      "sentence_index": 28,
+      "text": "INVISIBLE HANDS"
+    },
+    {
+      "sentence_index": 36,
+      "text": "TRAINABLE SPACE"
+    },
+    {
+      "sentence_index": 44,
+      "text": "TURN IT REAL"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "INSTANT IMAGE?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "MIND'S EYE SPEED"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FOUR SEC FLIP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "STRAIGHT LINE"
+    },
+    {
+      "sentence_index": 28,
+      "text": "INVISIBLE HANDS"
+    },
+    {
+      "sentence_index": 36,
+      "text": "TRAINABLE SPACE"
+    },
+    {
+      "sentence_index": 44,
+      "text": "TURN IT REAL"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 12,
+      "mode": "split_hstack",
+      "left_clip_index": 14,
+      "right_clip_index": 15,
+      "left_label": "MATCHED PAIR",
+      "right_label": "MIRROR TWIN"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed jacket sleeves and cool porcelain-white gloved low-poly hands over a cool slate-stone bench",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift and set two cool mist-white ten-cube L-shaped sculptures onto brushed-silver pedestals",
+      "consequence": "the two asymmetric ten-cube sculptures rest angled apart in crisp daylight"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit cool mist-white Stanford psychology laboratory with a twin-circle display hood, response levers, and cool slate-stone desks",
+      "action": "viewed strictly from behind, a clothed low-poly volunteer in a sage-green sweater sits before the twin-circle screen and rests hands on silver levers"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored blazer cuffs and cool porcelain-white gloved low-poly hands at a brushed-silver turntable stand",
+      "prop_action": "cool porcelain-white gloved low-poly hands grip and rotate the right cool mist-white ten-cube sculpture smoothly through steady degree ticks",
+      "consequence": "a brushed-silver timer needle sweeps steadily as the ten-cube elbow aligns"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright Stanford cognitive lab with two clothed low-poly researchers beside a tall brushed-silver diagonal step-bar stand",
+      "action": "viewed strictly from behind, two clothed low-poly scientists in slate-blue blazers step beside the console and align a ten-cube model with the twin-circle screen"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "gentle_push_in",
+      "structure": "a clean architectural side cutaway of the cool mist-white viewing console linking the twin-circle block screen, twin silver levers, and rising step-bar rack",
+      "internal_mechanism": "pulling the right silver lever locks a mint-sage timing bar along a straight ascending diagonal rail"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "pastel_design_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a cool powder-blue lecture room with slate-stone tables and plain geometric cube sets",
+      "action": "elevated wide view from behind as clothed low-poly scholars in gray jackets step forward and cover a hollow translucent cube frame with a slate lid"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "pastel_design_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "gray jacket sleeves and cool porcelain-white gloved low-poly hands extending over a cool slate-stone desk",
+      "prop_action": "cool porcelain-white gloved low-poly hands close a blank powder-blue folder over a faint wireframe cube outline and push it aside",
+      "consequence": "only a mechanical silver lever box remains on the slate-stone desk"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "pastel_design_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "knit cuffs and cool porcelain-white gloved low-poly hands holding an unlined brushed-silver straightedge",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift and hold the brushed-silver straightedge above an empty powder-blue cloud sculpture",
+      "consequence": "the silver straightedge finds nothing solid to rest against in midair"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "the sunlit Stanford test bay with eight cool mist-white chairs arranged neatly beside the viewing console",
+      "action": "viewed strictly from behind, clothed low-poly researchers in blazers walk down the row and set ten-cube test models on the slate-stone counter"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-blue blazer sleeves and cool porcelain-white gloved low-poly hands beside a tray of smooth pastel geometric slides",
+      "prop_action": "cool porcelain-white gloved low-poly hands slide and stack neat rows of blank powder-blue view plates beside the optical hood",
+      "consequence": "tall neat stacks of pastel plates line the cool slate-stone bench"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "white shirt cuffs and cool porcelain-white gloved low-poly hands over a cool mist-white pedestal",
+      "prop_action": "cool porcelain-white gloved low-poly hands place two crisp powder-blue ten-cube elbow sculptures side by side at different tilts",
+      "consequence": "the two ten-cube arms cast clean geometric shadows across the cool mist-white base"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "blazer sleeves and cool porcelain-white gloved low-poly hands holding a brushed-silver tick-mark stopwatch",
+      "prop_action": "cool porcelain-white gloved low-poly hands press the top silver crown and align the stopwatch beside two response levers",
+      "consequence": "the silver sweep hand glides smoothly around the clean tick-mark ring"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "PRIMARY VISUAL CORTEX\nSIGHT SCREEN",
+      "camera": "gentle_push_in",
+      "brain_scene": "at the rear occipital pole of the matte-pastel 3D cortical brain model, the powder-blue primary visual cortex lights softly and sends twin geometry ribbons upward"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white cuffs and cool porcelain-white gloved low-poly hands over a cool slate-stone mat",
+      "prop_action": "cool porcelain-white gloved low-poly hands rotate two matching mint-sage ten-cube blocks until every elbow aligns flush",
+      "consequence": "both mint-sage ten-cube sculptures lock into identical orientation"
+    },
+    {
+      "sentence_index": 12,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white cuffs and cool porcelain-white gloved low-poly hands over a cool slate-stone mat",
+      "prop_action": "cool porcelain-white gloved low-poly hands turn a muted-coral mirror ten-cube block whose top elbow juts the opposite way",
+      "consequence": "the chiral mirror twin refuses to align with the reference sculpture"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool slate-stone kitchen counter with a brushed-silver skillet beside a flipped powder-blue ten-cube sculpture",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in white coat sleeves grip the silver handle and flip a smooth pastel disc cleanly upside down through a full half-turn"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green sweater sleeves and cool porcelain-white gloved low-poly hands poised on left and right brushed-silver levers",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand grips and pulls the right silver lever cleanly toward the chest",
+      "consequence": "a soft mint-sage indicator light glows above the right lever slot"
+    },
+    {
+      "sentence_index": 15,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green cuffs and cool porcelain-white gloved low-poly hands at the silver lever box",
+      "prop_action": "as two upright ten-cube shapes appear aligned, the right cool porcelain-white gloved low-poly hand snaps the lever back right away",
+      "consequence": "a short mint-sage bar rises on the left end of the graph stand"
+    },
+    {
+      "sentence_index": 15,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the cool mist-white viewing booth showing two ten-cube shapes upside down on the twin-circle screen",
+      "action": "viewed strictly from behind, the clothed low-poly volunteer in a sage-green sweater tilts their head slightly and pulls the right lever after a steady pause"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "tilt_up",
+      "analogy_world": "a sleek miniature powder-blue glass elevator cab gliding up four floors of a cool mist-white architectural tower beside a rotating ten-cube block",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in white coat sleeves hold and brace the base as the miniature pastel elevator cab rises smoothly from floor one to floor four"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright Stanford lab with ten-cube block models lined in progressive angle steps across a cool slate-stone bench",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in blazers lean over the progressive row and trace each intermediate tilt"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "pastel_design_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the cool powder-blue seminar room with a brushed-silver logic rack beside the ascending mint-sage bar stand",
+      "action": "elevated wide view from behind as clothed low-poly theorists in dark jackets step back and stare at the steep diagonal bar climb"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored wool blazer cuffs and cool porcelain-white gloved low-poly hands at a brushed-silver pegboard chart",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift and place nine progressive mint-sage peg bars across equal horizontal slots",
+      "consequence": "the tops of the nine mint-sage bars form a razor-straight diagonal slope"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "wool blazer sleeves and cool porcelain-white gloved low-poly hands holding a brushed-silver straightedge",
+      "prop_action": "cool porcelain-white gloved low-poly hands lay the brushed-silver straightedge cleanly across all nine rising mint-sage bar tips",
+      "consequence": "every single bar tip touches the straight silver edge without a gap"
+    },
+    {
+      "sentence_index": 21,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a semicircular brushed-silver degree arc cradling a powder-blue ten-cube sculpture across six intermediate angle stops",
+      "internal_mechanism": "the powder-blue ten-cube sculpture pivots smoothly through every intermediate cradle stop without skipping a single notch"
+    },
+    {
+      "sentence_index": 21,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tweed cuffs and cool porcelain-white gloved low-poly hands guiding the semicircular silver cradle",
+      "prop_action": "cool porcelain-white gloved low-poly hands rotate and glide the powder-blue ten-cube sculpture continuously from left rest to right rest",
+      "consequence": "the sculpture settles cleanly into final alignment at the end of the arc"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool limestone lobby model featuring a four-wing frosted powder-blue revolving glass door beside a turning ten-cube sculpture",
+      "comparison_action": "viewed strictly from behind, a clothed low-poly figure in a slate-gray coat pushes and walks through one steady sixty-degree wing turn of the frosted revolving door"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a bright cool slate-stone inspection table holding a pristine frosted powder-blue glass pane with one tiny corner nick",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in white coat sleeves hold and tilt the smooth frosted glass pane so light catches only the tiny corner scratch"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nSPATIAL WORKSPACE",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper crown of the matte-pastel 3D cortical brain model, the superior parietal cortex glows in soft mint-sage as a smooth geometric ribbon arcs forward"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "blazer cuffs and cool porcelain-white gloved low-poly hands over two parallel brushed-silver diagonal rails",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift and align a powder-blue depth-rotation slope bar directly onto a mint-sage flat-rotation slope bar",
+      "consequence": "both diagonal slope bars match at the exact same angle"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Stanford laboratory with three large cool mist-white ten-cube sculptures suspended on thin silver gimbals",
+      "action": "viewed strictly from behind, a clothed low-poly scientist in a tweed jacket grips and turns the middle ten-cube gimbal smoothly in full depth"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sweater cuffs and cool porcelain-white gloved low-poly hands hovering in midair before the twin-circle screen",
+      "prop_action": "both cool porcelain-white gloved low-poly hands mime grasping and turning an invisible block clockwise in midair",
+      "consequence": "the right-hand ten-cube outline on the screen aligns in parallel"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "pastel_design_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a modern cool mist-white neuroimaging room with a pastel cylindrical scanner arch and slate-stone control console",
+      "action": "viewed strictly from behind, two clothed low-poly neuroscientists in white coats step beside the console and point to dual glowing zones on a brain display"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "pastel_design_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands over a cool mist-white brain relief panel",
+      "prop_action": "cool porcelain-white gloved low-poly hands trace forward from the rear visual pole up toward the frontal motor strip",
+      "consequence": "both upper spatial and frontal motor zones light in soft pastel tones"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "premotor cortex",
+      "anatomy_label": "PREMOTOR CORTEX\nMOVEMENT PLANNER",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the dorsal frontal curve of the matte-pastel 3D cortical brain model, the powder-blue premotor cortex exchanges a steady mint-sage ribbon with the parietal crown"
+    },
+    {
+      "sentence_index": 31,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-gray shirt cuffs and cool porcelain-white gloved low-poly hands on a cool slate-stone test desk",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift and set a smooth round brushed-silver rotary knob beside the twin-circle screen",
+      "consequence": "the silver knob spins freely on its low-friction bearing"
+    },
+    {
+      "sentence_index": 31,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the cool mist-white test station pairing the tabletop silver rotary knob with the twin-circle ten-cube screen",
+      "action": "viewed strictly from behind, a clothed low-poly volunteer in a powder-blue sweater places left fingers on the rotary knob while watching the screen"
+    },
+    {
+      "sentence_index": 32,
+      "end_sentence_index": 33,
+      "act": 4,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved low-poly hands at the rotary knob station",
+      "prop_action": "the left cool porcelain-white gloved low-poly hand twists the brushed-silver knob counterclockwise while the screen block tilts clockwise",
+      "consequence": "the right gloved hand hesitates noticeably before pulling the lever as the timer bar climbs higher"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean side cutaway of two opposing brushed-silver rotation rings meeting on a shared central shaft",
+      "internal_mechanism": "turning the lower hand ring leftward drags gently against the upper clockwise block ring"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "powder-blue cuffs and cool porcelain-white gloved low-poly hands at the silver rotary knob",
+      "prop_action": "the left cool porcelain-white gloved low-poly hand turns the silver knob clockwise in harmony with the screen block",
+      "consequence": "the right gloved hand pulls the match lever briskly and smoothly"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "pastel_design_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit cool mist-white auditorium stage displaying the straight diagonal mint-sage bar stand beside a ten-cube sculpture",
+      "action": "elevated wide view from behind as two clothed low-poly researchers in blazers stand on opposite sides of the stage and gesture toward the diagonal slope"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "pastel_design_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark blazer sleeves and cool porcelain-white gloved low-poly hands over a cool slate-stone lectern",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift and align flat rectangular slate tiles in a rigid horizontal list",
+      "consequence": "the flat tiles sit static without any spatial depth"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "pastel_design_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed cuffs and cool porcelain-white gloved low-poly hands comparing two bar stands on cool slate-stone",
+      "prop_action": "cool porcelain-white gloved low-poly hands push aside a flat even bar row and slide forward the ascending diagonal mint-sage bar staircase",
+      "consequence": "the rising angle-by-angle staircase stands front and center"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "pastel_design_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright cool mist-white molecular studio with symmetrical pastel ball-and-rod chiral models on brushed-silver stands",
+      "action": "viewed strictly from behind, two clothed low-poly chemists in crisp white coats rotate mirrored pastel molecular models to test alignment"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "pastel_design_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green shirt sleeves and cool porcelain-white gloved low-poly hands over a cool slate-stone table",
+      "prop_action": "cool porcelain-white gloved low-poly hands fold crisp powder-blue geometric paper facets and snap interlocking pastel cubes together",
+      "consequence": "the adjacent reaction-time bar drops shorter and faster"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nSHARPENED MAP",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper parietal cortex of the matte-pastel 3D cortical brain model, a brighter mint-sage spatial band links smoothly into the frontal premotor strip"
+    },
+    {
+      "sentence_index": 42,
+      "end_sentence_index": 43,
+      "act": 5,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Stanford laboratory with ten-cube block sculptures and sleek modern architectural models side by side",
+      "action": "viewed strictly from behind, three clothed low-poly researchers in blazers stand together and nod as a volunteer aligns two ten-cube sculptures effortlessly"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "pastel_design_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright skylit architectural studio with cool slate-stone drafting tables and white foam stairwell models",
+      "action": "viewed strictly from behind, a clothed low-poly architect in a powder-blue overshirt stands before a flat blueprint sheet and reaches for a 3D foam model"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "pastel_design_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue overshirt cuffs and cool porcelain-white gloved low-poly hands over unlined pastel plan sheets",
+      "prop_action": "cool porcelain-white gloved low-poly hands roll up the flat unlined plan sheet and clear space on the cool slate-stone table",
+      "consequence": "a crisp cool mist-white 3D stairwell block model sits ready in the center"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "pastel_design_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sleeves and cool porcelain-white gloved low-poly hands holding a cool mist-white foam L-couch model",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift and pivot the miniature white L-couch model smoothly around the miniature stairwell corner",
+      "consequence": "the miniature L-couch clears the landing cleanly on the first turn"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "pastel_design_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "sage-green cardigan cuffs and cool porcelain-white gloved low-poly hands holding a brushed-silver stylus",
+      "prop_action": "cool porcelain-white gloved low-poly hands sketch three clean isometric cube lines onto a blank cool mist-white slate pad",
+      "consequence": "a clear three-dimensional corner shape takes form on the pad"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "premotor cortex",
+      "anatomy_label": "PREMOTOR CORTEX\nFREED BANDWIDTH",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the frontal curve of the matte-pastel 3D cortical brain model, the powder-blue premotor cortex settles into a calm steady glow freeing the frontal pole"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "pastel_design_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright cool mist-white garage courtyard with an open pastel powder-blue hatchback trunk and three geometric suitcases",
+      "action": "viewed strictly from behind, a clothed low-poly traveler in a sage-green jacket turns one pastel suitcase quarter-way in hand and slides all three flush inside"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "pastel_design_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the sunlit architectural studio with two clothed low-poly designers standing calmly beside the completed massing model",
+      "action": "viewed strictly from behind, two clothed low-poly architects in pastel shirts point together at the finished skylit tower model"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Stanford psychology lab uniting the white ten-cube sculptures and the ascending diagonal mint-sage bar stand",
+      "action": "elevated wide view from behind as a clothed low-poly researcher in a tweed blazer steps forward and points beside the aligned ten-cube pair"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "wide sunlit architectural vista of the cool mist-white Stanford laboratory with soft skylight beams across slate-stone floors",
+      "action": "viewed strictly from behind, the clothed low-poly scientist in a tweed coat steps beside the ten-cube sculptures and lifts a silver pointer as the camera tilts smoothly toward the bright skylight"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "MIND'S EYE SPEED",
+    "cover_sentence_index": 3,
+    "cover_brief": "two crisp white low-poly ten-cube 3D blocks rotating beside straight diagonal bar graph"
+  }
+}

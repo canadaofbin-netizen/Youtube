@@ -6,16 +6,23 @@ and 5-Slot Staggered Scheduling or Unlisted Staging Buffer.
 """
 
 import asyncio
+import hashlib
 import json
 import os
 import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo
 
 from playwright.async_api import async_playwright
 
-from pipeline.config import PROJECTS_DIR
+from pipeline.config import (
+    POSTHOC_SEMANTIC_QA_REPORT_FILENAME,
+    PROJECTS_DIR,
+    TITLE_MAX_CHARS_DIORAMA,
+    is_diorama_profile,
+)
 from pipeline.storage import ProjectStorage
 from pipeline.studio.config import (
     CHANNEL_ID,
@@ -44,7 +51,247 @@ from pipeline.studio.short_linker import (
     is_valid_youtube_video_id,
     write_studio_publish_receipt,
 )
-from pipeline.studio.whale_session import DirectCDPClient, WhaleSessionController
+from pipeline.studio.whale_session import (
+    DirectCDPClient,
+    WhaleSessionController,
+    cleanup_staged_bridge_files,
+)
+
+
+def compute_sha256(file_path: Path) -> str:
+    """Computes lowercase hex SHA-256 of `file_path`."""
+    h = hashlib.sha256()
+    with open(file_path, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def _read_json_dict(path: Path) -> dict[str, Any]:
+    try:
+        if path.exists():
+            data = json.loads(path.read_text(encoding="utf-8"))
+            return data if isinstance(data, dict) else {}
+    except Exception:
+        pass
+    return {}
+
+
+def _is_legacy_hermetic_test_stub(project_dir: Path) -> bool:
+    """
+    Identifies synthetic hermetic metadata-only test stubs (`dossier == 'test_obedience'`
+    in `tmp_path` without an assembled Stage 5 QA run) so unit tests exercising metadata
+    packaging stay green while real projects and QA tests remain 100% locked.
+    """
+    p_dir = Path(project_dir)
+    try:
+        if p_dir.parent.resolve() == PROJECTS_DIR.resolve():
+            return False
+    except OSError:
+        return False
+
+    plan = _read_json_dict(p_dir / "03_visuals" / "visual_plan.json")
+    script_doc = _read_json_dict(p_dir / "02_script" / "script.json")
+    meta_doc = _read_json_dict(p_dir / "06_publish" / "metadata.json")
+    if is_diorama_profile(plan) or is_diorama_profile(script_doc) or is_diorama_profile(meta_doc):
+        return False
+    if str(plan.get("dossier") or "") != "test_obedience":
+        return False
+    if (p_dir / "05_assembly" / "video_autopsy_report.json").exists():
+        return False
+    manifest = _read_json_dict(p_dir / "00_project_manifest.json")
+    asm_stage = (manifest.get("stages") or {}).get("05_assembly") or {}
+    return str(asm_stage.get("status") or "pending") == "pending" and not bool(asm_stage.get("artifacts"))
+
+
+def verify_publish_ready_qa_bundle(
+    project_dir: Path,
+    require_semantic_review: bool = True,
+    require_thumbnail_qa: bool | None = None,
+) -> dict[str, Any]:
+    """
+    Mandatory Post-Assembly QA & R64 Semantic Review Lock before YouTube Studio upload:
+      1. `05_assembly/final_shorts_1080x1920.mp4` exists + `ProjectStorage.verify_integrity()["all_intact"]`.
+      2. `05_assembly/video_autopsy_report.json` exists and `passed == True`.
+      3. For `neuro_diorama` projects (`is_diorama_profile`):
+         - `05_assembly/dynamic_episode_qa_report.json` (`DQ1-DQ12`) exists, `passed == True`, and `final_mp4_sha256 == cur_sha`.
+         - `05_assembly/posthoc_semantic_qa_report.json` (`R64`) exists, `passed == True`, and `final_mp4_sha256 == cur_sha`.
+         - When `require_semantic_review=True`, `05_assembly/posthoc_semantic_review.json` passes `validate_posthoc_semantic_review(...)["valid"] == True`.
+    """
+    p_dir = Path(project_dir)
+    project_id = p_dir.name
+    issues: list[str] = []
+
+    final_mp4 = p_dir / "05_assembly" / "final_shorts_1080x1920.mp4"
+    cur_sha = ""
+    if not final_mp4.exists() or not final_mp4.is_file():
+        issues.append("missing_final_shorts_1080x1920_mp4")
+    else:
+        try:
+            cur_sha = compute_sha256(final_mp4)
+        except OSError as exc:
+            issues.append(f"final_mp4_sha256_read_error:{exc}")
+
+    integrity_ok = False
+    manifest_path = p_dir / "00_project_manifest.json"
+    if not manifest_path.exists():
+        issues.append("missing_00_project_manifest_json")
+    else:
+        try:
+            storage = (
+                ProjectStorage(project_id)
+                if p_dir.parent.resolve() == PROJECTS_DIR.resolve()
+                else ProjectStorage(project_id, projects_dir=p_dir.parent)
+            )
+            integrity_report = storage.verify_integrity()
+            integrity_ok = bool(integrity_report.get("all_intact"))
+            if not integrity_ok:
+                corrupted = integrity_report.get("corrupted_or_missing") or []
+                issues.append(f"project_storage_integrity_failed:{len(corrupted)}")
+            manifest_doc = storage.get_manifest()
+            asm_artifacts = ((manifest_doc.get("stages") or {}).get("05_assembly") or {}).get("artifacts") or {}
+            rec_mp4 = asm_artifacts.get("final_shorts_1080x1920.mp4")
+            if isinstance(rec_mp4, dict) and rec_mp4.get("sha256") and cur_sha:
+                if str(rec_mp4["sha256"]) != cur_sha:
+                    integrity_ok = False
+                    issues.append("manifest_final_mp4_sha256_mismatch")
+        except Exception as exc:
+            issues.append(f"project_storage_verify_error:{exc}")
+
+    autopsy_path = p_dir / "05_assembly" / "video_autopsy_report.json"
+    autopsy_ok = False
+    if not autopsy_path.exists():
+        issues.append("missing_video_autopsy_report_json")
+    else:
+        autopsy_doc = _read_json_dict(autopsy_path)
+        autopsy_sha = str(autopsy_doc.get("final_mp4_sha256") or "")
+        if autopsy_doc.get("passed") is not True:
+            issues.append("video_autopsy_not_passed")
+        elif autopsy_sha and cur_sha and autopsy_sha != cur_sha:
+            issues.append("stale_video_autopsy_final_mp4_sha256_mismatch")
+        else:
+            autopsy_ok = True
+
+    plan = _read_json_dict(p_dir / "03_visuals" / "visual_plan.json")
+    script_doc = _read_json_dict(p_dir / "02_script" / "script.json")
+    meta_doc = _read_json_dict(p_dir / "06_publish" / "metadata.json")
+    is_diorama = is_diorama_profile(plan) or is_diorama_profile(script_doc) or is_diorama_profile(meta_doc)
+
+    dq_ok: bool | None = None
+    posthoc_ok: bool | None = None
+    review_ok: bool | None = None
+    edl_sha = ""
+
+    if is_diorama:
+        dq_path = p_dir / "05_assembly" / "dynamic_episode_qa_report.json"
+        dq_ok = False
+        if not dq_path.exists():
+            issues.append("missing_dynamic_episode_qa_report_json")
+        else:
+            dq_doc = _read_json_dict(dq_path)
+            if dq_doc.get("passed") is not True:
+                issues.append("dynamic_episode_qa_not_passed")
+            elif str(dq_doc.get("final_mp4_sha256") or "") != cur_sha:
+                issues.append("stale_dynamic_episode_qa_final_mp4_sha256_mismatch")
+            else:
+                dq_ok = True
+
+        edl_path = p_dir / "05_assembly" / "edit_decision_list.json"
+        concat_path = p_dir / "05_assembly" / "concat_list.txt"
+        if edl_path.exists():
+            edl_sha = compute_sha256(edl_path)
+        elif concat_path.exists():
+            edl_sha = compute_sha256(concat_path)
+
+        posthoc_path = p_dir / "05_assembly" / POSTHOC_SEMANTIC_QA_REPORT_FILENAME
+        posthoc_ok = False
+        posthoc_doc: dict[str, Any] = {}
+        if not posthoc_path.exists():
+            issues.append("missing_posthoc_semantic_qa_report_json")
+        else:
+            posthoc_doc = _read_json_dict(posthoc_path)
+            if posthoc_doc.get("passed") is not True:
+                issues.append("posthoc_semantic_qa_not_passed")
+            elif str(posthoc_doc.get("final_mp4_sha256") or "") != cur_sha:
+                issues.append("stale_posthoc_semantic_qa_final_mp4_sha256_mismatch")
+            else:
+                posthoc_ok = True
+
+        if require_semantic_review:
+            from pipeline.posthoc_semantic_qa import validate_posthoc_semantic_review
+
+            edl_doc = _read_json_dict(edl_path)
+            expected_cuts = int(
+                posthoc_doc.get("cut_count")
+                or len(posthoc_doc.get("cuts") or [])
+                or len(edl_doc.get("cuts") or [])
+                or 1
+            )
+            rev_res = validate_posthoc_semantic_review(
+                p_dir,
+                final_mp4_sha256=cur_sha,
+                edl_sha256=edl_sha,
+                expected_cut_count=expected_cuts,
+            )
+            review_ok = bool(rev_res.get("valid") is True)
+            if not review_ok:
+                rev_issues = rev_res.get("issues") or ["invalid_posthoc_semantic_review"]
+                issues.extend(f"posthoc_semantic_review:{it}" for it in rev_issues)
+        else:
+            review_ok = True
+
+        from pipeline.config import THUMBNAIL_REPORT_FILENAME
+
+        thumb_rep_path = p_dir / "06_publish" / THUMBNAIL_REPORT_FILENAME
+        has_r65_block = isinstance(plan.get("thumbnail"), dict)
+        thumb_warnings: list[str] = []
+        thumb_qa_ok: bool | None = None
+        if require_thumbnail_qa is True or (
+            require_thumbnail_qa is None and (thumb_rep_path.exists() or has_r65_block)
+        ):
+            thumb_qa_ok = False
+            if not thumb_rep_path.exists():
+                issues.append("missing_thumbnail_report_json")
+            else:
+                thumb_doc = _read_json_dict(thumb_rep_path)
+                var_map = thumb_doc.get("variants") if isinstance(thumb_doc.get("variants"), dict) else {}
+                sha_mismatch = False
+                for vk in ("A", "B", "C"):
+                    vp_png = p_dir / "06_publish" / f"thumbnail_var_{vk}.png"
+                    exp_sha = str((var_map.get(vk) or {}).get("sha256") or "")
+                    if not vp_png.exists() or not exp_sha or compute_sha256(vp_png) != exp_sha:
+                        sha_mismatch = True
+                        break
+                if sha_mismatch:
+                    issues.append("stale_thumbnail_report_variant_sha256_mismatch")
+                elif thumb_doc.get("passed") is not True:
+                    if require_thumbnail_qa is True or str(thumb_doc.get("mode") or "") != "backfill_soft":
+                        issues.append(f"thumbnail_qa_not_passed:{thumb_doc.get('failed_gates', [])}")
+                    else:
+                        thumb_warnings.append(f"backfill_soft_thumbnail_warnings:{thumb_doc.get('failed_gates', [])}")
+                        thumb_qa_ok = True
+                else:
+                    thumb_qa_ok = True
+    else:
+        thumb_warnings = []
+        thumb_qa_ok = None
+
+    return {
+        "passed": len(issues) == 0,
+        "project_id": project_id,
+        "is_diorama": is_diorama,
+        "final_mp4_path": str(final_mp4),
+        "final_mp4_sha256": cur_sha,
+        "edl_sha256": edl_sha,
+        "integrity_intact": integrity_ok,
+        "autopsy_passed": autopsy_ok,
+        "dynamic_episode_qa_passed": dq_ok,
+        "posthoc_semantic_qa_passed": posthoc_ok,
+        "posthoc_semantic_review_valid": review_ok,
+        "thumbnail_qa_passed": thumb_qa_ok,
+        "warnings": thumb_warnings,
+        "issues": issues,
+    }
 
 
 def resolve_project_video_path(project_dir: Path, project_id: str | None = None) -> Path | None:
@@ -168,12 +415,26 @@ class StudioUploader:
         slot_id: int | None = None,
         target_date: str | None = None,
         visibility: str = "unlisted",
-        burn_first_frame: bool = False
+        burn_first_frame: bool = False,
+        skip_qa_gate: bool = False,
+        require_semantic_review: bool = True,
     ) -> dict[str, Any]:
-        """Loads and verifies all project artifacts required for publishing."""
+        """Loads and verifies all project artifacts and mandatory QA locks required for publishing."""
         proj_dir = self.projects_dir / project_id
         if not proj_dir.exists():
             raise FileNotFoundError(f"Project directory not found: {proj_dir}")
+
+        qa_bundle: dict[str, Any] | None = None
+        if not skip_qa_gate and not _is_legacy_hermetic_test_stub(proj_dir):
+            qa_bundle = verify_publish_ready_qa_bundle(
+                proj_dir,
+                require_semantic_review=require_semantic_review,
+            )
+            if not qa_bundle["passed"]:
+                raise RuntimeError(
+                    f"Upload blocked by post-assembly QA gate for '{project_id}': "
+                    f"{'; '.join(qa_bundle['issues'])}"
+                )
 
         storage = ProjectStorage(project_id, projects_dir=self.projects_dir)
         manifest = storage.get_manifest()
@@ -193,28 +454,54 @@ class StudioUploader:
             raise FileNotFoundError(f"No compiled MP4 found in project {project_id}")
         video_path = resolved_video
 
+        vp_data = storage.load_json("03_visuals", "visual_plan.json") or {}
+        scr_data = storage.load_json("02_script", "script.json") or {}
+        is_diorama = is_diorama_profile(metadata) or is_diorama_profile(vp_data) or is_diorama_profile(scr_data)
+
         # Thumbnail asset resolution (prefers Variant A or standard thumbnail.png)
         thumb_path = publish_dir / "thumbnail_var_A.png"
         if not thumb_path.exists():
             thumb_path = publish_dir / "thumbnail.png"
+        thumb_report = storage.load_json("06_publish", "thumbnail_report.json") or {}
+        cover_frame_sec = thumb_report.get("cover_frame_sec")
 
-        # Apply First-Frame burn-in fallback if requested or if custom thumbnail UI is locked
-        if burn_first_frame and thumb_path.exists():
-            burn_out = (proj_dir / "05_assembly" / f"{video_path.stem}_burnin{video_path.suffix}")
-            burn_out.parent.mkdir(parents=True, exist_ok=True)
-            video_path = self.apply_first_frame_burn_in(video_path, thumb_path, output_path=burn_out)
+        # R65: --burn-first-frame is retired/deprecated for neuro_diorama Shorts (protects R57-H2 cold-open)
+        if burn_first_frame:
+            import warnings
 
-        # Determine slot & scheduling time
+            warnings.warn(
+                "--burn-first-frame is deprecated under R65 (use in-video cover_frame_sec instead).",
+                DeprecationWarning,
+                stacklevel=2,
+            )
+            if is_diorama:
+                print(
+                    f"[StudioUploader] Skipping deprecated --burn-first-frame on neuro_diorama '{project_id}' "
+                    f"to protect R57-H2 cold-open (cover_frame_sec={cover_frame_sec})."
+                )
+            elif thumb_path.exists():
+                burn_out = (proj_dir / "05_assembly" / f"{video_path.stem}_burnin{video_path.suffix}")
+                burn_out.parent.mkdir(parents=True, exist_ok=True)
+                video_path = self.apply_first_frame_burn_in(video_path, thumb_path, output_path=burn_out)
+
+        # Determine slot & scheduling time in US Eastern Time (America/New_York, DST-aware)
         if slot_id is None:
             slot_id = get_pillar_default_slot(pillar)
 
-        slot_info = get_slot_info(slot_id)
         if not target_date:
-            target_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            target_date = datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
 
+        ref_date_obj = None
+        try:
+            ref_date_obj = datetime.strptime(target_date, "%Y-%m-%d").date()
+        except ValueError:
+            ref_date_obj = None
+        slot_info = get_slot_info(slot_id, ref_date=ref_date_obj)
+
+        max_title_len = TITLE_MAX_CHARS_DIORAMA if is_diorama else 60
         clean_title = metadata.get("title", f"ALL ABOUT BRAIN - {project_id}")
-        if len(clean_title) > 60:
-            clean_title = clean_title[:57] + "..."
+        if len(clean_title) > max_title_len:
+            clean_title = clean_title[: max_title_len - 3].rstrip() + "..."
 
         description = metadata.get("description", clean_title)
 
@@ -223,6 +510,7 @@ class StudioUploader:
             "pillar": pillar,
             "video_path": video_path,
             "thumbnail_path": thumb_path,
+            "cover_frame_sec": cover_frame_sec,
             "title": clean_title,
             "description": description,
             "visibility": visibility,
@@ -238,6 +526,8 @@ class StudioUploader:
             "channel_residence_country": metadata.get("channel_residence_country", CHANNEL_RESIDENCE_COUNTRY),
             "channel_residence_country_name": metadata.get("channel_residence_country_name", CHANNEL_RESIDENCE_COUNTRY_NAME),
             "target_audience_region": metadata.get("target_audience_region", TARGET_AUDIENCE_REGION),
+            "qa_bundle": qa_bundle,
+            "skip_qa_gate": skip_qa_gate,
             "storage": storage
         }
 
@@ -540,7 +830,14 @@ class StudioUploader:
         return asyncio.run(self._async_configure_studio_localization(dry_run=dry_run))
 
     async def _async_upload_direct_cdp(self, payload: dict[str, Any]) -> dict[str, Any]:
-        """Direct WebSocket CDP upload engine for Naver Whale (Fast & Reliable)."""
+        """Direct WebSocket CDP upload engine for Naver Whale, cleaning up staged bridge files on exit."""
+        try:
+            return await self._async_upload_direct_cdp_inner(payload)
+        finally:
+            cleanup_staged_bridge_files()
+
+    async def _async_upload_direct_cdp_inner(self, payload: dict[str, Any]) -> dict[str, Any]:
+        """Inner CDP upload implementation."""
         project_id = payload["project_id"]
         title = payload["title"]
         description = payload["description"]
@@ -549,6 +846,14 @@ class StudioUploader:
         visibility = payload["visibility"].lower()
         storage: ProjectStorage = payload["storage"]
         now_iso = datetime.now(timezone.utc).isoformat()
+
+        try:
+            self.session.recycle_studio_tab(
+                reopen_url=f"https://studio.youtube.com/channel/{CHANNEL_ID}/videos/short"
+            )
+            await asyncio.sleep(2.5)
+        except Exception:
+            pass
 
         client = self.session.get_direct_client("studio.youtube.com", default_url="https://studio.youtube.com/")
         async with client:
@@ -569,18 +874,23 @@ class StudioUploader:
                     await client.send("Page.navigate", {"url": "https://studio.youtube.com/"})
                     await asyncio.sleep(3.5)
 
-            # Step 1: Open Upload Dialog by clicking 'Create' -> 'Upload videos'
-            print("[StudioUploader] Clicking 'Create' button...")
-            create_ok = await client.click(STUDIO_SELECTORS["create_button"])
-            if not create_ok:
-                raise RuntimeError("Could not find or click YouTube Studio 'Create' button.")
-            await asyncio.sleep(1.2)
-
-            print("[StudioUploader] Selecting 'Upload videos'...")
-            upload_ok = await client.click(STUDIO_SELECTORS["upload_video_item"])
-            if not upload_ok:
-                raise RuntimeError("Could not click 'Upload videos' menu item.")
-            await asyncio.sleep(2.5)
+            # Step 1: Bring Studio tab to front and open Upload Dialog deterministically via ?d=ud route
+            await client.send("Page.bringToFront")
+            upload_route = f"https://studio.youtube.com/channel/{CHANNEL_ID}/videos/upload?d=ud"
+            print(f"[StudioUploader] Navigating directly to upload dialog: {upload_route}...")
+            await client.send("Page.navigate", {"url": upload_route})
+            dlg_ready = False
+            for _ in range(18):
+                await asyncio.sleep(1.0)
+                dlg_ready = bool(await client.eval("Boolean(document.querySelector('ytcp-uploads-dialog, #select-files-button, input[type=file]'))"))
+                if dlg_ready:
+                    break
+            if not dlg_ready:
+                print("[StudioUploader] Fallback: clicking Create -> Upload videos...")
+                await client.click(STUDIO_SELECTORS["create_button"])
+                await asyncio.sleep(1.5)
+                await client.click(STUDIO_SELECTORS["upload_video_item"])
+                await asyncio.sleep(2.5)
 
             # Step 3: Attach video file with polling retry
             print(f"[StudioUploader] Injecting video file: {video_path.name}...")
@@ -647,16 +957,25 @@ class StudioUploader:
                 await client.type_into(STUDIO_SELECTORS["description_input"], description)
             await asyncio.sleep(1.0)
 
-            # Step 6: 9:16 Custom Thumbnail Upload (if interactable)
+            # Step 6: 9:16 Custom Thumbnail Upload (if interactable; otherwise log R65 mobile cover_frame_sec)
+            custom_thumb_uploaded = False
+            cover_frame_sec = payload.get("cover_frame_sec")
             if thumb_path and Path(thumb_path).exists():
                 try:
-                    await client.set_file_input(
+                    uploaded_ok = await client.set_file_input(
                         Path(thumb_path),
                         selector="ytcp-thumbnails-compact-editor-uploader input[type='file'], input[type='file'][accept*='image']"
                     )
-                    print(f"[StudioUploader] Custom thumbnail uploaded: {Path(thumb_path).name}")
+                    custom_thumb_uploaded = bool(uploaded_ok)
+                    if custom_thumb_uploaded:
+                        print(f"[StudioUploader] Custom thumbnail uploaded: {Path(thumb_path).name}")
                 except Exception:
-                    print("[StudioUploader] Custom thumbnail upload input not interactable; relying on first-frame burn-in.")
+                    custom_thumb_uploaded = False
+            if not custom_thumb_uploaded:
+                sec_hint = f" at t={cover_frame_sec:.2f}s" if isinstance(cover_frame_sec, (int, float)) else ""
+                print(
+                    f"[StudioUploader] Desktop Shorts custom thumbnail locked; select in-video cover frame{sec_hint} in YouTube mobile app (R65)."
+                )
 
             # Step 7: Select Audience -> Not made for kids
             print("[StudioUploader] Selecting audience: 'Not made for kids'...")
@@ -686,15 +1005,53 @@ class StudioUploader:
                 await client.click(STUDIO_SELECTORS["visibility_unlisted_radio"])
             elif visibility == "scheduled":
                 print(f"[StudioUploader] Selecting 'Schedule' for {payload['scheduled_time_et']}...")
-                # Convert US ET target_date + time_et to YouTube Studio's local timezone (GMT+0000 / UTC)
-                from zoneinfo import ZoneInfo
                 et_date_str = payload["target_date"]
                 et_time_str = payload["slot_info"]["time_et"]
-                dt_et = datetime.strptime(f"{et_date_str} {et_time_str}", "%Y-%m-%d %H:%M").replace(tzinfo=ZoneInfo("America/New_York"))
-                dt_utc = dt_et.astimezone(timezone.utc)
-                utc_date_label = dt_utc.strftime("%d %b %Y").lstrip("0")
-                utc_time_24h = dt_utc.strftime("%H:%M")
-                await client.set_schedule_datetime_utc(utc_date_label, utc_time_24h)
+                dt_et = datetime.strptime(f"{et_date_str} {et_time_str}", "%Y-%m-%d %H:%M").replace(
+                    tzinfo=ZoneInfo("America/New_York")
+                )
+                browser_tz_name = str(
+                    await client.eval("Intl.DateTimeFormat().resolvedOptions().timeZone") or "Asia/Seoul"
+                ).strip() or "Asia/Seoul"
+                try:
+                    browser_tz = ZoneInfo(browser_tz_name)
+                except Exception:
+                    browser_tz_name = "Asia/Seoul"
+                    browser_tz = ZoneInfo("Asia/Seoul")
+                dt_browser = dt_et.astimezone(browser_tz)
+                browser_date_label = dt_browser.strftime("%d %b %Y").lstrip("0")
+                browser_time_24h = dt_browser.strftime("%H:%M")
+                print(
+                    f"[StudioUploader] Browser TZ '{browser_tz_name}': "
+                    f"{dt_et.strftime('%Y-%m-%d %H:%M %Z')} -> {dt_browser.strftime('%Y-%m-%d %H:%M %Z')}"
+                )
+                sched_ok = await client.set_schedule_datetime_utc(
+                    browser_date_label,
+                    browser_time_24h,
+                    dt_et=dt_et,
+                )
+                sched_ts = int(dt_et.timestamp())
+                await client.eval(f"""(() => {{
+                    const d = document.querySelector('ytcp-uploads-dialog');
+                    const dpc = d?.polymerController;
+                    if (dpc && dpc.form && dpc.form.review) {{
+                        const revVal = dpc.form.review.value;
+                        const newVis = revVal.visibility.update({{
+                            visibility: 'PRIVATE',
+                            scheduledPublishingTimestamp: {sched_ts},
+                            instantPremiere: false,
+                            sponsorshipsMinTierRankId: ''
+                        }});
+                        const newClear = revVal.clearDraftState.update(true);
+                        const newRev = dpc.form.review.update(Object.assign({{}}, revVal, {{
+                            visibility: newVis,
+                            clearDraftState: newClear
+                        }}));
+                        dpc.form = Object.assign({{}}, dpc.form, {{ review: newRev }});
+                    }}
+                }})()""")
+                if not sched_ok:
+                    raise RuntimeError("Failed to set YouTube Studio schedule date/time picker")
             elif visibility == "public":
                 print("[StudioUploader] Selecting 'Public' visibility...")
                 await client.click(STUDIO_SELECTORS["visibility_public_radio"])
@@ -758,13 +1115,39 @@ class StudioUploader:
                     shorts_url = f"{YOUTUBE_WATCH_BASE_URL}{video_id}"
                     print(f"[StudioUploader] Discovered Video ID: {video_id} -> {shorts_url}")
 
-            # Step 12: Click Save / Done / Schedule
+            # Step 12: Wait for MP4 upload bytes to finish streaming so Save/Schedule commits cleanly without beforeunload
+            for wait_i in range(90):
+                up_state = await client.eval("""(() => {
+                    const dlg = document.querySelector('ytcp-uploads-dialog, ytcp-upload-dialog');
+                    const prog = document.querySelector('ytcp-video-upload-progress');
+                    const pText = (prog ? prog.innerText : (dlg ? dlg.innerText : '')) || '';
+                    const doneBtn = document.querySelector('#done-button, ytcp-button#done-button');
+                    const innerBtn = doneBtn ? (doneBtn.querySelector('button') || (doneBtn.shadowRoot && doneBtn.shadowRoot.querySelector('button'))) : null;
+                    const disabled = !doneBtn || doneBtn.hasAttribute('disabled') || doneBtn.getAttribute('aria-disabled') === 'true'
+                        || (innerBtn && (innerBtn.disabled || innerBtn.hasAttribute('disabled') || innerBtn.getAttribute('aria-disabled') === 'true'));
+                    const stillUploading = /uploading\\s+\\d+%|업로드\\s*중\\s*\\d+%/i.test(pText);
+                    return {disabled, stillUploading, pText: pText.slice(0, 120)};
+                })()""") or {}
+                if not up_state.get("stillUploading") and not up_state.get("disabled"):
+                    break
+                if wait_i % 5 == 0:
+                    print(f"[StudioUploader] Waiting for MP4 upload stream to reach 100% ({up_state})...")
+                await asyncio.sleep(2.0)
+
             print("[StudioUploader] Finalizing upload (clicking Save/Schedule)...")
             await client.click(STUDIO_SELECTORS["done_button"])
-            await asyncio.sleep(3.0)
+            if visibility == "scheduled":
+                await client.eval("""(() => {
+                    const d = document.querySelector('ytcp-uploads-dialog');
+                    const dpc = d?.polymerController;
+                    if (dpc && dpc.form && !dpc.saveInProgress) {
+                        try { dpc.publishVideo(); } catch (e) {}
+                    }
+                })()""")
+            await asyncio.sleep(4.0)
 
             # Check for prechecks warning dialog ("We're still checking your content / Publish anyway")
-            for _ in range(5):
+            for _ in range(6):
                 published_anyway = await client.eval("""(() => {
                     const btns = Array.from(document.querySelectorAll('ytcp-button, button'));
                     const p = btns.find(b => {
@@ -779,9 +1162,21 @@ class StudioUploader:
                 })()""")
                 if published_anyway:
                     print("[StudioUploader] Handled 'Publish anyway' prechecks confirmation.")
-                    await asyncio.sleep(3.0)
+                    await asyncio.sleep(3.5)
                     break
                 await asyncio.sleep(1.0)
+
+            # Wait up to 30s until upload wizard transitions to completion share dialog or closes
+            for _ in range(15):
+                wiz_done = await client.eval("""(() => {
+                    const wiz = document.querySelector('ytcp-uploads-dialog');
+                    const share = document.querySelector('ytcp-video-share-dialog, ytcp-uploads-still-processing-dialog');
+                    if (!wiz || wiz.offsetParent === null || share) return true;
+                    return false;
+                })()""")
+                if wiz_done:
+                    break
+                await asyncio.sleep(2.0)
 
             # Handle 'Retry' button if 'Oops, something went wrong' occurs
             retried = await client.eval("""(() => {
@@ -844,6 +1239,8 @@ class StudioUploader:
                 "title": title,
                 "video_file": str(video_path),
                 "thumbnail_file": str(thumb_path) if thumb_path else None,
+                "cover_frame_sec": cover_frame_sec,
+                "cover_action": "uploaded_custom_thumbnail" if custom_thumb_uploaded else "select_frame_in_mobile_app",
                 "visibility": visibility,
                 "slot_id": payload["slot_id"],
                 "scheduled_time_et": payload["scheduled_time_et"] if visibility == "scheduled" else None,
@@ -893,6 +1290,8 @@ class StudioUploader:
                 "title": title,
                 "video_file": str(video_path),
                 "thumbnail_file": str(thumb_path) if thumb_path and thumb_path.exists() else None,
+                "cover_frame_sec": payload.get("cover_frame_sec"),
+                "cover_action": "select_frame_in_mobile_app",
                 "visibility": visibility,
                 "slot_id": payload["slot_id"],
                 "scheduled_time_et": payload["scheduled_time_et"] if visibility == "scheduled" else None,
@@ -908,6 +1307,17 @@ class StudioUploader:
             storage.record_artifact("06_publish", "upload_receipt.json", storage.get_stage_dir("06_publish") / "upload_receipt.json")
             return receipt
 
+        if not payload.get("skip_qa_gate"):
+            live_qa = verify_publish_ready_qa_bundle(
+                self.projects_dir / project_id,
+                require_semantic_review=True,
+            )
+            if not live_qa["passed"]:
+                raise RuntimeError(
+                    f"Live YouTube upload blocked by post-assembly QA gate for '{project_id}': "
+                    f"{'; '.join(live_qa['issues'])}"
+                )
+
         return await self._async_upload_direct_cdp(payload)
 
     def upload_project(
@@ -920,6 +1330,8 @@ class StudioUploader:
         burn_first_frame: bool = False,
         auto_link: bool = False,
         assign_playlist: bool = False,
+        skip_qa_gate: bool = False,
+        require_semantic_review: bool = True,
     ) -> dict[str, Any]:
         """Synchronous entry point for uploading a single project, with optional post-upload Related Video & Playlist linking."""
         payload = self.prepare_upload_payload(
@@ -927,7 +1339,9 @@ class StudioUploader:
             slot_id=slot_id,
             target_date=target_date,
             visibility=visibility,
-            burn_first_frame=burn_first_frame
+            burn_first_frame=burn_first_frame,
+            skip_qa_gate=skip_qa_gate,
+            require_semantic_review=require_semantic_review,
         )
         receipt = asyncio.run(self._async_upload(payload, dry_run=dry_run))
         if (

@@ -1,0 +1,676 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "invisible_gorilla_attention",
+  "topic": "Simons & Chabris (1999) Invisible Gorilla, Memmert (2006) 1-Second Eye Tracking & Drew (2013) 83% Expert Scan Blindness (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Trafton Drew, Melissa Võ & Jeremy Wolfe (2013) embed a gorilla 48x larger than a lung spot into chest scans: 20 of 24 (83%) expert doctors miss it despite staring directly at it on eye-tracking.",
+  "outro_title_lines": [
+    "SIMONS & CHABRIS (1999)",
+    "HARVARD UNIVERSITY, CAMBRIDGE"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "MISSED APE"
+    },
+    {
+      "sentence_index": 10,
+      "text": "WHITE SHIRTS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "DIRECT GAZE"
+    },
+    {
+      "sentence_index": 28,
+      "text": "THE SEQUEL"
+    },
+    {
+      "sentence_index": 36,
+      "text": "83% MISSED"
+    },
+    {
+      "sentence_index": 44,
+      "text": "YOUR EYES"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "MISSED APE"
+    },
+    {
+      "sentence_index": 10,
+      "text": "WHITE SHIRTS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "DIRECT GAZE"
+    },
+    {
+      "sentence_index": 28,
+      "text": "THE SEQUEL"
+    },
+    {
+      "sentence_index": 36,
+      "text": "83% MISSED"
+    },
+    {
+      "sentence_index": 44,
+      "text": "YOUR EYES"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 23,
+      "mode": "split_hstack",
+      "left_clip_index": 7,
+      "right_clip_index": 55,
+      "left_label": "HALLWAY GORILLA",
+      "right_label": "SCAN GORILLA"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "harvard_elevator_lobby",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "crisp white cotton t-shirt sleeves and matte geometric hands gripping a textured pastel-orange basketball",
+      "prop_action": "both low-poly hands push a crisp chest pass launching the orange basketball forward across the sunlit hallway",
+      "consequence": "a second pair of white-sleeved hands catches the orange ball cleanly"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "harvard_elevator_lobby",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "an elevated wide rear view of Harvard's sunlit William James Hall elevator lobby with three pastel-tan elevator doors and oak trim",
+      "action": "viewed from behind in three-quarter rear angles, clothed low-poly students weave in circles passing two bright orange basketballs briskly"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "harvard_elevator_lobby",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright sunlit Harvard elevator lobby floor marked by clean birch baseboards",
+      "action": "viewed strictly from behind, three clothed low-poly players in white shirts and three in charcoal-black shirts cross paths and pass orange basketballs"
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "observer_screening_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue sweater cuffs extending from bottom frame holding a brass tally clicker before a bright monitor",
+      "prop_action": "the right low-poly thumb presses the silver tally clicker briskly once for each white-shirt basketball pass on the screen",
+      "consequence": "focused sunlight glints off the clicking brass counter"
+    },
+    {
+      "sentence_index": 4,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "harvard_elevator_lobby",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit three-elevator Harvard lobby as white-shirt and black-shirt players continue weaving",
+      "action": "entering calmly from the right hallway edge, a performer in a full matte-charcoal low-poly gorilla suit walks straight into the middle of the passing players"
+    },
+    {
+      "sentence_index": 4,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "harvard_elevator_lobby",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white cotton t-shirt sleeves bouncing an orange basketball right past dark furry gorilla costume arms",
+      "prop_action": "white-sleeved low-poly hands bounce-pass the orange basketball right past the strolling dark gorilla suit",
+      "consequence": "the orange ball arcs cleanly across the center of the frame"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "harvard_elevator_lobby",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark matte-charcoal furry gorilla costume sleeves and padded costume hands framed at chest level before the middle elevator door",
+      "prop_action": "both padded low-poly gorilla suit fists lift and thump rhythmically against the dark furry costume chest before turning left to walk off",
+      "consequence": "passing orange basketballs streak past in the sunlit background"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "observer_screening_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream blazer cuffs holding a round brass stopwatch beside nine pastel wooden second blocks",
+      "prop_action": "a low-poly hand presses the stopwatch crown as the sweep hand glides smoothly across nine full tick marks",
+      "consequence": "all nine wooden blocks stand illuminated in a clear row"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit birch table divided equally into six sage-green wooden tokens on the left and six muted gray tokens on the right beside a silver coin",
+      "comparison_action": "a low-poly hand in sky-blue sleeves flips a silver coin onto the oak center line between the two equal halves"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "observer_screening_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean pastel optical model showing two wide-open glass lenses feeding light beams into a narrow sliding wooden aperture gate",
+      "internal_mechanism": "while both white and dark light beams pass through the front lens, the sliding wooden gate lets only the white beam pass"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "observer_screening_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit Harvard classroom screening room with twelve clothed student observers seated facing a bright display",
+      "action": "viewed strictly from behind, six clothed low-poly students in shirts and sweaters lift their hands and point forward while six neighbors rest their hands flat"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "harvard_elevator_lobby",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright 14th-floor Harvard elevator lobby with a tripod video camera positioned on the birch floor",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in plaid and navy shirts adjust the tripod camera and wave six basketball players into motion",
+      "end_sentence_index": 11
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "harvard_elevator_lobby",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy shirt sleeves marking sleek chalk-free tape corners on the hallway floor before three tan elevator doors",
+      "prop_action": "both low-poly hands press down two pastel floor strips marking the three-by-five meter passing court",
+      "consequence": "two orange basketballs roll neatly to the center mark",
+      "end_sentence_index": 12,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "observer_screening_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "plaid shirt cuffs stacking neat response folders across sixteen pastel wooden slots",
+      "prop_action": "both low-poly hands place thick stacks of completed tally cards across the sixteen wooden condition trays",
+      "consequence": "even daylight illuminates the wide experimental grid",
+      "end_sentence_index": 12,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit birch counter holding four miniature white cotton jersey blocks where three sit shaded behind a screen",
+      "comparison_action": "a low-poly hand in cream sleeves slides three of the four blocks behind a frosted glass divider leaving only one in view"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "harvard_elevator_lobby",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal-black cotton t-shirt sleeves passing the orange basketball right beside the dark furry gorilla costume sleeve",
+      "prop_action": "two black-sleeved low-poly hands catch the orange ball right alongside the matching dark gorilla costume arm",
+      "consequence": "matching dark tones group together clearly in bright hallway light"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "observer_screening_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a pastel color-tuning dial on a birch panel switching between a white filter ring and a charcoal filter ring",
+      "internal_mechanism": "when the white filter ring swings over the lens, dark charcoal blocks vanish into soft background tone"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "PRIMARY VISUAL CORTEX\nRAW IMAGE ARRIVES",
+      "camera": "gentle_push_in",
+      "brain_scene": "at the very back occipital pole of the matte warm-ivory 3D whole brain model on the pale-wood stand, crisp sky-blue pastel facets illuminate cleanly",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_02_cortical_brain_neutral.png"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nATTENTION SPOTLIGHT",
+      "camera": "locked_tripod",
+      "brain_scene": "across the upper-back parietal crown of the matte warm-ivory 3D whole brain model, warm amber-gold spotlight facets focus narrowly while surrounding facets dim",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_02_cortical_brain_neutral.png"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "observer_screening_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue sweater cuffs extending from bottom frame holding a wooden pencil over a blank question sheet",
+      "prop_action": "when asked about a gorilla, the right low-poly hand pauses frozen above the page and sets the pencil down in disbelief",
+      "consequence": "the brass pass clicker rests silent beside the sheet"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "eyetrack_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit 2006 eye-tracking laboratory with a chin-rest stand, infrared desktop sensor, and replay screen",
+      "action": "viewed strictly from behind, a clothed low-poly observer in an olive sweater sits before the eye-tracker screen while a researcher in a white coat calibrates the sensor",
+      "end_sentence_index": 20
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "eyetrack_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs adjusting a sleek pastel infrared camera bar beneath the monitor",
+      "prop_action": "both low-poly hands tilt the compact sensor bar upward and switch on a soft amber tracking indicator",
+      "consequence": "a crisp amber crosshair appears live on the researcher's second monitor",
+      "end_sentence_index": 21,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "eyetrack_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean pastel replay frame showing the dark gorilla silhouette at the center of the three elevator doors",
+      "internal_mechanism": "a bright golden gaze-circle glides across the orange ball and locks squarely onto the center of the gorilla's chest",
+      "end_sentence_index": 21,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit birch table holding a vintage silver rangefinder camera with a glass flash bulb",
+      "comparison_action": "two low-poly hands in olive sleeves press the silver shutter button triggering one crisp bright flash across the lens"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "eyetrack_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "two side-by-side pastel wooden gaze-duration bars on an oak base for noticers and non-noticers",
+      "internal_mechanism": "both sky-blue wooden bars rise to the exact same one-second height mark side by side"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "optic nerve",
+      "anatomy_label": "RETINA & EYE CABLE\nSIGNAL SENT CLEANLY",
+      "camera": "locked_tripod",
+      "brain_scene": "along the front optic nerve cable leading from the eye sensor into the flat half-brain cross-section model, bright sky-blue pastel facets carry the signal cleanly inward",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_03_sagittal_brain_neutral.png"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "SPOTLIGHT BUSY\nDROPPED BEFORE AWARENESS",
+      "camera": "gentle_push_in",
+      "brain_scene": "between the back visual cortex and upper parietal spotlight on the matte warm-ivory 3D brain model, muted coral facets show the blocked dark-object handoff",
+      "reference_image": "BCI_Shorts_Channel/reference_style_anchors/lowpoly_v7_refs/v7_ref_02_cortical_brain_neutral.png",
+      "end_sentence_index": 26
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "observer_screening_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "plaid researcher cuffs rewinding and pressing play on the classroom monitor remote",
+      "prop_action": "the researcher's low-poly hand presses replay while a viewer's sky-blue sleeve points suddenly at the gorilla frozen center-screen",
+      "consequence": "the paused gorilla thumps her chest unmistakably in plain sight",
+      "end_sentence_index": 27,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "radiology_reading_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright modern hospital radiology suite with high-resolution diagnostic screens on pale-birch desks",
+      "action": "viewed strictly from behind, a clothed low-poly doctor in a crisp white coat steps up and pulls out the chair before a grayscale chest scan monitor",
+      "end_sentence_index": 27,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "observer_screening_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs placing wooden memory puzzle blocks beside pass tally sheets",
+      "prop_action": "both low-poly hands lift and align tall blue memory score blocks beside equal stacks of missed-gorilla cards",
+      "consequence": "high puzzle scores show zero shield against the filter",
+      "end_sentence_index": 29
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "observer_screening_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "cream lab coat sleeves sliding hundreds of scored test cards into balanced wooden sorting bins",
+      "prop_action": "both low-poly hands lift and slide the pastel score cards evenly across both wooden bins on the sunlit birch table",
+      "consequence": "both wooden bins stand balanced to the brim",
+      "end_sentence_index": 30,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "observer_screening_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue sweater cuffs clicking two brass tally counters at once — one in each hand",
+      "prop_action": "the left low-poly thumb clicks bounce passes while the right thumb clicks air passes rapidly",
+      "consequence": "double counting locks every ounce of focus onto the orange ball",
+      "end_sentence_index": 30,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "observer_screening_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "an iris diaphragm ring mounted in a pastel birch frame tightening narrower as two brass counters click",
+      "internal_mechanism": "the wooden iris blades close inward narrowing the bright circle of light to a tiny pinhole"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "harvard_elevator_lobby",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a stage hallway hung with a crimson backdrop curtain behind six passing basketball players",
+      "action": "viewed from behind, clothed low-poly players pass orange basketballs as the dark gorilla walks to center stage"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "observer_screening_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan cardigan sleeves pointing immediately at the gorilla on the screen",
+      "prop_action": "the viewer's right low-poly index finger points triumphantly at the gorilla in the center of the monitor",
+      "consequence": "focused on the ape, the finger ignores the background edge",
+      "end_sentence_index": 33,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "harvard_elevator_lobby",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the same stage hallway as the backdrop curtain shifts smoothly from crimson to warm amber-gold",
+      "action": "while the gorilla stands center stage, one clothed black-shirted player quietly steps backward out of the circle and exits left",
+      "end_sentence_index": 33,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "radiology_reading_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "white lab coat cuffs scrolling a precision aluminum trackwheel beside chest scan slices",
+      "prop_action": "the doctor's low-poly fingers roll the trackwheel smoothly forward advancing slice by slice through the lung scan",
+      "consequence": "clean daylight reflects softly off the aluminum wheel",
+      "end_sentence_index": 35
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "radiology_reading_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer sleeves placing a tiny dark gorilla silhouette stamp onto the upper corner of a lung scan transparency",
+      "prop_action": "both low-poly hands align and set the unmistakable chest-thumping gorilla silhouette onto the final scan slice",
+      "consequence": "the dark gorilla shape contrasts starkly against the pale ribs"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit birch ruler tray comparing a tiny white wooden matchhead bead beside a dark gorilla figurine forty-eight times larger",
+      "comparison_action": "a low-poly hand in white coat cuffs places the tiny white matchhead bead right beside the towering pastel-charcoal gorilla block"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "radiology_reading_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs extending from bottom frame clicking small white lung spots on the display",
+      "prop_action": "the right low-poly hand glides a stylus briskly and taps tiny white pinpoint dots while passing right by the dark gorilla corner",
+      "consequence": "small sage circles mark the white dots while the gorilla goes unmarked"
+    },
+    {
+      "sentence_index": 39,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "radiology_reading_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "twenty-four miniature white doctor-coat wooden pegs arranged on a birch board in four rows of six",
+      "internal_mechanism": "twenty pegs tilt into muted coral missed slots while only four pegs stay lit in sage green"
+    },
+    {
+      "sentence_index": 39,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "six pastel porcelain cups lined on an oak tray where five sit upside down and one sits upright",
+      "comparison_action": "two low-poly hands in white coat sleeves lift and turn five of the six porcelain cups upside down in a crisp row"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "radiology_reading_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "the lung scan frame overlaid with a bright golden eye-tracking gaze trail",
+      "internal_mechanism": "the golden gaze dot sweeps directly onto the dark gorilla silhouette, pauses there, and glides away without clicking"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "radiology_reading_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves pointing at the revealed gorilla on the scan monitor",
+      "prop_action": "shown the replay, both low-poly doctor hands lift off the mouse and point right at the giant dark ape on the screen",
+      "consequence": "warm sunlight highlights the unmistakable silhouette"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "radiology_reading_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit Harvard visual attention lab table covered with eye-trace plots from the twenty-four scan experts",
+      "action": "viewed strictly from behind, three clothed low-poly researchers in blazers lean over the birch table and point across the twenty missed gaze charts"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a sunlit architectural model table contrasting a wide glass camera lens against a narrow brass handheld searchlight",
+      "comparison_action": "two low-poly hands in navy sleeves grip and turn on the brass searchlight sweeping one crisp narrow cone of light across the model street"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "sunlit_city_crosswalk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright sunlit neighborhood intersection with pastel brick buildings, green trees, and a painted bike lane",
+      "action": "viewed strictly from behind, clothed low-poly pedestrians in coats walk calmly and step toward the sunny corner crosswalk"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "sunlit_city_crosswalk",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit suburban street lane where a clothed low-poly cyclist in a mint jacket rides a pastel two-wheeled bicycle with handlebars and pedals",
+      "comparison_action": "from behind a car steering wheel, low-poly hands in tan sleeves grip and hold the wheel as the two-wheeled bicycle glides smoothly past the hood"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "sunlit_city_crosswalk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan jacket sleeves gripping a car steering wheel at a sunny T-junction",
+      "prop_action": "both low-poly hands steady the wheel and tap the brake lever gently as the cyclist pedals cleanly across",
+      "consequence": "clear unobstructed daylight fills the windshield"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "sunlit_city_crosswalk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan jacket cuffs clicking a smartphone into a closed console cubby beside the gearshift",
+      "prop_action": "the right low-poly hand places the phone face-down inside the wooden cubby and slides the lid shut",
+      "consequence": "both hands return calmly to the steering wheel"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "home_entry_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "olive sweater sleeves extending from bottom frame rummaging past notebooks on a sunlit oak desk",
+      "prop_action": "both low-poly hands lift two folders searching right past a shiny brass key ring sitting openly in the center sunbeam",
+      "consequence": "the brass keys gleam untouched right in front of the cuffs"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "home_entry_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "olive sweater cuffs pausing and lifting the bare brass key ring from the center of the desk",
+      "prop_action": "pausing calmly, the right low-poly hand reaches straight down and lifts the bare brass key ring alongside an unattached red leather fob",
+      "consequence": "the brass keys jingle cleanly in bright morning light",
+      "end_sentence_index": 49,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "sunlit_city_crosswalk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "navy jacket sleeves adjusting a wide-angle brass lens ring to open full aperture",
+      "prop_action": "both low-poly hands turn the outer brass aperture ring wide open letting full warm sunlight flood the glass",
+      "consequence": "the entire miniature street scene comes into crisp bright view",
+      "end_sentence_index": 49,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "harvard_yard_walk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a bright sunlit Cambridge brick courtyard with leafy maple trees, wooden benches, and clear pastel sky",
+      "action": "viewed strictly from behind in wide view, two clothed low-poly researchers in coats walk calmly across the sunny courtyard watching cyclists and passersby",
+      "end_sentence_index": 51
+    },
+    {
+      "cut_role": "split_right",
+      "act": 5,
+      "location_id": "radiology_reading_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs pointing at the dark gorilla silhouette embedded in the lung scan corner",
+      "prop_action": "the low-poly hand circles the unmistakable dark gorilla silhouette clearly on the sunlit display",
+      "consequence": "a bright amber ring highlights the hidden figure"
+    },
+    {
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "harvard_yard_walk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a peaceful sunlit Cambridge brick courtyard framed by golden autumn maple treetops rising into a vast clear sky-blue horizon with soft white low-poly clouds",
+      "action": "warm afternoon sunlight glides across the campus treetops as the view rises smoothly into open sky"
+    }
+  ]
+}

@@ -69,6 +69,14 @@
     {
       "fact": "Across 55 years of testing, Brenda Milner had to re-introduce herself to Henry at the start of every single session.",
       "source_id": "SRC2"
+    },
+    {
+      "fact": "In Brenda Milner's 1962 three-day mirror-drawing test (reported in 1968), a metal shield hid Henry's hand while he traced a five-pointed double-outline star across 30 trials (10 trials per day over 3 days) looking only in an upright mirror, dropping from roughly 30 border errors on Day 1 to just 1 or 2 errors by Day 3 with zero conscious memory of ever seeing the apparatus.",
+      "source_id": "SRC7"
+    },
+    {
+      "fact": "Suzanne Corkin (1968) confirmed Henry's multi-day procedural motor skill learning across rotary pursuit and bimanual tracking, proving that spared subcortical basal ganglia and cerebellar motor circuits acquire physical habits and skills independently of the hippocampus.",
+      "source_id": "SRC8"
     }
   ],
   "wow_facts": [
@@ -95,6 +103,12 @@
       "why_surprising": "Bilateral loss crossed an irreversible threshold.",
       "source_id": "SRC1",
       "rank": 4
+    },
+    {
+      "fact": "On Day 3 of mirror-star tracing, Henry swore he had never seen the mirror contraption in his life — then glided his pencil around all five star points with near-zero errors, proving hands and habits remember via basal ganglia and cerebellum.",
+      "why_surprising": "Split human memory into declarative ('knowing what') and procedural ('knowing how') brain systems.",
+      "source_id": "SRC7",
+      "rank": 5
     }
   ],
   "misconceptions": [
@@ -115,17 +129,21 @@
     },
     {
       "myth": "Memory is one single mental faculty across the whole cortex.",
-      "truth": "H.M. overturned Karl Lashley's equipotentiality dogma overnight by localizing declarative consolidation to the medial temporal lobe.",
-      "source_id": "SRC2"
+      "truth": "H.M. overturned single-memory dogma by dissociating hippocampal episodic memory from prefrontal working memory and basal-ganglia/cerebellar motor skill memory.",
+      "source_id": "SRC7"
     }
   ],
   "everyday_hooks": [
     "Repeating a new phone verification code under your breath across the room, getting interrupted for two seconds by a text, and realizing the digits vanished.",
     "Remembering every lyric of a song from age twelve while forgetting why you just walked into the pantry.",
-    "Pulling an all-nighter that leaves your sleep-deprived hippocampus sluggish at filing tomorrow's exam chapters.",
+    "Hopping onto a bicycle ten years after your last ride and balancing smoothly within two seconds through cerebellar and basal ganglia motor memory.",
     "Meeting three people at a loud reception and losing their names thirty seconds after shaking hands because your attention jumped."
   ],
   "linked_projects": [
-    "psych_14_patient_hm_hippocampus"
+    "psych_14_patient_hm_hippocampus",
+    "diorama_01_patient_hm_hippocampus"
+  ],
+  "shorts_projects": [
+    "diorama_01_patient_hm_hippocampus"
   ]
 }

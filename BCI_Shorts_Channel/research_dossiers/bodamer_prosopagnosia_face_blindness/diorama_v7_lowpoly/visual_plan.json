@@ -1,0 +1,675 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "bodamer_prosopagnosia_face_blindness",
+  "topic": "Joachim Bodamer Prosopagnosia Clinical Discovery, Fusiform Face Detector Disconnect vs Voice Identity Rescue, Covert Palm-Sweat Recognition, and Two Percent Congenital Prevalence (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Population screening studies and clinical accounts including Oliver Sacks overturning the belief that prosopagnosia is rare, proving roughly two percent of adults live with congenital face blindness.",
+  "outro_title_lines": [
+    "JOACHIM BODAMER (1947)",
+    "WINNENDEN HOSPITAL, GERMANY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "MIRROR STRANGER?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "VOICE KNOWS MOM?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "ONE SPOKEN WORD"
+    },
+    {
+      "sentence_index": 19,
+      "text": "FACE BRIDGE CUT"
+    },
+    {
+      "sentence_index": 28,
+      "text": "PALM SWEAT CLUE"
+    },
+    {
+      "sentence_index": 37,
+      "text": "ONE IN FIFTY"
+    },
+    {
+      "sentence_index": 45,
+      "text": "SAY YOUR NAME"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "MIRROR STRANGER?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "VOICE KNOWS MOM?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "ONE SPOKEN WORD"
+    },
+    {
+      "sentence_index": 19,
+      "text": "FACE BRIDGE CUT"
+    },
+    {
+      "sentence_index": 28,
+      "text": "PALM SWEAT CLUE"
+    },
+    {
+      "sentence_index": 37,
+      "text": "ONE IN FIFTY"
+    },
+    {
+      "sentence_index": 45,
+      "text": "SAY YOUR NAME"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 36,
+      "mode": "split_hstack",
+      "left_clip_index": 38,
+      "right_clip_index": 39,
+      "left_label": "FACE BLIND: WARMTH",
+      "right_label": "OPPOSITE: ID ONLY"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool cardigan sleeves and matte-white gloved low-poly hands holding a fine-grid optical test card on a sunlit oak desk",
+      "prop_action": "both matte-white gloved low-poly hands align and trace a silver pointer cleanly across the smallest bottom row of geometric patterns",
+      "consequence": "every tiny geometric shape is identified with pinpoint accuracy"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool cardigan cuffs and matte-white gloved low-poly hands tilting a wooden-framed tabletop mirror on the clinic desk",
+      "prop_action": "both matte-white gloved low-poly hands tilt and set the wooden-framed mirror upright showing only an unfeatured frosted-ivory silhouette",
+      "consequence": "the frosted silhouette in the glass stays completely unfamiliar"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit European hospital consultation room with tall arched windows, an oak desk, and a wooden tabletop mirror",
+      "action": "viewed strictly from behind, a clothed low-poly patient in a wool cardigan leans toward the tabletop mirror then pulls one gloved hand back in puzzlement"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands arranging three smooth blank powder-blue ceramic blocks beside a brushed-silver mirror stand",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide and set three smooth unfeatured powder-blue geometric blocks in a row across the cool slate-gray stone desk",
+      "consequence": "the three blank powder-blue geometric blocks rest beside a smooth solid-mint ceramic block"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit Winnenden neurology clinic room with the oak desk, tabletop mirror, and open doorway",
+      "action": "viewed strictly from behind, the clothed low-poly neurologist in a white coat steps beside the oak desk and points toward the portrait frames opposite the patient in a cardigan"
+    },
+    {
+      "sentence_index": 4,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright German neurological ward study with three neat case folders and an optical testing tray on a long table",
+      "action": "viewed strictly from behind, the clothed low-poly neurologist in a white coat walks along the table and opens the three clinical case folders in sequence"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster university quad courtyard with stone arches and clipped hedges",
+      "comparison_action": "viewed strictly from behind, a clothed low-poly graduate student in a mortarboard cap and blazer walks briskly along the stone path and lifts a stack of ivory notebooks"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool cardigan sleeves and matte-white gloved low-poly hands sorting a pastel flower stem and brass coat buttons on a tray",
+      "prop_action": "both matte-white gloved low-poly hands lift the pastel flower stem cleanly and tap each brass button in order along the tray",
+      "consequence": "every everyday object is sorted without a single error"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands placing a brass-trimmed wooden mirror onto the center of the desk",
+      "prop_action": "both matte-white gloved low-poly hands lift and set the wooden tabletop mirror directly in front of the seated cardigan cuffs",
+      "consequence": "the wooden mirror stands centered in bright morning window light"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool cardigan cuffs and matte-white gloved low-poly hands resting before the frosted silhouette in the wooden mirror",
+      "prop_action": "one matte-white gloved low-poly hand reaches toward the mirror frame then turns palm-up in quiet confusion",
+      "consequence": "the frosted silhouette remains unlinked to any personal identity"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands opening the tall wooden clinic door latch",
+      "prop_action": "one matte-white gloved low-poly hand turns the brass door handle and pulls the tall wooden clinic door smoothly open",
+      "consequence": "warm hallway sunlight streams across the clinic threshold"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit clinic doorway opening into the consultation room behind the oak desk",
+      "action": "viewed strictly from behind the seated patient in a cardigan, a clothed low-poly visitor in a tailored coat and hat steps quietly into the doorway and turns toward the desk"
+    },
+    {
+      "sentence_index": 11,
+      "end_sentence_index": 12,
+      "act": 2,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the quiet sunlit consultation room between the seated patient and the silent visitor in a coat and hat",
+      "action": "viewed strictly from behind, the clothed low-poly patient in a cardigan sits motionless at the oak desk and tilts his head slightly without rising"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "VISUAL CORTEX\nSHARP FEATURE VISION",
+      "camera": "gentle_push_in",
+      "brain_scene": "at the back occipital pole of the matte warm-ivory 3D brain model, the primary visual cortex glows in clear pastel sky-blue confirming intact feature vision"
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored coat sleeves and matte-white gloved low-poly hands clasping a handbag at the sunlit doorway",
+      "prop_action": "one matte-white gloved low-poly hand lifts gently in a warm greeting as concentric golden sound rings ripple across the room",
+      "consequence": "warm golden acoustic rings reach the oak consultation desk"
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Winnenden clinic room as the golden acoustic rings reach the desk",
+      "action": "viewed strictly from behind, the clothed low-poly patient in a wool cardigan rises immediately from his chair and steps warmly toward the visitor in a coat and hat"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster studio table holding a vintage brushed-silver folding press camera with a round reflector dish",
+      "comparison_action": "two matte-white gloved low-poly hands in shirt sleeves press the silver shutter cable and tilt the camera as a warm-gold flash bulb illuminates the table instantly"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a sunlit cool-alabaster pedestal displaying a sturdy pastel-blue steel safe with a brushed-silver spin wheel",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves turn the silver wheel and pull the safe door open revealing intact golden memory spheres stacked neatly inside"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands holding a fountain pen over an ivory clinical folder",
+      "prop_action": "the matte-white gloved low-poly right hand draws a clean diagram separating an intact eye icon from a disconnected portrait bridge and sets the pen down",
+      "consequence": "the selective visual-identity split is captured cleanly on the page"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit German consultation room with the tabletop mirror and three silhouette frames on the oak desk",
+      "action": "viewed strictly from behind, the clothed low-poly patient in a cardigan and visitor in a coat and hat reach forward and shake gloved hands warmly beside the neurologist"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean unmarked matte pastel stone sculpture with an intact mint-sage upper stone arch and a broken powder-blue lower stone arch over a slate pedestal with zero markings",
+      "internal_mechanism": "smooth unlabelled powder-blue ceramic spheres halt at the gap in the lower arch while soft cream spheres roll across the intact upper arch into a round central bowl"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "VISUAL CORTEX\nCRISP LINES & EDGES",
+      "camera": "locked_tripod",
+      "brain_scene": "at the rear occipital pole of the matte warm-ivory 3D brain model, crisp sky-blue light illuminates the primary visual cortex"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "fusiform face area",
+      "anatomy_label": "FUSIFORM GYRUS\nHOLISTIC FACE DETECTOR",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the lower underside of the matte warm-ivory 3D brain model, the right fusiform face detector patch is highlighted in muted terracotta-coral"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands interlocking three pastel puzzle wedges on the oak desk",
+      "prop_action": "both matte-white gloved low-poly hands slide and snap three separate geometric wedges together into one unified oval emblem",
+      "consequence": "the unified oval emblem glows softly as a single whole pattern"
+    },
+    {
+      "sentence_index": 23,
+      "end_sentence_index": 24,
+      "act": 3,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands showing a disconnected silver link bar beside unlinked geometric blocks",
+      "prop_action": "one matte-white gloved low-poly hand lifts the detached silver link bar while the other hand spreads three unlinked pastel blocks apart",
+      "consequence": "the crisp pastel blocks sit clear yet unjoined to the memory tray"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "AUDITORY CORTEX\nINTACT VOICE RESCUE",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the side ridge of the matte warm-ivory 3D brain model, the auditory cortex glows bright amber-gold and connects smoothly forward into identity hubs"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands sliding a golden voice token across an upper arch model",
+      "prop_action": "the matte-white gloved low-poly right hand glides the golden token over the intact upper arch straight into the lit home socket",
+      "consequence": "the home socket lights up warm gold instantly"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands holding two small silver finger-clip sensors beside a stack of portrait cards",
+      "prop_action": "both matte-white gloved low-poly hands set the silver finger sensors onto a clean linen pad and align a stack of silhouette portrait cards",
+      "consequence": "a brass chart needle rests poised at baseline"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright neurology laboratory at Iowa with a clinical table, twin-pen paper chart recorder, and stack of silhouette cards",
+      "action": "viewed strictly from behind, two clothed low-poly neuroscientists in blazers and white coats step up to the clinical table opposite a seated volunteer in a sweater"
+    },
+    {
+      "sentence_index": 29,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and sweater sleeve with matte-white gloved low-poly hands resting on the clinical armrest",
+      "prop_action": "both matte-white gloved low-poly clinician hands gently clip two small brushed-silver skin sensors onto the volunteer's gloved fingertips",
+      "consequence": "fine silver leads connect the fingertips to the paper chart recorder"
+    },
+    {
+      "sentence_index": 29,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands switching on the paper chart drive",
+      "prop_action": "the matte-white gloved low-poly right hand flips the silver chart switch so clean ivory graph paper glides smoothly beneath a brass pen",
+      "consequence": "the brass pen traces a steady level baseline"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and matte-white gloved low-poly hands sliding unfeatured pastel silhouette cards across the clinical table",
+      "prop_action": "both matte-white gloved low-poly hands deal cool-grey stranger silhouette cards mixed with warm-ivory family silhouette cards one by one",
+      "consequence": "each silhouette card pauses cleanly at the center of the mat"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sweater sleeves and matte-white gloved low-poly hands sorting every silhouette card into the unknown tray",
+      "prop_action": "the matte-white gloved low-poly left hand slides each silhouette card into the same cool-grey tray and taps the empty known tray",
+      "consequence": "the conscious known tray stays completely empty"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a close architectural view of the paper chart recorder as a warm-ivory family silhouette card passes the sensor gate",
+      "internal_mechanism": "staying flat on grey cards, the brass pen swings sharply upward tracing a tall golden peak the instant the family silhouette card arrives"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA ALARM\nCOVERT EMOTIONAL TRACE",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, a warm amber-gold subcortical arc reaches the deep amygdala even while the lower fusiform bridge stays unlit"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands comparing the tall golden sweat peak beside the empty naming tray",
+      "prop_action": "one matte-white gloved low-poly hand points to the tall golden chart peak while the other hand taps the family silhouette card",
+      "consequence": "covert bodily recognition stands proven on the paper strip"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted slate blazer sleeves and cool porcelain-white gloved low-poly hands placing two smooth unmarked limestone groove trays side by side",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align two muted pastel ceramic rod trays across the cool slate-gray stone table under soft diffused daylight",
+      "consequence": "the two unmarked matte limestone trays display opposite rod gaps"
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeve and cool porcelain-white gloved low-poly left hand over an unmarked limestone groove tray",
+      "prop_action": "the cool porcelain-white gloved low-poly left hand traces an intact soft cream ceramic rod beside a split powder-blue ceramic rod and touches a tall smooth mint-sage stone prism",
+      "consequence": "the intact cream ceramic rod and tall smooth mint-sage prism sit cleanly beside the split powder-blue rod with zero markings"
+    },
+    {
+      "sentence_index": 36,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeve and matte-white gloved low-poly right hand over the Capgras relay board",
+      "prop_action": "the matte-white gloved low-poly right hand traces the lit sky-blue naming wire beside the open gap in the golden warmth wire and taps a flat chart line",
+      "consequence": "conscious face naming glows brightly while gut warmth stays flat"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a warm sunlit New York bookshop foyer with wooden bookcases and a tall bevel-edged wall mirror by the doorway",
+      "action": "viewed strictly from behind, a clothed low-poly neurologist-author in a tweed blazer and felt hat walks briskly toward the sunlit doorway holding a pocket notebook"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit bookshop corner directly before the tall wooden-framed wall mirror",
+      "action": "viewed strictly from behind, the clothed low-poly author in a tweed blazer steps politely aside and lifts his felt hat toward the frosted silhouette in the tall mirror"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed blazer sleeve and matte-white gloved low-poly hand tipping a soft felt hat beside the bevelled mirror frame",
+      "prop_action": "the matte-white gloved low-poly hand lifts and tilts the felt hat brim politely as the mirrored silhouette moves in exact synchrony",
+      "consequence": "both hat brims tilt at the exact same angle"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed blazer cuffs and matte-white gloved low-poly hands holding an open pocket notebook beside the tall mirror",
+      "prop_action": "one matte-white gloved low-poly hand presses the wooden mirror frame lightly while the other hand writes a playful note in the notebook",
+      "consequence": "the humorous self-discovery goes straight into his field notes"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands opening a wide population grid on the sunlit table",
+      "prop_action": "both matte-white gloved low-poly hands lift and open a wide fifty-slot pastel grid board across the sunlit table",
+      "consequence": "the community-wide scale of congenital face blindness opens across the table"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster architectural model of an open-top pastel city bus displaying fifty neat passenger seats",
+      "comparison_action": "two matte-white gloved low-poly hands in blazer sleeves point and place a bright warm-gold cushion onto one single bus seat among the fifty pastel-blue seats"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit pastel auditorium row of plush wooden-backed theater seats",
+      "comparison_action": "viewed strictly from behind, clothed low-poly audience members in coats and cardigan jackets lean and turn warmly along the row toward a speaking neighbor"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit research hall displaying the fifty-seat population model and 3D brain sculpture on the central oak table",
+      "action": "viewed strictly from behind, three clothed low-poly researchers in white coats and blazer jackets step back from the table and turn in amazed agreement"
+    },
+    {
+      "sentence_index": 44,
+      "act": 5,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cardigan sleeves and matte-white gloved low-poly hands arranging everyday cue tokens of red spectacles, oxford shoes, and a sound wave",
+      "prop_action": "both matte-white gloved low-poly hands lift and align the miniature red spectacles, pastel shoes, and golden voice wave neatly on a pocket tray",
+      "consequence": "clever everyday context cues anchor smooth daily recognition"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright sunlit neighborhood market aisle lined with neat pastel canisters and wooden shelves",
+      "action": "viewed strictly from behind, two clothed low-poly shoppers in casual jackets walk and step along opposite sides of the sunlit aisle"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit market aisle away from usual office desks and uniforms",
+      "action": "viewed strictly from behind, a clothed low-poly coworker in a casual jacket walks briskly and turns down the aisle past another shopper in a cardigan"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster optical bench featuring a large brushed-silver mechanical aperture shutter ring",
+      "comparison_action": "two matte-white gloved low-poly hands in shirt sleeves press a release lever so the silver shutter blades close and snap wide open in one crisp blink"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cardigan sleeves and matte-white gloved low-poly hands setting aside a cold grey block on a sunlit counter",
+      "prop_action": "one matte-white gloved low-poly hand pushes the cold grey misunderstanding block away while the other hand places a warm golden acoustic bridge forward",
+      "consequence": "the warm golden bridge sits ready at the center of the counter"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "fusiform face area",
+      "anatomy_label": "FUSIFORM FACE PATCH\nCONTEXT GAP BRIDGED",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the matte warm-ivory 3D brain model, a bright amber-gold arc from the side auditory hearing center illuminates identity hubs past the quiet fusiform patch"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit neighborhood sidewalk outside the bookshop with green street trees",
+      "action": "viewed strictly from behind, a clothed low-poly friend in a casual jacket steps forward and reaches a gloved hand warmly toward a colleague in a cardigan"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "casual jacket sleeve and wool cardigan sleeve with matte-white gloved low-poly hands meeting in warm sunlight",
+      "prop_action": "both clothed low-poly right hands reach across and shake in a warm friendly greeting as golden sound rings shimmer gently",
+      "consequence": "instant recognition connects both friends effortlessly"
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Winnenden clinic desk alongside the intact golden voice-bridge model and 3D brain sculpture",
+      "action": "viewed strictly from behind, clothed low-poly neurologists in white coats and blazer jackets step together and turn calmly toward the sunlit room"
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a soft sunlit southern German hillside garden with pale-stone courtyard walls, linden trees, and clear pastel-blue sky",
+      "action": "viewed strictly from behind, clothed low-poly figures in coats and cardigan jackets walk and step calmly along the sunlit garden path as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "VOICE KNOWS MOM?",
+    "cover_sentence_index": 3,
+    "cover_brief": "low-poly patient in cardigan seated before wooden tabletop mirror showing frosted stranger silhouette until golden voice rings arrive"
+  }
+}

@@ -1,0 +1,754 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "wernicke_sensory_aphasia",
+  "topic": "Carl Wernicke (1874) Breslau Sensory Aphasia Discovery, Three-Object Tray & Bell Dissociation, Two-Hub Network Prediction of Conduction Aphasia, and 2015 MRI Vocal Self-Monitor Refinement (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Modern MRI lesion mapping confirming posterior temporal self-monitoring alongside emergency hospital recognition of sudden fluent jargon speech as an acute left-temporal stroke.",
+  "outro_title_lines": [
+    "CARL WERNICKE (1874)",
+    "BRESLAU HOSPITAL CLINIC"
+  ],
+  "thumbnail": {
+    "hook_text": "FLUENT STROKE?",
+    "cover_sentence_index": 3,
+    "cover_brief": "Centered low-poly pastel tray holding a brushed-silver key, a pale powder-blue cup, and a muted-sage brush beside a silver hand bell on a cool slate clinic desk"
+  },
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "SMOOTH SPEECH?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FLUENT STROKE?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "BELL AND KEY"
+    },
+    {
+      "sentence_index": 19,
+      "text": "SOUND DECODER"
+    },
+    {
+      "sentence_index": 27,
+      "text": "CUT CABLE"
+    },
+    {
+      "sentence_index": 35,
+      "text": "VOICE MONITOR"
+    },
+    {
+      "sentence_index": 43,
+      "text": "VISUAL BRIDGE"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "SMOOTH SPEECH?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FLUENT STROKE?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "BELL AND KEY"
+    },
+    {
+      "sentence_index": 19,
+      "text": "SOUND DECODER"
+    },
+    {
+      "sentence_index": 27,
+      "text": "CUT CABLE"
+    },
+    {
+      "sentence_index": 35,
+      "text": "VOICE MONITOR"
+    },
+    {
+      "sentence_index": 43,
+      "text": "VISUAL BRIDGE"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 13,
+      "mode": "split_hstack",
+      "left_clip_index": 14,
+      "right_clip_index": 15,
+      "left_label": "BROCA: SILENT HALT",
+      "right_label": "WERNICKE: SCRAMBLED"
+    }
+  ],
+  "clips": [
+    {
+      "clip_index": 1,
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark slate coat sleeves and cool matte-white faceted low-poly gloved hands setting a brushed-silver desk bell onto a pale slate clinic table",
+      "prop_action": "cool matte-white faceted low-poly gloved hands place a brushed-silver desk bell beside a muted-sage tray holding a silver key and a powder-blue cup",
+      "consequence": "soft muted pastel daylight rests evenly across the cool slate clinic table"
+    },
+    {
+      "clip_index": 2,
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "pale lavender shawl sleeves and cool matte-white faceted low-poly gloved hands gesturing smoothly above the muted-sage tray",
+      "prop_action": "cool matte-white faceted low-poly gloved hands reach smoothly past the silver key and lift the muted-sage hairbrush off the tray",
+      "consequence": "the silver key remains untouched on the cool cream mat"
+    },
+    {
+      "clip_index": 3,
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark slate jacket sleeves and cool matte-white faceted low-poly gloved hands sliding a cool cream diagram sheet onto the pale ash desk",
+      "prop_action": "cool matte-white faceted low-poly gloved hands trace a curved powder-blue line linking two unmarked geometric circles on the cool cream sheet",
+      "consequence": "a soft slate pencil pauses over the rear pastel circle"
+    },
+    {
+      "clip_index": 4,
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate coat sleeves and cool matte-white faceted low-poly gloved hands aligning three objects on a muted-sage tray",
+      "prop_action": "cool matte-white faceted low-poly gloved hands arrange a brushed-silver key, a powder-blue cup, and a pale slate brush beside a silver bell",
+      "consequence": "the clean geometric clinic props sit centered under soft diffused light"
+    },
+    {
+      "clip_index": 5,
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view from behind inside a bright pastel European clinic room with pale sage walls and cool slate desks",
+      "action": "viewed strictly from behind, a low-poly doctor in a dark slate coat leans across the pale ash table toward a seated patient in a pale lavender shawl who lifts a brush"
+    },
+    {
+      "clip_index": 6,
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_right",
+      "environment": "an architectural cross-section of a quiet pastel hospital ward corridor with powder-blue doors and pale slate floors",
+      "action": "viewed strictly from behind, two low-poly doctors in slate coats walk past a seated patient in a muted-sage cardigan gesturing lively hands beside an untouched tray"
+    },
+    {
+      "clip_index": 7,
+      "sentence_index": 5,
+      "end_sentence_index": 6,
+      "act": 1,
+      "location_id": "breslau_study_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool matte-white faceted low-poly gloved hands tapping one powder-blue wooden block on a cool slate desk",
+      "prop_action": "cool matte-white faceted low-poly gloved hands tap a single powder-blue wooden cube once and then slide a silver cup accurately into a matching circle",
+      "consequence": "the silver cup clicks cleanly onto the cool cream target pad"
+    },
+    {
+      "clip_index": 8,
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a soft diffused pastel hospital courtyard doorway leading into a pale sage consultation room with tall arched windows",
+      "action": "viewed strictly from behind, a young low-poly physician in a slate frock coat walks briskly through the doorway and sets a silver bell onto the desk"
+    },
+    {
+      "clip_index": 9,
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_object": "a compact powder-blue low-poly desk flip-stand holding six blank pastel leaf cards beside a muted-sage pencil cup on a cool cream studio table",
+      "analogy_action": "six clean unmarked pastel cards flip briskly one after another across the compact powder-blue stand and settle flat in soft studio daylight"
+    },
+    {
+      "clip_index": 10,
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright pastel clinic consultation room with two pale ash chairs facing a cool slate table",
+      "action": "viewed strictly from behind the doctor in a slate coat, two low-poly patients in pale lavender and muted-sage shawls wave expressive hands in lively rhythm"
+    },
+    {
+      "clip_index": 11,
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and cool matte-white faceted low-poly gloved hands holding two plain pastel sorting folders over a pale ash desk",
+      "prop_action": "cool matte-white faceted low-poly gloved hands hesitate between a pale lavender folder and a powder-blue folder before setting both down",
+      "consequence": "both unmarked pastel folders rest evenly on the cool slate blotter"
+    },
+    {
+      "clip_index": 12,
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale lavender cardigan sleeves and cool matte-white faceted low-poly gloved hands resting beside a muted-sage sewing spool basket",
+      "prop_action": "cool matte-white faceted low-poly gloved hands set down a pastel thread spool and gesture in smooth flowing arcs across the cool cream table",
+      "consequence": "pale sage acoustic wave rings ripple gently through the air"
+    },
+    {
+      "clip_index": 13,
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight",
+      "action": "viewed strictly from behind at the end of the hall, a low-poly doctor in a slate coat pauses and tilts toward smooth pastel sound ripples floating from the doorway"
+    },
+    {
+      "clip_index": 14,
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "breslau_study_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal sweater sleeves and cool matte-white faceted low-poly gloved hands pressing a single powder-blue tile on a pale slate mat",
+      "prop_action": "cool matte-white faceted low-poly gloved hands press one lone powder-blue tile repeatedly while other pastel tiles stay still",
+      "consequence": "a single clean pastel ripple rises from the lone tile"
+    },
+    {
+      "clip_index": 15,
+      "sentence_index": 13,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale lavender sleeves and cool matte-white faceted low-poly gloved hands scattering mismatched pastel geometric tiles across a cool cream mat",
+      "prop_action": "cool matte-white faceted low-poly gloved hands slide triangles, cubes, and cylinders in a rapid mismatched stream across the cool cream mat",
+      "consequence": "scrambled pastel geometric shapes tumble out of order"
+    },
+    {
+      "clip_index": 16,
+      "sentence_index": 14,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark slate coat sleeves and cool matte-white faceted low-poly gloved hands lifting a small brushed-silver bell behind a pale ash chair",
+      "prop_action": "cool matte-white faceted low-poly gloved hands tap the clapper of the brushed-silver bell once in soft studio light",
+      "consequence": "concentric powder-blue sound rings expand cleanly from the silver bell"
+    },
+    {
+      "clip_index": 17,
+      "sentence_index": 14,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright pastel Breslau consultation room with pale sage walls and soft window light",
+      "action": "viewed strictly from behind, the seated low-poly patient in a pale lavender coat and gloves turns briskly and reaches toward the doctor tapping the silver bell"
+    },
+    {
+      "clip_index": 18,
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "AUDITORY CORTEX\nHEARING CENTER",
+      "brain_scene": "a matte powder-cream low-poly left hemisphere model on a cool slate stand where the upper temporal auditory cortex ridge glows soft cyan-blue with calm sound waves"
+    },
+    {
+      "clip_index": 19,
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_object": "a neat muted-sage low-poly valet pocket tray holding three everyday items — a silver house key, a powder-blue cup, and a pale slate brush — on a cool cream surface",
+      "analogy_action": "the three distinct pastel objects settle into three recessed slots along the muted-sage pocket tray under soft studio light"
+    },
+    {
+      "clip_index": 20,
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale lavender sleeves and cool matte-white faceted low-poly gloved hands reaching over the muted-sage three-object tray",
+      "prop_action": "cool matte-white faceted low-poly gloved hands hover past the silver key and lift the pale slate hairbrush off the tray",
+      "consequence": "the silver key stays behind in its recessed slot"
+    },
+    {
+      "clip_index": 21,
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "pale lavender sleeves and cool matte-white faceted low-poly gloved hands holding the wrong pale slate brush above the cool cream blotter",
+      "prop_action": "cool matte-white faceted low-poly gloved hands turn the pale slate brush uncertainly while soft powder-blue sound rings fade into scrambled pastel cubes",
+      "consequence": "the brush sets softly down beside the untouched silver key"
+    },
+    {
+      "clip_index": 22,
+      "sentence_index": 19,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark slate coat sleeves and cool matte-white faceted low-poly gloved hands pantomiming a twisting motion in midair",
+      "prop_action": "cool matte-white faceted low-poly gloved hands pinch invisible air and twist smoothly as if turning a door lock",
+      "consequence": "the clear gesture completes cleanly above the cool slate desk"
+    },
+    {
+      "clip_index": 23,
+      "sentence_index": 19,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale lavender sleeves and cool matte-white faceted low-poly gloved hands reaching directly to the silver key",
+      "prop_action": "cool matte-white faceted low-poly gloved hands pick up the brushed-silver key promptly and place it into an open matte-white gloved palm",
+      "consequence": "the silver key rests squarely in the doctor's gloved hand"
+    },
+    {
+      "clip_index": 24,
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "slate coat sleeves and cool matte-white faceted low-poly gloved hands sliding a clear geometric key icon card beside a misty frosted glass block",
+      "prop_action": "cool matte-white faceted low-poly gloved hands tap the crisp silver key silhouette tile and push aside a cloudy frosted cube",
+      "consequence": "the crisp silver key tile sits centered on the muted-sage mat"
+    },
+    {
+      "clip_index": 25,
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "breslau_study_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate coat sleeves and cool matte-white faceted low-poly gloved hands adjusting a two-part pastel acoustic filter model on a pale ash desk",
+      "prop_action": "cool matte-white faceted low-poly gloved hands spin a smooth powder-blue gear cleanly while lifting out a cracked pale-lavender filter prism beside it",
+      "consequence": "the front gear keeps turning smoothly as the rear prism sits detached"
+    },
+    {
+      "clip_index": 26,
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "breslau_study_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a quiet high-key pastel pathology study room with pale slate cabinets and a cool cream examination table",
+      "action": "viewed strictly from behind, a low-poly neuroanatomist in a white lab coat places a matte pastel brain cast onto a silver cradle stand"
+    },
+    {
+      "clip_index": 27,
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "locked_tripod",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "Broca's area",
+      "anatomy_label": "BROCA'S AREA\nSPEECH PRODUCER",
+      "brain_scene": "a matte cream low-poly left hemisphere model where frontal Broca's area glows calm steady powder-blue completely intact and unharmed"
+    },
+    {
+      "clip_index": 28,
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "Wernicke's area",
+      "anatomy_label": "WERNICKE'S AREA\nLANGUAGE DECODER",
+      "brain_scene": "the matte cream low-poly left hemisphere rotating slightly to show posterior temporal Wernicke's area behind the ear shaded in muted dusty-rose"
+    },
+    {
+      "clip_index": 29,
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "pan_left",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "white matter",
+      "anatomy_label": "WHITE MATTER\nBRAIN CABLES",
+      "brain_scene": "a cutaway matte pastel left hemisphere revealing a sweeping arched white-matter fiber bundle in soft sage-green linking rear temporal cortex to frontal cortex"
+    },
+    {
+      "clip_index": 30,
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "breslau_study_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark slate sleeves and cool matte-white faceted low-poly gloved hands holding a soft rose pencil over an unmarked two-circle pastel sketch",
+      "prop_action": "cool matte-white faceted low-poly gloved hands draw a small crisp cross mark strictly across the curved pastel line connecting two intact circles",
+      "consequence": "both outer pastel circles stay clean while the middle bridge line is crossed"
+    },
+    {
+      "clip_index": 31,
+      "sentence_index": 27,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "breslau_study_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate coat sleeves and cool matte-white faceted low-poly gloved hands placing three pastel peg blocks in a row on a cool cream mat",
+      "prop_action": "cool matte-white faceted low-poly gloved hands set down a powder-blue block, a pale-lavender block, and a third muted-sage block",
+      "consequence": "three neat geometric syndrome blocks align evenly across the desk"
+    },
+    {
+      "clip_index": 32,
+      "sentence_index": 27,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "breslau_study_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view from behind inside the bright pastel Breslau study with tall pale-slate shelves and cool daylight",
+      "action": "viewed strictly from behind, two low-poly physicians in slate coats lean over the pale ash desk pointing to the three pastel blocks beside a brain model"
+    },
+    {
+      "clip_index": 33,
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_object": "two intact powder-blue low-poly desk telephones sitting on a cool slate table with a separated pale-gray coiled cord frayed cleanly in the middle",
+      "analogy_action": "both powder-blue telephone handsets lift cleanly on cradles while the detached middle cord gap blocks the soft sage pulse halfway across"
+    },
+    {
+      "clip_index": 34,
+      "sentence_index": 29,
+      "end_sentence_index": 30,
+      "act": 4,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_right",
+      "environment": "a two-zone pastel clinic cutaway showing a pale-sage exam desk on the left and a study table on the right",
+      "action": "viewed strictly from behind, a patient in a powder-blue sweater hands over a silver key accurately and then pauses mid-gesture while a doctor nods beside a sketch"
+    },
+    {
+      "clip_index": 35,
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale lavender sleeves and cool matte-white faceted low-poly gloved hands folding calmly over a cool cream table",
+      "prop_action": "cool matte-white faceted low-poly gloved hands slide mismatched pastel geometric blocks into a crooked row and tap them calmly",
+      "consequence": "the crooked pastel row stays untouched under soft daylight"
+    },
+    {
+      "clip_index": 36,
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_object": "a clean muted-sage low-poly relief map board with a small brushed-silver location pin sliding between three pastel zones",
+      "analogy_action": "the brushed-silver pin glides from a rear powder-blue zone to a lower lavender zone and back again across the unmarked pastel relief board"
+    },
+    {
+      "clip_index": 37,
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "rehab_care_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a modern bright pastel neuroimaging suite with cool cream walls and a soft powder-blue light panel showing unmarked brain silhouettes",
+      "action": "viewed strictly from behind, a neurologist in a white lab coat slides translucent pastel brain overlays together on a cool slate console"
+    },
+    {
+      "clip_index": 38,
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "rehab_care_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool matte-white faceted low-poly gloved hands connecting a silver headphone jack into a pastel audio mixer",
+      "prop_action": "cool matte-white faceted low-poly gloved hands lift a brushed-silver headphone cord and press it into a muted-sage tabletop monitor box",
+      "consequence": "two soft powder-blue level bars balance evenly on the matte box"
+    },
+    {
+      "clip_index": 39,
+      "sentence_index": 35,
+      "act": 5,
+      "location_id": "rehab_care_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool matte-white faceted low-poly gloved hands pulling a silver headphone plug out of the muted-sage monitor box",
+      "prop_action": "cool matte-white faceted low-poly gloved hands unplug the brushed-silver cord from the muted-sage audio box and set it on the slate mat",
+      "consequence": "the soft powder-blue level bars drop flat to idle"
+    },
+    {
+      "clip_index": 40,
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_object": "a pair of matte powder-blue low-poly studio headphones resting beside a silver microphone stand with its gray cord hanging unplugged in midair",
+      "analogy_action": "pastel sound rings float out from the silver microphone while the unplugged powder-blue headphones stay completely still on the cool cream stand"
+    },
+    {
+      "clip_index": 41,
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "pan_right",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "Broca's area",
+      "anatomy_label": "BROCA'S AREA\nSPEECH PRODUCER",
+      "brain_scene": "a matte cream low-poly left hemisphere where frontal Broca's area pulses smooth powder-blue waves forward without feedback from the rear temporal zone"
+    },
+    {
+      "clip_index": 42,
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "clean_pullback_reveal",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "temporal lobe",
+      "anatomy_label": "TEMPORAL LOBE\nTHE SIDE LOBE",
+      "brain_scene": "the matte cream low-poly left hemisphere showing a broad soft-sage glow spreading across the middle and front temporal lobe meaning neighborhood"
+    },
+    {
+      "clip_index": 43,
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "breslau_study_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark slate sleeves and cool matte-white faceted low-poly gloved hands placing a translucent pastel brain model beside the unmarked two-hub sketch",
+      "prop_action": "cool matte-white faceted low-poly gloved hands set a miniature matte-cream brain model right beside the curved pastel bridge drawing",
+      "consequence": "the historic sketch and 3D model align side by side in soft daylight"
+    },
+    {
+      "clip_index": 44,
+      "sentence_index": 40,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "rehab_care_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue scrub sleeves and cool matte-white faceted low-poly gloved hands pressing a muted-sage triage call button",
+      "prop_action": "cool matte-white faceted low-poly gloved hands press a round muted-sage call button beside a silver stethoscope on a cool slate counter",
+      "consequence": "a soft pale-lavender indicator ring illuminates calmly"
+    },
+    {
+      "clip_index": 45,
+      "sentence_index": 40,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "rehab_care_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a clean modern pastel neurology triage bay with pale sage curtains and cool cream floors",
+      "action": "viewed strictly from behind, two low-poly clinicians in powder-blue scrubs wheel a pale-slate exam chair briskly toward the scan doorway"
+    },
+    {
+      "clip_index": 46,
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "rehab_care_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view from behind of the bright pastel neurology conference room with a large matte brain model on a central table",
+      "action": "viewed strictly from behind, three low-poly researchers in white coats step back around the pale ash table raising gloved hands in quiet awe"
+    },
+    {
+      "clip_index": 47,
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "rehab_care_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-sage cardigan sleeves and cool matte-white faceted low-poly gloved hands setting picture icon tiles onto a cool cream table",
+      "prop_action": "cool matte-white faceted low-poly gloved hands lay out three clean pastel picture tiles showing a silver cup, a key, and a chair silhouette",
+      "consequence": "the three clear visual icon tiles sit neatly spaced for easy pointing"
+    },
+    {
+      "clip_index": 48,
+      "sentence_index": 43,
+      "act": 6,
+      "location_id": "rehab_care_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer sleeves and cool matte-white faceted low-poly gloved hands placing two matching pastel speech wave models side by side",
+      "prop_action": "cool matte-white faceted low-poly gloved hands set a flat silent slate bar beside a smooth flowing pale-lavender wave bar on a cool cream mat",
+      "consequence": "both stroke patterns sit clearly compared in soft diffused light"
+    },
+    {
+      "clip_index": 49,
+      "sentence_index": 44,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "rehab_care_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy sweater sleeves and cool matte-white faceted low-poly gloved hands lifting a sleek pale-slate phone handset",
+      "prop_action": "cool matte-white faceted low-poly gloved hands pick up a pale-slate phone from a cool cream counter and tap its smooth green call button",
+      "consequence": "soft sage connection rings pulse gently from the handset"
+    },
+    {
+      "clip_index": 50,
+      "sentence_index": 44,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "rehab_care_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit pastel home living room opening onto a calm pale-slate entryway",
+      "action": "viewed strictly from behind, a low-poly family member in a navy sweater guides a seated relative in a pale-lavender cardigan calmly by the elbow"
+    },
+    {
+      "clip_index": 51,
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "Wernicke's area",
+      "anatomy_label": "WERNICKE'S AREA\nLANGUAGE DECODER",
+      "brain_scene": "a matte cream low-poly left hemisphere model where posterior temporal Wernicke's area transitions smoothly from muted rose back to calm powder-blue"
+    },
+    {
+      "clip_index": 52,
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "rehab_care_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-sage jacket sleeves and cool matte-white faceted low-poly gloved hands lowering a silver megaphone cone onto a pale slate mat",
+      "prop_action": "cool matte-white faceted low-poly gloved hands set aside a small brushed-silver megaphone and slide forward a clean pastel cup picture tile",
+      "consequence": "the megaphone rests unused while the picture tile takes center stage"
+    },
+    {
+      "clip_index": 53,
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "rehab_care_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "tilt_up",
+      "environment": "a bright pastel therapy room cutaway showing two low-poly figures in coats and gloves seated across a pale ash table with visual icon cards",
+      "action": "viewed strictly from behind, a therapist in a powder-blue coat and gloves lifts a cup while the patient in a pale-lavender coat taps the matching card"
+    },
+    {
+      "clip_index": 54,
+      "sentence_index": 48,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "rehab_care_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool matte-white faceted low-poly gloved hands miming a calm drinking gesture beside a cup icon tile",
+      "prop_action": "cool matte-white faceted low-poly gloved hands tap a powder-blue cup picture card and lift an imaginary cup calmly upward",
+      "consequence": "the visual cup card stays clearly framed on the cool cream mat"
+    },
+    {
+      "clip_index": 55,
+      "sentence_index": 48,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "rehab_care_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale lavender sweater sleeves and cool matte-white faceted low-poly gloved hands touching the matching powder-blue cup card",
+      "prop_action": "cool matte-white faceted low-poly gloved hands tap the powder-blue cup icon tile accurately and lift a real pale-blue cup beside it",
+      "consequence": "both gloved hands meet calmly across the tidy pastel table"
+    },
+    {
+      "clip_index": 56,
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "rehab_care_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "powder-blue sleeves and cool matte-white faceted low-poly gloved hands placing one clean picture tile onto a muted-sage mat",
+      "prop_action": "cool matte-white faceted low-poly gloved hands center a single unmarked house-key silhouette card on the muted-sage communication board",
+      "consequence": "the single visual icon card sits uncluttered in soft pastel light"
+    },
+    {
+      "clip_index": 57,
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "breslau_clinic_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view from behind of the sunlit pastel Breslau consultation room with the silver key tray and a matte two-hub brain model",
+      "action": "viewed strictly from behind, the low-poly doctor in a slate coat lifts the silver key and slides it calmly toward the patient in a pale-lavender sweater"
+    },
+    {
+      "clip_index": 58,
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a serene bright pastel neuro-studio gallery with cool cream arches and a matte left-hemisphere language highway sculpture on a pale slate pedestal",
+      "action": "viewed strictly from behind, a low-poly neurologist in a white lab coat sets a silver key beside the glowing powder-blue and sage two-hub brain sculpture"
+    }
+  ]
+}

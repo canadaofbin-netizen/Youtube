@@ -1,0 +1,667 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "skinner_operant_superstition",
+  "topic": "Skinner Fixed-Time Pigeon Superstition, Ten-Thousand-Hop Extinction Resistance, Staddon Interim-Terminal Split & Human Illusory Control (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Human booth replication proving blind fixed-time point timers wire elaborate superstitious lever routines through basal ganglia and dopamine timing circuits.",
+  "outro_title_lines": [
+    "B. F. SKINNER (1948)",
+    "INDIANA UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "LUCKY RITUAL?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BLIND TIMER TRAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SIX WILD DANCES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "HABIT STAMPING"
+    },
+    {
+      "sentence_index": 28,
+      "text": "UNPLUGGED HOPPER"
+    },
+    {
+      "sentence_index": 37,
+      "text": "HUMAN LEVER TEST"
+    },
+    {
+      "sentence_index": 45,
+      "text": "DEAD BUTTON TRAP"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "LUCKY RITUAL?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BLIND TIMER TRAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SIX WILD DANCES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "HABIT STAMPING"
+    },
+    {
+      "sentence_index": 28,
+      "text": "UNPLUGGED HOPPER"
+    },
+    {
+      "sentence_index": 37,
+      "text": "HUMAN LEVER TEST"
+    },
+    {
+      "sentence_index": 45,
+      "text": "DEAD BUTTON TRAP"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 34,
+      "mode": "split_hstack",
+      "left_clip_index": 37,
+      "right_clip_index": 38,
+      "left_label": "EARLY SPINNING",
+      "right_label": "FINAL PECKING"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands over a cool slate-gray bench beside a clear chamber box and chalk-white faceted pigeon",
+      "prop_action": "one cool porcelain-white gloved low-poly hand sets a tick-mark timer while the other points to the pigeon turn",
+      "consequence": "the grain hopper swings open on the timer click"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a soft daylight psychology laboratory with a clear acrylic conditioning chamber box, lower grain hopper tray, plain tick-mark sweep timer, and matte chalk-white faceted low-poly pigeon sculpture on a cool slate-gray bench",
+      "action": "viewed strictly from behind, a clothed low-poly psychologist in a white coat leans beside the cool slate-gray bench and points as the pigeon sculpture executes a counterclockwise turn"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "six clear matte-pastel conditioning chamber boxes aligned on a cool limestone bench wired to one central brushed-silver sweep timer",
+      "internal_mechanism": "all six lower grain hopper trays swing open in exact unison whenever the silver sweep hand completes a quarter arc"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands positioning a round plain tick-mark sweep timer beside the clear acrylic chamber box on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place the silver sweep timer down and align its single cord straight into the lower grain hopper latch",
+      "consequence": "the pecking disc on the chamber wall sits completely unplugged"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the bright Indiana psychology room featuring the clear chamber box, chalk-white faceted pigeon sculpture, plain tick-mark sweep timer, and smooth rotating paper cylinder on a cool slate-gray bench",
+      "action": "viewed strictly from behind, a clothed low-poly researcher in a white coat steps beside the chamber box and rests one gloved hand on the slate-gray bench"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands sliding two blank pastel cause-and-reward blocks apart on a cool limestone desk",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts a silver link bridge out from between the powder-blue action block and mint-sage reward block and sets it aside",
+      "consequence": "the action block and reward block sit completely separated on the limestone desk"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt cuffs and cool porcelain-white gloved low-poly hands testing a classic connected lever model on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand presses a small powder-blue lever while the other hand points as a single mint-sage pellet drops cleanly",
+      "consequence": "in the classic setup, only pressing the lever drops a mint-sage pellet"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a long cool limestone laboratory counter holding eight clear acrylic chamber boxes each containing a matte chalk-white faceted low-poly pigeon sculpture",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in white coat and slate waistcoat walk along the limestone counter and align the clear chamber doors"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands unplugging the wall-key cord from the clear acrylic chamber box on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands pull the silver key plug cleanly out of its socket and coil it neatly beside the box",
+      "consequence": "the circular wall key inside the clear chamber goes completely dark and inactive"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "the round brushed-silver sweep timer wired directly to the hinged lower grain hopper tray on a cool slate-gray base",
+      "internal_mechanism": "as the sweep arm reaches a pastel tick mark, a silver latch pulls the grain hopper tray smoothly upward into the chamber opening"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands tapping the disconnected wall key on the clear chamber over cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand taps the dead wall key repeatedly while the other hand lifts the loose unplugged silver cord",
+      "consequence": "the sweep timer continues turning smoothly without reacting to the key taps"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a matte powder-blue rotating garden sprinkler head mounted at the center of a cool mint-sage and limestone courtyard",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate cuffs turn the silver water valve open and step back as soft powder-blue water arcs spray on a fixed rhythm"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a miniature matte powder-blue and brushed-silver elevator portal resting on a cool slate-gray architectural stone base",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in blazer cuffs press a side test button so the brushed-silver doors slide open briefly and close smoothly"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands holding a transparent acrylic cover over the round silver sweep timer on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and press the clear cover over the sweep timer sealing it off from outside touches",
+      "consequence": "the sealed sweep hand glides at one unchangeable steady pace"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit psychology room with the row of clear acrylic chamber boxes along the cool limestone bench",
+      "action": "viewed strictly from behind, two clothed low-poly scientists in white coat and navy blazer open the laboratory door and walk briskly toward the chambers"
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands lining up eight small ceramic bird tokens on a cool slate-gray bench",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide six coral-rose tokens forward out of the row of eight leaving two pale-gray tokens behind",
+      "consequence": "six bright coral-rose tokens stand highlighted along the front edge of the bench"
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "six clear acrylic chamber boxes along the cool limestone bench where six chalk-white faceted low-poly pigeon sculptures perform different rhythmic motions simultaneously",
+      "action": "viewed strictly from behind, both clothed low-poly researchers in white coat and blazer lean forward in surprise and point down the row of active chambers"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "close benchtop view of the first clear acrylic chamber box where a matte chalk-white faceted low-poly pigeon sculpture pivots in two brisk counterclockwise circles",
+      "action": "viewed strictly from behind, a clothed low-poly researcher in a white coat leans beside the chamber and traces two circular loops in the air with a gloved finger"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands beside the second clear acrylic chamber box on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand points toward the upper left acrylic corner while the other hand rests on a blank pastel tally pad as the faceted pigeon bows into that corner",
+      "consequence": "the faceted chalk-white pigeon repeats the exact same corner thrust rhythmically"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands holding a horizontal silver rod outside the third clear acrylic chamber on cool limestone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand holds the silver rod outside the glass for reference while the other hand points as the faceted pigeon tosses its head upward",
+      "consequence": "the chalk-white pigeon lifts its head repeatedly as though nudging an invisible bar"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "elevated wide view of the Indiana laboratory showing all six clear chambers performing distinct loops while one single silver sweep timer clicks on the cool slate-gray bench",
+      "action": "viewed strictly from behind, two clothed low-poly scientists in white coat and blazer step back from the limestone counter and shake their gloved hands slightly at the coincidence"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt cuffs and cool porcelain-white gloved low-poly hands arranging six distinct pastel arrow tiles around one central silver timer disc on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and align a spiral arrow, a corner arrow, and an upward arrow around the single central timer disc",
+      "consequence": "one identical timer disc radiates six completely different pastel motion paths"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clear chamber cutaway on a cool slate-gray base where the chalk-white faceted pigeon happens to turn left at the exact instant the mint-sage grain hopper clicks open",
+      "internal_mechanism": "a soft cyan timing pulse flashes between the accidental left turn and the rising mint-sage grain tray"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "ventral tegmental area",
+      "anatomy_label": "VENTRAL TEGMENTAL AREA\nDOPAMINE FACTORY",
+      "brain_scene": "a matte-pastel sagittal cutaway brain model on a cool alabaster stand where the deep midbrain ventral tegmental area flashes coral-rose sending an upward surprise signal"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "pan_left",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA\nHABIT ENGINE",
+      "brain_scene": "a matte-pastel sagittal cutaway brain model highlighting the central basal ganglia in bright cyan-blue locking the preceding movement pattern into an automatic loop"
+    },
+    {
+      "sentence_index": 23,
+      "end_sentence_index": 24,
+      "act": 3,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands sliding two curved pastel arcs together along a silver timeline rail on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands push a powder-blue spin arc flush against a mint-sage grain token so they lock together seamlessly",
+      "consequence": "each brief spin arc lands right against the next mint-sage grain token on the rail"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a tall matte powder-blue and brushed-silver wall pendulum swinging in slow wide arcs inside a cool slate-gray architectural frame",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in navy cuffs pull the silver pendulum bob gently to one side and release it into a slow steady swing"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands stacking three concentric cyan ring tokens over a spin icon on cool limestone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and press three matching cyan rings down around the central spin token",
+      "consequence": "the stacked cyan rings lock the central spin token firmly in place"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands reaching for the main silver hopper power plug on the cool slate-gray bench",
+      "prop_action": "one cool porcelain-white gloved low-poly hand holds the silver timer housing steady while the other hand grips the hopper plug poised to pull it free",
+      "consequence": "the grain hopper lamp dims as the power disconnect test begins"
+    },
+    {
+      "sentence_index": 28,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands unplugging the grain hopper solenoid cord on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands pull the silver hopper plug out completely and rest it visibly beside the silent timer",
+      "consequence": "the lower grain hopper tray locks shut and dark"
+    },
+    {
+      "sentence_index": 28,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the Indiana laboratory bench showing the unplugged silver cord beside a clear acrylic chamber and a tall rotating white paper cylinder with a stepped pastel trace",
+      "action": "viewed strictly from behind, a clothed low-poly assistant in a white coat steps beside the rotating paper cylinder and points to the unplugged cord"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the clear acrylic chamber box with dark closed grain hopper where the chalk-white faceted low-poly pigeon sculpture keeps hopping rhythmically side to side",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in white coats lean closer to the silent chamber and point toward the nonstop hopping motion"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a clean matte powder-blue and mint-sage curved running track stretching across a sunlit cool-limestone stadium oval",
+      "comparison_action": "viewed strictly from behind, a clothed low-poly marathon runner in a powder-blue jersey and slate shorts steps and glides steadily along the pastel track lane"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "the tall rotating matte-white cylinder drum on a cool slate-gray base where a silver stylus arm climbs steadily upward across smooth unlined paper",
+      "internal_mechanism": "each rapid hop drives the silver stylus arm one notch higher into a towering steep pastel curve"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a clean behavioral studio with a matte powder-blue film camera on a silver tripod aimed at a clear acrylic pigeon chamber on a cool limestone bench",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in lavender-gray sweater and blazer align the tripod camera and press the silver shutter lever"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray sweater sleeves and cool porcelain-white gloved low-poly hands dividing a pastel timeline bar into an early coral-rose half and a late mint-sage half on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides a silver divider marker to the midpoint while the other hand taps the early coral-rose segment",
+      "consequence": "the interval splits cleanly into early waiting motion and late delivery motion"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands beside the clear chamber during the early coral-rose timer segment on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands trace and point to the chalk-white faceted pigeon spinning restlessly in wide circles away from the hopper",
+      "consequence": "early in the wait, the faceted pigeon circles restlessly in the center of the box"
+    },
+    {
+      "sentence_index": 34,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands beside the clear chamber during the final mint-sage timer segment on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands point and rest beside the lower hopper window as the chalk-white faceted pigeon leans straight forward pecking toward the tray",
+      "consequence": "right before food arrives, the faceted pigeon switches to focused forward pecking"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt cuffs and cool porcelain-white gloved low-poly hands interlocking a coral-rose habit gear with a mint-sage instinct gear on cool limestone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and turn the two pastel gears so they mesh smoothly together",
+      "consequence": "accidental habit and natural foraging turn together as one coupled mechanism"
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands comparing a tiny light lavender feather token against a large mint-sage grain bowl on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand sets down the tiny harmless feather token while the other hand slides the full mint-sage grain bowl forward",
+      "consequence": "wasting one small move costs far less than missing the full bowl"
+    },
+    {
+      "sentence_index": 37,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "human_lever_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage cardigan cuffs and cool porcelain-white gloved low-poly hands resting before three brushed-silver levers mounted on a cool slate-gray console",
+      "prop_action": "both cool porcelain-white gloved low-poly hands reach forward and pull the left, middle, and right silver levers in a crisp rhythmic sequence",
+      "consequence": "a soft cyan point lamp flashes above the console on its hidden timer"
+    },
+    {
+      "sentence_index": 37,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "human_lever_booth",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a clean university testing booth with a cool slate-gray three-lever console, a pastel point lamp column, and an observation window",
+      "action": "viewed strictly from behind, a clothed low-poly student in a mint-sage cardigan leans over the slate-gray console and pulls the silver levers rhythmically"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "human_lever_booth",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright university testing corridor leading into the pastel lever booth with a cool limestone observation counter",
+      "action": "viewed strictly from behind, a clothed low-poly researcher in a white coat opens the booth door as a clothed student in a powder-blue jacket steps inside"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "human_lever_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands behind the observation window showing the unplugged lever bundle beside a running silver sweep timer on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts the unplugged lever cable while the other hand points to the blind sweep timer triggering the point lamp",
+      "consequence": "the point column rises purely from the hidden timer with zero lever connection"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "human_lever_booth",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_left",
+      "attire_and_hands": "powder-blue jacket sleeves and cool porcelain-white gloved low-poly hands executing an elaborate four-part tap-and-pull sequence across the silver levers on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands tap the console corner twice and pull two silver levers in strict order right before the cyan lamp glows",
+      "consequence": "the timed cyan glow reinforces the student's complex lever choreography"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA\nHABIT ENGINE",
+      "brain_scene": "a matte-pastel sagittal cutaway brain model where the central basal ganglia glows intensely in cyan-blue stamping the elaborate lever sequence into habit memory"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "pan_right",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "ventral tegmental area",
+      "anatomy_label": "VENTRAL TEGMENTAL AREA\nDOPAMINE FACTORY",
+      "brain_scene": "a matte-pastel sagittal cutaway brain model where the midbrain ventral tegmental area pulses coral-rose sending reward-timing flashes upward to the striatum"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "human_lever_booth",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide view behind the observation window overlooking the human lever booth and the disconnected silver timer console",
+      "action": "viewed strictly from behind, two clothed low-poly psychologists in white coat and navy blazer step back from the glass and shake gloved hands in amazement"
+    },
+    {
+      "sentence_index": 44,
+      "act": 5,
+      "location_id": "human_lever_booth",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands placing a miniature chamber icon beside a miniature lever-booth icon on cool limestone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and align both pastel icons beneath the exact same brushed-silver sweep timer",
+      "consequence": "both pigeon and human icons sit governed by the same blind timing loop"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "city_crosswalk_corner",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a clean sunlit pastel city intersection with cool slate-gray asphalt, pale limestone curbs, and a matte powder-blue pedestrian button box on a brushed-silver pole",
+      "action": "viewed strictly from behind, a clothed low-poly commuter in a slate trench coat walks up to the curb and reaches toward the powder-blue button box"
+    },
+    {
+      "sentence_index": 46,
+      "end_sentence_index": 47,
+      "act": 6,
+      "location_id": "city_crosswalk_corner",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate trench-coat cuffs and cool porcelain-white gloved low-poly hands pressing a brushed-silver button on a matte powder-blue crosswalk housing",
+      "prop_action": "one cool porcelain-white gloved low-poly hand presses and taps the silver crosswalk button five brisk times while the other hand rests on the cool silver pole",
+      "consequence": "an overhead mint-sage walk silhouette illuminates on its preset cycle right after the fifth press"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sleek matte powder-blue remote control with blank pastel buttons resting on a cool slate-gray stone side table",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in cardigan cuffs lift the matte powder-blue remote and press its top button repeatedly while the indicator stays dark"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "city_crosswalk_corner",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate trench-coat sleeves and cool porcelain-white gloved low-poly hands pausing mid-reach inches before the matte powder-blue crosswalk button",
+      "prop_action": "both cool porcelain-white gloved low-poly hands pull gently back from the silver button and rest calmly together above the cool limestone curb",
+      "consequence": "the silver crosswalk button remains untouched while the hidden street timer keeps running"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
+      "brain_scene": "a matte-pastel 3D cortical brain model where cool cyan-blue light brightens the prefrontal cortex testing true cause against random coincidence"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "city_crosswalk_corner",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright pastel street corner where the matte powder-blue button sits untouched on the silver pole beside the crosswalk",
+      "action": "viewed strictly from behind, the clothed low-poly commuter in a slate trench coat steps beside the curb and rests gloved hands calmly at sides as the mint-sage walk light turns on"
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "city_crosswalk_corner",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the calm pastel intersection as the mint-sage walk silhouette glows across the cool slate-gray crosswalk",
+      "action": "viewed strictly from behind, the clothed low-poly commuter in a slate trench coat steps smoothly off the limestone curb and walks across the street"
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the serene Indiana psychology laboratory with the clear acrylic chamber box, chalk-white faceted pigeon sculpture, silver sweep timer, and tall windows opening to pale pastel sky",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in white coat and blazer walk calmly toward the tall window as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "BLIND TIMER TRAP",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered clear low-poly conditioning chamber with a chalk-white faceted pigeon spinning beside a brushed-silver sweep timer"
+  }
+}

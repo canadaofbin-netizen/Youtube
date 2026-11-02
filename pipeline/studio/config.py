@@ -4,8 +4,10 @@ Defines North American 5-Slot timetable, 7-Pillar playlist mapping,
 bilingual YouTube Studio Polymer UI selectors, and AI content declaration schemas.
 """
 
+from datetime import date, datetime
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo
 
 # Channel Identity
 CHANNEL_NAME = "ALL ABOUT BRAIN"
@@ -64,68 +66,112 @@ STAGING_QUEUE_FILE = (
     else Path(__file__).resolve().parents[2] / "BCI_Shorts_Channel" / "staging_queue.json"
 )
 
-# 5-Slot Timetable (ET / PT / KST)
-SLOT_TIMETABLE: dict[int, dict[str, Any]] = {
-    1: {
-        "slot_id": 1,
-        "name": "Morning Commute",
-        "time_et": "07:30",
-        "time_et_12h": "7:30 AM",
-        "time_pt": "04:30",
-        "time_kst": "20:30",
-        "kst_day_offset": 0,
-        "recommended_pillars": ["brain_health"],
-        "target_cognitive_state": "Light, practical neuro-stimulation during transit; quick physical analogies.",
-        "description": "07:30 AM ET (20:30 KST) - Morning Commute (brain_health)"
-    },
-    2: {
-        "slot_id": 2,
-        "name": "Midday Peak",
-        "time_et": "12:00",
-        "time_et_12h": "12:00 PM",
-        "time_pt": "09:00",
-        "time_kst": "01:00",
-        "kst_day_offset": 1,
-        "recommended_pillars": ["bci_tech", "brain_news"],
-        "target_cognitive_state": "Global peak traffic, high tech authority & breakthrough neuro-tech news.",
-        "description": "12:00 PM ET (01:00 KST +1) - Midday Peak (bci_tech / brain_news)"
-    },
-    3: {
-        "slot_id": 3,
-        "name": "Afternoon Slump",
-        "time_et": "16:00",
-        "time_et_12h": "4:00 PM",
-        "time_pt": "13:00",
-        "time_kst": "05:00",
-        "kst_day_offset": 1,
-        "recommended_pillars": ["brain_basics", "brain_mysteries"],
-        "target_cognitive_state": "Fatigue relief, counter-intuitive paradox hooks, sensory illusions.",
-        "description": "04:00 PM ET (05:00 KST +1) - Afternoon Slump (brain_basics / brain_mysteries)"
-    },
-    4: {
-        "slot_id": 4,
-        "name": "Evening Prime",
-        "time_et": "20:00",
-        "time_et_12h": "8:00 PM",
-        "time_pt": "17:00",
-        "time_kst": "09:00",
-        "kst_day_offset": 1,
-        "recommended_pillars": ["brain_history"],
-        "target_cognitive_state": "Sofa relaxation, full SIMUL-ARC historical drama immersion.",
-        "description": "08:00 PM ET (09:00 KST +1) - Evening Prime (brain_history)"
-    },
-    5: {
-        "slot_id": 5,
-        "name": "Late Night / West Coast",
-        "time_et": "22:30",
-        "time_et_12h": "10:30 PM",
-        "time_pt": "19:30",
-        "time_kst": "11:30",
-        "kst_day_offset": 1,
-        "recommended_pillars": ["bci_ethics", "brain_mysteries"],
-        "target_cognitive_state": "Bedtime existential wonder, cognitive privacy debate, infinite loop.",
-        "description": "10:30 PM ET (11:30 KST +1) - Late Night / West Coast (bci_ethics / brain_mysteries)"
+def slot_time_kst_parts(hour_et: int, minute_et: int = 0, ref_date: date | None = None) -> tuple[str, int]:
+    """Converts `(hour_et, minute_et)` in `America/New_York` to `(HH:MM_kst, kst_day_offset)` in `Asia/Seoul`."""
+    et_tz = ZoneInfo("America/New_York")
+    kst_tz = ZoneInfo("Asia/Seoul")
+    base_d = ref_date if ref_date is not None else datetime.now(et_tz).date()
+    dt_et = datetime(base_d.year, base_d.month, base_d.day, int(hour_et), int(minute_et), tzinfo=et_tz)
+    dt_kst = dt_et.astimezone(kst_tz)
+    day_offset = (dt_kst.date() - dt_et.date()).days
+    return dt_kst.strftime("%H:%M"), day_offset
+
+
+def slot_time_kst_label(hour_et: int, minute_et: int = 0, ref_date: date | None = None) -> str:
+    """Formats DST-aware KST label (`HH:MM KST` or `HH:MM KST (+1d)`) for EDT (+13h) / EST (+14h)."""
+    hm_kst, day_offset = slot_time_kst_parts(hour_et, minute_et, ref_date=ref_date)
+    if day_offset > 0:
+        return f"{hm_kst} KST (+{day_offset}d)"
+    if day_offset < 0:
+        return f"{hm_kst} KST ({day_offset}d)"
+    return f"{hm_kst} KST"
+
+
+def _build_slot_entry(
+    *,
+    slot_id: int,
+    name: str,
+    hour_et: int,
+    minute_et: int,
+    time_et_12h: str,
+    time_pt: str,
+    recommended_pillars: list[str],
+    target_cognitive_state: str,
+    ref_date: date | None = None,
+) -> dict[str, Any]:
+    time_et = f"{hour_et:02d}:{minute_et:02d}"
+    time_kst, kst_day_offset = slot_time_kst_parts(hour_et, minute_et, ref_date=ref_date)
+    kst_lbl = slot_time_kst_label(hour_et, minute_et, ref_date=ref_date)
+    pillars_lbl = " / ".join(recommended_pillars)
+    return {
+        "slot_id": slot_id,
+        "name": name,
+        "hour_et": hour_et,
+        "minute_et": minute_et,
+        "time_et": time_et,
+        "time_et_12h": time_et_12h,
+        "time_pt": time_pt,
+        "time_kst": time_kst,
+        "time_kst_label": kst_lbl,
+        "kst_day_offset": kst_day_offset,
+        "recommended_pillars": recommended_pillars,
+        "target_cognitive_state": target_cognitive_state,
+        "description": f"{time_et_12h} ET ({kst_lbl}) - {name} ({pillars_lbl})",
     }
+
+
+# 5-Slot Timetable (ET / PT / DST-aware KST) — Slot 4 unified at 20:00 ET per AGENTS.md & R30
+SLOT_TIMETABLE: dict[int, dict[str, Any]] = {
+    1: _build_slot_entry(
+        slot_id=1,
+        name="Morning Commute",
+        hour_et=7,
+        minute_et=30,
+        time_et_12h="7:30 AM",
+        time_pt="04:30",
+        recommended_pillars=["brain_health"],
+        target_cognitive_state="Light, practical neuro-stimulation during transit; quick physical analogies.",
+    ),
+    2: _build_slot_entry(
+        slot_id=2,
+        name="Midday Peak",
+        hour_et=12,
+        minute_et=0,
+        time_et_12h="12:00 PM",
+        time_pt="09:00",
+        recommended_pillars=["bci_tech", "brain_news"],
+        target_cognitive_state="Global peak traffic, high tech authority & breakthrough neuro-tech news.",
+    ),
+    3: _build_slot_entry(
+        slot_id=3,
+        name="Afternoon Slump",
+        hour_et=16,
+        minute_et=0,
+        time_et_12h="4:00 PM",
+        time_pt="13:00",
+        recommended_pillars=["brain_basics", "brain_mysteries"],
+        target_cognitive_state="Fatigue relief, counter-intuitive paradox hooks, sensory illusions.",
+    ),
+    4: _build_slot_entry(
+        slot_id=4,
+        name="Evening Prime",
+        hour_et=20,
+        minute_et=0,
+        time_et_12h="8:00 PM",
+        time_pt="17:00",
+        recommended_pillars=["brain_history"],
+        target_cognitive_state="Sofa relaxation, full Deep-Mechanism historical neuroscience immersion.",
+    ),
+    5: _build_slot_entry(
+        slot_id=5,
+        name="Late Night / West Coast",
+        hour_et=22,
+        minute_et=30,
+        time_et_12h="10:30 PM",
+        time_pt="19:30",
+        recommended_pillars=["bci_ethics", "brain_mysteries"],
+        target_cognitive_state="Bedtime existential wonder, cognitive privacy debate, independent conclusion.",
+    ),
 }
 
 # Pillar to Default Slot Mapping
@@ -622,9 +668,20 @@ STUDIO_ANALYTICS_SELECTORS: dict[str, list[str]] = {
 }
 
 
-def get_slot_info(slot_id: int) -> dict[str, Any]:
-    """Retrieves slot schedule and metadata for a slot (1-5)."""
-    return SLOT_TIMETABLE.get(slot_id, SLOT_TIMETABLE[2])
+def get_slot_info(slot_id: int, ref_date: date | None = None) -> dict[str, Any]:
+    """Retrieves slot schedule and metadata for a slot (1-5), optionally adjusted for US DST on `ref_date`."""
+    base = dict(SLOT_TIMETABLE.get(slot_id, SLOT_TIMETABLE[2]))
+    if ref_date is not None:
+        h_et = int(base.get("hour_et", 12))
+        m_et = int(base.get("minute_et", 0))
+        time_kst, kst_day_offset = slot_time_kst_parts(h_et, m_et, ref_date=ref_date)
+        kst_lbl = slot_time_kst_label(h_et, m_et, ref_date=ref_date)
+        pillars_lbl = " / ".join(base.get("recommended_pillars", []))
+        base["time_kst"] = time_kst
+        base["time_kst_label"] = kst_lbl
+        base["kst_day_offset"] = kst_day_offset
+        base["description"] = f"{base['time_et_12h']} ET ({kst_lbl}) - {base['name']} ({pillars_lbl})"
+    return base
 
 
 def get_pillar_default_slot(pillar_id: str) -> int:

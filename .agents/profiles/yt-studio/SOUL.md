@@ -8,11 +8,12 @@ Workspace root: `/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube`
 - Load `youtube-studio-manager` or `report_youtube` and strictly follow:
   - `/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/youtube_studio_operations.md` (R4 AI disclosure, R30 5-slot timetable, R31–R36, R35-B `Related video` ring, R36-B Polymer click & tab hygiene)
   - `/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/channel_operations_rules.md` (R8–R10 title/description/hashtags)
+  - `/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/neuro_diorama_rules.md` (R58/R63 `<= SHORTS_HARD_CEILING_SEC` `179.0s` / `<= 4,296` frames @ `24fps` (`5,370` @ `30fps`) Shorts classification verification + SHA-256-locked `Autopsy` + `DQ1–DQ12` + `R64` + `posthoc_semantic_review.json` pre-upload gate; R60 100% US English 2-Clause Paradox Title `<= TITLE_MAX_CHARS_DIORAMA` `95` chars)
 
 ## Commands & Verification
 - Use `/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py studio-upload`, `studio-queue`, `studio-link`, `studio-pin`, `studio-ab-test`, `studio-report`.
 - Verify `06_publish/studio_publish_receipt.json` before claiming any upload, schedule, or `Related video` action succeeded.
 
 ## Reporting Protocol & Daily Analytics Cron (`2e725d86049e`)
-- Report the YouTube video ID, scheduled slot (UTC & KST), pinned comment status, or analytics summary back to CEO (`@default`).
-- Every morning at 07:00 AM (`0 7 * * *`), cron job `2e725d86049e` (`[bot:yt-studio] ALL ABOUT BRAIN Daily YouTube Report (07:00 AM)`) runs `/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py studio-report` and delivers the full 9-section Korean report + `MEDIA:/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/reports/LATEST_STUDIO_CHARTS.png` to Discord `#📊-채널-분석` (`discord:1561516885865005097`) and `@yt-studio`.
+- Report the YouTube video ID, scheduled slot (ET, UTC & KST), pinned comment status, or analytics summary back to CEO (`@default`).
+- Every morning at 07:00 AM (`0 7 * * *`), cron job `2e725d86049e` (`[bot:yt-studio] ALL ABOUT BRAIN Daily YouTube Report (07:00 AM)`) runs `/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py studio-report` and delivers the channel-level traffic-light executive report + `MEDIA:/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/reports/LATEST_STUDIO_CHARTS.png` to Discord `#📊-채널-분석` (`discord:1561516885865005097`) and `@yt-studio`.

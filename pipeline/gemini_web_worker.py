@@ -305,18 +305,20 @@ async def generate_gemini_image(
     return out_path.exists() and out_path.stat().st_size > 30_000
 
 
-def soften_for_gemini_veo(prompt: str) -> str:
-    """Replaces aggressive/anatomical trigger words that trip Gemini Veo's safety filter while preserving Schema v4."""
+def soften_for_gemini_veo(prompt: str, is_diorama: bool = False) -> str:
+    """Replaces aggressive/anatomical trigger words that trip Gemini Veo's safety filter while preserving Schema v4/v6."""
     import re as _re
 
+    cranium_repl = "optical crystal cranium" if is_diorama else "porcelain cranium"
+    model_repl = "optical crystal cranial display model" if is_diorama else "porcelain cranial display model"
     swaps = [
         (r"\baccidental blast\b", "sudden workshop spark"),
         (r"\bslams his fist onto\b", "presses his palm firmly onto"),
         (r"\bslams his porcelain fist\b", "presses his porcelain palm"),
         (r"\bsnatches his steel rod\b", "lifts his tapered surveyor rod"),
-        (r"\bmounted skull model\b", "porcelain cranial display model"),
+        (r"\bmounted skull model\b", model_repl),
         (r"\bpreserved skull\b", "preserved cranial model"),
-        (r"\bskull\b", "porcelain cranium"),
+        (r"\bskull\b", cranium_repl),
         (r"\breckless rage\b", "sudden agitation"),
         (r"\bcursed at\b", "rejected"),
         (r"\bshattered\b", "interrupted"),
@@ -327,6 +329,7 @@ def soften_for_gemini_veo(prompt: str) -> str:
         (r"\blesion\b", "focal zone"),
         (r"\bcrimson-red\b", "warm coral-red"),
         (r"\btore through\b", "passed through"),
+        (r"\bstrikes the ledger away\b", "pushes the ledger aside"),
     ]
     out = prompt
     for pat, repl in swaps:
@@ -347,30 +350,44 @@ async def generate_gemini_video(
     conditioned on `start_frame_path`, and downloads the MP4 to `out_mp4_path`.
     Returns `(success, status_reason)`.
     """
-    await navigate_to(client, "https://gemini.google.com/app", wait_sec=5.0)
+    await client.send("Page.bringToFront", {})
+    await navigate_to(client, "https://gemini.google.com/app", wait_sec=5.5)
     await asyncio.sleep(1.5)
 
-    # 1. Click "Upload and tools" (+) button and select "Create video"
-    await client.click(["button[aria-label='Upload and tools']", "button[aria-label*='tools']"])
-    await asyncio.sleep(1.2)
-    cv_pos = await eval_js(client, """
-    JSON.stringify((() => {
-        const c = document.querySelector(".cdk-overlay-container");
-        if (!c) return null;
-        for (const el of c.querySelectorAll("button, [role=menuitem], [role=option], mat-list-item, span")) {
-            const r = el.getBoundingClientRect();
-            const txt = (el.innerText || "").trim();
-            if (r.width > 0 && txt === "Create video") {
-                return {x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)};
+    # 1. Click "Upload and tools" (+) button via real CDP mouse click and select "Create video"
+    pt = None
+    for _ in range(3):
+        plus_pos = await eval_js(client, """
+        JSON.stringify((() => {
+            const b = document.querySelector("button[aria-label='Upload and tools']")
+                   || document.querySelector("button[aria-label*='Upload']");
+            if (!b) return null;
+            const r = b.getBoundingClientRect();
+            return r.width > 0 ? {x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)} : null;
+        })())
+        """)
+        plus_pt = json.loads(plus_pos) if plus_pos else None
+        if plus_pt:
+            await cdp_click_xy(client, plus_pt["x"], plus_pt["y"])
+        await asyncio.sleep(1.5)
+        cv_pos = await eval_js(client, """
+        JSON.stringify((() => {
+            for (const el of document.querySelectorAll("toolbox-drawer-item button, button, [role=menuitem], [role=option], mat-list-item")) {
+                const r = el.getBoundingClientRect();
+                const txt = (el.innerText || "").trim();
+                if (r.width > 0 && txt === "Create video") {
+                    return {x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)};
+                }
             }
-        }
-        return null;
-    })())
-    """)
-    pt = json.loads(cv_pos) if cv_pos else None
+            return null;
+        })())
+        """)
+        pt = json.loads(cv_pos) if cv_pos else None
+        if pt:
+            break
     if pt:
         await cdp_click_xy(client, pt["x"], pt["y"])
-        await asyncio.sleep(1.5)
+        await asyncio.sleep(1.8)
 
     async def _ensure_portrait() -> None:
         for _ in range(3):
@@ -381,7 +398,7 @@ async def generate_gemini_video(
                     if (r.width <= 0 || r.left < 350 || r.top < 300) continue;
                     const txt = (b.innerText || "").trim();
                     const al = b.getAttribute("aria-label") || "";
-                    if (txt === "Portrait" || txt.startsWith("Portrait") || al.includes("Portrait")) {
+                    if (txt === "Portrait" || txt.startsWith("Portrait") || al.includes("Portrait") || txt === "9:16" || al.includes("9:16")) {
                         return {already_portrait: true};
                     }
                     if (txt === "Landscape" || txt.includes("Landscape") || al.includes("Aspect ratio") || txt.includes("16:9")) {
@@ -398,12 +415,11 @@ async def generate_gemini_video(
             await asyncio.sleep(1.2)
             p_pos = await eval_js(client, """
             JSON.stringify((() => {
-                const c = document.querySelector(".cdk-overlay-container") || document.body;
-                for (const el of c.querySelectorAll("button, [role=menuitem], [role=option], mat-option, mat-list-item, div, span")) {
+                for (const el of document.querySelectorAll("button, [role=menuitem], [role=option], mat-option, mat-list-item, div, span")) {
                     const r = el.getBoundingClientRect();
-                    if (r.width <= 20 || r.height <= 10 || r.height > 60 || r.left < 350) continue;
+                    if (r.width <= 20 || r.height <= 10 || r.height > 65 || r.left < 350) continue;
                     const txt = (el.innerText || "").trim();
-                    if (txt === "Portrait (9:16)" || txt === "Portrait") {
+                    if (txt === "Portrait (9:16)" || txt === "Portrait" || txt === "9:16") {
                         el.click();
                         return {x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)};
                     }
@@ -532,10 +548,16 @@ async def generate_gemini_video(
     cap = cv2.VideoCapture(str(out_mp4_path))
     vw = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) or 0)
     vh = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) or 0)
+    fps = float(cap.get(cv2.CAP_PROP_FPS) or 0.0)
+    frames = float(cap.get(cv2.CAP_PROP_FRAME_COUNT) or 0.0)
     cap.release()
+    dur = (frames / fps) if fps > 0 else 0.0
     if vw > vh and vh > 0:
         out_mp4_path.unlink(missing_ok=True)
         return False, f"landscape_aspect_mismatch_{vw}x{vh}"
+    if 0.0 < dur < 7.5:
+        out_mp4_path.unlink(missing_ok=True)
+        return False, f"short_duration_{dur:.2f}s"
     return True, "ok"
 
 
@@ -745,6 +767,7 @@ async def generate_project_video_clips(
     clips_dir.mkdir(parents=True, exist_ok=True)
 
     items: list[dict[str, Any]] = []
+    is_diorama_v6 = False
     if use_reference_images:
         qa_rep = inspect_reference_image_pack(p_dir, save_report=True)
         if not qa_rep.get("pre_generation_ready"):
@@ -764,9 +787,13 @@ async def generate_project_video_clips(
     else:
         prompts_path = vis_dir / "flow_all_in_one_prompts.json"
         prompts_data = json.loads(prompts_path.read_text(encoding="utf-8"))
+        is_diorama_v6 = (
+            str(prompts_data.get("profile") or "").strip().lower() == "neuro_diorama"
+            or int(prompts_data.get("schema_version") or 0) >= 6
+        )
         raw_clips = prompts_data.get("clips") or []
         for idx, c in enumerate(raw_clips, start=1):
-            c_num = int(c.get("index") or c.get("clip_index") or idx)
+            c_num = int(c.get("clip_number") or c.get("index") or c.get("clip_index") or idx)
             v_prompt = str(c.get("prompt") or c.get("full_prompt") or "")
             items.append(
                 {
@@ -812,11 +839,12 @@ async def generate_project_video_clips(
                     sf_path = cand
 
             v_prompt = item["video_prompt"]
-            sf_label = sf_path.name if sf_path else "text_only_schema_v4"
+            default_label = "text_only_diorama_v6" if is_diorama_v6 else "text_only_schema_v4"
+            sf_label = sf_path.name if sf_path else default_label
             print(f"[GEN VIDEO] clip_{c_num}.mp4 (mode={sf_label})...", flush=True)
             ok = False
             for attempt in range(2):
-                cur_v_prompt = v_prompt if attempt == 0 else soften_for_gemini_veo(v_prompt)
+                cur_v_prompt = soften_for_gemini_veo(v_prompt, is_diorama=is_diorama_v6)
                 ok, reason = await generate_gemini_video(
                     client,
                     prompt=cur_v_prompt,

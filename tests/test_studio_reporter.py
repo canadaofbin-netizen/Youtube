@@ -108,8 +108,18 @@ def test_generate_daily_report_and_charts_self_cleaning():
         assert payload["channel_kpis"]["views_24h"] > payload["channel_kpis"]["views_prev"]
         assert "+0.0%" not in payload["diagnostics"]["executive_headline"]
 
-        # Verify custom reports_dir writes LATEST_DAILY_REPORT.md inside tmp_dir, not global root
+        # Verify custom reports_dir writes LATEST_DAILY_REPORT.md and LATEST_VIDEO_DETAIL_REPORT.md inside tmp_dir, not global root
         assert Path(res_day2["latest_report_path"]).parent == tmp_dir
+        assert Path(res_day2["latest_video_detail_report_path"]).parent == tmp_dir
+        assert Path(res_day2["video_detail_markdown_path"]).exists()
+        assert Path(res_day2["video_detail_charts_path"]).exists()
+        assert Path(res_day2["video_detail_charts_path"]).stat().st_size > 30_000
+        v_detail_text = Path(res_day2["video_detail_markdown_path"]).read_text(encoding="utf-8")
+        assert "개별 영상 세부 보고서" in v_detail_text
+        assert "전 영상 신호등 요약 매트릭스" in v_detail_text
+        assert "영상별 심층 진단 카드" in v_detail_text
+        assert "2026-10-17_video_detail_charts.png" in v_detail_text
+        assert "Cohort #1" in v_detail_text
 
         # Verify Per-Video Notable Change Detection & 3-Axis Root-Cause Attribution in JSON payload
         assert "notable_video_changes" in payload

@@ -1,0 +1,662 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "melzack_wall_pain_gate",
+  "topic": "Ronald Melzack & Patrick Wall Spinal Gate Control Theory of Pain, Fast Touch Cables Closing the Spinal Gate Against Slow Ache Wires & Descending Brainstem Control (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Patrick Wall and William Sweet wiring gentle electrical touch pads onto their own sleeves to slam the spinal pain gate shut and invent modern nerve buzzers.",
+  "outro_title_lines": [
+    "MELZACK & WALL (1965)",
+    "MIT, CAMBRIDGE"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "ONE PAIN WIRE?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "SPINAL PAIN GATE"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SPEED RACE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "TOUCH CLOSES IT"
+    },
+    {
+      "sentence_index": 28,
+      "text": "BRAIN VOLUME"
+    },
+    {
+      "sentence_index": 37,
+      "text": "SELF ARM TEST"
+    },
+    {
+      "sentence_index": 45,
+      "text": "CLOSE YOUR GATE"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "ONE PAIN WIRE?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "SPINAL PAIN GATE"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SPEED RACE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "TOUCH CLOSES IT"
+    },
+    {
+      "sentence_index": 28,
+      "text": "BRAIN VOLUME"
+    },
+    {
+      "sentence_index": 37,
+      "text": "SELF ARM TEST"
+    },
+    {
+      "sentence_index": 45,
+      "text": "CLOSE YOUR GATE"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 34,
+      "mode": "split_hstack",
+      "left_clip_index": 37,
+      "right_clip_index": 38,
+      "left_label": "PANIC OPENS",
+      "right_label": "CALM CLOSES"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands pulling a single taut coral-rose cord linked to a small silver bell on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand pulls the coral-rose cord straight while the silver bell tilts once on its stand",
+      "consequence": "the old single-wire bell model rings mechanically with every pull"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "living_room_sofa",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit cool mist-white living room with a low cool slate-stone coffee table and a powder-blue sofa",
+      "action": "viewed strictly from behind, a clothed low-poly person in a sage-green cardigan leans on the sofa edge and slides gloved hands briskly along a slate trouser shin"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a matte-pastel spinal checkpoint model on cool slate-stone where a thick cyan touch cable and a thin coral-rose ache wire meet a hinged silver gate",
+      "internal_mechanism": "a bright cyan pulse races along the thick touch cable first and swings the silver spinal gate cleanly shut ahead of the slow coral-rose pulse"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white shirt sleeves and cool porcelain-white gloved low-poly hands placing a round powder-blue tactile buzz pad onto a clothed forearm over cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand presses the round powder-blue pad down while the other turns a brushed-silver pulse dial",
+      "consequence": "gentle cyan ripples spread from the tactile pad across the sleeve"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright Cambridge laboratory room with a cool slate-stone bench, brushed-silver pulse box, and a blank pastel three-channel spinal gate board on the wall",
+      "action": "viewed strictly from behind, two clothed low-poly scientists in blazer and white coat lean beside the slate-stone bench and point gloved hands at the gate model"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a cool-toned medical clinic room with a straight coral-rose wire model mounted on a cool mist-white pedestal",
+      "action": "viewed strictly from behind, a clothed low-poly doctor in a white coat walks past the straight wire model and shakes a gloved hand in puzzlement"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate coat cuffs and cool porcelain-white gloved low-poly hands tracing a single rigid coral-rose rod from a pastel foot block to a silver bell on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align and slide the rigid coral-rose rod straight into the silver bell base",
+      "consequence": "the rigid wire model allows zero room for modulation along the path"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands tapping the pastel foot block linked by one taut cord to the upper silver bell on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand taps the foot block while the other holds a question token beside the ringing silver bell",
+      "consequence": "real human patients keep defying the simple bell-rope rule"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "surgical gown cuffs and cool porcelain-white gloved low-poly hands separating a pastel cable bundle on a cool mist-white tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift a silver divider and slide two severed cable ends apart on the mist-white tray",
+      "consequence": "severing the pathway fails to quiet the downstream coral-rose glow"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands watching the upper coral-rose indicator bar flare taller on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands reach to steady the gauge as the coral-rose bar rises higher above the severed cable",
+      "consequence": "blocking the bundle leaves phantom coral-rose signals flaring stronger"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands placing two cyan mystery tiles onto the cool slate-stone bench",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set and align a calm-relief tile beside a shin-rub tile in front of the straight wire model",
+      "consequence": "two everyday clinical clues challenge three centuries of theory"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Cambridge seminar room with the cool slate-stone bench and blank pastel three-channel spinal gate board",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in blazer and white coat step to the wall board and lift pastel connector rods with gloved hands"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "living_room_sofa",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a calm cool mist-white recovery tent cot with powder-blue blankets and a small silver medicine tray on a slate side stand",
+      "action": "viewed strictly from behind, a clothed low-poly soldier in a sage-green coat rests on the cot and lifts a gloved hand politely declining the silver tray"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "living_room_sofa",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green cardigan cuffs and cool porcelain-white gloved low-poly hands briskly rubbing a slate trouser shin beside a cool slate-stone coffee table corner",
+      "prop_action": "both cool porcelain-white gloved low-poly hands press and glide firmly up and down the slate trouser shin",
+      "consequence": "firm rhythmic rubbing immediately eases the bumped spot"
+    },
+    {
+      "sentence_index": 12,
+      "end_sentence_index": 13,
+      "act": 2,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright Cambridge laboratory with a large matte-pastel spinal cross-section model resting on the cool slate-stone bench",
+      "action": "viewed strictly from behind, the two clothed low-poly scientists in blazer and white coat place and align thick cyan and thin coral-rose cables into the spinal model with gloved hands"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a small faceted matte lavender-gray garden snail resting on a long cool slate-stone ruler track",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in coat cuffs set a silver marker beside the pastel garden snail as it glides slowly inch by inch"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sleek matte powder-blue low-poly race car lined up on a long cool mist-white straightaway track",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in blazer cuffs open a silver start gate and launch the sleek powder-blue race car swiftly down the track"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands holding a thick insulated cyan cable rod beside a thin coral-rose wire on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and align both nerve rods side by side entering a silver spinal gate slot",
+      "consequence": "the thick insulated cyan rod dwarfs the thin slow coral-rose wire"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "gray suit cuffs and cool porcelain-white gloved low-poly hands closing a blank pastel case folder dismissively on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand shuts the pastel folder flat and slides a patient token aside",
+      "consequence": "real spinal pain gets unfairly brushed aside under the old wire myth"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "living_room_sofa",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "a quiet cool-toned clinic waiting bench with pale powder-blue walls and cool slate-stone flooring",
+      "action": "viewed strictly from behind, a clothed low-poly patient in a slate coat leans forward on the bench and braces gloved hands on knees"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands opening a matte-pastel dorsal spinal segment model on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift the pastel cover shell and point to a hinged brushed-silver gate valve inside",
+      "consequence": "an active mechanical-style silver gate sits right where nerves enter the spine"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "living_room_sofa",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green cardigan sleeves and cool porcelain-white gloved low-poly hands sliding briskly along a clothed shin beside a miniature pastel spinal gate display on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand glides over the slate fabric briskly while the other points to a cyan pulse racing up the display",
+      "consequence": "skin rubbing launches an immediate express cyan wave toward the spine"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "inside the matte-pastel spinal dorsal horn model where the thin coral-rose ache wire feeds the hinged silver gate on cool slate-stone",
+      "internal_mechanism": "when only the coral-rose wire pulses, the blocker bar drops back and the silver gate swings wide open upward"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands sliding a glowing mint-sage blocker block into the spinal gate hinge on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands push the thick cyan touch rod forward lighting up the mint-sage blocker cell block",
+      "consequence": "the awakened mint-sage blocker cell pivots firmly across the channel"
+    },
+    {
+      "sentence_index": 23,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands releasing the cyan touch slider so the silver gate snaps shut on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides the cyan touch pulse through first and latches the silver gate closed",
+      "consequence": "the trailing coral-rose ache pulse stops cleanly behind the closed silver gate"
+    },
+    {
+      "sentence_index": 23,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the Cambridge laboratory bench showing the closed silver gate blocking coral-rose light while calm cyan light glows smoothly",
+      "action": "viewed strictly from behind, both clothed low-poly scientists in blazer and white coat step back and align the upper relay tube with gloved hands"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "thalamus",
+      "anatomy_label": "THALAMUS\nRELAY STATION",
+      "brain_scene": "a matte-pastel sagittal cutaway 3D brain model on a cool mist-white stand where the central thalamus glows calm soft cyan as ascending ache traffic drops"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "pan_left",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "somatosensory cortex",
+      "anatomy_label": "SOMATOSENSORY CORTEX\nBODY MAP",
+      "brain_scene": "a matte-pastel 3D cortical brain model highlighting the upper somatosensory cortex strip in soothing mint-sage registering firm comforting touch"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands detaching the thick cyan touch rod from the spinal gate model on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts the cyan touch rod away causing the silver gate to swing permanently open",
+      "consequence": "without thick touch input, coral-rose signals pour through unchecked"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands aligning a vertical powder-blue descending fiber rod from a brain model down to the spinal gate",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align and press the vertical powder-blue descending rod straight into the top of the silver gate",
+      "consequence": "a direct top-to-spine control line links brain state to the gate"
+    },
+    {
+      "sentence_index": 28,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "arena_sideline",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright cool powder-blue indoor basketball court sideline with a slate bench and a plain cyan ring timer signaling the end of play",
+      "action": "viewed strictly from behind, a clothed low-poly athlete in a navy track jacket walks to the slate bench and leans down pointing a gloved hand at a scuffed knee"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "arena_sideline",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy track jacket cuffs and cool porcelain-white gloved low-poly hands placing a cool mist-white wrap gently over a scuffed athletic legging knee on a slate bench",
+      "prop_action": "both cool porcelain-white gloved low-poly hands press and smooth the cool mist-white wrap neatly across the knee fabric",
+      "consequence": "the scuff went completely unnoticed until intense game focus ended"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
+      "brain_scene": "a matte-pastel 3D cortical brain model where the front prefrontal cortex glows bright cyan prioritizing urgent game action over minor distraction"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "tilt_down",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "brainstem",
+      "anatomy_label": "BRAINSTEM\nREFLEX CENTER",
+      "brain_scene": "a matte-pastel sagittal cutaway 3D brain model showing soothing mint-sage light flowing down through the lower brainstem toward the spinal cord"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "the vertical powder-blue descending pathway feeding into the dorsal spinal gate model on cool slate-stone",
+      "internal_mechanism": "steady mint-sage pulses stream downward from above and hold the silver spinal gate firmly latched shut"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate sweater cuffs and tense cool porcelain-white gloved low-poly hands gripping a chair arm beside a wide-open coral-rose spinal gate model",
+      "prop_action": "both cool porcelain-white gloved low-poly hands grip tightly as the silver gate swings wide open letting coral-rose light surge upward",
+      "consequence": "tense dread props the spinal gate wide open"
+    },
+    {
+      "sentence_index": 34,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green cardigan cuffs and relaxed cool porcelain-white gloved low-poly hands resting open beside a latched cyan spinal gate model on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands rest and press gently onto cool stone as the silver gate clicks smoothly shut",
+      "consequence": "calm focus locks the spinal gate closed"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "living_room_sofa",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate coat sleeves and cool porcelain-white gloved low-poly hands gripping an armrest beside a tall coral-rose spike bar on a cool mist-white clinic tray",
+      "prop_action": "one cool porcelain-white gloved low-poly hand grips the armrest tightly while a clinician's gloved hand slides the coral-rose bar twice as high",
+      "consequence": "anxious staring doubles the incoming sting height"
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands dropping tiny mint-sage messenger spheres into the spinal gate hinge on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and drop the tiny mint-sage spheres into the silver hinge cushioning the coral-rose rod",
+      "consequence": "descending signals physically change chemical gating inside the spine"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the Cambridge laboratory bench holding a compact brushed-silver pulse generator wired to two small powder-blue round pads on cool slate-stone",
+      "action": "viewed strictly from behind, a clothed low-poly scientist in rolled white shirt sleeves leans at the slate-stone bench and lifts the silver pulse leads with gloved hands"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands pressing two round powder-blue stimulator pads onto a clothed sleeve forearm over cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and secure the two powder-blue pads neatly along the forearm sleeve",
+      "consequence": "both researchers test their own touch nerve cables directly"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "rolled white shirt sleeves and cool porcelain-white gloved low-poly hands turning the brushed-silver frequency dial smoothly clockwise on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved low-poly hand turns the silver dial up while the other rests comfortably beneath the buzzing powder-blue pads",
+      "consequence": "soft cyan vibration rings radiate steadily along the forearm"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a wide cool slate-stone highway on-ramp packed bumper to bumper with sleek powder-blue miniature coupes while one tiny coral-rose cart waits behind a side barrier",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in blazer cuffs push and glide the continuous stream of powder-blue coupes forward keeping the side gate filled"
+    },
+    {
+      "sentence_index": 41,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white shirt cuffs and cool porcelain-white gloved low-poly hands watching a coral-rose pain needle drop straight to zero beside the buzzing silver box",
+      "prop_action": "one cool porcelain-white gloved low-poly hand flips the silver buzz switch on and taps the coral-rose indicator as it drops flat",
+      "consequence": "gentle touch buzzing switches the sharp ache reading right off"
+    },
+    {
+      "sentence_index": 41,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the Cambridge bench with the buzzing silver pulse box, closed silver spinal gate model, and calm cyan indicator bar",
+      "action": "viewed strictly from behind, the two clothed low-poly colleagues in white coat and shirt sleeves turn and shake gloved hands beside the bench"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "living_room_sofa",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue jacket cuffs and cool porcelain-white gloved low-poly hands placing a pocket-sized brushed-silver skin buzzer beside two soft pads on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide the slender pastel lead into the pocket silver unit and set the soft pads ready",
+      "consequence": "a portable everyday pain-relief tool emerges straight from spinal gate science"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Cambridge seminar room where medical clinicians gather behind the cool slate-stone bench displaying the pocket silver buzzer and gate model",
+      "action": "viewed strictly from behind, three clothed low-poly clinicians in white coats lean closer and point gloved hands at the closed silver spinal gate"
+    },
+    {
+      "sentence_index": 44,
+      "act": 5,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands placing fine mint-sage connector bridges inside the pastel spinal gate model on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and align two refined mint-sage micro-bridges neatly beside the main silver gate hinge",
+      "consequence": "modern physiology refines the micro-wiring while validating the spinal gate"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "living_room_sofa",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a calm sunlit clinic chair on cool slate-stone flooring with a small powder-blue cool-vibration pack resting on a mist-white side tray",
+      "action": "viewed strictly from behind, a clothed low-poly person in a sage-green sweater rests gloved hands calmly as a clinician in a white coat steps up with the cool pack"
+    },
+    {
+      "sentence_index": 46,
+      "end_sentence_index": 47,
+      "act": 6,
+      "location_id": "living_room_sofa",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved low-poly hands pressing a palm-sized powder-blue vibrating cool pack gently onto a sage-green shoulder sleeve",
+      "prop_action": "one cool porcelain-white gloved low-poly hand holds the softly buzzing powder-blue pack steady while the patient's gloved hand rubs gently nearby",
+      "consequence": "local touch input immediately recruits fast soothing cables"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "dual-input view of the pastel spinal gate on cool slate-stone receiving both fast horizontal cyan touch pulses and vertical mint-sage brain pulses",
+      "internal_mechanism": "both cyan and mint-sage streams converge simultaneously to lock the silver spinal gate smoothly shut"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "living_room_sofa",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green sweater sleeves and cool porcelain-white gloved low-poly hands resting loosely open on slate trousers as shoulders drop calmly",
+      "prop_action": "both cool porcelain-white gloved low-poly hands open and rest flat on the knees in a slow steady rhythm",
+      "consequence": "relaxed posture removes panic tension from the descending pathway"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "brainstem",
+      "anatomy_label": "BRAINSTEM\nREFLEX CENTER",
+      "brain_scene": "a matte-pastel sagittal cutaway 3D brain model where the lower brainstem glows tranquil cyan-green sending steady volume-lowering signals down the spine"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands turning a smooth brushed-silver volume dial down beside the pastel spinal gate on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands turn and set the silver volume dial smoothly from coral-rose down to calm cyan",
+      "consequence": "real biological pain stays adjustable rather than locked in stone"
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "living_room_sofa",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the cool mist-white living room with the slate-stone coffee table and powder-blue sofa",
+      "action": "viewed strictly from behind, the clothed low-poly person in a sage-green cardigan rises comfortably from the sofa and walks smoothly across the room"
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "mit_gate_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the serene sunlit Cambridge laboratory with the pastel spinal gate model, brushed-silver pulse box, pastel brain model, and tall windows opening to pale sky",
+      "action": "viewed strictly from behind, two clothed low-poly scientists in blazer and white coat walk and step calmly toward the tall window as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "SPINAL PAIN GATE",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered matte-pastel spinal checkpoint gate where a thick cyan touch cable swings a silver gate shut ahead of a thin coral-rose wire"
+  }
+}

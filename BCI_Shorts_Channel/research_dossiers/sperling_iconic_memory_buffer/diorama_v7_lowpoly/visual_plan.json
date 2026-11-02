@@ -1,0 +1,655 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "sperling_iconic_memory_buffer",
+  "topic": "George Sperling (1960) 50-Millisecond Tachistoscope Grid, Post-Flash Tone Partial Report, and 300-Millisecond Iconic Memory Buffer (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Sperling's 1960 Harvard partial-report grid becoming Exhibit A in modern consciousness science separating V1 visual persistence from prefrontal working memory.",
+  "outro_title_lines": [
+    "GEORGE SPERLING (1960)",
+    "HARVARD UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "BLINK MEMORY?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "GHOST IMAGE TEST"
+    },
+    {
+      "sentence_index": 10,
+      "text": "POST DARK BEEP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "NINE STILL GLOW"
+    },
+    {
+      "sentence_index": 28,
+      "text": "SCROLL BLEACH"
+    },
+    {
+      "sentence_index": 36,
+      "text": "AWARENESS CLASH"
+    },
+    {
+      "sentence_index": 44,
+      "text": "GRAB FOUR FAST"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "BLINK MEMORY?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "GHOST IMAGE TEST"
+    },
+    {
+      "sentence_index": 10,
+      "text": "POST DARK BEEP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "NINE STILL GLOW"
+    },
+    {
+      "sentence_index": 28,
+      "text": "SCROLL BLEACH"
+    },
+    {
+      "sentence_index": 36,
+      "text": "AWARENESS CLASH"
+    },
+    {
+      "sentence_index": 44,
+      "text": "GRAB FOUR FAST"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 20,
+      "mode": "split_hstack",
+      "left_clip_index": 23,
+      "right_clip_index": 24,
+      "left_label": "WHOLE REPORT",
+      "right_label": "TONE SAMPLE"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool vest and white shirt sleeves with cool porcelain-white gloved low-poly hands at a cool mist-white optical viewer",
+      "prop_action": "cool porcelain-white gloved low-poly hands slide a three-row-by-four-column tray of pastel geometric cubes, spheres, and pyramids into the silver viewer slot",
+      "consequence": "twelve smooth sage-green, powder-blue, coral, and lavender shapes sit aligned in three neat rows"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit cool mist-white Harvard psychophysics room with a tabletop optical viewer, three silver tuning chimes, and cool slate-stone desks",
+      "action": "viewed strictly from behind, a clothed low-poly volunteer in a sage-green crewneck sweater leans into the cool mist-white viewing hood"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slim tie and shirt cuffs with cool porcelain-white gloved low-poly hands beside three brushed-silver acoustic chimes",
+      "prop_action": "cool porcelain-white gloved low-poly hands tap the tallest brushed-silver chime rod with a soft pastel striker",
+      "consequence": "nine of the twelve pastel geometric shapes glow softly inside a translucent mist-white frame"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright Harvard optics laboratory pairing the cool mist-white optical box, three silver chimes, and a descending mint-sage step-bar stand",
+      "action": "viewed strictly from behind, a clothed low-poly graduate researcher in a tweed vest steps beside the optical viewer and aligns the three silver chimes"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "gentle_push_in",
+      "structure": "a clean side cutaway of the cool mist-white optical viewer showing a sliding brushed-silver optical gate in front of the three-by-four pastel shape grid",
+      "internal_mechanism": "the brushed-silver optical gate glides open briefly to reveal the twelve pastel shapes and slides shut into cool slate shadow"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "pastel_memory_gallery",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a cool powder-blue seminar gallery with slate-stone tables and four-slot collection trays",
+      "action": "elevated wide view from behind as clothed low-poly scholars in slate-gray jackets inspect a narrow four-slot tray beside a twelve-shape matrix"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "gray blazer sleeves and cool porcelain-white gloved low-poly hands extending over a cool slate-stone bench",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift and place four sage-green cubes, four powder-blue spheres, and four pale-lavender pyramids into a three-by-four grid",
+      "consequence": "the twelve unmarked geometric pieces fill all three horizontal rows cleanly"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool limestone pedestal pairing a matte-white faceted low-poly miniature hummingbird sculpture with the sliding silver optical gate",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in white coat sleeves press and release a tiny spring lever so the miniature low-poly hummingbird wings beat once as the gate opens and closes"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green sweater cuffs and cool porcelain-white gloved low-poly hands over a cool mist-white response tray",
+      "prop_action": "cool porcelain-white gloved low-poly hands place four pastel geometric tokens into the tray and pause over eight empty recessed slots",
+      "consequence": "eight of the twelve slots remain completely empty on the tray"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "the sunlit Harvard testing station with the volunteer seated before the dark optical viewport",
+      "action": "viewed strictly from behind, the clothed low-poly volunteer in a sage-green sweater gestures with both gloved hands across all three rows of the grid stand"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "pastel_memory_gallery",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the cool powder-blue gallery with researchers gathered around the four-token tray",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in dark blazers shake their heads and slide a frosted cover over the remaining eight slots"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed vest and white cuffs with cool porcelain-white gloved low-poly hands comparing four pastel cubes beside the twelve-shape rack",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift the frosted cover off the three-by-four rack to expose all twelve pastel geometric pieces",
+      "consequence": "all three rows of pastel shapes sit intact behind the narrow four-slot funnel"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright Harvard psychophysics room with a three-tone brushed-silver chime box wired to the optical viewer",
+      "action": "viewed strictly from behind, the clothed low-poly graduate student in a tweed vest steps forward and slides a silver audio cable into the three-chime unit"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean side cutaway of twelve glowing pastel shapes fading softly above a narrow one-by-one silver chute",
+      "internal_mechanism": "as the first four pastel shapes drop slowly through the narrow chute, the remaining eight translucent shapes dim into mist"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white shirt cuffs and cool porcelain-white gloved low-poly hands at the optical gate lever",
+      "prop_action": "cool porcelain-white gloved low-poly hands snap the silver optical lever once so the twelve pastel shapes light briefly and drop into dark slate shadow",
+      "consequence": "the viewing window turns completely dark and blank"
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed vest cuffs and cool porcelain-white gloved low-poly hands over three brushed-silver tone buttons",
+      "prop_action": "right after the window goes dark, a cool porcelain-white gloved low-poly finger presses the top brushed-silver chime button",
+      "consequence": "concentric mint-sage sound rings ripple outward from the tall silver chime"
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "sage-green sweater sleeves and cool porcelain-white gloved low-poly hands over the response tray",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift and place all four top-row sage-green cubes into the response slots",
+      "consequence": "the entire cued top row sits accurately reconstructed on the slate-stone bench"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white cuffs and cool porcelain-white gloved low-poly hands beside three progressive brushed-silver chimes and the three-row shape rack",
+      "prop_action": "cool porcelain-white gloved low-poly hands link the short high chime to the top row, medium chime to the middle row, and long chime to the bottom row with silver rods",
+      "consequence": "each chime aligns cleanly with one horizontal row of four pastel shapes"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "AUDITORY CORTEX\nTONE DECODER",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the lateral temporal ridge of the matte-pastel 3D cortical brain model, the powder-blue auditory cortex lights softly and sends a mint-sage cue ribbon backward toward the rear visual pole"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the cool mist-white Harvard lab showing the dark viewport before the silver chime sounds",
+      "action": "viewed strictly from behind, the clothed low-poly volunteer sits still facing the dark window while the researcher selects a random chime switch behind a screen"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit psychophysics room with three randomized silver chime levers beside the dark optical box",
+      "action": "elevated wide view from behind as clothed low-poly observers step back seeing no way to predict which row chime will sound next"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright Harvard lab featuring a tall mint-sage partial-report bar rising more than double the height of a short coral whole-report bar",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in blazers point to the tall mint-sage bar beside the three-chime unit"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sweater cuffs and cool porcelain-white gloved low-poly hands over the whole-report tray",
+      "prop_action": "cool porcelain-white gloved low-poly hands set only four pastel shapes onto the slate-stone board before stopping",
+      "consequence": "eight empty recesses remain unfilled across the twelve-slot frame"
+    },
+    {
+      "sentence_index": 20,
+      "cut_role": "split_right",
+      "act": 3,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sweater cuffs and cool porcelain-white gloved low-poly hands over the tone-cued partial-report tray",
+      "prop_action": "as any silver chime vibrates, cool porcelain-white gloved low-poly hands lift and place three to four matching pastel shapes along the cued row",
+      "consequence": "nine glowing pastel shapes illuminate across the full three-row capacity model"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool slate-stone courtyard table with three parallel rows of twelve small powder-blue rain-catching bowls under gentle pastel droplets",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in white coat sleeves reach and lift a brushed-silver sampling cup along any chosen row to show every bowl is equally full"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "tweed cuffs and cool porcelain-white gloved low-poly hands above a translucent three-by-four display block",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift and slide nine glowing mint-sage and powder-blue geometric gems into the twelve-slot translucent block",
+      "consequence": "nine vivid pastel shapes shine simultaneously inside the clear block"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "PRIMARY VISUAL CORTEX\nVISUAL BUFFER",
+      "camera": "gentle_push_in",
+      "brain_scene": "at the rear occipital pole of the matte-pastel 3D cortical brain model, nine soft mint-sage geometric points linger brightly across the powder-blue primary visual cortex"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool brushed-silver framed mirror pane resting on a slate-stone stand with a crisp circular patch of pale mist",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in white coat sleeves hold and tilt the silver mirror frame steady as the soft pale mist circle clears from the glass"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white shirt cuffs and cool porcelain-white gloved low-poly hands turning a smooth brushed-silver delay dial with clean tick marks",
+      "prop_action": "cool porcelain-white gloved low-poly hands turn the silver delay knob three notches clockwise before tapping the chime button",
+      "consequence": "the descending mint-sage decay bars step sharply downward across the stand"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool slate-stone pedestal where a translucent pastel powder-blue soap dome floats beside a four-block floor bar",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in white coat sleeves hold and lift a silver ring wand as the translucent powder-blue bubble vanishes cleanly in midair"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "modern_scroll_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a cool mist-white modern study desk with a glowing pastel glass tablet and cool slate-stone tabletop",
+      "action": "viewed strictly from behind, a clothed low-poly student in a powder-blue sweater leans forward and slides bright geometric tiles rapidly upward across the tablet"
+    },
+    {
+      "sentence_index": 28,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white cuffs and cool porcelain-white gloved low-poly hands at a secondary cool mist-white light panel",
+      "prop_action": "cool porcelain-white gloved low-poly hands slide a bright white diffuser plate directly behind the twelve-shape pastel tray",
+      "consequence": "intense cool-white brightness floods the viewing chamber right after the shapes"
+    },
+    {
+      "sentence_index": 28,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a side cutaway of the optical chamber showing the twelve faint pastel shape silhouettes meeting a bright cool-white mask wave",
+      "internal_mechanism": "the bright cool-white mask sheet washes cleanly over the faint pastel silhouettes so they disappear at once"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green cuffs and cool porcelain-white gloved low-poly hands over the response tray after the bright mask",
+      "prop_action": "even when the high silver chime rings, cool porcelain-white gloved low-poly hands place only one pastel cube onto the tray and stop",
+      "consequence": "the partial-report bar drops all the way down to the low baseline floor"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL PFC\nMEMORY GATE",
+      "camera": "gentle_push_in",
+      "brain_scene": "at the upper lateral front of the matte-pastel 3D cortical brain model, the powder-blue dorsolateral prefrontal cortex receives four distinct mint-sage ribbons from the rear visual pole"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "pastel_memory_gallery",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean architectural three-box pipeline model linking a wide twelve-gem sensory basin through a narrow four-slot gate into a vault",
+      "internal_mechanism": "four mint-sage gems pass safely into the middle gate while eight remaining gems fade gently in the wide first basin"
+    },
+    {
+      "sentence_index": 32,
+      "end_sentence_index": 33,
+      "act": 4,
+      "location_id": "modern_scroll_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater cuffs and cool porcelain-white gloved low-poly hands holding a brushed-silver tablet on cool slate-stone",
+      "prop_action": "a cool porcelain-white gloved low-poly thumb flicks bright unlined pastel diagram tiles past every fraction of a second",
+      "consequence": "each bright new tile washes away the faint pastel outline of the previous diagram"
+    },
+    {
+      "sentence_index": 34,
+      "end_sentence_index": 35,
+      "act": 4,
+      "location_id": "pastel_memory_gallery",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit cool mist-white memory gallery showcasing three linked pastel architectural pedestals from wide sensory tray to working gate to long-term archive",
+      "action": "viewed strictly from behind, two clothed low-poly professors in tailored blazers walk along the three linked pedestals and align connecting silver bridges"
+    },
+    {
+      "sentence_index": 36,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white shirt cuffs and cool porcelain-white gloved low-poly hands over a mixed geometric tray",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift and place pastel spheres and cubes randomly across all three rows of the optical tray",
+      "consequence": "spheres and cubes sit interleaved without separate rows"
+    },
+    {
+      "sentence_index": 36,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green cuffs and cool porcelain-white gloved low-poly hands sorting spheres on the cool slate-stone bench",
+      "prop_action": "cool porcelain-white gloved low-poly hands reach and lift scattered spheres across rows as the translucent twelve-shape echo dims out",
+      "consequence": "only four pieces are gathered before the ghost light fades completely"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed cuffs and cool porcelain-white gloved low-poly hands beside two equal short coral bars",
+      "prop_action": "cool porcelain-white gloved low-poly hands align the category-report bar beside the four-item whole-report bar on the slate-stone stand",
+      "consequence": "both short coral bars sit level at the exact same low height"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "pastel_memory_gallery",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "blazer sleeves and cool porcelain-white gloved low-poly hands over a translucent pastel grid block",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift and slide a silver spatial bar cleanly across row one before the pastel glow dims",
+      "consequence": "spatial row selection captures all four row pieces cleanly"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "pastel_memory_gallery",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a modern cool mist-white cortical mapping room with a curved pastel decay wave display and slate-stone console",
+      "action": "viewed strictly from behind, two clothed low-poly neuroscientists in white coats trace the smooth half-second decay curve across the display"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "pastel_memory_gallery",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit cool powder-blue auditorium stage comparing a twelve-gem glowing dome on the left with a four-gem selection gate on the right",
+      "action": "elevated wide view from behind as two clothed low-poly debaters in slate-blue and sage-green blazers gesture between the twelve-gem dome and four-gem gate"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "pastel_memory_gallery",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-blue and sage-green blazer cuffs with cool porcelain-white gloved low-poly hands at the three-by-four geometric model",
+      "prop_action": "both pairs of cool porcelain-white gloved low-poly hands point toward the central three-by-four pastel shape matrix from opposite sides",
+      "consequence": "the twelve pastel geometric pieces sit luminous at the center of the debate table"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Harvard psychophysics laboratory with the optical viewer, three silver chimes, and tall partial-report bar",
+      "action": "viewed strictly from behind, three clothed low-poly scientists in vests and blazers stand together nodding before the three-chime optical setup"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "pastel_memory_gallery",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the bright cool mist-white gallery connecting the vintage tabletop viewer to the modern cortical brain sculpture",
+      "action": "viewed strictly from behind, clothed low-poly scholars stand aligned beside the three-row pastel geometric display"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_scroll_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a crisp sunlit cool slate-stone street corner with a pastel powder-blue compact car rolling past a sidewalk",
+      "action": "viewed strictly from behind, a clothed low-poly observer in a sage-green jacket stands calmly on the sidewalk watching the passing car"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "modern_scroll_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green jacket cuffs and cool porcelain-white gloved low-poly hands holding a seven-slot pastel token bar",
+      "prop_action": "cool porcelain-white gloved low-poly hands slide a silver frame window cleanly over just the final four pastel geometric tokens",
+      "consequence": "the four framed right-hand tokens stay crisp and bright inside the window"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "modern_scroll_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green cuffs and cool porcelain-white gloved low-poly hands over a blank cool mist-white pocket pad",
+      "prop_action": "cool porcelain-white gloved low-poly hands place four matching powder-blue geometric pegs neatly into a four-hole pocket holder",
+      "consequence": "all four priority pegs lock cleanly into place without error"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white shirt cuffs and cool porcelain-white gloved low-poly hands at the three-by-four pastel shape grid",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift and slide a soft mint-sage viewing frame directly across the top four geometric shapes right away",
+      "consequence": "the four framed shapes transfer smoothly into the durable four-slot vault"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL PFC\nSTEADY READOUT",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the matte-pastel 3D cortical brain model, a calm mint-sage stream flows cleanly from the primary visual cortex forward into the dorsolateral prefrontal cortex"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "modern_scroll_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved low-poly hands resting beside a brushed-silver tablet",
+      "prop_action": "cool porcelain-white gloved low-poly hands pause calmly on one clean pastel diagram tile before sliding gently to the next",
+      "consequence": "the pastel diagram outline stays crisp and steady on the screen"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "modern_scroll_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the serene sunlit cool mist-white study room with the tablet resting dark beside a four-peg holder on cool slate-stone",
+      "action": "viewed strictly from behind, the clothed low-poly student in a powder-blue sweater leans back calmly in clear daylight"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Harvard psychophysics laboratory uniting the optical viewer, three silver chimes, and glowing three-by-four pastel shape matrix",
+      "action": "elevated wide view from behind as the clothed low-poly researcher in a tweed coat steps forward and points beside the luminous twelve-shape matrix"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "harvard_optics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "wide sunlit architectural vista of the cool mist-white Harvard laboratory with soft skylight beams across slate-stone floors",
+      "action": "viewed strictly from behind, the clothed low-poly scientist in a white coat steps beside the optical viewer and lifts a silver chime striker as the camera tilts smoothly toward the bright skylight"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "GHOST IMAGE TEST",
+    "cover_sentence_index": 3,
+    "cover_brief": "three-by-four pastel geometric shape grid glowing beside three brushed-silver tone chimes"
+  }
+}

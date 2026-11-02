@@ -1,0 +1,714 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "draganski_juggling_gray_matter",
+  "topic": "Bogdan Draganski (2004) Juggling-Induced Adult Gray-Matter Plasticity in V5/hMT+ & Intraparietal Sulcus, Detraining Reversibility, and Scholz (2009) White-Matter Remodeling (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Jan Scholz and Heidi Johansen-Berg's 2009 Oxford DTI breakthrough proving that juggling also thickens deep white-matter tracts beneath the intraparietal sulcus by 5%—and that those deep cables persist even after rest.",
+  "outro_title_lines": [
+    "DRAGANSKI ET AL. (2004)",
+    "UNIVERSITY OF REGENSBURG"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "FROZEN BRAIN?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "3 RUBBER BALLS"
+    },
+    {
+      "sentence_index": 10,
+      "text": "90-DAY TEST"
+    },
+    {
+      "sentence_index": 19,
+      "text": "WHY VISUAL?"
+    },
+    {
+      "sentence_index": 28,
+      "text": "USE OR LOSE"
+    },
+    {
+      "sentence_index": 36,
+      "text": "DEEP CABLES"
+    },
+    {
+      "sentence_index": 44,
+      "text": "GROW YOURS"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "FROZEN BRAIN?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "3 RUBBER BALLS"
+    },
+    {
+      "sentence_index": 10,
+      "text": "90-DAY TEST"
+    },
+    {
+      "sentence_index": 19,
+      "text": "WHY VISUAL?"
+    },
+    {
+      "sentence_index": 28,
+      "text": "USE OR LOSE"
+    },
+    {
+      "sentence_index": 36,
+      "text": "DEEP CABLES"
+    },
+    {
+      "sentence_index": 44,
+      "text": "GROW YOURS"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 30,
+      "mode": "split_hstack",
+      "left_clip_index": 34,
+      "right_clip_index": 35,
+      "left_label": "90 DAYS JUGGLING",
+      "right_label": "90 DAYS REST"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "regensburg_mri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands over a cool-alabaster desk",
+      "prop_action": "both matte-white gloved low-poly hands set a heavy gray stone brain cast onto the slate-stone desk and tap its rigid surface with a brushed-silver rod",
+      "consequence": "the stone brain cast sits motionless in soft daylight"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "regensburg_mri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands beside the stone cast",
+      "prop_action": "one matte-white gloved low-poly hand rolls three soft soft-lavender, yellow, and soft-sage rubber balls across the slate-stone desk until they bump the stone cast",
+      "consequence": "the three colorful rubber balls settle around the gray stone base"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL & VISUAL MOTION\nNEW GRAY MATTER",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper-rear parietal and side visual-motion ridges of the matte warm-ivory 3D brain model, warm amber-gold and cyan-blue facets bloom and expand visibly"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "regensburg_mri_suite",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and matte-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both matte-white gloved low-poly hands juggle and catch three pastel balls in a crisp criss-cross arc above the sunlit floor",
+      "consequence": "the three pastel balls trace a clean figure-eight path in mid-air"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "regensburg_mri_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit 2004 German neuroimaging laboratory with a cool-white cylindrical MRI scanner and three pastel balls on the pale-pale-stone control desk",
+      "action": "viewed strictly from behind, a clothed low-poly neurologist in a white lab coat steps beside the viewing console and points at a soft 3D brain scan"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "regensburg_mri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands over an antique neurology album",
+      "prop_action": "both matte-white gloved low-poly hands close the heavy leather cover of the old album and place three pastel juggling balls on top",
+      "consequence": "the soft rubber balls rest squarely on the closed vintage cover",
+      "end_sentence_index": 5
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster shelf displaying five pale-gray brain blocks decreasing slightly in size from left to right",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves lift and slide a brushed-silver measuring caliper down the shrinking row of pale-gray blocks",
+      "end_sentence_index": 6,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "regensburg_mri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands holding soft pastel modeling cool-porcelain",
+      "prop_action": "both matte-white gloved low-poly hands press and sculpt a cool-ivory cool-porcelain hemisphere on a pale-gray turntable",
+      "consequence": "a smooth new ridge rises along the sculpted cool-porcelain surface",
+      "end_sentence_index": 6,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "regensburg_grouping_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a soft sunlit university practice gymnasium with pale maple floors and tall windows",
+      "action": "viewed strictly from behind, clothed low-poly young volunteers in pastel sweaters stand in two neat rows and lift light-gray crates of rubber balls",
+      "end_sentence_index": 8
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "regensburg_grouping_hall",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater sleeves and matte-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both matte-white gloved low-poly hands toss two rubber balls awkwardly upward and drop the catch as the balls roll across the maple floor",
+      "consequence": "the soft-lavender and yellow balls roll gently to a stop by the wall",
+      "end_sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "regensburg_mri_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Regensburg MRI scanner bay with a motorized padded bed aligned at the circular bore",
+      "action": "viewed strictly from behind, the clothed low-poly technician in a white coat presses the bed switch and slides a volunteer smoothly into the scanner ring",
+      "end_sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "regensburg_grouping_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands over a pale-gray sorting board",
+      "prop_action": "both matte-white gloved low-poly hands lift and place twenty-four miniature pale-gray tokens into twelve soft-lavender juggler tokens on the left and twelve blue control tokens on the right",
+      "consequence": "the two equal groups of twelve sit symmetrically on the slate-stone board",
+      "end_sentence_index": 11
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-gray wall calendar rack with three monthly flip-cards beside a trio of rubber balls",
+      "comparison_action": "two matte-white gloved low-poly hands in sweater sleeves flip three monthly pale-gray pages forward and lift the three rubber balls",
+      "end_sentence_index": 12,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "regensburg_grouping_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and matte-white gloved low-poly hands juggling beside a brushed-silver sixty-second timer",
+      "prop_action": "both matte-white gloved low-poly hands toss and catch three pastel balls in a steady cascade until the brushed-silver timer hand completes one full sixty-second circle",
+      "consequence": "the brushed-silver timer chimes once as the hands catch all three balls cleanly",
+      "end_sentence_index": 12,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "regensburg_mri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands over a backlit 3D voxel grid model",
+      "prop_action": "both matte-white gloved low-poly hands align a clear cubic grid overlay across two illuminated brain slice transparencies",
+      "consequence": "tiny glowing cubes highlight the rear cortical border",
+      "end_sentence_index": 14
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "regensburg_mri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands holding brushed-silver calipers over a baseline brain model",
+      "prop_action": "both matte-white gloved low-poly hands set the brushed-silver calipers lightly against the side ridge expecting zero change in width",
+      "consequence": "the caliper tips suddenly spread wider across the expanded ridge",
+      "end_sentence_index": 15,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nSPATIAL MAP",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the matte warm-ivory 3D brain model on its pale-wood stand, the upper-rear intraparietal groove and side visual-motion area glow soft pastel cyan-blue and swell outward",
+      "end_sentence_index": 15,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 16,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster bench with a mechanical pale-gray arm curling a brushed-silver dumbbell",
+      "comparison_action": "two matte-white gloved low-poly hands in shirt sleeves pull and lift a lever curling the pale-gray forearm upward as its faceted bicep plates expand outward"
+    },
+    {
+      "sentence_index": 16,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "regensburg_mri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands placing a soft-sage volume bar onto a chart",
+      "prop_action": "both matte-white gloved low-poly hands lift and place a tall soft-sage bar onto the jugglers column towering above the flat control bar",
+      "consequence": "the soft-sage growth bar gleams in the sunlit studio"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "regensburg_mri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands pressing two new soft-sage facet tiles onto a 3D brain model",
+      "prop_action": "both matte-white gloved low-poly hands snap two soft soft-sage cortical tiles onto the rear parietal surface of the cool-ivory brain model",
+      "consequence": "the thickened cortical ridge stands out cleanly in relief"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "regensburg_mri_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Regensburg neuroimaging room with the glowing before-and-after brain scans on the wide wall screen",
+      "action": "viewed strictly from behind, two clothed low-poly scientists in white lab coats step back from the console and raise their hands in astonishment"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "visual cortex",
+      "anatomy_label": "VISUAL MOTION V5\nTRAJECTORY TRACKER",
+      "camera": "locked_tripod",
+      "brain_scene": "across the rear-side visual motion area of the matte warm-ivory 3D brain model, soft amber-gold facets pulse while the central hand motor strip remains calm",
+      "end_sentence_index": 20
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "regensburg_grouping_hall",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "tilt_up",
+      "structure": "a sunlit architectural frame showing three suspended pastel balls along dotted brushed-silver parabolic arcs above two light-gray catch cups",
+      "internal_mechanism": "the three pastel balls glide smoothly along the curved brushed-silver rails and drop cleanly into the waiting cups",
+      "end_sentence_index": 21,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "INTRAPARIETAL SULCUS\nEYE-TO-HAND MAP",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the upper-rear parietal ridge of the matte warm-ivory 3D brain model, a glowing sky-blue pathway links the rear visual zone forward to the premotor strip",
+      "end_sentence_index": 21,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "gentle_push_in",
+      "structure": "a clean close-up architectural model of low-poly cortical tree branches on a warm-ivory base",
+      "internal_mechanism": "new golden geometric twigs and blossoms sprout outward from the main branches and interlock into a dense canopy",
+      "end_sentence_index": 23
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "regensburg_grouping_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit community gymnasium with clothed low-poly older adults in soft-gray cardigans and vests",
+      "action": "viewed strictly from behind, three clothed low-poly seniors in cardigans toss and catch soft pastel rubber balls in steady arcs",
+      "end_sentence_index": 24,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "visual cortex",
+      "anatomy_label": "SENIOR CORTEX GROWTH\nSAME V5 EXPANSION",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the matte warm-ivory 3D brain model, the rear-side visual motion facets light up in warm amber-gold and thicken identically to the younger model",
+      "end_sentence_index": 24,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "regensburg_grouping_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-gray cardigan sleeves and matte-white gloved low-poly hands catching three rubber balls",
+      "prop_action": "both matte-white gloved low-poly hands catch the three pastel balls cleanly and set them onto a brushed-silver display stand",
+      "consequence": "the three balls sit gleaming in the cool afternoon sun"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "regensburg_grouping_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands closing a pale-gray storage box",
+      "prop_action": "both matte-white gloved low-poly hands place the three rubber balls inside a slate-stone box and latch the brushed-silver clasp shut",
+      "consequence": "the closed slate-stone box sits locked on the table"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "regensburg_mri_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit Regensburg lab with three pastel balls inside an open pale-stone box beside a ninety-day hourglass",
+      "action": "viewed strictly from behind, the clothed low-poly neurologist in a white coat flips the large glass sand timer and steps toward the scanner window"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "regensburg_grouping_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "sage sweater sleeves and matte-white gloved low-poly hands resting idle on a pale-gray armchair",
+      "prop_action": "both matte-white gloved low-poly hands rest quietly on a closed book while the locked slate-stone ball box sits untouched on the shelf behind them",
+      "consequence": "sunlight shifts slowly across the quiet room"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "regensburg_grouping_hall",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and matte-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both matte-white gloved low-poly hands open the slate-stone box, toss the three balls once, and fumble as two balls drop to the floor",
+      "consequence": "only one blue ball remains in the right palm"
+    },
+    {
+      "sentence_index": 30,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "DETRAINING RECESSION\nGRAY MATTER SHRINKS",
+      "camera": "locked_tripod",
+      "brain_scene": "across the upper-rear parietal ridge of the matte warm-ivory 3D brain model, the soft amber-gold facets dim and settle back toward baseline thickness"
+    },
+    {
+      "sentence_index": 30,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "regensburg_mri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands placing the third scan bar onto the chart",
+      "prop_action": "both matte-white gloved low-poly hands lift and set a shorter soft-lavender bar next to the tall soft-sage peak bar on the three-scan board",
+      "consequence": "the three bars form a clear rise-and-fall arch"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster garden bench holding two cool-slate pots with pastel geometric plants",
+      "comparison_action": "two matte-white gloved low-poly hands in shirt sleeves lift and tilt a brushed-silver watering can over the left blooming plant while the unwatered right plant droops"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a sunlit sculptor's table comparing a rigid gray stone bust beside a cool-ivory cool-porcelain brain on a pale-gray wheel",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves push the gray stone bust aside and turn the soft cool-porcelain brain model on the wheel"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "oxford_dti_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-slate blazer sleeves and matte-white gloved low-poly hands holding a half-brain model",
+      "prop_action": "both matte-white gloved low-poly hands open and tilt the outer cortical shell of the brain model to reveal the deep inner core",
+      "consequence": "bundles of luminous white-and-cyan fiber tracts gleam inside the hemisphere"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "DEEP WHITE MATTER\nSUBCORTICAL CABLES",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, thick cyan-blue fiber bundles arc beneath the rear parietal cortex like glowing bridge cables"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "oxford_dti_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit 2009 Oxford diffusion tensor imaging laboratory with fiber-tract displays and pale-pale-stone desks",
+      "action": "viewed strictly from behind, a clothed low-poly neuroscientist in a muted-slate blazer leans over the console and traces a glowing cyan fiber bundle"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-gray workbench comparing three pastel balls beside a thick braided fiber-optic cable",
+      "comparison_action": "two matte-white gloved low-poly hands in blazer sleeves lift and slide a thick soft-sage insulating sheath around the braided fiber-optic cable beside three pastel balls"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL FIBER TRACTS\n5% MYELIN THICKENING",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the deep fiber tracts beneath the parietal groove glow soft amber-gold and thicken visibly"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "oxford_dti_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-slate blazer cuffs and matte-white gloved low-poly hands flipping a four-week calendar card",
+      "prop_action": "one matte-white gloved low-poly hand flips the four-week rest card while the other hand taps the thick soft-sage cable model beside it",
+      "consequence": "the thick insulated cable remains completely unchanged and solid"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "oxford_dti_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "muted-slate blazer sleeves and matte-white gloved low-poly hands comparing the gray-matter and white-matter charts",
+      "prop_action": "both matte-white gloved low-poly hands trace the dipping surface curve above the steady horizontal deep-cable line",
+      "consequence": "the deep white-matter line stays high across the entire rest period"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit pastel park path with a clothed low-poly cyclist in a blue jacket and cap riding a vintage bicycle",
+      "comparison_action": "viewed strictly from behind, the clothed low-poly cyclist in a blue jacket and cap pedals smoothly down the sunlit path and turns a gentle curve"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "OUTER CORTEX\nFAST FLEXIBLE TUNING",
+      "camera": "locked_tripod",
+      "brain_scene": "across the outer surface of the matte warm-ivory 3D brain model, sky-blue facets shimmer rapidly along the upper parietal ridge"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "DEEP WHITE HIGHWAYS\nLONG-TERM STORAGE",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the deep amber-gold cable bundles stay brightly lit and locked in place"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "oxford_dti_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Oxford laboratory with both the 3D cortical model and fiber-tract display glowing on the pale-stone table",
+      "action": "viewed strictly from behind, three clothed low-poly researchers in blazers and lab coats step around the table and lift the three pastel rubber balls"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "regensburg_mri_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands placing three rubber balls on a brushed-silver pedestal",
+      "prop_action": "both matte-white gloved low-poly hands set the soft-lavender, yellow, and soft-sage rubber balls onto a three-pronged brushed-silver stand beside the 3D brain model",
+      "consequence": "the three humble rubber balls gleam beside the expanded brain model"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_living_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cool-white knit sweater sleeves and matte-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both matte-white gloved low-poly hands pick up three soft pastel balls from a sunlit coffee table and weigh them in open palms",
+      "consequence": "cool morning light fills the tidy living room"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "modern_living_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "cool-white sweater cuff and matte-white gloved low-poly hand tapping a television remote",
+      "prop_action": "one matte-white gloved low-poly hand pushes the dark remote control aside and reaches for a pale-gray table-tennis paddle instead",
+      "consequence": "the pale-gray paddle and white ball sit ready at the center of the table"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL SPATIAL MAP\nNEW CHALLENGE SIGNAL",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper-rear parietal cortex of the matte warm-ivory 3D brain model, soft pastel cyan-blue and golden facets ignite in unison"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_living_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "cool-white sweater sleeves and matte-white gloved low-poly hands arranging three skill props on a bench",
+      "prop_action": "both matte-white gloved low-poly hands line up three juggling balls, a pale-gray table-tennis paddle, and a pair of dance shoes across the sunlit bench",
+      "consequence": "the three coordination props stand ready in a neat row"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster desk with a brushed-silver thirty-minute dial beside a pair of walking shoes",
+      "comparison_action": "two matte-white gloved low-poly hands in cardigan sleeves wind the brushed-silver dial to thirty minutes and set three rubber balls beside the shoes"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "modern_living_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cool-white sweater sleeves and matte-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "the matte-white gloved low-poly hands scoop up a dropped soft-lavender ball from the floor and launch all three balls back into a smooth airborne arc",
+      "consequence": "the three pastel balls rise cleanly into the sunlight"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "LIFELONG PLASTICITY\nLIVING CORTEX",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the entire matte warm-ivory 3D brain model on its pale-wood pedestal, warm amber-gold and sky-blue pathways glow harmoniously from back to front"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "regensburg_grouping_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit gymnasium with both young and senior volunteers standing in a wide circle",
+      "action": "viewed strictly from behind, clothed low-poly volunteers in pastel sweaters and cardigans toss and catch soft rubber balls in synchronized arcs"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "regensburg_grouping_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a soft sunlit German courtyard garden with geometric trees and cool sandstone arches",
+      "action": "viewed from behind, clothed low-poly figures in coats and sweaters walk across the courtyard and toss three pastel balls toward the clear sky as the camera tilts upward"
+    }
+  ]
+}

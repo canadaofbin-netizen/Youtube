@@ -211,6 +211,54 @@
         "SRC1",
         "SRC2"
       ]
+    },
+    {
+      "id": "S5",
+      "title": "Brenda Milner's 3-Day Mirror-Star Tracing Dissociation (Day 1 jagged crossings vs Day 3 effortless glide)",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1962, clinical neuropsychology testing table",
+      "layout": {
+        "description": "Sunlit oak testing table with an angled metal hand-shield hiding direct sight of Henry's hand and a printed five-pointed double-outline star sheet, reflected clearly in a vertical tabletop mirror.",
+        "positions": [
+          {
+            "who": "Henry Molaison",
+            "where": "seated at the oak desk reaching beneath the angled metal shield to trace the five-pointed star while watching only the upright mirror reflection",
+            "facing": "facing the vertical tabletop mirror"
+          },
+          {
+            "who": "Brenda Milner",
+            "where": "standing beside the table timing each of the 30 trials across 3 consecutive days",
+            "facing": "facing the mirror apparatus"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "mirror-star tracing apparatus",
+          "period_detail": "wooden base with upright rectangular mirror, angled metal occluder shield, yellow cedar pencil, and five-pointed double-border star sheet",
+          "physical_behavior": "reverses up-and-down visual feedback so Day 1 produces ~30 jagged border crossings while Day 3 glides smoothly inside the narrow star track"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Henry Molaison",
+          "verb_sequence": "reaches under the metal shield with a yellow pencil -> glides cleanly around all five star points on Day 3 while watching only the mirror"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Brenda Milner",
+          "reaction": "observes the near-flawless Day 3 star trace moments after Henry states he has never seen the apparatus before"
+        }
+      ],
+      "wardrobe": "Henry: buttoned plaid collared shirt and wool cardigan sleeves. Milner: 1960s tailored dark wool blazer.",
+      "lighting": "Bright natural clinical window light.",
+      "recognition_hook": "A man who swears he has never seen the mirror box in his life traces the inverted five-pointed star with near-zero errors on Day 3.",
+      "sources": [
+        "SRC7",
+        "SRC8"
+      ]
     }
   ]
 }

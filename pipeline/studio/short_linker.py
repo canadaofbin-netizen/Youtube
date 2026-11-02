@@ -48,7 +48,11 @@ from pipeline.studio.config import (
     STUDIO_TAB_RECYCLE_INTERVAL,
     YOUTUBE_WATCH_BASE_URL,
 )
-from pipeline.studio.whale_session import DirectCDPClient, WhaleSessionController
+from pipeline.studio.whale_session import (
+    _DEEP_QUERY_HELPER_JS,
+    DirectCDPClient,
+    WhaleSessionController,
+)
 
 _YOUTUBE_ID_RE = re.compile(r"^[A-Za-z0-9_-]{11}$")
 
@@ -376,9 +380,14 @@ class ShortLinkGraph:
                 continue
             idx[d_dir.name] = d_dir
             d_json = _load_json_safe(d_dir / "dossier.json")
-            for lp in d_json.get("linked_projects", []) or []:
-                if isinstance(lp, str) and lp.strip():
-                    idx[lp.strip()] = d_dir
+            for key_name in ("linked_projects", "shorts_projects"):
+                for lp in d_json.get(key_name, []) or []:
+                    if isinstance(lp, str) and lp.strip():
+                        idx[lp.strip()] = d_dir
+                    elif isinstance(lp, dict):
+                        lp_id = str(lp.get("project_id") or lp.get("id") or "").strip()
+                        if lp_id:
+                            idx[lp_id] = d_dir
         return idx
 
     def _match_dossier_dir(
@@ -391,14 +400,15 @@ class ShortLinkGraph:
             return dossier_idx[dossier_slug]
         if project_id in dossier_idx:
             return dossier_idx[project_id]
-        stripped = re.sub(r"^psych_\d+_", "", project_id)
+        stripped = re.sub(r"^(?:psych|diorama)_\d+_", "", project_id)
+        stripped = re.sub(r"^gage_diorama_v\d+_[a-z0-9_]+$", "phineas_gage_iron_rod", stripped)
         if stripped in dossier_idx:
             return dossier_idx[stripped]
         proj_tokens = set(stripped.split("_"))
         best_dir: Path | None = None
         best_overlap = 0
         for slug, d_dir in dossier_idx.items():
-            if slug.startswith("psych_"):
+            if slug.startswith(("psych_", "diorama_")):
                 continue
             slug_tokens = set(slug.split("_"))
             overlap = len(proj_tokens & slug_tokens)
@@ -465,11 +475,56 @@ class ShortLinkGraph:
 
             title = str(upload_rec.get("title") or meta.get("title") or pid).strip()
 
+            # Extract narration text across Schema v5 (clip_narrations/narrations) and Schema v6/v7 (sentences/acts)
+            narr_chunks: list[str] = []
+            raw_narrs = script.get("clip_narrations") or script.get("narrations") or []
+            if isinstance(raw_narrs, list):
+                for n in raw_narrs:
+                    txt_n = str(n.get("text") or n.get("narration") or "") if isinstance(n, dict) else str(n)
+                    if txt_n.strip():
+                        narr_chunks.append(txt_n.strip())
+            elif isinstance(raw_narrs, dict):
+                for v in raw_narrs.values():
+                    if str(v).strip():
+                        narr_chunks.append(str(v).strip())
+            elif raw_narrs:
+                narr_chunks.append(str(raw_narrs).strip())
+
+            raw_sents = script.get("sentences") or []
+            if isinstance(raw_sents, list):
+                for s_item in raw_sents:
+                    txt_s = (
+                        str(s_item.get("text") or s_item.get("sentence") or s_item.get("narration") or "")
+                        if isinstance(s_item, dict)
+                        else str(s_item)
+                    )
+                    if txt_s.strip():
+                        narr_chunks.append(txt_s.strip())
+
+            raw_acts = script.get("acts") or []
+            if isinstance(raw_acts, list):
+                for act_item in raw_acts:
+                    if not isinstance(act_item, dict):
+                        continue
+                    act_narr = str(act_item.get("narration") or act_item.get("text") or "").strip()
+                    if act_narr:
+                        narr_chunks.append(act_narr)
+                    for a_sent in act_item.get("sentences") or []:
+                        txt_as = (
+                            str(a_sent.get("text") or a_sent.get("sentence") or a_sent.get("narration") or "")
+                            if isinstance(a_sent, dict)
+                            else str(a_sent)
+                        )
+                        if txt_as.strip():
+                            narr_chunks.append(txt_as.strip())
+
+            narr_text = " ".join(dict.fromkeys(narr_chunks))
+
             # Collect canonical brain regions
             text_blobs: list[str] = [
                 title,
                 str(meta.get("description") or ""),
-                json.dumps(script.get("clip_narrations") or script.get("narrations") or "", ensure_ascii=False),
+                narr_text,
                 json.dumps(vplan, ensure_ascii=False),
             ]
             region_set: list[str] = []
@@ -483,16 +538,6 @@ class ShortLinkGraph:
                     region_set.append(found)
 
             # Collect lexical tokens (topic-specific plain language, script narrations, hooks & misconceptions)
-            raw_narrs = script.get("clip_narrations") or script.get("narrations") or []
-            if isinstance(raw_narrs, list):
-                narr_text = " ".join(
-                    str(n.get("text") or n.get("narration") or "") if isinstance(n, dict) else str(n)
-                    for n in raw_narrs
-                )
-            elif isinstance(raw_narrs, dict):
-                narr_text = " ".join(str(v) for v in raw_narrs.values())
-            else:
-                narr_text = str(raw_narrs)
 
             lex_blobs: list[str] = [
                 title,
@@ -1134,10 +1179,12 @@ class StudioShortLinker:
 
         # Read current playlist box text
         initial_text = str(await client.eval(
-            """(() => {
-                const el = document.querySelector('ytcp-video-metadata-playlists');
+            f"""(() => {{
+                {_DEEP_QUERY_HELPER_JS}
+                const el = deepQueryAll('ytcp-video-metadata-playlists')[0]
+                    || document.querySelector('ytcp-video-metadata-playlists');
                 return el ? (el.innerText || '').trim() : '';
-            })()"""
+            }})()"""
         ) or "")
         if playlist_title in initial_text or (playlist_prefix and playlist_prefix in initial_text):
             return {
@@ -1160,18 +1207,21 @@ class StudioShortLinker:
         # Try to find and check existing playlist inside ytcp-playlist-dialog
         check_state = await client.eval(
             f"""(() => {{
+                {_DEEP_QUERY_HELPER_JS}
                 const fullTitle = {json.dumps(playlist_title)};
                 const prefixTitle = {json.dumps(playlist_prefix)};
-                const dlg = document.querySelector('ytcp-playlist-dialog');
+                const dlg = deepQueryAll('ytcp-playlist-dialog')[0]
+                    || document.querySelector('ytcp-playlist-dialog');
                 if (!dlg) return {{ found: false }};
-                const labels = Array.from(dlg.querySelectorAll('ytcp-checkbox-group li, tp-yt-paper-checkbox, ytcp-checkbox-lit, label'));
+                const labels = deepQueryAll('ytcp-checkbox-group li, tp-yt-paper-checkbox, ytcp-checkbox-lit, label', dlg);
                 for (const row of labels) {{
                     const txt = (row.innerText || row.textContent || '').trim();
                     if (!txt) continue;
                     if (txt.includes(fullTitle) || (prefixTitle && txt.includes(prefixTitle))) {{
-                        const cb = row.matches('tp-yt-paper-checkbox, ytcp-checkbox-lit')
+                        const cb = (row.matches && row.matches('tp-yt-paper-checkbox, ytcp-checkbox-lit'))
                             ? row
-                            : row.querySelector('tp-yt-paper-checkbox, ytcp-checkbox-lit, input[type="checkbox"]');
+                            : (deepQueryAll('tp-yt-paper-checkbox, ytcp-checkbox-lit, input[type="checkbox"]', row)[0]
+                               || (row.querySelector ? row.querySelector('tp-yt-paper-checkbox, ytcp-checkbox-lit, input[type="checkbox"]') : null));
                         const isChecked = cb
                             ? (cb.checked === true || cb.hasAttribute('checked') || cb.getAttribute('aria-checked') === 'true')
                             : false;
@@ -1223,10 +1273,12 @@ class StudioShortLinker:
         await asyncio.sleep(1.0)
 
         readback = str(await client.eval(
-            """(() => {
-                const el = document.querySelector('ytcp-video-metadata-playlists');
+            f"""(() => {{
+                {_DEEP_QUERY_HELPER_JS}
+                const el = deepQueryAll('ytcp-video-metadata-playlists')[0]
+                    || document.querySelector('ytcp-video-metadata-playlists');
                 return el ? (el.innerText || '').trim() : '';
-            })()"""
+            }})()"""
         ) or "")
         verified = (
             playlist_title in readback
@@ -1250,14 +1302,17 @@ class StudioShortLinker:
     ) -> dict[str, Any]:
         # Check if trigger exists and whether Advanced Features lock is active
         trigger_probe = await client.eval(
-            """(() => {
-                const el = document.querySelector('#linked-video-editor-link')
+            f"""(() => {{
+                {_DEEP_QUERY_HELPER_JS}
+                const el = deepQueryAll('#linked-video-editor-link')[0]
+                    || deepQueryAll('ytcp-video-metadata-related-video')[0]
+                    || document.querySelector('#linked-video-editor-link')
                     || document.querySelector('ytcp-video-metadata-related-video');
-                if (!el) return { exists: false };
+                if (!el) return {{ exists: false }};
                 const txt = (el.innerText || '').trim();
                 const disabled = el.hasAttribute('disabled') || el.getAttribute('aria-disabled') === 'true';
-                return { exists: true, text: txt, disabled };
-            })()"""
+                return {{ exists: true, text: txt, disabled }};
+            }})()"""
         )
         if not isinstance(trigger_probe, dict) or not trigger_probe.get("exists"):
             return {"verified": False, "status": "related_trigger_missing", "dom_readback_text": ""}
@@ -1281,22 +1336,43 @@ class StudioShortLinker:
 
         async def _try_click_card() -> dict[str, Any]:
             res = await client.eval(
-                f"""(() => {{
+                rf"""(() => {{
+                    {_DEEP_QUERY_HELPER_JS}
                     const targetVid = {json.dumps(target_video_id)};
                     const targetTitle = {json.dumps((target_title or '').strip().lower())};
-                    const dlg = document.querySelector('ytcp-video-pick-dialog') || document;
-                    const cards = Array.from(dlg.querySelectorAll('ytcp-entity-card'));
+                    const dlg = deepQueryAll('ytcp-video-pick-dialog')[0]
+                        || document.querySelector('ytcp-video-pick-dialog')
+                        || document;
+                    const cards = deepQueryAll('ytcp-entity-card', dlg);
                     const extractVid = (c) => {{
                         try {{
                             if (c.video && c.video.videoId) return c.video.videoId;
                             if (c.data && c.data.videoId) return c.data.videoId;
                             if (c.__data && c.__data.video && c.__data.video.videoId) return c.__data.video.videoId;
-                            const thumb = c.querySelector('.thumbnail');
-                            const bg = thumb ? (thumb.getAttribute('style') || '') : '';
-                            const m = bg.match(/\\/vi\\/([A-Za-z0-9_-]{{11}})\\//);
-                            if (m) return m[1];
+                            const imgs = deepQueryAll('img', c);
+                            for (const img of imgs) {{
+                                const src = img.src || img.getAttribute('src') || '';
+                                const mImg = src.match(/\/vi\/([A-Za-z0-9_-]{{11}})\//);
+                                if (mImg) return mImg[1];
+                            }}
+                            const styled = [c, ...deepQueryAll('[style]', c)];
+                            for (const el of styled) {{
+                                const bg = el.getAttribute ? (el.getAttribute('style') || '') : '';
+                                const mBg = bg.match(/\/vi\/([A-Za-z0-9_-]{{11}})\//);
+                                if (mBg) return mBg[1];
+                            }}
                         }} catch (e) {{}}
                         return '';
+                    }};
+                    const extractCardTitle = (c) => {{
+                        const tEls = deepQueryAll('.title, #video-title', c)
+                            .map(el => (el.innerText || '').trim())
+                            .filter(t => t && t.toLowerCase() !== 'sync status');
+                        if (tEls.length > 0) return tEls[0].split('\n')[0].trim();
+                        const lines = (c.innerText || '').split('\n')
+                            .map(s => s.trim())
+                            .filter(s => s && s.toLowerCase() !== 'sync status');
+                        return lines[0] || '';
                     }};
                     const selectCard = (card, vid, matchMode, cardTitle) => {{
                         card.scrollIntoView({{ block: 'center' }});
@@ -1304,11 +1380,12 @@ class StudioShortLinker:
                         const alreadySelected = card.getAttribute('aria-selected') === 'true'
                             || (aria.includes('Selected') && !aria.includes('Not selected'));
                         if (alreadySelected) {{
-                            const closeBtn = dlg.querySelector ? dlg.querySelector('#close-button button, #close-button') : null;
+                            const closeBtn = deepQueryAll('#close-button button, #close-button', dlg)[0]
+                                || (dlg.querySelector ? dlg.querySelector('#close-button button, #close-button') : null);
                             if (closeBtn) closeBtn.click();
                             return {{ matched: true, matchMode, videoId: vid, cardTitle, alreadySelected: true }};
                         }}
-                        const hit = card.querySelector('#content') || card;
+                        const hit = deepQueryAll('#content', card)[0] || (card.querySelector ? card.querySelector('#content') : null) || card;
                         hit.click();
                         return {{ matched: true, matchMode, videoId: vid, cardTitle, alreadySelected: false }};
                     }};
@@ -1316,7 +1393,7 @@ class StudioShortLinker:
                     for (const card of cards) {{
                         const vid = extractVid(card);
                         if (vid && vid === targetVid) {{
-                            const cardTitle = (card.querySelector('.title') ? card.querySelector('.title').innerText : card.innerText || '').split('\\n')[0].trim();
+                            const cardTitle = extractCardTitle(card);
                             return selectCard(card, vid, 'video_id', cardTitle);
                         }}
                     }}
@@ -1327,7 +1404,7 @@ class StudioShortLinker:
                             if (vid && vid !== targetVid) continue;
                             const rawText = (card.innerText || '').trim();
                             if (rawText.toLowerCase().includes(targetTitle)) {{
-                                const cardTitle = rawText.split('\\n')[0].trim();
+                                const cardTitle = extractCardTitle(card);
                                 return selectCard(card, vid || targetVid, 'title_fallback', cardTitle);
                             }}
                         }}
@@ -1358,18 +1435,23 @@ class StudioShortLinker:
 
         await asyncio.sleep(1.2)
         readback_info = await client.eval(
-            """(() => {
-                const el = document.querySelector('#linked-video-editor-link')
+            f"""(() => {{
+                {_DEEP_QUERY_HELPER_JS}
+                const el = deepQueryAll('#linked-video-editor-link')[0]
+                    || deepQueryAll('ytcp-video-metadata-related-video')[0]
+                    || document.querySelector('#linked-video-editor-link')
                     || document.querySelector('ytcp-video-metadata-related-video');
-                if (!el) return { text: '', linkedId: '' };
+                if (!el) return {{ text: '', linkedId: '' }};
                 let linkedId = '';
-                try {
-                    const host = document.querySelector('ytcp-shorts-content-links') || el;
+                try {{
+                    const host = deepQueryAll('ytcp-shorts-content-links')[0]
+                        || document.querySelector('ytcp-shorts-content-links')
+                        || el;
                     if (host.linkedVideo && host.linkedVideo.videoId) linkedId = host.linkedVideo.videoId;
                     else if (host.data && host.data.videoId) linkedId = host.data.videoId;
-                } catch (e) {}
-                return { text: (el.innerText || '').replace(/\\s+/g, ' ').trim(), linkedId };
-            })()"""
+                }} catch (e) {{}}
+                return {{ text: (el.innerText || '').replace(/\\s+/g, ' ').trim(), linkedId }};
+            }})()"""
         )
         readback_text = str((readback_info or {}).get("text") or "").strip()
         linked_id = str((readback_info or {}).get("linkedId") or "").strip()
@@ -1393,17 +1475,23 @@ class StudioShortLinker:
 
     async def _save_editor_changes(self, client: DirectCDPClient) -> dict[str, Any]:
         save_state = await client.eval(
-            """(() => {
-                const btn = document.querySelector('ytcp-video-metadata-editor ytcp-button#save')
+            f"""(() => {{
+                {_DEEP_QUERY_HELPER_JS}
+                const btn = deepQueryAll('ytcp-video-metadata-editor ytcp-button#save')[0]
+                    || deepQueryAll('ytcp-button#save')[0]
+                    || deepQueryAll('#save')[0]
+                    || document.querySelector('ytcp-video-metadata-editor ytcp-button#save')
                     || document.querySelector('ytcp-button#save')
                     || document.querySelector('#save');
-                if (!btn) return { exists: false, disabled: true };
-                const inner = btn.querySelector('button') || (btn.shadowRoot && btn.shadowRoot.querySelector('button'));
+                if (!btn) return {{ exists: false, disabled: true }};
+                const inner = deepQueryAll('button', btn)[0]
+                    || (btn.querySelector && btn.querySelector('button'))
+                    || (btn.shadowRoot && btn.shadowRoot.querySelector('button'));
                 const disabled = btn.hasAttribute('disabled')
                     || btn.getAttribute('aria-disabled') === 'true'
                     || (inner ? inner.disabled === true : false);
-                return { exists: true, disabled };
-            })()"""
+                return {{ exists: true, disabled }};
+            }})()"""
         )
         if not isinstance(save_state, dict) or not save_state.get("exists"):
             return {"saved": False, "dirty": False, "reason": "save_button_not_found"}
@@ -1419,16 +1507,22 @@ class StudioShortLinker:
         for _ in range(30):
             await asyncio.sleep(0.5)
             done_now = await client.eval(
-                """(() => {
-                    const btn = document.querySelector('ytcp-video-metadata-editor ytcp-button#save')
+                f"""(() => {{
+                    {_DEEP_QUERY_HELPER_JS}
+                    const btn = deepQueryAll('ytcp-video-metadata-editor ytcp-button#save')[0]
+                        || deepQueryAll('ytcp-button#save')[0]
+                        || deepQueryAll('#save')[0]
+                        || document.querySelector('ytcp-video-metadata-editor ytcp-button#save')
                         || document.querySelector('ytcp-button#save')
                         || document.querySelector('#save');
                     if (!btn) return false;
-                    const inner = btn.querySelector('button') || (btn.shadowRoot && btn.shadowRoot.querySelector('button'));
+                    const inner = deepQueryAll('button', btn)[0]
+                        || (btn.querySelector && btn.querySelector('button'))
+                        || (btn.shadowRoot && btn.shadowRoot.querySelector('button'));
                     return btn.hasAttribute('disabled')
                         || btn.getAttribute('aria-disabled') === 'true'
                         || (inner ? inner.disabled === true : false);
-                })()"""
+                }})()"""
             )
             if done_now:
                 return {"saved": True, "dirty": True, "reason": "saved_and_confirmed"}

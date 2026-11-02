@@ -1,0 +1,325 @@
+{
+  "schema": "episode_qa_contract_v1",
+  "is_v7": false,
+  "style_profile": "dark_ceramic_v6",
+  "dossier": "phineas_gage_iron_rod",
+  "project_id": "",
+  "sentence_count": 52,
+  "clip_count": 61,
+  "analogy_locks": [
+    {
+      "analogy_id": "bowling_ball",
+      "spoken_phrase": "bowling ball",
+      "sentence_index": 2,
+      "sentence_text": "Thirteen pounds of iron, heavier than a bowling ball.",
+      "bound_clip_numbers": [
+        2
+      ],
+      "required_any_nouns": [
+        "bowling ball",
+        "three-hole bowling",
+        "bowling pins"
+      ],
+      "forbidden_abstract": [
+        "matte-charcoal sphere",
+        "charcoal sphere",
+        "turned-oak cylinders"
+      ],
+      "cv_signature": "high_contrast_object"
+    },
+    {
+      "analogy_id": "baseball_bat",
+      "spoken_phrase": "baseball bat",
+      "sentence_index": 7,
+      "sentence_text": "Picture a steel javelin longer than a baseball bat.",
+      "bound_clip_numbers": [
+        8
+      ],
+      "required_any_nouns": [
+        "baseball bat"
+      ],
+      "forbidden_abstract": [
+        "turned-oak cylinders",
+        "ceramic square tiles"
+      ],
+      "cv_signature": "high_contrast_object"
+    },
+    {
+      "analogy_id": "football_field",
+      "spoken_phrase": "football field",
+      "sentence_index": 13,
+      "sentence_text": "That flight spanned a quarter of a football field.",
+      "bound_clip_numbers": [
+        15
+      ],
+      "required_any_nouns": [
+        "football field",
+        "football stadium",
+        "green-turf",
+        "green turf",
+        "yard line",
+        "yard-line"
+      ],
+      "forbidden_abstract": [
+        "oak field grid",
+        "four equal recessed brass",
+        "turned-oak cylinders",
+        "ceramic square tiles"
+      ],
+      "cv_signature": "green_stadium_turf"
+    },
+    {
+      "analogy_id": "playing_card",
+      "spoken_phrase": "playing card",
+      "sentence_index": 22,
+      "sentence_text": "That lost surface was smaller than a playing card.",
+      "bound_clip_numbers": [
+        25
+      ],
+      "required_any_nouns": [
+        "playing card",
+        "ivory card"
+      ],
+      "forbidden_abstract": [
+        "turned-oak cylinders"
+      ],
+      "cv_signature": "high_contrast_object"
+    },
+    {
+      "analogy_id": "wagon_brake",
+      "spoken_phrase": "wagon brake",
+      "sentence_index": 24,
+      "sentence_text": "Losing them felt like cutting a wagon brake — a total nightmare.",
+      "bound_clip_numbers": [
+        27,
+        28
+      ],
+      "required_any_nouns": [
+        "wagon",
+        "brake"
+      ],
+      "forbidden_abstract": [
+        "turned-oak cylinders",
+        "ceramic square tiles"
+      ],
+      "cv_signature": "high_contrast_object"
+    },
+    {
+      "analogy_id": "coffee_cup",
+      "spoken_phrase": "coffee cup",
+      "sentence_index": 38,
+      "sentence_text": "That drained fluid filled nearly a whole coffee cup.",
+      "bound_clip_numbers": [
+        44
+      ],
+      "required_any_nouns": [
+        "coffee cup",
+        "porcelain cup",
+        "ceramic coffee cup"
+      ],
+      "forbidden_abstract": [
+        "turned-oak cylinders",
+        "ceramic square tiles"
+      ],
+      "cv_signature": "high_contrast_object"
+    },
+    {
+      "analogy_id": "splint",
+      "spoken_phrase": "splint",
+      "sentence_index": 41,
+      "sentence_text": "Strict daily order acted like a splint for bone.",
+      "bound_clip_numbers": [
+        47
+      ],
+      "required_any_nouns": [
+        "splint"
+      ],
+      "forbidden_abstract": [
+        "turned-oak cylinders"
+      ],
+      "cv_signature": "high_contrast_object"
+    },
+    {
+      "analogy_id": "pencil",
+      "spoken_phrase": "pencil",
+      "sentence_index": 51,
+      "sentence_text": "Self-control hangs on brain cables thinner than a pencil.",
+      "bound_clip_numbers": [
+        58
+      ],
+      "required_any_nouns": [
+        "pencil",
+        "hexagonal cedar",
+        "graphite pencil",
+        "yellow pencil"
+      ],
+      "forbidden_abstract": [
+        "turned-oak cylinders"
+      ],
+      "cv_signature": "high_contrast_object"
+    }
+  ],
+  "cast_clip_locks": [
+    {
+      "clip_number": 1,
+      "sentence_index": 1,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "ceramic_cast_motion"
+    },
+    {
+      "clip_number": 4,
+      "sentence_index": 3,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "ceramic_cast_motion"
+    },
+    {
+      "clip_number": 6,
+      "sentence_index": 5,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "ceramic_cast_motion"
+    },
+    {
+      "clip_number": 7,
+      "sentence_index": 6,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "ceramic_cast_motion"
+    },
+    {
+      "clip_number": 10,
+      "sentence_index": 9,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "ceramic_cast_motion"
+    },
+    {
+      "clip_number": 11,
+      "sentence_index": 10,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "ceramic_cast_motion"
+    },
+    {
+      "clip_number": 17,
+      "sentence_index": 15,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "ceramic_cast_motion"
+    },
+    {
+      "clip_number": 18,
+      "sentence_index": 16,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "ceramic_cast_motion"
+    },
+    {
+      "clip_number": 19,
+      "sentence_index": 16,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "ceramic_cast_motion"
+    },
+    {
+      "clip_number": 32,
+      "sentence_index": 28,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "ceramic_cast_motion"
+    },
+    {
+      "clip_number": 37,
+      "sentence_index": 33,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "ceramic_cast_motion"
+    },
+    {
+      "clip_number": 38,
+      "sentence_index": 33,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "ceramic_cast_motion"
+    },
+    {
+      "clip_number": 46,
+      "sentence_index": 40,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "ceramic_cast_motion"
+    },
+    {
+      "clip_number": 50,
+      "sentence_index": 43,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "ceramic_cast_motion"
+    }
+  ],
+  "cold_open_impact_locks": [],
+  "anatomy_locks": [
+    {
+      "sentence_index": 20,
+      "sentence_text": "Instead of hitting movement, iron struck the prefrontal cortex, the planner.",
+      "anatomy_terms": [
+        "prefrontal cortex"
+      ],
+      "bound_clip_numbers": [
+        23
+      ]
+    },
+    {
+      "sentence_index": 23,
+      "sentence_text": "Deeper down, iron cut eleven percent of white matter cables.",
+      "anatomy_terms": [
+        "white matter"
+      ],
+      "bound_clip_numbers": [
+        26
+      ]
+    },
+    {
+      "sentence_index": 25,
+      "sentence_text": "Those cables linked the amygdala, the alarm, to calm judgment.",
+      "anatomy_terms": [
+        "amygdala"
+      ],
+      "bound_clip_numbers": [
+        29
+      ]
+    }
+  ],
+  "early_hook_sentences": [
+    1,
+    9,
+    10,
+    11
+  ],
+  "require_early_ceramic_reenactment_min_clips": 2,
+  "tempo_targets": {
+    "wpm_min": 162.0,
+    "wpm_max": 208.0,
+    "avg_cut_max_sec": 2.9,
+    "fast_cut_threshold_sec": 2.15,
+    "fast_cut_ratio_min": 0.18,
+    "max_single_speech_cut_sec": 4.55,
+    "max_clip_reuse": 1
+  }
+}

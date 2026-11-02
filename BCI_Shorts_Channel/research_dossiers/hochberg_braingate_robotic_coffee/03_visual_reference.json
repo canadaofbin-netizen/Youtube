@@ -1,0 +1,146 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "April 2011 BrainGate2 Clinical Room — Robotic Arm Grasping & Lifting the Coffee Bottle",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2011–2012 clinical neurotechnology laboratory at Massachusetts General Hospital / Brown BrainGate2 trial site",
+      "recognition_hook": "A multi-joint brushed-silver five-fingered robotic arm mounted beside a motorized wheelchair smoothly grasping a cylindrical insulated coffee bottle with a straw from a tabletop and lifting it steadily under pure motor-cortex control.",
+      "layout": {
+        "room": "Bright clinical neuroengineering trial room with a clean cool-toned adjustable tabletop positioned in front of a motorized wheelchair and a pedestal-mounted multi-joint silver robotic arm on the right side",
+        "positions": [
+          {
+            "who": "Participant S3 seated in motorized wheelchair (staged strictly from behind / neck-down in Schema v7)",
+            "where": "centered behind the cool tabletop edge",
+            "facing": "forward toward the cylindrical insulated bottle and silver robotic arm"
+          },
+          {
+            "who": "DLR five-fingered brushed-silver robotic arm",
+            "where": "mounted on a sturdy silver support base to the right of the tabletop",
+            "facing": "articulating inward across 3D space toward the cylindrical coffee bottle and straw"
+          },
+          {
+            "who": "Two BrainGate2 clinical engineers in lab coat and slate blazer",
+            "where": "standing behind the neural signal monitor cart at the rear left",
+            "facing": "watching the robotic fingers close cleanly around the insulated bottle"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Brushed-silver multi-joint five-fingered robotic arm",
+          "period_detail": "Sleek articulated silver robotic limb (modeled on DLR Light-Weight Robot III + five-fingered hand) with smooth cylindrical joints and five articulated silver fingers",
+          "physical_behavior": "Glides smoothly along 3D X-Y-Z trajectories, opens its five silver fingers wide, closes firmly around the cylindrical bottle, lifts upward without wobble, tilts slightly, and sets the bottle cleanly back down"
+        },
+        {
+          "name": "Cylindrical insulated coffee bottle with angled drinking straw",
+          "period_detail": "Matte pastel cylindrical insulated thermos bottle fitted with a clean bent drinking straw resting upright on a cool slate-stone tabletop",
+          "physical_behavior": "Rests upright on the table until grasped by the five silver robotic fingers, rises smoothly off the stone surface, tilts steadily at straw height, and returns upright to the table"
+        },
+        {
+          "name": "4-millimeter 96-channel silicon cortical array model",
+          "period_detail": "Tiny 4x4 mm square brushed-silver and powder-blue silicon sensor bed holding an 10x10 grid of 96 fine 1.5 mm pins",
+          "physical_behavior": "Sits delicately beside a small pastel tablet disk for scale and transmits crisp cyan spike wave pulses along a slim silver cable"
+        }
+      ],
+      "wardrobe": "Participant dressed in a comfortable powder-blue cardigan seated in a slate motorized wheelchair (strictly rear / neck-down framing); clinical researchers in crisp white coat and charcoal blazer with cool porcelain-white gloved low-poly hands.",
+      "lighting": "Even bright clinical daylight with cool mist-white, powder-blue, sage-green, and brushed-silver tones; zero harsh shadows or warm wood.",
+      "actions": [
+        "Silver five-fingered robotic hand glides forward and opens around the cylindrical insulated bottle on the cool slate-stone table",
+        "Five articulated silver fingers close smoothly around the bottle and lift it steadily upward toward straw height",
+        "Researchers step back in quiet astonishment as the robotic arm lowers the bottle upright onto the tabletop and releases cleanly"
+      ],
+      "reactions": [
+        "Clinicians behind the neural decoder cart raise gloved hands in celebration after the fourth successful self-served coffee trial"
+      ],
+      "key_visual": {
+        "description": "Close-to-medium view of the brushed-silver five-fingered robotic hand closing gently around the matte pastel insulated coffee bottle with straw and lifting it cleanly off the cool slate-stone tabletop beside a rear-viewed wheelchair silhouette.",
+        "must_show": [
+          "brushed-silver articulated robotic arm",
+          "insulated cylindrical bottle with straw",
+          "cool slate-stone tabletop"
+        ]
+      },
+      "sources": [
+        "SRC1",
+        "SRC_M1"
+      ]
+    },
+    {
+      "id": "S2",
+      "title": "3D Foam-Ball Target Reach-and-Grasp Calibration",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "2011–2012 BrainGate2 3D workspace target sessions",
+      "recognition_hook": "Articulated silver robotic hand reaching across different heights to grasp pastel spherical foam targets mounted on flexible stalks.",
+      "layout": {
+        "room": "Cool mist-white clinical lab bench holding four pastel foam spheres mounted at varied heights on slender flexible silver stalks",
+        "positions": [
+          {
+            "who": "Articulated silver robotic arm",
+            "where": "right side of cool slate-stone bench",
+            "facing": "reaching across X, Y, and Z axes toward elevated pastel spheres"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Pastel foam target spheres on flexible silver stalks",
+          "period_detail": "Soft matte mint-sage and powder-blue spheres perched at staggered 3D heights",
+          "physical_behavior": "Flex gently without breaking when grasped by the robotic fingers within the 10-second trial window"
+        }
+      ],
+      "wardrobe": "Cool porcelain-white gloved low-poly engineer hands in white coat cuffs adjusting target stalks.",
+      "lighting": "Bright high-key cool studio daylight.",
+      "actions": [
+        "Engineer places staggered pastel spheres at high, middle, and low positions",
+        "Silver robotic hand glides upward and closes cleanly around the elevated mint-sage sphere"
+      ],
+      "reactions": [
+        "Cyan indicator bars rise on a blank geometric display as 3D grasps succeed"
+      ],
+      "sources": [
+        "SRC1",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "2017 Functional Electrical Stimulation Own-Arm Follow-Up",
+      "iconic": false,
+      "shorts_priority": 3,
+      "era": "2017 Case Western / BrainGate2 Lancet follow-up",
+      "recognition_hook": "Motor-cortex signals routed around the spinal injury into a cushioned arm support and sleeve pads so a clothed forearm lifts a cup directly.",
+      "layout": {
+        "room": "Bright cool-toned rehabilitation desk with a mobile spring-balanced forearm support cradle",
+        "positions": [
+          {
+            "who": "Clothed forearm in powder-blue sleeve resting in silver mobile arm support",
+            "where": "above cool slate-stone tabletop",
+            "facing": "extending toward a matte sage-green cup with straw"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Cushioned forearm stimulation band and mobile support cradle",
+          "period_detail": "Soft mist-white cuff bands linked by slim silver leads to a decoder box",
+          "physical_behavior": "Delivers gentle cyan pulses enabling the gloved hand itself to close around a cup"
+        }
+      ],
+      "wardrobe": "Powder-blue shirt sleeve and cool porcelain-white gloved low-poly hand.",
+      "lighting": "Soft diffused cool daylight.",
+      "actions": [
+        "Cyan signal bypasses the blocked spinal path and enters the forearm cuff",
+        "Gloved low-poly hand closes around the matte sage-green cup and lifts it smoothly"
+      ],
+      "reactions": [
+        "Researcher beside the desk nods and steadies the decoder cable"
+      ],
+      "sources": [
+        "SRC6"
+      ]
+    }
+  ]
+}

@@ -1,12 +1,483 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-10-26T02:30:40.317429+00:00",
+  "generated_at_utc": "2026-11-02T13:11:57.895281+00:00",
   "mode": "seed_boost",
-  "node_count": 5,
-  "edge_count": 5,
+  "node_count": 32,
+  "edge_count": 1,
   "two_cycle_count": 0,
   "two_cycles": [],
   "nodes": [
+    {
+      "project_id": "diorama_01_patient_hm_hippocampus",
+      "video_id": "q1lUimnZ-V0",
+      "title": "He Forgot Every Doctor in 5 Minutes, Yet Mastered a New Skill in 3 Days",
+      "pillar": "brain_history",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "public",
+      "views": 380,
+      "impressions": 427,
+      "apv_pct": 84.7,
+      "regions": [
+        "hippocampus",
+        "prefrontal cortex",
+        "temporal lobe",
+        "basal ganglia",
+        "cerebellum",
+        "corpus callosum",
+        "brainstem",
+        "frontal lobe"
+      ]
+    },
+    {
+      "project_id": "diorama_02_ramachandran_phantom_mirror",
+      "video_id": "u5mQNZWNjiw",
+      "title": "His Missing Hand Stayed Clenched for 10 Years, Until a Mirror Box Opened It",
+      "pillar": "brain_health",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "public",
+      "views": 1185,
+      "impressions": 1516,
+      "apv_pct": 94.7,
+      "regions": [
+        "somatosensory cortex",
+        "motor cortex",
+        "parietal cortex",
+        "primary visual cortex"
+      ]
+    },
+    {
+      "project_id": "diorama_03_alien_hand_syndrome",
+      "video_id": "PK1opKmokwY",
+      "title": "His Right Hand Buttoned His Shirt, While His Own Left Hand Unbuttoned It",
+      "pillar": "brain_mysteries",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "public",
+      "views": 398,
+      "impressions": 557,
+      "apv_pct": 90.3,
+      "regions": [
+        "premotor cortex",
+        "corpus callosum",
+        "anterior cingulate cortex",
+        "prefrontal cortex",
+        "parietal cortex",
+        "frontal lobe",
+        "motor cortex"
+      ]
+    },
+    {
+      "project_id": "diorama_04_milgram_obedience_switch",
+      "video_id": "wUAD5xIpaww",
+      "title": "Strangers Pressed a 450-Volt Switch, Yet Refused One Direct Order",
+      "pillar": "bci_ethics",
+      "visual_mode": "BEHAVIORAL_PSYCH",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": []
+    },
+    {
+      "project_id": "diorama_05_hippocampal_memory_prosthesis",
+      "video_id": "JJkBqo-hTS8",
+      "title": "Scrambled Brain Pulses Gave 0% Gain, Yet a Custom Rhythm Boosted Memory 37%",
+      "pillar": "bci_tech",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "hippocampus",
+        "temporal lobe",
+        "prefrontal cortex"
+      ]
+    },
+    {
+      "project_id": "diorama_06_clive_wearing_seven_second_mind",
+      "video_id": "ZbjKX8CBt8A",
+      "title": "His Memory Reset Every 7 Seconds, Yet He Conducted an Entire Choir",
+      "pillar": "brain_mysteries",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "hippocampus",
+        "basal ganglia",
+        "amygdala",
+        "temporal lobe",
+        "cerebellum",
+        "brainstem"
+      ]
+    },
+    {
+      "project_id": "diorama_07_invisible_gorilla_attention",
+      "video_id": "t8Z_Q8oB9MY",
+      "title": "They Stared Right at a Gorilla for 9 Seconds, Yet Half Saw Nothing",
+      "pillar": "brain_mysteries",
+      "visual_mode": "HYBRID",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "primary visual cortex",
+        "parietal cortex",
+        "retina",
+        "optic nerve"
+      ]
+    },
+    {
+      "project_id": "diorama_08_maguire_london_taxi_hippocampus",
+      "video_id": "4jNxwVMMxQo",
+      "title": "They Memorized 25,000 London Streets, Yet Their Brains Paid a Price",
+      "pillar": "brain_health",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "hippocampus",
+        "parietal cortex",
+        "prefrontal cortex",
+        "temporal lobe"
+      ]
+    },
+    {
+      "project_id": "diorama_09_broca_patient_tan_speech_loss",
+      "video_id": "SpOCgvOojuk",
+      "title": "He Could Only Say One Syllable for 21 Years, Yet Understood Every Word",
+      "pillar": "brain_history",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "Wernicke's area",
+        "Broca's area",
+        "white matter",
+        "insula",
+        "frontal lobe"
+      ]
+    },
+    {
+      "project_id": "diorama_10_olds_milner_pleasure_center",
+      "video_id": "BkWoHoGVV_c",
+      "title": "A Bent Wire Missed Its Target, Yet Rats Pressed a Lever 7,500 Times",
+      "pillar": "bci_tech",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "nucleus accumbens",
+        "ventral tegmental area",
+        "prefrontal cortex"
+      ]
+    },
+    {
+      "project_id": "diorama_11_blindsight_subcortical_vision",
+      "video_id": "XvskvBLMqzg",
+      "title": "He Was Clinically Blind on One Side, Yet Pointed to Lights 90% Right",
+      "pillar": "brain_mysteries",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "primary visual cortex",
+        "optic nerve",
+        "parietal cortex",
+        "brainstem",
+        "thalamus",
+        "white matter",
+        "amygdala"
+      ]
+    },
+    {
+      "project_id": "diorama_12_penfield_cortical_homunculus",
+      "video_id": "RYeASKxFDnk",
+      "title": "Your Back Is 10x Wider Than Your Thumb, Yet Your Brain Maps Your Thumb 10x Bigger",
+      "pillar": "brain_history",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "somatosensory cortex",
+        "motor cortex",
+        "prefrontal cortex",
+        "brainstem"
+      ]
+    },
+    {
+      "project_id": "diorama_13_asch_conformity_pressure",
+      "video_id": "SAtSICgNPh4",
+      "title": "Solo Testers Scored 99% Right, Yet 75% Lied When 5 Strangers Disagreed",
+      "pillar": "bci_ethics",
+      "visual_mode": "HYBRID",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "parietal cortex",
+        "amygdala",
+        "anterior cingulate cortex"
+      ]
+    },
+    {
+      "project_id": "diorama_14_libet_readiness_potential",
+      "video_id": "6rDiJhK0Nl4",
+      "title": "You Feel Yourself Decide to Move, Yet Your Brain Starts 350 Milliseconds Earlier",
+      "pillar": "brain_mysteries",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "premotor cortex",
+        "prefrontal cortex",
+        "motor cortex"
+      ]
+    },
+    {
+      "project_id": "diorama_15_draganski_juggling_gray_matter",
+      "video_id": "f1BATCCY1Vs",
+      "title": "You Think Adult Brains Stop Growing, Yet Juggling Builds New Cortex in 90 Days",
+      "pillar": "brain_health",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "temporal lobe",
+        "parietal cortex",
+        "motor cortex",
+        "primary visual cortex",
+        "white matter",
+        "premotor cortex"
+      ]
+    },
+    {
+      "project_id": "diorama_16_rizzolatti_mirror_neuron_empathy",
+      "video_id": "Ky3iCjdSJd0",
+      "title": "You Sit Completely Still, Yet Watching Someone Grab Food Fires Your Motor Cortex",
+      "pillar": "brain_news",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "premotor cortex",
+        "parietal cortex",
+        "temporal lobe",
+        "motor cortex",
+        "insula",
+        "anterior cingulate cortex",
+        "primary visual cortex"
+      ]
+    },
+    {
+      "project_id": "diorama_17_damasio_somatic_marker_decision",
+      "video_id": "7QM6ZSwrM68",
+      "title": "You Think Cold Logic Makes Wise Choices, Yet Losing Emotion Paralyses Decisions",
+      "pillar": "brain_basics",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "ventromedial prefrontal cortex",
+        "insula",
+        "amygdala",
+        "prefrontal cortex"
+      ]
+    },
+    {
+      "project_id": "diorama_18_greene_trolley_dilemma_dual_process",
+      "video_id": "U1JJjr_2EF8",
+      "title": "You Pull a Switch to Save Five Lives, Yet Your Brain Refuses to Push One Man",
+      "pillar": "bci_ethics",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "ventromedial prefrontal cortex",
+        "anterior cingulate cortex",
+        "dorsolateral prefrontal cortex",
+        "amygdala",
+        "prefrontal cortex",
+        "temporal lobe"
+      ]
+    },
+    {
+      "project_id": "diorama_19_davidson_monk_gamma_synchrony",
+      "video_id": "219ze8JUb7c",
+      "title": "You Think Meditation Just Relaxes You, Yet Monks Fire 30-Fold Brain Gamma Waves",
+      "pillar": "brain_health",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "prefrontal cortex",
+        "insula",
+        "amygdala",
+        "parietal cortex",
+        "premotor cortex",
+        "nucleus accumbens"
+      ]
+    },
+    {
+      "project_id": "diorama_20_dutton_aron_capilano_bridge",
+      "video_id": "KqRu_BXLeRc",
+      "title": "You Trust Butterflies in Your Stomach, Yet a Scary Bridge Fakes Falling in Love",
+      "pillar": "brain_basics",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "amygdala",
+        "insula",
+        "prefrontal cortex",
+        "brainstem"
+      ]
+    },
+    {
+      "project_id": "diorama_21_delgado_stimoceiver_bull",
+      "video_id": "CUS_CD1UvFw",
+      "title": "You Think Brain Chips Control Thoughts, Yet Delgado's Bull Only Turned on Motor Circuits",
+      "pillar": "bci_tech",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "motor cortex",
+        "basal ganglia",
+        "thalamus",
+        "amygdala",
+        "prefrontal cortex"
+      ]
+    },
+    {
+      "project_id": "diorama_22_baars_global_workspace_theater",
+      "video_id": "kDBafW58J0Q",
+      "title": "You Think Consciousness Multitasks, Yet Your Brain Broadcasts Only One Thought at a Time",
+      "pillar": "brain_basics",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "primary visual cortex",
+        "prefrontal cortex",
+        "parietal cortex"
+      ]
+    },
+    {
+      "project_id": "diorama_23_beck_cognitive_triad_depression",
+      "video_id": "aNpoZUC_As8",
+      "title": "You Think Sadness Hits From Nowhere, Yet Beck Found Split-Second Thoughts Come First",
+      "pillar": "brain_health",
+      "visual_mode": "HYBRID",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "amygdala",
+        "dorsolateral prefrontal cortex",
+        "prefrontal cortex"
+      ]
+    },
+    {
+      "project_id": "diorama_24_bodamer_prosopagnosia_face_blindness",
+      "video_id": "B4lcuLzuEgQ",
+      "title": "He Could Read Tiny Print Clearly, Yet His Own Face in a Mirror Looked Like a Stranger",
+      "pillar": "brain_mysteries",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "primary visual cortex",
+        "fusiform face area",
+        "auditory cortex",
+        "amygdala"
+      ]
+    },
+    {
+      "project_id": "diorama_25_false_memory_elizabeth_loftus",
+      "video_id": "yp5Qlf0Fo34",
+      "title": "You Think Memory Works Like a Camera, Yet One Word Made Witnesses See Fake Broken Glass",
+      "pillar": "brain_history",
+      "visual_mode": "HYBRID",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "hippocampus",
+        "prefrontal cortex",
+        "primary visual cortex"
+      ]
+    },
+    {
+      "project_id": "diorama_26_clark_doll_experiment_bias",
+      "video_id": "whXcmzZygN8",
+      "title": "Adults Thought Kids Were Color-Blind, Yet Four Identical Dolls Toppled Segregation",
+      "pillar": "bci_ethics",
+      "visual_mode": "HYBRID",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
+      "regions": [
+        "amygdala",
+        "anterior cingulate cortex",
+        "prefrontal cortex"
+      ]
+    },
+    {
+      "project_id": "gage_diorama_v6_dynamic",
+      "video_id": "Wydl4JpZmAw",
+      "title": "A 13-Pound Iron Rod Pierced His Brain, Yet Daily Structure Rebuilt His Mind",
+      "pillar": "brain_history",
+      "visual_mode": "NEURO_BIOLOGY",
+      "visibility": "public",
+      "views": 903,
+      "impressions": 1044,
+      "apv_pct": 84.7,
+      "regions": [
+        "ventromedial prefrontal cortex",
+        "amygdala",
+        "prefrontal cortex",
+        "white matter",
+        "brainstem",
+        "frontal lobe"
+      ]
+    },
     {
       "project_id": "psych_01_habit_loop_basal_ganglia",
       "video_id": "p4ou90cHt50",
@@ -14,7 +485,7 @@
       "pillar": "brain_health",
       "visual_mode": "NEURO_BIOLOGY",
       "visibility": "public",
-      "views": 1563,
+      "views": 1589,
       "impressions": 1690,
       "apv_pct": 63.2,
       "regions": [
@@ -48,17 +519,14 @@
       "pillar": "brain_mysteries",
       "visual_mode": "NEURO_BIOLOGY",
       "visibility": "public",
-      "views": 211,
+      "views": 213,
       "impressions": 830,
       "apv_pct": 59.4,
       "regions": [
         "corpus callosum",
         "primary visual cortex",
         "Broca's area",
-        "motor cortex",
-        "retina",
-        "optic nerve",
-        "white matter"
+        "motor cortex"
       ]
     },
     {
@@ -75,12 +543,7 @@
         "fusiform face area",
         "amygdala",
         "auditory cortex",
-        "prefrontal cortex",
-        "retina",
-        "white matter",
-        "optic nerve",
-        "primary visual cortex",
-        "temporal lobe"
+        "prefrontal cortex"
       ]
     },
     {
@@ -90,9 +553,9 @@
       "pillar": "brain_health",
       "visual_mode": "NEURO_BIOLOGY",
       "visibility": "public",
-      "views": 1983,
+      "views": 2000,
       "impressions": 2304,
-      "apv_pct": 90.3,
+      "apv_pct": 84.8,
       "regions": [
         "prefrontal cortex",
         "thalamus",
@@ -102,182 +565,63 @@
   ],
   "edges": [
     {
-      "source_project_id": "psych_01_habit_loop_basal_ganglia",
-      "source_video_id": "p4ou90cHt50",
-      "source_title": "Why Deep Brain Loops Lock Habits on Autopilot",
-      "source_pillar": "brain_health",
-      "source_visual_mode": "NEURO_BIOLOGY",
-      "source_visibility": "public",
-      "source_views": 1563,
-      "source_impressions": 1690,
+      "source_project_id": "diorama_25_false_memory_elizabeth_loftus",
+      "source_video_id": "yp5Qlf0Fo34",
+      "source_title": "You Think Memory Works Like a Camera, Yet One Word Made Witnesses See Fake Broken Glass",
+      "source_pillar": "brain_history",
+      "source_visual_mode": "HYBRID",
+      "source_visibility": "scheduled",
+      "source_views": 0,
+      "source_impressions": 0,
       "target_type": "short",
-      "target_project_id": "psych_02_inner_speech_decoding",
-      "target_video_id": "p0etX4iMJ7Q",
-      "target_title": "How a Brain Implant Decodes 62 Words Per Minute",
-      "affinity_score": 0.4368,
+      "target_project_id": "diorama_22_baars_global_workspace_theater",
+      "target_video_id": "kDBafW58J0Q",
+      "target_title": "You Think Consciousness Multitasks, Yet Your Brain Broadcasts Only One Thought at a Time",
+      "affinity_score": 0.4883,
       "affinity_breakdown": {
-        "total": 0.4368,
-        "anatomy": 0.3929,
-        "pillar_mode": 0.45,
-        "lexical": 0.0857,
-        "retention_seed": 1.0,
+        "total": 0.4883,
+        "anatomy": 0.75,
+        "pillar_mode": 0.3,
+        "lexical": 0.2854,
+        "retention_seed": 0.375,
         "behavioral_reweighted": false
       },
-      "link_reason": "seed_rescue_anchor_to_starved",
-      "playlist_title": "Brain Health & Optimization | Sleep, Glymphatic Flush & Dopamine",
-      "existing_playlist_verified": true,
-      "action": "already_linked"
-    },
-    {
-      "source_project_id": "psych_02_inner_speech_decoding",
-      "source_video_id": "p0etX4iMJ7Q",
-      "source_title": "How a Brain Implant Decodes 62 Words Per Minute",
-      "source_pillar": "bci_tech",
-      "source_visual_mode": "NEURO_BIOLOGY",
-      "source_visibility": "public",
-      "source_views": 15,
-      "source_impressions": 1,
-      "target_type": "short",
-      "target_project_id": "psych_06_glymphatic_sleep_toxins",
-      "target_video_id": "31_O2CmlKOk",
-      "target_title": "What One Sleepless Night Does to Your Brain",
-      "affinity_score": 0.2816,
-      "affinity_breakdown": {
-        "total": 0.2816,
-        "anatomy": 0.0,
-        "pillar_mode": 0.45,
-        "lexical": 0.0957,
-        "retention_seed": 1.0,
-        "behavioral_reweighted": false
-      },
-      "link_reason": "binge_loop_closure",
-      "playlist_title": "BCI Tech Explained | Neural Interfaces & Mind Decoding",
-      "existing_playlist_verified": true,
-      "action": "already_linked"
-    },
-    {
-      "source_project_id": "psych_03_split_brain_dual_consciousness",
-      "source_video_id": "nGNIl26te0w",
-      "source_title": "Two Conscious Minds Inside One Human Skull",
-      "source_pillar": "brain_mysteries",
-      "source_visual_mode": "NEURO_BIOLOGY",
-      "source_visibility": "public",
-      "source_views": 211,
-      "source_impressions": 830,
-      "target_type": "short",
-      "target_project_id": "psych_05_capgras_imposter_delusion",
-      "target_video_id": "lZv3_UAWScI",
-      "target_title": "When You Believe Your Family Are Imposters",
-      "affinity_score": 0.6515,
-      "affinity_breakdown": {
-        "total": 0.6515,
-        "anatomy": 0.5833,
-        "pillar_mode": 1.0,
-        "lexical": 0.166,
-        "retention_seed": 0.9,
-        "behavioral_reweighted": false
-      },
-      "link_reason": "same_pillar_seed_handoff",
-      "playlist_title": "Brain Mysteries & Paradoxes | Consciousness & Perception",
-      "existing_playlist_verified": true,
-      "action": "already_linked"
-    },
-    {
-      "source_project_id": "psych_05_capgras_imposter_delusion",
-      "source_video_id": "lZv3_UAWScI",
-      "source_title": "When You Believe Your Family Are Imposters",
-      "source_pillar": "brain_mysteries",
-      "source_visual_mode": "NEURO_BIOLOGY",
-      "source_visibility": "public",
-      "source_views": 7,
-      "source_impressions": 10,
-      "target_type": "short",
-      "target_project_id": "psych_01_habit_loop_basal_ganglia",
-      "target_video_id": "p4ou90cHt50",
-      "target_title": "Why Deep Brain Loops Lock Habits on Autopilot",
-      "affinity_score": 0.4105,
-      "affinity_breakdown": {
-        "total": 0.4105,
-        "anatomy": 0.3333,
-        "pillar_mode": 0.45,
-        "lexical": 0.088,
-        "retention_seed": 0.9802,
-        "behavioral_reweighted": false
-      },
-      "link_reason": "anchor_handoff",
-      "playlist_title": "Brain Mysteries & Paradoxes | Consciousness & Perception",
-      "existing_playlist_verified": true,
-      "action": "already_linked"
-    },
-    {
-      "source_project_id": "psych_06_glymphatic_sleep_toxins",
-      "source_video_id": "31_O2CmlKOk",
-      "source_title": "What One Sleepless Night Does to Your Brain",
-      "source_pillar": "brain_health",
-      "source_visual_mode": "NEURO_BIOLOGY",
-      "source_visibility": "public",
-      "source_views": 1983,
-      "source_impressions": 2304,
-      "target_type": "short",
-      "target_project_id": "psych_05_capgras_imposter_delusion",
-      "target_video_id": "lZv3_UAWScI",
-      "target_title": "When You Believe Your Family Are Imposters",
-      "affinity_score": 0.4338,
-      "affinity_breakdown": {
-        "total": 0.4338,
-        "anatomy": 0.3409,
-        "pillar_mode": 0.45,
-        "lexical": 0.1747,
-        "retention_seed": 1.0,
-        "behavioral_reweighted": false
-      },
-      "link_reason": "seed_rescue_anchor_to_starved",
-      "playlist_title": "Brain Health & Optimization | Sleep, Glymphatic Flush & Dopamine",
-      "existing_playlist_verified": true,
-      "action": "already_linked"
+      "link_reason": "cross_pillar_affinity_bridge",
+      "playlist_title": "Brain History & Evolution | How Humanity Found the Mind",
+      "existing_playlist_verified": false,
+      "action": "apply_link"
     }
   ],
   "execution_results": [
     {
-      "project_id": "psych_01_habit_loop_basal_ganglia",
-      "source_video_id": "p4ou90cHt50",
-      "target_video_id": "p0etX4iMJ7Q",
+      "schema_version": 1,
+      "project_id": "diorama_25_false_memory_elizabeth_loftus",
+      "source_video_id": "yp5Qlf0Fo34",
+      "source_title": "You Think Memory Works Like a Camera, Yet One Word Made Witnesses See Fake Broken Glass",
+      "source_pillar": "brain_history",
+      "source_visibility": "scheduled",
+      "target_type": "short",
+      "target_project_id": "diorama_22_baars_global_workspace_theater",
+      "target_video_id": "kDBafW58J0Q",
+      "target_title": "You Think Consciousness Multitasks, Yet Your Brain Broadcasts Only One Thought at a Time",
+      "matched_card_title": "",
+      "match_mode": "",
+      "affinity_score": 0.4883,
+      "link_reason": "cross_pillar_affinity_bridge",
+      "dom_readback_text": "",
+      "playlist_title": "Brain History & Evolution | How Humanity Found the Mind",
       "playlist_verified": true,
-      "status": "already_linked",
-      "verified": true
-    },
-    {
-      "project_id": "psych_02_inner_speech_decoding",
-      "source_video_id": "p0etX4iMJ7Q",
-      "target_video_id": "31_O2CmlKOk",
-      "playlist_verified": true,
-      "status": "already_linked",
-      "verified": true
-    },
-    {
-      "project_id": "psych_03_split_brain_dual_consciousness",
-      "source_video_id": "nGNIl26te0w",
-      "target_video_id": "lZv3_UAWScI",
-      "playlist_verified": true,
-      "status": "already_linked",
-      "verified": true
-    },
-    {
-      "project_id": "psych_05_capgras_imposter_delusion",
-      "source_video_id": "lZv3_UAWScI",
-      "target_video_id": "p4ou90cHt50",
-      "playlist_verified": true,
-      "status": "already_linked",
-      "verified": true
-    },
-    {
-      "project_id": "psych_06_glymphatic_sleep_toxins",
-      "source_video_id": "31_O2CmlKOk",
-      "target_video_id": "lZv3_UAWScI",
-      "playlist_verified": true,
-      "status": "already_linked",
-      "verified": true
+      "playlist_created": false,
+      "playlist_readback_text": "Brain History & Evolution | How Humanity Found the Mind",
+      "save_result": {
+        "saved": true,
+        "dirty": true,
+        "reason": "saved_and_confirmed"
+      },
+      "status": "target_card_not_found",
+      "verified": false,
+      "verified_at_utc": "2026-11-02T13:13:05.167898+00:00"
     }
   ],
-  "verified_count": 5
+  "verified_count": 0
 }

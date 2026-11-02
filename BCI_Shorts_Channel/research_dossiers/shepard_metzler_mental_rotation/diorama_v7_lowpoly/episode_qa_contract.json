@@ -1,0 +1,343 @@
+{
+  "schema": "episode_qa_contract_v2",
+  "is_v7": true,
+  "dossier": "shepard_metzler_mental_rotation",
+  "project_id": "",
+  "sentence_count": 51,
+  "clip_count": 56,
+  "analogy_locks": [],
+  "cast_clip_locks": [
+    {
+      "clip_number": 1,
+      "sentence_index": 1,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 3,
+      "sentence_index": 2,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 7,
+      "sentence_index": 5,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 8,
+      "sentence_index": 6,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 10,
+      "sentence_index": 8,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 11,
+      "sentence_index": 9,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 12,
+      "sentence_index": 10,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 14,
+      "sentence_index": 12,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 15,
+      "sentence_index": 12,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 16,
+      "sentence_index": 13,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 17,
+      "sentence_index": 14,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 18,
+      "sentence_index": 15,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 20,
+      "sentence_index": 16,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 23,
+      "sentence_index": 19,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 24,
+      "sentence_index": 20,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 26,
+      "sentence_index": 21,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 27,
+      "sentence_index": 22,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 28,
+      "sentence_index": 23,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 30,
+      "sentence_index": 25,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 31,
+      "sentence_index": 26,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 32,
+      "sentence_index": 27,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 34,
+      "sentence_index": 29,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 36,
+      "sentence_index": 31,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 38,
+      "sentence_index": 32,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 40,
+      "sentence_index": 35,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 42,
+      "sentence_index": 37,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 43,
+      "sentence_index": 38,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 45,
+      "sentence_index": 40,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 49,
+      "sentence_index": 45,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 50,
+      "sentence_index": 46,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 51,
+      "sentence_index": 47,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 55,
+      "sentence_index": 51,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 56,
+      "sentence_index": 51,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    }
+  ],
+  "cold_open_impact_locks": [],
+  "anatomy_locks": [
+    {
+      "sentence_index": 11,
+      "sentence_text": "Your primary visual cortex, your vision center, reads both outlines.",
+      "anatomy_terms": [
+        "primary visual cortex"
+      ],
+      "bound_clip_numbers": [
+        13
+      ]
+    },
+    {
+      "sentence_index": 24,
+      "sentence_text": "Your parietal cortex, your spatial map, turns shapes smoothly.",
+      "anatomy_terms": [
+        "parietal cortex"
+      ],
+      "bound_clip_numbers": [
+        29
+      ]
+    },
+    {
+      "sentence_index": 30,
+      "sentence_text": "Your premotor cortex, your action planner, fired beside spatial maps.",
+      "anatomy_terms": [
+        "premotor cortex"
+      ],
+      "bound_clip_numbers": [
+        35
+      ]
+    },
+    {
+      "sentence_index": 41,
+      "sentence_text": "Can anyone sharpen their parietal cortex, their spatial map?",
+      "anatomy_terms": [
+        "parietal cortex"
+      ],
+      "bound_clip_numbers": [
+        46
+      ]
+    },
+    {
+      "sentence_index": 48,
+      "sentence_text": "Real turning spares your premotor cortex, your action planner, extra load.",
+      "anatomy_terms": [
+        "premotor cortex"
+      ],
+      "bound_clip_numbers": [
+        52
+      ]
+    }
+  ],
+  "early_hook_sentences": [
+    12
+  ],
+  "require_early_ceramic_reenactment_min_clips": 2,
+  "tempo_targets": {
+    "wpm_min": 135.0,
+    "wpm_max": 212.0,
+    "avg_cut_max_sec": 3.45,
+    "fast_cut_threshold_sec": 1.5,
+    "fast_cut_ratio_min": 0.2,
+    "cut_duration_cv_min": 0.36,
+    "max_single_sentence_cut_sec": 4.6,
+    "max_single_speech_cut_sec": 6.5,
+    "max_clip_reuse": 1
+  }
+}

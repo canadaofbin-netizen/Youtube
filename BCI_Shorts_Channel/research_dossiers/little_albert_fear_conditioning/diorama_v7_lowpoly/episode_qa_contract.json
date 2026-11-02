@@ -1,0 +1,441 @@
+{
+  "schema": "episode_qa_contract_v2",
+  "is_v7": true,
+  "dossier": "little_albert_fear_conditioning",
+  "project_id": "",
+  "sentence_count": 51,
+  "clip_count": 58,
+  "analogy_locks": [
+    {
+      "analogy_id": "baseball_bat",
+      "spoken_phrase": "baseball bat",
+      "sentence_index": 8,
+      "sentence_text": "Behind him hung a four-foot bar, like a baseball bat.",
+      "bound_clip_numbers": [
+        9
+      ],
+      "required_any_nouns": [
+        "baseball bat"
+      ],
+      "forbidden_abstract": [
+        "turned-oak cylinders",
+        "ceramic square tiles"
+      ],
+      "cv_signature": "high_contrast_object"
+    }
+  ],
+  "cast_clip_locks": [
+    {
+      "clip_number": 1,
+      "sentence_index": 1,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 2,
+      "sentence_index": 1,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 3,
+      "sentence_index": 2,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 4,
+      "sentence_index": 3,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 5,
+      "sentence_index": 3,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 7,
+      "sentence_index": 6,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 8,
+      "sentence_index": 7,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 9,
+      "sentence_index": 8,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 10,
+      "sentence_index": 9,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 11,
+      "sentence_index": 9,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 12,
+      "sentence_index": 10,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 13,
+      "sentence_index": 11,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 14,
+      "sentence_index": 12,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 16,
+      "sentence_index": 13,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 17,
+      "sentence_index": 14,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 18,
+      "sentence_index": 15,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 19,
+      "sentence_index": 15,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 20,
+      "sentence_index": 16,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 21,
+      "sentence_index": 17,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 22,
+      "sentence_index": 17,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 28,
+      "sentence_index": 23,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 29,
+      "sentence_index": 24,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 30,
+      "sentence_index": 24,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 31,
+      "sentence_index": 25,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 32,
+      "sentence_index": 26,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 33,
+      "sentence_index": 27,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 35,
+      "sentence_index": 29,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 36,
+      "sentence_index": 30,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 38,
+      "sentence_index": 32,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 39,
+      "sentence_index": 33,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 40,
+      "sentence_index": 34,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 42,
+      "sentence_index": 36,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 43,
+      "sentence_index": 37,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 44,
+      "sentence_index": 38,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 45,
+      "sentence_index": 39,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 47,
+      "sentence_index": 41,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 48,
+      "sentence_index": 41,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 50,
+      "sentence_index": 43,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 51,
+      "sentence_index": 44,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 52,
+      "sentence_index": 45,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 57,
+      "sentence_index": 51,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 58,
+      "sentence_index": 51,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    }
+  ],
+  "cold_open_impact_locks": [],
+  "anatomy_locks": [
+    {
+      "sentence_index": 20,
+      "sentence_text": "The clang raced to his auditory cortex, your hearing center.",
+      "anatomy_terms": [
+        "auditory cortex"
+      ],
+      "bound_clip_numbers": [
+        25
+      ]
+    },
+    {
+      "sentence_index": 21,
+      "sentence_text": "Inside the thalamus, the relay station, sound met touch.",
+      "anatomy_terms": [
+        "thalamus"
+      ],
+      "bound_clip_numbers": [
+        26
+      ]
+    },
+    {
+      "sentence_index": 22,
+      "sentence_text": "Instead of thinking, his amygdala, your alarm, linked fur with danger.",
+      "anatomy_terms": [
+        "amygdala"
+      ],
+      "bound_clip_numbers": [
+        27
+      ]
+    },
+    {
+      "sentence_index": 40,
+      "sentence_text": "Snacks let his prefrontal cortex, the planner, calm the alarm.",
+      "anatomy_terms": [
+        "prefrontal cortex"
+      ],
+      "bound_clip_numbers": [
+        46
+      ]
+    },
+    {
+      "sentence_index": 46,
+      "sentence_text": "One bad shock can wire your amygdala, your alarm, fast.",
+      "anatomy_terms": [
+        "amygdala"
+      ],
+      "bound_clip_numbers": [
+        53
+      ]
+    },
+    {
+      "sentence_index": 50,
+      "sentence_text": "Calm steps teach your prefrontal cortex, your planner, safety.",
+      "anatomy_terms": [
+        "prefrontal cortex"
+      ],
+      "bound_clip_numbers": [
+        56
+      ]
+    }
+  ],
+  "early_hook_sentences": [],
+  "require_early_ceramic_reenactment_min_clips": 0,
+  "tempo_targets": {
+    "wpm_min": 135.0,
+    "wpm_max": 212.0,
+    "avg_cut_max_sec": 3.45,
+    "fast_cut_threshold_sec": 1.5,
+    "fast_cut_ratio_min": 0.2,
+    "cut_duration_cv_min": 0.36,
+    "max_single_sentence_cut_sec": 4.6,
+    "max_single_speech_cut_sec": 6.5,
+    "max_clip_reuse": 1
+  }
+}

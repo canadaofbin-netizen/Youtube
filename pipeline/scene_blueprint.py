@@ -393,6 +393,42 @@ def key_visual_clip_numbers(plan: dict[str, Any], clips: list[dict[str, Any]]) -
     return out
 
 
+def _extract_script_narrations(s_doc: dict[str, Any]) -> list[str]:
+    if not isinstance(s_doc, dict):
+        return []
+    if isinstance(s_doc.get("clip_narrations"), list) and s_doc["clip_narrations"]:
+        return [str(x).strip() for x in s_doc["clip_narrations"] if str(x).strip()]
+    if isinstance(s_doc.get("sentences"), list) and s_doc["sentences"]:
+        return [str(x).strip() for x in s_doc["sentences"] if str(x).strip()]
+    if isinstance(s_doc.get("acts"), list) and s_doc["acts"]:
+        return [
+            str(s).strip()
+            for act in s_doc["acts"]
+            if isinstance(act, dict)
+            for s in (act.get("sentences") or [])
+            if str(s).strip()
+        ]
+    return []
+
+
+def _resolve_blueprint_setting(plan: dict[str, Any], role: str, explicit_setting: str = "") -> str:
+    from pipeline.flow_prompt_builder import is_diorama_v6_plan, resolve_clip_setting
+
+    if explicit_setting:
+        return explicit_setting
+    if is_diorama_v6_plan(plan) or str(role).startswith("act"):
+        r_low = str(role).lower()
+        if "matte_brain" in r_low:
+            return "brain_studio"
+        if "brain_maquette" in r_low or "crystal_specimen" in r_low:
+            return "brain_void"
+        return "real_env"
+    try:
+        return resolve_clip_setting(plan, role)
+    except KeyError:
+        return "real_env"
+
+
 def still_frame_prompt(plan: dict[str, Any], role: str, which: str = "start", aspect: str = FLOW_ASPECT_SHORTS,
                        fallback_scene: str = "") -> str:
     """
@@ -401,14 +437,14 @@ def still_frame_prompt(plan: dict[str, Any], role: str, which: str = "start", as
       brain cutaway + 4-colour subsurface glow + zero flying particles/sparks).
     - Reenactment clips (`real_env`) compose `SceneDepictionRule` + `CastDepictionRule` + ONE frozen instant.
     """
+    from pipeline.config import is_diorama_v7_plan
     from pipeline.depiction_rules import BrainDepictionRule, PromptComposer
-    from pipeline.flow_prompt_builder import resolve_clip_setting
 
     shot = _shot(plan, role)
-    setting = str(shot.get("setting") or resolve_clip_setting(plan, role))
-    if setting in BRAIN_SETTINGS or not shot.get("action"):
+    setting = _resolve_blueprint_setting(plan, role, str(shot.get("setting") or ""))
+    if setting in (*BRAIN_SETTINGS, "brain_studio") or not shot.get("action"):
         raw = re.sub(r"^[^.]*?(shot|orbit|tracking|dolly|push|pull)[^.]*\.\s*", "", _clean(fallback_scene), count=1, flags=re.I)
-        if setting in BRAIN_SETTINGS:
+        if setting in BRAIN_SETTINGS and not is_diorama_v7_plan(plan):
             return _clean(PromptComposer.compose_brain_still_prompt(BrainDepictionRule.sanitize_brain_signal_text(raw), aspect=aspect))
         body = _sentence(raw)
         return _clean(f"{still_prefix(aspect)} {body} Razor-sharp focus, bright even light, no text, no watermark.")
@@ -453,14 +489,14 @@ def timed_video_prompt(plan: dict[str, Any], role: str, narration: str, voice_so
       suffixes, never flying particles/sparks).
     - Reenactment clips compose `CameraDepictionRule` + `SceneDepictionRule` + `CastDepictionRule` + timed 0-3s/3-6s/6-8s beats.
     """
+    from pipeline.config import is_diorama_v7_plan
     from pipeline.depiction_rules import BrainDepictionRule, ReferenceDepictionRule
-    from pipeline.flow_prompt_builder import resolve_clip_setting
 
     shot = _shot(plan, role)
-    setting = str(shot.get("setting") or resolve_clip_setting(plan, role))
+    setting = _resolve_blueprint_setting(plan, role, str(shot.get("setting") or ""))
     secs = 8 if has_start_image else CLIP_MAX_RENDER_SEC
 
-    if setting in BRAIN_SETTINGS:
+    if setting in BRAIN_SETTINGS and not is_diorama_v7_plan(plan):
         brain_body = BrainDepictionRule.format_brain_scene(_clean(fallback_scene), append_restraint_lock=True)
         lock = ReferenceDepictionRule.CONTINUITY_LOCK_BRAIN if has_start_image else ""
         if voice_source == "native":
@@ -503,11 +539,16 @@ def build_generation_packets(
         raise ValueError(f"backend must be one of {GENERATION_BACKENDS}")
     if voice_source not in VOICE_SOURCES:
         raise ValueError(f"voice_source must be one of {VOICE_SOURCES}")
-    from pipeline.flow_prompt_builder import build_flow_prompts
+    from pipeline.flow_prompt_builder import build_flow_prompts, is_diorama_v6_plan
 
     lines = [str(n).strip() for n in narrations if str(n).strip()]
     built = build_flow_prompts(plan, lines, aspect=aspect)
-    roles = clip_roles(len(lines))
+    diorama_mode = is_diorama_v6_plan(plan)
+    roles: list[str] | tuple[str, ...] = (
+        [str(c.get("role") or f"clip_{c['clip_number']}") for c in built]
+        if diorama_mode
+        else clip_roles(len(lines))
+    )
     key_clips = {min(nums) for nums in key_visual_clip_numbers(plan, built).values() if nums}
     packets: list[dict[str, Any]] = []
     prev: dict[str, Any] | None = None
@@ -515,12 +556,22 @@ def build_generation_packets(
         n = int(c["clip_number"])
         setting = str(c.get("setting") or "real_env")
         scene_id = c.get("scene_id")
+        is_brain_like = bool(c.get("brain_clip")) or setting in (*BRAIN_SETTINGS, "brain_studio")
         chain = bool(
             prev is not None and scene_id and prev.get("scene_id") == scene_id
-            and setting not in BRAIN_SETTINGS and prev.get("setting") not in BRAIN_SETTINGS
+            and not is_brain_like and not prev.get("_is_brain_like")
         )
+        s_idx = int(c.get("sentence_index") or 0)
+        bound_narration = str(c.get("spoken_narration") or "").strip()
+        if not bound_narration and diorama_mode and 1 <= s_idx <= len(lines):
+            bound_narration = lines[s_idx - 1]
         start_file = f"{REF_IMAGES_DIRNAME}/ref_clip_{n:02d}.png"
-        packet = {
+        vid_prompt = (
+            str(c.get("prompt") or c.get("full_prompt") or "")
+            if (diorama_mode and voice_source == "tts" and c.get("prompt"))
+            else timed_video_prompt(plan, role, bound_narration, voice_source, aspect, c.get("scene", ""))
+        )
+        packet: dict[str, Any] = {
             "clip_number": n,
             "role": role,
             "setting": setting,
@@ -536,10 +587,10 @@ def build_generation_packets(
             "end_frame": (
                 {"file": f"{REF_IMAGES_DIRNAME}/ref_clip_{n:02d}_end.png",
                  "prompt": still_frame_prompt(plan, role, "end", aspect, c.get("scene", ""))}
-                if backend == "flow" and setting not in BRAIN_SETTINGS and _shot(plan, role).get("action") else None
+                if backend == "flow" and not is_brain_like and _shot(plan, role).get("action") else None
             ),
-            "video_prompt": timed_video_prompt(plan, role, c["spoken_narration"], voice_source, aspect, c.get("scene", "")),
-            "narration": c["spoken_narration"],
+            "video_prompt": vid_prompt,
+            "narration": bound_narration,
             "backend_steps": _backend_steps(backend),
         }
         if n in key_clips:
@@ -550,7 +601,7 @@ def build_generation_packets(
             if backend == "flow":
                 packet["end_frame"] = {"file": key_frame["file"], "prompt": key_frame["prompt"]}
         packets.append(packet)
-        prev = packet
+        prev = {**packet, "_is_brain_like": is_brain_like}
     return packets
 
 
@@ -624,11 +675,12 @@ def write_project_blueprint_and_packets(
     backend: str = "gemini_app",
     voice_source: str = DEFAULT_VOICE_SOURCE,
 ) -> dict[str, Any]:
-    from pipeline.flow_prompt_builder import load_visual_plan
+    from pipeline.flow_prompt_builder import build_flow_prompts, is_diorama_v6_plan, load_visual_plan
 
     p_dir = Path(project_dir)
     plan = load_visual_plan(project_dir=p_dir)
-    narrations = json.loads((p_dir / "02_script" / "script.json").read_text(encoding="utf-8"))["clip_narrations"]
+    s_doc = json.loads((p_dir / "02_script" / "script.json").read_text(encoding="utf-8"))
+    narrations = _extract_script_narrations(s_doc)
     if dossier_dir is None and plan.get("dossier"):
         for cand in (p_dir.parent.parent / "research_dossiers" / str(plan["dossier"]),):
             if cand.exists():
@@ -647,9 +699,19 @@ def write_project_blueprint_and_packets(
         (vis / SCENE_BLUEPRINT_FILENAME).write_text(json.dumps(bp, indent=2, ensure_ascii=False), encoding="utf-8")
     else:
         issues.append("[blueprint] visual_plan.dossier is not linked to an existing research dossier")
-    from pipeline.clip_qa_contract import compile_clip_qa_contract
+    contract: dict[str, Any] = {}
+    if is_diorama_v6_plan(plan):
+        try:
+            from pipeline.dynamic_episode_qa import write_episode_qa_contract
 
-    contract = compile_clip_qa_contract(p_dir, dossier_dir=dossier_dir, save=True)
+            built_for_contract = build_flow_prompts(plan, narrations)
+            contract = write_episode_qa_contract(p_dir, plan, narrations, built_for_contract)
+        except Exception:  # noqa: BLE001
+            contract = {"clips": plan.get("clips") or []}
+    else:
+        from pipeline.clip_qa_contract import compile_clip_qa_contract
+
+        contract = compile_clip_qa_contract(p_dir, dossier_dir=dossier_dir, save=True)
     packets = build_generation_packets(plan, narrations, backend=backend, voice_source=voice_source)
     pk_dir = vis / GENERATION_PACKETS_DIRNAME
     pk_dir.mkdir(parents=True, exist_ok=True)

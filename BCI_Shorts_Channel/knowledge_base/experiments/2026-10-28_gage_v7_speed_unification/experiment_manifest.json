@@ -1,0 +1,67 @@
+{
+  "experiment_id": "2026-10-28_gage_v7_speed_unification",
+  "created_at": "2026-10-28T19:42:29.092211+00:00",
+  "dossier_slug": "phineas_gage_iron_rod",
+  "promoted_project_id": "gage_diorama_v7_lowpoly",
+  "decision_summary": "Unified Schema v7 (lowpoly_pastel_v7, DEFAULT_DIORAMA_STYLE_PROFILE) narration cadence on 1.05x (+5%, DIORAMA_V7_TTS_RATE='+5%', DIORAMA_V7_TTS_SPEED=1.05) with native 24.0fps 1.00x visual playback (DIORAMA_V7_VISUAL_PLAYBACK_SPEED=1.00).",
+  "variants": [
+    {
+      "filename": "gage_v7_lowpoly_roger_100x.mp4",
+      "original_root_filename": "gage_v7_lowpoly_roger_100x.mp4",
+      "tts_rate": "+0%",
+      "effective_speed": 1.0,
+      "style_profile": "lowpoly_pastel_v7",
+      "selected": false,
+      "notes": "Baseline 1.00x RogerNeural; slightly over-relaxed near 179s ceiling.",
+      "size_bytes": 148718246,
+      "duration_sec": 178.42,
+      "fps": 24.0,
+      "resolution": "1080x1920",
+      "audio_layout": "stereo"
+    },
+    {
+      "filename": "gage_v7_lowpoly_roger_105x.mp4",
+      "original_root_filename": "gage_v7_lowpoly_roger_105x.mp4",
+      "tts_rate": "+5%",
+      "effective_speed": 1.05,
+      "style_profile": "lowpoly_pastel_v7",
+      "selected": true,
+      "notes": "Selected unified channel standard (1.05x / +5%): 172.0s runtime, 91.5% true RMS voiced density, poised documentary authority without rushing.",
+      "size_bytes": 144259630,
+      "duration_sec": 172.0,
+      "fps": 24.0,
+      "resolution": "1080x1920",
+      "audio_layout": "stereo"
+    },
+    {
+      "filename": "gage_v7_lowpoly_roger_112x.mp4",
+      "original_root_filename": "gage_v7_lowpoly_roger.mp4",
+      "tts_rate": "+12%",
+      "effective_speed": 1.12,
+      "style_profile": "lowpoly_pastel_v7",
+      "selected": false,
+      "notes": "Initial +12% (1.12x) candidate; slightly brisk on dense neuroanatomy clauses compared to 1.05x.",
+      "size_bytes": 137343509,
+      "duration_sec": 161.92,
+      "fps": 24.0,
+      "resolution": "1080x1920",
+      "audio_layout": "stereo"
+    },
+    {
+      "filename": "test_gage_v65_roger.mp4",
+      "original_root_filename": "test_gage_v65_roger.mp4",
+      "tts_rate": "+18%",
+      "effective_speed": 1.18,
+      "style_profile": "diorama_v65_transitional",
+      "selected": false,
+      "notes": "Transitional v6.5 RogerNeural voice test prior to full-bleed lowpoly_pastel_v7 architecture.",
+      "size_bytes": 129353017,
+      "duration_sec": 163.03,
+      "fps": 30.0,
+      "resolution": "1080x1920",
+      "audio_layout": "mono"
+    }
+  ],
+  "promoted_project_mp4_sha256": "854d3564f6fa54a8cd2ddd82a1f26c5857e7831e7394f07e6c3673b4654420e9",
+  "promoted_project_r64_note": "gage_v7_lowpoly_roger_105x.mp4 archives the initial 1.05x (+5%) speed-unification render; promoted projects/gage_diorama_v7_lowpoly/05_assembly/final_shorts_1080x1920.mp4 applies the R64 Cut #27 focal-zone source-window shift (clip_27 [2.12s..4.79s]) achieving 60/60 R64 pass (97.1 mean clarity)."
+}

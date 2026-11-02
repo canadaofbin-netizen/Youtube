@@ -13,6 +13,7 @@ Enforces the 7-Point Mandatory Media Integrity Gate (Core Task #4 & #5):
 
 import json
 import logging
+import os
 import re
 import shutil
 import subprocess
@@ -25,6 +26,8 @@ import numpy as np
 from pipeline.config import (
     BANNED_DERIVATIVE_METADATA_MARKERS,
     DEAD_AIR_FLOOR_SEC,
+    DIORAMA_DURATION_MIN_SEC,
+    DIORAMA_V7_DURATION_MIN_SEC,
     FINAL_SHORTS_DURATION_MAX_SEC,
     FINAL_SHORTS_DURATION_MIN_SEC,
     FLOW_CLIP_DURATION_MAX_SEC,
@@ -36,7 +39,10 @@ from pipeline.config import (
     MIN_INTRA_SEGMENT_DIFF_THRESHOLD,
     MIN_OPTICAL_FLOW_THRESHOLD,
     MIN_PAIR_TOP_DIFF_THRESHOLD,
+    SHORTS_HARD_CEILING_SEC,
     SUBPROCESS_TIMEOUT_SEC,
+    is_diorama_profile,
+    is_diorama_v7_plan,
     max_allowed_dead_air_sec,
 )
 
@@ -267,20 +273,6 @@ class MediaIntegrityValidator:
         - Full expected duration frame coverage check (blocks videos where video stream stops at 6s while audio runs to 30s).
         """
         path = Path(file_path)
-        import os
-        import tempfile
-        import threading
-        tmp_path: Path | None = None
-        open_path = path
-        if os.name != "nt" and path.exists() and not str(path).startswith("/tmp"):
-            try:
-                tmp_path = Path(tempfile.gettempdir()) / f"_tmp_motion_{os.getpid()}_{threading.get_ident()}_{path.name}"
-                shutil.copy2(path, tmp_path)
-                open_path = tmp_path
-            except Exception:
-                tmp_path = None
-                open_path = path
-        cap = cv2.VideoCapture(str(open_path.resolve()))
         empty_metrics = {
             "sampled_frames": 0,
             "decoded_frame_count": 0,
@@ -298,17 +290,25 @@ class MediaIntegrityValidator:
             "optical_flow_mean": 0.0,
             "is_static_or_frozen": True,
         }
+        if not path.exists():
+            return dict(empty_metrics)
+
+        from pipeline.media_cache import get_cached_json, put_cached_json, stage_local_file
+
+        open_path, media_sha = stage_local_file(path)
+        cache_key = f"{media_sha}|{round(float(expected_duration_sec), 2) if expected_duration_sec is not None else 'none'}"
+        cached_m = get_cached_json("media_motion_v2", cache_key)
+        if isinstance(cached_m, dict) and "is_static_or_frozen" in cached_m:
+            return cached_m
+
+        cap = cv2.VideoCapture(str(open_path.resolve()))
         if not cap.isOpened():
-            if tmp_path is not None:
-                tmp_path.unlink(missing_ok=True)
             return dict(empty_metrics)
 
         fc = int(cap.get(cv2.CAP_PROP_FRAME_COUNT) or 0)
         fps = float(cap.get(cv2.CAP_PROP_FPS) or 30.0)
         if fc < 5:
             cap.release()
-            if tmp_path is not None:
-                tmp_path.unlink(missing_ok=True)
             res = dict(empty_metrics)
             res["sampled_frames"] = fc
             res["decoded_frame_count"] = fc
@@ -383,8 +383,6 @@ class MediaIntegrityValidator:
                 decoded_frame_shortfall = True
                 intra_upper_diffs.append(0.0)
         cap.release()
-        if tmp_path is not None:
-            tmp_path.unlink(missing_ok=True)
 
         if len(frames_bgr) < 3:
             res = dict(empty_metrics)
@@ -431,23 +429,18 @@ class MediaIntegrityValidator:
         all_flows = intra_flow_magnitudes if intra_flow_magnitudes else flow_magnitudes
         mean_flow = round(float(np.mean(all_flows)), 3) if all_flows else 0.0
 
-        # Static or frozen detection:
-        # 1. Decoded frame count falls short of expected duration (early stream freeze like psych_03/08)
-        # 2. Mean upper visual diff below threshold (static background/thumbnail)
-        # 3. Any transition pair in upper visual region has near-zero diff (frozen clip tail)
-        # 4. Any intra-segment 0.5s window has near-zero diff (5-image static slideshow or frozen clip)
-        # 5. Mid-to-End diff near zero (e.g., zoompan stopped or single clip froze after 10s)
-        # 6. Mean optical flow below threshold
+        is_v7_final = cls._is_diorama_v7_final_asset(path)
+        intra_thresh = 0.25 if is_v7_final else MIN_INTRA_SEGMENT_DIFF_THRESHOLD
         is_static_or_frozen = (
             decoded_frame_shortfall
             or mean_upper < MIN_FRAME_DIFF_THRESHOLD
             or min_pair_upper < MIN_PAIR_TOP_DIFF_THRESHOLD
-            or min_intra_diff < MIN_INTRA_SEGMENT_DIFF_THRESHOLD
+            or min_intra_diff < intra_thresh
             or mid_to_end < MIN_PAIR_TOP_DIFF_THRESHOLD
             or mean_flow < MIN_OPTICAL_FLOW_THRESHOLD
         )
 
-        return {
+        res_m = {
             "sampled_frames": len(frames_bgr),
             "decoded_frame_count": fc,
             "decoded_frame_shortfall": decoded_frame_shortfall,
@@ -464,6 +457,8 @@ class MediaIntegrityValidator:
             "optical_flow_mean": mean_flow,
             "is_static_or_frozen": is_static_or_frozen,
         }
+        put_cached_json("media_motion_v2", cache_key, res_m)
+        return res_m
 
     @staticmethod
     def _dhash_from_gray(gray_img: np.ndarray) -> str:
@@ -727,6 +722,38 @@ class MediaIntegrityValidator:
             "matched_markers": matched_markers,
         }
 
+    @staticmethod
+    def _is_diorama_final_asset(file_path: Path) -> bool:
+        p = Path(file_path)
+        if (p.parent / "edit_decision_list.json").exists():
+            return True
+        for vp_cand in (p.parent.parent / "03_visuals" / "visual_plan.json", p.parent.parent / "visual_plan.json"):
+            if vp_cand.exists():
+                try:
+                    return is_diorama_profile(json.loads(vp_cand.read_text(encoding="utf-8")))
+                except Exception:
+                    pass
+        return False
+
+    @staticmethod
+    def _is_diorama_v7_final_asset(file_path: Path) -> bool:
+        p = Path(file_path)
+        edl_cand = p.parent / "edit_decision_list.json"
+        if edl_cand.exists():
+            try:
+                if int(json.loads(edl_cand.read_text(encoding="utf-8")).get("schema") or 6) >= 7:
+                    return True
+            except Exception:
+                pass
+        for vp_cand in (p.parent.parent / "03_visuals" / "visual_plan.json", p.parent.parent / "visual_plan.json"):
+            if vp_cand.exists():
+                try:
+                    if is_diorama_v7_plan(json.loads(vp_cand.read_text(encoding="utf-8"))):
+                        return True
+                except Exception:
+                    pass
+        return False
+
     @classmethod
     def validate_video_asset(
         cls,
@@ -744,7 +771,7 @@ class MediaIntegrityValidator:
         Executes the 7-Point Local Media Integrity Gate on a clip or final Shorts video:
         1. Extension == '.mp4' and file_size_bytes >= 1MB (1,000,000 bytes).
         2. Active video stream (codec_type == 'video') present.
-        3. Container & decoded video stream duration within expected bounds (FINAL_SHORTS_DURATION_MIN_SEC-FINAL_SHORTS_DURATION_MAX_SEC [24.0s-105.0s] for final_shorts; frame_count/fps >= min_dur * 0.95).
+        3. Container & decoded video stream duration within expected bounds (FINAL_SHORTS_DURATION_MIN_SEC-FINAL_SHORTS_DURATION_MAX_SEC [24.0s-105.0s] for classic_v5 final_shorts, or DIORAMA_DURATION_MIN_SEC-SHORTS_HARD_CEILING_SEC [170.0s-179.0s] for neuro_diorama; frame_count/fps >= min_dur * 0.95).
         4. Start/Mid/End & Intra-Segment Frame Diff + Optical Flow above threshold (zero static/frozen frames).
         5. Valid resolution & audio stream (for final_shorts).
         6. Active speech narration, non-truncation, and dead-air <= max_allowed_dead_air_sec(dur) (floor DEAD_AIR_FLOOR_SEC) (for final_shorts).
@@ -752,6 +779,8 @@ class MediaIntegrityValidator:
         """
         path = Path(file_path)
         is_final = asset_type == "final_shorts"
+        is_diorama = is_final and cls._is_diorama_final_asset(path)
+        is_v7_diorama = is_diorama and cls._is_diorama_v7_final_asset(path)
 
         # Guard 2 (R37): Fail-fast on synthetic FFmpeg derivative metadata tags
         derivative_check = cls.verify_not_synthetic_derivative(path, strict=strict)
@@ -760,11 +789,12 @@ class MediaIntegrityValidator:
         req_size = min_size_bytes if min_size_bytes is not None else (
             MIN_FINAL_VIDEO_SIZE_BYTES if is_final else MIN_CLIP_SIZE_BYTES
         )
+        default_diorama_min = DIORAMA_V7_DURATION_MIN_SEC if is_v7_diorama else DIORAMA_DURATION_MIN_SEC
         req_min_dur = min_duration_sec if min_duration_sec is not None else (
-            FINAL_SHORTS_DURATION_MIN_SEC if is_final else FLOW_CLIP_DURATION_MIN_SEC
+            (default_diorama_min if is_diorama else FINAL_SHORTS_DURATION_MIN_SEC) if is_final else FLOW_CLIP_DURATION_MIN_SEC
         )
         req_max_dur = max_duration_sec if max_duration_sec is not None else (
-            FINAL_SHORTS_DURATION_MAX_SEC if is_final else FLOW_CLIP_DURATION_MAX_SEC
+            (SHORTS_HARD_CEILING_SEC if is_diorama else FINAL_SHORTS_DURATION_MAX_SEC) if is_final else FLOW_CLIP_DURATION_MAX_SEC
         )
 
         probe = cls.probe_streams(path)
@@ -957,15 +987,24 @@ class MediaIntegrityValidator:
         check_motion: bool = True,
         check_audio: bool = True,
         strict: bool = True,
+        min_duration_sec: float | None = None,
+        max_duration_sec: float | None = None,
     ) -> dict[str, Any]:
         """Validates a clip or final Shorts MP4 via the 7-Point Local Media Integrity Gate."""
+        is_diorama = require_30s_shorts and cls._is_diorama_final_asset(Path(file_path))
+        eff_min = min_duration_sec if min_duration_sec is not None else (
+            (DIORAMA_DURATION_MIN_SEC if is_diorama else FINAL_SHORTS_DURATION_MIN_SEC) if require_30s_shorts else 2.5
+        )
+        eff_max = max_duration_sec if max_duration_sec is not None else (
+            (SHORTS_HARD_CEILING_SEC if is_diorama else FINAL_SHORTS_DURATION_MAX_SEC) if require_30s_shorts else 35.0
+        )
         return cls.validate_video_asset(
             file_path=file_path,
             asset_type="final_shorts" if require_30s_shorts else "clip",
             strict=strict,
             min_size_bytes=min_size_bytes,
-            min_duration_sec=FINAL_SHORTS_DURATION_MIN_SEC if require_30s_shorts else 2.5,
-            max_duration_sec=FINAL_SHORTS_DURATION_MAX_SEC if require_30s_shorts else 35.0,
+            min_duration_sec=eff_min,
+            max_duration_sec=eff_max,
             check_motion=check_motion,
             check_audio=check_audio,
         )

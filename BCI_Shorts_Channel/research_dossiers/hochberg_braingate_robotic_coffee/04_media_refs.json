@@ -1,0 +1,56 @@
+{
+  "media": [
+    {
+      "id": "M1",
+      "kind": "video",
+      "title": "Paralysed woman moves robot with her mind - by Nature Video",
+      "channel": "nature video",
+      "url": "https://www.youtube.com/watch?v=ogBX18maUiM",
+      "source_id": "SRC_M1",
+      "usage": "analysis only - never reused in channel videos",
+      "analysis": {
+        "local_dir": "media/M1",
+        "keyframes_count": 23,
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "transcript": "media/M1/transcript.txt"
+      },
+      "timecodes": [
+        {
+          "t": "00:02-00:19",
+          "what": "Pedestal-mounted multi-joint DLR robotic arm reaches across the tabletop in front of Cathy Hutchinson's motorized wheelchair, closes five articulated silver fingers around the upright cylindrical thermos bottle with straw, and lifts it smoothly."
+        },
+        {
+          "t": "01:24-01:41",
+          "what": "Macro scale views of the 4x4 mm 96-channel silicon sensor (also shown beside a dime coin at 04:20), 3D motor cortex placement animation, and live multi-unit neural spike waveforms on the decoder monitor."
+        },
+        {
+          "t": "02:46-03:09",
+          "what": "DLR robotics engineer demonstrates compliant torque-sensing joints stopping safely upon unexpected arm contact while closing fingers cleanly around the upright bottle."
+        },
+        {
+          "t": "03:31-04:16",
+          "what": "Complete clinical milestone sequence: S3 guides the five-fingered robotic hand to grasp, lift, tilt the coffee straw for her first self-served sip in nearly 15 years, and place the bottle upright back onto the tabletop as researchers watch in awe."
+        }
+      ]
+    },
+    {
+      "id": "M2",
+      "kind": "video",
+      "title": "BrainGate robotic arm clinical trial demonstration (Brown University, 2012)",
+      "channel": "Brown University",
+      "url": "https://www.youtube.com/watch?v=5s8NsgllTvg",
+      "source_id": "SRC_M2",
+      "usage": "analysis only - never reused in channel videos",
+      "timecodes": [
+        {
+          "t": "00:10-00:55",
+          "what": "3D workspace reach-and-grasp trials showing multi-joint robotic hand approaching foam ball targets mounted at staggered heights on flexible stalks across the tabletop."
+        },
+        {
+          "t": "01:05-02:15",
+          "what": "Continuous neural velocity decoding across X, Y, and Z axes plus state-machine hand aperture closing and releasing cylindrical and spherical targets."
+        }
+      ]
+    }
+  ]
+}

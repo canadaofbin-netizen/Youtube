@@ -1,0 +1,378 @@
+{
+  "schema": "episode_qa_contract_v2",
+  "is_v7": true,
+  "dossier": "clark_doll_experiment_bias",
+  "project_id": "",
+  "sentence_count": 50,
+  "clip_count": 58,
+  "analogy_locks": [
+    {
+      "analogy_id": "bookshelf",
+      "spoken_phrase": "bookshelves",
+      "sentence_index": 48,
+      "sentence_text": "Fill bookshelves and classrooms with heroes and scientists from every background.",
+      "bound_clip_numbers": [
+        54,
+        55
+      ],
+      "required_any_nouns": [
+        "bookshelf",
+        "bookshelves",
+        "library shelves",
+        "hardcover books",
+        "wooden shelves",
+        "wall cabinets"
+      ],
+      "forbidden_abstract": [
+        "turned-oak cylinders"
+      ],
+      "cv_signature": "high_contrast_object"
+    }
+  ],
+  "cast_clip_locks": [
+    {
+      "clip_number": 1,
+      "sentence_index": 1,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 3,
+      "sentence_index": 2,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 4,
+      "sentence_index": 3,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 7,
+      "sentence_index": 6,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 8,
+      "sentence_index": 6,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 9,
+      "sentence_index": 7,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 10,
+      "sentence_index": 8,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 11,
+      "sentence_index": 9,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 12,
+      "sentence_index": 9,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 13,
+      "sentence_index": 10,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 15,
+      "sentence_index": 13,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 16,
+      "sentence_index": 14,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 17,
+      "sentence_index": 15,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 18,
+      "sentence_index": 16,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 19,
+      "sentence_index": 17,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 20,
+      "sentence_index": 17,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 22,
+      "sentence_index": 19,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 25,
+      "sentence_index": 22,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 29,
+      "sentence_index": 25,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 31,
+      "sentence_index": 27,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 33,
+      "sentence_index": 30,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 35,
+      "sentence_index": 32,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 36,
+      "sentence_index": 33,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 37,
+      "sentence_index": 34,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 39,
+      "sentence_index": 36,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 40,
+      "sentence_index": 37,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 42,
+      "sentence_index": 38,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 43,
+      "sentence_index": 39,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 44,
+      "sentence_index": 40,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 48,
+      "sentence_index": 43,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 49,
+      "sentence_index": 44,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 50,
+      "sentence_index": 45,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 51,
+      "sentence_index": 45,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 52,
+      "sentence_index": 46,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 54,
+      "sentence_index": 48,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    },
+    {
+      "clip_number": 56,
+      "sentence_index": 49,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_lowpoly_world"
+    }
+  ],
+  "cold_open_impact_locks": [],
+  "anatomy_locks": [
+    {
+      "sentence_index": 20,
+      "sentence_text": "Inside your brain, the amygdala, your emotional alarm, scans status early.",
+      "anatomy_terms": [
+        "amygdala"
+      ],
+      "bound_clip_numbers": [
+        23
+      ]
+    },
+    {
+      "sentence_index": 23,
+      "sentence_text": "When stigma clashes with self-worth, the anterior cingulate, your conflict detector, fires.",
+      "anatomy_terms": [
+        "anterior cingulate cortex"
+      ],
+      "bound_clip_numbers": [
+        27
+      ]
+    },
+    {
+      "sentence_index": 24,
+      "sentence_text": "Meanwhile, a child's prefrontal cortex, the planner behind your forehead, is young.",
+      "anatomy_terms": [
+        "prefrontal cortex"
+      ],
+      "bound_clip_numbers": [
+        28
+      ]
+    },
+    {
+      "sentence_index": 47,
+      "sentence_text": "Warm, honest talk helps your child's prefrontal cortex challenge unfairness early.",
+      "anatomy_terms": [
+        "prefrontal cortex"
+      ],
+      "bound_clip_numbers": [
+        53
+      ]
+    }
+  ],
+  "early_hook_sentences": [],
+  "require_early_ceramic_reenactment_min_clips": 0,
+  "tempo_targets": {
+    "wpm_min": 135.0,
+    "wpm_max": 212.0,
+    "avg_cut_max_sec": 3.45,
+    "fast_cut_threshold_sec": 1.5,
+    "fast_cut_ratio_min": 0.2,
+    "cut_duration_cv_min": 0.36,
+    "max_single_sentence_cut_sec": 4.6,
+    "max_single_speech_cut_sec": 6.5,
+    "max_clip_reuse": 1
+  }
+}

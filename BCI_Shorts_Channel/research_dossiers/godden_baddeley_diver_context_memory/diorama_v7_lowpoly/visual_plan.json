@@ -1,0 +1,672 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "godden_baddeley_diver_context_memory",
+  "topic": "Duncan Godden & Alan Baddeley (1975) Oban Scuba-Diver Context-Dependent Memory Crossover, 1980 Recognition Boundary, and Mental Context Reinstatement (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Steven Smith's 30-second Mental Context Reinstatement recovering nearly 100% of lost recall from afar, inspiring police Cognitive Interviews and explaining the everyday doorway memory reset.",
+  "outro_title_lines": [
+    "GODDEN & BADDELEY (1975)",
+    "OBAN & UNIV. OF STIRLING"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "DRY ROOM MYTH?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "DEEP WATER MEMORY?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SHORE VS LOCH"
+    },
+    {
+      "sentence_index": 19,
+      "text": "CONTEXT MATCH"
+    },
+    {
+      "sentence_index": 28,
+      "text": "CHOICE TWIST"
+    },
+    {
+      "sentence_index": 36,
+      "text": "MENTAL REPLAY"
+    },
+    {
+      "sentence_index": 44,
+      "text": "STUDY ANYWHERE"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "DRY ROOM MYTH?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "DEEP WATER MEMORY?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SHORE VS LOCH"
+    },
+    {
+      "sentence_index": 19,
+      "text": "CONTEXT MATCH"
+    },
+    {
+      "sentence_index": 28,
+      "text": "CHOICE TWIST"
+    },
+    {
+      "sentence_index": 36,
+      "text": "MENTAL REPLAY"
+    },
+    {
+      "sentence_index": 44,
+      "text": "STUDY ANYWHERE"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 19,
+      "mode": "split_hstack",
+      "left_clip_index": 22,
+      "right_clip_index": 23,
+      "left_label": "DRY SHORE",
+      "right_label": "DEEP WATER"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "pastel_exam_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a quiet sunlit mint-sage study room with cool slate-gray desks and powder-blue window blinds",
+      "action": "viewed strictly from behind, a clothed low-poly student in a pale-lavender sweater and dark trousers steps up to a cool slate-gray desk and opens a blank cool-white folder"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "pastel_exam_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-lavender sweater sleeves and cool porcelain-white gloved low-poly hands over a cool slate-gray desktop",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align and slide four blank powder-blue geometric memory tiles neatly across the cool slate-gray surface",
+      "consequence": "the smooth pastel geometric tiles rest in a neat row under soft diffused daylight"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a clear powder-blue Scottish loch basin beneath a sunlit cool limestone pier with soft silver bubbles rising",
+      "action": "viewed strictly from behind, a clothed low-poly scuba diver in a slate-blue diving suit and twin silver air tanks glides calmly and holds a blank cool-white ceramic slate"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "stirling_memory_bench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cool cream sweater cuffs and cool porcelain-white gloved low-poly hands over a powder-blue stone bench",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and set a blank cool-white ceramic diver slate beside a brushed-silver underwater headset on the powder-blue stone bench",
+      "consequence": "the waterproof slate and silver headset rest cleanly side by side"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view from behind of a sunlit cool limestone Scottish pier overlooking calm powder-blue loch water and misty pale-sage hills",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in cool cream sweaters and slate coats walk onto the limestone pier and point toward divers in slate-blue suits"
+    },
+    {
+      "sentence_index": 4,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "tilt_down",
+      "structure": "a clean cross-section cutaway of a powder-blue coastal basin showing a cool-gray seabed pipeline below a pale-silver boat hull above",
+      "internal_mechanism": "a clothed low-poly diver in a slate-blue suit and helmet reaches for the seabed pipe joint and taps three smooth mint-sage check markers into place"
+    },
+    {
+      "sentence_index": 6,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the cool pale-gray deck of a coastal research boat floating on calm powder-blue water",
+      "action": "viewed strictly from behind, a clothed low-poly diver in a slate-blue diving jacket and boots steps onto the cool-gray deck and leans over a slate rail"
+    },
+    {
+      "sentence_index": 6,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-blue diving suit sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame over a cool slate-gray deck rail",
+      "prop_action": "both cool porcelain-white gloved low-poly hands open a blank cool-white folder and hold a silver stylus motionless over the empty surface",
+      "consequence": "three pale-lavender thought cubes drop away into the cool coastal air"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-limestone coastal platform comparing a powder-blue vertical depth column beside a matte pastel-white coastal lighthouse",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in slate coat sleeves slide and align a brushed-silver depth marker from the top of the lighthouse down to the fifty-foot base"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit cool limestone pier lined with brushed-silver air cylinders and powder-blue equipment crates",
+      "action": "viewed strictly from behind, clothed low-poly divers in slate-blue suits and caps walk in two neat files along the limestone pier and lift blank cool-white slates"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the edge of the cool limestone pier where a brushed-silver ladder descends into clear powder-blue water",
+      "action": "viewed strictly from behind, a clothed low-poly diver in a slate-blue suit and silver tank steps down the ladder and glides smoothly beneath the calm powder-blue surface"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "stirling_memory_bench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate coat sleeves and cool porcelain-white gloved low-poly hands over a cool limestone console",
+      "prop_action": "both cool porcelain-white gloved low-poly hands grip and turn a smooth tick-mark brushed-silver temperature dial toward a pale powder-blue frost zone",
+      "consequence": "a soft powder-blue indicator bar settles gently without dropping the adjacent mint-sage signal bar"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "stirling_memory_bench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cool cream sweater sleeves and cool porcelain-white gloved low-poly hands over a cool slate-gray tabletop",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and align four blank pastel geometric quadrant tiles in a clean two-by-two grid on the slate-gray tabletop",
+      "consequence": "two powder-blue tiles and two cool-cream tiles snap into a symmetrical four-square grid"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-limestone pool court comparing a powder-blue twenty-foot water column beside a pastel pale-mint high diving tower",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in slate sleeves slide and align a miniature diver figure down the water column to match the diving tower platform"
+    },
+    {
+      "sentence_index": 13,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit cool-gray pebble shore beside calm powder-blue loch water and pale-sage hills",
+      "action": "viewed strictly from behind, clothed low-poly divers in slate-blue suits and wool caps sit calmly on smooth limestone blocks holding and pressing silver audio headsets"
+    },
+    {
+      "sentence_index": 13,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-blue suit cuffs and cool porcelain-white gloved low-poly hands resting on a cool limestone knee board",
+      "prop_action": "one cool porcelain-white gloved low-poly hand presses a brushed-silver earpiece cord into a smooth audio jack while the other hand holds a blank cool-white slate",
+      "consequence": "soft mint-sage sound ripples glide gently along the silver cord"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a cool mint-sage studio counter displaying a tall blank ivory scroll beside thirty-six pastel geometric grocery miniatures including a milk carton and apple",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in pale-gray coat sleeves lift and set the pastel grocery miniatures into six neat rows across the cool slate tray"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a split architectural cutaway showing the dry cool-limestone pier above and the clear powder-blue underwater basin below connected by a silver ladder",
+      "internal_mechanism": "two clothed low-poly diver figures in slate suits and helmets climb and step along the silver ladder while two companion figures rest stationed on the pier and floor"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "the clear underwater base of the silver pier ladder over pale-gray loch stones",
+      "action": "viewed strictly from behind, a clothed low-poly shore-trained diver in a slate-blue suit and tank glides down to the pale-gray stones and lifts a blank cool-white ceramic slate"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "stirling_memory_bench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cool cream sweater sleeves and cool porcelain-white gloved low-poly hands over a cool slate-gray chart board",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide and set a tall stack of mint-sage blocks beside a shorter stack of powder-blue blocks on the slate-gray board",
+      "consequence": "upper blocks drop away when moving from the dry stack to the wet stack"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit cool-gray pebble shore beside the limestone pier with diving tanks set in a neat rack",
+      "action": "viewed strictly from behind, a clothed low-poly diver in a slate-blue suit sits on a limestone bench holding a nearly empty cool-white tile tray and leans forward"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-blue suit sleeves and cool porcelain-white gloved low-poly hands over a dry cool-limestone bench",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift and place small pale-lavender memory cubes onto a dry cool-white tray",
+      "consequence": "wide empty slots rest across the dry tray"
+    },
+    {
+      "sentence_index": 19,
+      "cut_role": "split_right",
+      "act": 3,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-blue diving sleeves and cool porcelain-white gloved low-poly hands underwater over a powder-blue stone ledge",
+      "prop_action": "cool porcelain-white gloved low-poly hands reach and snap bright mint-sage memory cubes into a cool-white underwater tray",
+      "consequence": "the underwater tray fills cleanly with mint-sage cubes as tiny silver bubbles rise"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "clear sunlit powder-blue water twenty feet down beside smooth cool-limestone rocks",
+      "action": "viewed strictly from behind, two clothed low-poly divers in slate-blue suits and silver tanks hold blank cool-white ceramic slates and tap styluses briskly"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "stirling_memory_bench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands over a cool slate-gray scoring table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands grip and slide a mint-sage bar upward past the pale-lavender shore bar on a smooth cool-ceramic chart",
+      "consequence": "the matched underwater column stands taller than the mismatched land column"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit powder-blue architectural stage holding a sculpted mint-sage stone doorframe with a precision brushed-silver keyhole",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in coat sleeves push and turn a matching brushed-silver door key swinging open the mint-sage door"
+    },
+    {
+      "sentence_index": 23,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-blue diving cuffs and cool porcelain-white gloved low-poly hands extending from the bottom frame in clear powder-blue water",
+      "prop_action": "both cool porcelain-white gloved low-poly hands flip and open a hinged cool-white underwater case releasing mint-sage geometric cubes",
+      "consequence": "the mint-sage cubes align neatly along a silver rail in the clear water"
+    },
+    {
+      "sentence_index": 23,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit underwater ledge beside the silver pier pilings in clear powder-blue loch water",
+      "action": "viewed strictly from behind, a clothed low-poly diver in a slate-blue suit and tank holds and lifts the filled cool-white tile tray toward a companion diver"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "stirling_memory_bench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands over a cool limestone graph board",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and cross two brushed-silver rods into a crisp X shape linking the two matched-environment corners",
+      "consequence": "the symmetrical X-shaped crossover snaps cleanly across the cool limestone board"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "HIPPOCAMPUS\nMEMORY CENTER",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the clean matte-pastel sagittal half-brain cutaway, soft mint-sage pathways weave together with powder-blue context threads inside the curved hippocampus"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "stirling_memory_bench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "pale-gray coat cuffs and cool porcelain-white gloved low-poly hands over a powder-blue stone tray",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts away the powder-blue context frame causing the loose pale-lavender bridge tiles to slide apart",
+      "consequence": "a clean gap separates the starting peg from the target memory cubes"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "pastel_exam_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view from behind of a spacious cool-limestone university exam hall with rows of slate-gray desks",
+      "action": "viewed strictly from behind, clothed low-poly students in pastel sweaters and coats walk down the center aisle and step beside unfamiliar slate-gray desks"
+    },
+    {
+      "sentence_index": 28,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cool cream sweater sleeves and cool porcelain-white gloved low-poly hands over a cool limestone pier table",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift away an empty cool-white slate and set down a slotted powder-blue tray pre-filled with three geometric choice pegs per row",
+      "consequence": "the pre-filled choice tray rests ready beside a diver mask on the limestone table"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "stirling_memory_bench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved low-poly hands over a cool slate-gray comparison stand",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide and align a powder-blue water column and a cool-cream land column to the exact same height on the stand",
+      "consequence": "a brushed-silver level bar rests perfectly horizontal across both columns"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nSEARCH PLANNER",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the matte-pastel 3D cortical brain model, soft powder-blue search pathways fan outward from the front prefrontal cortex back toward the temporal memory hub"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "pastel_exam_hall",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-sage cardigan sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame over a slate-gray desk",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand taps and slides a mint-sage ring directly over the matching geometric token in a three-option row",
+      "consequence": "the selected mint-sage token snaps cleanly into its slot"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "pastel_exam_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer sleeves and cool porcelain-white gloved low-poly hands over a cool slate-gray exam desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands open a completely blank cool-white booklet and rest a silver pen beside the empty page",
+      "consequence": "the unlined cool-white page lies open in quiet diffused light"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "pastel_exam_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright cool-limestone classroom with mint-sage acoustic panels and slate-gray desks",
+      "action": "viewed strictly from behind, clothed low-poly students in pastel sweaters and jackets lean calmly at their desks as a clothed researcher in a white coat holds and presses a silver stopwatch"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a modern cool-limestone diving dock with sleek silver air tanks and calm powder-blue water",
+      "action": "viewed strictly from behind, clothed low-poly modern divers in slate-gray diving jackets and hoods step in unison toward the water holding blank cool-white ceramic slates"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "stirling_memory_bench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands over a cool slate-gray bench",
+      "prop_action": "both cool porcelain-white gloved low-poly hands snap six mint-sage story cubes together with silver clips and lift the whole chain cleanly from a blue tray to a gray tray",
+      "consequence": "every linked mint-sage cube rests intact across the tray transfer"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "tilt_up",
+      "analogy_world": "a sunlit pastel architectural lobby featuring a glass-walled powder-blue elevator cab beside a floating miniature mint-sage study desk",
+      "comparison_action": "viewed strictly from behind, a clothed low-poly figure in a pale-gray coat steps inside the rising powder-blue elevator cab and reaches toward the miniature study desk"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "HIPPOCAMPUS\nMENTAL SCENE RECALL",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the matte-pastel sagittal half-brain cutaway, a soft powder-blue bridge from the frontal cortex illuminates the deep curved hippocampus in calm mint-sage"
+    },
+    {
+      "sentence_index": 39,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "pastel_exam_hall",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-lavender sweater sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame over a slate-gray exam desk",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand glides a brushed-silver pen briskly across a cool-white booklet setting down neat mint-sage geometric bars",
+      "consequence": "the empty cool-white page fills smoothly from top to bottom"
+    },
+    {
+      "sentence_index": 39,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "stirling_memory_bench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate coat sleeves and cool porcelain-white gloved low-poly hands over a powder-blue stone stand",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and align the mental-replay mint-sage column up to the full height of the same-room column",
+      "consequence": "both pastel columns rest side by side at full height"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "stirling_memory_bench",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a calm powder-blue interview room with two slate-gray chairs and a miniature pastel street diorama on a cool limestone table",
+      "action": "viewed strictly from behind, a clothed low-poly interviewer in a slate suit coat leans calmly toward a clothed witness in a mint-sage jacket who points to the miniature street corner"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "pastel_exam_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright cool-limestone home kitchen counter separated by an open archway from a mint-sage study room",
+      "action": "viewed strictly from behind, a clothed low-poly person in a powder-blue cardigan and dark trousers walks through the archway into the kitchen and turns with open gloved hands"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit cool limestone Scottish pier with the four-quadrant pastel block stand beside the calm powder-blue loch",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in cool cream sweaters and coats step back and point at the tall matched-water block stack"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "pastel_exam_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit open doorway connecting the cool-limestone kitchen to the mint-sage study desk",
+      "action": "viewed strictly from behind, the clothed low-poly person in the powder-blue cardigan steps back to the doorway and reaches straight for a powder-blue keyring on the slate desk"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "pastel_exam_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage jacket sleeves and cool porcelain-white gloved low-poly hands over a cool slate-gray desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and place a blank cool-white study pad and silver stylus neatly into a powder-blue satchel",
+      "consequence": "the portable study kit closes with a crisp silver clasp"
+    },
+    {
+      "sentence_index": 45,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "pastel_exam_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage sleeves and cool porcelain-white gloved low-poly hands beside a slate-gray chair",
+      "prop_action": "both cool porcelain-white gloved low-poly hands pull and lift a mint-sage cube freely away from a miniature chair model",
+      "consequence": "the mint-sage cube rests clear of the single chair"
+    },
+    {
+      "sentence_index": 45,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "pastel_exam_hall",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit cool-limestone courtyard bench outside a powder-blue library pavilion",
+      "action": "viewed strictly from behind, a clothed low-poly student in a mint-sage jacket and trousers steps to the limestone bench and opens the cool-white study pad"
+    },
+    {
+      "sentence_index": 46,
+      "end_sentence_index": 47,
+      "act": 6,
+      "location_id": "pastel_exam_hall",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a three-room pastel architectural cutaway showing a mint-sage desk room, a powder-blue library bay, and a cool-cream courtyard table side by side",
+      "internal_mechanism": "a clothed low-poly learner in a slate jacket walks and crosses all three rooms holding the same glowing mint-sage knowledge prism cleanly from desk to bay to table"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nFLEXIBLE RECALL",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the matte-pastel 3D cortical brain model, three independent mint-sage retrieval routes converge cleanly into the front prefrontal cortex"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "pastel_exam_hall",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved low-poly hands resting on a cool slate-gray exam desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands rest beside a brushed-silver pocket timer as its sweep hand glides across a short mint-sage arc",
+      "consequence": "the calm pastel arc aligns smoothly on the silver dial"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "pastel_exam_hall",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater cuffs and cool porcelain-white gloved low-poly hands extending from the bottom frame over a slate-gray desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift the silver pen and set three crisp mint-sage outline bars onto the cool-white sheet",
+      "consequence": "a miniature translucent study-lamp silhouette glows softly beside the sheet"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit cool limestone Scottish pier overlooking clear powder-blue loch water and pastel coastal hills",
+      "action": "viewed strictly from behind, clothed low-poly researchers in cool cream sweaters and divers in slate-blue suits step together along the pier and point over the calm water"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "oban_stone_pier",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a wide sunlit Scottish coastal bay with cool limestone cliffs, calm powder-blue water, and soft pastel sky",
+      "action": "viewed strictly from behind, clothed low-poly figures in coats and sweaters walk and step calmly along the limestone shore path as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "DEEP WATER MEMORY?",
+    "cover_sentence_index": 3,
+    "cover_brief": "clothed low-poly scuba diver hovering in clear pastel loch water beside sunlit limestone pier"
+  }
+}

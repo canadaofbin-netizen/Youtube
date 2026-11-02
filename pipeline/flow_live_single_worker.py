@@ -30,26 +30,35 @@ import cv2
 import numpy as np
 
 from pipeline.config import (
+    DEFAULT_FLOW_ENGINE_MODE,
     FLOW_ACTIVE_VIDEO_MODEL,
     FLOW_ALLOWED_DURATION_TARGETS,
     FLOW_CLIP_DURATION_TARGET,
     FLOW_DEFAULT_VOICE,
+    FLOW_ENGINE_MODES,
+    FLOW_PRIMARY_VIDEO_MODEL,
+    FLOW_VIDEO_MODEL_PROFILES,
+    FLOW_ZERO_CREDIT_MODEL,
     PROJECTS_DIR,
     PROJECTS_QUARANTINE_DIR,
     PUCK_F0_RANGE_HZ,
     VOICE_F0_CLIP_DEV_MAX_ST,
     VOICE_REGEN_MAX_ROUNDS,
     WORKSPACE_ROOT,
+    is_diorama_profile,
 )
 from pipeline.voice_consistency import semitones as _semitones
 from pipeline.flow_browser import (
+    CHECK_CREDIT_EXHAUSTION_JS,
     DISMISS_CREDIT_DIALOG_JS,
+    FLOW_TILE_CLASSIFIER_JS,
     FlowCircuitBreakerError,
     FlowDownloadHarvestLock,
     FlowProjectSubagentWorker,
     GoogleFlowWhaleController,
 )
 from pipeline.flow_prompt_builder import (
+    build_diorama_v6_prompts,
     build_flow_prompts,
     compute_clip_target_duration,
     load_visual_plan,
@@ -69,6 +78,13 @@ USER_DOWNLOADS_DIR = _WIN_DOWNLOADS if _WIN_DOWNLOADS.exists() or os.name == "nt
 CONTAINER_DOWNLOADS_PATH = "/home/seluser/chrome-profile/flow_bridge" if os.name != "nt" else None
 
 
+def _normalize_engine_mode(engine_mode: str | None) -> str:
+    mode = str(engine_mode or DEFAULT_FLOW_ENGINE_MODE).strip().lower()
+    if mode not in FLOW_ENGINE_MODES:
+        raise ValueError(f"Unsupported Flow engine_mode={engine_mode!r}; expected one of {FLOW_ENGINE_MODES}")
+    return mode
+
+
 def build_5_concise_flow_prompts(
     project_dir: Path,
     topic_item: dict[str, Any] | None = None,
@@ -76,12 +92,16 @@ def build_5_concise_flow_prompts(
     allow_10_clips: bool = True,
 ) -> list[str]:
     """
-    Build Contract v4 Google Flow prompts for a project directory by delegating to
+    Build Contract v4/v5 Google Flow prompts for a project directory by delegating to
     pipeline.flow_prompt_builder (load_visual_plan -> build_flow_prompts -> write_flow_prompts_json).
+    If `project_dir` uses a Schema v6/v7 `neuro_diorama` profile, delegates cleanly to
+    `build_diorama_v6_prompts` (or preserves existing schema >= 6 prompts) so a 60+ clip
+    diorama prompt file is NEVER overwritten with 5 boilerplate clips.
     Returns the list of prompt strings.
     """
     from pipeline.generator import ContentGenerator
 
+    project_dir = Path(project_dir)
     resolved_item = dict(topic_item) if isinstance(topic_item, dict) else {}
     if not resolved_item:
         try:
@@ -94,15 +114,55 @@ def build_5_concise_flow_prompts(
         except Exception:
             resolved_item = {}
 
-    clip_narrations: list[str] = []
+    visual_plan = load_visual_plan(project_dir, resolved_item or None)
     script_path = project_dir / "02_script" / "script.json"
+    sc_doc: dict[str, Any] = {}
     if script_path.exists():
         try:
-            sc = json.loads(script_path.read_text(encoding="utf-8"))
-            if isinstance(sc.get("clip_narrations"), list) and len(sc["clip_narrations"]) >= 5:
-                clip_narrations = [str(s) for s in sc["clip_narrations"]]
+            loaded_sc = json.loads(script_path.read_text(encoding="utf-8"))
+            if isinstance(loaded_sc, dict):
+                sc_doc = loaded_sc
         except Exception:
-            pass
+            sc_doc = {}
+
+    fp_path = project_dir / "03_visuals" / "flow_all_in_one_prompts.json"
+    existing_fp_doc: dict[str, Any] = {}
+    if fp_path.exists():
+        try:
+            loaded_fp = json.loads(fp_path.read_text(encoding="utf-8"))
+            if isinstance(loaded_fp, dict):
+                existing_fp_doc = loaded_fp
+        except Exception:
+            existing_fp_doc = {}
+
+    if is_diorama_profile(visual_plan) or is_diorama_profile(sc_doc) or is_diorama_profile(existing_fp_doc):
+        if isinstance(visual_plan.get("clips"), list) and visual_plan["clips"]:
+            try:
+                from pipeline.diorama_assembler import load_diorama_script_sentences
+
+                sents, _ = load_diorama_script_sentences(project_dir)
+            except Exception:
+                sents = [str(s).strip() for s in (sc_doc.get("sentences") or []) if str(s).strip()]
+            diorama_clips = build_diorama_v6_prompts(visual_plan, sents)
+            prompt_list = [str(c.get("prompt") or c.get("full_prompt") or "") for c in diorama_clips]
+            if project_dir.exists() and existing_fp_doc.get("prompts") != prompt_list:
+                write_flow_prompts_json(project_dir, diorama_clips)
+            return prompt_list
+        if isinstance(existing_fp_doc.get("prompts"), list) and existing_fp_doc["prompts"]:
+            return [str(p) for p in existing_fp_doc["prompts"]]
+        if isinstance(existing_fp_doc.get("clips"), list) and existing_fp_doc["clips"]:
+            return [
+                str(c.get("prompt") or c.get("full_prompt") or "") if isinstance(c, dict) else str(c)
+                for c in existing_fp_doc["clips"]
+            ]
+        raise ValueError(
+            f"Refusing to build 5 classic boilerplate prompts for neuro_diorama project {project_dir.name} "
+            "(missing diorama visual_plan clips)."
+        )
+
+    clip_narrations: list[str] = []
+    if isinstance(sc_doc.get("clip_narrations"), list) and len(sc_doc["clip_narrations"]) >= 5:
+        clip_narrations = [str(s) for s in sc_doc["clip_narrations"]]
 
     if not clip_narrations and isinstance(resolved_item.get("clip_narrations"), list) and len(resolved_item["clip_narrations"]) >= 5:
         clip_narrations = [str(s) for s in resolved_item["clip_narrations"]]
@@ -112,16 +172,13 @@ def build_5_concise_flow_prompts(
         setup_text = str(resolved_item.get("setup_text") or "")
         core_text = str(resolved_item.get("core_text") or "")
         payoff_text = str(resolved_item.get("payoff_text") or "")
-        if script_path.exists():
-            try:
-                sc = json.loads(script_path.read_text(encoding="utf-8"))
-                stages = sc.get("script_stages", sc)
-                hook_text = stages.get("hook", {}).get("text", "") or hook_text
-                setup_text = stages.get("setup", stages.get("dilemma", {})).get("text", "") or setup_text
-                core_text = stages.get("core", {}).get("text", "") or core_text
-                payoff_text = stages.get("payoff", stages.get("twist", {})).get("text", "") or payoff_text
-            except Exception:
-                pass
+        if sc_doc:
+            stages = sc_doc.get("script_stages", sc_doc)
+            if isinstance(stages, dict):
+                hook_text = (stages.get("hook") or {}).get("text", "") or hook_text
+                setup_text = (stages.get("setup") or stages.get("dilemma") or {}).get("text", "") or setup_text
+                core_text = (stages.get("core") or {}).get("text", "") or core_text
+                payoff_text = (stages.get("payoff") or stages.get("twist") or {}).get("text", "") or payoff_text
         if core_text:
             act_txt, rev_txt = ContentGenerator.split_core_text(core_text)
         else:
@@ -138,20 +195,11 @@ def build_5_concise_flow_prompts(
     if not allow_10_clips and len(clip_narrations) > 5:
         clip_narrations = clip_narrations[:5]
 
-    visual_plan = load_visual_plan(project_dir, resolved_item or None)
     selected_voice = voice_name or FLOW_DEFAULT_VOICE
     clips = build_flow_prompts(visual_plan, clip_narrations, voice=selected_voice)
     prompt_list = [c["prompt"] for c in clips]
     if project_dir.exists():
-        fp_path = project_dir / "03_visuals" / "flow_all_in_one_prompts.json"
-        need_write = True
-        if fp_path.exists():
-            try:
-                existing = json.loads(fp_path.read_text(encoding="utf-8"))
-                if existing.get("prompts") == prompt_list:
-                    need_write = False
-            except Exception:
-                need_write = True
+        need_write = existing_fp_doc.get("prompts") != prompt_list
         if need_write:
             write_flow_prompts_json(project_dir, clips, voice=selected_voice)
     return prompt_list
@@ -162,7 +210,7 @@ import threading
 
 _WHISPER_MODEL_INSTANCE: Any = None
 _WHISPER_LOCK = threading.Lock()
-_ASR_MEM_CACHE: dict[str, Any] = {}
+_ASR_MEM_CACHE: dict[Any, Any] = {}
 _ASR_CACHE_FILE = Path("/tmp/bci_clip_asr_cache_v2.json") if os.name != "nt" else (WORKSPACE_ROOT / "_clip_asr_cache_v2.json")
 
 _STOP_WORDS: set[str] = {
@@ -222,10 +270,9 @@ def _load_asr_disk_cache() -> None:
         try:
             data = json.loads(_ASR_CACHE_FILE.read_text(encoding="utf-8"))
             if isinstance(data, dict):
-                _ASR_MEM_CACHE.update(data)
-                for k, v in list(data.items()):
-                    if isinstance(v, dict) and v.get("file_size"):
-                        _ASR_MEM_CACHE[f"fsize:{v['file_size']}"] = k
+                for k, v in data.items():
+                    if isinstance(k, str) and not k.startswith("fsize:") and isinstance(v, dict):
+                        _ASR_MEM_CACHE[k] = v
         except Exception:
             pass
 
@@ -233,8 +280,13 @@ def _load_asr_disk_cache() -> None:
 def _save_asr_disk_cache() -> None:
     with _WHISPER_LOCK:
         try:
+            disk_payload = {
+                k: v
+                for k, v in _ASR_MEM_CACHE.items()
+                if isinstance(k, str) and not k.startswith("fsize:") and isinstance(v, dict)
+            }
             tmp_f = _ASR_CACHE_FILE.with_suffix(f".tmp.{os.getpid()}.{threading.get_ident()}")
-            tmp_f.write_text(json.dumps(_ASR_MEM_CACHE, ensure_ascii=False), encoding="utf-8")
+            tmp_f.write_text(json.dumps(disk_payload, ensure_ascii=False), encoding="utf-8")
             tmp_f.replace(_ASR_CACHE_FILE)
         except Exception:
             pass
@@ -558,8 +610,8 @@ def compute_content_word_match(
     }
 
 
-_PATH_SIZE_SHA_CACHE: dict[tuple[str, int], str] = {}
-_HARM_F0_CACHE: dict[tuple[str, int, float, float, float], float] = {}
+_PATH_SIZE_SHA_CACHE: dict[tuple[str, int, int], str] = {}
+_HARM_F0_CACHE: dict[tuple[str, int, int, float, float, float], float] = {}
 
 
 def _estimate_clip_f0_hz(pcm: np.ndarray, sr_rate: int = 16000, pitch_ratio: float = 1.0) -> float:
@@ -613,10 +665,21 @@ def measure_harmonized_clip_f0_hz(
 
     f = Path(mp4_path)
     try:
-        st_size = f.stat().st_size if f.exists() else 0
+        if f.exists():
+            st = f.stat()
+            st_size, st_mtime_ns = st.st_size, st.st_mtime_ns
+        else:
+            st_size, st_mtime_ns = 0, 0
     except Exception:
-        st_size = 0
-    key = (str(f.resolve()), st_size, round(float(pitch_ratio), 4), round(float(trim_start), 2), round(float(trim_end), 2))
+        st_size, st_mtime_ns = 0, 0
+    key = (
+        str(f.resolve()),
+        st_size,
+        st_mtime_ns,
+        round(float(pitch_ratio), 4),
+        round(float(trim_start), 2),
+        round(float(trim_end), 2),
+    )
     if key in _HARM_F0_CACHE:
         return _HARM_F0_CACHE[key]
 
@@ -665,34 +728,45 @@ def analyze_flow_clip_candidate(mp4_path: Path, sha256: str | None = None) -> di
     """
     Decodes a single Google Flow clip MP4 into 16kHz PCM, runs faster-whisper with word_timestamps=True,
     measures median F0 over 100-450Hz voiced frames (using 110-5500Hz bandpass so low room rumble cannot
-    skew F0 below 100Hz), and caches the result by SHA-256 and byte-size in memory and /tmp/bci_clip_asr_cache_v2.json.
+    skew F0 below 100Hz), and caches the result by SHA-256 and `(resolved_path, st_size, st_mtime_ns)`
+    in memory and /tmp/bci_clip_asr_cache_v2.json.
     """
     import subprocess
     import imageio_ffmpeg
 
     _load_asr_disk_cache()
     f = Path(mp4_path)
-    st_size = f.stat().st_size if f.exists() else 0
-    path_key = (str(f.resolve()), st_size) if st_size > 0 else ("", 0)
-    if not sha256 and st_size > 0 and path_key in _PATH_SIZE_SHA_CACHE:
-        sha256 = _PATH_SIZE_SHA_CACHE[path_key]
+    st_size = 0
+    st_mtime_ns = 0
+    stat_key: tuple[str, int, int] | None = None
+    if f.exists():
+        try:
+            st = f.stat()
+            st_size = st.st_size
+            st_mtime_ns = st.st_mtime_ns
+            if st_size > 0:
+                stat_key = (str(f.resolve()), st_size, st_mtime_ns)
+        except Exception:
+            stat_key = None
 
-    # Fast lookup by byte size (>= 1MB) to avoid reading 5MB over FUSE when already cached
-    if not sha256 and st_size >= 1_000_000:
-        cached_sha = _ASR_MEM_CACHE.get(f"fsize:{st_size}")
+    if not sha256 and stat_key is not None and stat_key in _PATH_SIZE_SHA_CACHE:
+        sha256 = _PATH_SIZE_SHA_CACHE[stat_key]
+
+    # Fast in-memory lookup by (resolved_path, st_size, st_mtime_ns) — never by byte-size alone
+    if not sha256 and stat_key is not None:
+        cached_sha = _ASR_MEM_CACHE.get(stat_key)
         if isinstance(cached_sha, str):
             cached_entry = _ASR_MEM_CACHE.get(cached_sha)
             if isinstance(cached_entry, dict) and "words" in cached_entry and cached_entry.get("cache_v") == 2:
-                _PATH_SIZE_SHA_CACHE[path_key] = cached_sha
+                _PATH_SIZE_SHA_CACHE[stat_key] = cached_sha
                 return cached_entry
 
     if sha256:
         cached = _ASR_MEM_CACHE.get(sha256)
         if isinstance(cached, dict) and "words" in cached and "f0_median_hz" in cached and cached.get("cache_v") == 2:
-            if st_size > 0:
-                _PATH_SIZE_SHA_CACHE[path_key] = sha256
-            if st_size >= 1_000_000:
-                _ASR_MEM_CACHE[f"fsize:{st_size}"] = sha256
+            if stat_key is not None:
+                _PATH_SIZE_SHA_CACHE[stat_key] = sha256
+                _ASR_MEM_CACHE[stat_key] = sha256
             return cached
 
     # Read file ONCE over FUSE into local /tmp RAM disk for both SHA-256 and ffmpeg decode
@@ -702,12 +776,16 @@ def analyze_flow_clip_candidate(mp4_path: Path, sha256: str | None = None) -> di
         st_size = len(raw_bytes)
         if not sha256:
             sha256 = hashlib.sha256(raw_bytes).hexdigest()
-        if st_size > 0:
-            _PATH_SIZE_SHA_CACHE[(str(f.resolve()), st_size)] = sha256
+        if stat_key is None and st_size > 0:
+            try:
+                stat_key = (str(f.resolve()), st_size, f.stat().st_mtime_ns)
+            except Exception:
+                stat_key = None
+        if stat_key is not None:
+            _PATH_SIZE_SHA_CACHE[stat_key] = sha256
+            _ASR_MEM_CACHE[stat_key] = sha256
         cached = _ASR_MEM_CACHE.get(sha256)
         if isinstance(cached, dict) and "words" in cached and "f0_median_hz" in cached and cached.get("cache_v") == 2:
-            if st_size >= 1_000_000:
-                _ASR_MEM_CACHE[f"fsize:{st_size}"] = sha256
             return cached
         tmp_local.write_bytes(raw_bytes)
         del raw_bytes
@@ -801,8 +879,8 @@ def analyze_flow_clip_candidate(mp4_path: Path, sha256: str | None = None) -> di
     }
     with _WHISPER_LOCK:
         _ASR_MEM_CACHE[sha256] = result
-        if st_size >= 1_000_000:
-            _ASR_MEM_CACHE[f"fsize:{st_size}"] = sha256
+        if stat_key is not None:
+            _ASR_MEM_CACHE[stat_key] = sha256
     _save_asr_disk_cache()
     return result
 
@@ -843,6 +921,8 @@ def order_downloaded_flow_clips_for_project(project_dir: Path, force_scan_downlo
         except Exception:
             return None
         info = analyze_flow_clip_candidate(f)
+        if float(info.get("raw_duration", 8.0)) < 7.5:
+            return None
         sha = info["sha256"]
         transcript = info["transcript"]
         f0_median = float(info["f0_median_hz"])
@@ -914,16 +994,19 @@ def order_downloaded_flow_clips_for_project(project_dir: Path, force_scan_downlo
             "mtime": mtime,
         }
 
-    seen_sizes: set[int] = set()
+    seen_file_shas: set[str] = set()
     nat_to_analyze: list[Path] = []
     for f in nat_files:
         try:
             if not f.is_file():
                 continue
             sz = f.stat().st_size
-            if sz < 500_000 or sz in seen_sizes:
+            if sz < 500_000:
                 continue
-            seen_sizes.add(sz)
+            f_sha = FlowProjectSubagentWorker.compute_file_sha256(f).lower()
+            if f_sha in seen_file_shas:
+                continue
+            seen_file_shas.add(f_sha)
             nat_to_analyze.append(f)
         except Exception:
             continue
@@ -964,9 +1047,12 @@ def order_downloaded_flow_clips_for_project(project_dir: Path, force_scan_downlo
                 if not f.is_file():
                     continue
                 sz = f.stat().st_size
-                if sz < 500_000 or sz in seen_sizes:
+                if sz < 500_000:
                     continue
-                seen_sizes.add(sz)
+                f_sha = FlowProjectSubagentWorker.compute_file_sha256(f).lower()
+                if f_sha in seen_file_shas:
+                    continue
+                seen_file_shas.add(f_sha)
                 dl_to_analyze.append(f)
             except Exception:
                 continue
@@ -1066,7 +1152,7 @@ def order_downloaded_flow_clips_for_project(project_dir: Path, force_scan_downlo
         needs_copy = True
         if dst_native.exists():
             try:
-                if dst_native.stat().st_size == cand["file_size"]:
+                if FlowProjectSubagentWorker.compute_file_sha256(dst_native).lower() == str(cand["sha256"]).lower():
                     needs_copy = False
             except Exception:
                 needs_copy = True
@@ -1077,13 +1163,18 @@ def order_downloaded_flow_clips_for_project(project_dir: Path, force_scan_downlo
         else:
             staged_paths.append((s_i, dst_native, cand))
 
-    force_tts_mode = False
+    from pipeline.config import DEFAULT_VOICE_SOURCE
+    force_tts_mode = DEFAULT_VOICE_SOURCE == "tts"
     vs_file = project_dir / "04_audio" / "voice_source.json"
     if vs_file.exists():
         try:
-            force_tts_mode = json.loads(vs_file.read_text(encoding="utf-8")).get("force") == "tts_fallback"
+            vs_force = json.loads(vs_file.read_text(encoding="utf-8")).get("force")
+            if vs_force == "native":
+                force_tts_mode = False
+            elif vs_force in ("tts", "tts_fallback"):
+                force_tts_mode = True
         except Exception:
-            force_tts_mode = False
+            pass
 
     for s_i, tmp_stage, cand in staged_paths:
         clip_idx = s_i + 1
@@ -1198,7 +1289,18 @@ def _render_v5_contact_sheet(native_dir: Path, v5_ss_path: Path) -> None:
             )
             frames.append(frm)
     if frames:
-        sheet = np.hstack(frames)
+        if len(frames) <= 10:
+            sheet = np.hstack(frames)
+        else:
+            cols = 10
+            rows_list: list[np.ndarray] = []
+            for r_start in range(0, len(frames), cols):
+                row_frms = list(frames[r_start : r_start + cols])
+                while len(row_frms) < cols:
+                    row_frms.append(np.full((480, 270, 3), 24, dtype=np.uint8))
+                rows_list.append(np.hstack(row_frms))
+            sheet = np.vstack(rows_list)
+        v5_ss_path.parent.mkdir(parents=True, exist_ok=True)
         cv2.imwrite(str(v5_ss_path), sheet)
 
 
@@ -1286,15 +1388,34 @@ async def allocate_dedicated_flow_project_tab(
         return {"tab_id": tab_id, "ws_url": ws_url, "project_url": project_url}
 
 
-async def ensure_manual_video_916_mode(client: DirectCDPClient, target_duration: str = FLOW_CLIP_DURATION_TARGET) -> dict[str, Any]:
+async def ensure_manual_video_916_mode(
+    client: DirectCDPClient,
+    target_duration: str = FLOW_CLIP_DURATION_TARGET,
+    engine_mode: str = DEFAULT_FLOW_ENGINE_MODE,
+    credit_exhausted_event: asyncio.Event | None = None,
+    force_recheck: bool = False,
+) -> dict[str, Any]:
     """
     Switches Google Flow from Agent chat mode (which has a daily chat quota limit)
-    to Manual Prompting mode configured for Video · 720p · 8s · 9:16 · x1.
+    to Manual Prompting mode configured under the Credit-Aware Dual-Tier Engine Policy:
+      - `engine_mode="auto"`: attempts `FLOW_PRIMARY_VIDEO_MODEL` (`Omni 1.1 Flash`, 9:16, 720p,
+        `target_duration`, x1) while credits are available; on credit exhaustion (`button.prompt-warning-button`
+        or low/zero-credit banner), sets `credit_exhausted_event` and seamlessly switches to
+        `FLOW_ZERO_CREDIT_MODEL` (`Veo 3.1 - Lite [Lower Priority]`, 9:16, 8s, x1) verified at 0 credits.
+      - `engine_mode="omni"`: requires `FLOW_PRIMARY_VIDEO_MODEL` and fails closed if out of credits.
+      - `engine_mode="zero-credit"`: locks `FLOW_ZERO_CREDIT_MODEL` immediately and forbids credit approval.
     """
+    from pipeline.flow_ingredients import read_active_flow_model_family, select_flow_video_model
+
+    mode = _normalize_engine_mode(engine_mode)
     if target_duration not in FLOW_ALLOWED_DURATION_TARGETS:
-        # Omni 1.1 Flash offers 4s / 6s / 8s / 10s; an unavailable option used to fail silently.
         target_duration = FLOW_CLIP_DURATION_TARGET
-    await client.eval(DISMISS_CREDIT_DIALOG_JS)
+
+    exhausted_now = bool(credit_exhausted_event is not None and credit_exhausted_event.is_set())
+    forbid_approve = bool(mode == "zero-credit" or (mode == "auto" and exhausted_now))
+    await client.eval(f"window.__bci_flow_forbid_credit_approve = {json.dumps(forbid_approve)};")
+    if not forbid_approve:
+        await client.eval(DISMISS_CREDIT_DIALOG_JS)
 
     # 1. Close Agent side panel if open so the bottom prompt bar shows the Agent mode toggle chip
     close_coord = await client.eval("""(() => {
@@ -1318,24 +1439,50 @@ async def ensure_manual_video_916_mode(client: DirectCDPClient, target_duration:
     })()""")
     await asyncio.sleep(0.5)
 
-    # 3. Ensure Video · Omni 1.1 Flash · 9:16 · 8s/10s · x1 are selected in flow-prompt-box-settings
-    already_10s = await client.eval(
-        f"Boolean((window.__bci_flow_10s_configured === {json.dumps(target_duration)} || window.__bci_flow_lite_fallback) && window.__bci_flow_0cred_configured)"
+    cred_state = await client.eval(CHECK_CREDIT_EXHAUSTION_JS) or {}
+    has_warn = bool(cred_state.get("exhausted"))
+    tab_lite_flag = bool(await client.eval("Boolean(window.__bci_flow_lite_fallback)"))
+
+    if mode == "zero-credit":
+        use_lite = True
+    elif mode == "omni":
+        use_lite = False
+        await client.eval("window.__bci_flow_lite_fallback = false;")
+    else:
+        use_lite = bool(exhausted_now or tab_lite_flag)
+
+    eff_duration = (
+        (target_duration if target_duration in ("4s", "6s", "8s") else "8s")
+        if use_lite
+        else target_duration
     )
+
     cur_summary = await client.eval("""(() => {
         const st = document.querySelector('button.settings-trigger-button');
         return st ? (st.innerText || '').trim() : '';
     })()""") or ""
-    has_warn = await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))")
-    use_lite = await client.eval("Boolean(window.__bci_flow_lite_fallback)") or bool(has_warn)
+    cur_family = await read_active_flow_model_family(client)
+    expected_cached = await client.eval(
+        f"Boolean(window.__bci_flow_0cred_configured && window.__bci_flow_10s_configured === {json.dumps(eff_duration)} && window.__bci_flow_mode_configured === {json.dumps('lite' if use_lite else 'omni')})"
+    )
+    family_ok_cached = (
+        (cur_family == "veo_3_1_lite_low_priority")
+        if use_lite
+        else (cur_family in ("omni", "omni_1_1_flash") or cur_family.startswith("omni"))
+    )
 
-    if (
-        not already_10s
+    need_reconfigure = (
+        force_recheck
+        or not expected_cached
+        or not family_ok_cached
         or has_warn
         or ("Video" not in cur_summary and "videocam" not in cur_summary)
-        or "9_16" not in cur_summary
+        or ("9_16" not in cur_summary and "9:16" not in cur_summary)
         or "x1" not in cur_summary
-    ):
+        or (eff_duration not in cur_summary and not use_lite)
+    )
+
+    if need_reconfigure:
         await client.eval("""(() => {
             const box = document.querySelector('flow-prompt-box-settings');
             const st = document.querySelector('button.settings-trigger-button');
@@ -1348,11 +1495,10 @@ async def ensure_manual_video_916_mode(client: DirectCDPClient, target_duration:
             if (vid) vid.click();
         })()""")
         await asyncio.sleep(0.4)
-        from pipeline.flow_ingredients import select_flow_video_model
 
         if not use_lite:
-            if not await select_flow_video_model(client, FLOW_ACTIVE_VIDEO_MODEL):
-                print(f"[R5] could not select {FLOW_ACTIVE_VIDEO_MODEL} in the Flow settings pane")
+            omni_ok = await select_flow_video_model(client, FLOW_PRIMARY_VIDEO_MODEL)
+            await asyncio.sleep(0.35)
             await client.eval(f"""(() => {{
                 const btns = Array.from(document.querySelectorAll('flow-prompt-box-settings button, .cdk-overlay-pane button'));
                 const b916 = btns.find(b => (b.innerText || '').includes('9:16'));
@@ -1365,36 +1511,84 @@ async def ensure_manual_video_916_mode(client: DirectCDPClient, target_duration:
                 if (bx1) bx1.click();
             }})()""")
             await asyncio.sleep(0.4)
-            still_warn = await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))")
-            if still_warn:
+            post_omni_cred = await client.eval(CHECK_CREDIT_EXHAUSTION_JS) or {}
+            omni_exhausted = bool(post_omni_cred.get("exhausted")) or not omni_ok
+            if omni_exhausted:
+                if mode == "omni":
+                    await client.eval("""(() => {
+                        const bd = document.querySelector('.cdk-overlay-backdrop');
+                        if (bd) bd.click();
+                    })()""")
+                    raise FlowCircuitBreakerError(
+                        f"[R5] engine_mode='omni' requires {FLOW_PRIMARY_VIDEO_MODEL}, "
+                        f"but credits are insufficient or model unavailable: {post_omni_cred}"
+                    )
+                if credit_exhausted_event is not None:
+                    credit_exhausted_event.set()
                 use_lite = True
+                eff_duration = target_duration if target_duration in ("4s", "6s", "8s") else "8s"
+
         if use_lite:
-            print("[R5] Insufficient monthly Flow credits for Omni 1.1 Flash; falling back to 0-credit model (8s, 9:16, x1)")
-            await select_flow_video_model(client, "Veo 3.1 - Lite [Lower Priority]")
-            await client.eval("""(() => {
-                const btns = Array.from(document.querySelectorAll('flow-prompt-box-settings button, .cdk-overlay-pane button'));
-                const b916 = btns.find(b => (b.innerText || '').includes('9:16'));
-                if (b916) b916.click();
-                const b8 = btns.find(b => (b.innerText || '').trim() === '8s');
-                if (b8) b8.click();
-                const bx1 = btns.find(b => (b.innerText || '').trim() === 'x1');
-                if (bx1) bx1.click();
-                window.__bci_flow_lite_fallback = true;
-            })()""")
-            await asyncio.sleep(0.4)
+            if mode == "auto":
+                print(
+                    f"[R5] Monthly Flow credits unavailable for {FLOW_PRIMARY_VIDEO_MODEL}; "
+                    f"switching to 0-credit {FLOW_ZERO_CREDIT_MODEL} ({eff_duration}, 9:16, x1)"
+                )
+            await client.eval("window.__bci_flow_forbid_credit_approve = true; window.__bci_flow_lite_fallback = true;")
+            lite_ok = False
+            for _lite_try in range(2):
+                sel_ok = await select_flow_video_model(client, FLOW_ZERO_CREDIT_MODEL)
+                await asyncio.sleep(0.35)
+                await client.eval(f"""(() => {{
+                    const btns = Array.from(document.querySelectorAll('flow-prompt-box-settings button, .cdk-overlay-pane button'));
+                    const b916 = btns.find(b => (b.innerText || '').includes('9:16'));
+                    if (b916) b916.click();
+                    const bDur = btns.find(b => (b.innerText || '').trim() === {json.dumps(eff_duration)}) || btns.find(b => (b.innerText || '').trim() === '8s');
+                    if (bDur) bDur.click();
+                    const bx1 = btns.find(b => (b.innerText || '').trim() === 'x1');
+                    if (bx1) bx1.click();
+                }})()""")
+                await asyncio.sleep(0.4)
+                fam_now = await read_active_flow_model_family(client)
+                warn_now = bool(await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))"))
+                if sel_ok and fam_now == "veo_3_1_lite_low_priority" and not warn_now:
+                    lite_ok = True
+                    break
+            if not lite_ok:
+                fam_final = await read_active_flow_model_family(client)
+                warn_final = bool(await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))"))
+                if fam_final != "veo_3_1_lite_low_priority" or warn_final:
+                    raise FlowCircuitBreakerError(
+                        f"[R5] Failed to verify 0-credit {FLOW_ZERO_CREDIT_MODEL} "
+                        f"(family={fam_final!r}, warning_btn={warn_final})"
+                    )
+        else:
+            await client.eval("window.__bci_flow_lite_fallback = false; window.__bci_flow_forbid_credit_approve = false;")
+
         await client.eval(f"""(() => {{
-            window.__bci_flow_10s_configured = {json.dumps(target_duration)};
+            window.__bci_flow_10s_configured = {json.dumps(eff_duration)};
+            window.__bci_flow_mode_configured = {json.dumps('lite' if use_lite else 'omni')};
             window.__bci_flow_0cred_configured = true;
             const bd = document.querySelector('.cdk-overlay-backdrop');
             if (bd) bd.click();
         }})()""")
         await asyncio.sleep(0.3)
 
+    active_model = FLOW_ZERO_CREDIT_MODEL if use_lite else FLOW_PRIMARY_VIDEO_MODEL
+    credit_tier = "zero_credit_fallback" if use_lite else "omni_monthly_credit"
     final_summary = await client.eval("""(() => {
         const st = document.querySelector('button.settings-trigger-button');
         return st ? (st.innerText || '').trim() : '';
     })()""") or ""
-    return {"manual_mode_active": True, "settings_summary": final_summary, "target_duration": target_duration}
+    return {
+        "manual_mode_active": True,
+        "settings_summary": final_summary,
+        "target_duration": eff_duration,
+        "flow_model": active_model,
+        "credit_tier": credit_tier,
+        "zero_credit_verified": bool(use_lite),
+        "engine_mode": mode,
+    }
 
 
 async def ensure_manual_image_916_mode(client: DirectCDPClient, aspect: str = "9:16") -> dict[str, Any]:
@@ -1473,17 +1667,22 @@ async def submit_prompt_in_flow_tab(
     timeout_sec: float = 45.0,
     target_duration: str | None = None,
     reference_files: list[Any] | None = None,
+    engine_mode: str = DEFAULT_FLOW_ENGINE_MODE,
+    credit_exhausted_event: asyncio.Event | None = None,
+    submission_meta_out: dict[str, Any] | None = None,
 ) -> bool:
     """
     reference_files (R51 / R52): QA-passed start / key frame PNGs. The prompt box is cleared of stale chips,
-    each file is uploaded and attached by file name, and generation is refused unless the settings pane shows
-    the 0-credit model. Without reference_files the box is still cleared so old chips never leak into a clip.
+    each file is uploaded and attached by file name, and generation is verified against the Dual-Tier Engine Policy.
+    Without reference_files the box is still cleared so old chips never leak into a clip.
 
     Waits for .ProseMirror[contenteditable="true"] and flow-generate-icon-button to be ready,
-    ensures Manual Prompting mode (Video · 720p · 6s/8s · 9:16 · x1) is active,
+    ensures Manual Prompting mode is active under `engine_mode` (`"auto" | "omni" | "zero-credit"`),
     inserts prompt_text, triggers generation via Angular's trusted listener or button click,
-    auto-approves credit dialogs, and verifies that the editor cleared or rendering started.
+    seamlessly falls back to `Veo 3.1 - Lite [Lower Priority]` if monthly credits run out mid-episode
+    in `"auto"` mode, and verifies that the editor cleared.
     """
+    mode = _normalize_engine_mode(engine_mode)
     prompt_text = re.sub(
         r"\bVoice:\s*Puck\.",
         "Voice: Consistent deep male baritone documentary narrator.",
@@ -1496,11 +1695,21 @@ async def submit_prompt_in_flow_tab(
             eff_duration = str(compute_clip_target_duration(m_nar.group(1)).get("target_duration") or FLOW_CLIP_DURATION_TARGET)
         else:
             eff_duration = FLOW_CLIP_DURATION_TARGET
-    await ensure_manual_video_916_mode(client, target_duration=eff_duration)
+
+    mode_cfg = await ensure_manual_video_916_mode(
+        client,
+        target_duration=eff_duration,
+        engine_mode=mode,
+        credit_exhausted_event=credit_exhausted_event,
+    )
     from pipeline.flow_ingredients import clear_prompt_ingredients, count_chips, prepare_reference_frames
 
     if reference_files:
-        ref_report = await prepare_reference_frames(client, [Path(f) for f in reference_files])
+        ref_report = await prepare_reference_frames(
+            client,
+            [Path(f) for f in reference_files],
+            allow_zero_credit_fallback=(mode != "omni"),
+        )
         print(f"[R52] reference frames: {ref_report}")
         if not ref_report.get("ready"):
             return False
@@ -1510,7 +1719,8 @@ async def submit_prompt_in_flow_tab(
 
     deadline = time.monotonic() + timeout_sec
     while time.monotonic() < deadline:
-        await client.eval(DISMISS_CREDIT_DIALOG_JS)
+        if mode != "zero-credit" and mode_cfg.get("credit_tier") != "zero_credit_fallback":
+            await client.eval(DISMISS_CREDIT_DIALOG_JS)
         ready = await client.eval("""(() => {
             const ed = document.querySelector('.ProseMirror[contenteditable="true"]');
             const fg = document.querySelector('flow-generate-icon-button');
@@ -1521,8 +1731,9 @@ async def submit_prompt_in_flow_tab(
             break
         await asyncio.sleep(1.5)
 
-    for attempt in range(3):
-        await client.eval(DISMISS_CREDIT_DIALOG_JS)
+    for _attempt in range(3):
+        if mode != "zero-credit" and mode_cfg.get("credit_tier") != "zero_credit_fallback":
+            await client.eval(DISMISS_CREDIT_DIALOG_JS)
         focused = await client.eval("""(() => {
             const ed = document.querySelector('.ProseMirror[contenteditable="true"]');
             if (!ed) return false;
@@ -1553,10 +1764,26 @@ async def submit_prompt_in_flow_tab(
         }})()""")
         await asyncio.sleep(0.4)
 
-        warn_after_input = await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))")
-        if warn_after_input:
-            await client.eval("window.__bci_flow_lite_fallback = true; window.__bci_flow_0cred_configured = false;")
-            await ensure_manual_video_916_mode(client, target_duration="8s")
+        cred_after_input = await client.eval(CHECK_CREDIT_EXHAUSTION_JS) or {}
+        if cred_after_input.get("exhausted"):
+            if mode == "omni":
+                raise FlowCircuitBreakerError(
+                    f"[R5] engine_mode='omni' halted: Flow reported insufficient credits ({cred_after_input})"
+                )
+            if credit_exhausted_event is not None:
+                credit_exhausted_event.set()
+            await client.eval(
+                "window.__bci_flow_lite_fallback = true; window.__bci_flow_0cred_configured = false; window.__bci_flow_forbid_credit_approve = true;"
+            )
+            if mode_cfg.get("credit_tier") == "zero_credit_fallback" and await count_chips(client) > 0:
+                await clear_prompt_ingredients(client)
+            mode_cfg = await ensure_manual_video_916_mode(
+                client,
+                target_duration="8s",
+                engine_mode=mode,
+                credit_exhausted_event=credit_exhausted_event,
+                force_recheck=True,
+            )
             await asyncio.sleep(0.3)
             await client.eval(f"""(() => {{
                 const ed = document.querySelector('.ProseMirror[contenteditable="true"]');
@@ -1595,14 +1822,45 @@ async def submit_prompt_in_flow_tab(
             await asyncio.sleep(0.08)
             await client.send("Input.dispatchMouseEvent", {"type": "mouseReleased", "x": mx, "y": my, "button": "left", "clickCount": 1})
 
+        switched_mid_wait = False
         for wait_i in range(10):
             await asyncio.sleep(0.5)
-            await client.eval(DISMISS_CREDIT_DIALOG_JS)
+            if mode != "zero-credit" and mode_cfg.get("credit_tier") != "zero_credit_fallback":
+                await client.eval(DISMISS_CREDIT_DIALOG_JS)
+            cred_post_click = await client.eval(CHECK_CREDIT_EXHAUSTION_JS) or {}
+            if cred_post_click.get("exhausted") and mode_cfg.get("credit_tier") != "zero_credit_fallback":
+                if mode == "omni":
+                    raise FlowCircuitBreakerError(
+                        f"[R5] engine_mode='omni' halted mid-submission due to credit exhaustion: {cred_post_click}"
+                    )
+                if credit_exhausted_event is not None:
+                    credit_exhausted_event.set()
+                await client.eval(
+                    "window.__bci_flow_lite_fallback = true; window.__bci_flow_0cred_configured = false; window.__bci_flow_forbid_credit_approve = true;"
+                )
+                mode_cfg = await ensure_manual_video_916_mode(
+                    client,
+                    target_duration="8s",
+                    engine_mode=mode,
+                    credit_exhausted_event=credit_exhausted_event,
+                    force_recheck=True,
+                )
+                switched_mid_wait = True
+                break
             ed_len = await client.eval("""(() => {
                 const ed = document.querySelector('.ProseMirror[contenteditable="true"]');
                 return ed ? (ed.innerText || '').trim().length : -1;
             })()""")
             if ed_len == 0:
+                if submission_meta_out is not None:
+                    submission_meta_out.update(
+                        {
+                            "flow_model": mode_cfg["flow_model"],
+                            "model": mode_cfg["flow_model"],
+                            "credit_tier": mode_cfg["credit_tier"],
+                            "zero_credit_verified": mode_cfg["zero_credit_verified"],
+                        }
+                    )
                 return True
             if wait_i == 3 and sub_res.get("x", 0) > 0:
                 mx, my = int(sub_res["x"]), int(sub_res["y"])
@@ -1610,6 +1868,8 @@ async def submit_prompt_in_flow_tab(
                 await client.send("Input.dispatchMouseEvent", {"type": "mousePressed", "x": mx, "y": my, "button": "left", "clickCount": 1})
                 await asyncio.sleep(0.08)
                 await client.send("Input.dispatchMouseEvent", {"type": "mouseReleased", "x": mx, "y": my, "button": "left", "clickCount": 1})
+        if switched_mid_wait:
+            continue
 
     return False
 
@@ -1618,11 +1878,23 @@ async def run_live_flow_for_single_project(
     project_id: str,
     cdp_port: int = 9222,
     existing_tab_id: str | None = None,
+    engine_mode: str = DEFAULT_FLOW_ENGINE_MODE,
+    credit_exhausted_event: asyncio.Event | None = None,
 ) -> dict[str, Any]:
     """
     Executes the full 1:1:1 live Google Flow generation, download, provenance lock,
     evolve, autopsy, and QA pipeline for a single project (supporting 5 to 10 clips).
     """
+    import weakref
+
+    mode = _normalize_engine_mode(engine_mode)
+    shared_credit_event = credit_exhausted_event if credit_exhausted_event is not None else asyncio.Event()
+    shot_tier_map: dict[int, dict[str, Any]] = {}
+    default_tier_info: dict[str, Any] = {
+        "flow_model": FLOW_ZERO_CREDIT_MODEL if mode == "zero-credit" else FLOW_PRIMARY_VIDEO_MODEL,
+        "credit_tier": "zero_credit_fallback" if mode == "zero-credit" else "omni_monthly_credit",
+    }
+
     worker = FlowProjectSubagentWorker(
         project_id=project_id,
         cdp_port=cdp_port,
@@ -1759,17 +2031,26 @@ async def run_live_flow_for_single_project(
             }})()""")
             worker.title_set = True
 
-            # Switch to Manual Prompting Mode (Video · 720p · 8s · 9:16 · x1) so we never hit Flow Agent chat quota limits
-            manual_cfg = await ensure_manual_video_916_mode(client, target_duration=FLOW_CLIP_DURATION_TARGET)
-            worker.log(f"Configured Manual Prompting mode: {manual_cfg.get('settings_summary')}")
+            # Switch to Manual Prompting Mode under Credit-Aware Dual-Tier Engine Policy
+            manual_cfg = await ensure_manual_video_916_mode(
+                client,
+                target_duration=FLOW_CLIP_DURATION_TARGET,
+                engine_mode=mode,
+                credit_exhausted_event=shared_credit_event,
+            )
+            default_tier_info = {
+                "flow_model": manual_cfg["flow_model"],
+                "credit_tier": manual_cfg["credit_tier"],
+            }
+            worker.log(
+                f"Configured Manual Prompting mode ({manual_cfg.get('flow_model')} / {manual_cfg.get('credit_tier')}): "
+                f"{manual_cfg.get('settings_summary')}"
+            )
 
-            existing_valid_tiles = int(await client.eval("""(() => {
-                return Array.from(document.querySelectorAll('flow-video-tile')).filter(el => {
-                    if (el.querySelector('flow-error-tile')) return false;
-                    const txt = (el.innerText || '').toLowerCase();
-                    return !txt.includes('failed') && !txt.includes('violate') && !txt.includes('error');
-                }).length;
-            })()""") or 0)
+            existing_valid_tiles = int(await client.eval(f"""(() => {{
+                const classify = {FLOW_TILE_CLASSIFIER_JS};
+                return Array.from(document.querySelectorAll('flow-video-tile')).filter(el => !classify(el).isError).length;
+            }})()""") or 0)
 
             # 4. Submit each prompt in Manual Prompting mode (staggered in pairs/triplets with short pauses)
             v1_ss = str(screenshots_dir / "flow_gate_v1_prompt_approved.png")
@@ -1784,14 +2065,33 @@ async def run_live_flow_for_single_project(
             else:
                 for s_idx in range(existing_valid_tiles, n_expected):
                     shot_prompt = flow_prompts[s_idx]
-                    worker.log(f"Submitting Shot {s_idx + 1}/{n_expected} (Manual Video 9:16 x1)...")
-                    ok_sub = await submit_prompt_in_flow_tab(client, shot_prompt)
+                    worker.log(f"Submitting Shot {s_idx + 1}/{n_expected} (Manual Video 9:16 x1, engine_mode={mode})...")
+                    sub_meta: dict[str, Any] = {}
+                    ok_sub = await submit_prompt_in_flow_tab(
+                        client,
+                        shot_prompt,
+                        engine_mode=mode,
+                        credit_exhausted_event=shared_credit_event,
+                        submission_meta_out=sub_meta,
+                    )
                     if not ok_sub and s_idx == 0:
                         raise FlowCircuitBreakerError(f"[{project_id}] Failed to submit Shot 1 prompt in tab {worker.tab_id}")
                     elif not ok_sub:
                         worker.log(f"Shot {s_idx + 1} wait notice: retrying after 6s...")
                         await asyncio.sleep(6.0)
-                        await submit_prompt_in_flow_tab(client, shot_prompt)
+                        await submit_prompt_in_flow_tab(
+                            client,
+                            shot_prompt,
+                            engine_mode=mode,
+                            credit_exhausted_event=shared_credit_event,
+                            submission_meta_out=sub_meta,
+                        )
+                    if sub_meta:
+                        shot_tier_map[s_idx + 1] = dict(sub_meta)
+                        default_tier_info = {
+                            "flow_model": sub_meta["flow_model"],
+                            "credit_tier": sub_meta["credit_tier"],
+                        }
 
                     worker.prompt_injected = True
                     worker.generate_button_enabled = True
@@ -1800,7 +2100,8 @@ async def run_live_flow_for_single_project(
 
                     if s_idx == existing_valid_tiles:
                         await asyncio.sleep(1.5)
-                        await client.eval(DISMISS_CREDIT_DIALOG_JS)
+                        if mode != "zero-credit" and not shared_credit_event.is_set():
+                            await client.eval(DISMISS_CREDIT_DIALOG_JS)
                         v1_ss = await _capture_ss("flow_gate_v1_prompt_approved.png")
                         worker.log(f"Captured Gate V1 screenshot: {Path(v1_ss).name}")
 
@@ -1823,11 +2124,12 @@ async def run_live_flow_for_single_project(
             idle_cycles = 0
             while time.monotonic() < render_deadline:
                 try:
-                    await client.eval(DISMISS_CREDIT_DIALOG_JS)
+                    if mode != "zero-credit" and not shared_credit_event.is_set():
+                        await client.eval(DISMISS_CREDIT_DIALOG_JS)
 
                     # Delete any error tiles or accidental static image tiles immediately so we only keep valid video tiles
                     await client.eval("""(() => {
-                        const errBtns = Array.from(document.querySelectorAll('flow-error-tile button, flow-image-tile button, flow-video-tile button'));
+                        const errBtns = Array.from(document.querySelectorAll('flow-error-tile button, flow-image-tile button'));
                         for (const b of errBtns) {
                             const isImgTile = Boolean(b.closest('flow-image-tile'));
                             const t = (b.innerText || b.getAttribute('aria-label') || '').toLowerCase();
@@ -1837,30 +2139,25 @@ async def run_live_flow_for_single_project(
                         }
                     })()""")
 
-                    poll_state = await client.eval("""(() => {
-                        const allTiles = Array.from(document.querySelectorAll('flow-video-tile'));
-                        const validTiles = allTiles.filter(el => {
-                            if (el.querySelector('flow-error-tile')) return false;
-                            const txt = (el.innerText || '').toLowerCase();
-                            if (txt.includes('failed') || txt.includes('violate') || txt.includes('error')) return false;
-                            return true;
-                        });
-                        const readyTiles = validTiles.filter(el => !/\\b(\\d{1,2}|100)%\\b/.test(el.innerText || '') && Boolean(el.querySelector('button[aria-label*="More" i]')));
-                        const renderingTiles = validTiles.filter(el => !readyTiles.includes(el));
+                    poll_state = await client.eval(f"""(() => {{
+                        const classify = {FLOW_TILE_CLASSIFIER_JS};
+                        const allTiles = Array.from(document.querySelectorAll('flow-video-tile')).map(el => ({{ el, info: classify(el) }}));
+                        const validTiles = allTiles.filter(x => !x.info.isError);
+                        const readyTiles = validTiles.filter(x => x.info.isReady);
+                        const renderingTiles = validTiles.filter(x => x.info.isRendering);
                         let tilePct = null;
-                        for (const rt of renderingTiles) {
-                            const m = (rt.innerText || '').match(/\\b(\\d{1,2}|100)%\\b/);
-                            if (m) { tilePct = m[0]; break; }
-                        }
+                        for (const rt of renderingTiles) {{
+                            if (rt.info.pct) {{ tilePct = rt.info.pct; break; }}
+                        }}
                         const stopBtn = Boolean(document.querySelector('button[aria-label*="Stop" i], button[aria-label*="Cancel" i], .stop-button'));
-                        return {
+                        return {{
                             total_valid_tiles: validTiles.length,
                             ready_tiles: readyTiles.length,
                             rendering_tiles: renderingTiles.length,
                             pct: tilePct,
                             has_stop_btn: stopBtn
-                        };
-                    })()""") or {}
+                        }};
+                    }})()""") or {}
                 except Exception as poll_exc:
                     worker.log(f"Render poll transient CDP wait ({type(poll_exc).__name__}); continuing...")
                     await asyncio.sleep(5.0)
@@ -1915,7 +2212,19 @@ async def run_live_flow_for_single_project(
                         topup_prompt = flow_prompts[supplementary_idx % n_expected]
                         supplementary_idx += 1
                         worker.log(f"Canvas has {ready_cnt}/{n_expected} ready tiles and is idle; submitting manual top-up prompt ({needed} needed)...")
-                        await submit_prompt_in_flow_tab(client, topup_prompt)
+                        sub_meta_top: dict[str, Any] = {}
+                        await submit_prompt_in_flow_tab(
+                            client,
+                            topup_prompt,
+                            engine_mode=mode,
+                            credit_exhausted_event=shared_credit_event,
+                            submission_meta_out=sub_meta_top,
+                        )
+                        if sub_meta_top:
+                            default_tier_info = {
+                                "flow_model": sub_meta_top["flow_model"],
+                                "credit_tier": sub_meta_top["credit_tier"],
+                            }
                         worker.prompts_submitted_count += 1
                         await asyncio.sleep(10.0)
                         continue
@@ -1935,11 +2244,10 @@ async def run_live_flow_for_single_project(
             # 6. Download all completed tiles under FlowDownloadHarvestLock, then order 1..n_expected by prompt & spoken narration
             seen_hashes: set[str] = set()
             v4_ss = ""
-            total_valid_tiles = int(await client.eval("""(() => {
-                return Array.from(document.querySelectorAll('flow-video-tile')).filter(
-                    el => !el.querySelector('flow-error-tile') && !/\\b(\\d{1,2})%\\b/.test(el.innerText || '') && !/failed|violate/i.test(el.innerText || '')
-                ).length;
-            })()""") or n_expected)
+            total_valid_tiles = int(await client.eval(f"""(() => {{
+                const classify = {FLOW_TILE_CLASSIFIER_JS};
+                return Array.from(document.querySelectorAll('flow-video-tile')).filter(el => classify(el).isReady).length;
+            }})()""") or n_expected)
 
             for tile_idx in range(min(n_expected + 4, max(n_expected, total_valid_tiles))):
                 flow_dl_dir.mkdir(parents=True, exist_ok=True)
@@ -1962,9 +2270,8 @@ async def run_live_flow_for_single_project(
                         await asyncio.sleep(0.3)
 
                         r1 = await client.eval(f"""(() => {{
-                            const validTiles = Array.from(document.querySelectorAll('flow-video-tile')).filter(
-                                el => !el.querySelector('flow-error-tile') && !/\\b(\\d{{1,2}})%\\b/.test(el.innerText || '') && !/failed|violate/i.test(el.innerText || '')
-                            );
+                            const classify = {FLOW_TILE_CLASSIFIER_JS};
+                            const validTiles = Array.from(document.querySelectorAll('flow-video-tile')).filter(el => classify(el).isReady);
                             const t = validTiles[{tile_idx}];
                             if (!t) return 'no_tile';
                             t.scrollIntoView({{block: 'center', inline: 'center'}});
@@ -2050,25 +2357,51 @@ async def run_live_flow_for_single_project(
                     f"Detected {len(bad_shots)} clip(s) failing voice/ASR/cutoff gate (Shots {[s+1 for s in bad_shots]}); regenerating in-session (round {retry_round + 1})..."
                 )
                 for s_idx in bad_shots:
-                    prev_ready = int(await client.eval("""(() => {
-                        return Array.from(document.querySelectorAll('flow-video-tile')).filter(
-                            el => !el.querySelector('flow-error-tile') && !/\\b(\\d{1,2}|100)%\\b/.test(el.innerText || '') && Boolean(el.querySelector('button[aria-label*="More" i]'))
-                        ).length;
-                    })()""") or 0)
+                    # Wait for any stale in-flight tile rendering == 0 before submitting retry
+                    settle_deadline = time.monotonic() + 120.0
+                    prev_ready = 0
+                    while time.monotonic() < settle_deadline:
+                        st_pre = await client.eval(f"""(() => {{
+                            const classify = {FLOW_TILE_CLASSIFIER_JS};
+                            const infos = Array.from(document.querySelectorAll('flow-video-tile')).map(el => classify(el));
+                            return {{
+                                ready: infos.filter(x => x.isReady).length,
+                                rendering: infos.filter(x => x.isRendering).length,
+                            }};
+                        }})()""") or {}
+                        prev_ready = int(st_pre.get("ready") or 0)
+                        if int(st_pre.get("rendering") or 0) == 0:
+                            break
+                        await asyncio.sleep(3.0)
+
                     retry_prompt = flow_prompts[s_idx]
-                    # Omni: upgrade to 10s on retry to prevent tail speech truncation (no ingredient attached)
-                    await submit_prompt_in_flow_tab(client, retry_prompt, target_duration="10s")
+                    sub_meta_retry: dict[str, Any] = {}
+                    # Omni: upgrade to 10s on retry to prevent tail speech truncation (clamped automatically if 0-credit)
+                    await submit_prompt_in_flow_tab(
+                        client,
+                        retry_prompt,
+                        target_duration="10s",
+                        engine_mode=mode,
+                        credit_exhausted_event=shared_credit_event,
+                        submission_meta_out=sub_meta_retry,
+                    )
+                    if sub_meta_retry:
+                        shot_tier_map[s_idx + 1] = dict(sub_meta_retry)
                     worker.prompts_submitted_count += 1
                     await asyncio.sleep(8.0)
                     sub_deadline = time.monotonic() + 180.0
                     while time.monotonic() < sub_deadline:
-                        await client.eval(DISMISS_CREDIT_DIALOG_JS)
-                        cur_ready = int(await client.eval("""(() => {
-                            return Array.from(document.querySelectorAll('flow-video-tile')).filter(
-                                el => !el.querySelector('flow-error-tile') && !/\\b(\\d{1,2}|100)%\\b/.test(el.innerText || '') && Boolean(el.querySelector('button[aria-label*="More" i]'))
-                            ).length;
-                        })()""") or 0)
-                        if cur_ready > prev_ready:
+                        if mode != "zero-credit" and not shared_credit_event.is_set():
+                            await client.eval(DISMISS_CREDIT_DIALOG_JS)
+                        cur_state = await client.eval(f"""(() => {{
+                            const classify = {FLOW_TILE_CLASSIFIER_JS};
+                            const infos = Array.from(document.querySelectorAll('flow-video-tile')).map(el => classify(el));
+                            return {{
+                                ready: infos.filter(x => x.isReady).length,
+                                rendering: infos.filter(x => x.isRendering).length,
+                            }};
+                        }})()""") or {}
+                        if int(cur_state.get("ready") or 0) > prev_ready and int(cur_state.get("rendering") or 0) == 0:
                             break
                         await asyncio.sleep(5.0)
                     # Download newest tile (index 0 in Google Flow grid)
@@ -2083,17 +2416,16 @@ async def run_live_flow_for_single_project(
                         click_ep = time.time()
                         await client.eval("document.body.click()")
                         await asyncio.sleep(0.3)
-                        await client.eval("""(() => {
-                            const validTiles = Array.from(document.querySelectorAll('flow-video-tile')).filter(
-                                el => !el.querySelector('flow-error-tile') && !/\\b(\\d{1,2})%\\b/.test(el.innerText || '') && !/failed|violate/i.test(el.innerText || '')
-                            );
+                        await client.eval(f"""(() => {{
+                            const classify = {FLOW_TILE_CLASSIFIER_JS};
+                            const validTiles = Array.from(document.querySelectorAll('flow-video-tile')).filter(el => classify(el).isReady);
                             const t = validTiles[0];
                             if (!t) return 'no_tile';
-                            t.scrollIntoView({block: 'center', inline: 'center'});
+                            t.scrollIntoView({{block: 'center', inline: 'center'}});
                             const more = t.querySelector('button[aria-label*="More" i]');
-                            if (more) { more.click(); return 'more_clicked'; }
+                            if (more) {{ more.click(); return 'more_clicked'; }}
                             return 'no_more';
-                        })()""")
+                        }})()""")
                         await asyncio.sleep(0.6)
                         await client.eval("""(() => {
                             const items = Array.from(document.querySelectorAll('.cdk-overlay-pane flow-menu-item, .cdk-overlay-pane button, .cdk-overlay-pane [role="menuitem"]'));
@@ -2178,20 +2510,34 @@ async def run_live_flow_for_single_project(
     v_qa_path = screenshots_dir / "visual_qa_report.json"
     v_qa_path.write_text(json.dumps(worker.visual_qa_report, indent=2, ensure_ascii=False), encoding="utf-8")
 
+    for cm in clips_metadata:
+        c_idx_num = int(cm.get("clip_index") or 0)
+        t_meta = shot_tier_map.get(c_idx_num) or default_tier_info
+        if not cm.get("flow_model"):
+            cm["flow_model"] = t_meta["flow_model"]
+        if not cm.get("model"):
+            cm["model"] = cm["flow_model"]
+        if not cm.get("credit_tier"):
+            cm["credit_tier"] = t_meta["credit_tier"]
+
     # Write cryptographic Google Flow provenance receipt (Rule R37 Guard 1 & 6)
-    worker.write_provenance_receipt(clips_metadata=clips_metadata, visual_gates_passed=True)
+    worker.write_provenance_receipt(
+        clips_metadata=clips_metadata,
+        visual_gates_passed=True,
+        engine_mode=mode,
+    )
     prov_check = await asyncio.to_thread(FlowProjectSubagentWorker.validate_provenance_receipt, target_dir)
     if not prov_check.get("valid"):
         raise FlowCircuitBreakerError(f"[{project_id}] Provenance receipt validation failed: {prov_check}")
 
     # 8. Evolve project (assemble 1080x1920 MP4 + A/B/C thumbnails from the N new Google Flow clips)
     # Serialize heavy ffmpeg assembly across concurrent workers in the same wave so CPU/FUSE never thrash
-    loop_id = id(asyncio.get_running_loop())
+    cur_loop = asyncio.get_running_loop()
     if not hasattr(run_live_flow_for_single_project, "_assembly_locks"):
-        run_live_flow_for_single_project._assembly_locks = {}
-    if loop_id not in run_live_flow_for_single_project._assembly_locks:
-        run_live_flow_for_single_project._assembly_locks[loop_id] = asyncio.Lock()
-    async with run_live_flow_for_single_project._assembly_locks[loop_id]:
+        run_live_flow_for_single_project._assembly_locks = weakref.WeakKeyDictionary()
+    if cur_loop not in run_live_flow_for_single_project._assembly_locks:
+        run_live_flow_for_single_project._assembly_locks[cur_loop] = asyncio.Lock()
+    async with run_live_flow_for_single_project._assembly_locks[cur_loop]:
         worker.log(f"Running VideoAutopsyEngine.evolve_project({project_id}, force=True)...")
         evolve_res = await asyncio.to_thread(VideoAutopsyEngine.evolve_project, project_id, True)
 
@@ -2254,7 +2600,9 @@ async def run_live_flow_for_single_project(
     }
 
 
-_TAB_ALLOC_LOCKS: dict[int, asyncio.Lock] = {}
+import weakref as _weakref
+
+_TAB_ALLOC_LOCKS: "_weakref.WeakKeyDictionary[Any, asyncio.Lock]" = _weakref.WeakKeyDictionary()
 
 
 async def regenerate_specific_clips_for_project(
@@ -2262,12 +2610,17 @@ async def regenerate_specific_clips_for_project(
     clip_indices: list[int],
     cdp_port: int = 9222,
     existing_tab_id: str | None = None,
+    engine_mode: str = DEFAULT_FLOW_ENGINE_MODE,
+    credit_exhausted_event: asyncio.Event | None = None,
 ) -> dict[str, Any]:
     """
-    Regenerates ONLY the specified 1-based clip indices (1..N) for a project live in Google Flow Omni 1.1
-    via Naver Whale CDP, downloads the newly rendered MP4 tiles into 03_visuals/flow_downloads/,
-    pre-analyzes them on local SSD before copying to FUSE, and re-runs order_downloaded_flow_clips_for_project.
+    Regenerates ONLY the specified 1-based clip indices (1..N) for a project live in Google Flow
+    under the Credit-Aware Dual-Tier Engine Policy via Naver Whale CDP, downloads newly rendered MP4 tiles
+    into 03_visuals/flow_downloads/, pre-analyzes them on local SSD before copying to FUSE,
+    and re-runs order_downloaded_flow_clips_for_project.
     """
+    mode = _normalize_engine_mode(engine_mode)
+    shared_credit_event = credit_exhausted_event if credit_exhausted_event is not None else asyncio.Event()
     target_dir = PROJECTS_DIR / project_id
     if not target_dir.exists():
         raise FileNotFoundError(f"Project directory not found: {target_dir}")
@@ -2284,10 +2637,10 @@ async def regenerate_specific_clips_for_project(
         return {"project_id": project_id, "regenerated_shots": [], "clips_metadata": clips_meta}
 
     worker = FlowProjectSubagentWorker(project_id=project_id, cdp_port=cdp_port, trigger_generation=True, wait_for_render=True)
-    loop_id = id(asyncio.get_running_loop())
-    if loop_id not in _TAB_ALLOC_LOCKS:
-        _TAB_ALLOC_LOCKS[loop_id] = asyncio.Lock()
-    async with _TAB_ALLOC_LOCKS[loop_id]:
+    cur_loop = asyncio.get_running_loop()
+    if cur_loop not in _TAB_ALLOC_LOCKS:
+        _TAB_ALLOC_LOCKS[cur_loop] = asyncio.Lock()
+    async with _TAB_ALLOC_LOCKS[cur_loop]:
         tab_alloc = await allocate_dedicated_flow_project_tab(cdp_port=cdp_port, existing_tab_id=existing_tab_id, project_id=None)
     worker.tab_id = tab_alloc["tab_id"]
     worker.url = tab_alloc["project_url"]
@@ -2297,7 +2650,11 @@ async def regenerate_specific_clips_for_project(
     try:
         async with DirectCDPClient(ws_url) as client:
             await client.send("Page.enable")
-            await ensure_manual_video_916_mode(client)
+            await ensure_manual_video_916_mode(
+                client,
+                engine_mode=mode,
+                credit_exhausted_event=shared_credit_event,
+            )
 
             pending_shots = list(shots_0based)
             seen_hashes: set[str] = set()
@@ -2309,28 +2666,49 @@ async def regenerate_specific_clips_for_project(
                 if not pending_shots:
                     break
                 worker.log(f"[Targeted Regen Round {attempt_round + 1}/4] Submitting Shots {[s + 1 for s in pending_shots]}...")
-                prev_ready_total = int(await client.eval("""(() => {
-                    return Array.from(document.querySelectorAll('flow-video-tile')).filter(
-                        el => !el.querySelector('flow-error-tile') && !/\\b(\\d{1,2}|100)%\\b/.test(el.innerText || '') && Boolean(el.querySelector('button[aria-label*="More" i]'))
-                    ).length;
-                })()""") or 0)
+                prev_ready_total = int(await client.eval(f"""(() => {{
+                    const classify = {FLOW_TILE_CLASSIFIER_JS};
+                    return Array.from(document.querySelectorAll('flow-video-tile')).filter(el => classify(el).isReady).length;
+                }})()""") or 0)
 
                 submitted_n = 0
                 for sub_start in range(0, len(pending_shots), 3):
                     sub_batch = pending_shots[sub_start : sub_start + 3]
-                    sub_prev_ready = int(await client.eval("""(() => {
-                        return Array.from(document.querySelectorAll('flow-video-tile')).filter(
-                            el => !el.querySelector('flow-error-tile') && !/\\b(\\d{1,2}|100)%\\b/.test(el.innerText || '') && Boolean(el.querySelector('button[aria-label*="More" i]'))
-                        ).length;
-                    })()""") or 0)
+                    settle_deadline = time.monotonic() + 120.0
+                    sub_prev_ready = 0
+                    while time.monotonic() < settle_deadline:
+                        st_pre = await client.eval(f"""(() => {{
+                            const classify = {FLOW_TILE_CLASSIFIER_JS};
+                            const infos = Array.from(document.querySelectorAll('flow-video-tile')).map(el => classify(el));
+                            return {{
+                                ready: infos.filter(x => x.isReady).length,
+                                rendering: infos.filter(x => x.isRendering).length,
+                            }};
+                        }})()""") or {}
+                        sub_prev_ready = int(st_pre.get("ready") or 0)
+                        if int(st_pre.get("rendering") or 0) == 0:
+                            break
+                        await asyncio.sleep(3.0)
                     sub_submitted = 0
                     for idx_i, s_idx in enumerate(sub_batch):
                         shot_prompt = flow_prompts[s_idx]
                         regen_dur = "10s" if attempt_round >= 1 else None
-                        ok = await submit_prompt_in_flow_tab(client, shot_prompt, target_duration=regen_dur)
+                        ok = await submit_prompt_in_flow_tab(
+                            client,
+                            shot_prompt,
+                            target_duration=regen_dur,
+                            engine_mode=mode,
+                            credit_exhausted_event=shared_credit_event,
+                        )
                         if not ok:
                             await asyncio.sleep(5.0)
-                            ok = await submit_prompt_in_flow_tab(client, shot_prompt, target_duration="10s")
+                            ok = await submit_prompt_in_flow_tab(
+                                client,
+                                shot_prompt,
+                                target_duration="10s",
+                                engine_mode=mode,
+                                credit_exhausted_event=shared_credit_event,
+                            )
                         if ok:
                             submitted_n += 1
                             sub_submitted += 1
@@ -2344,18 +2722,16 @@ async def regenerate_specific_clips_for_project(
                     while time.monotonic() < sub_deadline:
                         await asyncio.sleep(5.0)
                         try:
-                            await client.eval(DISMISS_CREDIT_DIALOG_JS)
-                            st = await client.eval("""(() => {
-                                const allTiles = Array.from(document.querySelectorAll('flow-video-tile'));
-                                const validTiles = allTiles.filter(el => {
-                                    if (el.querySelector('flow-error-tile')) return false;
-                                    const txt = (el.innerText || '').toLowerCase();
-                                    return !txt.includes('failed') && !txt.includes('violate') && !txt.includes('error');
-                                });
-                                const readyTiles = validTiles.filter(el => !/\\b(\\d{1,2}|100)%\\b/.test(el.innerText || '') && Boolean(el.querySelector('button[aria-label*="More" i]')));
-                                const renderingTiles = validTiles.filter(el => !readyTiles.includes(el));
-                                return { ready: readyTiles.length, rendering: renderingTiles.length, total: validTiles.length };
-                            })()""") or {}
+                            if mode != "zero-credit" and not shared_credit_event.is_set():
+                                await client.eval(DISMISS_CREDIT_DIALOG_JS)
+                            st = await client.eval(f"""(() => {{
+                                const classify = {FLOW_TILE_CLASSIFIER_JS};
+                                const infos = Array.from(document.querySelectorAll('flow-video-tile')).map(el => classify(el));
+                                const validTiles = infos.filter(x => !x.isError);
+                                const readyTiles = validTiles.filter(x => x.isReady);
+                                const renderingTiles = validTiles.filter(x => x.isRendering);
+                                return {{ ready: readyTiles.length, rendering: renderingTiles.length, total: validTiles.length }};
+                            }})()""") or {}
                         except Exception:
                             continue
                         r_cnt = int(st.get("ready", 0) or 0)
@@ -2376,11 +2752,10 @@ async def regenerate_specific_clips_for_project(
                         last_r = r_cnt
 
                 # Download newly rendered tiles (newest tiles are at index 0..N-1 in Flow grid)
-                total_ready_now = int(await client.eval("""(() => {
-                    return Array.from(document.querySelectorAll('flow-video-tile')).filter(
-                        el => !el.querySelector('flow-error-tile') && !/\\b(\\d{1,2})%\\b/.test(el.innerText || '') && !/failed|violate/i.test(el.innerText || '')
-                    ).length;
-                })()""") or 0)
+                total_ready_now = int(await client.eval(f"""(() => {{
+                    const classify = {FLOW_TILE_CLASSIFIER_JS};
+                    return Array.from(document.querySelectorAll('flow-video-tile')).filter(el => classify(el).isReady).length;
+                }})()""") or 0)
 
                 tiles_to_harvest = min(total_ready_now, max(submitted_n, total_ready_now - prev_ready_total))
                 any_male_harvested = False
@@ -2399,9 +2774,8 @@ async def regenerate_specific_clips_for_project(
                         await client.eval("document.body.click()")
                         await asyncio.sleep(0.25)
                         r_more = await client.eval(f"""(() => {{
-                            const validTiles = Array.from(document.querySelectorAll('flow-video-tile')).filter(
-                                el => !el.querySelector('flow-error-tile') && !/\\b(\\d{{1,2}})%\\b/.test(el.innerText || '') && !/failed|violate/i.test(el.innerText || '')
-                            );
+                            const classify = {FLOW_TILE_CLASSIFIER_JS};
+                            const validTiles = Array.from(document.querySelectorAll('flow-video-tile')).filter(el => classify(el).isReady);
                             const t = validTiles[{tile_idx}];
                             if (!t) return 'no_tile';
                             t.scrollIntoView({{block: 'center', inline: 'center'}});
@@ -2511,6 +2885,12 @@ def main():
     parser.add_argument("--tab-id", default=None, help="Pre-allocated Naver Whale CDP tab target ID")
     parser.add_argument("--cdp-port", type=int, default=9222, help="Naver Whale CDP port (default: 9222)")
     parser.add_argument("--regenerate-clips", default=None, help="Comma-separated 1-based clip indices to regenerate (e.g. 2,3,5)")
+    parser.add_argument(
+        "--engine-mode",
+        choices=list(FLOW_ENGINE_MODES),
+        default=DEFAULT_FLOW_ENGINE_MODE,
+        help="Dual-tier Flow engine mode: 'auto' (Omni 1.1 Flash -> 0-credit fallback), 'omni', or 'zero-credit'",
+    )
     args = parser.parse_args()
 
     if args.regenerate_clips:
@@ -2521,6 +2901,7 @@ def main():
                 clip_indices=indices,
                 cdp_port=args.cdp_port,
                 existing_tab_id=args.tab_id,
+                engine_mode=args.engine_mode,
             )
         )
     else:
@@ -2529,6 +2910,7 @@ def main():
                 project_id=args.project,
                 cdp_port=args.cdp_port,
                 existing_tab_id=args.tab_id,
+                engine_mode=args.engine_mode,
             )
         )
     print(json.dumps(res, indent=2, ensure_ascii=False))

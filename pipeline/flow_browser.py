@@ -9,8 +9,10 @@ import hashlib
 import html
 import json
 import os
+import re
 import subprocess
 import time
+import weakref
 from pathlib import Path
 from typing import Any
 
@@ -20,23 +22,19 @@ from pipeline.config import (
     FLOW_DOWNLOAD_HARVEST_LOCK_FILE,
     FLOW_MAX_PARALLEL_BATCH_SIZE,
     FLOW_MAX_RETRIES,
+    FLOW_PRIMARY_VIDEO_MODEL,
     FLOW_RENDER_POLL_INTERVAL_SEC,
     FLOW_RENDER_TIMEOUT_SEC,
     FLOW_TRIGGER_VERIFY_TIMEOUT_SEC,
+    FLOW_ZERO_CREDIT_MODEL,
+    GOOGLE_FLOW_URL,
     MIN_CLIP_SIZE_BYTES,
     PROJECTS_DIR,
+    WHALE_EXECUTABLE,
 )
 from pipeline.media_integrity import MediaIntegrityError, MediaIntegrityValidator, get_pipeline_logger
 
 logger = get_pipeline_logger("flow_browser")
-
-_WIN_WHALE_EXEC = Path(r"C:\Program Files\Naver\Naver Whale\Application\whale.exe")
-WHALE_EXECUTABLE = (
-    _WIN_WHALE_EXEC
-    if _WIN_WHALE_EXEC.exists() or Path(r"C:\Program Files").exists()
-    else Path("/usr/bin/docker")
-)
-GOOGLE_FLOW_URL = "https://labs.google/fx/tools/flow"
 
 
 class FlowCircuitBreakerError(RuntimeError):
@@ -49,7 +47,7 @@ class FlowDownloadHarvestLock:
     serializing prompt submission and Downloads folder clip harvesting across concurrent subagent workers.
     """
 
-    _async_locks: dict[int, Any] = {}
+    _async_locks: "weakref.WeakKeyDictionary[Any, dict[str, Any]]" = weakref.WeakKeyDictionary()
 
     def __init__(self, lock_path: Path = FLOW_DOWNLOAD_HARVEST_LOCK_FILE, timeout_sec: float = 120.0):
         self.lock_path = Path(lock_path)
@@ -57,19 +55,45 @@ class FlowDownloadHarvestLock:
         self._fh: Any = None
         self._held_async_lock: Any = None
 
+    def _try_flock_nonblocking(self) -> None:
+        if os.name == "nt":
+            import msvcrt
+
+            self._fh.seek(0)
+            msvcrt.locking(self._fh.fileno(), msvcrt.LK_NBLCK, 1)
+        else:
+            import fcntl
+
+            fcntl.flock(self._fh.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+
+    def _unlock_and_close_fh(self) -> None:
+        if self._fh is not None:
+            try:
+                if os.name == "nt":
+                    import msvcrt
+
+                    self._fh.seek(0)
+                    msvcrt.locking(self._fh.fileno(), msvcrt.LK_UNLCK, 1)
+                else:
+                    import fcntl
+
+                    fcntl.flock(self._fh.fileno(), fcntl.LOCK_UN)
+            except OSError:
+                pass
+            finally:
+                try:
+                    self._fh.close()
+                except Exception:
+                    pass
+                self._fh = None
+
     def acquire(self) -> None:
         self.lock_path.parent.mkdir(parents=True, exist_ok=True)
         self._fh = open(self.lock_path, "a+b")
         deadline = time.monotonic() + self.timeout_sec
         while True:
             try:
-                if os.name == "nt":
-                    import msvcrt
-                    self._fh.seek(0)
-                    msvcrt.locking(self._fh.fileno(), msvcrt.LK_NBLCK, 1)
-                else:
-                    import fcntl
-                    fcntl.flock(self._fh.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+                self._try_flock_nonblocking()
                 return
             except OSError:
                 if time.monotonic() >= deadline:
@@ -82,23 +106,17 @@ class FlowDownloadHarvestLock:
                 time.sleep(0.1)
 
     def release(self) -> None:
-        if self._fh is not None:
+        self._unlock_and_close_fh()
+        if self._held_async_lock is not None:
             try:
-                if os.name == "nt":
-                    import msvcrt
-                    self._fh.seek(0)
-                    msvcrt.locking(self._fh.fileno(), msvcrt.LK_UNLCK, 1)
-                else:
-                    import fcntl
-                    fcntl.flock(self._fh.fileno(), fcntl.LOCK_UN)
-            except OSError:
+                if self._held_async_lock.locked():
+                    self._held_async_lock.release()
+            except Exception:
                 pass
-            finally:
-                try:
-                    self._fh.close()
-                except Exception:
-                    pass
-                self._fh = None
+            self._held_async_lock = None
+
+    async def release_async(self) -> None:
+        self._unlock_and_close_fh()
         if self._held_async_lock is not None:
             try:
                 if self._held_async_lock.locked():
@@ -116,30 +134,111 @@ class FlowDownloadHarvestLock:
 
     async def acquire_async(self) -> None:
         import asyncio
+
         loop = asyncio.get_running_loop()
-        loop_id = id(loop)
-        if loop_id not in FlowDownloadHarvestLock._async_locks:
-            FlowDownloadHarvestLock._async_locks[loop_id] = asyncio.Lock()
-        async_lock = FlowDownloadHarvestLock._async_locks[loop_id]
-        await asyncio.wait_for(async_lock.acquire(), timeout=self.timeout_sec)
+        per_loop = FlowDownloadHarvestLock._async_locks.get(loop)
+        if per_loop is None:
+            per_loop = {}
+            FlowDownloadHarvestLock._async_locks[loop] = per_loop
+        lock_key = str(self.lock_path.resolve())
+        async_lock = per_loop.get(lock_key)
+        if async_lock is None:
+            async_lock = asyncio.Lock()
+            per_loop[lock_key] = async_lock
+
+        deadline = time.monotonic() + self.timeout_sec
+        await asyncio.wait_for(async_lock.acquire(), timeout=max(0.05, deadline - time.monotonic()))
         self._held_async_lock = async_lock
+
+        try:
+            self.lock_path.parent.mkdir(parents=True, exist_ok=True)
+            self._fh = open(self.lock_path, "a+b")
+            while True:
+                try:
+                    self._try_flock_nonblocking()
+                    return
+                except OSError:
+                    if time.monotonic() >= deadline:
+                        raise TimeoutError(f"Timed out acquiring OS file lock FlowDownloadHarvestLock: {self.lock_path}")
+                    await asyncio.sleep(0.05)
+        except BaseException:
+            await self.release_async()
+            raise
 
     async def __aenter__(self) -> "FlowDownloadHarvestLock":
         await self.acquire_async()
         return self
 
     async def __aexit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None:
-        self.release()
+        await self.release_async()
+
+
+def _merge_write_visual_qa_report(v_qa_file: Path, updates: dict[str, Any]) -> dict[str, Any]:
+    """
+    Merges gate updates into `visual_qa_report.json` without clobbering existing `gate_v1..v5`
+    entries and writes atomically via a sibling temp file + `os.replace`.
+    """
+    v_qa_file = Path(v_qa_file)
+    v_qa_file.parent.mkdir(parents=True, exist_ok=True)
+    merged: dict[str, Any] = {}
+    if v_qa_file.exists():
+        try:
+            loaded = json.loads(v_qa_file.read_text(encoding="utf-8"))
+            if isinstance(loaded, dict):
+                merged.update(loaded)
+        except Exception:
+            pass
+    for k, v in (updates or {}).items():
+        if k.startswith("gate_v") and isinstance(v, dict) and isinstance(merged.get(k), dict):
+            combined_gate = dict(merged[k])
+            combined_gate.update(v)
+            merged[k] = combined_gate
+        else:
+            merged[k] = v
+    gate_keys = ("gate_v1", "gate_v2", "gate_v3", "gate_v4", "gate_v5")
+    if "all_passed" in merged or all(isinstance(merged.get(gk), dict) for gk in gate_keys):
+        merged["all_passed"] = all(
+            isinstance(merged.get(gk), dict) and merged[gk].get("status") == "PASS"
+            for gk in gate_keys
+        )
+    tmp_path = v_qa_file.with_suffix(f".json.tmp.{os.getpid()}.{int(time.time() * 1000000)}")
+    tmp_path.write_text(json.dumps(merged, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    os.replace(tmp_path, v_qa_file)
+    return merged
 
 
 # Robust JS snippet to auto-dismiss Google Flow credit confirmation dialogs ("Always approve")
-# Detects: "Would you like me to kick off this 1 video generation, costing 15 credits?"
-# and automatically clicks "Always approve" to prevent automation blockage.
+# when running in Omni credit-approved mode.
+# SAFETY:
+#   - Immediately returns null when `window.__bci_flow_forbid_credit_approve === true` (zero-credit mode).
+#   - NEVER clicks "Add AI credits", "Buy credits", "Top up", "Upgrade", or any paid billing link!
 DISMISS_CREDIT_DIALOG_JS = """
 (() => {
+    if (window.__bci_flow_forbid_credit_approve === true) {
+        return null;
+    }
+    const isForbiddenTopUp = (el) => {
+        if (!el) return true;
+        const txt = ((el.getAttribute && (el.getAttribute('aria-label') || el.getAttribute('href'))) || '') + ' ' + (el.innerText || el.textContent || '');
+        const low = txt.trim().toLowerCase();
+        return (
+            low.includes('add ai credits') ||
+            low.includes('add credits') ||
+            low.includes('buy credits') ||
+            low.includes('get credits') ||
+            low.includes('more credits') ||
+            low.includes('top up') ||
+            low.includes('top-up') ||
+            low.includes('purchase') ||
+            low.includes('upgrade') ||
+            low.includes('billing')
+        );
+    };
+
     // 0. Google Flow Angular 18 flow-permission-message radio options ('Always approve' / 'Approve')
     const radioOptions = Array.from(document.querySelectorAll('flow-permission-message [role="radio"], [role="radio"].option-row'));
     const activeAlwaysRadio = radioOptions.find(r => {
+        if (isForbiddenTopUp(r)) return false;
         const label = (r.getAttribute('aria-label') || r.innerText || '').trim().toLowerCase();
         const isReadOnly = r.classList.contains('read-only') || r.getAttribute('aria-disabled') === 'true';
         return !isReadOnly && (label === 'always approve' || label.includes('always approve'));
@@ -149,6 +248,7 @@ DISMISS_CREDIT_DIALOG_JS = """
         return { dismissed: true, button: 'Always approve (radio)', text: activeAlwaysRadio.innerText };
     }
     const activeApproveRadio = radioOptions.find(r => {
+        if (isForbiddenTopUp(r)) return false;
         const label = (r.getAttribute('aria-label') || r.innerText || '').trim().toLowerCase();
         const isReadOnly = r.classList.contains('read-only') || r.getAttribute('aria-disabled') === 'true';
         return !isReadOnly && (label === 'approve' || label.includes('approve'));
@@ -159,8 +259,9 @@ DISMISS_CREDIT_DIALOG_JS = """
     }
 
     // 1. Direct search for 'Always approve' button or element (case-insensitive)
-    const allButtons = Array.from(document.querySelectorAll('button, [role="button"], a, div[role="button"], span[role="button"]'));
+    const allButtons = Array.from(document.querySelectorAll('button, [role="button"], div[role="button"], span[role="button"]'));
     const alwaysBtn = allButtons.find(b => {
+        if (isForbiddenTopUp(b)) return false;
         const t = (b.innerText || b.textContent || '').trim().toLowerCase();
         return t === 'always approve' || t.includes('always approve');
     });
@@ -169,20 +270,28 @@ DISMISS_CREDIT_DIALOG_JS = """
         return { dismissed: true, button: 'Always approve', text: alwaysBtn.innerText };
     }
 
-    // 2. Check for credit popup text anywhere in document or dialogs:
-    // e.g. "Would you like me to kick off this 1 video generation, costing 15 credits?"
+    // 2. Check for credit confirmation popup text (excluding low/out-of-credit top-up banners!)
     const bodyText = (document.body ? document.body.innerText || document.body.textContent || '' : '').toLowerCase();
-    const hasCreditPrompt = bodyText.includes('costing 15 credits') || bodyText.includes('video generation, costing') || bodyText.includes('15 credits');
+    const hasCreditPrompt = (
+        bodyText.includes('costing 15 credits') ||
+        bodyText.includes('costing 12 credits') ||
+        bodyText.includes('costing 20 credits') ||
+        bodyText.includes('video generation, costing')
+    );
 
     // 3. Search in modal/dialog containers
     const dialogs = Array.from(document.querySelectorAll('[role="dialog"], .dialog, .modal, mat-dialog-container, div[aria-modal="true"], .cdk-overlay-pane'));
     for (const dlg of dialogs) {
         const dlgText = (dlg.innerText || dlg.textContent || '').toLowerCase();
-        if (dlgText.includes('credits') || dlgText.includes('approve') || dlgText.includes('generation') || hasCreditPrompt) {
+        if (dlgText.includes('not enough') || dlgText.includes('out of credits') || dlgText.includes('add ai credits')) {
+            continue;
+        }
+        if (dlgText.includes('costing') || dlgText.includes('approve') || hasCreditPrompt) {
             const dBtns = Array.from(dlg.querySelectorAll('button, [role="button"], [role="radio"]'));
             const targetBtn = dBtns.find(b => {
+                if (isForbiddenTopUp(b)) return false;
                 const t = (b.innerText || b.textContent || '').trim().toLowerCase();
-                return t.includes('always approve') || t === 'approve' || t.includes('approve') || t.includes('proceed') || t.includes('confirm') || t.includes('continue');
+                return t.includes('always approve') || t === 'approve' || t.includes('approve') || t.includes('proceed') || t.includes('confirm');
             });
             if (targetBtn) {
                 targetBtn.click();
@@ -191,11 +300,12 @@ DISMISS_CREDIT_DIALOG_JS = """
         }
     }
 
-    // 4. Fallback: if body has credit prompt, click any button with approve/proceed/confirm
+    // 4. Fallback: if body has credit confirmation prompt, click approve/proceed/confirm (never top-up)
     if (hasCreditPrompt) {
         const fallbackBtn = allButtons.find(b => {
+            if (isForbiddenTopUp(b)) return false;
             const t = (b.innerText || b.textContent || '').trim().toLowerCase();
-            return t.includes('always approve') || t.includes('approve') || t.includes('proceed') || t.includes('confirm');
+            return t.includes('always approve') || t === 'approve' || t.includes('approve') || t.includes('proceed') || t.includes('confirm');
         });
         if (fallbackBtn) {
             fallbackBtn.click();
@@ -205,6 +315,88 @@ DISMISS_CREDIT_DIALOG_JS = """
 
     return null;
 })()
+"""
+
+# Inspects Flow composer & overlays (excluding user prompt text / tile prompt captions) for credit exhaustion.
+CHECK_CREDIT_EXHAUSTION_JS = """
+(() => {
+    const warnBtn = document.querySelector('button.prompt-warning-button');
+    const uiNodes = Array.from(document.querySelectorAll(
+        'button.prompt-warning-button, flow-prompt-box-settings, .cdk-overlay-pane, [role="alert"], [role="status"], mat-snack-bar-container, [class*="warning"], [class*="banner"]'
+    ));
+    const phrases = [
+        'not enough credits',
+        'not enough ai credits',
+        'out of credits',
+        'out of ai credits',
+        '0 credits remaining',
+        'no credits remaining',
+        'insufficient credits',
+        'insufficient ai credits',
+        'add ai credits'
+    ];
+    let matchedPhrase = '';
+    for (const node of uiNodes) {
+        if (node.closest && (node.closest('.ProseMirror') || node.closest('flow-video-tile'))) continue;
+        const clone = node.cloneNode(true);
+        clone.querySelectorAll?.('.ProseMirror, [class*="prompt-text"], flow-video-tile').forEach(n => n.remove());
+        const txt = (clone.innerText || clone.textContent || '').toLowerCase();
+        for (const p of phrases) {
+            if (txt.includes(p)) {
+                matchedPhrase = p;
+                break;
+            }
+        }
+        if (matchedPhrase) break;
+    }
+    const warnLabel = warnBtn ? ((warnBtn.getAttribute('aria-label') || warnBtn.innerText || 'prompt-warning-button').trim()) : '';
+    return {
+        has_warning_btn: Boolean(warnBtn),
+        warning_label: warnLabel,
+        credit_banner: matchedPhrase,
+        exhausted: Boolean(warnBtn) || Boolean(matchedPhrase),
+    };
+})()
+"""
+
+# Evaluates a `<flow-video-tile>` without being poisoned by prompt caption words ("prediction error", "failed recall", etc.).
+FLOW_TILE_CLASSIFIER_JS = """
+((el) => {
+    if (!el) {
+        return { isError: true, isReady: false, isRendering: false, pct: null, videoSrc: '', topKey: '', statusText: '' };
+    }
+    const hasErrSelector = Boolean(
+        el.querySelector('flow-error-tile, [class*="error-tile"], [class*="error-state"], [data-error="true"]')
+    );
+    const clone = el.cloneNode(true);
+    clone.querySelectorAll(
+        'video, img, svg, p, figcaption, .ProseMirror, [class*="prompt"], [data-testid*="prompt"]'
+    ).forEach(n => n.remove());
+    const statusText = (clone.innerText || clone.textContent || '').replace(/\\s+/g, ' ').trim().toLowerCase();
+    const errorPhrases = [
+        "couldn't generate",
+        "could not generate",
+        "failed to generate",
+        "generation failed",
+        "unable to generate",
+        "something went wrong",
+        "violates",
+        "policy violation",
+        "safety policy"
+    ];
+    const hasErrPhrase = errorPhrases.some(ph => statusText.includes(ph));
+    const isError = hasErrSelector || hasErrPhrase;
+    const pctMatch = statusText.match(/\\b(\\d{1,2}|100)%\\b/);
+    const pct = pctMatch ? pctMatch[0] : null;
+    const hasMoreBtn = Boolean(el.querySelector('button[aria-label*="More" i]'));
+    const vid = el.querySelector('video[src^="https://"]');
+    const img = el.querySelector('img[src]');
+    const videoSrc = (vid && vid.src) ? vid.src : '';
+    const topKey = videoSrc || ((img && img.src) ? img.src : '');
+    const isReady = !isError && !pct && hasMoreBtn;
+    const isRendering = !isError && !isReady;
+    return { isError, isReady, isRendering, pct, videoSrc, topKey, statusText };
+})
 """
 
 
@@ -281,6 +473,9 @@ class FlowProjectSubagentWorker:
         clips_metadata: list[dict[str, Any]] | None = None,
         visual_gates_passed: bool | None = None,
         project_dir: Path | None = None,
+        flow_model: str | None = None,
+        zero_credit_verified: bool | None = None,
+        engine_mode: str | None = None,
     ) -> Path:
         """
         Guard 1 & Guard 6 (R37): Writes cryptographic Google Flow Provenance Receipt
@@ -295,7 +490,10 @@ class FlowProjectSubagentWorker:
             clips_metadata = []
             native_dir = visuals_dir / "flow_native_clips"
             if native_dir.exists():
-                mp4s = sorted([f for f in native_dir.glob("clip_*.mp4") if f.is_file()])
+                mp4s = sorted(
+                    [f for f in native_dir.glob("clip_*.mp4") if f.is_file()],
+                    key=lambda fp: int(re.search(r"(\d+)", fp.stem).group(1)) if re.search(r"(\d+)", fp.stem) else 999,
+                )
                 for idx, mp4 in enumerate(mp4s, 1):
                     st = mp4.stat()
                     clips_metadata.append({
@@ -321,18 +519,44 @@ class FlowProjectSubagentWorker:
             else:
                 visual_gates_passed = False
 
-        payload = {
+        seen_models: list[str] = []
+        for cm in clips_metadata:
+            m_name = str(cm.get("flow_model") or cm.get("model") or "").strip()
+            if m_name and m_name not in seen_models:
+                seen_models.append(m_name)
+        resolved_model = flow_model or (
+            seen_models[0] if len(seen_models) == 1 else (" -> ".join(seen_models) if seen_models else FLOW_PRIMARY_VIDEO_MODEL)
+        )
+        if zero_credit_verified is None:
+            zero_credit_verified = bool(
+                clips_metadata
+                and all(
+                    str(cm.get("credit_tier") or "") == "zero_credit_fallback"
+                    or str(cm.get("flow_model") or cm.get("model") or "") == FLOW_ZERO_CREDIT_MODEL
+                    for cm in clips_metadata
+                )
+            )
+
+        payload: dict[str, Any] = {
             "project_id": self.project_id,
             "worker_id": self.worker_id,
             "subagent_1_to_1_bound": bool(self.subagent_1_to_1_bound),
+            "flow_model": resolved_model,
+            "model": resolved_model,
+            "zero_credit_verified": bool(zero_credit_verified),
             "flow_project_url": self.url,
             "tab_target_id": self.tab_id,
             "prompts_submitted_count": max(self.prompts_submitted_count, len(clips_metadata)),
             "clips": clips_metadata,
             "visual_gates_passed": bool(visual_gates_passed),
         }
-        with open(receipt_path, "w", encoding="utf-8") as f:
-            json.dump(payload, f, indent=2, ensure_ascii=False)
+        if engine_mode:
+            payload["engine_mode"] = str(engine_mode)
+        if seen_models:
+            payload["models_used"] = seen_models
+        tmp_rcpt = receipt_path.with_suffix(f".json.tmp.{os.getpid()}.{int(time.time() * 1000000)}")
+        tmp_rcpt.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        os.replace(tmp_rcpt, receipt_path)
         return receipt_path
 
     @classmethod
@@ -904,7 +1128,7 @@ class FlowProjectSubagentWorker:
                         pass
 
                     # 7. Layer 1A: Inject Shot 1 prompt with real InputEvent and verify Generate button enabled
-                    with FlowDownloadHarvestLock():
+                    async with FlowDownloadHarvestLock():
                         inject_res = await self.inject_prompt_and_enable_button(client, p1)
 
                     # Proactively clear credit confirmation popup if already present
@@ -1076,10 +1300,9 @@ class FlowProjectSubagentWorker:
                         "target_dir": v5_report.get("target_dir", "")
                     }
 
-                    # Save visual QA report (all V1-V5 gates)
+                    # Save visual QA report (merge into existing V1-V5 gates without clobbering)
                     v_qa_file = screenshots_dir / "visual_qa_report.json"
-                    with open(v_qa_file, "w", encoding="utf-8") as f:
-                        json.dump(self.visual_qa_report, f, indent=2, ensure_ascii=False)
+                    self.visual_qa_report = _merge_write_visual_qa_report(v_qa_file, self.visual_qa_report)
 
                     if v5_report.get("valid_clips_count", 0) >= 5 and "flow.google.com/project/" in (self.url or ""):
                         self.write_provenance_receipt()
@@ -1135,17 +1358,75 @@ class GoogleFlowWhaleController:
     """
 
     def __init__(self, whale_path: Path = WHALE_EXECUTABLE):
-        self.whale_path = whale_path
-        if not self.whale_path.exists():
+        self.whale_path = Path(whale_path)
+        if not self.whale_path.exists() and (self.whale_path != WHALE_EXECUTABLE or os.name == "nt"):
             raise FileNotFoundError(f"Naver Whale executable not found at {self.whale_path}")
 
-    def launch_flow_tab(self, project_id: str | None = None) -> bool:
-        """Launches visible Naver Whale browser directly to Google Flow."""
+    def ensure_whale_running(self, cdp_port: int = 9222) -> bool:
+        """
+        Ensures the visible Naver Whale / CDP browser endpoint is reachable.
+        On Linux Docker-bridge hosts (`whale_path.name == 'docker'` or no local browser binary),
+        connects to the existing CDP endpoint rather than spawning `/usr/bin/docker --remote-debugging-port=...`.
+        """
+        import urllib.request
+
+        try:
+            with urllib.request.urlopen(f"http://127.0.0.1:{cdp_port}/json/version", timeout=3) as resp:
+                if resp.status == 200:
+                    return True
+        except Exception:
+            pass
+
+        if self.whale_path.name.lower() == "docker" or (os.name != "nt" and not self.whale_path.exists()):
+            return False
+
+        try:
+            subprocess.Popen([str(self.whale_path), f"--remote-debugging-port={cdp_port}"])
+            for _ in range(10):
+                time.sleep(0.5)
+                try:
+                    with urllib.request.urlopen(f"http://127.0.0.1:{cdp_port}/json/version", timeout=2) as resp:
+                        if resp.status == 200:
+                            return True
+                except Exception:
+                    pass
+        except Exception:
+            return False
+        return False
+
+    def _open_urls_in_whale_or_cdp(self, urls: list[str], cdp_port: int = 9222) -> bool:
+        """Opens URLs via existing CDP port when bridged (`docker` / remote container) and never spawns `/usr/bin/docker`."""
+        import urllib.parse
+        import urllib.request
+
+        if self.whale_path.name.lower() == "docker" or (os.name != "nt" and not self.whale_path.exists()):
+            opened_any = False
+            for u in urls:
+                if not u or u.startswith("file://"):
+                    continue
+                req = urllib.request.Request(
+                    f"http://127.0.0.1:{cdp_port}/json/new?{urllib.parse.quote(u, safe=':/?&=%')}",
+                    method="PUT",
+                )
+                with urllib.request.urlopen(req, timeout=6) as resp:
+                    if resp.status == 200:
+                        opened_any = True
+            return opened_any
+
+        if not self.whale_path.exists():
+            return False
+        subprocess.Popen([str(self.whale_path), *urls])
+        return True
+
+    def launch_flow_tab(self, project_id: str | None = None, cdp_port: int = 9222) -> bool:
+        """Launches visible Naver Whale browser directly to Google Flow (via CDP on Docker-bridged Linux hosts)."""
         url = GOOGLE_FLOW_URL
         print(f"[WhaleController] Launching visible Naver Whale at {url}...")
         try:
-            cmd = [str(self.whale_path), url]
-            subprocess.Popen(cmd)
+            ok = self._open_urls_in_whale_or_cdp([url], cdp_port=cdp_port)
+            if not ok:
+                print(f"[ERROR] Naver Whale / CDP endpoint unavailable ({self.whale_path})")
+                return False
             time.sleep(2.0)
             print("[WhaleController] Naver Whale launched successfully.")
             return True
@@ -1341,8 +1622,7 @@ class GoogleFlowWhaleController:
 
         if launch_whale:
             print("[WhaleController] Opening All-in-One Assistant and Google Flow in Naver Whale...")
-            cmd = [str(self.whale_path), file_url, GOOGLE_FLOW_URL]
-            subprocess.Popen(cmd)
+            self._open_urls_in_whale_or_cdp([file_url, GOOGLE_FLOW_URL])
 
         return {
             "project_id": project_id,
@@ -2024,6 +2304,47 @@ class GoogleFlowWhaleController:
             or (receipt_file.exists() and receipt_file.stat().st_size > 200)
         )
 
+        vp_file = proj_base / "03_visuals" / "visual_plan.json"
+        is_diorama_proj = False
+        diorama_schema_ver = 6
+        diorama_style_profile = ""
+        diorama_is_porcelain = False
+        diorama_clip_grammars: dict[int, str] = {}
+        diorama_clip_brain_modes: dict[int, str] = {}
+        if vp_file.exists():
+            try:
+                from pipeline.config import (
+                    PROMPT_SCHEMA_VERSION_V7,
+                    is_diorama_profile,
+                    is_diorama_v7_plan,
+                    is_porcelain_v7_plan,
+                    resolve_diorama_v7_style_profile,
+                )
+
+                vp_doc = json.loads(vp_file.read_text(encoding="utf-8"))
+                vp_schema = int(vp_doc.get("schema") or vp_doc.get("schema_version") or 0)
+                is_diorama_proj = is_diorama_profile(vp_doc.get("profile")) or vp_schema >= 6
+                if is_diorama_proj:
+                    diorama_schema_ver = PROMPT_SCHEMA_VERSION_V7 if is_diorama_v7_plan(vp_doc) else max(6, vp_schema)
+                    diorama_is_porcelain = bool(is_porcelain_v7_plan(vp_doc))
+                    if diorama_schema_ver >= PROMPT_SCHEMA_VERSION_V7:
+                        diorama_style_profile = resolve_diorama_v7_style_profile(vp_doc)
+                    for idx_c, c_spec in enumerate(vp_doc.get("clips") or [], start=1):
+                        if isinstance(c_spec, dict):
+                            diorama_clip_grammars[idx_c] = str(c_spec.get("grammar") or "")
+                            if diorama_is_porcelain:
+                                from pipeline.depiction_rules import normalize_porcelain_v7_brain_mode
+
+                                diorama_clip_brain_modes[idx_c] = normalize_porcelain_v7_brain_mode(
+                                    c_spec.get("brain_mode"),
+                                    render_mode=c_spec.get("render_mode"),
+                                    scene_text=c_spec.get("scene"),
+                                )
+                            else:
+                                diorama_clip_brain_modes[idx_c] = str(c_spec.get("brain_mode") or "")
+            except Exception:
+                is_diorama_proj = False
+
         for f in mp4_files:
             sz = f.stat().st_size
             is_valid = sz >= MIN_CLIP_SIZE_BYTES and FlowProjectSubagentWorker.is_valid_video_asset_url(f.name, "video/mp4")
@@ -2033,8 +2354,44 @@ class GoogleFlowWhaleController:
                     if deep_probe or not has_autopsy_cache:
                         MediaIntegrityValidator.verify_not_synthetic_derivative(f, strict=True)
                     if deep_probe:
-                        probe_res = MediaIntegrityValidator.validate_video_file(f, min_size_bytes=MIN_CLIP_SIZE_BYTES, check_motion=True)
-                        probe_info["probe"] = probe_res
+                        if is_diorama_proj:
+                            from pipeline.flow_diorama_sharded_worker import inspect_diorama_clip_cv
+                            from pipeline.media_integrity import MediaIntegrityError
+
+                            m_num = re.search(r"(\d+)", f.stem)
+                            c_idx = int(m_num.group(1)) if m_num else 0
+                            default_g = (
+                                ("porcelain_fullbleed_world" if diorama_is_porcelain else "lowpoly_fullbleed_world")
+                                if diorama_schema_ver >= 7
+                                else "arch_cutaway_diorama"
+                            )
+                            g_name = diorama_clip_grammars.get(c_idx) or default_g
+                            if diorama_schema_ver >= 7 and diorama_is_porcelain:
+                                from pipeline.depiction_rules import normalize_porcelain_v7_grammar
+
+                                g_name = normalize_porcelain_v7_grammar(g_name)
+                            b_mode = diorama_clip_brain_modes.get(c_idx) or ""
+                            probe_res = MediaIntegrityValidator.validate_video_file(
+                                f, min_size_bytes=MIN_CLIP_SIZE_BYTES, check_motion=False
+                            )
+                            cv_rep = inspect_diorama_clip_cv(
+                                f,
+                                grammar=g_name,
+                                schema_version=diorama_schema_ver,
+                                brain_mode=b_mode,
+                                style_profile=diorama_style_profile,
+                            )
+                            probe_res["diorama_cv"] = cv_rep
+                            if not cv_rep.get("passed"):
+                                raise MediaIntegrityError(
+                                    f"Diorama CV gate failed on {f.name} ({g_name}): {cv_rep.get('reason') or cv_rep.get('reasons')}"
+                                )
+                            probe_info["probe"] = probe_res
+                        else:
+                            probe_res = MediaIntegrityValidator.validate_video_file(
+                                f, min_size_bytes=MIN_CLIP_SIZE_BYTES, check_motion=True
+                            )
+                            probe_info["probe"] = probe_res
                 except Exception as exc:
                     is_valid = False
                     probe_info["valid"] = False
@@ -2150,26 +2507,25 @@ class GoogleFlowWhaleController:
                         v5_tag = "[Gate V5: PASS]" if dest_native.stat().st_size >= MIN_CLIP_SIZE_BYTES else "[Gate V5: FAIL < 1MB]"
                         print(f"[WhaleController] Ingested Clip {idx} (mtime sort): {candidate.name} -> {dest_native.name} ({sz_mb:.2f} MB) {v5_tag}")
 
-        # Persist Gate V5 check into visual_qa_report.json
+        # Persist Gate V5 check into visual_qa_report.json without clobbering gate_v1..v4
         try:
             screenshots_dir = proj_dir / "03_visuals" / "flow_screenshots"
             screenshots_dir.mkdir(parents=True, exist_ok=True)
             v_qa_file = screenshots_dir / "visual_qa_report.json"
-            v_report = {}
-            if v_qa_file.exists():
-                with open(v_qa_file, "r", encoding="utf-8") as f:
-                    v_report = json.load(f)
             v5_status = self.verify_flow_native_clips_v5(project_id, deep_probe=deep_probe)
-            v_report["gate_v5"] = {
-                "name": "Gate V5: Lossless Ingest MP4 Integrity (> 1MB)",
-                "status": v5_status["status"],
-                "valid_clips_count": v5_status["valid_clips_count"],
-                "invalid_clips_count": v5_status["invalid_clips_count"],
-                "passed": v5_status["passed"],
-                "target_dir": v5_status.get("target_dir", "")
-            }
-            with open(v_qa_file, "w", encoding="utf-8") as f:
-                json.dump(v_report, f, indent=2, ensure_ascii=False)
+            _merge_write_visual_qa_report(
+                v_qa_file,
+                {
+                    "gate_v5": {
+                        "name": "Gate V5: Lossless Ingest MP4 Integrity (> 1MB)",
+                        "status": v5_status["status"],
+                        "valid_clips_count": v5_status["valid_clips_count"],
+                        "invalid_clips_count": v5_status["invalid_clips_count"],
+                        "passed": v5_status["passed"],
+                        "target_dir": v5_status.get("target_dir", ""),
+                    }
+                },
+            )
         except Exception:
             pass
 
@@ -2286,23 +2642,18 @@ class GoogleFlowWhaleController:
                 gate_status = "PASS" if is_ready else ("PENDING" if export_info.get("has_stop_btn") else "NOT_READY")
 
                 v_qa_file = screenshots_dir / "visual_qa_report.json"
-                v_report = {}
-                if v_qa_file.exists():
-                    try:
-                        with open(v_qa_file, "r", encoding="utf-8") as f:
-                            v_report = json.load(f)
-                    except Exception:
-                        v_report = {}
-
-                v_report["gate_v4"] = {
-                    "name": "Gate V4: Video Complete & Export Readiness",
-                    "status": gate_status,
-                    "export_ready": is_ready,
-                    "export_info": export_info,
-                    "screenshot": str(v4_img)
-                }
-                with open(v_qa_file, "w", encoding="utf-8") as f:
-                    json.dump(v_report, f, indent=2, ensure_ascii=False)
+                _merge_write_visual_qa_report(
+                    v_qa_file,
+                    {
+                        "gate_v4": {
+                            "name": "Gate V4: Video Complete & Export Readiness",
+                            "status": gate_status,
+                            "export_ready": is_ready,
+                            "export_info": export_info,
+                            "screenshot": str(v4_img),
+                        }
+                    },
+                )
 
                 return {
                     "gate": "V4",

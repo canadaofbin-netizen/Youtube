@@ -1,0 +1,755 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "kandel_aplysia_synaptic_plasticity",
+  "topic": "Eric Kandel (1970-2000) Marine Snail Nerve-Bridge Discovery, Spaced Gene Activation, and Doubled Terminal Growth (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Conserved gene-switched structural nerve growth confirmed from marine snails to mammalian hippocampus, earning the Nobel Prize in Physiology or Medicine.",
+  "outro_title_lines": [
+    "ERIC KANDEL (1970)",
+    "NEW YORK MEMORY LAB"
+  ],
+  "thumbnail": {
+    "hook_text": "SEA SLUG MEMORY",
+    "cover_sentence_index": 3,
+    "cover_brief": "Centered pastel lavender-sage low-poly marine snail sculpture inside a shallow clear basin on a cool mist-white bench"
+  },
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "ELECTRIC SPARKS?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "SEA SLUG MEMORY"
+    },
+    {
+      "sentence_index": 10,
+      "text": "GIANT CELLS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "CHEMICAL DIAL"
+    },
+    {
+      "sentence_index": 27,
+      "text": "DOUBLED WIRING"
+    },
+    {
+      "sentence_index": 35,
+      "text": "HUMAN SWITCH"
+    },
+    {
+      "sentence_index": 43,
+      "text": "SPACED GROWTH"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "ELECTRIC SPARKS?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "SEA SLUG MEMORY"
+    },
+    {
+      "sentence_index": 10,
+      "text": "GIANT CELLS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "CHEMICAL DIAL"
+    },
+    {
+      "sentence_index": 27,
+      "text": "DOUBLED WIRING"
+    },
+    {
+      "sentence_index": 35,
+      "text": "HUMAN SWITCH"
+    },
+    {
+      "sentence_index": 43,
+      "text": "SPACED GROWTH"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 29,
+      "mode": "split_hstack",
+      "left_clip_index": 32,
+      "right_clip_index": 33,
+      "left_label": "PRUNED: SPARSE",
+      "right_label": "SPACED: DOUBLED"
+    }
+  ],
+  "clips": [
+    {
+      "clip_index": 1,
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue lab coat sleeves and cool porcelain-white gloved low-poly hands adjusting a brushed-silver waveform dial on a slate-stone bench",
+      "prop_action": "cool porcelain-white gloved low-poly hands turn a smooth silver knob and tap a pale sage switch beside an unmarked pastel wave screen",
+      "consequence": "a pale sky-blue wave ripple fades quickly across the blank pastel panel"
+    },
+    {
+      "clip_index": 2,
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "cool mist-white coat sleeves and cool porcelain-white gloved low-poly hands hovering above two pastel fiber rods",
+      "prop_action": "cool porcelain-white gloved low-poly hands slide two smooth powder-blue fiber rods closer together and lift a slender silver pointer",
+      "consequence": "the gap between the two pastel rods stays still under soft diffused daylight"
+    },
+    {
+      "clip_index": 3,
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "two geometric pastel nerve branches meeting across a cool mist-white studio channel",
+      "internal_mechanism": "fresh sage-green low-poly branch tips sprout outward and lock cleanly onto the receiving powder-blue branch"
+    },
+    {
+      "clip_index": 4,
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "sunlit New York neurobiology laboratory with slate-stone benches, brushed-silver stands, and a centered clear shallow basin holding a pastel lavender-sage marine snail sculpture",
+      "action": "viewed strictly from behind, a low-poly figure in a crisp mist-white lab coat walks to the central bench and places both gloved hands beside the clear basin"
+    },
+    {
+      "clip_index": 5,
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "mist-white lab coat sleeves and cool porcelain-white gloved low-poly hands steadying a clear shallow basin on a slate-stone mat",
+      "prop_action": "cool porcelain-white gloved low-poly hands slide the clear basin forward and set a slender silver sensor rod beside the pastel lavender-sage snail model",
+      "consequence": "clear water ripples gently around the faceted pastel marine snail sculpture"
+    },
+    {
+      "clip_index": 6,
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "archive_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "cool slate-and-sage physiology studio lined with tall racks of dense tangled pastel wire models",
+      "action": "viewed strictly from behind, two low-poly figures in slate coats and caps lean toward a dense lattice model and trace its crowded threads with gloved hands"
+    },
+    {
+      "clip_index": 7,
+      "sentence_index": 5,
+      "end_sentence_index": 6,
+      "act": 1,
+      "location_id": "archive_corridor",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "clean_pullback_reveal",
+      "structure": "vast geometric lattice of thousands of interwoven pale-lavender and powder-blue low-poly filaments filling a cool slate frame",
+      "internal_mechanism": "a tiny soft sage pulse weaves into the dense geometric web and disappears inside the crowded tangle"
+    },
+    {
+      "clip_index": 8,
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "bright New York lab room with powder-blue cabinets, cool slate-stone worktable, and a single clear marine basin",
+      "action": "viewed strictly from behind, a low-poly figure in a navy jacket and lab coat sets aside a tangled wire cube and lifts the clear marine basin onto the center stand"
+    },
+    {
+      "clip_index": 9,
+      "sentence_index": 8,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "marine_basin_bench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands holding a smooth clear water pitcher over a slate-stone tray",
+      "prop_action": "cool porcelain-white gloved low-poly hands tilt the pitcher and pour clear cool water around the pastel lavender-sage marine snail sculpture",
+      "consequence": "smooth geometric gill folds open calmly beneath the clear surface"
+    },
+    {
+      "clip_index": 10,
+      "sentence_index": 8,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "marine_basin_bench",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands lowering a brushed-silver viewing lens above the clear basin",
+      "prop_action": "cool porcelain-white gloved low-poly hands steady the round silver lens frame and slide it smoothly above the pastel snail sculpture",
+      "consequence": "large round pastel nerve spheres gleam softly inside the open geometric model"
+    },
+    {
+      "clip_index": 11,
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "archive_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "sunlit physiology hallway with powder-blue doors and a glass window overlooking the marine bench",
+      "action": "viewed strictly from behind, two low-poly figures in grey coats shake their shoulders and walk past while the lone researcher in a mist-white coat stays working at the basin"
+    },
+    {
+      "clip_index": 12,
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "marine_basin_bench",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "bright marine physiology bench with a clear shallow tray, dual brushed-silver sensor arms, and a blank pastel wave screen",
+      "action": "elevated wide view from behind showing a low-poly researcher in a mist-white coat who lifts and slides two silver sensor arms above the pastel marine snail model"
+    },
+    {
+      "clip_index": 13,
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "marine_basin_bench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands pointing a slender silver stylus toward a cluster of large pastel spheres",
+      "prop_action": "cool porcelain-white gloved low-poly hands guide the silver stylus tip across a neat cluster of oversized sage-and-lavender low-poly nerve spheres",
+      "consequence": "each distinct pastel sphere sits clearly separated on the slate-stone tray"
+    },
+    {
+      "clip_index": 14,
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "marine_basin_bench",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "cool slate-stone studio tabletop holding a sharpened powder-blue low-poly graphite pencil tip right beside a single round pale-sage nerve sphere of matching width",
+      "comparison_action": "the sharpened low-poly graphite pencil tip slides forward and rests cleanly next to the matching pastel sphere for direct side-by-side scale"
+    },
+    {
+      "clip_index": 15,
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves under mist-white cuffs and cool porcelain-white gloved low-poly hands resting beside a clear dish",
+      "prop_action": "cool porcelain-white gloved low-poly hands rotate the clear dish slightly and align two fine glass sensor rods over one large pastel sphere",
+      "consequence": "the oversized pastel cell remains clearly visible without high magnification"
+    },
+    {
+      "clip_index": 16,
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_right",
+      "structure": "clean architectural circuit diagram of twenty-four powder-blue touch filaments converging onto six sage-green movement nodes",
+      "internal_mechanism": "a smooth sky-blue light wave travels cleanly along the powder-blue filaments straight into the six sage-green nodes"
+    },
+    {
+      "clip_index": 17,
+      "sentence_index": 15,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "marine_basin_bench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mist-white lab coat sleeves and cool porcelain-white gloved low-poly hands squeezing a smooth unmarked glass water dropper",
+      "prop_action": "cool porcelain-white gloved low-poly hands press the soft lavender bulb and release a gentle clear water jet onto the snail model spout",
+      "consequence": "tiny concentric pastel ripples spread across the clear water dish"
+    },
+    {
+      "clip_index": 18,
+      "sentence_index": 15,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "marine_basin_bench",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "tilt_down",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands holding the glass water dropper steady beside the basin",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift the glass dropper slightly and steady the rim of the clear tray",
+      "consequence": "the pleated sage-green gill fan folds briskly inward in a crisp protective reflex"
+    },
+    {
+      "clip_index": 19,
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and cool porcelain-white gloved low-poly hands tapping ten smooth pastel beads along a counting rail",
+      "prop_action": "cool porcelain-white gloved low-poly hands slide the tenth powder-blue bead across a brushed-silver bar and squeeze the water dropper gently",
+      "consequence": "the pleated sage-green gill fan stays calm and open inside the clear basin"
+    },
+    {
+      "clip_index": 20,
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_left",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands tracing a shrinking pastel wave on a slate display",
+      "prop_action": "cool porcelain-white gloved low-poly hands move a silver pointer from a tall sage peak down to a low gentle ripple and tap the tray edge",
+      "consequence": "fewer tiny pale-mint spheres drift across the pastel nerve bridge model"
+    },
+    {
+      "clip_index": 21,
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "archive_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "cool slate physiology room with stacks of blank pastel strip-chart rolls and a looping wire ring model on a table",
+      "action": "viewed strictly from behind, a low-poly researcher in a slate blazer sets down a looping wire ring and folds both gloved hands behind the back"
+    },
+    {
+      "clip_index": 22,
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "marine_basin_bench",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mist-white lab coat sleeves and cool porcelain-white gloved low-poly hands touching a smooth silver wand to the tail end of the pastel snail model",
+      "prop_action": "cool porcelain-white gloved low-poly hands tap the smooth silver wand gently at the rear edge of the snail sculpture and lift it back",
+      "consequence": "the pleated sage-green gill fan pulls inward sharply with renewed strength"
+    },
+    {
+      "clip_index": 23,
+      "sentence_index": 20,
+      "end_sentence_index": 21,
+      "act": 3,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands turning a smooth sage-green volume dial upward on a silver console",
+      "prop_action": "cool porcelain-white gloved low-poly hands rotate the sage-green dial clockwise and point toward an existing pastel nerve tip model",
+      "consequence": "a dense cloud of pale-mint messenger spheres pours out of the single existing nerve tip"
+    },
+    {
+      "clip_index": 24,
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "locked_tripod",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "somatosensory cortex",
+      "anatomy_label": "SOMATOSENSORY CORTEX\nTOUCH MAP",
+      "brain_scene": "Along the upper lateral postcentral strip, the somatosensory cortex glows soft sky-blue with a gentle surface pulse that dials up briefly and settles smoothly"
+    },
+    {
+      "clip_index": 25,
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "powder-blue coat sleeves and cool porcelain-white gloved low-poly hands sweeping away loose pale-mint spheres from a slate tray",
+      "prop_action": "cool porcelain-white gloved low-poly hands brush the loose pastel spheres aside and turn the silver dial back to baseline",
+      "consequence": "the single pastel nerve tip returns unchanged to its starting shape"
+    },
+    {
+      "clip_index": 26,
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "marine_basin_bench",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "sunlit New York lab bench displaying four evenly spaced pastel timer blocks lined up behind the clear snail basin",
+      "action": "viewed strictly from behind, a low-poly researcher in a mist-white coat slides four spaced sage-green blocks along a silver track and presses the water dropper"
+    },
+    {
+      "clip_index": 27,
+      "sentence_index": 25,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands sliding four spaced pastel tokens toward a central cell model",
+      "prop_action": "cool porcelain-white gloved low-poly hands push the fourth sage-green token into place and tap the central lavender core sphere",
+      "consequence": "the central lavender core lights with a steady soft cyan-blue glow"
+    },
+    {
+      "clip_index": 28,
+      "sentence_index": 25,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "gentle_push_in",
+      "structure": "cross-section of a large pastel low-poly nerve cell showing an outer membrane, smooth channel, and central spherical core",
+      "internal_mechanism": "four spaced sky-blue waves travel all the way into the central core sphere and send fresh sage-green building blocks back down the branch"
+    },
+    {
+      "clip_index": 29,
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "microscope_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "cool mist-white electron microscope suite with a tall brushed-silver imaging column and powder-blue side consoles",
+      "action": "viewed strictly from behind, two low-poly researchers in mist-white coats slide a pastel specimen tray into the tall silver microscope column and lean forward"
+    },
+    {
+      "clip_index": 30,
+      "sentence_index": 27,
+      "act": 4,
+      "location_id": "microscope_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mist-white lab coat sleeves and cool porcelain-white gloved low-poly hands turning two brushed-silver focus wheels on the microscope desk",
+      "prop_action": "cool porcelain-white gloved low-poly hands rotate both silver focus wheels smoothly and lift a crisp pastel relief plate",
+      "consequence": "a sharp geometric silhouette of branching nerve tips resolves on the blank pastel display"
+    },
+    {
+      "clip_index": 31,
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "microscope_suite",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands holding a baseline pastel branch model over a slate mat",
+      "prop_action": "cool porcelain-white gloved low-poly hands place a modest powder-blue nerve branch sculpture onto the center of the cool slate mat and trace its tips",
+      "consequence": "a moderate cluster of neat geometric terminal buds rests steadily on the table"
+    },
+    {
+      "clip_index": 32,
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "microscope_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate coat sleeves and cool porcelain-white gloved low-poly hands setting a sparse pruned pastel branch model onto a pale ash tray",
+      "prop_action": "cool porcelain-white gloved low-poly hands place the thinned pale-lavender branch sculpture down and tap its retracted buds",
+      "consequence": "only a sparse handful of short pastel buds touch the receiving bar"
+    },
+    {
+      "clip_index": 33,
+      "sentence_index": 29,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "microscope_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands setting a lush doubled sage-green branch model onto a cool cream tray",
+      "prop_action": "cool porcelain-white gloved low-poly hands lower the dense doubled sage-green branch sculpture and press it firmly onto the receiving bar",
+      "consequence": "twice as many geometric terminal buds lock solidly across the connection bar"
+    },
+    {
+      "clip_index": 34,
+      "sentence_index": 30,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "microscope_suite",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands aligning baseline and doubled pastel branch sculptures side by side",
+      "prop_action": "cool porcelain-white gloved low-poly hands slide the dense sage-green branch model beside the smaller powder-blue baseline model and tap both",
+      "consequence": "new geometric twigs visibly fan out to double the baseline width"
+    },
+    {
+      "clip_index": 35,
+      "sentence_index": 30,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "microscope_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "sunlit microscope suite with the tall brushed-silver column and a large tabletop model of doubled sage-green nerve terminals",
+      "action": "viewed strictly from behind, two low-poly researchers in mist-white lab coats step closer and trace the wide doubled terminal tree with gloved hands"
+    },
+    {
+      "clip_index": 36,
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "microscope_suite",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "tilt_up",
+      "analogy_world": "open pastel courtyard garden featuring a full sage-green low-poly tree canopy sprouting fresh symmetrical outer twigs against a pale sky-blue backdrop",
+      "comparison_action": "fresh geometric sage-green branches open and rise smoothly across the wide tree canopy to double its lush crown"
+    },
+    {
+      "clip_index": 37,
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands sliding a matte slate gate across a pastel protein channel model",
+      "prop_action": "cool porcelain-white gloved low-poly hands lower the smooth slate gate block into the channel slot and press it shut",
+      "consequence": "sage-green structural blocks stop flowing down the pastel branch while surface mint spheres still shimmer"
+    },
+    {
+      "clip_index": 38,
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "clean slate-stone studio desk holding a blank square powder-blue paper sticky note resting on a brushed-silver stand",
+      "comparison_action": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands press the blank powder-blue sticky note onto the silver stand and lift one corner gently upward"
+    },
+    {
+      "clip_index": 39,
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "tilt_down",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands lifting the slate gate beside an unbranched pastel nerve model",
+      "prop_action": "cool porcelain-white gloved low-poly hands slide a silver pointer past the blocked channel and tap the unbranched pastel tip",
+      "consequence": "no extra terminal buds appear along the smooth powder-blue nerve tip"
+    },
+    {
+      "clip_index": 40,
+      "sentence_index": 35,
+      "act": 5,
+      "location_id": "archive_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "bright pastel lecture hall with cool slate benches and two side-by-side low-poly models comparing a snail nerve ring and a human brain hemisphere",
+      "action": "elevated wide view from behind showing low-poly researchers in navy and mist-white coats stepping toward the paired pedestal models and raising gloved hands"
+    },
+    {
+      "clip_index": 41,
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "archive_corridor",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands comparing a small pastel snail model and a sculpted ivory brain model",
+      "prop_action": "cool porcelain-white gloved low-poly hands lift a silver divider bar between the two pastel models and set it aside on the slate desk",
+      "consequence": "a matching sage-green pathway bridge aligns cleanly beneath both models"
+    },
+    {
+      "clip_index": 42,
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "HIPPOCAMPUS\nMEMORY MAKER",
+      "brain_scene": "Deep inside the medial temporal curve, the curved C-shaped hippocampus glows soft cyan-blue and sprouts crisp sage-green structural ridges along its inner arch"
+    },
+    {
+      "clip_index": 43,
+      "sentence_index": 38,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands lining up three matching sage-green molecular key blocks on a slate tray",
+      "prop_action": "cool porcelain-white gloved low-poly hands snap three identical geometric sage-green key blocks into a brushed-silver comparison rail and tap the end",
+      "consequence": "all three pastel key blocks illuminate with the same soft cyan-blue rim"
+    },
+    {
+      "clip_index": 44,
+      "sentence_index": 38,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "mist-white coat sleeves and cool porcelain-white gloved low-poly hands sliding a silver bridge bar across all three sage-green key blocks",
+      "prop_action": "cool porcelain-white gloved low-poly hands lock the brushed-silver bar neatly over the three aligned pastel blocks and lift the hand back",
+      "consequence": "doubled pastel branch models stand identically beside each block"
+    },
+    {
+      "clip_index": 45,
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "locked_tripod",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "white matter",
+      "anatomy_label": "WHITE MATTER\nNERVE CABLES",
+      "brain_scene": "Beneath the folded warm-ivory cortex, sweeping internal white matter fiber bundles glow calm sage-blue as steady structural tracts thicken smoothly"
+    },
+    {
+      "clip_index": 46,
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "archive_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "grand sunlit pastel ceremonial hall with cool slate columns, powder-blue banners without text, and a central podium holding a smooth silver medallion case",
+      "action": "viewed strictly from behind, a low-poly figure in a dark navy suit steps up to the podium and lifts the open silver medallion case toward the bright skylight"
+    },
+    {
+      "clip_index": 47,
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "sunlit New York laboratory with the clear marine snail basin beside the doubled sage-green nerve terminal sculpture",
+      "action": "viewed strictly from behind, three low-poly researchers in mist-white lab coats gather around the bench, raise their gloved hands slightly, and lean toward the doubled terminal model"
+    },
+    {
+      "clip_index": 48,
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "study_desk_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved low-poly hands stacking thick blank pastel notebooks onto a cool slate desk",
+      "prop_action": "cool porcelain-white gloved low-poly hands pile four blank pale-lavender notebooks into one tall stack and push them aside",
+      "consequence": "the tall single stack tips slightly on the smooth slate mat"
+    },
+    {
+      "clip_index": 49,
+      "sentence_index": 43,
+      "act": 6,
+      "location_id": "study_desk_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved low-poly hands pouring clear water across loose pale-mint beads on a slate tray",
+      "prop_action": "cool porcelain-white gloved low-poly hands tilt a small silver cup and rinse loose pale-mint beads off an unbranched pastel rod",
+      "consequence": "the loose beads wash away leaving the smooth rod bare"
+    },
+    {
+      "clip_index": 50,
+      "sentence_index": 44,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "study_desk_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green jacket sleeves and cool porcelain-white gloved low-poly hands spacing four blank pastel study cards evenly across a cool cream desk",
+      "prop_action": "cool porcelain-white gloved low-poly hands place four crisp sage-green study cards at even intervals along the desk and tap each card",
+      "consequence": "four steady pastel markers sit cleanly spaced across the desk"
+    },
+    {
+      "clip_index": 51,
+      "sentence_index": 44,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "study_desk_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "sage-green jacket sleeves and cool porcelain-white gloved low-poly hands connecting a branched sage-green model beside the four spaced cards",
+      "prop_action": "cool porcelain-white gloved low-poly hands snap a fresh sage-green branch piece onto a pastel nerve stem and press it secure",
+      "consequence": "the doubled pastel branch locks firmly upright on the desk"
+    },
+    {
+      "clip_index": 52,
+      "sentence_index": 45,
+      "end_sentence_index": 46,
+      "act": 6,
+      "location_id": "study_desk_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "quiet pastel bedroom-study in soft cool twilight-blue daylight with a neat slate desk, four spaced sage cards, and a tidy low-poly bed",
+      "action": "elevated wide view from behind showing a low-poly figure in a soft powder-blue sweater closing a blank notebook on the desk and stepping calmly toward the bed"
+    },
+    {
+      "clip_index": 53,
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "locked_tripod",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "HIPPOCAMPUS\nMEMORY MAKER",
+      "brain_scene": "Along the medial temporal arch, the hippocampus glows serene sage-cyan with crisp doubled geometric ridges holding steady across the inner curve"
+    },
+    {
+      "clip_index": 54,
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "study_desk_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "sage-green jacket sleeves and cool porcelain-white gloved low-poly hands opening a clean blank powder-blue practice notebook on a slate desk",
+      "prop_action": "cool porcelain-white gloved low-poly hands open the blank pastel notebook flat and pick up a smooth brushed-silver stylus",
+      "consequence": "clean unlined cream pages lie ready beside four spaced pastel tabs"
+    },
+    {
+      "clip_index": 55,
+      "sentence_index": 49,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "study_desk_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green jacket sleeves and cool porcelain-white gloved low-poly hands separating one long pastel bar into four short equal blocks",
+      "prop_action": "cool porcelain-white gloved low-poly hands pull a long powder-blue bar apart into four equal short segments and slide them evenly across the slate mat",
+      "consequence": "four neat short blocks sit with calm breathing room between them"
+    },
+    {
+      "clip_index": 56,
+      "sentence_index": 49,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "study_desk_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green jacket sleeves and cool porcelain-white gloved low-poly hands tapping the fourth spaced block beside a lush pastel branch sculpture",
+      "prop_action": "cool porcelain-white gloved low-poly hands tap the final short block and hold the wide sage-green terminal tree model",
+      "consequence": "every geometric bud stands firm and balanced in crisp daylight"
+    },
+    {
+      "clip_index": 57,
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "sunlit New York neurobiology lab with the clear marine snail basin paired beside the lush doubled sage-green nerve terminal sculpture",
+      "action": "viewed strictly from behind, a low-poly researcher in a mist-white coat walks calmly to the sunlit bench and places one gloved hand beside the doubled branch model"
+    },
+    {
+      "clip_index": 58,
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "ny_snail_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "wide sunlit New York memory laboratory opening upward toward tall pastel skylights and clean pale-sky architectural rafters",
+      "action": "elevated wide view from behind showing the researcher in a mist-white coat standing motionless beside the marine basin and doubled branch sculpture as daylight fills the high ceiling"
+    }
+  ]
+}

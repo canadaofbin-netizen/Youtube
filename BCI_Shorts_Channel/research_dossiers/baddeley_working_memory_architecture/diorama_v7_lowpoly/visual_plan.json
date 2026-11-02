@@ -1,0 +1,696 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "baddeley_working_memory_architecture",
+  "topic": "Alan Baddeley & Graham Hitch (1974) Eight-Digit Dual-Task Reasoning Study, Multi-Component Working Memory Architecture, Two-Second Phonological Loop, and 2000 Episodic Buffer (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Cross-modality dual-task dissociation of 3D spatial rotation versus verbal suppression followed by Alan Baddeley's 2000 discovery of the fourth Episodic Buffer binding 16-word multimodal chunks.",
+  "outro_title_lines": [
+    "BADDELEY & HITCH (1974)",
+    "STIRLING & CAMBRIDGE"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "ONE TINY BOX?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FOUR BRAIN ROOMS?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "EIGHT DIGITS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "ACTIVE WORKSHOP"
+    },
+    {
+      "sentence_index": 27,
+      "text": "TWO SECOND TAPE"
+    },
+    {
+      "sentence_index": 35,
+      "text": "ROOM COLLISION"
+    },
+    {
+      "sentence_index": 43,
+      "text": "SKETCH LISTS"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "ONE TINY BOX?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FOUR BRAIN ROOMS?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "EIGHT DIGITS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "ACTIVE WORKSHOP"
+    },
+    {
+      "sentence_index": 27,
+      "text": "TWO SECOND TAPE"
+    },
+    {
+      "sentence_index": 35,
+      "text": "ROOM COLLISION"
+    },
+    {
+      "sentence_index": 43,
+      "text": "SKETCH LISTS"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 39,
+      "mode": "split_hstack",
+      "left_clip_index": 43,
+      "right_clip_index": 44,
+      "left_label": "SHAPE + HUM: SMOOTH",
+      "right_label": "TWO VOICES: JAMMED"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "highway_cockpit_rig",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray cotton jacket sleeves and matte-white gloved low-poly driver hands extending from the bottom frame edge inside a sunlit car interior",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand reaches to the car radio dial on the dashboard and turns the silver volume knob sharply down while the left hand grips the steering wheel",
+      "consequence": "pastel sound bars on the car radio fade to quiet stillness"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "highway_cockpit_rig",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit pastel highway cloverleaf interchange with curving pale-stone exit ramps under clear morning sky",
+      "action": "a sky-blue low-poly sedan steers smoothly onto the curving right-hand highway exit lane and glides along the ramp"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "knit olive sweater sleeves and cool porcelain-white gloved low-poly hands tapping eight pastel rhythm pegs while pressing a green response button",
+      "prop_action": "one cool porcelain-white gloved low-poly hand taps across eight colored wooden pegs in sequence while the other hand presses a crisp sage response key",
+      "consequence": "a warm green indicator lamp glows steadily on the response console"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray corduroy blazer sleeves and cool porcelain-white gloved low-poly hands placing crisp logic flashcards onto an slate-stone testing desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift a stack of ivory flashcards and align them beside a brushed-silver stopwatch",
+      "consequence": "the neat flashcard stack and silver timer gleam in window daylight"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a sunlit British cognitive psychology room with an slate-stone testing table and a four-room architectural model on an easel",
+      "action": "viewed strictly from behind, two clothed low-poly psychologists in dove-gray tweed blazers stand beside the slate-stone desk and place flashcards before a seated volunteer in an olive sweater"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "tweed jacket sleeves and cool porcelain-white gloved low-poly hands opening a thick bound ivory reference volume on a desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands open the heavy ivory volume and point to a single-box schematic diagram",
+      "consequence": "only one narrow square box sits drawn in the center of the page"
+    },
+    {
+      "sentence_index": 5,
+      "end_sentence_index": 6,
+      "act": 1,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy cardigan sleeves and cool porcelain-white gloved low-poly hands filling a small pale-maple wooden box divided into seven narrow slots",
+      "prop_action": "both cool porcelain-white gloved low-poly hands drop seven pastel wooden marbles into the seven-slot wooden box until an eighth marble rolls off the full rim",
+      "consequence": "the cramped seven-slot wooden box overflows completely"
+    },
+    {
+      "sentence_index": 7,
+      "end_sentence_index": 8,
+      "act": 1,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white clinic coat sleeves and cool porcelain-white gloved low-poly hands sliding a gray divider across the wooden box leaving only two open slots",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides the gray wooden partition shut over five slots while the other places two sky-blue marbles into the remaining two slots",
+      "consequence": "only two tiny slots remain open inside the narrow tray"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue shirt sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over a wooden chessboard",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift a wooden knight piece and place it decisively into a winning square beside the two-slot tray",
+      "consequence": "the wooden chess pieces stand in a crisp strategic pattern"
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit neurology consultation study with tall arched windows and a puzzle table",
+      "action": "viewed strictly from behind, the clothed low-poly patient in a sky-blue sweater sits calmly sliding and placing geometric puzzle tiles while a clinician in a white coat writes notes"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright Scottish university psychology lab with rows of testing cubicles, slate-stone desks, and brushed-silver timers",
+      "action": "viewed strictly from behind, clothed low-poly adult volunteers in knit sweaters walk in and sit at the response consoles as the two researchers distribute card stacks"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray corduroy blazer sleeves and cool porcelain-white gloved low-poly hands packing eight coral pegs tightly into the seven-slot wooden box",
+      "prop_action": "both cool porcelain-white gloved low-poly hands press eight coral wooden pegs against the brimming seven-slot box on the slate-stone table",
+      "consequence": "the eighth coral peg perches right atop the packed row"
+    },
+    {
+      "sentence_index": 12,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "olive sweater cuffs and cool porcelain-white gloved low-poly hands sliding an ivory strip holding eight pastel color dots onto a stand",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift the eight-dot vocal strip onto the desk holder and tap a steady rhythm beside a microphone",
+      "consequence": "pastel acoustic rings ripple steadily around the desk microphone"
+    },
+    {
+      "sentence_index": 12,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Stirling testing desk with a brushed-silver desk microphone and two-button console",
+      "action": "viewed strictly from behind, the seated clothed low-poly volunteer in an olive sweater leans toward the desk microphone keeping a steady beat with their left hand"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "olive sweater sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over the two-button console",
+      "prop_action": "the left cool porcelain-white gloved low-poly hand flips open a crisp logic card showing two geometric tiles while the right hand presses the sage confirmation key",
+      "consequence": "the sage confirmation lamp lights cleanly on the console"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster tabletop holding a round sage felt pad and a gleaming unnumbered brushed-silver coin",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in blazer sleeves flip the brushed-silver coin high above the pad and catch it as it lands flat"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "gentle_push_in",
+      "analogy_world": "a sunlit pale-stone studio wall mounting a circular pastel cork dartboard with concentric sky-blue, amber, and coral rings",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in tweed sleeves hold and arc feathered pastel darts that strike and land tightly inside the center coral bullseye"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-maple tabletop supporting an open minimalist wooden clock frame with a gleaming brushed-brushed-silver pendulum bob",
+      "comparison_action": "a cool porcelain-white gloved low-poly hand in a coat sleeve releases the brushed-silver pendulum bob so it swings and arcs smoothly across one single beat"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "dove-gray tweed blazer cuffs and cool porcelain-white gloved low-poly hands tracing a flat high green accuracy bar on an ivory chart",
+      "prop_action": "one cool porcelain-white gloved low-poly hand holds the brushed-silver stopwatch while the other traces the level sage accuracy bar across the sheet",
+      "consequence": "the sage bar stays high and unbroken from start to finish"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit Stirling psychology lab with the tiny seven-slot box pushed aside beside the high accuracy chart",
+      "action": "viewed strictly from behind, the two clothed low-poly psychologists in tweed blazers stand side by side lifting away the outdated single-box board from the easel"
+    },
+    {
+      "sentence_index": 19,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray blazer sleeves and cool porcelain-white gloved low-poly hands sliding away a single narrow wooden shelf model",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift the cramped narrow wooden shelf off the desk and set it aside",
+      "consequence": "the sunlit slate-stone tabletop opens wide and clear"
+    },
+    {
+      "sentence_index": 19,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_right",
+      "structure": "a bright pastel architectural cutaway model of an active multi-room workshop with a central director desk, sound booth, and drafting table",
+      "internal_mechanism": "pastel sky-blue and warm-amber light strips glide smoothly along walkways connecting the central desk to the separate rooms"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed blazer sleeves and cool porcelain-white gloved low-poly hands arranging three color-coded architectural room blocks on an easel tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place a warm-gold central block above a sky-blue sound block and a sage spatial block",
+      "consequence": "the three distinct pastel workshop modules lock cleanly into a triangle"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "Broca's area",
+      "anatomy_label": "BROCA'S AREA\nSPEECH CENTER",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the left frontal side of the matte warm-ivory 3D brain model behind the temple, sky-blue facets cycle in a steady rhythmic loop across Broca's area"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL PFC\nMENTAL SCRATCHPAD",
+      "camera": "pan_right",
+      "brain_scene": "across the upper outer sides of the front lobe on the matte warm-ivory 3D brain model, warm amber-gold facets shine clearly across the dorsolateral prefrontal cortex"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nSPATIAL MAP",
+      "camera": "locked_tripod",
+      "brain_scene": "along the upper rear crown of the matte warm-ivory 3D brain model, soft sage-green facets illuminate the parietal cortex in a clean geometric grid"
+    },
+    {
+      "sentence_index": 24,
+      "end_sentence_index": 25,
+      "act": 3,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "the bright pastel cutaway workshop model showing the sky-blue sound booth and the warm-gold central director studio side by side",
+      "internal_mechanism": "a sky-blue reel spins briskly inside the left sound booth while golden logic tiles slide smoothly into place on the separate central desk"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "dove-gray corduroy cuffs and cool porcelain-white gloved low-poly hands holding a brushed-silver stopwatch beside a miniature sky-blue audio reel",
+      "prop_action": "one cool porcelain-white gloved low-poly hand presses the silver stopwatch crown while the other holds up the compact sky-blue tape loop",
+      "consequence": "the silver sweep hand begins a crisp two-beat arc"
+    },
+    {
+      "sentence_index": 27,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed blazer sleeves and cool porcelain-white gloved low-poly hands setting five short sky-blue tiles beside five long coral bars on a desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align five compact sky-blue square tiles on the left and place five elongated coral bars on the right",
+      "consequence": "the five long coral bars stretch over twice the length of the short tiles"
+    },
+    {
+      "sentence_index": 27,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit Stirling testing room with the short-tile tray, long-bar tray, and silver timer on the slate-stone desk",
+      "action": "viewed strictly from behind, a clothed low-poly volunteer in a burgundy sweater leans forward inspecting both trays while the researcher clicks a silver stopwatch"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster counter holding a matte-ivory ceramic cup and five smooth sky-blue river pebbles",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in sweater sleeves lift and drop all five smooth pebbles cleanly inside the ceramic cup with room to spare"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit pale-stone bench holding a shallow pastel wooden serving tray stacked with long coral blocks",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in shirt sleeves lift and tilt the overloaded wooden tray so half of the long coral blocks drop and roll across the bench"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "burgundy sweater sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over the desk",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand slides three long coral bars onto a narrow track while two remaining coral bars drop off the end",
+      "consequence": "the short track runs out of space before the fourth long bar fits"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "gentle_push_in",
+      "analogy_world": "a sunlit cool-alabaster audio bench featuring a compact open-reel pastel tape deck threaded with a short endless sky-blue magnetic tape loop",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in blazer sleeves press the play key and watch the short sky-blue tape loop turn one quick lap across both reels"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-sand pedestal holding a brushed-silver millisecond timer beside an upright gloved low-poly hand",
+      "comparison_action": "a cool porcelain-white gloved low-poly hand in a crisp navy sleeve lifts and snaps thumb against middle finger briskly as a tiny amber spark ring pops"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands fitting ten tiny sky-blue bead tiles snugly onto the short circular tape ring",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place and align all ten compact sky-blue bead tiles neatly around the circular track",
+      "consequence": "all ten fast bead tiles fit effortlessly inside the same short ring"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray tweed sleeves and cool porcelain-white gloved low-poly hands setting the brushed-silver stopwatch beside the circular sky-blue loop",
+      "prop_action": "one cool porcelain-white gloved low-poly hand closes the silver stopwatch lid while the other hand taps the aligned circular loop",
+      "consequence": "timing speed clearly governs the full pastel ring"
+    },
+    {
+      "sentence_index": 35,
+      "act": 5,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright modern cognitive ergonomics laboratory with dual-task workbenches and wooden 3D block puzzles",
+      "action": "viewed strictly from behind, clothed low-poly researchers in blazers walk beside seated volunteers testing wooden puzzle blocks and desk microphones"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over a workbench",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift two L-shaped 3D wooden blocks and turn them smoothly in midair beside a gentle tuning fork",
+      "consequence": "the rotated wooden blocks align cleanly at matching angles"
+    },
+    {
+      "sentence_index": 37,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater cuffs and cool porcelain-white gloved low-poly hands clicking interlocking 3D wooden blocks together",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide and snap two L-shaped pale-maple blocks into a solid cube beside a pulsing sky-blue speaker cone",
+      "consequence": "the assembled wooden cube sits flush on the mat"
+    },
+    {
+      "sentence_index": 37,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit ergonomics workbench with a desk microphone and completed 3D wooden sculptures",
+      "action": "viewed strictly from behind, the seated clothed low-poly volunteer in a sage sweater stacks another 3D block sculpture smoothly without hesitation"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "the pastel workshop cutaway model displaying the sky-blue sound booth and the sage drafting room operating side by side",
+      "internal_mechanism": "a sky-blue sound wheel turns smoothly on the left while a sage 3D block model rotates independently on the right without touching"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over wooden 3D blocks",
+      "prop_action": "both cool porcelain-white gloved low-poly hands turn and fit two pale-maple 3D blocks together smoothly beside a single sky-blue sound wave",
+      "consequence": "the spatial assembly finishes cleanly on the left side"
+    },
+    {
+      "sentence_index": 39,
+      "cut_role": "split_right",
+      "act": 5,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "coral cardigan sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over two colliding story folders",
+      "prop_action": "both cool porcelain-white gloved low-poly hands try to slide two separate ivory reading sheets onto one narrow stand until the pages jam and scatter",
+      "consequence": "the overloaded verbal stand tips sideways in tangles"
+    },
+    {
+      "sentence_index": 40,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal tweed blazer sleeves and cool porcelain-white gloved low-poly hands adding a fourth lavender central studio block to the three-room model",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift the faceted lavender buffer module and snap it cleanly into the heart of the three pastel rooms",
+      "consequence": "all four pastel workshop rooms glow connected together"
+    },
+    {
+      "sentence_index": 40,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit Cambridge seminar study displaying the upgraded four-room pastel architectural workshop model on a central slate-stone table",
+      "action": "viewed strictly from behind, the senior clothed low-poly psychologist in a charcoal blazer places the fourth lavender room module while colleagues lean in around the table"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit Cambridge cognitive laboratory surrounding the illuminated four-room architectural table",
+      "action": "viewed strictly from behind, clothed low-poly neuroscientists and psychologists in blazers stand around the four-room model and gesture admiringly across its connected bridges"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "charcoal blazer cuffs and cool porcelain-white gloved low-poly hands interlocking sky-blue sound tiles and sage picture tiles inside the lavender tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide sixteen alternating sky-blue and sage tiles into one cohesive story bar inside the lavender frame",
+      "consequence": "the unified sixteen-tile story bar gleams as one whole piece"
+    },
+    {
+      "sentence_index": 43,
+      "act": 6,
+      "location_id": "highway_cockpit_rig",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "an elevated view from behind a sky-blue low-poly car approaching a complex multi-lane pastel highway interchange with orange detour cones",
+      "action": "the sky-blue low-poly car slows gently before the branching highway lanes and aligns cleanly toward the detour ramp"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL PFC\nFOCUS DIRECTOR",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper front sides of the matte warm-ivory 3D brain model, bright warm-gold facets concentrate intensely across the dorsolateral prefrontal cortex"
+    },
+    {
+      "sentence_index": 45,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "highway_cockpit_rig",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray jacket sleeves and matte-white gloved low-poly driver hands extending from the bottom frame edge inside the sunlit cabin",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand clicks the car radio dial off completely and returns to grip the steering wheel firmly",
+      "consequence": "the dashboard settles into calm distraction-free clarity"
+    },
+    {
+      "sentence_index": 45,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "highway_cockpit_rig",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray jacket sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge on the steering wheel",
+      "prop_action": "both cool porcelain-white gloved low-poly hands steer the wheel smoothly rightward as the sunlit detour lane opens ahead through the windshield",
+      "consequence": "the car glides centered along the clean exit curve"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "highway_cockpit_rig",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "casual navy sweater sleeves and cool porcelain-white gloved low-poly hands juggling four loose sky-blue sound tokens in one palm",
+      "prop_action": "one cool porcelain-white gloved low-poly hand tries to hold four slippery sky-blue tokens at once as one token slips onto the desk",
+      "consequence": "the loose spoken tokens scatter easily without a pad"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "highway_cockpit_rig",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy sweater cuffs and cool porcelain-white gloved low-poly hands watching a stray coral sound ring bump six sky-blue pegs off a narrow stand",
+      "prop_action": "a cool porcelain-white gloved low-poly hand reaches to catch the six sky-blue pegs as the incoming coral ring sweeps the narrow stand bare",
+      "consequence": "the fragile verbal stand sits completely wiped clean"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nVISUAL HELPER",
+      "camera": "locked_tripod",
+      "brain_scene": "across the upper rear parietal cortex of the matte warm-ivory 3D brain model, calm sage-green and warm-gold facets connect smoothly forward"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "highway_cockpit_rig",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy sweater sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over a sunlit study desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands sketch four clean geometric step icons down an ivory notepad with a brushed-silver pen",
+      "consequence": "four crisp visual checklist boxes anchor the plan on paper"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit psychology room where the four-room pastel workshop model and the four-icon notepad rest side by side on the slate-stone desk",
+      "action": "viewed strictly from behind, clothed low-poly researchers and students stand calmly beside the bright tall windows overlooking the campus"
+    },
+    {
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "stirling_psych_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a sunlit stone university courtyard in Cambridge with green lawns, arched cloisters, and a clear pastel morning sky",
+      "action": "viewed strictly from behind, clothed low-poly scholars in tweed jackets walk calmly across the sunlit stone path as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "FOUR BRAIN ROOMS?",
+    "cover_sentence_index": 3,
+    "cover_brief": "pastel four-room architectural memory workshop miniature beside logic cards on a sunlit psychology desk"
+  }
+}

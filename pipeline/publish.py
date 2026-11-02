@@ -13,6 +13,8 @@ from typing import Any
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 from pipeline.config import (
+    DIORAMA_V7_STYLE_PROFILE,
+    FONT_CONDENSED_BLACK_PATH,
     FONT_FALLBACK_PATH,
     FONT_PRIMARY_PATH,
     RGB_DANGER_RED,
@@ -20,9 +22,16 @@ from pipeline.config import (
     RGB_NEUTRAL_WHITE,
     RGB_SECONDARY_TEAL,
     RGB_SIGNAL_GOLD,
+    TITLE_MAX_CHARS_DIORAMA,
     VIDEO_HEIGHT,
     VIDEO_WIDTH,
+    is_diorama_profile,
+    is_diorama_v7_plan,
 )
+try:
+    from pipeline.media_integrity import numeric_clip_sort_key  # type: ignore[attr-defined]
+except ImportError:
+    from pipeline.storage import numeric_clip_sort_key
 from pipeline.storage import ProjectStorage
 from pipeline.studio.config import (
     CHANNEL_RESIDENCE_COUNTRY,
@@ -34,6 +43,36 @@ from pipeline.studio.config import (
     VIDEO_LANGUAGE_CODE,
     VIDEO_LANGUAGE_LABEL,
 )
+
+
+def build_diorama_paradox_title(clause_1: str, clause_2: str) -> str:
+    """
+    R60 2-Clause US English Paradox Title Builder (`<= TITLE_MAX_CHARS_DIORAMA`):
+      `[Clause 1: Shocking Concrete Anomaly / Number], [Clause 2: Hidden Brain / Psychological Reality]`
+    """
+    c1 = str(clause_1 or "").strip().rstrip(".,;:")
+    c2 = str(clause_2 or "").strip().rstrip(".")
+    joined = f"{c1}, {c2}" if (c1 and c2) else (c1 or c2)
+    if len(joined) > TITLE_MAX_CHARS_DIORAMA:
+        joined = joined[: TITLE_MAX_CHARS_DIORAMA - 3].rstrip() + "..."
+    return joined
+
+
+def validate_diorama_paradox_title(title: str) -> list[str]:
+    """Validates R60 2-clause US English paradox title (`100% ASCII/en-US`, comma/dash pivot, `<= TITLE_MAX_CHARS_DIORAMA`)."""
+    t = str(title or "").strip()
+    issues: list[str] = []
+    if not t:
+        return ["[title] empty title (R60)"]
+    if len(t) > TITLE_MAX_CHARS_DIORAMA:
+        issues.append(f"[title] length {len(t)} > {TITLE_MAX_CHARS_DIORAMA} chars (R60)")
+    if re.search(r"[\uAC00-\uD7A3\u3130-\u318F]", t):
+        issues.append("[title] non-English Hangul characters forbidden in ALL ABOUT BRAIN title (R36/R60)")
+    if not any(sep in t for sep in (",", "—", " - ", ":")):
+        issues.append("[title] 2-Clause Paradox Title must split Clause 1 and Clause 2 with a comma or dash (R60)")
+    if "#" in t:
+        issues.append("[title] inline hashtags forbidden in Neuro-Diorama 2-Clause Paradox Title (R60)")
+    return issues
 
 
 class PublishStage:
@@ -102,24 +141,31 @@ class PublishStage:
         valid_clips: list[Path] = []
         if flow_clips_dir.exists():
             valid_clips = [
-                c for c in sorted(flow_clips_dir.glob("*.mp4"))
+                c for c in sorted(flow_clips_dir.glob("*.mp4"), key=numeric_clip_sort_key)
                 if c.is_file() and c.stat().st_size >= 1_000_000
             ]
         if not valid_clips and vis_dir.exists():
             valid_clips = [
-                c for c in sorted(vis_dir.glob("_staged_clip_*.mp4"))
+                c for c in sorted(vis_dir.glob("_staged_clip_*.mp4"), key=numeric_clip_sort_key)
                 if c.is_file() and c.stat().st_size >= 1_000_000
             ]
         if valid_clips:
+            n_clips = len(valid_clips)
             ref_a = _extract_video_frame(valid_clips[0], pos_ratio=0.30)
             if v_upper == "A" and ref_a is not None:
                 return ref_a
 
+            mid_idx = min(n_clips - 1, n_clips // 2)
+            mid_next_idx = min(n_clips - 1, max(mid_idx, int(n_clips * 0.60)))
+            climax_idx = min(n_clips - 1, max(0, int(n_clips * 0.85)))
+            last_idx = n_clips - 1
+            act2_idx = min(n_clips - 1, max(1 if n_clips > 1 else 0, int(n_clips * 0.25)))
+
             if v_upper == "B":
-                pref_indices = [min(2, len(valid_clips) - 1), min(3, len(valid_clips) - 1), min(1, len(valid_clips) - 1), len(valid_clips) - 1]
+                pref_indices = list(dict.fromkeys([mid_idx, mid_next_idx, act2_idx, climax_idx, last_idx]))
                 ratios = [0.55, 0.75, 0.25]
             else:  # Variant C
-                pref_indices = [len(valid_clips) - 1, min(3, len(valid_clips) - 1), min(1, len(valid_clips) - 1), min(2, len(valid_clips) - 1)]
+                pref_indices = list(dict.fromkeys([climax_idx, last_idx, mid_next_idx, mid_idx, act2_idx]))
                 ratios = [0.70, 0.45, 0.85]
 
             best_img: Image.Image | None = None
@@ -157,9 +203,25 @@ class PublishStage:
         fallback_color = RGB_DEEP_NAVY if v_upper == "A" else ((14, 38, 68) if v_upper == "B" else (32, 14, 28))
         return Image.new("RGB", (VIDEO_WIDTH, VIDEO_HEIGHT), fallback_color)
 
+    def _resolve_thumbnail_font(self) -> tuple[Path, str]:
+        """Selects bundled condensed black font for Schema v7 / Neuro-Diorama parity, falling back to primary."""
+        vp_data = self.storage.load_json("03_visuals", "visual_plan.json") or {}
+        scr_data = self.storage.load_json("02_script", "script.json") or {}
+        use_condensed = (
+            is_diorama_v7_plan(vp_data)
+            or is_diorama_v7_plan(scr_data)
+            or is_diorama_profile(vp_data)
+            or is_diorama_profile(scr_data)
+        )
+        if use_condensed and FONT_CONDENSED_BLACK_PATH.exists():
+            return FONT_CONDENSED_BLACK_PATH, "AABCondensed-Black"
+        if FONT_PRIMARY_PATH.exists():
+            return FONT_PRIMARY_PATH, "Inter-Variable"
+        return FONT_FALLBACK_PATH, "Inter-Variable"
+
     def _get_scaled_font(self, text_lines: list[str], max_w: int, start_size: int = 64, min_size: int = 32) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
         """Finds largest font size where all lines fit within max_w."""
-        font_path = FONT_PRIMARY_PATH if FONT_PRIMARY_PATH.exists() else FONT_FALLBACK_PATH
+        font_path, _ = self._resolve_thumbnail_font()
         for size in range(start_size, min_size - 1, -4):
             try:
                 font = ImageFont.truetype(str(font_path), size)
@@ -213,38 +275,12 @@ class PublishStage:
         label: str | None = None,
         font: ImageFont.FreeTypeFont | ImageFont.ImageFont | None = None,
     ) -> None:
-        """Draws a clinical HUD target reticle & callout pointer over the neural focal zone."""
-        # Outer segmented ring / corner brackets
-        r = radius
-        cx, cy = center_x, center_y
-        draw.ellipse([(cx - r, cy - r), (cx + r, cy + r)], outline=color, width=4)
-        inner_r = max(16, r // 3)
-        draw.ellipse([(cx - inner_r, cy - inner_r), (cx + inner_r, cy + inner_r)], outline=color, width=2)
-        # Crosshair ticks
-        tick = 26
-        draw.line([(cx - r - tick, cy), (cx - r + 10, cy)], fill=color, width=4)
-        draw.line([(cx + r - 10, cy), (cx + r + tick, cy)], fill=color, width=4)
-        draw.line([(cx, cy - r - tick), (cx, cy - r + 10)], fill=color, width=4)
-        draw.line([(cx, cy + r - 10), (cx, cy + r + tick)], fill=color, width=4)
-        # Corner bracket accents
-        b_off = int(r * 1.18)
-        b_len = 28
-        for dx in (-1, 1):
-            for dy in (-1, 1):
-                bx, by = cx + dx * b_off, cy + dy * b_off
-                draw.line([(bx, by), (bx - dx * b_len, by)], fill=color, width=4)
-                draw.line([(bx, by), (bx, by - dy * b_len)], fill=color, width=4)
-        if label and font is not None:
-            # Callout leader line to upper-right tag
-            lx0, ly0 = cx + int(r * 0.72), cy - int(r * 0.72)
-            lx1, ly1 = min(VIDEO_WIDTH - 260, cx + r + 55), max(460, cy - r - 45)
-            draw.line([(lx0, ly0), (lx1, ly1)], fill=color, width=3)
-            draw.line([(lx1, ly1), (lx1 + 170, ly1)], fill=color, width=3)
-            draw.text((lx1 + 8, ly1 - 30), label, fill=color, font=font)
+        """No-op stub retained for API compatibility (R14-C sci-fi HUD reticles permanently removed)."""
+        return None
 
     def generate_thumbnail_variant_a(self, base_asset_path: Path | None, title_headline: str, output_path: Path):
         """
-        Variant A (Baseline Authority): Top Safe-Zone Deep Navy Badge + Gold Border + Giant 2-4 Word Hook (96px) + Gold HUD Target.
+        Variant A (Baseline Authority): Top Safe-Zone Deep Navy Badge + Gold Border + Giant 2-4 Word Hook (96px).
         Target: Viewers responding to authoritative scientific/documentary gravitas without bottom Shorts Shelf UI overlap.
         """
         img = self._load_base_frame(base_asset_path, variant="A")
@@ -280,20 +316,13 @@ class PublishStage:
         else:
             draw_centered_text(line1, badge_y + 32, RGB_SIGNAL_GOLD)
 
-        # Subtle clinical HUD reticle over central anatomical region
-        hud_font = self._get_scaled_font(["NEURAL TARGET"], 300, start_size=24, min_size=18)
-        self._draw_neural_hud_reticle(
-            draw, center_x=VIDEO_WIDTH // 2, center_y=980, radius=135,
-            color=(*RGB_SIGNAL_GOLD, 215), label="NEURAL LOCUS", font=hud_font
-        )
-
         combined = Image.alpha_composite(rgba_img, overlay).convert("RGB")
         combined.save(output_path, "PNG")
 
     def generate_thumbnail_variant_b(self, base_asset_path: Path | None, title_headline: str, output_path: Path):
         """
-        Variant B (Macro 3D Cutaway + HUD Target): Top Safe-Zone Minimal 2-Word Hook (108px) + Teal Anatomical HUD Reticle.
-        Target: Visual awe & Octane render detail; zero overlap with bottom Shorts Shelf title/views zone.
+        Variant B (Macro 3D Cutaway): Top Safe-Zone Minimal 2-Word Hook (108px) leaving center documentary scene clean.
+        Target: Visual awe & documentary render detail; zero overlap with bottom Shorts Shelf title/views zone.
         """
         img = self._load_base_frame(base_asset_path, variant="B")
         rgba_img = img.convert("RGBA")
@@ -333,13 +362,6 @@ class PublishStage:
 
         draw_ov.text((tx + 4, ty + 4), short_headline, fill=(0, 0, 0, 255), font=chosen_font)
         draw_ov.text((tx, ty), short_headline, fill=(*RGB_NEUTRAL_WHITE, 255), font=chosen_font)
-
-        # High-visibility Teal 3D Cutaway HUD Target Reticle in center focal region
-        hud_font = self._get_scaled_font(["3D CUTAWAY SCAN"], 320, start_size=26, min_size=18)
-        self._draw_neural_hud_reticle(
-            draw_ov, center_x=VIDEO_WIDTH // 2, center_y=960, radius=165,
-            color=(*RGB_SECONDARY_TEAL, 240), label="3D CUTAWAY SCAN", font=hud_font
-        )
 
         combined = Image.alpha_composite(rgba_img, overlay).convert("RGB")
         combined.save(output_path, "PNG")
@@ -395,7 +417,7 @@ class PublishStage:
         chosen_font = self._get_scaled_font([line1, line2], max_text_w, start_size=96, min_size=52)
 
         # Top pill tag: "CRITICAL PARADOX" in safe zone
-        pill_font_path = FONT_PRIMARY_PATH if FONT_PRIMARY_PATH.exists() else FONT_FALLBACK_PATH
+        pill_font_path, _ = self._resolve_thumbnail_font()
         try:
             pill_font = ImageFont.truetype(str(pill_font_path), 24)
         except Exception:
@@ -437,13 +459,6 @@ class PublishStage:
         else:
             draw_centered_text(line1, badge_y + 32, RGB_DANGER_RED)
 
-        # Danger Red Anomaly HUD Reticle over central focal zone
-        hud_font = self._get_scaled_font(["ANOMALY DETECTED"], 320, start_size=26, min_size=18)
-        self._draw_neural_hud_reticle(
-            draw, center_x=VIDEO_WIDTH // 2, center_y=980, radius=150,
-            color=(*RGB_DANGER_RED, 235), label="ANOMALY DETECTED", font=hud_font
-        )
-
         combined = Image.alpha_composite(rgba_img, overlay).convert("RGB")
         combined.save(output_path, "PNG")
 
@@ -465,6 +480,24 @@ class PublishStage:
         var_b_path = output_dir / "thumbnail_var_B.png"
         var_c_path = output_dir / "thumbnail_var_C.png"
         default_thumb_path = output_dir / "thumbnail.png"
+
+        vp_data = self.storage.load_json("03_visuals", "visual_plan.json") or {}
+        scr_data = self.storage.load_json("02_script", "script.json") or {}
+        if is_diorama_profile(vp_data) or is_diorama_profile(scr_data):
+            p_dir = self.storage.project_dir
+            edl_exists = (p_dir / "05_assembly" / "edit_decision_list.json").exists()
+            clips_exist = any((p_dir / "03_visuals" / "flow_native_clips").glob("*.mp4")) if (p_dir / "03_visuals" / "flow_native_clips").exists() else False
+            mp4_exists = (p_dir / "05_assembly" / "final_shorts_1080x1920.mp4").exists()
+            if edl_exists or clips_exist or mp4_exists:
+                from pipeline import thumbnail_studio
+
+                thumbnail_studio.run(p_dir, force=True, strict=False)
+                return {
+                    "A": var_a_path,
+                    "B": var_b_path,
+                    "C": var_c_path,
+                    "default": default_thumb_path,
+                }
 
         self.generate_thumbnail_variant_a(base_asset_path, title_headline, var_a_path)
         self.generate_thumbnail_variant_b(base_asset_path, title_headline, var_b_path)
@@ -494,10 +527,28 @@ class PublishStage:
         publish_dir = self.storage.get_stage_dir("06_publish")
         thumb_path = publish_dir / "thumbnail.png"
 
-        # Validate title length (≤60 chars)
+        # Validate title length (<= 60 chars for classic_v5; <= TITLE_MAX_CHARS_DIORAMA [95] for neuro_diorama R60)
+        vp_data = self.storage.load_json("03_visuals", "visual_plan.json") or {}
+        scr_data = self.storage.load_json("02_script", "script.json") or {}
+        is_diorama = is_diorama_profile(vp_data) or is_diorama_profile(scr_data)
+        is_v7 = is_diorama_v7_plan(vp_data) or is_diorama_v7_plan(scr_data)
+        resolved_profile = str(
+            vp_data.get("profile")
+            or scr_data.get("profile")
+            or ("neuro_diorama" if is_diorama else "classic_v5")
+        )
+        from pipeline.config import resolve_diorama_v7_style_profile
+
+        resolved_style_profile = str(
+            vp_data.get("style_profile")
+            or scr_data.get("style_profile")
+            or (resolve_diorama_v7_style_profile(vp_data) if is_v7 else "")
+        )
+        _, resolved_font_label = self._resolve_thumbnail_font()
+        max_title_len = TITLE_MAX_CHARS_DIORAMA if is_diorama else 60
         clean_title = title.strip()
-        if len(clean_title) > 60:
-            clean_title = clean_title[:57] + "..."
+        if len(clean_title) > max_title_len:
+            clean_title = clean_title[: max_title_len - 3] + "..."
 
         raw_doi = (doi or "").strip()
         doi_url = (
@@ -526,6 +577,9 @@ class PublishStage:
             "doi_url": doi_url,
             "hashtags": hashtags[:5],
             "category": DEFAULT_VIDEO_CATEGORY,
+            "language": VIDEO_LANGUAGE_CODE,
+            "profile": resolved_profile,
+            "style_profile": resolved_style_profile,
             "video_language": VIDEO_LANGUAGE_CODE,
             "video_language_label": VIDEO_LANGUAGE_LABEL,
             "title_description_language": TITLE_DESCRIPTION_LANGUAGE_CODE,
@@ -565,7 +619,7 @@ class PublishStage:
             question_hook=question_hook
         )
 
-        # Build A/B Testing Manifest
+        # Build A/B Testing Manifest (72h sequential swap per R32: 0-72h, 72-144h, 144-216h)
         now_iso = datetime.now(timezone.utc).isoformat()
         ab_manifest = {
             "project_id": self.storage.project_id,
@@ -575,7 +629,7 @@ class PublishStage:
             "title": clean_title,
             "status": "ready",
             "current_active_variant": "A",
-            "rotation_interval_hours": 24,
+            "rotation_interval_hours": 72,
             "variants": {
                 "A": {
                     "variant_id": "A",
@@ -585,7 +639,7 @@ class PublishStage:
                     "badge_color": "#0A1128",
                     "border_color": "#FFD700",
                     "text_color": "#FFFFFF / #FFD700",
-                    "font": "Inter-Variable",
+                    "font": resolved_font_label,
                     "headline": clean_title,
                     "hypothesis": "Documentary intellectual authority; viewers responding to authoritative scientific tone.",
                     "style": "documentary_navy_gold",
@@ -599,9 +653,9 @@ class PublishStage:
                     "badge_color": "rgba(10,17,40,0.78)",
                     "border_color": "#0E9AA7",
                     "text_color": "#0E9AA7 / #FFFFFF",
-                    "font": "Inter-Variable",
+                    "font": resolved_font_label,
                     "headline": clean_title,
-                    "hypothesis": "Visual awe & 3D Octane cutaway detail; curiosity driven by high-detail visual over text.",
+                    "hypothesis": "Visual awe & 3D cutaway detail; curiosity driven by high-detail visual over text.",
                     "style": "macro_visual_minimal",
                     "target_audience": "Visual-first scroll-stoppers and 3D render enthusiasts"
                 },
@@ -613,7 +667,7 @@ class PublishStage:
                     "badge_color": "#0A1128",
                     "border_color": "#FF3333",
                     "text_color": "#FF3333 / #FFFFFF",
-                    "font": "Inter-Variable",
+                    "font": resolved_font_label,
                     "headline": self._format_provocative_question(clean_title, question_hook),
                     "hypothesis": "Cognitive dissonance & provocative defiance trigger; high-CTR curiosity gap.",
                     "style": "defiance_red_provocative",
@@ -621,9 +675,9 @@ class PublishStage:
                 }
             },
             "schedule": [
-                {"variant": "A", "window": "0-24h", "hours": 24, "status": "active", "started_at": now_iso},
-                {"variant": "B", "window": "24-48h", "hours": 24, "status": "pending", "started_at": None},
-                {"variant": "C", "window": "48-72h", "hours": 24, "status": "pending", "started_at": None}
+                {"variant": "A", "window": "0-72h", "hours": 72, "status": "active", "started_at": now_iso},
+                {"variant": "B", "window": "72-144h", "hours": 72, "status": "pending", "started_at": None},
+                {"variant": "C", "window": "144-216h", "hours": 72, "status": "pending", "started_at": None}
             ],
             "statistical_evaluation": {
                 "metric": "Search & Browse CTR",
@@ -643,10 +697,17 @@ class PublishStage:
         self.storage.save_json("06_publish", "ab_test_manifest.json", ab_manifest)
         self.storage.save_json("06_publish", "metadata.json", metadata)
 
-        checklist_md = f"""# YouTube Studio Upload & A/B Testing Checklist: {clean_title}
+        thumb_rep_doc = self.storage.load_json("06_publish", "thumbnail_report.json") or {}
+        cover_sec = thumb_rep_doc.get("cover_frame_sec")
+        cover_line = (
+            f"Select in-video cover frame at `t = {cover_sec}s` in YouTube mobile app (`06_publish/thumbnail_report.json`)"
+            if cover_sec is not None
+            else "Select in-video cover frame at the cold-open stamp headline in YouTube mobile app (`R65`)"
+        )
+        checklist_md = f"""# YouTube Studio Upload & Cover Frame Checklist: {clean_title}
 
 ## 1. Video & Metadata
-- [ ] **Title (≤60 chars):** `{metadata['title']}`
+- [ ] **Title (≤{max_title_len} chars):** `{metadata['title']}`
 - [ ] **Upload File:** `05_assembly/final_shorts_1080x1920.mp4`
 - [ ] **Category:** {DEFAULT_VIDEO_CATEGORY}
 - [ ] **Channel Country of Residence:** `{CHANNEL_RESIDENCE_COUNTRY_NAME} ({CHANNEL_RESIDENCE_COUNTRY})` (AdSense identity & US-KR W-8BEN 10% tax treaty)
@@ -656,12 +717,11 @@ class PublishStage:
 - [ ] **Audience:** Not made for kids
 - [ ] **Scheduled Time:** Next US peak window (12:00 PM - 2:00 PM ET or 5-Slot Schedule)
 
-## 2. A/B Testing Thumbnail Variants (72-Hour Sequential Swap)
-- [ ] **Variant A (Initial 0-72h):** `06_publish/thumbnail_var_A.png` (Navy & Gold Authority)
-- [ ] **Variant B (72-144h):** `06_publish/thumbnail_var_B.png` (Macro 3D Cutaway Focus)
-- [ ] **Variant C (144-216h):** `06_publish/thumbnail_var_C.png` (Defiance Red Question Hook)
-- [ ] **Default / Initial Thumbnail:** `06_publish/thumbnail.png`
-- [ ] **A/B Test Manifest:** `06_publish/ab_test_manifest.json`
+## 2. R65 Thumbnail Studio & In-Video Cover Frame (Shorts) / R32 Long-Form A/B
+- [ ] **Primary Cover (`Variant A`):** `06_publish/thumbnail_var_A.png` (R65 v7 Condensed Hook + Top-Scored Clean Cut)
+- [ ] **Alternates (`B` / `C`):** `06_publish/thumbnail_var_B.png`, `06_publish/thumbnail_var_C.png`
+- [ ] **Mobile Shorts Cover Frame:** {cover_line}
+- [ ] **QA & Contact Sheet (`TQ1-TQ7`):** `06_publish/thumbnail_report.json`, `06_publish/thumbnail_contact_sheet.png`
 
 ## 3. Post-Publish Community Pin
 - [ ] **Pinned Comment:** Academic DOI reference & cognitive dissonance question pinned at top

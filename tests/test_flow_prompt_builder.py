@@ -225,8 +225,12 @@ def test_character_motion_2beat_actions_and_31_O2CmlKOk_brain_lock() -> None:
         for idx in (3, 4):
             assert "bright white studio gallery" in clips[idx]["scene"].lower()
             assert "matte-white brain" in clips[idx]["scene"].lower()
-        for idx in (5, 6, 7):
-            assert "bioluminescent green" in clips[idx]["scene"].lower()
+            assert "architectural cross-section cutaway" in clips[idx]["scene"].lower()
+        for idx in (3, 4, 5, 6, 7):
+            s_low = clips[idx]["scene"].lower()
+            assert "particles" not in s_low
+            assert "sparks" not in s_low
+            assert "electric" not in s_low
 
     inferred_plan = infer_visual_plan(topic="Synaptic Plasticity", pillar_id=1)
     inferred_clips = build_flow_prompts(inferred_plan, _dummy_narrations_for_count(10))

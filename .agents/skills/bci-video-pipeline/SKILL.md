@@ -5,6 +5,8 @@ description: Master end-to-end orchestrator for ALL ABOUT BRAIN YouTube Shorts a
 
 # BCI Video Pipeline (Master Orchestrator)
 
+> **To actually produce a new episode end to end, use [bci-episode-production](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/bci-episode-production/SKILL.md)** (`main.py diorama-episode`). This file is the gear map / reference index.
+
 Master: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) · Numbers: [production_constants.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/production_constants.md)
 
 Run gears in order; each gear's outputs are the next gear's inputs. Stop on any failed gate.
@@ -13,10 +15,10 @@ Run gears in order; each gear's outputs are the next gear's inputs. Stop on any 
 |---|---|---|---|---|
 | 1a Topic discovery | `01_ideation` | [bci-news-hunt](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/bci-news-hunt/SKILL.md) · `TopicResearcher` | shortlisted case + DOI, duplicate check | R1, P1, R20 |
 | 1b Research dossier | `research_dossiers/<slug>/` | [bci-deep-research](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/bci-deep-research/SKILL.md) · `research_dossier` | longform-depth dossier, `dossier validate` ready | R44, R45 |
-| 2 Script + prompts | `02_script`, `03_visuals` | [bci-script-gen](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/bci-script-gen/SKILL.md) (v5 procedure) · `flow_prompt_builder` | `script.json`, v5 `visual_plan.json`, `flow_all_in_one_prompts.json` (schema 5), `prompt-gate` pass | R2, R42, R26, R24, R40-A/C, R45–R48, R15 v5, R18-V5 |
-| 3 Flow generation | `03_visuals` | `flow-parallel` · `FlowProjectSubagentWorker` | `flow_native_clips/clip_1..clip_N.mp4`, `flow_provenance_receipt.json`, `flow_screenshots/`; voice outliers regenerated | R5, R18-B, R37, R39, R49 |
-| 4 Assembly | `04_audio`, `05_assembly` | [bci-video-assembly](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/bci-video-assembly/SKILL.md) | `voice_report.json` (native or Kokoro fallback), `audio_master.wav`, `subtitles.ass`, `final_shorts_1080x1920.mp4`, `asset_manifest.json`, autopsy + QA reports | R13, R16, R17, R41, R43-A/B, R25, R49, R50 |
-| 5 Publish + Studio | `06_publish` | `PublishStage` · [youtube-studio-manager](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-studio-manager/SKILL.md) | `metadata.json`, thumbnails A/B/C, upload / community receipts | R8–R10, R30–R36, R4 |
+| 2 Script + prompts | `02_script`, `03_visuals` | [bci-script-gen](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/bci-script-gen/SKILL.md) (Schema v7 `lowpoly_pastel_v7` default / v6 / v5 legacy) · `flow_prompt_builder` | `script.json` (6-Act `sentences` or v5 `clip_narrations`), `visual_plan.json`, `flow_all_in_one_prompts.json` (schema 7 / 6 / 5), `prompt-gate` pass | R2, R42, R26, R24, R40-A/C, R45–R48, R15 v5, R18-V5, R56, R57, R61, R63 |
+| 3 Flow generation | `03_visuals` | `diorama-flow` / `flow-parallel` · `flow_diorama_sharded_worker` / `FlowProjectSubagentWorker` | `flow_native_clips/clip_1..clip_N.mp4` (`60+` dedicated `8s` clips in `neuro_diorama`, `5–10` in `classic_v5`), `flow_provenance_receipt.json`, `flow_screenshots/` | R5, R18-B, R37, R39, R49, R56, R58, R62, R63 |
+| 4 Assembly + Post-Hoc QA | `04_audio`, `05_assembly`, `knowledge_base/` | [bci-video-assembly](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/bci-video-assembly/SKILL.md) · `diorama_assembler` · `posthoc_semantic_qa` · `knowledge_hub` | `voice_report.json` (`dynamic_rush_v7` native per-gear rush `+12%` / stamp `+8%` / brisk `+15%`, `+14Hz` Silk Clean `en-US-AndrewMultilingualNeural` in `lowpoly_pastel_v7`), `prosody_report.json` + `prosody_qa_report.json` (P1–P10), `edit_decision_list.json`, `audio_master.wav`, `subtitles.ass`, `final_shorts_1080x1920.mp4`, `asset_manifest.json`, `episode_qa_report.json`, `posthoc_semantic_qa_report.json` + `posthoc_viewer_strips/`, `knowledge_base/` sync | R13, R16, R17, R41, R43-A/B, R25, R49, R50, R50-B, R58, R59, R62, R63, R64 |
+| 5 Publish + Studio | `06_publish` | `PublishStage` · [youtube-studio-manager](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-studio-manager/SKILL.md) | `metadata.json` (`R60` 2-Clause Paradox Title `<= TITLE_MAX_CHARS_DIORAMA`), thumbnails A/B/C, upload / community receipts | R8–R10, R30–R36, R4, R60 |
 
 ## Commands
 ```bash
@@ -25,13 +27,17 @@ python -X utf8 main.py dossier init --slug <slug> --topic "<title>" --pillar <id
 python -X utf8 main.py dossier yt-search --query "<experiment> original footage"
 python -X utf8 main.py dossier yt-analyze --slug <slug> --url <url> --media-id <id>
 python -X utf8 main.py dossier validate --slug <slug>
+python -X utf8 main.py dossier seed --slug <slug> --profile neuro_diorama
 python -X utf8 main.py prompt-gate --dir BCI_Shorts_Channel/projects/<project_id>
-python -X utf8 main.py produce --pillar brain_mysteries --topic "Capgras Delusion" --style case_file --project <project_id>
-python -X utf8 main.py flow-parallel --projects <p1>,<p2> --max-batch 5 --trigger
-python -X utf8 main.py voice-check --project <project_id>
-python -X utf8 main.py import-clips --project <project_id> --dir "<download_dir>" --auto-assemble
+python -X utf8 main.py diorama-episode --slug <slug> --project <project_id> --pillar <pillar> [--precheck-only]
+python -X utf8 main.py diorama-flow --project <project_id> --tabs 5
+python -X utf8 main.py diorama-assemble --project <project_id> --force
+python -X utf8 main.py episode-qa --project <project_id>
+python -X utf8 main.py posthoc-qa --project <project_id> --init-review
+python -X utf8 main.py kb sync --project <project_id>
+python -X utf8 main.py autopsy --project <project_id>
+python -X utf8 main.py prosody-qa --project <project_id>
 python -X utf8 main.py qa --project <project_id>
-python -X utf8 main.py audit-prompts
 python -X utf8 main.py studio-upload --project <project_id> --visibility unlisted
 ```
 `produce` runs Gears 1–2 automatically from v4 templates; for publishable quality, build the dossier and replace the generated narrations / `visual_plan` with the v5 hand-authored versions from bci-script-gen, and pass `prompt-gate` before Gear 3. `--max-batch` is capped by `FLOW_MAX_PARALLEL_BATCH_SIZE` (R37 Guard 6).

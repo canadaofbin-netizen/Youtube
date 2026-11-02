@@ -1,0 +1,1483 @@
+{
+  "total_episodes": 100,
+  "range": "diorama_22..diorama_121",
+  "waves": "5..14 (10 episodes/wave)",
+  "pillar_counts": {
+    "brain_basics": 38,
+    "brain_health": 14,
+    "brain_mysteries": 14,
+    "bci_ethics": 6,
+    "brain_history": 8,
+    "bci_tech": 11,
+    "brain_news": 9
+  },
+  "episodes": [
+    {
+      "episode_number": 22,
+      "wave": 5,
+      "project_id": "diorama_22_baars_global_workspace_theater",
+      "slug": "baars_global_workspace_theater",
+      "pillar": "brain_basics",
+      "doi": "10.1016/s0079-6123(05)50004-9",
+      "source_type": "existing_dossier",
+      "topic": "Bernard Baars (1988-2005): Global Workspace Theory — How a Single Conscious 'Stage' Broadcasts to Billions of Unconscious Specialists",
+      "crossref": null
+    },
+    {
+      "episode_number": 23,
+      "wave": 5,
+      "project_id": "diorama_23_beck_cognitive_triad_depression",
+      "slug": "beck_cognitive_triad_depression",
+      "pillar": "brain_health",
+      "doi": "10.1001/archpsyc.1963.01720160014002",
+      "source_type": "existing_dossier",
+      "topic": "Aaron T. Beck (1963): Automatic Negative Thoughts, the Cognitive Triad & Birth of CBT",
+      "crossref": null
+    },
+    {
+      "episode_number": 24,
+      "wave": 5,
+      "project_id": "diorama_24_bodamer_prosopagnosia_face_blindness",
+      "slug": "bodamer_prosopagnosia_face_blindness",
+      "pillar": "brain_mysteries",
+      "doi": "10.1007/bf00352849",
+      "source_type": "existing_dossier",
+      "topic": "Joachim Bodamer (1947): Prosopagnosia — Seeing Every Eyelash in 20/20 Focus Yet Failing to Recognize Your Own Face in the Mirror",
+      "crossref": null
+    },
+    {
+      "episode_number": 25,
+      "wave": 5,
+      "project_id": "diorama_25_false_memory_elizabeth_loftus",
+      "slug": "false_memory_elizabeth_loftus",
+      "pillar": "brain_history",
+      "doi": "10.1016/s0022-5371(74)80011-3",
+      "source_type": "existing_dossier",
+      "topic": "Elizabeth Loftus & John Palmer (1974) / Pickrell (1995): Post-Event Misinformation, 'Smashed' vs 'Hit', and Rich False Memories",
+      "crossref": null
+    },
+    {
+      "episode_number": 26,
+      "wave": 5,
+      "project_id": "diorama_26_clark_doll_experiment_bias",
+      "slug": "clark_doll_experiment_bias",
+      "pillar": "bci_ethics",
+      "doi": "10.2307/2966491",
+      "source_type": "existing_dossier",
+      "topic": "Kenneth & Mamie Phipps Clark (1940–1950): The Four-Doll Experiment That Helped End Legal School Segregation",
+      "crossref": null
+    },
+    {
+      "episode_number": 27,
+      "wave": 5,
+      "project_id": "diorama_27_baddeley_working_memory_architecture",
+      "slug": "baddeley_working_memory_architecture",
+      "pillar": "brain_basics",
+      "doi": "10.1016/s0079-7421(08)60452-1",
+      "source_type": "existing_dossier",
+      "topic": "Baddeley & Hitch (1974): Holding 8 Random Digits While Reasoning — Why Short-Term Memory Is a 4-Room Workshop, Not One Shelf",
+      "crossref": null
+    },
+    {
+      "episode_number": 28,
+      "wave": 5,
+      "project_id": "diorama_28_csikszentmihalyi_flow_hypofrontality",
+      "slug": "csikszentmihalyi_flow_hypofrontality",
+      "pillar": "brain_health",
+      "doi": "10.1016/j.concog.2004.07.002",
+      "source_type": "existing_dossier",
+      "topic": "Mihaly Csikszentmihalyi (1975-1990) & Arne Dietrich (2004): The Flow Channel & Transient Hypofrontality",
+      "crossref": null
+    },
+    {
+      "episode_number": 29,
+      "wave": 5,
+      "project_id": "diorama_29_cotard_walking_corpse_syndrome",
+      "slug": "cotard_walking_corpse_syndrome",
+      "pillar": "brain_mysteries",
+      "doi": "10.1111/j.1600-0447.1995.tb09764.x",
+      "source_type": "existing_dossier",
+      "topic": "Jules Cotard (1880) & Berrios (1995): Cotard's Nihilistic Delusion — When the Brain Insists You No Longer Exist",
+      "crossref": null
+    },
+    {
+      "episode_number": 30,
+      "wave": 5,
+      "project_id": "diorama_30_little_albert_fear_conditioning",
+      "slug": "little_albert_fear_conditioning",
+      "pillar": "brain_history",
+      "doi": "10.1037/h0069608",
+      "source_type": "existing_dossier",
+      "topic": "Watson & Rayner (1920): 'Little Albert', the Claw-Hammer Steel Bar & History's Most Controversial Fear Test",
+      "crossref": null
+    },
+    {
+      "episode_number": 31,
+      "wave": 5,
+      "project_id": "diorama_31_darley_latane_bystander_effect",
+      "slug": "darley_latane_bystander_effect",
+      "pillar": "bci_ethics",
+      "doi": "10.1037/h0025589",
+      "source_type": "existing_dossier",
+      "topic": "John Darley & Bibb Latané (1968): NYU Intercom Emergency & Diffusion of Responsibility",
+      "crossref": null
+    },
+    {
+      "episode_number": 32,
+      "wave": 6,
+      "project_id": "diorama_32_bandura_bobo_doll_mirroring",
+      "slug": "bandura_bobo_doll_mirroring",
+      "pillar": "brain_basics",
+      "doi": "10.1037/h0045925",
+      "source_type": "existing_dossier",
+      "topic": "Albert Bandura (1961): Stanford Nursery Bobo Doll Experiment & Observational Social Learning",
+      "crossref": null
+    },
+    {
+      "episode_number": 33,
+      "wave": 6,
+      "project_id": "diorama_33_festinger_social_comparison_envy",
+      "slug": "festinger_social_comparison_envy",
+      "pillar": "brain_health",
+      "doi": "10.1177/001872675400700202",
+      "source_type": "existing_dossier",
+      "topic": "Leon Festinger (1954): Social Comparison Theory — Why Bronze Medalists Smile Wider Than Silver Medalists!",
+      "crossref": null
+    },
+    {
+      "episode_number": 34,
+      "wave": 6,
+      "project_id": "diorama_34_deci_overjustification_reward",
+      "slug": "deci_overjustification_reward",
+      "pillar": "brain_mysteries",
+      "doi": "10.1037/h0030644",
+      "source_type": "existing_dossier",
+      "topic": "Edward Deci (1971): Soma Puzzle Cubes, Overjustification & How Cash Rewards Undermine Intrinsic Motivation",
+      "crossref": null
+    },
+    {
+      "episode_number": 35,
+      "wave": 6,
+      "project_id": "diorama_35_pavlov_dogs_conditioning",
+      "slug": "pavlov_dogs_conditioning",
+      "pillar": "brain_history",
+      "doi": "10.5214/ans.0972-7531.1017309",
+      "source_type": "existing_dossier",
+      "topic": "Ivan Pavlov's dogs and classical conditioning (St. Petersburg, Institute of Experimental Medicine, 1890s-1900s)",
+      "crossref": null
+    },
+    {
+      "episode_number": 36,
+      "wave": 6,
+      "project_id": "diorama_36_rosenhan_sane_in_insane_places",
+      "slug": "rosenhan_sane_in_insane_places",
+      "pillar": "bci_ethics",
+      "doi": "10.1126/science.179.4070.250",
+      "source_type": "existing_dossier",
+      "topic": "David Rosenhan (1973): 'On Being Sane in Insane Places', Diagnostic Stickiness & Susannah Cahalan's Archival Investigation",
+      "crossref": null
+    },
+    {
+      "episode_number": 37,
+      "wave": 6,
+      "project_id": "diorama_37_baron_cohen_theory_of_mind",
+      "slug": "baron_cohen_theory_of_mind",
+      "pillar": "brain_basics",
+      "doi": "10.1016/0010-0277(85)90022-8",
+      "source_type": "existing_dossier",
+      "topic": "Simon Baron-Cohen, Alan Leslie & Uta Frith (1985): The 'Sally-Anne' Marble Transfer & Theory of Mind",
+      "crossref": null
+    },
+    {
+      "episode_number": 38,
+      "wave": 6,
+      "project_id": "diorama_38_harlow_cloth_mother_attachment",
+      "slug": "harlow_cloth_mother_attachment",
+      "pillar": "brain_health",
+      "doi": "10.1037/h0047884",
+      "source_type": "existing_dossier",
+      "topic": "Harry Harlow (1958): Wire Milk Surrogate vs Soft Terrycloth Contact Comfort",
+      "crossref": null
+    },
+    {
+      "episode_number": 39,
+      "wave": 6,
+      "project_id": "diorama_39_dehaene_conscious_brain_ignition",
+      "slug": "dehaene_conscious_brain_ignition",
+      "pillar": "brain_mysteries",
+      "doi": "10.1016/j.tics.2006.03.007",
+      "source_type": "existing_dossier",
+      "topic": "Stanislas Dehaene (2006): Global Neuronal Workspace — The 300-Millisecond 'Brain-Wide Ignition' That Turns Sight Into Consciousness!",
+      "crossref": null
+    },
+    {
+      "episode_number": 40,
+      "wave": 6,
+      "project_id": "diorama_40_raine_murderer_brain_pet_deficits",
+      "slug": "raine_murderer_brain_pet_deficits",
+      "pillar": "brain_history",
+      "doi": "10.1016/s0006-3223(96)00362-9",
+      "source_type": "existing_dossier",
+      "topic": "Adrian Raine (1997): PET Scans of 41 Homicide Defendants — AND Why Raine's Own Scan Shattered 'Born Criminal' Determinism!",
+      "crossref": null
+    },
+    {
+      "episode_number": 41,
+      "wave": 6,
+      "project_id": "diorama_41_steele_aronson_stereotype_threat",
+      "slug": "steele_aronson_stereotype_threat",
+      "pillar": "bci_ethics",
+      "doi": "10.1037/0022-3514.69.5.797",
+      "source_type": "existing_dossier",
+      "topic": "Claude Steele & Joshua Aronson (1995): Stereotype Threat — How Working-Memory Anxiety Hijacks High-Stakes Tests",
+      "crossref": null
+    },
+    {
+      "episode_number": 42,
+      "wave": 7,
+      "project_id": "diorama_42_cherry_cocktail_party_filter",
+      "slug": "cherry_cocktail_party_filter",
+      "pillar": "brain_basics",
+      "doi": "10.1121/1.1907229",
+      "source_type": "existing_dossier",
+      "topic": "Colin Cherry (1953): The 'Cocktail Party Problem' — Shadowing One Ear While Going Deaf to Language Flips in the Other",
+      "crossref": null
+    },
+    {
+      "episode_number": 43,
+      "wave": 7,
+      "project_id": "diorama_43_kross_distanced_self_talk_chatter",
+      "slug": "kross_distanced_self_talk_chatter",
+      "pillar": "brain_health",
+      "doi": "10.1037/a0035173",
+      "source_type": "existing_dossier",
+      "topic": "Ethan Kross (2014): Why Coaching Yourself by Your Own First Name ('You / [Name]') Quiets Panic Under Pressure",
+      "crossref": null
+    },
+    {
+      "episode_number": 44,
+      "wave": 7,
+      "project_id": "diorama_44_dunning_kruger_metacognitive_blindness",
+      "slug": "dunning_kruger_metacognitive_blindness",
+      "pillar": "brain_mysteries",
+      "doi": "10.1037/0022-3514.77.6.1121",
+      "source_type": "existing_dossier",
+      "topic": "David Dunning & Justin Kruger (1999): Metacognitive Blindness & the Real Shape of the 'Mount Stupid' Myth",
+      "crossref": null
+    },
+    {
+      "episode_number": 45,
+      "wave": 7,
+      "project_id": "diorama_45_thorndike_law_of_effect",
+      "slug": "thorndike_law_of_effect",
+      "pillar": "brain_history",
+      "doi": "10.1037/10780-000",
+      "source_type": "existing_dossier",
+      "topic": "Edward Thorndike (1898): Wooden Puzzle Boxes, Escaping Cats & the Birth of the Law of Effect",
+      "crossref": null
+    },
+    {
+      "episode_number": 46,
+      "wave": 7,
+      "project_id": "diorama_46_zimbardo_stanford_prison_roles",
+      "slug": "zimbardo_stanford_prison_roles",
+      "pillar": "bci_ethics",
+      "doi": "10.21236/ad0751041",
+      "source_type": "existing_dossier",
+      "topic": "Philip Zimbardo, Craig Haney & Curtis Banks (1971): The Stanford Prison Simulation & Modern Archival Critique",
+      "crossref": null
+    },
+    {
+      "episode_number": 47,
+      "wave": 7,
+      "project_id": "diorama_47_cialdini_door_in_the_face_reciprocity",
+      "slug": "cialdini_door_in_the_face_reciprocity",
+      "pillar": "brain_basics",
+      "doi": "10.1037/h0076284",
+      "source_type": "existing_dossier",
+      "topic": "Robert Cialdini (1975): 'Door-in-the-Face' — How Getting Told 'NO!' First Tripled Yeses From 17% to 50%!",
+      "crossref": null
+    },
+    {
+      "episode_number": 48,
+      "wave": 7,
+      "project_id": "diorama_48_raichle_default_mode_network",
+      "slug": "raichle_default_mode_network",
+      "pillar": "brain_health",
+      "doi": "10.1073/pnas.98.2.676",
+      "source_type": "existing_dossier",
+      "topic": "Marcus Raichle (2001): The Default Mode Network & 'Brain Dark Energy' Burning 20% of Your Body's Fuel at Rest",
+      "crossref": null
+    },
+    {
+      "episode_number": 49,
+      "wave": 7,
+      "project_id": "diorama_49_ekman_microexpressions_deception",
+      "slug": "ekman_microexpressions_deception",
+      "pillar": "brain_mysteries",
+      "doi": "10.1080/00332747.1969.11023575",
+      "source_type": "existing_dossier",
+      "topic": "Paul Ekman & Wallace Friesen (1969-1978): Frame-by-Frame Microexpressions, FACS & the 'Pinocchio Nose' Myth",
+      "crossref": null
+    },
+    {
+      "episode_number": 50,
+      "wave": 7,
+      "project_id": "diorama_50_wernicke_sensory_aphasia",
+      "slug": "wernicke_sensory_aphasia",
+      "pillar": "brain_history",
+      "doi": "10.1001/archneur.1970.00480210090013",
+      "source_type": "existing_dossier",
+      "topic": "Carl Wernicke (1874): Fluent Nonsense, Broken Comprehension & the First Network Diagram of the Human Brain",
+      "crossref": null
+    },
+    {
+      "episode_number": 51,
+      "wave": 7,
+      "project_id": "diorama_51_cosmides_tooby_cheater_detection",
+      "slug": "cosmides_tooby_cheater_detection",
+      "pillar": "brain_basics",
+      "doi": "10.1016/0010-0277(89)90023-1",
+      "source_type": "existing_dossier",
+      "topic": "Cosmides & Tooby (1989): Why Humans Flunk Abstract Logic (20%) Yet Catch Free-Riders Instantly (75%)!",
+      "crossref": null
+    },
+    {
+      "episode_number": 52,
+      "wave": 8,
+      "project_id": "diorama_52_schachter_external_eating_cues",
+      "slug": "schachter_external_eating_cues",
+      "pillar": "brain_health",
+      "doi": "10.1126/science.161.3843.751",
+      "source_type": "existing_dossier",
+      "topic": "Stanley Schachter (1968): The Rigged Wall-Clock Cracker Test — Eating Because the Wall Says 6:05 PM!",
+      "crossref": null
+    },
+    {
+      "episode_number": 53,
+      "wave": 8,
+      "project_id": "diorama_53_kanwisher_fusiform_face_area",
+      "slug": "kanwisher_fusiform_face_area",
+      "pillar": "brain_mysteries",
+      "doi": "10.1523/jneurosci.17-11-04302.1997",
+      "source_type": "existing_dossier",
+      "topic": "Nancy Kanwisher (1997): The Fusiform Face Area (FFA), Upside-Down 'Thatcher' Blindness & Domain Specificity",
+      "crossref": null
+    },
+    {
+      "episode_number": 54,
+      "wave": 8,
+      "project_id": "diorama_54_craik_lockhart_levels_of_processing",
+      "slug": "craik_lockhart_levels_of_processing",
+      "pillar": "brain_basics",
+      "doi": "10.1016/s0022-5371(72)80001-x",
+      "source_type": "existing_dossier",
+      "topic": "Craik & Lockhart (1972) / Craik & Tulving (1975): Why Deep Meaning Triples Memory Without Even Trying to Memorize",
+      "crossref": null
+    },
+    {
+      "episode_number": 55,
+      "wave": 8,
+      "project_id": "diorama_55_seligman_learned_helplessness",
+      "slug": "seligman_learned_helplessness",
+      "pillar": "brain_health",
+      "doi": "10.1037/h0024514",
+      "source_type": "existing_dossier",
+      "topic": "Martin Seligman & Steven Maier (1967-2016): Learned Helplessness & the Prefrontal-Raphe Passivity Twist",
+      "crossref": null
+    },
+    {
+      "episode_number": 56,
+      "wave": 8,
+      "project_id": "diorama_56_skinner_operant_superstition",
+      "slug": "skinner_operant_superstition",
+      "pillar": "brain_mysteries",
+      "doi": "10.1037/h0055873",
+      "source_type": "existing_dossier",
+      "topic": "B. F. Skinner (1948): Operant Conditioning Chamber & Accidental 'Superstition' in the Pigeon",
+      "crossref": null
+    },
+    {
+      "episode_number": 57,
+      "wave": 8,
+      "project_id": "diorama_57_dunbar_number_neocortex_limit",
+      "slug": "dunbar_number_neocortex_limit",
+      "pillar": "brain_basics",
+      "doi": "10.1016/0047-2484(92)90081-j",
+      "source_type": "existing_dossier",
+      "topic": "Robin Dunbar (1992-1995): Primate Neocortex Ratio & the ~150 Social-Group Limit",
+      "crossref": null
+    },
+    {
+      "episode_number": 58,
+      "wave": 8,
+      "project_id": "diorama_58_shapiro_emdr_trauma_saccades",
+      "slug": "shapiro_emdr_trauma_saccades",
+      "pillar": "brain_health",
+      "doi": "10.1002/jts.2490020207",
+      "source_type": "existing_dossier",
+      "topic": "Francine Shapiro (1989) & Jinhee Baek (2019): Bilateral Eye Saccades, Working-Memory Taxing & Fear-Circuit Suppression",
+      "crossref": null
+    },
+    {
+      "episode_number": 59,
+      "wave": 8,
+      "project_id": "diorama_59_wegner_white_bear_suppression",
+      "slug": "wegner_white_bear_suppression",
+      "pillar": "brain_mysteries",
+      "doi": "10.1037/0022-3514.53.1.5",
+      "source_type": "existing_dossier",
+      "topic": "Daniel Wegner (1987): 'Don't Think of a White Bear' & Ironic Rebound Process Theory",
+      "crossref": null
+    },
+    {
+      "episode_number": 60,
+      "wave": 8,
+      "project_id": "diorama_60_ebbinghaus_forgetting_curve",
+      "slug": "ebbinghaus_forgetting_curve",
+      "pillar": "brain_basics",
+      "doi": "10.1037/10011-000",
+      "source_type": "existing_dossier",
+      "topic": "Hermann Ebbinghaus (1885): 2,300 Nonsense Syllables ('WID, ZOF, KAF') & the Brutal Mathematics of Forgetting",
+      "crossref": null
+    },
+    {
+      "episode_number": 61,
+      "wave": 8,
+      "project_id": "diorama_61_zeigarnik_uncompleted_task_loop",
+      "slug": "zeigarnik_uncompleted_task_loop",
+      "pillar": "brain_health",
+      "doi": "10.1007/bf02409755",
+      "source_type": "existing_dossier",
+      "topic": "Bluma Zeigarnik (1927): The Vienna Cafe Waiter's Memory & Why Interrupted Tasks Haunt Your Brain",
+      "crossref": null
+    },
+    {
+      "episode_number": 62,
+      "wave": 9,
+      "project_id": "diorama_62_zihl_akinetopsia_motion_blindness",
+      "slug": "zihl_akinetopsia_motion_blindness",
+      "pillar": "brain_mysteries",
+      "doi": "10.1093/brain/106.2.313",
+      "source_type": "existing_dossier",
+      "topic": "Josef Zihl (1983): Akinetopsia ('Motion Blindness') — Why Patient L.M. Saw Pouring Tea Freeze Like a Solid Glacier",
+      "crossref": null
+    },
+    {
+      "episode_number": 63,
+      "wave": 9,
+      "project_id": "diorama_63_festinger_carlsmith_insufficient_reward",
+      "slug": "festinger_carlsmith_insufficient_reward",
+      "pillar": "brain_basics",
+      "doi": "10.1037/h0041593",
+      "source_type": "existing_dossier",
+      "topic": "Festinger & Carlsmith (1959): Turning Wooden Pegs for $1 vs $20 — Why Getting Paid LESS Changed People's Minds!",
+      "crossref": null
+    },
+    {
+      "episode_number": 64,
+      "wave": 9,
+      "project_id": "diorama_64_freedman_fraser_foot_in_the_door",
+      "slug": "freedman_fraser_foot_in_the_door",
+      "pillar": "brain_basics",
+      "doi": "10.1037/h0023552",
+      "source_type": "existing_dossier",
+      "topic": "Freedman & Fraser (1966): 'Foot-in-the-Door' — How a Tiny 3-Inch Window Sticker Made 76% Put a Monster Billboard on Their Lawn!",
+      "crossref": null
+    },
+    {
+      "episode_number": 65,
+      "wave": 9,
+      "project_id": "diorama_65_godden_baddeley_diver_context_memory",
+      "slug": "godden_baddeley_diver_context_memory",
+      "pillar": "brain_basics",
+      "doi": "10.1111/j.2044-8295.1975.tb01468.x",
+      "source_type": "existing_dossier",
+      "topic": "Godden & Baddeley (1975): Scuba Divers 20 Feet Underwater — Why Recall Jumps 46% When Your Surroundings Match",
+      "crossref": null
+    },
+    {
+      "episode_number": 66,
+      "wave": 9,
+      "project_id": "diorama_66_hebb_synaptic_learning_rule",
+      "slug": "hebb_synaptic_learning_rule",
+      "pillar": "brain_basics",
+      "doi": "10.4324/9781410612403",
+      "source_type": "existing_dossier",
+      "topic": "Donald Hebb (1949) & Bliss and Lømo (1973): 'Cells That Fire Together, Wire Together' — From Bold Guess to LTP Proof",
+      "crossref": null
+    },
+    {
+      "episode_number": 67,
+      "wave": 9,
+      "project_id": "diorama_67_hubel_wiesel_visual_orientation",
+      "slug": "hubel_wiesel_visual_orientation",
+      "pillar": "brain_basics",
+      "doi": "10.1113/jphysiol.1959.sp006308",
+      "source_type": "existing_dossier",
+      "topic": "Hubel & Wiesel (1959): How a Jammed Glass Slide Accidentally Cracked the Visual Cortex's Edge Code",
+      "crossref": null
+    },
+    {
+      "episode_number": 68,
+      "wave": 9,
+      "project_id": "diorama_68_kahneman_tversky_loss_aversion",
+      "slug": "kahneman_tversky_loss_aversion",
+      "pillar": "brain_basics",
+      "doi": "10.2307/1914185",
+      "source_type": "existing_dossier",
+      "topic": "Daniel Kahneman & Amos Tversky (1979): Prospect Theory, Reference Points & Why Losses Sting Twice as Hard as Gains",
+      "crossref": null
+    },
+    {
+      "episode_number": 69,
+      "wave": 9,
+      "project_id": "diorama_69_kandel_aplysia_synaptic_plasticity",
+      "slug": "kandel_aplysia_synaptic_plasticity",
+      "pillar": "brain_basics",
+      "doi": "10.1126/science.167.3926.1745",
+      "source_type": "existing_dossier",
+      "topic": "Eric Kandel (1970–2000): How a Giant Sea Slug's 20,000 Neurons Proved Memories Physically Grow New Synapses",
+      "crossref": null
+    },
+    {
+      "episode_number": 70,
+      "wave": 9,
+      "project_id": "diorama_70_langer_copy_machine_because_heuristic",
+      "slug": "langer_copy_machine_because_heuristic",
+      "pillar": "brain_basics",
+      "doi": "10.1037/0022-3514.36.6.635",
+      "source_type": "existing_dossier",
+      "topic": "Ellen Langer (1978): The Xerox Copy-Machine 'Because' Trick — 93% Let You Cut in Line for a Meaningless Reason!",
+      "crossref": null
+    },
+    {
+      "episode_number": 71,
+      "wave": 9,
+      "project_id": "diorama_71_ledoux_dual_fear_pathways",
+      "slug": "ledoux_dual_fear_pathways",
+      "pillar": "brain_basics",
+      "doi": "10.1146/annurev.ps.46.020195.001233",
+      "source_type": "existing_dossier",
+      "topic": "Joseph LeDoux (1994-2000): The 12-Millisecond 'Low Road' vs 'High Road' to the Amygdala — & Why Fear != Freeze",
+      "crossref": null
+    },
+    {
+      "episode_number": 72,
+      "wave": 10,
+      "project_id": "diorama_72_mcgurk_multisensory_illusion",
+      "slug": "mcgurk_multisensory_illusion",
+      "pillar": "brain_basics",
+      "doi": "10.1038/264746a0",
+      "source_type": "existing_dossier",
+      "topic": "McGurk & MacDonald (1976): Hearing Voices Your Ears Never Received — How Vision Rewrites Speech ('BA' + 'GA' = 'DA')",
+      "crossref": null
+    },
+    {
+      "episode_number": 73,
+      "wave": 10,
+      "project_id": "diorama_73_melzack_wall_pain_gate",
+      "slug": "melzack_wall_pain_gate",
+      "pillar": "brain_basics",
+      "doi": "10.1126/science.150.3699.971",
+      "source_type": "existing_dossier",
+      "topic": "Ronald Melzack & Patrick Wall (1965): Spinal Gate Control Theory of Pain",
+      "crossref": null
+    },
+    {
+      "episode_number": 74,
+      "wave": 10,
+      "project_id": "diorama_74_miller_magical_number_seven",
+      "slug": "miller_magical_number_seven",
+      "pillar": "brain_basics",
+      "doi": "10.1037/h0043158",
+      "source_type": "existing_dossier",
+      "topic": "George A. Miller (1956): The Magical Number Seven, Plus or Minus Two & Cognitive Chunking",
+      "crossref": null
+    },
+    {
+      "episode_number": 75,
+      "wave": 10,
+      "project_id": "diorama_75_mischel_marshmallow_self_control",
+      "slug": "mischel_marshmallow_self_control",
+      "pillar": "brain_basics",
+      "doi": "10.1037/h0029815",
+      "source_type": "existing_dossier",
+      "topic": "Walter Mischel (1970-1972): Stanford Bing Nursery Marshmallow Test, 'Cool' Attention Shift & the Trust Replication",
+      "crossref": null
+    },
+    {
+      "episode_number": 76,
+      "wave": 10,
+      "project_id": "diorama_76_okeefe_moser_place_grid_cells",
+      "slug": "okeefe_moser_place_grid_cells",
+      "pillar": "brain_basics",
+      "doi": "10.1016/0006-8993(71)90358-1",
+      "source_type": "existing_dossier",
+      "topic": "O'Keefe (1971) & May-Britt and Edvard Moser (2005): Place Cells, Hexagonal Grid Cells & Your Brain's Inner GPS",
+      "crossref": null
+    },
+    {
+      "episode_number": 77,
+      "wave": 10,
+      "project_id": "diorama_77_posner_spatial_attention_spotlight",
+      "slug": "posner_spatial_attention_spotlight",
+      "pillar": "brain_basics",
+      "doi": "10.1080/00335558008248231",
+      "source_type": "existing_dossier",
+      "topic": "Michael Posner (1980): Covert Spatial Attention 'Spotlight' Without Moving Your Eyes",
+      "crossref": null
+    },
+    {
+      "episode_number": 78,
+      "wave": 10,
+      "project_id": "diorama_78_ramachandran_synesthesia_cross_wiring",
+      "slug": "ramachandran_synesthesia_cross_wiring",
+      "pillar": "brain_basics",
+      "doi": "10.1098/rspb.2000.1576",
+      "source_type": "existing_dossier",
+      "topic": "Ramachandran & Hubbard (2001): Synesthesia 'Pop-Out' — Proving Seeing '5' in Ruby Red Is Real Cortical Cross-Wiring, Not Metaphor",
+      "crossref": null
+    },
+    {
+      "episode_number": 79,
+      "wave": 10,
+      "project_id": "diorama_79_rosenthal_pygmalion_expectancy",
+      "slug": "rosenthal_pygmalion_expectancy",
+      "pillar": "brain_basics",
+      "doi": "10.2466/pr0.1966.19.1.115",
+      "source_type": "existing_dossier",
+      "topic": "Robert Rosenthal & Lenore Jacobson (1966-1968): Oak School 'Pygmalion in the Classroom' Self-Fulfilling Prophecy",
+      "crossref": null
+    },
+    {
+      "episode_number": 80,
+      "wave": 10,
+      "project_id": "diorama_80_rubber_hand_body_plasticity",
+      "slug": "rubber_hand_body_plasticity",
+      "pillar": "brain_basics",
+      "doi": "10.1038/35784",
+      "source_type": "existing_dossier",
+      "topic": "Botvinick & Cohen (1998): Two Paintbrushes, One Fake Rubber Hand & Rewriting Where 'You' End in 60 Seconds",
+      "crossref": null
+    },
+    {
+      "episode_number": 81,
+      "wave": 10,
+      "project_id": "diorama_81_schultz_dopamine_prediction_error",
+      "slug": "schultz_dopamine_prediction_error",
+      "pillar": "brain_basics",
+      "doi": "10.1126/science.275.5306.1593",
+      "source_type": "existing_dossier",
+      "topic": "Wolfram Schultz, Dayan & Montague (1997): Dopamine Is NOT 'Pleasure' — It's Exact 'Actual Minus Expected' Surprise Math!",
+      "crossref": null
+    },
+    {
+      "episode_number": 82,
+      "wave": 11,
+      "project_id": "diorama_82_shepard_metzler_mental_rotation",
+      "slug": "shepard_metzler_mental_rotation",
+      "pillar": "brain_basics",
+      "doi": "10.1126/science.171.3972.701",
+      "source_type": "existing_dossier",
+      "topic": "Roger Shepard & Jacqueline Metzler (1971): 3D Mental Rotation & the Linear 60-Degrees-Per-Second Mind's Eye",
+      "crossref": null
+    },
+    {
+      "episode_number": 83,
+      "wave": 11,
+      "project_id": "diorama_83_sperling_iconic_memory_buffer",
+      "slug": "sperling_iconic_memory_buffer",
+      "pillar": "brain_basics",
+      "doi": "10.1037/h0093759",
+      "source_type": "existing_dossier",
+      "topic": "George Sperling (1960): The 50-Millisecond Letter Grid & Proving You Briefly See 3x More Than You Can Say",
+      "crossref": null
+    },
+    {
+      "episode_number": 84,
+      "wave": 11,
+      "project_id": "diorama_84_stroop_color_word_conflict",
+      "slug": "stroop_color_word_conflict",
+      "pillar": "brain_basics",
+      "doi": "10.1037/h0054651",
+      "source_type": "existing_dossier",
+      "topic": "J. Ridley Stroop (1935): Why You Cannot Stop Reading the Word 'RED' Printed in Blue Ink",
+      "crossref": null
+    },
+    {
+      "episode_number": 85,
+      "wave": 11,
+      "project_id": "diorama_85_tajfel_minimal_group_favoritism",
+      "slug": "tajfel_minimal_group_favoritism",
+      "pillar": "brain_basics",
+      "doi": "10.1002/ejsp.2420010202",
+      "source_type": "existing_dossier",
+      "topic": "Henri Tajfel (1971): Klee vs Kandinsky Paintings — How Meaningless Labels Spark Instant 'Us vs Them' Tribalism",
+      "crossref": null
+    },
+    {
+      "episode_number": 86,
+      "wave": 11,
+      "project_id": "diorama_86_treisman_attenuation_selective_attention",
+      "slug": "treisman_attenuation_selective_attention",
+      "pillar": "brain_basics",
+      "doi": "10.1016/s0022-5371(64)80015-3",
+      "source_type": "existing_dossier",
+      "topic": "Anne Treisman (1960/1964): Attenuation Theory — Why Your Ignored Ear Suddenly Hijacks Your Mouth When the Story Jumps Ears!",
+      "crossref": null
+    },
+    {
+      "episode_number": 87,
+      "wave": 11,
+      "project_id": "diorama_87_trivers_parental_investment_drives",
+      "slug": "trivers_parental_investment_drives",
+      "pillar": "brain_basics",
+      "doi": "10.1086/406755",
+      "source_type": "existing_dossier",
+      "topic": "Robert Trivers (1971–1974): Parental Investment & Reciprocal Altruism — Why Pipefish Dads Flip Courtship Upside Down!",
+      "crossref": null
+    },
+    {
+      "episode_number": 88,
+      "wave": 11,
+      "project_id": "diorama_88_tulving_episodic_mental_time_travel",
+      "slug": "tulving_episodic_mental_time_travel",
+      "pillar": "brain_basics",
+      "doi": "10.1146/annurev.psych.53.100901.135114",
+      "source_type": "existing_dossier",
+      "topic": "Endel Tulving (1972/2002): 'Mental Time Travel' — Patient K.C. Knowing Every Rule of Chess Without Remembering Playing a Single Game",
+      "crossref": null
+    },
+    {
+      "episode_number": 89,
+      "wave": 11,
+      "project_id": "diorama_89_wason_selection_confirmation_bias",
+      "slug": "wason_selection_confirmation_bias",
+      "pillar": "brain_basics",
+      "doi": "10.1080/14640746808400161",
+      "source_type": "existing_dossier",
+      "topic": "Peter Wason (1966/1968): The Four-Card Puzzle ('E — K — 4 — 7') That Stumps 90% of Educated Adults",
+      "crossref": null
+    },
+    {
+      "episode_number": 90,
+      "wave": 11,
+      "project_id": "diorama_90_zajonc_mere_exposure_effect",
+      "slug": "zajonc_mere_exposure_effect",
+      "pillar": "brain_basics",
+      "doi": "10.1037/h0025848",
+      "source_type": "existing_dossier",
+      "topic": "Robert Zajonc (1968): Flashed Nonsense Words & Chinese Symbols — Why Mere Repetition Breeds Affection Without Memory!",
+      "crossref": null
+    },
+    {
+      "episode_number": 91,
+      "wave": 11,
+      "project_id": "diorama_91_hochberg_braingate_robotic_coffee",
+      "slug": "hochberg_braingate_robotic_coffee",
+      "pillar": "bci_tech",
+      "doi": "10.1038/nature11076",
+      "source_type": "new_dossier",
+      "topic": "Leigh Hochberg & Cathy Hutchinson (2012): BrainGate Robotic Arm Sipping Coffee After 15 Years of Paralysis",
+      "crossref": {
+        "title": "Reach and grasp by people with tetraplegia using a neurally controlled robotic arm",
+        "year": 2012,
+        "journal": "Nature",
+        "authors": [
+          "Leigh R. Hochberg",
+          "Daniel Bacher",
+          "Beata Jarosiewicz",
+          "Nicolas Y. Masse",
+          "John D. Simeral",
+          "Joern Vogel",
+          "Sami Haddadin",
+          "Jie Liu"
+        ]
+      }
+    },
+    {
+      "episode_number": 92,
+      "wave": 12,
+      "project_id": "diorama_92_scangos_closed_loop_depression_dbs",
+      "slug": "scangos_closed_loop_depression_dbs",
+      "pillar": "brain_news",
+      "doi": "10.1038/s41591-021-01480-w",
+      "source_type": "new_dossier",
+      "topic": "Katherine Scangos & Patient Sarah (2021): Personalized Closed-Loop Brain Pacemaker Lifting Severe Depression in Seconds",
+      "crossref": {
+        "title": "Closed-loop neuromodulation in an individual with treatment-resistant depression",
+        "year": 2021,
+        "journal": "Nature Medicine",
+        "authors": [
+          "Katherine W. Scangos",
+          "Ankit N. Khambhati",
+          "Patrick M. Daly",
+          "Ghassan S. Makhoul",
+          "Leo P. Sugrue",
+          "Hashem Zamanian",
+          "Tony X. Liu",
+          "Vikram R. Rao"
+        ]
+      }
+    },
+    {
+      "episode_number": 93,
+      "wave": 12,
+      "project_id": "diorama_93_feinstein_patient_sm_fearless_amygdala",
+      "slug": "feinstein_patient_sm_fearless_amygdala",
+      "pillar": "brain_mysteries",
+      "doi": "10.1016/j.cub.2010.11.042",
+      "source_type": "new_dossier",
+      "topic": "Justin Feinstein & Patient S.M. (2011): Bilateral Amygdala Loss Erased All Fear — Until 35% Carbon Dioxide",
+      "crossref": {
+        "title": "The Human Amygdala and the Induction and Experience of Fear",
+        "year": 2011,
+        "journal": "Current Biology",
+        "authors": [
+          "Justin S. Feinstein",
+          "Ralph Adolphs",
+          "Antonio Damasio",
+          "Daniel Tranel"
+        ]
+      }
+    },
+    {
+      "episode_number": 94,
+      "wave": 12,
+      "project_id": "diorama_94_blakemore_cerebellar_tickle_prediction",
+      "slug": "blakemore_cerebellar_tickle_prediction",
+      "pillar": "brain_health",
+      "doi": "10.1038/2870",
+      "source_type": "new_dossier",
+      "topic": "Sarah-Jayne Blakemore (1998): Why You Cannot Tickle Yourself — Until a Robot Adds a 200-Millisecond Delay",
+      "crossref": {
+        "title": "Central cancellation of self-produced tickle sensation",
+        "year": 1998,
+        "journal": "Nature Neuroscience",
+        "authors": [
+          "Sarah-J. Blakemore",
+          "Daniel M. Wolpert",
+          "Chris D. Frith"
+        ]
+      }
+    },
+    {
+      "episode_number": 95,
+      "wave": 12,
+      "project_id": "diorama_95_bisiach_luzzatti_piazza_neglect",
+      "slug": "bisiach_luzzatti_piazza_neglect",
+      "pillar": "brain_history",
+      "doi": "10.1016/S0010-9452(78)80016-1",
+      "source_type": "new_dossier",
+      "topic": "Edoardo Bisiach & Claudio Luzzatti (1978): Milan's Piazza del Duomo Vanished on the Left Inside Memory Itself",
+      "crossref": {
+        "title": "Unilateral Neglect of Representational Space",
+        "year": 1978,
+        "journal": "Cortex",
+        "authors": [
+          "Edoardo Bisiach",
+          "Claudio Luzzatti"
+        ]
+      }
+    },
+    {
+      "episode_number": 96,
+      "wave": 12,
+      "project_id": "diorama_96_ienca_andorno_neurorights_mental_privacy",
+      "slug": "ienca_andorno_neurorights_mental_privacy",
+      "pillar": "bci_ethics",
+      "doi": "10.1186/s40504-017-0050-1",
+      "source_type": "new_dossier",
+      "topic": "Marcello Ienca & Roberto Andorno (2017): Brain-Spying Headsets, Cognitive Liberty & the Birth of Neurorights",
+      "crossref": {
+        "title": "Towards new human rights in the age of neuroscience and neurotechnology",
+        "year": 2017,
+        "journal": "Life Sciences, Society and Policy",
+        "authors": [
+          "Marcello Ienca",
+          "Roberto Andorno"
+        ]
+      }
+    },
+    {
+      "episode_number": 97,
+      "wave": 12,
+      "project_id": "diorama_97_willett_handwriting_bci_decoder",
+      "slug": "willett_handwriting_bci_decoder",
+      "pillar": "bci_tech",
+      "doi": "10.1038/s41586-021-03506-2",
+      "source_type": "new_dossier",
+      "topic": "Francis Willett & T5 (2021): Imaginary Handwriting BCI Decoding 90 Characters Per Minute",
+      "crossref": {
+        "title": "High-performance brain-to-text communication via handwriting",
+        "year": 2021,
+        "journal": "Nature",
+        "authors": [
+          "Francis R. Willett",
+          "Donald T. Avansino",
+          "Leigh R. Hochberg",
+          "Jaimie M. Henderson",
+          "Krishna V. Shenoy"
+        ]
+      }
+    },
+    {
+      "episode_number": 98,
+      "wave": 12,
+      "project_id": "diorama_98_vrselja_brainex_postmortem_perfusion",
+      "slug": "vrselja_brainex_postmortem_perfusion",
+      "pillar": "brain_news",
+      "doi": "10.1038/s41586-019-1099-1",
+      "source_type": "new_dossier",
+      "topic": "Zvonimir Vrselja & Nenad Sestan (2019): BrainEx Restoring Synaptic Activity Four Hours After Death",
+      "crossref": {
+        "title": "Restoration of brain circulation and cellular functions hours post-mortem",
+        "year": 2019,
+        "journal": "Nature",
+        "authors": [
+          "Zvonimir Vrselja",
+          "Stefano G. Daniele",
+          "John Silbereis",
+          "Francesca Talpo",
+          "Yury M. Morozov",
+          "André M. M. Sousa",
+          "Brian S. Tanaka",
+          "Mario Skarica"
+        ]
+      }
+    },
+    {
+      "episode_number": 99,
+      "wave": 12,
+      "project_id": "diorama_99_goodale_milner_patient_df_two_streams",
+      "slug": "goodale_milner_patient_df_two_streams",
+      "pillar": "brain_mysteries",
+      "doi": "10.1038/349154a0",
+      "source_type": "new_dossier",
+      "topic": "Melvyn Goodale, David Milner & Patient D.F. (1991): Blind to a Slot's Angle, Yet Posting the Card Perfectly",
+      "crossref": {
+        "title": "A neurological dissociation between perceiving objects and grasping them",
+        "year": 1991,
+        "journal": "Nature",
+        "authors": [
+          "M. A. Goodale",
+          "A. D. Milner",
+          "L. S. Jakobson",
+          "D. P. Carey"
+        ]
+      }
+    },
+    {
+      "episode_number": 100,
+      "wave": 12,
+      "project_id": "diorama_100_pascual_leone_mental_piano_plasticity",
+      "slug": "pascual_leone_mental_piano_plasticity",
+      "pillar": "brain_health",
+      "doi": "10.1152/jn.1995.74.3.1037",
+      "source_type": "new_dossier",
+      "topic": "Alvaro Pascual-Leone (1995): Five Days of Imaginary Piano Practice Expanded Motor Cortex Like Real Playing",
+      "crossref": {
+        "title": "Modulation of muscle responses evoked by transcranial magnetic stimulation during the acquisition of new fine motor skills",
+        "year": 1995,
+        "journal": "Journal of Neurophysiology",
+        "authors": [
+          "A. Pascual-Leone",
+          "D. Nguyet",
+          "L. G. Cohen",
+          "J. P. Brasil-Neto",
+          "A. Cammarota",
+          "M. Hallett"
+        ]
+      }
+    },
+    {
+      "episode_number": 101,
+      "wave": 12,
+      "project_id": "diorama_101_bach_y_rita_tactile_vision_chair",
+      "slug": "bach_y_rita_tactile_vision_chair",
+      "pillar": "brain_history",
+      "doi": "10.1038/221963a0",
+      "source_type": "new_dossier",
+      "topic": "Paul Bach-y-Rita (1969): Seeing With Your Back — How 400 Vibrating Chair Solenoids Turned Touch Into Vision",
+      "crossref": {
+        "title": "Vision Substitution by Tactile Image Projection",
+        "year": 1969,
+        "journal": "Nature",
+        "authors": [
+          "PAUL BACH-Y-RITA",
+          "CARTER C. COLLINS",
+          "FRANK A. SAUNDERS",
+          "BENJAMIN WHITE",
+          "LAWRENCE SCADDEN"
+        ]
+      }
+    },
+    {
+      "episode_number": 102,
+      "wave": 13,
+      "project_id": "diorama_102_lorach_brain_spine_digital_bridge",
+      "slug": "lorach_brain_spine_digital_bridge",
+      "pillar": "bci_tech",
+      "doi": "10.1038/s41586-023-06094-5",
+      "source_type": "new_dossier",
+      "topic": "Henri Lorach, Grégoire Courtine & Gert-Jan Oskam (2023): Wireless Brain-Spine Digital Bridge Restoring Natural Walking",
+      "crossref": {
+        "title": "Walking naturally after spinal cord injury using a brain–spine interface",
+        "year": 2023,
+        "journal": "Nature",
+        "authors": [
+          "Henri Lorach",
+          "Andrea Galvez",
+          "Valeria Spagnolo",
+          "Felix Martel",
+          "Serpil Karakas",
+          "Nadine Intering",
+          "Molywan Vat",
+          "Olivier Faivre"
+        ]
+      }
+    },
+    {
+      "episode_number": 103,
+      "wave": 13,
+      "project_id": "diorama_103_liu_tonegawa_optogenetic_engram",
+      "slug": "liu_tonegawa_optogenetic_engram",
+      "pillar": "brain_news",
+      "doi": "10.1038/nature11028",
+      "source_type": "new_dossier",
+      "topic": "Xu Liu & Susumu Tonegawa (2012): Switching a Single Fear Memory On With a Blue Laser Pulse",
+      "crossref": {
+        "title": "Optogenetic stimulation of a hippocampal engram activates fear memory recall",
+        "year": 2012,
+        "journal": "Nature",
+        "authors": [
+          "Xu Liu",
+          "Steve Ramirez",
+          "Petti T. Pang",
+          "Corey B. Puryear",
+          "Arvind Govindarajan",
+          "Karl Deisseroth",
+          "Susumu Tonegawa"
+        ]
+      }
+    },
+    {
+      "episode_number": 104,
+      "wave": 13,
+      "project_id": "diorama_104_blanke_tpj_out_of_body_illusion",
+      "slug": "blanke_tpj_out_of_body_illusion",
+      "pillar": "brain_mysteries",
+      "doi": "10.1038/419269a",
+      "source_type": "new_dossier",
+      "topic": "Olaf Blanke (2002): Stimulating One Millimeter of Temporoparietal Cortex Triggered an Instant Out-of-Body View",
+      "crossref": {
+        "title": "Stimulating illusory own-body perceptions",
+        "year": 2002,
+        "journal": "Nature",
+        "authors": [
+          "Olaf Blanke",
+          "Stphanie Ortigue",
+          "Theodor Landis",
+          "Margitta Seeck"
+        ]
+      }
+    },
+    {
+      "episode_number": 105,
+      "wave": 13,
+      "project_id": "diorama_105_wager_placebo_analgesia_fmri",
+      "slug": "wager_placebo_analgesia_fmri",
+      "pillar": "brain_health",
+      "doi": "10.1126/science.1093065",
+      "source_type": "new_dossier",
+      "topic": "Tor Wager (2004): Plain Cream Labelled Painkiller Quieted the Thalamus and Anterior Cingulate on fMRI",
+      "crossref": {
+        "title": "Placebo-Induced Changes in fMRI in the Anticipation and Experience of Pain",
+        "year": 2004,
+        "journal": "Science",
+        "authors": [
+          "Tor D. Wager",
+          "James K. Rilling",
+          "Edward E. Smith",
+          "Alex Sokolik",
+          "Kenneth L. Casey",
+          "Richard J. Davidson",
+          "Stephen M. Kosslyn",
+          "Robert M. Rose"
+        ]
+      }
+    },
+    {
+      "episode_number": 106,
+      "wave": 13,
+      "project_id": "diorama_106_flesher_robotic_touch_somatosensory_bci",
+      "slug": "flesher_robotic_touch_somatosensory_bci",
+      "pillar": "bci_tech",
+      "doi": "10.1126/scitranslmed.aaf8083",
+      "source_type": "new_dossier",
+      "topic": "Sharlene Flesher & Nathan Copeland (2016): Intracortical Microstimulation Restoring Robotic Finger Touch",
+      "crossref": {
+        "title": "Intracortical microstimulation of human somatosensory cortex",
+        "year": 2016,
+        "journal": "Science Translational Medicine",
+        "authors": [
+          "Sharlene N. Flesher",
+          "Jennifer L. Collinger",
+          "Stephen T. Foldes",
+          "Jeffrey M. Weiss",
+          "John E. Downey",
+          "Elizabeth C. Tyler-Kabara",
+          "Sliman J. Bensmaia",
+          "Andrew B. Schwartz"
+        ]
+      }
+    },
+    {
+      "episode_number": 107,
+      "wave": 13,
+      "project_id": "diorama_107_owen_vegetative_fmri_tennis",
+      "slug": "owen_vegetative_fmri_tennis",
+      "pillar": "brain_news",
+      "doi": "10.1126/science.1130197",
+      "source_type": "new_dossier",
+      "topic": "Adrian Owen (2006): Imagining Tennis Inside an fMRI Scanner Proved a 'Vegetative' Patient Was Fully Awake",
+      "crossref": {
+        "title": "Detecting Awareness in the Vegetative State",
+        "year": 2006,
+        "journal": "Science",
+        "authors": [
+          "Adrian M. Owen",
+          "Martin R. Coleman",
+          "Melanie Boly",
+          "Matthew H. Davis",
+          "Steven Laureys",
+          "John D. Pickard"
+        ]
+      }
+    },
+    {
+      "episode_number": 108,
+      "wave": 13,
+      "project_id": "diorama_108_graziano_defensive_motor_zones",
+      "slug": "graziano_defensive_motor_zones",
+      "pillar": "brain_mysteries",
+      "doi": "10.1016/S0896-6273(02)00698-0",
+      "source_type": "new_dossier",
+      "topic": "Michael Graziano (2002): Half-Second Motor Cortex Pulses Triggered Complete Hand-to-Mouth & Defensive Postures",
+      "crossref": {
+        "title": "Complex Movements Evoked by Microstimulation of Precentral Cortex",
+        "year": 2002,
+        "journal": "Neuron",
+        "authors": [
+          "Michael S.A Graziano",
+          "Charlotte S.R Taylor",
+          "Tirin Moore"
+        ]
+      }
+    },
+    {
+      "episode_number": 109,
+      "wave": 13,
+      "project_id": "diorama_109_stickgold_tetris_hypnagogic_replay",
+      "slug": "stickgold_tetris_hypnagogic_replay",
+      "pillar": "brain_health",
+      "doi": "10.1126/science.290.5490.350",
+      "source_type": "new_dossier",
+      "topic": "Robert Stickgold (2000): Amnesic Patients Who Forgot Playing Tetris Still Saw Falling Blocks at Sleep Onset",
+      "crossref": {
+        "title": "Replaying the Game: Hypnagogic Images in Normals and Amnesics",
+        "year": 2000,
+        "journal": "Science",
+        "authors": [
+          "Robert Stickgold",
+          "April Malia",
+          "Denise Maguire",
+          "David Roddenberry",
+          "Margaret O'Connor"
+        ]
+      }
+    },
+    {
+      "episode_number": 110,
+      "wave": 13,
+      "project_id": "diorama_110_metzger_speech_avatar_neuroprosthesis",
+      "slug": "metzger_speech_avatar_neuroprosthesis",
+      "pillar": "bci_tech",
+      "doi": "10.1038/s41586-023-06377-x",
+      "source_type": "new_dossier",
+      "topic": "Sean Metzger, Edward Chang & Ann Johnson (2023): Brain-to-Voice & Facial Avatar Prosthesis at 78 Words Per Minute",
+      "crossref": {
+        "title": "A high-performance speech neuroprosthesis",
+        "year": 2023,
+        "journal": "Nature",
+        "authors": [
+          "Francis R. Willett",
+          "Erin M. Kunz",
+          "Chaofei Fan",
+          "Donald T. Avansino",
+          "Guy H. Wilson",
+          "Eun Young Choi",
+          "Foram Kamdar",
+          "Matthew F. Glasser"
+        ]
+      }
+    },
+    {
+      "episode_number": 111,
+      "wave": 13,
+      "project_id": "diorama_111_moses_chang_paralyzed_speech_bci",
+      "slug": "moses_chang_paralyzed_speech_bci",
+      "pillar": "brain_news",
+      "doi": "10.1056/NEJMoa2027540",
+      "source_type": "new_dossier",
+      "topic": "David Moses, Edward Chang & Pancho (2021): Decoding Full Spoken Sentences From Paralyzed Vocal-Tract Cortex",
+      "crossref": {
+        "title": "Neuroprosthesis for Decoding Speech in a Paralyzed Person with Anarthria",
+        "year": 2021,
+        "journal": "New England Journal of Medicine",
+        "authors": [
+          "David A. Moses",
+          "Sean L. Metzger",
+          "Jessie R. Liu",
+          "Gopala K. Anumanchipalli",
+          "Joseph G. Makin",
+          "Pengfei F. Sun",
+          "Josh Chartier",
+          "Maximilian E. Dougherty"
+        ]
+      }
+    },
+    {
+      "episode_number": 112,
+      "wave": 14,
+      "project_id": "diorama_112_oxley_stentrode_jugular_bci",
+      "slug": "oxley_stentrode_jugular_bci",
+      "pillar": "bci_tech",
+      "doi": "10.1038/nbt.3428",
+      "source_type": "new_dossier",
+      "topic": "Thomas Oxley (2016): The Stentrode — Recording Motor Cortex Through a Blood Vessel Without Open-Skull Surgery",
+      "crossref": {
+        "title": "Minimally invasive endovascular stent-electrode array for high-fidelity, chronic recordings of cortical neural activity",
+        "year": 2016,
+        "journal": "Nature Biotechnology",
+        "authors": [
+          "Thomas J Oxley",
+          "Nicholas L Opie",
+          "Sam E John",
+          "Gil S Rind",
+          "Stephen M Ronayne",
+          "Tracey L Wheeler",
+          "Jack W Judy",
+          "Alan J McDonald"
+        ]
+      }
+    },
+    {
+      "episode_number": 113,
+      "wave": 14,
+      "project_id": "diorama_113_pais_vieira_brain_to_brain_interface",
+      "slug": "pais_vieira_brain_to_brain_interface",
+      "pillar": "brain_news",
+      "doi": "10.1038/srep01319",
+      "source_type": "new_dossier",
+      "topic": "Miguel Pais-Vieira & Miguel Nicolelis (2013): Direct Brain-to-Brain Sensorimotor Transmission Across Continents",
+      "crossref": {
+        "title": "A Brain-to-Brain Interface for Real-Time Sharing of Sensorimotor Information",
+        "year": 2013,
+        "journal": "Scientific Reports",
+        "authors": [
+          "Miguel Pais-Vieira",
+          "Mikhail Lebedev",
+          "Carolina Kunicki",
+          "Jing Wang",
+          "Miguel A. L. Nicolelis"
+        ]
+      }
+    },
+    {
+      "episode_number": 114,
+      "wave": 14,
+      "project_id": "diorama_114_ajiboye_cortical_fes_arm_reach",
+      "slug": "ajiboye_cortical_fes_arm_reach",
+      "pillar": "bci_tech",
+      "doi": "10.1016/S0140-6736(17)30601-3",
+      "source_type": "new_dossier",
+      "topic": "Bolu Ajiboye & Bill Kochevar (2017): Intracortical BCI + Muscle Stimulation Restoring Feeding With One's Own Arm",
+      "crossref": {
+        "title": "Restoration of reaching and grasping movements through brain-controlled muscle stimulation in a person with tetraplegia: a proof-of-concept demonstration",
+        "year": 2017,
+        "journal": "The Lancet",
+        "authors": [
+          "A Bolu Ajiboye",
+          "Francis R Willett",
+          "Daniel R Young",
+          "William D Memberg",
+          "Brian A Murphy",
+          "Jonathan P Miller",
+          "Benjamin L Walter",
+          "Jennifer A Sweet"
+        ]
+      }
+    },
+    {
+      "episode_number": 115,
+      "wave": 14,
+      "project_id": "diorama_115_iaccarino_tsai_40hz_gamma_microglia",
+      "slug": "iaccarino_tsai_40hz_gamma_microglia",
+      "pillar": "brain_news",
+      "doi": "10.1038/nature20587",
+      "source_type": "new_dossier",
+      "topic": "Hannah Iaccarino & Li-Huei Tsai (2016): 40-Hertz Flickering Light Recruiting Microglia to Clear Amyloid Plaques",
+      "crossref": {
+        "title": "Gamma frequency entrainment attenuates amyloid load and modifies microglia",
+        "year": 2016,
+        "journal": "Nature",
+        "authors": [
+          "Hunter F. Iaccarino",
+          "Annabelle C. Singer",
+          "Anthony J. Martorell",
+          "Andrii Rudenko",
+          "Fan Gao",
+          "Tyler Z. Gillingham",
+          "Hansruedi Mathys",
+          "Jinsoo Seo"
+        ]
+      }
+    },
+    {
+      "episode_number": 116,
+      "wave": 14,
+      "project_id": "diorama_116_bouton_neural_bypass_hand_grasp",
+      "slug": "bouton_neural_bypass_hand_grasp",
+      "pillar": "bci_tech",
+      "doi": "10.1038/nature17435",
+      "source_type": "new_dossier",
+      "topic": "Chad Bouton & Ian Burkhart (2016): Cortical Neural Bypass Reanimating Paralyzed Fingers in Real Time",
+      "crossref": {
+        "title": "Restoring cortical control of functional movement in a human with quadriplegia",
+        "year": 2016,
+        "journal": "Nature",
+        "authors": [
+          "Chad E. Bouton",
+          "Ammar Shaikhouni",
+          "Nicholas V. Annetta",
+          "Marcia A. Bockbrader",
+          "David A. Friedenberg",
+          "Dylan M. Nielson",
+          "Gaurav Sharma",
+          "Per B. Sederberg"
+        ]
+      }
+    },
+    {
+      "episode_number": 117,
+      "wave": 14,
+      "project_id": "diorama_117_tankus_fried_single_neuron_speech",
+      "slug": "tankus_fried_single_neuron_speech",
+      "pillar": "brain_news",
+      "doi": "10.1038/ncomms1995",
+      "source_type": "new_dossier",
+      "topic": "Ariel Tankus, Itzhak Fried & Shy Shoham (2012): Single Human Neurons Tuning to Individual Vowels During Speech",
+      "crossref": {
+        "title": "Structured neuronal encoding and decoding of human speech features",
+        "year": 2012,
+        "journal": "Nature Communications",
+        "authors": [
+          "Ariel Tankus",
+          "Itzhak Fried",
+          "Shy Shoham"
+        ]
+      }
+    },
+    {
+      "episode_number": 118,
+      "wave": 14,
+      "project_id": "diorama_118_farwell_donchin_p300_brain_speller",
+      "slug": "farwell_donchin_p300_brain_speller",
+      "pillar": "bci_tech",
+      "doi": "10.1016/0013-4694(88)90149-6",
+      "source_type": "new_dossier",
+      "topic": "Lawrence Farwell & Emanuel Donchin (1988): The P300 Oddball Brainwave Speller Typing Without Moving a Muscle",
+      "crossref": {
+        "title": "Talking off the top of your head: toward a mental prosthesis utilizing event-related brain potentials",
+        "year": 1988,
+        "journal": "Electroencephalography and Clinical Neurophysiology",
+        "authors": [
+          "L.A. Farwell",
+          "E. Donchin"
+        ]
+      }
+    },
+    {
+      "episode_number": 119,
+      "wave": 14,
+      "project_id": "diorama_119_gordon_somato_cognitive_action_network",
+      "slug": "gordon_somato_cognitive_action_network",
+      "pillar": "brain_news",
+      "doi": "10.1038/s41586-023-05964-2",
+      "source_type": "new_dossier",
+      "topic": "Evan Gordon & Nico Dosenbach (2023): Rewriting Penfield's Motor Map With the Mind-Body Action Network (SCAN)",
+      "crossref": {
+        "title": "A somato-cognitive action network alternates with effector regions in motor cortex",
+        "year": 2023,
+        "journal": "Nature",
+        "authors": [
+          "Evan M. Gordon",
+          "Roselyne J. Chauvin",
+          "Andrew N. Van",
+          "Aishwarya Rajesh",
+          "Ashley Nielsen",
+          "Dillan J. Newbold",
+          "Charles J. Lynch",
+          "Nicole A. Seider"
+        ]
+      }
+    },
+    {
+      "episode_number": 120,
+      "wave": 14,
+      "project_id": "diorama_120_fernandez_cortical_prosthesis_blind_vision",
+      "slug": "fernandez_cortical_prosthesis_blind_vision",
+      "pillar": "bci_tech",
+      "doi": "10.1172/JCI151331",
+      "source_type": "new_dossier",
+      "topic": "Eduardo Fernández & Bernadeta Gómez (2021): 96-Electrode Visual Cortex Implant Letting a Blind Teacher Read Letters",
+      "crossref": {
+        "title": "Visual percepts evoked with an intracortical 96-channel microelectrode array inserted in human occipital cortex",
+        "year": 2021,
+        "journal": "Journal of Clinical Investigation",
+        "authors": [
+          "Eduardo Fernández",
+          "Arantxa Alfaro",
+          "Cristina Soto-Sánchez",
+          "Pablo Gonzalez-Lopez",
+          "Antonio M. Lozano",
+          "Sebastian Peña",
+          "Maria Dolores Grima",
+          "Alfonso Rodil"
+        ]
+      }
+    },
+    {
+      "episode_number": 121,
+      "wave": 14,
+      "project_id": "diorama_121_moritz_fetz_single_neuron_bridge",
+      "slug": "moritz_fetz_single_neuron_bridge",
+      "pillar": "bci_tech",
+      "doi": "10.1038/nature07418",
+      "source_type": "new_dossier",
+      "topic": "Chet Moritz & Eberhard Fetz (2008): Direct Single-Neuron Biofeedback Reconnecting Paralyzed Wrist Muscles",
+      "crossref": {
+        "title": "Direct control of paralysed muscles by cortical neurons",
+        "year": 2008,
+        "journal": "Nature",
+        "authors": [
+          "Chet T. Moritz",
+          "Steve I. Perlmutter",
+          "Eberhard E. Fetz"
+        ]
+      }
+    }
+  ]
+}

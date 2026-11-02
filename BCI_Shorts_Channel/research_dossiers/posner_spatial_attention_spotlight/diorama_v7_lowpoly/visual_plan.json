@@ -1,0 +1,675 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "posner_spatial_attention_spotlight",
+  "topic": "Michael Posner (1980, 1987) Covert Spatial Attention Spotlight Cueing Paradigm, 60-ms Valid-vs-Invalid Reaction Swing, Parietal-Brainstem-Thalamic Orienting Network, and Inhibition of Return (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Validation of Posner's three-operation spotlight architecture in parietal lesion patients and dynamic zoom-lens follow-ups transforming clinical neglect testing and human-factors design.",
+  "outro_title_lines": [
+    "POSNER (1980, 1987)",
+    "UNIVERSITY OF OREGON"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "FROZEN GAZE?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "INVISIBLE BEAM"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SIXTY MS EDGE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "THREE GEARS"
+    },
+    {
+      "sentence_index": 28,
+      "text": "ANTI-STARE FLIP"
+    },
+    {
+      "sentence_index": 36,
+      "text": "NO-LOOK PASS"
+    },
+    {
+      "sentence_index": 44,
+      "text": "AIM YOUR BEAM"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "FROZEN GAZE?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "INVISIBLE BEAM"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SIXTY MS EDGE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "THREE GEARS"
+    },
+    {
+      "sentence_index": 28,
+      "text": "ANTI-STARE FLIP"
+    },
+    {
+      "sentence_index": 36,
+      "text": "NO-LOOK PASS"
+    },
+    {
+      "sentence_index": 44,
+      "text": "AIM YOUR BEAM"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 16,
+      "mode": "split_hstack",
+      "left_clip_index": 18,
+      "right_clip_index": 19,
+      "left_label": "VALID CUE: FAST",
+      "right_label": "INVALID CUE: SLOW"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge onto a cool slate-stone table with a brushed-silver response key",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand rests poised on the brushed-silver response key while a left light box glows mint-sage beside a center cross bar",
+      "consequence": "the right cool porcelain-white gloved low-poly hand presses the brushed-silver key cleanly"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands adjusting a brushed-silver chinrest frame on a cool slate-stone bench",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align and latch the brushed-silver chinrest frame squarely facing a center cross bar flanked by two empty pastel boxes",
+      "consequence": "the center cross bar and twin side boxes sit symmetrically aligned"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_left",
+      "structure": "a cool slate-stone optical bench holding a stationary center lens post while a soft powder-blue light cone sweeps swiftly into a left crystal cube",
+      "internal_mechanism": "the center lens post stays locked in place while the soft powder-blue beam illuminates the left cube ahead of any mechanical turn"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate vest sleeves and cool porcelain-white gloved low-poly hands over an unmarked flat-line trace strip and brushed-silver switch",
+      "prop_action": "one cool porcelain-white gloved low-poly hand traces a perfectly flat mint-sage stability line while the other hand places a brushed-silver response switch beside it",
+      "consequence": "the flat mint-sage line confirms zero physical head or sensor rotation"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a bright cool-limestone psychology laboratory with a brushed-silver chinrest, a cool slate-stone screen displaying a center cross between two square outline boxes, and a single silver key",
+      "action": "viewed strictly from behind, a clothed low-poly volunteer in a powder-blue sweater rests still on the chinrest and presses the silver key while a researcher in a slate blazer stands beside the flat trace display"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands turning a heavy brushed-silver scope tube on a limestone mount",
+      "prop_action": "both cool porcelain-white gloved low-poly hands grip and turn the heavy brushed-silver scope tube slowly from center toward a side prism",
+      "consequence": "the heavy mechanical tube arrives late after the side prism has already dimmed"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "an elevated wide view of a cool-limestone study room where heavy brushed-silver viewing tubes face fixed stone pedestals",
+      "action": "viewed strictly from behind, clothed low-poly scholars in dark coats and boots lean forward and turn the heavy silver tubes toward center targets"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit cool-limestone Oregon laboratory lined with slate-stone testing stations and unmarked two-box light panels",
+      "action": "viewed strictly from behind, clothed low-poly volunteers in pastel sweaters, slacks, and boots step up to the testing stations as the researcher in a navy blazer aligns the center cross display"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a rear over-shoulder view inside the cool slate-stone testing booth facing a crisp center cross flanked by empty left and right square light boxes",
+      "action": "viewed strictly from behind the faceless matte cool-porcelain low-poly head in a powder-blue sweater, the head stays motionless on the silver chinrest while both side boxes wait dark while figures step forward and turn calmly"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool slate-stone machinist bench holding a sleek brushed-silver carpenter spirit level with a centered mint-sage air bubble",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves set and align the brushed-silver spirit level flat on the stone bench so the mint-sage bubble stays dead center"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over the single brushed-silver key",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand holds steady above the silver key then taps down crisply as a soft mint-sage star glows in the left box",
+      "consequence": "the flat stability line stays completely level as the key clicks"
+    },
+    {
+      "sentence_index": 10,
+      "end_sentence_index": 11,
+      "act": 2,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands sliding a small directional arrow prism above the center cross",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide and set a crisp powder-blue left-pointing arrow wedge directly above the center cross bar",
+      "consequence": "four mint-sage cue pegs glow beside one rose-coral decoy peg on the side tray"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a cool pale-slate miniature theater stage illuminated by a sleek brushed-silver stage spotlight housing mounted on a limestone rail",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in dark sleeves grip and tilt the brushed-silver stage spotlight so a soft powder-blue beam lands cleanly on the left stage box"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cuffs and cool porcelain-white gloved low-poly hands resting on the cool slate-stone key pad",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand presses and releases the single brushed-silver microswitch the instant a pastel star prism lights inside the left box",
+      "consequence": "a short fast mint-sage timing bar rises beside the silver key",
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "act": 2,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands beside a row of unmarked mint-sage timing bars",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slides a silver marker along the fast mint-sage bars and sets it cleanly at the front edge",
+      "consequence": "the fast response bars sit aligned across the cool slate tray",
+      "sentence_index": 13,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands comparing two unmarked pastel timing bars on a limestone base",
+      "prop_action": "one cool porcelain-white gloved low-poly hand places a compact mint-sage valid-cue bar beside a taller rose-coral decoy bar and measures the step gap",
+      "consequence": "the compact mint-sage bar sits noticeably lower and faster than the rose-coral decoy bar"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool limestone studio pedestal holding a matte powder-blue rangefinder camera fitted with a crisp frosted silver flash reflector",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves press the silver shutter button and trigger a soft crisp pastel flash across a porcelain cube"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sleeves and cool porcelain-white gloved low-poly hands over the left valid-cue key station",
+      "prop_action": "a left arrow wedge lights and a mint-sage star flashes on the left as the cool porcelain-white gloved low-poly hand taps and releases the silver key immediately",
+      "consequence": "a low fast mint-sage indicator block locks into place"
+    },
+    {
+      "sentence_index": 16,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sleeves and cool porcelain-white gloved low-poly hands over the right invalid-cue key station",
+      "prop_action": "a left arrow wedge lights yet the star flashes on the right as the cool porcelain-white gloved low-poly hand holds briefly then presses the silver key late",
+      "consequence": "a taller slower rose-coral indicator block rises on the right tray"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit cool-limestone harbor quay mounting a heavy matte-slate and brushed-silver harbor crane beside calm powder-blue water",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in navy sleeves push the silver control lever as the heavy harbor crane boom swings slowly around its stone base"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the cool-limestone Oregon lab showing the flat eye-stability trace alongside the split valid and invalid timing columns",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in blazers, shirts, and boots step back from the bench and point to the gap between the two pastel timing columns"
+    },
+    {
+      "sentence_index": 19,
+      "end_sentence_index": 20,
+      "act": 3,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a three-gear interlocking pastel mechanism on a cool slate-stone base showing an upper mint-sage unlock gear, a middle powder-blue shift gear, and a lower lavender lock gear",
+      "internal_mechanism": "the upper mint-sage gear unlatches first, driving the middle powder-blue gear sideways until the lower lavender gear clicks onto the target slot"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands arranging three interlocking pastel prism modules on a slate tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift a single solid bar off the tray and place three linked pastel prism modules in sequence",
+      "consequence": "light flows cleanly from the first module through the second into the third"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nUNLOCKS BEAM",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper rear crown of the matte cool-porcelain 3D brain model, crisp powder-blue light activates the parietal cortex to unlock spatial focus"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "brainstem",
+      "anatomy_label": "BRAINSTEM\nSHIFTS PRIORITY",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, soft mint-sage pulses travel swiftly up the upper brainstem orienting hub"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "thalamus",
+      "anatomy_label": "THALAMUS\nLOCKS TARGET",
+      "camera": "locked_tripod",
+      "brain_scene": "at the central core of the matte cool-porcelain 3D brain cutaway, steady powder-blue light locks cleanly inside the thalamus relay hub"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "VISUAL CORTEX\nBOOSTED SIGNAL",
+      "camera": "gentle_push_in",
+      "brain_scene": "at the back pole of the matte cool-porcelain 3D brain model, bright mint-sage light amplifies across the primary visual cortex"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool slate-stone table displaying a brushed-silver magnifying glass hovering above a tiny mint-sage geometric star prism",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in blazer sleeves slide and align the brushed-silver magnifying glass over the tiny mint-sage star prism so its facets appear sharp and enlarged"
+    },
+    {
+      "sentence_index": 27,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate vest sleeves and cool porcelain-white gloved low-poly hands triggering a brief border glow on the left square box",
+      "prop_action": "one cool porcelain-white gloved low-poly hand taps a side flash switch while the other hand slides a delay slider past a midpoint notch",
+      "consequence": "the left square box dims into a muted lavender cooldown state"
+    },
+    {
+      "sentence_index": 27,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the cool-limestone Oregon testing station with an unmarked crossover curve sculpture rising past a center post",
+      "action": "viewed strictly from behind, the clothed low-poly researcher in a navy blazer and boots leans in and traces the upward flip along the unmarked pastel curve"
+    },
+    {
+      "sentence_index": 28,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a rear over-shoulder view of the two-box slate panel as the left square border flashes brightly in soft powder-blue",
+      "action": "viewed strictly from behind, the clothed low-poly volunteer in a mint-sage sweater holds still on the silver chinrest while one gloved hand rests ready on the center key"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool limestone bench holding a matte powder-blue horseshoe bar magnet beside a polished silver steel sphere",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves slide the powder-blue bar magnet close so the silver sphere rolls and snaps briskly onto the magnet pole"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands advancing a plain tick-only silver interval dial without numbers",
+      "prop_action": "both cool porcelain-white gloved low-poly hands turn and set the plain tick-only silver interval dial three notches forward on the slate console",
+      "consequence": "a cool lavender pause indicator lights beside the left box"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a cool slate-stone apothecary cabinet with neat unmarked pastel drawers where one open drawer is already empty",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in sweater sleeves close and latch the empty checked drawer with a mint-sage clip and reach smoothly to open the next fresh drawer"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a cool limestone foraging grid of six pastel stone alcoves where a soft powder-blue spotlight beam visits one alcove after another without repeating",
+      "internal_mechanism": "each visited alcove flips up a tiny lavender shutter tab so the powder-blue spotlight glides onward to unvisited alcoves"
+    },
+    {
+      "sentence_index": 34,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands placing a lavender stopper peg on the left box",
+      "prop_action": "one cool porcelain-white gloved low-poly hand sets a lavender stopper peg on the old left box while the other hand slides the powder-blue beam prism to the right box",
+      "consequence": "the right box illuminates brightly with fresh priority"
+    },
+    {
+      "sentence_index": 34,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright Oregon laboratory with the unmarked dip-and-rise pastel curve model centered on the slate table",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in blazers and boots step beside the curve model and align the early dip peg with the later rise peg"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "gym_court_terrace",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit pastel limestone park overlook dotted with mint-sage geometric trees under a clear powder-blue sky",
+      "action": "viewed strictly from behind, a clothed low-poly walker in a slate jacket, cap, and boots steps along the stone terrace turning smoothly from grove to grove"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands testing the three-gear pastel model on a slate tray",
+      "prop_action": "one cool porcelain-white gloved low-poly hand holds the first rose-coral unlock gear still while the other hand tries to slide the beam prism leftward",
+      "consequence": "the beam prism stays stuck on the right box when the unlock gear cannot turn"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nDISENGAGE GEAR",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the upper right rear surface of the matte cool-porcelain 3D brain model, muted rose-coral shading highlights the damaged parietal cortex disengage zone"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate cardigan sleeves and cool porcelain-white gloved low-poly hands over a clinical cueing pad",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand taps and presses quickly for a lone left star yet pulls back when a right box glows first",
+      "consequence": "the clinical test cleanly isolates the unlock delay"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "gentle_push_in",
+      "analogy_world": "a cool slate-stone optical stand holding a brushed-silver camera zoom lens barrel with smooth iris blades",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in navy sleeves grip and turn the brushed-silver zoom ring widening and narrowing a soft powder-blue light circle"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "gym_court_terrace",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright indoor cool-slate athletic court with powder-blue boundary lines and two clothed low-poly teammates",
+      "action": "viewed strictly from behind, a clothed low-poly point guard in a navy jersey, shorts, and sneakers faces straight ahead at a defender while pushing a crisp diagonal bounce pass left to a cutting teammate"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate flight-jacket sleeves and cool porcelain-white gloved low-poly hands inside a minimalist cool-slate cockpit simulator",
+      "prop_action": "one cool porcelain-white gloved low-poly hand grips a brushed-silver flight stick while a soft mint-sage cue bracket highlights an approaching runway bar on clear glass",
+      "consequence": "the gloved hand steers smoothly onto the runway center line"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands aligning the two-box display model and three-gear brain model",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set and align the three-gear pastel module directly beside the two-box slate screen",
+      "consequence": "both models sit paired cleanly in crisp studio light"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright University of Oregon cognitive neuroscience laboratory with the two-box light panel glowing calmly",
+      "action": "viewed strictly from behind, three clothed low-poly scientists in blazers, shirts, slacks, and boots step around the slate bench and lean toward the two-box setup"
+    },
+    {
+      "sentence_index": 43,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate vest sleeves and cool porcelain-white gloved low-poly hands beside the brushed-silver response key",
+      "prop_action": "one cool porcelain-white gloved low-poly hand latches the chinrest bar neatly while the other hand rests beside the center cross switch",
+      "consequence": "the two-box panel gleams clean and symmetrical"
+    },
+    {
+      "sentence_index": 43,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit cool-limestone Oregon laboratory and testing stations",
+      "action": "viewed strictly from behind, the clothed low-poly researcher in a navy blazer and boots walks and steps calmly past the aligned two-box stations and turns toward the tall window"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "highway_cabin_view",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a rear over-shoulder view inside a minimalist cool-slate car cabin looking out a wide windshield onto a sunlit pastel limestone highway",
+      "action": "viewed strictly from behind, a clothed low-poly driver in a powder-blue jacket grips the slate steering wheel while a blinking rose-coral call light distracts on the console"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "highway_cabin_view",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue jacket sleeves and cool porcelain-white gloved low-poly hands over a cool slate car console",
+      "prop_action": "one cool porcelain-white gloved low-poly hand reaches toward a blinking rose-coral console button then pulls back to grip the slate wheel",
+      "consequence": "both gloved hands rest firmly on the slate steering wheel"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nSTOLEN SPOTLIGHT",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper rear crown of the matte cool-porcelain 3D brain model, distracted rose-coral flickers pull light away from the parietal cortex spatial map"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "highway_cabin_view",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue jacket sleeves and cool porcelain-white gloved low-poly hands on a cool slate steering wheel",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand presses a silver end-call button on the wheel rim and grips both sides of the wheel firmly",
+      "consequence": "a merging mint-sage compact car in the side lane comes into crisp clear view through the windshield"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool slate-stone safety mount fitted with a precision brushed-silver spring snap latch",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in jacket sleeves push and latch the brushed-silver safety clasp shut with an instant crisp click"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "gym_court_terrace",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit cool-limestone cafe terrace with a slate table and two pastel chairs",
+      "action": "viewed strictly from behind, two clothed low-poly friends in pastel sweaters and boots set their matte-slate phones face down and lean in attentively"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage cardigan sleeves and cool porcelain-white gloved low-poly hands using a silver trackpad beside a sleek unmarked slate monitor",
+      "prop_action": "one cool porcelain-white gloved low-poly hand glides across the silver trackpad keeping a powder-blue focus ring centered while a side border blink fades dark as gloved fingers reach and press cleanly",
+      "consequence": "the center workspace stays calm and undisturbed"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "gym_court_terrace",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit limestone campus walkway lined with pastel mint-sage trees",
+      "action": "viewed strictly from behind, clothed low-poly walkers in pastel jackets, caps, and boots walk and step smoothly along the wide stone path"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "gym_court_terrace",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a serene sunlit limestone courtyard framed by soft mint-sage trees opening into a clear powder-blue sky with white geometric clouds",
+      "action": "viewed strictly from behind, clothed low-poly figures in pastel coats, caps, and boots walk and step calmly forward as the camera tilts smoothly upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "INVISIBLE BEAM",
+    "cover_sentence_index": 3,
+    "cover_brief": "soft powder-blue spotlight cone illuminating a left crystal box beside a stationary center cross bar on a cool slate-stone lab table"
+  }
+}

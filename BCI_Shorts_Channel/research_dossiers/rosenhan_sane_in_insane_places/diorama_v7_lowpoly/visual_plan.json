@@ -1,0 +1,691 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "rosenhan_sane_in_insane_places",
+  "topic": "David Rosenhan & Bill Underwood (1973) Stanford Pseudopatient Ward Study, Six-Minute Staff Contact, Zero-Impostor Teaching Hospital Challenge, Spitzer Checklist Reform, and 2019 Archive Audit (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Robert Spitzer's diagnostic checklist reform paired with the archival discovery inside Rosenhan's locked study files confirming Bill Underwood's authentic nine-day ward chart while exposing an omitted volunteer and edited intake notes.",
+  "outro_title_lines": [
+    "DAVID ROSENHAN (1973)",
+    "STANFORD & WARD STUDY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "SANE OR SICK?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "LOCKED IN SANE"
+    },
+    {
+      "sentence_index": 10,
+      "text": "NOTES AS ILLNESS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "BIAS IN THE WARD"
+    },
+    {
+      "sentence_index": 27,
+      "text": "ZERO SENT IN"
+    },
+    {
+      "sentence_index": 35,
+      "text": "LOCKED ARCHIVES"
+    },
+    {
+      "sentence_index": 43,
+      "text": "BLIND THE REVIEW"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "SANE OR SICK?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "LOCKED IN SANE"
+    },
+    {
+      "sentence_index": 10,
+      "text": "NOTES AS ILLNESS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "BIAS IN THE WARD"
+    },
+    {
+      "sentence_index": 27,
+      "text": "ZERO SENT IN"
+    },
+    {
+      "sentence_index": 35,
+      "text": "LOCKED ARCHIVES"
+    },
+    {
+      "sentence_index": 43,
+      "text": "BLIND THE REVIEW"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 33,
+      "mode": "split_hstack",
+      "left_clip_index": 37,
+      "right_clip_index": 38,
+      "left_label": "EXPECT SICK: ADMITTED",
+      "right_label": "EXPECT FAKE: DOUBTED"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white doctor coat sleeves and cool porcelain-white gloved low-poly hands holding a medical clipboard over an intake desk",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts a silver pen and taps a green check block onto a clean intake form",
+      "consequence": "the crisp pastel intake sheet rests flat under bright daylight"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray corduroy jacket sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge across the counter",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide a neat wallet folder forward and set folded eyeglasses calmly onto the counter",
+      "consequence": "the calm visitor items sit neatly before the frosted intake window"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue scrub sleeves and cool porcelain-white gloved low-poly hands turning a heavy brushed-silver key inside a ward corridor door",
+      "prop_action": "one cool porcelain-white gloved low-poly hand pushes the heavy pastel-green ward door shut and turns the brushed-silver key firmly",
+      "consequence": "the steel bolt slides into the frame locking the hallway closed"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit pastel hospital dayroom with mint walls, wooden chairs, a barred window, and a soft-mint lined notepad on a small table",
+      "action": "viewed strictly from behind, a clothed low-poly graduate student in a dove-gray sweater steps slowly to the table and places his hand on the chair back"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray sweater cuffs and cool porcelain-white gloved low-poly hands wearing a plastic hospital wristband beside a soft-mint lined pad",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand opens the soft-mint lined pad and places a wooden pencil across the top page",
+      "consequence": "the hospital wristband gleams beside the crisp blank page"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "stanford_study_office",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tweed jacket sleeves and cool porcelain-white gloved low-poly hands arranging twelve pastel hospital miniatures across a wooden map board",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and place the final miniature hospital building onto the sunlit state map",
+      "consequence": "twelve pastel hospital models stand distributed across five colored regions"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "stanford_study_office",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright university seminar room with an slate-stone table holding eight neat travel folders and soft-mint pads",
+      "action": "viewed strictly from behind, a clothed low-poly professor in a tweed blazer slides folders toward eight clothed low-poly volunteers who reach out to hold them"
+    },
+    {
+      "sentence_index": 6,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray sweater sleeves and cool porcelain-white gloved low-poly hands resting calmly on an admissions desk as three soft gray sound rings float up",
+      "prop_action": "one cool porcelain-white gloved low-poly hand taps three quiet beats on the desk surface and folds back into the other hand",
+      "consequence": "three hollow pastel sound rings hover briefly above the intake blotter"
+    },
+    {
+      "sentence_index": 6,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white doctor coat sleeves and cool porcelain-white gloved low-poly hands writing on an admissions folder",
+      "prop_action": "the doctor's cool porcelain-white gloved low-poly hand writes briskly on the pink admission sheet and slides a plastic wristband forward",
+      "consequence": "the admission folder closes over the intake desk"
+    },
+    {
+      "sentence_index": 7,
+      "end_sentence_index": 8,
+      "act": 1,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit hospital ward lounge with pastel armchairs, potted ferns, and a glass nurses station",
+      "action": "viewed strictly from behind, clothed low-poly volunteers in sweaters walk calmly to the chairs, sit upright, and hold polite conversation with staff"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "clean_pullback_reveal",
+      "structure": "a bright pastel cutaway cross-section of a two-floor hospital wing with locked hallway doors and an enclosed glass nurses booth",
+      "internal_mechanism": "inside the ward rooms clothed low-poly volunteers sit quietly reading while outer corridor bolts remain slid shut"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright glass-walled nurses station overlooking the tidy pastel dayroom",
+      "action": "viewed strictly from behind, two clothed low-poly doctors in white coats stand holding clipboards and point toward the calm seated volunteer"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands sorting twelve pastel medical folders into two stacks",
+      "prop_action": "both cool porcelain-white gloved low-poly hands place eleven coral folders into a tall stack and set one amber folder beside it",
+      "consequence": "twelve closed medical folders sit stacked neatly on the counter"
+    },
+    {
+      "sentence_index": 12,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray sweater sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over soft-mint pads",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand writes neat horizontal lines down a bright soft-mint pad while the left hand holds the page steady",
+      "consequence": "clean graphite lines fill the open soft-mint notepad in full view"
+    },
+    {
+      "sentence_index": 12,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the open ward dayroom bench where soft-mint pads sit in plain daylight beside the nurses window",
+      "action": "viewed strictly from behind, a clothed low-poly volunteer in a cardigan writes openly on a soft-mint pad and flips the page without hiding it"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "white nurse uniform sleeves and cool porcelain-white gloved low-poly hands writing inside a medical chart folder behind glass",
+      "prop_action": "one cool porcelain-white gloved low-poly hand opens the medical chart folder and draws a red warning underline beneath the daily log",
+      "consequence": "ordinary note-taking sits logged as a symptom inside the chart"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pastel breakroom counter holding a steaming coral ceramic coffee mug beside a brushed-silver pocket timer",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in coat sleeves set the steaming coffee mug down and turn the silver timer dial to a short coffee break slice"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a long sunlit hospital corridor lined with closed office doors and a polished pastel floor",
+      "action": "viewed strictly from behind, clothed low-poly doctors in white coats walk briskly past a waiting volunteer without stopping or turning"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit ward dayroom with wooden tables and soft-mint pads",
+      "action": "viewed strictly from behind, clothed low-poly ward patients in pastel robes step up beside a seated volunteer and point knowingly at his soft-mint pad"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pastel bathrobe sleeves and dove-gray sweater sleeves as cool porcelain-white gloved low-poly hands meet across a dayroom table",
+      "prop_action": "a patient's cool porcelain-white gloved low-poly hand taps the soft-mint notepad lightly while the volunteer's hand closes the cover calmly",
+      "consequence": "mutual recognition passes quietly across the sunlit wooden table"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "dove-gray sweater sleeves and cool porcelain-white gloved low-poly hands tugging gently at a red plastic hospital wristband beside a closed chart",
+      "prop_action": "both cool porcelain-white gloved low-poly hands pull lightly against the snug plastic wristband and set palms flat on the locked table",
+      "consequence": "the bright coral wristband stays fastened tightly around the cuff"
+    },
+    {
+      "sentence_index": 19,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray sweater cuffs and cool porcelain-white gloved low-poly hands lining up small wooden day blocks along a windowsill",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts and places another wooden tally block at the end of a long row",
+      "consequence": "rows of pastel wooden day blocks stretch across the sunlit sill"
+    },
+    {
+      "sentence_index": 19,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the quiet hospital dayroom as late-afternoon sunlight shifts across nineteen wooden tally blocks on the sill",
+      "action": "viewed strictly from behind, a clothed low-poly volunteer in a sweater walks slowly past the window and sets his notebook neatly on a chair"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunny front glass doors of the hospital opening onto a green tree-lined sidewalk",
+      "action": "viewed strictly from behind, the clothed low-poly Stanford student in a dove-gray jacket pushes open the outer glass door and steps into open daylight"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white doctor coat sleeves and cool porcelain-white gloved low-poly hands pressing a rubber ink stamp onto discharge charts",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand presses a heavy wooden rubber stamp onto the open medical chart and lifts it away",
+      "consequence": "a coral ink block remains stamped across the discharge folder"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nEXPECTATION FILTER",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front forehead lobes of the matte warm-ivory 3D brain model, coral-amber facets glow steadily and cast a tinted filter backward over incoming sky-blue paths"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nCONFLICT ALARM",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile midline half-brain cross-section, the curved anterior cingulate ridge stays dim and muted in pale gray-blue without firing"
+    },
+    {
+      "sentence_index": 24,
+      "end_sentence_index": 25,
+      "act": 3,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit ward hallway leading to a closed lunchroom serving counter with stacked pastel lunch trays",
+      "action": "viewed strictly from behind, clothed low-poly volunteers stand calmly near the lunch trays while a clothed low-poly nurse behind glass writes in a chart"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "stanford_study_office",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed blazer sleeves and cool porcelain-white gloved low-poly hands opening a crisp challenge letter beside a rotary telephone",
+      "prop_action": "both cool porcelain-white gloved low-poly hands unfold the heavy cream letter sheet and place a brushed-silver paperweight on its corner",
+      "consequence": "the rotary telephone sits ready beside the open challenge sheet"
+    },
+    {
+      "sentence_index": 27,
+      "act": 4,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "an impressive sunlit brick teaching hospital entrance with tall white columns and bright glass doors",
+      "action": "viewed strictly from behind, clothed low-poly senior physicians in crisp white coats stand together holding clipboards before the entrance"
+    },
+    {
+      "sentence_index": 28,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "stanford_study_office",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed blazer sleeves and cool porcelain-white gloved low-poly hands lifting a cream rotary telephone receiver",
+      "prop_action": "one cool porcelain-white gloved low-poly hand lifts the telephone handset and spins the rotary dial smoothly with one finger",
+      "consequence": "pastel acoustic waves travel outward along the telephone cord"
+    },
+    {
+      "sentence_index": 28,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white doctor coat sleeves and cool porcelain-white gloved low-poly hands placing orange alert clipboards along the intake counter",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set three bright-coral screening clipboards onto the admissions desk and tap them aligned",
+      "consequence": "every admissions station stands armed with an impostor checklist"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pastel slate-stone desk holding a freestanding spiral seasonal desk calendar with crisp pastel month cards",
+      "comparison_action": "two cool porcelain-white gloved low-poly hands in shirt sleeves flip three pastel month cards over the top spiral ring of the desk calendar and smooth the page flat"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands sorting intake folders into a bright coral suspect tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands drop red wooden marker cubes onto a tall stack of forty-one flagged intake folders",
+      "consequence": "a high pile of suspect folders fills the coral wire basket"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "stanford_study_office",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "tweed blazer sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over a closed wooden dispatch box",
+      "prop_action": "both cool porcelain-white gloved low-poly hands unlatch the brushed-silver clasp and lift open the lid of the Stanford dispatch box",
+      "consequence": "the open wooden dispatch box reveals an completely empty velvet interior"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "stanford_study_office",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed blazer sleeves and cool porcelain-white gloved low-poly hands turning the empty wooden dispatch box upside down over the slate-stone desk",
+      "prop_action": "both cool porcelain-white gloved low-poly hands tilt the empty wooden box toward the light and set a single hollow white ring beside it",
+      "consequence": "nothing falls onto the clean sunlit blotter"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands sliding a coral patient wristband toward a calm visitor",
+      "prop_action": "the doctor's cool porcelain-white gloved low-poly hand places a coral admission folder over a calm visitor's soft-mint pad and closes the clasp",
+      "consequence": "healthy calm posture gets sealed inside an illness folder"
+    },
+    {
+      "sentence_index": 33,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved low-poly hands pushing away a distressed patient's intake folder",
+      "prop_action": "the doctor's cool porcelain-white gloved low-poly hand drops an amber warning cube onto the intake folder and slides it aside",
+      "consequence": "a genuine arrival gets flagged as a suspected impostor"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a symmetrical pastel cutaway of two adjacent intake booths tinted through opposite rose and blue glass lenses",
+      "internal_mechanism": "identical seated visitors appear tinted coral in the left booth and sky-blue in the right booth as overhead filter panes slide across"
+    },
+    {
+      "sentence_index": 35,
+      "act": 5,
+      "location_id": "stanford_study_office",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit psychiatric conference room with a round slate-stone table stacked with pastel cloth-bound manuals and clipboards",
+      "action": "viewed strictly from behind, clothed low-poly psychiatrists in suits lean forward, open the thick manuals, and turn pages together"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "stanford_study_office",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy suit sleeves and cool porcelain-white gloved low-poly hands comparing two medical folders on a conference desk",
+      "prop_action": "one cool porcelain-white gloved low-poly hand points to the three intake rings on the left sheet and slides a structured critique pad beside it",
+      "consequence": "the faked intake entry stands highlighted against normal clinical practice"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "stanford_study_office",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy suit sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over crisp symptom checklists",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand checks structured boxes down a crisp symptom checklist while the left hand aligns a ruler",
+      "consequence": "neat green check squares line up cleanly down the diagnostic checklist"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "stanford_study_office",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "olive jacket sleeves and cool porcelain-white gloved low-poly hands unlocking a metal storage cabinet holding cardboard archive file boxes",
+      "prop_action": "one cool porcelain-white gloved low-poly hand turns a small silver key and pulls open the cabinet doors to reach the file boxes",
+      "consequence": "rows of dove-gray cardboard archive file boxes sit revealed in warm daylight"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "stanford_study_office",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "olive jacket sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge lifting lid off a cardboard file box",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift the dusty box lid aside and pull up thick powder-blue files",
+      "consequence": "decades-old study files fan open across the sunlit slate-stone table"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "stanford_study_office",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "olive jacket sleeves and cool porcelain-white gloved low-poly hands opening an authentic hospital chart folder beside nine wooden day blocks",
+      "prop_action": "both cool porcelain-white gloved low-poly hands open the original hospital chart flat and trace the daily nursing entries carefully",
+      "consequence": "the authentic hospital chart matches the soft-mint notepad pages line for line"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "stanford_study_office",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "olive jacket sleeves and cool porcelain-white gloved low-poly hands sliding an unfiled ninth powder-blue folder out from beneath edited notes",
+      "prop_action": "the left cool porcelain-white gloved low-poly hand pulls out the hidden powder-blue file while the right hand lifts cross-hatched intake notes into light",
+      "consequence": "the omitted folder and edited intake notes rest side by side on the desk"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "stanford_study_office",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit archive study room with open cardboard file boxes and powder-blue folders spread across the long slate-stone table",
+      "action": "viewed strictly from behind, clothed low-poly historians and researchers in jackets step back from the table and set their pens down in astonishment"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "stanford_study_office",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a split-level pastel study desk cutaway showing published clean stacks above and a hidden lower drawer holding the omitted folder below",
+      "internal_mechanism": "the lower wooden drawer slides open smoothly revealing the extra pastel folder tucked beneath neat summary sheets"
+    },
+    {
+      "sentence_index": 43,
+      "act": 6,
+      "location_id": "modern_review_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft gray sweater sleeves and cool porcelain-white gloved low-poly hands snapping uneven pastel puzzle blocks into a rigid square frame",
+      "prop_action": "both cool porcelain-white gloved low-poly hands press three matching blocks into the frame and push one odd-shaped block off the desk edge",
+      "consequence": "only pieces matching the first frame remain on the blotter"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_review_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit modern office meeting room with a wooden table, laptops, and stacks of applicant folders",
+      "action": "viewed strictly from behind, clothed low-poly managers in sweaters sit around the table reaching for color-coded applicant folders"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nCONFLICT CHECK",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile midline half-brain cross-section, bright sky-blue and mint-green facets light up briskly along the curved anterior cingulate arch"
+    },
+    {
+      "sentence_index": 46,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "modern_review_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "gray sweater sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge over printed work samples",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide opaque pastel privacy strips across the top header of three work samples",
+      "consequence": "the covered top headers hide every background clue cleanly"
+    },
+    {
+      "sentence_index": 46,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "modern_review_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "gray sweater cuffs and cool porcelain-white gloved low-poly hands scoring the covered work samples with a green pencil",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand writes clean check marks beside the anonymous work samples and stacks them neatly",
+      "consequence": "raw work quality gets evaluated without bias"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_review_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "gray sweater sleeves and cool porcelain-white gloved low-poly hands lifting a tinted coral glass pane away from a clean white notebook",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift the coral-tinted filter frame upward and set it aside on the desk",
+      "consequence": "the plain white notebook pages appear crisp and undistorted in daylight"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "modern_review_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a quiet sunlit office lounge with a wooden bench, potted plant, and warm ceramic mug",
+      "action": "viewed strictly from behind, a clothed low-poly colleague in a knit sweater sits resting shoulders calmly beside a steaming mug while a coworker steps over kindly"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "modern_review_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "gray sweater sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge holding a sticky coral tab over a folder",
+      "prop_action": "the left cool porcelain-white gloved low-poly hand peels off the sticky coral tab and drops it into a small recycling cup while opening the plain folder",
+      "consequence": "the clean untagged folder lies open in warm natural light"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "psychiatric_ward_corridor",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit hospital dayroom with its doors propped wide open, soft-mint pads resting beside anonymous modern work folders on a bright wooden table",
+      "action": "viewed strictly from behind, clothed low-poly researchers and clinicians stand together looking toward the open sunlit courtyard"
+    },
+    {
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "stanford_study_office",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a sunlit sandstone university quad with arched colonnades, green lawns, and clear morning sky",
+      "action": "viewed strictly from behind, clothed low-poly students and scholars walk calmly along the sandstone courtyard path as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "LOCKED IN SANE",
+    "cover_sentence_index": 3,
+    "cover_brief": "clothed low-poly volunteer from behind in a tan sweater holding a yellow notepad before a locked pastel ward door"
+  }
+}

@@ -1,0 +1,757 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "tulving_episodic_mental_time_travel",
+  "topic": "Endel Tulving (1972/2002) Episodic vs Semantic Memory & Patient Kent Cochrane: Intact Tactical Chess Beside Blank Past and Future Mental Time Travel (Low-Poly Pastel v7)",
+  "act5_climax_episode": "2007 Schacter and Addis neuroimaging proof that remembering past episodes and simulating future plans light up the exact same default-mode and hippocampal network.",
+  "outro_title_lines": [
+    "ENDEL TULVING (2002)",
+    "UNIVERSITY OF TORONTO"
+  ],
+  "thumbnail": {
+    "hook_text": "BLANK TOMORROW",
+    "cover_sentence_index": 3,
+    "cover_brief": "Centered powder-blue and mist-white low-poly geometric chessboard mid-game flanked by two empty matte-white easel frames"
+  },
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "ONE MEMORY BANK?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BLANK TOMORROW"
+    },
+    {
+      "sentence_index": 10,
+      "text": "CHESS PARADOX"
+    },
+    {
+      "sentence_index": 19,
+      "text": "TWO SYSTEMS"
+    },
+    {
+      "sentence_index": 27,
+      "text": "TOMORROW BLANK"
+    },
+    {
+      "sentence_index": 35,
+      "text": "TWIN BRAIN MAPS"
+    },
+    {
+      "sentence_index": 43,
+      "text": "TIME CAPSULE"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "ONE MEMORY BANK?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BLANK TOMORROW"
+    },
+    {
+      "sentence_index": 10,
+      "text": "CHESS PARADOX"
+    },
+    {
+      "sentence_index": 19,
+      "text": "TWO SYSTEMS"
+    },
+    {
+      "sentence_index": 27,
+      "text": "TOMORROW BLANK"
+    },
+    {
+      "sentence_index": 35,
+      "text": "TWIN BRAIN MAPS"
+    },
+    {
+      "sentence_index": 43,
+      "text": "TIME CAPSULE"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 17,
+      "mode": "split_hstack",
+      "left_clip_index": 20,
+      "right_clip_index": 21,
+      "left_label": "CHESS RULES INTACT",
+      "right_label": "LIVED PAST BLANK"
+    }
+  ],
+  "clips": [
+    {
+      "index": 1,
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "role": "hook",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "drop both sky-blue rule cubes and pastel lavender scene tiles into one single slate storage drawer and slide it shut",
+      "consequence": "facts and personal moments sit mixed inside one container"
+    },
+    {
+      "index": 2,
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "role": "hook",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "toronto_chess_room",
+      "environment": "sunlit mist-white Toronto neuropsychology room with a powder-blue geometric chessboard on a cool slate-stone table beside two blank white easel frames",
+      "action": "viewed strictly from behind, Endel Tulving in a navy blazer and Kent in a sky-blue flannel jacket sit across the chessboard"
+    },
+    {
+      "index": 3,
+      "sentence_index": 2,
+      "role": "hook",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "glide a matte powder-blue bishop piece diagonally across the slate chessboard and turn an open palm toward a blank white easel frame",
+      "consequence": "crisp chess strategy sits right beside an empty personal frame"
+    },
+    {
+      "index": 4,
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "role": "case_stamp",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "align matte mist-white and powder-blue geometric chess pieces neatly along the slate-stone board and tap the corner knight",
+      "consequence": "every piece stands in exact opening formation"
+    },
+    {
+      "index": 5,
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "role": "case_stamp",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_right",
+      "location_id": "toronto_chess_room",
+      "environment": "clean architectural cutaway of the bright Baycrest testing suite with the slate chess table and twin blank white easel frames",
+      "action": "viewed strictly from behind, Tulving in a navy blazer places a relief map of pastel lakes beside the chessboard as Kent sits calmly"
+    },
+    {
+      "index": 6,
+      "sentence_index": 4,
+      "role": "pivot",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "pull open the single slate storage drawer and lift a brushed-silver divider plate down the center",
+      "consequence": "one mixed drawer splits into two separate chambers"
+    },
+    {
+      "index": 7,
+      "sentence_index": 5,
+      "role": "context",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "grey coat sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "place sky-blue encyclopedia blocks and pastel miniature house models together inside one grey tray and push it forward",
+      "consequence": "older single-bucket theory treats both stacks as identical"
+    },
+    {
+      "index": 8,
+      "sentence_index": 6,
+      "role": "setup",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "toronto_chess_room",
+      "environment": "bright pastel Toronto seminar room with two separated slate trays holding sky-blue fact cubes on one side and mint-green scene dioramas on the other",
+      "action": "viewed strictly from behind, Endel Tulving in a navy blazer walks between the two slate trays and aligns a silver bridge bar"
+    },
+    {
+      "index": 9,
+      "sentence_index": 7,
+      "role": "setup",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "navy coat cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "set a miniature matte-white helmet model gently onto a frosted shelf and slide a clinical folder onto the slate desk",
+      "consequence": "the quiet clinical case study begins in soft pastel daylight"
+    },
+    {
+      "index": 10,
+      "sentence_index": 8,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "experiment",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "lift a powder-blue knight piece over two mist-white pawns and set it cleanly onto a central slate square",
+      "consequence": "a crisp tactical fork locks both opposing pieces"
+    },
+    {
+      "index": 11,
+      "sentence_index": 8,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "experiment",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "slide the powder-blue king and rook smoothly across two squares and rest both hands neatly on the table edge",
+      "consequence": "complex chess rules execute effortlessly"
+    },
+    {
+      "index": 12,
+      "sentence_index": 9,
+      "role": "rehook",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "environment": "sunlit Baycrest room where the active powder-blue chessboard sits beside an untouched blank mist-white easel frame",
+      "action": "viewed strictly from behind, Tulving in a navy blazer points gently from the finished chess move toward the blank white easel"
+    },
+    {
+      "index": 13,
+      "sentence_index": 10,
+      "role": "question",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "tilt_down",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "slide an empty mist-white display frame onto the slate table beside the chessboard and tap its bare center",
+      "consequence": "not a single past game token sits inside the frame"
+    },
+    {
+      "index": 14,
+      "sentence_index": 11,
+      "end_sentence_index": 12,
+      "role": "experiment",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "align a miniature pastel car wheel lug model in sequence and point accurately to a sky-blue lake bay on an unmarked 3D relief map",
+      "consequence": "procedural steps and geographic cottage location land with pinpoint accuracy"
+    },
+    {
+      "index": 15,
+      "sentence_index": 13,
+      "role": "experiment",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "toronto_chess_room",
+      "environment": "cool mist-white room with the pastel lake relief map on the slate table and a blank white frame easel standing beside it",
+      "action": "viewed strictly from behind, Tulving in a navy blazer leans slightly forward and gestures from the lake map toward the blank frame"
+    },
+    {
+      "index": 16,
+      "sentence_index": 14,
+      "role": "question",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "reach slowly across the empty mist-white easel tray and rest open gloved palms over the bare surface",
+      "consequence": "the personal scene tray stays completely bare"
+    },
+    {
+      "index": 17,
+      "sentence_index": 15,
+      "role": "analogy",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "analogy_world": "clean pastel screening room with a blank matte mist-white projection frame and an unplugged brushed-silver power cord on a slate floor",
+      "comparison_action": "navy coat sleeves and cool porcelain-white gloved low-poly hands lift the unplugged silver power cord beside the blank mist-white frame and set it gently down"
+    },
+    {
+      "index": 18,
+      "sentence_index": 16,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "result",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "slide the finished chessboard slightly back and lift an empty frosted memory tray into view",
+      "consequence": "even the match just played leaves zero token in the personal tray"
+    },
+    {
+      "index": 19,
+      "sentence_index": 16,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "result",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "place one powder-blue bishop back into its box while sliding the empty white frame flat onto the slate desk",
+      "consequence": "skill remains while lived recollection stays blank"
+    },
+    {
+      "index": 20,
+      "sentence_index": 17,
+      "role": "comparison_left",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "place crisp powder-blue chess pieces and lake map pins neatly onto a full left slate tray and align them",
+      "consequence": "timeless world knowledge stands rich and ordered"
+    },
+    {
+      "index": 21,
+      "sentence_index": 17,
+      "cut_role": "split_right",
+      "role": "comparison_right",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "glide an open gloved palm across a completely bare mist-white right frame tray and rest still",
+      "consequence": "not one personal life scene occupies the right tray"
+    },
+    {
+      "index": 22,
+      "sentence_index": 18,
+      "role": "nightmare_stamp",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "location_id": "toronto_chess_room",
+      "environment": "sunlit Toronto testing suite showing the full powder-blue chess and map tray beside the completely empty white past easel",
+      "action": "viewed strictly from behind, scholars in grey coats step back around Tulving as the single-drawer theory collapses"
+    },
+    {
+      "index": 23,
+      "sentence_index": 19,
+      "role": "instead_pivot",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "lift the sky-blue fact vault box and slide the mint-green time-machine frame onto two independent silver tracks",
+      "consequence": "two distinct conscious memory systems stand side by side"
+    },
+    {
+      "index": 24,
+      "sentence_index": 20,
+      "role": "brain_link",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "location_id": "bright_brain_studio",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "temporal lobe",
+      "anatomy_label": "SIDE LOBE\\nWORLD FACT VAULT",
+      "brain_scene": "matte-white low-poly lateral brain model in a bright mist-white studio where the outer side lobe glows steady cyan-blue with intact green fiber lines"
+    },
+    {
+      "index": 25,
+      "sentence_index": 21,
+      "role": "brain_link",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "location_id": "bright_brain_studio",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "MEMORY MAKER\\nSCENE TIME ENGINE",
+      "brain_scene": "matte-white low-poly sagittal brain cutaway in a bright studio where the deep curved memory ridge shows soft crimson-rose loss cutting off scene binding"
+    },
+    {
+      "index": 26,
+      "sentence_index": 22,
+      "role": "question",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "location_id": "toronto_chess_room",
+      "environment": "bright Baycrest study desk holding stacks of unmarked pastel vocabulary tiles in soft diffused daylight",
+      "action": "viewed strictly from behind, Kent in a sky-blue flannel jacket sits across from Tulving sorting new pastel concept blocks"
+    },
+    {
+      "index": 27,
+      "sentence_index": 23,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "experiment",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "interlock three new mint-green concept blocks cleanly into a matching sky-blue slot tray and press them flat",
+      "consequence": "brand-new factual associations lock into the semantic tray"
+    },
+    {
+      "index": 28,
+      "sentence_index": 23,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "experiment",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "place a fourth new pastel block atop the semantic tower and align the column straight",
+      "consequence": "slow cortical fact learning continues steadily"
+    },
+    {
+      "index": 29,
+      "sentence_index": 24,
+      "role": "result",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "point from the tall sky-blue fact tower to the still-empty mist-white session frame beside it and rest one palm flat",
+      "consequence": "new facts stay while every study afternoon vanishes"
+    },
+    {
+      "index": 30,
+      "sentence_index": 25,
+      "role": "setup",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "lift a second blank mist-white easel frame and place it on the forward right side of the slate chess table",
+      "consequence": "yesterday's blank frame now sits paired with tomorrow's frame"
+    },
+    {
+      "index": 31,
+      "sentence_index": 26,
+      "role": "twist_question",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "toronto_chess_room",
+      "environment": "sunlit mist-white Baycrest room where Kent sits flanked symmetrically by the left past easel and the right tomorrow easel",
+      "action": "viewed strictly from behind, Tulving in a navy blazer gestures toward the right tomorrow easel as Kent turns slightly toward it"
+    },
+    {
+      "index": 32,
+      "sentence_index": 27,
+      "role": "experiment",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "reach toward pastel scene blocks beside the right tomorrow frame and pause midair without lifting a single block",
+      "consequence": "the tomorrow easel remains completely bare"
+    },
+    {
+      "index": 33,
+      "sentence_index": 28,
+      "role": "analogy",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "location_id": "empty_white_room",
+      "analogy_world": "minimalist mist-white and pale-blue empty room with bare geometric walls and an empty slate-stone floor without a single chair",
+      "comparison_action": "viewed strictly from behind, a clothed low-poly figure in a sky-blue flannel jacket steps through the doorway and turns slowly across the empty floor"
+    },
+    {
+      "index": 34,
+      "sentence_index": 29,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "result",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "rest one gloved hand beside the blank left past frame and place the other hand beside the identical blank right tomorrow frame",
+      "consequence": "both mist-white frames match in total emptiness"
+    },
+    {
+      "index": 35,
+      "sentence_index": 29,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "result",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "location_id": "toronto_chess_room",
+      "environment": "high-key Toronto room framing the chessboard at center between the two matching blank white easels",
+      "action": "viewed strictly from behind, Tulving in a navy blazer leans forward studying the twin blank frames across from Kent"
+    },
+    {
+      "index": 36,
+      "sentence_index": 30,
+      "role": "question",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_right",
+      "location_id": "scanner_suite",
+      "environment": "clean architectural cutaway linking a pastel block archive shelf on the left to a future model-building table on the right",
+      "action": "viewed strictly from behind, a planner in a sage jacket lifts pastel blocks from the left shelf and carries them to the right build table"
+    },
+    {
+      "index": 37,
+      "sentence_index": 31,
+      "end_sentence_index": 32,
+      "role": "mechanism",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "scanner_suite",
+      "attire_and_hands": "sage jacket sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "unbolt modular mint-green and sky-blue scene blocks from an older model and snap them into a fresh tomorrow layout",
+      "consequence": "past building blocks recombine into a brand-new preview scene"
+    },
+    {
+      "index": 38,
+      "sentence_index": 33,
+      "role": "mechanism",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_left",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "slide a silver two-way carriage smoothly backward to a pastel memory model and push it forward to a pastel tomorrow model",
+      "consequence": "one shared track connects both directions of time"
+    },
+    {
+      "index": 39,
+      "sentence_index": 34,
+      "role": "analogy",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "location_id": "scanner_suite",
+      "analogy_world": "cool slate-stone console holding a brushed-silver rotary shuttle time dial flanked by unmarked sky-blue backward and mint-green forward arc rails",
+      "comparison_action": "navy blazer sleeves and cool porcelain-white gloved low-poly hands grip the brushed-silver shuttle dial and turn it smoothly back and forward"
+    },
+    {
+      "index": 40,
+      "sentence_index": 35,
+      "role": "question",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "scanner_suite",
+      "environment": "bright modern mist-white neuroimaging console room with twin pastel 3D brain relief displays mounted side by side",
+      "action": "viewed strictly from behind, two neuroscientists in slate blazers stand before the twin pastel brain displays"
+    },
+    {
+      "index": 41,
+      "sentence_index": 36,
+      "role": "climax",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "scanner_suite",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "press two smooth pastel console keys side by side and align twin translucent brain models on a silver stand",
+      "consequence": "past recall and future imagination run back to back"
+    },
+    {
+      "index": 42,
+      "sentence_index": 37,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "climax",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "scanner_suite",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "slide a sky-blue past memory prism into the left console slot and tap the left brain stand",
+      "consequence": "core midline hubs glow soft cyan-blue on the left model"
+    },
+    {
+      "index": 43,
+      "sentence_index": 37,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "climax",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "location_id": "scanner_suite",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "slide a mint-green future plan prism into the right console slot and align both glowing brain stands",
+      "consequence": "the exact same core hubs glow soft cyan-blue on the right model"
+    },
+    {
+      "index": 44,
+      "sentence_index": 38,
+      "role": "brain_link",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "location_id": "bright_brain_studio",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "default mode network",
+      "anatomy_label": "DAYDREAM NETWORK\\nPAST FUTURE CORE",
+      "brain_scene": "matte-white low-poly sagittal brain model in a bright mist-white studio where connected front and back midline hubs glow soft cyan-blue with green fiber pulses"
+    },
+    {
+      "index": 45,
+      "sentence_index": 39,
+      "role": "climax",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "location_id": "scanner_suite",
+      "environment": "sunlit neuroimaging room where the two side-by-side brain models display identical soft cyan-blue midline glow patterns",
+      "action": "viewed strictly from behind, Schacter and Addis in slate blazers point together across the matching twin models"
+    },
+    {
+      "index": 46,
+      "sentence_index": 40,
+      "role": "climax",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_left",
+      "location_id": "study_desk_room",
+      "environment": "bright pastel classroom cutaway with a 3D world globe and unmarked sky-blue geography pins beside a small pocket schedule pad",
+      "action": "viewed strictly from behind, a student in a navy sweater places geography pins accurately on the globe while checking a blank pastel pad"
+    },
+    {
+      "index": 47,
+      "sentence_index": 41,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "stunned_stamp",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "place the two-way silver shuttle bar between the chessboard and the twin pastel brain models and rest both hands steady",
+      "consequence": "bedside chess paradox and brain-scan proof lock into one picture"
+    },
+    {
+      "index": 48,
+      "sentence_index": 41,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "stunned_stamp",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "location_id": "toronto_chess_room",
+      "environment": "sunlit Baycrest room uniting the powder-blue chessboard and the paired time-travel frames on the slate table",
+      "action": "viewed strictly from behind, Endel Tulving and colleagues in navy blazers stand quietly observing the completed model"
+    },
+    {
+      "index": 49,
+      "sentence_index": 42,
+      "role": "question",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "study_desk_room",
+      "environment": "calm evening pastel study room with soft mist-white lamp light, a slate desk, and an open unmarked mint-green notebook",
+      "action": "viewed strictly from behind, a person in a sage cardigan sits at the slate desk and reaches for a brushed-silver stylus"
+    },
+    {
+      "index": 50,
+      "sentence_index": 43,
+      "end_sentence_index": 44,
+      "role": "takeaway",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "location_id": "study_desk_room",
+      "attire_and_hands": "sage cardigan sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "place two crisp sky-blue sensory cubes onto an open unmarked pastel notebook page and align them neatly",
+      "consequence": "two concrete daily details stay preserved instead of blurring"
+    },
+    {
+      "index": 51,
+      "sentence_index": 45,
+      "role": "takeaway",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "study_desk_room",
+      "attire_and_hands": "sage cardigan cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "lift the two saved sky-blue cubes from the notebook and snap them onto a mint-green tomorrow stage tray",
+      "consequence": "saved sensory blocks supply the forward rehearsal build"
+    },
+    {
+      "index": 52,
+      "sentence_index": 46,
+      "role": "brain_link",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "location_id": "bright_brain_studio",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PLANNER\\nTOMORROW REHEARSAL",
+      "brain_scene": "matte-white low-poly cortical brain model in a bright mist-white gallery where the front planning hub glows soft cyan-blue with smooth green fiber arcs"
+    },
+    {
+      "index": 53,
+      "sentence_index": 47,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "takeaway",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "study_desk_room",
+      "attire_and_hands": "sage cardigan sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "set a miniature pastel conference table and doorway arch onto the tomorrow frame tray and align a small podium block",
+      "consequence": "tomorrow's meeting room takes clear physical shape"
+    },
+    {
+      "index": 54,
+      "sentence_index": 47,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "takeaway",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "location_id": "study_desk_room",
+      "environment": "bright pastel presentation room with a clean slate-stone conference table and tall mist-white doorway in soft morning light",
+      "action": "viewed strictly from behind, the prepared speaker in a sage blazer steps calmly through the doorway and places notes on the table"
+    },
+    {
+      "index": 55,
+      "sentence_index": 48,
+      "role": "takeaway",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "study_desk_room",
+      "attire_and_hands": "sage blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "align three pastel step blocks along the edge of the slate podium and tap the first block cleanly",
+      "consequence": "the opening step feels calm and familiar"
+    },
+    {
+      "index": 56,
+      "sentence_index": 49,
+      "role": "conclusion",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "glide a powder-blue knight forward across the chessboard while a linked silver shuttle moves a mint-green block into tomorrow's frame",
+      "consequence": "past pieces guide the next move forward"
+    },
+    {
+      "index": 57,
+      "sentence_index": 50,
+      "role": "conclusion_stamp",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "place interlocking sky-blue yesterday blocks and mint-green tomorrow blocks onto one shared silver arch and press them level",
+      "consequence": "both halves of mental time travel gleam in balance"
+    },
+    {
+      "index": 58,
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "role": "outro",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "location_id": "toronto_chess_room",
+      "environment": "serene sunlit Toronto room with the powder-blue geometric chessboard and linked pastel time-travel frames on a cool slate table",
+      "action": "wide elevated view strictly from behind as Endel Tulving in a navy blazer stands quietly before tall mist-white windows"
+    }
+  ]
+}

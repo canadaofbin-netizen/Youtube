@@ -1,0 +1,716 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "damasio_somatic_marker_decision",
+  "topic": "Antonio Damasio & Antoine Bechara (1994, 1997) Iowa Gambling Task, Somatic Marker Hypothesis in Ventromedial Prefrontal Cortex, and Shiv (2005) Myopic Loss Aversion Paradox (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Baba Shiv, Antoine Bechara, and Antonio Damasio's 2005 Stanford-Iowa study demonstrating that vmPFC patients without somatic fear markers outperform healthy controls in a positive-expected-value investment game.",
+  "outro_title_lines": [
+    "BECHARA & DAMASIO (1994, 1997)",
+    "UNIVERSITY OF IOWA"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "PURE LOGIC?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "LOGIC PARALYSED?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "4 CARD DECKS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "PALM SWEAT"
+    },
+    {
+      "sentence_index": 28,
+      "text": "BLIND TO RISK"
+    },
+    {
+      "sentence_index": 36,
+      "text": "2005 TWIST"
+    },
+    {
+      "sentence_index": 44,
+      "text": "TRUST YOUR GUT"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "PURE LOGIC?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "LOGIC PARALYSED?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "4 CARD DECKS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "PALM SWEAT"
+    },
+    {
+      "sentence_index": 28,
+      "text": "BLIND TO RISK"
+    },
+    {
+      "sentence_index": 36,
+      "text": "2005 TWIST"
+    },
+    {
+      "sentence_index": 44,
+      "text": "TRUST YOUR GUT"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 28,
+      "mode": "split_hstack",
+      "left_clip_index": 31,
+      "right_clip_index": 32,
+      "left_label": "NO GUT ALARM",
+      "right_label": "EARLY SWEAT SPIKE"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal suit sleeves and matte-white gloved low-poly hands over a balanced brushed-silver scale",
+      "prop_action": "both matte-white gloved low-poly hands lift a glowing cool soft-lavender heart token off the brushed-silver scale tray and set a cold steel cube in its place",
+      "consequence": "the brushed-silver scale beam locks rigid and horizontal"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan blazer sleeves and matte-white gloved low-poly hands extending from the bottom frame edge over two pale-gray menu cards",
+      "prop_action": "both matte-white gloved low-poly hands hover back and forth between the left and right pale-gray cards unable to set a finger down on either one",
+      "consequence": "a brushed-silver sandglass beside the cards runs out of sand"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan blazer cuffs and matte-white gloved low-poly hands filling six notebook pages with columns",
+      "prop_action": "the matte-white gloved low-poly right hand writes endless ruled columns of pros and cons with a slate-stone pencil while two lunch tokens sit untouched",
+      "consequence": "the notebook pages pile up across the slate-stone desk"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands arranging four card decks on a green felt table",
+      "prop_action": "both matte-white gloved low-poly hands align four neat stacks of pastel pale-gray cards in a row across the sunlit table",
+      "consequence": "the four card decks sit ready beside a stack of play bills"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a sunlit 1994 University of Iowa neuropsychology testing room with pale-pale-stone walls, a four-deck testing table, and a polygraph console",
+      "action": "viewed strictly from behind, a clothed low-poly neurologist in a white coat sits across from a subject in a tan blazer at the four-deck table"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster workbench comparing a cold brushed-silver gear calculator beside a cool compass rose",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves turn and press the brushed-silver gear calculator which spins in circles without pointing a direction",
+      "end_sentence_index": 5
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit neurology consultation office with brain slice transparencies on a wall light-box",
+      "action": "viewed strictly from behind, the clothed low-poly doctor in a white coat and patient in a tan blazer step toward the glowing light-box and point at the scan",
+      "end_sentence_index": 6,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "VENTROMEDIAL PREFRONTAL\nJUDGMENT CENTER",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the lower-front ventromedial prefrontal zone right behind the eyes is highlighted in deep coral-red",
+      "end_sentence_index": 6,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster desk with a vintage cool-white desktop computer tower beside a stack of puzzle blocks",
+      "comparison_action": "two matte-white gloved low-poly hands in blazer sleeves lift and snap the geometric puzzle blocks into a flawless cube in seconds",
+      "end_sentence_index": 8
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan blazer sleeves and matte-white gloved low-poly hands completing a pale-gray pegboard test",
+      "prop_action": "both matte-white gloved low-poly hands place the final three pale-gray pegs into the logic board and slide the completed tray forward",
+      "consequence": "every slot on the logic board is filled accurately",
+      "end_sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tan blazer cuffs and matte-white gloved low-poly hands holding two appointment cards beside a wall clock",
+      "prop_action": "both matte-white gloved low-poly hands weigh the Tuesday card against the Wednesday card while the brushed-silver clock hand sweeps past thirty minutes",
+      "consequence": "neither appointment card is selected on the desk",
+      "end_sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit Iowa consultation room with boxes of unsorted paper folders stacked around the desk",
+      "action": "viewed strictly from behind, the clothed low-poly patient in a tan blazer steps before the overflowing folders and opens both palms in confusion",
+      "end_sentence_index": 11
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands dealing four stacks of cards",
+      "prop_action": "both matte-white gloved low-poly hands set four pale-gray card shoes onto the green felt board and place a starter stack of play bills in front",
+      "consequence": "the four card decks gleam in the soft studio light",
+      "end_sentence_index": 12,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater sleeves and matte-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "the player's low-poly right hand reaches forward and flips the top card off the first deck onto the table",
+      "consequence": "the crisp pale-gray card lands face-up on the green felt",
+      "end_sentence_index": 12,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster counter holding a brushed-silver jackpot bell dispenser pouring out two tall stacks of green play tokens",
+      "comparison_action": "two matte-white gloved low-poly hands in sweater sleeves pull the brushed-silver lever and scoop up the tall stacks of green tokens",
+      "end_sentence_index": 14
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan blazer cuff and matte-white gloved low-poly hand flipping a soft soft-lavender penalty card from Deck B",
+      "prop_action": "the matte-white gloved low-poly hand turns over a thick soft-lavender penalty card while the experimenter's hand sweeps away a huge stack of play bills",
+      "consequence": "the player's token tray drops nearly empty in one stroke",
+      "end_sentence_index": 15,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "soft-sage sweater sleeves and matte-white gloved low-poly hands drawing from Decks C and D",
+      "prop_action": "both matte-white gloved low-poly hands flip a calm soft-sage card from Deck C and add a steady green token stack to a growing pile",
+      "consequence": "the player's savings stack climbs steadily higher",
+      "end_sentence_index": 15,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater sleeves and matte-white gloved low-poly hands extending over the four decks",
+      "prop_action": "the healthy player's matte-white gloved low-poly hand pulls back from the left soft-lavender decks and reaches smoothly to flip from the right blue decks",
+      "consequence": "the left two decks remain untouched while the right stacks grow"
+    },
+    {
+      "sentence_index": 17,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "VM-PREFRONTAL LESION\nMISSING RISK BRAKE",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the lower-front ventromedial prefrontal zone behind the eyes stays dark coral while the hand motor path fires unchecked"
+    },
+    {
+      "sentence_index": 17,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan blazer sleeves and matte-white gloved low-poly hands flipping repeatedly from Decks A and B",
+      "prop_action": "the patient's matte-white gloved low-poly hand keeps drawing cards from the left trap decks as the last green play tokens are swept off the tray",
+      "consequence": "the pale-gray token tray sits completely bare"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Iowa testing room with the empty token tray in front of the patient",
+      "action": "viewed strictly from behind, the clothed low-poly researcher in a white coat steps beside the table and writes on a light-gray clipboard"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands preparing two silver palm sensors",
+      "prop_action": "both matte-white gloved low-poly hands uncoil two slender pastel sensor leads connected to a brushed-silver skin-conductance polygraph",
+      "consequence": "the polygraph ink pens rest poised at the baseline",
+      "end_sentence_index": 20
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and a player's hand in a soft-sage sweater sleeve",
+      "prop_action": "the scientist's matte-white gloved low-poly hands lift and place two small silver sensor rings onto the index and middle fingers of the player's left palm",
+      "consequence": "the silver sensors sit snug against the matte geometric fingers",
+      "end_sentence_index": 21,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "soft-sage sweater sleeve and matte-white gloved low-poly hand hovering over the card decks beside the scrolling chart",
+      "prop_action": "as the player's right hand lifts and hovers over Deck A, the brushed-silver polygraph stylus on the side chart twitches upward",
+      "consequence": "a crisp ink wave traces the exact moment of hesitation",
+      "end_sentence_index": 21,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands placing a marker at card eighty on a long tally track",
+      "prop_action": "both matte-white gloved low-poly hands set a blue logic flag near the far right end of a hundred-slot pale-gray counting rail",
+      "consequence": "eighty pale-gray card tiles sit to the left of the blue flag"
+    },
+    {
+      "sentence_index": 23,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater sleeves and matte-white gloved low-poly hands with silver finger sensors extending over Deck B",
+      "prop_action": "as the right hand reaches toward the tenth card on Deck B, a soft-sage indicator lamp on the palm sensor box flashes brightly",
+      "consequence": "the brushed-silver polygraph pen spikes sharply upward before the fingers touch the card"
+    },
+    {
+      "sentence_index": 23,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands setting a soft-sage alarm pin at slot ten on the rail",
+      "prop_action": "both matte-white gloved low-poly hands lock the soft-sage gut-alarm pin at card ten far ahead of the blue logic flag at card eighty",
+      "consequence": "a wide seventy-card gap stretches between the soft-sage pin and blue flag"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit cool-alabaster lighthouse tower overlooking a channel with hidden soft-lavender reefs",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves press and turn the soft-sage lighthouse lamp illuminating the submerged soft-lavender blocks long before a pale-gray boat arrives",
+      "end_sentence_index": 25
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands stamping a cool soft-sage seal onto the Deck A chart",
+      "prop_action": "both matte-white gloved low-poly hands press a brushed-silver warning seal onto the dangerous deck card leaving a soft soft-lavender mark",
+      "consequence": "the soft-lavender warning mark stands out clearly on the card back",
+      "end_sentence_index": 26,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "insula",
+      "anatomy_label": "INSULA & AMYGDALA\nGUT WARNING LOOP",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the deep amygdala and insula glow warm amber-gold and send a soft pastel sky-blue signal forward to the ventromedial prefrontal cortex",
+      "end_sentence_index": 26,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit Iowa testing table as the frontal patient in the tan blazer sits wired to the palm polygraph",
+      "action": "viewed strictly from behind, the clothed low-poly neurologist in a white coat leans over the polygraph paper strip and points at the patient's trace"
+    },
+    {
+      "sentence_index": 28,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan blazer cuff and matte-white gloved low-poly hand reaching for Deck A beside the polygraph pen",
+      "prop_action": "the patient's matte-white gloved low-poly hand lifts a card from Deck A while the brushed-silver polygraph pen draws a completely flat horizontal line",
+      "consequence": "zero upward deflection appears on the scrolling paper chart"
+    },
+    {
+      "sentence_index": 28,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands comparing the spiking healthy chart with the flat patient chart",
+      "prop_action": "both matte-white gloved low-poly hands align the tall soft-sage peaks of the healthy palm trace directly above the dead-flat patient trace",
+      "consequence": "the contrast between the two paper strips is unmistakable"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Iowa testing table at card eighty with the four decks spread out",
+      "action": "viewed strictly from behind, the clothed low-poly patient in the tan blazer leans forward and points his left index finger clearly at Decks A and B"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan blazer sleeves and matte-white gloved low-poly hands placing a soft-lavender hazard triangle beside Decks A and B",
+      "prop_action": "both matte-white gloved low-poly hands set a small soft-lavender warning triangle right in front of the left two card stacks",
+      "consequence": "the soft-lavender triangle marks Decks A and B as the losing piles"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan blazer sleeves and matte-white gloved low-poly hands extending over the table",
+      "prop_action": "despite the soft-lavender warning triangle sitting in front of Deck A, the patient's right hand reaches past the triangle and draws another card from Deck A",
+      "consequence": "another heavy penalty card flips face-up onto the felt"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "BROKEN SOMATIC BRIDGE\nKNOWLEDGE WITHOUT FEELING",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the upper logic cortex glows sky-blue while the lower ventromedial prefrontal bridge remains dark and disconnected"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a sunlit cool-alabaster desk covered in a three-foot-long paper scroll of balanced checkmarks",
+      "comparison_action": "two matte-white gloved low-poly hands in blazer sleeves lift and slide the endless scroll of equal checkmarks while a brushed-silver gavel sits unused"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-gray ship helm fitted with a glowing soft-sage brushed-silver compass in the center",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves place the soft-sage compass into the pale-gray helm and turn the wheel smoothly on course"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "EMOTION + REASON\nINTEGRATED COMPASS",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, warm amber-gold gut signals and sky-blue frontal logic streams converge inside the ventromedial prefrontal hub"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "stanford_econ_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-slate blazer sleeves and matte-white gloved low-poly hands flipping a heavy brushed-silver coin on a felt mat",
+      "prop_action": "one matte-white gloved low-poly hand flips the brushed-silver coin into the air and catches it cleanly on the mat beside a stack of twenty dollar tokens",
+      "consequence": "the brushed-silver coin gleams face-up next to the token bank"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "stanford_econ_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit 2005 behavioral economics laboratory with a twenty-round investment board and coin-flip station",
+      "action": "viewed strictly from behind, a clothed low-poly researcher in a muted-slate blazer steps beside the twenty-round board and places a token tray before two seated players"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "stanford_econ_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "muted-slate blazer cuffs and matte-white gloved low-poly hands lining up twenty round pale-gray coins along a numbered rail",
+      "prop_action": "both matte-white gloved low-poly hands slide twenty soft-sage investment tokens into slots one through twenty on the slate-stone rail",
+      "consequence": "all twenty investment slots stand filled in a soft row"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "stanford_econ_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands tilting a mathematical balance scale",
+      "prop_action": "both matte-white gloved low-poly hands place two-and-a-half green win tokens on the right pan outweighing one soft-lavender loss token on the left pan",
+      "consequence": "the right win pan tips decisively downward"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "stanford_econ_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater sleeves and matte-white gloved low-poly hands extending over the investment tray",
+      "prop_action": "after one coin lands on tails, the healthy player's matte-white gloved low-poly hands pull their token stack back and cover the tray defensively",
+      "consequence": "the investment slot for the next round stays empty"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "stanford_econ_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan blazer sleeves and matte-white gloved low-poly hands pushing tokens forward on round after round",
+      "prop_action": "both matte-white gloved low-poly hands calmly slide investment tokens into slot after slot while the payout stack on their side grows twice as tall",
+      "consequence": "the patient's green token tower rises high above the cautious player's stack"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "stanford_econ_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit behavioral economics lab with the tall payout tower on the patient's side of the table",
+      "action": "viewed strictly from behind, three clothed low-poly scientists in blazers and coats step back from the scoreboard and lift their hands in surprise"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands placing the four card decks beside the brushed-silver coin",
+      "prop_action": "both matte-white gloved low-poly hands set the Iowa card decks on the left and the investment coin on the right of a pale-gray balance board",
+      "consequence": "both experimental props rest side by side in soft sunlight"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_office_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan sleeves and matte-white gloved low-poly hands extending over a sunlit slate-stone desk with a contract folder",
+      "prop_action": "both matte-white gloved low-poly hands open the cool-white contract folder beside a brushed-silver fountain pen and a small brushed-silver sundial",
+      "consequence": "the open pages gleam in the quiet morning light"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "insula",
+      "anatomy_label": "INSULA PATTERN MEMORY\nGUT-FEELING CENTER",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the deep insula glows warm amber-gold and links smoothly with the front prefrontal lobe"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "modern_office_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan sleeves and matte-white gloved low-poly hands pausing the fountain pen above a signature line",
+      "prop_action": "the matte-white gloved low-poly right hand halts the pen tip above a flashy silver-foil contract and caps the brushed-silver pen cleanly",
+      "consequence": "the capped pen rests safely beside the unsigned sheet"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_office_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "sage cardigan cuffs and matte-white gloved low-poly hands sliding the flashy silver-foil card aside",
+      "prop_action": "both matte-white gloved low-poly hands push the risky silver-foil card away and pull a clean blue long-term plan card into the center",
+      "consequence": "the blue plan card sits centered on the slate-stone desk"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "modern_office_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan sleeves and matte-white gloved low-poly hands checking a pale-gray probability chart",
+      "prop_action": "both matte-white gloved low-poly hands align a brushed-silver ruler across the rising long-term trend line after a small dip",
+      "consequence": "the upward trajectory stands clear across the pale-gray chart"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster navigator's table holding a soft-sage brushed-silver compass beside a drafted paper sea chart",
+      "comparison_action": "two matte-white gloved low-poly hands in cardigan sleeves set the soft-sage compass directly onto the drafted chart and align the brushed-silver dividers"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "modern_office_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan sleeves and matte-white gloved low-poly hands holding both the brushed-silver compass and a pale-gray abacus",
+      "prop_action": "the left matte-white gloved low-poly hand holds the soft-sage compass while the right hand slides the pale-gray abacus beads into alignment",
+      "consequence": "compass and abacus rest side by side in balanced harmony"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Iowa laboratory with the four card decks, polygraph console, and 3D brain model on the pale-stone table",
+      "action": "viewed strictly from behind, clothed low-poly scientists in white coats and volunteers in sweaters stand together by the table and turn toward the sunlit window"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "iowa_decision_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a soft sunlit Iowa river campus walkway lined with pastel autumn trees and sandstone buildings",
+      "action": "viewed from behind, clothed low-poly figures in coats and blazers walk calmly along the sunlit path toward the horizon as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "LOGIC PARALYSED?",
+    "cover_sentence_index": 3,
+    "cover_brief": "patient seated before four stacked card decks hesitating with poised low-poly hand centered in pastel clinic"
+  }
+}

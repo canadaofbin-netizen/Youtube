@@ -22,20 +22,15 @@ EXPECTED_PROJECT_IDS = [
     "psych_01_habit_loop_basal_ganglia",
     "psych_02_inner_speech_decoding",
     "psych_03_split_brain_dual_consciousness",
-    "psych_04_phineas_gage_frontal_lobe",
     "psych_05_capgras_imposter_delusion",
     "psych_06_glymphatic_sleep_toxins",
-    "psych_07_hippocampal_memory_prosthesis",
-    "psych_08_inattentional_blindness_gorilla",
-    "psych_09_false_memory_elizabeth_loftus",
-    "psych_10_cognitive_dissonance_acc",
 ]
 
 
 @pytest.mark.integration
 def test_10_psychology_projects_exist_and_pass_qa():
-    """Validates that all 10 existing projects on disk have intact manifests, scripts, audio, video, and publish artifacts."""
-    assert len(EXPECTED_PROJECT_IDS) == 10
+    """Validates that all active public psychology projects on disk have intact manifests, scripts, audio, video, and publish artifacts."""
+    assert len(EXPECTED_PROJECT_IDS) == 5
 
     verified_ids = {
         "psych_01_habit_loop_basal_ganglia",

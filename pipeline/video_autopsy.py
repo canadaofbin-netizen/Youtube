@@ -29,6 +29,7 @@ import json
 import re
 import shutil
 import subprocess
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -37,21 +38,39 @@ import cv2
 import numpy as np
 
 from pipeline.config import (
+    AUDIO_MAX_OVERSAMPLED_TRUE_PEAK_DBTP,
+    AUDIO_MAX_SIBILANCE_CREST_DB,
+    AUDIO_MAX_SIBILANCE_ENERGY_RATIO,
+    AUDIO_MIN_TTS_ASR_WORD_COVERAGE,
+    AUDIO_SIBILANCE_BAND_HZ,
+    AUDIO_SPEECH_BODY_BAND_HZ,
     AV_SPEEDUP_FACTOR,
     CLIP_PRE_PIVOT_HOLD_SEC,
     CLIP_VISUAL_HOLD_SEC,
     DEFAULT_CLIP_COUNT,
+    DIORAMA_DURATION_MIN_SEC,
+    DIORAMA_LUFS_TOLERANCE_LU,
+    DIORAMA_MAX_CLIP_REUSE,
+    DIORAMA_TARGET_CUT_MIN,
+    DIORAMA_TARGET_LUFS,
+    DIORAMA_V7_DURATION_MIN_SEC,
+    DIORAMA_V7_TARGET_LUFS,
     FINAL_SHORTS_DURATION_MIN_SEC,
     FINAL_TAIL_SEC,
     MAX_PERCEPTUAL_DHASH_HAMMING_DISTANCE,
     MIN_CLIP_SIZE_BYTES,
     MIN_OPTICAL_FLOW_THRESHOLD,
     PROJECTS_DIR,
+    SHORTS_HARD_CEILING_FRAMES,
+    SHORTS_HARD_CEILING_FRAMES_V7,
+    SHORTS_HARD_CEILING_SEC,
     SUBPROCESS_TIMEOUT_SEC,
     VIDEO_FPS,
     VIDEO_HEIGHT,
     VIDEO_WIDTH,
     expected_final_duration_sec,
+    is_diorama_profile,
+    is_diorama_v7_plan,
     max_allowed_dead_air_sec,
 )
 from pipeline.media_integrity import MediaIntegrityValidator, get_pipeline_logger
@@ -85,57 +104,96 @@ class VideoAutopsyEngine:
         and dense pairs for Farneback optical flow) to extract physical visual telemetry.
         """
         path = Path(mp4_path)
-        import os
-        import shutil
-        import tempfile
-        import threading
-        local_decode_path = path
-        tmp_decode_file: Path | None = None
-        if os.name != "nt" and Path("/tmp").exists() and path.exists():
-            try:
-                tmp_decode_file = Path(tempfile.gettempdir()) / f"_tmp_autopsy_dec_{os.getpid()}_{threading.get_ident()}_{path.name}"
-                shutil.copy2(path, tmp_decode_file)
-                local_decode_path = tmp_decode_file
-            except Exception:
-                local_decode_path = path
+        if not path.exists():
+            return {
+                "exists": False,
+                "frame_count": 0,
+                "decoded_frame_count": 0,
+                "fps": 0.0,
+                "container_duration_sec": 0.0,
+                "decoded_duration_sec": 0.0,
+                "has_early_stream_freeze": True,
+                "min_window_upper_diff": 0.0,
+                "mean_step_upper_diff": 0.0,
+                "detected_cuts_sec": [],
+                "cut_count": 0,
+                "narrative_cut_sync_error_sec": 99.0,
+                "rigid_6s_cuts": False,
+                "optical_flow_segments": [],
+                "optical_flow_mean": 0.0,
+                "cutaway_cool_ratio": 0.0,
+                "cutaway_warm_ratio": 0.0,
+                "color_palette_inverted": True,
+            }
 
-        try:
-            probe = MediaIntegrityValidator.probe_streams(local_decode_path)
-            if not probe.get("exists") or not probe.get("has_video_stream"):
-                return {
-                    "exists": False,
-                    "frame_count": 0,
-                    "decoded_frame_count": 0,
-                    "fps": 0.0,
-                    "container_duration_sec": 0.0,
-                    "decoded_duration_sec": 0.0,
-                    "has_early_stream_freeze": True,
-                    "min_window_upper_diff": 0.0,
-                    "mean_step_upper_diff": 0.0,
-                    "detected_cuts_sec": [],
-                    "cut_count": 0,
-                    "narrative_cut_sync_error_sec": 99.0,
-                    "rigid_6s_cuts": False,
-                    "optical_flow_segments": [],
-                    "optical_flow_mean": 0.0,
-                    "cutaway_cool_ratio": 0.0,
-                    "cutaway_warm_ratio": 0.0,
-                    "color_palette_inverted": True,
-                }
+        from pipeline.media_cache import (
+            get_active_mp4_session,
+            get_cached_json,
+            put_cached_json,
+            stage_local_file,
+        )
 
+        local_decode_path, mp4_sha = stage_local_file(path)
+        cache_key = f"{mp4_sha}|{round(float(expected_duration_sec), 2)}"
+        cached_vid = get_cached_json("autopsy_video_v1", cache_key)
+        if isinstance(cached_vid, dict) and cached_vid.get("exists") is not None:
+            return cached_vid
+
+        probe = MediaIntegrityValidator.probe_streams(local_decode_path)
+        if not probe.get("exists") or not probe.get("has_video_stream"):
+            return {
+                "exists": False,
+                "frame_count": 0,
+                "decoded_frame_count": 0,
+                "fps": 0.0,
+                "container_duration_sec": 0.0,
+                "decoded_duration_sec": 0.0,
+                "has_early_stream_freeze": True,
+                "min_window_upper_diff": 0.0,
+                "mean_step_upper_diff": 0.0,
+                "detected_cuts_sec": [],
+                "cut_count": 0,
+                "narrative_cut_sync_error_sec": 99.0,
+                "rigid_6s_cuts": False,
+                "optical_flow_segments": [],
+                "optical_flow_mean": 0.0,
+                "cutaway_cool_ratio": 0.0,
+                "cutaway_warm_ratio": 0.0,
+                "color_palette_inverted": True,
+            }
+
+        sess = get_active_mp4_session(mp4_sha)
+        fps = float(probe.get("fps") or (sess["fps"] if sess else 0.0) or VIDEO_FPS)
+        if fps <= 0:
+            fps = float(VIDEO_FPS)
+        header_fc = int(probe.get("frame_count") or (sess["header_fc"] if sess else 0) or 0)
+        container_dur = float(probe.get("duration_seconds") or 0.0)
+
+        sampled_times: list[float] = []
+        sampled_upper_grays: list[np.ndarray] = []
+        frame_step = 2
+        decoded_fc = 0
+        cutaway_hsv_samples: list[np.ndarray] = []
+        is_long_diorama_stream = max(container_dur, expected_duration_sec) >= 120.0
+
+        if sess is not None and sess.get("even_small_bgr"):
+            decoded_fc = int(sess["decoded_fc"])
+            for f_idx_even, small_bgr in sorted(sess["even_small_bgr"].items()):
+                t_sec = f_idx_even / fps
+                if is_long_diorama_stream:
+                    upper_bgr = np.vstack([small_bgr[:182, :], small_bgr[226:298, :]])
+                else:
+                    upper_cut = int(320 * 0.62)
+                    upper_bgr = small_bgr[:upper_cut, :]
+                upper_gray = cv2.cvtColor(upper_bgr, cv2.COLOR_BGR2GRAY)
+                sampled_times.append(round(t_sec, 3))
+                sampled_upper_grays.append(upper_gray)
+                if t_sec >= 4.0 and len(cutaway_hsv_samples) < 40 and f_idx_even % 10 == 0:
+                    cutaway_hsv_samples.append(cv2.cvtColor(upper_bgr, cv2.COLOR_BGR2HSV))
+        else:
             cap = cv2.VideoCapture(str(local_decode_path.resolve()))
-            fps = float(probe.get("fps") or cap.get(cv2.CAP_PROP_FPS) or VIDEO_FPS)
-            if fps <= 0:
-                fps = float(VIDEO_FPS)
-            header_fc = int(probe.get("frame_count") or cap.get(cv2.CAP_PROP_FRAME_COUNT) or 0)
-            container_dur = float(probe.get("duration_seconds") or 0.0)
-
-            sampled_times: list[float] = []
-            sampled_upper_grays: list[np.ndarray] = []
-            frame_step = 2
-            decoded_fc = 0
-            cutaway_hsv_samples: list[np.ndarray] = []
-
+            if header_fc <= 0:
+                header_fc = int(cap.get(cv2.CAP_PROP_FRAME_COUNT) or 0)
             while True:
                 ret, frame = cap.read()
                 if not ret or frame is None:
@@ -145,8 +203,11 @@ class VideoAutopsyEngine:
 
                 if (decoded_fc - 1) % frame_step == 0:
                     small_bgr = cv2.resize(frame, (180, 320), interpolation=cv2.INTER_AREA)
-                    upper_cut = int(320 * 0.62)
-                    upper_bgr = small_bgr[:upper_cut, :]
+                    if is_long_diorama_stream:
+                        upper_bgr = np.vstack([small_bgr[:182, :], small_bgr[226:298, :]])
+                    else:
+                        upper_cut = int(320 * 0.62)
+                        upper_bgr = small_bgr[:upper_cut, :]
                     upper_gray = cv2.cvtColor(upper_bgr, cv2.COLOR_BGR2GRAY)
                     sampled_times.append(round(t_sec, 3))
                     sampled_upper_grays.append(upper_gray)
@@ -156,9 +217,6 @@ class VideoAutopsyEngine:
                         cutaway_hsv_samples.append(hsv)
 
             cap.release()
-        finally:
-            if tmp_decode_file is not None and tmp_decode_file.exists():
-                tmp_decode_file.unlink(missing_ok=True)
 
         effective_fc = decoded_fc if decoded_fc > 0 else header_fc
         decoded_dur = round(effective_fc / fps, 2) if fps > 0 else 0.0
@@ -174,9 +232,12 @@ class VideoAutopsyEngine:
         cut_thresh = max(13.5, min(mean_step_diff, median_step_diff) * 2.4)
         candidate_peaks: list[tuple[float, float]] = []
         n_diffs = len(step_diffs)
+        is_long_diorama = max(container_dur, expected_duration_sec) >= 120.0
+        min_edge_t = 0.40 if is_long_diorama else 1.5
+        min_nms_gap = 0.40 if is_long_diorama else 2.0
         for i, d in enumerate(step_diffs):
             t_cut = sampled_times[i + 1]
-            if t_cut < 1.5 or t_cut > decoded_dur - 1.2:
+            if t_cut < min_edge_t or t_cut > decoded_dur - 1.2:
                 continue
             if i > 0 and step_diffs[i - 1] > d:
                 continue
@@ -194,7 +255,7 @@ class VideoAutopsyEngine:
         candidate_peaks.sort(key=lambda x: x[0], reverse=True)
         selected_cuts: list[float] = []
         for _d_val, t_val in candidate_peaks:
-            if all(abs(t_val - existing_t) >= 2.0 for existing_t in selected_cuts):
+            if all(abs(t_val - existing_t) >= min_nms_gap for existing_t in selected_cuts):
                 selected_cuts.append(t_val)
         detected_cuts = sorted(selected_cuts)
 
@@ -266,7 +327,7 @@ class VideoAutopsyEngine:
         warm_ratio = round(warm_pixels / total_cw, 3)
         color_inverted = False
 
-        return {
+        res_video = {
             "exists": True,
             "width": probe.get("width", 0),
             "height": probe.get("height", 0),
@@ -289,6 +350,8 @@ class VideoAutopsyEngine:
             "cutaway_warm_ratio": warm_ratio,
             "color_palette_inverted": color_inverted,
         }
+        put_cached_json("autopsy_video_v1", cache_key, res_video)
+        return res_video
 
     @classmethod
     def inspect_audio_stream(
@@ -297,9 +360,10 @@ class VideoAutopsyEngine:
         expected_duration_sec: float = expected_final_duration_sec(DEFAULT_CLIP_COUNT),
     ) -> dict[str, Any]:
         """
-        Decodes the audio track from .mp4 or .wav into 16kHz 16-bit mono PCM and performs
-        50ms-window Voice Activity Detection (VAD), internal Dead Air measurement, and
-        last-100ms truncation detection.
+        Decodes the audio track from .mp4 or .wav into 24kHz 16-bit mono PCM (12kHz Nyquist) and performs:
+        - 50ms-window Voice Activity Detection (VAD), internal Dead Air measurement, last-100ms truncation detection
+        - Voiced-window high-frequency sibilance/harshness tear detection (4.2-9.2kHz vs 0.18-3.6kHz speech body)
+        - ITU-R BS.1770 (`ebur128=peak=true`) integrated loudness (LUFS), LRA (LU), and 4x oversampled True Peak (dBTP)
         """
         path = Path(media_path)
         empty_audio = {
@@ -307,7 +371,13 @@ class VideoAutopsyEngine:
             "duration_sec": 0.0,
             "overall_rms_dbfs": -96.0,
             "peak_dbfs": -96.0,
+            "true_peak_dbtp": None,
+            "integrated_lufs": None,
+            "loudness_range_lu": None,
             "true_peak_clipping": False,
+            "sibilance_to_body_rms_ratio": 0.0,
+            "sibilance_crest_db": 0.0,
+            "sibilance_tear_detected": False,
             "noise_floor_dbfs": -96.0,
             "dynamic_range_db": 0.0,
             "has_active_speech": False,
@@ -324,16 +394,25 @@ class VideoAutopsyEngine:
         if not path.exists():
             return dict(empty_audio)
 
+        from pipeline.media_cache import get_cached_json, put_cached_json, stage_local_file
+
+        local_audio_path, audio_sha = stage_local_file(path)
+        aud_cache_key = f"{audio_sha}|{round(float(expected_duration_sec), 2)}"
+        cached_aud = get_cached_json("autopsy_audio_v2", aud_cache_key)
+        if isinstance(cached_aud, dict) and cached_aud.get("exists") is not None:
+            return cached_aud
+
+        sr = 24000
         try:
             ffmpeg_exe = MediaIntegrityValidator.get_ffmpeg_exe()
             cmd = [
                 ffmpeg_exe,
                 "-hide_banner",
                 "-loglevel", "error",
-                "-i", str(path.resolve()),
+                "-i", str(local_audio_path.resolve()),
                 "-vn",
                 "-ac", "1",
-                "-ar", "16000",
+                "-ar", str(sr),
                 "-f", "s16le",
                 "pipe:1",
             ]
@@ -345,7 +424,6 @@ class VideoAutopsyEngine:
             logger.warning("Audio decode inspection note for %s: %s", path.name, exc)
             return dict(empty_audio)
 
-        sr = 16000
         if len(samples) < sr:
             return dict(empty_audio)
 
@@ -356,7 +434,7 @@ class VideoAutopsyEngine:
         peak_val = float(np.max(np.abs(samples)) + eps)
         peak_db = round(float(20.0 * np.log10(max(peak_val, eps))), 2)
 
-        # 50ms windows (800 samples per window)
+        # 50ms windows (1200 samples per window @ 24kHz)
         win_size = int(sr * 0.05)
         n_wins = len(samples) // win_size
         trimmed = samples[:n_wins * win_size].reshape((n_wins, win_size))
@@ -381,6 +459,61 @@ class VideoAutopsyEngine:
         else:
             speech_start_sec = 0.0
             speech_end_sec = 0.0
+
+        # Voiced-window high-frequency harshness / sibilance tear analysis (4.2-9.2kHz vs 0.18-3.6kHz)
+        sib_ratio = 0.0
+        sib_crest_db = 0.0
+        if len(speech_indices) > 0:
+            voiced_wins = trimmed[speech_indices]
+            hann = np.hanning(win_size).astype(np.float32)
+            spec = np.fft.rfft(voiced_wins * hann[None, :], axis=1)
+            freqs = np.fft.rfftfreq(win_size, d=1.0 / sr)
+            sib_mask = (freqs >= AUDIO_SIBILANCE_BAND_HZ[0]) & (freqs <= AUDIO_SIBILANCE_BAND_HZ[1])
+            body_mask = (freqs >= AUDIO_SPEECH_BODY_BAND_HZ[0]) & (freqs <= AUDIO_SPEECH_BODY_BAND_HZ[1])
+            sib_spec = np.zeros_like(spec)
+            sib_spec[:, sib_mask] = spec[:, sib_mask]
+            body_spec = np.zeros_like(spec)
+            body_spec[:, body_mask] = spec[:, body_mask]
+            sib_td = np.fft.irfft(sib_spec, n=win_size, axis=1)
+            body_td = np.fft.irfft(body_spec, n=win_size, axis=1)
+            hf_rms = float(np.sqrt(np.mean(np.square(sib_td)) + eps))
+            body_rms = float(np.sqrt(np.mean(np.square(body_td)) + eps))
+            hf_peak = float(np.max(np.abs(sib_td)) + eps)
+            sib_ratio = round(hf_rms / max(body_rms, 1e-6), 4)
+            sib_crest_db = round(float(20.0 * np.log10(max(hf_peak, eps) / max(hf_rms, eps))), 2)
+        sib_tear = bool(
+            sib_ratio > AUDIO_MAX_SIBILANCE_ENERGY_RATIO
+            or sib_crest_db > AUDIO_MAX_SIBILANCE_CREST_DB
+        )
+
+        # ITU-R BS.1770 integrated loudness (LUFS) & 4x oversampled True Peak (dBTP) via FFmpeg ebur128
+        integrated_lufs: float | None = None
+        loudness_range_lu: float | None = None
+        true_peak_dbtp: float | None = None
+        try:
+            ebu_cmd = [
+                ffmpeg_exe,
+                "-hide_banner",
+                "-nostats",
+                "-i", str(local_audio_path.resolve()),
+                "-vn",
+                "-af", "ebur128=peak=true",
+                "-f", "null",
+                "-",
+            ]
+            ebu_res = subprocess.run(ebu_cmd, capture_output=True, text=True, timeout=30.0, check=False)
+            stderr_txt = ebu_res.stderr or ""
+            m_i = re.findall(r"I:\s*(-?\d+(?:\.\d+)?)\s*LUFS", stderr_txt)
+            if m_i:
+                integrated_lufs = round(float(m_i[-1]), 2)
+            m_lra = re.findall(r"LRA:\s*(-?\d+(?:\.\d+)?)\s*LU", stderr_txt)
+            if m_lra:
+                loudness_range_lu = round(float(m_lra[-1]), 2)
+            m_tp = re.findall(r"Peak:\s*(-?\d+(?:\.\d+)?)\s*dBFS", stderr_txt)
+            if m_tp:
+                true_peak_dbtp = round(float(m_tp[-1]), 2)
+        except Exception as exc:
+            logger.debug("ebur128 loudness probe skipped for %s: %s", path.name, exc)
 
         # Count internal non-speech gaps > 0.20s (> 4 consecutive 50ms windows) between speech_start and speech_end
         internal_silence_count = 0
@@ -411,18 +544,27 @@ class VideoAutopsyEngine:
         last_500ms_db = round(float(20.0 * np.log10(max(last_500ms_rms, eps))), 2)
 
         # Speech is truncated only if the final 100ms still has un-faded vocal energy above -30 dBFS
-        # (a 0.10s 칼컷 seamless Mobius loop fades cleanly to <= -35 dBFS in the final 100ms)
         is_truncated = bool(
             (not has_active_speech)
             or (last_100ms_db > max(-28.5, p10_db + 10.5))
         )
+        tp_clip = bool(
+            peak_db > -1.0
+            or (true_peak_dbtp is not None and true_peak_dbtp > AUDIO_MAX_OVERSAMPLED_TRUE_PEAK_DBTP)
+        )
 
-        return {
+        res_aud = {
             "exists": True,
             "duration_sec": duration_sec,
             "overall_rms_dbfs": overall_rms_db,
             "peak_dbfs": peak_db,
-            "true_peak_clipping": bool(peak_db > -1.0),
+            "true_peak_dbtp": true_peak_dbtp,
+            "integrated_lufs": integrated_lufs,
+            "loudness_range_lu": loudness_range_lu,
+            "true_peak_clipping": tp_clip,
+            "sibilance_to_body_rms_ratio": sib_ratio,
+            "sibilance_crest_db": sib_crest_db,
+            "sibilance_tear_detected": sib_tear,
             "noise_floor_dbfs": round(p10_db, 2),
             "dynamic_range_db": dyn_range,
             "has_active_speech": has_active_speech,
@@ -436,6 +578,8 @@ class VideoAutopsyEngine:
             "last_500ms_dbfs": last_500ms_db,
             "is_truncated_at_30s": is_truncated,
         }
+        put_cached_json("autopsy_audio_v2", aud_cache_key, res_aud)
+        return res_aud
 
     @classmethod
     def inspect_subtitles(cls, ass_path: Path) -> dict[str, Any]:
@@ -720,13 +864,25 @@ class VideoAutopsyEngine:
             except Exception:
                 pass
 
+        from pipeline.media_cache import cached_by_clip_stat, fast_file_sha256
+
         for cf in clip_files:
             if cf.is_file() and cf.stat().st_size >= MIN_CLIP_SIZE_BYTES:
-                full_sha = FlowProjectSubagentWorker.compute_file_sha256(cf)
+                full_sha = fast_file_sha256(cf)
                 h_val = full_sha[:16]
                 clip_hashes[cf.name] = h_val
 
-                syn_check = MediaIntegrityValidator.verify_not_synthetic_derivative(cf, strict=False)
+                def _probe_clip_dedup(local_cf: Path) -> dict[str, Any]:
+                    sc = MediaIntegrityValidator.verify_not_synthetic_derivative(local_cf, strict=False)
+                    dh = MediaIntegrityValidator.compute_perceptual_dhash(local_cf)
+                    return {"syn": sc, "dhash": dh}
+
+                dedup_info = cached_by_clip_stat(
+                    cf,
+                    namespace="autopsy_clip_dedup_v1",
+                    compute_fn=_probe_clip_dedup,
+                )
+                syn_check = dedup_info["syn"]
                 if syn_check["is_synthetic_derivative"]:
                     synthetic_derivative_clips.append({
                         "clip": cf.name,
@@ -742,13 +898,8 @@ class VideoAutopsyEngine:
                             "shared_with": others,
                         })
 
-                my_dhash = dhash_mem_cache.get(full_sha)
-                if my_dhash is None and existing_clip_hashes.get(cf.name) == h_val and isinstance(existing_clip_dhashes.get(cf.name), dict):
-                    my_dhash = existing_clip_dhashes[cf.name]
-                    dhash_mem_cache[full_sha] = my_dhash
-                if my_dhash is None:
-                    my_dhash = MediaIntegrityValidator.compute_perceptual_dhash(cf)
-                    dhash_mem_cache[full_sha] = my_dhash
+                my_dhash = dedup_info["dhash"]
+                dhash_mem_cache[full_sha] = my_dhash
                 clip_dhashes[cf.name] = {
                     "dhash_20": my_dhash.get("dhash_20", ""),
                     "dhash_50": my_dhash.get("dhash_50", ""),
@@ -756,11 +907,20 @@ class VideoAutopsyEngine:
                     "dhash_flip_50": my_dhash.get("dhash_flip_50", ""),
                 }
                 if all_clip_dhashes:
+                    is_my_provenance_verified_clip = bool(
+                        provenance_valid
+                        and my_rcpt_clips.get(cf.name, "").lower() == full_sha.lower()
+                        and not syn_check["is_synthetic_derivative"]
+                    )
                     for other_entry in all_clip_dhashes:
                         if other_entry.get("project_id") == p_dir.name:
                             continue
                         dist = MediaIntegrityValidator.min_perceptual_dhash_distance(my_dhash, other_entry["dhash"])
-                        if dist <= MAX_PERCEPTUAL_DHASH_HAMMING_DISTANCE:
+                        # If both clips are cryptographically provenance-verified from distinct Flow project URLs
+                        # and have distinct SHA-256s (not shared_clips), require near-identical dHash (<= 4) before
+                        # flagging a cross-project derivative false positive on flat-shaded low-poly rooms/shelves.
+                        eff_dhash_thresh = 4 if is_my_provenance_verified_clip else MAX_PERCEPTUAL_DHASH_HAMMING_DISTANCE
+                        if dist <= eff_dhash_thresh:
                             derivative_clips.append({
                                 "clip": cf.name,
                                 "matched_project": other_entry["project_id"],
@@ -830,8 +990,24 @@ class VideoAutopsyEngine:
                 "clips_count": len(clip_files),
             }
 
-        clip_scripts = _load_project_clip_scripts(p_dir)
-        n_expected = min(len(clip_files), len(clip_scripts))
+        vp_check_path = p_dir / "03_visuals" / "visual_plan.json"
+        is_diorama = (p_dir / "05_assembly" / "edit_decision_list.json").exists()
+        if not is_diorama and vp_check_path.exists():
+            try:
+                is_diorama = is_diorama_profile(json.loads(vp_check_path.read_text(encoding="utf-8")))
+            except Exception:
+                is_diorama = False
+
+        if is_diorama:
+            from pipeline.diorama_assembler import load_diorama_script_sentences
+
+            diorama_sentences, _ = load_diorama_script_sentences(p_dir)
+            clip_scripts = [ "" for _ in clip_files ]
+            n_expected = len(clip_files)
+        else:
+            diorama_sentences = []
+            clip_scripts = _load_project_clip_scripts(p_dir)
+            n_expected = min(len(clip_files), len(clip_scripts))
 
         # 1. Check script.json vs flow_all_in_one_prompts.json character-for-character narration match & grammar
         script_prompt_mismatch: list[int] = []
@@ -841,7 +1017,7 @@ class VideoAutopsyEngine:
         )
         prompts_file = p_dir / "03_visuals" / "flow_all_in_one_prompts.json"
         prompt_narrs: list[str] = []
-        if prompts_file.exists():
+        if prompts_file.exists() and not is_diorama:
             try:
                 p_data = json.loads(prompts_file.read_text(encoding="utf-8"))
                 raw_list = (p_data.get("prompts") or p_data.get("clips") or []) if isinstance(p_data, dict) else p_data
@@ -852,21 +1028,29 @@ class VideoAutopsyEngine:
             except Exception:
                 prompt_narrs = []
 
-        for idx in range(n_expected):
-            s_txt = str(clip_scripts[idx]).strip()
-            if idx < len(prompt_narrs) and prompt_narrs[idx] != s_txt:
-                script_prompt_mismatch.append(idx + 1)
-            if mid_clause_period_re.search(s_txt):
-                corrupted_grammar_clips.append(idx + 1)
+        if is_diorama:
+            for s_idx, s_txt in enumerate(diorama_sentences, start=1):
+                if mid_clause_period_re.search(str(s_txt).strip()):
+                    corrupted_grammar_clips.append(s_idx)
+        else:
+            for idx in range(n_expected):
+                s_txt = str(clip_scripts[idx]).strip()
+                if idx < len(prompt_narrs) and prompt_narrs[idx] != s_txt:
+                    script_prompt_mismatch.append(idx + 1)
+                if mid_clause_period_re.search(s_txt):
+                    corrupted_grammar_clips.append(idx + 1)
 
         # 2. Per-clip ASR, F0, and Word-Boundary Truncation inspection
-        voice_source = "native"
+        from pipeline.config import DEFAULT_VOICE_SOURCE
+        from pipeline.voice_fallback import _clip_duration
+
+        voice_source = "tts_fallback" if DEFAULT_VOICE_SOURCE == "tts" else "native"
         vr_path = p_dir / "04_audio" / "voice_report.json"
         if vr_path.exists():
             try:
-                voice_source = str(json.loads(vr_path.read_text(encoding="utf-8")).get("source") or "native")
+                voice_source = str(json.loads(vr_path.read_text(encoding="utf-8")).get("source") or voice_source)
             except Exception:
-                voice_source = "native"
+                pass
 
         per_clip_reports: list[dict[str, Any]] = []
         f0_values: list[float] = []
@@ -874,6 +1058,7 @@ class VideoAutopsyEngine:
 
         if voice_source == "tts_fallback":
             for idx in range(n_expected):
+                raw_dur = round(float(_clip_duration(clip_files[idx])), 3)
                 f0_values.append(118.0)
                 per_clip_reports.append({
                     "clip_index": idx + 1,
@@ -888,8 +1073,8 @@ class VideoAutopsyEngine:
                     "last_two_ok": True,
                     "is_end_truncated": False,
                     "speech_start_raw": 0.12,
-                    "speech_end_raw": 7.0,
-                    "raw_duration": 8.0,
+                    "speech_end_raw": round(max(1.0, raw_dur - 0.5), 3),
+                    "raw_duration": raw_dur,
                     "first_50ms_db": -45.0,
                     "last_80ms_db": -45.0,
                     "transcript": str(clip_scripts[idx]).strip(),
@@ -1032,8 +1217,8 @@ class VideoAutopsyEngine:
                 from pipeline.plain_language import to_tts_text
 
                 joined_sub = to_tts_text(joined_sub)
-                joined_script = " ".join(clip_scripts[:n_expected])
-                sub_match = compute_content_word_match(joined_script, joined_sub)
+                joined_script = " ".join(diorama_sentences) if is_diorama else " ".join(clip_scripts[:n_expected])
+                sub_match = compute_content_word_match(to_tts_text(joined_script), joined_sub)
                 subtitle_script_overlap = float(sub_match["overlap"])
 
                 if voice_source != "tts_fallback":
@@ -1116,13 +1301,13 @@ class VideoAutopsyEngine:
 
         semitone_report = evaluate_f0_series(f0_values) if f0_values else {"passed": False}
         voice_passed = voice_passed and bool(semitone_report.get("passed"))
-        voice_source = "native"
+        voice_source = "tts_fallback" if DEFAULT_VOICE_SOURCE == "tts" else "native"
         vr_path = p_dir / "04_audio" / "voice_report.json"
         if vr_path.exists():
             try:
-                voice_source = str(json.loads(vr_path.read_text(encoding="utf-8")).get("source") or "native")
+                voice_source = str(json.loads(vr_path.read_text(encoding="utf-8")).get("source") or voice_source)
             except Exception:
-                voice_source = "native"
+                pass
         if voice_source == "tts_fallback":
             # One fixed local TTS voice for every clip: consistent by construction; native-window drift
             # checks do not apply because the cut list follows the TTS windows.
@@ -1133,6 +1318,37 @@ class VideoAutopsyEngine:
             end_truncated_clips = []
             start_clipped_clips = []
             duplicate_transcript_pairs = []
+            if vr_path.exists():
+                try:
+                    vr_doc = json.loads(vr_path.read_text(encoding="utf-8"))
+                    spans = vr_doc.get("sentence_spans") or []
+                    if is_diorama and diorama_sentences:
+                        if len(spans) < len(diorama_sentences):
+                            low_overlap_clips.append({
+                                "clip": 0,
+                                "reason": f"tts_sentence_span_count_mismatch:{len(spans)}<{len(diorama_sentences)}",
+                            })
+                        for sp_i, sp_entry in enumerate(spans, start=1):
+                            if float(sp_entry.get("duration_sec") or 0.0) < 0.15:
+                                low_overlap_clips.append({
+                                    "clip": sp_i,
+                                    "reason": f"silent_or_dropped_tts_sentence_span:{sp_entry.get('duration_sec')}",
+                                })
+                        span_joined = " ".join(str(s.get("display_text") or s.get("text") or "") for s in spans)
+                        if span_joined.strip():
+                            from pipeline.plain_language import to_tts_text
+
+                            tts_cov = compute_content_word_match(
+                                " ".join(diorama_sentences),
+                                to_tts_text(span_joined),
+                            )["overlap"]
+                            if float(tts_cov) < AUDIO_MIN_TTS_ASR_WORD_COVERAGE:
+                                low_overlap_clips.append({
+                                    "clip": 0,
+                                    "reason": f"low_tts_span_word_coverage:{tts_cov:.3f}<{AUDIO_MIN_TTS_ASR_WORD_COVERAGE}",
+                                })
+                except Exception:
+                    pass
         asr_passed = (
             len(low_overlap_clips) == 0
             and len(duplicate_transcript_pairs) == 0
@@ -1197,10 +1413,26 @@ class VideoAutopsyEngine:
         mp4_path = p_dir / "05_assembly" / "final_shorts_1080x1920.mp4"
         wav_path = p_dir / "04_audio" / "audio_master.wav"
         ass_path = p_dir / "04_audio" / "subtitles.ass"
+        edl_path = p_dir / "05_assembly" / "edit_decision_list.json"
+        vp_file = p_dir / "03_visuals" / "visual_plan.json"
+        vp_obj: dict[str, Any] = {}
+        if vp_file.exists():
+            try:
+                vp_obj = json.loads(vp_file.read_text(encoding="utf-8"))
+            except Exception:
+                vp_obj = {}
+        is_diorama = edl_path.exists() or is_diorama_profile(vp_obj)
+        is_v7_diorama = is_diorama_v7_plan(vp_obj)
+        if not is_v7_diorama and edl_path.exists():
+            try:
+                is_v7_diorama = int(json.loads(edl_path.read_text(encoding="utf-8")).get("schema") or 6) >= 7
+            except Exception:
+                pass
 
-        video_metrics = cls.inspect_video_stream(mp4_path)
+        exp_dur = (DIORAMA_V7_DURATION_MIN_SEC if is_v7_diorama else DIORAMA_DURATION_MIN_SEC) if is_diorama else expected_final_duration_sec(DEFAULT_CLIP_COUNT)
+        video_metrics = cls.inspect_video_stream(mp4_path, expected_duration_sec=exp_dur)
         audio_source = mp4_path if mp4_path.exists() else wav_path
-        audio_metrics = cls.inspect_audio_stream(audio_source)
+        audio_metrics = cls.inspect_audio_stream(audio_source, expected_duration_sec=exp_dur)
         subtitle_metrics = cls.inspect_subtitles(ass_path)
         thumb_metrics = cls.inspect_thumbnails_and_dedup(
             p_dir,
@@ -1247,14 +1479,7 @@ class VideoAutopsyEngine:
         clip_qa_metrics: dict[str, Any] = {"checked": False, "all_passed": True, "fresh": True}
         clip_qa_file = p_dir / "03_visuals" / CLIP_QA_REPORT_FILENAME
         clip_contract_file = p_dir / "03_visuals" / CLIP_QA_CONTRACT_FILENAME
-        vp_file = p_dir / "03_visuals" / "visual_plan.json"
-        is_v5_plan = False
-        if vp_file.exists():
-            try:
-                vp_obj = json.loads(vp_file.read_text(encoding="utf-8"))
-                is_v5_plan = int(vp_obj.get("schema") or vp_obj.get("schema_version") or 0) >= 5
-            except Exception:
-                is_v5_plan = False
+        is_v5_plan = (int(vp_obj.get("schema") or vp_obj.get("schema_version") or 0) == 5) and not is_diorama
         has_native_clips = (p_dir / "03_visuals" / "flow_native_clips").exists() and any(
             (p_dir / "03_visuals" / "flow_native_clips").glob("clip_*.mp4")
         )
@@ -1456,6 +1681,97 @@ class VideoAutopsyEngine:
                 "prescription": "Distribute clip durations according to native clip speech windows instead of fixed 6.0s intervals.",
             })
 
+        # 1b. Neuro-Diorama System v6 Duration Ceiling & Fast-Cut EDL Gates (R58/R59)
+        if is_diorama:
+            dec_dur = float(video_metrics.get("decoded_duration_sec") or 0.0)
+            dec_fc = int(video_metrics.get("decoded_frame_count") or 0)
+            ceil_fc = SHORTS_HARD_CEILING_FRAMES_V7 if is_v7_diorama else SHORTS_HARD_CEILING_FRAMES
+            min_diorama_dur = DIORAMA_V7_DURATION_MIN_SEC if is_v7_diorama else DIORAMA_DURATION_MIN_SEC
+            if dec_dur > SHORTS_HARD_CEILING_SEC or dec_fc > ceil_fc or dec_dur < min_diorama_dur * 0.96:
+                score -= 30.0
+                prescriptions.append({
+                    "defect_code": "DEFECT_DIORAMA_DURATION_BOUNDS",
+                    "severity": "CRITICAL",
+                    "component": "05_assembly/final_shorts_1080x1920.mp4",
+                    "measured": {"decoded_duration_sec": dec_dur, "decoded_frames": dec_fc},
+                    "prescription": (
+                        f"Clamp Neuro-Diorama Short strictly within [{min_diorama_dur}s, {SHORTS_HARD_CEILING_SEC}s] "
+                        f"and <= {ceil_fc} frames so YouTube classifies it as a Short (R58/R63)."
+                    ),
+                })
+            if edl_path.exists():
+                try:
+                    edl_obj = json.loads(edl_path.read_text(encoding="utf-8"))
+                    if int(edl_obj.get("cut_count") or 0) < DIORAMA_TARGET_CUT_MIN:
+                        score -= 15.0
+                        prescriptions.append({
+                            "defect_code": "DEFECT_DIORAMA_LOW_CUT_DENSITY",
+                            "severity": "HIGH",
+                            "component": "05_assembly/edit_decision_list.json",
+                            "measured": {"edl_cut_count": edl_obj.get("cut_count")},
+                            "prescription": f"Ensure NLE EDL has >= {DIORAMA_TARGET_CUT_MIN} cuts (R58).",
+                        })
+                    planned_fc = int(edl_obj.get("total_frames") or dec_fc)
+                    if abs(dec_fc - planned_fc) > 2:
+                        score -= 20.0
+                        prescriptions.append({
+                            "defect_code": "DEFECT_DIORAMA_FRAME_DRIFT",
+                            "severity": "CRITICAL",
+                            "component": "05_assembly/final_shorts_1080x1920.mp4",
+                            "measured": {"decoded_frames": dec_fc, "planned_edl_frames": planned_fc},
+                            "prescription": "Append tpad=stop_mode=clone after fps=30 in _render_cut_segment so zero frames drop across cuts.",
+                        })
+                    require_zero_reuse = bool(edl_obj.get("zero_clip_reuse")) or bool(vp_obj.get("zero_clip_reuse"))
+                    if require_zero_reuse:
+                        appearances: dict[int, int] = {}
+                        for c_entry in edl_obj.get("cuts") or []:
+                            if not isinstance(c_entry, dict):
+                                continue
+                            if c_entry.get("clip_index") is not None:
+                                k1 = int(c_entry["clip_index"])
+                                appearances[k1] = appearances.get(k1, 0) + 1
+                            if c_entry.get("secondary_clip_index") is not None:
+                                k2 = int(c_entry["secondary_clip_index"])
+                                appearances[k2] = appearances.get(k2, 0) + 1
+                        max_app = max(appearances.values()) if appearances else 0
+                        if max_app > DIORAMA_MAX_CLIP_REUSE:
+                            reused = {k: v for k, v in appearances.items() if v > DIORAMA_MAX_CLIP_REUSE}
+                            score -= 25.0
+                            prescriptions.append({
+                                "defect_code": "DEFECT_DIORAMA_CLIP_REUSE",
+                                "severity": "CRITICAL",
+                                "component": "05_assembly/edit_decision_list.json",
+                                "measured": {"max_clip_reuse": max_app, "reused_clips": reused},
+                                "prescription": f"Generate 1 dedicated Flow clip per cut/pane so max_clip_reuse <= {DIORAMA_MAX_CLIP_REUSE} (0% reuse, R58).",
+                            })
+                except Exception:
+                    pass
+            ass_check_file = p_dir / "04_audio" / "subtitles.ass"
+            if ass_check_file.exists():
+                try:
+                    raw_ass_txt = ass_check_file.read_text(encoding="utf-8", errors="ignore")
+                    split_years = re.findall(r"\b(?:18|19|20)\s+\d{2}\b", raw_ass_txt)
+                    if split_years:
+                        score -= 15.0
+                        prescriptions.append({
+                            "defect_code": "DEFECT_SUBTITLE_YEAR_SPLIT",
+                            "severity": "HIGH",
+                            "component": "04_audio/subtitles.ass",
+                            "measured": {"split_years": split_years[:5]},
+                            "prescription": "Format spoken 4-digit years as contiguous digits (e.g. '2012', never '20 12') in plain_language.to_display_text.",
+                        })
+                except Exception:
+                    pass
+            if int(subtitle_metrics.get("gold_highlighted_events") or 0) > 0:
+                score -= 15.0
+                prescriptions.append({
+                    "defect_code": "DEFECT_DIORAMA_COLORED_SUBTITLES",
+                    "severity": "HIGH",
+                    "component": "04_audio/subtitles.ass",
+                    "measured": {"gold_highlighted_events": subtitle_metrics.get("gold_highlighted_events")},
+                    "prescription": "Use 100% pure-white (#FFFFFF) single-line Default subtitles with zero color tags in neuro_diorama (R59).",
+                })
+
         # 2. Acoustic & Speech Integrity (25 pts)
         if not audio_metrics["has_active_speech"]:
             score -= 25.0
@@ -1499,7 +1815,7 @@ class VideoAutopsyEngine:
                     },
                     "prescription": "Trim empty pre/post-speech silence at clip boundaries (+0.15s hold, 400ms pre-roll trim, 1.08x A/V sync).",
                 })
-            if float(audio_metrics.get("peak_dbfs", -96.0)) > -1.0:
+            if bool(audio_metrics.get("true_peak_clipping")) or float(audio_metrics.get("peak_dbfs", -96.0)) > -1.0:
                 score -= 15.0
                 prescriptions.append({
                     "defect_code": "DEFECT_AUDIO_TRUE_PEAK_CLIPPING",
@@ -1507,13 +1823,52 @@ class VideoAutopsyEngine:
                     "component": "05_assembly/final_shorts_1080x1920.mp4",
                     "measured": {
                         "peak_dbfs": audio_metrics.get("peak_dbfs"),
+                        "true_peak_dbtp": audio_metrics.get("true_peak_dbtp"),
                         "max_allowed_peak_dbfs": -1.0,
+                        "max_allowed_true_peak_dbtp": AUDIO_MAX_OVERSAMPLED_TRUE_PEAK_DBTP,
                     },
                     "prescription": (
                         "Apply -1.5 dBFS soft-knee ceiling in generate_audio_master_wav and FFmpeg "
-                        "`alimiter=limit=0.841:attack=5:release=50:level=disabled` before AAC encoding so peak <= -1.0 dBFS."
+                        "`alimiter=limit=0.841:attack=5:release=50:level=disabled` before AAC encoding so peak <= -1.0 dBFS "
+                        f"and oversampled True Peak <= {AUDIO_MAX_OVERSAMPLED_TRUE_PEAK_DBTP} dBTP."
                     ),
                 })
+            if bool(audio_metrics.get("sibilance_tear_detected")):
+                score -= 15.0
+                prescriptions.append({
+                    "defect_code": "DEFECT_AUDIO_SIBILANCE_HARSHNESS",
+                    "severity": "HIGH",
+                    "component": "05_assembly/final_shorts_1080x1920.mp4",
+                    "measured": {
+                        "sibilance_to_body_rms_ratio": audio_metrics.get("sibilance_to_body_rms_ratio"),
+                        "sibilance_crest_db": audio_metrics.get("sibilance_crest_db"),
+                        "max_sibilance_ratio": AUDIO_MAX_SIBILANCE_ENERGY_RATIO,
+                        "max_sibilance_crest_db": AUDIO_MAX_SIBILANCE_CREST_DB,
+                    },
+                    "prescription": (
+                        "Keep TTS volume at DIORAMA_V7_TTS_VOLUME (-10%) and apply Silk Clean 6.5kHz de-esser + "
+                        "11.8kHz lowpass EQ without aggressive loudness dynamic boost so 4.2-9.2kHz harshness never tears."
+                    ),
+                })
+            int_lufs = audio_metrics.get("integrated_lufs")
+            if is_diorama and int_lufs is not None:
+                tgt_lufs = DIORAMA_V7_TARGET_LUFS if is_v7_diorama else DIORAMA_TARGET_LUFS
+                if abs(float(int_lufs) - float(tgt_lufs)) > DIORAMA_LUFS_TOLERANCE_LU:
+                    score -= 12.0
+                    prescriptions.append({
+                        "defect_code": "DEFECT_AUDIO_LUFS_OUT_OF_RANGE",
+                        "severity": "HIGH",
+                        "component": "05_assembly/final_shorts_1080x1920.mp4",
+                        "measured": {
+                            "integrated_lufs": int_lufs,
+                            "target_lufs": tgt_lufs,
+                            "tolerance_lu": DIORAMA_LUFS_TOLERANCE_LU,
+                        },
+                        "prescription": (
+                            f"Normalize integrated documentary loudness within {tgt_lufs} ± {DIORAMA_LUFS_TOLERANCE_LU} LUFS "
+                            "(ITU-R BS.1770 ebur128)."
+                        ),
+                    })
 
         # 3. Visual DNA & Motion Integrity (20 pts)
         if video_metrics["optical_flow_mean"] < MIN_OPTICAL_FLOW_THRESHOLD:

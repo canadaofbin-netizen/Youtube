@@ -1,0 +1,707 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "libet_readiness_potential_free_will",
+  "topic": "Benjamin Libet (1983) Readiness Potential vs Conscious Intention ('W-Time' & Veto) & Aaron Schurger (2012) Stochastic Accumulator Resolution (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Aaron Schurger's 2012 computational and empirical breakthrough proving that Libet's -550ms Readiness Potential ramp reflects backward-averaged spontaneous neural noise crests rather than an unconscious deterministic decision.",
+  "outro_title_lines": [
+    "LIBET (1983) & SCHURGER (2012)",
+    "SAN FRANCISCO & PARIS"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "BRAIN FIRST?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "LIBET 1983"
+    },
+    {
+      "sentence_index": 10,
+      "text": "THE CLOCK"
+    },
+    {
+      "sentence_index": 19,
+      "text": "FREE WILL?"
+    },
+    {
+      "sentence_index": 28,
+      "text": "THE VETO"
+    },
+    {
+      "sentence_index": 36,
+      "text": "NOISE WAVE"
+    },
+    {
+      "sentence_index": 44,
+      "text": "YOUR BRAKE"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "BRAIN FIRST?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "LIBET 1983"
+    },
+    {
+      "sentence_index": 10,
+      "text": "THE CLOCK"
+    },
+    {
+      "sentence_index": 19,
+      "text": "FREE WILL?"
+    },
+    {
+      "sentence_index": 28,
+      "text": "THE VETO"
+    },
+    {
+      "sentence_index": 36,
+      "text": "NOISE WAVE"
+    },
+    {
+      "sentence_index": 44,
+      "text": "YOUR BRAKE"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 38,
+      "mode": "split_hstack",
+      "left_clip_index": 18,
+      "right_clip_index": 43,
+      "left_label": "1983 RAMP MYTH",
+      "right_label": "2012 NOISE TIDE"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater sleeve and matte low-poly right hand extending from the bottom frame edge",
+      "prop_action": "the matte-white gloved low-poly right hand rests on a padded pale-gray armrest then flicks its wrist briskly upward and presses a brushed-silver micro-switch",
+      "consequence": "the brushed-silver switch lever clicks cleanly in soft morning light"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "premotor cortex",
+      "anatomy_label": "PREMOTOR CORTEX\nEARLY IGNITION",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper premotor ridge of the matte warm-ivory 3D brain model on its pale-wood stand, warm amber-gold facets flash brightly before spreading backward"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands beside a circular pastel scope dial",
+      "prop_action": "both matte-white gloved low-poly hands turn a brushed-silver calibration knob and align a glowing green light spot at the top of the circular scope screen",
+      "consequence": "the soft green spot orbits smoothly around the circular rim"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands over an slate-stone instrument console",
+      "prop_action": "both matte-white gloved low-poly hands lift a braided ribbon of pastel sensor leads and plug the brushed-silver jack into an amplifier box",
+      "consequence": "an soft-sage power jewel illuminates on the brushed-brushed-silver panel"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a sunlit 1983 San Francisco neurophysiology room with pale-alabaster walls, a circular scope screen, and a cushioned testing chair",
+      "action": "viewed strictly from behind, the clothed low-poly scientist in a white lab coat steps beside the scope console and turns a brushed-silver knob while a subject in a soft-sage sweater sits in the chair"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands over a pale-gray chart table",
+      "prop_action": "both matte-white gloved low-poly hands unroll a long cool-white paper strip and set two brushed-silver weights onto the corners",
+      "consequence": "the clean paper chart lies flat across the sunlit slate-stone surface",
+      "end_sentence_index": 5
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "an elevated rear view of the sunlit UCSF testing room focusing on the seated volunteer",
+      "action": "viewed strictly from behind, the clothed low-poly scientist in a white lab coat lifts and places a soft sensor cap onto the volunteer's head",
+      "end_sentence_index": 6,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater sleeve and matte low-poly forearm resting on the pale-gray armrest",
+      "prop_action": "two small silver muscle sensors rest on the forearm as the matte-white gloved low-poly hand lifts and flicks its wrist upward",
+      "consequence": "the slender sensor wire flexes gently with the quick wrist flick",
+      "end_sentence_index": 6,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeve and matte-white gloved low-poly hand holding a brushed-silver stopwatch",
+      "prop_action": "the matte-white gloved low-poly hand presses the brushed-silver stopwatch crown and sets the stopwatch beside the circular scope screen",
+      "consequence": "the fine brushed-silver sweep hand ticks smoothly in the sunlight",
+      "end_sentence_index": 8
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "rear over-the-shoulder view from behind the seated volunteer facing the circular green cathode-ray scope",
+      "action": "viewed strictly from behind, the clothed low-poly volunteer in the soft-sage sweater leans forward and rests both elbows on the armrests while watching the green light spot",
+      "end_sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster workbench comparing a classic pale-gray wall clock beside the high-speed green scope ring",
+      "comparison_action": "two matte-white gloved low-poly hands in coat sleeves press and turn both dials as the green light spot completes a full lap while the pale-gray clock hand barely budges",
+      "end_sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater sleeves and matte-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "the volunteer's low-poly left hand turns a small brushed-silver pointer knob to mark the exact spot on the outer ring where the green dot stood",
+      "consequence": "an soft-sage marker pin locks onto the lower-right rim of the dial",
+      "end_sentence_index": 11
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater cuff and matte-white gloved low-poly hand on the pale-gray armrest",
+      "prop_action": "the matte-white gloved low-poly hand snaps upward in a crisp wrist flick while a brushed-silver pen arm on the side recorder strikes a vertical spike",
+      "consequence": "the vertical spike marks zero milliseconds on the scrolling paper strip",
+      "end_sentence_index": 12,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-alabaster studio table holding a vintage brushed-silver-and-leather camera on a tripod",
+      "comparison_action": "two matte-white gloved low-poly hands in shirt sleeves press the brushed-silver shutter cable clicking the mechanical lens blades open and shut in an instant",
+      "end_sentence_index": 12,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands over a pale-gray timeline board",
+      "prop_action": "both matte-white gloved low-poly hands place a soft-sage urge block just ahead of a soft-sage muscle-action block on a pale-gray track",
+      "consequence": "the two pale-gray blocks sit side by side near the finish line",
+      "end_sentence_index": 14
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pastel running track with forty miniature pale-gray hurdles lined up in parallel lanes",
+      "comparison_action": "two matte-white gloved low-poly hands in blazer sleeves lift and align forty small pale-gray runner tokens along the starting bar across the sunlit track",
+      "end_sentence_index": 15,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "premotor cortex",
+      "anatomy_label": "PREMOTOR CORTEX\nACTION PLANNER",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper-front premotor strip just ahead of the central groove on the matte warm-ivory 3D brain model, soft pastel cyan-blue and coral facets glow and build in intensity",
+      "end_sentence_index": 15,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 16,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuff and matte-white gloved low-poly hand beside the scrolling paper chart",
+      "prop_action": "the brushed-silver recording stylus sweeps smoothly upward across the cool-white chart paper long before the urge mark",
+      "consequence": "a long rising soft-lavender ink curve climbs across the paper strip"
+    },
+    {
+      "sentence_index": 16,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands holding brushed-silver dividers over the chart",
+      "prop_action": "the matte-white gloved low-poly hands span the brushed-silver dividers from the early start of the rising curve all the way to the wrist flick spike",
+      "consequence": "the wide divider span dwarfs the tiny urge interval"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pastel sprint track with two clothed low-poly runners in tracksuits",
+      "comparison_action": "viewed from behind, the soft-lavender-shirted runner bolts forward three strides down the track before the blue-shirted runner even lifts off the blocks"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit UCSF testing room with the long rising chart curve displayed on an pale-stone easel",
+      "action": "viewed strictly from behind, the clothed low-poly volunteer in the soft-sage sweater looks down at his own right hand and opens his palm in disbelief"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean architectural timeline bridge showing three vertical milestones: Brain Wave Start, Conscious Urge, and Wrist Flick",
+      "internal_mechanism": "a glowing coral pulse ignites at the far left milestone and travels halfway across the bridge before the middle blue lantern lights up",
+      "end_sentence_index": 20
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "freiburg_eeg_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit 1965 German neurophysiology laboratory with vintage stone-panelled tape reels and tall arched windows",
+      "action": "viewed strictly from behind, two clothed low-poly neurologists in white coats lean over a spinning magnetic tape reel and trace a rising ink wave",
+      "end_sentence_index": 21,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "freiburg_eeg_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands holding a fountain pen over a chart",
+      "prop_action": "both matte-white gloved low-poly hands align a curved pale-gray French curve template along the slow rising voltage slope and trace it in bold soft-lavender ink",
+      "consequence": "the smooth ramp curve stands out cleanly on the cool-white sheet",
+      "end_sentence_index": 21,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands placing pale-gray markers on the timeline board",
+      "prop_action": "the matte-white gloved low-poly hands lock the soft-lavender brain-wave block far to the left of the soft-sage conscious-urge block on the slate-stone rail",
+      "consequence": "a brushed-silver caliper bar bridges the three-hundred-fifty-millisecond lead",
+      "end_sentence_index": 23
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "tilt_down",
+      "analogy_world": "a sunlit pale-gray stage with a large pale-gray cross-bar marionette rig suspended above a clothed low-poly figure",
+      "comparison_action": "two matte-white gloved low-poly hands in dark sleeves tilt the upper pale-gray cross-bar pulling taut strings attached to the miniature figure's wrist",
+      "end_sentence_index": 24,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "premotor cortex",
+      "anatomy_label": "UNCONSCIOUS RAMP?\nPREMOTOR BUILD-UP",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper premotor facets of the matte warm-ivory 3D brain model, coral-amber light builds and spreads toward the front prefrontal lobe",
+      "end_sentence_index": 24,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands holding a brushed-silver magnifying lens over the final segment of the chart",
+      "prop_action": "both matte-white gloved low-poly hands position the brushed-silver magnifying lens directly over the narrow gap between the blue urge pin and the final muscle spike",
+      "consequence": "the narrow soft-sage interval gleams beneath the glass lens"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved low-poly hands sliding a soft-sage pale-gray gate block into the timeline rail",
+      "prop_action": "the matte-white gloved low-poly hands slide and snap a soft soft-sage gate block right into the final gap between the blue urge block and the muscle bell",
+      "consequence": "the soft-sage gate block blocks the track cleanly before the bell"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the sunlit UCSF lab with the golden gate block gleaming on the timeline table",
+      "action": "viewed strictly from behind, the clothed low-poly scientist in a white coat leans over the table and points his brushed-silver rod at the golden gate block"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster table holding a mechanical brushed-silver metronome beside a winged hourglass",
+      "comparison_action": "two matte-white gloved low-poly hands in shirt sleeves release the brushed-silver metronome pendulum swinging it across a single crisp tick"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater sleeves and matte-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "the volunteer's low-poly right hand lifts to flick over the brushed-silver switch then stops and rests flat onto the pale-gray armrest",
+      "consequence": "the brushed-silver micro-switch remains unpressed and silent"
+    },
+    {
+      "sentence_index": 30,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuff and matte-white gloved low-poly hand beside the chart recorder",
+      "prop_action": "the brushed-silver stylus climbs halfway up the paper strip then drops sharply back down to a flat baseline",
+      "consequence": "the matte-white gloved low-poly hand taps the aborted curve peak with a slate-stone pencil"
+    },
+    {
+      "sentence_index": 30,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands comparing two paper strips",
+      "prop_action": "both matte-white gloved low-poly hands align the spiking action chart above the flattened veto chart on the slate-stone desk",
+      "consequence": "the vetoed curve shows a clean drop right before the zero mark"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nTHE BRAKE",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, a soft pastel sky-blue signal from the front prefrontal lobe behind the forehead sweeps back and dims the coral premotor ridge"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage sweater sleeves and matte-white gloved low-poly hands operating a pale-gray railway gate model",
+      "prop_action": "the matte-white gloved low-poly hand pulls a brushed-silver lever dropping a pale-gray barrier gate across the track and halting a rolling pale-gray cart",
+      "consequence": "the pale-gray cart stops cleanly against the lowered barrier"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "paris_computational_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit 2012 computational neuroscience studio with dual pastel monitors and an EEG testing chair",
+      "action": "viewed strictly from behind, a clothed low-poly physicist in a charcoal blazer leans over the desk and points at two wave curves on the sunlit display"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "paris_computational_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and matte-white gloved low-poly hands holding a brushed-silver magnifying glass over the early ramp curve",
+      "prop_action": "both matte-white gloved low-poly hands lift the solid ramp overlay revealing dozens of jagged meandering wave lines underneath",
+      "consequence": "the individual wave traces ripple up and down randomly across the sheet"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "paris_computational_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "tilt_up",
+      "structure": "a clean architectural cross-section of a wave tank with a horizontal brushed-silver threshold bar across the top",
+      "internal_mechanism": "gentle pastel blue water ripples rise and fall randomly until one tall crest touches the upper brushed-silver bar and rings a chime"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a soft sunlit pastel sandy shoreline with gentle geometric ocean waves rolling in",
+      "comparison_action": "viewed from behind, a clothed low-poly figure in a windbreaker and cap walks along the water line and steps beside rhythmic pastel waves"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster wave channel with a floating pale-gray boat near a brushed-silver bell bar",
+      "comparison_action": "two matte-white gloved low-poly hands in blazer sleeves set the pale-gray boat adrift as a rising wave crest lifts the boat to tap the brushed-silver bell"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "paris_computational_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer cuffs and matte-white gloved low-poly hands stacking forty transparent wave sheets",
+      "prop_action": "both matte-white gloved low-poly hands align forty transparent plastic wave sheets at their right-hand peaks on a light table",
+      "consequence": "the stacked random crests merge into a single smooth rising shadow ramp"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "paris_computational_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "charcoal blazer sleeve and matte-white gloved low-poly hand tracing the merged shadow ramp",
+      "prop_action": "the matte-white gloved low-poly hand lays Libet's classic soft-lavender curve template directly over the stacked noise ramp showing an exact match",
+      "consequence": "both curves align millimeter for millimeter on the light table"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a sunlit pale-gray stage where a marionette string rig sits aside next to a gentle tide pool model",
+      "comparison_action": "two matte-white gloved low-poly hands in shirt sleeves push the pale-gray puppet strings aside and set a smooth tidal wave model spinning in the center"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "paris_computational_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and matte-white gloved low-poly hands operating a mechanical brushed-silver dice-and-wave simulator",
+      "prop_action": "both matte-white gloved low-poly hands turn the simulator crank and print a smooth rising curve onto a cool-white paper card",
+      "consequence": "the simulated noise curve matches the 1983 chart beside it"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "motor cortex",
+      "anatomy_label": "MOTOR CORTEX\nMOVEMENT STRIP",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the matte warm-ivory 3D brain model, the front prefrontal lobe lights up in sky-blue first and then drives warm amber-gold facets along the motor cortex strip"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "paris_computational_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit computational neuroscience room with the matched wave models on the center table",
+      "action": "viewed strictly from behind, three clothed low-poly scientists in blazers and lab coats step back from the light table and lift their hands in amazement"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved low-poly hands placing a balanced brushed-silver scale on the slate-stone desk",
+      "prop_action": "both matte-white gloved low-poly hands set two weighty soft-sage decision blocks onto the brushed-silver trays balancing the beam",
+      "consequence": "the brushed-silver scale settles level in the soft studio light"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan sleeves and matte-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "both matte-white gloved low-poly hands rest calmly beside a glowing smartphone and a brushed-silver sandglass on a sunlit slate-stone desk",
+      "consequence": "morning sunlight gleams across the quiet pale-gray desktop"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan cuff and matte-white gloved low-poly hand reaching toward a glass bowl of soft candies",
+      "prop_action": "the matte-white gloved low-poly hand darts halfway toward the candy bowl then pauses cleanly in mid-air above the rim",
+      "consequence": "the glass bowl stays untouched on the slate-stone counter"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "premotor cortex",
+      "anatomy_label": "BACKGROUND WAVE SPARK\nAUTOMATIC IMPULSE",
+      "camera": "locked_tripod",
+      "brain_scene": "across the premotor facets of the matte warm-ivory 3D brain model, a small coral ripple flickers briefly along the upper ridge"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "sage cardigan sleeves and matte-white gloved low-poly hands beside a small water wave globe",
+      "prop_action": "one matte-white gloved low-poly hand taps the glass globe setting a small ripple moving while the other hand holds steady",
+      "consequence": "the water ripple subsides smoothly inside the glass sphere"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "150-MS VETO WINDOW\nFRONTAL BRAKE",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the front prefrontal lobe glows soft pastel sky-blue and sends a calm braking wave across the upper motor strip"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan sleeves and matte-white gloved low-poly hands extending from the bottom frame edge",
+      "prop_action": "the matte-white gloved low-poly hand withdraws calmly from the candy bowl, reaches across the desk, and lifts a fresh green apple instead",
+      "consequence": "the crisp green apple rests squarely in the open geometric palm"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a sunlit light-gray study room with tall open windows overlooking pastel trees",
+      "action": "viewed strictly from behind, a clothed low-poly person in a sage cardigan stands calmly by the window and rests both hands on the light-gray sill"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit UCSF laboratory with the circular green scope and golden gate block on the pale-stone table",
+      "action": "viewed strictly from behind, the clothed low-poly scientist in a white coat and volunteer in a soft-sage sweater step beside the console and turn toward the sunlit window"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "ucsf_eeg_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a soft sunlit San Francisco hilltop terrace overlooking pastel bay hills and clear sky",
+      "action": "viewed from behind, clothed low-poly figures in coats and sweaters walk calmly along the sunlit terrace and step toward the overlook as the camera tilts upward"
+    }
+  ]
+}

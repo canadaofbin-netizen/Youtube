@@ -1,0 +1,696 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "cherry_cocktail_party_filter",
+  "topic": "Colin Cherry (1953) Imperial College London Cocktail Party Problem & Dichotic Headphone Shadowing, 180ms Ear-Hopping Switch Cost, Moray Own-Name Breakthrough, and Auditory Cortex Selective Gain (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Aviation cockpit warning designers replacing male voice alerts with distinct tone chimes and female voice warnings alongside directional hearing aids inspired by Cherry's spatial-pitch filter proof.",
+  "outro_title_lines": [
+    "COLIN CHERRY (1953)",
+    "LONDON HEADPHONE STUDY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "TWO VOICES?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "DEAF TO GERMAN"
+    },
+    {
+      "sentence_index": 10,
+      "text": "PITCH NOT WORDS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "SWITCH COST"
+    },
+    {
+      "sentence_index": 27,
+      "text": "YOUR OWN NAME"
+    },
+    {
+      "sentence_index": 35,
+      "text": "COCKPIT CHIMES"
+    },
+    {
+      "sentence_index": 43,
+      "text": "ONE VOICE LANE"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "TWO VOICES?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "DEAF TO GERMAN"
+    },
+    {
+      "sentence_index": 10,
+      "text": "PITCH NOT WORDS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "SWITCH COST"
+    },
+    {
+      "sentence_index": 27,
+      "text": "YOUR OWN NAME"
+    },
+    {
+      "sentence_index": 35,
+      "text": "COCKPIT CHIMES"
+    },
+    {
+      "sentence_index": 43,
+      "text": "ONE VOICE LANE"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 16,
+      "mode": "split_hstack",
+      "left_clip_index": 19,
+      "right_clip_index": 20,
+      "left_label": "GERMAN FLIP: MISSED",
+      "right_label": "PURE TONE: CAUGHT"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy jacket sleeves and matte-white faceted low-poly gloved hands placing padded soft-slate headphones onto a pale ash-wood desk beside a studio console",
+      "prop_action": "both matte-white faceted low-poly gloved hands lift the padded soft-slate headphones and set them neatly beside a matte silver desktop microphone",
+      "consequence": "split left and right headphone cords trail cleanly into the dual-channel studio console"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted sage sweater sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge over the dual-channel console",
+      "prop_action": "both matte-white faceted low-poly gloved hands push up two parallel powder-blue and pale-lavender fader sliders on the studio console",
+      "consequence": "two separate pastel sound-wave strips rise side by side in soft diffused light"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft slate blazer sleeves and matte-white faceted low-poly gloved hands flipping the left-channel toggle switch on the studio console",
+      "prop_action": "one matte-white faceted low-poly gloved hand flips the left-ear toggle switch into a pale-lavender position while keeping the right-ear powder-blue dial steady",
+      "consequence": "soft pale-lavender acoustic rings pulse into the left headphone cup unnoticed"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a calm London acoustics laboratory in soft diffused daylight with a dual-channel studio audio console, desktop microphone, and pale ash-wood desk",
+      "action": "viewed strictly from behind, a clothed low-poly engineer in a slate wool jacket stands at the audio console while a seated listener in padded headphones faces the microphone"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate wool jacket cuffs and matte-white faceted low-poly gloved hands aligning two cool cream tape reels on the studio console",
+      "prop_action": "both matte-white faceted low-poly gloved hands press two cool cream audio reels onto the spindles and turn the start knob",
+      "consequence": "both cool cream tape reels spin smoothly in unison"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "slate jacket sleeves and matte-white faceted low-poly gloved hands setting aside an old dove-gray telephone handset on the bench",
+      "prop_action": "one matte-white faceted low-poly gloved hand lifts the dove-gray telephone receiver onto its cradle and slides a clean acoustic chart forward",
+      "consequence": "the old single-line handset sits retired behind the dual-channel bench"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a calm pastel reception room with small round cocktail tables and soft powder-blue and pale-lavender acoustic wave arcs overlapping overhead",
+      "action": "viewed strictly from behind, clothed low-poly guests in muted sage and navy jackets stand in small groups while an engineer in a slate coat observes with a notebook"
+    },
+    {
+      "sentence_index": 6,
+      "end_sentence_index": 7,
+      "act": 1,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted sage sweater sleeves and matte-white faceted low-poly gloved hands rewinding a single tangled cool cream tape reel repeatedly",
+      "prop_action": "both matte-white faceted low-poly gloved hands press the rewind key on the single-track deck and write tiny fragmented marks on a cool cream pad",
+      "consequence": "two overlapping dove-gray sound waves stay knotted on one single track"
+    },
+    {
+      "sentence_index": 8,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and matte-white faceted low-poly gloved hands plugging separate powder-blue and pale-lavender cables into the console",
+      "prop_action": "both matte-white faceted low-poly gloved hands push the powder-blue plug into the right socket and the pale-lavender plug into the left socket",
+      "consequence": "two cleanly separated audio channels feed the split headphones"
+    },
+    {
+      "sentence_index": 8,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted sage sweater sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge lifting padded headphones",
+      "prop_action": "both matte-white faceted low-poly gloved hands lift the padded soft-slate headphones upward from the desk and pull the earcups gently apart",
+      "consequence": "the desktop microphone waits centered on the pale ash-wood table"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the calm London studio desk where powder-blue sound rings enter the right earcup and echo smoothly into the desktop microphone",
+      "action": "viewed strictly from behind, the seated clothed low-poly listener in a muted sage sweater wears padded headphones and taps steady rhythm beside the microphone"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and matte-white faceted low-poly gloved hands stopping the tape reel and pointing to the left headphone cup",
+      "prop_action": "one matte-white faceted low-poly gloved hand presses the matte slate stop button and taps the left headphone earcup",
+      "consequence": "both cool cream tape reels come to a silent halt"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted sage sweater sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge over a blank cool cream recall sheet",
+      "prop_action": "both matte-white faceted low-poly gloved hands open palms above the completely blank cool cream left-ear pad and set the slate pencil down",
+      "consequence": "zero words appear on the left-ear recall sheet"
+    },
+    {
+      "sentence_index": 12,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate wool jacket sleeves and matte-white faceted low-poly gloved hands turning a rotary input selector on the dual-channel console",
+      "prop_action": "the right matte-white faceted low-poly gloved hand turns the left-channel rotary dial smoothly to a pale-lavender speech reel",
+      "consequence": "angular pale-lavender sound shapes stream into the left cord"
+    },
+    {
+      "sentence_index": 12,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the calm acoustics booth as powder-blue waves enter the right ear and angular pale-lavender waves enter the left ear",
+      "action": "viewed strictly from behind, the seated clothed low-poly listener in a muted sage sweater keeps shadowing into the microphone without pausing or turning"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "slate jacket sleeves and matte-white faceted low-poly gloved hands flipping the left tape reel into reverse motion",
+      "prop_action": "both matte-white faceted low-poly gloved hands press the reverse lever so the left cool cream tape reel spins backward smoothly",
+      "consequence": "inverted pale-lavender wave shapes flow into the left headphone cord"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted sage sweater sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge placing a powder-blue block on the pad",
+      "prop_action": "one matte-white faceted low-poly gloved hand sets a plain powder-blue speech block onto the left-ear report tray and taps it calmly",
+      "consequence": "the listener assumes ordinary speech played the entire time"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a calm cool-cream acoustic pedestal holding a matte brushed-silver tuning fork mounted on a pale ash-wood resonator box",
+      "comparison_action": "two matte-white faceted low-poly gloved hands in slate sleeves tap the silver tuning fork gently with a soft rubber mallet and set the mallet down as soft powder-blue sound rings radiate"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted sage sweater sleeves and matte-white faceted low-poly gloved hands resting unmoving beside the microphone as pale-lavender speech rings pass",
+      "prop_action": "both matte-white faceted low-poly gloved hands stay folded on the pale ash-wood desk and tap zero response keys",
+      "consequence": "the foreign-language switch passes completely undetected"
+    },
+    {
+      "sentence_index": 16,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted sage sweater sleeves and matte-white faceted low-poly gloved hands raising the left hand promptly as a soft mint tone ring arrives",
+      "prop_action": "the left matte-white faceted low-poly gloved hand lifts briskly off the desk and presses a soft mint detection button",
+      "consequence": "the pure tone or pitch shift registers immediately"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a muted pastel cutaway of an acoustic sieve gate letting slim soft-mint pitch rings pass through while wide pale-lavender word blocks stop outside",
+      "internal_mechanism": "slim soft-mint pitch rings glide cleanly through the narrow slot as bulky pale-lavender word blocks bounce softly back"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "muted sage sweater sleeves and matte-white faceted low-poly gloved hands lifting padded headphones off and setting them onto tangled cords",
+      "prop_action": "both matte-white faceted low-poly gloved hands pull off the padded soft-slate headphones and place them down across two competing scripts",
+      "consequence": "trying to decode both scripts simultaneously stalls completely"
+    },
+    {
+      "sentence_index": 19,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and matte-white faceted low-poly gloved hands turning a rapid alternation dial on an electronic switch box",
+      "prop_action": "one matte-white faceted low-poly gloved hand turns the alternation dial up while the other flips a rocking left-right toggle",
+      "consequence": "powder-blue sound pulses hop rapidly between left and right cords"
+    },
+    {
+      "sentence_index": 19,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_left",
+      "structure": "a top-down muted pastel cutaway of padded headphones where powder-blue sound pulses ping-pong rapidly between left and right earcups",
+      "internal_mechanism": "each rapid left-right jump breaks the powder-blue stream into disconnected fragments"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and matte-white faceted low-poly gloved hands tracing a deep U-shaped valley curve on a cool cream graph card",
+      "prop_action": "the right matte-white faceted low-poly gloved hand draws a sharp downward dip on the cool cream graph with a slate pen and taps the bottom point",
+      "consequence": "word recognition plunges at the rapid switching point"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted sage sweater sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge pivoting a single powder-blue spotlight cone",
+      "prop_action": "both matte-white faceted low-poly gloved hands turn a miniature matte slate lamp from a left block over to a right block one at a time",
+      "consequence": "only one side block receives soft light at any moment"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a calm dove-gray tabletop model railway junction with a matte soft-slate metal railroad track switch splitting one track into left and right rails",
+      "comparison_action": "two matte-white faceted low-poly gloved hands in navy sleeves pull the soft-slate throw lever so the miniature railroad track switch slides firmly from the left rail to the right rail"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "cochlea",
+      "anatomy_label": "COCHLEA\nINNER EAR SENSOR",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile auditory pathway model, both soft powder-blue and pale-lavender spiral waves travel cleanly through the snail-shaped cochlea"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "Broca's area",
+      "anatomy_label": "BROCA'S AREA\nSPEECH PRODUCER",
+      "camera": "locked_tripod",
+      "brain_scene": "on the left front temple ridge of the matte cool-ivory 3D brain model, soft muted-sage facets pulse in a steady rhythmic loop across Broca's area"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "navy cardigan sleeves and matte-white faceted low-poly gloved hands advancing thirty-five small dove-gray counter beads beside a blank recall pad",
+      "prop_action": "one matte-white faceted low-poly gloved hand slides the thirty-fifth dove-gray bead across a wire abacus while the other hand flips open an empty pad",
+      "consequence": "thirty-five ignored repetitions leave the recall page completely blank"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy cardigan sleeves and matte-white faceted low-poly gloved hands holding a special soft-mint acoustic key card beside the left channel",
+      "prop_action": "both matte-white faceted low-poly gloved hands lift the soft-mint personal cue card and slide it into the left-channel slot",
+      "consequence": "the soft-mint cue card clicks cleanly into the console"
+    },
+    {
+      "sentence_index": 27,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and matte-white faceted low-poly gloved hands pressing the soft-mint cue key gently on the console",
+      "prop_action": "one matte-white faceted low-poly gloved hand presses the soft-mint key once sending a distinct mint ring down the left headphone cord",
+      "consequence": "the soft-mint ring reaches the left earcup smoothly"
+    },
+    {
+      "sentence_index": 27,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the sunlit acoustics booth with the seated headphone listener before the desktop microphone",
+      "action": "viewed strictly from behind, the seated clothed low-poly listener in a muted sage sweater turns shoulders briskly toward the left headphone side and lifts a gloved hand"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy cardigan sleeves and matte-white faceted low-poly gloved hands setting one soft-mint wooden peg forward out of three pegs",
+      "prop_action": "both matte-white faceted low-poly gloved hands slide one soft-mint peg forward on the pale ash-wood board while holding two dove-gray pegs back",
+      "consequence": "one in three pegs stands highlighted in soft mint"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "neural_decoding_suite",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge turning a matte dimmer dial rather than a knife switch",
+      "prop_action": "the right matte-white faceted low-poly gloved hand turns a smooth powder-blue rotary dimmer dial halfway down while leaving the wire plugged in",
+      "consequence": "the ignored channel dims softly instead of disconnecting"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a calm pastel dinner room with four clothed low-poly diners seated around a round pale ash-wood table",
+      "action": "viewed strictly from behind, a clothed low-poly diner in a navy sweater leans slightly forward locking onto one speaker across the table"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "neural_decoding_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a modern clinical neurophysiology room in soft diffused light with two pastel waveform displays on a clean console",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in white coats stand beside the console aligning two waveform traces"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "neural_decoding_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and matte-white faceted low-poly gloved hands starting two identical tabletop speakers at equal volume",
+      "prop_action": "both matte-white faceted low-poly gloved hands push up two matching powder-blue and pale-lavender speaker faders to the exact same mark",
+      "consequence": "both pastel speaker cones emit equal sound waves into the room"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "AUDITORY CORTEX\nVOICE SELECTOR",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the side temporal ridge above the ear on the matte cool-ivory 3D brain model, soft powder-blue facets pulse clearly while pale-lavender facets fade quiet"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "neural_decoding_suite",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a muted pastel side-by-side display cutaway showing tangled twin waves entering on the left and a single clean powder-blue wave emerging on the right",
+      "internal_mechanism": "an internal muted-sage acoustic lens smooths away the pale-lavender wave leaving only the clean powder-blue voice trace"
+    },
+    {
+      "sentence_index": 35,
+      "act": 5,
+      "location_id": "neural_decoding_suite",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright acoustic engineering studio with a flight cockpit simulator panel and miniature directional earpieces on a pale ash-wood bench",
+      "action": "viewed strictly from behind, clothed low-poly engineers in slate jackets inspect the cockpit alert panel and set down acoustic test pads"
+    },
+    {
+      "sentence_index": 36,
+      "end_sentence_index": 37,
+      "act": 5,
+      "location_id": "neural_decoding_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy flight-jacket sleeves and matte-white faceted low-poly gloved hands holding a radio throttle while overlapping dove-gray voice rings crowd the panel",
+      "prop_action": "one matte-white faceted low-poly gloved hand holds the radio push-to-talk switch while the other adjusts a cockpit dial amidst matching dove-gray rings",
+      "consequence": "similar-pitched voice rings blend indistinguishably together"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "neural_decoding_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate engineer sleeves and matte-white faceted low-poly gloved hands installing a distinct soft-mint chime module into the cockpit panel",
+      "prop_action": "both matte-white faceted low-poly gloved hands slide the soft-mint chime module into the instrument rack and press the test button",
+      "consequence": "crisp soft-mint chime rings rise clearly above the dove-gray radio waves"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "neural_decoding_suite",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy flight-jacket sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge over cockpit controls",
+      "prop_action": "the right matte-white faceted low-poly gloved hand reaches immediately to press the soft-mint acknowledge switch cleanly",
+      "consequence": "the distinct cockpit chime catches pilot focus right away"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "neural_decoding_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and matte-white faceted low-poly gloved hands rotating a tiny powder-blue directional hearing aid model on a stand",
+      "prop_action": "both matte-white faceted low-poly gloved hands align the tiny powder-blue directional earpiece toward a single forward cone and set it steady",
+      "consequence": "the narrow muted-sage listening cone points cleanly forward"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "neural_decoding_suite",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "white coat sleeves and matte-white faceted low-poly gloved hands turning down an all-room noise knob while raising the forward beam slider",
+      "prop_action": "the left matte-white faceted low-poly gloved hand turns down the dove-gray clutter knob while the right hand slides up the powder-blue voice fader",
+      "consequence": "side clutter waves shrink away on the test board"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the calm London acoustics laboratory with the dual-channel console, padded headphones, and modern directional models on the long bench",
+      "action": "viewed strictly from behind, clothed low-poly engineers and neuroscientists in slate and white coats step back and set down their notebooks in quiet awe"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "modern_focus_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge wearing headphones at a laptop",
+      "prop_action": "both matte-white faceted low-poly gloved hands tap keys hesitantly on a laptop while a pale-lavender podcast player icon chatters beside it",
+      "consequence": "competing word bubbles crowd above the keyboard"
+    },
+    {
+      "sentence_index": 43,
+      "act": 6,
+      "location_id": "modern_focus_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a calm sunlit home office with a pale ash-wood desk, laptop, soft-slate headphones, and cool cream notebook",
+      "action": "viewed strictly from behind, a clothed low-poly writer in a powder-blue sweater sits wearing headphones while typing an email during a talk show"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_focus_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and matte-white faceted low-poly gloved hands clicking pause on a pastel media player beside a blank summary pad",
+      "prop_action": "one matte-white faceted low-poly gloved hand presses the pause button on the desk player while the other opens a blank cool cream pad",
+      "consequence": "nothing from the spoken show was retained on the pad"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "AUDITORY CORTEX\nSINGLE WORD LANE",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the side temporal ridge of the matte cool-ivory 3D brain model, one smooth muted-sage pathway pulses cleanly across the auditory cortex"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "modern_focus_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge over a desk audio controller",
+      "prop_action": "the left matte-white faceted low-poly gloved hand slides the talk-podcast switch off while the right hand opens a cool cream draft notebook",
+      "consequence": "spoken background chatter stops completely"
+    },
+    {
+      "sentence_index": 47,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "modern_focus_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and matte-white faceted low-poly gloved hands pressing a soft-mint instrumental music button on the desk player",
+      "prop_action": "one matte-white faceted low-poly gloved hand presses the soft-mint piano note button and slides the volume knob gently lower",
+      "consequence": "gentle wordless pastel wave curves float calmly in the air"
+    },
+    {
+      "sentence_index": 47,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "modern_focus_desk",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and matte-white faceted low-poly gloved hands extending from the bottom frame edge writing smoothly on cool cream paper",
+      "prop_action": "both matte-white faceted low-poly gloved hands steady the cool cream notebook and write crisp flowing lines down the page",
+      "consequence": "clean uninterrupted sentences fill the notebook"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "modern_focus_desk",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted sage jacket sleeves and matte-white faceted low-poly gloved hands tapping mute on a dashboard speakerphone before holding a steering wheel",
+      "prop_action": "the right matte-white faceted low-poly gloved hand presses the mute button on a dashboard phone mount and grips the soft-slate wheel with both hands",
+      "consequence": "full attention stays locked on the road ahead"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "modern_focus_desk",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a calm sunlit park bench beneath muted sage trees with laptops closed",
+      "action": "viewed strictly from behind, two clothed low-poly friends in sweaters sit side by side setting their phones face-down to talk without distraction"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the calm sunlit London acoustics laboratory with padded soft-slate headphones resting peacefully beside the dual-channel studio console",
+      "action": "viewed strictly from behind, clothed low-poly engineers and listeners stand together looking out through the tall sunlit laboratory windows"
+    },
+    {
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "london_acoustics_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a calm sunlit South Kensington stone courtyard in London with muted sage plane trees and a soft powder-blue sky",
+      "action": "viewed strictly from behind, clothed low-poly scholars in wool coats walk peacefully along the stone path as the camera tilts upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "DEAF TO GERMAN",
+    "cover_sentence_index": 3,
+    "cover_brief": "clothed low-poly listener from behind wearing padded soft-slate headphones before a dual-channel studio console"
+  }
+}

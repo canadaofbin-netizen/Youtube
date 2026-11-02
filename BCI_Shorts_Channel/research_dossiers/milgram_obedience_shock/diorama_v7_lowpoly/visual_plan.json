@@ -1,0 +1,706 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "BEHAVIORAL_PSYCH",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "milgram_obedience_shock",
+  "topic": "Stanley Milgram 1961-1963 Yale Switch Experiment, 65% Baseline vs 4th-Prod Refusal & Rebel Peers (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Yale Interaction Laboratory climax where volunteers refuse the bare fourth order ('You have no other choice') and 36 of 40 defy authority when two peers stand up and quit.",
+  "outro_title_lines": [
+    "MILGRAM OBEDIENCE STUDY (1961-1963)",
+    "YALE UNIVERSITY, NEW HAVEN"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "30 SWITCHES"
+    },
+    {
+      "sentence_index": 10,
+      "text": "300 VOLTS"
+    },
+    {
+      "sentence_index": 18,
+      "text": "65 PERCENT"
+    },
+    {
+      "sentence_index": 27,
+      "text": "THE MYTH"
+    },
+    {
+      "sentence_index": 35,
+      "text": "FOURTH PROD"
+    },
+    {
+      "sentence_index": 44,
+      "text": "SAYING NO"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "30 SWITCHES"
+    },
+    {
+      "sentence_index": 10,
+      "text": "300 VOLTS"
+    },
+    {
+      "sentence_index": 18,
+      "text": "65 PERCENT"
+    },
+    {
+      "sentence_index": 27,
+      "text": "THE MYTH"
+    },
+    {
+      "sentence_index": 35,
+      "text": "FOURTH PROD"
+    },
+    {
+      "sentence_index": 44,
+      "text": "SAYING NO"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 26,
+      "mode": "split_hstack",
+      "left_clip_index": 27,
+      "right_clip_index": 59,
+      "left_label": "SCIENCE APPEAL",
+      "right_label": "BARE ORDER"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue shirt sleeves and a right matte low-poly hand hovering over a beige steel switch box on an oak desk",
+      "prop_action": "the low-poly hand reaches forward and traces lightly above thirty smooth blank silver toggle switches lined up in a straight horizontal row",
+      "consequence": "warm overhead daylight glints cleanly across the thirty polished toggle tips"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "an elevated rear view of a bright 1961 Yale laboratory room with pale-oak paneling, sunlit high windows, and a wide beige toggle console on a wooden table",
+      "action": "viewed strictly from behind, a clothed low-poly volunteer in a pale-blue shirt and tan slacks steps up to the oak chair and places both hands on the desk edge"
+    },
+    {
+      "sentence_index": 2,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "adjoining_chair_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit adjoining test room with cream plaster walls, a sturdy oak armchair, and soft leather wrist straps",
+      "action": "viewed strictly from behind, a clothed low-poly researcher in a gray technician coat steps beside a seated figure in a tweed vest and places a leather strap neatly over his wrist"
+    },
+    {
+      "sentence_index": 2,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "adjoining_chair_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "gray coat cuffs fastening a smooth brass wrist clip onto tweed shirt sleeves",
+      "prop_action": "both low-poly hands press the tan leather strap buckle closed and slide a small round brass contact onto the wrist cuff",
+      "consequence": "a coiled black cord hangs loosely beside the wooden armrest"
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cream wall panel mounting a round ivory rotary dimmer dial beside a warm amber glass bulb",
+      "comparison_action": "a low-poly hand in pale-blue shirt sleeves grips and turns the ivory dimmer knob clockwise one notch as the warm bulb brightens"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "pale-blue shirt sleeves and cuffs extending from bottom frame before the long row of thirty blank silver toggles",
+      "prop_action": "the right low-poly hand reaches to the left end of the row and glides slowly rightward past switch after switch",
+      "consequence": "crisp geometric shadows trail across the brushed metal panel"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit light-oak seminar table holding a neat stack of ninety-nine matte ivory discs beside a single thin silver dime",
+      "comparison_action": "a low-poly hand in a navy blazer cuff reaches in and slides the single thin silver dime forward onto the sunlit wood"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "new_haven_courtyard",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright 1961 Yale stone courtyard with pastel-brick archways, autumn elms, and a sunny walkway leading to the laboratory entrance",
+      "action": "viewed strictly from behind, clothed low-poly men in hats and trench coats walk steadily along the stone path and step through the oak doorway",
+      "end_sentence_index": 7
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue shirt cuffs with a small brass wrist contact wired to the third metal toggle switch",
+      "prop_action": "the left low-poly hand presses down the third toggle switch while the right hand pulls briskly upward from the brief wrist buzz",
+      "consequence": "a tiny warm red indicator lamp glows beside the depressed third toggle",
+      "end_sentence_index": 8,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean pastel architectural side-by-side cutaway of the two Yale rooms divided by a solid cream center partition wall",
+      "internal_mechanism": "on the left side sits the toggle console desk while on the right side an unhooked wire rests beside a wooden reel-to-reel tape player",
+      "end_sentence_index": 8,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "adjoining_chair_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "tweed vest sleeves resting calmly unstrapped beside a spinning pastel magnetic tape reel on a side table",
+      "prop_action": "a low-poly hand in tweed cuffs flips the unhooked wrist strap aside and presses play on the compact wooden tape deck",
+      "consequence": "both pastel tape spools turn smoothly in warm morning sunlight"
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "gray technician coat cuffs holding an upturned felt hat before pale-blue shirt sleeves",
+      "prop_action": "the volunteer's low-poly hand reaches into the upturned gray felt hat and lifts out one folded cream paper slip",
+      "consequence": "the second folded paper slip remains resting inside the felt crown"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue shirt cuffs extending from bottom frame over the sunlit oak table",
+      "prop_action": "both low-poly hands open the blank cream paper square and place it flat beside a matching second unfolded square",
+      "consequence": "two identical pastel blue geometric tokens sit centered on the two slips"
+    },
+    {
+      "sentence_index": 12,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue shirt cuffs over the middle section of the thirty-switch metal row",
+      "prop_action": "the right low-poly index finger presses and flips a silver toggle switch briskly downward",
+      "consequence": "a round crimson pilot jewel lights up brightly above the switch"
+    },
+    {
+      "sentence_index": 12,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean blank circular ivory analog meter face set into the beige steel panel with smooth pastel color wedges",
+      "internal_mechanism": "a slender black pointer needle swings sharply rightward across a coral-shaded arc while a small blue indicator lamp flashes"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-mint plaster wall fitted with two standard ivory household electrical wall outlets side by side",
+      "comparison_action": "two low-poly hands in rolled shirt sleeves lift and push two pastel cords cleanly into the twin ivory wall outlets"
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "adjoining_chair_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed shirt sleeves and a clenched matte geometric fist beside the shared cream partition wall",
+      "prop_action": "the low-poly fist lifts back and strikes twice firmly against the cream plaster partition wall",
+      "consequence": "a hanging wooden frame on the wall shudders slightly from the thud"
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue shirt sleeves extending from bottom frame over the switch panel facing the cream partition wall",
+      "prop_action": "startled by the wall vibration, both low-poly hands lift and pull sharply back off the twentieth metal toggle switch",
+      "consequence": "a cup of wooden pencils on the oak desk trembles slightly"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a small four-quadrant frosted glass answer indicator box perched atop the beige switch console",
+      "internal_mechanism": "all four pastel indicator squares dim cleanly to matte gray as the room falls still"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "an elevated rear view of the sunlit Yale laboratory showing the seated volunteer at the switch desk and the standing researcher behind him",
+      "action": "viewed strictly from behind, the seated clothed low-poly volunteer in a blue shirt turns his shoulders and leans toward the standing leader in a gray coat holding a wooden clipboard"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue shirt sleeves and both matte geometric hands braced on the edge of the oak desk",
+      "prop_action": "both low-poly hands grip the wooden desk edge tightly and press downward until the wrists tense",
+      "consequence": "sharp afternoon window shadows cut between the switch box and the gray coat hem behind"
+    },
+    {
+      "sentence_index": 18,
+      "act": 3,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue shirt cuffs extending from bottom frame above the final ten metal switches",
+      "prop_action": "a trembling right low-poly hand pulls halfway back and reaches forward again over the twenty-first toggle",
+      "consequence": "the polished metal lever reflects the hovering geometric fingertips"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a clean side-rear wide view of the sunlit Yale room showing one oak desk-length separating the gray-coated figure from the seated volunteer",
+      "action": "viewed strictly from behind in three-quarter rear profile, the clothed low-poly leader in a gray coat taps his wooden clipboard with a pencil and steps half a pace closer"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "gray technician coat sleeves holding a smooth birch clipboard and brass stopwatch",
+      "prop_action": "the right low-poly hand lifts a yellow cedar pencil and points down four neat horizontal notches on the wooden board",
+      "consequence": "the brass stopwatch ticks forward calmly in the examiner's left palm"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue cotton shirt sleeves and both matte geometric hands resting on the volunteer's lap",
+      "prop_action": "the left low-poly hand presses its fingertips deep into its own palm while the right hand grips the trouser knee",
+      "consequence": "creases bunch tightly across the tan cotton slacks"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue shirt sleeves and cuffs shaking slightly over the oak tabletop",
+      "prop_action": "the volunteer's right low-poly hand lifts a white cotton handkerchief to his wrist and places it hastily back on the oak desk",
+      "consequence": "his shoulders shudder visibly along the bottom frame edge"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "pale-blue shirt sleeves and right matte low-poly hand moving along the far-right switches",
+      "prop_action": "the right low-poly index finger slides rightward and presses down the twenty-eighth, twenty-ninth, and thirtieth metal toggle switch",
+      "consequence": "every red pilot jewel along the steel row glows in an unbroken line"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-stone workbench holding a thick insulated copper power cable resting on porcelain standoffs",
+      "comparison_action": "a gloved low-poly hand in a jacket sleeve lifts a brass test probe and taps the live copper terminal setting off an amber indicator glow"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit birch table lined with forty upright pastel wooden domino blocks divided into twenty-six coral blocks and fourteen sky-blue blocks",
+      "comparison_action": "a low-poly hand in pale-blue cuffs reaches in and taps the first coral wooden block sending twenty-six dominoes toppling cleanly"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a wide elevated rear view of the quiet Yale laboratory with all thirty red lamps glowing across the beige console",
+      "action": "viewed strictly from behind, the clothed low-poly volunteer in a blue shirt rests both hands on his knees while the gray-coated leader closes his wooden folder"
+    },
+    {
+      "sentence_index": 27,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-oak display shelf holding three wind-up tin toy figures painted in pastel gray",
+      "comparison_action": "a low-poly hand in tan cardigan sleeves grips and turns brass keys on two tin figures so they step forward in lockstep"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a wooden marionette cross-bar suspended on taut white strings above a miniature wooden chair",
+      "internal_mechanism": "the upper wooden cross-bar tilts left and right pulling the hanging wooden arms up and down mechanically"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "archive_study_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "cream blazer sleeves and matte geometric scholar hands at a sunlit archival oak table",
+      "prop_action": "both low-poly hands lift a vintage magnetic audio reel from an archival box and place it onto a playback spindle",
+      "consequence": "thirty pastel index tabs line up neatly inside the open archival tray"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit birch frame supporting a heavy brass pendulum bob swinging across a wide pastel arc from left to right",
+      "comparison_action": "a low-poly hand in cream sleeves lifts and drops the brass pendulum bob so it swings smoothly across the full pastel arc"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue shirt sleeves beside tweed vest sleeves over a flat metal contact plate on the same desk",
+      "prop_action": "the blue-sleeved low-poly hand opens its fingers and pulls back onto the oak table while the left hand pulls a black power plug out",
+      "consequence": "the unplugged cord rests harmlessly beside the contact plate",
+      "end_sentence_index": 32
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "bridgeport_office",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a modest sunlit commercial office room in Bridgeport with plain linoleum tiles, metal filing cabinets, and a simple folding table",
+      "action": "viewed strictly from behind, a clothed low-poly volunteer in a brown jacket flips a silver coin in his palm and steps away from the folding table",
+      "end_sentence_index": 33,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "gray technician coat sleeves gripping the wooden clipboard with both hands",
+      "prop_action": "the right low-poly hand taps the yellow pencil down against the fourth bottom notch of the clipboard and points stiffly toward the console",
+      "consequence": "a stark geometric shadow stretches from the pointing finger across the oak desk",
+      "end_sentence_index": 33,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "archive_study_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "four pastel wooden balance bars stacked vertically on a birch stand representing the four prods",
+      "internal_mechanism": "while the top three sky-blue bars tilt rightward, the bottom fourth coral bar flips sharply leftward snapping a wooden stop block into place"
+    },
+    {
+      "sentence_index": 35,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a tense sunlit rear view of the Yale laboratory with the gray-coated figure standing directly over the volunteer's shoulder",
+      "action": "viewed strictly from behind, the clothed low-poly leader in a gray coat leans forward and points rigidly down at the open toggle switches"
+    },
+    {
+      "sentence_index": 35,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "gray technician coat cuffs extending from the right beside pale-blue shirt sleeves",
+      "prop_action": "the gray-cuffed low-poly hand taps the steel switch housing twice while the blue-sleeved hand pulls back onto the oak desk",
+      "consequence": "none of the remaining silver toggles move downward"
+    },
+    {
+      "sentence_index": 36,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue shirt sleeves and cuffs extending from bottom frame over the switch console",
+      "prop_action": "both low-poly hands lift crisply off the steel toggle panel and place themselves firmly together on the oak desk edge",
+      "consequence": "the final row of silver switches remains upright and untouched"
+    },
+    {
+      "sentence_index": 36,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue shirt cuffs and steady matte geometric hands resting on the oak desktop",
+      "prop_action": "the right low-poly hand reaches up and flips the master power toggle on the left corner off",
+      "consequence": "warm calm natural sunlight fills the quiet desktop"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tan cardigan sleeves and cuffs above the brushed steel switch row",
+      "prop_action": "a hovering low-poly hand snaps briskly backward away from the switches and rests flat against the wooden chair arm",
+      "consequence": "the analog meter needle drops smoothly back to its left resting stop"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated rear wide view of the sunlit Yale switch room",
+      "action": "viewed strictly from behind, the clothed low-poly volunteer in a blue shirt pushes his oak chair straight back across the floor and rises tall",
+      "end_sentence_index": 38,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "archive_study_room",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a pastel wooden balance beam holding a sky-blue glass laboratory flask on one side against a bare iron gavel on the other",
+      "internal_mechanism": "when the sky-blue laboratory flask lifts away, the bare iron gavel drops harmlessly without tripping the central latch",
+      "end_sentence_index": 38,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit Yale laboratory rearranged with three oak chairs side by side facing the long beige toggle console",
+      "action": "viewed strictly from behind, three clothed low-poly men in navy, olive, and pale-blue shirts step forward and place their hands on the three oak chair backs",
+      "end_sentence_index": 40
+    },
+    {
+      "sentence_index": 41,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "an elevated rear view of the three-chair Yale switch desk with the gray-coated figure standing at the side",
+      "action": "viewed strictly from behind, the two clothed low-poly peers in navy and olive shirts rise together, push their chairs back, and step away from the console"
+    },
+    {
+      "sentence_index": 41,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue shirt sleeves in the center beside the empty oak chairs on both sides",
+      "prop_action": "inspired immediately, the real volunteer's low-poly hands push the oak tabletop away and lift cleanly off the switches",
+      "consequence": "all three oak chairs stand pushed back in sunlit defiance"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "archive_study_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit Yale psychology review room with thirty-six sage-green wooden tally blocks and four coral tally blocks arranged on a birch table",
+      "action": "viewed strictly from behind, two clothed low-poly researchers in tweed coats lean over the birch table and point across the thirty-six green refusal blocks"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "navy, olive, and pale-blue shirt sleeves side by side in bright window light",
+      "prop_action": "three pairs of low-poly hands place their wooden clipboards face-down on the oak desk and step back together",
+      "consequence": "even morning sunlight warms the untouched silver toggles"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_ethics_room",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "modern slate blazer sleeves beside a compact ten-switch tabletop console fitted with a bright amber safety stop guard",
+      "prop_action": "a researcher's low-poly hand flips down a hinged amber safety bar right after the tenth switch and lifts a small brass bell",
+      "consequence": "the amber guard blocks every higher toggle cleanly"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-maple lane holding a heavy glossy pastel-slate three-hole bowling ball rolling toward white wooden bowling pins",
+      "comparison_action": "two low-poly hands in rolled shirt sleeves push and roll the heavy three-hole bowling ball down the maple boards toward ten wooden bowling pins"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "modern_ethics_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue shirt sleeves extending from bottom frame over a sunlit birch conference table",
+      "prop_action": "a low-poly hand slides a clean cream consent folder forward and places a capped pen gently beside it",
+      "consequence": "warm daylight illuminates the calm transparent setup"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_ethics_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright modern university review room with a round birch table, tall glass windows, and five clothed reviewers",
+      "action": "viewed strictly from behind in elevated wide view, five clothed low-poly reviewers in coats open their folders and lift their hands together in oversight"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "modern_ethics_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit modern office meeting room with a long oak table and pastel chairs",
+      "action": "viewed strictly from behind, clothed low-poly coworkers in shirts and coats rest folded hands on the oak table while a leader at the front points briskly"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "modern_ethics_room",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "crisp white shirt cuffs extending from bottom frame over a sleek aluminum laptop keyboard",
+      "prop_action": "the right low-poly index finger reaches toward the return key and pulls calmly back onto the palm rest",
+      "consequence": "soft afternoon light reflects smoothly across the paused aluminum deck",
+      "end_sentence_index": 49,
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "modern_ethics_room",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "an elevated rear view of the sunlit office meeting table",
+      "action": "viewed strictly from behind, one clothed low-poly colleague in a sage cardigan rises and lifts an open hand as two neighbors push their chairs back",
+      "end_sentence_index": 49,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "new_haven_courtyard",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a bright sunlit New Haven elm courtyard with warm sandstone arches and open paved walkways",
+      "action": "viewed strictly from behind in wide view, three clothed low-poly figures in coats and hats walk side by side and step into the open sunlit courtyard",
+      "end_sentence_index": 51
+    },
+    {
+      "cut_role": "split_right",
+      "act": 5,
+      "location_id": "yale_switch_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue shirt cuffs pulling back cleanly from the steel toggle row",
+      "prop_action": "both low-poly hands push back from the oak switch desk and rest calmly together as the red lamps click off",
+      "consequence": "the silver toggles stay upright in bright daylight"
+    },
+    {
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "new_haven_courtyard",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a peaceful sunlit New Haven stone courtyard framed by golden autumn elm treetops rising into a vast clear pastel sky-blue horizon with soft white low-poly clouds",
+      "action": "gentle afternoon sunlight glides across the pastel stone towers as the view rises smoothly into open sky"
+    }
+  ]
+}

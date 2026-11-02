@@ -1,0 +1,755 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "treisman_attenuation_selective_attention",
+  "topic": "Anne Treisman (1964) Oxford Dichotic Channel-Swap & Attenuation Theory: Dimmer-Knob Gain & 87% vs 8% Target Detection (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Treisman and Geffen's 1967 ruler-tapping showdown proving 87% attended vs 8% unattended detection settles early-filter vs late-selection extremes.",
+  "outro_title_lines": [
+    "ANNE TREISMAN (1964)",
+    "UNIVERSITY OF OXFORD"
+  ],
+  "thumbnail": {
+    "hook_text": "THE DIMMER EAR",
+    "cover_sentence_index": 3,
+    "cover_brief": "Centered brushed-silver dual-channel studio audio console with a powder-blue rotary dimmer dial wired to padded pastel audio cups"
+  },
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "MUTED TO ZERO?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "THE DIMMER EAR"
+    },
+    {
+      "sentence_index": 10,
+      "text": "CHANNEL SWAP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "VOLUME DIMMER"
+    },
+    {
+      "sentence_index": 27,
+      "text": "TWIN LANGUAGES"
+    },
+    {
+      "sentence_index": 35,
+      "text": "RULER SHOWDOWN"
+    },
+    {
+      "sentence_index": 43,
+      "text": "NAME FIRST RULE"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "MUTED TO ZERO?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "THE DIMMER EAR"
+    },
+    {
+      "sentence_index": 10,
+      "text": "CHANNEL SWAP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "VOLUME DIMMER"
+    },
+    {
+      "sentence_index": 27,
+      "text": "TWIN LANGUAGES"
+    },
+    {
+      "sentence_index": 35,
+      "text": "RULER SHOWDOWN"
+    },
+    {
+      "sentence_index": 43,
+      "text": "NAME FIRST RULE"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 13,
+      "mode": "split_hstack",
+      "left_clip_index": 16,
+      "right_clip_index": 17,
+      "left_label": "RIGHT EAR SCRAMBLE",
+      "right_label": "LEFT EAR STORY"
+    }
+  ],
+  "clips": [
+    {
+      "index": 1,
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "role": "hook",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "snap a rigid slate toggle switch downward and press a silver mute bar flat on an audio console",
+      "consequence": "one pastel waveform strip drops completely flat"
+    },
+    {
+      "index": 2,
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "role": "hook",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "noisy_lounge_hall",
+      "environment": "bright pastel concourse filled with soft sage acoustic wave rings drifting around cool slate-stone café tables",
+      "action": "viewed strictly from behind, clothed low-poly travelers in slate coats stand chatting in clusters while soft pastel wave rings overlap"
+    },
+    {
+      "index": 3,
+      "sentence_index": 2,
+      "role": "hook",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "location_id": "noisy_lounge_hall",
+      "environment": "sunlit mist-white lounge where a single crisp cyan-blue sound wave ring glides across three pastel tables",
+      "action": "viewed strictly from behind, one figure in a navy coat turns briskly at the shoulders and steps toward the distant table"
+    },
+    {
+      "index": 4,
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "role": "case_stamp",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "lift padded silver-and-blue over-ear audio cups from a stand and align two twin pastel signal cables into a console",
+      "consequence": "both independent audio channels lock into brushed-silver sockets"
+    },
+    {
+      "index": 5,
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "role": "case_stamp",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_left",
+      "location_id": "oxford_audio_lab",
+      "environment": "clean architectural cutaway of a bright Oxford acoustic laboratory linking a control console desk to an adjacent sound booth",
+      "action": "viewed strictly from behind, Anne Treisman in a powder-blue cardigan adjusts dual rotary dials while a student in a navy sweater sits inside the booth"
+    },
+    {
+      "index": 6,
+      "sentence_index": 4,
+      "role": "pivot",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "lift a rigid two-position mechanical gate block off the slate desk and set it aside",
+      "consequence": "space opens on the console for a smooth rotary dimmer dial"
+    },
+    {
+      "index": 7,
+      "sentence_index": 5,
+      "role": "context",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "grey coat cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "slide a solid slate shutter across a left pastel groove while leaving the right sky-blue groove wide open",
+      "consequence": "pastel signal beads stop completely against the closed left shutter"
+    },
+    {
+      "index": 8,
+      "sentence_index": 6,
+      "role": "setup",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "oxford_audio_lab",
+      "environment": "sunlit mist-white Oxford psychology room with brushed-silver twin tape reels and cool slate-stone instrument tables",
+      "action": "viewed strictly from behind, Anne Treisman in a powder-blue cardigan walks to the twin-reel console and places two pastel tape spools in place"
+    },
+    {
+      "index": 9,
+      "sentence_index": 7,
+      "role": "setup",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "plug a sky-blue right-channel cord and a pale-lavender left-channel cord into twin console jacks and press play",
+      "consequence": "both brushed-silver tape reels spin smoothly in unison"
+    },
+    {
+      "index": 10,
+      "sentence_index": 8,
+      "role": "experiment",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "location_id": "oxford_booth",
+      "environment": "bright frosted acoustic booth with a brushed-silver desk stand and a glowing sky-blue right-side waveform rail",
+      "action": "viewed strictly from behind, a student in a navy sweater and padded silver earcups leans toward the desk stand and taps along with the right rail"
+    },
+    {
+      "index": 11,
+      "sentence_index": 9,
+      "role": "rehook",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "location_id": "oxford_booth",
+      "attire_and_hands": "navy sweater sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "trace the bright sky-blue right-side acoustic rail while sliding a frosted cover beside the faint lavender left rail",
+      "consequence": "the quiet left rail keeps gliding softly alongside"
+    },
+    {
+      "index": 12,
+      "sentence_index": 10,
+      "role": "question",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "reach toward a silent silver crossover switch between the sky-blue and lavender tracks and rest two gloved fingers lightly",
+      "consequence": "twin pastel wave rails approach the crossover bridge"
+    },
+    {
+      "index": 13,
+      "sentence_index": 11,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "experiment",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "flip the silent brushed-silver crossover toggle cleanly across the dual-track console and hold the lever firm",
+      "consequence": "the diagonal track bridge snaps smoothly between the two channels"
+    },
+    {
+      "index": 14,
+      "sentence_index": 11,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "experiment",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_left",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "slide a diagonal pastel guide prism across the console so the ordered mint-green bead chain crosses from right to left",
+      "consequence": "the coherent bead stream swaps sides silently"
+    },
+    {
+      "index": 15,
+      "sentence_index": 12,
+      "role": "experiment",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_booth",
+      "attire_and_hands": "navy sweater cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "watch scattered mismatched grey blocks tumble down the right-side chute and pull one hand back slightly",
+      "consequence": "the right-channel stream breaks into jumbled geometric fragments"
+    },
+    {
+      "index": 16,
+      "sentence_index": 13,
+      "role": "comparison_left",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_booth",
+      "attire_and_hands": "navy sweater sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "push scattered mismatched slate cubes along the right acoustic chute and pause at the broken sequence",
+      "consequence": "disjointed blocks pile unevenly on the right track"
+    },
+    {
+      "index": 17,
+      "sentence_index": 13,
+      "cut_role": "split_right",
+      "role": "comparison_right",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_booth",
+      "attire_and_hands": "navy sweater sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "glide interlocking mint-green story prisms smoothly down the left acoustic chute and snap them into one arc",
+      "consequence": "the connected story arc continues seamlessly on the left track"
+    },
+    {
+      "index": 18,
+      "sentence_index": 14,
+      "role": "question",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "oxford_booth",
+      "environment": "high-key mist-white testing booth where the glowing mint-green story arc leaps from the right rail onto the left rail",
+      "action": "viewed strictly from behind, the seated student in a navy sweater and silver earcups leans forward toward the studio stand"
+    },
+    {
+      "index": 19,
+      "sentence_index": 15,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "result",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "oxford_booth",
+      "attire_and_hands": "navy sweater sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "reach instinctually across to the left rail and lift two glowing mint-green story prisms onto the center tray",
+      "consequence": "two prisms from the ignored left side land squarely in the spoken output tray"
+    },
+    {
+      "index": 20,
+      "sentence_index": 15,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "result",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "location_id": "oxford_booth",
+      "attire_and_hands": "navy sweater cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "snap the gloved hand back to the right sky-blue rail and tap the desk ledge in sudden surprise",
+      "consequence": "the two borrowed left-channel prisms remain visible in the center tray"
+    },
+    {
+      "index": 21,
+      "sentence_index": 16,
+      "end_sentence_index": 17,
+      "role": "context",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "location_id": "oxford_audio_lab",
+      "environment": "bright pastel control room looking through a wide observation window into the frosted Oxford listening booth",
+      "action": "viewed strictly from behind, Anne Treisman in a powder-blue cardigan places two mint-green marker pins onto a clean slate timeline board"
+    },
+    {
+      "index": 22,
+      "sentence_index": 18,
+      "role": "nightmare_stamp",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "grey coat sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "lift the rigid on-off gate model and drop it into a cool slate storage bin",
+      "consequence": "the broken all-or-nothing switch model leaves the laboratory bench"
+    },
+    {
+      "index": 23,
+      "sentence_index": 19,
+      "role": "instead_pivot",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "set a brushed-silver rotary dimmer module onto the console and turn the smooth pastel dial halfway",
+      "consequence": "soft cyan-blue wave bars scale smoothly instead of snapping off"
+    },
+    {
+      "index": 24,
+      "sentence_index": 20,
+      "role": "analogy",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "analogy_world": "clean pastel studio stage platform with a matte sky-blue stage lamp housing on a brushed-silver tripod in soft daylight",
+      "comparison_action": "navy coat sleeves and cool porcelain-white gloved low-poly hands push a smooth silver fader up and tilt the sky-blue lamp shutter wide open"
+    },
+    {
+      "index": 25,
+      "sentence_index": 21,
+      "role": "analogy",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "analogy_world": "cool slate-stone counter holding a minimalist sage-green tabletop radio with a large brushed-silver rotary volume dial",
+      "comparison_action": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands grip the brushed-silver radio dial and turn it gently down to a soft hum"
+    },
+    {
+      "index": 26,
+      "sentence_index": 22,
+      "role": "question",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "tilt_down",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "roll a tiny pastel cyan bead toward two unequal silver hurdles and align it with the ultra-low hurdle",
+      "consequence": "the tiny bead clears the low hurdle effortlessly while tall hurdles stand firm"
+    },
+    {
+      "index": 27,
+      "sentence_index": 23,
+      "role": "brain_link",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "location_id": "bright_brain_studio",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "HEARING CENTER\\nDIMMED GAIN STREAM",
+      "brain_scene": "matte-white low-poly lateral brain model in a bright mist-white studio where the side hearing cortex glows bright cyan-blue alongside a faint pale-green trickle"
+    },
+    {
+      "index": 28,
+      "sentence_index": 24,
+      "role": "brain_link",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "location_id": "bright_brain_studio",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "Wernicke's area",
+      "anatomy_label": "LANGUAGE DECODER\\nHAIR TRIGGER WORDS",
+      "brain_scene": "matte-white low-poly left cortical brain model in a bright gallery where the posterior language hub lights up soft cyan-blue from a delicate green fiber pulse"
+    },
+    {
+      "index": 29,
+      "sentence_index": 25,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "mechanism",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "tap a delicate balanced silver lever with a tiny pastel bead and release it",
+      "consequence": "the low-threshold lever tips upright right away"
+    },
+    {
+      "index": 30,
+      "sentence_index": 25,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "mechanism",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "pan_right",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "roll the same tiny bead against a tall heavy slate block and pull the gloved hand back",
+      "consequence": "ordinary high-bar blocks stay completely unmoved"
+    },
+    {
+      "index": 31,
+      "sentence_index": 26,
+      "role": "twist_question",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "oxford_booth",
+      "environment": "bright pastel Oxford booth where a sky-blue wave ribbon and a soft sage wave ribbon weave parallel paths toward a central stand",
+      "action": "viewed strictly from behind, a bilingual listener in a slate blazer sits wearing silver earcups and raises one gloved hand"
+    },
+    {
+      "index": 32,
+      "sentence_index": 27,
+      "role": "setup",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "place a sky-blue tape spool and a sage-green tape spool onto twin silver spindles and latch both hubs",
+      "consequence": "two language reels sit slightly offset on the console"
+    },
+    {
+      "index": 33,
+      "sentence_index": 28,
+      "end_sentence_index": 29,
+      "role": "experiment",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_left",
+      "location_id": "oxford_booth",
+      "environment": "architectural cutaway of the pastel booth showing a tall sky-blue wave ribbon on the right and a low dimmed sage wave ribbon on the left",
+      "action": "viewed strictly from behind, the listener in a slate blazer tracks the tall right ribbon while the quiet left ribbon mirrors every curve"
+    },
+    {
+      "index": 34,
+      "sentence_index": 30,
+      "role": "question",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "oxford_booth",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "reach between the tall sky-blue wave model and the miniature sage wave model and point across both peaks",
+      "consequence": "identical geometric peaks line up across both tracks"
+    },
+    {
+      "index": 35,
+      "sentence_index": 31,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "result",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_booth",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "slide the miniature sage wave prism beside the tall sky-blue wave prism and snap both onto one silver base",
+      "consequence": "both differently colored prisms lock into identical story contours"
+    },
+    {
+      "index": 36,
+      "sentence_index": 31,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "result",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "location_id": "oxford_booth",
+      "environment": "sunlit mist-white testing booth with the matched sky-blue and sage story contours glowing gently on the desk",
+      "action": "viewed strictly from behind, the bilingual listener in a slate blazer lifts one gloved hand toward the booth window as Treisman nods in a blue cardigan"
+    },
+    {
+      "index": 37,
+      "sentence_index": 32,
+      "role": "mechanism",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "connect a sky-blue prism and a sage prism into one shared mint-green core block and press them together",
+      "consequence": "both language tracks meet inside a single meaning hub"
+    },
+    {
+      "index": 38,
+      "sentence_index": 33,
+      "end_sentence_index": 34,
+      "role": "context",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "location_id": "oxford_audio_lab",
+      "environment": "cool slate-and-white seminar room where ten pastel wave rails all stand cranked to maximum height on a wide rack",
+      "action": "elevated wide view from behind as two rival scholars in grey coats push every silver fader all the way to the top"
+    },
+    {
+      "index": 39,
+      "sentence_index": 35,
+      "role": "question",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "tilt_down",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "place an unmarked matte mint-green ruler bar onto the listener's slate desk and align it beside a silver chime pad",
+      "consequence": "a crisp physical tap test stands ready"
+    },
+    {
+      "index": 40,
+      "sentence_index": 36,
+      "role": "climax",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "oxford_audio_lab",
+      "environment": "bright Oxford acoustic room where two researchers stand beside a dual-column pastel bead counter and twin silver reels",
+      "action": "viewed strictly from behind, Anne Treisman and Gina Geffen in pastel cardigans start the twin reels and watch the booth window"
+    },
+    {
+      "index": 41,
+      "sentence_index": 37,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "climax",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_booth",
+      "attire_and_hands": "navy sweater sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "grip the unmarked mint-green ruler bar and tap it crisply onto the silver desk pad as a sky-blue cube passes",
+      "consequence": "the right-channel counter tube fills rapidly with sky-blue beads"
+    },
+    {
+      "index": 42,
+      "sentence_index": 37,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "climax",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "oxford_booth",
+      "attire_and_hands": "navy sweater cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "hold the mint-green ruler still above the silver pad while nine lavender cubes glide past uncounted",
+      "consequence": "only a tiny handful of beads land inside the left-channel tube"
+    },
+    {
+      "index": 43,
+      "sentence_index": 38,
+      "role": "analogy",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "analogy_world": "calm powder-blue water basin spanned by a wide mint-green mesh fishing net frame in soft diffused pastel light",
+      "comparison_action": "slate jacket sleeves and cool porcelain-white gloved low-poly hands lift the wide mint-green net frame and catch nearly every floating white sphere"
+    },
+    {
+      "index": 44,
+      "sentence_index": 39,
+      "role": "analogy",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "analogy_world": "clean mist-white chamber divider holding a brushed-silver barrier pierced by one narrow geometric keyhole slot",
+      "comparison_action": "navy coat sleeves and cool porcelain-white gloved low-poly hands roll a dozen pastel spheres at the silver barrier as just one sphere slips through the keyhole slot"
+    },
+    {
+      "index": 45,
+      "sentence_index": 40,
+      "role": "brain_link",
+      "grammar": "lowpoly_matte_brain",
+      "camera": "gentle_push_in",
+      "location_id": "bright_brain_studio",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "SPATIAL MAP\\nFOCUS SHIFT HUB",
+      "brain_scene": "matte-white low-poly dorsal cortical brain model in a bright mist-white studio where the upper back spatial hub glows soft cyan-blue with calm green fiber arcs"
+    },
+    {
+      "index": 46,
+      "sentence_index": 41,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "stunned_stamp",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "align the tall sky-blue bead column beside the short pale-lavender bead column and rest both hands on the slate base",
+      "consequence": "neither zero nor full height wins as the dimmer ratio stands clear"
+    },
+    {
+      "index": 47,
+      "sentence_index": 41,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "stunned_stamp",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "location_id": "oxford_audio_lab",
+      "environment": "sunlit Oxford laboratory with the brushed-silver dimmer console and the tall-versus-short pastel bead columns",
+      "action": "viewed strictly from behind, Treisman and Geffen in pastel cardigans step back together and observe the settled ratio"
+    },
+    {
+      "index": 48,
+      "sentence_index": 42,
+      "role": "question",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "location_id": "clinical_station",
+      "environment": "clean modern mist-white and sage clinical station with sleek silver instrument trays in soft daylight",
+      "action": "viewed strictly from behind, a clinician in a sky-blue coat works intently at a slate console while a colleague approaches"
+    },
+    {
+      "index": 49,
+      "sentence_index": 43,
+      "role": "takeaway",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "clinical_station",
+      "attire_and_hands": "sage clinical jacket sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "push a pastel data prism forward too early and watch it bounce off a tilted slate shield",
+      "consequence": "the unprimed data prism slides aside unnoticed"
+    },
+    {
+      "index": 50,
+      "sentence_index": 44,
+      "role": "takeaway",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "clinical_station",
+      "attire_and_hands": "sage jacket cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "lift the bounced pastel prism and place a bright cyan bell token ahead of it on the rail",
+      "consequence": "the low-threshold trigger token leads the sequence"
+    },
+    {
+      "index": 51,
+      "sentence_index": 45,
+      "beat_index": 1,
+      "beat_weight": 0.35,
+      "role": "takeaway",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "clinical_station",
+      "attire_and_hands": "sage clinical sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "slide the bright cyan bell token gently across the slate counter and tap the silver chime bar once",
+      "consequence": "a soft cyan ripple spreads cleanly across the station"
+    },
+    {
+      "index": 52,
+      "sentence_index": 45,
+      "beat_index": 2,
+      "beat_weight": 0.65,
+      "role": "takeaway",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "clinical_station",
+      "environment": "bright pastel clinical bay with cool slate counters and soft diffused ceiling light",
+      "action": "viewed strictly from behind, the clinician in a sky-blue coat turns squarely toward the colleague in the sage jacket"
+    },
+    {
+      "index": 53,
+      "sentence_index": 46,
+      "role": "takeaway",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "clinical_station",
+      "attire_and_hands": "sky-blue coat sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "pause one beat beside the silver chime bar and rotate the pastel gain dial smoothly to full open",
+      "consequence": "the receiving tray opens wide on the counter"
+    },
+    {
+      "index": 54,
+      "sentence_index": 47,
+      "role": "takeaway",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "location_id": "clinical_station",
+      "attire_and_hands": "sage and sky-blue sleeves with cool porcelain-white gloved low-poly hands",
+      "prop_action": "slide the mint-green data prism straight into the open receiving tray and latch it cleanly",
+      "consequence": "the key prism locks in with zero loss"
+    },
+    {
+      "index": 55,
+      "sentence_index": 48,
+      "role": "takeaway",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "pan_left",
+      "location_id": "clinical_station",
+      "environment": "clean architectural cutaway pairing a pastel flight-deck console with a bright clinical station in soft daylight",
+      "action": "viewed strictly from behind, crews in navy jackets and clinicians in sky-blue coats exchange cyan bell tokens before sliding data trays"
+    },
+    {
+      "index": 56,
+      "sentence_index": 49,
+      "role": "conclusion",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands",
+      "prop_action": "turn the brushed-silver dimmer knob smoothly upward as a low cyan hurdle opens the main channel gate",
+      "consequence": "full pastel wave bars glide cleanly across the console"
+    },
+    {
+      "index": 57,
+      "sentence_index": 50,
+      "role": "conclusion_stamp",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan cuffs and cool porcelain-white gloved low-poly hands",
+      "prop_action": "rest padded silver audio cups beside the smooth rotary dimmer dial and align both pastel wave rails",
+      "consequence": "the balanced dimmer console gleams softly on the slate desk"
+    },
+    {
+      "index": 58,
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "role": "outro",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "location_id": "oxford_audio_lab",
+      "environment": "serene sunlit Oxford acoustic laboratory with twin silver tape reels and the pastel dimmer console on a slate-stone bench",
+      "action": "wide elevated view strictly from behind as Anne Treisman in a powder-blue cardigan stands calmly before tall mist-white windows"
+    }
+  ]
+}

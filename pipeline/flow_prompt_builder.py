@@ -45,7 +45,29 @@ from pipeline.config import (
     PROMPT_SCENE_WORDS_MAX,
     PROMPT_SCENE_WORDS_MIN,
     PROMPT_SCHEMA_VERSION_V5,
+    PROMPT_SCHEMA_VERSION_V6,
+    PROMPT_SCHEMA_VERSION_V7,
     ROLE_SETTINGS,
+    DIORAMA_CAMERA_MOVES,
+    DIORAMA_TTS_VOICE,
+    DIORAMA_CLIP_COUNT_MAX,
+    DIORAMA_CLIP_COUNT_MIN,
+    DIORAMA_CLIP_RENDER_SEC,
+    DIORAMA_SCENE_WORDS_MAX,
+    DIORAMA_SCENE_WORDS_MIN,
+    DIORAMA_VISUAL_GRAMMARS,
+    DIORAMA_V7_CAMERA_MOVES,
+    DIORAMA_V7_CUTAWAY_MAX_RATIO,
+    DIORAMA_V7_LOCKED_CAMERA_MIN_RATIO,
+    DIORAMA_V7_STYLE_PROFILE,
+    DIORAMA_V7_VISUAL_GRAMMARS,
+    DIORAMA_V7_ZOOM_CAMERA_MAX_RATIO,
+    PORCELAIN_V7_STYLE_PROFILE,
+    PORCELAIN_V7_VISUAL_GRAMMARS,
+    is_diorama_profile,
+    is_diorama_v7_plan,
+    is_porcelain_v7_plan,
+    resolve_diorama_v7_style_profile,
     VISUAL_MODES,
     clip_roles,
     script_word_range,
@@ -71,9 +93,9 @@ ROLE_CAMERA_MOVES: dict[str, str] = {
 
 COLOR_CODE: dict[str, str] = {
     "crisis": "crimson-red",
-    "target": "electric cyan-blue",
+    "target": "soft cyan-blue",
     "active": "warm amber-gold",
-    "signal": "bioluminescent green",
+    "signal": "clear cyan-blue",
 }
 
 MEME_CRISIS_PATTERN = re.compile(r"\bthis (?:is|was) a total nightmare\b", re.IGNORECASE)
@@ -99,8 +121,8 @@ _STRUCTURAL_BANNED_TOKENS: tuple[str, ...] = (
     "all about brain",
     "watermark",
 )
-# Mechanical/toy prop tokens are banned in the visual scene. Narration is canonical script text
-# (metaphors are allowed in the script) and is never rewritten, so props are only checked in the scene.
+# Mechanical/toy prop tokens and screen-filling particle/spark/negative VFX tokens are banned in the visual scene.
+# Narration is canonical script text and is never rewritten, so these are only checked in the scene.
 _PROP_BANNED_TOKENS: tuple[str, ...] = (
     "clockwork",
     "gear",
@@ -114,6 +136,18 @@ _PROP_BANNED_TOKENS: tuple[str, ...] = (
     "coins",
     "dollar bill",
     "dollar bills",
+    "particles",
+    "sparks",
+    "scatter into space",
+    "crash and scatter",
+    "fireworks",
+    "flashing",
+    "electric",
+    "no particles",
+    "zero particles",
+    "no sparks",
+    "zero sparks",
+    "never scatter",
 )
 BANNED_PROMPT_TOKENS: tuple[str, ...] = _STRUCTURAL_BANNED_TOKENS + _PROP_BANNED_TOKENS
 
@@ -321,9 +355,59 @@ _SENSITIVE_TERMS: tuple[tuple[str, str], ...] = (
     (r"\bskull fracture\b", "cranial cross-section"),
     (r"\btraumatic\b", "high-intensity"),
     (r"\btrauma\b", "neurological disruption"),
-    (r"\belectroshock\b", "electrical stimulation"),
+    (r"\belectroshock\b", "controlled stimulation"),
     (r"\blobotomy\b", "prefrontal disconnection"),
     (r"\bcharging bull\b", "running bull"),
+    (
+        r",\s*its\s+signal\s+particles\s+colliding\s+and\s+scattering\s+into\s+space",
+        ", where the smooth internal stream pools and fades softly",
+    ),
+    (
+        r",\s*its\s+signal\s+particles\s+scattering\s+into\s+(?:space|darkness|the\s+dark\s+void)",
+        ", where the smooth internal stream pools and fades softly",
+    ),
+    (
+        r"\bthe\s+(?:bioluminescent\s+green\s+)?(?:signal\s+)?particles\s+(?:crash|collide)\s+and\s+scatter\s+(?:into\s+space|into\s+the\s+dark\s+void|into\s+darkness|like\s+water\s+hitting\s+a\s+wall)\b",
+        "the smooth internal stream pools and fades softly against the closed channel edge",
+    ),
+    (
+        r"\b(?:particles\s+)?(?:crash|collide)\s+and\s+scatter(?:\s+into\s+(?:space|darkness|the\s+dark\s+void))?\b",
+        "the smooth internal stream pools and fades softly",
+    ),
+    (
+        r"\bscatters?\s+into\s+(?:space|darkness|the\s+dark\s+void)\b",
+        "pools and fades softly inside the channel",
+    ),
+    (
+        r"\bscattering\s+into\s+(?:space|darkness|the\s+dark\s+void)\b",
+        "pooling and fading softly inside the channel",
+    ),
+    (
+        r"\bbioluminescent\s+green\s+(?:visual\s+|auditory\s+)?signal\s+particles\b",
+        "smooth warm amber-gold channel streams",
+    ),
+    (
+        r"\bbioluminescent\s+green\s+particles\b",
+        "smooth warm amber-gold channel streams",
+    ),
+    (
+        r"\bsignal\s+particles\b",
+        "internal channel streams",
+    ),
+    (
+        r"\bfine\s+particles\s+drift\s+through\s+the\s+bright\s+air\b",
+        "soft studio light traces the internal channels",
+    ),
+    (
+        r"\bholding a realistic matte-white brain\b",
+        "holding an architectural cross-section cutaway of a realistic matte-white brain",
+    ),
+    (r"\bparticles\b", "streams"),
+    (r"\bsparks\b", "warm glow"),
+    (r"\bfireworks\b", "steady glow"),
+    (r"\bflashing\b", "pulsing"),
+    (r"\belectric\s+cyan-blue\b", "soft cyan-blue"),
+    (r"\belectric\b", "active"),
 )
 
 
@@ -392,6 +476,43 @@ def sanitize_prompt_for_flow(text: str, is_spoken_dialogue: bool = False) -> str
     return out
 
 
+_DIORAMA_POLICY_TERMS: tuple[tuple[str, str], ...] = (
+    (r"\bgore\b", "impact residue"),
+    (r"\bgory\b", "clinical"),
+    (r"\bbloody\b", "terracotta-stained"),
+    (r"\bbleeding\b", "seeping"),
+    (r"\bblood\b", "terracotta stain"),
+    (r"\bcorpses\b", "still figures"),
+    (r"\bcorpse\b", "still figure"),
+    (r"\bcadavers\b", "anatomical models"),
+    (r"\bcadaver\b", "anatomical model"),
+    (r"\btorture\b", "extreme stress"),
+    (r"\bsuicide\b", "severe clinical crisis"),
+    (r"\bmurderers\b", "forensic subjects"),
+    (r"\bmurderer\b", "forensic subject"),
+    (r"\bmurder\b", "forensic incident"),
+    (r"\bstabbing\b", "piercing"),
+    (r"\bdecapitat\w*\b", "severed"),
+    (r"\bdismember\w*\b", "separated"),
+    (r"\bmutilat\w*\b", "damaged"),
+)
+
+
+def sanitize_diorama_scene_for_flow(text: str) -> str:
+    """
+    Diorama-safe Google Flow scene sanitizer: removes #hex colour codes and softens violent policy
+    triggers while preserving clinical/historical diorama props (e.g., 'iron rod', 'tamping iron',
+    'skull', 'mm', 'fps') and low-poly architectural vocabulary.
+    """
+    out = _HEX_RE.sub("", str(text or ""))
+    for pattern, repl in _DIORAMA_POLICY_TERMS:
+        out = re.sub(pattern, repl, out, flags=re.IGNORECASE)
+    out = re.sub(r"\(\s*\)", "", out)
+    out = re.sub(r"\s+([,.;:])", r"\1", out)
+    out = re.sub(r"\s{2,}", " ", out).strip()
+    return out
+
+
 # ==============================================================================
 # Text helpers
 # ==============================================================================
@@ -400,21 +521,41 @@ def count_words(text: str) -> int:
     return len(str(text or "").split())
 
 
+def _expand_digits_for_syllables(raw_text: str) -> str:
+    from pipeline.plain_language import number_to_words, year_to_words
+
+    def _repl_num(m: re.Match[str]) -> str:
+        tok = m.group(0).replace(",", "")
+        if "." in tok:
+            left_s, right_s = tok.split(".", 1)
+            left_words = number_to_words(int(left_s)) if left_s.isdigit() else left_s
+            right_words = " ".join(number_to_words(int(ch)) for ch in right_s if ch.isdigit())
+            return f" {left_words} point {right_words} "
+        if tok.isdigit():
+            val = int(tok)
+            if 1100 <= val <= 2099 and val % 100 != 0 and not (2000 <= val <= 2009):
+                return f" {year_to_words(val)} "
+            return f" {number_to_words(val)} "
+        return f" {tok} "
+
+    return re.sub(r"\d+(?:,\d{3})*(?:\.\d+)?", _repl_num, str(raw_text or ""))
+
+
 def count_english_syllables(text: str) -> int:
     """Estimates spoken English syllable count across a sentence or clip narration."""
+    expanded = _expand_digits_for_syllables(str(text or ""))
     total = 0
-    for raw_w in str(text or "").split():
-        w = re.sub(r"[^a-z]", "", raw_w.lower())
-        if not w:
-            if any(ch.isdigit() for ch in raw_w):
-                total += max(1, sum(1 for ch in raw_w if ch.isdigit()))
-            continue
-        if len(w) <= 3:
-            total += 1
-            continue
-        w = re.sub(r"(?:es|ed|e)$", "", w)
-        groups = re.findall(r"[aeiouy]+", w)
-        total += max(1, len(groups))
+    for raw_w in expanded.split():
+        for sub_w in re.split(r"[-/]", raw_w.lower()):
+            w = re.sub(r"[^a-z]", "", sub_w)
+            if not w:
+                continue
+            if len(w) <= 3:
+                total += 1
+                continue
+            w = re.sub(r"(?:es|ed|e)$", "", w)
+            groups = re.findall(r"[aeiouy]+", w)
+            total += max(1, len(groups))
     return max(1, total)
 
 
@@ -537,13 +678,17 @@ def normalize_visual_plan(visual_plan: dict[str, Any] | None) -> dict[str, Any]:
     path = [_cap_words(p, 4) for p in (vp.get("signal_path") or []) if _clean(p)]
     if len(path) < 2:
         path = ["sensory nerve", "thalamus", target]
-    steps = [_cap_words(s, 26) for s in (vp.get("mechanism_steps") or []) if _clean(s)]
+    steps = [
+        _cap_words(sanitize_prompt_for_flow(s, is_spoken_dialogue=False), 26)
+        for s in (vp.get("mechanism_steps") or [])
+        if _clean(s)
+    ]
     while len(steps) < 3:
         steps.append(
             [
-                f"A pattern of bioluminescent green particles streams into the {target}",
-                f"The signal reaches the {crisis_region} and scatters into space",
-                f"The {compensatory} lights warm amber-gold as it reroutes the signal",
+                f"A smooth clear cyan-blue stream flows steadily inside the channel into the {target}",
+                f"At the {crisis_region}, the smooth internal stream pools and fades softly against the closed channel edge",
+                f"The {compensatory} warms to amber-gold as a steady internal stream glides through the intact channel",
             ][len(steps)]
         )
     descriptors_raw = vp.get("anatomy_descriptors") if isinstance(vp.get("anatomy_descriptors"), dict) else {}
@@ -582,7 +727,7 @@ _REAL_ENV_FILLERS = (
 )
 _BRAIN_FILLERS = (
     "Strong rim light grazes the folds of the cortex.",
-    "Fine particles drift through the bright air.",
+    "Soft studio light traces the internal anatomical channels.",
     "The rest of the brain stays matte white in soft daylight.",
     "Bright daylight lighting.",
 )
@@ -603,7 +748,10 @@ def _fit_scene(parts: list[tuple[str, str]], fillers: tuple[str, ...]) -> str:
             break
         if _words(sentences) + count_words(filler) <= PROMPT_SCENE_WORDS_MAX and filler not in [s for s, _ in sentences]:
             sentences.append((filler, "fill"))
-    return " ".join(s for s, _ in sentences)
+    joined = " ".join(s for s, _ in sentences)
+    if count_words(joined) > PROMPT_SCENE_WORDS_MAX:
+        joined = _cap_words(joined, PROMPT_SCENE_WORDS_MAX) + "."
+    return joined
 
 
 def _descriptor_sentence(plan: dict[str, Any], region: str) -> str:
@@ -628,7 +776,7 @@ def _hardware_sentence(plan: dict[str, Any]) -> str:
     hw = plan["bci_hardware"]
     if not hw:
         return ""
-    return f"A realistic {_strip_article(hw)} rests on the {plan['target_region']}, its fine contacts flickering bioluminescent green."
+    return f"A realistic {_strip_article(hw)} rests on the {plan['target_region']}, its fine contacts glowing warm amber-gold."
 
 
 def _scene_setup(plan: dict[str, Any]) -> str:
@@ -660,7 +808,7 @@ def _scene_symptom(plan: dict[str, Any]) -> str:
             (f"Close-up on the {plan['subject']} mannequin's smooth porcelain face as it {plan['mannequin_actions']['symptom']}.", "req"),
             (
                 "The camera slowly orbits the head, revealing the brain through the translucent frosted-glass cranium: "
-                f"the {plan['target_region']} glows electric cyan-blue while the {plan['crisis_region']} fades to dim crimson-red.",
+                f"the {plan['target_region']} glows soft cyan-blue while the {plan['crisis_region']} fades to dim crimson-red.",
                 "req",
             ),
             (f"Strong rim light traces the porcelain contours; the {plan['environment_short']} glows in daylight.", "req"),
@@ -696,12 +844,12 @@ def _scene_crisis(plan: dict[str, Any]) -> str:
         [
             (
                 f"The camera dives smoothly through the {plan['subject']} mannequin's translucent frosted-glass cranium into a bright "
-                "white studio gallery holding a realistic matte-white brain with visible gyri and sulci.",
+                "white studio gallery holding an architectural cross-section cutaway of a realistic matte-white brain with visible gyri and sulci.",
                 "req",
             ),
             (
-                f"It glides over the cortex and zooms into the {plan['target_region']}, which pulses electric cyan-blue, while the "
-                f"{plan['crisis_region']} is {plan['crisis_lesion']} and glowing crimson-red, its signal particles colliding and scattering into space.",
+                f"It glides into the open cross-section and zooms into the {plan['target_region']} shaded soft cyan-blue alongside the "
+                f"{plan['crisis_region']}, which is {plan['crisis_lesion']} and shaded deep crimson-red where the internal channel closes.",
                 "req",
             ),
             (_descriptor_sentence(plan, plan["crisis_region"]) or _descriptor_sentence(plan, plan["target_region"]), "opt"),
@@ -714,12 +862,15 @@ def _scene_pivot(plan: dict[str, Any]) -> str:
     return _fit_scene(
         [
             (
-                "Inside the matte-white brain in a bright white studio gallery, the camera smoothly orbits the "
-                f"{plan['target_region']} glowing electric cyan-blue and the {plan['crisis_region']} dimmed crimson-red.",
+                "Inside the architectural cross-section cutaway of the matte-white brain in a bright white studio gallery, the camera smoothly "
+                f"orbits the {plan['target_region']} in soft cyan-blue and the {plan['crisis_region']} shaded crimson-red.",
                 "req",
             ),
-            (f"Nearby, the {plan['compensatory_region']} ignites warm amber-gold, opening an intact bypass route across the circuit.", "req"),
-            ("The camera slowly pushes in on the glowing amber-gold route.", "req"),
+            (
+                f"Nearby, the translucent anatomical channels of the {plan['compensatory_region']} warm to amber-gold and open a smooth pathway across the circuit.",
+                "req",
+            ),
+            ("The camera slowly pushes in on the open amber-gold channel.", "req"),
             (_descriptor_sentence(plan, plan["compensatory_region"]), "opt"),
         ],
         _BRAIN_FILLERS,
@@ -730,47 +881,46 @@ def _path_sentence(plan: dict[str, Any]) -> str:
     path = plan["signal_path"]
     middle = _join([_the(p) for p in path[1:-1]])
     via = f" through {middle}" if middle else ""
-    return f"Bioluminescent green signal particles stream in a collimated flow from the {path[0]}{via} into the {path[-1]}."
+    return f"A smooth clear cyan-blue fluid stream flows steadily inside the translucent channel from the {path[0]}{via} into the {path[-1]}."
 
 
 def _scene_step(plan: dict[str, Any], role: str) -> str:
     steps = plan["mechanism_steps"]
     if role == "step1":
         parts = [
-            ("Macro view inside the matte-white brain in bright studio daylight.", "req"),
+            ("Macro view inside the translucent channel of the matte-white brain in bright studio daylight.", "req"),
             (_path_sentence(plan), "req"),
             (f"{_cap_first(steps[0])}.", "req"),
-            ("The camera tracks the flowing signal along the pathway.", "req"),
+            ("The camera tracks smoothly alongside the contained stream inside the channel wall.", "req"),
         ]
     elif role == "step2":
         parts = [
             (
-                f"Inside the matte-white brain in bright studio daylight, the camera follows the bioluminescent green signal as it "
-                f"leaves the electric cyan-blue {plan['target_region']}.",
+                f"Macro tracking inside the translucent anatomical channel of the matte-white brain in bright studio daylight, following the smooth internal stream from the soft cyan-blue {plan['target_region']}.",
                 "req",
             ),
             (f"{_cap_first(steps[1])}.", "req"),
             (_hardware_sentence(plan), "opt"),
-            ("The camera slowly orbits the junction.", "req"),
+            ("The camera slowly orbits the crimson-red channel junction.", "req"),
         ]
     elif role == "step3":
         parts = [
-            ("The camera pulls back to reveal the whole circuit inside the matte-white brain in bright studio daylight.", "req"),
+            ("The camera pulls back to reveal the complete circuit inside the architectural cross-section cutaway of the matte-white brain in bright studio daylight.", "req"),
             (
-                f"The {plan['target_region']} glows electric cyan-blue, the {plan['crisis_region']} crimson-red and the "
-                f"{plan['compensatory_region']} warm amber-gold.",
+                f"The {plan['target_region']} glows soft cyan-blue, the {plan['crisis_region']} stays crimson-red and the "
+                f"{plan['compensatory_region']} channels glow warm amber-gold.",
                 "req",
             ),
             (f"{_cap_first(steps[2])}.", "req"),
-            ("The full brain turns slowly in the light.", "opt"),
+            ("The cutaway brain turns slowly in the light.", "opt"),
         ]
     else:  # single mechanism clip for 5-7 clip Shorts
         parts = [
-            ("Macro view inside the matte-white brain in bright studio daylight.", "req"),
+            ("Macro view inside the translucent channel of the matte-white cutaway brain in bright studio daylight.", "req"),
             (_path_sentence(plan), "req"),
             (f"{_cap_first(steps[1])}.", "req"),
             (_hardware_sentence(plan), "opt"),
-            ("The camera tracks the flowing signal, then pulls back to the full circuit.", "req"),
+            ("The camera tracks the smooth internal stream, then pulls back to the full circuit.", "req"),
         ]
     return _fit_scene(parts, _BRAIN_FILLERS)
 
@@ -801,7 +951,7 @@ def _scene_conclusion(plan: dict[str, Any]) -> str:
             (f"Wide shot of the {plan['environment_short']}: the {plan['subject']} mannequin {plan['mannequin_actions']['conclusion']}.", "req"),
             (f"{_cap_first(others)} {verb} beside it." if others else "", "opt"),
             (
-                f"Inside its translucent frosted-glass cranium, the {plan['target_region']} glows electric cyan-blue and the "
+                f"Inside its translucent frosted-glass cranium, the {plan['target_region']} glows soft cyan-blue and the "
                 f"{plan['compensatory_region']} glows warm amber-gold.",
                 "req",
             ),
@@ -927,9 +1077,9 @@ def infer_visual_plan(
             "compensatory_region": comp,
             "signal_path": path,
             "mechanism_steps": [
-                f"Bioluminescent green signal particles stream into the {target} and light it electric cyan-blue",
-                f"At the severed crimson-red {crisis}, the glowing signal particles scatter into space",
-                f"The {comp} ignites warm amber-gold and routes a clean signal pulse across the circuit",
+                f"A smooth clear cyan-blue stream flows steadily inside the channel into the {target} and lights it soft cyan-blue",
+                f"At the severed crimson-red {crisis}, the smooth internal stream pools and fades softly against the closed channel edge",
+                f"The {comp} warms to amber-gold and guides a steady internal stream smoothly across the intact channel",
             ],
             "anatomy_descriptors": {
                 "amygdala": "small almond-shaped nucleus",
@@ -976,7 +1126,14 @@ def render_prompt(
 # ==============================================================================
 # Prompt System v5: visual-mode routing + shot composer (R45-R47)
 # ==============================================================================
+def is_diorama_v6_plan(visual_plan: dict[str, Any] | None) -> bool:
+    """True when visual_plan selects Schema v6 `neuro_diorama`."""
+    return isinstance(visual_plan, dict) and is_diorama_profile(visual_plan)
+
+
 def is_v5_plan(visual_plan: dict[str, Any] | None) -> bool:
+    if is_diorama_v6_plan(visual_plan):
+        return False
     return isinstance(visual_plan, dict) and str(visual_plan.get("visual_mode") or "").upper() in VISUAL_MODES
 
 
@@ -1037,6 +1194,558 @@ def _v4_template_for_setting(setting: str, role: str, plan: dict[str, Any]) -> s
     return sanitize_prompt_for_flow(_scene_pivot(plan))
 
 
+def _compose_diorama_clip_scene(clip_spec: dict[str, Any], motif_prop: dict[str, Any] | None = None) -> str:
+    """Composes a Schema v6 `neuro_diorama` scene body from structured fields or an explicit `scene` string."""
+    from pipeline.depiction_rules import (
+        ArchitecturalBrainMaquetteRule,
+        CrystalSpecimenRule,
+        DioramaCutawayRule,
+        KineticTracePropRule,
+        LiteralAnalogyCutawayRule,
+        SensorMotifRule,
+        TactileTokenGridRule,
+    )
+
+    if str(clip_spec.get("scene") or "").strip():
+        return str(clip_spec["scene"]).strip()
+    grammar = str(clip_spec.get("grammar") or "arch_cutaway_diorama").strip()
+    if grammar == "arch_cutaway_diorama":
+        return DioramaCutawayRule.compose(
+            environment=str(clip_spec.get("environment") or "a historical laboratory chamber"),
+            kinetic_action=str(clip_spec.get("kinetic_action") or "mechanical doors seal and analog instruments activate"),
+            lighting=str(clip_spec.get("lighting") or "warm directional sunlight"),
+            camera_move=str(clip_spec.get("camera") or "isometric_push_in"),
+        )
+    if grammar == "kinetic_trace_automata":
+        return KineticTracePropRule.compose(
+            prop_setup=str(clip_spec.get("prop_setup") or "vintage brass laboratory switches on an oak desk"),
+            self_actuating_motion=str(clip_spec.get("self_actuating_motion") or "metal toggle switches snap downward one by one"),
+            physical_consequence=str(clip_spec.get("physical_consequence") or "red indicator lamps illuminate across the panel"),
+        )
+    if grammar == "recurring_gauge_motif":
+        default_obj = str((motif_prop or {}).get("object") or "a clear glass of water beside a brass gauge")
+        return SensorMotifRule.compose(
+            motif_object=str(clip_spec.get("motif_object") or default_obj),
+            state_transition=str(clip_spec.get("state_transition") or "concentric ripples spread across the water surface"),
+        )
+    if grammar == "tactile_token_grid":
+        return TactileTokenGridRule.compose(
+            token_layout=str(clip_spec.get("token_layout") or "forty turned-oak cylinders arranged in a grid"),
+            ratio_animation=str(clip_spec.get("ratio_animation") or "twenty-six cylinders illuminate with warm amber light"),
+        )
+    if grammar == "literal_analogy_cutaway":
+        return LiteralAnalogyCutawayRule.compose(
+            analogy_scene=str(clip_spec.get("analogy_scene") or clip_spec.get("token_layout") or "a lush green-turf football stadium field miniature with crisp white yard lines"),
+            comparison_motion=str(clip_spec.get("comparison_motion") or clip_spec.get("ratio_animation") or "a glowing amber trajectory arc spans cleanly across the first quarter of the field"),
+            camera_move=str(clip_spec.get("camera") or "orbital_3d_arc_sweep"),
+        )
+    if grammar == "arch_brain_maquette":
+        return ArchitecturalBrainMaquetteRule.compose(
+            str(
+                clip_spec.get("maquette_scene")
+                or "localized soft cyan-blue subsurface glow illuminates the prefrontal cortex brightest along the recessed sulcal grooves"
+            ),
+            brain_mode=str(clip_spec.get("brain_mode") or "auto"),
+        )
+    if grammar == "frosted_crystal_specimen":
+        return CrystalSpecimenRule.compose(
+            specimen_kind=str(clip_spec.get("specimen_kind") or "human head bust"),
+            mount_detail=str(clip_spec.get("mount_detail") or "a dark-oak and brushed-brass museum plinth"),
+            trajectory_or_neural_action=str(
+                clip_spec.get("trajectory_action")
+                or "muted crimson-red luminance dims smoothly inside the translucent prefrontal cortex"
+            ),
+        )
+    return str(clip_spec.get("scene") or "").strip()
+
+
+def _compose_porcelain_v7_clip_scene(clip_spec: dict[str, Any]) -> str:
+    """Composes a Schema v7 `porcelain_cinematic_v7` high-key porcelain & contained 4-color 3D brain scene body (R66)."""
+    from pipeline.depiction_rules import (
+        ContainedLiving3DBrainRule,
+        PorcelainCutawaySectionRule,
+        PorcelainHandsActionRule,
+        PorcelainLiteralAnalogyRule,
+        PorcelainWorldRule,
+        normalize_porcelain_v7_grammar,
+    )
+
+    if str(clip_spec.get("scene") or "").strip():
+        return str(clip_spec["scene"]).strip()
+    grammar = normalize_porcelain_v7_grammar(clip_spec.get("grammar") or clip_spec.get("visual_grammar") or "porcelain_fullbleed_world")
+    if grammar == "porcelain_hands_closeup":
+        return PorcelainHandsActionRule.compose(
+            attire_and_hands=str(clip_spec.get("attire_and_hands") or "crisp rolled linen cuffs and smooth matte-white ball-jointed porcelain hands"),
+            prop_action=str(clip_spec.get("prop_action") or "the porcelain hands grip and position a precision brushed-steel tool"),
+            consequence=str(clip_spec.get("consequence") or "the mechanism shifts cleanly into alignment"),
+            pov=False,
+        )
+    if grammar == "porcelain_pov_hands":
+        return PorcelainHandsActionRule.compose(
+            attire_and_hands=str(clip_spec.get("attire_and_hands") or "tailored coat cuffs extending from bottom frame"),
+            prop_action=str(clip_spec.get("prop_action") or "both porcelain hands guide the tactile instrument steadily"),
+            consequence=str(clip_spec.get("consequence") or "the mechanism tracks smoothly along the workbench"),
+            pov=True,
+        )
+    if grammar == "porcelain_cutaway_section":
+        return PorcelainCutawaySectionRule.compose(
+            structure=str(clip_spec.get("structure") or clip_spec.get("environment") or "a grey granite bedrock trench"),
+            internal_mechanism=str(clip_spec.get("internal_mechanism") or clip_spec.get("kinetic_action") or "an iron tamping rod descends into the vertical borehole"),
+        )
+    if grammar == "porcelain_literal_analogy":
+        return PorcelainLiteralAnalogyRule.compose(
+            analogy_world=str(clip_spec.get("analogy_world") or clip_spec.get("analogy_scene") or "a bright sunlit green-turf stadium field with crisp turf stripes"),
+            comparison_action=str(clip_spec.get("comparison_action") or clip_spec.get("comparison_motion") or "a solid iron rod arcs cleanly across one quarter of the green field"),
+        )
+    if grammar == "porcelain_living_brain":
+        raw_bscene = str(clip_spec.get("brain_scene") or clip_spec.get("maquette_scene") or "").strip()
+        return ContainedLiving3DBrainRule.compose(
+            brain_scene=raw_bscene or None,
+            brain_mode=str(clip_spec.get("brain_mode") or clip_spec.get("render_mode") or "cortical_vascular_whole"),
+            brain_region=clip_spec.get("brain_region"),
+            active_hub=clip_spec.get("active_hub"),
+            lesion_or_deficit=clip_spec.get("lesion_or_deficit"),
+            fluid_or_signal_flow=clip_spec.get("fluid_or_signal_flow"),
+        )
+    return PorcelainWorldRule.compose(
+        environment=str(clip_spec.get("environment") or "a bright sunlit clinical research studio with tall glass windows"),
+        action=str(
+            clip_spec.get("action")
+            or clip_spec.get("kinetic_action")
+            or "clothed matte-white porcelain researchers with translucent frosted-glass craniums inspect a precision instrument"
+        ),
+        lighting=str(clip_spec.get("lighting") or "soft bright studio daylight with crisp rim light"),
+    )
+
+
+def _compose_diorama_v7_clip_scene(clip_spec: dict[str, Any], style_profile: str | None = None) -> str:
+    """Composes a Schema v7 (`porcelain_cinematic_v7` or `lowpoly_pastel_v7`) scene body (R63/R66)."""
+    if is_porcelain_v7_plan(style_profile) or is_porcelain_v7_plan(clip_spec):
+        return _compose_porcelain_v7_clip_scene(clip_spec)
+    from pipeline.depiction_rules import (
+        LowPolyCutawaySectionRule,
+        LowPolyHandsActionRule,
+        LowPolyLiteralAnalogyRule,
+        LowPolyWorldRule,
+        MatteArchitecturalBrainRule,
+    )
+
+    if str(clip_spec.get("scene") or "").strip():
+        return str(clip_spec["scene"]).strip()
+    grammar = str(clip_spec.get("grammar") or clip_spec.get("visual_grammar") or "lowpoly_fullbleed_world").strip()
+    if grammar == "lowpoly_hands_closeup":
+        return LowPolyHandsActionRule.compose(
+            attire_and_hands=str(clip_spec.get("attire_and_hands") or "rolled canvas work sleeves and geometric matte hands"),
+            prop_action=str(clip_spec.get("prop_action") or "the geometric hands grip and position a solid metal tool"),
+            consequence=str(clip_spec.get("consequence") or "the mechanism shifts cleanly into alignment"),
+            pov=False,
+        )
+    if grammar == "lowpoly_pov_hands":
+        return LowPolyHandsActionRule.compose(
+            attire_and_hands=str(clip_spec.get("attire_and_hands") or "tan canvas coat sleeves extending from bottom frame"),
+            prop_action=str(clip_spec.get("prop_action") or "both low-poly hands pull taut leather reins firmly"),
+            consequence=str(clip_spec.get("consequence") or "the wooden carriage wheels track smoothly along the road"),
+            pov=True,
+        )
+    if grammar == "lowpoly_cutaway_section":
+        return LowPolyCutawaySectionRule.compose(
+            structure=str(clip_spec.get("structure") or clip_spec.get("environment") or "a grey granite bedrock trench"),
+            internal_mechanism=str(clip_spec.get("internal_mechanism") or clip_spec.get("kinetic_action") or "an iron tamping rod descends into the vertical borehole"),
+        )
+    if grammar == "lowpoly_literal_analogy":
+        return LowPolyLiteralAnalogyRule.compose(
+            analogy_world=str(clip_spec.get("analogy_world") or clip_spec.get("analogy_scene") or "a bright sunlit green-turf football stadium field with crisp yard stripes"),
+            comparison_action=str(clip_spec.get("comparison_action") or clip_spec.get("comparison_motion") or "a solid iron rod arcs cleanly across one quarter of the green field"),
+        )
+    if grammar == "lowpoly_matte_brain":
+        return MatteArchitecturalBrainRule.compose(
+            brain_scene=str(clip_spec.get("brain_scene") or clip_spec.get("maquette_scene") or "muted terracotta-coral shading marks the left prefrontal cortex while slate-blue cortical pathways stay intact"),
+            brain_mode=str(clip_spec.get("brain_mode") or "matte_pastel_cortical_model"),
+        )
+    return LowPolyWorldRule.compose(
+        environment=str(clip_spec.get("environment") or "a sunlit Vermont grey granite railroad cut with pine hills"),
+        action=str(clip_spec.get("action") or clip_spec.get("kinetic_action") or "clothed low-poly rail workers in flat caps drill into solid granite"),
+        lighting=str(clip_spec.get("lighting") or "soft bright diffused pastel daylight"),
+    )
+
+
+def build_diorama_v7_prompts(
+    visual_plan: dict[str, Any],
+    narrations: list[str] | None = None,
+    aspect: str = FLOW_ASPECT_SHORTS,
+) -> list[dict[str, Any]]:
+    """Renders Schema v7 (`porcelain_cinematic_v7` default or `lowpoly_pastel_v7`) clip prompts with single-clause camera choreography (R63/R66)."""
+    from pipeline.depiction_rules import (
+        ContainedLiving3DBrainRule,
+        DioramaV7PromptComposer,
+        PorcelainV7PromptComposer,
+        normalize_porcelain_v7_brain_mode,
+        normalize_porcelain_v7_grammar,
+    )
+
+    raw_clips = visual_plan.get("clips") if isinstance(visual_plan.get("clips"), list) else []
+    if not (DIORAMA_CLIP_COUNT_MIN <= len(raw_clips) <= DIORAMA_CLIP_COUNT_MAX):
+        raise ValueError(
+            f"Schema v7 visual_plan.clips must contain {DIORAMA_CLIP_COUNT_MIN}-{DIORAMA_CLIP_COUNT_MAX} clip specs "
+            f"(got {len(raw_clips)})"
+        )
+    use_porcelain = is_porcelain_v7_plan(visual_plan)
+    resolved_style = resolve_diorama_v7_style_profile(visual_plan)
+    mode = str(visual_plan.get("visual_mode") or "NEURO_BIOLOGY").upper()
+    thumb_cfg = visual_plan.get("thumbnail") if isinstance(visual_plan.get("thumbnail"), dict) else {}
+    cover_sent_idx = int(thumb_cfg.get("cover_sentence_index") or 0) if thumb_cfg else 0
+    hero_clause = (
+        "Single focal subject centered in crisp silhouette against a clean bright high-key studio backdrop"
+        if use_porcelain
+        else "Single focal subject centered in crisp silhouette against an uncluttered pastel backdrop"
+    )
+    default_cam_cycle = (
+        "locked_tripod",
+        "pan_right",
+        "locked_tripod",
+        "gentle_push_in",
+        "pan_left",
+        "locked_tripod",
+        "tilt_up",
+        "locked_tripod",
+        "tilt_down",
+        "clean_pullback_reveal",
+    )
+    out: list[dict[str, Any]] = []
+    for idx, spec in enumerate(raw_clips, start=1):
+        if not isinstance(spec, dict):
+            raise ValueError(f"Schema v7 clip {idx} must be a dict")
+        if use_porcelain:
+            raw_g = str(spec.get("grammar") or spec.get("visual_grammar") or "porcelain_fullbleed_world").strip()
+            grammar = normalize_porcelain_v7_grammar(raw_g)
+        else:
+            grammar = str(spec.get("grammar") or spec.get("visual_grammar") or "lowpoly_fullbleed_world").strip()
+        explicit_cam = str(spec.get("camera") or spec.get("camera_move") or "").strip()
+        if explicit_cam:
+            cam = explicit_cam
+        elif str(spec.get("cut_role") or "").strip().lower() == "outro":
+            cam = "tilt_up"
+        else:
+            cam = default_cam_cycle[(idx - 1) % len(default_cam_cycle)]
+            if grammar in ("lowpoly_hands_closeup", "porcelain_hands_closeup") and cam in ("tilt_up", "clean_pullback_reveal"):
+                cam = "locked_tripod" if cam == "tilt_up" else "gentle_push_in"
+        act_no = int(spec.get("act") or min(6, ((idx - 1) * 6) // max(1, len(raw_clips)) + 1))
+        spec_for_scene = {**spec, "grammar": grammar}
+        scene_body = sanitize_diorama_scene_for_flow(_compose_diorama_v7_clip_scene(spec_for_scene, style_profile=resolved_style))
+        if (
+            cover_sent_idx > 0
+            and int(spec.get("sentence_index") or 0) == cover_sent_idx
+            and grammar in ("lowpoly_fullbleed_world", "porcelain_fullbleed_world")
+            and hero_clause.lower() not in scene_body.lower()
+            and count_words(scene_body) + count_words(hero_clause) <= DIORAMA_SCENE_WORDS_MAX + 18
+        ):
+            scene_body = f"{scene_body.rstrip('.')}. {hero_clause}."
+        render_sec = int(spec.get("render_sec") or DIORAMA_CLIP_RENDER_SEC)
+        if use_porcelain:
+            prompt_str = PorcelainV7PromptComposer.compose_clip_prompt(
+                scene_body=scene_body,
+                grammar=grammar,
+                camera_move=cam,
+                aspect=aspect,
+                render_sec=render_sec,
+            )
+            explicit_bm = spec.get("brain_mode") if spec.get("brain_mode") else spec.get("render_mode")
+            if grammar == "porcelain_living_brain":
+                brain_mode_val = (
+                    ContainedLiving3DBrainRule.resolve_brain_mode(explicit_bm)
+                    if explicit_bm
+                    else normalize_porcelain_v7_brain_mode(scene_text=scene_body)
+                )
+            else:
+                brain_mode_val = spec.get("brain_mode")
+        else:
+            prompt_str = DioramaV7PromptComposer.compose_clip_prompt(
+                scene_body=scene_body,
+                grammar=grammar,
+                camera_move=cam,
+                aspect=aspect,
+                render_sec=render_sec,
+            )
+            brain_mode_val = spec.get("brain_mode")
+        is_brain = grammar in ("lowpoly_matte_brain", "porcelain_living_brain")
+        out.append(
+            {
+                "clip_number": idx,
+                "clip_index": idx,
+                "act": act_no,
+                "grammar": grammar,
+                "role": f"act{act_no}_{grammar}",
+                "setting": ("brain_studio" if is_brain else "real_env"),
+                "camera_move": cam,
+                "target_duration": f"{render_sec}s",
+                "expected_syllables": 0,
+                "estimated_speech_sec": 0.0,
+                "cutoff_risk": False,
+                "motif_present": False,
+                "location_id": spec.get("location_id"),
+                "scene_id": spec.get("scene_id") or f"act{act_no}_clip{idx}",
+                "shot_type": spec.get("shot_type") or _shot_type_from_camera(cam),
+                "brain_clip": is_brain,
+                "brain_mode": brain_mode_val,
+                "brain_region": spec.get("brain_region"),
+                "anatomy_label": spec.get("anatomy_label"),
+                "sentence_index": spec.get("sentence_index"),
+                "end_sentence_index": spec.get("end_sentence_index"),
+                "beat_index": spec.get("beat_index"),
+                "beat_weight": spec.get("beat_weight"),
+                "cut_role": spec.get("cut_role"),
+                "reference_image": spec.get("reference_image"),
+                "aspect": aspect,
+                "schema_version": PROMPT_SCHEMA_VERSION_V7,
+                "style_profile": resolved_style,
+                "profile": "neuro_diorama",
+                "visual_mode": mode,
+                "scene": scene_body,
+                "spoken_narration": "",
+                "prompt": prompt_str,
+                "full_prompt": prompt_str,
+            }
+        )
+    _ = narrations
+    return out
+
+
+def validate_diorama_v7_prompts(
+    clips: list[dict[str, Any]],
+    plan: dict[str, Any] | None = None,
+) -> list[str]:
+    """Structural & R63/R66 forensic prompt validator for Schema v7 (`porcelain_cinematic_v7` or `lowpoly_pastel_v7`)."""
+    from pipeline.depiction_rules import (
+        DIORAMA_V7_CAMERA_DESCRIPTORS,
+        PORCELAIN_V7_CAMERA_DESCRIPTORS,
+        validate_lowpoly_v7_scene,
+        validate_porcelain_v7_scene,
+    )
+
+    issues: list[str] = []
+    if not isinstance(clips, list) or not (DIORAMA_CLIP_COUNT_MIN <= len(clips) <= DIORAMA_CLIP_COUNT_MAX):
+        return [
+            f"[prompt] Schema v7 clip count must be {DIORAMA_CLIP_COUNT_MIN}-{DIORAMA_CLIP_COUNT_MAX} "
+            f"(got {len(clips) if isinstance(clips, list) else 0}) (R63)"
+        ]
+    grammars_present = [str(c.get("grammar") or "") for c in clips if isinstance(c, dict)]
+    has_porcelain_g = any(g in PORCELAIN_V7_VISUAL_GRAMMARS or g.startswith("porcelain_") for g in grammars_present)
+    has_lowpoly_g = any(g in DIORAMA_V7_VISUAL_GRAMMARS or g.startswith("lowpoly_") for g in grammars_present)
+    porcelain_flags = [is_porcelain_v7_plan(c) for c in clips if isinstance(c, dict)]
+    use_porcelain = is_porcelain_v7_plan(plan) if isinstance(plan, dict) else (has_porcelain_g or any(porcelain_flags))
+    if (has_porcelain_g and has_lowpoly_g) or (any(porcelain_flags) and not all(porcelain_flags)):
+        issues.append(
+            "[prompt] episode mixes porcelain_cinematic_v7 and lowpoly_pastel_v7 grammars/profiles "
+            f"(clips must be uniformly {PORCELAIN_V7_STYLE_PROFILE} or {DIORAMA_V7_STYLE_PROFILE}) (R66)"
+        )
+    elif isinstance(plan, dict):
+        expected_style = PORCELAIN_V7_STYLE_PROFILE if use_porcelain else DIORAMA_V7_STYLE_PROFILE
+        if (use_porcelain and (has_lowpoly_g or (porcelain_flags and not any(porcelain_flags)))) or (
+            (not use_porcelain) and (has_porcelain_g or any(porcelain_flags))
+        ):
+            actual_style = DIORAMA_V7_STYLE_PROFILE if use_porcelain else PORCELAIN_V7_STYLE_PROFILE
+            issues.append(
+                f"[prompt] visual_plan style_profile '{expected_style}' mismatches rendered clips style_profile '{actual_style}'; "
+                "re-render flow_all_in_one_prompts.json after changing style_profile (R63/R66)"
+            )
+    allowed_grammars = PORCELAIN_V7_VISUAL_GRAMMARS if use_porcelain else DIORAMA_V7_VISUAL_GRAMMARS
+    cutaway_grammar = "porcelain_cutaway_section" if use_porcelain else "lowpoly_cutaway_section"
+    cam_descriptors = PORCELAIN_V7_CAMERA_DESCRIPTORS if use_porcelain else DIORAMA_V7_CAMERA_DESCRIPTORS
+    rule_tag = "R66" if use_porcelain else "R63"
+    cam_counts: dict[str, int] = {m: 0 for m in DIORAMA_V7_CAMERA_MOVES}
+    cutaway_count = 0
+    for idx, c in enumerate(clips, start=1):
+        if not isinstance(c, dict):
+            issues.append(f"[prompt] clip {idx} is not a dict")
+            continue
+        grammar = str(c.get("grammar") or "")
+        cam = str(c.get("camera_move") or "")
+        scene = str(c.get("scene") or "")
+        prompt_str = str(c.get("prompt") or c.get("full_prompt") or "")
+        if grammar not in allowed_grammars:
+            issues.append(f"[prompt] clip {idx}: invalid v7 grammar '{grammar}' (must be in {list(allowed_grammars)}) ({rule_tag})")
+        if grammar == cutaway_grammar:
+            cutaway_count += 1
+        if cam not in DIORAMA_V7_CAMERA_MOVES:
+            issues.append(f"[prompt] clip {idx}: camera '{cam}' must be one of {list(DIORAMA_V7_CAMERA_MOVES)} ({rule_tag})")
+        else:
+            cam_counts[cam] = cam_counts.get(cam, 0) + 1
+            desc = cam_descriptors[cam]
+            alt_desc = DIORAMA_V7_CAMERA_DESCRIPTORS[cam]
+            cnt = prompt_str.count(desc)
+            if cnt == 0 and alt_desc != desc:
+                cnt = prompt_str.count(alt_desc)
+            if cnt != 1:
+                issues.append(f"[prompt] clip {idx}: camera clause must appear exactly once (found {cnt}) ({rule_tag})")
+        wc = count_words(scene)
+        if not (DIORAMA_SCENE_WORDS_MIN <= wc <= DIORAMA_SCENE_WORDS_MAX + 20):
+            issues.append(
+                f"[prompt] clip {idx}: scene word count {wc} outside {DIORAMA_SCENE_WORDS_MIN}-{DIORAMA_SCENE_WORDS_MAX + 20} ({rule_tag})"
+            )
+        if "silent voice track" not in prompt_str.lower():
+            issues.append(f"[prompt] clip {idx}: missing silent-voice ambient audio clause ({rule_tag})")
+        scene_validator = validate_porcelain_v7_scene if use_porcelain else validate_lowpoly_v7_scene
+        for v7_err in scene_validator(prompt_str, grammar=grammar, camera_move=cam):
+            issues.append(f"clip {idx}: {v7_err}")
+
+    n_total = max(1, len(clips))
+    locked_ratio = cam_counts.get("locked_tripod", 0) / float(n_total)
+    zoom_ratio = (cam_counts.get("gentle_push_in", 0) + cam_counts.get("clean_pullback_reveal", 0)) / float(n_total)
+    cutaway_ratio = cutaway_count / float(n_total)
+    if locked_ratio < DIORAMA_V7_LOCKED_CAMERA_MIN_RATIO:
+        issues.append(
+            f"[camera] locked_tripod ratio {locked_ratio:.2f} < {DIORAMA_V7_LOCKED_CAMERA_MIN_RATIO:.2f} "
+            f"(need ~40% tripod lock-off for internal prop/hand focus) ({rule_tag})"
+        )
+    if zoom_ratio > DIORAMA_V7_ZOOM_CAMERA_MAX_RATIO:
+        issues.append(
+            f"[camera] push/pull zoom ratio {zoom_ratio:.2f} > {DIORAMA_V7_ZOOM_CAMERA_MAX_RATIO:.2f} ({rule_tag})"
+        )
+    if cam_counts.get("pan_left", 0) == 0 or cam_counts.get("pan_right", 0) == 0:
+        issues.append(
+            f"[camera] pan direction imbalance: pan_left={cam_counts.get('pan_left', 0)}, pan_right={cam_counts.get('pan_right', 0)} "
+            f"(both left and right orthogonal pans required) ({rule_tag})"
+        )
+    if cutaway_ratio > DIORAMA_V7_CUTAWAY_MAX_RATIO:
+        issues.append(
+            f"[world] {cutaway_grammar} ratio {cutaway_ratio:.2f} > max {DIORAMA_V7_CUTAWAY_MAX_RATIO:.2f} "
+            f"(>=85% of cuts must be full-bleed world/hands/brain scenes) ({rule_tag})"
+        )
+    return issues
+
+
+def build_diorama_v6_prompts(
+    visual_plan: dict[str, Any],
+    narrations: list[str] | None = None,
+    aspect: str = FLOW_ASPECT_SHORTS,
+) -> list[dict[str, Any]]:
+    """
+    Renders Schema v6 (`neuro_diorama`) or Schema v7 (`porcelain_cinematic_v7` / `lowpoly_pastel_v7`) base motion clip prompts.
+    """
+    if is_diorama_v7_plan(visual_plan):
+        return build_diorama_v7_prompts(visual_plan, narrations=narrations, aspect=aspect)
+    from pipeline.config import DEFAULT_DIORAMA_CAMERA_PROFILE, DIORAMA_DYNAMIC_3D_CAMERA_MOVES
+    from pipeline.depiction_rules import DioramaPromptComposer
+
+    raw_clips = visual_plan.get("clips") if isinstance(visual_plan.get("clips"), list) else []
+    if not (DIORAMA_CLIP_COUNT_MIN <= len(raw_clips) <= DIORAMA_CLIP_COUNT_MAX):
+        raise ValueError(
+            f"neuro_diorama visual_plan.clips must contain {DIORAMA_CLIP_COUNT_MIN}-{DIORAMA_CLIP_COUNT_MAX} base clip specs "
+            f"(got {len(raw_clips)})"
+        )
+    motif_prop = visual_plan.get("motif_prop") if isinstance(visual_plan.get("motif_prop"), dict) else {}
+    mode = str(visual_plan.get("visual_mode") or "NEURO_BIOLOGY").upper()
+    cam_profile = str(visual_plan.get("camera_profile") or DEFAULT_DIORAMA_CAMERA_PROFILE).strip().lower()
+    out: list[dict[str, Any]] = []
+    for idx, spec in enumerate(raw_clips, start=1):
+        if not isinstance(spec, dict):
+            raise ValueError(f"neuro_diorama clip {idx} must be a dict")
+        grammar = str(spec.get("grammar") or "arch_cutaway_diorama").strip()
+        explicit_cam = str(spec.get("camera") or "").strip()
+        if explicit_cam:
+            cam = explicit_cam
+        elif str(spec.get("cut_role") or "").strip().lower() == "outro":
+            cam = "smooth_tilt_up"
+        elif cam_profile == "dynamic_3d_cinema_rig":
+            if grammar in ("arch_brain_maquette", "frosted_crystal_specimen"):
+                cam = ("orbital_3d_arc_sweep", "dynamic_dolly_rush_in", "vertical_rocket_ascent", "crane_swoop_dive")[(idx - 1) % 4]
+            elif grammar in ("recurring_gauge_motif", "tactile_token_grid"):
+                cam = ("dynamic_dolly_rush_in", "orbital_3d_arc_sweep", "pullback_parallax_reveal", "low_angle_chase_track")[(idx - 1) % 4]
+            else:
+                cam = DIORAMA_DYNAMIC_3D_CAMERA_MOVES[(idx - 1) % len(DIORAMA_DYNAMIC_3D_CAMERA_MOVES)]
+        else:
+            cam = "isometric_push_in"
+        spec_with_cam = {**spec, "camera": cam}
+        act_no = int(spec.get("act") or min(6, ((idx - 1) * 6) // max(1, len(raw_clips)) + 1))
+        scene_body = sanitize_diorama_scene_for_flow(_compose_diorama_clip_scene(spec_with_cam, motif_prop=motif_prop))
+        render_sec = int(spec.get("render_sec") or DIORAMA_CLIP_RENDER_SEC)
+        prompt_str = DioramaPromptComposer.compose_clip_prompt(
+            scene_body=scene_body,
+            grammar=grammar,
+            camera_move=cam,
+            aspect=aspect,
+            render_sec=render_sec,
+        )
+        clip_entry: dict[str, Any] = {
+            "clip_number": idx,
+            "clip_index": idx,
+            "act": act_no,
+            "grammar": grammar,
+            "role": f"act{act_no}_{grammar}",
+            "setting": ("brain_void" if grammar in ("arch_brain_maquette", "frosted_crystal_specimen") else "real_env"),
+            "camera_move": cam,
+            "target_duration": f"{render_sec}s",
+            "expected_syllables": 0,
+            "estimated_speech_sec": 0.0,
+            "cutoff_risk": False,
+            "motif_present": bool(spec.get("motif_present") or grammar == "recurring_gauge_motif"),
+            "scene_id": spec.get("scene_id") or f"act{act_no}_clip{idx}",
+            "shot_type": spec.get("shot_type") or _shot_type_from_camera(cam),
+            "brain_clip": grammar in ("arch_brain_maquette", "frosted_crystal_specimen"),
+            "brain_mode": spec.get("brain_mode"),
+            "sentence_index": spec.get("sentence_index"),
+            "beat_index": spec.get("beat_index"),
+            "cut_role": spec.get("cut_role"),
+            "reference_image": spec.get("reference_image"),
+            "aspect": aspect,
+            "schema_version": PROMPT_SCHEMA_VERSION_V6,
+            "profile": "neuro_diorama",
+            "visual_mode": mode,
+            "scene": scene_body,
+            "spoken_narration": "",
+            "prompt": prompt_str,
+            "full_prompt": prompt_str,
+        }
+        out.append(clip_entry)
+    _ = narrations
+    return out
+
+
+def validate_diorama_v6_prompts(
+    clips: list[dict[str, Any]],
+    plan: dict[str, Any] | None = None,
+) -> list[str]:
+    """Structural & R56/R63/R66 prompt validator for Schema v6 or Schema v7 `neuro_diorama` clip prompts."""
+    if (isinstance(plan, dict) and is_diorama_v7_plan(plan)) or (
+        isinstance(clips, list)
+        and clips
+        and any(int(c.get("schema_version") or 0) >= PROMPT_SCHEMA_VERSION_V7 for c in clips if isinstance(c, dict))
+    ):
+        return validate_diorama_v7_prompts(clips, plan=plan)
+    from pipeline.depiction_rules import validate_zero_flesh_and_crystal_specimen
+
+    issues: list[str] = []
+    if not isinstance(clips, list) or not (DIORAMA_CLIP_COUNT_MIN <= len(clips) <= DIORAMA_CLIP_COUNT_MAX):
+        return [
+            f"[prompt] neuro_diorama clip count must be {DIORAMA_CLIP_COUNT_MIN}-{DIORAMA_CLIP_COUNT_MAX} "
+            f"(got {len(clips) if isinstance(clips, list) else 0}) (R58)"
+        ]
+    for idx, c in enumerate(clips, start=1):
+        if not isinstance(c, dict):
+            issues.append(f"[prompt] clip {idx} is not a dict")
+            continue
+        grammar = str(c.get("grammar") or "")
+        cam = str(c.get("camera_move") or "")
+        scene = str(c.get("scene") or "")
+        prompt_str = str(c.get("prompt") or c.get("full_prompt") or "")
+        if grammar not in DIORAMA_VISUAL_GRAMMARS:
+            issues.append(f"[prompt] clip {idx}: invalid grammar '{grammar}' (must be in {list(DIORAMA_VISUAL_GRAMMARS)}) (R56)")
+        if cam not in DIORAMA_CAMERA_MOVES:
+            issues.append(f"[prompt] clip {idx}: camera '{cam}' must be one of {list(DIORAMA_CAMERA_MOVES)} (R56)")
+        wc = count_words(scene)
+        if not (DIORAMA_SCENE_WORDS_MIN <= wc <= DIORAMA_SCENE_WORDS_MAX):
+            issues.append(
+                f"[prompt] clip {idx}: scene word count {wc} outside {DIORAMA_SCENE_WORDS_MIN}-{DIORAMA_SCENE_WORDS_MAX} (R56)"
+            )
+        if "zero text, zero letters" not in prompt_str.lower():
+            issues.append(f"[prompt] clip {idx}: missing zero-in-scene-text negative lock (R56)")
+        if "no speech, no narration" not in prompt_str.lower():
+            issues.append(f"[prompt] clip {idx}: missing ambient-only audio lock (R58)")
+        for z_err in validate_zero_flesh_and_crystal_specimen(scene, grammar=grammar):
+            issues.append(f"clip {idx}: {z_err}")
+    return issues
+
+
 def build_flow_prompts(
     visual_plan: dict[str, Any] | None,
     narrations: list[str],
@@ -1044,14 +1753,13 @@ def build_flow_prompts(
     aspect: str = FLOW_ASPECT_SHORTS,
 ) -> list[dict[str, Any]]:
     """
-    Builds 5-10 Google Flow clip prompt dicts from a visual_plan and per-clip narrations.
-    If visual_plan['scenes'][role] is present, uses that exact scene string verbatim.
-
-    v5 plans (visual_plan['visual_mode'] in VISUAL_MODES) route each clip's setting by mode, compose
-    real-environment scenes from visual_plan['shots'][role] (Action-Physics), append FLOW_MOTION_STYLE_V5,
-    use FLOW_VOICE_PROMPT_DESCRIPTOR_V5 and carry scene_id / visual_mode / aspect for the asset manifest.
-    v4 plans render exactly as before.
+    Builds 5-10 Google Flow clip prompt dicts from a visual_plan and per-clip narrations,
+    or Schema v6/v7 `neuro_diorama` base motion clip dicts when `is_diorama_v6_plan(visual_plan)` is True.
     """
+    if is_diorama_v7_plan(visual_plan):
+        return build_diorama_v7_prompts(visual_plan or {}, narrations=narrations, aspect=aspect)
+    if is_diorama_v6_plan(visual_plan):
+        return build_diorama_v6_prompts(visual_plan or {}, narrations=narrations, aspect=aspect)
     cleaned_narrs = [str(n).strip() for n in (narrations or []) if str(n).strip()]
     n_clips = len(cleaned_narrs)
     roles = clip_roles(n_clips)
@@ -1066,6 +1774,24 @@ def build_flow_prompts(
         shot = _shot(visual_plan, role) if v5 else {}
         if role in explicit_scenes and str(explicit_scenes[role]).strip():
             scene = str(explicit_scenes[role]).strip()
+            if setting in BRAIN_SETTINGS and "architectural cross-section cutaway" not in scene.lower():
+                cand = re.sub(
+                    r"\bholding a realistic matte-white brain(?:\s+with\s+visible\s+gyri\s+and\s+sulci)?\b",
+                    "holding an architectural cross-section cutaway of a matte-white brain",
+                    scene,
+                )
+                if count_words(cand) <= PROMPT_SCENE_WORDS_MAX:
+                    scene = cand
+            if any(rx.search(scene) for _, rx in _PROP_REGEXES):
+                scene = sanitize_prompt_for_flow(scene, is_spoken_dialogue=False)
+                fillers = _BRAIN_FILLERS if setting in BRAIN_SETTINGS else _REAL_ENV_FILLERS
+                for filler in fillers:
+                    if count_words(scene) >= PROMPT_SCENE_WORDS_MIN:
+                        break
+                    if count_words(scene) + count_words(filler) <= PROMPT_SCENE_WORDS_MAX and filler not in scene:
+                        scene = f"{scene.rstrip('.')}." + f" {filler}"
+                if count_words(scene) > PROMPT_SCENE_WORDS_MAX:
+                    scene = _cap_words(scene, PROMPT_SCENE_WORDS_MAX) + "."
         elif v5 and shot.get("action"):
             scene = compose_shot_scene(visual_plan, role)
         elif v5 and setting == "real_env":
@@ -1179,11 +1905,26 @@ def validate_character_motion(prompts: list[str | dict[str, Any]]) -> list[str]:
             body = p_str[len(prefix) :].strip() if prefix else p_str
             m = _PROMPT_RE.match(body)
             scene = m.group("scene").strip() if m else body
-        # Strip camera movement sentences before counting character action verbs
+        # Strip camera movement sentences and non-verb framing/adjective phrases before counting character action verbs
         actor_text = re.sub(
             r"[^.]*\b(?:wide establishing shot|the camera\b|camera smoothly|slow pull-back|strong rim light|bright daylight lighting)[^.]*\.?",
             " ",
             scene,
+            flags=re.IGNORECASE,
+        )
+        actor_text = re.sub(r"\bclose[-\s]+ups?\b", " ", actor_text, flags=re.IGNORECASE)
+        actor_text = re.sub(
+            r"\b(?:an?|the|with|in|on|at|by|from|into|through|beside|under|over|near)\s+(?:wide[-\s]+|half[-\s]+)?open\s+[a-z]+\b",
+            " ",
+            actor_text,
+            flags=re.IGNORECASE,
+        )
+        actor_text = re.sub(
+            r"\bopen\s+(?:cabinet|cabinets|door|doors|doorway|window|windows|blinds|shutter|shutters|"
+            r"drawer|drawers|book|books|ledger|notebook|folder|box|case|crate|jar|bottle|palm|palms|"
+            r"cranium|ward|room|air|field|court|space|view)\b",
+            " ",
+            actor_text,
             flags=re.IGNORECASE,
         )
         verbs = _DYNAMIC_ACTION_VERBS_RE.findall(actor_text)
@@ -1229,8 +1970,18 @@ def validate_flow_prompts(
         scene = m.group("scene").strip()
         voice = m.group("voice").strip()
         narration = m.group("narration").strip()
+        from pipeline.depiction_rules import BrainDepictionRule
+
         suf_clean = _clean(FLOW_MOTION_STYLE_V5)
-        for suf_candidate in (FLOW_MOTION_STYLE_V5, f"{suf_clean}.", suf_clean):
+        restraint_clean = _clean(BrainDepictionRule.RESTRAINT_LOCK)
+        for suf_candidate in (
+            FLOW_MOTION_STYLE_V5,
+            f"{suf_clean}.",
+            suf_clean,
+            BrainDepictionRule.RESTRAINT_LOCK,
+            f"{restraint_clean}.",
+            restraint_clean,
+        ):
             if suf_candidate and scene.endswith(suf_candidate):
                 scene = scene[: -len(suf_candidate)].strip()
                 break
@@ -1363,18 +2114,27 @@ def load_visual_plan(
 
 
 def write_flow_prompts_json(project_dir: Path, clips: list[dict[str, Any]], voice: str = FLOW_DEFAULT_VOICE) -> Path:
-    """Writes 03_visuals/flow_all_in_one_prompts.json (Schema v4, or v5 when the clips carry v5 metadata)."""
+    """Writes 03_visuals/flow_all_in_one_prompts.json (Schema v4, v5, v6, or v7 `neuro_diorama`)."""
     vis_dir = Path(project_dir) / "03_visuals"
     vis_dir.mkdir(parents=True, exist_ok=True)
     out_path = vis_dir / FLOW_PROMPTS_FILENAME
-    v5 = any(int(c.get("schema_version") or 0) == PROMPT_SCHEMA_VERSION_V5 for c in clips)
-    payload = {
-        "schema_version": PROMPT_SCHEMA_VERSION_V5 if v5 else SCHEMA_VERSION,
-        "voice": voice,
+    v7 = any(int(c.get("schema_version") or 0) >= PROMPT_SCHEMA_VERSION_V7 for c in clips)
+    v6 = (not v7) and any(int(c.get("schema_version") or 0) == PROMPT_SCHEMA_VERSION_V6 for c in clips)
+    v5 = (not v7) and (not v6) and any(int(c.get("schema_version") or 0) == PROMPT_SCHEMA_VERSION_V5 for c in clips)
+    schema_ver = PROMPT_SCHEMA_VERSION_V7 if v7 else (PROMPT_SCHEMA_VERSION_V6 if v6 else (PROMPT_SCHEMA_VERSION_V5 if v5 else SCHEMA_VERSION))
+    payload: dict[str, Any] = {
+        "schema_version": schema_ver,
+        "voice": (DIORAMA_TTS_VOICE if (v7 or v6) else voice),
         "clips": clips,
         "prompts": [c.get("prompt") or c.get("full_prompt") or "" for c in clips],
     }
-    if v5:
+    if v7 or v6:
+        payload["profile"] = "neuro_diorama"
+        if v7:
+            payload["style_profile"] = resolve_diorama_v7_style_profile(clips[0] if clips else None)
+        payload["visual_mode"] = clips[0].get("visual_mode")
+        payload["aspect"] = clips[0].get("aspect")
+    elif v5:
         payload["visual_mode"] = clips[0].get("visual_mode")
         payload["aspect"] = clips[0].get("aspect")
     out_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")

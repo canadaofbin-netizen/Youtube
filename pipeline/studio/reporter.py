@@ -18,6 +18,7 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo
 
 # Ensure hermes-venv site-packages (matplotlib, cv2, numpy) are available even if invoked via /usr/bin/python3
 for _venv_sp in sorted(Path("/home/canadaofbin/hermes-venv/lib").glob("python*/site-packages")):
@@ -44,11 +45,14 @@ from pipeline.studio.config import (
     SLOT_TIMETABLE,
     STAGING_QUEUE_FILE,
     STUDIO_ANALYTICS_URLS,
+    STUDIO_TAB_RECYCLE_INTERVAL,
     get_pillar_default_slot,
 )
-from pipeline.studio.whale_session import WhaleSessionController
+from pipeline.studio.whale_session import DirectCDPClient, WhaleSessionController
 
 LATEST_CHARTS_FILE = REPORTS_ROOT_DIR / "LATEST_STUDIO_CHARTS.png"
+LATEST_VIDEO_DETAIL_REPORT_FILE = REPORTS_ROOT_DIR / "LATEST_VIDEO_DETAIL_REPORT.md"
+LATEST_VIDEO_DETAIL_CHARTS_FILE = REPORTS_ROOT_DIR / "LATEST_VIDEO_DETAIL_CHARTS.png"
 _DURATION_CACHE: dict[str, float] = {}
 
 PILLAR_CANONICAL_MAP: dict[str, tuple[str, str]] = {
@@ -194,6 +198,7 @@ def _extract_slot_date_time(
     for raw_iso in (
         item.get("published_at"),
         rec.get("published_at"),
+        rec.get("updated_at") if _clean_str(rec.get("visibility")).lower() == "public" else None,
         rec.get("uploaded_at"),
     ):
         iso_s = _clean_str(raw_iso)
@@ -202,7 +207,7 @@ def _extract_slot_date_time(
         try:
             dt_parsed = datetime.fromisoformat(iso_s.replace("Z", "+00:00"))
             if dt_parsed.tzinfo is not None:
-                dt_et = dt_parsed.astimezone(timezone.utc) - timedelta(hours=4)
+                dt_et = dt_parsed.astimezone(ZoneInfo("America/New_York"))
             else:
                 dt_et = dt_parsed
             if not d_str:
@@ -629,6 +634,7 @@ class StudioAnalyticsReporter:
                 slot_id = get_pillar_default_slot(pillar_canon)
 
             doi_str = _clean_str(cat_info.get("doi")) or "Verified"
+            production_profile = "shorts_v4"
             active_variant = "A"
             rotation_interval_hours = 24
             ab_manifest_data: dict[str, Any] = {}
@@ -667,11 +673,55 @@ class StudioAnalyticsReporter:
                         brain_regions = _clean_str(story_ctx.get("brain_regions")) or brain_regions
 
                     sc = storage_obj.load_json("02_script", "script.json") or {}
+                    if sc.get("doi") and doi_str == "Verified":
+                        doi_str = _clean_str(sc.get("doi")) or doi_str
+                    if sc.get("profile"):
+                        production_profile = _clean_str(sc.get("profile")) or production_profile
+                    elif sc.get("schema") == 6:
+                        production_profile = "neuro_diorama"
+
                     clip_narrs = sc.get("clip_narrations") or []
                     if isinstance(clip_narrs, list) and clip_narrs:
                         clip_count = len(clip_narrs)
                         word_count = sum(len(str(c).split()) for c in clip_narrs)
                         hook_sentence = str(clip_narrs[0]).strip()
+                    elif isinstance(sc.get("acts"), list) and sc.get("acts"):
+                        act_sents = [
+                            str(s).strip()
+                            for act in sc["acts"]
+                            if isinstance(act, dict)
+                            for s in (act.get("sentences") or [])
+                            if str(s).strip()
+                        ]
+                        if act_sents:
+                            clip_count = len(act_sents)
+                            word_count = sum(len(s.split()) for s in act_sents)
+                            hook_sentence = (
+                                act_sents[1]
+                                if (len(act_sents) > 1 and "university brain science" in act_sents[0].lower())
+                                else act_sents[0]
+                            )
+
+                    vp = storage_obj.load_json("03_visuals", "visual_plan.json") or {}
+                    if not protagonist and vp.get("topic"):
+                        protagonist = _clean_str(vp.get("topic"))
+                    if vp.get("schema") == 5 and production_profile == "shorts_v4":
+                        production_profile = "shorts_v5"
+                    elif vp.get("schema") == 6:
+                        production_profile = "neuro_diorama"
+
+                    edl = storage_obj.load_json("05_assembly", "edit_decision_list.json") or {}
+                    if edl.get("base_clips_used") or edl.get("cut_count"):
+                        clip_count = int(edl.get("base_clips_used") or edl.get("cut_count") or clip_count)
+
+                    meta_pub = storage_obj.load_json("06_publish", "metadata.json") or {}
+                    if meta_pub.get("doi") and doi_str == "Verified":
+                        doi_str = _clean_str(meta_pub.get("doi")) or doi_str
+                    if meta_pub.get("profile"):
+                        production_profile = _clean_str(meta_pub.get("profile")) or production_profile
+                    if meta_pub.get("pillar") and not _clean_str(cat_info.get("pillar")):
+                        raw_pillar = _clean_str(meta_pub.get("pillar")) or raw_pillar
+                        pillar_canon = normalize_pillar_id(raw_pillar)
 
                     ab_manifest_data = storage_obj.load_json("06_publish", "ab_test_manifest.json") or {}
                     if ab_manifest_data.get("current_active_variant"):
@@ -739,6 +789,7 @@ class StudioAnalyticsReporter:
                 "status": eff_status,
                 "video_id": _clean_str(item.get("video_id")),
                 "shorts_url": _clean_str(item.get("shorts_url")),
+                "production_profile": production_profile,
                 "duration_seconds": duration_sec,
                 "clip_count": clip_count,
                 "word_count": word_count,
@@ -864,8 +915,8 @@ class StudioAnalyticsReporter:
         ][:10]
         upcoming_schedule = filtered_upcoming if filtered_upcoming else valid_queue_items[-10:]
 
-        ab_rotation_interval_hours = max(rotation_intervals, default=24)
-        ab_rotation_mismatch_count = sum(1 for r_int in rotation_intervals if r_int != 24)
+        ab_rotation_interval_hours = max(rotation_intervals, default=72)
+        ab_rotation_mismatch_count = sum(1 for r_int in rotation_intervals if r_int not in (24, 72))
 
         return {
             "published_count": len(published_items),
@@ -931,127 +982,193 @@ class StudioAnalyticsReporter:
             print(f"[StudioReporter] Could not attach to Whale CDP tab: {e}")
             return scraped
 
+        active_client: DirectCDPClient | None = None
         try:
-            async with client:
-                scraped["live_connected"] = True
-                await client.send("Page.enable")
-                await client.send("Runtime.enable")
-                await client.send("Page.bringToFront")
+            active_client = client
+            try:
+                await active_client.__aenter__()
+                await active_client.send("Page.enable")
+                await active_client.send("Runtime.enable")
+            except Exception:
+                old_tid = getattr(active_client, "target_id", "")
+                try:
+                    await active_client.__aexit__(None, None, None)
+                except Exception:
+                    pass
+                new_t = self.session.open_new_tab(STUDIO_ANALYTICS_URLS["content_shorts"])
+                if old_tid:
+                    self.session.close_target(old_tid)
+                ws_url = new_t.get("webSocketDebuggerUrl") if isinstance(new_t, dict) else None
+                if not ws_url:
+                    raise
+                active_client = DirectCDPClient(
+                    ws_url=ws_url,
+                    target_id=str(new_t.get("id", "")),
+                    session=self.session,
+                )
+                await active_client.__aenter__()
+                await active_client.send("Page.enable")
+                await active_client.send("Runtime.enable")
+            scraped["live_connected"] = True
+            await active_client.send("Page.bringToFront")
 
-                await client.send("Page.navigate", {"url": STUDIO_ANALYTICS_URLS["content_shorts"]})
-                for _ in range(12):
-                    await asyncio.sleep(1.0)
-                    row_cnt = await client.eval("document.querySelectorAll('ytcp-video-row').length")
-                    if row_cnt and int(row_cnt) > 0:
-                        break
-                await asyncio.sleep(1.5)
+            await active_client.send("Page.navigate", {"url": STUDIO_ANALYTICS_URLS["content_shorts"]})
+            for _ in range(12):
+                await asyncio.sleep(1.0)
+                row_cnt = await active_client.eval("document.querySelectorAll('ytcp-video-row').length")
+                if row_cnt and int(row_cnt) > 0:
+                    break
+            await asyncio.sleep(1.5)
 
-                current_url = str(await client.eval("window.location.href") or "")
-                if "accounts.google.com" in current_url or "ServiceLogin" in current_url:
-                    print("[StudioReporter] YouTube Studio requires Google sign-in in Whale.")
-                    return scraped
+            current_url = str(await active_client.eval("window.location.href") or "")
+            if "accounts.google.com" in current_url or "ServiceLogin" in current_url:
+                print("[StudioReporter] YouTube Studio requires Google sign-in in Whale.")
+                return scraped
 
-                scraped["studio_authenticated"] = "studio.youtube.com" in current_url
+            scraped["studio_authenticated"] = "studio.youtube.com" in current_url
 
-                rows_js = """
-                (async () => {
-                    const out = {};
-                    const harvest = () => {
-                        const rows = Array.from(document.querySelectorAll('ytcp-video-row, tr, [id*="row-container"]'));
-                        for (const r of rows) {
-                            const txt = (r.innerText || '').trim();
-                            if (!txt) continue;
-                            const link = r.querySelector('a[href*="/video/"], a[href*="/shorts/"]');
-                            let vid = '';
-                            if (link) {
-                                const href = link.getAttribute('href') || '';
-                                const m = href.match(/\\/(?:video|shorts)\\/([A-Za-z0-9_-]{11})/);
-                                if (m) vid = m[1];
-                            }
-                            if (vid) {
-                                out[vid] = txt.replace(/\\s+/g, ' ').slice(0, 600);
-                            }
+            rows_js = """
+            (async () => {
+                const out = {};
+                const harvest = () => {
+                    const rows = Array.from(document.querySelectorAll('ytcp-video-row, tr, [id*="row-container"]'));
+                    for (const r of rows) {
+                        const txt = (r.innerText || '').trim();
+                        if (!txt) continue;
+                        const link = r.querySelector('a[href*="/video/"], a[href*="/shorts/"]');
+                        let vid = '';
+                        if (link) {
+                            const href = link.getAttribute('href') || '';
+                            const m = href.match(/\\/(?:video|shorts)\\/([A-Za-z0-9_-]{11})/);
+                            if (m) vid = m[1];
                         }
-                    };
-                    harvest();
-                    const scroller = document.querySelector('#video-list, ytcp-video-section-content, main, html') || document.scrollingElement;
-                    if (scroller) {
-                        for (let step = 0; step < 5; step++) {
-                            scroller.scrollBy(0, 900);
-                            await new Promise(res => setTimeout(res, 250));
-                            harvest();
+                        if (vid) {
+                            out[vid] = txt.replace(/\\s+/g, ' ').slice(0, 600);
                         }
-                        scroller.scrollTo(0, 0);
                     }
-                    return out;
-                })()
-                """
-                video_rows = await client.eval(rows_js)
-                if isinstance(video_rows, dict):
-                    scraped["video_row_metrics"] = video_rows
+                };
+                harvest();
+                const scroller = document.querySelector('#video-list, ytcp-video-section-content, main, html') || document.scrollingElement;
+                if (scroller) {
+                    for (let step = 0; step < 5; step++) {
+                        scroller.scrollBy(0, 900);
+                        await new Promise(res => setTimeout(res, 250));
+                        harvest();
+                    }
+                    scroller.scrollTo(0, 0);
+                }
+                return out;
+            })()
+            """
+            video_rows = await active_client.eval(rows_js)
+            if isinstance(video_rows, dict):
+                scraped["video_row_metrics"] = video_rows
 
-                await client.send("Page.bringToFront")
-                await client.send("Page.navigate", {"url": STUDIO_ANALYTICS_URLS["analytics_overview"]})
-                for _ in range(12):
-                    await asyncio.sleep(1.0)
-                    txt_len = await client.eval("(document.body ? document.body.innerText : '').length")
-                    if txt_len and int(txt_len) > 900:
-                        break
-                await asyncio.sleep(2.0)
-                overview_text = str(await client.eval("document.body ? document.body.innerText : ''") or "")
-                scraped["raw_page_snippets"]["overview"] = overview_text[:4000]
-                scraped["overview_metrics"] = self._parse_analytics_text_block(overview_text)
+            await active_client.send("Page.bringToFront")
+            await active_client.send("Page.navigate", {"url": STUDIO_ANALYTICS_URLS["analytics_overview"]})
+            for _ in range(12):
+                await asyncio.sleep(1.0)
+                txt_len = await active_client.eval("(document.body ? document.body.innerText : '').length")
+                if txt_len and int(txt_len) > 900:
+                    break
+            await asyncio.sleep(2.0)
+            overview_text = str(await active_client.eval("document.body ? document.body.innerText : ''") or "")
+            scraped["raw_page_snippets"]["overview"] = overview_text[:4000]
+            scraped["overview_metrics"] = self._parse_analytics_text_block(overview_text)
 
-                await client.eval("""
-                (() => {
-                    const tabs = Array.from(document.querySelectorAll('tp-yt-paper-tab, [role=tab]'));
-                    const ct = tabs.find(t => (t.innerText || '').trim() === 'Content' || (t.innerText || '').trim() === '콘텐츠');
-                    if (ct) ct.click();
-                })()
-                """)
-                await asyncio.sleep(4.0)
-                content_text = str(await client.eval("document.body ? document.body.innerText : ''") or "")
-                scraped["raw_page_snippets"]["content"] = content_text[:4000]
-                scraped["content_metrics"] = self._parse_analytics_text_block(content_text)
+            await active_client.eval("""
+            (() => {
+                const tabs = Array.from(document.querySelectorAll('tp-yt-paper-tab, [role=tab]'));
+                const ct = tabs.find(t => (t.innerText || '').trim() === 'Content' || (t.innerText || '').trim() === '콘텐츠');
+                if (ct) ct.click();
+            })()
+            """)
+            await asyncio.sleep(4.0)
+            content_text = str(await active_client.eval("document.body ? document.body.innerText : ''") or "")
+            scraped["raw_page_snippets"]["content"] = content_text[:4000]
+            scraped["content_metrics"] = self._parse_analytics_text_block(content_text)
 
-                await client.eval("""
-                (() => {
-                    const tabs = Array.from(document.querySelectorAll('tp-yt-paper-tab, [role=tab]'));
-                    const at = tabs.find(t => (t.innerText || '').trim() === 'Audience' || (t.innerText || '').trim() === '시청자층');
-                    if (at) at.click();
-                })()
-                """)
-                await asyncio.sleep(4.0)
-                audience_text = str(await client.eval("document.body ? document.body.innerText : ''") or "")
-                scraped["raw_page_snippets"]["audience"] = audience_text[:4000]
-                scraped["audience_metrics"] = self._parse_analytics_text_block(audience_text)
+            await active_client.eval("""
+            (() => {
+                const tabs = Array.from(document.querySelectorAll('tp-yt-paper-tab, [role=tab]'));
+                const at = tabs.find(t => (t.innerText || '').trim() === 'Audience' || (t.innerText || '').trim() === '시청자층');
+                if (at) at.click();
+            })()
+            """)
+            await asyncio.sleep(4.0)
+            audience_text = str(await active_client.eval("document.body ? document.body.innerText : ''") or "")
+            scraped["raw_page_snippets"]["audience"] = audience_text[:4000]
+            scraped["audience_metrics"] = self._parse_analytics_text_block(audience_text)
 
-                per_video_analytics: dict[str, dict[str, Any]] = {}
-                row_map_now = scraped.get("video_row_metrics") or {}
-                candidate_vids = list(dict.fromkeys(
-                    list(row_map_now.keys()) + [v for v in (known_video_ids or []) if v]
-                ))
-                for vid_key in candidate_vids:
-                    r_txt = str(row_map_now.get(vid_key) or "")
-                    if "Scheduled" in r_txt or "예약됨" in r_txt:
-                        continue
+            per_video_analytics: dict[str, dict[str, Any]] = {}
+            row_map_now = scraped.get("video_row_metrics") or {}
+            candidate_vids = [
+                vk
+                for vk in dict.fromkeys(list(row_map_now.keys()) + [v for v in (known_video_ids or []) if v])
+                if "Scheduled" not in str(row_map_now.get(vk) or "")
+                and "예약됨" not in str(row_map_now.get(vk) or "")
+            ]
+            recycle_every = max(1, int(STUDIO_TAB_RECYCLE_INTERVAL or 3))
+            for vid_idx, vid_key in enumerate(candidate_vids):
+                if vid_idx > 0 and vid_idx % recycle_every == 0:
                     try:
-                        await client.send("Page.bringToFront")
-                        await client.send("Page.navigate", {"url": f"https://studio.youtube.com/video/{vid_key}/analytics/tab-overview/period-default"})
-                        for _ in range(10):
-                            await asyncio.sleep(0.8)
-                            t_len = await client.eval("(document.body ? document.body.innerText : '').length")
-                            if t_len and int(t_len) > 1000:
-                                break
-                        await asyncio.sleep(1.2)
-                        v_ov_text = str(await client.eval("document.body ? document.body.innerText : ''") or "")
-                        per_video_analytics[vid_key] = self._parse_video_analytics_overview(v_ov_text)
-                    except Exception:
-                        pass
-                scraped["per_video_analytics"] = per_video_analytics
+                        await active_client.__aexit__(None, None, None)
+                        active_client = None
+                        rec_target = self.session.recycle_studio_tab(
+                            reopen_url=STUDIO_ANALYTICS_URLS["content_shorts"]
+                        )
+                        if asyncio.iscoroutine(rec_target):
+                            rec_target = await rec_target
+                        new_ws = (rec_target or {}).get("webSocketDebuggerUrl") if isinstance(rec_target, dict) else None
+                        active_client = (
+                            DirectCDPClient(new_ws)
+                            if new_ws
+                            else self.session.get_direct_client(
+                                url_match_pattern="studio.youtube.com",
+                                default_url=STUDIO_ANALYTICS_URLS["content_shorts"],
+                            )
+                        )
+                        await active_client.__aenter__()
+                        await active_client.send("Page.enable")
+                        await active_client.send("Runtime.enable")
+                        await asyncio.sleep(1.0)
+                    except Exception as rec_err:
+                        print(f"[StudioReporter] R36-B Studio tab recycle warning: {rec_err}")
+                        if active_client is None:
+                            active_client = self.session.get_direct_client(
+                                url_match_pattern="studio.youtube.com",
+                                default_url=STUDIO_ANALYTICS_URLS["content_shorts"],
+                            )
+                            await active_client.__aenter__()
+                            await active_client.send("Page.enable")
+                            await active_client.send("Runtime.enable")
+
+                try:
+                    await active_client.send("Page.bringToFront")
+                    await active_client.send(
+                        "Page.navigate",
+                        {"url": f"https://studio.youtube.com/video/{vid_key}/analytics/tab-overview/period-default"},
+                    )
+                    for _ in range(10):
+                        await asyncio.sleep(0.8)
+                        t_len = await active_client.eval("(document.body ? document.body.innerText : '').length")
+                        if t_len and int(t_len) > 1000:
+                            break
+                    await asyncio.sleep(1.2)
+                    v_ov_text = str(await active_client.eval("document.body ? document.body.innerText : ''") or "")
+                    per_video_analytics[vid_key] = self._parse_video_analytics_overview(v_ov_text)
+                except Exception:
+                    pass
+            scraped["per_video_analytics"] = per_video_analytics
 
         except Exception as e:
             print(f"[StudioReporter] Live DOM inspection warning: {e}")
+        finally:
+            if active_client is not None:
+                try:
+                    await active_client.__aexit__(None, None, None)
+                except Exception:
+                    pass
 
         return scraped
 
@@ -1331,6 +1448,31 @@ class StudioAnalyticsReporter:
 
         return "2026-10-14 (Baseline)", None
 
+    def _load_historical_snapshots(self, report_date: str) -> dict[str, dict[str, Any]]:
+        """Loads all valid historical `YYYY-MM-DD_studio_metrics.json` snapshots up to `report_date`."""
+        snapshots: dict[str, dict[str, Any]] = {}
+        if not self.reports_dir.exists():
+            return snapshots
+        for f in sorted(self.reports_dir.glob("*_studio_metrics.json")):
+            d_key = f.name[:10]
+            if not re.match(r"^\d{4}-\d{2}-\d{2}$", d_key) or d_key > report_date:
+                continue
+            try:
+                snap = json.loads(f.read_text(encoding="utf-8"))
+                if isinstance(snap, dict) and "channel_kpis" in snap:
+                    pk = snap.get("channel_kpis") or {}
+                    pr = snap.get("retention_kpis") or {}
+                    if (
+                        int(pk.get("views_24h", 0)) >= 3000
+                        or int(pk.get("realtime_48h_views", 0)) >= 3000
+                        or float(pr.get("apv_pct", 0.0)) >= 85.0
+                    ):
+                        continue
+                    snapshots[d_key] = snap
+            except Exception:
+                continue
+        return snapshots
+
     # ------------------------------------------------------------------
     # 4. Complete Metrics Model Synthesis
     # ------------------------------------------------------------------
@@ -1346,9 +1488,9 @@ class StudioAnalyticsReporter:
         duration-proportional retention quartiles (Q1-Q4, Rule R42), and
         the 7-point channel/pipeline risk audit.
         """
-        now_utc = datetime.now(timezone.utc)
-        now_et = now_utc - timedelta(hours=4)
-        now_kst = now_utc + timedelta(hours=9)
+        now_et = datetime.now(ZoneInfo("America/New_York"))
+        now_utc = now_et.astimezone(timezone.utc)
+        now_kst = now_et.astimezone(ZoneInfo("Asia/Seoul"))
 
         if not report_date:
             report_date = now_et.strftime("%Y-%m-%d")
@@ -1821,6 +1963,7 @@ class StudioAnalyticsReporter:
                 "views_24h_delta": v_delta_str,
                 "watch_hours": v_watch_h,
                 "subs_gained": v_subs,
+                "production_profile": str(v.get("production_profile", "shorts_v4")),
                 "duration_seconds": dur,
                 "clip_count": int(v.get("clip_count", 10)),
                 "word_count": int(v.get("word_count", 0)),
@@ -2025,11 +2168,64 @@ class StudioAnalyticsReporter:
             watch_prev_val = total_watch_prev
             subs_prev_val = total_subs_prev
 
-        # 7-day cumulative/daily trajectory ending on report_date (aligned with real YouTube Studio 2,142 total views & 17.3h watch time)
+        # 7-day trajectory computed strictly from real historical snapshots on disk (zero fabricated 7d arrays)
+        hist_snapshots = self._load_historical_snapshots(report_date)
         base_dt = datetime.strptime(report_date, "%Y-%m-%d")
+        trend_iso_dates = [(base_dt - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(6, -1, -1)]
         trend_7d_dates = [(base_dt - timedelta(days=i)).strftime("%m/%d") for i in range(6, -1, -1)]
-        trend_7d_views = [540, 610, 680, 730, 910, views_prev_val, total_views_24h]
-        trend_7d_watch_hours = [1.8, 2.2, 2.6, 3.1, 5.4, watch_prev_val, total_watch_24h]
+        trend_7d_views: list[int] = []
+        trend_7d_watch_hours: list[float] = []
+        for idx_d, d_iso in enumerate(trend_iso_dates):
+            if idx_d == 6:
+                trend_7d_views.append(int(total_views_24h))
+                trend_7d_watch_hours.append(round(float(total_watch_24h), 2))
+            elif idx_d == 5:
+                trend_7d_views.append(int(views_prev_val))
+                trend_7d_watch_hours.append(round(float(watch_prev_val), 2))
+            elif d_iso in hist_snapshots:
+                s_ck = hist_snapshots[d_iso].get("channel_kpis") or {}
+                trend_7d_views.append(int(s_ck.get("views_24h", 0)))
+                trend_7d_watch_hours.append(round(float(s_ck.get("watch_hours_24h", 0.0)), 2))
+            else:
+                trend_7d_views.append(0)
+                trend_7d_watch_hours.append(0.0)
+
+        def _compact_hist_summary(snap_obj: dict[str, Any] | None) -> dict[str, Any] | None:
+            if not isinstance(snap_obj, dict):
+                return None
+            s_ck = snap_obj.get("channel_kpis") or {}
+            s_rk = snap_obj.get("retention_kpis") or {}
+            s_ts = {t.get("short_name"): t for t in (snap_obj.get("traffic_sources") or []) if isinstance(t, dict)}
+            s_geos = snap_obj.get("geographies") or []
+            s_us = next((g for g in s_geos if isinstance(g, dict) and g.get("country") == "US"), {})
+            s_t1 = sum(
+                float(g.get("pct", 0.0))
+                for g in s_geos
+                if isinstance(g, dict) and g.get("country") in ("US", "UK", "CA", "AU")
+            )
+            s_quarts = [float(q.get("today_pct", 0.0)) for q in (snap_obj.get("retention_quartiles") or []) if isinstance(q, dict)]
+            s_views = int(s_ck.get("views_24h", 0))
+            s_apv = float(s_rk.get("apv_pct", 0.0))
+            return {
+                "views": s_views,
+                "watch_hours": float(s_ck.get("watch_hours_24h", 0.0)),
+                "subscribers": int(s_ck.get("subscribers_total", 0)),
+                "realtime_48h": int(s_ck.get("realtime_48h_views", 0)),
+                "viewed_pct": float(s_rk.get("viewed_pct", 0.0)),
+                "avd_seconds": float(s_rk.get("avd_seconds", 0.0)),
+                "apv_pct": s_apv,
+                "engaged_views": int(round(s_views * max(0.0, min(1.0, s_apv / 100.0)))),
+                "shorts_feed_pct": float((s_ts.get("Shorts Feed") or {}).get("pct", 0.0)),
+                "us_pct": float(s_us.get("pct", 0.0)),
+                "tier1_pct": round(s_t1, 1),
+                "quartiles": s_quarts,
+            }
+
+        snap_7d_summary = _compact_hist_summary(hist_snapshots.get(trend_iso_dates[0]))
+        snap_3d_summary = _compact_hist_summary(hist_snapshots.get(trend_iso_dates[3]))
+        total_hist_count = len(set(hist_snapshots.keys()) | {report_date})
+        has_7d_history = bool(snap_7d_summary is not None and total_hist_count >= 7)
+        has_3d_history = bool(snap_3d_summary is not None)
 
         # Read-only A/B/C Z-test evaluation from real local ab_test_manifest.json (zero fabricated clicks)
         ab_rows: list[dict[str, Any]] = []
@@ -2292,23 +2488,23 @@ class StudioAnalyticsReporter:
             {
                 "risk_id": "RISK-7",
                 "category": "썸네일 A/B/C 로테이션 주기 & DOI/AI 공개 감사 (Rule R32/R35/R4)",
-                "severity": "MEDIUM" if local_state["ab_rotation_interval_hours"] != 24 or not doi_pinned_all_passed else "OK",
+                "severity": "MEDIUM" if local_state["ab_rotation_mismatch_count"] > 0 or not doi_pinned_all_passed else "OK",
                 "status_badge": (
-                    f"✅ ALIGNED (`{local_state['ab_rotation_interval_hours']}h`/var == Rule R32 `24h`/var) · DOI `{'✅' if doi_pinned_all_passed else '⚠️'}`"
-                    if local_state["ab_rotation_interval_hours"] == 24 and doi_pinned_all_passed
-                    else f"⚠️ ROTATION DRIFT (`{local_state['ab_rotation_interval_hours']}h`/var vs Rule R32 `24h`/var) · DOI `{'✅' if doi_pinned_all_passed else '⚠️'}`"
+                    f"✅ ALIGNED (`{local_state['ab_rotation_interval_hours']}h`/var · Rule R32) · DOI `{'✅' if doi_pinned_all_passed else '⚠️'}`"
+                    if local_state["ab_rotation_mismatch_count"] == 0 and doi_pinned_all_passed
+                    else f"⚠️ ROTATION DRIFT (`{local_state['ab_rotation_interval_hours']}h`/var · 불일치 `{local_state['ab_rotation_mismatch_count']}`건) · DOI `{'✅' if doi_pinned_all_passed else '⚠️'}`"
                 ),
                 "evidence": (
                     f"전 프로젝트 `ab_test_manifest.json`의 `rotation_interval_hours`가 `{local_state['ab_rotation_interval_hours']}h`(총 `{local_state['ab_rotation_interval_hours'] * 3}h`)로 "
-                    f"Rule R32(`24h/variant`, 총 `72h`)와 100% 정합(`불일치 {local_state['ab_rotation_mismatch_count']}건`); DOI 고정 댓글은 전수 `{'Pinned 완료' if doi_pinned_all_passed else '일부 누락'}`."
-                    if local_state["ab_rotation_interval_hours"] == 24
+                    f"Rule R32와 100% 정합(`불일치 {local_state['ab_rotation_mismatch_count']}건`); DOI 고정 댓글은 전수 `{'Pinned 완료' if doi_pinned_all_passed else '일부 누락'}`."
+                    if local_state["ab_rotation_mismatch_count"] == 0
                     else (
                         f"`ab_test_manifest.json`의 `rotation_interval_hours`가 `{local_state['ab_rotation_interval_hours']}h`(총 `{local_state['ab_rotation_interval_hours'] * 3}h`)로 "
-                        f"Rule R32(`24h/variant`, 총 `72h`)와 `{local_state['ab_rotation_mismatch_count']}`건 불일치; DOI 고정 댓글은 전수 `{'Pinned 완료' if doi_pinned_all_passed else '일부 누락'}`."
+                        f"Rule R32(`72h/variant`)와 `{local_state['ab_rotation_mismatch_count']}`건 불일치; DOI 고정 댓글은 전수 `{'Pinned 완료' if doi_pinned_all_passed else '일부 누락'}`."
                     )
                 ),
                 "remedy": (
-                    "Rule R32(`24h/variant`) 로테이션 주기 유지 및 `p < 0.05` 달성 프로젝트(`psych_01`, `psych_02`) 우승 썸네일(Variant C) 고정 유지."
+                    "Rule R32(`72h/variant`) 로테이션 주기 유지 및 `p < 0.05` 달성 프로젝트 우승 썸네일 고정 유지."
                 ),
             },
         ]
@@ -2331,7 +2527,7 @@ class StudioAnalyticsReporter:
             "harvest_lock_exists": local_state["harvest_lock_exists"],
             "harvest_lock_path": local_state["harvest_lock_path"],
             "ab_rotation_interval_hours": local_state["ab_rotation_interval_hours"],
-            "ab_rotation_rule_r32_target_hours": 24,
+            "ab_rotation_rule_r32_target_hours": 72,
             "ab_rotation_mismatch_count": local_state["ab_rotation_mismatch_count"],
             "doi_pinned_all_passed": doi_pinned_all_passed,
             "items": risk_items,
@@ -2381,8 +2577,14 @@ class StudioAnalyticsReporter:
             "short_link_summary": short_link_summary,
             "trend_7d": {
                 "dates": trend_7d_dates,
+                "iso_dates": trend_iso_dates,
                 "views": trend_7d_views,
                 "watch_hours": trend_7d_watch_hours,
+                "snapshot_count": total_hist_count,
+                "has_7d_history": has_7d_history,
+                "has_3d_history": has_3d_history,
+                "snapshot_7d_ago": snap_7d_summary,
+                "snapshot_3d_ago": snap_3d_summary,
             },
             "retention_curves_30s": {
                 "time_points": ["0%", "10%", "25% (Q1)", "50% (Q2)", "75% (Q3)", "100% (Q4)"],
@@ -3480,41 +3682,50 @@ class StudioAnalyticsReporter:
             ax.grid(True, linestyle="--", alpha=0.35, color=grid_gray)
 
         # Panel 1 (Top-Left): Multi-Horizon Exposure Funnel (Shown in feed -> Views -> Engaged Views + Watch Hours)
+        cohort_stats = self._compute_recent_cohort_and_history_stats(data)
         ax1 = axes[0, 0]
         style_ax(ax1, "1. Exposure Funnel Trajectory: Shown in Feed -> Views -> Engaged (7d -> Today)", "Volume (Count)")
         dates_7d = data["trend_7d"]["dates"]
         views_7d = [int(v) for v in data["trend_7d"]["views"]]
-        wh_7d = [float(w) for w in data["trend_7d"].get("watch_hours", [round(v * 0.0075, 1) for v in views_7d])]
+        wh_7d = [float(w) for w in data["trend_7d"].get("watch_hours", [0.0 for _ in views_7d])]
         d7_lbl = dates_7d[0] if dates_7d else "W-1"
         d3_lbl = dates_7d[3] if len(dates_7d) > 3 else "D-3"
         d1_lbl = dates_7d[-2] if len(dates_7d) > 1 else "D-1"
         d0_lbl = dates_7d[-1] if dates_7d else "D-0"
 
         v_pts = [
-            views_7d[0] if views_7d else 540,
-            views_7d[3] if len(views_7d) > 3 else 730,
-            int(ck.get("views_prev", 2142)),
-            int(ck.get("views_24h", 2281)),
+            views_7d[0] if views_7d else 0,
+            views_7d[3] if len(views_7d) > 3 else 0,
+            int(ck.get("views_prev", 0)),
+            int(ck.get("views_24h", 0)),
         ]
-        shown_now_chart = int(round(v_pts[-1] / max(0.01, viewed_now / 100.0)))
-        shown_prev_chart = int(round(v_pts[-2] / max(0.01, float(rk.get("viewed_prev_pct", 66.9)) / 100.0)))
-        shown_pts = [2259, 1393, shown_prev_chart, shown_now_chart]
-        engaged_pts = [290, 445, 1215, 1300]
+        shown_pts = [
+            cohort_stats["shown_7d"] or 0,
+            cohort_stats["shown_3d"] or 0,
+            cohort_stats["shown_prev"],
+            cohort_stats["shown_now"],
+        ]
+        engaged_pts = [
+            cohort_stats["engaged_7d"] or 0,
+            cohort_stats["engaged_3d"] or 0,
+            cohort_stats["engaged_prev"],
+            cohort_stats["engaged_now"],
+        ]
         wh_pts = [
-            wh_7d[0] if wh_7d else 1.8,
-            wh_7d[3] if len(wh_7d) > 3 else 3.1,
-            float(ck.get("watch_hours_prev", 17.3)),
-            float(ck.get("watch_hours_24h", 18.7)),
+            wh_7d[0] if wh_7d else 0.0,
+            wh_7d[3] if len(wh_7d) > 3 else 0.0,
+            float(ck.get("watch_hours_prev", 0.0)),
+            float(ck.get("watch_hours_24h", 0.0)),
         ]
 
         x1 = np.arange(4)
         w1 = 0.25
         ax1.bar(x1 - w1, shown_pts, width=w1, color=tl_gray, alpha=0.65, label="Shown in Feed")
-        bars1 = ax1.bar(x1, v_pts, width=w1, color=primary_blue, alpha=0.90, label="Total Views (Viewed)")
+        ax1.bar(x1, v_pts, width=w1, color=primary_blue, alpha=0.90, label="Total Views (Viewed)")
         ax1.bar(x1 + w1, engaged_pts, width=w1, color=tl_green, alpha=0.90, label="Engaged Views")
         ax1.set_xticks(x1)
         ax1.set_xticklabels([f"7d Ago\n({d7_lbl})", f"3d Ago\n({d3_lbl})", f"Yesterday\n({d1_lbl})", f"Today\n({d0_lbl})"], fontweight="bold")
-        max_v7 = max(shown_pts + [10])
+        max_v7 = max(shown_pts + v_pts + [10])
         ax1.set_ylim(0, max_v7 * 1.35)
         for i_b, (sh_v, vw_v, eng_v) in enumerate(zip(shown_pts, v_pts, engaged_pts)):
             ax1.text(x1[i_b] - w1, sh_v + max_v7 * 0.02, f"{sh_v:,}", ha="center", va="bottom", color=tl_gray, fontsize=7.8, fontweight="bold")
@@ -3548,14 +3759,15 @@ class StudioAnalyticsReporter:
         ax2 = axes[0, 1]
         style_ax(ax2, "2. Retention Cohort Split: Cumulative (All) vs Recent 3 Cohort vs Target (%)", "Percentage (%)")
         r_quarts = data.get("retention_quartiles", [])
-        q1_now = float(r_quarts[0]["today_pct"]) if len(r_quarts) > 0 else 72.0
-        q2_now = float(r_quarts[1]["today_pct"]) if len(r_quarts) > 1 else 68.3
-        q3_now = float(r_quarts[2]["today_pct"]) if len(r_quarts) > 2 else 64.8
-        q4_now = float(r_quarts[3]["today_pct"]) if len(r_quarts) > 3 else 62.7
+        q1_now = float(r_quarts[0]["today_pct"]) if len(r_quarts) > 0 else 0.0
+        q2_now = float(r_quarts[1]["today_pct"]) if len(r_quarts) > 1 else 0.0
+        q3_now = float(r_quarts[2]["today_pct"]) if len(r_quarts) > 2 else 0.0
+        q4_now = float(r_quarts[3]["today_pct"]) if len(r_quarts) > 3 else 0.0
 
+        rec_q = cohort_stats["recent_q"]
         funnel_labels = ["3s Hook\n(Viewed)", "Avg Watch\n(APV)", "Q1\n(25%)", "Q2\n(50%)", "Q3\n(75%)", "Q4\n(100%)"]
         funnel_all = [viewed_now, apv_now, q1_now, q2_now, q3_now, q4_now]
-        funnel_recent = [84.8, 63.1, 73.9, 68.9, 65.4, 63.1]
+        funnel_recent = [cohort_stats["recent_viewed"], cohort_stats["recent_apv"], rec_q[0], rec_q[1], rec_q[2], rec_q[3]]
         funnel_targets = [70.0, 60.0, 70.0, 65.0, 62.0, 60.0]
 
         x2 = np.arange(len(funnel_labels))
@@ -3576,7 +3788,7 @@ class StudioAnalyticsReporter:
         style_ax(ax3, "3. Retention Curve & Inter-Quartile Drop-Off (Delta Q: All vs Recent 3)", "Retention (%)")
         t_pts = data["retention_curves_30s"]["time_points"]
         ret_today = data["retention_curves_30s"]["today_pct"]
-        ret_recent = [100.0, 84.8, 73.9, 68.9, 65.4, 63.1]
+        ret_recent = [100.0, cohort_stats["recent_viewed"], rec_q[0], rec_q[1], rec_q[2], rec_q[3]]
         x3 = np.arange(len(t_pts))
         ax3.axvspan(0, 2, color=primary_blue, alpha=0.08)
         ax3.axvspan(2, 3, color=signal_gold, alpha=0.12)
@@ -3587,8 +3799,15 @@ class StudioAnalyticsReporter:
         ax3.plot(x3, ret_today, color=primary_blue, marker="s", linestyle="--", linewidth=2.2, markersize=5.5, label="Channel Cumulative (%)")
         ax3.fill_between(x3, ret_today, 45, color=primary_blue, alpha=0.12)
         ax3.set_xticks(x3)
-        ax3.set_xticklabels(["0%\nStart", "10%\n3s Hook", "25%\nQ1", "50%\nQ2 (-3.7%p)", "75%\nQ3 (-3.5%p)", "100%\nQ4 (-2.1%p)"])
-        ax3.set_ylim(45, 108)
+        ax3.set_xticklabels([
+            "0%\nStart",
+            "10%\n3s Hook",
+            "25%\nQ1",
+            f"50%\nQ2 ({q2_now - q1_now:+.1f}%p)",
+            f"75%\nQ3 ({q3_now - q2_now:+.1f}%p)",
+            f"100%\nQ4 ({q4_now - q3_now:+.1f}%p)",
+        ])
+        ax3.set_ylim(min(45.0, min(ret_today + ret_recent) - 5.0), 108)
         for i, (v_now, v_rec) in enumerate(zip(ret_today, ret_recent)):
             ax3.text(i, v_rec + 2.2, f"{v_rec:.1f}% (All {v_now:.1f}%)", ha="center", color=text_white, fontsize=8.0, fontweight="bold")
         ax3.legend(loc="lower left", ncol=2, fontsize=8.5, facecolor=panel_bg, edgecolor=grid_gray, labelcolor=text_white)
@@ -3597,17 +3816,24 @@ class StudioAnalyticsReporter:
         ax4 = axes[1, 1]
         style_ax(ax4, "4. High-Signal Traffic & Geographies (7d Ago -> Yesterday -> Today)", "")
         ts_map_d = {t["short_name"]: t for t in data["traffic_sources"]}
-        sf_now_d = float(ts_map_d.get("Shorts Feed", {}).get("pct", 87.3))
-        sf_prv_d = float(ts_map_d.get("Shorts Feed", {}).get("prev_pct", 74.5))
-        us_geo_d = next((g for g in data["geographies"] if g["country"] == "US"), {"pct": 53.2, "prev_pct": 51.8})
+        sf_now_d = float(ts_map_d.get("Shorts Feed", {}).get("pct", 0.0))
+        sf_prv_d = float(ts_map_d.get("Shorts Feed", {}).get("prev_pct", 0.0))
+        us_geo_d = next((g for g in data["geographies"] if g["country"] == "US"), {"pct": 0.0, "prev_pct": 0.0})
+        tier1_geos_d = [g for g in data["geographies"] if g["country"] in ("US", "UK", "CA", "AU")]
+        t1_prv_d = round(sum(float(g.get("prev_pct", 0.0)) for g in tier1_geos_d), 1)
+        snap_7d_d = cohort_stats["snap_7d"]
         y_labels = ["Shorts Feed Share (%)", "US Audience Share (%)", "Tier-1 English (US+UK+AU %)"]
-        vals_w1 = [28.0, 42.0, 48.0]
-        vals_d1 = [sf_prv_d, float(us_geo_d["prev_pct"]), 57.8]
+        vals_w1 = (
+            [float(snap_7d_d["shorts_feed_pct"]), float(snap_7d_d["us_pct"]), float(snap_7d_d["tier1_pct"])]
+            if snap_7d_d
+            else [0.0, 0.0, 0.0]
+        )
+        vals_d1 = [sf_prv_d, float(us_geo_d["prev_pct"]), t1_prv_d]
         vals_d0 = [sf_now_d, float(us_geo_d["pct"]), tier1_sum]
         y_pos = np.arange(len(y_labels))
         h4 = 0.25
 
-        ax4.barh(y_pos - h4, vals_w1, color=tl_gray, height=h4, alpha=0.6, label=f"7d Ago ({d7_lbl})")
+        ax4.barh(y_pos - h4, vals_w1, color=tl_gray, height=h4, alpha=0.6, label=f"7d Ago ({d7_lbl})" if snap_7d_d else "7d Ago (collecting)")
         ax4.barh(y_pos, vals_d1, color=primary_blue, height=h4, alpha=0.8, label=f"Yesterday ({d1_lbl})")
         bars4 = ax4.barh(y_pos + h4, vals_d0, color=tl_green, height=h4, alpha=0.95, label=f"Today ({d0_lbl})")
         ax4.set_yticks(y_pos)
@@ -3617,11 +3843,11 @@ class StudioAnalyticsReporter:
         ax4.set_xlabel("Channel Share (%)", color=text_white, fontsize=9.5, fontweight="bold")
         for idx_b, b in enumerate(bars4):
             w = b.get_width()
-            d7_diff = w - vals_w1[idx_b]
+            lbl_suffix = f"({w - vals_w1[idx_b]:+.1f}%p 7d)" if snap_7d_d else "(7d collecting)"
             ax4.text(
                 w + 1.2,
                 b.get_y() + b.get_height() / 2.0,
-                f"{w:.1f}% (+{d7_diff:.1f}%p 7d)",
+                f"{w:.1f}% {lbl_suffix}",
                 va="center",
                 color=tl_green,
                 fontsize=8.6,
@@ -3691,38 +3917,44 @@ class StudioAnalyticsReporter:
         fig1.patch.set_facecolor(bg)
         style_clean_ax(ax1, "y")
 
+        cohort_stats = self._compute_recent_cohort_and_history_stats(data)
         dates_7d = list(data["trend_7d"]["dates"])
         views_7d = [int(v) for v in data["trend_7d"]["views"]]
-        wh_7d = [float(w) for w in data["trend_7d"].get("watch_hours", [round(v * 0.008, 1) for v in views_7d])]
-        d7_lbl = dates_7d[0] if dates_7d else "10/16"
-        d3_lbl = dates_7d[3] if len(dates_7d) > 3 else "10/19"
-        d1_lbl = dates_7d[-2] if len(dates_7d) > 1 else "10/21"
-        d0_lbl = dates_7d[-1] if dates_7d else "10/22"
+        wh_7d = [float(w) for w in data["trend_7d"].get("watch_hours", [0.0 for _ in views_7d])]
+        d7_lbl = dates_7d[0] if dates_7d else "W-1"
+        d3_lbl = dates_7d[3] if len(dates_7d) > 3 else "D-3"
+        d1_lbl = dates_7d[-2] if len(dates_7d) > 1 else "D-1"
+        d0_lbl = dates_7d[-1] if dates_7d else "D-0"
 
         v_pts = [
-            views_7d[0] if views_7d else 540,
-            views_7d[3] if len(views_7d) > 3 else 730,
+            views_7d[0] if views_7d else 0,
+            views_7d[3] if len(views_7d) > 3 else 0,
             int(ck["views_prev"]),
             int(ck["views_24h"]),
         ]
-        shown_now_s1 = int(round(v_pts[-1] / max(0.01, float(rk["viewed_pct"]) / 100.0)))
-        shown_prev_s1 = int(round(v_pts[-2] / max(0.01, float(rk.get("viewed_prev_pct", 66.9)) / 100.0)))
-        shown_pts = [2259, 1393, shown_prev_s1, shown_now_s1]
-        engaged_pts = [290, 445, 1215, 1300]
+        shown_now_s1 = cohort_stats["shown_now"]
+        shown_prev_s1 = cohort_stats["shown_prev"]
+        shown_pts = [cohort_stats["shown_7d"] or 0, cohort_stats["shown_3d"] or 0, shown_prev_s1, shown_now_s1]
+        engaged_pts = [
+            cohort_stats["engaged_7d"] or 0,
+            cohort_stats["engaged_3d"] or 0,
+            cohort_stats["engaged_prev"],
+            cohort_stats["engaged_now"],
+        ]
         wh_pts = [
-            wh_7d[0] if wh_7d else 1.8,
-            wh_7d[3] if len(wh_7d) > 3 else 3.1,
+            wh_7d[0] if wh_7d else 0.0,
+            wh_7d[3] if len(wh_7d) > 3 else 0.0,
             float(ck["watch_hours_prev"]),
             float(ck["watch_hours_24h"]),
         ]
 
         x1 = np.arange(4)
         w1 = 0.25
-        ax1.bar(x1 - w1, shown_pts, width=w1, color=tl_gray, alpha=0.62, label=f"Shown in Feed ({shown_now_s1:,} | +{shown_now_s1 - shown_prev_s1:,} 1d)", zorder=3)
-        ax1.bar(x1, v_pts, width=w1, color=blue, alpha=0.90, label=f"Views / Viewed ({v_pts[-1]:,} | +{v_pts[-1] - v_pts[-2]:,} 1d)", zorder=3)
-        ax1.bar(x1 + w1, engaged_pts, width=w1, color=tl_green, alpha=0.92, label=f"Engaged Views ({engaged_pts[-1]:,} | +{engaged_pts[-1] - engaged_pts[-2]:,} 1d)", zorder=3)
+        ax1.bar(x1 - w1, shown_pts, width=w1, color=tl_gray, alpha=0.62, label=f"Shown in Feed ({shown_now_s1:,} | {shown_now_s1 - shown_prev_s1:+,} 1d)", zorder=3)
+        ax1.bar(x1, v_pts, width=w1, color=blue, alpha=0.90, label=f"Views / Viewed ({v_pts[-1]:,} | {v_pts[-1] - v_pts[-2]:+,} 1d)", zorder=3)
+        ax1.bar(x1 + w1, engaged_pts, width=w1, color=tl_green, alpha=0.92, label=f"Engaged Views ({engaged_pts[-1]:,} | {engaged_pts[-1] - engaged_pts[-2]:+,} 1d)", zorder=3)
 
-        max_v = max(shown_pts + [100])
+        max_v = max(shown_pts + v_pts + [100])
         for i, (sh_v, vw_v, eng_v) in enumerate(zip(shown_pts, v_pts, engaged_pts)):
             ax1.text(x1[i] - w1, sh_v + max_v * 0.02, f"{sh_v:,}", ha="center", va="bottom", color=muted, fontsize=9.0, fontweight="bold")
             ax1.text(x1[i], vw_v + max_v * 0.02, f"{vw_v:,}", ha="center", va="bottom", color=text_col, fontsize=9.5, fontweight="bold")
@@ -3737,6 +3969,7 @@ class StudioAnalyticsReporter:
         ax1_tw.spines["top"].set_visible(False)
         ax1_tw.spines["right"].set_color(tl_yellow)
         ax1_tw.tick_params(axis="y", colors=tl_yellow, labelsize=11.0)
+        wh_lbl_7d = f"{wh_pts[-1] - wh_pts[0]:+.1f}h 7d" if cohort_stats["has_7d"] else "7d collecting"
         ax1_tw.plot(
             x1,
             wh_pts,
@@ -3744,7 +3977,7 @@ class StudioAnalyticsReporter:
             marker="o",
             linewidth=3.0,
             markersize=8.0,
-            label=f"Watch Time ({ck['watch_hours_24h']:.1f}h | +{wh_pts[-1] - wh_pts[0]:.1f}h 7d)",
+            label=f"Watch Time ({ck['watch_hours_24h']:.1f}h | {wh_lbl_7d})",
             zorder=5,
         )
         ax1_tw.set_ylabel("Watch Hours (h)", color=tl_yellow, fontsize=12, fontweight="bold")
@@ -3785,27 +4018,35 @@ class StudioAnalyticsReporter:
         style_clean_ax(ax2, "y")
 
         r_quarts = data.get("retention_quartiles", [])
-        q1_now = float(r_quarts[0]["today_pct"]) if len(r_quarts) > 0 else 72.0
-        q2_now = float(r_quarts[1]["today_pct"]) if len(r_quarts) > 1 else 68.3
-        q3_now = float(r_quarts[2]["today_pct"]) if len(r_quarts) > 2 else 64.8
-        q4_now = float(r_quarts[3]["today_pct"]) if len(r_quarts) > 3 else 62.7
+        q1_now = float(r_quarts[0]["today_pct"]) if len(r_quarts) > 0 else 0.0
+        q2_now = float(r_quarts[1]["today_pct"]) if len(r_quarts) > 1 else 0.0
+        q3_now = float(r_quarts[2]["today_pct"]) if len(r_quarts) > 2 else 0.0
+        q4_now = float(r_quarts[3]["today_pct"]) if len(r_quarts) > 3 else 0.0
+
+        rec_q = cohort_stats["recent_q"]
+        snap_7d = cohort_stats["snap_7d"]
+        q7 = snap_7d["quartiles"] if (snap_7d and len(snap_7d.get("quartiles") or []) >= 4) else [0.0, 0.0, 0.0, 0.0]
 
         f_labels = [
             "3s Hook\n(Viewed %)",
             "Watch Rate\n(APV %)",
-            "Q1 (0-25%)\n[Δ -28.0%p]",
-            "Q2 (25-50%)\n[Δ -3.7%p]",
-            "Q3 (50-75%)\n[Δ -3.5%p]",
-            "Q4 (75-100%)\n[Δ -2.1%p]",
+            f"Q1 (0-25%)\n[Δ {q1_now - 100.0:+.1f}%p]",
+            f"Q2 (25-50%)\n[Δ {q2_now - q1_now:+.1f}%p]",
+            f"Q3 (50-75%)\n[Δ {q3_now - q2_now:+.1f}%p]",
+            f"Q4 (75-100%)\n[Δ {q4_now - q3_now:+.1f}%p]",
         ]
-        f_w1 = [23.9, 59.4, 55.0, 52.0, 50.0, 48.0]
+        f_w1 = (
+            [float(snap_7d["viewed_pct"]), float(snap_7d["apv_pct"]), q7[0], q7[1], q7[2], q7[3]]
+            if snap_7d
+            else [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        )
         f_all = [float(rk["viewed_pct"]), float(rk["apv_pct"]), q1_now, q2_now, q3_now, q4_now]
-        f_recent = [84.8, 63.1, 73.9, 68.9, 65.4, 63.1]
+        f_recent = [cohort_stats["recent_viewed"], cohort_stats["recent_apv"], rec_q[0], rec_q[1], rec_q[2], rec_q[3]]
         f_target = [70.0, 60.0, 70.0, 65.0, 62.0, 60.0]
 
         x2 = np.arange(len(f_labels))
         w2 = 0.25
-        ax2.bar(x2 - w2, f_w1, width=w2, color=tl_gray, alpha=0.50, label=f"7d Ago ({d7_lbl})", zorder=3)
+        ax2.bar(x2 - w2, f_w1, width=w2, color=tl_gray, alpha=0.50, label=f"7d Ago ({d7_lbl})" if snap_7d else "7d Ago (collecting)", zorder=3)
         ax2.bar(x2, f_all, width=w2, color=blue, alpha=0.85, label="Cumulative Avg (All)", zorder=3)
         ax2.bar(x2 + w2, f_recent, width=w2, color=tl_green, alpha=0.95, label="Recent 3 Cohort Avg", zorder=3)
         ax2.plot(x2, f_target, color=tl_yellow, linestyle="--", marker="D", markersize=6, linewidth=2.0, label="Target Gate (%)", zorder=4)
@@ -3837,10 +4078,10 @@ class StudioAnalyticsReporter:
         style_clean_ax(ax3, "x")
 
         ts_map = {t["short_name"]: t for t in data["traffic_sources"]}
-        sf_now = float(ts_map.get("Shorts Feed", {}).get("pct", 87.3))
-        sf_prev = float(ts_map.get("Shorts Feed", {}).get("prev_pct", 74.5))
+        sf_now = float(ts_map.get("Shorts Feed", {}).get("pct", 0.0))
+        sf_prev = float(ts_map.get("Shorts Feed", {}).get("prev_pct", 0.0))
 
-        us_geo = next((g for g in data["geographies"] if g["country"] == "US"), {"pct": 53.2, "prev_pct": 51.8})
+        us_geo = next((g for g in data["geographies"] if g["country"] == "US"), {"pct": 0.0, "prev_pct": 0.0})
         tier1_geos = [g for g in data["geographies"] if g["country"] in ("US", "UK", "CA", "AU")]
         t1_now = round(sum(float(g["pct"]) for g in tier1_geos), 1)
         t1_prev = round(sum(float(g["prev_pct"]) for g in tier1_geos), 1)
@@ -3850,22 +4091,27 @@ class StudioAnalyticsReporter:
             "US Audience Share (%)",
             "Tier-1 English (US+UK+AU %)",
         ][::-1]
-        w1_3 = [28.0, 42.0, 48.0][::-1]
+        w1_3 = (
+            [float(snap_7d["shorts_feed_pct"]), float(snap_7d["us_pct"]), float(snap_7d["tier1_pct"])][::-1]
+            if snap_7d
+            else [0.0, 0.0, 0.0]
+        )
         prev3 = [sf_prev, float(us_geo["prev_pct"]), t1_prev][::-1]
         curr3 = [sf_now, float(us_geo["pct"]), t1_now][::-1]
 
         y3 = np.arange(len(labels3))
         h3 = 0.24
-        ax3.barh(y3 - h3, w1_3, height=h3, color=tl_gray, alpha=0.65, label=f"7d Ago ({d7_lbl})")
+        ax3.barh(y3 - h3, w1_3, height=h3, color=tl_gray, alpha=0.65, label=f"7d Ago ({d7_lbl})" if snap_7d else "7d Ago (collecting)")
         ax3.barh(y3, prev3, height=h3, color=blue, alpha=0.80, label=f"Yesterday ({d1_lbl})")
         ax3.barh(y3 + h3, curr3, height=h3, color=tl_green, alpha=0.95, label=f"Today ({d0_lbl})")
 
         for yi, (w_val, p_val, c_val) in enumerate(zip(w1_3, prev3, curr3)):
-            diff7 = c_val - w_val
             diff1 = c_val - p_val
-            ax3.text(c_val + 1.2, yi + h3, f"{c_val:.1f}% (7d +{diff7:.1f}%p / 1d +{diff1:.1f}%p)", va="center", ha="left", color=tl_green, fontsize=10.0, fontweight="bold")
+            d7_part = f"7d {c_val - w_val:+.1f}%p" if snap_7d else "7d collecting"
+            ax3.text(c_val + 1.2, yi + h3, f"{c_val:.1f}% ({d7_part} / 1d {diff1:+.1f}%p)", va="center", ha="left", color=tl_green, fontsize=10.0, fontweight="bold")
             ax3.text(p_val + 1.0, yi, f"{p_val:.1f}%", va="center", ha="left", color=text_col, fontsize=9.0)
-            ax3.text(w_val + 1.0, yi - h3, f"{w_val:.1f}%", va="center", ha="left", color=muted, fontsize=8.8)
+            if snap_7d:
+                ax3.text(w_val + 1.0, yi - h3, f"{w_val:.1f}%", va="center", ha="left", color=muted, fontsize=8.8)
 
         ax3.set_yticks(y3)
         ax3.set_yticklabels(labels3, fontsize=11.0, fontweight="bold", color=text_col)
@@ -3897,7 +4143,7 @@ class StudioAnalyticsReporter:
             "US + Tier-1 Share (%)",
         ][::-1]
         g_curr = [float(rk["viewed_pct"]), float(rk["apv_pct"]), q4_now, sf_now, t1_now][::-1]
-        g_rec = [84.8, 63.1, 63.1, 94.5, t1_now][::-1]
+        g_rec = [cohort_stats["recent_viewed"], cohort_stats["recent_apv"], rec_q[3], sf_now, t1_now][::-1]
         g_tgt = [70.0, 60.0, 60.0, 70.0, 55.0][::-1]
 
         y4 = np.arange(len(g_labels))
@@ -3933,6 +4179,100 @@ class StudioAnalyticsReporter:
             "sec4": sec4_path,
         }
 
+    @staticmethod
+    def _compute_recent_cohort_and_history_stats(data: dict[str, Any]) -> dict[str, Any]:
+        """Derives real cohort retention & historical snapshot values with zero hardcoded literals."""
+        ck = data.get("channel_kpis") or {}
+        rk = data.get("retention_kpis") or {}
+        t7 = data.get("trend_7d") or {}
+        r_quarts = data.get("retention_quartiles") or []
+        pv_records = list(data.get("per_video_records") or [])
+        pub_cohorts = [r for r in pv_records if str(r.get("status", "")).lower() == "published"] or pv_records
+        measured_pub = [r for r in pub_cohorts if r.get("measured", True)]
+        recent3 = measured_pub[-3:] if measured_pub else []
+
+        views_now = int(ck.get("views_24h", 0))
+        views_prev = int(ck.get("views_prev", 0))
+        viewed_now = float(rk.get("viewed_pct", 0.0))
+        viewed_prev = float(rk.get("viewed_prev_pct", 0.0))
+        avd_now = float(rk.get("avd_seconds", 0.0))
+        apv_now = float(rk.get("apv_pct", 0.0))
+        apv_prev = float(rk.get("apv_prev_pct", 0.0))
+        avg_len = float(rk.get("avg_video_length_sec", 85.0))
+
+        q_defaults = [
+            float(r_quarts[i]["today_pct"]) if i < len(r_quarts) else 0.0
+            for i in range(4)
+        ]
+
+        if recent3:
+            viewed_candidates = [float(r.get("viewed_pct", 0.0)) for r in recent3 if float(r.get("viewed_pct", 0.0)) > 0.0]
+            recent_viewed = round(sum(viewed_candidates) / len(viewed_candidates), 1) if viewed_candidates else round(viewed_now, 1)
+            recent_avd = round(sum(float(r.get("avd_seconds", 0.0)) for r in recent3) / len(recent3), 1)
+            recent_apv = round(sum(float(r.get("apv_pct", 0.0)) for r in recent3) / len(recent3), 1)
+            recent_len = round(sum(float(r.get("duration_seconds", avg_len)) for r in recent3) / len(recent3), 1)
+            recent_q = [
+                round(
+                    sum(float(r.get(f"ret_q{qi}_pct", q_defaults[qi - 1])) for r in recent3) / len(recent3),
+                    1,
+                )
+                for qi in (1, 2, 3, 4)
+            ]
+        else:
+            recent_viewed = round(viewed_now, 1)
+            recent_avd = round(avd_now, 1)
+            recent_apv = round(apv_now, 1)
+            recent_len = round(avg_len, 1)
+            recent_q = list(q_defaults)
+
+        latest_rec = measured_pub[-1] if measured_pub else None
+        prev_rec = measured_pub[-2] if len(measured_pub) >= 2 else None
+
+        shown_now = int(round(views_now / max(0.01, viewed_now / 100.0))) if viewed_now > 0 else views_now
+        shown_prev = int(round(views_prev / max(0.01, viewed_prev / 100.0))) if viewed_prev > 0 else views_prev
+        engaged_now = int(round(views_now * max(0.0, min(1.0, apv_now / 100.0))))
+        engaged_prev = int(round(views_prev * max(0.0, min(1.0, apv_prev / 100.0))))
+
+        has_7d = bool(t7.get("has_7d_history") and isinstance(t7.get("snapshot_7d_ago"), dict))
+        has_3d = bool(t7.get("has_3d_history") and isinstance(t7.get("snapshot_3d_ago"), dict))
+        snap_7d = t7.get("snapshot_7d_ago") if has_7d else None
+        snap_3d = t7.get("snapshot_3d_ago") if has_3d else None
+
+        shown_7d = (
+            int(round(int(snap_7d["views"]) / max(0.01, float(snap_7d["viewed_pct"]) / 100.0)))
+            if (snap_7d and float(snap_7d.get("viewed_pct", 0.0)) > 0)
+            else (int(snap_7d["views"]) if snap_7d else None)
+        )
+        shown_3d = (
+            int(round(int(snap_3d["views"]) / max(0.01, float(snap_3d["viewed_pct"]) / 100.0)))
+            if (snap_3d and float(snap_3d.get("viewed_pct", 0.0)) > 0)
+            else (int(snap_3d["views"]) if snap_3d else None)
+        )
+        engaged_7d = int(snap_7d["engaged_views"]) if snap_7d else None
+        engaged_3d = int(snap_3d["engaged_views"]) if snap_3d else None
+
+        return {
+            "has_7d": has_7d,
+            "has_3d": has_3d,
+            "snap_7d": snap_7d,
+            "snap_3d": snap_3d,
+            "shown_now": shown_now,
+            "shown_prev": shown_prev,
+            "shown_3d": shown_3d,
+            "shown_7d": shown_7d,
+            "engaged_now": engaged_now,
+            "engaged_prev": engaged_prev,
+            "engaged_3d": engaged_3d,
+            "engaged_7d": engaged_7d,
+            "recent_viewed": recent_viewed,
+            "recent_avd": recent_avd,
+            "recent_apv": recent_apv,
+            "recent_len": recent_len,
+            "recent_q": recent_q,
+            "latest_rec": latest_rec,
+            "prev_rec": prev_rec,
+        }
+
     # ------------------------------------------------------------------
     # 6. Multi-Horizon Channel-Level 5-Section Markdown Report Renderer
     # ------------------------------------------------------------------
@@ -3955,6 +4295,11 @@ class StudioAnalyticsReporter:
         ck = data["channel_kpis"]
         rk = data["retention_kpis"]
         r_quarts = data.get("retention_quartiles", [])
+        cs = self._compute_recent_cohort_and_history_stats(data)
+        has_7d = cs["has_7d"]
+        has_3d = cs["has_3d"]
+        snap_7d = cs["snap_7d"]
+        snap_3d = cs["snap_3d"]
 
         sec_imgs = section_charts or {
             "sec1": "sec1_channel_growth.png",
@@ -3964,100 +4309,206 @@ class StudioAnalyticsReporter:
         }
 
         dates_7d = data["trend_7d"]["dates"]
-        views_7d = [int(v) for v in data["trend_7d"]["views"]]
-        wh_7d = [float(w) for w in data["trend_7d"].get("watch_hours", [1.8])]
-
-        d7_label = dates_7d[0] if dates_7d else "10/16"
-        d3_label = dates_7d[3] if len(dates_7d) > 3 else "10/19"
-        v_7d_ago = int(views_7d[0]) if views_7d else 540
-        v_3d_ago = int(views_7d[3]) if len(views_7d) > 3 else 730
-        wh_7d_ago = float(wh_7d[0]) if wh_7d else 1.8
-        wh_3d_ago = float(wh_7d[3]) if len(wh_7d) > 3 else 3.1
+        d7_label = dates_7d[0] if dates_7d else "-"
+        d3_label = dates_7d[3] if len(dates_7d) > 3 else "-"
 
         views_now = int(ck["views_24h"])
         views_prev = int(ck["views_prev"])
         views_dod_diff = views_now - views_prev
         views_dod_pct = (views_dod_diff / max(1, views_prev)) * 100.0
-        views_7d_gain = views_now - v_7d_ago
-        views_7d_pct = (views_7d_gain / max(1, v_7d_ago)) * 100.0
-        views_daily_ma = views_7d_gain / 6.0
 
         viewed_now = float(rk["viewed_pct"])
         viewed_prev = float(rk["viewed_prev_pct"])
-        viewed_7d_ago = 23.9
         viewed_dod_diff = viewed_now - viewed_prev
-        viewed_7d_diff = viewed_now - viewed_7d_ago
         viewed_gap = viewed_now - 70.0
 
-        # 3-Stage Feed Exposure Funnel: Shown in feed -> Views (Viewed) -> Engaged Views
-        shown_7d_ago = int(round(v_7d_ago / (viewed_7d_ago / 100.0)))
-        shown_3d_ago = int(round(v_3d_ago / (52.4 / 100.0)))
-        shown_prev = int(round(views_prev / max(0.01, viewed_prev / 100.0)))
-        shown_now = int(round(views_now / max(0.01, viewed_now / 100.0)))
+        shown_prev = cs["shown_prev"]
+        shown_now = cs["shown_now"]
         shown_dod_diff = shown_now - shown_prev
         shown_dod_pct = (shown_dod_diff / max(1, shown_prev)) * 100.0
-        shown_7d_gain = shown_now - shown_7d_ago
-        shown_daily_ma = shown_now / 6.0
 
-        engaged_7d_ago = 290
-        engaged_3d_ago = 445
-        engaged_prev = 1215
-        engaged_now = 1300
+        engaged_prev = cs["engaged_prev"]
+        engaged_now = cs["engaged_now"]
         engaged_dod_diff = engaged_now - engaged_prev
         engaged_dod_pct = (engaged_dod_diff / max(1, engaged_prev)) * 100.0
-        engaged_7d_gain = engaged_now - engaged_7d_ago
-        engaged_7d_pct = (engaged_7d_gain / max(1, engaged_7d_ago)) * 100.0
-        engaged_daily_ma = engaged_7d_gain / 6.0
-        engaged_rate_now = (engaged_now / max(1, views_now)) * 100.0
 
         subs_now = int(ck["subscribers_total"])
         subs_prev = int(ck["subscribers_prev"])
-        subs_7d_ago = 1
-        subs_3d_ago = 2
         subs_dod_diff = subs_now - subs_prev
-        subs_7d_gain = subs_now - subs_7d_ago
-        subs_daily_ma = subs_7d_gain / 6.0
         subs_per_1k = (subs_now / max(1, views_now)) * 1000.0
         subs_per_1k_prev = (subs_prev / max(1, views_prev)) * 1000.0
-        subs_per_1k_3d = (subs_3d_ago / max(1, v_3d_ago)) * 1000.0
 
         wh_now = float(ck["watch_hours_24h"])
         wh_prev = float(ck["watch_hours_prev"])
         wh_dod_diff = wh_now - wh_prev
         wh_dod_pct = (wh_dod_diff / max(0.1, wh_prev)) * 100.0
-        wh_7d_gain = wh_now - wh_7d_ago
-        wh_7d_pct = (wh_7d_gain / max(0.1, wh_7d_ago)) * 100.0
-        wh_daily_ma = wh_7d_gain / 6.0
 
         rt48_now = int(ck["realtime_48h_views"])
         rt48_prev = int(ck["realtime_48h_prev"])
         rt48_diff = rt48_now - rt48_prev
         rt48_pct = (rt48_diff / max(1, rt48_prev)) * 100.0
-        rt48_7d_avg = int(round(views_7d_gain / 3.0))
+        rt48_samples = [rt48_prev, rt48_now]
+        if snap_3d:
+            rt48_samples.append(int(snap_3d["realtime_48h"]))
+        if snap_7d:
+            rt48_samples.append(int(snap_7d["realtime_48h"]))
+        rt48_peak = max(rt48_samples)
+        rt48_avg = int(round(sum(rt48_samples) / max(1, len(rt48_samples))))
 
         avd_now = float(rk["avd_seconds"])
         avd_prev = float(rk["avd_prev_seconds"])
-        avd_7d_ago = 18.0
-        avd_7d_diff = avd_now - avd_7d_ago
         avg_len = float(rk["avg_video_length_sec"])
 
         apv_now = float(rk["apv_pct"])
         apv_prev = float(rk["apv_prev_pct"])
-        apv_7d_ago = 59.4
         apv_dod_diff = apv_now - apv_prev
-        apv_7d_diff = apv_now - apv_7d_ago
         apv_gap = apv_now - 60.0
 
-        # Recent 3 Cohort (excluding legacy 31s upload) & Latest Post Cohort
-        recent_viewed = 84.8
-        recent_avd = 52.8
-        recent_apv = 63.1
-        recent_q = [73.9, 68.9, 65.4, 63.1]
-        latest_q = [74.0, 69.0, 65.5, 63.2]
-        seed_wait_q = [65.0, 58.0, 54.0, 51.8]
+        recent_viewed = cs["recent_viewed"]
+        recent_avd = cs["recent_avd"]
+        recent_apv = cs["recent_apv"]
+        recent_len = cs["recent_len"]
+        recent_q = cs["recent_q"]
+        latest_rec = cs["latest_rec"]
+        prev_rec = cs["prev_rec"]
+
+        lat_hook_s = (
+            f"{float(latest_rec.get('viewed_pct', 0.0)):.1f}%"
+            if (latest_rec and float(latest_rec.get("viewed_pct", 0.0)) > 0)
+            else "-"
+        )
+        prv_hook_s = (
+            f"{float(prev_rec.get('viewed_pct', 0.0)):.1f}%"
+            if (prev_rec and float(prev_rec.get("viewed_pct", 0.0)) > 0)
+            else "-"
+        )
+        lat_avd_s = f"{float(latest_rec.get('avd_seconds', 0.0)):.1f}s" if latest_rec else "-"
+        prv_avd_s = f"{float(prev_rec.get('avd_seconds', 0.0)):.1f}s" if prev_rec else "-"
+        lat_apv_s = f"{float(latest_rec.get('apv_pct', 0.0)):.1f}%" if latest_rec else "-"
+        prv_apv_s = f"{float(prev_rec.get('apv_pct', 0.0)):.1f}%" if prev_rec else "-"
+
+        # Historical 7d / 3d formatted cells ("-" / "collecting" when <7 snapshots exist)
+        if has_3d and snap_3d:
+            v_3d_cell = f"{int(snap_3d['views']):,}"
+            shown_3d_cell = f"{int(cs['shown_3d'] or 0):,}"
+            eng_3d_cell = f"{int(cs['engaged_3d'] or 0):,}"
+            wh_3d_cell = f"{float(snap_3d['watch_hours']):.1f}h"
+            s3_subs = int(snap_3d["subscribers"])
+            s3_p1k = (s3_subs / max(1, int(snap_3d["views"]))) * 1000.0
+            subs_3d_cell = f"{s3_subs:,} (`{s3_p1k:.2f}`)"
+            rt48_3d_cell = f"{int(snap_3d['realtime_48h']):,}"
+        else:
+            v_3d_cell = "-"
+            shown_3d_cell = "-"
+            eng_3d_cell = "-"
+            wh_3d_cell = "-"
+            subs_3d_cell = "-"
+            rt48_3d_cell = "-"
+
+        ts_map = {t["short_name"]: t for t in data["traffic_sources"]}
+        sf_rec = ts_map.get("Shorts Feed", {"pct": 0.0, "prev_pct": 0.0, "views": 0})
+        sf_dod_diff = float(sf_rec["pct"]) - float(sf_rec["prev_pct"])
+
+        us_geo = next((g for g in data["geographies"] if g["country"] == "US"), {"pct": 0.0, "prev_pct": 0.0})
+        tier1_geos = [g for g in data["geographies"] if g["country"] in ("US", "UK", "CA", "AU")]
+        tier1_now = round(sum(float(g["pct"]) for g in tier1_geos), 1)
+        tier1_prev = round(sum(float(g["prev_pct"]) for g in tier1_geos), 1)
+        us_dod_diff = float(us_geo["pct"]) - float(us_geo["prev_pct"])
+        tier1_dod_diff = tier1_now - tier1_prev
+
+        if has_7d and snap_7d:
+            v_7d_val = int(snap_7d["views"])
+            wh_7d_val = float(snap_7d["watch_hours"])
+            subs_7d_val = int(snap_7d["subscribers"])
+            shown_7d_val = int(cs["shown_7d"] or 0)
+            eng_7d_val = int(cs["engaged_7d"] or 0)
+            viewed_7d_val = float(snap_7d["viewed_pct"])
+            avd_7d_val = float(snap_7d["avd_seconds"])
+            apv_7d_val = float(snap_7d["apv_pct"])
+            sf_7d_val = float(snap_7d["shorts_feed_pct"])
+            us_7d_val = float(snap_7d["us_pct"])
+            t1_7d_val = float(snap_7d["tier1_pct"])
+
+            views_7d_gain = views_now - v_7d_val
+            views_7d_pct = (views_7d_gain / max(1, v_7d_val)) * 100.0
+            shown_7d_gain = shown_now - shown_7d_val
+            eng_7d_gain = engaged_now - eng_7d_val
+            eng_7d_pct = (eng_7d_gain / max(1, eng_7d_val)) * 100.0
+            wh_7d_gain = wh_now - wh_7d_val
+            wh_7d_pct = (wh_7d_gain / max(0.1, wh_7d_val)) * 100.0
+            subs_7d_gain = subs_now - subs_7d_val
+            s7_p1k = (subs_7d_val / max(1, v_7d_val)) * 1000.0
+
+            shown_7d_cell = f"{shown_7d_val:,}"
+            v_7d_cell = f"{v_7d_val:,}"
+            eng_7d_cell = f"{eng_7d_val:,}"
+            wh_7d_cell = f"{wh_7d_val:.1f}h"
+            subs_7d_cell = f"{subs_7d_val:,} (`{s7_p1k:.2f}`)"
+            rt48_7d_cell = f"{int(snap_7d['realtime_48h']):,}"
+
+            shown_7d_delta_cell = f"`{shown_7d_gain:+,}` (`{shown_7d_gain / 6.0:.0f}/d`)"
+            views_7d_delta_cell = f"**`{views_7d_gain:+,}` (`{views_7d_gain / 6.0:+.0f}/d`)**"
+            eng_7d_delta_cell = f"**`{eng_7d_gain:+,}` (`{eng_7d_gain / 6.0:+.0f}/d`)**"
+            wh_7d_delta_cell = f"**`{wh_7d_gain:+.1f}h` (`{wh_7d_gain / 6.0:+.1f}h/d`)**"
+            subs_7d_delta_cell = f"**`{subs_7d_gain:+d}` (`{subs_7d_gain / 6.0:+.1f}/d`)**"
+            rt48_7d_delta_cell = f"**`Avg {rt48_avg:,}`** (`Peak {rt48_peak:,}`)"
+
+            views_sig_cell = f"🟢 `{views_7d_pct:+.1f}%`"
+            eng_sig_cell = f"🟢 `{eng_7d_pct:+.1f}%`"
+            wh_sig_cell = f"🟢 `{wh_7d_pct:+.1f}%`"
+
+            viewed_7d_cell = f"{viewed_7d_val:.1f}%"
+            avd_7d_cell = f"{avd_7d_val:.1f}s"
+            apv_7d_cell = f"{apv_7d_val:.1f}%"
+            apv_drop_cell = f"`7d {apv_now - apv_7d_val:+.1f}%p` (`1d {apv_dod_diff:+.1f}%p`)"
+
+            sf_7d_cell = f"{sf_7d_val:.1f}%"
+            sf_7d_delta_cell = f"**`{float(sf_rec['pct']) - sf_7d_val:+.1f}%p`** (`{sf_dod_diff:+.1f}%p`)"
+            geo_7d_cell = f"{us_7d_val:.1f}% / {t1_7d_val:.1f}%"
+            geo_7d_delta_cell = f"**`{float(us_geo['pct']) - us_7d_val:+.1f}%p / {tier1_now - t1_7d_val:+.1f}%p`** (`{us_dod_diff:+.1f}%p / {tier1_dod_diff:+.1f}%p`)"
+
+            pulse_subs_lbl = f"{subs_now:,} ({subs_7d_gain:+d})"
+            pulse_wh_lbl = f"{wh_now:.1f}h ({wh_7d_gain:+.1f}h)"
+            w1_t1 = f"`Shown {shown_7d_gain:+,}` · `Views {views_7d_gain:+,}`"
+            w1_t2 = f"`Viewed {viewed_now - viewed_7d_val:+.1f}%p` · `APV {apv_now - apv_7d_val:+.1f}%p`"
+            w1_t3 = f"`US {float(us_geo['pct']) - us_7d_val:+.1f}%p` · `Subs {subs_7d_gain:+d}`"
+        else:
+            shown_7d_cell = "-"
+            v_7d_cell = "-"
+            eng_7d_cell = "-"
+            wh_7d_cell = "-"
+            subs_7d_cell = "-"
+            rt48_7d_cell = "-"
+
+            shown_7d_delta_cell = "`collecting`"
+            views_7d_delta_cell = "`collecting`"
+            eng_7d_delta_cell = "`collecting`"
+            wh_7d_delta_cell = "`collecting`"
+            subs_7d_delta_cell = "`collecting`"
+            rt48_7d_delta_cell = f"`collecting` (`Peak {rt48_peak:,}`)"
+
+            views_sig_cell = f"🟢 `{views_dod_pct:+.1f}%`"
+            eng_sig_cell = f"🟢 `{engaged_dod_pct:+.1f}%`"
+            wh_sig_cell = f"🟢 `{wh_dod_pct:+.1f}%`"
+
+            viewed_7d_cell = "-"
+            avd_7d_cell = "-"
+            apv_7d_cell = "-"
+            apv_drop_cell = f"`7d collecting` (`1d {apv_dod_diff:+.1f}%p`)"
+
+            sf_7d_cell = "-"
+            sf_7d_delta_cell = f"`collecting` (`{sf_dod_diff:+.1f}%p`)"
+            geo_7d_cell = "-"
+            geo_7d_delta_cell = f"`collecting` (`{us_dod_diff:+.1f}%p / {tier1_dod_diff:+.1f}%p`)"
+
+            pulse_subs_lbl = f"{subs_now:,} (1d {subs_dod_diff:+d})"
+            pulse_wh_lbl = f"{wh_now:.1f}h (1d {wh_dod_diff:+.1f}h)"
+            w1_t1 = "`collecting (<7d)`"
+            w1_t2 = "`collecting (<7d)`"
+            w1_t3 = "`collecting (<7d)`"
 
         # Quartiles Q1-Q4 with Inter-Quartile Drop-Off (Delta Q) & Cohort Split
-        q_w1_list = [55.0, 52.0, 50.0, 48.0]
+        q_w1_list = snap_7d["quartiles"] if (snap_7d and len(snap_7d.get("quartiles") or []) >= 4) else None
         q_targets = [70.0, 65.0, 62.0, 60.0]
         q_clip_notes = [
             "Clips 1–2",
@@ -4071,10 +4522,18 @@ class StudioAnalyticsReporter:
         for idx_q, q in enumerate(r_quarts):
             q_now = float(q["today_pct"])
             q_prv = float(q["prev_pct"])
-            q_w1 = q_w1_list[idx_q] if idx_q < len(q_w1_list) else 50.0
+            q_w1_cell = f"{float(q_w1_list[idx_q]):.1f}%" if (q_w1_list and idx_q < len(q_w1_list)) else "-"
             q_rec = recent_q[idx_q] if idx_q < len(recent_q) else q_now
-            q_lat = latest_q[idx_q] if idx_q < len(latest_q) else q_now
-            q_wait = seed_wait_q[idx_q] if idx_q < len(seed_wait_q) else 55.0
+            q_lat_s = (
+                f"{float(latest_rec.get(f'ret_q{idx_q + 1}_pct', q_now)):.1f}%"
+                if latest_rec
+                else "-"
+            )
+            q_prv_s = (
+                f"{float(prev_rec.get(f'ret_q{idx_q + 1}_pct', 0.0)):.1f}%"
+                if prev_rec
+                else "-"
+            )
             drop_all = q_now - prev_q_all
             drop_rec = q_rec - prev_q_rec
             prev_q_all = q_now
@@ -4084,30 +4543,16 @@ class StudioAnalyticsReporter:
             q_g_all = q_now - q_t
             q_g_rec = q_rec - q_t
             q_dot = "🟢" if q_now >= q_t else ("🟡" if q_now >= q_t - 10.0 else "🔴")
+            q_rec_dot = "🟢" if q_rec >= q_t else ("🟡" if q_rec >= q_t - 10.0 else "🔴")
             q_rows.append(
-                f"| **{q['quartile']}** | {q_w1:.1f}% | {q_prv:.1f}% | **{q_now:.1f}%** | **{q_rec:.1f}%** | `{q_lat:.1f}% / {q_wait:.1f}%` | `{step_lbl}: {drop_all:+.1f}%p` (`Rec {drop_rec:+.1f}%p`) · {q_clip_notes[idx_q]} | `{q_t:.0f}%` | {q_dot} `{q_g_all:+.1f}%p` / 🟢 `{q_g_rec:+.1f}%p` |"
+                f"| **{q['quartile']}** | {q_w1_cell} | {q_prv:.1f}% | **{q_now:.1f}%** | **{q_rec:.1f}%** | `{q_lat_s} / {q_prv_s}` | `{step_lbl}: {drop_all:+.1f}%p` (`Rec {drop_rec:+.1f}%p`) · {q_clip_notes[idx_q]} | `{q_t:.0f}%` | {q_dot} `{q_g_all:+.1f}%p` / {q_rec_dot} `{q_g_rec:+.1f}%p` |"
             )
 
-        q1_val = float(r_quarts[0]["today_pct"]) if r_quarts else 72.0
-        q2_val = float(r_quarts[1]["today_pct"]) if len(r_quarts) > 1 else 68.3
-        q3_val = float(r_quarts[2]["today_pct"]) if len(r_quarts) > 2 else 64.8
-        q4_val = float(r_quarts[-1]["today_pct"]) if r_quarts else 62.7
+        q1_val = float(r_quarts[0]["today_pct"]) if r_quarts else 0.0
+        q2_val = float(r_quarts[1]["today_pct"]) if len(r_quarts) > 1 else 0.0
+        q3_val = float(r_quarts[2]["today_pct"]) if len(r_quarts) > 2 else 0.0
+        q4_val = float(r_quarts[-1]["today_pct"]) if r_quarts else 0.0
         q1_q3_drop = q3_val - q1_val
-
-        # Section 3: Daily High-Signal Traffic & Geo Only (Shorts Feed % & US/Tier-1 %)
-        ts_map = {t["short_name"]: t for t in data["traffic_sources"]}
-        sf_rec = ts_map.get("Shorts Feed", {"pct": 87.3, "prev_pct": 74.5, "views": 1991})
-        sf_7d_diff = float(sf_rec["pct"]) - 28.0
-        sf_dod_diff = float(sf_rec["pct"]) - float(sf_rec["prev_pct"])
-
-        us_geo = next((g for g in data["geographies"] if g["country"] == "US"), {"pct": 53.2, "prev_pct": 51.8})
-        tier1_geos = [g for g in data["geographies"] if g["country"] in ("US", "UK", "CA", "AU")]
-        tier1_now = round(sum(float(g["pct"]) for g in tier1_geos), 1)
-        tier1_prev = round(sum(float(g["prev_pct"]) for g in tier1_geos), 1)
-        us_7d_diff = float(us_geo["pct"]) - 42.0
-        us_dod_diff = float(us_geo["pct"]) - float(us_geo["prev_pct"])
-        tier1_7d_diff = tier1_now - 48.0
-        tier1_dod_diff = tier1_now - tier1_prev
 
         data_mode = data.get("data_source_mode", "LOCAL_SNAPSHOT_BASELINE")
         snapshot_json_rel = f"BCI_Shorts_Channel/reports/daily/{data['report_date']}_studio_metrics.json"
@@ -4250,9 +4695,9 @@ class StudioAnalyticsReporter:
             if not c_measured:
                 sig_lbl = f"🟡 `Wait {elapsed_lbl}`"
             elif c_views >= 250:
-                sig_lbl = f"🟢 `+{delta_c:,}/1d`"
+                sig_lbl = f"🟢 `{delta_c:+,}/1d`"
             elif c_views >= 50:
-                sig_lbl = f"🟡 `+{delta_c:,}/1d`"
+                sig_lbl = f"🟡 `{delta_c:+,}/1d`"
             else:
                 sig_lbl = f"🔴 `Shown {c_imp:,}`"
 
@@ -4293,12 +4738,15 @@ class StudioAnalyticsReporter:
         pass_cnt = sum([1 if s1_pass else 0, 1 if s2_pass else 0, 1 if s3_pass else 0, 1 if s4_pass else 0, 1 if s5_pass else 0])
         overall_dot = "🟢" if pass_cnt >= 4 else ("🟡" if pass_cnt >= 3 else "🔴")
         overall_label = "순항 중" if pass_cnt >= 4 else ("점검 필요" if pass_cnt >= 3 else "경고")
+        rec_hook_dot = "🟢" if recent_viewed >= 70.0 else ("🟡" if recent_viewed >= 60.0 else "🔴")
+        rec_avd_dot = "🟢" if recent_avd >= 25.0 else ("🟡" if recent_avd >= 18.0 else "🔴")
+        rec_apv_dot = "🟢" if recent_apv >= 60.0 else ("🟡" if recent_apv >= 50.0 else "🔴")
 
         report_md = f"""# 🚦 ALL ABOUT BRAIN — Daily Growth Report ({data['report_date']})
 
 ## 🚦 0. 오늘의 채널 종합 진단: **{overall_dot} {overall_label} (핵심 {pass_cnt}/5 통과{s0_alert_suffix})**
 
-> **🚦 0. Executive Growth Pulse (7d)**: 🟢 **Subs** `{subs_now:,} ({subs_7d_gain:+d})` ｜ 🟢 **Shown→Views→Engaged** `{shown_now:,} → {views_now:,} → {engaged_now:,} ({shown_dod_diff:+,}/{views_dod_diff:+,}/{engaged_dod_diff:+,})` ｜ 🟢 **Watch** `{wh_now:.1f}h ({wh_7d_gain:+.1f}h)` ｜ {s2_dot} **3s Hook** `{viewed_now:.1f}% (Rec {recent_viewed:.1f}%)` ｜ 🟢 **APV** `{apv_now:.1f}% ({avd_now:.1f}s)` ｜ 🟡 **48h** `{rt48_now:,} ({rt48_pct:+.1f}%)`
+> **🚦 0. Executive Growth Pulse (7d)**: 🟢 **Subs** `{pulse_subs_lbl}` ｜ 🟢 **Shown→Views→Engaged** `{shown_now:,} → {views_now:,} → {engaged_now:,} ({shown_dod_diff:+,}/{views_dod_diff:+,}/{engaged_dod_diff:+,})` ｜ 🟢 **Watch** `{pulse_wh_lbl}` ｜ {s2_dot} **3s Hook** `{viewed_now:.1f}% (Rec {recent_viewed:.1f}%)` ｜ 🟢 **APV** `{apv_now:.1f}% ({avd_now:.1f}s)` ｜ 🟡 **48h** `{rt48_now:,} ({rt48_pct:+.1f}%)`
 
 | 진단 영역 | 상태 | 현재 수치 (전일 대비) | 기준 (Gate) | 한줄 진단 |
 | :--- | :---: | :---: | :---: | :--- |
@@ -4318,12 +4766,12 @@ class StudioAnalyticsReporter:
 
 | Metric | 7d Ago (`{d7_label}`) | 3d Ago (`{d3_label}`) | Yesterday (`{data['previous_report_date']}`) | **Today (`{data['report_date']}`)** | **1d Δ** | **7d Δ (`MA`)** | Gate | Signal |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Shown in feed** | {shown_7d_ago:,} | {shown_3d_ago:,} | {shown_prev:,} | **{shown_now:,}** | **`{shown_dod_diff:+,}` (`{shown_dod_pct:+.1f}%`)** | `{shown_7d_gain:+,}` (`{shown_daily_ma:.0f}/d`) | `+500/d` | 🟡 `{shown_dod_diff:+,}` |
-| **Views (`Viewed`)** | {v_7d_ago:,} | {v_3d_ago:,} | {views_prev:,} | **{views_now:,}** | **`{views_dod_diff:+,}` (`{views_dod_pct:+.1f}%`)** | **`{views_7d_gain:+,}` (`+{views_daily_ma:.0f}/d`)** | `>=70%` | 🟢 `{views_7d_pct:+.1f}%` |
-| **Engaged Views** | {engaged_7d_ago:,} | {engaged_3d_ago:,} | {engaged_prev:,} | **{engaged_now:,}** | **`{engaged_dod_diff:+,}` (`{engaged_dod_pct:+.1f}%`)** | **`{engaged_7d_gain:+,}` (`+{engaged_daily_ma:.0f}/d`)** | `>=55%` | 🟢 `{engaged_7d_pct:+.1f}%` |
-| **Watch Time (`h`)** | {wh_7d_ago:.1f}h | {wh_3d_ago:.1f}h | {wh_prev:.1f}h | **{wh_now:.1f}h** | `{wh_dod_diff:+.1f}h ({wh_dod_pct:+.1f}%)` | **`{wh_7d_gain:+.1f}h` (`+{wh_daily_ma:.1f}h/d`)** | `>0h` | 🟢 `{wh_7d_pct:+.1f}%` |
-| **Subscribers (`/1K`)** | {subs_7d_ago} (`1.85`) | {subs_3d_ago} (`{subs_per_1k_3d:.2f}`) | {subs_prev:,} (`{subs_per_1k_prev:.2f}`) | **{subs_now:,}** (`{subs_per_1k:.2f}`) | `{subs_dod_diff:+d} ({(subs_dod_diff/max(1,subs_prev))*100:+.1f}%)` | **`{subs_7d_gain:+d}` (`+{subs_daily_ma:.1f}/d`)** | `>=2.50` | 🟢 `{subs_per_1k:.2f}/1K` |
-| **Realtime 48h (`60m`)** | 540 | 730 | {rt48_prev:,} | **{rt48_now:,}** (`{ck['realtime_60m_views']}`) | **`{rt48_diff:+,}` (`{rt48_pct:+.1f}%`)** | **`Avg {rt48_7d_avg:,}`** (`Peak 1,412`) | `>={rt48_7d_avg:,}` | 🟡 `{rt48_pct:+.1f}%` |
+| **Shown in feed** | {shown_7d_cell} | {shown_3d_cell} | {shown_prev:,} | **{shown_now:,}** | **`{shown_dod_diff:+,}` (`{shown_dod_pct:+.1f}%`)** | {shown_7d_delta_cell} | `+500/d` | 🟡 `{shown_dod_diff:+,}` |
+| **Views (`Viewed`)** | {v_7d_cell} | {v_3d_cell} | {views_prev:,} | **{views_now:,}** | **`{views_dod_diff:+,}` (`{views_dod_pct:+.1f}%`)** | {views_7d_delta_cell} | `>=70%` | {views_sig_cell} |
+| **Engaged Views** | {eng_7d_cell} | {eng_3d_cell} | {engaged_prev:,} | **{engaged_now:,}** | **`{engaged_dod_diff:+,}` (`{engaged_dod_pct:+.1f}%`)** | {eng_7d_delta_cell} | `>=55%` | {eng_sig_cell} |
+| **Watch Time (`h`)** | {wh_7d_cell} | {wh_3d_cell} | {wh_prev:.1f}h | **{wh_now:.1f}h** | `{wh_dod_diff:+.1f}h ({wh_dod_pct:+.1f}%)` | {wh_7d_delta_cell} | `>0h` | {wh_sig_cell} |
+| **Subscribers (`/1K`)** | {subs_7d_cell} | {subs_3d_cell} | {subs_prev:,} (`{subs_per_1k_prev:.2f}`) | **{subs_now:,}** (`{subs_per_1k:.2f}`) | `{subs_dod_diff:+d} ({(subs_dod_diff/max(1,subs_prev))*100:+.1f}%)` | {subs_7d_delta_cell} | `>=2.50` | 🟢 `{subs_per_1k:.2f}/1K` |
+| **Realtime 48h (`60m`)** | {rt48_7d_cell} | {rt48_3d_cell} | {rt48_prev:,} | **{rt48_now:,}** (`{ck['realtime_60m_views']}`) | **`{rt48_diff:+,}` (`{rt48_pct:+.1f}%`)** | {rt48_7d_delta_cell} | `>={rt48_avg:,}` | 🟡 `{rt48_pct:+.1f}%` |
 
 ---
 
@@ -4333,9 +4781,9 @@ class StudioAnalyticsReporter:
 
 | Metric | 7d Ago | Yesterday | **All** | **Recent 3** | **Latest / Next** | **Drop-Off (`ΔQ`)** | Gate | Signal (`All` / `Rec`) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- | :---: | :---: |
-| **3s Hook (`Viewed %`)** | {viewed_7d_ago:.1f}% | {viewed_prev:.1f}% | **{viewed_now:.1f}%** | **{recent_viewed:.1f}%** | `84.8% / -` | `100%→3s: -{100.0 - viewed_now:.1f}%p` (`Rec -{100.0 - recent_viewed:.1f}%p`) | `70%` | {s2_dot} `{viewed_gap:+.1f}%p` / 🟢 `+{recent_viewed - 70.0:.1f}%p` |
-| **AVD (`s`)** | {avd_7d_ago:.1f}s | {avd_prev:.1f}s | **{avd_now:.1f}s** | **{recent_avd:.1f}s** | `53.0s / 44.5s` | `Len {avg_len:.1f}s` (`Rec 85.0s`) | `25s` | 🟢 `+{avd_now - 25.0:.1f}s` / 🟢 `+{recent_avd - 25.0:.1f}s` |
-| **APV (`%`)** | {apv_7d_ago:.1f}% | {apv_prev:.1f}% | **{apv_now:.1f}%** | **{recent_apv:.1f}%** | `63.2% / 51.8%` | `7d {apv_7d_diff:+.1f}%p` (`1d {apv_dod_diff:+.1f}%p`) | `60%` | 🟢 `{apv_gap:+.1f}%p` / 🟢 `+{recent_apv - 60.0:.1f}%p` |
+| **3s Hook (`Viewed %`)** | {viewed_7d_cell} | {viewed_prev:.1f}% | **{viewed_now:.1f}%** | **{recent_viewed:.1f}%** | `{lat_hook_s} / {prv_hook_s}` | `100%→3s: -{100.0 - viewed_now:.1f}%p` (`Rec -{100.0 - recent_viewed:.1f}%p`) | `70%` | {s2_dot} `{viewed_gap:+.1f}%p` / {rec_hook_dot} `{recent_viewed - 70.0:+.1f}%p` |
+| **AVD (`s`)** | {avd_7d_cell} | {avd_prev:.1f}s | **{avd_now:.1f}s** | **{recent_avd:.1f}s** | `{lat_avd_s} / {prv_avd_s}` | `Len {avg_len:.1f}s` (`Rec {recent_len:.1f}s`) | `25s` | 🟢 `{avd_now - 25.0:+.1f}s` / {rec_avd_dot} `{recent_avd - 25.0:+.1f}s` |
+| **APV (`%`)** | {apv_7d_cell} | {apv_prev:.1f}% | **{apv_now:.1f}%** | **{recent_apv:.1f}%** | `{lat_apv_s} / {prv_apv_s}` | {apv_drop_cell} | `60%` | {s3_dot} `{apv_gap:+.1f}%p` / {rec_apv_dot} `{recent_apv - 60.0:+.1f}%p` |
 {chr(10).join(q_rows)}
 
 ---
@@ -4346,14 +4794,14 @@ class StudioAnalyticsReporter:
 
 | Metric | 7d Ago (`{d7_label}`) | Yesterday (`{data['previous_report_date']}`) | **Today (`{data['report_date']}`)** | **7d Δ (`1d Δ`)** | Gate | Signal |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Shorts Feed (`%`)** | 28.0% | {sf_rec['prev_pct']:.1f}% | **{sf_rec['pct']:.1f}%** (`{sf_rec['views']:,}`) | **`{sf_7d_diff:+.1f}%p`** (`{sf_dod_diff:+.1f}%p`) | `>=70%` | 🟢 `{sf_rec['pct'] - 70.0:+.1f}%p` |
-| **US / Tier-1 (`%`)** | 42.0% / 48.0% | {us_geo['prev_pct']:.1f}% / {tier1_prev:.1f}% | **{us_geo['pct']:.1f}% / {tier1_now:.1f}%** | **`{us_7d_diff:+.1f}%p / {tier1_7d_diff:+.1f}%p`** (`{us_dod_diff:+.1f}%p / {tier1_dod_diff:+.1f}%p`) | `45% / 55%` | 🟢 `{us_geo['pct'] - 45.0:+.1f}%p / {tier1_now - 55.0:+.1f}%p` |
+| **Shorts Feed (`%`)** | {sf_7d_cell} | {sf_rec['prev_pct']:.1f}% | **{sf_rec['pct']:.1f}%** (`{sf_rec['views']:,}`) | {sf_7d_delta_cell} | `>=70%` | 🟢 `{sf_rec['pct'] - 70.0:+.1f}%p` |
+| **US / Tier-1 (`%`)** | {geo_7d_cell} | {us_geo['prev_pct']:.1f}% / {tier1_prev:.1f}% | **{us_geo['pct']:.1f}% / {tier1_now:.1f}%** | {geo_7d_delta_cell} | `45% / 55%` | 🟢 `{us_geo['pct'] - 45.0:+.1f}%p / {tier1_now - 55.0:+.1f}%p` |
 
 ---
 
 ## 4. Seed & Queue Tracker + Pipeline Calibration
 
-> **Queue & Operations Health**: 🌐 **Published** `{inv.get('published_count', 4)}` ｜ 📅 **Scheduled** `{sched_cnt} ({sched_days:.1f}d)` ｜ 🔒 **`Unlisted (Staged)`** `{inv.get('unlisted_staged_count', 0)}` ｜ 🔗 **Related Ring** `{linked_cnt}/{pub_total_cnt}` ｜ 📂 **Playlists** `{playlist_cnt}/{pub_total_cnt}` ｜ 🛠️ **Quarantine** `{inv.get('quarantine_count', 0)}`
+> **Queue & Operations Health**: 🌐 **Published** `{inv.get('published_count', 0)}` ｜ 📅 **Scheduled** `{sched_cnt} ({sched_days:.1f}d)` ｜ 🔒 **`Unlisted (Staged)`** `{inv.get('unlisted_staged_count', 0)}` ｜ 🔗 **Related Ring** `{linked_cnt}/{pub_total_cnt}` ｜ 📂 **Playlists** `{playlist_cnt}/{pub_total_cnt}` ｜ 🛠️ **Quarantine** `{inv.get('quarantine_count', 0)}`
 
 | Cohort | Published (`Elapsed`) | `Shown → Views` | `Time-to-Seed` | `Related Video` | `Z-Test` | Signal |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -4364,8 +4812,8 @@ class StudioAnalyticsReporter:
 | Signal | Bottleneck | Metric | Cause | Pipeline Action |
 | :---: | :--- | :---: | :--- | :--- |
 {bn1_row}
-| 🟡 | **Mid-Clip Drop (`Q1→Q3`)** | `{q1_q3_drop:+.1f}%p` (`-{q1_val - q2_val:.1f}%p / -{q2_val - q3_val:.1f}%p`) | Pacing drag in Clips 3–8 (`85s`) | **Gear 2/3**: `0.28s` pre-pivot hold, `<=18w/clip`, 4-color cutaway |
-| 🟡 | **Cumulative Hook (`All`)** | `All {viewed_now:.1f}%` vs `Rec {recent_viewed:.1f}%` | Legacy `31s` (`23.9%`) dilution | **Gear 2**: Lock `<=12w` case hook (`>=80%` Viewed) |
+| 🟡 | **Mid-Clip Drop (`Q1→Q3`)** | `{q1_q3_drop:+.1f}%p` (`-{q1_val - q2_val:.1f}%p / -{q2_val - q3_val:.1f}%p`) | Pacing drag in Clips 3–8 (`{avg_len:.0f}s`) | **Gear 2/3**: `0.28s` pre-pivot hold, `<=18w/clip`, 4-color cutaway |
+| 🟡 | **Cumulative Hook (`All`)** | `All {viewed_now:.1f}%` vs `Rec {recent_viewed:.1f}%` | Early cohort hook dilution | **Gear 2**: Lock `<=12w` case hook (`>=80%` Viewed) |
 
 ---
 
@@ -4373,14 +4821,519 @@ class StudioAnalyticsReporter:
 
 | Axis | 7d Trend | Current (`All / Rec`) | **W+1 Target** | Focus |
 | :--- | :---: | :---: | :---: | :--- |
-| **① Funnel & Seed** | `Shown +{shown_7d_gain:,}` · `Views +{views_7d_gain:,}` | `{shown_now:,} → {views_now:,} ({engaged_now:,})` | **`Shown +800/d` · `Seed <=24h` (`5,000+`)** | Multi-video seeding via `Related Video` chain |
-| **② Retention (`ΔQ`)** | `Viewed +44.1%p` · `APV +3.3%p` | `{viewed_now:.1f}% / {apv_now:.1f}%` (`{recent_viewed:.1f}% / {recent_apv:.1f}%`) | **`All Viewed >=72%` · `Q1→Q3 <=-5.0%p`** | Compress Clips 3–8 drop (`-7.2%p → -5.0%p`) |
-| **③ Market & Subs** | `US +11.2%p` · `Subs +{subs_7d_gain}` | `US {us_geo['pct']:.1f}% · T1 {tier1_now:.1f}%` (`{subs_now:,} · {subs_per_1k:.2f}/1K`) | **`US >=55%` · `T1 >=62%` (`Subs 20+`)** | Habit, memory & sleep neural circuit topics |
+| **① Funnel & Seed** | {w1_t1} | `{shown_now:,} → {views_now:,} ({engaged_now:,})` | **`Shown +800/d` · `Seed <=24h` (`5,000+`)** | Multi-video seeding via `Related Video` chain |
+| **② Retention (`ΔQ`)** | {w1_t2} | `{viewed_now:.1f}% / {apv_now:.1f}%` (`{recent_viewed:.1f}% / {recent_apv:.1f}%`) | **`All Viewed >=72%` · `Q1→Q3 <=-5.0%p`** | Compress Clips 3–8 drop (`{q1_q3_drop:+.1f}%p → -5.0%p`) |
+| **③ Market & Subs** | {w1_t3} | `US {us_geo['pct']:.1f}% · T1 {tier1_now:.1f}%` (`{subs_now:,} · {subs_per_1k:.2f}/1K`) | **`US >=55%` · `T1 >=62%` (`Subs 20+`)** | Habit, memory & sleep neural circuit topics |
 
 ---
 > **🔐 Provenance**: `{snapshot_json_rel}` | **Dashboard**: `{charts_filename}` | **Mode**: `{data_mode}` | **SHA-256**: `{prov_sha}`
 """
         return report_md
+
+    # ------------------------------------------------------------------
+    # 6-B. Per-Video Comparison Dashboard PNG & Video-by-Video Detail Report
+    # ------------------------------------------------------------------
+    def render_video_detail_charts_png(
+        self,
+        data: dict[str, Any],
+        output_path: Path,
+    ) -> Path:
+        """
+        Generates a 2-panel horizontal comparison PNG chart for the Video-by-Video Detail Report:
+        - Panel 1 (Left): Views & Watch Hours (h) per published Cohort
+        - Panel 2 (Right): 3s Hook (Viewed %), Watch Rate (APV %), and Q4 End Retention (%) vs Target Gates
+        """
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+        import numpy as np
+
+        pv_records = list(data.get("per_video_records") or [])
+        pub_cohorts = [r for r in pv_records if str(r.get("status", "")).lower() == "published"] or pv_records
+
+        bg = "#0B0F19"
+        panel_bg = "#111827"
+        grid = "#1E293B"
+        text_col = "#F8FAFC"
+        muted = "#94A3B8"
+        tl_green = "#22C55E"
+        tl_yellow = "#FACC15"
+        tl_red = "#EF4444"
+        blue = "#3B82F6"
+        cyan = "#38BDF8"
+
+        n_vids = max(1, len(pub_cohorts))
+        fig_h = max(5.2, 0.92 * n_vids + 1.9)
+        fig, (ax_l, ax_r) = plt.subplots(1, 2, figsize=(15.5, fig_h), dpi=160)
+        fig.patch.set_facecolor(bg)
+
+        for ax in (ax_l, ax_r):
+            ax.set_facecolor(panel_bg)
+            ax.tick_params(colors=text_col, labelsize=10.0)
+            ax.grid(True, axis="x", linestyle="--", alpha=0.28, color=grid)
+            for sp in ("top", "right"):
+                ax.spines[sp].set_visible(False)
+
+        if not pub_cohorts:
+            ax_l.text(0.5, 0.5, "No Published Videos Yet", ha="center", va="center", color=muted, fontsize=12)
+            ax_r.text(0.5, 0.5, "No Retention Data Yet", ha="center", va="center", color=muted, fontsize=12)
+        else:
+            labels = []
+            views_arr = []
+            colors_l = []
+            annot_l = []
+            hook_arr = []
+            apv_arr = []
+            q4_arr = []
+
+            for idx_c, r in enumerate(pub_cohorts):
+                dur_i = int(round(float(r.get("duration_seconds", 85.0))))
+                short_lbl = str(r.get("short_label") or r.get("project_id", ""))[:14]
+                labels.append(f"#{idx_c + 1} {short_lbl} ({dur_i}s)")
+
+                vw = int(r.get("views", 0))
+                dl = int(r.get("views_delta_num", 0))
+                wh = float(r.get("watch_hours", 0.0))
+                sb = int(r.get("subs_gained", 0))
+                views_arr.append(vw)
+                if vw >= 250:
+                    colors_l.append(tl_green)
+                elif vw >= 50:
+                    colors_l.append(tl_yellow)
+                else:
+                    colors_l.append(tl_red)
+                annot_l.append(f"{vw:,} ({dl:+,}/1d) | {wh:.1f}h | +{sb} subs")
+
+                hook_arr.append(float(r.get("viewed_pct", 0.0)))
+                apv_arr.append(float(r.get("apv_pct", 0.0)))
+                q4_arr.append(float(r.get("ret_q4_pct", 0.0)))
+
+            # Reverse so Cohort #1 is at the top
+            labels = labels[::-1]
+            views_arr = views_arr[::-1]
+            colors_l = colors_l[::-1]
+            annot_l = annot_l[::-1]
+            hook_arr = hook_arr[::-1]
+            apv_arr = apv_arr[::-1]
+            q4_arr = q4_arr[::-1]
+
+            y_pos = np.arange(len(labels))
+
+            # Left Panel: Views & Watch Hours
+            ax_l.barh(y_pos, views_arr, height=0.56, color=colors_l, alpha=0.90)
+            max_vw = max(views_arr + [100])
+            for yi, (vw_v, txt_v) in enumerate(zip(views_arr, annot_l)):
+                ax_l.text(
+                    vw_v + max_vw * 0.02,
+                    yi,
+                    txt_v,
+                    va="center",
+                    ha="left",
+                    color=text_col,
+                    fontsize=9.2,
+                    fontweight="bold",
+                )
+            ax_l.set_yticks(y_pos)
+            ax_l.set_yticklabels(labels, fontsize=10.2, fontweight="bold", color=text_col)
+            ax_l.set_xlim(0, max_vw * 1.58)
+            ax_l.set_xlabel("Cumulative Views (with 1d Delta, Watch Hours & Subs)", color=text_col, fontsize=11, fontweight="bold")
+            ax_l.set_title("1. Views, Watch Hours & Subscriber Conversion by Video", color=text_col, fontsize=12.5, fontweight="bold", pad=12)
+            from matplotlib.patches import Patch
+            ax_l.legend(
+                handles=[
+                    Patch(facecolor=tl_green, label="Active Seed (>= 250 Views)"),
+                    Patch(facecolor=tl_yellow, label="Initial / Search (50-249 Views)"),
+                    Patch(facecolor=tl_red, label="Seed Starved (< 50 Views)"),
+                ],
+                loc="upper center",
+                bbox_to_anchor=(0.5, -0.15),
+                ncol=3,
+                facecolor=bg,
+                edgecolor="#334155",
+                labelcolor=text_col,
+                fontsize=8.5,
+            )
+
+            # Right Panel: Hook / APV / Q4 Retention
+            bh = 0.24
+            ax_r.barh(y_pos + bh, hook_arr, height=bh, color=blue, alpha=0.90, label="3s Hook (Viewed %)")
+            ax_r.barh(y_pos, apv_arr, height=bh, color=tl_green, alpha=0.92, label="Watch Rate (APV %)")
+            ax_r.barh(y_pos - bh, q4_arr, height=bh, color=cyan, alpha=0.82, label="Q4 End Retention (%)")
+
+            ax_r.axvline(70.0, color=tl_yellow, linestyle="--", linewidth=1.6, alpha=0.85, label="Hook Gate (70%)")
+            ax_r.axvline(60.0, color="#FB923C", linestyle=":", linewidth=1.6, alpha=0.85, label="APV/Q4 Gate (60%)")
+
+            for yi, (hv, av, qv) in enumerate(zip(hook_arr, apv_arr, q4_arr)):
+                top_x = max(hv, av, qv)
+                ax_r.text(
+                    top_x + 1.5,
+                    yi,
+                    f"H {hv:.1f}% | APV {av:.1f}% | Q4 {qv:.1f}%",
+                    va="center",
+                    ha="left",
+                    color=text_col,
+                    fontsize=8.8,
+                    fontweight="bold",
+                )
+
+            ax_r.set_yticks(y_pos)
+            ax_r.set_yticklabels(labels, fontsize=10.2, fontweight="bold", color=text_col)
+            ax_r.set_xlim(0, 145)
+            ax_r.set_xlabel("Retention Percentage (%) vs Target Gates", color=text_col, fontsize=11, fontweight="bold")
+            ax_r.set_title("2. Per-Video Hook (Viewed %), APV (%) & End Retention (Q4 %)", color=text_col, fontsize=12.5, fontweight="bold", pad=12)
+            ax_r.legend(
+                loc="upper center",
+                bbox_to_anchor=(0.5, -0.15),
+                ncol=3,
+                facecolor=bg,
+                edgecolor="#334155",
+                labelcolor=text_col,
+                fontsize=8.5,
+            )
+
+        fig.suptitle(
+            f"ALL ABOUT BRAIN — Video-by-Video Performance & Retention Breakdown ({data['report_date']})",
+            color=text_col,
+            fontsize=14.0,
+            fontweight="bold",
+            y=0.98,
+        )
+        plt.tight_layout(rect=[0.01, 0.08, 0.99, 0.93])
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        fig.savefig(output_path, dpi=160, facecolor=bg)
+        plt.close(fig)
+        return output_path
+
+    def render_video_detail_report(
+        self,
+        data: dict[str, Any],
+        video_charts_filename: str,
+    ) -> str:
+        """
+        Renders the standalone Per-Video Detailed Report (`YYYY-MM-DD_video_detail_report.md`):
+        - Section 0: All-Videos Traffic-Light Matrix + Comparison Chart
+        - Section 1: Deep-Dive Diagnostic Cards for every published video (Cohort #1..#N)
+        - Section 2: Upcoming Scheduled / Staged Queue Status
+        """
+        pv_records = list(data.get("per_video_records") or [])
+        pub_cohorts = [r for r in pv_records if str(r.get("status", "")).lower() == "published"] or pv_records
+        ab_by_pid = {str(a.get("project_id", "")): a for a in (data.get("ab_test_rows") or [])}
+        upcoming = list(data.get("upcoming_schedule") or [])
+        inv = data.get("inventory_summary") or {}
+
+        pid_to_cohort_num: dict[str, int] = {
+            str(r.get("project_id", "")): idx_c + 1
+            for idx_c, r in enumerate(pub_cohorts)
+        }
+
+        green_cnt = 0
+        yellow_cnt = 0
+        red_cnt = 0
+        matrix_rows: list[str] = []
+        detail_cards: list[str] = []
+
+        top_views_rec = max(pub_cohorts, key=lambda r: int(r.get("views", 0)), default=None)
+        top_avd_rec = max(pub_cohorts, key=lambda r: float(r.get("avd_seconds", 0.0)), default=None)
+        top_delta_rec = max(pub_cohorts, key=lambda r: int(r.get("views_delta_num", 0)), default=None)
+
+        for idx_c, r in enumerate(pub_cohorts):
+            c_num = idx_c + 1
+            pid = str(r.get("project_id", ""))
+            vid = str(r.get("video_id", ""))
+            title = str(r.get("title") or pid)
+            url = str(r.get("shorts_url") or (f"https://www.youtube.com/shorts/{vid}" if vid else ""))
+            title_md = f"[{title}]({url})" if url else title
+            short_title = title if len(title) <= 38 else title[:35] + "..."
+            short_title_md = f"[{short_title}]({url})" if url else short_title
+
+            pillar = str(r.get("pillar") or "bci_tech")
+            dur = float(r.get("duration_seconds", 85.0))
+            clips = int(r.get("clip_count", 10))
+            words = int(r.get("word_count", 0))
+            prof_raw = str(r.get("production_profile", ""))
+            if prof_raw == "neuro_diorama" or dur >= 140.0:
+                fmt_badge = f"v6 Diorama (`{dur:.0f}s`)"
+                fmt_detail = f"Schema v6 Neuro-Diorama (`{dur:.1f}s` · `{clips}클립` · `{words}w`)"
+            elif dur < 55.0:
+                fmt_badge = f"Legacy Short (`{dur:.0f}s`)"
+                fmt_detail = f"초기 단축 포맷 (`{dur:.1f}s` · `{clips}클립` · `{words}w`)"
+            elif prof_raw == "shorts_v5":
+                fmt_badge = f"v5 Spine (`{dur:.0f}s`)"
+                fmt_detail = f"Schema v5 10-Clip Spine (`{dur:.1f}s` · `{clips}클립` · `{words}w`)"
+            else:
+                fmt_badge = f"10-Clip (`{dur:.0f}s`)"
+                fmt_detail = f"10-Clip Full Spine (`{dur:.1f}s` · `{clips}클립` · `{words}w`)"
+
+            pub_slot_lbl = str(
+                r.get("published_slot_str")
+                or f"{str(r.get('date', ''))[5:]} {r.get('time_et', '12:00')}"
+            )
+            try:
+                gen_et_raw = str(data.get("generated_at_et", "")).replace(" ET", "").strip()
+                if gen_et_raw.startswith(str(data["report_date"])) and len(gen_et_raw) >= 16:
+                    dt_rep = datetime.strptime(gen_et_raw[:16], "%Y-%m-%d %H:%M")
+                else:
+                    dt_rep = datetime.strptime(f"{data['report_date']} 12:00", "%Y-%m-%d %H:%M")
+                dt_pub_c = datetime.strptime(
+                    f"{r.get('date', data['report_date'])} {r.get('time_et', '12:00')}",
+                    "%Y-%m-%d %H:%M",
+                )
+                elapsed_h = max(1, int(round((dt_rep - dt_pub_c).total_seconds() / 3600.0)))
+                elapsed_lbl = f"+{elapsed_h}h"
+            except Exception:
+                elapsed_lbl = "+24h"
+
+            measured = bool(r.get("measured", True))
+            imp = int(r.get("impressions", 0))
+            views = int(r.get("views", 0))
+            v_prev = int(r.get("views_prev", 0))
+            delta_v = int(r.get("views_delta_num", 0))
+            growth_pct = float(r.get("views_growth_pct", 0.0))
+            wh = float(r.get("watch_hours", 0.0))
+            subs = int(r.get("subs_gained", 0))
+            subs_per_1k = (subs / max(1, views)) * 1000.0 if views > 0 else 0.0
+            likes = int(r.get("likes", 0))
+            comments = int(r.get("comments", 0))
+            shares = int(r.get("shares", 0))
+            top_tr = str(r.get("top_traffic") or "Shorts 피드")
+
+            vw_pct = float(r.get("viewed_pct", 0.0))
+            sw_pct = float(r.get("swiped_pct", 0.0))
+            avd_s = float(r.get("avd_seconds", 0.0))
+            apv_pct = float(r.get("apv_pct", 0.0))
+            rq1 = float(r.get("ret_q1_pct", 0.0))
+            rq2 = float(r.get("ret_q2_pct", 0.0))
+            rq3 = float(r.get("ret_q3_pct", 0.0))
+            rq4 = float(r.get("ret_q4_pct", 0.0))
+            ctr_pct = float(r.get("ctr_pct", 0.0))
+
+            # Traffic light classification per video
+            if not measured:
+                v_dot = "🟡"
+                v_status_short = f"집계 대기 ({elapsed_lbl})"
+                yellow_cnt += 1
+            elif views >= 250:
+                v_dot = "🟢"
+                green_cnt += 1
+                if delta_v >= 50:
+                    v_status_short = f"시드 가속 중 ({delta_v:+,}/1d)"
+                else:
+                    v_status_short = "주력 시드 앵커"
+            elif views >= 50:
+                v_dot = "🟡"
+                yellow_cnt += 1
+                if vw_pct < 50.0:
+                    v_status_short = "검색 유지 · 초반 훅 병목"
+                else:
+                    v_status_short = "1차 시드 탐색"
+            else:
+                v_dot = "🔴"
+                red_cnt += 1
+                v_status_short = f"시드 대기 (Shown {imp:,})"
+
+            hook_dot = "🟢" if vw_pct >= 70.0 else ("🟡" if vw_pct >= 65.0 else "🔴")
+            apv_dot = "🟢" if apv_pct >= 60.0 else ("🟡" if apv_pct >= 50.0 else "🔴")
+
+            tgt_pid = str(r.get("related_target_project_id", ""))
+            tgt_num = pid_to_cohort_num.get(tgt_pid)
+            if r.get("related_verified") and tgt_num:
+                rel_lbl = f"`✅ → #{tgt_num}`"
+                rel_detail = f"✅ 활성 (`→ Cohort #{tgt_num}` · `{tgt_pid}`)"
+            elif r.get("related_verified"):
+                rel_lbl = "`✅ Linked`"
+                rel_detail = f"✅ 활성 (`{tgt_pid or '연결 완료'}`)"
+            else:
+                rel_lbl = "`Unlinked`"
+                rel_detail = "⚠️ 미연결 (`studio-link` 실행 필요)"
+
+            matrix_rows.append(
+                f"| **#{c_num}** | {short_title_md} | {fmt_badge} | `{pub_slot_lbl}` (`{elapsed_lbl}`) | "
+                f"`{imp:,} → {views:,}` (`{delta_v:+,}`) | {hook_dot} `{vw_pct:.1f}%` | "
+                f"{apv_dot} `{avd_s:.1f}s` (`{apv_pct:.1f}%`) | `{wh:.1f}h` · `+{subs}` | {rel_lbl} | {v_dot} `{v_status_short}` |"
+            )
+
+            # Quartile step deltas
+            dq_0_1 = rq1 - 100.0
+            dq_1_2 = rq2 - rq1
+            dq_2_3 = rq3 - rq2
+            dq_3_4 = rq4 - rq3
+            if prof_raw == "neuro_diorama" or dur >= 140.0:
+                mid_steps = [
+                    ("Q1→Q2 (Act 2–3)", dq_1_2),
+                    ("Q2→Q3 (Act 4)", dq_2_3),
+                    ("Q3→Q4 (Act 5–6)", dq_3_4),
+                ]
+            elif clips <= 5:
+                mid_steps = [
+                    ("Q1→Q2 (클립 2)", dq_1_2),
+                    ("Q2→Q3 (클립 3)", dq_2_3),
+                    (f"Q3→Q4 (클립 4–{max(4, clips)})", dq_3_4),
+                ]
+            else:
+                mid_steps = [
+                    ("Q1→Q2 (클립 3–5)", dq_1_2),
+                    ("Q2→Q3 (클립 6–8)", dq_2_3),
+                    ("Q3→Q4 (클립 9–10)", dq_3_4),
+                ]
+            worst_step_name, worst_step_val = min(mid_steps, key=lambda x: x[1])
+            best_step_name, best_step_val = max(mid_steps, key=lambda x: x[1])
+            if best_step_val > 0.5:
+                dq_summary = f"반등 구간 `{best_step_name} ({best_step_val:+.1f}%p)` · 주요 낙폭 `{worst_step_name} ({worst_step_val:+.1f}%p)`"
+            else:
+                dq_summary = f"초반 진입 `0%→Q1 ({dq_0_1:+.1f}%p)` · 중후반 최대 낙폭 `{worst_step_name} ({worst_step_val:+.1f}%p)`"
+
+            ab_info = ab_by_pid.get(pid, {})
+            act_var = str(r.get("active_variant", "A"))
+            ab_verdict = str(ab_info.get("verdict") or f"Variant {act_var} 활성")
+            pl_badge = f"✅ `{r.get('playlist_title') or pillar}`" if r.get("playlist_verified") else "⚠️ 미배정"
+            doi_val = str(r.get("doi") or "Verified")
+            doi_pin = str(r.get("doi_pinned") or "✅ Pinned")
+            hook_txt = str(r.get("hook_sentence") or "").strip()
+            hook_display = f"`\"{hook_txt}\"`" if hook_txt else "`(스크립트 첫 문장 확인)`"
+
+            # Dynamic data-driven root cause & tailored action
+            if not measured:
+                diag_text = f"게시 후 `{elapsed_lbl}` 경과 상태로 YouTube Studio 리텐션·노출 DOM 집계가 아직 반영되기 전입니다."
+                act_text = "초기 24h 시드 보호 구간(Rule R30-B) 동안 메타데이터 수정을 삼가고 첫 피드 노출 진입을 대기합니다."
+            elif views >= 250 and delta_v >= 50:
+                hook_eval = (
+                    f"초반 3초 훅(`Viewed {vw_pct:.1f}%`)이 목표선(`70%`)에 근접(`{vw_pct - 70.0:+.1f}%p`)하며"
+                    if vw_pct < 70.0
+                    else f"초반 3초 훅(`Viewed {vw_pct:.1f}%`)이 목표(`70%`)를 상회하고"
+                )
+                diag_text = (
+                    f"{hook_eval}, `{dur:.1f}s` 장척 포맷에서 평균 `{avd_s:.1f}s`(`APV {apv_pct:.1f}%`, `Q4 {rq4:.1f}%`)라는 압도적 체류 시간을 기록해 "
+                    f"전일 대비 **`{delta_v:+,}` (`{growth_pct:+.1f}%`)** 실시간 피드 확장을 견인 중입니다 (단일 영상 시청시간 `{wh:.1f}h`, 구독 `+{subs}`)."
+                )
+                act_text = (
+                    f"현재 급상승 피드 파동이 진행 중이므로 제목·썸네일 수정을 보류해 알고리즘 모멘텀을 보호하고, "
+                    f"`Related Video`(`→ Cohort #{tgt_num or '?'}`)를 통한 시드 대기 코호트 유입 전이율을 모니터링합니다."
+                )
+            elif views >= 250:
+                diag_text = (
+                    f"초반 3초 훅 **`Viewed {vw_pct:.1f}%`** (`목표 대비 {vw_pct - 70.0:+.1f}%p`) 및 평균 시청 지속시간 **`{avd_s:.1f}s` (`APV {apv_pct:.1f}%`)**로 "
+                    f"누적 조회 **`{views:,}`** · 시청시간 **`{wh:.1f}h`** · 구독 **`+{subs}`**(`{subs_per_1k:.1f}/1K`)를 창출한 채널 핵심 앵커 영상입니다."
+                )
+                act_text = (
+                    f"`Related Video`(`→ Cohort #{tgt_num or '?'}`) 앵커 브릿지를 유지해 저노출 코호트로 시청자를 흘려보내고, "
+                    f"본 영상의 검증된 `10클립 + 구체적 임상 사례 훅` 공식을 동일 `{pillar}` 필러 차기작에 복제합니다."
+                )
+            elif views >= 50 and dur >= 60.0 and apv_pct >= 60.0:
+                diag_text = (
+                    f"게시 후 `{elapsed_lbl}` 경과 시점에 `Shown {imp:,} → Views {views:,}`(`{delta_v:+,}/1d`) 1차 Shorts 피드 시드가 가동 중이며, "
+                    f"`{dur:.1f}s` 장척 포맷에서 평균 **`{avd_s:.1f}s` (`APV {apv_pct:.1f}%`, `Q2 {rq2:.1f}%`)**의 높은 체류율과 시청시간 `{wh:.1f}h`를 기록하고 있습니다."
+                )
+                act_text = (
+                    f"초기 24h 시드 확장 구간이므로 메타데이터 수정을 보류해 2차 피드 확산을 유도하고, "
+                    f"차기 디오라마 에피소드는 첫 문장 `\"Imagine...\"` 대신 즉각적 물리 행동 훅(Rule R57-H)을 적용해 `Viewed >= 72%`로 끌어올립니다."
+                )
+            elif views >= 50:
+                diag_text = (
+                    f"누적 `{views:,}` 중 `{top_tr}` 비중이 높으며, 초기 `{dur:.1f}s` 단축 포맷과 개념 선행형 첫 문장으로 인해 "
+                    f"Shorts 피드 노출 시 초반 스와이프 이탈(`Swiped {sw_pct:.1f}%`, `Viewed {vw_pct:.1f}%`)이 발생해 2차 피드 시드가 제한되었습니다."
+                )
+                act_text = (
+                    f"에버그린 검색 유입 창구로 유지하되(`Related Video → Cohort #{tgt_num or '?'}`), "
+                    f"동일 `{pillar}` 필러 후속편은 반드시 `85s+` 장척 포맷과 첫 3초 즉각적 시각 행동 훅으로 제작해 `Viewed >= 75%`를 확보합니다."
+                )
+            else:
+                diag_text = (
+                    f"초기 표본 리텐션(`Viewed {vw_pct:.1f}%` · `AVD {avd_s:.1f}s` · `APV {apv_pct:.1f}%`) 자체는 양호하나, "
+                    f"상위 앵커 영상들에 채널 피드 노출이 집중되면서 아직 1차 피드 테스트 노출(`Shown {imp:,}`)이 열리지 않은 시드 대기 상태입니다."
+                )
+                act_text = (
+                    f"상위 앵커 영상에서 연결된 `Related Video` 순환 링을 통해 초기 고관여 시청자 시드를 수혈하며, "
+                    f"알고리즘 인덱싱 교란 방지를 위해 불필요한 메타데이터 재수정은 지양하고 1차 피드 배정을 대기합니다."
+                )
+
+            detail_cards.append(
+                f"""### Cohort #{c_num} · {title_md} — {v_dot} `{v_status_short}`
+
+> **스펙 & 운영 메타**: `{pid}` (`{vid}`) ｜ 📂 `{pillar}` ｜ 🎞️ {fmt_detail} ｜ 📅 `{r.get('date')} {r.get('time_et')} ET` (`{elapsed_lbl}`) ｜ 📄 DOI `{doi_val}` ({doi_pin})
+
+| 구분 | 노출 (`Shown`) | 조회 (`Views` / `1d Δ`) | 시청시간 (`Watch`) | 구독 (`Subs`) | 반응 (`좋아요/댓글/공유`) | 주 유입원 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **퍼널·성장** | `{imp:,}` | **`{views:,}`** (`{delta_v:+,}` / `{growth_pct:+.1f}%`) | **`{wh:.2f}h`** | `+{subs}` (`{subs_per_1k:.1f}/1K`) | `{likes} / {comments} / {shares}` | `{top_tr}` |
+
+| 구분 | 3초 훅 (`Viewed / Swiped`) | 평균 시청 (`AVD / APV`) | `Q1 (25%)` | `Q2 (50%)` | `Q3 (75%)` | `Q4 (100%)` | 구간 이탈 요약 (`ΔQ`) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| **리텐션** | {hook_dot} **`{vw_pct:.1f}%`** / `{sw_pct:.1f}%` | {apv_dot} **`{avd_s:.1f}s`** (`{apv_pct:.1f}%`) | `{rq1:.1f}%` | `{rq2:.1f}%` (`{dq_1_2:+.1f}%p`) | `{rq3:.1f}%` (`{dq_2_3:+.1f}%p`) | `{rq4:.1f}%` (`{dq_3_4:+.1f}%p`) | {dq_summary} |
+
+- **오프닝 훅 문장**: {hook_display}
+- **스튜디오 연결 & Z-Test**: `Related Video` {rel_detail} ｜ 재생목록 {pl_badge} ｜ 썸네일 `{ab_verdict}` (`CTR {ctr_pct:.1f}%`)
+- **원인 진단**: {diag_text}
+- **맞춤 액션**: {act_text}"""
+            )
+
+        if not matrix_rows:
+            matrix_rows.append(
+                "| **#1** | (공개 영상 없음) | - | - | `0 → 0` | - | - | `0.0h` | - | 🟡 `대기` |"
+            )
+
+        top_v_str = (
+            f"`Cohort #{pid_to_cohort_num.get(str(top_views_rec['project_id']), 1)}` (`{int(top_views_rec['views']):,}`)"
+            if top_views_rec
+            else "-"
+        )
+        top_avd_str = (
+            f"`Cohort #{pid_to_cohort_num.get(str(top_avd_rec['project_id']), 1)}` (`{float(top_avd_rec['avd_seconds']):.1f}s`)"
+            if top_avd_rec
+            else "-"
+        )
+        top_dl_str = (
+            f"`Cohort #{pid_to_cohort_num.get(str(top_delta_rec['project_id']), 1)}` (`{int(top_delta_rec['views_delta_num']):+,}/1d`)"
+            if top_delta_rec
+            else "-"
+        )
+
+        if upcoming:
+            up_rows = [
+                "| 예약 일시 (`ET`) | 슬롯 | 프로젝트 ID | 제목 | 필러 | 상태 |",
+                "| :---: | :---: | :--- | :--- | :---: | :---: |",
+            ]
+            for u in upcoming:
+                up_rows.append(
+                    f"| `{u.get('date')} {u.get('time_et')}` | Slot {u.get('slot_id')} (`{u.get('slot_name', '')}`) | "
+                    f"`{u.get('project_id')}` | {u.get('title')} | `{u.get('pillar')}` | `{u.get('status')}` |"
+                )
+            upcoming_block = "\n".join(up_rows)
+        else:
+            vac_cnt = int(inv.get("vacant_slot_count", 0))
+            upcoming_block = (
+                f"> ⚠️ **현재 예약 대기(`Scheduled`) 영상 `0`건** (빈 프라임 슬롯 `{vac_cnt}`개 대기 중) — "
+                f"차기 v5/v6 검증 완료 에피소드를 `12:00 ET` / `20:00 ET` 프라임 슬롯에 배정하세요."
+            )
+
+        data_mode = data.get("data_source_mode", "LOCAL_SNAPSHOT_BASELINE")
+        snapshot_json_rel = f"BCI_Shorts_Channel/reports/daily/{data['report_date']}_studio_metrics.json"
+        prov_sha = data.get("provenance_sha256", "N/A")
+
+        detail_md = f"""# 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 ({data['report_date']})
+
+## 🚦 0. 전 영상 신호등 요약 매트릭스 (총 `{len(pub_cohorts)}`편)
+
+> **📊 포트폴리오 현황**: 🟢 **시드 돌파·가속** `{green_cnt}편` ｜ 🟡 **검색·탐색 유지** `{yellow_cnt}편` ｜ 🔴 **1차 시드 대기** `{red_cnt}편` ｜ 🏆 **최다 조회** {top_v_str} ｜ ⏱️ **최장 체류** {top_avd_str} ｜ 🚀 **일간 급상승** {top_dl_str}
+
+![Per-Video Performance & Retention Breakdown]({video_charts_filename})
+
+| 코호트 | 영상 제목 (링크) | 포맷 | 게시 (`경과`) | `Shown → Views` (`1d Δ`) | 3초 훅 (`Viewed`) | 평균 시청 (`AVD / APV`) | 시청시간 · 구독 | `Related` | 종합 신호 |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+{chr(10).join(matrix_rows)}
+
+---
+
+## 🔍 1. 영상별 심층 진단 카드 (`Cohort #1 ~ #{max(1, len(pub_cohorts))}`)
+
+{chr(10).join([c + chr(10) + chr(10) + "---" for c in detail_cards]) if detail_cards else "공개된 영상이 없습니다."}
+
+## 📅 2. 예약 대기 & 스테이징 큐 현황 (`Scheduled Queue`)
+
+{upcoming_block}
+
+---
+> **🔐 Provenance**: `{snapshot_json_rel}` | **Video Charts**: `{video_charts_filename}` | **Mode**: `{data_mode}` | **SHA-256**: `{prov_sha}`
+"""
+        return detail_md
 
     # ------------------------------------------------------------------
     # 7. End-to-End Daily Report Generation Entrypoint
@@ -4392,18 +5345,54 @@ class StudioAnalyticsReporter:
         dry_run: bool = False,
     ) -> dict[str, Any]:
         """
-        Collects daily studio metrics, saves the raw JSON snapshot, renders the
-        4 standalone per-section PNG charts (plus the summary dashboard PNG),
-        renders the normalized 5-section Markdown report, and updates LATEST_DAILY_REPORT.md.
+        Collects daily studio metrics, saves the raw JSON snapshot, renders both:
+        1) Channel Executive Report (`YYYY-MM-DD_daily_studio_report.md` & `LATEST_DAILY_REPORT.md`)
+        2) Video-by-Video Detail Report (`YYYY-MM-DD_video_detail_report.md` & `LATEST_VIDEO_DETAIL_REPORT.md`)
+        along with their respective standalone PNG chart suites.
         """
         import shutil
+        import tempfile
 
-        metrics = self.collect_daily_metrics(
-            report_date=report_date,
-            compare_date=compare_date,
-            dry_run=dry_run,
-        )
-        r_date = metrics["report_date"]
+        lock_file_path = Path(tempfile.gettempdir()) / "aab_studio_report.lock"
+        lock_fp = None
+        try:
+            import fcntl
+
+            lock_fp = lock_file_path.open("w", encoding="utf-8")
+            fcntl.flock(lock_fp.fileno(), fcntl.LOCK_EX)
+        except Exception:
+            pass
+
+        try:
+            metrics = self.collect_daily_metrics(
+                report_date=report_date,
+                compare_date=compare_date,
+                dry_run=dry_run,
+            )
+            r_date = metrics["report_date"]
+
+            self.reports_dir.mkdir(parents=True, exist_ok=True)
+            json_check_path = self.reports_dir / f"{r_date}_studio_metrics.json"
+            if (
+                not dry_run
+                and metrics.get("data_source_mode") != "LIVE_CDP_DOM"
+                and json_check_path.exists()
+            ):
+                try:
+                    existing_m = json.loads(json_check_path.read_text(encoding="utf-8"))
+                    if existing_m.get("data_source_mode") == "LIVE_CDP_DOM":
+                        metrics = existing_m
+                except Exception:
+                    pass
+        finally:
+            if lock_fp is not None:
+                try:
+                    import fcntl
+
+                    fcntl.flock(lock_fp.fileno(), fcntl.LOCK_UN)
+                except Exception:
+                    pass
+                lock_fp.close()
 
         self.reports_dir.mkdir(parents=True, exist_ok=True)
         is_default_dir = self.reports_dir.resolve() == DAILY_REPORTS_DIR.resolve()
@@ -4411,7 +5400,10 @@ class StudioAnalyticsReporter:
             REPORTS_ROOT_DIR.mkdir(parents=True, exist_ok=True)
             latest_charts_target = LATEST_CHARTS_FILE
             latest_report_target = LATEST_REPORT_FILE
+            latest_video_charts_target = LATEST_VIDEO_DETAIL_CHARTS_FILE
+            latest_video_report_target = LATEST_VIDEO_DETAIL_REPORT_FILE
             latest_chart_rel = f"daily/{r_date}_studio_charts.png"
+            latest_video_chart_rel = f"daily/{r_date}_video_detail_charts.png"
             latest_sec_charts = {
                 "sec1": f"daily/{r_date}_sec1_channel_growth.png",
                 "sec2": f"daily/{r_date}_sec2_video_retention_performance.png",
@@ -4421,7 +5413,10 @@ class StudioAnalyticsReporter:
         else:
             latest_charts_target = self.reports_dir / "LATEST_STUDIO_CHARTS.png"
             latest_report_target = self.reports_dir / "LATEST_DAILY_REPORT.md"
+            latest_video_charts_target = self.reports_dir / "LATEST_VIDEO_DETAIL_CHARTS.png"
+            latest_video_report_target = self.reports_dir / "LATEST_VIDEO_DETAIL_REPORT.md"
             latest_chart_rel = f"{r_date}_studio_charts.png"
+            latest_video_chart_rel = f"{r_date}_video_detail_charts.png"
             latest_sec_charts = {
                 "sec1": f"{r_date}_sec1_channel_growth.png",
                 "sec2": f"{r_date}_sec2_video_retention_performance.png",
@@ -4432,15 +5427,19 @@ class StudioAnalyticsReporter:
         json_path = self.reports_dir / f"{r_date}_studio_metrics.json"
         md_path = self.reports_dir / f"{r_date}_daily_studio_report.md"
         charts_path = self.reports_dir / f"{r_date}_studio_charts.png"
+        video_md_path = self.reports_dir / f"{r_date}_video_detail_report.md"
+        video_charts_path = self.reports_dir / f"{r_date}_video_detail_charts.png"
 
-        # Render overview PNG chart and per-section standalone PNG charts
+        # Render overview PNG chart, per-section standalone PNG charts, and per-video comparison PNG chart
         self.render_dashboard_charts_png(metrics, charts_path)
         sec_paths = self.render_section_charts_png(metrics, self.reports_dir, prefix=r_date)
+        self.render_video_detail_charts_png(metrics, video_charts_path)
         shutil.copy2(charts_path, latest_charts_target)
+        shutil.copy2(video_charts_path, latest_video_charts_target)
 
         daily_sec_charts = {k: p.name for k, p in sec_paths.items()}
 
-        # Render Markdown report with relative section chart links
+        # Render Channel Executive Markdown report
         daily_md = self.render_markdown_report(
             metrics,
             charts_filename=charts_path.name,
@@ -4452,9 +5451,21 @@ class StudioAnalyticsReporter:
             section_charts=latest_sec_charts,
         )
 
+        # Render Per-Video Detailed Markdown report
+        daily_video_md = self.render_video_detail_report(
+            metrics,
+            video_charts_filename=video_charts_path.name,
+        )
+        latest_video_md = self.render_video_detail_report(
+            metrics,
+            video_charts_filename=latest_video_chart_rel,
+        )
+
         json_path.write_text(json.dumps(metrics, indent=2, ensure_ascii=False), encoding="utf-8")
         md_path.write_text(daily_md, encoding="utf-8")
         latest_report_target.write_text(latest_md, encoding="utf-8")
+        video_md_path.write_text(daily_video_md, encoding="utf-8")
+        latest_video_report_target.write_text(latest_video_md, encoding="utf-8")
 
         return {
             "report_date": r_date,
@@ -4465,6 +5476,10 @@ class StudioAnalyticsReporter:
             "latest_charts_path": str(latest_charts_target),
             "markdown_path": str(md_path),
             "latest_report_path": str(latest_report_target),
+            "video_detail_charts_path": str(video_charts_path),
+            "latest_video_detail_charts_path": str(latest_video_charts_target),
+            "video_detail_markdown_path": str(video_md_path),
+            "latest_video_detail_report_path": str(latest_video_report_target),
             "master_prompt_path": str(MASTER_PROMPT_FILE),
             "metrics": metrics,
         }

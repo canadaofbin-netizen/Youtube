@@ -1,0 +1,678 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "lowpoly_pastel_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "rubber_hand_body_plasticity",
+  "topic": "Botvinick & Cohen (1998) Synchronous Paintbrush Sculpted-Hand Body-Ownership Illusion, Proprioceptive Drift, Premotor-Parietal Multisensory Integration, Insula Threat Reflex, and Bionic Embodiment (Low-Poly Pastel v7)",
+  "act5_climax_episode": "Translation of Botvinick & Cohen's 60-second synchronous visuotactile ownership principle and Ehrsson's premotor-insula fMRI discoveries into sensory-feedback bionic prosthetics.",
+  "outro_title_lines": [
+    "BOTVINICK & COHEN (1998)",
+    "CARNEGIE MELLON & PITTSBURGH"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "FIXED BODY?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FAKE HAND SNAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SIXTY SEC SHIFT"
+    },
+    {
+      "sentence_index": 19,
+      "text": "BODY MAP FUSION"
+    },
+    {
+      "sentence_index": 28,
+      "text": "REAL SWEAT SPIKE"
+    },
+    {
+      "sentence_index": 36,
+      "text": "BIONIC TOUCH"
+    },
+    {
+      "sentence_index": 44,
+      "text": "LIVING BORDERS"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "FIXED BODY?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FAKE HAND SNAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SIXTY SEC SHIFT"
+    },
+    {
+      "sentence_index": 19,
+      "text": "BODY MAP FUSION"
+    },
+    {
+      "sentence_index": 28,
+      "text": "REAL SWEAT SPIKE"
+    },
+    {
+      "sentence_index": 36,
+      "text": "BIONIC TOUCH"
+    },
+    {
+      "sentence_index": 44,
+      "text": "LIVING BORDERS"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 16,
+      "mode": "split_hstack",
+      "left_clip_index": 18,
+      "right_clip_index": 19,
+      "left_label": "IN SYNC: DRIFT",
+      "right_label": "DELAYED: ZERO"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved low-poly hands extending from the bottom frame edge separated by a vertical cool slate-stone partition screen",
+      "prop_action": "the real left cool porcelain-white gloved low-poly hand rests hidden left of the slate screen while a matching matte chalk-white faceted low-poly decoy hand sits centered in view",
+      "consequence": "two soft powder-blue bristle brushes with brushed-silver handles descend together above both hands"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands holding two matching soft powder-blue bristle brushes across the slate-stone partition",
+      "prop_action": "both cool porcelain-white gloved low-poly hands glide the two soft powder-blue bristle brushes down the index fingers of both matte chalk-white hands in exact unison",
+      "consequence": "a soft mint-sage pulse ring links the visible matte chalk-white decoy hand to the hidden left hand"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved low-poly hands stroking the matte chalk-white faceted decoy hand on a cool slate-stone mat",
+      "prop_action": "the cool porcelain-white gloved low-poly hand sweeps the powder-blue bristle brush smoothly along the matte chalk-white decoy knuckles and lifts cleanly as gloved fingers reach and press cleanly",
+      "consequence": "soft powder-blue light shimmers across the matte chalk-white decoy fingers"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy shirt cuffs and cool porcelain-white gloved low-poly hands positioning the vertical cool slate-stone partition screen",
+      "prop_action": "one cool porcelain-white gloved low-poly hand slots the vertical slate-stone partition into the table groove while the other hand aligns the matte chalk-white decoy hand beside a cloth cuff as gloved fingers reach and press cleanly",
+      "consequence": "the partition hides the real left hand while leaving the matte chalk-white decoy hand centered"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a sunlit cognitive laboratory with cool mist-white walls, a cool slate-stone testing table divided by a vertical slate partition, and an unmarked under-table drift bar",
+      "action": "viewed strictly from behind the volunteer in a powder-blue sweater, an experimenter in a white lab coat leans across the table and glides two matching powder-blue bristle brushes in unison over the hidden and visible chalk-white hands"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a sculpted matte chalk-white low-poly forearm model on a cool limestone base showing rigid silver wire tracks contrasted against a flexible mint-sage optical arc",
+      "internal_mechanism": "the flexible mint-sage optical arc shifts smoothly sideways toward a nearby chalk-white decoy hand silhouette"
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy coat sleeves and cool porcelain-white gloved low-poly hands clamping a rigid silver bracket around a chalk-white forearm model",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set and latch a rigid brushed-silver border ring around the sculpted chalk-white wrist",
+      "consequence": "the rigid silver border ring sits locked in place on the limestone stand"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright Pittsburgh psychology lab with clothed low-poly volunteers seated along a cool limestone waiting bench beside the partition table",
+      "action": "viewed strictly from behind, two clothed low-poly neuroscientists in white lab coats and boots welcome the next volunteer in a mint-sage sweater to the slate partition table while figures step forward and turn calmly"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage sweater sleeves and cool porcelain-white gloved low-poly hands resting on the cool slate-stone tabletop",
+      "prop_action": "the real left cool porcelain-white gloved low-poly hand slides behind the opaque slate-stone divider out of sight while the matte chalk-white decoy hand sits right in front",
+      "consequence": "from the seated view only the matte chalk-white decoy left hand remains visible"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-limestone boutique counter displaying a sculpted matte chalk-white low-poly glove stand mounted on a brushed-silver base",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in navy sleeves lift and set the matte chalk-white sculpted glove stand neatly at center counter"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands holding the two powder-blue bristle brushes",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lower and glide the two soft powder-blue bristle brushes across both chalk-white hands at the exact same beat",
+      "consequence": "twin mint-sage ripple rings bloom simultaneously on both sides of the slate divider",
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "act": 1,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright cool-limestone Pittsburgh lab table with the vertical slate partition separating the hidden left hand and visible chalk-white decoy hand",
+      "action": "viewed strictly from behind, the volunteer in a mint-sage sweater leans forward and rests still as both powder-blue brushes glide in unison",
+      "sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved low-poly hands brushing both chalk-white hands in steady rhythm",
+      "prop_action": "both cool porcelain-white gloved low-poly hands stroke and lift the two powder-blue bristle brushes in crisp lockstep beside a plain tick-only silver timer without numbers as gloved fingers reach and press cleanly",
+      "consequence": "the matte chalk-white decoy hand glows softly with mint-sage ownership light"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool slate-stone shelf holding a minimalist matte powder-blue tabletop radio with a brushed-silver rotary dial without numbers",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves grip and turn the brushed-silver radio dial until a crisp mint-sage lock indicator lights cleanly"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "mint-sage sweater sleeves and cool porcelain-white gloved low-poly hands facing the matte chalk-white decoy hand across the slate mat",
+      "prop_action": "a soft powder-blue bristle brush glides down the matte chalk-white decoy index finger as soft mint-sage light radiates directly from the sculpted knuckles as gloved fingers reach and press cleanly",
+      "consequence": "the matte chalk-white decoy hand appears visually linked to the sweater cuff"
+    },
+    {
+      "sentence_index": 13,
+      "end_sentence_index": 14,
+      "act": 2,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "mint-sage sweater sleeve and right cool porcelain-white gloved low-poly hand sliding along an unmarked cool-limestone under-table drift rail",
+      "prop_action": "the right cool porcelain-white gloved low-poly hand glides beneath the slate tabletop and points upward past the hidden real hand toward the matte chalk-white decoy hand",
+      "consequence": "a mint-sage slider peg stops noticeably shifted rightward toward the decoy position"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool mist-white limestone tabletop holding a matte powder-blue rectangular magnet bar beside a smooth brushed-silver steel slider block",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in blazer sleeves slide the powder-blue magnet bar close pulling and snapping the brushed-silver slider sideways across the stone"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands brushing both chalk-white hands in unison on the left",
+      "prop_action": "two powder-blue brushes stroke together in sync as the under-table gloved finger slides rightward toward the decoy peg",
+      "consequence": "a wide mint-sage drift gap opens on the left rail"
+    },
+    {
+      "sentence_index": 16,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands brushing out of sync on the right",
+      "prop_action": "one powder-blue brush strokes left while the other brush waits then strokes late as the under-table gloved finger points straight to the true left hand as gloved fingers reach and press cleanly",
+      "consequence": "zero drift appears on the right rail"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool slate-stone circuit board base mounting a clean brushed-silver knife switch bridging two mint-sage light posts",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves lift and open the brushed-silver switch blade extinguishing the mint-sage bridge light immediately"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the bright Pittsburgh partition table showing the shifted mint-sage drift peg beneath the matte chalk-white decoy hand",
+      "action": "viewed strictly from behind, the volunteer in a mint-sage sweater leans forward in surprise as the researcher in a white lab coat points to the shifted under-table peg"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a three-stream pastel architectural mixer on a cool limestone base merging a powder-blue sight channel and a mint-sage touch channel over a faint gray joint channel",
+      "internal_mechanism": "when powder-blue and mint-sage pulses arrive together they lock into one bright combined stream overriding the faint gray track"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "somatosensory cortex",
+      "anatomy_label": "SOMATOSENSORY\nTOUCH MAP",
+      "camera": "locked_tripod",
+      "brain_scene": "along the upper postcentral strip of the matte cool-porcelain 3D brain model, rhythmic powder-blue touch pulses flicker across the somatosensory cortex"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands aligning two pastel timing sliders on a slate console",
+      "prop_action": "both cool porcelain-white gloved low-poly hands slide a powder-blue sight bar and a mint-sage touch bar into exact vertical alignment",
+      "consequence": "a unified pastel ownership light clicks on across both bars"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "stockholm_threat_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright Scandinavian neuroimaging suite with a sleek matte-white fMRI ring where twin powder-blue brushes stroke a volunteer's hand setup",
+      "action": "viewed strictly from behind, a clothed low-poly neuroscientist in a white lab coat steps beside the scanner window holding the two powder-blue brushes"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "premotor cortex",
+      "anatomy_label": "PREMOTOR CORTEX\nOWNERSHIP SNAP",
+      "camera": "gentle_push_in",
+      "brain_scene": "just ahead of the central strip on the matte cool-porcelain 3D brain model, crisp mint-sage light flares brightly across the premotor cortex as sight and touch fuse"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nREDRAWN MAP",
+      "camera": "locked_tripod",
+      "brain_scene": "across the upper rear crown of the matte cool-porcelain 3D brain model, soft powder-blue light shifts coordinates smoothly across the parietal cortex"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a cool mist-white tailor table displaying a large precision brushed-silver zipper slider joining a powder-blue cloth track and a mint-sage cloth track",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in sweater sleeves grip and pull the brushed-silver zipper slider smoothly upward interlocking every tooth cleanly"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "stockholm_threat_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a cool-limestone observation room where skeptical researchers inspect an unmarked wave monitor beside the partition table",
+      "action": "viewed strictly from behind, two clothed low-poly scientists in dark blazers and boots lean over the slate monitor and attach two small silver finger sensors while figures step forward and turn calmly"
+    },
+    {
+      "sentence_index": 27,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 3,
+      "location_id": "stockholm_threat_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved low-poly hands lifting a blunt brushed-silver clinical reflex tapper above the matte chalk-white decoy hand",
+      "prop_action": "the cool porcelain-white gloved low-poly hand lifts and tilts the blunt brushed-silver reflex tapper poised above the matte chalk-white decoy fingers",
+      "consequence": "the matte chalk-white decoy hand sits still in front of the slate partition"
+    },
+    {
+      "sentence_index": 27,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "stockholm_threat_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the bright Stockholm lab partition table wired to an unmarked pastel conductance wave display",
+      "action": "viewed strictly from behind, as the researcher lowers the blunt silver reflex tapper toward the decoy hand, the volunteer in a powder-blue sweater pulls their hidden left arm sharply back while figures step forward and turn calmly"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "stockholm_threat_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved low-poly hands bringing the blunt brushed-silver reflex tapper down beside the matte chalk-white decoy knuckle",
+      "prop_action": "one cool porcelain-white gloved low-poly hand swings the blunt silver reflex tapper close to the decoy finger while the hidden left gloved hand slides backward behind the screen",
+      "consequence": "a tall rose-coral wave peak jumps sharply on the unmarked slate display"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool mist-white limestone wall mounting a round matte rose-coral and brushed-silver alarm bell",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in slate sleeves press a silver test button so the brushed-silver striker taps the rose-coral bell rapidly"
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_sagittal_cutaway",
+      "brain_region": "insula",
+      "anatomy_label": "INSULA\nTHREAT ALARM",
+      "camera": "gentle_push_in",
+      "brain_scene": "deep inside the lateral fold of the matte cool-porcelain 3D brain cutaway, vivid pastel rose-coral light surges across the insula body-feeling center"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "stockholm_threat_lab",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved low-poly hands behind the vertical slate-stone partition",
+      "prop_action": "the hidden real left cool porcelain-white gloved low-poly hand pulls sharply back off the slate pad while the untouched decoy hand stays motionless as gloved fingers reach and press cleanly",
+      "consequence": "the reflexive pullback proves visceral bodily ownership"
+    },
+    {
+      "sentence_index": 32,
+      "end_sentence_index": 33,
+      "act": 4,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved low-poly hands rotating the matte chalk-white decoy hand backward on the slate mat",
+      "prop_action": "both cool porcelain-white gloved low-poly hands turn the matte chalk-white decoy hand upside-down facing backward and stroke it with the powder-blue brush as gloved fingers reach and press cleanly",
+      "consequence": "zero mint-sage ownership light appears on the backward decoy hand"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool slate-stone tray holding a smooth pastel mint-sage jigsaw frame with a curved hand-shaped recess",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in cardigan sleeves try to press a square dove-gray stone block into the curved recess where it refuses to fit"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved low-poly hands snapping a hand-shaped mint-sage template beside a synced timing peg",
+      "prop_action": "both cool porcelain-white gloved low-poly hands align and latch both the hand-geometry template and the timing peg together on a cool limestone base",
+      "consequence": "both green lock lights illuminate only when both keys engage together"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "bionic_rehab_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright modern sunlit neuroprosthetics clinic with cool mist-white walls and a slate-stone rehabilitation bench",
+      "action": "viewed strictly from behind, an upper-limb patient in a slate jacket sets aside an older unlinked gray mechanical hook and steps toward a sleek white articulated bionic hand"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "bionic_rehab_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and cool porcelain-white gloved low-poly hands setting an older unlinked dove-gray mechanical hook onto a side tray",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift the heavy unlinked dove-gray hook and place it aside on the cool slate bench",
+      "consequence": "space opens at center bench for the touch-linked white bionic hand"
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "bionic_rehab_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved low-poly hands connecting fine silver sensor leads onto a sleek matte-white articulated bionic hand",
+      "prop_action": "both cool porcelain-white gloved low-poly hands snap miniature mint-sage pressure pads onto the matte-white bionic fingertips and align the silver cuff",
+      "consequence": "soft powder-blue feedback pulses travel smoothly from the bionic fingertips up the silver cuff"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "bionic_rehab_studio",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "slate jacket sleeve fitted with the sleek matte-white articulated low-poly bionic hand reaching for a matte-white porcelain cup",
+      "prop_action": "the sleek matte-white articulated bionic fingers grip and lift the matte-white porcelain cup smoothly off the cool limestone table as synchronous mint-sage touch light glows",
+      "consequence": "the porcelain cup lifts effortlessly with steady natural poise"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "bionic_rehab_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit rehabilitation studio with a cool slate-stone mirror box table reflecting smooth hand movements",
+      "action": "viewed strictly from behind, a clothed low-poly patient in a powder-blue cardigan opens and closes gloved hands smoothly beside a therapist in a white coat"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "premotor cortex",
+      "anatomy_label": "PREMOTOR CORTEX\nTRUE RECALIBRATION",
+      "camera": "locked_tripod",
+      "brain_scene": "across the upper lateral frontal strip of the matte cool-porcelain 3D brain model, steady mint-sage and powder-blue light anchors inside the premotor cortex"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved low-poly hands resting the two powder-blue bristle brushes beside the sleek bionic hand model",
+      "prop_action": "both cool porcelain-white gloved low-poly hands set and align the two simple powder-blue brushes right beside the articulated matte-white bionic hand",
+      "consequence": "the humble brushes and advanced bionic hand gleam together on the slate bench"
+    },
+    {
+      "sentence_index": 42,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "bionic_rehab_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright neuroprosthetics clinic displaying both the slate partition setup and the touch-feedback bionic hand",
+      "action": "viewed strictly from behind, three clothed low-poly clinicians and engineers in lab coats and blazers step around the bench and point toward the glowing bionic cuff"
+    },
+    {
+      "sentence_index": 43,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved low-poly hands tidying the slate-stone partition table",
+      "prop_action": "one cool porcelain-white gloved low-poly hand aligns the matte chalk-white decoy hand neatly while the other hand places both powder-blue brushes into a silver holder",
+      "consequence": "the classic tabletop setup stands crisp and iconic in bright daylight"
+    },
+    {
+      "sentence_index": 43,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit Pittsburgh cognitive neuroscience laboratory and partition table",
+      "action": "viewed strictly from behind, the two clothed low-poly researchers in white lab coats and boots walk calmly toward the tall window beside the partition bench while figures step forward and turn calmly"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "pastel_tennis_court",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit pastel powder-blue and mint-sage outdoor tennis court bordered by cool limestone walls",
+      "action": "viewed strictly from behind, a clothed low-poly tennis player in a crisp white polo, shorts, cap, and sneakers swings a brushed-silver racket smoothly returning a pastel mint-sage ball while figures step forward and turn calmly"
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "pastel_tennis_court",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white athletic cuffs and cool porcelain-white gloved low-poly hands gripping a sleek brushed-silver tennis racket",
+      "prop_action": "both cool porcelain-white gloved low-poly hands grip and swing the brushed-silver racket smoothly as soft mint-sage light links cuff to frame",
+      "consequence": "the silver racket moves like a natural extension of the gloved arm"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "lowpoly_matte_brain",
+      "brain_mode": "matte_pastel_cortical_model",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nEXTENDED REACH",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper rear crown of the matte cool-porcelain 3D brain model, smooth mint-sage light expands outward across the parietal cortex spatial map"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "pastel_analogy_court",
+      "grammar": "lowpoly_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool limestone dressing bench displaying a tailored matte powder-blue winter glove beside a silver clasp",
+      "comparison_action": "cool porcelain-white gloved low-poly hands in coat sleeves slide a sculpted chalk-white hand smoothly into the tailored powder-blue winter glove and fasten the silver wrist snap"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bionic_rehab_studio",
+      "grammar": "lowpoly_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved low-poly hands stacking pastel geometric rings onto a silver peg",
+      "prop_action": "both cool porcelain-white gloved low-poly hands lift and place three mint-sage rings smoothly onto the brushed-silver peg in front of a clear mirror panel",
+      "consequence": "the mirrored movement looks fluid and symmetrical",
+      "beat_index": 1,
+      "beat_weight": 0.25
+    },
+    {
+      "act": 6,
+      "location_id": "bionic_rehab_studio",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit rehabilitation studio with the clear mirror panel centered on the cool slate-stone therapy table",
+      "action": "viewed strictly from behind, a patient in a powder-blue cardigan reaches and places pastel rings smoothly while a clinician stands beside the table",
+      "sentence_index": 48,
+      "beat_index": 2,
+      "beat_weight": 0.75
+    },
+    {
+      "sentence_index": 49,
+      "end_sentence_index": 50,
+      "act": 6,
+      "location_id": "pastel_tennis_court",
+      "grammar": "lowpoly_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white athletic cuffs and cool porcelain-white gloved low-poly hands gripping a brushed-silver tennis racket handle over a powder-blue court",
+      "prop_action": "both cool porcelain-white gloved low-poly hands turn and align the brushed-silver racket frame smoothly meeting a pastel mint-sage ball dead center on the strings",
+      "consequence": "the mint-sage ball arcs cleanly forward across the net"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "pastel_tennis_court",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a sunlit limestone park promenade beside the pastel courts and mint-sage trees",
+      "action": "viewed strictly from behind, clothed low-poly athletes and walkers in pastel jackets, caps, and sneakers walk and step briskly along the stone promenade"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "pastel_tennis_court",
+      "grammar": "lowpoly_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a serene sunlit limestone park promenade framed by soft mint-sage trees opening into a clear powder-blue sky with geometric white clouds",
+      "action": "viewed strictly from behind, clothed low-poly figures in pastel coats, caps, and boots walk and step calmly forward as the camera tilts smoothly upward"
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "FAKE HAND SNAP",
+    "cover_sentence_index": 3,
+    "cover_brief": "matte chalk-white faceted low-poly prosthetic hand beside a vertical cool slate-stone partition brushed by two soft powder-blue bristle brushes"
+  }
+}

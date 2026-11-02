@@ -44,7 +44,19 @@ Rule of thumb: research is deep enough when **someone who has never seen the ori
 | Item | Requirement |
 |---|---|
 | Two tiers | Dossier = longform depth. Short = extract of `shorts_extract` (hook + core experiment + twist). |
-| Manifest | Every assembly writes `05_assembly/asset_manifest.json` (`build_asset_manifest`): per clip `asset_id = <topic_slug>_<role>_<shot_type>`, scene id, mode, setting, camera, aspect, file + sha256, scene, narration, full prompt, Flow model / project URL / seed (when exposed), source in/out used in the Short, timeline start, voice source, longform reuse hint. |
-| Library | One line per clip in `BCI_Shorts_Channel/asset_library/index.jsonl` (`upsert_library`, `search_library`). |
+| Manifest | Every assembly writes `05_assembly/asset_manifest.json` (`build_asset_manifest` schema v2): per clip `asset_id` (`<topic_slug>_<role>_<shot_type>` in classic v5; `<topic_slug>_c<NN>_<grammar>` in Schema v6/v7 `neuro_diorama`), scene/location id, mode, setting, grammar, camera, aspect, file + sha256, scene, narration, full prompt, Flow model / project URL, exact EDL source in/out (`edit_decision_list.json` or `concat_list.txt`), timeline start, voice source, R64 `clarity_score` + `posthoc_passed`, and longform reuse hint. |
+| Library | One line per clip in `BCI_Shorts_Channel/asset_library/index.jsonl` (`upsert_library`, `search_library` with `grammar`, `style_profile`, `min_clarity_score` filters). |
 | Aspect-neutral prompts | Scene text never mentions the aspect; only `flow_prompt_prefix(aspect)` does, so `build_flow_prompts(plan, narrations, aspect="16:9")` re-generates the same scene for longform. `FLOW_MOTION_STYLE_V5` keeps the key action centred so 9:16 clips also survive pillarbox / blurred-fill reuse. |
 | Longform plan | `07_longform_outline.json` marks per chapter which Shorts clips are reused, which scenes are re-generated at 16:9 and which bridge clips are new. |
+
+## R50-B — Accumulated Knowledge Hub & Reusable Asset Intelligence (`pipeline/knowledge_hub.py`)
+`KNOWLEDGE_BASE_DIR` (`BCI_Shorts_Channel/knowledge_base/`, CLI: `main.py kb sync|stats|search`) systematically accumulates, analyzes, and indexes every episode's creative and QA outputs for cross-episode learning and reuse:
+1. **`telemetry/` (`KNOWLEDGE_TELEMETRY_DIRNAME`)**:
+   - `EPISODES_INDEX_FILENAME`: one upserted JSONL record per episode (duration, WPM, `tts_rate`, `tts_speed`, voiced RMS density, cut count, cut `CV`, autopsy pass, R62 `episode_qa` score, R64 `mean_clarity_score` / `min_clarity_score` / `weak_cut_count`).
+   - `CLIP_CLARITY_LEDGER_FILENAME`: per-cut clarity ledger linking prompt text, grammar, camera move, 5 sub-scores, defects, and remediation action across all episodes.
+   - `QA_ANALYTICS_SUMMARY_FILENAME`: aggregated mean/min clarity and defect frequency by visual grammar, camera move, and Act so weak prompt patterns are immediately surfaced.
+2. **`reusable_packs/` (`REUSABLE_PACKS_DIRNAME`)**:
+   - `prompts_golden_bank.json` (verified high-clarity prompts grouped by grammar), `analogies_registry.json` (`[Number] -> [Everyday Analogy]` pairs + literal analogy scenes), `brain_models_registry.json` (region + render mode + clarity score), and `locations_and_props_registry.json` (reusable world/environment descriptions).
+3. **`experiments/` (`EXPERIMENTS_ARCHIVE_DIRNAME`)**:
+   - Dated folders (`YYYY-MM-DD_<slug>/experiment_manifest.json`) archiving controlled A/B speed, voice, typography, or style experiments outside the workspace root so root stays clean while empirical findings remain queryable.
+
