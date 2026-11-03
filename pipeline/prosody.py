@@ -36,6 +36,10 @@ from pipeline.config import (
     DIORAMA_V7_PROSODY_STAMP_PHRASES,
     DIORAMA_V7_PROSODY_UNIFORM_110,
     DIORAMA_V7_PROSODY_UNIFORM_110_RATE,
+    DIORAMA_V7_US_PROSODY_BASE_RATE,
+    DIORAMA_V7_US_PROSODY_GEAR_RATES,
+    DIORAMA_V7_US_PROSODY_GEARS,
+    DIORAMA_V7_US_PROSODY_MODE,
     PROSODY_P1_FIRST_ONSET_MAX_SEC,
     PROSODY_P2_HOOK_END_MAX_SEC,
     PROSODY_P2_STAMP_END_MAX_SEC,
@@ -47,6 +51,7 @@ from pipeline.config import (
 )
 
 GEARS: tuple[str, ...] = ("rush", "stamp", "brisk")
+DYNAMIC_PROSODY_MODES: tuple[str, ...] = ("dynamic_rush_v7", DIORAMA_V7_US_PROSODY_MODE)
 
 
 def _rate_to_speed(rate: str) -> float:
@@ -79,6 +84,8 @@ def base_rate_for_mode(mode: str) -> str | None:
         return DIORAMA_V7_PROSODY_UNIFORM_110_RATE
     if mode == "dynamic_rush_v7":
         return DIORAMA_V7_PROSODY_BASE_RATE
+    if mode == DIORAMA_V7_US_PROSODY_MODE:
+        return DIORAMA_V7_US_PROSODY_BASE_RATE
     return None
 
 
@@ -112,7 +119,7 @@ def classify_prosody_gears(sentences: list[str], script_doc: dict[str, Any] | No
     """
     Gear per sentence (1:1 with `sentences`):
       1. manual `script_doc["prosody_gears"][i]` (or {"<1-based>": gear} dict)
-      2. stamp: signature hook phrases, Act-boundary questions
+      2. stamp: `stamp_sentence_indices`, rotating natural transition banks, Act-boundary questions
       3. rush : sentences 1-2, sentences ending with '!', Act 5 lines with yet/then/suddenly/instead
       4. brisk: everything else
     A run of more than DIORAMA_V7_PROSODY_RUSH_MAX_STREAK automatic rush sentences demotes the extra one to brisk.
@@ -129,6 +136,12 @@ def classify_prosody_gears(sentences: list[str], script_doc: dict[str, Any] | No
                     manual[int(k)] = str(g).strip().lower()
             except (TypeError, ValueError):
                 continue
+    explicit_stamps: set[int] = set()
+    for raw_idx in (script_doc or {}).get("stamp_sentence_indices") or []:
+        try:
+            explicit_stamps.add(int(raw_idx))
+        except (TypeError, ValueError):
+            continue
     act_breaks = _act_boundary_after(script_doc, n)
     act_of = _act_of_sentence(script_doc, n)
     gears: list[str] = []
@@ -142,7 +155,7 @@ def classify_prosody_gears(sentences: list[str], script_doc: dict[str, Any] | No
             gears.append(g)
             continue
         is_boundary_q = s.endswith("?") and ((i in act_breaks) or (i - 1 in act_breaks) or (i + 1 in act_breaks))
-        if any(p in low for p in DIORAMA_V7_PROSODY_STAMP_PHRASES) or is_boundary_q:
+        if i in explicit_stamps or any(p in low for p in DIORAMA_V7_PROSODY_STAMP_PHRASES) or is_boundary_q:
             g = "stamp"
         elif (
             i <= 2
@@ -172,22 +185,26 @@ def plan_sentence_prosody(
     Per-sentence plan: gear, trim thresholds, inserted gap BEFORE the sentence, the native edge-tts `synth_rate`
     the sentence is synthesized at, and the residual WSOLA factor on top of that rate.
 
-    dynamic_rush_v7 synthesizes every gear natively (`DIORAMA_V7_PROSODY_GEAR_RATES`), so `wsola_factor` is 1.0
-    unless the adjacent-tempo clamp lands between integer-percent rates (residual < 0.5%).
+    `dynamic_rush_v7` (+12/+8/+15%) and `dynamic_us_v7` (+10/+4/+7%) synthesize every gear natively, so `wsola_factor`
+    is 1.0 unless the adjacent-tempo clamp lands between integer-percent rates (residual < 0.5%).
     `base_wsola_factor` keeps the legacy single-pass factor (target / base rate) for the atempo fallback path.
     """
     n = len(sentences)
     act_breaks = _act_boundary_after(script_doc, n)
-    gears = classify_prosody_gears(sentences, script_doc) if mode == "dynamic_rush_v7" else [
+    is_dynamic = mode in DYNAMIC_PROSODY_MODES
+    gears = classify_prosody_gears(sentences, script_doc) if is_dynamic else [
         ("stamp" if any(p in str(s).lower() for p in DIORAMA_V7_PROSODY_STAMP_PHRASES) else "brisk") for s in sentences
     ]
-    base_speed = _rate_to_speed(DIORAMA_V7_PROSODY_BASE_RATE)
+    active_base_rate = DIORAMA_V7_US_PROSODY_BASE_RATE if mode == DIORAMA_V7_US_PROSODY_MODE else DIORAMA_V7_PROSODY_BASE_RATE
+    active_gears_spec = DIORAMA_V7_US_PROSODY_GEARS if mode == DIORAMA_V7_US_PROSODY_MODE else DIORAMA_V7_PROSODY_GEARS
+    active_gear_rates = DIORAMA_V7_US_PROSODY_GEAR_RATES if mode == DIORAMA_V7_US_PROSODY_MODE else DIORAMA_V7_PROSODY_GEAR_RATES
+    base_speed = _rate_to_speed(active_base_rate)
     plan: list[dict[str, Any]] = []
     prev_factor = 1.0
     for i, g in enumerate(gears, start=1):
         after_act_break = (i - 1) in act_breaks
-        if mode == "dynamic_rush_v7":
-            spec = DIORAMA_V7_PROSODY_GEARS[g]
+        if is_dynamic:
+            spec = active_gears_spec[g]
             factor = round(float(spec["tempo"]) / base_speed, 4)
             gap = float(spec["gap_before"])
             if after_act_break:
@@ -198,10 +215,10 @@ def plan_sentence_prosody(
                 clamped = True
             trim_thresh, trim_keep = float(spec["trim_thresh"]), float(spec["trim_keep"])
             target_tempo = round(base_speed * factor, 4)
-            synth_rate = DIORAMA_V7_PROSODY_GEAR_RATES.get(g) if not clamped else None
+            synth_rate = active_gear_rates.get(g) if not clamped else None
             if not synth_rate or abs(_rate_to_speed(synth_rate) - target_tempo) > 0.005:
                 synth_rate = _speed_to_rate(target_tempo)
-        else:  # uniform_110x
+        else:  # uniform_110x / uniform_108x
             spec_u = DIORAMA_V7_PROSODY_UNIFORM_110
             factor, clamped = 1.0, False
             gap = float(spec_u["stamp_gap_before"] if g == "stamp" else spec_u["gap_before"])
@@ -388,6 +405,7 @@ def _asr_tokens(text: str) -> list[str]:
             continue
         if len(w) > 3:
             w = re.sub(r"(?:es|ed|s|d|e)$", "", w)
+            w = re.sub(r"ss$", "s", w)
         out.append(w)
     # join runs of single letters left over from spaced initials ("h m" -> "hm")
     joined: list[str] = []
@@ -502,7 +520,8 @@ def _compute_core_prosody_gates(
         for s in sents
         if s.get("gear") == "rush" and float(s.get("max_internal_silence_sec") or 0.0) > PROSODY_P4_RUSH_MAX_INTERNAL_SILENCE_SEC
     ]
-    gates["P4_rush_breathless"] = {"passed": (not rush_bad) or mode != "dynamic_rush_v7", "violations": rush_bad, "applies": mode == "dynamic_rush_v7"}
+    is_dyn = mode in DYNAMIC_PROSODY_MODES
+    gates["P4_rush_breathless"] = {"passed": (not rush_bad) or not is_dyn, "violations": rush_bad, "applies": is_dyn}
 
     lo, hi = PROSODY_P5_STAMP_PRE_SILENCE_RANGE
     stamp_bad = [
@@ -579,11 +598,26 @@ def _compute_core_prosody_gates(
         else:
             gates["P9_font_resolution"] = {"passed": False, "skipped": True, "reason": "font_probe.json missing"}
 
+    rehook_indices: set[int] = set()
+    script_p = p_dir / "02_script" / "script.json"
+    if script_p.exists():
+        try:
+            sdoc = json.loads(script_p.read_text(encoding="utf-8"))
+            for r_idx in sdoc.get("rehook_sentence_indices") or []:
+                rehook_indices.add(int(r_idx))
+        except Exception:
+            pass
     markers = [0.0]
     for sp, s in zip(spans, sents or [{}] * len(spans)):
         txt = str(sp.get("text") or "")
         low = txt.lower()
-        if txt.strip().endswith("?") or s.get("gear") == "stamp" or any(p in low for p in DIORAMA_V7_PROSODY_REHOOK_PHRASES):
+        s_idx = int(sp.get("sentence_index") or 0)
+        if (
+            txt.strip().endswith("?")
+            or s.get("gear") == "stamp"
+            or s_idx in rehook_indices
+            or any(p in low for p in DIORAMA_V7_PROSODY_REHOOK_PHRASES)
+        ):
             markers.append(float(sp["start_sec"]))
     markers.append(speech_end)
     gaps = [round(b - a, 2) for a, b in zip(markers, markers[1:])]
@@ -657,7 +691,11 @@ def evaluate_prosody_gates(project_id_or_dir: str | Path, run_asr: bool = True, 
         "gates": gates,
     }
     if save_report:
-        (p_dir / "05_assembly" / "prosody_qa_report.json").write_text(json.dumps(rep, indent=2, ensure_ascii=False), encoding="utf-8")
+        from pipeline.storage import ProjectStorage
+
+        out_rep = p_dir / "05_assembly" / "prosody_qa_report.json"
+        out_rep.write_text(json.dumps(rep, indent=2, ensure_ascii=False), encoding="utf-8")
+        ProjectStorage.record_if_manifest_tracks_stages(p_dir, "05_assembly", "prosody_qa_report.json", out_rep)
     return rep
 
 

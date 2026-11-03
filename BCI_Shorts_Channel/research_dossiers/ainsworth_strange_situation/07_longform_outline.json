@@ -1,0 +1,54 @@
+{
+  "target_minutes": 11,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "shorts_extract": {
+    "hook": "Most parents assume a quiet toddler is a calm toddler — yet inside Mary Ainsworth's 1970 playroom, the quietest babies hid racing hearts!",
+    "core_experiment": "Fifty-six one-year-olds went through eight three-minute room switches with a caregiver, a stranger, two brief goodbyes, and two reunions.",
+    "twist": "In 1993, hidden heart monitors and saliva tests proved that silent avoidant toddlers who ignored their returning mother had surging heart rates and spiking stress hormones."
+  },
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "The Quiet-Baby Myth & 1970 Baltimore Playroom",
+      "target_sec": 95,
+      "scenes": ["S_ICONIC_REUNION"],
+      "summary": "Contrast two twelve-month-old toddlers in the same sunlit room and introduce Mary Ainsworth and Silvia Bell's 1970 Johns Hopkins experiment."
+    },
+    {
+      "chapter": 2,
+      "title": "Before the Strange Situation: Hospital Cribs to Uganda Home Logs",
+      "target_sec": 120,
+      "scenes": ["S_ICONIC_REUNION"],
+      "summary": "Why mid-century doctors mistook silent toddlers for 'adjusted' children, and how Bowlby and Ainsworth tracked seventy-two hours of home care per family."
+    },
+    {
+      "chapter": 3,
+      "title": "Inside the Eight Three-Minute Episodes",
+      "target_sec": 140,
+      "scenes": ["S_STRANGER_ENTRANCE", "S_ICONIC_REUNION"],
+      "summary": "Walk step-by-step through the stranger's arrival, the two separations, and why reunion — not goodbye — is the real measurement."
+    },
+    {
+      "chapter": 4,
+      "title": "Three Patterns: Secure (70%), Avoidant (20%), Ambivalent (10%)",
+      "target_sec": 115,
+      "scenes": ["S_ICONIC_REUNION"],
+      "summary": "Compare the thirty-second reunion reset of secure toddlers against ambivalent protest and avoidant toy-turning."
+    },
+    {
+      "chapter": 5,
+      "title": "The 1993 Heart-Rate & Cortisol Shock (Spangler & Grossmann)",
+      "target_sec": 110,
+      "scenes": ["S_TELEMETRY_CORTISOL_REVEAL"],
+      "summary": "Reveal wireless ECG and fifteen-to-thirty-minute salivary cortisol spikes proving avoidant calm is an active mask."
+    },
+    {
+      "chapter": 6,
+      "title": "The Amygdala-Prefrontal Co-Regulation Switch & Adult Echoes",
+      "target_sec": 100,
+      "scenes": ["S_ICONIC_REUNION"],
+      "summary": "Map Dylan Gee and Nim Tottenham's 2014 fMRI maternal buffering circuit and show how childhood reunions echo in adult conflict."
+    }
+  ]
+}

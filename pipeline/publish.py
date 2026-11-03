@@ -58,8 +58,47 @@ def build_diorama_paradox_title(clause_1: str, clause_2: str) -> str:
     return joined
 
 
-def validate_diorama_paradox_title(title: str) -> list[str]:
-    """Validates R60 2-clause US English paradox title (`100% ASCII/en-US`, comma/dash pivot, `<= TITLE_MAX_CHARS_DIORAMA`)."""
+US_HIGH_CTR_TITLE_ARCHETYPES: tuple[str, ...] = (
+    "two_clause_paradox",
+    "open_loop_question",
+    "year_experiment_stamp",
+    "direct_brain_address",
+    "numeric_contrast",
+)
+
+
+def classify_us_title_archetype(title: str) -> str | None:
+    """Classifies a title into one of the 5 US High-CTR Documentary Title Archetypes (R60)."""
+    t = str(title or "").strip()
+    t_low = t.lower()
+    if not t:
+        return None
+    has_sep = any(sep in t for sep in (",", "—", " - ", ":"))
+    has_q = t.endswith("?") and t_low.startswith(("why ", "how ", "what ", "can ", "when "))
+    has_year = bool(re.search(r"\b(18|19|20)\d{2}\b", t))
+    has_num = bool(re.search(r"\b\d+\b", t))
+    if has_year and (has_sep or has_q):
+        return "year_experiment_stamp"
+    if has_q and (has_num or has_sep or len(t.split()) >= 6):
+        return "open_loop_question"
+    if ("your brain" in t_low or "your mind" in t_low) and (has_sep or t.endswith("?")):
+        return "direct_brain_address"
+    if has_num and has_sep:
+        return "numeric_contrast"
+    if has_sep:
+        return "two_clause_paradox"
+    return None
+
+
+def validate_diorama_paradox_title(
+    title: str,
+    *,
+    adjacent_titles: list[str] | None = None,
+) -> list[str]:
+    """
+    Validates R60 US High-CTR Documentary Title (`100% ASCII/en-US`, `<= TITLE_MAX_CHARS_DIORAMA`,
+    matching one of the 5 US CTR archetypes, and optional adjacent-slot archetype diversity).
+    """
     t = str(title or "").strip()
     issues: list[str] = []
     if not t:
@@ -68,11 +107,89 @@ def validate_diorama_paradox_title(title: str) -> list[str]:
         issues.append(f"[title] length {len(t)} > {TITLE_MAX_CHARS_DIORAMA} chars (R60)")
     if re.search(r"[\uAC00-\uD7A3\u3130-\u318F]", t):
         issues.append("[title] non-English Hangul characters forbidden in ALL ABOUT BRAIN title (R36/R60)")
-    if not any(sep in t for sep in (",", "—", " - ", ":")):
-        issues.append("[title] 2-Clause Paradox Title must split Clause 1 and Clause 2 with a comma or dash (R60)")
+    archetype = classify_us_title_archetype(t)
+    if archetype is None:
+        issues.append(
+            "[title] Title must match one of the 5 US High-CTR Archetypes (2-clause comma/dash/colon paradox, "
+            "Why/How...? open-loop question, year/experiment stamp, 'Your Brain...' direct address, or numeric contrast) (R60)"
+        )
     if "#" in t:
-        issues.append("[title] inline hashtags forbidden in Neuro-Diorama 2-Clause Paradox Title (R60)")
+        issues.append("[title] inline hashtags forbidden in Neuro-Diorama Title (R60)")
+    if adjacent_titles and archetype is not None:
+        adj_archs = [classify_us_title_archetype(at) for at in adjacent_titles if str(at or "").strip()]
+        if len(adj_archs) >= 2 and all(a == archetype for a in adj_archs[-2:]):
+            issues.append(
+                f"[title] 3 consecutive episodes share identical title archetype '{archetype}' — rotate US CTR archetypes (R60)"
+            )
     return issues
+
+
+_INTERNAL_PIPELINE_TOKENS_RE = re.compile(
+    r"\b(?:porcelain_cinematic_v7|lowpoly_pastel_v7|neuro_diorama|classic_v5|dynamic_rush_v7|dynamic_us_v7|"
+    r"schema_version|R57-H2|R63-P|DQ1-DQ12|TQ1-TQ7|RQ1-RQ5|andrew_v7|emma_v7|ava_v7|aria_v7|christopher_v7)\b",
+    flags=re.IGNORECASE,
+)
+
+
+def strip_internal_pipeline_tokens(text: str) -> str:
+    """Removes internal pipeline identifiers from public-facing descriptions/titles."""
+    cleaned = _INTERNAL_PIPELINE_TOKENS_RE.sub("", str(text or ""))
+    cleaned = re.sub(r"\(\s*\)|\[\s*\]", "", cleaned)
+    cleaned = re.sub(r"[ \t]{2,}", " ", cleaned)
+    cleaned = re.sub(r"[ \t]+\n", "\n", cleaned)
+    cleaned = re.sub(r"\n{3,}", "\n\n", cleaned)
+    return cleaned.strip(" \t\r\n-|—")
+
+
+def render_editorial_description(
+    *,
+    title: str,
+    doi_or_url: str,
+    source_summary: str,
+    hashtags: list[str],
+    companion_block: str = "",
+    template_id: str | None = None,
+    seed: int = 0,
+) -> str:
+    """Renders one of the 4 rotating US editorial description layouts while preserving R4/R9/R10 markers."""
+    from pipeline.config import AI_DISCLOSURE_SENTENCE, DESCRIPTION_EDITORIAL_TEMPLATES
+
+    clean_title = strip_internal_pipeline_tokens(title)
+    clean_summary = strip_internal_pipeline_tokens(source_summary) or clean_title
+    raw_doi = str(doi_or_url or "").strip()
+    doi_url = raw_doi if raw_doi.startswith("http") else (f"https://doi.org/{raw_doi}" if raw_doi else "")
+    tags = " ".join(
+        t if str(t).startswith("#") else f"#{t}"
+        for t in (hashtags or ["#Shorts", "#Neuroscience", "#BrainScience", "#Psychology"])[:5]
+        if str(t).strip()
+    )
+    chosen = (
+        template_id
+        if template_id in DESCRIPTION_EDITORIAL_TEMPLATES
+        else DESCRIPTION_EDITORIAL_TEMPLATES[int(seed) % len(DESCRIPTION_EDITORIAL_TEMPLATES)]
+    )
+    comp = f"{companion_block.strip()}\n\n" if str(companion_block or "").strip() else ""
+    if chosen == "clinical_brief":
+        lead = f"{clean_title}\n\nClinical Case Note — {clean_summary}"
+        outro = "ALL ABOUT BRAIN documents peer-reviewed clinical neurology and human brain circuits."
+    elif chosen == "experiment_chronicle":
+        lead = f"{clean_title}\n\nInside the Study — {clean_summary}"
+        outro = "ALL ABOUT BRAIN reconstructs landmark psychology and neuroscience experiments from primary papers."
+    elif chosen == "myth_vs_mechanism":
+        lead = f"{clean_title}\n\nWhat the Brain Data Actually Shows — {clean_summary}"
+        outro = "ALL ABOUT BRAIN separates everyday myths from measured human neurobiology."
+    else:
+        lead = f"{clean_title}\n\nEveryday Neurobiology — {clean_summary}"
+        outro = "ALL ABOUT BRAIN translates peer-reviewed brain and BCI science into clear visual stories."
+
+    return (
+        f"{lead}\n\n"
+        f"Source & Verification: {doi_url or raw_doi}\n\n"
+        f"{comp}"
+        f"AI Disclosure: {AI_DISCLOSURE_SENTENCE}\n\n"
+        f"{tags}\n\n"
+        f"{outro}"
+    ).strip()
 
 
 class PublishStage:
@@ -546,7 +663,7 @@ class PublishStage:
         )
         _, resolved_font_label = self._resolve_thumbnail_font()
         max_title_len = TITLE_MAX_CHARS_DIORAMA if is_diorama else 60
-        clean_title = title.strip()
+        clean_title = strip_internal_pipeline_tokens(title).strip()
         if len(clean_title) > max_title_len:
             clean_title = clean_title[: max_title_len - 3] + "..."
 
@@ -569,6 +686,12 @@ class PublishStage:
                 f"Companion Case: {related_short['title']}"
                 + (f" — {comp_url}\n\n" if comp_url else "\n\n")
             )
+
+        desc_seed = sum(ord(ch) for ch in str(self.storage.project_id or clean_title))
+        desc_template = (
+            vp_data.get("description_template")
+            or scr_data.get("description_template")
+        )
 
         metadata = {
             "title": clean_title,
@@ -594,15 +717,15 @@ class PublishStage:
                 "label_required": True,
                 "note": "AI-generated visual synthesis and neural voice (R4 compliance)"
             },
-            "description": (
-                f"{clean_title}\n\n"
-                f"Source & Verification: {doi_url or raw_doi}\n\n"
-                f"{source_summary}\n\n"
-                f"{companion_block}"
-                f"AI Disclosure: Visuals and voice synthesized with AI for neuroscience education.\n\n"
-                f"{' '.join(hashtags[:5])}\n\n"
-                f"ALL ABOUT BRAIN — Exploring the frontiers of neuroscience, psychology, and BCI."
-            )
+            "description": render_editorial_description(
+                title=clean_title,
+                doi_or_url=doi_url or raw_doi,
+                source_summary=source_summary,
+                hashtags=hashtags[:5],
+                companion_block=companion_block,
+                template_id=str(desc_template) if desc_template else None,
+                seed=desc_seed,
+            ),
         }
 
         # Resolve question hook from ideation/scripting if available

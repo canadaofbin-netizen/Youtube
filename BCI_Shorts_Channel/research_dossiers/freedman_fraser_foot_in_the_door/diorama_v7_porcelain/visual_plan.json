@@ -1,0 +1,1151 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "freedman_fraser_foot_in_the_door",
+  "topic": "Freedman & Fraser Palo Alto Foot-in-the-Door Study, Small Window Tile vs Giant Lawn Monolith, Cross-Topic Self-Perception Shift & Payment Kill-Switch",
+  "act5_climax_episode": "Canadian charity field replication where wearing a tiny unpaid lapel pin first nearly doubled real monetary donations.",
+  "outro_title_lines": [
+    "FREEDMAN & FRASER (1966)",
+    "STANFORD UNIVERSITY / PALO ALTO"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "HARMLESS FAVOR?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "TINY FAVOR TRAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "WINDOW SQUARE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "IDENTITY SHIFT"
+    },
+    {
+      "sentence_index": 28,
+      "text": "CASH KILLS IT"
+    },
+    {
+      "sentence_index": 37,
+      "text": "CHARITY PIN"
+    },
+    {
+      "sentence_index": 45,
+      "text": "THREE MIN RULE"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "HARMLESS FAVOR?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "TINY FAVOR TRAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "WINDOW SQUARE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "IDENTITY SHIFT"
+    },
+    {
+      "sentence_index": 28,
+      "text": "CASH KILLS IT"
+    },
+    {
+      "sentence_index": 37,
+      "text": "CHARITY PIN"
+    },
+    {
+      "sentence_index": 45,
+      "text": "THREE MIN RULE"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 34,
+      "mode": "split_hstack",
+      "left_clip_index": 31,
+      "right_clip_index": 48,
+      "left_label": "PAID TILE",
+      "right_label": "UNPAID TILE"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit Palo Alto suburban front walkway with a cool limestone porch, frosted front window, and manicured mint-sage grass lawn",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain homeowner in a lavender-gray cardigan steps onto the limestone porch and lifts the tiny mint-sage square with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "scale comparison on a cool slate-gray base contrasting a tiny mint-sage window square beside a giant blank powder-blue geometric lawn monolith towering over a compact porch",
+      "internal_mechanism": "a glowing cyan arrow links the tiny mint-sage window square directly to the towering blank powder-blue lawn monolith",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the sunlit Palo Alto front lawn where a giant blank powder-blue geometric lawn monolith stands centered on the mint-sage grass in front of the porch window",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain Stanford researchers in blazers walk up the limestone path and point gloved hands toward the giant powder-blue monolith",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a quiet tree-lined Palo Alto residential street with neat mint-sage front lawns, cool limestone walkways, and sunlit suburban houses",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain volunteer in a powder-blue coat walks along the limestone sidewalk and turns up a front walkway carrying a blank sunlit folder",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "stanford_data_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands arranging compact sunlit house tokens across a cool slate-gray neighborhood map grid",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and align four neat rows of sunlit house tokens across the cool slate-gray grid",
+      "consequence": "the suburban test blocks sit evenly divided across the map",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "stanford_data_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue coat sleeves and cool porcelain-white gloved matte-white porcelain hands holding up a blank sunlit picture card depicting a huge geometric monolith blocking a house porch",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand lifts the blank monolith picture card while the other points toward the neat mint-sage front grass",
+      "consequence": "the massive geometric monolith silhouette overshadows the entire front yard view",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 6,
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a crisp matte powder-blue picket garden gate mounted between two cool limestone posts with a heavy brushed-silver slide bolt",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in cardigan cuffs push the powder-blue garden gate firmly shut and slide the heavy silver bolt locked",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright Palo Alto front walkway in morning light with immaculate mint-sage grass and a clear frosted porch window",
+      "action": "viewed strictly from behind, a different clothed matte-white porcelain volunteer in a mint-sage jacket steps lightly up to the limestone porch and taps the doorframe with a gloved hand",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "stanford_data_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands flipping backward through fourteen blank sunlit calendar tiles on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands flip and slide the blank sunlit calendar tiles back to day one",
+      "consequence": "the timeline resets two full weeks before the big request",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 9,
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "stanford_data_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage jacket sleeves and cool porcelain-white gloved matte-white porcelain hands holding a tiny blank sunlit geometric car-emblem tile on a cool limestone palm tray",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand lifts and slides the tiny mint-sage square tile gently toward the homeowner's cardigan-cuffed gloved hand",
+      "consequence": "the compact sunlit square looks completely effortless to accept",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "gentle_push_in",
+      "analogy_world": "a tiny crisp matte mint-sage scalloped ivory index cards square resting beside a frosted glass pane on cool slate-gray stone",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in cardigan cuffs lift the tiny mint-sage ivory index cards square and press it neatly into the corner of the frosted glass",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the Palo Alto porch where the tiny mint-sage square gleams inside the corner of the frosted front window as a second volunteer arrives",
+      "action": "viewed strictly from behind, a new clothed matte-white porcelain stranger in a navy coat walks up the limestone steps and holds up the blank giant monolith picture card with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "end_sentence_index": 13,
+      "act": 2,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the Palo Alto porch where the tiny mint-sage square gleams inside the corner of the frosted front window as a second volunteer arrives",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "clip_number": 13
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the Palo Alto porch where the tiny mint-sage square gleams inside the corner of the frosted front window as a second volunteer arrives",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in blazer cuffs press a silver wall button and lift the wide powder-blue garage door smoothly all the way open",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "palo_alto_kitchen",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit cool-toned Palo Alto kitchen with a powder-blue rotary desk phone on a cool limestone counter and closed sunlit slate cupboards",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain homemaker in a lavender-gray coat steps to the limestone counter and lifts the powder-blue phone receiver with a gloved hand",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 15,
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "palo_alto_kitchen",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "end_sentence_index": 16,
+      "act": 2,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the Palo Alto porch where the tiny mint-sage square gleams inside the corner of the frosted front window as a second volunteer arrives",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "clip_number": 16
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "palo_alto_kitchen",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright Palo Alto kitchen with wide-open sunlit cupboards and neat stacks of white ceramic dishes along the limestone counter",
+      "action": "viewed strictly from behind, six clothed matte-white porcelain survey workers in slate jackets and caps step beside the open cupboards and point gloved hands while counting",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "palo_alto_kitchen",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "palo_alto_kitchen",
+      "grammar": "porcelain_pov_hands",
+      "camera": "tilt_down",
+      "attire_and_hands": "slate jacket sleeves and cool porcelain-white gloved matte-white porcelain hands lifting and stacking white ceramic dishes and sunlit soap blocks across the cool limestone counter",
+      "prop_action": "multiple cool porcelain-white gloved matte-white porcelain hands lift, count, and set sunlit household boxes across every inch of the limestone counter",
+      "consequence": "the entire kitchen counter fills with counted cupboard items",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "palo_alto_kitchen",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "end_sentence_index": 20,
+      "act": 3,
+      "location_id": "stanford_data_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands placing two distinct mint-sage and navy visitor figurines on opposite ends of a cool slate-gray path",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand sets the mint-sage visitor at week one while the other places the completely separate navy visitor at week three",
+      "consequence": "two unrelated strangers carry the effect across separate weeks",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "stanford_data_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "stanford_data_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands linking a mint-sage leaf-cleanup icon tile to the powder-blue lawn monolith model on cool limestone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide a silver bridge bar from the mint-sage leaf tile straight to a rising cyan agreement column",
+      "consequence": "even an unrelated tidy-park request boosts lawn monolith agreement",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 22,
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "stanford_data_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands touching the tiny mint-sage square gleaming inside the frosted window pane",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand taps the tiny mint-sage window square gently and aligns a glowing cyan civic badge tile beside it",
+      "consequence": "the small voluntary square acts as a daily mirror of helpful identity",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "stanford_data_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands turning a sunlit self-image prism on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place the tiny mint-sage square against the prism and rotate its bright cyan facet upward",
+      "consequence": "one small free act shifts the entire self-image prism to cyan",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 24,
+      "clip_number": 22,
+      "scene_state": {
+        "location_id": "stanford_data_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model on a cool alabaster stand where the front prefrontal cortex glows steady cyan-blue updating personal civic identity",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit Palo Alto front yard where the giant blank powder-blue geometric lawn monolith now stands squarely on the mint-sage grass",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain homeowner in a lavender-gray cardigan steps onto the limestone porch and shakes gloved hands with the navy-coated volunteer",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "stanford_data_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands sliding five mint-sage payment tokens beside the tiny window square on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand places the stack of five sunlit tokens onto the tiny window square while the other taps a question balance bar",
+      "consequence": "adding external payout tests whether identity shift survives cash",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 27,
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "stanford_data_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the Palo Alto porch two weeks after the paid window tile as a second volunteer arrives with the giant monolith picture card",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in coat cuffs lift and drop five sunlit coins into the silver parking meter slot advancing the plain indicator needle",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the Palo Alto porch two weeks after the paid window tile as a second volunteer arrives with the giant monolith picture card",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "clip_number": 27
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the Palo Alto porch two weeks after the paid window tile as a second volunteer arrives with the giant monolith picture card",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain homeowner in a gray coat steps to the porch threshold and leans back from the giant monolith card with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 31,
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "stanford_data_desk",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "five stacked powder-blue payout tokens wedged beneath a sunlit identity dial on cool limestone blocking the pointer from turning",
+      "internal_mechanism": "the five external payout tokens absorb the action so the inner civic identity pointer stays motionless at neutral",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "stanford_data_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nCONFLICT DETECTOR",
+      "brain_scene": "a matte-sunlit sagittal cutaway 3D brain model where the inner anterior cingulate cortex stays dim lavender-gray with zero consistency pressure after external cash payment",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "stanford_data_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "gray coat cuffs and cool porcelain-white gloved matte-white porcelain hands tapping the stack of five powder-blue tokens and sliding the monolith card away on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand points to the five cash tokens while the other pushes the giant monolith model away",
+      "consequence": "paid neighbors attribute the small tile purely to cash",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "stanford_data_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands aligning a tiny mint-sage square and a glowing cyan helper token on cool limestone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands press the two sunlit tiles flush together into one seamless cyan badge",
+      "consequence": "free voluntary action cements lasting inner ownership",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "stanford_data_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands sweeping the cash tokens off the cool slate-gray board leaving only the unpaid mint-sage tile",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand slides the cash stack aside while the other lifts the tall cyan identity bar upright",
+      "consequence": "only unpaid voluntary choices unlock the steep compliance climb",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 36,
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "stanford_data_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a crisp cool-toned Canadian suburban walkway with pale limestone steps, powder-blue trim, and neat mint-sage hedges",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain charity volunteer in a mint-sage coat walks up the limestone steps and holds a tray of tiny sunlit lapel pins with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage coat cuffs and cool porcelain-white gloved matte-white porcelain hands offering one tiny sunlit coral-rose flower pin over a cool limestone rail",
+      "prop_action": "a neighbor's cool porcelain-white gloved matte-white porcelain hand lifts the tiny sunlit lapel pin and presses it neatly onto a slate coat lapel",
+      "consequence": "the tiny unpaid charity pin gleams neatly on the slate coat lapel",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 38,
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "stanford_data_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the bright research room showing a tall cyan pin-first donation column standing nearly double the height of a short lavender baseline column",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coats step beside the slate-gray table and point gloved hands at the doubled cyan column",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 40,
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "stanford_data_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate coat cuffs and cool porcelain-white gloved matte-white porcelain hands tapping the tiny sunlit lapel pin before reaching for a mint-sage pocket wallet on cool limestone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand touches the tiny lapel pin gently while the other opens the mint-sage wallet smoothly",
+      "consequence": "seeing oneself as a helper makes generous giving feel natural",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_left",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model where the front prefrontal cortex glows bright mint-sage stabilizing the new generous helper self-concept",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 38
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "stanford_data_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "wide sunlit view of the research desk displaying the tiny sunlit lapel pin beside the tall cyan donation column on cool slate-gray stone",
+      "action": "viewed strictly from behind, both clothed matte-white porcelain researchers in white coats lean forward and shake gloved hands beside the tall cyan column",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 44,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "stanford_data_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a calm morning bedroom corner with cool slate-gray flooring, a limestone bench, and clean matte powder-blue running shoes",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain runner in a mint-sage jacket steps to the limestone bench and reaches gloved hands toward the powder-blue shoes",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "stanford_data_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate sweater cuffs and cool porcelain-white gloved matte-white porcelain hands trying to lift an oversized heavy slate workout block on cool limestone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands strain briefly on the oversized block then set it back down untouched",
+      "consequence": "starting with an intimidating giant commitment stalls on day one",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 46,
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "stanford_data_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a calm morning bedroom corner with cool slate-gray flooring, a limestone bench, and clean matte powder-blue running shoes",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in mint-sage cuffs flip the small silver brushed-silver marker cylinder over and lift the powder-blue mug for a brief break",
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage jacket sleeves and cool porcelain-white gloved matte-white porcelain hands tying powder-blue shoe laces and dropping one cyan vote token into a clear jar on cool limestone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands pull the powder-blue laces snug and drop a bright cyan identity token into the jar",
+      "consequence": "each tiny voluntary walk casts another clear vote for active identity",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 48,
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nCONFLICT DETECTOR",
+      "brain_scene": "a matte-sunlit sagittal cutaway 3D brain model where the inner anterior cingulate cortex glows calm cyan-blue keeping daily habits aligned with self-image",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "lavender-gray coat cuffs and cool porcelain-white gloved matte-white porcelain hands politely sliding away a stranger's oversized monolith card on a cool slate-gray street railing",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand sets down a tiny free sample tile and calmly pushes the oversized monolith folder back",
+      "consequence": "recognizing the two-step hook lets you decline the big ask freely",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "end_sentence_index": 51,
+      "act": 6,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key palo alto porch with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 46
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "palo_alto_porch",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide morning view of the sunlit Palo Alto walkway with the tiny mint-sage square gleaming cleanly in the porch window",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain runner in a mint-sage jacket and powder-blue shoes walks and steps smoothly down the sunlit limestone path",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "palo_alto_porch",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "stanford_data_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands with zero cash tokens pulling the powder-blue monolith model forward on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands align the unpaid mint-sage window square with the tall powder-blue monolith model",
+      "consequence": "unpaid neighbors embrace the civic helper identity wholeheartedly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48,
+      "scene_state": {
+        "location_id": "stanford_data_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "stanford_data_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the serene sunlit Stanford research room with the tiny mint-sage square, sunlit brain model, and tall windows opening onto pale sunlit sky",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in blazers walk and step calmly toward the tall window as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 49
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "TINY FAVOR TRAP",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered small mint-sage window square tile beside a giant blank powder-blue geometric lawn monolith"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

@@ -14,11 +14,14 @@ from pipeline.config import (
     AV_SPEEDUP_FACTOR,
     CLIP_COUNT_MAX,
     CLIP_COUNT_MIN,
+    DIORAMA_MECHANISM_PIVOT_BANK,
     DIORAMA_SENTENCE_COUNT_MAX,
     DIORAMA_SENTENCE_COUNT_MIN,
+    DIORAMA_TAKEAWAY_BRIDGE_BANK,
     EFFECTIVE_WPS,
     FINAL_SHORTS_DURATION_MAX_SEC,
     FLOW_DEFAULT_VOICE,
+    MICRO_SHORT_PROFILE,
     NATIVE_FLOW_WPS,
     NARRATIVE_STYLE_SPECS,
     SCRIPT_WORD_MAX,
@@ -186,8 +189,9 @@ class ScriptingStage:
         wps = round(word_count / effective_duration, 2) if effective_duration > 0 else 0.0
 
         # G1: Clip narrations (count, per-clip words, openers), total word count & timing
-        effective_profile = "neuro_diorama" if diorama_mode else profile_val
-        if diorama_mode:
+        is_micro = str(profile_val).strip().lower() == MICRO_SHORT_PROFILE
+        effective_profile = MICRO_SHORT_PROFILE if is_micro else ("neuro_diorama" if diorama_mode else profile_val)
+        if diorama_mode or is_micro:
             range_min, range_max = word_count_range_for_profile(effective_profile)
         elif roles:
             range_min, range_max = script_word_range(n_clips)
@@ -197,15 +201,17 @@ class ScriptingStage:
         effective_min = min_words if min_words is not None else range_min
         effective_max = max_words if max_words is not None else range_max
         g1_issues: list[str] = []
-        if diorama_mode:
+        if diorama_mode or is_micro:
             active_lines = diorama_sents or (narrations or [])
+            sent_min = 8 if is_micro else DIORAMA_SENTENCE_COUNT_MIN
+            sent_max = 18 if is_micro else DIORAMA_SENTENCE_COUNT_MAX
             if not active_lines:
                 g1_issues.append(
-                    f"diorama sentences missing ({DIORAMA_SENTENCE_COUNT_MIN}-{DIORAMA_SENTENCE_COUNT_MAX} sentences required)"
+                    f"diorama sentences missing ({sent_min}-{sent_max} sentences required)"
                 )
-            elif not (DIORAMA_SENTENCE_COUNT_MIN <= len(active_lines) <= DIORAMA_SENTENCE_COUNT_MAX):
+            elif not (sent_min <= len(active_lines) <= sent_max):
                 g1_issues.append(
-                    f"{len(active_lines)} sentences (must be {DIORAMA_SENTENCE_COUNT_MIN}-{DIORAMA_SENTENCE_COUNT_MAX})"
+                    f"{len(active_lines)} sentences (must be {sent_min}-{sent_max})"
                 )
         elif not narrations:
             g1_issues.append(f"clip_narrations missing ({CLIP_COUNT_MIN}-{CLIP_COUNT_MAX} per-clip narrations required)")
@@ -280,10 +286,13 @@ class ScriptingStage:
 
         # G5: Independent conclusion opener
         conclusion_lower = conclusion_text.strip().lower()
-        g5_pass = conclusion_lower.startswith(CONCLUSION_OPENERS)
+        all_conclusion_openers = (*CONCLUSION_OPENERS, *(b.lower() for b in DIORAMA_TAKEAWAY_BRIDGE_BANK))
+        g5_pass = conclusion_lower.startswith(all_conclusion_openers) or (
+            (diorama_mode or is_micro) and any(b.lower() in conclusion_lower for b in DIORAMA_TAKEAWAY_BRIDGE_BANK)
+        )
         g5_reason = (
-            "Conclusion opens with 'Which proves' / 'Which is why'." if g5_pass
-            else f"Conclusion must open with 'Which proves' or 'Which is why' (got: {conclusion_text[:60]!r})."
+            "Conclusion opens with approved documentary takeaway bridge." if g5_pass
+            else f"Conclusion must open with an approved takeaway bridge (got: {conclusion_text[:60]!r})."
         )
 
         # G6: Tone & prohibited words (3rd person objective documentary tone)
@@ -310,14 +319,17 @@ class ScriptingStage:
             f"(~{EFFECTIVE_WPS} wps after the {AV_SPEEDUP_FACTOR}x speedup)."
         )
 
-        # G11: Pivot clip contains "Instead of"
-        g11_pass = _has_any_term_wb(pivot_text, (PIVOT_PHRASE,))
+        # G11: Pivot clip contains "Instead of" or rotating mechanism pivot bank
+        pivot_lower = pivot_text.lower()
+        g11_pass = _has_any_term_wb(pivot_text, (PIVOT_PHRASE,)) or any(
+            b.lower() in pivot_lower for b in DIORAMA_MECHANISM_PIVOT_BANK
+        )
         if g11_pass:
-            g11_reason = "Pivot clip contains 'Instead of'."
+            g11_reason = "Pivot clip contains approved mechanism pivot transition."
         elif roles:
-            g11_reason = f"Pivot clip {pivot_clip_index(n_clips) + 1} must contain 'Instead of'."
+            g11_reason = f"Pivot clip {pivot_clip_index(n_clips) + 1} must contain an approved mechanism pivot."
         else:
-            g11_reason = "Script must contain 'Instead of' (pivot)."
+            g11_reason = "Script must contain an approved mechanism pivot."
 
         # G12: Causal momentum connectives & measured dead air
         propulsive_connectors = [

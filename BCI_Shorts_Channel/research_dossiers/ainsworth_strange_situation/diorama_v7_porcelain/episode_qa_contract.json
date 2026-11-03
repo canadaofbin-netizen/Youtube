@@ -1,0 +1,342 @@
+{
+  "schema": "episode_qa_contract_v2",
+  "is_v7": true,
+  "style_profile": "porcelain_cinematic_v7",
+  "dossier": "ainsworth_strange_situation",
+  "project_id": "",
+  "sentence_count": 54,
+  "clip_count": 49,
+  "analogy_locks": [],
+  "cast_clip_locks": [
+    {
+      "clip_number": 1,
+      "sentence_index": 1,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 3,
+      "sentence_index": 3,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 4,
+      "sentence_index": 4,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 5,
+      "sentence_index": 5,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 6,
+      "sentence_index": 6,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 7,
+      "sentence_index": 7,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 8,
+      "sentence_index": 9,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 9,
+      "sentence_index": 10,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 10,
+      "sentence_index": 11,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 11,
+      "sentence_index": 12,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 12,
+      "sentence_index": 13,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 13,
+      "sentence_index": 15,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 14,
+      "sentence_index": 17,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 15,
+      "sentence_index": 19,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 16,
+      "sentence_index": 20,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 17,
+      "sentence_index": 21,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 18,
+      "sentence_index": 22,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 19,
+      "sentence_index": 23,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 23,
+      "sentence_index": 27,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 24,
+      "sentence_index": 28,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 25,
+      "sentence_index": 29,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 26,
+      "sentence_index": 31,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 27,
+      "sentence_index": 32,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 31,
+      "sentence_index": 36,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 32,
+      "sentence_index": 37,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 33,
+      "sentence_index": 38,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 34,
+      "sentence_index": 39,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 35,
+      "sentence_index": 40,
+      "act": 5,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 41,
+      "sentence_index": 46,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 42,
+      "sentence_index": 48,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 44,
+      "sentence_index": 50,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 45,
+      "sentence_index": 51,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 48,
+      "sentence_index": 54,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    },
+    {
+      "clip_number": 49,
+      "sentence_index": null,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "bright_porcelain_world"
+    }
+  ],
+  "cold_open_impact_locks": [],
+  "anatomy_locks": [
+    {
+      "sentence_index": 25,
+      "sentence_text": "Deep inside, the amygdala, the alarm, fires at loss.",
+      "anatomy_terms": [
+        "amygdala"
+      ],
+      "bound_clip_numbers": [
+        21
+      ]
+    },
+    {
+      "sentence_index": 26,
+      "sentence_text": "Up front, the ventromedial prefrontal cortex, the social brake, calms it.",
+      "anatomy_terms": [
+        "ventromedial prefrontal cortex"
+      ],
+      "bound_clip_numbers": [
+        22
+      ]
+    },
+    {
+      "sentence_index": 33,
+      "sentence_text": "Midline, the anterior cingulate cortex, the conflict detector, held tight.",
+      "anatomy_terms": [
+        "anterior cingulate cortex"
+      ],
+      "bound_clip_numbers": [
+        28
+      ]
+    },
+    {
+      "sentence_index": 43,
+      "sentence_text": "Deep down, the hypothalamus, the body thermostat, pumped stress.",
+      "anatomy_terms": [
+        "hypothalamus"
+      ],
+      "bound_clip_numbers": [
+        39
+      ]
+    }
+  ],
+  "early_hook_sentences": [],
+  "require_early_ceramic_reenactment_min_clips": 0,
+  "tempo_targets": {
+    "wpm_min": 135.0,
+    "wpm_max": 212.0,
+    "min_cut_sec": 1.8,
+    "avg_cut_min_sec": 2.85,
+    "avg_cut_max_sec": 3.35,
+    "fast_cut_threshold_sec": 2.3,
+    "fast_cut_ratio_min": 0.0,
+    "cut_duration_cv_min": 0.15,
+    "max_single_sentence_cut_sec": 4.3,
+    "max_single_speech_cut_sec": 4.5,
+    "max_clip_reuse": 1
+  }
+}

@@ -48,6 +48,8 @@ def build_100_video_2_per_day_schedule(
     start_date: str | None = None,
     save_to_queue: bool = True,
     allow_legacy_v4: bool = False,
+    *,
+    force_legacy_psych: bool = False,
 ) -> dict[str, Any]:
     """
     Assigns all 100 catalog projects (psych_01 .. psych_100) to 2 slots/day
@@ -55,7 +57,14 @@ def build_100_video_2_per_day_schedule(
     - Slot 2: 12:00 PM US ET (16:00 UTC)
     - Slot 4: 08:00 PM US ET (00:00 UTC +1d)
     Preserves already-live published status (R34) and marks legacy v4 drafts as blocked_legacy_v4.
+    NOTE: Deprecated in favor of pipeline/studio/us_diorama_timetable.py unless force_legacy_psych=True.
     """
+    if save_to_queue and not force_legacy_psych:
+        raise RuntimeError(
+            "studio_batch_100_scheduler (legacy psych_01..100) is locked to protect the Schema v7 "
+            "neuro_diorama / reenactment staging queue. Use pipeline.studio.us_diorama_timetable "
+            "or pass force_legacy_psych=True / --force-legacy-psych explicitly."
+        )
     et_tz = ZoneInfo("America/New_York")
     if not start_date:
         start_dt = (datetime.now(et_tz) + timedelta(days=1)).replace(
@@ -158,16 +167,27 @@ def upload_and_schedule_ready_batch(
     allow_legacy_v4: bool = False,
     auto_link: bool = True,
     assign_playlists: bool = True,
+    *,
+    force_legacy_psych: bool = False,
 ) -> dict[str, Any]:
     """
     Uploads all v5-ready projects in staging_queue.json to YouTube Studio as Private/Scheduled
     (releasing Public at 2 videos/day: 12:00 PM ET and 08:00 PM ET), links Related Video + Playlist,
     and pins their DOI comments. Strictly skips already-live videos (R34) and legacy v4 videos (R18-V5).
     """
+    if not force_legacy_psych:
+        raise RuntimeError(
+            "upload_and_schedule_ready_batch (legacy psych_01..100) is locked. "
+            "Use pipeline.studio.us_diorama_timetable or pass force_legacy_psych=True explicitly."
+        )
     qm = StagingQueueManager(cdp_port=cdp_port)
     queue_data = qm.load_queue()
     if not queue_data.get("scheduled_items") or len(queue_data.get("scheduled_items", [])) < 100:
-        queue_data = build_100_video_2_per_day_schedule(save_to_queue=True, allow_legacy_v4=allow_legacy_v4)
+        queue_data = build_100_video_2_per_day_schedule(
+            save_to_queue=True,
+            allow_legacy_v4=allow_legacy_v4,
+            force_legacy_psych=force_legacy_psych,
+        )
 
     uploader = StudioUploader(cdp_port=cdp_port)
     pinner = CommunityManager(cdp_port=cdp_port)
@@ -257,18 +277,24 @@ def upload_and_schedule_ready_batch(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="100-Video 2-Per-Day YouTube Studio Scheduler")
+    parser = argparse.ArgumentParser(description="100-Video 2-Per-Day YouTube Studio Scheduler (Legacy Psych Lock)")
     parser.add_argument("--plan-only", action="store_true", help="Generate the 50-day (2/day) schedule JSON only")
     parser.add_argument("--start-date", type=str, default=None, help="YYYY-MM-DD start date (default: tomorrow UTC)")
     parser.add_argument("--visibility", type=str, default="scheduled", choices=["scheduled", "private", "unlisted"])
     parser.add_argument("--dry-run", action="store_true", help="Run in dry-run staging mode")
     parser.add_argument("--allow-legacy-v4", action="store_true", help="Allow legacy v4 drafts into upload queue")
+    parser.add_argument(
+        "--force-legacy-psych",
+        action="store_true",
+        help="Required override to unlock legacy psych_01..100 batch scheduling",
+    )
     args = parser.parse_args()
 
     q = build_100_video_2_per_day_schedule(
         start_date=args.start_date,
         save_to_queue=True,
         allow_legacy_v4=args.allow_legacy_v4,
+        force_legacy_psych=args.force_legacy_psych,
     )
     print(
         f"[Batch100Scheduler] Built 50-day (2/day) schedule for {q['total_videos']} videos: "
@@ -282,6 +308,7 @@ def main() -> int:
         dry_run=args.dry_run,
         pin_comments=True,
         allow_legacy_v4=args.allow_legacy_v4,
+        force_legacy_psych=args.force_legacy_psych,
     )
     print(json.dumps(summary, indent=2, ensure_ascii=False))
     return 0

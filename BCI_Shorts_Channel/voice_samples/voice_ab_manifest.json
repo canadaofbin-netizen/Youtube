@@ -1,0 +1,29 @@
+{
+  "schema": "voice_ab_samples_v1",
+  "cold_open_sentences": [
+    "Most parents think a quiet toddler is calm!",
+    "Yet in one famous room, quiet babies hid racing hearts!",
+    "Psychologists proved it with Mary Ainsworth's Strange Situation.",
+    "That is where the alarm spiked in nineteen seventy."
+  ],
+  "samples": {
+    "emma_v7": {
+      "wav_path": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/voice_samples/cold_open_emma_v7.wav",
+      "duration_sec": 14.542,
+      "speech_end_sec": 12.328,
+      "voice": "en-US-EmmaMultilingualNeural",
+      "eq_profile": "female_studio",
+      "engine": "edge_tts",
+      "prosody_mode": "dynamic_us_v7"
+    },
+    "ava_v7": {
+      "wav_path": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/voice_samples/cold_open_ava_v7.wav",
+      "duration_sec": 14.708,
+      "speech_end_sec": 12.527,
+      "voice": "en-US-AvaMultilingualNeural",
+      "eq_profile": "female_studio",
+      "engine": "edge_tts",
+      "prosody_mode": "dynamic_us_v7"
+    }
+  }
+}

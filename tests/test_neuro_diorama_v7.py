@@ -1718,7 +1718,7 @@ def test_youtube_natural_script_guardrails_and_r35_editorial_comments() -> None:
         txt = pkg["comment_text"]
         assert "According to (" not in txt, f"Broken citation in {pid}: {txt}"
         assert "https://doi.org/10." in txt, f"Missing DOI link in {pid}: {txt}"
-        assert txt.strip().endswith("?"), f"Missing viewer debate question '?' in {pid}: {txt}"
+        assert txt.splitlines()[0].strip().endswith("?"), f"Viewer debate question '?' must be on Line 1 above mobile fold in {pid}: {txt}"
         ns = find_ai_cliches_and_seminar_isms(txt)
         assert ns["ai_cliches"] == [] and ns["seminar_isms"] == [], (pid, ns)
 

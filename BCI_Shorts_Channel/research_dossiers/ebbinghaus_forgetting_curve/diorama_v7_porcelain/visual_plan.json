@@ -1,0 +1,1116 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "ebbinghaus_forgetting_curve",
+  "topic": "Hermann Ebbinghaus (1885) 2,300 Nonsense-Syllable Self-Experimentation, First-Hour Forgetting Waterfall, Hidden Relearning Savings Score, 2015 Replication, and Spaced Repetition",
+  "act5_climax_episode": "Transformation of Ebbinghaus's 1885 Berlin Savings and Spacing discoveries into modern spaced-repetition science confirmed across all seven retention intervals in Murre and Dros's 2015 replication.",
+  "outro_title_lines": [
+    "EBBINGHAUS (1885)",
+    "UNIVERSITY OF BERLIN"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "CRAM ALL NIGHT?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "ONE HOUR CLIFF"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FAST WATERFALL"
+    },
+    {
+      "sentence_index": 19,
+      "text": "HIDDEN SAVINGS"
+    },
+    {
+      "sentence_index": 28,
+      "text": "EXACT REPLICA"
+    },
+    {
+      "sentence_index": 36,
+      "text": "SPACED RAMP"
+    },
+    {
+      "sentence_index": 44,
+      "text": "BEAT THE CLIFF"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "CRAM ALL NIGHT?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "ONE HOUR CLIFF"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FAST WATERFALL"
+    },
+    {
+      "sentence_index": 19,
+      "text": "HIDDEN SAVINGS"
+    },
+    {
+      "sentence_index": 28,
+      "text": "EXACT REPLICA"
+    },
+    {
+      "sentence_index": 36,
+      "text": "SPACED RAMP"
+    },
+    {
+      "sentence_index": 44,
+      "text": "BEAT THE CLIFF"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 15,
+      "mode": "split_hstack",
+      "left_clip_index": 14,
+      "right_clip_index": 47,
+      "left_label": "ROTE: 80 REPS",
+      "right_label": "MEANING: 8 REPS"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "berlin_slate_study",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal coat cuffs and cool porcelain-white gloved matte-white porcelain hands beside a stepped slate ramp",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand pushes the unlinked ceramic tile tower as more than half the blank sunlit tiles slide down a steep slate chute",
+      "consequence": "only a small base stack of blank sunlit ceramic tiles remains on the upper shelf",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "berlin_slate_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "berlin_slate_study",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "tilt_down",
+      "structure": "a clean architectural cliff curve sculpted in cool pale limestone dropping steeply on the left before leveling into a long gentle mint-sage tail",
+      "internal_mechanism": "matte powder-blue spheres roll rapidly down the steep first-hour drop and coast slowly along the flat lower tail",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "berlin_slate_study",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "berlin_slate_study",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a sunlit European scholar study with tall arched casement windows, a cool slate-gray desk, compartmentalized stone tile trays, and an unmarked curved glass slope",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain scholar in a charcoal frock coat, shirt, trousers, and boots leans at the slate desk and flips blank unlined sunlit ceramic tiles in time with the silver metronome",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "berlin_slate_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "berlin_slate_study",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright cool-limestone university lecture hall where senior matte-white porcelain professors stand before an empty unmarked glass frame",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain professors in dark coats, hats, and boots turn and step away while the young scholar holds a silver metronome",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "berlin_slate_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "berlin_slate_study",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a bright cool-limestone university lecture hall where senior matte-white porcelain professors stand before an empty unmarked glass frame",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "berlin_slate_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 5
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "berlin_slate_study",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the quiet sunlit Berlin slate study lined with cool limestone shelves holding neat stone boxes of blank geometric ceramic tiles",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain scholar in a charcoal coat and boots closes the study door and sets a plain tick-only silver pocket chronometer without numbers on the slate desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 7,
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "berlin_slate_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-limestone pedestal supporting a sleek pyramid-shaped matte powder-blue and brushed-silver mechanical metronome without numbers",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in dark sleeves open the side latch so the brushed-silver metronome arm swings crisply left and right in rapid even rhythm",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "berlin_slate_study",
+      "grammar": "porcelain_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "charcoal coat sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge holding a plain tick-only silver chronometer without numbers",
+      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand presses the top crown of the plain tick-only silver chronometer while the left hand places a rose-coral peg low on an unmarked slate curve",
+      "consequence": "the rose-coral peg marks a dramatic drop right after the starting post",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "berlin_slate_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "berlin_slate_study",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal cuffs and cool porcelain-white gloved matte-white porcelain hands over seven descending sunlit stone columns on a slate base",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands hold and trace a steep brushed-silver rail plunging from the tall starting column down across the second and third columns",
+      "consequence": "the steepest drop occurs across the very first two columns",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "berlin_slate_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool limestone courtyard platform holding a matte powder-blue cylindrical stave barrel with an open upper spigot and a low trickle spout",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves open the upper silver spigot so clear water pours fast from the top half then slows near the base",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "modern_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves press and trace three crisp geometric grooves into the firm mint-sage potter clay block",
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "modern_study_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "end_sentence_index": 13,
+      "act": 2,
+      "location_id": "modern_study_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands inside a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "modern_study_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "clip_number": 12
+    },
+    {
+      "sentence_index": 14,
+      "end_sentence_index": 14,
+      "act": 2,
+      "location_id": "modern_study_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands inside a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "modern_study_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "clip_number": 13
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "berlin_slate_study",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal coat sleeves and cool porcelain-white gloved matte-white porcelain hands over the left slate tray",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place a towering eighty-tile gray column of loose unlinked blank tiles that tilts and slides downward",
+      "consequence": "the tall unlinked gray stack requires massive height on the left slate tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "berlin_slate_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "HIPPOCAMPUS\nMEMORY MAKER",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, soft mint-sage and powder-blue light illuminates the curved inner hippocampus ridge",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "modern_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves press the mint-sage hook strap firmly onto the powder-blue loop strap and pull upward to show the tight grip",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "modern_study_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "modern_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain student in a navy sweater, trousers, and boots leans tiredly over the slate desk and rests both arms beside the spilled unlinked tiles",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "modern_study_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "end_sentence_index": 20,
+      "act": 3,
+      "location_id": "berlin_slate_study",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal coat cuffs and cool porcelain-white gloved matte-white porcelain hands comparing two plain tick-only silver chronometers without numbers on a slate mat",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand taps a full-sweep silver chronometer on the left while the other hand presses a second silver chronometer less than halfway around",
+      "consequence": "the second chronometer hand stops far earlier showing massive saved time",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "berlin_slate_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "berlin_slate_study",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright sunlit Berlin slate study with thirteen blank ceramic tiles arranged neatly beside the brushed-silver metronome",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain scholar in a charcoal coat and boots flips smoothly through the thirteen blank ceramic tiles and presses the silver tally counter",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "berlin_slate_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "end_sentence_index": 22,
+      "act": 3,
+      "location_id": "berlin_slate_study",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the bright sunlit Berlin slate study with thirteen blank ceramic tiles arranged neatly beside the brushed-silver metronome",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "berlin_slate_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 20
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "hippocampus",
+      "anatomy_label": "HIPPOCAMPUS\nHIDDEN TRACE",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, a faint powder-blue pathway inside the hippocampus brightens smoothly back to mint-sage",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "berlin_slate_study",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright sunlit Berlin slate study with thirteen blank ceramic tiles arranged neatly beside the brushed-silver metronome",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves lift the clear protective glass dome off the pedestal and tap the intact mint-sage tiles",
+      "clip_number": 22,
+      "scene_state": {
+        "location_id": "berlin_slate_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "berlin_slate_study",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a cool-limestone bridge span connecting an evening crescent moon block on the left to a morning sun block on the right at the exact same height",
+      "internal_mechanism": "mint-sage memory spheres glide horizontally across the overnight bridge without losing height",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 25,
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "berlin_slate_study",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 26,
+      "end_sentence_index": 26,
+      "act": 3,
+      "location_id": "berlin_slate_study",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the bright sunlit Berlin slate study with thirteen blank ceramic tiles arranged neatly beside the brushed-silver metronome",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "berlin_slate_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 24
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "amsterdam_replication_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright modern Amsterdam psychology lab with cool slate-gray benches and an unmarked glass curve display",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain psychologists in blazers, lab coats, and boots step beside a seated volunteer flipping blank ceramic tiles",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "amsterdam_replication_lab",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "amsterdam_replication_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright modern laboratory contrasting a classic silver metronome on the left pedestal with a modern frosted display on the right pedestal",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a navy blazer and boots walks from the classic metronome pedestal and places a hand on the modern display bench",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "amsterdam_replication_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "amsterdam_replication_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater cuffs and cool porcelain-white gloved matte-white porcelain hands over a modern slate tile tray",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift and slide thirteen blank unlined ceramic tiles briskly across a cool slate slot in time with a blinking powder-blue pulse light",
+      "consequence": "the thirteen blank ceramic tiles stack neatly at the right stop",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 29,
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "amsterdam_replication_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "amsterdam_replication_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright modern laboratory contrasting a classic silver metronome on the left pedestal with a modern frosted display on the right pedestal",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in blazer sleeves place a blank mint-sage tile on the window sill as the powder-blue train car glides steadily across the viaduct",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "amsterdam_replication_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "amsterdam_replication_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved matte-white porcelain hands aligning seven powder-blue rings over seven classic mint-sage pegs",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands align and press the frosted overlay down so all seven powder-blue rings land squarely around the seven classic mint-sage pegs",
+      "consequence": "both seven-point curves match dot for dot across the entire slate board",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 31,
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "amsterdam_replication_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "amsterdam_replication_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands pointing to the matching overnight shelf on the dual-curve board",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand traces the flat overnight step while the other hand places a small silver moon block beside the flat bridge",
+      "consequence": "both curves show the exact same flat overnight step",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 32,
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "amsterdam_replication_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "berlin_slate_study",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal coat cuffs and cool porcelain-white gloved matte-white porcelain hands comparing one overloaded tray against three spaced trays on a slate bench",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand pushes back a tall single-stack gray tray while the other hand slides forward three neat spaced mint-sage trays",
+      "consequence": "the three spaced mint-sage trays sit balanced and orderly",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 34,
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "berlin_slate_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "modern_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright modern sunlit study room with a cool slate-gray desk holding three spaced sunlit tile trays and a rising mint-sage curve model",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain learner in a powder-blue cardigan and slacks reaches out and lifts a blank ceramic tile from the second spaced tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "modern_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "modern_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a bright university library reading hall with cool limestone arches and neat slate study tables",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves tilt the brushed-silver watering can and pour a gentle measured stream onto the soil",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "modern_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nACTIVE RECALL",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front third of the matte cool-porcelain 3D brain model, soft powder-blue light activates the prefrontal cortex and sends signals deep inward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 34
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "hippocampus",
+      "anatomy_label": "HIPPOCAMPUS\nTRACE LOCKED",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, bright mint-sage light strengthens the curved inner hippocampus bridge",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "modern_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright university library reading hall with cool limestone arches and neat slate study tables",
+      "action": "viewed strictly from behind, clothed matte-white porcelain medical and language students in white coats, sweaters, caps, and boots lift and place small stacks of blank sunlit tiles calmly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "modern_study_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "modern_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright university library reading hall with cool limestone arches and neat slate study tables",
+      "action": "viewed strictly from behind, clothed matte-white porcelain medical and language students in white coats, sweaters, caps, and boots lift and place small stacks of blank sunlit tiles calmly",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 40,
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "modern_study_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "amsterdam_replication_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright Amsterdam psychology lab displaying the matched seven-point curve sculpture on the central slate bench",
+      "action": "viewed strictly from behind, three clothed matte-white porcelain researchers in lab coats, blazers, and boots step around the slate bench and lean toward the matched curve",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 42,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "amsterdam_replication_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "berlin_slate_study",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit Berlin slate study with the curved mint-sage sculpture glowing softly beside tall arched windows",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain scholar in a charcoal coat, shirt, and boots steps calmly to the arched window and rests one hand beside the finished curve model",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "berlin_slate_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a tidy sunlit modern desk in cool slate-gray holding four spaced sunlit ceramic trays under a clear window",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain learner in a mint-sage sweater, slacks, and boots leans calmly at the slate desk and reaches for the first tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 45,
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "modern_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "end_sentence_index": 46,
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a tidy sunlit modern desk in cool slate-gray holding four spaced sunlit ceramic trays under a clear window",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "modern_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 41
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a tidy sunlit modern desk in cool slate-gray holding four spaced sunlit ceramic trays under a clear window",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain walker in a slate jacket, trousers, cap, and boots walks and steps briskly across the sturdy pale-limestone stone bridge",
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "modern_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "end_sentence_index": 48,
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a tidy sunlit modern desk in cool slate-gray holding four spaced sunlit ceramic trays under a clear window",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "modern_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 43
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nRETRIEVAL SPARK",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front lobe of the matte cool-porcelain 3D brain model, crisp powder-blue and mint-sage light illuminates the prefrontal cortex smoothly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright morning sunlit study desk as crisp daylight streams across the four spaced ceramic trays",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain learner in a powder-blue jacket and boots opens the ceramic box calmly and closes it with confidence",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "modern_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a sunlit limestone university courtyard bordered by sunlit mint-sage trees",
+      "action": "viewed strictly from behind, clothed matte-white porcelain learners in sunlit jackets, sweaters, caps, and boots walk and step briskly together across the bright limestone courtyard",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 51,
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "modern_study_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "berlin_slate_study",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal coat sleeves and cool porcelain-white gloved matte-white porcelain hands over the right slate tray",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands align and snap eight interlocking mint-sage puzzle tiles cleanly together into a compact arch",
+      "consequence": "the tiny eight-tile interlocking mint-sage arch stands rock-solid on the right tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "berlin_slate_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "modern_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a serene sunlit limestone university quad framed by soft mint-sage trees opening into a clear powder-blue sky with geometric white clouds",
+      "action": "viewed strictly from behind, clothed matte-white porcelain students in sunlit coats, caps, and boots walk and step calmly down the sunlit path as the camera tilts smoothly upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "ONE HOUR CLIFF",
+    "cover_sentence_index": 3,
+    "cover_brief": "stack of blank unlined pastel geometric ceramic memory tiles beside a brushed-silver pyramid metronome on a cool slate-gray desk"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

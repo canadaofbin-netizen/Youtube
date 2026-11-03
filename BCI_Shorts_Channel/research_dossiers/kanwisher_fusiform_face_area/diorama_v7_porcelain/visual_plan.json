@@ -1,0 +1,1137 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "kanwisher_fusiform_face_area",
+  "topic": "Nancy Kanwisher Fusiform Face Area Discovery, Five fMRI Control Tests, Inverted Geometry Drop & Awake Cortical Stimulation Proof",
+  "act5_climax_episode": "Awake clinical cortical stimulation of the right ventral fusiform patch selectively warping perceived person geometry while adjacent objects and room fixtures stay completely unchanged.",
+  "outro_title_lines": [
+    "NANCY KANWISHER (1997)",
+    "MIT & MASS GENERAL HOSPITAL"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "UNIFORM VISION?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "PEA-SIZED PATCH"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FIVE CONTROLS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "TWICE AS HIGH"
+    },
+    {
+      "sentence_index": 28,
+      "text": "UPSIDE-DOWN TRAP"
+    },
+    {
+      "sentence_index": 37,
+      "text": "AWAKE PULSE TEST"
+    },
+    {
+      "sentence_index": 45,
+      "text": "UPRIGHT FRAMING"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "UNIFORM VISION?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "PEA-SIZED PATCH"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FIVE CONTROLS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "TWICE AS HIGH"
+    },
+    {
+      "sentence_index": 28,
+      "text": "UPSIDE-DOWN TRAP"
+    },
+    {
+      "sentence_index": 37,
+      "text": "AWAKE PULSE TEST"
+    },
+    {
+      "sentence_index": 45,
+      "text": "UPRIGHT FRAMING"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 39,
+      "mode": "split_hstack",
+      "left_clip_index": 36,
+      "right_clip_index": 48,
+      "left_label": "WARPED EMBLEM",
+      "right_label": "SOLID ROOM"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "boston_fmri_console",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a soft daylight neuroimaging control room with a cool slate-gray console desk, five sunlit geometric stimulus cards, a matte bar monitor screen, and a white scanner bore window",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain neuroscientists in powder-blue blazer and white coat lean forward and point toward the matte monitor screen",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "boston_fmri_console",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "stanford_clinical_suite",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands pressing a brushed-silver pulse switch on a cool limestone console",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand presses the silver switch gently while the other hand slides a coral-rose marker onto a single ventral cortical model spot",
+      "consequence": "only the single coral-rose ventral spot illuminates while surrounding sunlit zones stay calm",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "stanford_clinical_suite",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "boston_fmri_console",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the bright Boston neuroimaging room featuring the cool slate-gray console desk, five geometric stimulus cards, matte monitor screen, and white scanner window",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a powder-blue blazer steps closer to the console desk and rests one gloved hand beside the tall bar display",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "boston_fmri_console",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "boston_fmri_console",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted lavender-gray cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands stacking translucent sunlit brain outlines on a cool slate-gray light table",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and slide fifteen translucent sunlit brain sheets atop one another until their small focal dots blur out",
+      "consequence": "the stacked translucent sheets wash out into one indistinct cloudy smudge",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "boston_fmri_console",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "boston_fmri_console",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the cool-toned scanner bay with a smooth matte-white cylindrical MRI bore, pale mint-sage walls, and a cool slate-gray operator window",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain technician in a white coat walks beside the matte-white scanner table and aligns a cool-alabaster head cradle",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 7,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "boston_fmri_console",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "boston_fmri_console",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the cool-toned scanner bay with a smooth matte-white cylindrical MRI bore, pale mint-sage walls, and a cool slate-gray operator window",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain technician in a white coat walks beside the matte-white scanner table and aligns a cool-alabaster head cradle",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 8,
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "boston_fmri_console",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "boston_fmri_console",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright scanner room seen through the cool slate-gray operator window with twelve individual sunlit brain tiles arranged along the console ledge",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain scientist in a powder-blue blazer sets down her blazer on a mint-sage chair and steps toward the scanner table",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "boston_fmri_console",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "gentle_push_in",
+      "analogy_world": "a single smooth pale mint-sage ceramic garden pea resting on a cool slate-gray stone dish beside a matte-sunlit brain model",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in powder-blue cuffs lift the tiny mint-sage ceramic pea gently and hold it beside the matching coral-rose ventral spot",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "boston_fmri_console",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the Boston neuroimaging room with the five sunlit silhouette control cards spread on the cool slate-gray console desk before the matte bar monitor",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in blazer and collared shirt lean over the five control cards and tap the console switch",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "boston_fmri_console",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "seminar_flip_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted lavender-gray sweater sleeves and cool porcelain-white gloved matte-white porcelain hands sorting curved sunlit tokens and cube tokens on a mint-sage ceramic table",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand slides a curved sunlit arch token forward while the other hand tilts a balance bar thoughtfully",
+      "consequence": "both curved and straight object tokens sit ready for strict control testing",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 12,
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "seminar_flip_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "boston_fmri_console",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer cuffs and cool porcelain-white gloved matte-white porcelain hands laying five distinct blank sunlit silhouette cards across a cool slate-gray console desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and align five crisp silhouette cards showing a house, a spoon, checker mosaic blocks, a gloved hand icon, and a smooth sculptural emblem",
+      "consequence": "all five unlined geometric control cards line up cleanly beneath the test camera",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 13,
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "boston_fmri_console",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "PRIMARY VISUAL CORTEX\nVISION CENTER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model on a cool alabaster stand where the rear primary visual cortex glows evenly in soft powder-blue for all shapes alike",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "boston_fmri_console",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands sliding the house, spoon, mosaic, and hand silhouette tiles past a scanner slot on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand pushes each of the four non-person silhouette tiles past the viewer while the other hand rests beside the low bar column",
+      "consequence": "four short mint-sage bar columns stay low and flat across the matte display",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "boston_fmri_console",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "boston_fmri_console",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit neuroimaging control room where four short mint-sage object columns sit dwarfed beside one towering coral-rose column on the matte screen",
+      "action": "viewed strictly from behind, both clothed matte-white porcelain scientists in powder-blue blazer and white coat step back from the slate-gray desk and point to the towering coral-rose bar",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "boston_fmri_console",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "end_sentence_index": 17,
+      "act": 2,
+      "location_id": "boston_fmri_console",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the sunlit neuroimaging control room where four short mint-sage object columns sit dwarfed beside one towering coral-rose column on the matte screen",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "boston_fmri_console",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 15
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "boston_fmri_console",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit neuroimaging control room where four short mint-sage object columns sit dwarfed beside one towering coral-rose column on the matte screen",
+      "action": "viewed strictly from behind, both clothed matte-white porcelain scientists in powder-blue blazer and white coat step back from the slate-gray desk and point to the towering coral-rose bar",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "boston_fmri_console",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "boston_fmri_console",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "side-by-side solid sunlit bar columns rising from a cool limestone base where four pale mint-sage bars stand half the height of one coral-rose column",
+      "internal_mechanism": "the tall coral-rose column locks steadily at double height under soft diffused daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "boston_fmri_console",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "fusiform face area",
+      "anatomy_label": "FUSIFORM FACE AREA\nFACE DETECTOR",
+      "brain_scene": "a matte-sunlit 3D cortical brain model tilted slightly to reveal the underside of the right hemisphere where the pea-sized fusiform face area glows bright coral-rose",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sleek matte brushed-silver and powder-blue mechanical camera shutter mounted on a cool slate-gray block",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in slate coat cuffs press and release the silver trigger so the sunlit shutter blades click open and shut in one instant",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "seminar_flip_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a sunlit vision seminar room with a cool limestone table holding twin brushed-silver swivel frames and powder-blue chairs",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in lavender-gray sleeves press and hold three sunlit keys simultaneously so three harmonic bars rise together as one chord",
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "seminar_flip_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "end_sentence_index": 23,
+      "act": 3,
+      "location_id": "seminar_flip_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a sunlit vision seminar room with a cool limestone table holding twin brushed-silver swivel frames and powder-blue chairs",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "seminar_flip_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 21
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_left",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "temporal lobe",
+      "anatomy_label": "TEMPORAL LOBE\nSIDE OF BRAIN",
+      "brain_scene": "a matte-sunlit 3D cortical brain model where soft cyan-blue pathways stream forward from the ventral patch across the lateral temporal lobe",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "seminar_flip_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit vision seminar room with a cool limestone table holding twin brushed-silver swivel frames and powder-blue chairs",
+      "action": "viewed strictly from behind, three clothed matte-white porcelain students in sweaters and shirts lean and point toward the two inverted geometric emblem frames in calm agreement",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "seminar_flip_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "boston_fmri_console",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "tilt_down",
+      "structure": "a tall coral-rose bar column beside the silver swivel frame on a cool slate-gray base",
+      "internal_mechanism": "as the swivel frame tilts upside down, the coral-rose bar column drops smoothly to half height while a house-tile mint-sage bar stays steady",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 26,
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "boston_fmri_console",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "seminar_flip_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit vision seminar room with a cool limestone table holding twin brushed-silver swivel frames and powder-blue chairs",
+      "action": "viewed strictly from behind, three clothed matte-white porcelain students in sweaters and shirts lean and point toward the two inverted geometric emblem frames in calm agreement",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 27,
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "seminar_flip_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "seminar_flip_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright seminar room with the clothed instructor standing behind the twin brushed-silver swivel frames on the cool limestone table",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain instructor in a powder-blue blazer reaches out and holds both silver swivel knobs at the same time",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "seminar_flip_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "seminar_flip_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the bright seminar room with the clothed instructor standing behind the twin brushed-silver swivel frames on the cool limestone table",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "seminar_flip_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 27
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "seminar_flip_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit seminar table the instant both swivel frames click upright revealing one symmetrical sunlit emblem beside one sharply skewed asymmetrical emblem",
+      "action": "viewed strictly from behind, the three clothed matte-white porcelain students in sweaters lean back in unison and lift gloved hands in sudden surprise",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 30,
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "seminar_flip_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "fusiform face area",
+      "anatomy_label": "FUSIFORM FACE AREA\nFACE DETECTOR",
+      "brain_scene": "a matte-sunlit 3D cortical brain model where the right ventral fusiform face area flashes crisp coral-rose and cyan-blue the instant upright geometry engages",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "seminar_flip_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray sweater cuffs and cool porcelain-white gloved matte-white porcelain hands moving a silver magnifier slowly from piece to piece over an inverted geometric tile on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand slides the silver magnifier haltingly from one corner prism to the next while the other hand taps each separate piece",
+      "consequence": "slow piece-by-piece checking misses the overall tilted spacing",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 33,
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "seminar_flip_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "seminar_flip_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright seminar room with the clothed instructor standing behind the twin brushed-silver swivel frames on the cool limestone table",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in soft-cream cuffs place the powder-blue bowl into gentle window light as the two mint-sage leaves open upright",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "seminar_flip_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "end_sentence_index": 35,
+      "act": 4,
+      "location_id": "seminar_flip_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the bright seminar room with the clothed instructor standing behind the twin brushed-silver swivel frames on the cool limestone table",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "seminar_flip_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 32
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "stanford_clinical_suite",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright cool-toned Stanford neurological mapping suite with a powder-blue chair, a wall-mounted matte screen, and a brushed-silver stimulator console",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain neurologists in white coats step beside the silver stimulator console and align sterile leads",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "stanford_clinical_suite",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "stanford_clinical_suite",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit clinical mapping room where a clothed physician in a white coat and powder-blue tie stands beside a matte wall screen and blank clipboard",
+      "action": "viewed strictly from behind, an awake clothed matte-white porcelain patient in a mint-sage sweater leans forward in the powder-blue chair and rests gloved hands on the armrests",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "stanford_clinical_suite",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "stanford_clinical_suite",
+      "grammar": "porcelain_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands touching a silver probe to the right ventral spot of a 3D sunlit brain reference model on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand holds the 3D sunlit brain model steady while the other hand taps the exact coral-rose ventral fold",
+      "consequence": "a soft coral-rose ripple blooms strictly inside that single pea-sized ventral fold",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 38,
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "stanford_clinical_suite",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "stanford_clinical_suite",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage sweater cuffs and cool porcelain-white gloved matte-white porcelain hands sliding skewed coral-rose prism tiles on a cool slate-gray tray",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands shift and tilt the upper coral-rose geometric emblem tiles sideways while a powder-blue tie tile below stays straight",
+      "consequence": "the upper geometric emblem warps asymmetrically while the lower tie shape stays crisp",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "stanford_clinical_suite",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "stanford_clinical_suite",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the sunlit clinical mapping room where a clothed physician in a white coat and powder-blue tie stands beside a matte wall screen and blank clipboard",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in white coat cuffs hold and tap a silver tuning fork beside the limestone statue while its sharp edges remain completely motionless",
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "stanford_clinical_suite",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "stanford_clinical_suite",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the calm Stanford clinical suite with straight cool-alabaster walls, rectangular matte television frame, and brushed-silver cart",
+      "action": "viewed strictly from behind, the awake clothed matte-white porcelain patient in a mint-sage sweater points first toward the physician and then turns toward the unchanged television",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 41,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "stanford_clinical_suite",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "stanford_clinical_suite",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide view of the bright clinical mapping room with the 3D ventral brain model glowing softly on the cool slate-gray console",
+      "action": "viewed strictly from behind, three clothed matte-white porcelain clinicians in white coats step back together and lean toward the ventral cortical map in quiet awe",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 43,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "stanford_clinical_suite",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 5,
+      "location_id": "boston_fmri_console",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer sleeves and cool porcelain-white gloved matte-white porcelain hands setting the upright symmetrical emblem tile beside the glowing 3D ventral brain model on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand sets the upright emblem tile upright in its stand while the other hand rests beside the glowing coral-rose ventral spot",
+      "consequence": "the upright geometric emblem and ventral spot shine in clean harmony",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "boston_fmri_console",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "seminar_flip_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a modern cool-toned studio office with a cool slate-gray desk, a brushed-silver laptop sitting low and flat, and tall daylight windows",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain professional in a powder-blue shirt leans downward at the slate-gray desk and reaches toward the low laptop",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "seminar_flip_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "seminar_flip_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "tilt_down",
+      "attire_and_hands": "powder-blue shirt sleeves and cool porcelain-white gloved matte-white porcelain hands tilting a low laptop lid upward from the flat slate-gray desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands push and tilt the low silver lid backward trying to align the steep upward camera angle",
+      "consequence": "harsh overhead shadows fall across the tilted geometric desk frame",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 46,
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "seminar_flip_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "seminar_flip_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt cuffs and cool porcelain-white gloved matte-white porcelain hands sliding a matte mint-sage ceramic riser stand onto the cool slate-gray desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place the solid mint-sage ceramic riser stand at the center of the desk and align its level top",
+      "consequence": "the sturdy sunlit riser stand creates a clean elevated platform",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "seminar_flip_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model where crisp cyan-blue light fills the prefrontal cortex coordinating deliberate workspace alignment",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44
+    },
+    {
+      "sentence_index": 49,
+      "end_sentence_index": 50,
+      "act": 6,
+      "location_id": "seminar_flip_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt sleeves and cool porcelain-white gloved matte-white porcelain hands lifting the brushed-silver laptop onto the mint-sage ceramic riser stand",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set the silver laptop squarely atop the riser stand and turn it slightly toward soft daylight from the window",
+      "consequence": "the camera lens sits level and balanced in even soft sunlit window light",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "seminar_flip_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "seminar_flip_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the bright cool-slate studio office with the brushed-silver laptop elevated cleanly on its mint-sage ceramic riser beside sunlit windows",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain communicator in a powder-blue shirt leans upright with balanced posture and reaches warmly toward the level screen",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "seminar_flip_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "seminar_flip_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the bright cool-slate studio office with the brushed-silver laptop elevated cleanly on its mint-sage ceramic riser beside sunlit windows",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain communicator in a powder-blue shirt leans upright with balanced posture and reaches warmly toward the level screen",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 52,
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "seminar_flip_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "cut_role": "split_right",
+      "act": 5,
+      "location_id": "stanford_clinical_suite",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands holding a blank cool-alabaster clipboard beside a matte powder-blue monitor frame on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand holds the crisp rectangular clipboard steady while the other hand traces the straight edge of the monitor frame",
+      "consequence": "every straight edge of the clipboard and monitor stays completely undistorted",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48,
+      "scene_state": {
+        "location_id": "stanford_clinical_suite",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "boston_fmri_console",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the serene Boston neuroimaging laboratory with the cool slate-gray console desk, five geometric control tiles, glowing ventral brain model, and tall windows opening to pale powder-blue sky",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain neuroscientists in powder-blue blazer and white coat close a blank folder and walk calmly toward the sunlit window as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 49
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "PEA-SIZED PATCH",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered matte-pastel 3D brain model highlighting the coral-rose ventral fusiform spot beside a towering response bar on cool slate"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

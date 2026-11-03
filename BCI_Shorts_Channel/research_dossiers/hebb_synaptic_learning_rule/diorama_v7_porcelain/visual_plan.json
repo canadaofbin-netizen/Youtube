@@ -1,0 +1,1124 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "hebb_synaptic_learning_rule",
+  "topic": "Donald O. Hebb (1949) Page-62 Learning Postulate, Bliss & Lomo (1973) Hippocampal Signal Boost, Causal Timing Plasticity, and Habit Stacking",
+  "act5_climax_episode": "The journey of Hebb's 67-word 1949 guess into John Hopfield's 2024 Nobel Prize associative AI networks and 100-millisecond sensory memory completion.",
+  "outro_title_lines": [
+    "HEBB (1949) & BLISS (1973)",
+    "MCGILL & OSLO / LONDON"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "SLOGAN MYTH?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FIRE THEN WIRE?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SIGNAL JUMP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "CORK GATE"
+    },
+    {
+      "sentence_index": 28,
+      "text": "TIMING TWIST"
+    },
+    {
+      "sentence_index": 36,
+      "text": "NOBEL AI WEB"
+    },
+    {
+      "sentence_index": 44,
+      "text": "HABIT STACK"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "SLOGAN MYTH?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FIRE THEN WIRE?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SIGNAL JUMP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "CORK GATE"
+    },
+    {
+      "sentence_index": 28,
+      "text": "TIMING TWIST"
+    },
+    {
+      "sentence_index": 36,
+      "text": "NOBEL AI WEB"
+    },
+    {
+      "sentence_index": 44,
+      "text": "HABIT STACK"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 32,
+      "mode": "split_hstack",
+      "left_clip_index": 31,
+      "right_clip_index": 47,
+      "left_label": "EARLY PULSE",
+      "right_label": "LATE PULSE"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "mcgill_study_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit cool slate-gray Montreal study room with powder-blue shelves and a two-cell sunlit sculpture on a limestone desk",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain scholar in a slate tweed jacket and dark trousers steps beside the limestone desk and opens a cool-cream hardcover folio",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "mcgill_study_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "mcgill_study_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved matte-white porcelain hands beside a brushed-silver optical scope on a slate-gray bench",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands grip and turn the brushed-silver focus ring over two separated sunlit cell domes resting on a powder-blue slide",
+      "consequence": "a tiny empty space rests visible between the two matte sunlit cell domes",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "mcgill_study_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view from behind of a bright powder-blue neurobiology studio pairing the two-cell sculpture with a tall mint-sage step-curve display",
+      "action": "viewed strictly from behind, clothed matte-white porcelain researchers in white coats and slate trousers step before the console and point as the mint-sage step trace rises cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "mcgill_study_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit cool-limestone Montreal home study floor arranged with sunlit powder-blue tunnels and mint-sage stepping blocks",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain father in a cool-cream cardigan and trousers leans down and sets a carrier beside matte-white smooth sculptural matte-white porcelain compact rat sculptures",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "mcgill_study_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "mcgill_study_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a sunlit cool-limestone Montreal home study floor arranged with sunlit powder-blue tunnels and mint-sage stepping blocks",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "mcgill_study_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 5
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "mcgill_study_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit cool-limestone Montreal home study floor arranged with sunlit powder-blue tunnels and mint-sage stepping blocks",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain father in a cool-cream cardigan and trousers leans down and sets a carrier beside matte-white smooth sculptural matte-white porcelain compact rat sculptures",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 6,
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "mcgill_study_bench",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit powder-blue stone pedestal comparing an open cool-cream folio beside a crisp unlined sunlit mint-sage postcard",
+      "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in slate sleeves lift and set the compact mint-sage postcard cleanly beside the open folio",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "mcgill_study_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket cuffs and cool porcelain-white gloved matte-white porcelain hands over a cool slate-gray modeling board",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands align and snap a thicker mint-sage coupling collar onto the bridge between sunlit cell A and sunlit cell B",
+      "consequence": "the reinforced sunlit bridge holds both sculpted cells firmly aligned",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "mcgill_study_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "mcgill_study_bench",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "gentle_push_in",
+      "structure": "a clean architectural cross-section of two sunlit geometric neuron terminals separated by a narrow cool-limestone cleft",
+      "internal_mechanism": "a soft powder-blue pulse glides down terminal A across the cleft and presses terminal B to thicken its mint-sage receiving pad",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 9,
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "mcgill_study_bench",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright cool-limestone physiology room with brushed-silver recording racks and a powder-blue oscilloscope screen",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scientists in white lab coats and dark trousers lean toward the powder-blue oscilloscope screen and turn silver dials",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "mcgill_study_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "cool-cream cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands beside a pale-limestone tabletop maze",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands lift the starting gate as a matte-white smooth sculptural matte-white porcelain compact rat sculpture glides straight along the mint-sage goal path",
+      "consequence": "the smooth sculptural matte-white porcelain compact rat sculpture lands in the finish cup without a single wrong turn",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 11,
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "mcgill_study_bench",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "mcgill_study_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and cool porcelain-white gloved matte-white porcelain hands over a powder-blue display tray",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift and place a dense branching mint-sage tree model beside a sparse three-twig sunlit model on the powder-blue tray",
+      "consequence": "the richly branched mint-sage model rests fuller and wider under soft daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 12,
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "mcgill_study_bench",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands over a cool slate-gray console",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand taps and releases a single silver pulse key producing a small powder-blue wave that drops back to baseline",
+      "consequence": "the horizontal baseline trace rests flat across the cool slate screen",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 14,
+      "end_sentence_index": 14,
+      "act": 2,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key oslo signal studio with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 14
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "HIPPOCAMPUS\nMEMORY CENTER",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the clean matte-sunlit sagittal half-brain cutaway, a slender brushed-silver probe guide points toward the curved mint-sage hippocampus",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame over a powder-blue pulse console",
+      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand reaches and presses a twin brushed-silver burst switch sending rapid mint-sage wave rings down a silver cable",
+      "consequence": "the oscilloscope trace rises sharply upward to a high mint-sage shelf",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-limestone acoustic stage pairing a small powder-blue chime bell with a large matte sunlit mint-sage megaphone cone",
+      "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in white coat sleeves lift and place the mint-sage megaphone in front of the chime sending tall sunlit sound rings outward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the bright powder-blue physiology room where the elevated mint-sage step trace stretches steadily across the wide display wall",
+      "action": "viewed strictly from behind, clothed matte-white porcelain researchers in white coats set aside a rigid gray wire grid and point toward the sustained high mint-sage plateau",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit powder-blue recording bench with seven sunlit calendar blocks lined beneath the elevated mint-sage curve",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scientists in white coats walk along the bench and tap each sunlit block confirming the steady high trace",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "mcgill_study_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer sleeves and cool porcelain-white gloved matte-white porcelain hands over a cool slate-gray seminar table",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands align and snap six sunlit geometric blocks together into two balanced three-block halves",
+      "consequence": "both sunlit triads rest locked in unison",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 20,
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "mcgill_study_bench",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "AUDITORY CORTEX\nHEARING CENTER",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the matte-sunlit 3D cortical brain model, soft powder-blue waves in the side auditory cortex fire simultaneously with pale-lavender visual pathways toward the center",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "mcgill_study_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands over a cool limestone network board",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and snap five sunlit node spheres with mint-sage rods forming a geometric pentagon web",
+      "consequence": "tapping one corner node sends a soft mint-sage glow across all five spheres",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22,
+      "scene_state": {
+        "location_id": "mcgill_study_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the sunlit powder-blue recording bench with seven sunlit calendar blocks lined beneath the elevated mint-sage curve",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in coat sleeves press twin silver side latches simultaneously lifting the pale-lavender cork cleanly out of the bottle neck",
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 24,
+      "end_sentence_index": 24,
+      "act": 3,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the sunlit powder-blue recording bench with seven sunlit calendar blocks lined beneath the elevated mint-sage curve",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 24
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "the open powder-blue channel gate cutaway with the pale-lavender stopper lifted clear above the pore",
+      "internal_mechanism": "smooth mint-sage spheres pour and drop through the open channel thickening the receiving pad into a wide mint-sage platform",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 25,
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the powder-blue signal studio featuring a giant sculptural sunlit network dome filled with dozens of glowing mint-sage bridges",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coats step before the network dome and point toward a brushed-silver balance regulator",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the powder-blue signal studio featuring a giant sculptural sunlit network dome filled with dozens of glowing mint-sage bridges",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coats step before the network dome and point toward a brushed-silver balance regulator",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 27,
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the cool slate-gray physiology studio with a balanced sunlit timing scale mounted above the bench",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a white lab coat steps to the timing scale and aligns the center zero pointer",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 29,
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the cool slate-gray physiology studio with a balanced sunlit timing scale mounted above the bench",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain hikers in powder-blue jackets and hats walk and step from cairn A to cairn B widening the smooth limestone trail",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame over the timing console",
+      "prop_action": "the left cool porcelain-white gloved matte-white porcelain hand presses key B first and the right hand taps key A slightly later across the silver console",
+      "consequence": "the pointer swings right into the downward muted-rose pruning zone",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 31,
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands over the left powder-blue timing pad",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands tap cell A before cell B and snap a thick mint-sage bridge bar into place",
+      "consequence": "the mint-sage link bar rests doubled in thickness",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright powder-blue physiology seminar room displaying the tall left-peak and low right-dip timing sculpture on a cool limestone stand",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain neuroscientist in a white coat leans forward and traces the sharp center crossover line before clothed students in sweaters",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "end_sentence_index": 35,
+      "act": 4,
+      "location_id": "mcgill_study_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "slate tweed sleeves and cool porcelain-white gloved matte-white porcelain hands over the open unlined cool-cream folio on the limestone desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide and align a directional brushed-silver arrow from cell A straight into cell B right beside the open folio",
+      "consequence": "the directional silver arrow rests beside the sunlit two-cell sculpture",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "mcgill_study_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit cool-limestone computing studio featuring a circular ring of twelve interconnected powder-blue and mint-sage memory nodes",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain physicist in a slate suit jacket steps up and taps one node on the ring lighting up the entire associative circle",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 37,
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nPATTERN COMPLETION",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the matte-sunlit 3D cortical brain model, a single powder-blue cue wave in the front prefrontal cortex ignites an entire linked web of mint-sage cortical nodes",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view from behind of a sunlit Nordic lecture hall with cool limestone walls and the illuminated sunlit neural-ring model center stage",
+      "action": "viewed strictly from behind, clothed matte-white porcelain scientists in dark suits and sunlit blazers rise and lift gloved hands in calm applause",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "end_sentence_index": 40,
+      "act": 5,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over an elevated wide view from behind of a sunlit Nordic lecture hall with cool limestone walls and the illuminated sunlit neural-ring model center stage",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 37
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "morning_habit_counter",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit cool mint-sage morning study counter holding a powder-blue ceramic coffee mug right beside an unlined cool-white practice pad",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain learner in a pale-gray sweater steps up to the mint-sage counter and reaches for the powder-blue mug",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "morning_habit_counter",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "mcgill_study_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Montreal study bench uniting the cool-cream folio, the two-cell sunlit bridge, and the modern neural-ring model",
+      "action": "viewed strictly from behind, clothed matte-white porcelain researchers in white coats and tweed jackets step together and point across the three linked models",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 43,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "mcgill_study_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "morning_habit_counter",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-gray sweater sleeves and cool porcelain-white gloved matte-white porcelain hands over a cool mint-sage counter",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide and align a powder-blue cue block directly in front of a mint-sage habit block on a silver rail",
+      "consequence": "the two sunlit blocks rest cleanly end to end",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "morning_habit_counter",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "morning_habit_counter",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-gray sweater cuffs and cool porcelain-white gloved matte-white porcelain hands over a cool slate-gray counter",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands pull and slide the mint-sage habit block far away from the powder-blue cue block leaving a wide empty gap",
+      "consequence": "the silver bridge rod drops flat unable to span the wide gap",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 45,
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "morning_habit_counter",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "morning_habit_counter",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright cool mint-sage morning study counter bathed in soft sunlit window light",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain learner in a pale-gray sweater and dark trousers pours from a silver carafe into the powder-blue mug and sketches geometric bars on the pad",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "morning_habit_counter",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "morning_habit_counter",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright cool mint-sage morning study counter bathed in soft sunlit window light",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain learner in a pale-gray sweater and dark trousers pours from a silver carafe into the powder-blue mug and sketches geometric bars on the pad",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 47,
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "morning_habit_counter",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA\nHABIT ENGINE",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the matte-sunlit sagittal half-brain cutaway, the deep central basal ganglia glows in smooth mint-sage and powder-blue along an automatic habit loop",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44
+    },
+    {
+      "sentence_index": 49,
+      "end_sentence_index": 50,
+      "act": 6,
+      "location_id": "morning_habit_counter",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands over a cool limestone counter",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift a muted-rose distraction cube off the silver rail and place a cool-slate barrier wall in between",
+      "consequence": "the old pale-lavender link thread drops neatly away",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "morning_habit_counter",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "mcgill_study_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Montreal study room uniting the two-cell sunlit bridge sculpture and the morning habit counter display",
+      "action": "viewed strictly from behind, clothed matte-white porcelain scholars in slate jackets and white coats step calmly before the illuminated sunlit cell bridge and point forward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "mcgill_study_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "oslo_signal_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands over the right cool-slate timing pad",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands tap cell A after cell B and lift out the thick bridge leaving a thin pale-lavender thread",
+      "consequence": "the late link shrinks cleanly by nearly half",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "oslo_signal_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "mcgill_study_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a serene sunlit Montreal campus quadrangle with cool limestone arches, sunlit mint-sage trees, and clear powder-blue sky",
+      "action": "viewed strictly from behind, clothed matte-white porcelain figures in coats and sweaters walk and step calmly along the cool stone walkway as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "FIRE THEN WIRE?",
+    "cover_sentence_index": 3,
+    "cover_brief": "two pastel low-poly neuron sculptures linking across a glowing mint-sage bridge"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

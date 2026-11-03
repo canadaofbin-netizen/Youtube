@@ -1,0 +1,1154 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "baron_cohen_theory_of_mind",
+  "topic": "Simon Baron-Cohen, Alan Leslie & Uta Frith (1985) London Sally-Anne Marble Transfer False-Belief Experiment, Age-Four Parietal-Prefrontal Leap, Milton Double Empathy, and Adult Curse of Knowledge",
+  "act5_climax_episode": "Adults tapping familiar songs on a wooden table guessing fifty percent listener recognition while actual listeners almost never recognize the tune from bare knocks, proving the Curse of Knowledge persists into adulthood.",
+  "outro_title_lines": [
+    "BARON-COHEN (1985)",
+    "MRC LONDON DOLL STUDY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "TRUTH OR BELIEF"
+    },
+    {
+      "sentence_index": 3,
+      "text": "WHERE IS IT?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "REALITY BIAS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "AGE FOUR LEAP"
+    },
+    {
+      "sentence_index": 27,
+      "text": "TWO WAY STREET"
+    },
+    {
+      "sentence_index": 35,
+      "text": "TAPPING A TUNE"
+    },
+    {
+      "sentence_index": 43,
+      "text": "SHARE THE MOVE"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "TRUTH OR BELIEF"
+    },
+    {
+      "sentence_index": 3,
+      "text": "WHERE IS IT?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "REALITY BIAS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "AGE FOUR LEAP"
+    },
+    {
+      "sentence_index": 27,
+      "text": "TWO WAY STREET"
+    },
+    {
+      "sentence_index": 35,
+      "text": "TAPPING A TUNE"
+    },
+    {
+      "sentence_index": 43,
+      "text": "SHARE THE MOVE"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 20,
+      "mode": "split_hstack",
+      "left_clip_index": 20,
+      "right_clip_index": 47,
+      "left_label": "AGE THREE: WHITE BOX",
+      "right_label": "AGE FOUR: TAN BASKET"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge holding a blue-swirl glass marble",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand rolls the gleaming blue glass marble smoothly between the round wicker basket and the white box",
+      "consequence": "the blue glass marble comes to rest gleaming at table center",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "striped child sweater sleeves and cool porcelain-white gloved matte-white porcelain hands reaching over the wooden playroom table",
+      "prop_action": "a small cool porcelain-white gloved matte-white porcelain hand lifts off the table edge and points eagerly at the closed white rectangular box",
+      "consequence": "the empty dove-gray wicker basket sits ignored on the left side",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit London developmental playroom with a child-height wooden table holding two cloth dolls, a round wicker basket, and a white box",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain child in a corduroy jumper sits facing the tabletop puppet stage as a cardigan-clad researcher aligns the dolls",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright playroom table with sunlit wooden chairs, colorful wall blocks, basket, box, and blue glass marble",
+      "action": "viewed strictly from behind, clothed matte-white porcelain researchers in knit sweaters step up to the wooden table and open a clean scoring pad",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "knit cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands guiding the two cloth puppets across the wooden tabletop",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands walk the two cloth dolls forward in short playful steps and tilt them politely toward each other",
+      "consequence": "the compact puppet play begins smoothly on the table",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy jacket sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge over the wooden table",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place the red-apron cloth doll beside the round wicker basket and the blue-apron doll beside the white box",
+      "consequence": "each small cloth doll stands paired with her own container",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands moving Doll Sally to place the marble inside her wicker basket",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand lifts the woven lid while the other drops the blue glass marble into the round wicker basket and closes it",
+      "consequence": "the blue glass marble rests hidden inside Sally's closed wicker basket",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 7,
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit wooden playroom table with both closed containers waiting silently in bright morning light",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain child in a corduroy jumper leans slightly forward watching the closed white box intently in tailored linen sleeves and a woven cardigan as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit wooden playroom table with both closed containers waiting silently in bright morning light",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain child in a corduroy jumper leans slightly forward watching the closed white box intently in tailored linen sleeves and a woven cardigan as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 9,
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands lifting Doll Sally back up onto the wooden table",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand lifts Doll Sally back onto the center of the table and turns her between the basket and box",
+      "consequence": "Doll Sally stands facing both closed containers again",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit wooden playroom table holding Doll Sally, the closed round wicker basket, and the closed white box",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain child in a knit sweater and corduroy jumper leans across the table watching Doll Sally stand between the wicker basket and white box",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean side cutaway of the wooden table showing the empty woven wicker basket on the left and the gleaming blue glass marble inside the white box on the right",
+      "internal_mechanism": "a sunlit dotted trail arcs cleanly from the left wicker basket into the right white box showing start and current spots",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "end_sentence_index": 13,
+      "act": 2,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key london doll playroom with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "clip_number": 13
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge over a sunlit check sheet",
+      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand places two bright mint check cubes onto the first two memory rows while the left holds the pad",
+      "consequence": "both memory control rows glow completed in mint green",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "wool cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands holding Doll Sally at the center crossroads of the table",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand taps Doll Sally gently on the table center and opens the other palm questioningly toward the child",
+      "consequence": "the closed dove-gray basket and closed white box wait on opposite sides",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 15,
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit London playroom table with four coral wooden tally pegs standing beside Anne's white box and one mint peg beside the basket",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain toddler in a soft-mint sweater points firmly at Anne's white box while the researcher writes a note",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a sunlit thought-model cutaway above the tabletop connecting a glowing blue marble icon straight from the child's side to Doll Sally",
+      "internal_mechanism": "a single shared sky-blue beam links the hidden marble inside the white box directly to Doll Sally without any divider",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 17,
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "soft-mint child sweater sleeves and cool porcelain-white gloved matte-white porcelain hands trying to pull apart two magnetically joined sunlit glass rings",
+      "prop_action": "both small cool porcelain-white gloved matte-white porcelain hands pull outward on the two linked rings before they snap tightly back together on the table",
+      "consequence": "the two perspective rings remain fused as one on the wood",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright wooden developmental table bathed in warm afternoon sunlight",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain four-year-old in a blue corduroy jumper points confidently at Sally's wicker basket while the researcher places a mint block down",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-mint toddler sweater sleeve and cool porcelain-white gloved matte-white porcelain hand tapping Anne's white rectangular box",
+      "prop_action": "the small cool porcelain-white gloved matte-white porcelain hand reaches right and presses twice on the closed white box lid",
+      "consequence": "coral marker ring glows around Anne's white box",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "wool cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands arranging ascending mint-green wooden steps across a sunlit world map",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place rising mint-green wooden bars across a sunlit globe mat from short to tall",
+      "consequence": "a smooth rising staircase of mint wooden blocks spans the tabletop map",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "blue corduroy sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge holding two separate sunlit trays",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide a sky-blue tray and an amber tray cleanly apart into two separate lanes on the table",
+      "consequence": "two distinct perspective trays sit side by side without touching",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 22,
+      "clip_number": 22,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nPERSPECTIVE MAP",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper-back side ridge of the matte warm-ivory 3D brain model, luminous sky-blue facets brighten cleanly over the parietal cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nREALITY BRAKE",
+      "camera": "locked_tripod",
+      "brain_scene": "across the front forehead lobes of the matte warm-ivory 3D brain model, warm amber-gold facets pulse steadily holding back a coral surge",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "seminar_tap_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed jacket sleeves and cool porcelain-white gloved matte-white porcelain hands turning over a coral folder on an slate-stone seminar table",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands flip open a sunlit review folder and place a brushed-silver question token beside two cloth dolls",
+      "consequence": "the brushed-silver token gleams beside the open research folder",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 26,
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "seminar_tap_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "act": 4,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands lining up sixteen coral wooden pegs beside four mint pegs on the table",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand sets the sixteenth coral peg into a wooden rack beside Anne's white box and pulls back",
+      "consequence": "sixteen coral pegs and four mint pegs sit arranged on the rack",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "seminar_tap_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit university library table holding dusty old cloth-bound books beside modern eye-tracking cameras and clean sunlit charts",
+      "action": "viewed strictly from behind, clothed matte-white porcelain scientists in sweaters push the dusty old books aside and slide modern test pads center stage",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "seminar_tap_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "seminar_tap_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a sunlit university library table holding dusty old cloth-bound books beside modern eye-tracking cameras and clean sunlit charts",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "seminar_tap_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 28
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "seminar_tap_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge clearing tangled wire blocks off a board",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift away a tangled gray puzzle frame to reveal a clean direct sunlit track underneath",
+      "consequence": "the uncluttered sunlit pathway shines clearly in daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 30,
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "seminar_tap_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "seminar_tap_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright university communication room with two armchairs facing across a round slate-stone table",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain participants in sweaters sit across the round table exchanging sunlit gesture cards as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "seminar_tap_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "seminar_tap_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved matte-white porcelain hands rotating a wooden arrow bridge a full half-turn on a seminar desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift the one-way wooden arrow and replace it with a two-way sunlit bridge",
+      "consequence": "two opposite sunlit arrows point cleanly across the wooden bridge",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 32,
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "seminar_tap_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "seminar_tap_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cool-alabaster cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands sorting sunlit expression tiles into mismatched slots",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand places a blue tile beside an amber slot and tilts the hand back in uncertainty",
+      "consequence": "mismatched sunlit tiles rest evenly on both sides of the table",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "seminar_tap_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "seminar_tap_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage and cool-alabaster sweater sleeves as two pairs of cool porcelain-white gloved matte-white porcelain hands reach across a round table",
+      "prop_action": "each pair of cool porcelain-white gloved matte-white porcelain hands lifts and slides a matching sky-blue and warm-amber bridge block together at table center",
+      "consequence": "the two-way sunlit bridge snaps seamlessly across the gap",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 34,
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "seminar_tap_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 5,
+      "location_id": "seminar_tap_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit seminar room with two clothed adults seated across a bare polished slate-stone table",
+      "action": "viewed strictly from behind, clothed matte-white porcelain adults in office sweaters sit facing each other across the bare slate-stone table as a researcher steps back",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "seminar_tap_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "seminar_tap_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy sweater sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge tapping a melody on slate-stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand taps steady beats on the table while the other hand conducts gently in the air",
+      "consequence": "bright sunlit rhythm rings rise above the tapping knuckles",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "seminar_tap_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "seminar_tap_lab",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "gentle_push_in",
+      "structure": "a sunlit acoustic cutaway above the slate-stone seminar table showing golden musical chime bars floating on the tapper's side and plain gray dots on the listener's side",
+      "internal_mechanism": "golden melody chimes shimmer richly on the left while only disconnected gray knock dots cross the center divider to the right",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 37,
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "seminar_tap_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit felt tabletop holding a gleaming oversized matte-white porcelain brushed-silver coin",
+      "comparison_action": "a cool porcelain-white gloved matte-white porcelain hand in a coat sleeve flips the gleaming brushed-silver coin upward so it arcs cleanly and lands flat at table center",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "seminar_tap_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "cream sweater sleeves and matte-white gloved matte-white porcelain listener hands spreading open in confusion over a blank guess pad",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift open palms above the blank pad and set the wooden pencil down unused",
+      "consequence": "the listener's answer pad stays completely blank under the random knocks",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "seminar_tap_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "seminar_tap_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit seminar room with tally pads stacked across the slate-stone table",
+      "action": "viewed strictly from behind, clothed matte-white porcelain tappers, listeners, and researchers in sweaters lean back and set down their clipboards in amazement",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 41,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "seminar_tap_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "modern_context_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "light-blue shirt sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge over a laptop keyboard",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands tap the keys briskly to place a tiny abrupt chat bubble and reach toward the return key",
+      "consequence": "a tiny coral question icon blinks beside the vague chat bubble",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "modern_context_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 43,
+      "act": 6,
+      "location_id": "modern_context_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "light-blue shirt sleeves and cool porcelain-white gloved matte-white porcelain hands typing a short note beside stacks of forty open sunlit files",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand taps the laptop trackpad while forty sunlit file folders fan out across the wide wooden desk",
+      "consequence": "forty identical sunlit file folders crowd the desk without a clear pointer",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "modern_context_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_context_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "light-blue shirt sleeves and cool porcelain-white gloved matte-white porcelain hands holding one glowing mint folder above the crowded desk",
+      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand lifts the single mint folder and taps its corner confidently",
+      "consequence": "across the desk the other thirty-nine folders remain indistinguishable",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 44,
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "modern_context_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nCONTEXT BRAKE",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front forehead lobes of the matte warm-ivory 3D brain model, calm sky-blue and mint-green facets illuminate smoothly in unison",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "modern_context_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit glass-walled office hallway overlooking a meeting room table and an adjacent workstation",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain coworker in a green cardigan walks up to her desk freshly arriving after an earlier meeting ended",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 47,
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "modern_context_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "modern_context_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright shared office studio with natural window light, plants, and two neighboring wooden desks",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain colleagues in sweaters turn their chairs toward each other and exchange an open folder directly",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 49,
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "modern_context_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit London developmental playroom with the round wicker basket, white rectangular box, two cloth dolls, and gleaming blue marble on the wooden table",
+      "action": "viewed strictly from behind, clothed matte-white porcelain researchers and children stand calmly looking across the sunlit puppet stage in tailored linen sleeves and a woven cardigan as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "cut_role": "split_right",
+      "act": 3,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "blue corduroy sleeve and cool porcelain-white gloved matte-white porcelain hand tapping Sally's round dove-gray wicker basket",
+      "prop_action": "the older child's cool porcelain-white gloved matte-white porcelain hand reaches left and taps cleanly on Sally's woven wicker basket lid",
+      "consequence": "mint marker ring glows around Sally's round wicker basket",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "london_doll_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "london_doll_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a sunlit London Bloomsbury garden square with Georgian brick townhouses, green plane trees, and a clear sunlit morning sky",
+      "action": "viewed strictly from behind, clothed matte-white porcelain scholars and families walk peacefully along the garden gravel path as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "WHERE IS IT?",
+    "cover_sentence_index": 3,
+    "cover_brief": "clothed low-poly child from behind facing two cloth dolls, a wicker basket, a white box, and a blue glass marble"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

@@ -374,6 +374,13 @@ def sync_project_to_knowledge_base(
         "camera_profile": str(visual_plan.get("camera_profile") or manifest_doc.get("camera_profile") or ""),
         "tts_engine": voice_rep.get("engine") or ("flow_native" if audio_spec.get("voice_profile") else None),
         "tts_voice": voice_rep.get("voice") or prompts_doc.get("voice") or audio_spec.get("voice_profile"),
+        "voice_preset": (
+            voice_rep.get("voice_preset")
+            or script_doc.get("voice_preset")
+            or visual_plan.get("voice_preset")
+            or ("andrew_v7" if "Andrew" in str(voice_rep.get("voice") or "") else None)
+        ),
+        "prosody_mode": voice_rep.get("prosody_mode") or script_doc.get("prosody_mode") or visual_plan.get("prosody_mode"),
         "tts_rate": voice_rep.get("rate") or script_doc.get("tts_rate"),
         "tts_speed": voice_rep.get("speed") or audio_spec.get("av_speedup_factor"),
         "atempo_applied": voice_rep.get("atempo_applied"),
@@ -674,6 +681,26 @@ def recompile_knowledge_aggregates(kb_dir: Path | None = None, projects_dir: Pat
         for d in (r.get("defects") or []):
             defect_counter[d.split("(")[0].split("=")[0]] += 1
 
+    voice_buckets: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for ep in episodes:
+        vp_key = str(ep.get("voice_preset") or "unspecified")
+        voice_buckets[vp_key].append(ep)
+    by_voice_preset = {
+        vp_k: {
+            "episodes": len(arr),
+            "mean_wpm": round(float(np.mean([float(x["wpm"]) for x in arr if x.get("wpm") is not None])), 1)
+            if any(x.get("wpm") is not None for x in arr)
+            else None,
+            "mean_clarity": round(
+                float(np.mean([float(x["posthoc_mean_clarity"]) for x in arr if x.get("posthoc_mean_clarity") is not None])),
+                1,
+            )
+            if any(x.get("posthoc_mean_clarity") is not None for x in arr)
+            else None,
+        }
+        for vp_k, arr in sorted(voice_buckets.items())
+    }
+
     all_scores = [float(r["clarity_score"]) for r in ledger if r.get("clarity_score") is not None]
     analytics = {
         "updated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
@@ -685,6 +712,7 @@ def recompile_knowledge_aggregates(kb_dir: Path | None = None, projects_dir: Pat
         "analogies_indexed": len(analogies_list),
         "brain_models_indexed": len(brain_entries),
         "locations_indexed": len(locations_list),
+        "episodes_by_voice_preset": by_voice_preset,
         "clarity_by_grammar": by_grammar,
         "clarity_by_camera_move": by_camera,
         "clarity_by_act": by_act,

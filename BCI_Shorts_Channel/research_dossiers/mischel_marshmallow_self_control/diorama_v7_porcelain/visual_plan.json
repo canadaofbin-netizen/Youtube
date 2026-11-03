@@ -1,0 +1,1146 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "mischel_marshmallow_self_control",
+  "topic": "Walter Mischel Stanford Marshmallow Test, Opaque Dome Attention Steering, Cool Cloud Framing & Celeste Kidd / Tyler Watts Trust Replication",
+  "act5_climax_episode": "Large-scale replication and sixty-second cool framing lesson showing environment design and reliable promises shape self-control.",
+  "outro_title_lines": [
+    "WALTER MISCHEL (1970)",
+    "STANFORD UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "PURE GRIT MYTH"
+    },
+    {
+      "sentence_index": 3,
+      "text": "HIDE THE TREAT"
+    },
+    {
+      "sentence_index": 10,
+      "text": "ONE MINUTE TRAP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "COOL CLOUD TRICK"
+    },
+    {
+      "sentence_index": 28,
+      "text": "KEPT PROMISES"
+    },
+    {
+      "sentence_index": 37,
+      "text": "STABLE HOMES"
+    },
+    {
+      "sentence_index": 45,
+      "text": "OUT OF SIGHT"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "PURE GRIT MYTH"
+    },
+    {
+      "sentence_index": 3,
+      "text": "HIDE THE TREAT"
+    },
+    {
+      "sentence_index": 10,
+      "text": "ONE MINUTE TRAP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "COOL CLOUD TRICK"
+    },
+    {
+      "sentence_index": 28,
+      "text": "KEPT PROMISES"
+    },
+    {
+      "sentence_index": 37,
+      "text": "STABLE HOMES"
+    },
+    {
+      "sentence_index": 45,
+      "text": "OUT OF SIGHT"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 15,
+      "mode": "split_hstack",
+      "left_clip_index": 15,
+      "right_clip_index": 48,
+      "left_label": "EXPOSED PLATE",
+      "right_label": "COVERED DOME"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit minimalist cool clear daylight-white preschool testing room with a small slate-stone table holding a white plate, one chalk-white marshmallow cylinder, and a brushed-silver call bell",
+      "action": "viewed strictly from behind, a small clothed matte-white porcelain child figure in a powder-blue cardigan leans forward over the slate-stone table and reaches gloved hands toward the exposed plate",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands slapping the brushed-silver call bell beside the exposed chalk-white marshmallow cylinder on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand reaches across the cool slate-stone and presses the silver bell plunger down sharply",
+      "consequence": "leaving the treat exposed collapses waiting almost immediately",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit Stanford observation suite divided by a frosted viewing window overlooking the cool clear daylight-white testing room and small slate-stone table",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a slate blazer walks to the viewing window and presses a brushed-silver response tally counter with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright Stanford nursery corridor opening into the calm clear daylight-white testing room with one small powder-blue chair and a slate-stone table",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a sage-green jacket walks beside a small clothed matte-white porcelain child figure in a cardigan and opens the door",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright Stanford nursery corridor opening into the calm clear daylight-white testing room with one small powder-blue chair and a slate-stone table",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a sage-green jacket walks beside a small clothed matte-white porcelain child figure in a cardigan and opens the door",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green jacket cuffs and cool porcelain-white gloved matte-white porcelain hands setting one clear daylight-white plate with one chalk-white marshmallow cylinder beside a brushed-silver bell on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand places the clear daylight-white plate down while the other aligns the brushed-silver bell right beside it",
+      "consequence": "the iconic single-treat and call-bell choice sits ready",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands hovering above the brushed-silver call bell and single marshmallow plate on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand points toward the silver bell button then pulls slightly back above the single chalk-white cylinder",
+      "consequence": "ringing early claims one small immediate treat",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 7,
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a matte powder-blue ceramic teapot steeping quietly on a cool slate-stone trivet beside two small clear daylight-white porcelain cups",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in coat cuffs set the powder-blue teapot lid in place and rest calmly as soft pale steam rises",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "sage-green jacket cuffs and cool porcelain-white gloved matte-white porcelain hands lifting the silver cover completely off two chalk-white marshmallow cylinders on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift the silver cover away and set both exposed chalk-white cylinders in plain view",
+      "consequence": "leaving both treats uncovered launches the crucial visibility test",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit observation glass overlooking the clear daylight-white testing room where two uncovered chalk-white marshmallow cylinders sit brightly on the slate-stone table",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain researcher in a slate blazer leans toward the glass and traces a rising arrow on a blank sunlit pad with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a brushed-silver tally counter ring on cool slate-stone sweeping rapidly to a single coral-rose minute mark beside two uncovered chalk-white cylinders",
+      "internal_mechanism": "direct exposure to the uncovered cylinders drives the silver sweep arm straight into the early stop notch",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 11,
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a matte slate-gray compact three-lamp traffic light post standing on a cool clear daylight-white stone curb",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in blazer cuffs reach and tap a silver pedestrian button as the top coral-rose lamp switches briskly to mint-sage",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the cool clear daylight-white testing room where the small clothed figure sits inches from the uncovered white marshmallow plate on the slate-stone table",
+      "action": "viewed strictly from behind, a small clothed matte-white porcelain child figure in a powder-blue cardigan leans forward over the plate and reaches a gloved hand to the silver bell",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "nucleus accumbens",
+      "anatomy_label": "NUCLEUS ACCUMBENS\nREWARD CENTER",
+      "brain_scene": "a matte-sunlit sagittal 3D brain cutaway on a cool clear daylight-white stand where the deep ventral nucleus accumbens pulses bright coral-rose with urgent reward craving",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands fidgeting right beside two uncovered chalk-white cylinders on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand reaches out early and taps the silver bell beside the uncovered white plate",
+      "consequence": "exposed treats trigger rapid bell-ringing in one minute",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the sunlit observation glass overlooking the clear daylight-white testing room where two uncovered chalk-white marshmallow cylinders sit brightly on the slate-stone table",
+      "action": "the matte powder-blue matte-white porcelain bus rolls steadily down the slate-stone lane and pulls calmly up to a clear daylight-white shelter stop",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "two side-by-side sunlit progress bars on cool slate-stone showing a short coral-rose exposed bar beside a ten-times-longer mint-sage covered bar",
+      "internal_mechanism": "the mint-sage covered bar extends ten times farther across the slate-stone track than the tiny coral-rose bar",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 17,
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "tilt_down",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands clenching and trembling inches from an uncovered marshmallow plate on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands grip each other tightly then drop onto the silver bell in defeat",
+      "consequence": "white-knuckle staring against open temptation fails again and again",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Stanford observation booth looking through frosted glass into the clear daylight-white room where the uncovered white plate sits untouched",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in slate blazers lean at the glass and point gloved hands toward the small turned chair inside",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "end_sentence_index": 20,
+      "act": 3,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the sunlit Stanford observation booth looking through frosted glass into the clear daylight-white room where the uncovered white plate sits untouched",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 20
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green sweater cuffs and cool porcelain-white gloved matte-white porcelain hands pushing the clear daylight-white marshmallow plate gently toward the far edge of the cool slate-stone table",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide the white plate away and turn palm-down on the near edge of the table",
+      "consequence": "successful waiters break direct visual contact with the treat",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 21,
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright clear daylight-white testing room where the powder-blue chair faces the far sage-green wall completely opposite the slate-stone marshmallow table",
+      "action": "viewed strictly from behind, a small clothed matte-white porcelain child figure in a sage-green sweater turns the powder-blue chair backward and tilts its hooded head toward the ceiling skylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright clear daylight-white testing room where the powder-blue chair faces the far sage-green wall completely opposite the slate-stone marshmallow table",
+      "action": "viewed strictly from behind, a small clothed matte-white porcelain child figure in a sage-green sweater turns the powder-blue chair backward and tilts its hooded head toward the ceiling skylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 23,
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the sunlit Stanford observation booth looking through frosted glass into the clear daylight-white room where the uncovered white plate sits untouched",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in coat cuffs flip the brushed-silver polished brass counter upright and rest beside it as pale mint-sage sand flows",
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 25,
+      "end_sentence_index": 25,
+      "act": 3,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the sunlit Stanford observation booth looking through frosted glass into the clear daylight-white room where the uncovered white plate sits untouched",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 25
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_right",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nCOOL PLANNER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model on a cool clear daylight-white stand where the front prefrontal cortex glows calm cyan sending cooling pathways downward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "rochester_trust_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands setting a question-shaped sunlit prism beside a marshmallow plate and an art caddy on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide the marshmallow plate and sunlit art caddy side by side onto the center mat",
+      "consequence": "researchers test whether trust rather than fixed destiny drives waiting",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "rochester_trust_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "rochester_trust_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a modern cool clear daylight-white brain-imaging suite featuring a smooth sunlit cylindrical scanner arch and clean slate-stone control console",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scientists in white lab coats stand at the console and point gloved hands toward blank sunlit brain-wave plots",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "rochester_trust_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "rochester_trust_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a modern cool clear daylight-white brain-imaging suite featuring a smooth sunlit cylindrical scanner arch and clean slate-stone control console",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scientists in white lab coats stand at the console and point gloved hands toward blank sunlit brain-wave plots",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 29,
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "rochester_trust_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "rochester_trust_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright developmental playroom with a cool clear daylight-white table holding sunlit drawing paper and two distinct supply trays",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a powder-blue blazer steps up to the clear daylight-white table carrying a deluxe sunlit art caddy with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "rochester_trust_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "rochester_trust_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer cuffs and cool porcelain-white gloved matte-white porcelain hands pulling back a promised sunlit art box and leaving a tiny cup with two stubby slate sticks",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand pulls the bright sunlit box away while the other sets down the tiny two-stick cup on cool slate-stone",
+      "consequence": "breaking an early promise teaches the room cannot be trusted",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 31,
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "rochester_trust_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "rochester_trust_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a modern cool clear daylight-white brain-imaging suite featuring a smooth sunlit cylindrical scanner arch and clean slate-stone control console",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in cardigan cuffs reach and press the silver toaster lever down as two crisp cream geometric slices pop briskly upward",
+      "end_sentence_index": 33,
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "rochester_trust_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "end_sentence_index": 34,
+      "act": 4,
+      "location_id": "rochester_trust_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a modern cool clear daylight-white brain-imaging suite featuring a smooth sunlit cylindrical scanner arch and clean slate-stone control console",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "rochester_trust_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 33
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "rochester_trust_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the developmental playroom showing the full sunlit art caddy and two earned chalk-white marshmallow cylinders on the clear daylight-white table",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain researcher in a powder-blue blazer steps back to the table and places the second marshmallow cylinder down with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 36,
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "rochester_trust_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "rochester_trust_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a spacious sunlit research hall with wide cool slate-stone tables displaying tidy grids of hundreds of small sunlit house-and-child tokens",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in charcoal blazers walk along the slate-stone table and align trays of sunlit tokens with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "rochester_trust_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "rochester_trust_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer cuffs and cool porcelain-white gloved matte-white porcelain hands sliding sunlit home-resource blocks alongside tiny marshmallow tokens on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and align the broad sage-green home blocks next to the small white cylinder tokens",
+      "consequence": "controlling for family background shrinks the standalone marshmallow prediction",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 38,
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "rochester_trust_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "rochester_trust_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved matte-white porcelain hands fitting sturdy powder-blue foundation blocks beneath a compact sunlit house model on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide and align three wide powder-blue foundation blocks firmly under the sunlit house",
+      "consequence": "family stability and resources carry most of the long-term weight",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "rochester_trust_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "rochester_trust_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a spacious sunlit research hall with wide cool slate-stone tables displaying tidy grids of hundreds of small sunlit house-and-child tokens",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in blazer cuffs lift and slide the blank cloud postcard smoothly into the silver holder in one quick motion",
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "rochester_trust_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "end_sentence_index": 41,
+      "act": 5,
+      "location_id": "rochester_trust_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a spacious sunlit research hall with wide cool slate-stone tables displaying tidy grids of hundreds of small sunlit house-and-child tokens",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "rochester_trust_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 39
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nCOOL PLANNER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model where bright mint-sage pathways across the prefrontal cortex light up smoothly during learned cognitive reframing",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the Stanford observation room uniting the silver dome cover, cloud frame sculpture, and sunlit brain model on cool slate-stone",
+      "action": "viewed strictly from behind, three clothed matte-white porcelain researchers in slate blazers and white lab coats turn toward the table and shake gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 44,
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "calm_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a clean sunlit modern home study with a cool clear daylight-white desk where an open bowl of sunlit treats sits distractingly beside a silver laptop",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain worker in a powder-blue sweater steps up to the clear daylight-white desk and lifts the open treat bowl away with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 46,
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "calm_study_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "calm_study_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "powder-blue sweater cuffs and cool porcelain-white gloved matte-white porcelain hands sliding the covered sage-green ceramic bin onto a high clear daylight-white pantry shelf",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift the opaque sage-green bin and set it neatly behind a sliding frosted cabinet door",
+      "consequence": "putting snacks out of sight removes sixty-second temptation battles",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "calm_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "calm_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a clean sunlit modern home study with a cool clear daylight-white desk where an open bowl of sunlit treats sits distractingly beside a silver laptop",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain worker in a powder-blue sweater steps up to the clear daylight-white desk and lifts the open treat bowl away with gloved hands",
+      "end_sentence_index": 49,
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "calm_study_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "nucleus accumbens",
+      "anatomy_label": "NUCLEUS ACCUMBENS\nREWARD CENTER",
+      "brain_scene": "a matte-sunlit sagittal 3D brain cutaway where hot coral-rose glow in the deep nucleus accumbens settles into serene powder-blue calm",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "calm_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the serene clutter-free clear daylight-white study desk with the closed drawer and calm blank notebook",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain worker in a powder-blue sweater leans comfortably at the clean desk and glides a silver stylus across the blank pad with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "calm_study_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "calm_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the serene clutter-free clear daylight-white study desk with the closed drawer and calm blank notebook",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain worker in a powder-blue sweater leans comfortably at the clean desk and glides a silver stylus across the blank pad with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 52,
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "calm_study_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands resting calmly beside a brushed-silver opaque dome covering the plate on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands fold and rest steadily on the cool slate-stone while the silver dome hides the treats",
+      "consequence": "hiding the treats stretches calm waiting tenfold",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48,
+      "scene_state": {
+        "location_id": "stanford_surprise_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "stanford_surprise_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the serene sunlit Stanford room displaying the brushed-silver opaque dome, two chalk-white marshmallow cylinders, sunlit brain model, and tall windows opening to pale sky",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in slate blazers walk and step calmly toward the tall bright window as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 49
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "HIDE THE TREAT",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered brushed-silver opaque dome lifting cleanly above two matte chalk-white marshmallow cylinders and a silver call bell on cool slate-stone"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

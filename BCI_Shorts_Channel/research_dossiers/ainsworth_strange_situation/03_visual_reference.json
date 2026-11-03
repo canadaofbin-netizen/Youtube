@@ -1,0 +1,134 @@
+{
+  "scenes": [
+    {
+      "id": "S_ICONIC_REUNION",
+      "iconic": true,
+      "title": "The 1970 Strange Situation Playroom Separation & Reunion Test",
+      "era": "1970 developmental psychology clinic at Johns Hopkins University, Baltimore",
+      "recognition_hook": "Sunlit observation playroom with two adult chairs flanking a floor playmat of colorful wooden stacking rings, a wide one-way observation mirror on the back wall, and an open clinic door as the caregiver returns",
+      "layout": {
+        "room": "9-by-9-foot high-key architectural observation playroom with pale birch paneling, soft beige woven carpet, plain unbranded gallery frames, a horizontal one-way glass observation window on the upper back wall, and a solid oak clinic door on the right",
+        "positions": [
+          {
+            "who": "Matte-white porcelain twelve-month-old toddler mannequin in a soft sky-blue knit romper",
+            "where": "seated on the center floor playmat surrounded by wooden stacking rings and blocks",
+            "facing": "turning upward toward the right-hand clinic doorway at the sound of the latch"
+          },
+          {
+            "who": "Matte-white porcelain mother mannequin in a warm camel knit cardigan and tailored cream slacks",
+            "where": "stepping across the right doorway threshold beside the empty right-hand chair",
+            "facing": "kneeling forward with open porcelain arms toward the center playmat"
+          },
+          {
+            "who": "Matte-white porcelain stranger researcher mannequin in a slate-grey blazer and linen skirt",
+            "where": "standing up from the left-hand wooden armchair",
+            "facing": "stepping quietly toward the exit door so mother and toddler reunite alone"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Wooden rainbow ring stacker and geometric building blocks",
+          "period_detail": "1970s smooth turned-maple spindle with painted pastel wooden rings and unpainted beechwood cubes on a woven playmat",
+          "physical_behavior": "dropped onto the carpet during separation protest, or turned mechanically in silence during avoidant masking"
+        },
+        {
+          "name": "Pair of 1970s wooden-arm clinic chairs and leather handbag",
+          "period_detail": "two mid-century pale-oak armchairs angled toward the center playmat, with a structured tan leather handbag resting on the mother's chair",
+          "physical_behavior": "the mother leaves her tan handbag on the seat as she exits, leaving a visible physical anchor in the room"
+        },
+        {
+          "name": "Brushed-brass clinic door latch and one-way observation glass",
+          "period_detail": "solid pale-oak clinic door with a horizontal brass lever and a wide flush acoustic observation mirror along the upper wall",
+          "physical_behavior": "clicks shut cleanly on separation and swings inward smoothly on Episode 5 and Episode 8 reunions"
+        }
+      ],
+      "actions": [
+        "Caregiver sets her magazine and handbag on the oak chair, opens the clinic door, and steps out while the toddler watches the closing door",
+        "Stranger kneels near the playmat offering a wooden ring while the distressed toddler turns back toward the closed door",
+        "Caregiver swings the door open, pauses a beat, then kneels with open arms to lift and soothe the toddler"
+      ],
+      "reactions": [
+        "Secure toddler reaches both arms up immediately, settles chest-to-shoulder within seconds, and steps back down to stack wooden rings",
+        "Avoidant toddler keeps back turned toward the returning caregiver, leaning forward to rotate a single wooden block while internal pulse stays high"
+      ],
+      "key_visual": {
+        "description": "Side-by-side and sequential reunion contrast inside the bright 1970 playroom: two adult oak chairs framing a center floor playmat of wooden stacking rings as the porcelain mother kneels at the open doorway",
+        "must_show": [
+          "two angled oak chairs flanking a center floor toy mat",
+          "clothed matte-white porcelain toddler and mother mannequins",
+          "clinic door opening for the reunion moment"
+        ]
+      },
+      "wardrobe": "Toddler in soft sky-blue cotton romper; mother in warm camel knit cardigan and cream trousers; stranger in slate-grey blazer and pale blouse; observers behind glass in crisp white lab coats",
+      "lighting": "High-key diffused architectural studio daylight with soft overhead skylight fill and crisp porcelain rim highlights",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S_STRANGER_ENTRANCE",
+      "iconic": false,
+      "title": "Episode 3 Unfamiliar Stranger Arrival & Three-Minute Approach",
+      "era": "1970 Johns Hopkins developmental laboratory",
+      "layout": {
+        "room": "Bright 9-by-9-foot observation playroom with left stranger chair, right caregiver chair, and center toy mat",
+        "positions": [
+          {
+            "who": "Porcelain stranger mannequin",
+            "where": "left oak armchair transitioning down beside the playmat",
+            "facing": "holding a blank cream notebook/magazine, then offering a wooden block toward the toddler"
+          },
+          {
+            "who": "Porcelain toddler mannequin",
+            "where": "center carpet shifting closer to mother's chair",
+            "facing": "glancing warily between the stranger and caregiver"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Unbranded matte-cream reading folio",
+          "period_detail": "clean text-free cream paper folio held during Minute 1 silent sitting",
+          "physical_behavior": "folded and placed on the chair armrest before kneeling toward the playmat"
+        }
+      ],
+      "actions": [
+        "Stranger enters quietly, sits for sixty seconds in the left chair, exchanges brief nods with the mother, then kneels to roll a wooden toy"
+      ],
+      "reactions": [
+        "Toddler pauses toy play and checks the caregiver's posture as a social safety reference"
+      ]
+    },
+    {
+      "id": "S_TELEMETRY_CORTISOL_REVEAL",
+      "iconic": false,
+      "title": "1993 Regensburg Cardiac Telemetry & Salivary Cortisol Discovery",
+      "era": "1993 developmental psychobiology laboratory (Spangler & Grossmann)",
+      "layout": {
+        "room": "Adjacent bright observation control console overlooking the playroom through clean glass",
+        "positions": [
+          {
+            "who": "Porcelain developmental psychobiologist in white lab coat",
+            "where": "standing at a pale-birch observation console behind the window",
+            "facing": "inspecting an analog paper chart trace and glass saliva sample vials"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Chart-paper heart trace and clear glass cortisol vials",
+          "period_detail": "unlabelled moving paper strip showing rapid crimson-ink pulse peaks alongside racked clear glass vials",
+          "physical_behavior": "stylus needle sweeps rapidly upward even while the avoidant toddler sits motionless on the carpet beyond the glass"
+        }
+      ],
+      "actions": [
+        "Researcher compares the still posture of the toddler through the observation window against the spiking crimson pulse waveform on the paper strip"
+      ],
+      "reactions": [
+        "Sharp visual contrast between outward stillness on the carpet and surging internal physiological stress"
+      ]
+    }
+  ]
+}

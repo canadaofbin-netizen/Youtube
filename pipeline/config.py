@@ -12,6 +12,7 @@ from typing import Any
 WORKSPACE_ROOT = Path(__file__).resolve().parents[1]
 CHANNEL_ROOT = WORKSPACE_ROOT / "BCI_Shorts_Channel"
 PROJECTS_DIR = CHANNEL_ROOT / "projects"
+DOSSIERS_DIR = CHANNEL_ROOT / "research_dossiers"
 PROJECTS_QUARANTINE_DIR = CHANNEL_ROOT / "projects_quarantine_pending_flow"
 FLOW_DOWNLOAD_HARVEST_LOCK_FILE = CHANNEL_ROOT / ".flow_download_harvest.lock"
 ASSETS_DIR = CHANNEL_ROOT / "assets"
@@ -100,6 +101,13 @@ FLOW_ENGINE_MODES: tuple[str, ...] = ("auto", "omni", "zero-credit")
 DEFAULT_FLOW_ENGINE_MODE = "auto"
 FLOW_BANNED_VIDEO_MODEL_MARKERS: tuple[str, ...] = ("Veo 2",)
 FLOW_ZERO_CREDIT_TEXT = "Generating will use 0 credits"   # 0-credit verification marker when monthly credits are exhausted
+FLOW_ZERO_CREDIT_IMAGE_MODEL = "Nano Banana 2.1"          # Google Flow native 0-credit Image engine (beluga_display)
+FLOW_ZERO_CREDIT_IMAGE_FAMILY_ID = "beluga_display"
+FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT = 4                    # x4 free candidate images per prompt in Flow Image mode
+FLOW_ZERO_CREDIT_MAX_CONCURRENT_RENDERS = 4               # Optimal 0-credit concurrent video render ceiling across Flow tabs/outputs
+FLOW_ZERO_CREDIT_VIDEO_MAX_BATCH = 4                      # Up to x4 free candidate videos per prompt when active_tabs * batch <= 4
+REENACT_IMAGE_BACKENDS: tuple[str, ...] = ("flow", "gemini")
+DEFAULT_REENACT_IMAGE_BACKEND = "flow"                    # Primary: native Google Flow 0-credit x4 Image mode
 FLOW_ALLOWED_DURATION_TARGETS: tuple[str, ...] = tuple(FLOW_VIDEO_MODEL_PROFILES[FLOW_ACTIVE_VIDEO_MODEL]["durations"])
 FLOW_CLIP_DURATION_TARGET = "10s"        # Omni, no ingredient; clamps to 8s automatically when an ingredient is attached
 FLOW_SHORT_CLIP_MAX_WORDS = 19           # Clips <= 19 words & <= 32 syllables dynamically route to "8s"
@@ -354,8 +362,13 @@ DIORAMA_SENTENCE_COUNT_MIN = 48
 DIORAMA_SENTENCE_COUNT_MAX = 58
 DIORAMA_SENTENCE_WORDS_MAX = 15                # Concise woven clauses for Schema v6 (Schema v7 uses DIORAMA_V7_SENTENCE_WORDS_MAX = 18)
 DIORAMA_V7_SENTENCE_WORDS_MAX = 18             # Concrete, intuitive causal storytelling clauses in Schema v7 (R57-C)
-DIORAMA_WORD_COUNT_MIN = 440
-DIORAMA_WORD_COUNT_MAX = 505
+DIORAMA_US_SENTENCE_WORDS_MAX = 13             # US 45+ ear-first clause cap for dynamic_us_v7 episodes
+DIORAMA_WORD_COUNT_MIN = 430                   # 430w @ ~168 WPM = ~153.6s + tail >= 140s P8 floor
+DIORAMA_WORD_COUNT_MAX = 505                   # Legacy dynamic_rush_v7 ceiling
+DIORAMA_US_WORD_COUNT_MAX = 470                # US 45+ dynamic_us_v7 ceiling (~168s <= 179s hard ceiling)
+DIORAMA_V7_MAX_FK_GRADE = 5.5                  # US general-audience ear-first Flesch-Kincaid grade cap
+DIORAMA_ADJACENT_OPENER_WINDOW = 4             # Anti-Clone gate: block identical opener/pivot reuse across adjacent 4 episodes
+DIORAMA_MAX_4GRAM_JACCARD = 0.08               # Anti-Clone cross-episode 4-gram Jaccard ceiling on structural transitions
 DIORAMA_BANNED_SLOGAN_OPENERS: tuple[str, ...] = (
     "university brain science, made simple",
     "what university neuroscience teaches, made simple",
@@ -369,14 +382,108 @@ DIORAMA_BANNED_WEAK_HOOK_PREFIXES: tuple[str, ...] = (
     "what if ",
     "suppose ",
 )
-# --- Schema v7 3-sentence Cold-Open (R57-H2, approved HM Plan B 2026-10-31) ---
+# --- Schema v7 3-sentence Cold-Open (R57-H2, approved HM Plan B 2026-10-31 + US Anti-Clone Bank) ---
 # S1 myth-flip / paradox shock ending in '!' (rush gear) -> S2 'Yet/But...' contrast (rush gear)
-# -> S3 'This is the true story of <case>.' case stamp (stamp gear + chapter headline)
+# -> S3 case stamp from DIORAMA_COLD_OPEN_S3_BANK (stamp gear + chapter headline)
 DIORAMA_V7_REQUIRE_COLD_OPEN = True
 DIORAMA_V7_COLD_OPEN_S1_MAX_WORDS = 18
 DIORAMA_V7_COLD_OPEN_S2_MAX_WORDS = 12
 DIORAMA_V7_COLD_OPEN_S2_PREFIXES: tuple[str, ...] = ("yet ", "but ", "and yet ", "still ", "meanwhile ")
 DIORAMA_V7_COLD_OPEN_CASE_STAMP_PREFIX = "this is the true story of "
+DIORAMA_COLD_OPEN_S3_BANK: tuple[str, ...] = (
+    "this is the true story of ",
+    "that real case was ",
+    "in a real clinical test, ",
+    "inside the lab of ",
+    "this famous experiment began with ",
+    "doctors first saw this in ",
+    "neurologists documented it in ",
+    "psychologists proved it with ",
+    "this medical mystery started with ",
+    "the evidence came from ",
+    "cameras captured it inside ",
+    "the turning point came with ",
+)
+DIORAMA_CRISIS_BEAT_BANK: tuple[str, ...] = (
+    "here is what went wrong",
+    "that is where the alarm spiked",
+    "here is where the circuit broke",
+    "inside the room, things turned",
+    "a total nightmare",
+    "total nightmare",
+    "the hidden cost hit fast",
+    "beneath the calm surface, panic surged",
+    "at that exact second, the signal jammed",
+    "the real crisis hid underneath",
+    "on the monitors, a storm erupted",
+    "the breakdown happened in silence",
+)
+DIORAMA_MECHANISM_PIVOT_BANK: tuple[str, ...] = (
+    "instead of ",
+    "rather than ",
+    "far from ",
+    "underneath that reaction, ",
+    "deep inside the cortex, ",
+    "follow the signal into ",
+    "look inside the living brain, and ",
+    "behind the behavior sits ",
+    "what drives that response is ",
+    "trace the pathway to ",
+    "the real switch sits inside ",
+    "scan deeper, and ",
+)
+DIORAMA_EUREKA_REVEAL_BANK: tuple[str, ...] = (
+    "completely stunned",
+    "left researchers speechless",
+    "flipped decades of textbook dogma",
+    "changed psychology overnight",
+    "rewrote human brain science",
+    "the data shocked the entire lab",
+    "nobody on the team expected that",
+    "revealed a hidden survival rule",
+    "exposed a startling biological truth",
+    "proved the old theory wrong",
+    "unlocked the mystery on the spot",
+    "surprised every scientist watching",
+)
+DIORAMA_TAKEAWAY_BRIDGE_BANK: tuple[str, ...] = (
+    "which proves ",
+    "which is why ",
+    "and that is why ",
+    "that single finding explains why ",
+    "so the next time ",
+    "in everyday life, that means ",
+    "your own brain still carries ",
+    "that quiet circuit is why ",
+    "and that is how your brain ",
+    "what this means for you is ",
+    "every human brain shares ",
+    "that biological lesson explains ",
+)
+DIORAMA_MIDPOINT_REHOOK_BANK: tuple[str, ...] = (
+    "but here's",
+    "but here is",
+    "wasn't the strangest",
+    "was not the strangest",
+    "here is what went wrong",
+    "so why did",
+    "how could",
+    "what happened inside",
+)
+DESCRIPTION_EDITORIAL_TEMPLATES: tuple[str, ...] = (
+    "clinical_brief",
+    "experiment_chronicle",
+    "myth_vs_mechanism",
+    "everyday_neurobiology",
+)
+AI_DISCLOSURE_SENTENCE = (
+    "Visuals and voice synthesis in this documentary were generated with AI tools "
+    "to illustrate peer-reviewed neuroscience findings."
+)
+MAX_DAILY_SUBSCRIBER_NOTIFICATIONS = 3
+PRE_R66_FROZEN_PROJECT_PREFIXES: tuple[str, ...] = tuple(
+    f"diorama_{i:02d}_" for i in range(1, 27)
+) + ("gage_diorama_v6", "gage_diorama_v7", "psych_")
 DIORAMA_BANNED_AI_CLICHES: tuple[str, ...] = (
     "delve into",
     "delving into",
@@ -415,8 +522,8 @@ SHORTS_HARD_CEILING_FRAMES = 5370              # 179.0s x 30fps
 DIORAMA_NUMBER_ANALOGY_MAX_SENTENCE_GAP = 1    # Every core quantitative metric paired within <=1 sentence with an everyday analogy
 
 # Unlimited 1:1 Zero-Reuse Flow clips & 3-Gear Dynamic EDL contract (R58)
-DIORAMA_CLIP_COUNT_MIN = 20                    # Legacy cross-cut floor; zero_clip_reuse=True requires >= len(sentences)+1 (~56-66 clips)
-DIORAMA_CLIP_COUNT_DEFAULT = 60                # 1:1 sentence + multi-beat 2-cut action pairs + split + outro default
+DIORAMA_CLIP_COUNT_MIN = 20                    # Low-level EDL / micro-short floor; Schema v7 full episodes target 47-49 clips
+DIORAMA_CLIP_COUNT_DEFAULT = 48                # Balanced documentary pacing default (~46-48 cuts, ~3.0-3.2s avg + split + outro)
 DIORAMA_CLIP_COUNT_MAX = 240                   # Uncapped headroom for 0-credit unlimited Flow generation
 DIORAMA_MAX_CLIP_REUSE = 1                     # Strict 0% reuse lock (every clip appears once at 1.00x full framing)
 DIORAMA_SHARD_MAX_CLIPS = 14                   # Max clips per Flow project shard (avoids >24-tile virtual-scroll DOM unmount)
@@ -427,7 +534,7 @@ DIORAMA_SLICE_WINDOWS_SEC: tuple[tuple[float, float], ...] = (
     (5.00, 7.25),
 )
 DIORAMA_SLICE_CROPS: tuple[float, ...] = (1.00, 1.12, 1.22)
-DIORAMA_TARGET_CUT_MIN = 52
+DIORAMA_TARGET_CUT_MIN = 44
 DIORAMA_TARGET_CUT_MAX = 110
 DIORAMA_MIN_CUT_DURATION_SEC = 1.30            # Gear-1 fast montage floor (1.30-1.95s) while keeping avg ~2.55s
 DIORAMA_VISUAL_PLAYBACK_SPEED = 1.12           # Snappy lively 3D motion speed
@@ -539,10 +646,20 @@ DIORAMA_V7_ZOOM_CAMERA_MAX_RATIO = 0.30
 DIORAMA_V7_VIDEO_FPS = 24                      # Native 24.0fps Flow cadence (0% 24->30 nearest-neighbor pulldown judder)
 DIORAMA_V7_DURATION_MIN_SEC = 140.0            # Minimum assembled Long-Short duration for Schema v7
 SHORTS_HARD_CEILING_FRAMES_V7 = 4296           # 179.0s x 24fps
-DIORAMA_V7_RAPID_CUT_MIN_SEC = 0.68            # Rapid impact sub-cuts (0.68-1.35s)
-DIORAMA_V7_MID_ACT_MAX_CUT_SEC = 4.60          # Target single-sentence cut ceiling across Acts 3-4 to prevent mid-video stalls (R57-M)
-DIORAMA_V7_LONG_TAKE_MAX_SEC = 6.50            # Hard cap on 2-sentence mechanism holds (down from 7.20s, R57-M/R63)
-DIORAMA_V7_CUT_CV_MIN = 0.36                   # Dynamic cut-duration coefficient of variation (std / mean >= 0.36, R57-M/R63)
+DIORAMA_V7_RAPID_CUT_MIN_SEC = 0.68            # Legacy lowpoly_pastel_v7 rapid reaction cut floor (~16 frames @ 24fps, R63)
+DIORAMA_V7_MID_ACT_MAX_CUT_SEC = 4.60          # Legacy lowpoly_pastel_v7 single-sentence cut cap (R63)
+DIORAMA_V7_LONG_TAKE_MAX_SEC = 6.50            # Legacy lowpoly_pastel_v7 multi-sentence hold ceiling (R63)
+DIORAMA_V7_CUT_CV_MIN = 0.36                   # Legacy lowpoly_pastel_v7 cut-duration CV floor (R63)
+PORCELAIN_V7_MIN_CUT_SEC = 1.80                # Active porcelain_cinematic_v7 documentary cut floor (>= 1.80s; zero flash cuts, R66.4)
+PORCELAIN_V7_MID_ACT_MAX_CUT_SEC = 4.30        # Active porcelain_cinematic_v7 single-sentence cut ceiling (<= 4.30s, R66.4)
+PORCELAIN_V7_LONG_TAKE_MAX_SEC = 4.50          # Active porcelain_cinematic_v7 2-sentence hold ceiling (<= 4.50s, zero >= 5.0s stagnant cuts, R66.4)
+PORCELAIN_V7_AVG_CUT_MIN_SEC = 2.85            # Active porcelain_cinematic_v7 average speech cut floor (sweet spot 3.0-3.2s, R66.4)
+PORCELAIN_V7_AVG_CUT_MAX_SEC = 3.35            # Active porcelain_cinematic_v7 average speech cut ceiling (sweet spot 3.0-3.2s, R66.4)
+PORCELAIN_V7_CUT_CV_MIN = 0.15                 # Active porcelain_cinematic_v7 balanced [1.80s, 4.50s] cut-duration CV floor (R66.4)
+PORCELAIN_V7_TARGET_CLIP_MIN = 45              # Min base clips on active full-length porcelain_cinematic_v7 episodes (46-48 cuts sweet spot, R66.4)
+PORCELAIN_V7_TARGET_CLIP_MAX = 52              # Max base clips on active porcelain_cinematic_v7 episodes (blocks 60+ hyper-cut regression, R66.4)
+PORCELAIN_V7_MAX_HOLD_SENTENCES = 2            # Max consecutive sentences per single primary clip hold (blocks 3+ sentence stagnant holds, R66.4)
+PORCELAIN_V7_LITERAL_ANALOGY_MAX_CLIPS = 2     # Max porcelain_literal_analogy cutaway clips per episode (R57-V/R66)
 DIORAMA_V7_SPLIT_MODE = "split_hstack"         # Left/Right vertical split-screen in 9:16 portrait
 DIORAMA_V7_SPLIT_DIVIDER_PX = 6                # Solid #000000 black vertical divider bar
 DIORAMA_V7_VISUAL_PLAYBACK_SPEED = 1.00        # Unified 1.00x natural 24fps visual playback speed (0% speed-ramp knees)
@@ -550,6 +667,64 @@ DIORAMA_V7_TTS_RATE = "+8%"                    # Unified 1.08x (+8%) crisp en-US
 DIORAMA_V7_TTS_PITCH = "+14Hz"                 # Native neural high-tenor pitch (+14Hz, F0 ~132Hz) for mobile speaker clarity
 DIORAMA_V7_TTS_VOLUME = "-10%"                 # Internal neural vocoder headroom (-10%) preventing high-pitch plosive tearing
 DIORAMA_V7_TTS_SPEED = 1.08                    # Unified 1.08x offline kokoro-onnx fallback speed for Schema v7
+STORYTELLER_VOCAL_FILTER_FEMALE = (
+    "aresample=48000:resampler=soxr:precision=28,"
+    "highpass=f=95:poles=2,"
+    "equalizer=f=210:t=q:w=1.0:g=1.2,"
+    "equalizer=f=420:t=q:w=1.4:g=-1.6,"
+    "equalizer=f=2850:t=q:w=1.1:g=1.6,"
+    "equalizer=f=7200:t=q:w=1.6:g=-2.0,"
+    "acompressor=threshold=-20dB:ratio=1.25:attack=18:release=180:makeup=1"
+)
+DIORAMA_VOICE_PRESETS: dict[str, dict[str, str]] = {
+    "andrew_v7": {
+        "voice": "en-US-AndrewMultilingualNeural",
+        "gender": "male",
+        "pitch": "+14Hz",
+        "volume": "-10%",
+        "eq_profile": "male_studio",
+        "kokoro_voice": "am_fenrir",
+        "flow_voice_anchor": "Voice: Consistent deep male baritone documentary narrator.",
+    },
+    "emma_v7": {
+        "voice": "en-US-EmmaMultilingualNeural",
+        "gender": "female",
+        "pitch": "+0Hz",
+        "volume": "-10%",
+        "eq_profile": "female_studio",
+        "kokoro_voice": "af_bella",
+        "flow_voice_anchor": "Voice: Warm, articulate American female documentary narrator.",
+    },
+    "ava_v7": {
+        "voice": "en-US-AvaMultilingualNeural",
+        "gender": "female",
+        "pitch": "+0Hz",
+        "volume": "-10%",
+        "eq_profile": "female_studio",
+        "kokoro_voice": "af_heart",
+        "flow_voice_anchor": "Voice: Clear, expressive American female documentary narrator.",
+    },
+    "aria_v7": {
+        "voice": "en-US-AriaNeural",
+        "gender": "female",
+        "pitch": "+0Hz",
+        "volume": "-10%",
+        "eq_profile": "female_studio",
+        "kokoro_voice": "af_nova",
+        "flow_voice_anchor": "Voice: Calm, authoritative American female documentary narrator.",
+    },
+    "christopher_v7": {
+        "voice": "en-US-ChristopherNeural",
+        "gender": "male",
+        "pitch": "+4Hz",
+        "volume": "-10%",
+        "eq_profile": "male_studio",
+        "kokoro_voice": "am_michael",
+        "flow_voice_anchor": "Voice: Measured, authoritative American male documentary narrator.",
+    },
+}
+DEFAULT_DIORAMA_VOICE_PRESET = "andrew_v7"
+DEFAULT_REENACTMENT_VOICE_PRESET = "emma_v7"
 DIORAMA_V7_WPM_MIN = 135.0                     # Minimum spoken WPM gate at unified 1.08x (+8%) trimmed cadence
 DIORAMA_V7_WPM_MAX = 212.0                     # Maximum spoken WPM gate for Schema v7
 DIORAMA_V7_INTERNAL_SILENCE_TRIM_THRESHOLD_SEC = 0.28
@@ -558,10 +733,12 @@ DIORAMA_V7_INTER_SENTENCE_PAUSE_SEC = 0.15
 DIORAMA_V7_ACT_BOUNDARY_PAUSE_SEC = 0.32
 DIORAMA_V7_ACTIVE_VOICED_RMS_RATIO_MIN = 0.80  # Natural human-breath RMS voiced density floor (>= 80%, blocks dead air)
 
-# --- Sentence-level Prosody Engine (rush / stamp / brisk gears, R63-P) ---
-DIORAMA_V7_PROSODY_MODES: tuple[str, ...] = ("uniform_108x", "uniform_110x", "dynamic_rush_v7")
-DIORAMA_V7_PROSODY_MODE = "dynamic_rush_v7"    # Channel default (Plan B approved 2026-10-31); per-project override via script.json `prosody_mode`
+# --- Sentence-level Prosody Engine (rush / stamp / brisk gears, R63-P & US 45+ dynamic_us_v7) ---
+DIORAMA_V7_PROSODY_MODES: tuple[str, ...] = ("uniform_108x", "uniform_110x", "dynamic_rush_v7", "dynamic_us_v7")
+DIORAMA_V7_PROSODY_MODE = "dynamic_rush_v7"    # Channel default (Plan B approved 2026-10-31); new Porcelain episodes use dynamic_us_v7
+DIORAMA_V7_US_PROSODY_MODE = "dynamic_us_v7"   # US 45+ ear-first documentary prosody (~162-174 WPM: rush +10% / brisk +7% / stamp +4%)
 DIORAMA_V7_PROSODY_BASE_RATE = "+8%"           # dynamic_rush_v7 synthesizes once at the approved +8% Silk Clean timbre
+DIORAMA_V7_US_PROSODY_BASE_RATE = "+7%"        # dynamic_us_v7 base rate (+7% brisk baseline)
 DIORAMA_V7_PROSODY_UNIFORM_110_RATE = "+10%"   # uniform_110x native edge-tts rate (no WSOLA post-processing)
 DIORAMA_V7_PROSODY_UNIFORM_110: dict[str, float] = {
     "trim_thresh": 0.14,     # internal silences longer than this are compressed
@@ -575,9 +752,15 @@ DIORAMA_V7_PROSODY_GEARS: dict[str, dict[str, float]] = {
     "stamp": {"tempo": 1.08, "trim_thresh": 0.16, "trim_keep": 0.06, "gap_before": 0.17},
     "brisk": {"tempo": 1.15, "trim_thresh": 0.12, "trim_keep": 0.04, "gap_before": 0.065},
 }
+DIORAMA_V7_US_PROSODY_GEARS: dict[str, dict[str, float]] = {
+    "rush": {"tempo": 1.10, "trim_thresh": 0.06, "trim_keep": 0.02, "gap_before": 0.030},
+    "stamp": {"tempo": 1.04, "trim_thresh": 0.16, "trim_keep": 0.06, "gap_before": 0.180},
+    "brisk": {"tempo": 1.07, "trim_thresh": 0.12, "trim_keep": 0.045, "gap_before": 0.075},
+}
 # Native per-gear edge-tts synthesis rates (Q-1, 2026-10-31): each Act is synthesized once per needed gear rate and
 # every sentence is sliced from the stream matching its gear, so the WSOLA factor is 1.0 (no atempo phasiness).
 DIORAMA_V7_PROSODY_GEAR_RATES: dict[str, str] = {"rush": "+12%", "stamp": "+8%", "brisk": "+15%"}
+DIORAMA_V7_US_PROSODY_GEAR_RATES: dict[str, str] = {"rush": "+10%", "stamp": "+4%", "brisk": "+7%"}
 DIORAMA_V7_PROSODY_SPLICE_FADE_SEC = 0.014       # Smooth 14ms raised-cosine edge fade (replaces 6ms hard gate)
 DIORAMA_V7_MASTER_DEESSER = "deesser=i=0.48:m=0.5:f=0.5:s=o"  # Studio velvet de-esser (< 0.58; tames 4-10kHz vocoder sibilance)
 DIORAMA_V7_PROSODY_ACT_GAP_MIN = 0.20          # Act boundary gap floor in dynamic_rush_v7
@@ -585,21 +768,35 @@ DIORAMA_V7_PROSODY_MAX_ADJ_TEMPO_JUMP = 0.05   # Max adjacent WSOLA factor jump 
 DIORAMA_V7_PROSODY_RUSH_MAX_STREAK = 3         # 4th consecutive rush sentence is demoted to brisk
 DIORAMA_V7_PROSODY_EMPHASIS_PAUSE_SEC = 0.0    # 0.0s = zero mid-sentence digital zero-slicing (preserves co-articulation)
 DIORAMA_V7_PROSODY_EMPHASIS_GAIN_DB = 1.0      # Smooth 25ms cosine emphasis contour lift without cutting connected speech
-DIORAMA_V7_PROSODY_STAMP_PHRASES: tuple[str, ...] = (
-    "this is the true story",
-    "here is what went wrong",
-    "completely stunned",
-    "total nightmare",
-    "which proves",
-    "which is why",
+DIORAMA_V7_PROSODY_STAMP_PHRASES: tuple[str, ...] = tuple(
+    dict.fromkeys(
+        (
+            "this is the true story",
+            "here is what went wrong",
+            "completely stunned",
+            "total nightmare",
+            "which proves",
+            "which is why",
+            *(p.strip() for p in DIORAMA_COLD_OPEN_S3_BANK),
+            *(p.strip() for p in DIORAMA_CRISIS_BEAT_BANK),
+            *(p.strip() for p in DIORAMA_EUREKA_REVEAL_BANK),
+            *(p.strip() for p in DIORAMA_TAKEAWAY_BRIDGE_BANK),
+        )
+    )
 )
 DIORAMA_V7_PROSODY_RUSH_CLIMAX_WORDS: tuple[str, ...] = ("yet", "then", "suddenly", "instead")
-DIORAMA_V7_PROSODY_REHOOK_PHRASES: tuple[str, ...] = (
-    "wasn't the strangest",
-    "was not the strangest",
-    "but here's",
-    "but here is",
-    "here is what went wrong",
+DIORAMA_V7_PROSODY_REHOOK_PHRASES: tuple[str, ...] = tuple(
+    dict.fromkeys(
+        (
+            "wasn't the strangest",
+            "was not the strangest",
+            "but here's",
+            "but here is",
+            "here is what went wrong",
+            *(p.strip() for p in DIORAMA_MIDPOINT_REHOOK_BANK),
+            *(p.strip() for p in DIORAMA_CRISIS_BEAT_BANK[:6]),
+        )
+    )
 )
 # Prosody QA gates (P1-P10)
 PROSODY_P1_FIRST_ONSET_MAX_SEC = 0.10
@@ -614,6 +811,43 @@ DIORAMA_V7_AUDIO_CHANNELS = 2                  # 2-channel stereo acoustic/orche
 DIORAMA_MUX_TRUE_PEAK_TARGET_DBTP = -1.5       # Encoded AAC true-peak ceiling (= Prosody QA P7 limit); fallback static trim only if the oversampled limiter is not enough
 DIORAMA_MUX_TRUE_PEAK_LIMITER = "aresample=192000,alimiter=limit=0.794:attack=1:release=50:level=disabled,aresample=48000"  # v7 4x-oversampled -2.0 dBFS true-peak limiter before AAC
 DIORAMA_V7_BGM_DUCK_DB = -22.0
+
+# --- Source-Conditioned 1:1 Reenactment & Porcelain Reference QA (R67 / RQ1-RQ5) ---
+REENACT_QUARANTINE_ROOT = Path("/tmp/aab_reenact")
+REENACT_EDL_FILENAME = "source_edl.json"
+REENACT_QA_REPORT_FILENAME = "reenactment_qa_report.json"
+REENACT_COMPARISON_SHEET_FILENAME = "reenactment_comparison_sheet.png"
+REENACT_MIN_DHASH_DISTANCE = 18                # RQ2: min 64-bit dHash Hamming distance from sanitized/source frames
+REENACT_MAX_TRANSCRIPT_5GRAM_OVERLAP = 0.0     # RQ3: 0.0% verbatim 5-gram overlap against source video captions/ASR
+REENACT_LAB_RATIO_TARGET = 0.78                # ~78% source-conditioned experiment choreography cuts
+REENACT_BRAIN_RATIO_MIN = 0.20                 # RQ5: >= 20% original R66 4-color 3D brain / data / hstack cuts
+REENACT_COMPOSITION_MATCH_MIN = 0.85           # RQ5: >= 85% shot blocking / zone layout alignment
+PORCELAIN_REF_WHITE_RATIO_MAX = 0.72           # R66 Q2: high-key bright studio white ratio ceiling (up from 0.55)
+PORCELAIN_REF_NEON_GREEN_MAX = 0.012           # R66 Q6: max uncontained neon-green ratio (allows electric cyan-blue)
+
+# --- 3-Format Funnel (Micro-Short -> Flagship Diorama -> 16:9 4K CTV Long-Form) & Breaking News ---
+MICRO_SHORT_PROFILE = "micro_short_v7"
+MICRO_SHORT_DURATION_MIN_SEC = 35.0
+MICRO_SHORT_DURATION_MAX_SEC = 45.0
+MICRO_SHORT_MIN_SEC = MICRO_SHORT_DURATION_MIN_SEC
+MICRO_SHORT_MAX_SEC = MICRO_SHORT_DURATION_MAX_SEC
+MICRO_SHORT_WORD_COUNT_MIN = 95
+MICRO_SHORT_WORD_COUNT_MAX = 120
+MICRO_SHORT_WORD_MIN = MICRO_SHORT_WORD_COUNT_MIN
+MICRO_SHORT_WORD_MAX = MICRO_SHORT_WORD_COUNT_MAX
+MICRO_SHORT_CUT_COUNT_MIN = 14
+MICRO_SHORT_CUT_COUNT_MAX = 16
+MICRO_SHORT_CUT_MIN = MICRO_SHORT_CUT_COUNT_MIN
+MICRO_SHORT_CUT_MAX = MICRO_SHORT_CUT_COUNT_MAX
+LONGFORM_VIDEO_WIDTH = 3840
+LONGFORM_VIDEO_HEIGHT = 2160
+LONGFORM_VIDEO_FPS = 24
+LONGFORM_TARGET_LUFS = -14.0
+LONGFORM_CHAPTER_FADE_SEC = 0.45
+THUMB_LONGFORM_WIDTH = 3840
+THUMB_LONGFORM_HEIGHT = 2160
+NEURO_NEWS_STAGING_DIR = WORKSPACE_ROOT / "Completed_Neuro_News_Shorts"
+
 FONT_CONDENSED_BLACK_PATH = FONTS_DIR / "AABCondensed-Black.ttf"
 DIORAMA_V7_SUBTITLE_FONT_NAME = "AAB Condensed Black"
 DIORAMA_V7_SUBTITLE_FONT_SIZE = 94
@@ -823,21 +1057,27 @@ def is_diorama_profile(profile_or_plan: Any) -> bool:
 
 
 def clip_count_range_for_profile(profile: str | None = None) -> tuple[int, int]:
-    """Returns (min_clips, max_clips) for classic_v5 vs neuro_diorama."""
+    """Returns (min_clips, max_clips) for classic_v5, micro_short_v7, vs neuro_diorama."""
+    if str(profile or "").strip().lower() == MICRO_SHORT_PROFILE:
+        return (MICRO_SHORT_CUT_COUNT_MIN, MICRO_SHORT_CUT_COUNT_MAX)
     if is_diorama_profile(profile or ""):
         return (DIORAMA_CLIP_COUNT_MIN, DIORAMA_CLIP_COUNT_MAX)
     return (CLIP_COUNT_MIN, CLIP_COUNT_MAX)
 
 
 def shorts_duration_range_for_profile(profile: str | None = None) -> tuple[float, float]:
-    """Returns (min_duration_sec, max_duration_sec) for classic_v5 vs neuro_diorama."""
+    """Returns (min_duration_sec, max_duration_sec) for classic_v5, micro_short_v7, vs neuro_diorama."""
+    if str(profile or "").strip().lower() == MICRO_SHORT_PROFILE:
+        return (MICRO_SHORT_DURATION_MIN_SEC, MICRO_SHORT_DURATION_MAX_SEC)
     if is_diorama_profile(profile or ""):
         return (DIORAMA_DURATION_MIN_SEC, DIORAMA_DURATION_MAX_SEC)
     return (FINAL_SHORTS_DURATION_MIN_SEC, FINAL_SHORTS_DURATION_MAX_SEC)
 
 
 def word_count_range_for_profile(profile: str | None = None) -> tuple[int, int]:
-    """Returns (min_words, max_words) for classic_v5 vs neuro_diorama."""
+    """Returns (min_words, max_words) for classic_v5, micro_short_v7, vs neuro_diorama."""
+    if str(profile or "").strip().lower() == MICRO_SHORT_PROFILE:
+        return (MICRO_SHORT_WORD_COUNT_MIN, MICRO_SHORT_WORD_COUNT_MAX)
     if is_diorama_profile(profile or ""):
         return (DIORAMA_WORD_COUNT_MIN, DIORAMA_WORD_COUNT_MAX)
     return (SCRIPT_WORD_MIN, SCRIPT_WORD_MAX)

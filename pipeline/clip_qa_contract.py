@@ -580,10 +580,15 @@ def compile_clip_qa_contract(
     if save:
         out_dir = p_dir / "03_visuals" if (p_dir / "03_visuals").exists() or (p_dir / "02_script").exists() else p_dir
         out_dir.mkdir(parents=True, exist_ok=True)
-        (out_dir / CLIP_QA_CONTRACT_FILENAME).write_text(
+        out_path = out_dir / CLIP_QA_CONTRACT_FILENAME
+        out_path.write_text(
             json.dumps(contract, indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
+        if out_dir.name == "03_visuals":
+            from pipeline.storage import ProjectStorage
+
+            ProjectStorage.record_if_manifest_tracks_stages(p_dir, "03_visuals", CLIP_QA_CONTRACT_FILENAME, out_path)
     return contract
 
 

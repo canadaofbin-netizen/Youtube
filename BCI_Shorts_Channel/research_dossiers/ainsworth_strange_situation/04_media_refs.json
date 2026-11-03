@@ -1,0 +1,57 @@
+{
+  "media": [
+    {
+      "id": "M01_strange_situation_clinical_film",
+      "kind": "video",
+      "title": "Classic Developmental Psychology Demonstration: The Strange Situation Procedure (8-Episode Observation Playroom)",
+      "url": "https://www.youtube.com/watch?v=QTsewNrHUHU",
+      "analysis": {
+        "method": "R67 quarantined shot-boundary & optical-flow geometric extraction (08_reenactment_edl.json, zero raw pixels stored in repository)",
+        "duration_sec": 194.53,
+        "shot_count": 13
+      },
+      "timecodes": [
+        {
+          "t": "00:00",
+          "what": "Wide angle behind observation glass overlooking the sunlit playroom with two adult chairs and floor toy mat"
+        },
+        {
+          "t": "00:20",
+          "what": "Caregiver seated in right chair while one-year-old toddler explores floor toys at center playmat as a secure base"
+        },
+        {
+          "t": "01:15",
+          "what": "Unfamiliar female stranger enters, sits quietly in left chair with reading folio, then kneels to engage toddler with floor toys"
+        },
+        {
+          "t": "01:45",
+          "what": "First separation: caregiver slips out the right-hand clinic door; stranger kneels to offer comfort while toddler protests toward door"
+        },
+        {
+          "t": "02:07",
+          "what": "First reunion: caregiver re-enters doorway, picks up and calms toddler, then resettles child on floor mat as stranger exits"
+        },
+        {
+          "t": "02:30",
+          "what": "Second separation: caregiver exits leaving toddler completely alone in playroom; stranger returns at 02:48 unable to console"
+        },
+        {
+          "t": "03:00",
+          "what": "Second reunion: caregiver returns through right doorway, lifts toddler into immediate calm embrace within seconds"
+        }
+      ]
+    },
+    {
+      "id": "M02_johns_hopkins_room_floorplan",
+      "kind": "still",
+      "title": "Ainsworth & Bell (1970) Standardized 9x9-Foot Strange Situation Floor Grid & Chair Triangle Diagram",
+      "url": "https://doi.org/10.2307/1127388",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Architectural triangle between caregiver chair, stranger chair, center toy zone, entrance door, and one-way observation window"
+        }
+      ]
+    }
+  ]
+}

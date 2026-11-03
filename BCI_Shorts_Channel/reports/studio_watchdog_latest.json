@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "executed_at_utc": "2026-11-02T18:00:00+00:00",
+  "dry_run": false,
+  "scan": {
+    "scanned_at_utc": "2026-11-02T18:00:00+00:00",
+    "public_count": 1,
+    "scheduled_count": 1,
+    "due_for_public_transition": [
+      {
+        "project_id": "diorama_11_elapsed",
+        "video_id": "1111111111A",
+        "scheduled_at_utc": "2026-11-02T12:00:00+00:00"
+      }
+    ],
+    "missing_doi_pin": [
+      {
+        "project_id": "diorama_11_elapsed",
+        "video_id": "1111111111A",
+        "visibility": "scheduled_elapsed"
+      }
+    ],
+    "missing_related_link": [
+      {
+        "project_id": "diorama_11_elapsed",
+        "video_id": "1111111111A",
+        "visibility": "public"
+      },
+      {
+        "project_id": "diorama_12_future",
+        "video_id": "2222222222B",
+        "visibility": "scheduled"
+      }
+    ]
+  },
+  "promoted_projects": [
+    "diorama_11_elapsed"
+  ],
+  "pin_results": [],
+  "link_results": [],
+  "queue_audit": {
+    "queue_exists": false,
+    "total_items": 0,
+    "duplicate_projects": [],
+    "duplicate_slots": [],
+    "legacy_psych_items": 0,
+    "healthy": true,
+    "projects_dir_exists": true
+  },
+  "tab_cleanup": {
+    "cdp_reachable": true,
+    "candidates": [],
+    "closed": []
+  }
+}

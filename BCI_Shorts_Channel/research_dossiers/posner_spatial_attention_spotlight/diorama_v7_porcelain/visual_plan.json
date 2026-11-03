@@ -1,0 +1,1108 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "posner_spatial_attention_spotlight",
+  "topic": "Michael Posner (1980, 1987) Covert Spatial Attention Spotlight Cueing Paradigm, 60-ms Valid-vs-Invalid Reaction Swing, Parietal-Brainstem-Thalamic Orienting Network, and Inhibition of Return",
+  "act5_climax_episode": "Validation of Posner's three-operation spotlight architecture in parietal lesion patients and dynamic zoom-lens follow-ups transforming clinical neglect testing and human-factors design.",
+  "outro_title_lines": [
+    "POSNER (1980, 1987)",
+    "UNIVERSITY OF OREGON"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "FROZEN GAZE?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "INVISIBLE BEAM"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SIXTY MS EDGE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "THREE GEARS"
+    },
+    {
+      "sentence_index": 28,
+      "text": "ANTI-STARE FLIP"
+    },
+    {
+      "sentence_index": 36,
+      "text": "NO-LOOK PASS"
+    },
+    {
+      "sentence_index": 44,
+      "text": "AIM YOUR BEAM"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "FROZEN GAZE?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "INVISIBLE BEAM"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SIXTY MS EDGE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "THREE GEARS"
+    },
+    {
+      "sentence_index": 28,
+      "text": "ANTI-STARE FLIP"
+    },
+    {
+      "sentence_index": 36,
+      "text": "NO-LOOK PASS"
+    },
+    {
+      "sentence_index": 44,
+      "text": "AIM YOUR BEAM"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 16,
+      "mode": "split_hstack",
+      "left_clip_index": 14,
+      "right_clip_index": 47,
+      "left_label": "VALID CUE: FAST",
+      "right_label": "INVALID CUE: SLOW"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands adjusting a brushed-silver chinrest frame on a cool slate-stone bench",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands align and latch the brushed-silver chinrest frame squarely facing a center cross bar flanked by two empty sunlit boxes",
+      "consequence": "the center cross bar and twin side boxes sit symmetrically aligned",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "pan_left",
+      "structure": "a cool slate-stone optical bench holding a stationary center lens post while a soft powder-blue light cone sweeps swiftly into a left crystal cube",
+      "internal_mechanism": "the center lens post stays locked in place while the soft powder-blue beam illuminates the left cube ahead of any mechanical turn",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a bright cool-limestone psychology laboratory with a brushed-silver chinrest, a cool slate-stone screen displaying a center cross between two square outline boxes, and a single silver key",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain volunteer in a powder-blue sweater rests still on the chinrest and presses the silver key while a researcher in a slate blazer stands beside the flat trace display",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "an elevated wide view of a cool-limestone study room where heavy brushed-silver viewing tubes face fixed stone pedestals",
+      "action": "viewed strictly from behind, clothed matte-white porcelain scholars in dark coats and boots lean forward and turn the heavy silver tubes toward center targets",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit cool-limestone Oregon laboratory lined with slate-stone testing stations and unmarked two-box light panels",
+      "action": "viewed strictly from behind, clothed matte-white porcelain volunteers in sunlit sweaters, slacks, and boots step up to the testing stations as the researcher in a navy blazer aligns the center cross display",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a rear over-shoulder view inside the cool slate-stone testing booth facing a crisp center cross flanked by empty left and right square light boxes",
+      "action": "viewed strictly from behind the faceless matte cool-porcelain matte-white porcelain head in a powder-blue sweater, the head stays motionless on the silver chinrest while both side boxes wait dark while figures step forward and turn calmly",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 7,
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool slate-stone machinist bench holding a sleek brushed-silver carpenter spirit level with a centered mint-sage air bubble",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves set and align the brushed-silver spirit level flat on the stone bench so the mint-sage bubble stays dead center",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge over the single brushed-silver key",
+      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand holds steady above the silver key then taps down crisply as a soft mint-sage star glows in the left box",
+      "consequence": "the flat stability line stays completely level as the key clicks",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands sliding a small directional arrow prism above the center cross",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide and set a crisp powder-blue left-pointing arrow wedge directly above the center cross bar",
+      "consequence": "four mint-sage cue pegs glow beside one rose-coral decoy peg on the side tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "end_sentence_index": 11,
+      "act": 2,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key oregon cueing lab with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 10
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "pan_left",
+      "analogy_world": "a cool pale-slate compact theater stage illuminated by a sleek brushed-silver stage spotlight housing mounted on a limestone rail",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in dark sleeves grip and tilt the brushed-silver stage spotlight so a soft powder-blue beam lands cleanly on the left stage box",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "an elevated wide view of the cool-limestone Oregon lab showing the flat eye-stability trace alongside the split valid and invalid timing columns",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in blazers, shirts, and boots step back from the bench and point to the gap between the two sunlit timing columns",
+      "end_sentence_index": 14,
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "end_sentence_index": 15,
+      "act": 2,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands inside the cool-limestone Oregon lab showing the flat eye-stability trace alongside the split valid and invalid timing columns",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 13
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sleeves and cool porcelain-white gloved matte-white porcelain hands over the left valid-cue key station",
+      "prop_action": "a left arrow wedge lights and a mint-sage star flashes on the left as the cool porcelain-white gloved matte-white porcelain hand taps and releases the silver key immediately",
+      "consequence": "a low fast mint-sage indicator block locks into place",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "an elevated wide view of the cool-limestone Oregon lab showing the flat eye-stability trace alongside the split valid and invalid timing columns",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in navy sleeves push the silver control lever as the heavy harbor crane boom swings slowly around its stone base",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the cool-limestone Oregon lab showing the flat eye-stability trace alongside the split valid and invalid timing columns",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in blazers, shirts, and boots step back from the bench and point to the gap between the two sunlit timing columns",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands arranging three interlocking sunlit prism modules on a slate tray",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift a single solid bar off the tray and place three linked sunlit prism modules in sequence",
+      "consequence": "light flows cleanly from the first module through the second into the third",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 20,
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands arranging three interlocking sunlit prism modules on a slate tray",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift a single solid bar off the tray and place three linked sunlit prism modules in sequence",
+      "consequence": "light flows cleanly from the first module through the second into the third",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 21,
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nUNLOCKS BEAM",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper rear crown of the matte cool-porcelain 3D brain model, crisp powder-blue light activates the parietal cortex to unlock spatial focus",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "brainstem",
+      "anatomy_label": "BRAINSTEM\nSHIFTS PRIORITY",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, soft mint-sage pulses travel swiftly up the upper brainstem orienting hub",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "thalamus",
+      "anatomy_label": "THALAMUS\nLOCKS TARGET",
+      "camera": "locked_tripod",
+      "brain_scene": "at the central core of the matte cool-porcelain 3D brain cutaway, steady powder-blue light locks cleanly inside the thalamus relay hub",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "VISUAL CORTEX\nBOOSTED SIGNAL",
+      "camera": "gentle_push_in",
+      "brain_scene": "at the back pole of the matte cool-porcelain 3D brain model, bright mint-sage light amplifies across the primary visual cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the cool-limestone Oregon testing station with an unmarked crossover curve sculpture rising past a center post",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in blazer sleeves slide and align the brushed-silver magnifying glass over the tiny mint-sage star prism so its facets appear sharp and enlarged",
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate vest sleeves and cool porcelain-white gloved matte-white porcelain hands triggering a brief border glow on the left square box",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand taps a side flash switch while the other hand slides a delay slider past a midpoint notch",
+      "consequence": "the left square box dims into a muted lavender cooldown state",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 27,
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a rear over-shoulder view of the two-box slate panel as the left square border flashes brightly in soft powder-blue",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain volunteer in a mint-sage sweater holds still on the silver chinrest while one gloved hand rests ready on the center key",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a rear over-shoulder view of the two-box slate panel as the left square border flashes brightly in soft powder-blue",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "clip_number": 26
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a rear over-shoulder view of the two-box slate panel as the left square border flashes brightly in soft powder-blue",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves slide the powder-blue bar magnet close so the silver sphere rolls and snaps briskly onto the magnet pole",
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands advancing a plain tick-only silver interval dial without numbers",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands turn and set the plain tick-only silver interval dial three notches forward on the slate console",
+      "consequence": "a cool lavender pause indicator lights beside the left box",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 31,
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a rear over-shoulder view of the two-box slate panel as the left square border flashes brightly in soft powder-blue",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in sweater sleeves close and latch the empty checked drawer with a mint-sage clip and reach smoothly to open the next fresh drawer",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a cool limestone foraging grid of six sunlit stone alcoves where a soft powder-blue spotlight beam visits one alcove after another without repeating",
+      "internal_mechanism": "each visited alcove flips up a tiny lavender shutter tab so the powder-blue spotlight glides onward to unvisited alcoves",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 33,
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright Oregon laboratory with the unmarked dip-and-rise sunlit curve model centered on the slate table",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in blazers and boots step beside the curve model and align the early dip peg with the later rise peg",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "gym_court_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit limestone park overlook dotted with mint-sage geometric trees under a clear powder-blue sky",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain walker in a slate jacket, cap, and boots steps along the stone terrace turning smoothly from grove to grove",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 35,
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "gym_court_terrace",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands testing the three-gear sunlit model on a slate tray",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand holds the first rose-coral unlock gear still while the other hand tries to slide the beam prism leftward",
+      "consequence": "the beam prism stays stuck on the right box when the unlock gear cannot turn",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nDISENGAGE GEAR",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the upper right rear surface of the matte cool-porcelain 3D brain model, muted rose-coral shading highlights the damaged parietal cortex disengage zone",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 34
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands over a clinical cueing pad",
+      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand taps and presses quickly for a lone left star yet pulls back when a right box glows first",
+      "consequence": "the clinical test cleanly isolates the unlock delay",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "gym_court_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a bright indoor cool-slate athletic court with powder-blue boundary lines and two clothed matte-white porcelain teammates",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in navy sleeves grip and turn the brushed-silver zoom ring widening and narrowing a soft powder-blue light circle",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "gym_court_terrace",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "gym_court_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright indoor cool-slate athletic court with powder-blue boundary lines and two clothed matte-white porcelain teammates",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain point guard in a navy jersey, shorts, and sneakers faces straight ahead at a defender while pushing a crisp diagonal bounce pass left to a cutting teammate in tailored linen sleeves and a woven cardigan.",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 40,
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "gym_court_terrace",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright University of Oregon cognitive neuroscience laboratory with the two-box light panel glowing calmly",
+      "action": "viewed strictly from behind, three clothed matte-white porcelain scientists in blazers, shirts, slacks, and boots step around the slate bench and lean toward the two-box setup",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 42,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate vest sleeves and cool porcelain-white gloved matte-white porcelain hands beside the brushed-silver response key",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand latches the chinrest bar neatly while the other hand rests beside the center cross switch",
+      "consequence": "the two-box panel gleams clean and symmetrical",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 43,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "highway_cabin_view",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a rear over-shoulder view inside a minimalist cool-slate car cabin looking out a wide windshield onto a sunlit limestone highway",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain driver in a powder-blue jacket grips the slate steering wheel while a blinking rose-coral call light distracts on the console",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 45,
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "highway_cabin_view",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nSTOLEN SPOTLIGHT",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper rear crown of the matte cool-porcelain 3D brain model, distracted rose-coral flickers pull light away from the parietal cortex spatial map",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "highway_cabin_view",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a rear over-shoulder view inside a minimalist cool-slate car cabin looking out a wide windshield onto a sunlit limestone highway",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in jacket sleeves push and latch the brushed-silver safety clasp shut with an instant crisp click",
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "highway_cabin_view",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "end_sentence_index": 48,
+      "act": 6,
+      "location_id": "highway_cabin_view",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a rear over-shoulder view inside a minimalist cool-slate car cabin looking out a wide windshield onto a sunlit limestone highway",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "highway_cabin_view",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 43
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "gym_court_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit cool-limestone cafe terrace with a slate table and two sunlit chairs",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain friends in sunlit sweaters and boots set their matte-slate phones face down and lean in attentively",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "gym_court_terrace",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands using a silver trackpad beside a sleek unmarked slate monitor",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand glides across the silver trackpad keeping a powder-blue focus ring centered while a side border blink fades dark as gloved fingers reach and press cleanly",
+      "consequence": "the center workspace stays calm and undisturbed",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 50,
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "gym_court_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit limestone campus walkway lined with sunlit mint-sage trees",
+      "action": "viewed strictly from behind, clothed matte-white porcelain walkers in sunlit jackets, caps, and boots walk and step smoothly along the wide stone path",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "gym_court_terrace",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "oregon_cueing_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sleeves and cool porcelain-white gloved matte-white porcelain hands over the right invalid-cue key station",
+      "prop_action": "a left arrow wedge lights yet the star flashes on the right as the cool porcelain-white gloved matte-white porcelain hand holds briefly then presses the silver key late",
+      "consequence": "a taller slower rose-coral indicator block rises on the right tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "oregon_cueing_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "gym_court_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a serene sunlit limestone courtyard framed by soft mint-sage trees opening into a clear powder-blue sky with white geometric clouds",
+      "action": "viewed strictly from behind, clothed matte-white porcelain figures in sunlit coats, caps, and boots walk and step calmly forward as the camera tilts smoothly upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "INVISIBLE BEAM",
+    "cover_sentence_index": 3,
+    "cover_brief": "soft powder-blue spotlight cone illuminating a left crystal box beside a stationary center cross bar on a cool slate-stone lab table"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

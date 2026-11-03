@@ -1,0 +1,1173 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "schachter_external_eating_cues",
+  "topic": "Stanley Schachter & Larry Gross (1968) Columbia Rigged Wall-Dial Cracker Experiment, Cashew Sightline Test, Dietary Restraint Interoception Update, and Opaque Kitchen Design",
+  "act5_climax_episode": "Modern replication separating robust portion-visibility and external-cue eating science from retracted soup-bowl claims, proving opaque storage outperforms raw willpower.",
+  "outro_title_lines": [
+    "STANLEY SCHACHTER (1968)",
+    "COLUMBIA EATING LAB"
+  ],
+  "thumbnail": {
+    "hook_text": "RIGGED WALL CLOCK",
+    "cover_sentence_index": 3,
+    "cover_brief": "Centered round powder-blue low-poly wall dial with unmarked pastel tick wedges and two clean silver hands above an open cool-cream cracker box"
+  },
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "TRUE HUNGER?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "RIGGED WALL CLOCK"
+    },
+    {
+      "sentence_index": 10,
+      "text": "DOUBLE SPEED"
+    },
+    {
+      "sentence_index": 19,
+      "text": "EYES VS GUT"
+    },
+    {
+      "sentence_index": 27,
+      "text": "SHADED SNACKS"
+    },
+    {
+      "sentence_index": 35,
+      "text": "SOLID PROOF"
+    },
+    {
+      "sentence_index": 43,
+      "text": "CLOSED CABINET"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "TRUE HUNGER?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "RIGGED WALL CLOCK"
+    },
+    {
+      "sentence_index": 10,
+      "text": "DOUBLE SPEED"
+    },
+    {
+      "sentence_index": 19,
+      "text": "EYES VS GUT"
+    },
+    {
+      "sentence_index": 27,
+      "text": "SHADED SNACKS"
+    },
+    {
+      "sentence_index": 35,
+      "text": "SOLID PROOF"
+    },
+    {
+      "sentence_index": 43,
+      "text": "CLOSED CABINET"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 15,
+      "mode": "split_hstack",
+      "left_clip_index": 14,
+      "right_clip_index": 47,
+      "left_label": "SLOW DIAL: LIGHT",
+      "right_label": "FAST DIAL: DOUBLE"
+    }
+  ],
+  "clips": [
+    {
+      "clip_index": 2,
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "columbia_clock_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "powder-blue sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands reaching into a muted-sage cracker box",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands reach briskly into an open muted-sage box and lift two pale-cream square crackers",
+      "consequence": "two geometric cream crackers rise above the open box",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "columbia_clock_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 3,
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "columbia_clock_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a soft sunlit Columbia psychology room with pale sage walls and a round powder-blue circular acoustic damper with unmarked sunlit tick wedges and two clean silver hands",
+      "action": "viewed strictly from behind, a student in a powder-blue sweater and gloves tilts toward the unmarked circular acoustic damper and reaches into a cream cracker box",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "columbia_clock_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 5,
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "columbia_clock_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view from behind inside the bright sunlit Columbia lab showing the unmarked round powder-blue circular acoustic damper above a cool slate desk",
+      "action": "viewed strictly from behind, a researcher in a slate coat watches from the doorway while a seated student in a sweater lifts crackers from an open box",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "columbia_clock_room",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 6,
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "columbia_control_booth",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "pan_right",
+      "environment": "an architectural cross-section of two sunlit lab rooms with pale ash desks and unmarked round powder-blue wall dials",
+      "action": "viewed strictly from behind, two matte-white porcelain researchers in coats walk past an observation window carrying cool-cream snack boxes",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "columbia_control_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 7,
+      "sentence_index": 5,
+      "end_sentence_index": 6,
+      "act": 1,
+      "location_id": "columbia_snack_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-sage sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands finishing sandwich halves on a powder-blue plate",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands lift the last geometric sandwich wedge from a powder-blue plate and push the empty plate forward",
+      "consequence": "the empty powder-blue plate settles cleanly on the cool slate table",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "columbia_snack_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 8,
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "pan_left",
+      "analogy_object": "a sleek pale-ash low-poly tasting tray paddle holding five matching powder-blue ramekin bowls filled with crisp cream squares",
+      "analogy_action": "the five powder-blue tasting bowls slide smoothly in a neat row across a cool slate studio counter under soft diffused light",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 6
+    },
+    {
+      "clip_index": 9,
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "columbia_snack_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-sage sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands reaching across the five powder-blue bowls",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands pick cream crackers from bowl after bowl and stack them onto a pale-lavender napkin",
+      "consequence": "the cracker levels drop visibly across the sunlit bowls",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "columbia_snack_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 10,
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "columbia_control_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "slate coat sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands connecting a gray cable behind a round powder-blue circular acoustic damper",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands plug a pale-gray speed cord into the back housing of an unmarked sunlit circular acoustic damper and turn it over",
+      "consequence": "the two clean silver pointer hands sweep smoothly across unmarked sunlit tick wedges",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 9,
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "columbia_control_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 11,
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "columbia_clock_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a calm sunlit testing room where a round powder-blue circular acoustic damper with unmarked geometric tick marks and two silver hands hangs above a slate table",
+      "action": "viewed strictly from behind, a student in a navy sweater and gloves leans back in a pale-ash chair and reaches toward a closed cream box",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "columbia_clock_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 12,
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "columbia_clock_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright sunlit Columbia hallway opening into two pale-sage study rooms bathed in cool afternoon light",
+      "action": "viewed strictly from behind, three matte-white porcelain students in coats and sweaters walk calmly through the doorway toward cool slate desks",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 11,
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "columbia_clock_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 13,
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "columbia_clock_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands unclasping a silver wristwatch band over a muted-sage tray",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands lift off a brushed-silver wristwatch into a muted-sage tray and press a small silver sensor clip onto a gloved cuff",
+      "consequence": "the removed wristwatch rests tucked inside the muted-sage tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 12,
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "columbia_clock_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 14,
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_object": "a clean frosted-glass and brushed-silver low-poly sand polished brass counter standing on a cool slate studio block",
+      "analogy_action": "fine pale-sage geometric sand trickles steadily through the narrow waist into the lower bulb until the top half empties",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12
+    },
+    {
+      "clip_index": 15,
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "columbia_clock_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate coat sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands setting the control dial to half speed beside a round circular acoustic damper",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands turn a silver dial left while the two clean silver hands on the unmarked powder-blue circular acoustic damper creep slowly",
+      "consequence": "the long silver hand barely passes the fourth sunlit tick wedge",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "columbia_clock_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 16,
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "columbia_clock_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-gray sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands picking up one cracker beneath a slow-angled unmarked circular acoustic damper",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands lift a single cream cracker slowly from the muted-sage box and set down a slate pencil",
+      "consequence": "the muted-sage cracker box stays nearly full",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "columbia_clock_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 18,
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "columbia_clock_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "white lab coat sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands lifting a muted-sage cracker box off a silver kitchen scale",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands lift the weighed muted-sage cracker box from a flat silver pad and set it onto the student's slate desk",
+      "consequence": "the open box of cream crackers sits right beside a blank sunlit sheet",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "columbia_clock_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 19,
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "columbia_control_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands comparing two muted-sage cracker boxes on twin silver weight pads",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands set a heavy full box on the left pad and a light half-eaten box on the right pad",
+      "consequence": "two sunlit indicator bars show a tall double-height jump on the fast-dial side",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 17,
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "columbia_control_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 20,
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "columbia_clock_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "powder-blue sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands brushing cracker crumbs beside an empty muted-sage box",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands tip the empty muted-sage cracker box sideways and tap the cool slate desk",
+      "consequence": "only two small cream crumbs remain on the pale mat",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "columbia_clock_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 22,
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "columbia_clock_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright sunlit Columbia lab room beneath the unmarked round powder-blue circular acoustic damper with silver hands aligned straight up and down",
+      "action": "viewed strictly from behind, a student in a powder-blue sweater and gloves glances up at the unmarked circular acoustic damper and leans over the desk as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "columbia_clock_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 22,
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "columbia_clock_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright sunlit Columbia lab room beneath the unmarked round powder-blue circular acoustic damper with silver hands aligned straight up and down",
+      "action": "viewed strictly from behind, a student in a powder-blue sweater and gloves glances up at the unmarked circular acoustic damper and leans over the desk as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 20,
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "columbia_clock_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 24,
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "columbia_control_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "slate coat sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands sliding a silver pointer from a stomach model to a mini circular acoustic damper",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands lift a silver rod past a matte-cream torso sculpture and tap a compact unmarked powder-blue dial",
+      "consequence": "the compact silver dial hands spin smoothly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "columbia_control_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 25,
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "hypothalamus",
+      "anatomy_label": "HYPOTHALAMUS\nBODY THERMOSTAT",
+      "brain_scene": "a cutaway matte cream matte-white porcelain brain model on a cool slate stand where the deep central hypothalamus glows steady balanced sage-green",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21
+    },
+    {
+      "clip_index": 26,
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "locked_tripod",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "insula",
+      "anatomy_label": "INSULA\nGUT-FEELING CENTER",
+      "brain_scene": "the cutaway matte cream matte-white porcelain brain model showing the deep folded insula dimming softly into quiet pale-slate shadow",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22
+    },
+    {
+      "clip_index": 27,
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_left",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nTHE PLANNER",
+      "brain_scene": "a matte cream matte-white porcelain brain model where front prefrontal cortex behind the forehead pulses brisk powder-blue waves overriding the quiet deep core",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23
+    },
+    {
+      "clip_index": 28,
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "columbia_snack_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate coat sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands positioning a matte-white desk lamp above a powder-blue cashew tin",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands tilt a matte-white desk shade gently over a powder-blue tin of pale-cream cashews and slide a second tin into cool shadow",
+      "consequence": "one cashew tin sits clearly lit in soft cool daylight while the second rests in soft slate shade",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "columbia_snack_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 26,
+      "end_sentence_index": 26,
+      "act": 3,
+      "location_id": "columbia_snack_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key columbia snack room with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "columbia_snack_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 25
+    },
+    {
+      "clip_index": 31,
+      "sentence_index": 27,
+      "act": 4,
+      "location_id": "columbia_control_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "analogy_object": "a clean muted-sage low-poly roller window shade mounted inside a cool cream architectural window frame",
+      "analogy_action": "the muted-sage roller shade glides smoothly downward covering the bright glass pane in calm even pastel shadow",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a modern bright sunlit nutrition laboratory with cool slate counters and neat portion bowls",
+      "action": "viewed strictly from behind, a researcher in a white lab coat sets down a rigid diet checklist folder and slides forward balanced sunlit bowls",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "columbia_control_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "end_sentence_index": 28,
+      "act": 4,
+      "location_id": "columbia_control_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a modern bright sunlit nutrition laboratory with cool slate counters and neat portion bowls",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "columbia_control_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 27
+    },
+    {
+      "clip_index": 32,
+      "sentence_index": 29,
+      "end_sentence_index": 30,
+      "act": 4,
+      "location_id": "columbia_snack_room",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "pan_right",
+      "environment": "a two-zone sunlit cutaway contrasting a quiet windowless pale-slate hall on the left with a sunlit bakery display window on the right",
+      "action": "viewed strictly from behind, a figure in a navy coat sits calmly on the left while a figure in a sage coat stops and reaches toward sunlit pastry trays on the right",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "columbia_snack_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 34,
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "columbia_control_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a modern bright sunlit nutrition laboratory with cool slate counters and neat portion bowls",
+      "action": "viewed strictly from behind, a researcher in a white lab coat sets down a rigid diet checklist folder and slides forward balanced sunlit bowls",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "columbia_control_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 34,
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "columbia_control_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a modern bright sunlit nutrition laboratory with cool slate counters and neat portion bowls",
+      "action": "viewed strictly from behind, a researcher in a white lab coat sets down a rigid diet checklist folder and slides forward balanced sunlit bowls",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 32,
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "columbia_control_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 35,
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "insula",
+      "anatomy_label": "INSULA\nBODY-FEELING CENTER",
+      "brain_scene": "a cutaway matte cream matte-white porcelain brain model where the deep folded insula fades into muted pale-gray under rigid top-down suppression",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31
+    },
+    {
+      "clip_index": 36,
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "columbia_control_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "analogy_object": "a matte pale-lavender low-poly elastic rubber band looped between two brushed-silver pegs on a cool slate block",
+      "analogy_action": "the two silver pegs pull wide stretching the pale-lavender band taut until one peg releases and the band snaps briskly back",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a modern bright sunlit nutrition laboratory with cool slate counters and neat portion bowls",
+      "action": "viewed strictly from behind, a researcher in a white lab coat sets down a rigid diet checklist folder and slides forward balanced sunlit bowls",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "columbia_control_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 37,
+      "sentence_index": 35,
+      "act": 5,
+      "location_id": "columbia_control_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands lifting away a trick tubed soup bowl from a cool slate table",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands remove a pale-gray trick bowl with a bottom tube and set down two solid powder-blue portion bowls",
+      "consequence": "the two solid sunlit portion bowls rest firmly on the table",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "columbia_control_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 38,
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "columbia_control_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "slate blazer sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands sorting sunlit research folders into two trays",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands drop a thin gray folder into a discard bin and stack three thick muted-sage folders on a silver stand",
+      "consequence": "the solid muted-sage stack stands tall and stable",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 36,
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "columbia_control_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 39,
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "modern_pastel_kitchen",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands typing on a pale-slate keyboard beside an open bowl of cream crisps",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands drift automatically off the slate keys and lift a cream crisp from the open powder-blue bowl",
+      "consequence": "the open snack bowl pulls the hand away from work",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "modern_pastel_kitchen",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 40,
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "modern_pastel_kitchen",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands clenching tightly beside a clear glass jar of sunlit cookies",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands clench on the cool cream counter and then reach up to unscrew the clear jar lid",
+      "consequence": "the clear jar lid lifts off onto the counter",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 38,
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "modern_pastel_kitchen",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 41,
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "modern_pastel_kitchen",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "muted-sage sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands sliding cookies into a solid matte powder-blue canister",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands place the sunlit cookies inside an opaque powder-blue canister and press its matte lid shut",
+      "consequence": "the opaque sunlit canister hides every snack cleanly from view",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 39,
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "modern_pastel_kitchen",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 42,
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "columbia_clock_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "analogy_object": "a crisp brushed-silver low-poly cabinet latch mounted across two matte muted-sage cupboard doors",
+      "analogy_action": "the brushed-silver latch arm swings smoothly across the seam and clicks into its catch holding both muted-sage doors flush",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "an elevated wide view from behind of the bright sunlit Columbia lab with the unmarked powder-blue circular acoustic damper and weighed cracker boxes",
+      "action": "viewed strictly from behind, three matte-white porcelain researchers in coats and gloves step back around the slate desk and raise gloved hands in quiet awe and places the wooden marker onto the table",
+      "end_sentence_index": 41,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "columbia_clock_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 44,
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "modern_pastel_kitchen",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright airy sunlit home kitchen with cool cream counters, muted-sage upper cabinets, and soft morning window light",
+      "action": "viewed strictly from behind, a homeowner in a powder-blue sweater and gloves opens a muted-sage cabinet door above a tidy counter",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "modern_pastel_kitchen",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 45,
+      "sentence_index": 43,
+      "act": 6,
+      "location_id": "modern_pastel_kitchen",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands lifting a clear candy jar off a pale-ash work desk",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands lift the clear glass jar away and wipe the cool slate desk surface clean",
+      "consequence": "only a tidy slate notebook remains on the desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 44,
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "modern_pastel_kitchen",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 48,
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "modern_pastel_kitchen",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "powder-blue sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands centering a matte-white bowl of sunlit green apples",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands set a matte-white ceramic bowl of crisp sage-green apples right at the center of the cool cream island",
+      "consequence": "the fresh sunlit fruit bowl catches soft window daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "modern_pastel_kitchen",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 49,
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "hypothalamus",
+      "anatomy_label": "HYPOTHALAMUS\nBODY THERMOSTAT",
+      "brain_scene": "a cutaway matte cream matte-white porcelain brain model where the deep central hypothalamus glows in calm steady sage-green balance",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42
+    },
+    {
+      "clip_index": 54,
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_pastel_kitchen",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the tidy sunlit home kitchen with closed muted-sage cabinets and the eye-level bowl of sage-green fruit",
+      "action": "viewed strictly from behind, a homeowner in a powder-blue sweater and gloves walks past the closed cupboards and lifts one crisp green apple",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "modern_pastel_kitchen",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 52,
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "modern_pastel_kitchen",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands placing three crackers onto a small pale-lavender plate",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands set three cream crackers onto a small pale-lavender saucer and fold the box top closed",
+      "consequence": "a neat single portion sits on the small saucer",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 48,
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "modern_pastel_kitchen",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 54,
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "modern_pastel_kitchen",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the tidy sunlit home kitchen with closed muted-sage cabinets and the eye-level bowl of sage-green fruit",
+      "action": "viewed strictly from behind, a homeowner in a powder-blue sweater and gloves walks past the closed cupboards and lifts one crisp green apple",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 49,
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "modern_pastel_kitchen",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 56,
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "columbia_clock_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view from behind of the bright sunlit Columbia lab with the unmarked powder-blue circular acoustic damper and tidy slate desk",
+      "action": "viewed strictly from behind, the matte-white porcelain researcher in a slate coat pulls out the gray speed cord and sets the closed cracker box aside",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "columbia_clock_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 17,
+      "sentence_index": 15,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "columbia_clock_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands grabbing handfuls of crackers beneath a vertical six-angle unmarked circular acoustic damper",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands scoop and lift stacked cream crackers rapidly out of the muted-sage box",
+      "consequence": "the muted-sage cracker box drops half empty",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "columbia_clock_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 57,
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a serene bright sunlit neuro-studio gallery with cool cream arches, an unmarked powder-blue circular acoustic damper, and a matte sunlit brain model",
+      "action": "viewed strictly from behind, a matte-white porcelain researcher in a white coat walks forward and sets a sage-green apple beside the balanced brain sculpture",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true,
+  "allow_chronometer_apparatus": true
+}

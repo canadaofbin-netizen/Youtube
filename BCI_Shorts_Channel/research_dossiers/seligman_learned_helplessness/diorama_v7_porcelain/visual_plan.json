@@ -1,0 +1,1139 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "seligman_learned_helplessness",
+  "topic": "Seligman & Maier Triadic Shuttle-Box Discovery & Fifty-Year Neuroscience Reversal: Why Passivity Is Brainstem Default While Control Is Learned",
+  "act5_climax_episode": "Fifty-year circuit reversal proving ventromedial prefrontal control silences default brainstem passivity and immunizes resilience against future uncontrollable stressors.",
+  "outro_title_lines": [
+    "SELIGMAN & MAIER (1967 / 2016)",
+    "UNIV. OF PENNSYLVANIA & CU BOULDER"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "LEARNED TO QUIT?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "THE LOW HURDLE"
+    },
+    {
+      "sentence_index": 10,
+      "text": "TWO-SECOND HOP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "GUIDED RECOVERY"
+    },
+    {
+      "sentence_index": 28,
+      "text": "THE BIG REVERSAL"
+    },
+    {
+      "sentence_index": 37,
+      "text": "STRESS ARMOR"
+    },
+    {
+      "sentence_index": 45,
+      "text": "ONE SMALL WIN"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "LEARNED TO QUIT?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "THE LOW HURDLE"
+    },
+    {
+      "sentence_index": 10,
+      "text": "TWO-SECOND HOP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "GUIDED RECOVERY"
+    },
+    {
+      "sentence_index": 28,
+      "text": "THE BIG REVERSAL"
+    },
+    {
+      "sentence_index": 37,
+      "text": "STRESS ARMOR"
+    },
+    {
+      "sentence_index": 45,
+      "text": "ONE SMALL WIN"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 34,
+      "mode": "split_hstack",
+      "left_clip_index": 31,
+      "right_clip_index": 48,
+      "left_label": "DEFAULT FREEZE",
+      "right_label": "LEARNED BRAKE"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a soft daylight behavioral laboratory with a clear acrylic two-compartment chamber box split by a low slate-gray hurdle barrier and a matte chalk-white smooth sculptural matte-white porcelain dog sculpture",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coats lean beside the cool slate-gray bench and point toward the clear chamber box",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "boulder_circuit_room",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a two-level matte-sunlit circuit stand on a cool limestone base where a lower coral-rose stem block lights automatically until an upper mint-sage brake arm lowers",
+      "internal_mechanism": "the lower coral-rose block glows by default until the upper mint-sage brake slides down to quiet it",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "boulder_circuit_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the bright Philadelphia laboratory showing the clear shuttle chamber box, low center barrier hurdle, matte chalk-white smooth sculptural dog sculpture, and paired switch console",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain psychologist in a white coat steps beside the chamber box and rests one gloved hand on the slate-gray bench",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the cool-toned behavioral testing room with three separate clear acrylic test stations lined along a cool limestone counter",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scientists in white coats and ties walk along the limestone counter and align three sunlit indicator lamps",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands plugging a single silver relay cord into two side-by-side sunlit boxes on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand holds the brushed-silver splitter while the other hand presses both connectors firmly into matching sockets",
+      "consequence": "one shared polished brass counter feeds both chambers in exact unison",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "twin clear matte-sunlit test chambers resting side by side on a cool slate-gray base wired to one central silver relay tally counter",
+      "internal_mechanism": "soft coral-rose floor indicator bars pulse on and off for the exact same duration in both chambers simultaneously",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 6,
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt cuffs and cool porcelain-white gloved matte-white porcelain hands testing the left live circular panel on a cool slate-gray console",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand presses the left powder-blue circular panel while the other hand points to the relay needle stopping immediately",
+      "consequence": "pressing the left live panel shuts off both floor bars right away",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands demonstrating the active powder-blue panel shutoff on a cool limestone bench",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands tap the powder-blue panel and trace the silver wire cutting off the shared tally counter",
+      "consequence": "both sunlit indicator lamps dim to calm mint-sage together",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 8,
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands pressing the right disconnected lavender-gray panel over a cool slate-gray bench",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand taps the disconnected lavender-gray panel repeatedly while the other hand lifts its unplugged silver lead",
+      "consequence": "the shared sweep hand keeps moving without responding to the dead switch",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 9,
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright laboratory bench featuring the clear two-sided shuttle box divided by a low powder-blue center barrier hurdle",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coats step beside the clear shuttle box and open the entry gate",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a clean matte cool-limestone sidewalk curb separating a slate-gray roadway from a pale mint-sage walkway",
+      "comparison_action": "viewed strictly from behind, a clothed matte-white porcelain walker in trousers and a powder-blue jacket steps effortlessly up and over the low limestone curb",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "the two-compartment clear acrylic shuttle box on a cool slate-gray base with a soft coral-rose cue lamp on the left and a calm mint-sage safe zone on the right",
+      "internal_mechanism": "the left cue lamp illuminates gently signaling the open path across the low center hurdle",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a crisp matte powder-blue mechanical toggle switch mounted on a cool slate-gray stone block",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in white coat cuffs reach in and flip the sunlit toggle switch cleanly in one brisk snap",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright laboratory bench featuring the clear two-sided shuttle box divided by a low powder-blue center barrier hurdle",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in blazer sleeves place the ninth mint-sage peg row into the nearly full sunlit bus model and slide it forward",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the clear shuttle box where a matte chalk-white smooth sculptural matte-white porcelain dog sculpture sits motionless on the left side inches from the low powder-blue barrier",
+      "action": "viewed strictly from behind, both clothed matte-white porcelain scientists in white coats lean closer to the clear chamber and point toward the untouched low hurdle",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 15,
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright laboratory bench featuring the clear two-sided shuttle box divided by a low powder-blue center barrier hurdle",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in slate cuffs lift and brace the silver crossing gate wide open while the sunlit train rests unmoving on the track",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands comparing two identical plain tick-mark duration gauges on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and align the two silver sweep gauges side by side showing matching needle angles",
+      "consequence": "both duration gauges display the exact same elapsed angle",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 17,
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands measuring the low powder-blue divider with a blank silver scale rod",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand holds the short silver rod beside the low hurdle while the other hand points into the open safe compartment",
+      "consequence": "the safe right side sits wide open just one small step away",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the sunlit shuttle box where the chalk-white smooth sculptural matte-white porcelain dog sculpture now leaps cleanly on its own over the low powder-blue barrier into the safe side",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in navy coat cuffs pull gently on the silver chain while the heavy sunlit anchor holds its ground cleanly",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "end_sentence_index": 20,
+      "act": 3,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the sunlit shuttle box where the chalk-white smooth sculptural matte-white porcelain dog sculpture now leaps cleanly on its own over the low powder-blue barrier into the safe side",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 20
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands tapping gently on the safe right side of the clear acrylic chamber on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands tap and point beside the open safe compartment while the smooth sculptural chalk-white dog sculpture stays still",
+      "consequence": "distant beckoning alone fails to move the motionless sculpture",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands gently guiding the chalk-white smooth sculptural matte-white porcelain dog sculpture across the low powder-blue hurdle",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift and glide the articulated chalk-white dog sculpture smoothly over the low divider twice onto the safe side",
+      "consequence": "each guided crossing immediately switches the cue lamp to calm mint-sage",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 22,
+      "clip_number": 22,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "end_sentence_index": 24,
+      "act": 3,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit shuttle box where the chalk-white smooth sculptural matte-white porcelain dog sculpture now leaps cleanly on its own over the low powder-blue barrier into the safe side",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coats step back from the bench and point as the safe mint-sage lamp glows",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "brainstem",
+      "anatomy_label": "BRAINSTEM\nREFLEX CENTER",
+      "brain_scene": "a matte-sunlit sagittal cutaway brain model on a cool alabaster stand where the lower brainstem glows coral-rose driving an automatic freeze reflex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_left",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "VENTROMEDIAL CORTEX\nJUDGMENT CENTER",
+      "brain_scene": "a matte-sunlit sagittal cutaway brain model highlighting the lower front ventromedial prefrontal cortex in cool cyan-blue poised above a descending pathway",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "boulder_circuit_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a modern sunlit Boulder neuroscience office with a cool slate-gray circuit model wall board and a limestone conference table",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain neuroscientists in navy blazer and powder-blue shirt lean toward the slate-gray circuit board and tilt a silver arrow",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "boulder_circuit_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "boulder_circuit_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright Boulder neuroscience office with the reversed cyan top-down brake diagram mounted on the cool slate-gray wall panel",
+      "action": "viewed strictly from behind, both clothed matte-white porcelain co-authors in blazers step together before the slate-gray panel and point to the top-down cyan pathway",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 29,
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "boulder_circuit_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "boulder_circuit_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands removing a coral-rose learning token from the lower stem slot on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift the coral-rose token out of the lower slot and shake it gently aside",
+      "consequence": "the lower stem slot shows a built-in factory spring without any learned lock",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 31,
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "boulder_circuit_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "brainstem",
+      "anatomy_label": "BRAINSTEM\nREFLEX CENTER",
+      "brain_scene": "a matte-sunlit sagittal cutaway brain model where prolonged stress lights the deep brainstem in steady coral-rose when top frontal hubs stay quiet",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "boulder_circuit_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-slate sweater cuffs and cool porcelain-white gloved matte-white porcelain hands resting beside a dimmed conservation meter on a cool limestone desk",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand slides a protective frosted cover over a compact battery cell while the other hand rests on the desk",
+      "consequence": "the compact sunlit cell conserves power in standby mode",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "boulder_circuit_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands beside the disconnected lavender-gray panel where a coral-rose stem lamp stays lit on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands press and tap the dead lavender-gray switch while the lower coral-rose freeze bar stays high",
+      "consequence": "with a dead switch, default coral-rose passivity continues unchecked",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "VENTROMEDIAL CORTEX\nJUDGMENT CENTER",
+      "brain_scene": "a matte-sunlit sagittal cutaway brain model where bright cyan-blue light surges in the ventromedial prefrontal cortex and sends a luminous brake beam down to quiet the brainstem",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "boulder_circuit_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "tilt_down",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands sliding a brushed-silver caliper brake down a vertical sunlit rod onto a coral-rose base",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands guide and press the silver brake pad smoothly onto the spinning coral-rose wheel until it stops",
+      "consequence": "calm mint-sage light replaces the coral-rose spin instantly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "boulder_circuit_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "boulder_circuit_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright Boulder laboratory showing a multi-day sunlit timeline rack leading to a brand-new puzzle maze box on a cool limestone bench",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coats walk to the new puzzle box and open its frosted lid",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 38,
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "boulder_circuit_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "boulder_circuit_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands setting a steep unfamiliar lavender-gray puzzle barrier onto the cool slate-gray test track",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and align the unfamiliar lavender-gray barrier across the test channel",
+      "consequence": "the new challenge stands directly in front of the trained model",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 39,
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "boulder_circuit_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "boulder_circuit_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright Boulder laboratory showing a multi-day sunlit timeline rack leading to a brand-new puzzle maze box on a cool limestone bench",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in white coat cuffs place the powder-blue shield dome down so rolling coral-rose pebbles bounce harmlessly off its curve",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "boulder_circuit_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "end_sentence_index": 41,
+      "act": 5,
+      "location_id": "boulder_circuit_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the bright Boulder laboratory showing a multi-day sunlit timeline rack leading to a brand-new puzzle maze box on a cool limestone bench",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "boulder_circuit_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 37
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "boulder_circuit_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide view of the sunlit Boulder neuroscience office with the glowing cyan top-down circuit model centered on the slate-gray wall",
+      "action": "viewed strictly from behind, three clothed matte-white porcelain scientists in blazers and white coat step back together and shake gloved hands warmly",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 43,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "boulder_circuit_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 5,
+      "location_id": "modern_action_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright modern clinical counseling studio with powder-blue armchairs, a cool limestone side table, and three small sunlit step tiles",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain clinician in a mint-sage cardigan leans across the limestone table and slides three small step tiles toward a client in a coat",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "modern_action_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "modern_action_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a cool-toned home office desk piled with a towering pale-gray folder stack beside a small untouched mint-sage tray",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain worker in a lavender-gray sweater leans heavily at the slate-gray desk and rests gloved hands before the giant stack",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "modern_action_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "modern_action_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray sweater sleeves and cool porcelain-white gloved matte-white porcelain hands pushing the giant uncontrollable gray binder stack off to the side of the cool slate-gray desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide the heavy gray binder stack away and place one small blank mint-sage action tile at center desk",
+      "consequence": "clear calm space opens around the single manageable mint-sage tile",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 46,
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "modern_action_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 47,
+      "end_sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_action_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a cool-toned home office desk piled with a towering pale-gray folder stack beside a small untouched mint-sage tray",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "modern_action_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "clip_number": 42
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "modern_action_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a cool-toned home office desk piled with a towering pale-gray folder stack beside a small untouched mint-sage tray",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in sweater cuffs turn the small sunlit brushed-silver marker cylinder upright and set the powder-blue ceramic mug neatly beside it",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "modern_action_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "modern_action_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray sweater cuffs and cool porcelain-white gloved matte-white porcelain hands completing a three-piece mint-sage puzzle tile on the cool slate-gray desk",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand presses the final mint-sage piece flush into the frame while the other hand slides it into a finished tray",
+      "consequence": "the finished tray lights with a crisp mint-sage indicator bar",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 49,
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "modern_action_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model where bright cyan-blue light fills the prefrontal cortex restoring active top-down agency",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "modern_action_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit cool-slate office with three completed mint-sage tiles aligned neatly beside the open window",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain worker in a lavender-gray sweater rises upright from the desk and opens the sunlit window latch",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "modern_action_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "modern_action_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit cool-slate office with three completed mint-sage tiles aligned neatly beside the open window",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain worker in a lavender-gray sweater rises upright from the desk and opens the sunlit window latch",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 52,
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "modern_action_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands pressing the live powder-blue switch so a cyan frontal bar drops a brake over the coral lamp",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands press the active powder-blue switch and slide a cyan brake shield cleanly over the coral-rose lamp",
+      "consequence": "active control engages the cyan top-down brake immediately",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48,
+      "scene_state": {
+        "location_id": "penn_shuttle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "penn_shuttle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the serene university laboratory with the clear two-sided chamber box, low powder-blue hurdle, glowing cyan circuit model, and tall windows opening to pale sunlit sky",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coat and blazer walk calmly toward the tall window as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 49
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "THE LOW HURDLE",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered clear low-poly two-sided chamber split by a low powder-blue hurdle with a chalk-white faceted dog leaping to safety"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

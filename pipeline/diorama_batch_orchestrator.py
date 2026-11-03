@@ -231,36 +231,155 @@ def _sha256_file(path: Path) -> str:
     return h.hexdigest()
 
 
+_PILLAR_TOPIC_HASHTAG_MAP: dict[str, list[str]] = {
+    "brain_health": ["#BrainHealth", "#MentalHealth", "#Neuroscience", "#Psychology"],
+    "brain_mysteries": ["#BrainScience", "#Psychology", "#Neurology", "#HumanMind"],
+    "bci_tech": ["#BCI", "#Neurotech", "#BrainScience", "#FutureTech"],
+    "brain_news": ["#NeuroscienceNews", "#BrainResearch", "#Neurotechnology", "#Science"],
+    "brain_history": ["#NeuroscienceHistory", "#Psychology", "#BrainScience", "#MedicalHistory"],
+    "bci_ethics": ["#Neuroethics", "#BCI", "#BrainScience", "#FutureOfMind"],
+    "brain_basics": ["#Neuroscience", "#BrainAnatomy", "#Psychology", "#Science"],
+    "bci_medicine": ["#Neurotechnology", "#MedicalScience", "#BrainComputerInterface", "#Neurology"],
+    "cognitive_psychology": ["#Psychology", "#HumanBehavior", "#BrainScience", "#Neuroscience"],
+    "everyday_brain": ["#EverydayScience", "#BrainFacts", "#Psychology", "#Neuroscience"],
+}
+
+
+def build_editorial_description_from_dossier(
+    project_id: str,
+    pillar: str,
+    slug: str,
+    script_doc: dict[str, Any],
+) -> tuple[str, list[str], str]:
+    """
+    Generates an independent 3-paragraph academic editorial description from research dossier files
+    (never copy-pasting `script_doc['sentences'][:4]`, satisfying YPP Anti-Clone `[US-06]` & `R9`).
+    Returns `(description, hashtags, primary_doi)`.
+    """
+    d_dir = rd.dossier_dir(slug)
+    sources_doc = json.loads((d_dir / "01_sources.json").read_text(encoding="utf-8")) if (d_dir / "01_sources.json").exists() else {}
+    facts_doc = json.loads((d_dir / "02_facts.json").read_text(encoding="utf-8")) if (d_dir / "02_facts.json").exists() else {}
+    brain_path = (d_dir / "06_brain_link.json") if (d_dir / "06_brain_link.json").exists() else (d_dir / "06_brain_links.json")
+    brain_doc = json.loads(brain_path.read_text(encoding="utf-8")) if brain_path.exists() else {}
+    dossier_meta = json.loads((d_dir / "dossier.json").read_text(encoding="utf-8")) if (d_dir / "dossier.json").exists() else {}
+
+    src_list = (
+        (sources_doc.get("primary_sources") or sources_doc.get("sources") or [])
+        if isinstance(sources_doc, dict)
+        else (sources_doc if isinstance(sources_doc, list) else [])
+    )
+    primary = src_list[0] if (src_list and isinstance(src_list[0], dict)) else {}
+    doi = str(script_doc.get("doi") or primary.get("doi") or "").strip()
+
+    def _strip_md(val: str) -> str:
+        cleaned = re.sub(r"\*\*([^*]+)\*\*", r"\1", str(val or ""))
+        cleaned = re.sub(r"\*([^*]+)\*", r"\1", cleaned)
+        return " ".join(cleaned.split()).strip()
+
+    citation_lines: list[str] = []
+    for s in src_list[:3]:
+        if not isinstance(s, dict):
+            continue
+        sdoi = str(s.get("doi") or "").strip()
+        url_tail = f" https://doi.org/{sdoi}" if sdoi else ""
+        raw_cit = _strip_md(str(s.get("citation") or ""))
+        if raw_cit:
+            cit_body = raw_cit.rstrip(".")
+            if sdoi and sdoi in cit_body:
+                citation_lines.append(f"- {cit_body}.")
+            else:
+                citation_lines.append(f"- {cit_body}.{url_tail}".strip())
+        else:
+            authors = _strip_md(str(s.get("authors") or "Peer-reviewed study"))
+            year = str(s.get("year") or "").strip()
+            stitle = _strip_md(str(s.get("title") or "")).rstrip(".")
+            journal = _strip_md(str(s.get("journal") or s.get("venue") or "")).rstrip(".")
+            yr_part = f" ({year})" if year else ""
+            parts = [p for p in (f"{authors}{yr_part}", stitle, journal) if p]
+            citation_lines.append(f"- {'. '.join(parts)}.{url_tail}".strip())
+
+    topic_label = _strip_md(str(dossier_meta.get("topic") or dossier_meta.get("title") or slug.replace("_", " ").title()))
+    pc = dossier_meta.get("primary_case") if isinstance(dossier_meta.get("primary_case"), dict) else {}
+    pc_people = [str(p.get("name")).strip() for p in (pc.get("people") or []) if isinstance(p, dict) and str(p.get("name") or "").strip()]
+    raw_primary_cit = _strip_md(str(primary.get("citation") or ""))
+    cit_author = raw_primary_cit.split("(")[0].strip().rstrip(",") if "(" in raw_primary_cit else ""
+    p_author = (
+        str(primary.get("authors") or "").split(",")[0].split(";")[0].strip()
+        or cit_author
+        or (pc_people[0] if pc_people else "researchers")
+    )
+    p_year = str(primary.get("year") or pc.get("year") or "").strip()
+    cit_journal = ""
+    if raw_primary_cit:
+        cit_parts = [seg.strip() for seg in raw_primary_cit.rstrip(".").split(".") if seg.strip()]
+        if len(cit_parts) >= 3:
+            cit_journal = cit_parts[-1]
+    p_journal = _strip_md(str(primary.get("journal") or primary.get("venue") or cit_journal or pc.get("place") or "peer-reviewed neuroscience literature"))
+
+    fact_items = list(dossier_meta.get("core_facts") or []) + list(facts_doc.get("facts") or [])
+    lead_claim = ""
+    second_claim = ""
+    for f_item in fact_items:
+        if isinstance(f_item, dict):
+            cl = _strip_md(str(f_item.get("fact") or f_item.get("claim") or f_item.get("plain_claim") or f_item.get("summary") or "")).rstrip(".")
+            if cl and not lead_claim:
+                lead_claim = cl
+            elif cl and cl != lead_claim and not second_claim:
+                second_claim = cl
+                break
+
+    regions = brain_doc.get("links") or brain_doc.get("regions") or []
+    region_names: list[str] = []
+    for reg in regions[:3]:
+        if isinstance(reg, dict):
+            rn = _strip_md(str(reg.get("region") or reg.get("canonical_region") or reg.get("name") or ""))
+            if rn and rn not in region_names:
+                region_names.append(rn)
+
+    year_clause = f" ({p_year})" if p_year else ""
+    para_1 = (
+        f"Documentary case briefing on {topic_label}, grounded in {p_author}{year_clause} ({p_journal})."
+        + (f" Empirical findings show that {lead_claim[0].lower() + lead_claim[1:] if len(lead_claim) > 1 and lead_claim[:2].isalpha() and not lead_claim[:2].isupper() else lead_claim}." if lead_claim else "")
+    )
+    if region_names:
+        para_2 = (
+            f"At the circuit level, this episode examines how {', '.join(region_names)} coordinate behavioral and neural responses"
+            + (f", alongside evidence that {second_claim[0].lower() + second_claim[1:] if len(second_claim) > 1 and second_claim[:2].isalpha() and not second_claim[:2].isupper() else second_claim}." if second_claim else ".")
+        )
+    elif second_claim:
+        para_2 = f"Follow-up physiological and behavioral evidence demonstrates: {second_claim}."
+    else:
+        para_2 = (
+            "This visual breakdown traces the experimental protocol, measurable behavioral markers, and neural mechanisms documented across controlled laboratory trials."
+        )
+
+    slug_words = [w.capitalize() for w in slug.split("_") if len(w) >= 4 and w.lower() not in ("with", "from", "into", "that")]
+    custom_tag = f"#{''.join(slug_words[:2])}" if slug_words else "#BrainResearch"
+    pillar_tags = _PILLAR_TOPIC_HASHTAG_MAP.get(pillar, ["#Neuroscience", "#Psychology", "#BrainScience"])
+    hashtags = list(dict.fromkeys(["#Shorts", custom_tag, *pillar_tags]))[:5]
+
+    sources_block = (
+        "Primary Peer-Reviewed Sources:\n" + "\n".join(citation_lines) + "\n\n"
+        if citation_lines
+        else (f"Primary Peer-Reviewed Source: https://doi.org/{doi}\n\n" if doi else "")
+    )
+    desc = (
+        f"{para_1}\n\n"
+        f"{para_2}\n\n"
+        f"{sources_block}"
+        "AI Disclosure: Visual reenactments, 3D anatomical models, and narration in this documentary Short were produced with AI synthesis tools from verified peer-reviewed sources.\n\n"
+        + " ".join(hashtags)
+    )
+    return desc, hashtags, doi
+
+
 def _default_metadata_from_script_and_dossier(
     project_id: str,
     pillar: str,
     slug: str,
     script_doc: dict[str, Any],
 ) -> dict[str, Any]:
-    d_dir = rd.dossier_dir(slug)
-    sources_doc = json.loads((d_dir / "01_sources.json").read_text(encoding="utf-8"))
-    src_list = sources_doc.get("primary_sources") or sources_doc.get("sources") or []
-    primary = src_list[0] if src_list else {}
-    doi = str(script_doc.get("doi") or primary.get("doi") or "").strip()
-    citation_lines = []
-    for s in src_list[:2]:
-        authors = s.get("authors") or ""
-        year = s.get("year") or ""
-        stitle = s.get("title") or ""
-        journal = s.get("journal") or s.get("venue") or ""
-        sdoi = s.get("doi") or ""
-        url_tail = f" https://doi.org/{sdoi}" if sdoi else ""
-        citation_lines.append(f"- {authors} ({year}) {stitle}. {journal}.{url_tail}".strip())
-    sents = script_doc.get("sentences") or []
-    hook_summary = " ".join(sents[:4]) if len(sents) >= 4 else script_doc.get("title", "")
-    hashtags = ["#Shorts", "#Neuroscience", "#Brain", "#Psychology", "#Science"]
-    desc = (
-        f"{hook_summary}\n\n"
-        f"Primary Peer-Reviewed Sources:\n"
-        + "\n".join(citation_lines)
-        + "\n\nAI Disclosure: Visuals and voiceover in this documentary Short were generated with AI visualization tools from peer-reviewed neuroscience sources.\n\n"
-        + " ".join(hashtags)
-    )
+    desc, hashtags, doi = build_editorial_description_from_dossier(project_id, pillar, slug, script_doc)
     return {
         "project_id": project_id,
         "profile": "neuro_diorama",
@@ -357,6 +476,22 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
         script_doc["schema_version"] = 6
         visual_plan["camera_profile"] = "dynamic_3d_cinema_rig"
 
+    from pipeline.voice_fallback import resolve_diorama_voice_preset
+
+    eff_voice_preset = str(
+        spec.get("voice_preset")
+        or script_doc.get("voice_preset")
+        or visual_plan.get("voice_preset")
+        or ""
+    ).strip() or None
+    if eff_voice_preset:
+        script_doc["voice_preset"] = eff_voice_preset
+        visual_plan["voice_preset"] = eff_voice_preset
+    eff_prosody_mode = str(spec.get("prosody_mode") or "").strip()
+    if eff_prosody_mode:
+        script_doc["prosody_mode"] = eff_prosody_mode
+    preset_name, preset_cfg = resolve_diorama_voice_preset(eff_voice_preset, script_doc=script_doc, visual_plan=visual_plan)
+
     sentences = [str(s).strip() for s in script_doc["sentences"] if str(s).strip()]
     clips = build_flow_prompts(visual_plan, sentences)
 
@@ -366,7 +501,8 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
     draft_prompts_payload: dict[str, Any] = {
         "schema_version": PROMPT_SCHEMA_VERSION_V7 if is_v7 else 6,
         "profile": "neuro_diorama",
-        "voice": DIORAMA_TTS_VOICE,
+        "voice": preset_cfg["voice"],
+        "voice_preset": preset_name,
         "visual_mode": visual_plan.get("visual_mode", "NEURO_BIOLOGY"),
         "aspect": "9:16",
         "clips": clips,
@@ -424,6 +560,7 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
     m_doc["schema_version"] = PROMPT_SCHEMA_VERSION_V7 if is_v7 else 6
     if is_v7:
         m_doc["style_profile"] = resolved_v7_style
+    m_doc["voice_preset"] = preset_name
     m_doc["camera_profile"] = visual_plan["camera_profile"]
     m_doc["doi"] = str(script_doc.get("doi") or meta_doc.get("doi") or "")
     m_path.write_text(json.dumps(m_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -537,18 +674,29 @@ def _plan_lock_mapping_issues(
     return issues
 
 
-def precheck_diorama_project(spec: dict[str, Any], run_tts_clock: bool = True) -> dict[str, Any]:
+def precheck_diorama_project(
+    spec: dict[str, Any],
+    run_tts_clock: bool = True,
+    voice_preset: str | None = None,
+) -> dict[str, Any]:
     """Validates `prompt-gate`, contract lock mapping (DQ1/DQ3), paradox title, zero-plaque nouns, and pre-Flow TTS + Prosody P1-P6/P8/P10."""
     import os
     import tempfile
 
-    from pipeline.config import DIORAMA_V7_DURATION_MIN_SEC, is_diorama_v7_plan
+    from pipeline.config import (
+        DIORAMA_V7_DURATION_MIN_SEC,
+        MICRO_SHORT_MAX_SEC,
+        MICRO_SHORT_MIN_SEC,
+        MICRO_SHORT_PROFILE,
+        is_diorama_v7_plan,
+    )
     from pipeline.dynamic_episode_qa import compile_episode_qa_contract
     from pipeline.flow_prompt_builder import build_flow_prompts
     from pipeline.prosody import evaluate_prosody_gates_on_audio
-    from pipeline.voice_fallback import _write_mono_wav
+    from pipeline.voice_fallback import _write_mono_wav, resolve_diorama_voice_preset
 
-    p_dir = sync_project_from_dossier_diorama(spec)
+    eff_spec = {**spec, "voice_preset": voice_preset} if voice_preset else spec
+    p_dir = sync_project_from_dossier_diorama(eff_spec)
     slug = str(spec["slug"])
     sentences, script_doc = load_diorama_script_sentences(p_dir)
     visual_plan = json.loads((p_dir / "03_visuals" / "visual_plan.json").read_text(encoding="utf-8"))
@@ -571,21 +719,27 @@ def precheck_diorama_project(spec: dict[str, Any], run_tts_clock: bool = True) -
 
     tts_duration = None
     preflight_prosody: dict[str, Any] | None = None
-    min_dur = DIORAMA_V7_DURATION_MIN_SEC if is_v7 else DIORAMA_DURATION_MIN_SEC
+    fmt_profile = str(script_doc.get("format_profile") or visual_plan.get("format_profile") or "").strip().lower()
+    is_micro = fmt_profile == MICRO_SHORT_PROFILE
+    min_dur = MICRO_SHORT_MIN_SEC if is_micro else (DIORAMA_V7_DURATION_MIN_SEC if is_v7 else DIORAMA_DURATION_MIN_SEC)
+    max_dur = MICRO_SHORT_MAX_SEC if is_micro else SHORTS_HARD_CEILING_SEC
+    eff_vp = voice_preset or str(spec.get("voice_preset") or script_doc.get("voice_preset") or visual_plan.get("voice_preset") or "").strip() or None
+    preset_name, preset_cfg = resolve_diorama_voice_preset(eff_vp, script_doc=script_doc, visual_plan=visual_plan)
     if run_tts_clock and not issues:
         tts_res = synthesize_continuous_diorama_track(
             project_dir=p_dir,
             sentences=sentences,
             align_whisper=True,
             script_doc=script_doc,
+            voice_preset=eff_vp,
         )
         tts_duration = round(float(tts_res["total_duration_sec"]), 2)
-        if not (min_dur <= tts_duration <= SHORTS_HARD_CEILING_SEC):
+        if not (min_dur <= tts_duration <= max_dur):
             issues.append(
-                f"[tts_clock] synthesized {DIORAMA_TTS_VOICE} total_duration_sec={tts_duration}s outside "
-                f"{min_dur}..{SHORTS_HARD_CEILING_SEC}s"
+                f"[tts_clock] synthesized {preset_cfg['voice']} ({preset_name}) "
+                f"total_duration_sec={tts_duration}s outside {min_dur}..{max_dur}s"
             )
-        if is_v7 and (p_dir / "04_audio" / "prosody_report.json").exists() and "pcm" in tts_res:
+        if is_v7 and not is_micro and (p_dir / "04_audio" / "prosody_report.json").exists() and "pcm" in tts_res:
             tmp_wav = Path(tempfile.gettempdir()) / f"aab_preflight_voice_{spec['project_id']}_{os.getpid()}.wav"
             try:
                 _write_mono_wav(tmp_wav, tts_res["pcm"], int(tts_res.get("sr") or 48000))
@@ -606,6 +760,7 @@ def precheck_diorama_project(spec: dict[str, Any], run_tts_clock: bool = True) -
         "slug": slug,
         "wave": spec["wave"],
         "schema_version": 7 if is_v7 else 6,
+        "voice_preset": preset_name,
         "passed": len(issues) == 0,
         "sentences": len(sentences),
         "clips": len(clips),
@@ -690,9 +845,14 @@ def _write_stage_timings(asm_dir: Path, project_id: str, timings: dict[str, floa
     (asm_dir / "stage_timings.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-def finalize_and_verify_diorama_project(project_id: str) -> dict[str, Any]:
+def finalize_and_verify_diorama_project(
+    project_id: str,
+    voice_preset: str | None = None,
+    prosody_mode: str | None = None,
+) -> dict[str, Any]:
     """Runs `assemble_diorama_project`, fail-fast Prosody P1-P10, DQ1-DQ12, R64, `autopsy`, `thumbnail`, KB sync, and `verify`."""
     from pipeline import thumbnail_studio
+    from pipeline.config import NEURO_NEWS_HOLD_FROM_AUTO_QUEUE, NEURO_NEWS_STAGING_DIR
     from pipeline.dynamic_episode_qa import compile_episode_qa_contract, verify_final_mp4_against_contract
     from pipeline.knowledge_hub import sync_project_to_knowledge_base
     from pipeline.media_cache import shared_mp4_decode_session, stage_local_file
@@ -718,19 +878,33 @@ def finalize_and_verify_diorama_project(project_id: str) -> dict[str, Any]:
         (asm_dir / stale_qa).unlink(missing_ok=True)
 
     t_s = time.monotonic()
-    asm_res = assemble_diorama_project(project_id, force_rebuild=True, run_posthoc_qa=False)
+    asm_kwargs: dict[str, Any] = {"force_rebuild": True, "run_posthoc_qa": False}
+    if voice_preset:
+        asm_kwargs["voice_preset"] = voice_preset
+    if prosody_mode:
+        asm_kwargs["prosody_mode"] = prosody_mode
+    asm_res = assemble_diorama_project(project_id, **asm_kwargs)
     timings["assembly_sec"] = time.monotonic() - t_s
     final_mp4 = Path(asm_res["final_mp4"])
     if not final_mp4.exists():
         _write_stage_timings(asm_dir, project_id, timings, "ASSEMBLY_FAILED", t_total0)
         raise RuntimeError(f"Final MP4 missing after assembly: {final_mp4}")
 
-    # Enforce R25 single-MP4 inside project directory; archive delivery copy in Completed_Psychology_100_Shorts AFTER all QA passes
+    # Enforce R25 single-MP4 inside project directory; archive delivery copy AFTER all QA passes
     stale_root_mp4 = p_dir / f"final_shorts_{project_id}.mp4"
     if stale_root_mp4.exists():
         stale_root_mp4.unlink()
-    COMPLETED_SHORTS_DIR.mkdir(parents=True, exist_ok=True)
-    completed_mp4 = COMPLETED_SHORTS_DIR / f"final_shorts_{project_id}.mp4"
+    meta_doc_chk = (
+        json.loads((p_dir / "06_publish" / "metadata.json").read_text(encoding="utf-8"))
+        if (p_dir / "06_publish" / "metadata.json").exists()
+        else {}
+    )
+    is_news_staging = bool(meta_doc_chk.get("hold_from_auto_queue")) or (
+        NEURO_NEWS_HOLD_FROM_AUTO_QUEUE and project_id.startswith("news_")
+    )
+    delivery_dir = NEURO_NEWS_STAGING_DIR if is_news_staging else COMPLETED_SHORTS_DIR
+    delivery_dir.mkdir(parents=True, exist_ok=True)
+    completed_mp4 = delivery_dir / f"final_shorts_{project_id}.mp4"
 
     t_s = time.monotonic()
     local_mp4, _ = stage_local_file(final_mp4)
@@ -853,6 +1027,7 @@ def finalize_and_verify_diorama_project(project_id: str) -> dict[str, Any]:
     gdrive_copy_sec = round(time.monotonic() - t_s, 2)
 
     return {
+        "passed": True,
         "project_id": project_id,
         "duration_sec": asm_res["duration_sec"],
         "cut_count": asm_res["cut_count"],
@@ -1063,6 +1238,8 @@ def generate_and_finalize_diorama_episode(
     cdp_port: int = 9222,
     engine_mode: str | None = None,
     max_heal_rounds: int = 2,
+    voice_preset: str | None = None,
+    prosody_mode: str | None = None,
 ) -> dict[str, Any]:
     """
     Gear 3 + Gear 4 for ONE already-synced project: sharded Flow generation, then
@@ -1089,9 +1266,14 @@ def generate_and_finalize_diorama_episode(
     )
     fin: dict[str, Any] | None = None
     last_exc: Exception | None = None
+    fin_kwargs: dict[str, Any] = {}
+    if voice_preset:
+        fin_kwargs["voice_preset"] = voice_preset
+    if prosody_mode:
+        fin_kwargs["prosody_mode"] = prosody_mode
     for heal_round in range(max_heal_rounds + 1):
         try:
-            fin = finalize_and_verify_diorama_project(pid)
+            fin = finalize_and_verify_diorama_project(pid, **fin_kwargs)
             last_exc = None
             break
         except Exception as qa_exc:  # noqa: BLE001
@@ -1149,6 +1331,8 @@ def run_single_diorama_episode(
     force_regenerate: bool = False,
     cdp_port: int = 9222,
     engine_mode: str | None = None,
+    voice_preset: str | None = None,
+    prosody_mode: str | None = None,
 ) -> dict[str, Any]:
     """
     One-shot production of ANY dossier-backed episode (not limited to DIORAMA_BATCH_20_SPECS):
@@ -1159,7 +1343,11 @@ def run_single_diorama_episode(
     p_dir = Path(PROJECTS_DIR) / project_id
     if (p_dir / "06_publish" / "upload_receipt.json").exists():
         raise RuntimeError(f"Refusing to (re)produce published project {project_id} (upload_receipt.json present)")
-    spec = {"index": 0, "wave": 0, "project_id": project_id, "slug": slug, "pillar": pillar}
+    spec: dict[str, Any] = {"index": 0, "wave": 0, "project_id": project_id, "slug": slug, "pillar": pillar}
+    if voice_preset:
+        spec["voice_preset"] = voice_preset
+    if prosody_mode:
+        spec["prosody_mode"] = prosody_mode
     t0 = time.time()
     pre = precheck_diorama_project(spec, run_tts_clock=True)
     print(
@@ -1171,15 +1359,26 @@ def run_single_diorama_episode(
     if not pre["passed"]:
         raise RuntimeError(f"Precheck failed for {project_id}: {pre['issues']}")
     if precheck_only:
-        return {"mode": "precheck_only", "precheck": pre}
+        return {"passed": bool(pre["passed"]), "mode": "precheck_only", "precheck": pre}
     if not force_regenerate and _is_already_completed(project_id):
-        return {"mode": "already_completed", "project_id": project_id, "precheck": pre}
-    fin = generate_and_finalize_diorama_episode(
-        project_id, tabs=tabs, clean_existing=force_regenerate, cdp_port=cdp_port, engine_mode=engine_mode
-    )
+        return {"passed": True, "mode": "already_completed", "project_id": project_id, "precheck": pre}
+    gen_kwargs: dict[str, Any] = {
+        "tabs": tabs,
+        "clean_existing": force_regenerate,
+        "cdp_port": cdp_port,
+        "engine_mode": engine_mode,
+    }
+    if voice_preset:
+        gen_kwargs["voice_preset"] = voice_preset
+    if prosody_mode:
+        gen_kwargs["prosody_mode"] = prosody_mode
+    fin = generate_and_finalize_diorama_episode(project_id, **gen_kwargs)
     fin["elapsed_min"] = round((time.time() - t0) / 60.0, 2)
     fin["precheck"] = pre
     return fin
+
+
+produce_single_diorama_episode = run_single_diorama_episode
 
 
 def run_diorama_batch(
@@ -1190,10 +1389,13 @@ def run_diorama_batch(
     force_regenerate: bool = False,
     cdp_port: int = 9222,
     engine_mode: str | None = None,
+    voice_preset: str | None = None,
 ) -> dict[str, Any]:
     specs = select_batch_specs(wave=wave, project_ids=project_ids)
     if not specs:
         raise ValueError(f"No batch specs matched wave={wave!r}, project_ids={project_ids!r}")
+    if voice_preset:
+        specs = [{**sp, "voice_preset": voice_preset} for sp in specs]
 
     prechecks = []
     for sp in specs:
@@ -1236,13 +1438,15 @@ def run_diorama_batch(
         _save_batch_status(state)
         print(f"\n==================== [DioramaBatch #{sp['index']:02d}/20 | Wave {sp['wave']}] {pid} ====================")
         try:
-            fin = generate_and_finalize_diorama_episode(
-                pid,
-                tabs=tabs,
-                clean_existing=force_regenerate,
-                cdp_port=cdp_port,
-                engine_mode=engine_mode,
-            )
+            gen_kwargs: dict[str, Any] = {
+                "tabs": tabs,
+                "clean_existing": force_regenerate,
+                "cdp_port": cdp_port,
+                "engine_mode": engine_mode,
+            }
+            if voice_preset:
+                gen_kwargs["voice_preset"] = voice_preset
+            fin = generate_and_finalize_diorama_episode(pid, **gen_kwargs)
             fin["elapsed_min"] = round((time.time() - t0) / 60.0, 2)
             state["completed"][pid] = fin
             state["errors"].pop(pid, None)

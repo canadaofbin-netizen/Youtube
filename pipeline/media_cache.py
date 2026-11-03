@@ -40,6 +40,41 @@ _ACTIVE_FRAME_SESSION: dict[str, Any] | None = None
 _SESSION_TLS = threading.local()
 
 _MAX_STAGED_BYTES = 2_600_000_000  # ~2.6 GB LRU cap in /tmp
+MAX_TTS_NPZ_BYTES = 1_500_000_000  # ~1.5 GB LRU cap for /tmp/aab_speed_cache/tts_npz
+MAX_POSTHOC_CV_BYTES = 1_000_000_000  # ~1.0 GB LRU cap for /tmp/aab_speed_cache/posthoc_cv
+
+
+def prune_speed_cache_subdir(subdir: str, max_bytes: int) -> int:
+    """Prunes oldest files in `/tmp/aab_speed_cache/<subdir>` down to 75% of `max_bytes`."""
+    target_dir = get_speed_cache_dir() / subdir
+    if not target_dir.exists():
+        return 0
+    removed = 0
+    with _CACHE_LOCK:
+        try:
+            entries = []
+            for p in target_dir.iterdir():
+                if p.is_file():
+                    with contextlib.suppress(OSError):
+                        st = p.stat()
+                        entries.append((st.st_mtime, st.st_size, p))
+            total = sum(sz for _, sz, _ in entries)
+            if total <= max_bytes:
+                return 0
+            entries.sort(key=lambda item: item[0])
+            floor = int(max_bytes * 0.75)
+            for _, sz, victim in entries:
+                if total <= floor:
+                    break
+                try:
+                    victim.unlink(missing_ok=True)
+                    total -= sz
+                    removed += 1
+                except OSError:
+                    continue
+        except OSError:
+            return removed
+    return removed
 
 
 def get_speed_cache_dir() -> Path:

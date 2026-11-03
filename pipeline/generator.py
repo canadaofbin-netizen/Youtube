@@ -27,6 +27,13 @@ from pipeline.flow_prompt_builder import (
 )
 from pipeline.pillars import get_pillar
 
+from pipeline.config import (
+    DIORAMA_CRISIS_BEAT_BANK,
+    DIORAMA_EUREKA_REVEAL_BANK,
+    DIORAMA_MECHANISM_PIVOT_BANK,
+    DIORAMA_TAKEAWAY_BRIDGE_BANK,
+)
+
 DEFIANCE_TRIGGERS = [
     "For your brain, this is a total nightmare.",
     "For his brain, this was a total nightmare.",
@@ -34,6 +41,10 @@ DEFIANCE_TRIGGERS = [
     "Instead of",
     "Which proves",
     "Which is why",
+    *DIORAMA_CRISIS_BEAT_BANK[:4],
+    *DIORAMA_EUREKA_REVEAL_BANK[:4],
+    *DIORAMA_MECHANISM_PIVOT_BANK[:4],
+    *DIORAMA_TAKEAWAY_BRIDGE_BANK[:4],
 ]
 
 

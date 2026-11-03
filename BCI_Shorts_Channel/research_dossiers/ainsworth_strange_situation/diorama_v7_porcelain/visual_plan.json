@@ -1,0 +1,1362 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "voice_preset": "emma_v7",
+  "prosody_mode": "dynamic_us_v7",
+  "us_anti_clone_v7": true,
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "require_scene_state_ledger": true,
+  "strict_room_continuity": true,
+  "default_location_id": "hopkins_playroom_1970",
+  "project_id": "reenact_01_ainsworth_strange_situation",
+  "dossier": "ainsworth_strange_situation",
+  "dossier_slug": "ainsworth_strange_situation",
+  "title": "1970 Strange Situation: Why Quiet Babies Hid Racing Hearts",
+  "topic": "Mary Ainsworth 1970 Strange Situation & Spangler-Grossmann 1993 Cardiac-Cortisol Dissociation: Why Avoidant Toddlers Hid Racing Hearts Behind Silence",
+  "act5_climax_episode": "In 1993, Gottfried Spangler and Klaus Grossmann recorded continuous ECG heart rate and 15/30-minute salivary cortisol in 41 twelve-month-old infants during the Strange Situation, discovering that quiet avoidant infants experienced tachycardia and cortisol surges matching or exceeding crying infants.",
+  "outro_title_lines": [
+    "MARY AINSWORTH (1970)",
+    "BALTIMORE & REGENSBURG"
+  ],
+  "thumbnail": {
+    "hook_text": "SILENT PANIC",
+    "cover_sentence_index": 1
+  },
+  "cast": {
+    "subject": "a fully buttoned sky-blue knit sweater, soft cream trousers, and white porcelain shoes on a small twelve-month-old toddler mannequin frame with a completely smooth featureless solid matte-white egg-shaped oval head standing solo on the woven center playmat",
+    "mother": "a warm camel cardigan sweater over a cream blouse, tailored dark slacks, and smooth featureless solid matte-white oval porcelain head",
+    "stranger": "a slate-grey blazer jacket, crisp collared shirt, tailored dark trousers, and smooth featureless solid matte-white oval porcelain head"
+  },
+  "real_environment": "a bright sunlit nine-by-nine-foot 1970 Johns Hopkins developmental psychology playroom with warm oak flooring, two wooden chairs, a woven center playmat of colorful wooden rings and blocks, a tall one-way observation mirror, and a solid oak door",
+  "environment_props": [
+    "colorful wooden stacking rings and smooth maple blocks on a woven center playmat between two oak chairs",
+    "a tan structured leather handbag placed on the right oak chair seat",
+    "a brushed-steel 1993 cardiac telemetry console with crimson waveform needles"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "SILENT PANIC"
+    },
+    {
+      "sentence_index": 2,
+      "text": "QUIET MYTH?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "EIGHT ROOM SCENES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "REUNION SWITCH"
+    },
+    {
+      "sentence_index": 28,
+      "text": "AVOIDANT MASK"
+    },
+    {
+      "sentence_index": 37,
+      "text": "RACING PULSE"
+    },
+    {
+      "sentence_index": 46,
+      "text": "SAFE CONNECTION"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "SILENT PANIC"
+    },
+    {
+      "sentence_index": 2,
+      "text": "QUIET MYTH?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "EIGHT ROOM SCENES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "REUNION SWITCH"
+    },
+    {
+      "sentence_index": 28,
+      "text": "AVOIDANT MASK"
+    },
+    {
+      "sentence_index": 37,
+      "text": "RACING PULSE"
+    },
+    {
+      "sentence_index": 46,
+      "text": "SAFE CONNECTION"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 40,
+      "mode": "split_hstack",
+      "left_clip_index": 35,
+      "right_clip_index": 36,
+      "left_label": "OUTSIDE: SILENT",
+      "right_label": "INSIDE: RACING"
+    }
+  ],
+  "reference_anchors": [
+    {
+      "ref_id": "ref_s01_start",
+      "clip_number": 1,
+      "frame": "start",
+      "scene_id": "S01",
+      "setting": "real_env",
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler"
+      ],
+      "filename": "ref_s01_start.png",
+      "title": "Shot S01 — Observation mirror high-angle establishing view of 1970 playroom",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "High-angle observation view of a bright sunlit 1970 developmental psychology playroom nine feet wide with warm oak flooring, two wooden chairs flanking a soft woven center playmat stacked with colorful wooden rings and blocks, a tall one-way observation mirror along the upper wall, and a matte-white porcelain toddler with a smooth featureless white oval head in a sky-blue knit sweater and cream trousers seated quietly beside wooden blocks while a porcelain mother with a smooth featureless white oval head in a warm camel cardigan sweater and dark slacks sits in the right chair and the left chair remains completely empty."
+    },
+    {
+      "ref_id": "ref_s02_start",
+      "clip_number": 6,
+      "frame": "start",
+      "scene_id": "S02",
+      "setting": "real_env",
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler"
+      ],
+      "filename": "ref_s02_start.png",
+      "title": "Shot S02 — Locked tripod view of mother and twelve-month porcelain toddler on center playmat",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Locked eye-level documentary view of the bright sunlit 1970 Johns Hopkins playroom as a clothed matte-white porcelain mother with a smooth featureless white oval head in a warm camel cardigan sweater and linen slacks guides a twelve-month-old matte-white porcelain toddler with a smooth featureless white oval head in a sky-blue knit sweater and cream trousers onto the central woven playmat while both wooden chairs are empty."
+    },
+    {
+      "ref_id": "ref_s03_start",
+      "clip_number": 9,
+      "frame": "start",
+      "scene_id": "S03",
+      "setting": "real_env",
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler"
+      ],
+      "skip_structural_guide": true,
+      "empty_chairs_note": "The left wooden oak chair is completely empty while the mother sits in the right wooden oak chair.",
+      "filename": "ref_s03_start.png",
+      "title": "Shot S03 — Secure-base exploration on center playmat with camel-cardigan mother seated nearby",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_s01_start"
+      ],
+      "prompt": "High-angle bright sunlit 1970 Johns Hopkins playroom view matching the room and wardrobe of the reference plates: one clothed articulated matte-white porcelain mother with a completely smooth featureless solid white egg-shaped oval head wearing a warm camel cardigan sweater over a cream blouse and dark slacks sits calmly in the right wooden oak chair resting both white porcelain hands on her lap, while one twelve-month-old matte-white porcelain toddler with a completely smooth featureless solid white oval head in a sky-blue knit sweater and cream trousers kneels on the center woven jute playmat reaching for colorful wooden stacking rings."
+    },
+    {
+      "ref_id": "ref_s04_start",
+      "clip_number": 35,
+      "frame": "start",
+      "scene_id": "S04",
+      "setting": "real_env",
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler"
+      ],
+      "skip_structural_guide": true,
+      "empty_chairs_note": "The left wooden oak chair is completely empty while the mother sits quietly in the right wooden oak chair.",
+      "filename": "ref_s04_start.png",
+      "title": "Shot S04 — Floor playmat wooden block exploration with camel-cardigan mother in right chair",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_s01_start"
+      ],
+      "prompt": "High-angle bright sunlit 1970 Johns Hopkins playroom view matching the room and wardrobe of the reference plates: one twelve-month-old articulated matte-white porcelain toddler with a completely smooth featureless solid white egg-shaped oval head in a sky-blue knit sweater and cream trousers sits on the center woven jute playmat with back angled away from the right chair, holding smooth unpainted maple blocks between both white porcelain hands while one clothed matte-white porcelain mother with a completely smooth featureless solid white oval head in a warm camel cardigan sweater and dark slacks sits quietly in the right wooden chair."
+    },
+    {
+      "ref_id": "ref_s05_start",
+      "clip_number": 3,
+      "frame": "start",
+      "scene_id": "S05",
+      "setting": "real_env",
+      "location_id": "observation_booth_1970",
+      "present_cast": [
+        "psychologist"
+      ],
+      "filename": "ref_s05_start.png",
+      "title": "Shot S05 — One-way observation mirror and researcher camera booth overlooking playroom",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Bright architectural side view from the observation window overlooking the sunlit 1970 playroom as two matte-white porcelain psychologists with smooth featureless white oval heads in crisp white lab coats operate a brushed-aluminum cinema camera aimed toward the playmat."
+    },
+    {
+      "ref_id": "ref_s06_start",
+      "clip_number": 12,
+      "frame": "start",
+      "scene_id": "S06",
+      "setting": "real_env",
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler",
+        "stranger"
+      ],
+      "skip_structural_guide": true,
+      "filename": "ref_s06_start.png",
+      "title": "Shot S06 — Stranger in slate-grey blazer seated quietly in opposite left chair",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_s01_start"
+      ],
+      "prompt": "High-angle bright sunlit 1970 Johns Hopkins playroom view matching the room and wardrobe of the reference plates: one unfamiliar articulated matte-white porcelain researcher with a completely smooth featureless solid white egg-shaped oval head in a slate-grey blazer jacket, collared shirt, and dark trousers sits quietly in the left wooden oak chair across from one clothed matte-white porcelain mother with a completely smooth featureless solid white oval head in a warm camel cardigan sweater seated in the right wooden chair, while one porcelain toddler with a smooth featureless white oval head in a sky-blue knit sweater and cream trousers sits beside wooden blocks on the center woven playmat."
+    },
+    {
+      "ref_id": "ref_s07_start",
+      "clip_number": 13,
+      "frame": "start",
+      "scene_id": "S07",
+      "setting": "real_env",
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler",
+        "stranger"
+      ],
+      "skip_structural_guide": true,
+      "filename": "ref_s07_start.png",
+      "title": "Shot S07 — First separation: leather handbag left on chair as mother exits wooden door",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_s01_start"
+      ],
+      "prompt": "High-angle bright sunlit 1970 Johns Hopkins playroom view matching the room and wardrobe of the reference plates: one clothed articulated matte-white porcelain mother with a completely smooth featureless solid white egg-shaped oval head in a warm camel cardigan sweater and dark slacks places a structured tan leather handbag onto the right wooden oak chair seat as she steps toward the open right oak doorway, while one porcelain toddler with a completely smooth featureless solid white oval head in a sky-blue knit sweater and cream trousers sits on the center woven playmat and one porcelain stranger with a smooth featureless solid white oval head in a slate-grey blazer and dark trousers sits calmly in the left wooden chair."
+    },
+    {
+      "ref_id": "ref_s08_start",
+      "clip_number": 19,
+      "frame": "start",
+      "scene_id": "S08",
+      "setting": "real_env",
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler"
+      ],
+      "skip_structural_guide": true,
+      "empty_chairs_note": "Both wooden oak chairs on the left and right are completely empty with nobody seated in either chair.",
+      "filename": "ref_s08_start.png",
+      "title": "Shot S08 — Clean thirty-second reunion comfort on center playmat with both chairs empty",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_s02_start"
+      ],
+      "prompt": "High-angle bright sunlit 1970 Johns Hopkins playroom view matching the room and faceless oval porcelain mannequin design of the reference plates: one clothed articulated matte-white porcelain mother with a completely smooth featureless solid white egg-shaped oval head wearing a warm camel cardigan sweater, linen slacks, and white shoes kneels warmly on the center woven jute playmat embracing and comforting one twelve-month-old matte-white porcelain toddler with a completely smooth featureless solid white oval head in a sky-blue knit sweater and cream trousers beside colorful wooden stacking rings and maple blocks."
+    },
+    {
+      "ref_id": "ref_s09_start",
+      "clip_number": 14,
+      "frame": "start",
+      "scene_id": "S09",
+      "setting": "real_env",
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "toddler"
+      ],
+      "filename": "ref_s09_start.png",
+      "title": "Shot S09 start — Second separation: one-year-old porcelain toddler alone in playroom",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "High-angle sunlit view of the 1970 playroom with both oak chairs empty and the wooden door closed as the lone twelve-month-old matte-white porcelain toddler with a smooth featureless white oval head in a sky-blue knit sweater stands still beside wooden rings on the center mat."
+    },
+    {
+      "ref_id": "ref_s09_end",
+      "clip_number": 23,
+      "frame": "end",
+      "scene_id": "S09",
+      "setting": "real_env",
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler"
+      ],
+      "skip_structural_guide": true,
+      "empty_chairs_note": "Both wooden oak chairs on the left and right are completely empty with nobody seated in either chair, and the wall mirror reflects only the clean empty wall.",
+      "filename": "ref_s09_end.png",
+      "title": "Shot S09 end — Clean avoidant reunion contrast with both chairs empty as toddler turns back",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_s02_start"
+      ],
+      "prompt": "High-angle bright sunlit 1970 Johns Hopkins playroom reunion view matching the room and faceless oval porcelain mannequin design of the reference plates: the right wooden oak door stands open as one clothed articulated matte-white porcelain mother with a completely smooth featureless solid white egg-shaped oval head wearing a warm camel cardigan sweater, linen slacks, and white shoes steps onto the threshold extending both white porcelain hands gently, while on the center woven jute playmat one twelve-month-old matte-white porcelain toddler with a completely smooth featureless solid white oval head in a sky-blue knit sweater and cream trousers sits facing away with back turned toward the doorway over unpainted maple blocks."
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "end_sentence_index": 1,
+      "act": 1,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S01",
+      "reference_image": "03_visuals/reference_images/ref_s01_start.png",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "present_cast_start": [
+          "mother",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "mother",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit 1970 playroom with warm oak flooring, an empty left chair, a right chair, and wooden blocks on a center mat",
+      "action": "in three-quarter profile, one matte-white porcelain toddler with a smooth featureless white oval head in a sky-blue sweater and cream trousers sits on the mat, lifts a maple block, and turns it between white hands while one porcelain mother with a smooth featureless white oval head in a camel cardigan and dark slacks rests her hands on the right chair"
+    },
+    {
+      "sentence_index": 2,
+      "end_sentence_index": 2,
+      "act": 1,
+      "location_id": "bright_brain_studio",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "camera": "gentle_push_in",
+      "brain_region": "amygdala",
+      "brain_scene": "deep crimson-red autonomic pulses surge rapidly inside the bilateral amygdala within the closed translucent cortex while clear cyan-blue outer cortical pathways stay still"
+    },
+    {
+      "sentence_index": 3,
+      "end_sentence_index": 3,
+      "act": 1,
+      "location_id": "observation_booth_1970",
+      "source_shot_id": "S05",
+      "reference_image": "03_visuals/reference_images/ref_s05_start.png",
+      "scene_state": {
+        "location_id": "observation_booth_1970",
+        "present_cast_start": [
+          "psychologist"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "psychologist"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright glass-fronted observation booth overlooking the sunlit 1970 Johns Hopkins playroom",
+      "action": "viewed from behind, a matte-white porcelain psychologist with a smooth featureless white oval head in a crisp white lab coat leans toward the observation window and points toward the center playmat where a porcelain toddler sits beside wooden rings"
+    },
+    {
+      "sentence_index": 4,
+      "end_sentence_index": 4,
+      "act": 1,
+      "location_id": "observation_booth_1970",
+      "source_shot_id": "S05",
+      "scene_state": {
+        "location_id": "observation_booth_1970",
+        "present_cast_start": [
+          "psychologist"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "psychologist"
+        ]
+      },
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "crisp white lab coat cuffs and one pair of smooth ball-jointed matte-white porcelain hands resting cleanly on a warm oak observation console beside a brushed-aluminum magnetic tape deck",
+      "prop_action": "both matte-white porcelain hands open an unmarked ivory observation logbook flat on the oak ledge and set a brushed-silver mechanical pencil along the clean page margin",
+      "consequence": "beyond the clear observation glass, warm studio daylight illuminates the colorful wooden rings on the playroom floor"
+    },
+    {
+      "sentence_index": 5,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S02",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "present_cast_start": [
+          "mother",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "mother",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "crisp cream blouse cuffs beneath a muted oatmeal cardigan and one pair of smooth ball-jointed matte-white porcelain adult hands poised over a pale cream woven cotton playmat",
+      "prop_action": "both matte-white porcelain hands set an unpainted pale birch stacking peg onto the cream mat and align three smooth pale maple wooden blocks in a clean row",
+      "consequence": "the pale unpainted maple blocks rest neatly across the bright ivory cotton mat in soft daylight"
+    },
+    {
+      "sentence_index": 6,
+      "end_sentence_index": 6,
+      "act": 1,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S02",
+      "reference_image": "03_visuals/reference_images/ref_s02_start.png",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "present_cast_start": [
+          "mother",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "mother",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the warm oak floor of the sunlit 1970 playroom beside a woven cream playmat with both oak chairs empty",
+      "action": "a twelve-month-old matte-white porcelain toddler with a smooth featureless white oval head in a sky-blue knit sweater and cream trousers takes two wobbly steps across the mat beside the kneeling porcelain mother with a smooth featureless white oval head in a camel cardigan and reaches both hands down toward a wooden block"
+    },
+    {
+      "sentence_index": 7,
+      "end_sentence_index": 8,
+      "act": 1,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S01",
+      "reference_image": "03_visuals/reference_images/ref_env_master.png",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "scene_reset": true,
+        "present_cast_start": [],
+        "entering_cast": [
+          "mother",
+          "toddler"
+        ],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "mother",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright sunlit nine-by-nine-foot 1970 Johns Hopkins playroom starting completely empty with both wooden oak chairs unoccupied around the woven center playmat of colorful wooden rings and maple blocks",
+      "action": "the solid right oak door swings inward as an adult matte-white tailor mannequin with a blank faceless egg-shaped head in a camel cardigan and dark slacks walks in guiding a small matte-white mannequin with a blank faceless egg-shaped head in a sky-blue sweater and cream trousers to stack maple blocks"
+    },
+    {
+      "sentence_index": 9,
+      "end_sentence_index": 9,
+      "act": 1,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S04",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "present_cast_start": [
+          "mother",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "mother",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue knit sweater cuffs and one pair of small smooth ball-jointed matte-white porcelain hands poised cleanly over a woven floor mat",
+      "prop_action": "both small matte-white porcelain hands grip a turned maple wooden ring and lower it steadily onto a vertical wooden peg",
+      "consequence": "the wooden ring slides smoothly down to rest against the maple stack"
+    },
+    {
+      "sentence_index": 10,
+      "end_sentence_index": 10,
+      "act": 2,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S03",
+      "reference_image": "03_visuals/reference_images/ref_s03_start.png",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "present_cast_start": [
+          "mother",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "mother",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright 1970 playroom featuring an empty left oak chair and the right oak chair angled toward a soft center mat of wooden blocks and colorful stacking rings",
+      "action": "one clothed matte-white porcelain mother with a smooth featureless white oval head in a warm camel cardigan sweater and dark slacks sits calmly in the right oak chair resting her hands while one twelve-month-old porcelain toddler with a smooth featureless white oval head in a sky-blue knit sweater and cream trousers rolls a wooden ring across the center mat"
+    },
+    {
+      "sentence_index": 11,
+      "end_sentence_index": 11,
+      "act": 2,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S04",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "present_cast_start": [
+          "mother",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "mother",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "sky-blue knit sweater cuffs and one pair of small smooth ball-jointed matte-white porcelain hands poised over colorful maple blocks on the sunlit woven playmat",
+      "prop_action": "the small matte-white porcelain hands align three smooth maple wooden blocks side by side in a neat row across the woven jute mat",
+      "consequence": "the third wooden block clicks gently into place beside the bright wooden stacking rings"
+    },
+    {
+      "sentence_index": 12,
+      "end_sentence_index": 12,
+      "act": 2,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S03",
+      "reference_image": "03_visuals/reference_images/ref_s03_start.png",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "present_cast_start": [
+          "mother",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "mother",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit 1970 playroom with the right oak chair beside the toy-filled center mat and the left oak chair completely empty",
+      "action": "one twelve-month-old matte-white porcelain toddler with a smooth featureless white oval head in a sky-blue knit sweater and cream trousers lifts a bright wooden ring toward the clothed porcelain mother with a smooth featureless white oval head in a warm camel cardigan seated in the right chair, then sets the ring onto a maple block stack"
+    },
+    {
+      "sentence_index": 13,
+      "end_sentence_index": 14,
+      "act": 2,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S06",
+      "reference_image": "03_visuals/reference_images/ref_s01_start.png",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "present_cast_start": [
+          "mother",
+          "toddler"
+        ],
+        "entering_cast": [
+          "stranger"
+        ],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "mother",
+          "toddler",
+          "stranger"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit 1970 playroom starting with the left oak chair empty while the porcelain mother in a camel cardigan sits in the right chair and the toddler sits on the mat",
+      "action": "the right oak door swings open as one unfamiliar matte-white porcelain researcher with a smooth featureless white oval head in a slate-grey blazer and dark trousers steps into the room, walks across the oak floor, and sits in the empty left chair while the toddler turns to watch"
+    },
+    {
+      "sentence_index": 15,
+      "end_sentence_index": 16,
+      "act": 2,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S07",
+      "reference_image": "03_visuals/reference_images/ref_s07_start.png",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "present_cast_start": [
+          "mother",
+          "toddler",
+          "stranger"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [
+          "mother"
+        ],
+        "present_cast_end": [
+          "toddler",
+          "stranger"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright 1970 playroom with a tan leather handbag on the right chair and one porcelain stranger in a slate-grey blazer seated in the left chair",
+      "action": "one matte-white porcelain mother with a smooth featureless white oval head in a camel cardigan and dark slacks steps out the right doorway and pulls the oak door shut while one porcelain toddler with a smooth featureless white oval head in a sky-blue sweater and cream trousers sits on the mat and turns toward the closed door"
+    },
+    {
+      "sentence_index": 17,
+      "end_sentence_index": 18,
+      "act": 2,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S09",
+      "reference_image": "03_visuals/reference_images/ref_s09_start.png",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "protocol_phase_jump": true,
+        "present_cast_start": [
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide high-angle view of the bright 1970 playroom with both wooden chairs completely empty and the solid oak door closed",
+      "action": "one lone twelve-month-old matte-white porcelain toddler with a smooth featureless white oval head in a sky-blue knit sweater stands alone near the center woven playmat, sets down a wooden ring, and turns toward the closed oak door"
+    },
+    {
+      "sentence_index": 19,
+      "end_sentence_index": 19,
+      "act": 3,
+      "location_id": "observation_booth_1970",
+      "source_shot_id": "S05",
+      "reference_image": "03_visuals/reference_images/ref_s05_start.png",
+      "scene_state": {
+        "location_id": "observation_booth_1970",
+        "present_cast_start": [
+          "psychologist"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "psychologist"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "unified interior view inside the bright glass-fronted observation booth beside a silver tripod cinema camera aimed through the glass into the playroom",
+      "action": "viewed from behind, two clothed matte-white porcelain psychologists with smooth featureless white oval heads in crisp white lab coats lean forward beside the tripod camera, grip the focus ring, and point calmly through the glass window"
+    },
+    {
+      "sentence_index": 20,
+      "end_sentence_index": 20,
+      "act": 3,
+      "location_id": "observation_booth_1970",
+      "source_shot_id": "S05",
+      "scene_state": {
+        "location_id": "observation_booth_1970",
+        "present_cast_start": [
+          "psychologist"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "psychologist"
+        ]
+      },
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "crisp white lab coat cuffs and smooth ball-jointed matte-white porcelain hands resting over a warm oak observation ledge beside the booth glass",
+      "prop_action": "one matte-white porcelain hand sets down a brushed-silver mechanical pencil and slides a clean unmarked ivory folder closed across the oak counter",
+      "consequence": "beyond the clear glass ledge, bright daylight illuminates the wooden stacking rings on the playroom floor"
+    },
+    {
+      "sentence_index": 21,
+      "end_sentence_index": 21,
+      "act": 3,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S09",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "present_cast_start": [
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue knit sweater cuffs and one pair of small smooth ball-jointed matte-white porcelain hands resting beside wooden rings on the sunlit center playmat",
+      "prop_action": "both small matte-white porcelain hands release a smooth maple block onto the woven mat and press palms lightly against the rug to rise",
+      "consequence": "a warm shaft of bright doorway daylight widens across the oak floor beside the wooden rings"
+    },
+    {
+      "sentence_index": 22,
+      "end_sentence_index": 22,
+      "act": 3,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S09",
+      "reference_image": "03_visuals/reference_images/ref_s09_start.png",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "present_cast_start": [
+          "toddler"
+        ],
+        "entering_cast": [
+          "mother"
+        ],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "mother",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "high-angle view of the sunlit oak doorway and center woven mat of the 1970 playroom with both wooden chairs completely empty",
+      "action": "the right solid oak door swings open as one clothed matte-white porcelain mother with a smooth featureless white oval head in a warm camel cardigan sweater and linen slacks steps into the room and kneels with open white porcelain arms while one porcelain toddler with a smooth featureless white oval head in a sky-blue knit sweater walks eagerly across the center playmat"
+    },
+    {
+      "sentence_index": 23,
+      "end_sentence_index": 23,
+      "act": 3,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S08",
+      "reference_image": "03_visuals/reference_images/ref_s08_start.png",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "present_cast_start": [
+          "mother",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "mother",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit center woven mat of the 1970 playroom surrounded by colorful wooden blocks and rings with both left and right wooden chairs completely empty",
+      "action": "kneeling on the center woven mat, one clothed matte-white porcelain mother with a smooth featureless white oval head in a warm camel cardigan sweater and linen slacks holds one porcelain toddler with a smooth featureless white oval head in a sky-blue knit sweater and cream trousers close in a gentle embrace, then guides the calm toddler's white porcelain hand toward a bright wooden ring"
+    },
+    {
+      "sentence_index": 24,
+      "end_sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "camera": "gentle_push_in",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "FRONTO-LIMBIC CIRCUIT",
+      "brain_scene": "standalone folded matte-white 3D brain mounted on a clear acrylic pedestal with zero head bust or face: inside a clean coronal-sagittal cutaway, clear cyan-blue frontal pathways and warm amber-gold deep temporal hubs exchange smooth rhythmic pulses along enclosed white-matter tracts"
+    },
+    {
+      "sentence_index": 25,
+      "end_sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "camera": "locked_tripod",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA",
+      "brain_scene": "bilateral amygdala hubs deep inside the medial temporal lobes glow intense crimson-red with rapid rhythmic pulses strictly bounded inside translucent subcortical sheaths"
+    },
+    {
+      "sentence_index": 26,
+      "end_sentence_index": 26,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "camera": "pan_left",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "VENTROMEDIAL PREFRONTAL CORTEX",
+      "brain_scene": "clear cyan-blue calming waves travel from the ventromedial prefrontal cortex down enclosed fronto-limbic fiber bundles, soothing the crimson-red amygdala glow into warm amber-gold balance"
+    },
+    {
+      "sentence_index": 27,
+      "end_sentence_index": 27,
+      "act": 3,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S09",
+      "reference_image": "03_visuals/reference_images/ref_s09_end.png",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "protocol_phase_jump": true,
+        "present_cast_start": [
+          "mother",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "mother",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright sunlit 1970 Baltimore playroom with both wooden oak chairs completely unoccupied and natural daylight across the open right doorway",
+      "action": "as one clothed matte-white porcelain mother with a smooth featureless white oval head in a warm camel cardigan sweater and linen slacks steps onto the threshold extending both white porcelain hands gently, one quiet porcelain toddler with a smooth featureless white oval head in a sky-blue knit sweater and cream trousers sits turned away on the center woven mat leaning silently over unpainted maple blocks"
+    },
+    {
+      "sentence_index": 28,
+      "end_sentence_index": 28,
+      "act": 4,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S04",
+      "reference_image": "03_visuals/reference_images/ref_s04_start.png",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "present_cast_start": [
+          "mother",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "mother",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "high-angle view of the sunlit 1970 Johns Hopkins playroom with the left wooden oak chair completely empty and one clothed porcelain mother in a camel cardigan seated quietly in the right chair",
+      "action": "with back turned toward the right oak chair, one quiet twelve-month-old matte-white porcelain toddler with a smooth featureless white oval head in a sky-blue knit sweater and cream trousers grips one unpainted maple block, slides it across the center woven mat, and sets it beside wooden rings"
+    },
+    {
+      "sentence_index": 29,
+      "end_sentence_index": 30,
+      "act": 4,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S04",
+      "reference_image": "03_visuals/reference_images/ref_s04_start.png",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "present_cast_start": [
+          "mother",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "mother",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "sky-blue knit sweater sleeves and small smooth matte-white porcelain hands poised low over wooden blocks",
+      "prop_action": "the small porcelain hands turn a single unpainted maple cube slowly in place and press it flat against the woven mat",
+      "consequence": "surrounding colorful stacking rings remain untouched beside the still porcelain fingers"
+    },
+    {
+      "sentence_index": 31,
+      "end_sentence_index": 31,
+      "act": 4,
+      "location_id": "observation_booth_1970",
+      "source_shot_id": "S05",
+      "reference_image": "03_visuals/reference_images/ref_s05_start.png",
+      "scene_state": {
+        "location_id": "observation_booth_1970",
+        "present_cast_start": [
+          "psychologist"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "psychologist"
+        ]
+      },
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored tweed jacket cuffs and smooth matte-white porcelain hands over a bright oak study desk",
+      "prop_action": "both porcelain hands open an unmarked clothbound folio volume and place a polished brass paperweight onto the clean ivory page",
+      "consequence": "the stiff cream pages settle flat under bright studio daylight"
+    },
+    {
+      "sentence_index": 32,
+      "end_sentence_index": 32,
+      "act": 4,
+      "location_id": "observation_booth_1970",
+      "source_shot_id": "S05",
+      "src_start_sec": 0.08,
+      "reference_image": "03_visuals/reference_images/ref_s05_start.png",
+      "scene_state": {
+        "location_id": "observation_booth_1970",
+        "present_cast_start": [
+          "psychologist"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "psychologist"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "bright architectural side view inside the glass-fronted 1970 observation booth overlooking the sunlit wooden playroom floor, empty left oak chair, and woven center toy mat",
+      "action": "standing beside the vintage brushed-aluminum 16mm film camera on its silver tripod, two clothed matte-white porcelain psychologists with smooth featureless white oval heads in crisp white lab coats lean forward toward the clear observation window, point calmly toward the sunlit playroom mat, and write a note on an unmarked handheld pad"
+    },
+    {
+      "sentence_index": 33,
+      "end_sentence_index": 33,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "camera": "gentle_push_in",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE CORTEX",
+      "brain_scene": "along the medial wall of the sagittal 3D brain cutaway, the anterior cingulate cortex glows bright warm amber-gold inside enclosed cingulate tracts while deep crimson-red limbic tension builds underneath"
+    },
+    {
+      "sentence_index": 34,
+      "end_sentence_index": 34,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "camera": "locked_tripod",
+      "brain_region": "amygdala",
+      "anatomy_label": "HIDDEN LIMBIC STORM",
+      "brain_scene": "inside the closed translucent frosted-glass 3D brain, the matte-white outer cortex remains calm and still while deep bilateral crimson-red limbic hubs and warm amber-gold cingulate tracts pulse rapidly underneath"
+    },
+    {
+      "sentence_index": 35,
+      "end_sentence_index": 35,
+      "act": 4,
+      "location_id": "regensburg_telemetry_1993",
+      "source_shot_id": "S05",
+      "scene_state": {
+        "location_id": "regensburg_telemetry_1993",
+        "present_cast_start": [
+          "scientist"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "scientist"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright sunlit 1993 German developmental physiology laboratory adjacent to a playroom with sleek glass telemetry monitors",
+      "action": "two matte-white porcelain scientists with smooth featureless white oval heads in crisp white lab coats uncoil thin silver cardiac sensor leads and align a glass oscilloscope console overlooking the playmat"
+    },
+    {
+      "sentence_index": 36,
+      "end_sentence_index": 36,
+      "act": 4,
+      "location_id": "regensburg_telemetry_1993",
+      "source_shot_id": "S02",
+      "scene_state": {
+        "location_id": "regensburg_telemetry_1993",
+        "protocol_phase_jump": true,
+        "present_cast_start": [
+          "scientist",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "scientist",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "crisp white lab coat cuffs and one pair of smooth ball-jointed matte-white porcelain hands poised cleanly over a pale whitewashed ash laboratory tabletop",
+      "prop_action": "both matte-white porcelain hands lift two smooth round unmarked white ceramic sensor discs and lay a single straight smooth white silicone cord neatly beside them on the pale wood surface",
+      "consequence": "the two smooth white sensor discs and straight cord rest cleanly spaced under bright studio daylight"
+    },
+    {
+      "sentence_index": 37,
+      "end_sentence_index": 37,
+      "act": 5,
+      "location_id": "regensburg_telemetry_1993",
+      "source_shot_id": "S02",
+      "scene_state": {
+        "location_id": "regensburg_telemetry_1993",
+        "protocol_phase_jump": false,
+        "present_cast_start": [
+          "scientist",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "scientist",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and smooth matte-white porcelain hands beside a soft sky-blue knit toddler sweater",
+      "prop_action": "the porcelain hands gently place and press a tiny smooth silver disc sensor onto the knit sweater chest tab while sliding the slender lead inside the collar",
+      "consequence": "a tiny green readiness jewel blinks steadily on the pocket transmitter"
+    },
+    {
+      "sentence_index": 38,
+      "end_sentence_index": 38,
+      "act": 5,
+      "location_id": "regensburg_telemetry_1993",
+      "source_shot_id": "S05",
+      "scene_state": {
+        "location_id": "regensburg_telemetry_1993",
+        "present_cast_start": [
+          "scientist",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "scientist",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "crisp white lab coat cuffs and smooth ball-jointed matte-white porcelain hands poised over a brushed-steel laboratory rack of clear glass sample vials",
+      "prop_action": "the matte-white porcelain hands lower a clean white cotton oral swab cylinder into an unmarked clear glass assay tube and press the silver cap shut",
+      "consequence": "the sealed glass sample vial rests upright in the polished steel rack under bright studio daylight"
+    },
+    {
+      "sentence_index": 39,
+      "end_sentence_index": 39,
+      "act": 5,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S03",
+      "reference_image": "03_visuals/reference_images/ref_s03_start.png",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "protocol_phase_jump": true,
+        "present_cast_start": [
+          "mother",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "mother",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright sunlit 1970 playroom viewed across the empty left oak chair, occupied right chair, and woven center toy mat",
+      "action": "while one adult matte-white tailor mannequin with a blank faceless egg-shaped head in a camel cardigan and dark slacks rests its hands in the right oak chair, one small matte-white mannequin with a blank faceless egg-shaped head in a sky-blue sweater and cream trousers sits on the rug turning a maple block"
+    },
+    {
+      "sentence_index": 40,
+      "end_sentence_index": 40,
+      "act": 5,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S04",
+      "reference_image": "03_visuals/reference_images/ref_s04_start.png",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "present_cast_start": [
+          "mother",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "mother",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright sunlit 1970 playroom with one clothed porcelain mother in a camel cardigan seated in the right oak chair and the left oak chair completely empty",
+      "action": "with back turned toward the right chair, one silent matte-white porcelain toddler with a smooth featureless white oval head in a sky-blue knit sweater and cream trousers leans forward on the woven mat, grips a maple block, and turns it slowly between both white porcelain hands"
+    },
+    {
+      "sentence_index": 40,
+      "end_sentence_index": 40,
+      "cut_role": "split_right",
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "camera": "locked_tripod",
+      "brain_region": "amygdala",
+      "brain_scene": "inside the translucent frosted-glass 3D brain, deep crimson-red autonomic alarm waves pulse rapidly from the amygdala down enclosed brainstem channels"
+    },
+    {
+      "sentence_index": 41,
+      "end_sentence_index": 41,
+      "act": 5,
+      "location_id": "regensburg_telemetry_1993",
+      "source_shot_id": "S05",
+      "scene_state": {
+        "location_id": "regensburg_telemetry_1993",
+        "protocol_phase_jump": true,
+        "present_cast_start": [
+          "scientist"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "scientist"
+        ]
+      },
+      "grammar": "porcelain_cutaway_section",
+      "camera": "pan_left",
+      "structure": "a twin-channel brushed-aluminum cardiac oscillograph displaying two parallel glass waveform ribbons",
+      "internal_mechanism": "both bright crimson stylus arms oscillate at matching high speed across unruled ivory paper rolls"
+    },
+    {
+      "sentence_index": 42,
+      "end_sentence_index": 42,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "bounded_micro_channel",
+      "camera": "gentle_push_in",
+      "brain_region": "hypothalamus",
+      "anatomy_label": "CORTISOL CASCADE",
+      "brain_scene": "standalone 3D brain cross-section mounted on a clear cylindrical acrylic pedestal with zero head bust or face: inside deep subcortical neuroendocrine pathways, slow rhythmic warm amber-gold cortisol signal waves surge steadily through enclosed matte-white channel walls from crimson-red hypothalamic hubs"
+    },
+    {
+      "sentence_index": 43,
+      "end_sentence_index": 43,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "camera": "locked_tripod",
+      "brain_region": "hypothalamus",
+      "anatomy_label": "HYPOTHALAMUS",
+      "brain_scene": "in the sagittal 3D brain cutaway, the central hypothalamus hub glows intense crimson-red and pumps rhythmic warm amber-gold waves down enclosed pituitary channels"
+    },
+    {
+      "sentence_index": 44,
+      "end_sentence_index": 45,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "camera": "locked_tripod",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA ALARM",
+      "brain_scene": "beneath a still matte-white outer cortex, deep crimson-red subcortical nuclei and hypothalamic tracts throb brightly inside the closed translucent brain silhouette"
+    },
+    {
+      "sentence_index": 46,
+      "end_sentence_index": 47,
+      "act": 6,
+      "location_id": "home_nursery_room",
+      "scene_state": {
+        "location_id": "home_nursery_room",
+        "present_cast_start": [
+          "parent",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "parent",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "wide full-length view of a sunlit home room with a smooth oak armchair and maple cubes on a cream rug",
+      "action": "one tall full-body matte-white store mannequin with a smooth featureless white oval head, grey cardigan, dark slacks, and white shoes stands on two feet stepping back beside the armchair while one small full-body matte-white mannequin with a smooth featureless white oval head and sky-blue sweater lifts both arms then sets a cube down"
+    },
+    {
+      "sentence_index": 48,
+      "end_sentence_index": 48,
+      "act": 6,
+      "location_id": "home_nursery_room",
+      "scene_state": {
+        "location_id": "home_nursery_room",
+        "present_cast_start": [
+          "parent",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "parent",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue knit sweater cuffs and small smooth ball-jointed matte-white porcelain hands resting quietly over unpainted maple wooden cubes on a soft cream nursery rug",
+      "prop_action": "both small matte-white porcelain hands lower slowly toward the sweater hem and press a single unpainted maple cube silently flat against the cream rug",
+      "consequence": "the surrounding wooden cubes remain completely still in warm daylight"
+    },
+    {
+      "sentence_index": 49,
+      "end_sentence_index": 49,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "camera": "gentle_push_in",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "PREFRONTAL SAFETY BRIDGE",
+      "brain_scene": "a bright clear cyan-blue and warm amber-gold fiber bridge connects the ventromedial prefrontal cortex directly to the amygdala inside enclosed sagittal white-matter sheaths"
+    },
+    {
+      "sentence_index": 50,
+      "end_sentence_index": 50,
+      "act": 6,
+      "location_id": "modern_dining_room",
+      "scene_state": {
+        "location_id": "modern_dining_room",
+        "present_cast_start": [
+          "partner_a",
+          "partner_b"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "partner_a",
+          "partner_b"
+        ]
+      },
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cool pale-grey knit sweater cuffs and one pair of smooth ball-jointed matte-white porcelain adult hands resting clearly in full view on a pale whitewashed ash dining tabletop flanking a single unmarked white ceramic mug",
+      "prop_action": "both matte-white porcelain hands tighten gently around the unmarked white ceramic mug and draw it slightly closer across the pale ash table surface",
+      "consequence": "neutral bright studio daylight casts quiet stillness across the smooth porcelain fingers and white mug"
+    },
+    {
+      "sentence_index": 51,
+      "end_sentence_index": 51,
+      "act": 6,
+      "location_id": "modern_dining_room",
+      "scene_state": {
+        "location_id": "modern_dining_room",
+        "present_cast_start": [
+          "partner_a",
+          "partner_b"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "partner_a",
+          "partner_b"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "wide full-length side view of a sunlit dining room showing two wooden chairs facing across a narrow oak table on a wood floor",
+      "action": "two full-body clothed matte-white porcelain adults with smooth featureless white oval heads, knit sweaters, linen trousers, and white shoes sit upright on the wooden chairs with feet on the floor as the left porcelain figure places both white hands flat on the tabletop beside two white mugs and turns away toward the window"
+    },
+    {
+      "sentence_index": 52,
+      "end_sentence_index": 52,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "camera": "gentle_push_in",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "VMPFC CALMING PATHWAY",
+      "brain_scene": "standalone folded matte-white 3D brain mounted on a clear acrylic pedestal with zero head bust or face: inside a clean medial sagittal cutaway, a smooth calming wave of clear cyan-blue and pearl-aqua light flows steadily from the ventromedial prefrontal cortex into deep medial hubs, quieting crimson-red pulses into warm amber-gold balance"
+    },
+    {
+      "sentence_index": 53,
+      "end_sentence_index": 53,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "camera": "tilt_up",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "VENTROMEDIAL PREFRONTAL CORTEX",
+      "brain_scene": "across the whole matte-white 3D brain on an acrylic pedestal, clear cyan-blue frontal channels and warm amber-gold limbic circuits glow in steady harmonious rhythm inside enclosed walls"
+    },
+    {
+      "sentence_index": 54,
+      "end_sentence_index": 54,
+      "act": 6,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S08",
+      "reference_image": "03_visuals/reference_images/ref_s08_start.png",
+      "scene_state": {
+        "location_id": "hopkins_playroom_1970",
+        "protocol_phase_jump": true,
+        "present_cast_start": [
+          "mother",
+          "toddler"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "mother",
+          "toddler"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the bright sunlit 1970 playroom glowing with warm daylight across two empty wooden oak chairs and the woven center mat",
+      "action": "kneeling on the sunlit woven rug, one adult matte-white tailor mannequin with a blank faceless egg-shaped head in a camel cardigan and linen slacks holds one small matte-white mannequin with a blank faceless egg-shaped head in a sky-blue sweater and cream trousers close before both lift a wooden stacking ring"
+    },
+    {
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "hopkins_playroom_1970",
+      "source_shot_id": "S01",
+      "reference_image": "03_visuals/reference_images/ref_s01_start.png",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "wide high-angle architectural view of the sunlit 1970 playroom keeping the empty left chair, occupied right chair, and center toy mat well inside the frame",
+      "action": "sunlight warms the wooden rings as one adult matte-white tailor mannequin with a blank faceless egg-shaped head in a camel cardigan and dark slacks rests its hands in the right chair while one small matte-white mannequin with a blank faceless egg-shaped head in a sky-blue sweater lifts and sets maple blocks on the rug"
+    }
+  ]
+}

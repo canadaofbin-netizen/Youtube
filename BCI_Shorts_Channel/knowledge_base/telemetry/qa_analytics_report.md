@@ -1,10 +1,10 @@
 # ALL ABOUT BRAIN — Accumulated QA & Reuse Analytics Report
 
-- **Episodes Indexed**: `27`
-- **Evaluated Cuts in Ledger**: `1530`
+- **Episodes Indexed**: `28`
+- **Evaluated Cuts in Ledger**: `1578`
 - **Overall Mean Clarity Score**: `97.0`
-- **Golden Prompts Banked (`>= 82.0`)**: `150`
-- **Reusable Packs**: `23` analogies · `178` brain models · `117` locations
+- **Golden Prompts Banked (`>= 82.0`)**: `198`
+- **Reusable Packs**: `23` analogies · `190` brain models · `122` locations
 
 ## 1. Indexed Episodes
 | Project ID | Schema | Profile | Rate / Speed | WPM | Duration | Cuts | R64 Mean Clarity | Status |
@@ -36,6 +36,7 @@
 | `diorama_25_false_memory_elizabeth_loftus` | `v7` | `lowpoly_pastel_v7` | `+8%` (`1.08x`) | `187.4` | `154.625s` | `57` | `97.0` | `PASS` |
 | `diorama_26_clark_doll_experiment_bias` | `v7` | `lowpoly_pastel_v7` | `+8%` (`1.08x`) | `182.7` | `164.75s` | `57` | `97.0` | `PASS` |
 | `gage_diorama_v7_lowpoly` | `v7` | `lowpoly_pastel_v7` | `+8%` (`1.08x`) | `181.9` | `178.708s` | `60` | `97.1` | `PASS` |
+| `reenact_01_ainsworth_strange_situation` | `v7` | `porcelain_cinematic_v7` | `+7%` (`1.07x`) | `188.2` | `147.25s` | `48` | `97.2` | `PASS` |
 
 ## 2. Expressive Clarity by Visual Grammar
 | Grammar | Cuts | Pass Rate | Mean Clarity | Min Clarity |
@@ -46,14 +47,19 @@
 | `lowpoly_literal_analogy` | `201` | `100.0%` | `96.9` | `94.4` |
 | `lowpoly_matte_brain` | `178` | `100.0%` | `97.2` | `94.2` |
 | `lowpoly_pov_hands` | `168` | `100.0%` | `97.0` | `95.8` |
+| `porcelain_cutaway_section` | `1` | `100.0%` | `97.3` | `97.3` |
+| `porcelain_fullbleed_world` | `22` | `100.0%` | `97.3` | `95.5` |
+| `porcelain_hands_closeup` | `11` | `100.0%` | `97.2` | `96.7` |
+| `porcelain_living_brain` | `12` | `100.0%` | `97.1` | `96.6` |
+| `porcelain_pov_hands` | `2` | `100.0%` | `97.5` | `97.4` |
 
 ## 3. Expressive Clarity by Camera Move
 | Camera Move | Cuts | Pass Rate | Mean Clarity | Min Clarity |
 |---|---|---|---|---|
-| `clean_pullback_reveal` | `79` | `100.0%` | `97.0` | `95.4` |
-| `gentle_push_in` | `178` | `100.0%` | `97.0` | `95.1` |
-| `locked_tripod` | `932` | `100.0%` | `97.0` | `94.4` |
-| `pan_left` | `126` | `100.0%` | `96.9` | `93.6` |
-| `pan_right` | `157` | `100.0%` | `97.0` | `94.4` |
-| `tilt_down` | `19` | `100.0%` | `96.7` | `94.2` |
-| `tilt_up` | `39` | `100.0%` | `95.5` | `94.0` |
+| `clean_pullback_reveal` | `81` | `100.0%` | `97.0` | `95.4` |
+| `gentle_push_in` | `186` | `100.0%` | `97.0` | `95.1` |
+| `locked_tripod` | `955` | `100.0%` | `97.0` | `94.4` |
+| `pan_left` | `134` | `100.0%` | `96.9` | `93.6` |
+| `pan_right` | `162` | `100.0%` | `97.0` | `94.4` |
+| `tilt_down` | `20` | `100.0%` | `96.7` | `94.2` |
+| `tilt_up` | `40` | `100.0%` | `95.5` | `94.0` |

@@ -171,17 +171,28 @@ def _build_contract_v4_narrations(
     crisis = anat["crisis_region"]
     comp = anat["compensatory_region"]
 
+    from pipeline.config import (
+        DIORAMA_CRISIS_BEAT_BANK,
+        DIORAMA_EUREKA_REVEAL_BANK,
+        DIORAMA_TAKEAWAY_BRIDGE_BANK,
+    )
+
+    seed = sum(ord(ch) for ch in title)
+    crisis_tail = DIORAMA_CRISIS_BEAT_BANK[seed % len(DIORAMA_CRISIS_BEAT_BANK)]
+    eureka_lead = DIORAMA_EUREKA_REVEAL_BANK[seed % len(DIORAMA_EUREKA_REVEAL_BANK)]
+    takeaway_open = DIORAMA_TAKEAWAY_BRIDGE_BANK[seed % len(DIORAMA_TAKEAWAY_BRIDGE_BANK)].capitalize()
+
     c1 = _fit_narration_words(
         f"In {year_period} at {inst}, {researcher} investigated {clean_title} during a landmark clinical study that challenged every textbook model of the human mind."
     )
     c2 = _fit_narration_words(
-        f"Patients showed a baffling symptom where {clean_sum}. Every normal response vanished in seconds. For your brain, this is a total nightmare."
+        f"Patients showed a baffling symptom where {clean_sum}. Every normal response vanished in seconds, and {crisis_tail}."
     )
     c3 = _fit_narration_words(
         "Earlier doctors tried using standard behavioral training and conscious effort to fix the problem, but every single traditional clinical method failed."
     )
     c4 = _fit_narration_words(
-        f"Here is what went wrong inside the skull: a sudden bottleneck disrupted the {crisis}, blocking normal signals from reaching the {target}."
+        f"Inside the skull, {crisis_tail}: a sudden bottleneck disrupted the {crisis}, blocking normal signals from reaching the {target}."
     )
     c5 = _fit_narration_words(
         f"Instead of relying on surface symptoms, {researcher} traced how the {target} and the {comp} divide the signal across two separate neural routes."
@@ -196,10 +207,10 @@ def _build_contract_v4_narrations(
         f"Finally, the {comp} detects the mismatch and reroutes the active circuit, locking the new behavioral response into place within milliseconds."
     )
     c9 = _fit_narration_words(
-        f"The researchers were left completely stunned. Controlled recordings proved the {target} and {comp} physically rewired the response in real time."
+        f"When {eureka_lead}, controlled recordings proved the {target} and {comp} physically rewired the response in real time."
     )
     c10 = _fit_narration_words(
-        f"Which proves your brain builds every perception through precise wiring between the {target} and the {comp}, shaping human reality every single day."
+        f"{takeaway_open} your brain builds every perception through precise wiring between the {target} and the {comp}, shaping human reality every single day."
     )
 
     narr_10 = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10]
@@ -207,11 +218,11 @@ def _build_contract_v4_narrations(
     # 5-clip roles: setup, crisis, pivot, mechanism, conclusion
     s1 = c1
     s2 = _fit_narration_words(
-        f"When a sudden bottleneck disrupts the {crisis}, normal signals scatter before reaching the {target}. For your brain, this is a total nightmare."
+        f"When a sudden bottleneck disrupts the {crisis}, normal signals scatter before reaching the {target}, and {crisis_tail}."
     )
     s3 = c5
     s4 = _fit_narration_words(
-        f"Here is how it works: signals race into the {target} while the {comp} reroutes the circuit. The researchers were left completely stunned."
+        f"Signals race into the {target} while the {comp} reroutes the circuit, and {eureka_lead} during live clinical recordings."
     )
     s5 = c10
     narr_5 = [s1, s2, s3, s4, s5]

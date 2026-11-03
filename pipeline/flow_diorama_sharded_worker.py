@@ -52,7 +52,9 @@ from pipeline.config import (
     FLOW_ENGINE_MODES,
     FLOW_MAX_PARALLEL_BATCH_SIZE,
     FLOW_PRIMARY_VIDEO_MODEL,
+    FLOW_ZERO_CREDIT_MAX_CONCURRENT_RENDERS,
     FLOW_ZERO_CREDIT_MODEL,
+    FLOW_ZERO_CREDIT_VIDEO_MAX_BATCH,
     MIN_CLIP_SIZE_BYTES,
     PORCELAIN_V7_BRAIN_MARGIN_SAT_MAX,
     PORCELAIN_V7_DARK_VOID_RATIO_MAX,
@@ -86,6 +88,7 @@ from pipeline.flow_ingredients import (
     read_active_flow_model_family,
     select_flow_video_model,
     upload_file_to_flow,
+    upload_start_end_frames_to_flow,
 )
 from pipeline.flow_live_single_worker import (
     CONTAINER_DOWNLOADS_PATH,
@@ -418,6 +421,32 @@ def compute_porcelain_flesh_leak_ratio(frame_bgr: np.ndarray) -> float:
     return float(np.mean(mask))
 
 
+def detect_unintended_horizontal_split_seam(frame_bgr: np.ndarray) -> float:
+    """
+    Measures the strongest full-width horizontal split-screen seam across `Y=32%..56%`
+    (strictly between top headline badges and `Y=63%` burned subtitles).
+    Hallucinated top/bottom split-screens in Veo produce a sharp step across `>= 72%` of columns
+    on a single scanline, whereas continuous single-shot rooms stay `< 35%`.
+    """
+    if frame_bgr is None or frame_bgr.size == 0:
+        return 0.0
+    h, w = frame_bgr.shape[:2]
+    if h < 120 or w < 80:
+        return 0.0
+    gray = frame_bgr if frame_bgr.ndim == 2 else cv2.cvtColor(frame_bgr[:, :, :3], cv2.COLOR_BGR2GRAY)
+    y0, y1 = int(h * 0.32), int(h * 0.56)
+    if y1 <= y0 + 6:
+        return 0.0
+    g_f = gray.astype(np.float32)
+    row_jump = np.abs(g_f[y0 + 2 : y1 + 2, :] - g_f[y0 - 2 : y1 - 2, :])
+    edge_w = max(4, int(w * 0.08))
+    full_frac = np.mean(row_jump > 28.0, axis=1)
+    left_frac = np.mean(row_jump[:, :edge_w] > 28.0, axis=1)
+    right_frac = np.mean(row_jump[:, w - edge_w :] > 28.0, axis=1)
+    edge_anchored = np.minimum(full_frac, np.minimum(left_frac, right_frac))
+    return float(np.max(edge_anchored)) if edge_anchored.size else 0.0
+
+
 def _invoke_inspect_diorama_clip_cv(
     mp4_path: Path,
     grammar: str = "arch_cutaway_diorama",
@@ -632,7 +661,7 @@ def inspect_diorama_clip_cv(
         if g_norm in ("porcelain_hands_closeup", "porcelain_pov_hands"):
             peach_cap = float(PORCELAIN_V7_HUMAN_SKIN_MAX)
         elif g_norm == "porcelain_fullbleed_world":
-            peach_cap = 0.22
+            peach_cap = float(PORCELAIN_V7_HUMAN_SKIN_MAX) + 0.04
         elif g_norm == "porcelain_living_brain":
             peach_cap = 0.68
         else:
@@ -648,6 +677,9 @@ def inspect_diorama_clip_cv(
             if bmode_norm == "cortical_vascular_whole":
                 if mean_margin_sat > PORCELAIN_V7_BRAIN_MARGIN_SAT_MAX:
                     return {"passed": False, "reason": f"brain_margin_glow_spill:margin_sat={mean_margin_sat:.1f}"}
+        max_hsplit_seam = max((detect_unintended_horizontal_split_seam(f) for f in frames_bgr), default=0.0)
+        if g_norm != "porcelain_cutaway_section" and max_hsplit_seam >= 0.72:
+            return {"passed": False, "reason": f"unintended_horizontal_split_screen:seam={max_hsplit_seam:.3f}"}
         if mean_full_luma < 82.0:
             return {"passed": False, "reason": f"dark_void_leak_v7:mean_luma={mean_full_luma:.1f}"}
         luma_cap = 242.0 if g_norm == "porcelain_living_brain" else 234.0
@@ -815,14 +847,22 @@ def _ensure_min_clip_size_if_needed(mp4_path: Path) -> None:
         )
 
 
-async def _configure_zero_credit_veo_lite(client: DirectCDPClient, force: bool = False) -> str:
-    """Forces Manual Video · 9:16 · 8s · x1 · `Veo 3.1 - Lite [Lower Priority]` (`0 credits`), forbidding paid credit approvals."""
+async def _configure_zero_credit_veo_lite(
+    client: DirectCDPClient,
+    force: bool = False,
+    output_count: int = 1,
+) -> str:
+    """Forces Manual Video · 9:16 · 8s · x{output_count} · `Veo 3.1 - Lite [Lower Priority]` (`0 credits`), forbidding paid credit approvals."""
+    eff_out = max(1, min(int(FLOW_ZERO_CREDIT_VIDEO_MAX_BATCH), int(output_count or 1)))
+    out_lbl = f"x{eff_out}"
     await client.eval("window.__bci_flow_forbid_credit_approve = true;")
-    already = await client.eval("Boolean(window.__bci_flow_lite_fallback && window.__bci_flow_0cred_configured)")
+    already = await client.eval(
+        f"Boolean(window.__bci_flow_lite_fallback && window.__bci_flow_0cred_configured && window.__bci_flow_0cred_out === {eff_out})"
+    )
     has_warn = await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))")
     fam = await read_active_flow_model_family(client)
     if already and not force and not has_warn and fam == "veo_3_1_lite_low_priority":
-        return "cached_0cred_veo_lite"
+        return f"cached_0cred_veo_lite_{out_lbl}"
     await client.eval(
         "window.__bci_flow_forbid_credit_approve = true; window.__bci_flow_lite_fallback = true; window.__bci_flow_0cred_configured = false;"
     )
@@ -832,24 +872,34 @@ async def _configure_zero_credit_veo_lite(client: DirectCDPClient, force: bool =
         engine_mode="zero-credit",
         force_recheck=force,
     )
+    prev_out = int((await client.eval("Number(window.__bci_flow_0cred_out || 1)")) or 1)
     fam = await read_active_flow_model_family(client)
     has_warn = await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))")
-    if has_warn or fam != "veo_3_1_lite_low_priority":
-        await select_flow_video_model(client, FLOW_ZERO_CREDIT_MODEL)
-        await asyncio.sleep(0.5)
+    if has_warn or fam != "veo_3_1_lite_low_priority" or eff_out > 1 or prev_out != eff_out:
+        if has_warn or fam != "veo_3_1_lite_low_priority":
+            await select_flow_video_model(client, FLOW_ZERO_CREDIT_MODEL)
+            await asyncio.sleep(0.4)
         await client.eval("""(() => {
+            const box = document.querySelector('flow-prompt-box-settings');
+            const st = document.querySelector('button.settings-trigger-button');
+            if (st && (!box || !(box.innerText || '').includes('Generating will use'))) st.click();
+        })()""")
+        await asyncio.sleep(0.4)
+        await client.eval(f"""(() => {{
             const btns = Array.from(document.querySelectorAll('flow-prompt-box-settings button, .cdk-overlay-pane button'));
             const b916 = btns.find(b => (b.innerText || '').includes('9:16'));
             if (b916) b916.click();
             const b8 = btns.find(b => (b.innerText || '').trim() === '8s');
             if (b8) b8.click();
-            const bx1 = btns.find(b => (b.innerText || '').trim() === 'x1');
-            if (bx1) bx1.click();
+            const bx = btns.find(b => (b.innerText || '').trim() === {json.dumps(out_lbl)});
+            if (bx && !bx.disabled) bx.click();
             const bd = document.querySelector('.cdk-overlay-backdrop');
             if (bd) bd.click();
-        })()""")
+        }})()""")
         await asyncio.sleep(0.35)
-    return str(cfg_res.get("settings_summary") or "")
+    await client.eval(f"window.__bci_flow_0cred_configured = true; window.__bci_flow_0cred_out = {eff_out};")
+    summary_now = await client.eval("""(() => (document.querySelector('button.settings-trigger-button')?.innerText || '').trim())()""")
+    return str(summary_now or cfg_res.get("settings_summary") or "")
 
 
 async def _configure_diorama_tab_engine(
@@ -857,6 +907,7 @@ async def _configure_diorama_tab_engine(
     engine_mode: str = DEFAULT_FLOW_ENGINE_MODE,
     credit_exhausted_event: asyncio.Event | None = None,
     force: bool = False,
+    zero_credit_output_count: int = 1,
 ) -> dict[str, Any]:
     """
     Configures the Flow tab for the active dual-tier engine policy (`auto` | `omni` | `zero-credit`):
@@ -864,14 +915,19 @@ async def _configure_diorama_tab_engine(
         immediately sets `credit_exhausted_event` and switches to `Veo 3.1 - Lite [Lower Priority]` (`0 credits`)
         when `button.prompt-warning-button` or low/zero-credit banners appear.
       - `omni`: requires `Omni 1.1 Flash` and fails closed if out of credits.
-      - `zero-credit`: locks `Veo 3.1 - Lite [Lower Priority]` (`veo_3_1_lite_low_priority`) and forbids credit approval dialogs.
+      - `zero-credit`: locks `Veo 3.1 - Lite [Lower Priority]` (`veo_3_1_lite_low_priority`) at `x1..x4` and forbids credit approval dialogs.
     """
     mode = _normalize_engine_mode(engine_mode)
     use_zero_credit = mode == "zero-credit" or (
         mode == "auto" and credit_exhausted_event is not None and credit_exhausted_event.is_set()
     )
+    zc_out = max(1, min(int(FLOW_ZERO_CREDIT_VIDEO_MAX_BATCH), int(zero_credit_output_count or 1)))
     if use_zero_credit:
-        summary = await _configure_zero_credit_veo_lite(client, force=force)
+        summary = (
+            await _configure_zero_credit_veo_lite(client, force=force, output_count=zc_out)
+            if zc_out > 1
+            else await _configure_zero_credit_veo_lite(client, force=force)
+        )
         fam = await read_active_flow_model_family(client)
         cred_chk = await client.eval(CHECK_CREDIT_EXHAUSTION_JS) or {}
         has_warn = bool(cred_chk.get("has_warning_btn"))
@@ -881,6 +937,7 @@ async def _configure_diorama_tab_engine(
             "zero_credit_verified": bool(fam == "veo_3_1_lite_low_priority" and not has_warn),
             "model_family_id": fam,
             "has_warning_btn": has_warn,
+            "output_count": zc_out,
             "settings_summary": summary,
         }
 
@@ -911,7 +968,11 @@ async def _configure_diorama_tab_engine(
     if fell_back or bool(cred_chk.get("exhausted")):
         if credit_exhausted_event is not None:
             credit_exhausted_event.set()
-        summary = await _configure_zero_credit_veo_lite(client, force=True)
+        summary = (
+            await _configure_zero_credit_veo_lite(client, force=True, output_count=zc_out)
+            if zc_out > 1
+            else await _configure_zero_credit_veo_lite(client, force=True)
+        )
         fam = await read_active_flow_model_family(client)
         has_warn = bool(await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))"))
         return {
@@ -920,6 +981,7 @@ async def _configure_diorama_tab_engine(
             "zero_credit_verified": bool(fam == "veo_3_1_lite_low_priority" and not has_warn),
             "model_family_id": fam,
             "has_warning_btn": has_warn,
+            "output_count": max(1, min(int(FLOW_ZERO_CREDIT_VIDEO_MAX_BATCH), int(zero_credit_output_count or 1))),
             "settings_summary": summary,
         }
 
@@ -940,6 +1002,7 @@ async def _submit_diorama_prompt_zero_credit(
     engine_mode: str = DEFAULT_FLOW_ENGINE_MODE,
     credit_exhausted_event: asyncio.Event | None = None,
     submission_meta_out: dict[str, Any] | None = None,
+    end_ref_path: Path | None = None,
 ) -> bool:
     """
     Submits a Diorama prompt under the Credit-Aware Dual-Tier Engine Policy (`auto` | `omni` | `zero-credit`):
@@ -947,11 +1010,12 @@ async def _submit_diorama_prompt_zero_credit(
         exhausted at startup or mid-episode, immediately sets `credit_exhausted_event`, switches to
         `Veo 3.1 - Lite [Lower Priority]` (`zero_credit_fallback`), verifies `veo_3_1_lite_low_priority` and
         `!prompt-warning-button`, and submits at `0 credits`.
-      - `omni`: requires `Omni 1.1 Flash` (fails closed on insufficient credits).
-      - `zero-credit`: locks `Veo 3.1 - Lite [Lower Priority]` immediately and NEVER clicks `"Always approve"`.
+      - Supports dual `Start Frame + End Frame` (`end_ref_path`) on `Omni 1.1 Flash`, degrading cleanly to single
+        start-frame or text-only on `0-credit` fallback.
       - NEVER clicks `"Add AI credits"` top-up links under any mode.
     """
     mode = _normalize_engine_mode(engine_mode)
+    zc_out = max(1, min(int(FLOW_ZERO_CREDIT_VIDEO_MAX_BATCH), int(ref_state.get("zero_credit_output_count") or 1)))
     if mode == "zero-credit" or (mode == "auto" and credit_exhausted_event is not None and credit_exhausted_event.is_set()):
         await client.eval("window.__bci_flow_forbid_credit_approve = true;")
     else:
@@ -965,6 +1029,7 @@ async def _submit_diorama_prompt_zero_credit(
         client,
         engine_mode=mode,
         credit_exhausted_event=credit_exhausted_event,
+        zero_credit_output_count=zc_out,
     )
     active_model = str(cfg_meta.get("flow_model") or FLOW_ZERO_CREDIT_MODEL)
     active_tier = str(
@@ -978,13 +1043,13 @@ async def _submit_diorama_prompt_zero_credit(
         if credit_exhausted_event is not None:
             credit_exhausted_event.set()
         await press_escape(client)
-        await _configure_zero_credit_veo_lite(client, force=True)
+        await _configure_zero_credit_veo_lite(client, force=True, output_count=zc_out)
         fam_chk = await read_active_flow_model_family(client)
         warn_chk = bool(await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))"))
         if warn_chk and await count_chips(client) > 0:
             ref_state["lite_supports_ref"] = False
             await clear_prompt_ingredients(client)
-            await _configure_zero_credit_veo_lite(client, force=True)
+            await _configure_zero_credit_veo_lite(client, force=True, output_count=zc_out)
             fam_chk = await read_active_flow_model_family(client)
             warn_chk = bool(await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))"))
         if fam_chk != "veo_3_1_lite_low_priority" or warn_chk:
@@ -995,6 +1060,12 @@ async def _submit_diorama_prompt_zero_credit(
 
     allow_ref = active_model == FLOW_PRIMARY_VIDEO_MODEL or bool(ref_state.get("lite_supports_ref", True))
     if short_ref_path and short_ref_path.exists() and allow_ref:
+        use_dual_end = (
+            end_ref_path is not None
+            and end_ref_path.exists()
+            and (active_model == FLOW_PRIMARY_VIDEO_MODEL or bool(ref_state.get("lite_supports_dual_ref", True)))
+        )
+
         async def _do_ref_attach() -> bool:
             try:
                 await client.send("Page.bringToFront")
@@ -1002,24 +1073,42 @@ async def _submit_diorama_prompt_zero_credit(
                 pass
             await asyncio.sleep(0.35)
             uploaded_names: set[str] = ref_state.setdefault("uploaded_in_tab", set())
+            if use_dual_end and end_ref_path is not None:
+                dual_res = await upload_start_end_frames_to_flow(
+                    client,
+                    start_frame=short_ref_path,
+                    end_frame=end_ref_path,
+                    uploaded_cache=uploaded_names,
+                )
+                return bool(dual_res.get("start_attached"))
             chip_ready = False
             if short_ref_path.name not in uploaded_names:
                 up_ok = await upload_file_to_flow(client, short_ref_path)
                 if up_ok:
                     uploaded_names.add(short_ref_path.name)
-                    for _w in range(8):
+                    for _w in range(10):
                         await asyncio.sleep(0.5)
                         if await count_chips(client) >= 1:
                             chip_ready = True
                             break
             if not chip_ready:
-                chip_ready = await attach_uploaded_by_name(client, short_ref_path.name, wait_sec=20.0)
+                chip_ready = await attach_uploaded_by_name(client, short_ref_path.name, wait_sec=16.0)
                 if not chip_ready and await count_chips(client) >= 1:
                     chip_ready = True
                 if not chip_ready:
                     await press_escape(client)
-                    await asyncio.sleep(1.2)
-                    chip_ready = await attach_uploaded_by_name(client, short_ref_path.name, wait_sec=15.0)
+                    await asyncio.sleep(0.8)
+                    uploaded_names.discard(short_ref_path.name)
+                    reup_ok = await upload_file_to_flow(client, short_ref_path)
+                    if reup_ok:
+                        uploaded_names.add(short_ref_path.name)
+                        for _w in range(10):
+                            await asyncio.sleep(0.5)
+                            if await count_chips(client) >= 1:
+                                chip_ready = True
+                                break
+                    if not chip_ready:
+                        chip_ready = await attach_uploaded_by_name(client, short_ref_path.name, wait_sec=15.0)
             return bool(chip_ready)
 
         if ref_upload_lock is not None:
@@ -1030,7 +1119,14 @@ async def _submit_diorama_prompt_zero_credit(
 
         if att_ok:
             await select_flow_video_model(client, active_model)
-            await asyncio.sleep(0.5)
+            await asyncio.sleep(0.4)
+            if active_model == FLOW_ZERO_CREDIT_MODEL and zc_out > 1:
+                await client.eval(f"""(() => {{
+                    const btns = Array.from(document.querySelectorAll('flow-prompt-box-settings button, .cdk-overlay-pane button'));
+                    const bx = btns.find(b => (b.innerText || '').trim() === {json.dumps(f"x{zc_out}")});
+                    if (bx && !bx.disabled) bx.click();
+                }})()""")
+                await asyncio.sleep(0.25)
             await client.eval("""(() => {
                 const bd = document.querySelector('.cdk-overlay-backdrop');
                 if (bd) bd.click();
@@ -1047,10 +1143,19 @@ async def _submit_diorama_prompt_zero_credit(
                         f"Omni 1.1 Flash credit warning after attaching {short_ref_path.name} ({cred_chip})"
                     )
                 else:
-                    print(f"[FlowDiorama] Attached reference anchor on {active_model}: {short_ref_path.name}")
+                    end_lbl = f" + {end_ref_path.name}" if (use_dual_end and end_ref_path) else ""
+                    print(f"[FlowDiorama] Attached reference anchor on {active_model}: {short_ref_path.name}{end_lbl}")
             else:
                 fam_chip = await read_active_flow_model_family(client)
                 warn_with_chip = bool(cred_chip.get("has_warning_btn")) or fam_chip != "veo_3_1_lite_low_priority"
+                if warn_with_chip and use_dual_end:
+                    ref_state["lite_supports_dual_ref"] = False
+                    await clear_prompt_ingredients(client)
+                    if await attach_uploaded_by_name(client, short_ref_path.name, wait_sec=12.0):
+                        await _configure_zero_credit_veo_lite(client, force=True, output_count=zc_out)
+                        cred_chip = await client.eval(CHECK_CREDIT_EXHAUSTION_JS) or {}
+                        fam_chip = await read_active_flow_model_family(client)
+                        warn_with_chip = bool(cred_chip.get("has_warning_btn")) or fam_chip != "veo_3_1_lite_low_priority"
                 if warn_with_chip:
                     print(
                         f"[FlowDiorama] Ingredient chip triggered credit warning/model drift ({fam_chip}); "
@@ -1058,15 +1163,14 @@ async def _submit_diorama_prompt_zero_credit(
                     )
                     ref_state["lite_supports_ref"] = False
                     await clear_prompt_ingredients(client)
-                    await _configure_zero_credit_veo_lite(client, force=True)
+                    await _configure_zero_credit_veo_lite(client, force=True, output_count=zc_out)
                 else:
                     print(f"[FlowDiorama] Attached 0-credit reference anchor: {short_ref_path.name}")
         else:
-            print(f"[FlowDiorama] Reference anchor {short_ref_path.name} did not attach cleanly; clearing chips")
+            print(f"[FlowDiorama] Reference anchor {short_ref_path.name} failed to attach; aborting unanchored submission for retry")
             await clear_prompt_ingredients(client)
-            await _configure_diorama_tab_engine(
-                client, engine_mode=mode, credit_exhausted_event=credit_exhausted_event, force=True
-            )
+            return False
+
 
     for _ in range(15):
         ready = await client.eval("""(() => {
@@ -1132,7 +1236,7 @@ async def _submit_diorama_prompt_zero_credit(
                 if warn_now and await count_chips(client) > 0:
                     ref_state["lite_supports_ref"] = False
                     await clear_prompt_ingredients(client)
-                await _configure_zero_credit_veo_lite(client, force=True)
+                await _configure_zero_credit_veo_lite(client, force=True, output_count=zc_out)
                 await asyncio.sleep(0.3)
                 fam_now = await read_active_flow_model_family(client)
                 warn_now = bool(await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))"))
@@ -1215,14 +1319,19 @@ async def _download_newest_ready_tile(
     capture_v4_ss_path: Path | None = None,
     shard_id: int | str = 0,
     project_slug: str = "",
+    max_candidates: int = 1,
+    candidate_eval_fn: Any = None,
 ) -> dict[str, Any] | None:
     """
-    Downloads the newest completed `flow-video-tile` (`validTiles[0]`) to `dst_mp4`.
-    Tries fast in-tab `<video src>` fetch first when V4 screenshot isn't needed, then falls back
-    seamlessly to `FlowDownloadHarvestLock` + isolated `shard_dl_dir` (`flow_dl_dir / f"shard_{shard_id}"`)
-    + `More -> Download -> 720p` so concurrent shards can NEVER steal each other's delayed downloads.
+    Downloads the newest completed `flow-video-tile` batch (up to `max_candidates` from `x1..x4`) to `dst_mp4`.
+    When `max_candidates > 1` and `candidate_eval_fn` is provided, fetches all newly rendered sibling tiles
+    from the batch, marks all batch URLs in `seen_tab_srcs` so subsequent prompts never collide with sibling
+    tiles, evaluates each candidate via `candidate_eval_fn`, and writes the highest-scoring CV-passing MP4.
+    Falls back seamlessly to `FlowDownloadHarvestLock` + isolated `shard_dl_dir` + `More -> Download -> 720p`.
     """
-    # Scroll top of Flow canvas so newest tile (`validTiles[0]`) is mounted in DOM
+    eff_max_cands = max(1, min(int(FLOW_ZERO_CREDIT_VIDEO_MAX_BATCH), int(max_candidates or 1)))
+
+    # Scroll top of Flow canvas so newest tile(s) (`validTiles[0..k]`) are mounted in DOM
     await client.eval("""(() => {
         const scrollers = Array.from(document.querySelectorAll('*')).filter(el => el.scrollHeight > el.clientHeight + 80);
         for (const s of scrollers) { try { s.scrollTop = 0; } catch (e) {} }
@@ -1235,52 +1344,130 @@ async def _download_newest_ready_tile(
     })()""")
     await asyncio.sleep(0.6)
 
-    # Fast Method A: Direct authenticated in-page fetch of `validTiles[0]` (newest top tile only)
-    if capture_v4_ss_path is None:
-        src_url = await client.eval(f"""(() => {{
+    # When multi-candidate batching is active and V4 export screenshot is still needed, capture V4 menu first
+    if eff_max_cands > 1 and capture_v4_ss_path is not None and not capture_v4_ss_path.exists():
+        await client.eval(f"""(() => {{
+            const classifyTile = {FLOW_TILE_CLASSIFIER_JS};
+            const validTiles = Array.from(document.querySelectorAll('flow-video-tile')).filter(el => {{
+                const cls = classifyTile(el);
+                return !cls.isError && !cls.pct;
+            }});
+            const target = validTiles[0];
+            if (!target) return;
+            target.dispatchEvent(new MouseEvent('mouseenter', {{bubbles: true}}));
+            const more = target.querySelector('button[aria-label*="More" i]');
+            if (more) more.click();
+        }})()""")
+        await asyncio.sleep(0.5)
+        await client.eval("""(() => {
+            const items = Array.from(document.querySelectorAll('.cdk-overlay-pane flow-menu-item, .cdk-overlay-pane button, .cdk-overlay-pane [role="menuitem"]'));
+            const dl = items.find(el => (el.innerText || '').includes('Download'));
+            if (dl) dl.click();
+        })()""")
+        await asyncio.sleep(0.5)
+        ss_v4 = await client.send("Page.captureScreenshot", {"format": "png"})
+        if ss_v4 and "data" in ss_v4:
+            capture_v4_ss_path.parent.mkdir(parents=True, exist_ok=True)
+            capture_v4_ss_path.write_bytes(base64.b64decode(ss_v4["data"]))
+        await press_escape(client)
+        await client.eval("document.body.click()")
+        await asyncio.sleep(0.25)
+
+    # Fast Method A: Direct authenticated in-page fetch of newest batch tiles (`x1..x4`)
+    if capture_v4_ss_path is None or capture_v4_ss_path.exists():
+        new_srcs_raw = await client.eval(f"""(() => {{
             const classifyTile = {FLOW_TILE_CLASSIFIER_JS};
             const seen = new Set({json.dumps(list(seen_tab_srcs))});
             const validTiles = Array.from(document.querySelectorAll('flow-video-tile')).filter(el => {{
                 const cls = classifyTile(el);
                 return !cls.isError && !cls.pct;
             }});
-            const newest = validTiles[0];
-            if (!newest) return '';
-            const v = newest.querySelector('video[src^="https://"]');
-            if (v && v.src && !seen.has(v.src)) return v.src;
-            return '';
-        }})()""") or ""
-        if src_url.startswith("https://"):
-            b64_res = await client.eval(f"""(async () => {{
-                try {{
-                    const r = await fetch({json.dumps(src_url)});
-                    if (!r.ok) return '';
-                    const buf = await r.arrayBuffer();
-                    if (buf.byteLength < 160000) return '';
-                    const u8 = new Uint8Array(buf);
-                    let bin = '';
-                    const chunk = 32768;
-                    for (let i = 0; i < u8.length; i += chunk) {{
-                        bin += String.fromCharCode.apply(null, u8.subarray(i, i + chunk));
-                    }}
-                    return btoa(bin);
-                }} catch (e) {{
-                    return '';
+            const out = [];
+            for (const tile of validTiles) {{
+                const v = tile.querySelector('video[src^="https://"]');
+                if (v && v.src && !seen.has(v.src) && !out.includes(v.src)) {{
+                    out.push(v.src);
                 }}
-            }})()""", await_promise=True) or ""
-            if isinstance(b64_res, str) and len(b64_res) > 210_000:
-                raw_bytes = base64.b64decode(b64_res)
-                sha = hashlib.sha256(raw_bytes).hexdigest().lower()
-                if sha not in seen_global_shas:
-                    dst_mp4.parent.mkdir(parents=True, exist_ok=True)
-                    dst_mp4.write_bytes(raw_bytes)
-                    seen_global_shas.add(sha)
-                    seen_tab_srcs.add(src_url)
+            }}
+            return out;
+        }})()""") or []
+        new_srcs = [str(u) for u in new_srcs_raw if isinstance(u, str) and u.startswith("https://")]
+        if new_srcs:
+            batch_srcs = new_srcs[:eff_max_cands]
+            cand_entries: list[dict[str, Any]] = []
+            dst_mp4.parent.mkdir(parents=True, exist_ok=True)
+            try:
+                for cand_i, src_url in enumerate(batch_srcs):
+                    b64_res = await client.eval(f"""(async () => {{
+                        try {{
+                            const r = await fetch({json.dumps(src_url)});
+                            if (!r.ok) return '';
+                            const buf = await r.arrayBuffer();
+                            if (buf.byteLength < 160000) return '';
+                            const u8 = new Uint8Array(buf);
+                            let bin = '';
+                            const chunk = 32768;
+                            for (let i = 0; i < u8.length; i += chunk) {{
+                                bin += String.fromCharCode.apply(null, u8.subarray(i, i + chunk));
+                            }}
+                            return btoa(bin);
+                        }} catch (e) {{
+                            return '';
+                        }}
+                    }})()""", await_promise=True) or ""
+                    if not (isinstance(b64_res, str) and len(b64_res) > 210_000):
+                        continue
+                    raw_bytes = base64.b64decode(b64_res)
+                    sha = hashlib.sha256(raw_bytes).hexdigest().lower()
+                    if sha in seen_global_shas:
+                        continue
+                    if len(batch_srcs) == 1 or not callable(candidate_eval_fn):
+                        dst_mp4.write_bytes(raw_bytes)
+                        seen_global_shas.add(sha)
+                        for s_all in new_srcs:
+                            seen_tab_srcs.add(s_all)
+                        return {
+                            "sha256": sha,
+                            "file_size_bytes": len(raw_bytes),
+                            "source_download_filename": f"flow_direct_{dst_mp4.name}",
+                            "candidates_evaluated": 1,
+                        }
+                    cand_path = dst_mp4.with_name(f"{dst_mp4.stem}_cand{cand_i}.mp4")
+                    cand_path.write_bytes(raw_bytes)
+                    ev = await asyncio.to_thread(candidate_eval_fn, cand_path)
+                    cand_entries.append(
+                        {
+                            "cand_idx": cand_i,
+                            "path": cand_path,
+                            "sha": sha,
+                            "size": len(raw_bytes),
+                            "src_url": src_url,
+                            "passed": bool(ev.get("passed", False)),
+                            "score": float(ev.get("score", 0.0)),
+                            "cv_rep": ev.get("cv_rep"),
+                        }
+                    )
+
+                if cand_entries:
+                    cand_entries.sort(key=lambda item: (1 if item["passed"] else 0, item["score"]), reverse=True)
+                    best = cand_entries[0]
+                    shutil.copy2(best["path"], dst_mp4)
+                    seen_global_shas.add(best["sha"])
+                    for s_all in new_srcs:
+                        seen_tab_srcs.add(s_all)
                     return {
-                        "sha256": sha,
-                        "file_size_bytes": len(raw_bytes),
-                        "source_download_filename": f"flow_direct_{dst_mp4.name}",
+                        "sha256": best["sha"],
+                        "file_size_bytes": int(best["size"]),
+                        "source_download_filename": f"flow_direct_x{len(cand_entries)}_cand{best['cand_idx'] + 1}_{dst_mp4.name}",
+                        "candidates_evaluated": len(cand_entries),
+                        "selected_candidate_index": int(best["cand_idx"]) + 1,
+                        "cached_cv_rep": best.get("cv_rep") if best["passed"] else None,
                     }
+            finally:
+                for ce in cand_entries:
+                    p = ce.get("path")
+                    if isinstance(p, Path):
+                        p.unlink(missing_ok=True)
 
     # Reliable Method B: Official Flow UI menu download under FlowDownloadHarvestLock into isolated shard_dl_dir
     shard_dl_dir = flow_dl_dir / f"shard_{shard_id}"
@@ -1403,6 +1590,35 @@ async def _download_newest_ready_tile(
 MAX_CONSECUTIVE_RENDER_TIMEOUTS = 2
 
 
+def compute_zero_credit_batch_plan(
+    num_pending_clips: int,
+    max_parallel_tabs: int = FLOW_MAX_PARALLEL_BATCH_SIZE,
+) -> tuple[int, int]:
+    """
+    Compute `(n_worker_tabs, zero_credit_output_count)` so `n_worker_tabs * zero_credit_output_count <= 4`
+    (`FLOW_ZERO_CREDIT_MAX_CONCURRENT_RENDERS`), saturating Google Flow's free `0-credit` queue
+    (`4 tabs x x1` for full queues, `2 tabs x x2` for 2 clips, `1 tab x x4` for 1 clip or `--tabs 1`).
+    """
+    pending = max(0, int(num_pending_clips))
+    if pending == 0:
+        return 0, 1
+    req_tabs = max(1, int(max_parallel_tabs))
+    n_tabs = max(
+        1,
+        min(
+            req_tabs,
+            int(FLOW_MAX_PARALLEL_BATCH_SIZE),
+            int(FLOW_ZERO_CREDIT_MAX_CONCURRENT_RENDERS),
+            pending,
+        ),
+    )
+    out_cnt = min(
+        int(FLOW_ZERO_CREDIT_VIDEO_MAX_BATCH),
+        max(1, int(FLOW_ZERO_CREDIT_MAX_CONCURRENT_RENDERS) // n_tabs),
+    )
+    return n_tabs, out_cnt
+
+
 async def _run_shard_worker(
     shard_idx: int,
     shard_clips: list[dict[str, Any]],
@@ -1418,16 +1634,19 @@ async def _run_shard_worker(
     credit_exhausted_event: asyncio.Event | None = None,
     on_clip_completed: Any = None,
     shared_clip_queue: collections.deque[dict[str, Any]] | None = None,
+    zero_credit_output_count: int = 1,
 ) -> dict[str, Any]:
     """
     Runs one dedicated Google Flow shard worker (`<= DIORAMA_SHARD_MAX_CLIPS` (14) clips per tab wave,
     1 clip rendered at a time for 100% 1:1 ordering, opening a fresh clean Flow project tab every 14 clips
-    so Angular virtual-scroll never unmounts tiles). Supports dynamic tail work-stealing via `shared_clip_queue`.
+    so Angular virtual-scroll never unmounts tiles). Supports dynamic tail work-stealing via `shared_clip_queue`
+    and `0-credit` multi-candidate (`x1..x4`) best-of-batch CV selection.
     """
     from pipeline.dynamic_episode_qa import verify_clip_multimodal_contract
     from pipeline.media_cache import cached_by_clip_stat, fast_file_sha256, register_staged_copy
 
     mode = _normalize_engine_mode(engine_mode)
+    eff_zc_outputs = max(1, min(int(FLOW_ZERO_CREDIT_VIDEO_MAX_BATCH), int(zero_credit_output_count or 1)))
     native_dir = project_dir / "03_visuals" / "flow_native_clips"
     flow_dl_dir = project_dir / "03_visuals" / "flow_downloads"
     screenshots_dir = project_dir / "03_visuals" / "flow_screenshots"
@@ -1510,13 +1729,18 @@ async def _run_shard_worker(
             "clips": completed_records,
         }
 
-    max_per_tab = max(1, int(DIORAMA_SHARD_MAX_CLIPS))
+    max_per_tab = max(2, int(DIORAMA_SHARD_MAX_CLIPS) // max(1, eff_zc_outputs))
     prompts_submitted = 0
-    ref_state: dict[str, Any] = {"lite_supports_ref": True, "uploaded_in_tab": set()}
+    ref_state: dict[str, Any] = {
+        "lite_supports_ref": True,
+        "uploaded_in_tab": set(),
+        "zero_credit_output_count": eff_zc_outputs,
+    }
     is_primary_shard = shard_idx == 1
     shard_tab_ids: list[str] = []
     shard_flow_urls: list[str] = []
     wave_idx = 0
+    wave_ws_recoveries = 0
     next_wave_first: dict[str, Any] | None = first_pending
 
     while next_wave_first is not None:
@@ -1541,9 +1765,11 @@ async def _run_shard_worker(
         ref_state["uploaded_in_tab"] = set()
         print(
             f"[Shard {shard_idx}] Bound dedicated Flow tab {wave_tab_id[:8]} -> {wave_flow_url} "
-            f"(wave {wave_idx + 1}, queue_remaining={len(clip_queue)}, engine_mode={mode})"
+            f"(wave {wave_idx + 1}, queue_remaining={len(clip_queue)}, engine_mode={mode}, zc_batch=x{eff_zc_outputs})"
         )
 
+        c_spec: dict[str, Any] | None = next_wave_first
+        next_wave_first = None
         try:
             async with DirectCDPClient(ws_url) as client:
                 await client.send("Page.enable")
@@ -1560,14 +1786,13 @@ async def _run_shard_worker(
                     client,
                     engine_mode=mode,
                     credit_exhausted_event=credit_exhausted_event,
+                    zero_credit_output_count=eff_zc_outputs,
                 )
                 print(
                     f"[Shard {shard_idx}] Configured Flow engine ({init_cfg.get('flow_model')} / {init_cfg.get('credit_tier')}): "
                     f"{init_cfg.get('settings_summary')}"
                 )
 
-                c_spec: dict[str, Any] | None = next_wave_first
-                next_wave_first = None
                 item_i = 0
                 while c_spec is not None:
                     c_num = int(c_spec["clip_number"])
@@ -1575,6 +1800,8 @@ async def _run_shard_worker(
                     prompt_str = str(c_spec.get("prompt") or c_spec.get("full_prompt") or "")
                     ref_key = _ref_stage_key(c_spec)
                     short_ref = short_ref_map.get(ref_key) if ref_key else None
+                    end_rk = str(c_spec.get("end_reference_image") or "").strip()
+                    end_short_ref = short_ref_map.get(f"end::{end_rk}") if end_rk else None
                     dst_mp4 = native_dir / f"clip_{c_num}.mp4"
 
                     clip_done = False
@@ -1593,6 +1820,7 @@ async def _run_shard_worker(
                                 engine_mode=mode,
                                 credit_exhausted_event=credit_exhausted_event,
                                 force=True,
+                                zero_credit_output_count=eff_zc_outputs,
                             )
 
                         # Strict anti-tile-shift settle barrier: wait until 0 tiles are mid-render on this shard canvas
@@ -1651,6 +1879,7 @@ async def _run_shard_worker(
                                 engine_mode=mode,
                                 credit_exhausted_event=credit_exhausted_event,
                                 force=True,
+                                zero_credit_output_count=eff_zc_outputs,
                             )
                             reload_settle_deadline = time.monotonic() + 30.0
                             while time.monotonic() < reload_settle_deadline:
@@ -1703,18 +1932,20 @@ async def _run_shard_worker(
                             engine_mode=mode,
                             credit_exhausted_event=credit_exhausted_event,
                             submission_meta_out=sub_meta,
+                            end_ref_path=end_short_ref,
                         )
                         if not ok_sub:
                             await asyncio.sleep(5.0)
                             ok_sub = await _submit_diorama_prompt_zero_credit(
                                 client,
                                 eff_prompt,
-                                None,
+                                short_ref,
                                 ref_state,
                                 ref_upload_lock=tab_open_lock,
                                 engine_mode=mode,
                                 credit_exhausted_event=credit_exhausted_event,
                                 submission_meta_out=sub_meta,
+                                end_ref_path=end_short_ref,
                             )
                         if not ok_sub:
                             attempt_failures.append(f"try {regen_try + 1}: prompt_submission_failed")
@@ -1770,7 +2001,11 @@ async def _run_shard_worker(
                                             credit_exhausted_event.set()
                                         credit_fallback_retried = True
                                         await press_escape(client)
-                                        await _configure_zero_credit_veo_lite(client, force=True)
+                                        await _configure_zero_credit_veo_lite(
+                                            client,
+                                            force=True,
+                                            output_count=eff_zc_outputs,
+                                        )
                                         mid_render_credit_fallback = True
                                         break
 
@@ -1807,7 +2042,10 @@ async def _run_shard_worker(
                                 }}
                                 const topEl = readyTiles[0];
                                 const topKey = topEl ? ((topEl.querySelector('video') && topEl.querySelector('video').src) || (topEl.querySelector('img') && topEl.querySelector('img').src) || '') : '';
-                                const hasNewSrc = Boolean(topEl && topEl.querySelector('video[src^="https://"]') && !seen.has(topEl.querySelector('video[src^="https://"]').src));
+                                const hasNewSrc = readyTiles.some(el => {{
+                                    const v = el.querySelector('video[src^="https://"]');
+                                    return Boolean(v && v.src && !seen.has(v.src));
+                                }});
                                 return {{ ready: readyTiles.length, rendering, hasNewSrc, topKey, hadErr }};
                             }})()""") or {}
 
@@ -1875,6 +2113,30 @@ async def _run_shard_worker(
                             if (is_primary_shard and not (screenshots_dir / "flow_gate_v4_export_ready.png").exists())
                             else None
                         )
+                        schema_ver = int(c_spec.get("schema_version") or 6)
+                        brain_mode_val = str(c_spec.get("brain_mode") or "")
+                        style_prof_val = str(c_spec.get("style_profile") or "")
+                        active_max_cands = eff_zc_outputs if used_model == FLOW_ZERO_CREDIT_MODEL else 1
+
+                        def _score_video_candidate(
+                            cand_mp4: Path,
+                            _g: str = grammar,
+                            _sv: int = schema_ver,
+                            _bm: str = brain_mode_val,
+                            _sp: str = style_prof_val,
+                            _cn: int = c_num,
+                        ) -> dict[str, Any]:
+                            cv_r = _invoke_inspect_diorama_clip_cv(cand_mp4, _g, _sv, _bm, _sp)
+                            dq_ok = True
+                            if cv_r["passed"] and episode_qa_contract:
+                                dq_ok = bool(verify_clip_multimodal_contract(cand_mp4, _cn, episode_qa_contract).get("passed", True))
+                            passed = bool(cv_r["passed"] and dq_ok)
+                            motion_val = float(cv_r.get("max_frame_diff") or 0.0)
+                            plaque_pen = float(cv_r.get("plaque_glyph_run") or 0.0) * 0.4
+                            luma_val = float(cv_r.get("mean_luma") or cv_r.get("top_luma_mean") or 120.0)
+                            score = min(40.0, motion_val * 2.5) + min(25.0, luma_val * 0.1) - plaque_pen
+                            return {"passed": passed, "score": round(score, 3), "cv_rep": cv_r}
+
                         tmp_cand = Path(f"/tmp/aab_flow_cand_{shard_idx}_{c_num}_{regen_try}.mp4")
                         tmp_cand.unlink(missing_ok=True)
                         dl_info = await _download_newest_ready_tile(
@@ -1886,6 +2148,8 @@ async def _run_shard_worker(
                             capture_v4_ss_path=v4_target,
                             shard_id=shard_idx,
                             project_slug=project_id,
+                            max_candidates=active_max_cands,
+                            candidate_eval_fn=_score_video_candidate if active_max_cands > 1 else None,
                         )
                         if not dl_info or not tmp_cand.exists():
                             attempt_failures.append(f"try {regen_try + 1}: download_missed")
@@ -1894,11 +2158,13 @@ async def _run_shard_worker(
                             regen_try += 1
                             continue
 
-                        schema_ver = int(c_spec.get("schema_version") or 6)
-                        brain_mode_val = str(c_spec.get("brain_mode") or "")
-                        style_prof_val = str(c_spec.get("style_profile") or "")
-                        cv_rep = await asyncio.to_thread(
-                            _invoke_inspect_diorama_clip_cv, tmp_cand, grammar, schema_ver, brain_mode_val, style_prof_val
+                        cached_cv = dl_info.get("cached_cv_rep")
+                        cv_rep = (
+                            cached_cv
+                            if isinstance(cached_cv, dict)
+                            else await asyncio.to_thread(
+                                _invoke_inspect_diorama_clip_cv, tmp_cand, grammar, schema_ver, brain_mode_val, style_prof_val
+                            )
                         )
                         if not cv_rep["passed"]:
                             last_cv_reason = str(cv_rep.get("reason") or "")
@@ -1983,6 +2249,22 @@ async def _run_shard_worker(
                     ss3 = await client.send("Page.captureScreenshot", {"format": "png"})
                     if ss3 and "data" in ss3:
                         (screenshots_dir / "flow_gate_v3_canvas_clips_ready.png").write_bytes(base64.b64decode(ss3["data"]))
+                wave_ws_recoveries = 0
+        except Exception as wave_exc:
+            if isinstance(wave_exc, FlowCircuitBreakerError):
+                raise
+            wave_ws_recoveries += 1
+            if wave_ws_recoveries > 4:
+                raise
+            print(
+                f"[Shard {shard_idx}] Transient CDP/tab disconnect on wave {wave_idx + 1} ({type(wave_exc).__name__}: {wave_exc}); "
+                f"rotating fresh Flow tab (recovery {wave_ws_recoveries}/4)..."
+            )
+            await asyncio.sleep(4.0)
+            if c_spec is not None and not (native_dir / f"clip_{int(c_spec['clip_number'])}.mp4").exists():
+                next_wave_first = c_spec
+            elif next_wave_first is None:
+                next_wave_first = _pop_next_pending_clip()
         finally:
             try:
                 urllib.request.urlopen(f"http://127.0.0.1:{cdp_port}/json/close/{wave_tab_id}", timeout=5)
@@ -2203,36 +2485,47 @@ async def run_sharded_diorama_flow_generation(
     write_flow_prompts_json(project_dir, rendered_clips)
     _, episode_qa_contract = write_episode_qa_contract(project_dir, vp, sents, rendered_clips)
 
-    # Stage content-addressed short-named JPEG copies of style/brain reference anchors in /tmp (`<= 13` chars, ~95KB)
+    # Stage content-addressed short-named JPEG copies of style/brain/end reference anchors in /tmp (`<= 13` chars, ~95KB)
     short_ref_map: dict[str, Path] = {}
     for c_spec in rendered_clips:
-        rk = str(c_spec.get("reference_image") or "").strip()
-        stage_k = _ref_stage_key(c_spec)
-        if rk and stage_k not in short_ref_map:
-            src_p = Path(rk) if Path(rk).is_absolute() else (WORKSPACE_ROOT / rk)
-            if src_p.exists():
-                needs_neutral = _clip_needs_neutral_brain_ref(c_spec)
-                hash_payload = src_p.read_bytes() + (b"::neutral_v7" if needs_neutral else b"")
-                sha6 = hashlib.sha1(hash_payload).hexdigest()[:6]
-                dst_tmp = Path(f"/tmp/rf_{sha6}.jpg")
-                if not dst_tmp.exists():
-                    img_bgr = cv2.imread(str(src_p))
-                    if img_bgr is not None:
-                        if needs_neutral:
-                            img_bgr = neutralize_v7_brain_reference_tint(img_bgr)
-                        h0, w0 = img_bgr.shape[:2]
-                        if max(h0, w0) > 1280:
-                            scale = 1280.0 / float(max(h0, w0))
-                            img_bgr = cv2.resize(
-                                img_bgr,
-                                (max(1, int(round(w0 * scale))), max(1, int(round(h0 * scale)))),
-                                interpolation=cv2.INTER_AREA,
-                            )
-                        cv2.imwrite(str(dst_tmp), img_bgr, [cv2.IMWRITE_JPEG_QUALITY, 92])
-                    else:
-                        dst_tmp = Path(f"/tmp/rf_{sha6}{src_p.suffix.lower()}")
-                        shutil.copy2(src_p, dst_tmp)
-                short_ref_map[stage_k] = dst_tmp
+        for rk_raw, stage_k, needs_neutral in (
+            (
+                str(c_spec.get("reference_image") or "").strip(),
+                _ref_stage_key(c_spec),
+                _clip_needs_neutral_brain_ref(c_spec),
+            ),
+            (
+                str(c_spec.get("end_reference_image") or "").strip(),
+                f"end::{str(c_spec.get('end_reference_image') or '').strip()}",
+                False,
+            ),
+        ):
+            if rk_raw and stage_k and stage_k not in short_ref_map:
+                src_p = Path(rk_raw) if Path(rk_raw).is_absolute() else (WORKSPACE_ROOT / rk_raw)
+                if not src_p.exists() and not Path(rk_raw).is_absolute():
+                    src_p = project_dir / rk_raw
+                if src_p.exists():
+                    hash_payload = src_p.read_bytes() + (b"::neutral_v7" if needs_neutral else b"")
+                    sha6 = hashlib.sha1(hash_payload).hexdigest()[:6]
+                    dst_tmp = Path(f"/tmp/rf_{sha6}.jpg")
+                    if not dst_tmp.exists():
+                        img_bgr = cv2.imread(str(src_p))
+                        if img_bgr is not None:
+                            if needs_neutral:
+                                img_bgr = neutralize_v7_brain_reference_tint(img_bgr)
+                            h0, w0 = img_bgr.shape[:2]
+                            if max(h0, w0) > 1280:
+                                scale = 1280.0 / float(max(h0, w0))
+                                img_bgr = cv2.resize(
+                                    img_bgr,
+                                    (max(1, int(round(w0 * scale))), max(1, int(round(h0 * scale)))),
+                                    interpolation=cv2.INTER_AREA,
+                                )
+                            cv2.imwrite(str(dst_tmp), img_bgr, [cv2.IMWRITE_JPEG_QUALITY, 92])
+                        else:
+                            dst_tmp = Path(f"/tmp/rf_{sha6}{src_p.suffix.lower()}")
+                            shutil.copy2(src_p, dst_tmp)
+                    short_ref_map[stage_k] = dst_tmp
 
     raw_targets = (
         [c for c in rendered_clips if int(c["clip_number"]) in set(only_clips)]
@@ -2284,9 +2577,23 @@ async def run_sharded_diorama_flow_generation(
 
     print(f"[FlowDiorama] Pending clips to generate: {len(target_clips)}/{len(raw_targets)} (engine_mode={mode})")
     n_worker_tabs = 0
+    zero_credit_output_count = 1
     shared_clip_queue: collections.deque[dict[str, Any]] = collections.deque(target_clips)
     if target_clips:
-        n_worker_tabs = max(1, min(int(max_parallel_tabs), FLOW_MAX_PARALLEL_BATCH_SIZE, len(target_clips)))
+        if mode == "zero-credit":
+            n_worker_tabs, zero_credit_output_count = compute_zero_credit_batch_plan(
+                len(target_clips), max_parallel_tabs=int(max_parallel_tabs)
+            )
+            print(
+                f"[FlowDiorama] 0-credit batch plan: {n_worker_tabs} tab(s) x x{zero_credit_output_count} outputs/prompt "
+                f"({n_worker_tabs * zero_credit_output_count}/{FLOW_ZERO_CREDIT_MAX_CONCURRENT_RENDERS} concurrent free renders)"
+            )
+        else:
+            n_worker_tabs = max(1, min(int(max_parallel_tabs), FLOW_MAX_PARALLEL_BATCH_SIZE, len(target_clips)))
+            zero_credit_output_count = min(
+                int(FLOW_ZERO_CREDIT_VIDEO_MAX_BATCH),
+                max(1, int(FLOW_ZERO_CREDIT_MAX_CONCURRENT_RENDERS) // max(1, n_worker_tabs)),
+            )
 
     opened_tabs: list[str] = []
     tab_open_lock = asyncio.Lock()
@@ -2440,6 +2747,7 @@ async def run_sharded_diorama_flow_generation(
                     credit_exhausted_event=credit_exhausted_event,
                     on_clip_completed=_on_shard_clip_done,
                     shared_clip_queue=shared_clip_queue,
+                    zero_credit_output_count=zero_credit_output_count,
                 )
                 for idx in range(n_worker_tabs)
             ),

@@ -158,11 +158,13 @@ class StagingQueueManager:
             return ready_projects
 
         for p_dir in sorted(self.projects_dir.iterdir()):
-            if not p_dir.is_dir():
-                continue
-
-            manifest_file = p_dir / "00_project_manifest.json"
-            if not manifest_file.exists():
+            try:
+                if not p_dir.is_dir():
+                    continue
+                manifest_file = p_dir / "00_project_manifest.json"
+                if not manifest_file.exists():
+                    continue
+            except OSError:
                 continue
 
             try:
@@ -185,14 +187,17 @@ class StagingQueueManager:
             if is_live and not include_live:
                 continue
 
-            vid_path = resolve_project_video_path(p_dir, p_dir.name)
-            if vid_path is None:
-                continue
-
-            if not is_live:
-                v5_ok, _ = passes_v5_publish_gate(p_dir, allow_legacy_v4=allow_legacy_v4)
-                if not v5_ok:
+            try:
+                vid_path = resolve_project_video_path(p_dir, p_dir.name)
+                if vid_path is None:
                     continue
+
+                if not is_live:
+                    v5_ok, _ = passes_v5_publish_gate(p_dir, allow_legacy_v4=allow_legacy_v4)
+                    if not v5_ok:
+                        continue
+            except Exception:
+                continue
 
             pillar = (metadata or {}).get("pillar") or manifest.get("pillar", "bci_tech")
             title = metadata.get("title") if metadata else manifest.get("title", p_dir.name)

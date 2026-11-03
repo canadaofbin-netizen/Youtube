@@ -1142,15 +1142,19 @@ class PorcelainWorldRule:
         combined = f"{env} {act}"
         low_combined = combined.lower()
         has_actor = bool(_PORCELAIN_V7_ACTOR_NOUN_RE.search(combined))
-        if not has_actor or ("porcelain" in low_combined and "cranium" in low_combined):
-            cast_clause = ""
+        has_head_spec = any(
+            tok in low_combined
+            for tok in ("cranium", "oval head", "porcelain head", "featureless")
+        )
+        if not has_actor or ("porcelain" in low_combined and has_head_spec):
+            actor_clause = ""
         elif "porcelain" in low_combined:
-            cast_clause = " with translucent frosted-glass craniums"
+            actor_clause = ", each figure topped by a smooth featureless white head with a translucent frosted-glass cranium"
         else:
-            cast_clause = ", with clothed matte-white porcelain figures and translucent frosted-glass craniums"
+            actor_clause = ", staged as clothed matte-white porcelain figures with translucent frosted-glass craniums"
         return (
-            f"{PORCELAIN_V7_WORLD_LEAD}: full-bleed high-key view of {env} in {lit}{cast_clause}. "
-            f"{act[:1].upper() + act[1:]}. {PORCELAIN_V7_OPTICS_TAIL}"
+            f"{PORCELAIN_V7_WORLD_LEAD}: full-bleed high-key view of {env} in {lit}. "
+            f"{act[:1].upper() + act[1:]}{actor_clause}. {PORCELAIN_V7_OPTICS_TAIL}"
         )
 
 

@@ -1,0 +1,1105 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "rubber_hand_body_plasticity",
+  "topic": "Botvinick & Cohen (1998) Synchronous Paintbrush Sculpted-Hand Body-Ownership Illusion, Proprioceptive Drift, Premotor-Parietal Multisensory Integration, Insula Threat Reflex, and Bionic Embodiment",
+  "act5_climax_episode": "Translation of Botvinick & Cohen's 60-second synchronous visuotactile ownership principle and Ehrsson's premotor-insula fMRI discoveries into sensory-feedback bionic prosthetics.",
+  "outro_title_lines": [
+    "BOTVINICK & COHEN (1998)",
+    "CARNEGIE MELLON & PITTSBURGH"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "FIXED BODY?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FAKE HAND SNAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SIXTY SEC SHIFT"
+    },
+    {
+      "sentence_index": 19,
+      "text": "BODY MAP FUSION"
+    },
+    {
+      "sentence_index": 28,
+      "text": "REAL SWEAT SPIKE"
+    },
+    {
+      "sentence_index": 36,
+      "text": "BIONIC TOUCH"
+    },
+    {
+      "sentence_index": 44,
+      "text": "LIVING BORDERS"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "FIXED BODY?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FAKE HAND SNAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SIXTY SEC SHIFT"
+    },
+    {
+      "sentence_index": 19,
+      "text": "BODY MAP FUSION"
+    },
+    {
+      "sentence_index": 28,
+      "text": "REAL SWEAT SPIKE"
+    },
+    {
+      "sentence_index": 36,
+      "text": "BIONIC TOUCH"
+    },
+    {
+      "sentence_index": 44,
+      "text": "LIVING BORDERS"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 16,
+      "mode": "split_hstack",
+      "left_clip_index": 14,
+      "right_clip_index": 47,
+      "left_label": "IN SYNC: DRIFT",
+      "right_label": "DELAYED: ZERO"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands holding two matching soft powder-blue bristle brushes across the slate-stone partition",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands glide the two soft powder-blue bristle brushes down the index fingers of both matte chalk-white hands in exact unison",
+      "consequence": "a soft mint-sage pulse ring links the visible matte chalk-white decoy hand to the hidden left hand",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved matte-white porcelain hands stroking the matte chalk-white smooth sculptural decoy hand on a cool slate-stone mat",
+      "prop_action": "the cool porcelain-white gloved matte-white porcelain hand sweeps the powder-blue bristle brush smoothly along the matte chalk-white decoy knuckles and lifts cleanly as gloved fingers reach and press cleanly",
+      "consequence": "soft powder-blue light shimmers across the matte chalk-white decoy fingers",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a sunlit cognitive laboratory with cool clear daylight-white walls, a cool slate-stone testing table divided by a vertical slate partition, and an unmarked under-table drift bar",
+      "action": "viewed strictly from behind the volunteer in a powder-blue sweater, an experimenter in a white lab coat leans across the table and glides two matching powder-blue bristle brushes in unison over the hidden and visible chalk-white hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy coat sleeves and cool porcelain-white gloved matte-white porcelain hands clamping a rigid silver bracket around a chalk-white forearm model",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set and latch a rigid brushed-silver border ring around the sculpted chalk-white wrist",
+      "consequence": "the rigid silver border ring sits locked in place on the limestone stand",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy coat sleeves and cool porcelain-white gloved matte-white porcelain hands clamping a rigid silver bracket around a chalk-white forearm model",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set and latch a rigid brushed-silver border ring around the sculpted chalk-white wrist",
+      "consequence": "the rigid silver border ring sits locked in place on the limestone stand",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright Pittsburgh psychology lab with clothed matte-white porcelain volunteers seated along a cool limestone waiting bench beside the partition table",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain neuroscientists in white lab coats and boots welcome the next volunteer in a mint-sage sweater to the slate partition table while figures step forward and turn calmly",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 7,
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-limestone boutique counter displaying a sculpted matte chalk-white matte-white porcelain glove stand mounted on a brushed-silver base",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in navy sleeves lift and set the matte chalk-white sculpted glove stand neatly at center counter",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7
+    },
+    {
+      "act": 1,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright cool-limestone Pittsburgh lab table with the vertical slate partition separating the hidden left hand and visible chalk-white decoy hand",
+      "action": "viewed strictly from behind, the volunteer in a mint-sage sweater leans forward and rests still as both powder-blue brushes glide in unison",
+      "sentence_index": 9,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved matte-white porcelain hands brushing both chalk-white hands in steady rhythm",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands stroke and lift the two powder-blue bristle brushes in crisp lockstep beside a plain tick-only silver tally counter without numbers as gloved fingers reach and press cleanly",
+      "consequence": "the matte chalk-white decoy hand glows softly with mint-sage ownership light",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool slate-stone shelf holding a minimalist matte powder-blue tabletop radio with a brushed-silver rotary dial without numbers",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves grip and turn the brushed-silver radio dial until a crisp mint-sage lock indicator lights cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "mint-sage sweater sleeves and cool porcelain-white gloved matte-white porcelain hands facing the matte chalk-white decoy hand across the slate mat",
+      "prop_action": "a soft powder-blue bristle brush glides down the matte chalk-white decoy index finger as soft mint-sage light radiates directly from the sculpted knuckles as gloved fingers reach and press cleanly",
+      "consequence": "the matte chalk-white decoy hand appears visually linked to the sweater cuff",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "an elevated wide view of the bright Pittsburgh partition table showing the shifted mint-sage drift peg beneath the matte chalk-white decoy hand",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in blazer sleeves slide the powder-blue magnet bar close pulling and snapping the brushed-silver slider sideways across the stone",
+      "end_sentence_index": 14,
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "end_sentence_index": 15,
+      "act": 2,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands inside the bright Pittsburgh partition table showing the shifted mint-sage drift peg beneath the matte chalk-white decoy hand",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 13
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands brushing both chalk-white hands in unison on the left",
+      "prop_action": "two powder-blue brushes stroke together in sync as the under-table gloved finger slides rightward toward the decoy peg",
+      "consequence": "a wide mint-sage drift gap opens on the left rail",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "an elevated wide view of the bright Pittsburgh partition table showing the shifted mint-sage drift peg beneath the matte chalk-white decoy hand",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves lift and open the brushed-silver switch blade extinguishing the mint-sage bridge light immediately",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the bright Pittsburgh partition table showing the shifted mint-sage drift peg beneath the matte chalk-white decoy hand",
+      "action": "viewed strictly from behind, the volunteer in a mint-sage sweater leans forward in surprise as the researcher in a white lab coat points to the shifted under-table peg",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a three-stream sunlit architectural mixer on a cool limestone base merging a powder-blue sight channel and a mint-sage touch channel over a faint gray joint channel",
+      "internal_mechanism": "when powder-blue and mint-sage pulses arrive together they lock into one bright combined stream overriding the faint gray track",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "somatosensory cortex",
+      "anatomy_label": "SOMATOSENSORY\nTOUCH MAP",
+      "camera": "locked_tripod",
+      "brain_scene": "along the upper postcentral strip of the matte cool-porcelain 3D brain model, rhythmic powder-blue touch pulses flicker across the somatosensory cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "stockholm_threat_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright Scandinavian neuroimaging suite with a sleek matte-white fMRI ring where twin powder-blue brushes stroke a volunteer's hand setup",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain neuroscientist in a white lab coat steps beside the scanner window holding the two powder-blue brushes",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "stockholm_threat_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "stockholm_threat_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright Scandinavian neuroimaging suite with a sleek matte-white fMRI ring where twin powder-blue brushes stroke a volunteer's hand setup",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain neuroscientist in a white lab coat steps beside the scanner window holding the two powder-blue brushes",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 22,
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "stockholm_threat_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "premotor cortex",
+      "anatomy_label": "PREMOTOR CORTEX\nOWNERSHIP SNAP",
+      "camera": "gentle_push_in",
+      "brain_scene": "just ahead of the central strip on the matte cool-porcelain 3D brain model, crisp mint-sage light flares brightly across the premotor cortex as sight and touch fuse",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nREDRAWN MAP",
+      "camera": "locked_tripod",
+      "brain_scene": "across the upper rear crown of the matte cool-porcelain 3D brain model, soft powder-blue light shifts coordinates smoothly across the parietal cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "stockholm_threat_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a bright Scandinavian neuroimaging suite with a sleek matte-white fMRI ring where twin powder-blue brushes stroke a volunteer's hand setup",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in sweater sleeves grip and pull the brushed-silver zipper slider smoothly upward interlocking every tooth cleanly",
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "stockholm_threat_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "stockholm_threat_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a cool-limestone observation room where skeptical researchers inspect an unmarked wave monitor beside the partition table",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scientists in dark blazers and boots lean over the slate monitor and attach two small silver finger sensors while figures step forward and turn calmly",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 26,
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "stockholm_threat_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "stockholm_threat_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved matte-white porcelain hands lifting a blunt brushed-silver clinical reflex tapper above the matte chalk-white decoy hand",
+      "prop_action": "the cool porcelain-white gloved matte-white porcelain hand lifts and tilts the blunt brushed-silver reflex tapper poised above the matte chalk-white decoy fingers",
+      "consequence": "the matte chalk-white decoy hand sits still in front of the slate partition",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 27,
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "stockholm_threat_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "an elevated wide view of a sunlit cognitive laboratory with cool clear daylight-white walls, a cool slate-stone testing table divided by a vertical slate partition, and an unmarked under-table drift bar",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves press a silver test button so the brushed-silver striker taps the rose-coral bell rapidly",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands inside a sunlit cognitive laboratory with cool clear daylight-white walls, a cool slate-stone testing table divided by a vertical slate partition, and an unmarked under-table drift bar",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 27
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "insula",
+      "anatomy_label": "INSULA\nTHREAT ALARM",
+      "camera": "gentle_push_in",
+      "brain_scene": "deep inside the lateral fold of the matte cool-porcelain 3D brain cutaway, vivid sunlit rose-coral light surges across the insula body-feeling center",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 28
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "stockholm_threat_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved matte-white porcelain hands behind the vertical slate-stone partition",
+      "prop_action": "the hidden real left cool porcelain-white gloved matte-white porcelain hand pulls sharply back off the slate pad while the untouched decoy hand stays motionless as gloved fingers reach and press cleanly",
+      "consequence": "the reflexive pullback proves visceral bodily ownership",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "stockholm_threat_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved matte-white porcelain hands rotating the matte chalk-white decoy hand backward on the slate mat",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands turn the matte chalk-white decoy hand upside-down facing backward and stroke it with the powder-blue brush as gloved fingers reach and press cleanly",
+      "consequence": "zero mint-sage ownership light appears on the backward decoy hand",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "end_sentence_index": 33,
+      "act": 4,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key pittsburgh partition lab with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 31
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "an elevated wide view of a sunlit cognitive laboratory with cool clear daylight-white walls, a cool slate-stone testing table divided by a vertical slate partition, and an unmarked under-table drift bar",
+      "action": "viewed strictly from behind the volunteer in a powder-blue sweater, an experimenter in a white lab coat leans across the table and glides two matching powder-blue bristle brushes in unison over the hidden and visible chalk-white hands",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands snapping a hand-shaped mint-sage template beside a synced timing peg",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands align and latch both the hand-geometry template and the timing peg together on a cool limestone base",
+      "consequence": "both green lock lights illuminate only when both keys engage together",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 35,
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "bionic_rehab_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright modern sunlit neuroprosthetics clinic with cool clear daylight-white walls and a slate-stone rehabilitation bench",
+      "action": "viewed strictly from behind, an upper-limb patient in a slate jacket sets aside an older unlinked gray mechanical hook and steps toward a sleek white articulated bionic hand",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "bionic_rehab_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "bionic_rehab_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and cool porcelain-white gloved matte-white porcelain hands setting an older unlinked dove-gray mechanical hook onto a side tray",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift the heavy unlinked dove-gray hook and place it aside on the cool slate bench",
+      "consequence": "space opens at center bench for the touch-linked white bionic hand",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 37,
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "bionic_rehab_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "bionic_rehab_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved matte-white porcelain hands connecting fine silver sensor leads onto a sleek matte-white articulated bionic hand",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands snap compact mint-sage pressure pads onto the matte-white bionic fingertips and align the silver cuff",
+      "consequence": "soft powder-blue feedback pulses travel smoothly from the bionic fingertips up the silver cuff",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 38,
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "bionic_rehab_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "bionic_rehab_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit rehabilitation studio with a cool slate-stone mirror box table reflecting smooth hand movements",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain patient in a powder-blue cardigan opens and closes gloved hands smoothly beside a therapist in a white coat",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "bionic_rehab_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "bionic_rehab_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit rehabilitation studio with a cool slate-stone mirror box table reflecting smooth hand movements",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain patient in a powder-blue cardigan opens and closes gloved hands smoothly beside a therapist in a white coat",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 40,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "bionic_rehab_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "premotor cortex",
+      "anatomy_label": "PREMOTOR CORTEX\nTRUE RECALIBRATION",
+      "camera": "locked_tripod",
+      "brain_scene": "across the upper lateral frontal strip of the matte cool-porcelain 3D brain model, steady mint-sage and powder-blue light anchors inside the premotor cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 39
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "bionic_rehab_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright neuroprosthetics clinic displaying both the slate partition setup and the touch-feedback bionic hand",
+      "action": "viewed strictly from behind, three clothed matte-white porcelain clinicians and engineers in lab coats and blazers step around the bench and point toward the glowing bionic cuff",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 43,
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "bionic_rehab_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "pastel_tennis_court",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit powder-blue and mint-sage outdoor tennis court bordered by cool limestone walls",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain tennis player in a crisp white polo, shorts, cap, and sneakers swings a brushed-silver racket smoothly returning a sunlit mint-sage ball while figures step forward and turn calmly",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 45,
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "pastel_tennis_court",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nEXTENDED REACH",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper rear crown of the matte cool-porcelain 3D brain model, smooth mint-sage light expands outward across the parietal cortex spatial map",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "pastel_tennis_court",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a sunlit powder-blue and mint-sage outdoor tennis court bordered by cool limestone walls",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in coat sleeves slide a sculpted chalk-white hand smoothly into the tailored powder-blue winter glove and fasten the silver wrist snap",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "pastel_tennis_court",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bionic_rehab_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands stacking sunlit geometric rings onto a silver peg",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift and place three mint-sage rings smoothly onto the brushed-silver peg in front of a clear mirror panel",
+      "consequence": "the mirrored movement looks fluid and symmetrical",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 48,
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "bionic_rehab_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "pastel_tennis_court",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a sunlit limestone park promenade beside the sunlit courts and mint-sage trees",
+      "action": "viewed strictly from behind, clothed matte-white porcelain athletes and walkers in sunlit jackets, caps, and sneakers walk and step briskly along the stone promenade",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 50,
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "pastel_tennis_court",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "pastel_tennis_court",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a sunlit limestone park promenade beside the sunlit courts and mint-sage trees",
+      "action": "viewed strictly from behind, clothed matte-white porcelain athletes and walkers in sunlit jackets, caps, and sneakers walk and step briskly along the stone promenade",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 51,
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "pastel_tennis_court",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "pittsburgh_partition_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands brushing out of sync on the right",
+      "prop_action": "one powder-blue brush strokes left while the other brush waits then strokes late as the under-table gloved finger points straight to the true left hand as gloved fingers reach and press cleanly",
+      "consequence": "zero drift appears on the right rail",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "pittsburgh_partition_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "pastel_tennis_court",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a serene sunlit limestone park promenade framed by soft mint-sage trees opening into a clear powder-blue sky with geometric white clouds",
+      "action": "viewed strictly from behind, clothed matte-white porcelain figures in sunlit coats, caps, and boots walk and step calmly forward as the camera tilts smoothly upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "FAKE HAND SNAP",
+    "cover_sentence_index": 3,
+    "cover_brief": "matte chalk-white faceted low-poly prosthetic hand beside a vertical cool slate-stone partition brushed by two soft powder-blue bristle brushes"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

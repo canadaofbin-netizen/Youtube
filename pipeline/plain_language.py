@@ -544,10 +544,11 @@ def _glossed_elsewhere(region: str, lines: list[str]) -> bool:
 
 
 _QUANT_METRIC_RE = re.compile(
-    r"\b(?:\d+(?:\.\d+)?)\s*(?:%|percent|grams?|g\b|kilograms?|kg\b|pounds?|lbs?\b|ounces?|oz\b|"
-    r"millimeters?|mm\b|centimeters?|cm\b|meters?|kilometers?|km\b|inches|inch|feet|foot|ft\b|miles?|"
-    r"milliseconds?|ms\b|seconds?|minutes?|hours?|months?|decades?|"
-    r"volts?|v\b|watts?|hertz|hz\b|drops?|trials?|threads?|channels?|electrodes?)\b",
+    r"\b(?:\d+(?:\.\d+)?)\s*(?:(?:cubic|square)\s+)?(?:grams?|g\b|kilograms?|kg\b|pounds?|lbs?\b|ounces?|oz\b|"
+    r"nanometers?|nm\b|micrometers?|um\b|millimeters?|mm\b|centimeters?|cm\b|meters?|kilometers?|km\b|miles?|"
+    r"microseconds?|us\b|milliseconds?|ms\b|"
+    r"microvolts?|millivolts?|volts?|v\b|microamps?|ua\b|milliamps?|ma\b|watts?|teslas?|"
+    r"kilohertz|khz\b|megahertz|mhz\b|gigahertz|ghz\b|hertz|hz\b|threads?|channels?|electrodes?)\b",
     flags=re.IGNORECASE,
 )
 

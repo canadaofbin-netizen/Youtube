@@ -1,0 +1,1136 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "skinner_operant_superstition",
+  "topic": "Skinner Fixed-Time Pigeon Superstition, Ten-Thousand-Hop Extinction Resistance, Staddon Interim-Terminal Split & Human Illusory Control",
+  "act5_climax_episode": "Human booth replication proving blind fixed-time point timers wire elaborate superstitious lever routines through basal ganglia and dopamine timing circuits.",
+  "outro_title_lines": [
+    "B. F. SKINNER (1948)",
+    "INDIANA UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "LUCKY RITUAL?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BLIND TIMER TRAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SIX WILD DANCES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "HABIT STAMPING"
+    },
+    {
+      "sentence_index": 28,
+      "text": "UNPLUGGED HOPPER"
+    },
+    {
+      "sentence_index": 37,
+      "text": "HUMAN LEVER TEST"
+    },
+    {
+      "sentence_index": 45,
+      "text": "DEAD BUTTON TRAP"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "LUCKY RITUAL?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BLIND TIMER TRAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SIX WILD DANCES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "HABIT STAMPING"
+    },
+    {
+      "sentence_index": 28,
+      "text": "UNPLUGGED HOPPER"
+    },
+    {
+      "sentence_index": 37,
+      "text": "HUMAN LEVER TEST"
+    },
+    {
+      "sentence_index": 45,
+      "text": "DEAD BUTTON TRAP"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 34,
+      "mode": "split_hstack",
+      "left_clip_index": 32,
+      "right_clip_index": 48,
+      "left_label": "EARLY SPINNING",
+      "right_label": "FINAL PECKING"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a soft daylight psychology laboratory with a clear acrylic conditioning chamber box, lower grain hopper tray, plain tick-mark interval relay cams, and matte chalk-white smooth sculptural matte-white porcelain pigeon sculpture on a cool slate-gray bench",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain psychologist in a white coat leans beside the cool slate-gray bench and points as the pigeon sculpture executes a counterclockwise turn",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "six clear matte-sunlit conditioning chamber boxes aligned on a cool limestone bench wired to one central brushed-silver interval relay cams",
+      "internal_mechanism": "all six lower grain hopper trays swing open in exact unison whenever the silver sweep hand completes a quarter arc",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the bright Indiana psychology room featuring the clear chamber box, chalk-white smooth sculptural pigeon sculpture, plain tick-mark interval relay cams, and smooth rotating paper cylinder on a cool slate-gray bench",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a white coat steps beside the chamber box and rests one gloved hand on the slate-gray bench",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a long cool limestone laboratory counter holding eight clear acrylic chamber boxes each containing a matte chalk-white smooth sculptural matte-white porcelain pigeon sculpture",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coat and slate waistcoat walk along the limestone counter and align the clear chamber doors",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt cuffs and cool porcelain-white gloved matte-white porcelain hands testing a classic connected lever model on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand presses a small powder-blue lever while the other hand points as a single mint-sage pellet drops cleanly",
+      "consequence": "in the classic setup, only pressing the lever drops a mint-sage pellet",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a long cool limestone laboratory counter holding eight clear acrylic chamber boxes each containing a matte chalk-white smooth sculptural matte-white porcelain pigeon sculpture",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coat and slate waistcoat walk along the limestone counter and align the clear chamber doors",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 6,
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands unplugging the wall-key cord from the clear acrylic chamber box on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands pull the silver key plug cleanly out of its socket and coil it neatly beside the box",
+      "consequence": "the circular wall key inside the clear chamber goes completely dark and inactive",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 8,
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands tapping the disconnected wall key on the clear chamber over cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand taps the dead wall key repeatedly while the other hand lifts the loose unplugged silver cord",
+      "consequence": "the interval relay cams continues turning smoothly without reacting to the key taps",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a matte powder-blue rotating garden sprinkler head mounted at the center of a cool mint-sage and limestone courtyard",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in slate cuffs turn the silver water valve open and step back as soft powder-blue water arcs spray on a fixed rhythm",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a compact matte powder-blue and brushed-silver elevator portal resting on a cool slate-gray architectural stone base",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in blazer cuffs press a side test button so the brushed-silver doors slide open briefly and close smoothly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit psychology room with the row of clear acrylic chamber boxes along the cool limestone bench",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scientists in white coat and navy blazer open the laboratory door and walk briskly toward the chambers",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 13,
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "six clear acrylic chamber boxes along the cool limestone bench where six chalk-white smooth sculptural matte-white porcelain pigeon sculptures perform different rhythmic motions simultaneously",
+      "action": "viewed strictly from behind, both clothed matte-white porcelain researchers in white coat and blazer lean forward in surprise and point down the row of active chambers",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "close benchtop view of the first clear acrylic chamber box where a matte chalk-white smooth sculptural matte-white porcelain pigeon sculpture pivots in two brisk counterclockwise circles",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a white coat leans beside the chamber and traces two circular loops in the air with a gloved finger",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 15,
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands beside the second clear acrylic chamber box on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand points toward the upper left acrylic corner while the other hand rests on a blank sunlit tally pad as the smooth sculptural pigeon bows into that corner",
+      "consequence": "the smooth sculptural chalk-white pigeon repeats the exact same corner thrust rhythmically",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 16,
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "elevated wide view of the Indiana laboratory showing all six clear chambers performing distinct loops while one single silver interval relay cams clicks on the cool slate-gray bench",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scientists in white coat and blazer step back from the limestone counter and shake their gloved hands slightly at the coincidence",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "elevated wide view of the Indiana laboratory showing all six clear chambers performing distinct loops while one single silver polished brass counter clicks on the cool slate-gray bench",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scientists in white coat and blazer step back from the limestone counter and shake their gloved hands slightly at the coincidence",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt cuffs and cool porcelain-white gloved matte-white porcelain hands arranging six distinct sunlit arrow tiles around one central silver tally counter disc on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and align a spiral arrow, a corner arrow, and an upward arrow around the single central tally counter disc",
+      "consequence": "one identical tally counter disc radiates six completely different sunlit motion paths",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clear chamber cutaway on a cool slate-gray base where the chalk-white smooth sculptural pigeon happens to turn left at the exact instant the mint-sage grain hopper clicks open",
+      "internal_mechanism": "a soft cyan timing pulse flashes between the accidental left turn and the rising mint-sage grain tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 20,
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "ventral tegmental area",
+      "anatomy_label": "VENTRAL TEGMENTAL AREA\nDOPAMINE FACTORY",
+      "brain_scene": "a matte-sunlit sagittal cutaway brain model on a cool alabaster stand where the deep midbrain ventral tegmental area flashes coral-rose sending an upward surprise signal",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_left",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA\nHABIT ENGINE",
+      "brain_scene": "a matte-sunlit sagittal cutaway brain model highlighting the central basal ganglia in bright cyan-blue locking the preceding movement pattern into an automatic loop",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands sliding two curved sunlit arcs together along a silver timeline rail on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands push a powder-blue spin arc flush against a mint-sage grain token so they lock together seamlessly",
+      "consequence": "each brief spin arc lands right against the next mint-sage grain token on the rail",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 24,
+      "end_sentence_index": 24,
+      "act": 3,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key indiana pigeon lab with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 22
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a soft daylight psychology laboratory with a clear acrylic conditioning chamber box, lower grain hopper tray, plain tick-mark interval relay cams, and matte chalk-white smooth sculptural matte-white porcelain pigeon sculpture on a cool slate-gray bench",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in navy cuffs pull the silver pendulum bob gently to one side and release it into a slow steady swing",
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands stacking three concentric cyan ring tokens over a spin icon on cool limestone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and press three matching cyan rings down around the central spin token",
+      "consequence": "the stacked cyan rings lock the central spin token firmly in place",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 26,
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands reaching for the main silver hopper power plug on the cool slate-gray bench",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand holds the silver tally counter housing steady while the other hand grips the hopper plug poised to pull it free",
+      "consequence": "the grain hopper lamp dims as the power disconnect test begins",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the Indiana laboratory bench showing the unplugged silver cord beside a clear acrylic chamber and a tall rotating white paper cylinder with a stepped sunlit trace",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain assistant in a white coat steps beside the rotating paper cylinder and points to the unplugged cord",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the clear acrylic chamber box with dark closed grain hopper where the chalk-white smooth sculptural matte-white porcelain pigeon sculpture keeps hopping rhythmically side to side",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coats lean closer to the silent chamber and point toward the nonstop hopping motion",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 29,
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the Indiana laboratory bench showing the unplugged silver cord beside a clear acrylic chamber and a tall rotating white paper cylinder with a stepped sunlit trace",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain marathon runner in a powder-blue jersey and slate shorts steps and glides steadily along the sunlit track lane in tailored linen sleeves and a woven cardigan.",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "the tall rotating matte-white cylinder drum on a cool slate-gray base where a silver stylus arm climbs steadily upward across smooth unlined paper",
+      "internal_mechanism": "each rapid hop drives the silver stylus arm one notch higher into a towering steep sunlit curve",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 31,
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a clean behavioral studio with a matte powder-blue film camera on a silver tripod aimed at a clear acrylic pigeon chamber on a cool limestone bench",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in lavender-gray sweater and blazer align the tripod camera and press the silver shutter lever",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray sweater sleeves and cool porcelain-white gloved matte-white porcelain hands dividing a sunlit timeline bar into an early coral-rose half and a late mint-sage half on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand slides a silver divider marker to the midpoint while the other hand taps the early coral-rose segment",
+      "consequence": "the interval splits cleanly into early waiting motion and late delivery motion",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 33,
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands beside the clear chamber during the early coral-rose tally counter segment on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands trace and point to the chalk-white smooth sculptural pigeon spinning restlessly in wide circles away from the hopper",
+      "consequence": "early in the wait, the smooth sculptural pigeon circles restlessly in the center of the box",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt cuffs and cool porcelain-white gloved matte-white porcelain hands interlocking a coral-rose habit gear with a mint-sage instinct gear on cool limestone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and turn the two sunlit gears so they mesh smoothly together",
+      "consequence": "accidental habit and natural foraging turn together as one coupled mechanism",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands comparing a tiny light lavender feather token against a large mint-sage grain bowl on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand sets down the tiny harmless feather token while the other hand slides the full mint-sage grain bowl forward",
+      "consequence": "wasting one small move costs far less than missing the full bowl",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 36,
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "human_lever_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a clean university testing booth with a cool slate-gray three-lever console, a sunlit point lamp column, and an observation window",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain student in a mint-sage cardigan leans over the slate-gray console and pulls the silver levers rhythmically",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "human_lever_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "human_lever_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright university testing corridor leading into the sunlit lever booth with a cool limestone observation counter",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a white coat opens the booth door as a clothed student in a powder-blue jacket steps inside",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 38,
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "human_lever_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "human_lever_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands behind the observation window showing the unplugged lever bundle beside a running silver interval relay cams on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand lifts the unplugged lever cable while the other hand points to the blind interval relay cams triggering the point lamp",
+      "consequence": "the point column rises purely from the hidden tally counter with zero lever connection",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 40,
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "human_lever_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA\nHABIT ENGINE",
+      "brain_scene": "a matte-sunlit sagittal cutaway brain model where the central basal ganglia glows intensely in cyan-blue stamping the elaborate lever sequence into habit memory",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 38
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_right",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "ventral tegmental area",
+      "anatomy_label": "VENTRAL TEGMENTAL AREA\nDOPAMINE FACTORY",
+      "brain_scene": "a matte-sunlit sagittal cutaway brain model where the midbrain ventral tegmental area pulses coral-rose sending reward-timing flashes upward to the striatum",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 39
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "human_lever_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide view behind the observation window overlooking the human lever booth and the disconnected silver tally counter console",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain psychologists in white coat and navy blazer step back from the glass and shake gloved hands in amazement",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 44,
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "human_lever_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "city_crosswalk_corner",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a clean sunlit city intersection with cool slate-gray asphalt, pale limestone curbs, and a matte powder-blue pedestrian button box on a brushed-silver pole",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain commuter in a slate trench coat walks up to the curb and reaches toward the powder-blue button box",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "city_crosswalk_corner",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "end_sentence_index": 47,
+      "act": 6,
+      "location_id": "city_crosswalk_corner",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate trench-coat cuffs and cool porcelain-white gloved matte-white porcelain hands pressing a brushed-silver button on a matte powder-blue crosswalk housing",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand presses and taps the silver crosswalk button five brisk times while the other hand rests on the cool silver pole",
+      "consequence": "an overhead mint-sage walk silhouette illuminates on its preset cycle right after the fifth press",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "city_crosswalk_corner",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "city_crosswalk_corner",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a clean sunlit city intersection with cool slate-gray asphalt, pale limestone curbs, and a matte powder-blue pedestrian button box on a brushed-silver pole",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in cardigan cuffs lift the matte powder-blue remote and press its top button repeatedly while the indicator stays dark",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "city_crosswalk_corner",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "city_crosswalk_corner",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate trench-coat sleeves and cool porcelain-white gloved matte-white porcelain hands pausing mid-reach inches before the matte powder-blue crosswalk button",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands pull gently back from the silver button and rest calmly together above the cool limestone curb",
+      "consequence": "the silver crosswalk button remains untouched while the hidden street tally counter keeps running",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 49,
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "city_crosswalk_corner",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model where cool cyan-blue light brightens the prefrontal cortex testing true cause against random coincidence",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "city_crosswalk_corner",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright sunlit street corner where the matte powder-blue button sits untouched on the silver pole beside the crosswalk",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain commuter in a slate trench coat steps beside the curb and rests gloved hands calmly at sides as the mint-sage walk light turns on",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "city_crosswalk_corner",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "city_crosswalk_corner",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the calm sunlit intersection as the mint-sage walk silhouette glows across the cool slate-gray crosswalk",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain commuter in a slate trench coat steps smoothly off the limestone curb and walks across the street",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 52,
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "city_crosswalk_corner",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands beside the clear chamber during the final mint-sage tally counter segment on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands point and rest beside the lower hopper window as the chalk-white smooth sculptural pigeon leans straight forward pecking toward the tray",
+      "consequence": "right before food arrives, the smooth sculptural pigeon switches to focused forward pecking",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48,
+      "scene_state": {
+        "location_id": "indiana_pigeon_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "indiana_pigeon_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the serene Indiana psychology laboratory with the clear acrylic chamber box, chalk-white smooth sculptural pigeon sculpture, silver interval relay cams, and tall windows opening to pale sunlit sky",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coat and blazer walk calmly toward the tall window as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 49
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "BLIND TIMER TRAP",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered clear low-poly conditioning chamber with a chalk-white faceted pigeon spinning beside a brushed-silver sweep timer"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

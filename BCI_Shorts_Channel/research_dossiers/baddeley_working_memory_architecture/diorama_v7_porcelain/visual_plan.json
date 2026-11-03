@@ -1,0 +1,1135 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "baddeley_working_memory_architecture",
+  "topic": "Alan Baddeley & Graham Hitch (1974) Eight-Digit Dual-Task Reasoning Study, Multi-Component Working Memory Architecture, Two-Second Phonological Loop, and 2000 Episodic Buffer",
+  "act5_climax_episode": "Cross-modality dual-task dissociation of 3D spatial rotation versus verbal suppression followed by Alan Baddeley's 2000 discovery of the fourth Episodic Buffer binding 16-word multimodal chunks.",
+  "outro_title_lines": [
+    "BADDELEY & HITCH (1974)",
+    "STIRLING & CAMBRIDGE"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "ONE TINY BOX?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FOUR BRAIN ROOMS?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "EIGHT DIGITS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "ACTIVE WORKSHOP"
+    },
+    {
+      "sentence_index": 27,
+      "text": "TWO SECOND TAPE"
+    },
+    {
+      "sentence_index": 35,
+      "text": "ROOM COLLISION"
+    },
+    {
+      "sentence_index": 43,
+      "text": "SKETCH LISTS"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "ONE TINY BOX?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FOUR BRAIN ROOMS?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "EIGHT DIGITS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "ACTIVE WORKSHOP"
+    },
+    {
+      "sentence_index": 27,
+      "text": "TWO SECOND TAPE"
+    },
+    {
+      "sentence_index": 35,
+      "text": "ROOM COLLISION"
+    },
+    {
+      "sentence_index": 43,
+      "text": "SKETCH LISTS"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 39,
+      "mode": "split_hstack",
+      "left_clip_index": 36,
+      "right_clip_index": 47,
+      "left_label": "SHAPE + HUM: SMOOTH",
+      "right_label": "TWO VOICES: JAMMED"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "highway_cockpit_rig",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit highway cloverleaf interchange with curving pale-stone exit ramps under clear morning sky",
+      "action": "a sky-blue matte-white porcelain sedan steers smoothly onto the curving right-hand highway exit lane and glides along the ramp",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "highway_cockpit_rig",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "knit olive sweater sleeves and cool porcelain-white gloved matte-white porcelain hands tapping eight sunlit rhythm pegs while pressing a green response button",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand taps across eight colored wooden pegs in sequence while the other hand presses a crisp sage response key",
+      "consequence": "a warm green indicator lamp glows steadily on the response console",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a sunlit British cognitive psychology room with an slate-stone testing table and a four-room architectural model on an easel",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain psychologists in dove-gray tweed blazers stand beside the slate-stone desk and place flashcards before a seated volunteer in an olive sweater as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "tweed jacket sleeves and cool porcelain-white gloved matte-white porcelain hands opening a thick bound ivory reference volume on a desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands open the heavy ivory volume and point to a single-box schematic diagram",
+      "consequence": "only one narrow square box sits drawn in the center of the page",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands filling a small pale-maple wooden box divided into seven narrow slots",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands drop seven sunlit wooden marbles into the seven-slot wooden box until an eighth marble rolls off the full rim",
+      "consequence": "the cramped seven-slot wooden box overflows completely",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "end_sentence_index": 6,
+      "act": 1,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key stirling psych lab with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 6
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit neurology consultation study with tall arched windows and a puzzle table",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain patient in a sky-blue sweater sits calmly sliding and placing geometric puzzle tiles while a clinician in a white coat writes notes",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "end_sentence_index": 8,
+      "act": 1,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a sunlit neurology consultation study with tall arched windows and a puzzle table",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "clip_number": 8
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue shirt sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge over a wooden chessboard",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift a wooden knight piece and place it decisively into a winning square beside the two-slot tray",
+      "consequence": "the wooden chess pieces stand in a crisp strategic pattern",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 9,
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright Scottish university psychology lab with rows of testing cubicles, slate-stone desks, and brushed-silver tally counters",
+      "action": "viewed strictly from behind, clothed matte-white porcelain adult volunteers in knit sweaters walk in and sit at the response consoles as the two researchers distribute card stacks as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray corduroy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands packing eight coral pegs tightly into the seven-slot wooden box",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands press eight coral wooden pegs against the brimming seven-slot box on the slate-stone table",
+      "consequence": "the eighth coral peg perches right atop the packed row",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 11,
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Stirling testing desk with a brushed-silver desk microphone and two-button console",
+      "action": "viewed strictly from behind, the seated clothed matte-white porcelain volunteer in an olive sweater leans toward the desk microphone keeping a steady beat with their left hand as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 13,
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster tabletop holding a round sage felt pad and a gleaming unnumbered brushed-silver coin",
+      "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in blazer sleeves flip the brushed-silver coin high above the pad and catch it as it lands flat",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "gentle_push_in",
+      "analogy_world": "a sunlit pale-stone studio wall mounting a circular sunlit cork dartboard with concentric sky-blue, amber, and coral rings",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in tweed sleeves hold and arc feathered sunlit darts that strike and land tightly inside the center coral bullseye",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright Scottish university psychology lab with rows of testing cubicles, slate-stone desks, and brushed-silver tally counters",
+      "action": "a cool porcelain-white gloved matte-white porcelain hand in a coat sleeve releases the brushed-silver pendulum bob so it swings and arcs smoothly across one single beat",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "dove-gray tweed blazer cuffs and cool porcelain-white gloved matte-white porcelain hands tracing a flat high green accuracy bar on an ivory chart",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand holds the brushed-silver polished brass counter while the other traces the level sage accuracy bar across the sheet",
+      "consequence": "the sage bar stays high and unbroken from start to finish",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 17,
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit Stirling psychology lab with the tiny seven-slot box pushed aside beside the high accuracy chart",
+      "action": "viewed strictly from behind, the two clothed matte-white porcelain psychologists in tweed blazers stand side by side lifting away the outdated single-box board from the easel as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed blazer sleeves and cool porcelain-white gloved matte-white porcelain hands arranging three color-coded architectural room blocks on an easel tray",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place a warm-gold central block above a sky-blue sound block and a sage spatial block",
+      "consequence": "the three distinct sunlit workshop modules lock cleanly into a triangle",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed blazer sleeves and cool porcelain-white gloved matte-white porcelain hands arranging three color-coded architectural room blocks on an easel tray",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place a warm-gold central block above a sky-blue sound block and a sage spatial block",
+      "consequence": "the three distinct sunlit workshop modules lock cleanly into a triangle",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 20,
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "Broca's area",
+      "anatomy_label": "BROCA'S AREA\nSPEECH CENTER",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the left frontal side of the matte warm-ivory 3D brain model behind the temple, sky-blue facets cycle in a steady rhythmic loop across Broca's area",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL PFC\nMENTAL SCRATCHPAD",
+      "camera": "pan_right",
+      "brain_scene": "across the upper outer sides of the front lobe on the matte warm-ivory 3D brain model, warm amber-gold facets shine clearly across the dorsolateral prefrontal cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nSPATIAL MAP",
+      "camera": "locked_tripod",
+      "brain_scene": "along the upper rear crown of the matte warm-ivory 3D brain model, soft sage-green facets illuminate the parietal cortex in a clean geometric grid",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "dove-gray corduroy cuffs and cool porcelain-white gloved matte-white porcelain hands holding a brushed-silver response tally counter beside a compact sky-blue audio reel",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand presses the silver response tally counter crown while the other holds up the compact sky-blue tape loop",
+      "consequence": "the silver sweep hand begins a crisp two-beat arc",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 25,
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "dove-gray corduroy cuffs and cool porcelain-white gloved matte-white porcelain hands holding a brushed-silver polished brass counter beside a compact sky-blue audio reel",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand presses the silver polished brass counter crown while the other holds up the compact sky-blue tape loop",
+      "consequence": "the silver sweep hand begins a crisp two-beat arc",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 26,
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "act": 4,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit Stirling testing room with the short-tile tray, long-bar tray, and silver tally counter on the slate-stone desk",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain volunteer in a burgundy sweater leans forward inspecting both trays while the researcher clicks a silver response tally counter as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "end_sentence_index": 28,
+      "act": 4,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the sunlit Stirling testing room with the short-tile tray, long-bar tray, and silver tally counter on the slate-stone desk",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "clip_number": 26
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the sunlit Stirling testing room with the short-tile tray, long-bar tray, and silver tally counter on the slate-stone desk",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in shirt sleeves lift and tilt the overloaded wooden tray so half of the long coral blocks drop and roll across the bench",
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "burgundy sweater sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge over the desk",
+      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand slides three long coral bars onto a narrow track while two remaining coral bars drop off the end",
+      "consequence": "the short track runs out of space before the fourth long bar fits",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 30,
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the sunlit Stirling testing room with the short-tile tray, long-bar tray, and silver tally counter on the slate-stone desk",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in blazer sleeves press the play key and watch the short sky-blue tape loop turn one quick lap across both reels",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "end_sentence_index": 32,
+      "act": 4,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the sunlit Stirling testing room with the short-tile tray, long-bar tray, and silver tally counter on the slate-stone desk",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 30
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands fitting ten tiny sky-blue bead tiles snugly onto the short circular tape ring",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and align all ten compact sky-blue bead tiles neatly around the circular track",
+      "consequence": "all ten fast bead tiles fit effortlessly inside the same short ring",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray tweed sleeves and cool porcelain-white gloved matte-white porcelain hands setting the brushed-silver polished brass counter beside the circular sky-blue loop",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand closes the silver polished brass counter lid while the other hand taps the aligned circular loop",
+      "consequence": "timing speed clearly governs the full sunlit ring",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 34,
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 5,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright modern cognitive ergonomics laboratory with dual-task workbenches and wooden 3D block puzzles",
+      "action": "viewed strictly from behind, clothed matte-white porcelain researchers in blazers walk beside seated volunteers testing wooden puzzle blocks and desk microphones as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge over a workbench",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift two L-shaped 3D wooden blocks and turn them smoothly in midair beside a gentle tuning fork",
+      "consequence": "the rotated wooden blocks align cleanly at matching angles",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 36,
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit ergonomics workbench with a desk microphone and completed 3D wooden sculptures",
+      "action": "viewed strictly from behind, the seated clothed matte-white porcelain volunteer in a sage sweater stacks another 3D block sculpture smoothly without hesitation as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 38,
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge over wooden 3D blocks",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands turn and fit two pale-maple 3D blocks together smoothly beside a single sky-blue sound wave",
+      "consequence": "the spatial assembly finishes cleanly on the left side",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit Cambridge seminar study displaying the upgraded four-room sunlit architectural workshop model on a central slate-stone table",
+      "action": "viewed strictly from behind, the senior clothed matte-white porcelain psychologist in a charcoal blazer places the fourth lavender room module while colleagues lean in around the table",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 41,
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "charcoal blazer cuffs and cool porcelain-white gloved matte-white porcelain hands interlocking sky-blue sound tiles and sage picture tiles inside the lavender tray",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide sixteen alternating sky-blue and sage tiles into one cohesive story bar inside the lavender frame",
+      "consequence": "the unified sixteen-tile story bar gleams as one whole piece",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 43,
+      "act": 6,
+      "location_id": "highway_cockpit_rig",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "an elevated view from behind a sky-blue matte-white porcelain car approaching a complex multi-lane sunlit highway interchange with orange detour cones",
+      "action": "the sky-blue matte-white porcelain car slows gently before the branching highway lanes and aligns cleanly toward the detour ramp",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "highway_cockpit_rig",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL PFC\nFOCUS DIRECTOR",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper front sides of the matte warm-ivory 3D brain model, bright warm-gold facets concentrate intensely across the dorsolateral prefrontal cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "highway_cockpit_rig",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray jacket sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge on the steering wheel",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands steer the wheel smoothly rightward as the sunlit detour lane opens ahead through the windshield",
+      "consequence": "the car glides centered along the clean exit curve",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "highway_cockpit_rig",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "highway_cockpit_rig",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "casual navy sweater sleeves and cool porcelain-white gloved matte-white porcelain hands juggling four loose sky-blue sound tokens in one palm",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand tries to hold four slippery sky-blue tokens at once as one token slips onto the desk",
+      "consequence": "the loose spoken tokens scatter easily without a pad",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 46,
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "highway_cockpit_rig",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "highway_cockpit_rig",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy sweater cuffs and cool porcelain-white gloved matte-white porcelain hands watching a stray coral sound ring bump six sky-blue pegs off a narrow stand",
+      "prop_action": "a cool porcelain-white gloved matte-white porcelain hand reaches to catch the six sky-blue pegs as the incoming coral ring sweeps the narrow stand bare",
+      "consequence": "the fragile verbal stand sits completely wiped clean",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "highway_cockpit_rig",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nVISUAL HELPER",
+      "camera": "locked_tripod",
+      "brain_scene": "across the upper rear parietal cortex of the matte warm-ivory 3D brain model, calm sage-green and warm-gold facets connect smoothly forward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit psychology room where the four-room sunlit workshop model and the four-icon notepad rest side by side on the slate-stone desk",
+      "action": "viewed strictly from behind, clothed matte-white porcelain researchers and students stand calmly beside the bright tall windows overlooking the campus",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit psychology room where the four-room sunlit workshop model and the four-icon notepad rest side by side on the slate-stone desk",
+      "action": "viewed strictly from behind, clothed matte-white porcelain researchers and students stand calmly beside the bright tall windows overlooking the campus",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 50,
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "cut_role": "split_right",
+      "act": 5,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "coral cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge over two colliding story folders",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands try to slide two separate ivory reading sheets onto one narrow stand until the pages jam and scatter",
+      "consequence": "the overloaded verbal stand tips sideways in tangles",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "stirling_psych_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "stirling_psych_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a sunlit stone university courtyard in Cambridge with green lawns, arched cloisters, and a clear sunlit morning sky",
+      "action": "viewed strictly from behind, clothed matte-white porcelain scholars in tweed jackets walk calmly across the sunlit stone path as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "FOUR BRAIN ROOMS?",
+    "cover_sentence_index": 3,
+    "cover_brief": "pastel four-room architectural memory workshop miniature beside logic cards on a sunlit psychology desk"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

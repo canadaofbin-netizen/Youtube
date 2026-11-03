@@ -1,0 +1,790 @@
+{
+  "schema_version": 5,
+  "visual_mode": "HYBRID",
+  "aspect": "9:16",
+  "dossier": "ainsworth_strange_situation",
+  "total_reference_images": 14,
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in a fully buttoned sky-blue knit sweater and soft cream trousers on a small twelve-month-old toddler frame standing solo on the woven center playmat with nobody else in the room.",
+  "generation_order": "1 env plate + master brain bust -> 2 cast sheets + hero prop (conditioned on env) -> 3 clip start / key frames (conditioned on master anchors)",
+  "master_anchors": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "present_cast": [],
+      "location_id": "hopkins_playroom_1970",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a bright sunlit nine-by-nine-foot 1970 Johns Hopkins developmental psychology playroom with warm oak flooring, two wooden chairs, a woven center playmat of colorful wooden rings and blocks, a tall one-way observation mirror, and a solid oak door, featuring colorful wooden stacking rings and smooth maple blocks on a woven center playmat between two oak chairs, no people. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "a bright sunlit nine-by-nine-foot 1970 Johns Hopkins developmental psychology pl",
+        "colorful wooden stacking rings and smooth maple blocks on a "
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_subject",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_subject.png",
+      "title": "Cast sheet: subject (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "subject"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, subject wearing a fully buttoned sky-blue knit sweater and soft cream trousers on a small twelve-month-old toddler frame standing solo on the woven center playmat with nobody else in the room, standing in a bright sunlit nine-by-nine-foot 1970 Johns Hopkins developmental psychology playroom with warm oak flooring, two wooden chairs, a woven center playmat of colorful wooden rings and blocks, a tall one-way observation mirror, and a solid oak door. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "a fully buttoned sky-blue knit sweater and soft cream trousers on a small twelve",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [],
+      "location_id": "hopkins_playroom_1970",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of colorful wooden stacking rings and smooth maple blocks on a woven center playmat between two oak chairs inside a bright sunlit nine-by-nine-foot 1970 Johns Hopkins developmental psychology playroom with warm oak flooring, two wooden chairs, a woven center playmat of colorful wooden rings and blocks, a tall one-way observation mirror, and a solid oak door, exact period materials and textures. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "colorful wooden stacking rings and smooth maple blocks on a woven center playmat"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_brain_master",
+      "category": "brain_master_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_void",
+      "filename": "ref_brain_master.png",
+      "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: whole 3D brain with a translucent frosted-glass cortex focusing on the amygdala on an acrylic pedestal revealing deep nuclei strictly bounded inside the closed brain silhouette. Deep crimson-red autonomic pulses surge rapidly inside the bilateral amygdala within the closed translucent cortex while clear subtle warm amber-gold outer cortical pathways stay still. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait composition against a high-contrast cool slate-grey studio backdrop, with dynamic camera progression from the porcelain head into the open anatomical brain cross-section tracking the neural circuit. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
+        "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    }
+  ],
+  "clip_anchors": [
+    {
+      "ref_id": "ref_s01_start",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S01",
+      "setting": "real_env",
+      "filename": "ref_s01_start.png",
+      "title": "Shot S01 — Observation mirror high-angle establishing view of 1970 playroom",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "High-angle observation view of a bright sunlit 1970 developmental psychology playroom nine feet wide with warm oak flooring, two wooden chairs flanking a soft woven center playmat stacked with colorful wooden rings and blocks, a tall one-way observation mirror along the upper wall, and a matte-white porcelain toddler in a sky-blue knit sweater and cream trousers seated quietly beside wooden blocks while a porcelain mother in a warm camel cardigan sweater sits in the right chair and the left chair remains completely empty.",
+      "must_include": [
+        "S01",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s02_start",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S02",
+      "setting": "real_env",
+      "filename": "ref_s02_start.png",
+      "title": "Shot S02 — Locked tripod view of mother and twelve-month porcelain toddler on center playmat",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Locked eye-level documentary view of the bright sunlit 1970 Johns Hopkins playroom as a clothed matte-white porcelain mother in a warm camel cardigan sweater and linen slacks guides a twelve-month-old matte-white porcelain toddler in a sky-blue knit sweater and cream trousers onto the central woven playmat while both wooden chairs are empty.",
+      "must_include": [
+        "S02",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s03_start",
+      "clip_number": 7,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S03",
+      "setting": "real_env",
+      "filename": "ref_s03_start.png",
+      "title": "Shot S03 — Secure-base exploration on center playmat with mother seated nearby",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Bright high-key documentary view of the 1970 playroom where the matte-white porcelain toddler in a sky-blue knit sweater and cream trousers reaches for wooden stacking rings on the center mat while glancing back toward the porcelain mother seated calmly in the right wooden chair with the left wooden chair empty.",
+      "must_include": [
+        "S03",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s04_start",
+      "clip_number": 6,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S04",
+      "setting": "real_env",
+      "filename": "ref_s04_start.png",
+      "title": "Shot S04 — Floor playmat wooden block exploration between two chairs",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Gentle high-angle view of the bright 1970 playroom center mat as the matte-white porcelain toddler in a sky-blue knit sweater lifts smooth wooden blocks beside the porcelain mother on the woven rug between two empty oak chairs under soft studio daylight.",
+      "must_include": [
+        "S04",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s05_start",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S05",
+      "setting": "real_env",
+      "filename": "ref_s05_start.png",
+      "title": "Shot S05 — One-way observation mirror and researcher camera booth overlooking playroom",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Bright architectural side view from the observation window overlooking the sunlit 1970 playroom as two matte-white porcelain psychologists in crisp white lab coats operate a brushed-aluminum cinema camera aimed toward the playmat below.",
+      "must_include": [
+        "S05",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master"
+      ],
+      "location_id": "observation_booth_1970",
+      "present_cast": [
+        "psychologist"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s06_start",
+      "clip_number": 9,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S06",
+      "setting": "real_env",
+      "filename": "ref_s06_start.png",
+      "title": "Shot S06 — Stranger in slate-grey blazer seated quietly in opposite left chair",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Locked tripod view of the bright 1970 playroom as an unfamiliar matte-white porcelain researcher in a slate-grey blazer jacket and collared shirt sits quietly in the left oak chair across from the porcelain mother in a warm camel cardigan and the porcelain toddler in a sky-blue knit sweater and cream trousers on the center mat.",
+      "must_include": [
+        "S06",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler",
+        "stranger"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s07_start",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S07",
+      "setting": "real_env",
+      "filename": "ref_s07_start.png",
+      "title": "Shot S07 — First separation: leather handbag left on chair as mother exits wooden door",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Locked tripod view of the sunlit 1970 playroom as the matte-white porcelain mother in a camel cardigan sweater places a tan leather handbag on the right oak chair and steps out through the wooden doorway while the porcelain toddler in a sky-blue knit sweater and cream trousers sits beside wooden blocks on the center mat and the porcelain stranger in a slate-grey blazer remains seated.",
+      "must_include": [
+        "S07",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler",
+        "stranger"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s08_start",
+      "clip_number": 14,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S08",
+      "setting": "real_env",
+      "filename": "ref_s08_start.png",
+      "title": "Shot S08 — Clean thirty-second reunion comfort on center playmat with both chairs empty",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "prompt": "High-angle bright sunlit 1970 Johns Hopkins playroom view matching the first empty room plate: a clothed matte-white porcelain mother in a warm camel cardigan sweater and linen slacks kneels warmly on the center woven jute playmat embracing and comforting a twelve-month-old matte-white porcelain toddler in a sky-blue knit sweater and cream trousers beside colorful wooden stacking rings and maple blocks.",
+      "must_include": [
+        "S08",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler"
+      ],
+      "skip_structural_guide": true,
+      "empty_chairs_note": "Both wooden oak chairs on the left and right are completely empty with nobody seated in either chair.",
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s09_start",
+      "clip_number": 11,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S09",
+      "setting": "real_env",
+      "filename": "ref_s09_start.png",
+      "title": "Shot S09 start — Second separation: one-year-old porcelain toddler alone in playroom",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "High-angle sunlit view of the 1970 playroom with both oak chairs empty and the wooden door closed as the lone twelve-month-old matte-white porcelain toddler in a sky-blue knit sweater stands still beside scattered wooden rings on the center mat.",
+      "must_include": [
+        "S09",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "toddler"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s09_end",
+      "clip_number": 17,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S09",
+      "setting": "real_env",
+      "filename": "ref_s09_end.png",
+      "title": "Shot S09 end — Clean avoidant reunion contrast with both chairs empty as toddler turns back",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "prompt": "High-angle bright sunlit 1970 Johns Hopkins playroom reunion view matching the first empty room plate: the right oak door stands open as a clothed matte-white porcelain mother in a warm camel cardigan sweater and linen slacks steps onto the threshold extending both hands gently, while on the center woven jute playmat the twelve-month-old matte-white porcelain toddler in a sky-blue knit sweater and cream trousers sits facing away with back turned toward the door, leaning quietly over unpainted maple blocks.",
+      "must_include": [
+        "S09",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler"
+      ],
+      "skip_structural_guide": true,
+      "empty_chairs_note": "Both wooden oak chairs on the left and right are completely empty with nobody seated in either chair.",
+      "style_profile": "porcelain_cinematic_v7"
+    }
+  ],
+  "all_specs": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "present_cast": [],
+      "location_id": "hopkins_playroom_1970",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a bright sunlit nine-by-nine-foot 1970 Johns Hopkins developmental psychology playroom with warm oak flooring, two wooden chairs, a woven center playmat of colorful wooden rings and blocks, a tall one-way observation mirror, and a solid oak door, featuring colorful wooden stacking rings and smooth maple blocks on a woven center playmat between two oak chairs, no people. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "a bright sunlit nine-by-nine-foot 1970 Johns Hopkins developmental psychology pl",
+        "colorful wooden stacking rings and smooth maple blocks on a "
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_subject",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_subject.png",
+      "title": "Cast sheet: subject (full body, front view, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "subject"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body front view of one articulated matte-white porcelain mannequin with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside, subject wearing a fully buttoned sky-blue knit sweater and soft cream trousers on a small twelve-month-old toddler frame standing solo on the woven center playmat with nobody else in the room, standing in a bright sunlit nine-by-nine-foot 1970 Johns Hopkins developmental psychology playroom with warm oak flooring, two wooden chairs, a woven center playmat of colorful wooden rings and blocks, a tall one-way observation mirror, and a solid oak door. Smooth porcelain joints, no human skin. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "a fully buttoned sky-blue knit sweater and soft cream trousers on a small twelve",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [],
+      "location_id": "hopkins_playroom_1970",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of colorful wooden stacking rings and smooth maple blocks on a woven center playmat between two oak chairs inside a bright sunlit nine-by-nine-foot 1970 Johns Hopkins developmental psychology playroom with warm oak flooring, two wooden chairs, a woven center playmat of colorful wooden rings and blocks, a tall one-way observation mirror, and a solid oak door, exact period materials and textures. Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark.",
+      "must_include": [
+        "colorful wooden stacking rings and smooth maple blocks on a woven center playmat"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_brain_master",
+      "category": "brain_master_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_void",
+      "filename": "ref_brain_master.png",
+      "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: whole 3D brain with a translucent frosted-glass cortex focusing on the amygdala on an acrylic pedestal revealing deep nuclei strictly bounded inside the closed brain silhouette. Deep crimson-red autonomic pulses surge rapidly inside the bilateral amygdala within the closed translucent cortex while clear subtle warm amber-gold outer cortical pathways stay still. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait composition against a high-contrast cool slate-grey studio backdrop, with dynamic camera progression from the porcelain head into the open anatomical brain cross-section tracking the neural circuit. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
+        "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s01_start",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S01",
+      "setting": "real_env",
+      "filename": "ref_s01_start.png",
+      "title": "Shot S01 — Observation mirror high-angle establishing view of 1970 playroom",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "High-angle observation view of a bright sunlit 1970 developmental psychology playroom nine feet wide with warm oak flooring, two wooden chairs flanking a soft woven center playmat stacked with colorful wooden rings and blocks, a tall one-way observation mirror along the upper wall, and a matte-white porcelain toddler in a sky-blue knit sweater and cream trousers seated quietly beside wooden blocks while a porcelain mother in a warm camel cardigan sweater sits in the right chair and the left chair remains completely empty.",
+      "must_include": [
+        "S01",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s02_start",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S02",
+      "setting": "real_env",
+      "filename": "ref_s02_start.png",
+      "title": "Shot S02 — Locked tripod view of mother and twelve-month porcelain toddler on center playmat",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Locked eye-level documentary view of the bright sunlit 1970 Johns Hopkins playroom as a clothed matte-white porcelain mother in a warm camel cardigan sweater and linen slacks guides a twelve-month-old matte-white porcelain toddler in a sky-blue knit sweater and cream trousers onto the central woven playmat while both wooden chairs are empty.",
+      "must_include": [
+        "S02",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s03_start",
+      "clip_number": 7,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S03",
+      "setting": "real_env",
+      "filename": "ref_s03_start.png",
+      "title": "Shot S03 — Secure-base exploration on center playmat with mother seated nearby",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Bright high-key documentary view of the 1970 playroom where the matte-white porcelain toddler in a sky-blue knit sweater and cream trousers reaches for wooden stacking rings on the center mat while glancing back toward the porcelain mother seated calmly in the right wooden chair with the left wooden chair empty.",
+      "must_include": [
+        "S03",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s04_start",
+      "clip_number": 6,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S04",
+      "setting": "real_env",
+      "filename": "ref_s04_start.png",
+      "title": "Shot S04 — Floor playmat wooden block exploration between two chairs",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Gentle high-angle view of the bright 1970 playroom center mat as the matte-white porcelain toddler in a sky-blue knit sweater lifts smooth wooden blocks beside the porcelain mother on the woven rug between two empty oak chairs under soft studio daylight.",
+      "must_include": [
+        "S04",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s05_start",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S05",
+      "setting": "real_env",
+      "filename": "ref_s05_start.png",
+      "title": "Shot S05 — One-way observation mirror and researcher camera booth overlooking playroom",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Bright architectural side view from the observation window overlooking the sunlit 1970 playroom as two matte-white porcelain psychologists in crisp white lab coats operate a brushed-aluminum cinema camera aimed toward the playmat below.",
+      "must_include": [
+        "S05",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master"
+      ],
+      "location_id": "observation_booth_1970",
+      "present_cast": [
+        "psychologist"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s06_start",
+      "clip_number": 9,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S06",
+      "setting": "real_env",
+      "filename": "ref_s06_start.png",
+      "title": "Shot S06 — Stranger in slate-grey blazer seated quietly in opposite left chair",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Locked tripod view of the bright 1970 playroom as an unfamiliar matte-white porcelain researcher in a slate-grey blazer jacket and collared shirt sits quietly in the left oak chair across from the porcelain mother in a warm camel cardigan and the porcelain toddler in a sky-blue knit sweater and cream trousers on the center mat.",
+      "must_include": [
+        "S06",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler",
+        "stranger"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s07_start",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S07",
+      "setting": "real_env",
+      "filename": "ref_s07_start.png",
+      "title": "Shot S07 — First separation: leather handbag left on chair as mother exits wooden door",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "Locked tripod view of the sunlit 1970 playroom as the matte-white porcelain mother in a camel cardigan sweater places a tan leather handbag on the right oak chair and steps out through the wooden doorway while the porcelain toddler in a sky-blue knit sweater and cream trousers sits beside wooden blocks on the center mat and the porcelain stranger in a slate-grey blazer remains seated.",
+      "must_include": [
+        "S07",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler",
+        "stranger"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s08_start",
+      "clip_number": 14,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S08",
+      "setting": "real_env",
+      "filename": "ref_s08_start.png",
+      "title": "Shot S08 — Clean thirty-second reunion comfort on center playmat with both chairs empty",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "prompt": "High-angle bright sunlit 1970 Johns Hopkins playroom view matching the first empty room plate: a clothed matte-white porcelain mother in a warm camel cardigan sweater and linen slacks kneels warmly on the center woven jute playmat embracing and comforting a twelve-month-old matte-white porcelain toddler in a sky-blue knit sweater and cream trousers beside colorful wooden stacking rings and maple blocks.",
+      "must_include": [
+        "S08",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler"
+      ],
+      "skip_structural_guide": true,
+      "empty_chairs_note": "Both wooden oak chairs on the left and right are completely empty with nobody seated in either chair.",
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s09_start",
+      "clip_number": 11,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S09",
+      "setting": "real_env",
+      "filename": "ref_s09_start.png",
+      "title": "Shot S09 start — Second separation: one-year-old porcelain toddler alone in playroom",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "prompt": "High-angle sunlit view of the 1970 playroom with both oak chairs empty and the wooden door closed as the lone twelve-month-old matte-white porcelain toddler in a sky-blue knit sweater stands still beside scattered wooden rings on the center mat.",
+      "must_include": [
+        "S09",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "toddler"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_s09_end",
+      "clip_number": 17,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S09",
+      "setting": "real_env",
+      "filename": "ref_s09_end.png",
+      "title": "Shot S09 end — Clean avoidant reunion contrast with both chairs empty as toddler turns back",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "prompt": "High-angle bright sunlit 1970 Johns Hopkins playroom reunion view matching the first empty room plate: the right oak door stands open as a clothed matte-white porcelain mother in a warm camel cardigan sweater and linen slacks steps onto the threshold extending both hands gently, while on the center woven jute playmat the twelve-month-old matte-white porcelain toddler in a sky-blue knit sweater and cream trousers sits facing away with back turned toward the door, leaning quietly over unpainted maple blocks.",
+      "must_include": [
+        "S09",
+        "porcelain mannequin, no human skin"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "location_id": "hopkins_playroom_1970",
+      "present_cast": [
+        "mother",
+        "toddler"
+      ],
+      "skip_structural_guide": true,
+      "empty_chairs_note": "Both wooden oak chairs on the left and right are completely empty with nobody seated in either chair.",
+      "style_profile": "porcelain_cinematic_v7"
+    }
+  ],
+  "style_profile": "porcelain_cinematic_v7"
+}

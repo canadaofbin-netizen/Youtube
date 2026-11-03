@@ -1,0 +1,1179 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "tulving_episodic_mental_time_travel",
+  "topic": "Endel Tulving (1972/2002) Episodic vs Semantic Memory & Patient Kent Cochrane: Intact Tactical Chess Beside Blank Past and Future Mental Time Travel",
+  "act5_climax_episode": "2007 Schacter and Addis neuroimaging proof that remembering past episodes and simulating future plans light up the exact same default-mode and hippocampal network.",
+  "outro_title_lines": [
+    "ENDEL TULVING (2002)",
+    "UNIVERSITY OF TORONTO"
+  ],
+  "thumbnail": {
+    "hook_text": "BLANK TOMORROW",
+    "cover_sentence_index": 3,
+    "cover_brief": "Centered powder-blue and mist-white low-poly geometric chessboard mid-game flanked by two empty matte-white easel frames"
+  },
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "ONE MEMORY BANK?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BLANK TOMORROW"
+    },
+    {
+      "sentence_index": 10,
+      "text": "CHESS PARADOX"
+    },
+    {
+      "sentence_index": 19,
+      "text": "TWO SYSTEMS"
+    },
+    {
+      "sentence_index": 27,
+      "text": "TOMORROW BLANK"
+    },
+    {
+      "sentence_index": 35,
+      "text": "TWIN BRAIN MAPS"
+    },
+    {
+      "sentence_index": 43,
+      "text": "TIME CAPSULE"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "ONE MEMORY BANK?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BLANK TOMORROW"
+    },
+    {
+      "sentence_index": 10,
+      "text": "CHESS PARADOX"
+    },
+    {
+      "sentence_index": 19,
+      "text": "TWO SYSTEMS"
+    },
+    {
+      "sentence_index": 27,
+      "text": "TOMORROW BLANK"
+    },
+    {
+      "sentence_index": 35,
+      "text": "TWIN BRAIN MAPS"
+    },
+    {
+      "sentence_index": 43,
+      "text": "TIME CAPSULE"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 17,
+      "mode": "split_hstack",
+      "left_clip_index": 16,
+      "right_clip_index": 47,
+      "left_label": "CHESS RULES INTACT",
+      "right_label": "LIVED PAST BLANK"
+    }
+  ],
+  "clips": [
+    {
+      "index": 2,
+      "sentence_index": 1,
+      "role": "hook",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "toronto_chess_room",
+      "environment": "sunlit clear daylight-white Toronto neuropsychology room with a powder-blue geometric chessboard on a cool slate-stone table beside two blank white easel frames",
+      "action": "viewed strictly from behind, Endel Tulving in a navy blazer and Kent in a sky-blue flannel jacket sit across the chessboard",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "sentence_index": 2,
+      "role": "hook",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel cuffs and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "glide a matte powder-blue bishop piece diagonally across the slate chessboard and turn an open palm toward a blank white easel frame",
+      "consequence": "crisp chess strategy sits right beside an empty personal frame",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "sentence_index": 3,
+      "role": "case_stamp",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "pan_right",
+      "location_id": "toronto_chess_room",
+      "environment": "clean architectural cutaway of the bright Baycrest testing suite with the slate chess table and twin blank white easel frames",
+      "action": "viewed strictly from behind, Tulving in a navy blazer places a relief map of sunlit lakes beside the chessboard as Kent sits calmly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 8,
+      "sentence_index": 4,
+      "role": "setup",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "toronto_chess_room",
+      "environment": "bright sunlit Toronto seminar room with two separated slate trays holding sky-blue fact cubes on one side and mint-green scene architectural layout boards on the other",
+      "action": "viewed strictly from behind, Endel Tulving in a navy blazer walks between the two slate trays and aligns a silver bridge bar",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 7,
+      "sentence_index": 5,
+      "role": "context",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "grey coat sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "place sky-blue encyclopedia blocks and sunlit compact house models together inside one grey tray and push it forward",
+      "consequence": "older single-bucket theory treats both stacks as identical",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "act": 1,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 8,
+      "sentence_index": 6,
+      "role": "setup",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "toronto_chess_room",
+      "environment": "bright sunlit Toronto seminar room with two separated slate trays holding sky-blue fact cubes on one side and mint-green scene architectural layout boards on the other",
+      "action": "viewed strictly from behind, Endel Tulving in a navy blazer walks between the two slate trays and aligns a silver bridge bar",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 6,
+      "act": 1,
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 12,
+      "sentence_index": 7,
+      "role": "rehook",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "environment": "sunlit Baycrest room where the active powder-blue chessboard sits beside an untouched blank clear daylight-white easel frame",
+      "action": "viewed strictly from behind, Tulving in a navy blazer points gently from the finished chess move toward the blank white easel",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 10,
+      "sentence_index": 8,
+      "role": "experiment",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "lift a powder-blue knight piece over two clear daylight-white pawns and set it cleanly onto a central slate square",
+      "consequence": "a crisp tactical fork locks both opposing pieces",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 8,
+      "act": 1,
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 12,
+      "sentence_index": 9,
+      "role": "rehook",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "environment": "sunlit Baycrest room where the active powder-blue chessboard sits beside an untouched blank clear daylight-white easel frame",
+      "action": "viewed strictly from behind, Tulving in a navy blazer points gently from the finished chess move toward the blank white easel",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 9,
+      "act": 1,
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 13,
+      "sentence_index": 10,
+      "role": "question",
+      "grammar": "porcelain_pov_hands",
+      "camera": "tilt_down",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "slide an empty clear daylight-white display frame onto the slate table beside the chessboard and tap its bare center",
+      "consequence": "not a single past game token sits inside the frame",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 14,
+      "sentence_index": 11,
+      "role": "experiment",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "align a compact sunlit car wheel lug model in sequence and point accurately to a sky-blue lake bay on an unmarked 3D relief map",
+      "consequence": "procedural steps and geographic cottage location land with pinpoint accuracy",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 12,
+      "end_sentence_index": 12,
+      "act": 1,
+      "location_id": "toronto_chess_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key toronto chess room with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 12
+    },
+    {
+      "index": 15,
+      "sentence_index": 13,
+      "role": "experiment",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "toronto_chess_room",
+      "environment": "cool clear daylight-white room with the sunlit lake relief map on the slate table and a blank white frame easel standing beside it",
+      "action": "viewed strictly from behind, Tulving in a navy blazer leans slightly forward and gestures from the lake map toward the blank frame",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 14,
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 17,
+      "sentence_index": 15,
+      "role": "analogy",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "analogy_world": "clean sunlit screening room with a blank matte clear daylight-white projection frame and an unplugged brushed-silver power cord on a slate floor",
+      "comparison_action": "navy coat sleeves and cool porcelain-white gloved matte-white porcelain hands lift the unplugged silver power cord beside the blank clear daylight-white frame and set it gently down",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14
+    },
+    {
+      "index": 19,
+      "sentence_index": 16,
+      "role": "result",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "place one powder-blue bishop back into its box while sliding the empty white frame flat onto the slate desk",
+      "consequence": "skill remains while lived recollection stays blank",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 20,
+      "sentence_index": 17,
+      "role": "comparison_left",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "place crisp powder-blue chess pieces and lake map pins neatly onto a full left slate tray and align them",
+      "consequence": "timeless world knowledge stands rich and ordered",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 22,
+      "sentence_index": 18,
+      "role": "nightmare_stamp",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "location_id": "toronto_chess_room",
+      "environment": "sunlit Toronto testing suite showing the full powder-blue chess and map tray beside the completely empty white past easel",
+      "action": "viewed strictly from behind, scholars in grey coats step back around Tulving as the single-drawer theory collapses as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 23,
+      "sentence_index": 19,
+      "role": "instead_pivot",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "lift the sky-blue fact vault box and slide the mint-green time-machine frame onto two independent silver tracks",
+      "consequence": "two distinct conscious memory systems stand side by side",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 24,
+      "sentence_index": 20,
+      "role": "brain_link",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "location_id": "bright_brain_studio",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "temporal lobe",
+      "anatomy_label": "SIDE LOBE\\nWORLD FACT VAULT",
+      "brain_scene": "matte-white matte-white porcelain lateral brain model in a bright clear daylight-white studio where the outer side lobe glows steady cyan-blue with intact green fiber lines",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19
+    },
+    {
+      "index": 25,
+      "sentence_index": 21,
+      "role": "brain_link",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "location_id": "bright_brain_studio",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "MEMORY MAKER\\nSCENE TIME ENGINE",
+      "brain_scene": "matte-white matte-white porcelain sagittal brain cutaway in a bright studio where the deep curved memory ridge shows soft crimson-rose loss cutting off scene binding",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20
+    },
+    {
+      "index": 26,
+      "sentence_index": 22,
+      "role": "question",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "location_id": "toronto_chess_room",
+      "environment": "bright Baycrest study desk holding stacks of unmarked sunlit vocabulary tiles in soft diffused daylight",
+      "action": "viewed strictly from behind, Kent in a sky-blue flannel jacket sits across from Tulving sorting new sunlit concept blocks",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 27,
+      "sentence_index": 23,
+      "role": "experiment",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "interlock three new mint-green concept blocks cleanly into a matching sky-blue slot tray and press them flat",
+      "consequence": "brand-new factual associations lock into the semantic tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 23,
+      "act": 1,
+      "clip_number": 22,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 29,
+      "sentence_index": 24,
+      "role": "result",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "point from the tall sky-blue fact tower to the still-empty clear daylight-white session frame beside it and rest one palm flat",
+      "consequence": "new facts stay while every study afternoon vanishes",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 24,
+      "act": 1,
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 31,
+      "sentence_index": 25,
+      "role": "twist_question",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "toronto_chess_room",
+      "environment": "sunlit clear daylight-white Baycrest room where Kent sits flanked symmetrically by the left past easel and the right tomorrow easel",
+      "action": "viewed strictly from behind, Tulving in a navy blazer gestures toward the right tomorrow easel as Kent turns slightly toward it",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 31,
+      "sentence_index": 26,
+      "role": "twist_question",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "toronto_chess_room",
+      "environment": "sunlit clear daylight-white Baycrest room where Kent sits flanked symmetrically by the left past easel and the right tomorrow easel",
+      "action": "viewed strictly from behind, Tulving in a navy blazer gestures toward the right tomorrow easel as Kent turns slightly toward it",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 26,
+      "act": 1,
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 32,
+      "sentence_index": 27,
+      "role": "experiment",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "reach toward sunlit scene blocks beside the right tomorrow frame and pause midair without lifting a single block",
+      "consequence": "the tomorrow easel remains completely bare",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 33,
+      "sentence_index": 28,
+      "role": "analogy",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "location_id": "empty_white_room",
+      "analogy_world": "minimalist clear daylight-white and pale-blue empty room with bare geometric walls and an empty slate-stone floor without a single chair",
+      "comparison_action": "viewed strictly from behind, a clothed matte-white porcelain figure in a sky-blue flannel jacket steps through the doorway and turns slowly across the empty floor",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 27
+    },
+    {
+      "index": 35,
+      "sentence_index": 29,
+      "role": "result",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "location_id": "toronto_chess_room",
+      "environment": "high-key Toronto room framing the chessboard at center between the two matching blank white easels",
+      "action": "viewed strictly from behind, Tulving in a navy blazer leans forward studying the twin blank frames across from Kent as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 30,
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 37,
+      "sentence_index": 31,
+      "role": "mechanism",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "scanner_suite",
+      "attire_and_hands": "sage jacket sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "unbolt modular mint-green and sky-blue scene blocks from an older model and snap them into a fresh tomorrow layout",
+      "consequence": "past building blocks recombine into a brand-new preview scene",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "scanner_suite",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "end_sentence_index": 32,
+      "act": 1,
+      "location_id": "scanner_suite",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key scanner suite with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "scanner_suite",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 30
+    },
+    {
+      "index": 39,
+      "sentence_index": 33,
+      "role": "analogy",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "sunlit clear daylight-white Toronto neuropsychology room with a powder-blue geometric chessboard on a cool slate-stone table beside two blank white easel frames",
+      "action": "navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands grip the brushed-silver shuttle dial and turn it smoothly back and forward",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "end_sentence_index": 34,
+      "act": 1,
+      "location_id": "toronto_chess_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over sunlit clear daylight-white Toronto neuropsychology room with a powder-blue geometric chessboard on a cool slate-stone table beside two blank white easel frames",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 32
+    },
+    {
+      "index": 40,
+      "sentence_index": 35,
+      "role": "question",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "scanner_suite",
+      "environment": "bright modern clear daylight-white neuroimaging console room with twin sunlit 3D brain relief displays mounted side by side",
+      "action": "viewed strictly from behind, two neuroscientists in slate blazers stand before the twin sunlit brain displays as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "scanner_suite",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 41,
+      "sentence_index": 36,
+      "role": "climax",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "scanner_suite",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "press two smooth sunlit console keys side by side and align twin translucent brain models on a silver stand",
+      "consequence": "past recall and future imagination run back to back",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 36,
+      "act": 1,
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "scanner_suite",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 43,
+      "sentence_index": 37,
+      "role": "climax",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "location_id": "scanner_suite",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "slide a mint-green future plan prism into the right console slot and align both glowing brain stands",
+      "consequence": "the exact same core hubs glow soft cyan-blue on the right model",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "scanner_suite",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 44,
+      "sentence_index": 38,
+      "role": "brain_link",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "location_id": "bright_brain_studio",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "default mode network",
+      "anatomy_label": "DAYDREAM NETWORK\\nPAST FUTURE CORE",
+      "brain_scene": "matte-white matte-white porcelain sagittal brain model in a bright clear daylight-white studio where connected front and back midline hubs glow soft cyan-blue with green fiber pulses",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 36
+    },
+    {
+      "index": 45,
+      "sentence_index": 39,
+      "role": "climax",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "location_id": "scanner_suite",
+      "environment": "sunlit neuroimaging room where the two side-by-side brain models display identical soft cyan-blue midline glow patterns",
+      "action": "viewed strictly from behind, Schacter and Addis in slate blazers point together across the matching twin models as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "scanner_suite",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 46,
+      "sentence_index": 40,
+      "role": "climax",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "pan_left",
+      "location_id": "study_desk_room",
+      "environment": "bright sunlit classroom cutaway with a 3D world globe and unmarked sky-blue geography pins beside a small pocket schedule pad",
+      "action": "viewed strictly from behind, a student in a navy sweater places geography pins accurately on the globe while checking a blank sunlit pad",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 40,
+      "act": 1,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "study_desk_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 48,
+      "sentence_index": 41,
+      "role": "stunned_stamp",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "environment": "sunlit Baycrest room uniting the powder-blue chessboard and the paired time-travel frames on the slate table",
+      "action": "viewed strictly from behind, Endel Tulving and colleagues in navy blazers stand quietly observing the completed model",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 42,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 50,
+      "sentence_index": 43,
+      "role": "takeaway",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "tilt_down",
+      "location_id": "study_desk_room",
+      "attire_and_hands": "sage cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "place two crisp sky-blue sensory cubes onto an open unmarked sunlit notebook page and align them neatly",
+      "consequence": "two concrete daily details stay preserved instead of blurring",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "study_desk_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "end_sentence_index": 44,
+      "act": 1,
+      "location_id": "study_desk_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key study desk room with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "study_desk_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 41
+    },
+    {
+      "index": 51,
+      "sentence_index": 45,
+      "role": "takeaway",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "study_desk_room",
+      "attire_and_hands": "sage cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "lift the two saved sky-blue cubes from the notebook and snap them onto a mint-green tomorrow stage tray",
+      "consequence": "saved sensory blocks supply the forward rehearsal build",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "study_desk_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 52,
+      "sentence_index": 46,
+      "role": "brain_link",
+      "grammar": "porcelain_living_brain",
+      "camera": "locked_tripod",
+      "location_id": "bright_brain_studio",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PLANNER\\nTOMORROW REHEARSAL",
+      "brain_scene": "matte-white matte-white porcelain cortical brain model in a bright clear daylight-white gallery where the front planning hub glows soft cyan-blue with smooth green fiber arcs",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43
+    },
+    {
+      "index": 54,
+      "sentence_index": 47,
+      "role": "takeaway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "location_id": "study_desk_room",
+      "environment": "bright sunlit presentation room with a clean slate-stone conference table and tall clear daylight-white doorway in soft morning light",
+      "action": "viewed strictly from behind, the prepared speaker in a sage blazer steps calmly through the doorway and places notes on the table",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 48,
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "study_desk_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 56,
+      "sentence_index": 49,
+      "role": "conclusion",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "glide a powder-blue knight forward across the chessboard while a linked silver shuttle moves a mint-green block into tomorrow's frame",
+      "consequence": "past pieces guide the next move forward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 57,
+      "sentence_index": 50,
+      "role": "conclusion_stamp",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "place interlocking sky-blue yesterday blocks and mint-green tomorrow blocks onto one shared silver arch and press them level",
+      "consequence": "both halves of mental time travel gleam in balance",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 50,
+      "act": 1,
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 21,
+      "sentence_index": 17,
+      "cut_role": "split_right",
+      "role": "comparison_right",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "toronto_chess_room",
+      "attire_and_hands": "sky-blue flannel sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "glide an open gloved palm across a completely bare clear daylight-white right frame tray and rest still",
+      "consequence": "not one personal life scene occupies the right tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 58,
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "role": "outro",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "location_id": "toronto_chess_room",
+      "environment": "serene sunlit Toronto room with the powder-blue geometric chessboard and linked sunlit time-travel frames on a cool slate table",
+      "action": "wide elevated view strictly from behind as Endel Tulving in a navy blazer stands quietly before tall clear daylight-white windows",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

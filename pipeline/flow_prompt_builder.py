@@ -1119,7 +1119,20 @@ def render_prompt(
         clean_scene = f"{clean_scene} {suf}"
     clean_narr = str(narration or "").strip().replace('"', "'")
     if voice_label is None:
-        voice_label = FLOW_VOICE_PROMPT_DESCRIPTOR if voice == FLOW_DEFAULT_VOICE else voice
+        from pipeline.config import DIORAMA_VOICE_PRESETS
+
+        v_key = str(voice or "").strip().lower()
+        matched_anchor: str | None = None
+        if v_key and v_key != FLOW_DEFAULT_VOICE.lower():
+            for p_id, spec in DIORAMA_VOICE_PRESETS.items():
+                if v_key in (p_id, spec["voice"].lower(), spec["kokoro_voice"].lower()):
+                    raw_anc = re.sub(r"^Voice:\s*", "", str(spec["flow_voice_anchor"]).strip(), flags=re.IGNORECASE)
+                    matched_anchor = raw_anc.rstrip(".")
+                    break
+        if matched_anchor:
+            voice_label = matched_anchor
+        else:
+            voice_label = FLOW_VOICE_PROMPT_DESCRIPTOR if voice == FLOW_DEFAULT_VOICE else voice
     return f'{flow_prompt_prefix(aspect)} {clean_scene} Voice: {voice_label}. Spoken narration: "{clean_narr}"'
 
 
@@ -1495,6 +1508,8 @@ def build_diorama_v7_prompts(
                 "beat_weight": spec.get("beat_weight"),
                 "cut_role": spec.get("cut_role"),
                 "reference_image": spec.get("reference_image"),
+                "end_reference_image": spec.get("end_reference_image"),
+                "source_shot_id": spec.get("source_shot_id"),
                 "aspect": aspect,
                 "schema_version": PROMPT_SCHEMA_VERSION_V7,
                 "style_profile": resolved_style,
@@ -2049,23 +2064,37 @@ def validate_narrations(narrations: list[str]) -> list[str]:
     if not (min_total <= total_words <= max_total):
         issues.append(f"Total word count {total_words} outside {min_total}-{max_total}")
 
+    from pipeline.config import (
+        DIORAMA_CRISIS_BEAT_BANK,
+        DIORAMA_EUREKA_REVEAL_BANK,
+        DIORAMA_MECHANISM_PIVOT_BANK,
+        DIORAMA_TAKEAWAY_BRIDGE_BANK,
+    )
+
     by_role = {r: line for r, line in zip(roles, cleaned)}
     pivot_line = by_role.get("pivot", "")
-    if PIVOT_MARKER not in pivot_line.lower():
-        issues.append("Pivot clip must contain 'Instead of'")
+    pivot_low = pivot_line.lower()
+    if PIVOT_MARKER not in pivot_low and not any(p.strip().lower() in pivot_low for p in DIORAMA_MECHANISM_PIVOT_BANK):
+        issues.append("Pivot clip must contain 'Instead of' or a registered mechanism pivot phrase")
 
     conclusion_line = by_role.get("conclusion", "").strip()
-    if not any(conclusion_line.lower().startswith(op.lower()) for op in CONCLUSION_OPENERS):
-        issues.append("Conclusion clip must open with 'Which proves' or 'Which is why'")
+    conclusion_low = conclusion_line.lower()
+    if not any(conclusion_low.startswith(op.lower()) for op in CONCLUSION_OPENERS) and not any(
+        conclusion_low.startswith(op.strip().lower()) for op in DIORAMA_TAKEAWAY_BRIDGE_BANK
+    ):
+        issues.append("Conclusion clip must open with 'Which proves', 'Which is why', or a registered takeaway bridge")
 
     crisis_Window = " ".join(by_role.get(r, "") for r in ("symptom", "crisis"))
-    if not MEME_CRISIS_PATTERN.search(crisis_Window):
-        issues.append("Symptom or crisis clip must contain 'this is/was a total nightmare'")
+    crisis_low = crisis_Window.lower()
+    if not MEME_CRISIS_PATTERN.search(crisis_Window) and not any(
+        p.strip().lower() in crisis_low for p in DIORAMA_CRISIS_BEAT_BANK
+    ):
+        issues.append("Symptom or crisis clip must contain 'this is/was a total nightmare' or a registered crisis beat")
 
     awe_roles = ("breakthrough",) if "breakthrough" in by_role else ("mechanism", "conclusion")
     awe_window = " ".join(by_role.get(r, "") for r in awe_roles).lower()
-    if MEME_AWE_TEXT not in awe_window:
-        issues.append(f"Clip in {awe_roles} must contain 'The researchers were left completely stunned'")
+    if MEME_AWE_TEXT not in awe_window and not any(p.strip().lower() in awe_window for p in DIORAMA_EUREKA_REVEAL_BANK):
+        issues.append(f"Clip in {awe_roles} must contain 'The researchers were left completely stunned' or a registered eureka reveal")
 
     return issues
 

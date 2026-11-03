@@ -1,0 +1,1126 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "hubel_wiesel_visual_orientation",
+  "topic": "David Hubel & Torsten Wiesel (1959) Jammed Glass Slide Serendipity, Primary Visual Cortex Orientation Columns, Critical-Period Pediatric Eye Care, and AI Vision",
+  "act5_climax_episode": "The 1981 Nobel Prize recognition of Hubel and Wiesel's nine-hour basement vigil and the direct adoption of Simple and Complex edge detectors into modern AI computer vision.",
+  "outro_title_lines": [
+    "HUBEL & WIESEL (1959)",
+    "JOHNS HOPKINS & HARVARD"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "PIXEL CAMERA?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "JAMMED SLIDE CODE?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "CROOKED EDGE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "BAR DETECTOR"
+    },
+    {
+      "sentence_index": 28,
+      "text": "CHILD SIGHT"
+    },
+    {
+      "sentence_index": 36,
+      "text": "NOBEL & AI"
+    },
+    {
+      "sentence_index": 44,
+      "text": "SHARP EDGES"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "PIXEL CAMERA?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "JAMMED SLIDE CODE?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "CROOKED EDGE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "BAR DETECTOR"
+    },
+    {
+      "sentence_index": 28,
+      "text": "CHILD SIGHT"
+    },
+    {
+      "sentence_index": 36,
+      "text": "NOBEL & AI"
+    },
+    {
+      "sentence_index": 44,
+      "text": "SHARP EDGES"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 20,
+      "mode": "split_hstack",
+      "left_clip_index": 20,
+      "right_clip_index": 47,
+      "left_label": "FLAT GLARE",
+      "right_label": "TILTED EDGE"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a cool slate-gray Baltimore optical room with a wide matte-white wall screen and a brushed-silver slide projector on a limestone table",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white lab coats and dark trousers step beside the silver projector and point toward the white screen",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the cool slate-gray optical room where soft even sunlit daylight washes across the entire white wall screen",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a white coat leans forward and points to a desktop oscilloscope whose mint-sage trace rests flat",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view from behind of the cool limestone optical room with the slanted shadow line crossing the white screen before a matte-white smooth sculptural matte-white porcelain compact cat sculpture",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scientists in white coats and vests lean toward the oscilloscope and point as tall mint-sage spike bars rise",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the compact cool-limestone basement laboratory lined with brushed-silver amplifier boxes and powder-blue acoustic panels",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain postdocs in rolled white shirt sleeves, vests, and lab coats walk beside and align the silver projector toward the matte-white smooth sculptural matte-white porcelain compact cat sculpture",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the compact cool-limestone basement laboratory lined with brushed-silver amplifier boxes and powder-blue acoustic panels",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 5
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "retina",
+      "anatomy_label": "RETINA\nEYE LIGHT SENSOR",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the matte-sunlit sagittal head-and-brain cutaway, tiny concentric powder-blue light rings activate the curved retina at the back of the eye",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 6
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "harvard_column_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands over a powder-blue stone table",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift and place small circular pale-lavender discs across a sculpted cortical surface model",
+      "consequence": "the circular pale-lavender discs rest inert without triggering any mint-sage response",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "harvard_column_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool slate-gray studio wall illuminated by five brushed-silver pocket flashlights mounted on a powder-blue rail",
+      "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in coat sleeves hold and press the five silver flashlights casting five soft round pale-mint circles across the cool-white wall",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands beside a brushed-silver acoustic speaker cone on a slate-gray console",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand taps and turns the silver gain knob beside the still speaker cone while the other hand slides round dot stencils",
+      "consequence": "the mint-sage oscilloscope line rests flat beside the silent speaker cone",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the cool slate-gray optical lab with a neat stack of used dot-stencil slides beside the brushed-silver projector",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain scientist in a white coat steps beside the projector and leans toward the round sunlit spot on the white wall screen",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "PRIMARY VISUAL CORTEX\nVISION CENTER",
+      "camera": "gentle_push_in",
+      "brain_scene": "at the back of the matte-sunlit 3D cortical brain model, a hair-thin brushed-silver probe rests gently against the powder-blue primary visual cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-limestone tabletop comparing a rectangular frosted-glass slide beside a smooth brushed-silver pocket mirror",
+      "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in white coat sleeves align the rectangular glass slide beside the silver pocket mirror and slide it into a silver slot",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the wide matte-white tangent screen in front of the calm matte-white smooth sculptural matte-white porcelain compact cat sculpture on a cool limestone stand",
+      "action": "a crisp slate-blue diagonal shadow edge glides and crosses smoothly from left to right across the center of the white projection screen",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the wide matte-white tangent screen in front of the calm matte-white smooth sculptural matte-white porcelain compact cat sculpture on a cool limestone stand",
+      "action": "a crisp slate-blue diagonal shadow edge glides and crosses smoothly from left to right across the center of the white projection screen",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 14,
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the cool slate-gray optical lab with a neat stack of used dot-stencil slides beside the brushed-silver projector",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in coat sleeves grip and tap twin brushed-silver drumsticks in a rapid drumroll across the powder-blue drumhead",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "end_sentence_index": 16,
+      "act": 2,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the cool slate-gray optical lab with a neat stack of used dot-stencil slides beside the brushed-silver projector",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 16
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "harvard_column_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the cool powder-blue seminar studio where a flat pixel camera model sits closed beside an illuminated diagonal edge screen",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coats step away from the pixel camera model and point toward the diagonal edge screen",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "harvard_column_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "harvard_column_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the cool powder-blue seminar studio where a flat pixel camera model sits closed beside an illuminated diagonal edge screen",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coats step away from the pixel camera model and point toward the diagonal edge screen",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "harvard_column_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "harvard_column_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate tweed jacket sleeves and cool porcelain-white gloved matte-white porcelain hands over a cool limestone desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands open a crisp cool-white research folio and trace radial sunlit angle bars around a circle",
+      "consequence": "the forty-five-degree mint-sage bar rests tallest in the circular diagram",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "harvard_column_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands over a bright flooded cool-white panel",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands hold and tilt a wide sunlit lamp across the entire panel leaving the oscilloscope line flat",
+      "consequence": "zero mint-sage bars rise under uniform light",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "harvard_column_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands over a powder-blue wiring board",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands align and snap three round mint-sage center discs into one straight diagonal row inside a silver frame",
+      "consequence": "the three round discs rest joined into one crisp forty-five-degree bar detector",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "harvard_column_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "harvard_column_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved matte-white porcelain hands over the powder-blue wiring board",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and align pale-lavender flanking strips beside the mint-sage center row",
+      "consequence": "a silver balance needle rests calmly at center zero under flat light",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 22,
+      "clip_number": 22,
+      "scene_state": {
+        "location_id": "harvard_column_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the cool slate-gray optical room with the horizontal bar resting across the white wall screen",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in coat sleeves grip and turn the brushed-silver clock hand thirty degrees away from the mint-sage target notch",
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands turning the silver projector collar",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands grip and turn the slit collar to ninety degrees horizontal across the white screen",
+      "consequence": "the mint-sage spike bars drop flat and the silver speaker cone rests still",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 24,
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "PRIMARY VISUAL CORTEX\nEDGE DETECTOR",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the back of the matte-sunlit 3D cortical brain model, crisp mint-sage orientation strips illuminate along the primary visual cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "pediatric_vision_clinic",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a cheerful sunlit cool mint-sage pediatric eye clinic with powder-blue chairs and geometric butterfly stereo cards on a limestone table",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain eye doctor in a white coat leans across and holds a stereo card before a clothed child figure in a sweater",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "pediatric_vision_clinic",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "pediatric_vision_clinic",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a cheerful sunlit cool mint-sage pediatric eye clinic with powder-blue chairs and geometric butterfly stereo cards on a limestone table",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain eye doctor in a white coat leans across and holds a stereo card before a clothed child figure in a sweater",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 27,
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "pediatric_vision_clinic",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a cool slate-gray Baltimore optical room with a wide matte-white wall screen and a brushed-silver slide projector on a limestone table",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in slate sleeves turn and glide the powder-blue turntable smoothly through a full three-hundred-sixty-degree circle",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a cool slate-gray Baltimore optical room with a wide matte-white wall screen and a brushed-silver slide projector on a limestone table",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 29
+    },
+    {
+      "sentence_index": 30,
+      "end_sentence_index": 30,
+      "act": 4,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a cool slate-gray Baltimore optical room with a wide matte-white wall screen and a brushed-silver slide projector on a limestone table",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 30
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "pediatric_vision_clinic",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white medical coat sleeves and cool porcelain-white gloved matte-white porcelain hands over a cool mint-sage clinic counter",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide and open a translucent powder-blue shutter window letting twin sunlit light beams reach two column stacks",
+      "consequence": "both left and right sunlit column stacks rise evenly side by side",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "pediatric_vision_clinic",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "pediatric_vision_clinic",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white medical coat cuffs and cool porcelain-white gloved matte-white porcelain hands over a cool slate-gray column model",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand holds and places a frosted cloud disc in front of the left input lens while the right powder-blue blocks slide outward",
+      "consequence": "the clouded side shrinks to a narrow pale-lavender sliver",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 32,
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "pediatric_vision_clinic",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "harvard_column_studio",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "the sunlit ocular-dominance block cutaway where wide powder-blue columns crowd out narrow pale-lavender columns",
+      "internal_mechanism": "two cool porcelain-white gloved matte-white porcelain hands in coat sleeves slide the frosted cloud disc away late while the wide powder-blue columns rest locked",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "harvard_column_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "pediatric_vision_clinic",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white medical coat sleeves and cool porcelain-white gloved matte-white porcelain hands over a powder-blue pediatric table",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift away the frosted cloud disc early and place a soft mint-sage eye patch over the stronger model lens",
+      "consequence": "both sunlit column stacks align to equal width",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 35,
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "pediatric_vision_clinic",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "harvard_column_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a modern cool slate-gray AI vision studio displaying a wall matrix of sunlit oriented bar filter tiles",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain runners in powder-blue jackets and caps step and cross through the mint-sage finish ribbon together",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "harvard_column_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "harvard_column_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt sleeves and cool porcelain-white gloved matte-white porcelain hands over a cool slate-gray computer-vision bench",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and snap a biological sunlit bar-detector tile directly to a matching silicon grid of oriented sunlit filter tiles",
+      "consequence": "both grids align on the exact same forty-five-degree and ninety-degree edges",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 37,
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "harvard_column_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "temporal lobe",
+      "anatomy_label": "TEMPORAL LOBE\nSHAPE BUILDER",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the side of the matte-sunlit 3D cortical brain model, mint-sage edge streams from the back flow forward into the powder-blue temporal lobe to assemble whole shapes",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "harvard_column_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a modern cool slate-gray AI vision studio displaying a wall matrix of sunlit oriented bar filter tiles",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain AI engineer in a mint-sage jacket steps forward and points from the Layer-One edge tiles to a sunlit portrait silhouette",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "harvard_column_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "end_sentence_index": 40,
+      "act": 5,
+      "location_id": "harvard_column_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a modern cool slate-gray AI vision studio displaying a wall matrix of sunlit oriented bar filter tiles",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "harvard_column_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 39
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "harvard_column_studio",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket cuffs and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame over a cool limestone desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands hold and align a transparent grid of angled mint-sage edge bars over the five-stroke portrait card",
+      "consequence": "every angled mint-sage bar snaps directly onto one stroke of the portrait",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 41,
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "harvard_column_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the cool limestone optical lab uniting the silver slide projector, the pediatric stereo butterfly card, and the AI edge-filter grid",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scientists in white lab coats step beside the projector and point across the three linked breakthroughs",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 43,
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "pediatric_vision_clinic",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer sleeves and cool porcelain-white gloved matte-white porcelain hands over a cool limestone design desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set down a blank cool-white presentation board and lift a dark slate ruler and silver stylus",
+      "consequence": "the clean high-contrast tools rest ready on the cool-white board",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 45,
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "pediatric_vision_clinic",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "end_sentence_index": 47,
+      "act": 6,
+      "location_id": "harvard_column_studio",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame over a slate-gray drafting board",
+      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand holds a brushed-silver straightedge and draws three crisp slate-blue trend lines",
+      "consequence": "each sharp geometric angle aligns with a matching mint-sage indicator bar",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "harvard_column_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the quiet cool-limestone Johns Hopkins basement room with a smooth tick-mark brass observation dial and the glowing mint-sage oscilloscope",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain postdocs in white lab coats lean side by side and point toward the diagonal shadow edge on the white wall",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 49,
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "harvard_column_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the bright powder-blue vision studio uniting the silver slide projector, the vertical cortical column block, and crisp geometric line art",
+      "action": "viewed strictly from behind, clothed matte-white porcelain scientists in white coats and blazers step calmly before the illuminated orientation wheel and point upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "harvard_column_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "harvard_column_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright powder-blue vision studio uniting the silver slide projector, the vertical cortical column block, and crisp geometric line art",
+      "action": "viewed strictly from behind, clothed matte-white porcelain scientists in white coats and blazers step calmly before the illuminated orientation wheel and point upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 51,
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "harvard_column_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "cut_role": "split_right",
+      "act": 3,
+      "location_id": "hopkins_optical_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands over a cool slate-gray panel",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands slide and align one crisp slate-blue diagonal bar across the panel sending tall mint-sage spikes upward",
+      "consequence": "dense mint-sage spike bars fill the right monitor",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "hopkins_optical_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "harvard_column_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a sunlit campus courtyard framed by crisp cool-limestone colonnade arches, sunlit mint-sage trees, and clear powder-blue sky",
+      "action": "viewed strictly from behind, clothed matte-white porcelain figures in coats and jackets walk and step calmly along the straight stone path as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "JAMMED SLIDE CODE?",
+    "cover_sentence_index": 3,
+    "cover_brief": "slanted pastel glass slide casting crisp diagonal shadow edge across bright screen"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

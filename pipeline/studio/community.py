@@ -84,7 +84,7 @@ def _find_matching_dossier_dir(project_id: str, dossiers_root: Path | None = Non
     root = dossiers_root or (CHANNEL_ROOT / "research_dossiers")
     if not root.exists():
         return None
-    stripped = re.sub(r"^(?:psych|diorama)_\d+_", "", project_id)
+    stripped = re.sub(r"^(?:psych|diorama|reenact|news)_\d+_", "", project_id)
     direct = root / stripped
     if direct.is_dir():
         return direct
@@ -243,6 +243,17 @@ _DIORAMA_NATURAL_PACKAGES: dict[str, dict[str, Any]] = {
             "Your reflex sight tracks motion milliseconds before your conscious mind ever paints a picture.",
         ],
         "question": "Have you ever caught a falling cup or ducked a fast object before your conscious mind even knew what moved?",
+    },
+    "ainsworth_strange_situation": {
+        "headline": "Why the Quietest Toddlers Had Racing Hearts Inside Ainsworth's 1970 Playroom",
+        "paragraphs": [
+            "In 1970 Baltimore, developmental psychologist Mary Ainsworth watched one-year-old infants explore a bright playroom across eight structured three-minute episodes.",
+            "Across Ainsworth and Silvia Bell's landmark report (1970, Child Development) and Gottfried Spangler and Karin Grossmann's physiological follow-up (1993, Child Development), researchers compared outward crying with hidden stress markers.",
+            "Secure toddlers cried openly when a parent stepped out, then settled within seconds of being held. Avoidant toddlers stayed silent and kept stacking blocks — yet chest monitors showed their hearts racing and stress cortisol climbing.",
+            "Parents often mistake a quiet toddler after separation for mature independence. Later fMRI work by Dylan Gee (2014, Psychological Science) showed a trusted caregiver acts as an external safety switch that calms the amygdala until prefrontal brakes mature.",
+            "Looking calm on the outside is not the same circuit as feeling safe on the inside.",
+        ],
+        "question": "When stress hits, do you reach out right away — or go completely quiet while your heart races inside?",
     },
 }
 
@@ -548,13 +559,18 @@ class CommunityManager:
             if comp_title:
                 companion_line = f"Related case linked on this Short: {comp_title}\n"
 
+        if clean_trigger and not clean_trigger.endswith("?"):
+            clean_trigger = clean_trigger.rstrip(".! ") + "?"
+
         body_text = "\n\n".join(paragraphs)
+        # Canonical R35 mobile-first layout: Viewer Debate Question ('?') on Line 1 + [Headline] on Line 2
+        # above the 3-line mobile 'Read more' fold (7 double-newline blocks total).
+        header_block = f"{clean_trigger}\n[{headline}]" if clean_trigger else f"[{headline}]"
         comment_text = (
-            f"[{headline}]\n\n"
+            f"{header_block}\n\n"
             f"{body_text}\n\n"
             f"{companion_line}"
-            f"Source: {doi_link}\n"
-            f"{clean_trigger}"
+            f"Source: {doi_link}"
         )
 
         return {

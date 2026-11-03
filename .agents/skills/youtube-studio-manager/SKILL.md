@@ -18,18 +18,21 @@ Master: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Yout
 | 4 | Link Short-to-Short `Related video` circular seed-rescue ring + assign 7-Pillar playlist; verify `06_publish/studio_publish_receipt.json`. | `ShortLinkGraph` · `StudioShortLinker` | R35-B, R36-B |
 | 5 | Pin the DOI + debate-question comment (`DirectCDPClient`). | `CommunityManager` | R35 |
 | 6 | Rotate thumbnails A → B → C and evaluate the Z-test (`DirectCDPClient`). | `ThumbnailABTester` · `PublishStage` | R31, R32 |
-| 7 | Daily report. | [`/report_youtube`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/report_youtube/SKILL.md) | — |
+| 7 | Run Go-Live Watchdog (`Scheduled -> Public` transitions, missing R35 pins & R35-B Public links). | `run_studio_watchdog` | R35, R35-B |
+| 8 | Daily report (Zero-Fallback: never fabricate counts when CDP is offline). | [`/report_youtube`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/report_youtube/SKILL.md) | — |
 
 Use `--dry-run` first on any new command sequence.
 
 ## Commands
 ```bash
 python -X utf8 main.py studio-settings
-python -X utf8 main.py studio-upload --project <project_id> --visibility unlisted --burn-first-frame --assign-playlist
+python -X utf8 main.py studio-upload --project <project_id> --visibility unlisted --assign-playlist
 python -X utf8 main.py studio-queue --action plan --days 7
 python -X utf8 main.py studio-link --action plan --dry-run
 python -X utf8 main.py studio-link --action apply --assign-playlists
 python -X utf8 main.py studio-pin --project <project_id>
+python -X utf8 main.py studio-watchdog
+python -X utf8 main.py studio-watchdog --apply
 python -X utf8 main.py studio-ab-test --project <project_id> --swap-next
 python -X utf8 main.py studio-ab-test --project <project_id> --evaluate
 python -X utf8 main.py studio-report

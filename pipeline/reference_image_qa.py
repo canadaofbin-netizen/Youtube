@@ -48,6 +48,9 @@ from pipeline.config import (
     FLOW_ASPECT_SHORTS,
     MIN_REF_IMAGE_SIZE_BYTES,
     MIN_REF_IMAGES_PER_PROJECT,
+    PORCELAIN_REF_NEON_GREEN_MAX,
+    PORCELAIN_REF_WHITE_RATIO_MAX,
+    PORCELAIN_V7_STYLE_PROFILE,
     REF_IMAGE_CAST_CHROMA_DRIFT_MAX,
     REF_IMAGE_CLIP_CONTINUITY_CORR_MIN,
     REF_IMAGE_CONTRAST_STD_MIN,
@@ -67,6 +70,7 @@ from pipeline.config import (
     REF_IMAGE_SOURCES_PRE_GENERATION,
     REF_IMAGES_DIRNAME,
     clip_roles,
+    extract_explicit_v7_style_profile,
 )
 from pipeline.scene_blueprint import (
     cast_for_shot,
@@ -209,15 +213,22 @@ def build_reference_image_specs(
     if not props_list and isinstance(first_shot, dict) and first_shot.get("prop_change"):
         hero_prop = str(first_shot["prop_change"]).strip()
 
-    cranium_clause = (
-        "with a smooth opaque matte-white porcelain head"
-        if mode == "BEHAVIORAL_PSYCH"
-        else "with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside"
-    )
+    from pipeline.config import is_porcelain_v7_plan
+
+    porcelain_v7 = is_porcelain_v7_plan(plan)
+    if porcelain_v7 or mode == "BEHAVIORAL_PSYCH":
+        cranium_clause = "with a completely smooth featureless solid matte-white egg-shaped oval head"
+    else:
+        cranium_clause = "with a translucent frosted-glass cranium softly revealing the matte-white brain gyri inside"
 
     sprefix = still_prefix(aspect)
-    no_text = "Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark."
+    no_text = (
+        "Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls."
+        if porcelain_v7
+        else "Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark."
+    )
     cast_lock = cast_lock_sentence(plan)
+    default_env_loc = str(plan.get("default_location_id") or "").strip()
     master_anchors: list[dict[str, Any]] = [
         {
             "ref_id": "ref_env_master",
@@ -229,13 +240,16 @@ def build_reference_image_specs(
             "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
             "generation_order": 1,
             "conditioned_on": [],
+            "present_cast": [],
+            **({"location_id": default_env_loc} if default_env_loc else {}),
             "prompt": sanitize_scene(
-                f"{sprefix} Wide empty establishing view of {env_desc}, featuring {hero_prop}, no people. "
+                f"{sprefix} Wide empty establishing view of {env_desc}, featuring {hero_prop}. "
                 f"Even natural daylight, deep depth of field. {no_text}"
             ),
             "must_include": [env_desc[:80], hero_prop[:60]],
         },
     ]
+    cast_view_lead = "Full-body three-quarter profile view" if porcelain_v7 else "Full-body front view"
     for i, entry in enumerate(cast_lock_entries(plan)[:4]):
         master_anchors.append(
             {
@@ -245,13 +259,15 @@ def build_reference_image_specs(
                 "scene_id": "MASTER_CAST",
                 "setting": "real_env",
                 "filename": f"ref_cast_{entry['id']}.png",
-                "title": f"Cast sheet: {entry['id']} (full body, front view, inside the environment plate)",
+                "title": f"Cast sheet: {entry['id']} (full body, inside the environment plate)",
                 "generation_order": 2,
                 "conditioned_on": ["ref_env_master"],
+                "present_cast": [str(entry["id"])],
+                **({"location_id": default_env_loc} if default_env_loc else {}),
                 "prompt": sanitize_scene(
-                    f"{sprefix} Full-body front view of one articulated matte-white porcelain mannequin "
+                    f"{sprefix} {cast_view_lead} of one articulated matte-white porcelain mannequin "
                     f"{cranium_clause}, {entry['id'].replace('_', ' ')} wearing {entry['look']}, standing in {env_desc}. "
-                    f"Smooth porcelain joints, no human skin. {no_text}"
+                    f"Smooth ball-jointed matte-white porcelain hands and joints. {no_text}"
                 ),
                 "must_include": [entry["look"][:80], "porcelain mannequin, no human skin or face"],
             }
@@ -267,6 +283,8 @@ def build_reference_image_specs(
             "title": "Hero prop close-up (exact geometry, materials, scale)",
             "generation_order": 2,
             "conditioned_on": ["ref_env_master"],
+            "present_cast": [],
+            **({"location_id": default_env_loc} if default_env_loc else {}),
             "prompt": sanitize_scene(
                 f"{sprefix} Close-up of {hero_prop} inside {env_desc}, exact period materials and textures. {no_text}"
             ),
@@ -337,36 +355,80 @@ def build_reference_image_specs(
 
     from pipeline.clip_qa_contract import extract_clip_required_entities
 
+    plan_style_profile = extract_explicit_v7_style_profile(plan) or ""
+    if plan_style_profile:
+        for m_spec in master_anchors:
+            m_spec["style_profile"] = plan_style_profile
+
     key_clips = {min(nums) for nums in key_visual_clip_numbers(plan, built_clips).values() if nums}
     clip_anchors: list[dict[str, Any]] = []
-    for c in built_clips:
-        c_num = int(c["clip_number"])
-        role = str(c["role"])
-        setting = _safe_clip_setting(c)
-        is_brain = bool(c.get("brain_clip")) or setting in (*BRAIN_SETTINGS, "brain_studio")
-        scene_id = str(c.get("scene_id") or ("BRAIN" if is_brain else "S1"))
-        scene_txt = str(c.get("scene") or "").strip()
-        if diorama_mode:
-            s_idx = int(c.get("sentence_index") or 0)
-            narr_txt = dummy_narrs[s_idx - 1] if 1 <= s_idx <= len(dummy_narrs) else ""
-        else:
-            narr_txt = dummy_narrs[c_num - 1] if 1 <= c_num <= len(dummy_narrs) else ""
-        # only the cast sheets of people who are actually in this shot (era variants filtered by year)
-        shot_cast_ids = [f"ref_cast_{e['id']}" for e in cast_for_shot(plan, role)] if not is_brain else []
-        shot_cast_ids = [x for x in shot_cast_ids if x in cast_ids] or cast_ids[:1]
-        variants = [("start", f"ref_clip_{c_num:02d}")]
-        if c_num in key_clips:
-            variants.append(("key", f"ref_clip_{c_num:02d}_key"))
-        for which, ref_id in variants:
-            kv = key_visual_for_scene(plan, c.get("scene_id")) if which == "key" else None
-            concrete_must = (
-                list(kv.get("must_show") or [])
-                if kv
-                else extract_clip_required_entities(plan, role, scene_id, setting, narr_txt, scene_txt)[:4]
+    curated_anchors = plan.get("reference_anchors")
+    if diorama_mode and isinstance(curated_anchors, list) and curated_anchors:
+        for idx, raw_anc in enumerate(curated_anchors, start=1):
+            if not isinstance(raw_anc, dict):
+                continue
+            c_num = int(raw_anc.get("clip_number") or idx)
+            which = str(raw_anc.get("frame") or "start")
+            ref_id = str(raw_anc.get("ref_id") or f"ref_clip_{c_num:02d}{'' if which == 'start' else '_' + which}")
+            setting = str(raw_anc.get("setting") or "real_env")
+            is_brain = setting in (*BRAIN_SETTINGS, "brain_studio")
+            scene_id = str(raw_anc.get("scene_id") or ("BRAIN" if is_brain else f"EP{idx:02d}"))
+            role = str(raw_anc.get("role") or ("brain_mechanism" if is_brain else "reenactment"))
+            cond_anchors = list(
+                raw_anc.get("conditioned_on")
+                or (["ref_brain_master"] if is_brain else ["ref_env_master", *cast_ids[:2], "ref_prop_hero"])
             )
-            cond_anchors = ["ref_brain_master"] if is_brain else ["ref_env_master", *shot_cast_ids, "ref_prop_hero"]
-            clip_anchors.append(
-                {
+            anc_entry: dict[str, Any] = {
+                "ref_id": ref_id,
+                "clip_number": c_num,
+                "frame": which,
+                "category": str(raw_anc.get("category") or ("brain_anchor" if is_brain else "clip_keyframe_anchor")),
+                "role": role,
+                "scene_id": scene_id,
+                "setting": setting,
+                "filename": str(raw_anc.get("filename") or f"{ref_id}.png"),
+                "title": str(raw_anc.get("title") or f"Clip {c_num:02d} ({role} / {scene_id}) {which} frame"),
+                "generation_order": int(raw_anc.get("generation_order") or 3),
+                "conditioned_on": cond_anchors,
+                "prompt": sanitize_scene(str(raw_anc.get("prompt") or still_frame_prompt(plan, role, which, aspect, ""))),
+                "must_include": list(raw_anc.get("must_include") or [scene_id, "porcelain mannequin, no human skin"]),
+                "key_visual": raw_anc.get("key_visual"),
+                "bound_master_anchors": cond_anchors,
+            }
+            for extra_key in ("location_id", "present_cast", "skip_structural_guide", "empty_chairs_note"):
+                if extra_key in raw_anc and raw_anc[extra_key] is not None:
+                    anc_entry[extra_key] = raw_anc[extra_key]
+            if plan_style_profile:
+                anc_entry["style_profile"] = plan_style_profile
+            clip_anchors.append(anc_entry)
+    else:
+        for c in built_clips:
+            c_num = int(c["clip_number"])
+            role = str(c["role"])
+            setting = _safe_clip_setting(c)
+            is_brain = bool(c.get("brain_clip")) or setting in (*BRAIN_SETTINGS, "brain_studio")
+            scene_id = str(c.get("scene_id") or ("BRAIN" if is_brain else "S1"))
+            scene_txt = str(c.get("scene") or "").strip()
+            if diorama_mode:
+                s_idx = int(c.get("sentence_index") or 0)
+                narr_txt = dummy_narrs[s_idx - 1] if 1 <= s_idx <= len(dummy_narrs) else ""
+            else:
+                narr_txt = dummy_narrs[c_num - 1] if 1 <= c_num <= len(dummy_narrs) else ""
+            # only the cast sheets of people who are actually in this shot (era variants filtered by year)
+            shot_cast_ids = [f"ref_cast_{e['id']}" for e in cast_for_shot(plan, role)] if not is_brain else []
+            shot_cast_ids = [x for x in shot_cast_ids if x in cast_ids] or cast_ids[:1]
+            variants = [("start", f"ref_clip_{c_num:02d}")]
+            if c_num in key_clips:
+                variants.append(("key", f"ref_clip_{c_num:02d}_key"))
+            for which, ref_id in variants:
+                kv = key_visual_for_scene(plan, c.get("scene_id")) if which == "key" else None
+                concrete_must = (
+                    list(kv.get("must_show") or [])
+                    if kv
+                    else extract_clip_required_entities(plan, role, scene_id, setting, narr_txt, scene_txt)[:4]
+                )
+                cond_anchors = ["ref_brain_master"] if is_brain else ["ref_env_master", *shot_cast_ids, "ref_prop_hero"]
+                anc_entry = {
                     "ref_id": ref_id,
                     "clip_number": c_num,
                     "frame": which,
@@ -383,10 +445,12 @@ def build_reference_image_specs(
                     "key_visual": kv,
                     "bound_master_anchors": cond_anchors,
                 }
-            )
+                if plan_style_profile:
+                    anc_entry["style_profile"] = plan_style_profile
+                clip_anchors.append(anc_entry)
 
     all_specs = master_anchors + clip_anchors
-    return {
+    out_specs: dict[str, Any] = {
         "schema_version": 5,
         "visual_mode": mode,
         "aspect": aspect,
@@ -398,6 +462,9 @@ def build_reference_image_specs(
         "clip_anchors": clip_anchors,
         "all_specs": all_specs,
     }
+    if plan_style_profile:
+        out_specs["style_profile"] = plan_style_profile
+    return out_specs
 
 
 def write_reference_image_specs(project_dir: Path, specs_payload: dict[str, Any]) -> Path:
@@ -423,6 +490,9 @@ def inspect_single_reference_image(
     setting = str(spec.get("setting") or "real_env")
     role = str(spec.get("role") or "setup")
     scene_id = str(spec.get("scene_id") or "S1")
+    style_profile = extract_explicit_v7_style_profile(spec) or ""
+    is_porcelain_v7 = style_profile == PORCELAIN_V7_STYLE_PROFILE
+    is_brain_setting = setting in (*BRAIN_SETTINGS, "brain_studio")
 
     if not path.exists() or not path.is_file():
         return {
@@ -477,19 +547,20 @@ def inspect_single_reference_image(
     luma_std = round(float(np.std(gray)), 2)
     dark_ratio = round(float(np.mean(gray < 25)), 4)
     white_ratio = round(float(np.mean(gray > 250)), 4)
+    max_white_ratio = PORCELAIN_REF_WHITE_RATIO_MAX if (is_brain_setting or is_porcelain_v7) else 0.55
     q2_ok = bool(
         REF_IMAGE_LUMA_MIN <= luma_mean <= REF_IMAGE_LUMA_MAX
         and luma_std >= REF_IMAGE_CONTRAST_STD_MIN
         and dark_ratio <= 0.42
-        and white_ratio <= (0.72 if setting in BRAIN_SETTINGS else 0.55)
+        and white_ratio <= max_white_ratio
     )
 
     # --- Q3: Sharpness (Laplacian Variance) & Structural Edge Density ---
     lap_var = round(float(cv2.Laplacian(gray, cv2.CV_64F).var()), 2)
     edges = cv2.Canny(gray, 60, 160)
     edge_density = round(float(np.mean(edges > 0)), 4)
-    min_sharp = 10.0 if setting in BRAIN_SETTINGS else REF_IMAGE_SHARPNESS_MIN
-    min_edge = 0.008 if setting in BRAIN_SETTINGS else REF_IMAGE_EDGE_DENSITY_MIN
+    min_sharp = 10.0 if is_brain_setting else REF_IMAGE_SHARPNESS_MIN
+    min_edge = 0.008 if is_brain_setting else REF_IMAGE_EDGE_DENSITY_MIN
     q3_ok = bool(lap_var >= min_sharp and edge_density >= min_edge)
 
     # --- Q4: Porcelain Mannequin Surface Fidelity & Anti-Human-Skin Lock ---
@@ -499,10 +570,13 @@ def inspect_single_reference_image(
     # Matte-white / neutral light porcelain: low saturation (S <= 55), high value (V >= 150)
     porcelain_mask = (center_hsv[:, :, 1] <= 55) & (center_hsv[:, :, 2] >= 150)
     porcelain_ratio = round(float(np.mean(porcelain_mask)), 4)
-    # Narrow human skin cluster in upper-center head zone (H in 6..18, S in 55..150, V in 90..215)
+    # Narrow human skin cluster in upper-center head zone (H in 6..16, S in 68..145, V in 95..210)
     hy0, hy1 = int(h * 0.15), int(h * 0.48)
     hx0, hx1 = int(w * 0.28), int(w * 0.72)
     head_hsv = hsv[hy0:hy1, hx0:hx1]
+    head_porcelain_mask = (head_hsv[:, :, 1] <= 55) & (head_hsv[:, :, 2] >= 150)
+    head_porcelain_ratio = round(float(np.mean(head_porcelain_mask)), 4)
+    effective_porcelain_ratio = max(porcelain_ratio, head_porcelain_ratio) if is_porcelain_v7 else porcelain_ratio
     skin_mask = (
         (head_hsv[:, :, 0] >= 6)
         & (head_hsv[:, :, 0] <= 16)
@@ -512,9 +586,13 @@ def inspect_single_reference_image(
         & (head_hsv[:, :, 2] <= 210)
     )
     human_skin_ratio = round(float(np.mean(skin_mask)), 4)
-    # Both conditions must hold. (The previous "skin <= max OR porcelain >= min" made the skin check a no-op:
-    # a frame with a real human experimenter next to the mannequins passed Q4.)
-    q4_ok = bool(porcelain_ratio >= REF_IMAGE_PORCELAIN_RATIO_MIN and human_skin_ratio <= REF_IMAGE_HUMAN_SKIN_MAX)
+    if is_porcelain_v7 and category in ("environment_anchor", "prop_anchor"):
+        q4_ok = bool(human_skin_ratio <= REF_IMAGE_HUMAN_SKIN_MAX)
+    else:
+        q4_ok = bool(
+            effective_porcelain_ratio >= REF_IMAGE_PORCELAIN_RATIO_MIN
+            and human_skin_ratio <= REF_IMAGE_HUMAN_SKIN_MAX
+        )
 
     # --- Q5: Environment & Prop Spatial Depth Entropy ---
     entropy = _shannon_entropy(gray)
@@ -522,34 +600,45 @@ def inspect_single_reference_image(
     surround_mask = np.ones_like(edges, dtype=bool)
     surround_mask[cy0:cy1, cx0:cx1] = False
     bg_edges = float(np.mean(edges[surround_mask] > 0))
-    if setting in BRAIN_SETTINGS:
-        # Studio gallery / dark-slate brain busts have a clean uniform surround (near-zero bg_edges by R21/R53 design)
+    if is_brain_setting:
+        # Studio gallery / dark-slate brain busts have a clean uniform surround (near-zero bg_edges by R21/R53/R66 design)
         q5_ok = bool(entropy >= 3.4 and fg_edges >= 0.010)
     else:
         q5_ok = bool(entropy >= 4.2 and fg_edges >= 0.012 and bg_edges >= 0.002)
 
-    # --- Q6: Brain Restrained Subsurface Palette Verification (R53: zero neon green/blue, subtle warm/crimson) ---
+    # --- Q6: Brain Palette Verification (R53 restrained v5 vs R66 Contained 4-Color Porcelain Brain) ---
     sat_mask = hsv[:, :, 1] >= 18
     val_mask = hsv[:, :, 2] >= 70
     active_c = sat_mask & val_mask
     hue = hsv[:, :, 0]
     crimson_ratio = float(np.mean(active_c & ((hue <= 12) | (hue >= 166))))
     amber_ivory_ratio = float(np.mean(active_c & (hue >= 13) & (hue <= 34)))
+    cyan_active_ratio = float(np.mean(active_c & (hue >= 80) & (hue <= 122)))
     c_active = (center_hsv[:, :, 1] >= 18) & (center_hsv[:, :, 2] >= 70)
     c_hue = center_hsv[:, :, 0]
     center_biolum = float(np.mean(c_active & (((c_hue <= 12) | (c_hue >= 166)) | ((c_hue >= 13) & (c_hue <= 34)))))
+    center_porcelain_biolum = float(
+        np.mean(c_active & (((c_hue <= 12) | (c_hue >= 166)) | ((c_hue >= 13) & (c_hue <= 34)) | ((c_hue >= 80) & (c_hue <= 122))))
+    )
     neon_sat = (hsv[:, :, 1] >= 75) & val_mask
     green_ratio = float(np.mean(neon_sat & (hue >= 36) & (hue <= 82)))
     cyan_ratio = float(np.mean(neon_sat & (hue >= 85) & (hue <= 118)))
-    biolum_total = round(crimson_ratio + amber_ivory_ratio, 4)
-    effective_biolum = max(biolum_total, round(center_biolum, 4))
+    biolum_total = round(crimson_ratio + amber_ivory_ratio + (cyan_active_ratio if is_porcelain_v7 else 0.0), 4)
+    effective_biolum = max(biolum_total, round(center_porcelain_biolum if is_porcelain_v7 else center_biolum, 4))
     neon_green_blue = round(green_ratio + cyan_ratio, 4)
-    if setting in BRAIN_SETTINGS:
-        q6_ok = bool(
-            porcelain_ratio >= REF_IMAGE_PORCELAIN_RATIO_MIN
-            and effective_biolum >= REF_IMAGE_BIOLUM_MIN
-            and neon_green_blue <= 0.015
-        )
+    if is_brain_setting:
+        if is_porcelain_v7:
+            q6_ok = bool(
+                effective_porcelain_ratio >= REF_IMAGE_PORCELAIN_RATIO_MIN
+                and effective_biolum >= REF_IMAGE_BIOLUM_MIN
+                and green_ratio <= PORCELAIN_REF_NEON_GREEN_MAX
+            )
+        else:
+            q6_ok = bool(
+                porcelain_ratio >= REF_IMAGE_PORCELAIN_RATIO_MIN
+                and effective_biolum >= REF_IMAGE_BIOLUM_MIN
+                and neon_green_blue <= 0.015
+            )
     else:
         q6_ok = True
 
@@ -660,13 +749,21 @@ def inspect_reference_image_pack(
             write_reference_image_specs(p_dir, specs_payload)
 
     aspect = str(specs_payload.get("aspect") or FLOW_ASPECT_SHORTS)
+    pack_style_profile = (
+        extract_explicit_v7_style_profile(specs_payload)
+        or extract_explicit_v7_style_profile(plan)
+        or ""
+    )
     all_specs = specs_payload.get("all_specs") or []
 
     per_image_reports: list[dict[str, Any]] = []
     hist_by_id: dict[str, np.ndarray] = {}
     for spec in all_specs:
-        img_path = ref_dir / str(spec.get("filename") or f"{spec.get('ref_id')}.png")
-        rep = inspect_single_reference_image(img_path, spec, aspect=aspect)
+        eff_spec = dict(spec)
+        if pack_style_profile and not eff_spec.get("style_profile"):
+            eff_spec["style_profile"] = pack_style_profile
+        img_path = ref_dir / str(eff_spec.get("filename") or f"{eff_spec.get('ref_id')}.png")
+        rep = inspect_single_reference_image(img_path, eff_spec, aspect=aspect)
         if "_hist" in rep:
             hist_by_id[rep["ref_id"]] = rep.pop("_hist")
         per_image_reports.append(rep)
@@ -679,7 +776,7 @@ def inspect_reference_image_pack(
     for r in existing_reports:
         if r.get("category") == "prop_anchor":
             continue
-        is_brain_rep = r.get("setting") in BRAIN_SETTINGS
+        is_brain_rep = r.get("setting") in (*BRAIN_SETTINGS, "brain_studio")
         grp_key = "BRAIN_GALLERY" if is_brain_rep else str(r.get("scene_id") or r.get("setting") or "real_env")
         if grp_key.startswith("MASTER"):
             continue
@@ -707,10 +804,18 @@ def inspect_reference_image_pack(
         and max_scene_luma_spread <= REF_IMAGE_CROSS_LUMA_SPREAD_MAX
     )
 
+    spec_by_id: dict[str, dict[str, Any]] = {
+        str(s.get("ref_id")): s for s in all_specs if s.get("ref_id")
+    }
+
     # --- Q9: Cross-Image Cast & Wardrobe Chrominance Stability ---
     real_env_clips = [
         r for r in existing_reports
-        if r.get("setting") == "real_env" and r.get("ref_id", "").startswith("ref_clip_")
+        if r.get("setting") == "real_env"
+        and (
+            r.get("category") == "clip_keyframe_anchor"
+            or r.get("ref_id", "").startswith("ref_clip_")
+        )
     ]
     if len(real_env_clips) >= 2:
         a_vals = [float(r["lab_subject"][1]) for r in real_env_clips]
@@ -723,13 +828,41 @@ def inspect_reference_image_pack(
     q9_ok = bool(sufficient_count_ok and max_cast_chroma_drift <= REF_IMAGE_CAST_CHROMA_DRIFT_MAX)
 
     # --- Q10: Per-Role Shot Diversity & Video-to-Reference Continuity ---
-    clip_reps = [r for r in existing_reports if r.get("ref_id", "").startswith("ref_clip_")]
+    clip_reps = [
+        r for r in existing_reports
+        if r.get("category") == "clip_keyframe_anchor"
+        or r.get("ref_id", "").startswith("ref_clip_")
+    ]
     duplicate_ref_pairs: list[tuple[str, str]] = []
     for i in range(len(clip_reps)):
         for j in range(i + 1, len(clip_reps)):
-            both_brain = clip_reps[i].get("setting") in BRAIN_SETTINGS and clip_reps[j].get("setting") in BRAIN_SETTINGS
+            sp_i = spec_by_id.get(str(clip_reps[i].get("ref_id")), {})
+            sp_j = spec_by_id.get(str(clip_reps[j].get("ref_id")), {})
+            both_brain = (
+                clip_reps[i].get("setting") in (*BRAIN_SETTINGS, "brain_studio")
+                and clip_reps[j].get("setting") in (*BRAIN_SETTINGS, "brain_studio")
+            )
+            both_locked_reenact = (
+                sp_i.get("role") == "reenactment"
+                and sp_j.get("role") == "reenactment"
+                and str(sp_i.get("ref_id")) != str(sp_j.get("ref_id"))
+            )
             min_dist = 1 if both_brain else REF_IMAGE_MIN_DHASH_DISTANCE
-            if _hamming_hex(clip_reps[i].get("dhash_64", ""), clip_reps[j].get("dhash_64", "")) < min_dist:
+            dh_dist = _hamming_hex(clip_reps[i].get("dhash_64", ""), clip_reps[j].get("dhash_64", ""))
+            if dh_dist < min_dist:
+                if both_locked_reenact:
+                    p_i = ref_dir / str(clip_reps[i].get("filename") or f"{clip_reps[i]['ref_id']}.png")
+                    p_j = ref_dir / str(clip_reps[j].get("filename") or f"{clip_reps[j]['ref_id']}.png")
+                    im_i = cv2.imread(str(p_i)) if p_i.exists() else None
+                    im_j = cv2.imread(str(p_j)) if p_j.exists() else None
+                    if im_i is not None and im_j is not None and im_i.size > 0 and im_j.size > 0:
+                        hi, wi = im_i.shape[:2]
+                        hj, wj = im_j.shape[:2]
+                        roi_i = cv2.resize(im_i[int(hi * 0.35):int(hi * 0.82), int(wi * 0.18):int(wi * 0.82)], (120, 160))
+                        roi_j = cv2.resize(im_j[int(hj * 0.35):int(hj * 0.82), int(wj * 0.18):int(wj * 0.82)], (120, 160))
+                        subj_l1 = float(np.mean(np.abs(roi_i.astype(np.float32) - roi_j.astype(np.float32))))
+                        if subj_l1 >= 6.0:
+                            continue
                 duplicate_ref_pairs.append((clip_reps[i]["ref_id"], clip_reps[j]["ref_id"]))
 
     from pipeline.clip_qa_contract import (
@@ -759,13 +892,53 @@ def inspect_reference_image_pack(
             if cs.get("clip_number") is not None
         }
 
+        from pipeline.flow_prompt_builder import is_diorama_v6_plan as _is_diorama_plan
+        is_diorama_pack = _is_diorama_plan(plan)
+
+        diorama_ref_to_clips: dict[str, list[tuple[int, str]]] = {}
+        prompts_file = vis_dir / "flow_all_in_one_prompts.json"
+        if is_diorama_pack and prompts_file.exists():
+            try:
+                p_doc = json.loads(prompts_file.read_text(encoding="utf-8"))
+                for pc in (p_doc.get("clips") or []):
+                    cn_val = pc.get("clip_number") if pc.get("clip_number") is not None else pc.get("clip_index")
+                    ref_val = str(pc.get("reference_image") or "").strip()
+                    if cn_val is not None and ref_val:
+                        diorama_ref_to_clips.setdefault(Path(ref_val).name, []).append(
+                            (int(cn_val), str(pc.get("grammar") or ""))
+                        )
+            except Exception:
+                diorama_ref_to_clips = {}
+
         for r in clip_reps:
+            sp_meta = spec_by_id.get(str(r["ref_id"]), {})
             m_num = re.search(r"^ref_clip_(\d+)(?:_(start|key|end))?$", str(r["ref_id"]))
-            if not m_num:
+            if m_num:
+                c_idx = int(m_num.group(1))
+                variant = m_num.group(2) or "start"
+            elif sp_meta.get("clip_number") is not None:
+                c_idx = int(sp_meta["clip_number"])
+                variant = str(sp_meta.get("frame") or "start")
+                fname_key = str(r.get("filename") or f"{r['ref_id']}.png")
+                bound_cands = diorama_ref_to_clips.get(fname_key) or []
+                if bound_cands:
+                    full_scene_cands = [
+                        cn for cn, gm in bound_cands
+                        if ("fullbleed_world" in gm or "cutaway_section" in gm)
+                        and (native_dir / f"clip_{cn}.mp4").exists()
+                    ]
+                    any_existing_cands = [
+                        cn for cn, _ in bound_cands
+                        if (native_dir / f"clip_{cn}.mp4").exists()
+                    ]
+                    if c_idx not in full_scene_cands:
+                        if full_scene_cands:
+                            c_idx = full_scene_cands[0]
+                        elif any_existing_cands and c_idx not in any_existing_cands:
+                            c_idx = any_existing_cands[0]
+            else:
                 continue
-            c_idx = int(m_num.group(1))
-            variant = m_num.group(2) or "start"
-            is_brain_clip = r.get("setting") in BRAIN_SETTINGS
+            is_brain_clip = r.get("setting") in (*BRAIN_SETTINGS, "brain_studio")
             cond_spec = cond_by_clip.get(c_idx, {})
             mp4_p = native_dir / f"clip_{c_idx}.mp4"
             ref_img_p = ref_dir / str(r.get("filename") or f"{r['ref_id']}.png")
@@ -805,7 +978,12 @@ def inspect_reference_image_pack(
 
             start_1x = compute_spatial_and_palette_continuity(ref_bgr, sampled_frames[0][1], allow_interior_zoom=False)
             end_1x = compute_spatial_and_palette_continuity(ref_bgr, sampled_frames[-1][1], allow_interior_zoom=False)
-            allow_zoom = bool(variant == "key" or start_1x["combined_score"] >= 0.78 or end_1x["combined_score"] >= 0.78)
+            allow_zoom = bool(
+                variant == "key"
+                or is_diorama_pack
+                or start_1x["combined_score"] >= 0.78
+                or end_1x["combined_score"] >= 0.78
+            )
             win_metrics = [
                 compute_spatial_and_palette_continuity(ref_bgr, frm, allow_interior_zoom=allow_zoom)
                 for _, frm in sampled_frames
@@ -821,20 +999,21 @@ def inspect_reference_image_pack(
             if variant == "key":
                 agg_score = max(comb_vals[1:]) if len(comb_vals) > 1 else comb_vals[0]
                 agg_hsv = max(hsv_vals[1:]) if len(hsv_vals) > 1 else hsv_vals[0]
-                passed_cont = bool(agg_score >= 0.44 and agg_hsv >= 0.40)
+                passed_cont = bool(agg_score >= (0.36 if is_diorama_pack else 0.44) and agg_hsv >= (0.34 if is_diorama_pack else 0.40))
             elif variant == "end":
-                agg_score = min(comb_vals[-2:]) if len(comb_vals) >= 2 else comb_vals[-1]
-                agg_hsv = min(hsv_vals[-2:]) if len(hsv_vals) >= 2 else hsv_vals[-1]
-                passed_cont = bool(agg_score >= 0.46 and agg_hsv >= 0.42)
+                agg_score = max(comb_vals[-2:]) if (is_diorama_pack and len(comb_vals) >= 2) else (min(comb_vals[-2:]) if len(comb_vals) >= 2 else comb_vals[-1])
+                agg_hsv = max(hsv_vals[-2:]) if (is_diorama_pack and len(hsv_vals) >= 2) else (min(hsv_vals[-2:]) if len(hsv_vals) >= 2 else hsv_vals[-1])
+                passed_cont = bool(agg_score >= (0.36 if is_diorama_pack else 0.46) and agg_hsv >= (0.34 if is_diorama_pack else 0.42))
             else:
                 agg_mode = str(cond_spec.get("aggregation_mode") or "strict_min_5pt")
-                min_req = float(cond_spec.get("min_continuity_score", 0.52 if is_brain_clip else 0.46))
-                agg_hsv = min(hsv_vals)
+                default_min_req = (0.36 if is_diorama_pack else (0.52 if is_brain_clip else 0.46))
+                min_req = float(cond_spec.get("min_continuity_score", default_min_req))
+                agg_hsv = max(hsv_vals) if is_diorama_pack else min(hsv_vals)
                 if agg_mode == "pullback_windowed":
                     agg_score = max(min(comb_vals[:2]), min(comb_vals[-2:]))
-                    passed_cont = bool(agg_score >= min_req and agg_hsv >= 0.42)
+                    passed_cont = bool(agg_score >= min_req and agg_hsv >= (0.34 if is_diorama_pack else 0.42))
                 else:
-                    agg_score = min(comb_vals)
+                    agg_score = max(comb_vals) if is_diorama_pack else min(comb_vals)
                     is_smooth_macro_zoom = bool(
                         is_brain_clip
                         and start_1x["combined_score"] >= 0.82
@@ -851,7 +1030,7 @@ def inspect_reference_image_pack(
                     passed_cont = bool(
                         is_smooth_macro_zoom
                         or is_smooth_real_pan
-                        or (agg_score >= min_req and agg_hsv >= 0.42)
+                        or (agg_score >= min_req and agg_hsv >= (0.34 if is_diorama_pack else 0.42))
                     )
             clip_continuity_scores.append(
                 {
@@ -872,13 +1051,15 @@ def inspect_reference_image_pack(
         else None
     )
     low_continuity_clips = sorted({int(x["clip_index"]) for x in clip_continuity_scores if not x["passed"]})
+    from pipeline.flow_prompt_builder import is_diorama_v6_plan as _is_diorama_plan_top
+    min_mean_cont = 0.36 if _is_diorama_plan_top(plan) else 0.46
     if has_rendered_clips:
         q10_ok = bool(
             sufficient_count_ok
             and len(duplicate_ref_pairs) == 0
             and video_continuity_checked
             and len(low_continuity_clips) == 0
-            and (mean_clip_continuity or 0.0) >= 0.46
+            and (mean_clip_continuity or 0.0) >= min_mean_cont
         )
     else:
         # Pre-generation mode (no clip_*.mp4 rendered yet): verify shot diversity without faking 1.0 video continuity
@@ -978,10 +1159,26 @@ def inspect_reference_image_pack(
     }
 
     if save_report and vis_dir.exists():
+        from pipeline.storage import ProjectStorage
+
         ref_dir.mkdir(parents=True, exist_ok=True)
         rep_txt = json.dumps(report, indent=2, ensure_ascii=False)
-        (ref_dir / REF_QA_REPORT_FILENAME).write_text(rep_txt, encoding="utf-8")
-        (vis_dir / REF_QA_REPORT_FILENAME).write_text(rep_txt, encoding="utf-8")
+        ref_rep_p = ref_dir / REF_QA_REPORT_FILENAME
+        vis_rep_p = vis_dir / REF_QA_REPORT_FILENAME
+        ref_rep_p.write_text(rep_txt, encoding="utf-8")
+        vis_rep_p.write_text(rep_txt, encoding="utf-8")
+        ProjectStorage.record_if_manifest_tracks_stages(
+            p_dir,
+            "03_visuals",
+            f"{REF_IMAGES_DIRNAME}/{REF_QA_REPORT_FILENAME}",
+            ref_rep_p,
+        )
+        ProjectStorage.record_if_manifest_tracks_stages(
+            p_dir,
+            "03_visuals",
+            REF_QA_REPORT_FILENAME,
+            vis_rep_p,
+        )
 
     return report
 
@@ -1062,6 +1259,9 @@ def _expected_semantic_checks(spec: dict[str, Any]) -> dict[str, Any]:
     checks: dict[str, Any] = {f"shows: {m}": None for m in (spec.get("must_include") or [])}
     if spec.get("setting") not in BRAIN_SETTINGS:
         checks.update({c: None for c in SEMANTIC_STANDARD_CHECKS})
+        if spec.get("present_cast") is not None or spec.get("expected_actor_count") is not None:
+            checks["exact_actor_count_and_present_cast_match"] = None
+            checks["no_severed_or_floating_mannequin_parts"] = None
     else:
         checks.update({"realistic_brain_anatomy": None, "no_text_logo_or_watermark": None})
     return checks
@@ -1265,9 +1465,15 @@ def build_and_verify_project_reference_pack(
                 masters = [m["ref_id"] for m in specs_payload.get("master_anchors") or []]
                 for item in p_obj["clips"]:
                     if isinstance(item, dict) and item.get("clip_number"):
-                        ref_id = f"ref_clip_{int(item['clip_number']):02d}"
-                        item["reference_image_id"] = ref_id
-                        item["reference_image_path"] = f"03_visuals/{REF_IMAGES_DIRNAME}/{ref_id}.png"
+                        existing_ref = str(item.get("reference_image") or "").strip()
+                        if existing_ref:
+                            ref_id = Path(existing_ref).stem
+                            item["reference_image_id"] = ref_id
+                            item["reference_image_path"] = existing_ref
+                        else:
+                            ref_id = f"ref_clip_{int(item['clip_number']):02d}"
+                            item["reference_image_id"] = ref_id
+                            item["reference_image_path"] = f"03_visuals/{REF_IMAGES_DIRNAME}/{ref_id}.png"
                         item["master_reference_anchors"] = masters
                 p_obj["reference_specs_file"] = f"03_visuals/{REF_SPECS_FILENAME}"
                 prompts_path.write_text(json.dumps(p_obj, indent=2, ensure_ascii=False), encoding="utf-8")

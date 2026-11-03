@@ -1,0 +1,1148 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "cialdini_door_in_the_face_reciprocity",
+  "topic": "Robert Cialdini Arizona Campus Door-in-the-Face Experiment: How Reciprocal Concessions Triple Real-World Agreement and Engage Brain Fairness Networks",
+  "act5_climax_episode": "Fifty-year meta-analytic synthesis confirming that Door-in-the-Face compliance holds across civic volunteering and high-stakes negotiations whenever the same requester steps down from a sincere opening goal.",
+  "outro_title_lines": [
+    "ROBERT CIALDINI (1975)",
+    "ARIZONA STATE UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "NO MEANS NO?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BIG NO FIRST?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "ZOO TRIP TEST"
+    },
+    {
+      "sentence_index": 19,
+      "text": "YES TRIPLES"
+    },
+    {
+      "sentence_index": 28,
+      "text": "REAL SHOW UP"
+    },
+    {
+      "sentence_index": 37,
+      "text": "THREE RULES"
+    },
+    {
+      "sentence_index": 45,
+      "text": "COVER OFFER ONE"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "NO MEANS NO?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BIG NO FIRST?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "ZOO TRIP TEST"
+    },
+    {
+      "sentence_index": 19,
+      "text": "YES TRIPLES"
+    },
+    {
+      "sentence_index": 28,
+      "text": "REAL SHOW UP"
+    },
+    {
+      "sentence_index": 37,
+      "text": "THREE RULES"
+    },
+    {
+      "sentence_index": 45,
+      "text": "COVER OFFER ONE"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 23,
+      "mode": "split_hstack",
+      "left_clip_index": 22,
+      "right_clip_index": 48,
+      "left_label": "SAME ASKER",
+      "right_label": "SECOND ASKER"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a soft daylight university campus walkway paved in cool slate stone with muted-sage palms, a matte-ceramic comparison stand, and sunlit study books",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain student walker in a powder-blue denim jacket holding sunlit books steps along the campus walkway past a clipboard researcher",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue jacket sleeves and cool porcelain-white gloved matte-white porcelain hands holding a brushed-silver pen over a cool slate stone counter",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand braces the brushed-silver clipboard edge while the other hand writes a crisp check mark on the lower powder-blue sheet",
+      "consequence": "three muted-sage tally blocks rise cleanly beside the clipboard",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the cool-slate campus quad walkway lined with muted-sage shade trees and cool-cream arches",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain psychologist in a soft-slate blazer and collared shirt stands beside the walkway and points toward the clipboard station as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "persuasion_data_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-slate suit sleeves and cool porcelain-white gloved matte-white porcelain hands over a matte cool-cream ceramic desk holding a compact sunlit doorway model",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand closes the compact sunlit door firmly while the other hand pulls a silver token back across the cool-cream ceramic surface",
+      "consequence": "the compact sunlit doorway stays closed on the cool-cream desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "persuasion_data_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "persuasion_data_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-slate suit sleeves and cool porcelain-white gloved matte-white porcelain hands over a matte cool-cream ceramic desk holding a compact sunlit doorway model",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand closes the compact sunlit door firmly while the other hand pulls a silver token back across the cool-cream ceramic surface",
+      "consequence": "the compact sunlit doorway stays closed on the cool-cream desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "persuasion_data_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the cool-slate campus walkway under soft diffused daylight with muted-sage courtyard benches",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain solicitor in a grey cardigan lowers a silver folder and walks away down the slate path",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "wide view of the cool-slate Arizona university quad where student walkers stroll between muted-sage trees and pale-limestone buildings",
+      "action": "viewed strictly from behind, clothed matte-white porcelain student researchers in powder-blue shirts and caps step onto the slate walkway and hold brushed-silver clipboards ready",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 7,
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt cuffs and cool porcelain-white gloved matte-white porcelain hands holding a sunlit geometric zoo gate brochure on a cool slate stone table",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands open the muted-sage geometric animal park map flat and point to two compact sunlit giraffe figures",
+      "consequence": "the clean geometric zoo map lies open on the cool slate stone table",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 8,
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a soft daylight powder-blue ceramic sports table displaying a muted-sage compact green-turf soccer field with two silver goal frames",
+      "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in slate blazer sleeves roll a tiny white geometric ball across the muted-sage soccer field and set a two-hour silver dial beside the touchline",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt sleeves and cool porcelain-white gloved matte-white porcelain hands extending a single-sheet silver clipboard over a cool slate stone rail",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand holds the single cool-cream sheet forward while the other hand holds a brushed-silver pen poised",
+      "consequence": "passing shadows move briskly past the untouched silver pen",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a soft-lit cool alabaster stone counter holding a matte powder-blue porcelain pie dish with one narrow slice beside five untouched slices",
+      "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in muted-sage sleeves lift the single narrow pie slice with a brushed-silver server and place it onto a small cool-cream plate",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the cool-slate campus walkway bordered by pale-lavender planters and muted-sage hedges",
+      "action": "viewed strictly from behind, clothed matte-white porcelain campus walkers in sunlit shirts and jackets shake their heads once and walk straight past the clipboard researcher",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 13,
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "powder-blue shirt cuffs and cool porcelain-white gloved matte-white porcelain hands presenting twenty-four stacked pale-lavender calendar cards on a cool slate stone ledge",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands fan the thick stack of twenty-four pale-lavender monthly cards wide and push it forward",
+      "consequence": "the massive two-year stack covers the entire silver clipboard surface",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 14,
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the cool-slate campus walkway bordered by pale-lavender planters and muted-sage hedges",
+      "action": "viewed strictly from behind, clothed matte-white porcelain campus walkers in sunlit shirts and jackets shake their heads once and walk straight past the clipboard researcher",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "end_sentence_index": 16,
+      "act": 2,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the cool-slate campus walkway bordered by pale-lavender planters and muted-sage hedges",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 15
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "persuasion_data_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "a cool-lit psychology seminar room with a slate conference table holding three empty matte-ceramic tally trays",
+      "action": "viewed strictly from behind, clothed matte-white porcelain assistants in soft-slate sweaters lean over the empty refusal tray and shake their heads",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "persuasion_data_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "persuasion_data_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "a cool-lit psychology seminar room with a slate conference table holding three empty matte-ceramic tally trays",
+      "action": "viewed strictly from behind, clothed matte-white porcelain assistants in soft-slate sweaters lean over the empty refusal tray and shake their heads",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "persuasion_data_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the cool-slate Arizona campus walkway where two separate clipboard researchers stand ten paces apart",
+      "action": "one cool porcelain-white gloved matte-white porcelain hand in a slate blazer sleeve flips the brushed-silver coin upward and sets it flat between the two equal sunlit stacks",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "persuasion_data_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-slate blazer cuffs and cool porcelain-white gloved matte-white porcelain hands comparing a giant pale-lavender cube beside a tiny muted-sage cube on a cool stone desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place the tiny muted-sage cube next to the giant pale-lavender block and tilt both palms in question",
+      "consequence": "the sharp size contrast sits side by side on the cool stone surface",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "persuasion_data_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "persuasion_data_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-slate blazer cuffs and cool porcelain-white gloved matte-white porcelain hands comparing a giant pale-lavender cube beside a tiny muted-sage cube on a cool stone desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place the tiny muted-sage cube next to the giant pale-lavender block and tilt both palms in question",
+      "consequence": "the sharp size contrast sits side by side on the cool stone surface",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 21,
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "persuasion_data_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the cool-slate Arizona campus walkway where two separate clipboard researchers stand ten paces apart",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in powder-blue and muted-sage shirts step into separate positions along the slate walkway",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the cool-slate campus walkway where a single researcher in a powder-blue shirt steps back politely and flips their own silver clipboard",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain walker in a cream cardigan stops and nods as the same researcher steps back and offers the smaller sheet",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_down",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the cool-slate Arizona campus walkway where two separate clipboard researchers stand ten paces apart",
+      "action": "one cool porcelain-white gloved matte-white porcelain hand in a blazer cuff releases the smooth grey stone and points as it drops straight to the bottom of the powder-blue column",
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nCONFLICT DETECTOR",
+      "brain_scene": "a matte-sunlit sagittal cutaway brain model on a cool alabaster stand where soft coral-rose glow illuminates the inner anterior cingulate registering an unreturned social concession",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_right",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "VENTROMEDIAL CORTEX\nJUDGMENT CENTER",
+      "brain_scene": "a matte-sunlit sagittal cutaway brain model where calm electric cyan-blue luminescence fills the lower ventromedial prefrontal cortex guiding a balanced reciprocal step",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "persuasion_data_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-slate blazer cuffs and cool porcelain-white gloved matte-white porcelain hands holding a brushed-silver brass balance weight beside a Saturday zoo check-in roster on a cool stone desk",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand taps the Saturday calendar square while the other hand opens the blank arrival binder",
+      "consequence": "the blank arrival column waits for real weekend footsteps",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "persuasion_data_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright cool-cream campus civic center entrance with a powder-blue check-in table and muted-sage welcome banners",
+      "action": "viewed strictly from behind, clothed matte-white porcelain coordinators in white coats stand behind the powder-blue table and align check-in clipboards",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 29,
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "end_sentence_index": 30,
+      "act": 4,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a bright cool-cream campus civic center entrance with a powder-blue check-in table and muted-sage welcome banners",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 28
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "nucleus accumbens",
+      "anatomy_label": "NUCLEUS ACCUMBENS\nREWARD CENTER",
+      "brain_scene": "a matte-sunlit sagittal cutaway brain model where soft champagne-gold glow illuminates the deep nucleus accumbens reflecting active ownership over a freely chosen compromise",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the bright cool-cream campus donor hall buzzing with arriving student volunteers in muted sunlit jackets",
+      "action": "viewed strictly from behind, clothed matte-white porcelain volunteers in sunlit sweaters and jackets step cheerfully up to the powder-blue check-in table and pick up welcome folders as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "end_sentence_index": 34,
+      "act": 4,
+      "location_id": "modern_pricing_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer cuffs and cool porcelain-white gloved matte-white porcelain seller hands placing a towering stack of pale-lavender price blocks onto a cool slate counter",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands drop an exaggerated sky-high tower of pale-lavender blocks onto the slate counter and then pull half away",
+      "consequence": "the wobbly oversized tower tips awkwardly across the slate surface",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "modern_pricing_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "modern_pricing_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a cool daylight sunlit showroom with a slate counter and two frosted glass doors",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain shopper in a muted-sage coat turns away from the slate counter and closes both frosted doors firmly",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 36,
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "modern_pricing_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "persuasion_data_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a cool-toned conference room with a long soft-slate table displaying three stepped sunlit proposal folders",
+      "action": "viewed strictly from behind, clothed matte-white porcelain negotiators in tailored slate suits sit around the table and lean over the stepped folders",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "persuasion_data_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "persuasion_data_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-slate suit cuffs and cool porcelain-white gloved matte-white porcelain hands sliding three stepped cool-cream budget folders across a slate stone table",
+      "prop_action": "the cool porcelain-white gloved hands push aside the giant first folder and medium second folder, then tap the compact third muted-sage folder in the center",
+      "consequence": "an opposite gloved hand slides a silver pen onto the compact third folder",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 38,
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "persuasion_data_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "end_sentence_index": 39,
+      "act": 5,
+      "location_id": "persuasion_data_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a cool-toned conference room with a long soft-slate table displaying three stepped sunlit proposal folders",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "persuasion_data_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 35
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "modern_pricing_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved matte-white porcelain hands holding a brushed-silver phone receiver beside two donation cards on a slate desk",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand slides past the large pale-lavender card and pulls the small muted-sage starter card close",
+      "consequence": "the small muted-sage card rests directly beside the closed wallet",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "modern_pricing_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the cool-slate campus walkway bathed in soft morning light with muted-sage trees along both sides",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a powder-blue shirt takes one polite step backward and extends a slim muted-sage card to a walker",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the cool-slate campus walkway bathed in soft morning light with muted-sage trees along both sides",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a powder-blue shirt takes one polite step backward and extends a slim muted-sage card to a walker",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 42,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "persuasion_data_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the bright cool-alabaster research gallery displaying fifty-year replication columns rising in muted sage across a wide glass screen",
+      "action": "viewed strictly from behind, three clothed matte-white porcelain scientists in slate blazers stand before the wide glass screen and point to the matching muted-sage bars",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 44,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "persuasion_data_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "modern_pricing_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a calm cool-daylight home study with a matte soft-slate desk, a silver laptop showing three sunlit tier boxes, and a muted-sage chair",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain buyer in a powder-blue cardigan sits at the soft-slate desk and leans calmly toward the screen",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "modern_pricing_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "end_sentence_index": 46,
+      "act": 6,
+      "location_id": "modern_pricing_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a calm cool-daylight home study with a matte soft-slate desk, a silver laptop showing three sunlit tier boxes, and a muted-sage chair",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "modern_pricing_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 41
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_pricing_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands over a two-column cool-cream tier sheet on a soft-slate stone desk",
+      "prop_action": "the left cool porcelain-white gloved hand places a flat palm squarely over the giant crossed-out left box while the right hand traces the smaller right box calmly",
+      "consequence": "only the standalone second tier remains visible on the soft-slate desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 47,
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "modern_pricing_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model on a cool stone stand where clear electric cyan-blue light fills the prefrontal cortex evaluating standalone value calmly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "modern_pricing_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright cool-toned studio collaboration room with a powder-blue table and two neat sunlit project scope cards",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain teammates in soft-slate blazers sit across the powder-blue table and place the full-vision card in view",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "modern_pricing_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "modern_pricing_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright cool-toned studio collaboration room with a powder-blue table and two neat sunlit project scope cards",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain teammates in soft-slate blazers sit across the powder-blue table and place the full-vision card in view",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 50,
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "modern_pricing_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the peaceful cool-slate university walkway bathed in soft sunlit daylight with muted-sage palms and pale-stone arches",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain figures in a powder-blue jacket and muted-sage coat step toward each other and shake hands at the center of the walkway",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the peaceful cool-slate university walkway bathed in soft sunlit daylight with muted-sage palms and pale-stone arches",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain figures in a powder-blue jacket and muted-sage coat step toward each other and shake hands at the center of the walkway",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 52,
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "cut_role": "split_right",
+      "act": 3,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the same cool-slate walkway where the first researcher walks away and a second researcher in a muted-sage shirt steps in cold",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain walker in a cream cardigan shakes head and walks briskly past the second researcher",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48,
+      "scene_state": {
+        "location_id": "asu_campus_walkway",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "asu_campus_walkway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a serene cool-limestone campus palm court with muted-sage trees, powder-blue shadows, and an open soft-sunlit sky",
+      "action": "viewed strictly from behind, clothed matte-white porcelain figures in coats and slate blazer jackets walk and step calmly along the slate path as the camera tilts upward into the sky",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 49
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "BIG NO FIRST?",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered brushed-silver low-poly clipboard flipping from giant rejected sheet to small accepted card on cool slate background"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

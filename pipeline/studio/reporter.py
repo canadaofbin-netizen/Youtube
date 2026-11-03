@@ -638,7 +638,7 @@ class StudioAnalyticsReporter:
             active_variant = "A"
             rotation_interval_hours = 24
             ab_manifest_data: dict[str, Any] = {}
-            pinned_comment = True
+            pinned_comment = False
             clip_count = 10
             word_count = 0
             hook_sentence = ""
@@ -1258,12 +1258,42 @@ class StudioAnalyticsReporter:
                 parsed["views_24h"] = int(views_m.group(1).replace(",", ""))
 
         eng_m = re.search(
-            r"Engaged views\s*\n\s*(\d+(?:\.\d+)?)K",
+            r"(?:Engaged views|유효 조회수)\s*[:\n]?\s*(\d[\d,]*(?:\.\d+)?)\s*([KM])?(?!\s*%)",
             text,
             re.IGNORECASE,
         )
         if eng_m:
-            parsed["engaged_views"] = int(float(eng_m.group(1)) * 1000)
+            raw_eng = float(eng_m.group(1).replace(",", ""))
+            suf = (eng_m.group(2) or "").upper()
+            mult = 1_000_000.0 if suf == "M" else (1_000.0 if suf == "K" else 1.0)
+            parsed["engaged_views"] = int(round(raw_eng * mult))
+
+        tv_m = re.search(
+            r"(?:TV|스마트\s*TV|거실\s*TV)\s*[:\n·\t ]+\s*(\d+(?:\.\d+)?)\s*%",
+            text,
+            re.IGNORECASE,
+        )
+        if tv_m:
+            parsed["tv_device_pct"] = float(tv_m.group(1))
+
+        ypp_wh_m = re.search(
+            r"(\d[\d,]*(?:\.\d+)?)\s*(?:valid public watch hours|공개 시청 시간)",
+            text,
+            re.IGNORECASE,
+        )
+        if ypp_wh_m:
+            parsed["ypp_longform_watch_hours_365d"] = float(ypp_wh_m.group(1).replace(",", ""))
+
+        ypp_sh_m = re.search(
+            r"(\d[\d,]*(?:\.\d+)?)\s*([KM])?\s*(?:public Shorts views|공개 Shorts 조회수)",
+            text,
+            re.IGNORECASE,
+        )
+        if ypp_sh_m:
+            raw_sh = float(ypp_sh_m.group(1).replace(",", ""))
+            sh_suf = (ypp_sh_m.group(2) or "").upper()
+            sh_mult = 1_000_000.0 if sh_suf == "M" else (1_000.0 if sh_suf == "K" else 1.0)
+            parsed["ypp_shorts_engaged_90d"] = int(round(raw_sh * sh_mult))
 
         likes_m = re.search(
             r"Likes\s*\n\s*(\d[\d,]*)",
@@ -1521,7 +1551,7 @@ class StudioAnalyticsReporter:
         prev_date_label, prev_snapshot = self._load_previous_snapshot(report_date, compare_date=compare_date)
 
         published_videos = list(local_state["videos"])
-        if not published_videos:
+        if not published_videos and dry_run:
             from pipeline.topics_catalog import PSYCHOLOGY_TOPICS
 
             published_videos = [
@@ -1741,47 +1771,21 @@ class StudioAnalyticsReporter:
                 "grade": "C+ (Legacy Upload)",
             },
         }
-        if not dry_run and isinstance(prev_snapshot, dict):
-            for prev_rec in prev_snapshot.get("per_video_records", []) or []:
-                if not isinstance(prev_rec, dict) or not prev_rec.get("measured"):
-                    continue
-                vid_p = str(prev_rec.get("video_id") or "").strip()
-                if not vid_p:
-                    continue
-                if vid_p in real_studio_by_vid:
-                    real_studio_by_vid[vid_p]["views_prev"] = int(prev_rec.get("views", real_studio_by_vid[vid_p]["views_prev"]))
-                else:
-                    rc_prev = list(prev_rec.get("ret_curve") or [100.0, 80.0, 72.0, 68.0, 64.0, 62.0])
-                    real_studio_by_vid[vid_p] = {
-                        "views": int(prev_rec.get("views", 0)),
-                        "views_prev": int(prev_rec.get("views", 0)),
-                        "watch_hours": float(prev_rec.get("watch_hours", 0.0)),
-                        "subs_gained": int(prev_rec.get("subs_gained", 0)),
-                        "duration_sec": float(prev_rec.get("duration_seconds", 85.0)),
-                        "avd_sec": float(prev_rec.get("avd_seconds", 0.0)),
-                        "apv_pct": float(prev_rec.get("apv_pct", 0.0)),
-                        "viewed_pct": float(prev_rec.get("viewed_pct", 0.0)),
-                        "swiped_pct": float(prev_rec.get("swiped_pct", 0.0)),
-                        "ret_curve": rc_prev,
-                        "ret_q1": float(prev_rec.get("ret_q1_pct", rc_prev[2] if len(rc_prev) > 2 else 0.0)),
-                        "ret_q2": float(prev_rec.get("ret_q2_pct", rc_prev[3] if len(rc_prev) > 3 else 0.0)),
-                        "ret_q3": float(prev_rec.get("ret_q3_pct", rc_prev[4] if len(rc_prev) > 4 else 0.0)),
-                        "ret_q4": float(prev_rec.get("ret_q4_pct", rc_prev[5] if len(rc_prev) > 5 else 0.0)),
-                        "likes": int(prev_rec.get("likes", 0)),
-                        "comments": int(prev_rec.get("comments", 0)),
-                        "shares": int(prev_rec.get("shares", 0)),
-                        "impressions": int(prev_rec.get("impressions", 0)),
-                        "ctr_pct": float(prev_rec.get("ctr_pct", 0.0)),
-                        "seed_status": str(prev_rec.get("seed_status") or "✅ 피드 시드 활성"),
-                        "top_traffic": str(prev_rec.get("top_traffic") or "Shorts 피드"),
-                        "grade": str(prev_rec.get("grade") or "A+ (Strong Seed)"),
-                    }
+        prev_views_by_vid: dict[str, int] = {}
+        if not dry_run:
+            real_studio_by_vid = {}
+            if isinstance(prev_snapshot, dict):
+                for prev_rec in prev_snapshot.get("per_video_records", []) or []:
+                    if isinstance(prev_rec, dict) and prev_rec.get("measured"):
+                        vid_p = str(prev_rec.get("video_id") or "").strip()
+                        if vid_p:
+                            prev_views_by_vid[vid_p] = int(prev_rec.get("views", 0))
 
         per_video_records: list[dict[str, Any]] = []
         for idx, v in enumerate(published_videos):
             prof = video_profiles[idx % len(video_profiles)]
             vid_key = str(v.get("video_id", "")).strip()
-            real_ref = real_studio_by_vid.get(vid_key, {})
+            real_ref = real_studio_by_vid.get(vid_key, {}) if dry_run else {}
             pv_live = pv_live_map.get(vid_key, {})
             dur = float(real_ref.get("duration_sec") or v.get("duration_seconds") or 85.0)
             v_raw_status = str(v.get("status", "published")).lower()
@@ -1820,7 +1824,11 @@ class StudioAnalyticsReporter:
                 top_tr = "-"
             elif dom_row.get("views") is not None or pv_live.get("views") is not None or real_ref or is_public_in_dom:
                 v_views = int(pv_live.get("views") if pv_live.get("views") is not None else (dom_row.get("views") if dom_row.get("views") is not None else real_ref.get("views", 0)))
-                v_views_prev = int(real_ref.get("views_prev", max(0, int(round(v_views * 0.72)))))
+                v_views_prev = (
+                    int(real_ref.get("views_prev", max(0, int(round(v_views * 0.72)))))
+                    if dry_run
+                    else int(prev_views_by_vid.get(vid_key, v_views))
+                )
                 v_delta_str = f"+{v_views - v_views_prev:,} (Live DOM)" if has_live_dom_data else f"+{v_views - v_views_prev:,}"
                 if v_views == 0 and not real_ref:
                     avd_s = 0.0
@@ -1840,7 +1848,7 @@ class StudioAnalyticsReporter:
                     seed_st = "⏳ 방금 공개 · 1차 시드 대기"
                     top_tr = "시드 배정 대기"
                     v_measured = False
-                else:
+                elif dry_run:
                     avd_s = float(pv_live.get("avd_sec") or real_ref.get("avd_sec") or round(dur * (float(prof["apv_pct"]) / 100.0), 1))
                     apv_p = float(pv_live.get("apv_pct") or real_ref.get("apv_pct") or round((avd_s / max(1.0, dur)) * 100.0, 1))
                     vw_p = float(pv_live.get("viewed_pct") if pv_live.get("viewed_pct") is not None else real_ref.get("viewed_pct", prof["viewed_pct"]))
@@ -1861,30 +1869,57 @@ class StudioAnalyticsReporter:
                     seed_st = str(real_ref.get("seed_status") or "✅ 피드 시드 활성")
                     top_tr = str(real_ref.get("top_traffic") or "Shorts 피드")
                     v_measured = True
+                else:
+                    avd_s = float(pv_live.get("avd_sec") or 0.0)
+                    apv_p = float(pv_live.get("apv_pct") or (round((avd_s / max(1.0, dur)) * 100.0, 1) if avd_s > 0 else 0.0))
+                    vw_p = float(pv_live.get("viewed_pct") or 0.0)
+                    sw_p = round(100.0 - vw_p, 1) if vw_p > 0 else 0.0
+                    v_watch_h = float(pv_live.get("watch_hours") or (round((v_views * avd_s) / 3600.0, 2) if avd_s > 0 else 0.0))
+                    v_subs = int(pv_live.get("subs_gained") or 0)
+                    v_imp = int(pv_live.get("impressions") or 0)
+                    v_likes = int(dom_row.get("likes") or 0)
+                    v_comments = int(dom_row.get("comments") or 0)
+                    v_shares = int(pv_live.get("shares") or 0)
+                    rc_list = list(pv_live.get("ret_curve") or [0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+                    rq1 = float(pv_live.get("ret_q1", rc_list[2] if len(rc_list) > 2 else 0.0))
+                    rq2 = float(pv_live.get("ret_q2", rc_list[3] if len(rc_list) > 3 else 0.0))
+                    rq3 = float(pv_live.get("ret_q3", rc_list[4] if len(rc_list) > 4 else 0.0))
+                    rq4 = float(pv_live.get("ret_q4", rc_list[5] if len(rc_list) > 5 else 0.0))
+                    ctr_p = float(pv_live.get("ctr_pct") or 0.0)
+                    v_grade = "A (Live DOM Measured)" if apv_p >= 60.0 else ("B (Live DOM)" if v_views > 0 else "Pending")
+                    seed_st = "✅ 실측 수집" if v_views >= 50 else "⏳ 초기 시드 관찰"
+                    top_tr = "Live Studio DOM"
+                    v_measured = True
                 v_display_status = "Published"
             elif wp_row.get("views") is not None and int(wp_row["views"]) > 0:
                 v_views = int(wp_row["views"])
-                v_views_prev = max(0, int(round(v_views * 0.72)))
+                v_views_prev = max(0, int(round(v_views * 0.72))) if dry_run else int(prev_views_by_vid.get(vid_key, v_views))
                 v_delta_str = f"+{v_views - v_views_prev:,} (Watch API)"
-                apv_p = round(float(prof["apv_pct"]), 1)
-                avd_s = round(dur * (apv_p / 100.0), 1)
-                vw_p = float(prof["viewed_pct"])
-                sw_p = float(prof["swiped_pct"])
-                v_watch_h = round((v_views * avd_s) / 3600.0, 1)
-                v_subs = max(0, int(round(v_views / 160.0)))
-                v_imp = int(round(v_views * 1.5))
+                if dry_run:
+                    apv_p = round(float(prof["apv_pct"]), 1)
+                    avd_s = round(dur * (apv_p / 100.0), 1)
+                    vw_p = float(prof["viewed_pct"])
+                    sw_p = float(prof["swiped_pct"])
+                    v_watch_h = round((v_views * avd_s) / 3600.0, 1)
+                    v_subs = max(0, int(round(v_views / 160.0)))
+                    v_imp = int(round(v_views * 1.5))
+                    rc_list = list(prof["ret_curve"])
+                    rq1, rq2, rq3, rq4 = prof["ret_q1"], prof["ret_q2"], prof["ret_q3"], prof["ret_q4"]
+                    ctr_p = float(prof["ctr_pct"])
+                    v_grade = prof["grade"]
+                else:
+                    apv_p = avd_s = vw_p = sw_p = v_watch_h = rq1 = rq2 = rq3 = rq4 = ctr_p = 0.0
+                    v_subs = v_imp = 0
+                    rc_list = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+                    v_grade = "Watch Page Views Only (Retention Unscraped)"
                 v_likes = 0
                 v_comments = 0
                 v_shares = 0
-                rc_list = list(prof["ret_curve"])
-                rq1, rq2, rq3, rq4 = prof["ret_q1"], prof["ret_q2"], prof["ret_q3"], prof["ret_q4"]
-                ctr_p = float(prof["ctr_pct"])
-                v_grade = prof["grade"]
-                seed_st = "✅ 피드 시드 활성"
-                top_tr = "Shorts 피드"
+                seed_st = "✅ 공개 조회 확인"
+                top_tr = "Public Watch Page"
                 v_measured = True
                 v_display_status = "Published"
-            elif idx < len(video_profiles):
+            elif dry_run and idx < len(video_profiles):
                 v_views = prof["views"]
                 v_views_prev = prof["views_prev"]
                 v_delta_str = f"+{v_views - v_views_prev:,}"
@@ -2206,6 +2241,7 @@ class StudioAnalyticsReporter:
             s_quarts = [float(q.get("today_pct", 0.0)) for q in (snap_obj.get("retention_quartiles") or []) if isinstance(q, dict)]
             s_views = int(s_ck.get("views_24h", 0))
             s_apv = float(s_rk.get("apv_pct", 0.0))
+            s_engaged_raw = s_ck.get("engaged_views_24h")
             return {
                 "views": s_views,
                 "watch_hours": float(s_ck.get("watch_hours_24h", 0.0)),
@@ -2214,7 +2250,7 @@ class StudioAnalyticsReporter:
                 "viewed_pct": float(s_rk.get("viewed_pct", 0.0)),
                 "avd_seconds": float(s_rk.get("avd_seconds", 0.0)),
                 "apv_pct": s_apv,
-                "engaged_views": int(round(s_views * max(0.0, min(1.0, s_apv / 100.0)))),
+                "engaged_views": int(s_engaged_raw) if s_engaged_raw is not None else None,
                 "shorts_feed_pct": float((s_ts.get("Shorts Feed") or {}).get("pct", 0.0)),
                 "us_pct": float(s_us.get("pct", 0.0)),
                 "tier1_pct": round(s_t1, 1),
@@ -2330,7 +2366,9 @@ class StudioAnalyticsReporter:
             1,
         )
 
-        doi_pinned_all_passed = all(v.get("pinned_comment", True) for v in published_videos)
+        doi_pinned_all_passed = bool(published_videos) and all(
+            bool(v.get("pinned_comment", False)) for v in published_videos
+        )
         drift_slots_str = ", ".join(local_state["schedule_map_drift_slots"]) or "None"
         quarantine_preview_str = ", ".join(local_state["quarantined_projects"][:5])
         if len(local_state["quarantined_projects"]) > 5:
@@ -2593,6 +2631,26 @@ class StudioAnalyticsReporter:
                 "target_pct": 85.0,
             },
             "retention_quartiles": retention_quartiles,
+            "ypp_progress": {
+                "shorts_engaged_views_90d": (
+                    int(o_live["ypp_shorts_engaged_90d"])
+                    if o_live.get("ypp_shorts_engaged_90d") is not None
+                    else (int(c_live["engaged_views"]) if c_live.get("engaged_views") is not None else None)
+                ),
+                "shorts_target_engaged_views": 10_000_000,
+                "longform_watch_hours_365d": (
+                    float(o_live["ypp_longform_watch_hours_365d"])
+                    if o_live.get("ypp_longform_watch_hours_365d") is not None
+                    else 0.0
+                ),
+                "longform_tier1_target_hours": 3000.0,
+                "longform_full_target_hours": 4000.0,
+                "ctv_share_pct": (
+                    float(c_live["tv_device_pct"])
+                    if c_live.get("tv_device_pct") is not None
+                    else (float(a_live["tv_device_pct"]) if a_live.get("tv_device_pct") is not None else None)
+                ),
+            },
             "channel_kpis": {
                 "subscribers_total": total_subs_now,
                 "subscribers_prev": subs_prev_val,
@@ -2602,6 +2660,25 @@ class StudioAnalyticsReporter:
                 "views_prev": views_prev_val,
                 "views_7d": total_views_24h,
                 "views_28d": total_views_24h,
+                "engaged_views_24h": (
+                    int(c_live["engaged_views"])
+                    if c_live.get("engaged_views") is not None
+                    else None
+                ),
+                "engaged_views_prev": (
+                    int(prev_snapshot["channel_kpis"]["engaged_views_24h"])
+                    if (
+                        isinstance(prev_snapshot, dict)
+                        and isinstance(prev_snapshot.get("channel_kpis"), dict)
+                        and prev_snapshot["channel_kpis"].get("engaged_views_24h") is not None
+                    )
+                    else None
+                ),
+                "ctv_share_pct": (
+                    float(c_live["tv_device_pct"])
+                    if c_live.get("tv_device_pct") is not None
+                    else (float(a_live["tv_device_pct"]) if a_live.get("tv_device_pct") is not None else None)
+                ),
                 "watch_hours_24h": total_watch_24h,
                 "watch_hours_prev": watch_prev_val,
                 "watch_hours_7d": total_watch_24h,
@@ -3708,8 +3785,8 @@ class StudioAnalyticsReporter:
         engaged_pts = [
             cohort_stats["engaged_7d"] or 0,
             cohort_stats["engaged_3d"] or 0,
-            cohort_stats["engaged_prev"],
-            cohort_stats["engaged_now"],
+            cohort_stats["engaged_prev"] or 0,
+            cohort_stats["engaged_now"] or 0,
         ]
         wh_pts = [
             wh_7d[0] if wh_7d else 0.0,
@@ -3938,8 +4015,8 @@ class StudioAnalyticsReporter:
         engaged_pts = [
             cohort_stats["engaged_7d"] or 0,
             cohort_stats["engaged_3d"] or 0,
-            cohort_stats["engaged_prev"],
-            cohort_stats["engaged_now"],
+            cohort_stats["engaged_prev"] or 0,
+            cohort_stats["engaged_now"] or 0,
         ]
         wh_pts = [
             wh_7d[0] if wh_7d else 0.0,
@@ -4230,8 +4307,14 @@ class StudioAnalyticsReporter:
 
         shown_now = int(round(views_now / max(0.01, viewed_now / 100.0))) if viewed_now > 0 else views_now
         shown_prev = int(round(views_prev / max(0.01, viewed_prev / 100.0))) if viewed_prev > 0 else views_prev
-        engaged_now = int(round(views_now * max(0.0, min(1.0, apv_now / 100.0))))
-        engaged_prev = int(round(views_prev * max(0.0, min(1.0, apv_prev / 100.0))))
+        if "engaged_views_24h" in ck:
+            engaged_now = int(ck["engaged_views_24h"]) if ck.get("engaged_views_24h") is not None else None
+        else:
+            engaged_now = int(round(views_now * max(0.0, min(1.0, apv_now / 100.0))))
+        if "engaged_views_prev" in ck:
+            engaged_prev = int(ck["engaged_views_prev"]) if ck.get("engaged_views_prev") is not None else None
+        else:
+            engaged_prev = int(round(views_prev * max(0.0, min(1.0, apv_prev / 100.0))))
 
         has_7d = bool(t7.get("has_7d_history") and isinstance(t7.get("snapshot_7d_ago"), dict))
         has_3d = bool(t7.get("has_3d_history") and isinstance(t7.get("snapshot_3d_ago"), dict))
@@ -4329,8 +4412,20 @@ class StudioAnalyticsReporter:
 
         engaged_prev = cs["engaged_prev"]
         engaged_now = cs["engaged_now"]
-        engaged_dod_diff = engaged_now - engaged_prev
-        engaged_dod_pct = (engaged_dod_diff / max(1, engaged_prev)) * 100.0
+        if engaged_now is not None and engaged_prev is not None:
+            engaged_dod_diff = engaged_now - engaged_prev
+            engaged_dod_pct = (engaged_dod_diff / max(1, engaged_prev)) * 100.0
+            engaged_now_lbl = f"{engaged_now:,}"
+            engaged_prev_lbl = f"{engaged_prev:,}"
+            engaged_dod_lbl = f"{engaged_dod_diff:+,}"
+            engaged_dod_cell = f"**`{engaged_dod_diff:+,}` (`{engaged_dod_pct:+.1f}%`)**"
+        else:
+            engaged_dod_diff = 0
+            engaged_dod_pct = 0.0
+            engaged_now_lbl = f"{engaged_now:,}" if engaged_now is not None else "N/A"
+            engaged_prev_lbl = f"{engaged_prev:,}" if engaged_prev is not None else "-"
+            engaged_dod_lbl = "N/A"
+            engaged_dod_cell = "`unscraped`"
 
         subs_now = int(ck["subscribers_total"])
         subs_prev = int(ck["subscribers_prev"])
@@ -4432,7 +4527,7 @@ class StudioAnalyticsReporter:
             views_7d_gain = views_now - v_7d_val
             views_7d_pct = (views_7d_gain / max(1, v_7d_val)) * 100.0
             shown_7d_gain = shown_now - shown_7d_val
-            eng_7d_gain = engaged_now - eng_7d_val
+            eng_7d_gain = (engaged_now - eng_7d_val) if engaged_now is not None else 0
             eng_7d_pct = (eng_7d_gain / max(1, eng_7d_val)) * 100.0
             wh_7d_gain = wh_now - wh_7d_val
             wh_7d_pct = (wh_7d_gain / max(0.1, wh_7d_val)) * 100.0
@@ -4448,14 +4543,14 @@ class StudioAnalyticsReporter:
 
             shown_7d_delta_cell = f"`{shown_7d_gain:+,}` (`{shown_7d_gain / 6.0:.0f}/d`)"
             views_7d_delta_cell = f"**`{views_7d_gain:+,}` (`{views_7d_gain / 6.0:+.0f}/d`)**"
-            eng_7d_delta_cell = f"**`{eng_7d_gain:+,}` (`{eng_7d_gain / 6.0:+.0f}/d`)**"
+            eng_7d_delta_cell = f"**`{eng_7d_gain:+,}` (`{eng_7d_gain / 6.0:+.0f}/d`)**" if engaged_now is not None else "`unscraped`"
             wh_7d_delta_cell = f"**`{wh_7d_gain:+.1f}h` (`{wh_7d_gain / 6.0:+.1f}h/d`)**"
             subs_7d_delta_cell = f"**`{subs_7d_gain:+d}` (`{subs_7d_gain / 6.0:+.1f}/d`)**"
             rt48_7d_delta_cell = f"**`Avg {rt48_avg:,}`** (`Peak {rt48_peak:,}`)"
 
             views_sig_cell = f"🟢 `{views_7d_pct:+.1f}%`"
-            eng_sig_cell = f"🟢 `{eng_7d_pct:+.1f}%`"
-            wh_sig_cell = f"🟢 `{wh_7d_pct:+.1f}%`"
+            eng_sig_cell = f"🟢 `{eng_7d_pct:+.1f}%`" if engaged_now is not None else "🟡 `unscraped`"
+            wh_sig_cell = f"🟢 `{wh_dod_pct:+.1f}%`" if wh_7d_val <= 0 else f"🟢 `{wh_7d_pct:+.1f}%`"
 
             viewed_7d_cell = f"{viewed_7d_val:.1f}%"
             avd_7d_cell = f"{avd_7d_val:.1f}s"
@@ -4488,7 +4583,7 @@ class StudioAnalyticsReporter:
             rt48_7d_delta_cell = f"`collecting` (`Peak {rt48_peak:,}`)"
 
             views_sig_cell = f"🟢 `{views_dod_pct:+.1f}%`"
-            eng_sig_cell = f"🟢 `{engaged_dod_pct:+.1f}%`"
+            eng_sig_cell = f"🟢 `{engaged_dod_pct:+.1f}%`" if engaged_now is not None else "🟡 `unscraped`"
             wh_sig_cell = f"🟢 `{wh_dod_pct:+.1f}%`"
 
             viewed_7d_cell = "-"
@@ -4746,7 +4841,7 @@ class StudioAnalyticsReporter:
 
 ## 🚦 0. 오늘의 채널 종합 진단: **{overall_dot} {overall_label} (핵심 {pass_cnt}/5 통과{s0_alert_suffix})**
 
-> **🚦 0. Executive Growth Pulse (7d)**: 🟢 **Subs** `{pulse_subs_lbl}` ｜ 🟢 **Shown→Views→Engaged** `{shown_now:,} → {views_now:,} → {engaged_now:,} ({shown_dod_diff:+,}/{views_dod_diff:+,}/{engaged_dod_diff:+,})` ｜ 🟢 **Watch** `{pulse_wh_lbl}` ｜ {s2_dot} **3s Hook** `{viewed_now:.1f}% (Rec {recent_viewed:.1f}%)` ｜ 🟢 **APV** `{apv_now:.1f}% ({avd_now:.1f}s)` ｜ 🟡 **48h** `{rt48_now:,} ({rt48_pct:+.1f}%)`
+> **🚦 0. Executive Growth Pulse (7d)**: 🟢 **Subs** `{pulse_subs_lbl}` ｜ 🟢 **Shown→Views→Engaged** `{shown_now:,} → {views_now:,} → {engaged_now_lbl} ({shown_dod_diff:+,}/{views_dod_diff:+,}/{engaged_dod_lbl})` ｜ 🟢 **Watch** `{pulse_wh_lbl}` ｜ {s2_dot} **3s Hook** `{viewed_now:.1f}% (Rec {recent_viewed:.1f}%)` ｜ 🟢 **APV** `{apv_now:.1f}% ({avd_now:.1f}s)` ｜ 🟡 **48h** `{rt48_now:,} ({rt48_pct:+.1f}%)`
 
 | 진단 영역 | 상태 | 현재 수치 (전일 대비) | 기준 (Gate) | 한줄 진단 |
 | :--- | :---: | :---: | :---: | :--- |
@@ -4768,7 +4863,7 @@ class StudioAnalyticsReporter:
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Shown in feed** | {shown_7d_cell} | {shown_3d_cell} | {shown_prev:,} | **{shown_now:,}** | **`{shown_dod_diff:+,}` (`{shown_dod_pct:+.1f}%`)** | {shown_7d_delta_cell} | `+500/d` | 🟡 `{shown_dod_diff:+,}` |
 | **Views (`Viewed`)** | {v_7d_cell} | {v_3d_cell} | {views_prev:,} | **{views_now:,}** | **`{views_dod_diff:+,}` (`{views_dod_pct:+.1f}%`)** | {views_7d_delta_cell} | `>=70%` | {views_sig_cell} |
-| **Engaged Views** | {eng_7d_cell} | {eng_3d_cell} | {engaged_prev:,} | **{engaged_now:,}** | **`{engaged_dod_diff:+,}` (`{engaged_dod_pct:+.1f}%`)** | {eng_7d_delta_cell} | `>=55%` | {eng_sig_cell} |
+| **Engaged Views** | {eng_7d_cell} | {eng_3d_cell} | {engaged_prev_lbl} | **{engaged_now_lbl}** | {engaged_dod_cell} | {eng_7d_delta_cell} | `>=55%` | {eng_sig_cell} |
 | **Watch Time (`h`)** | {wh_7d_cell} | {wh_3d_cell} | {wh_prev:.1f}h | **{wh_now:.1f}h** | `{wh_dod_diff:+.1f}h ({wh_dod_pct:+.1f}%)` | {wh_7d_delta_cell} | `>0h` | {wh_sig_cell} |
 | **Subscribers (`/1K`)** | {subs_7d_cell} | {subs_3d_cell} | {subs_prev:,} (`{subs_per_1k_prev:.2f}`) | **{subs_now:,}** (`{subs_per_1k:.2f}`) | `{subs_dod_diff:+d} ({(subs_dod_diff/max(1,subs_prev))*100:+.1f}%)` | {subs_7d_delta_cell} | `>=2.50` | 🟢 `{subs_per_1k:.2f}/1K` |
 | **Realtime 48h (`60m`)** | {rt48_7d_cell} | {rt48_3d_cell} | {rt48_prev:,} | **{rt48_now:,}** (`{ck['realtime_60m_views']}`) | **`{rt48_diff:+,}` (`{rt48_pct:+.1f}%`)** | {rt48_7d_delta_cell} | `>={rt48_avg:,}` | 🟡 `{rt48_pct:+.1f}%` |
@@ -4783,7 +4878,7 @@ class StudioAnalyticsReporter:
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- | :---: | :---: |
 | **3s Hook (`Viewed %`)** | {viewed_7d_cell} | {viewed_prev:.1f}% | **{viewed_now:.1f}%** | **{recent_viewed:.1f}%** | `{lat_hook_s} / {prv_hook_s}` | `100%→3s: -{100.0 - viewed_now:.1f}%p` (`Rec -{100.0 - recent_viewed:.1f}%p`) | `70%` | {s2_dot} `{viewed_gap:+.1f}%p` / {rec_hook_dot} `{recent_viewed - 70.0:+.1f}%p` |
 | **AVD (`s`)** | {avd_7d_cell} | {avd_prev:.1f}s | **{avd_now:.1f}s** | **{recent_avd:.1f}s** | `{lat_avd_s} / {prv_avd_s}` | `Len {avg_len:.1f}s` (`Rec {recent_len:.1f}s`) | `25s` | 🟢 `{avd_now - 25.0:+.1f}s` / {rec_avd_dot} `{recent_avd - 25.0:+.1f}s` |
-| **APV (`%`)** | {apv_7d_cell} | {apv_prev:.1f}% | **{apv_now:.1f}%** | **{recent_apv:.1f}%** | `{lat_apv_s} / {prv_apv_s}` | {apv_drop_cell} | `60%` | {s3_dot} `{apv_gap:+.1f}%p` / {rec_apv_dot} `{recent_apv - 60.0:+.1f}%p` |
+| **APV (`%`)** | {apv_7d_cell} | {apv_prev:.1f}% | **{apv_now:.1f}%** | **{recent_apv:.1f}%** | `{lat_avd_s if False else lat_apv_s} / {prv_apv_s}` | {apv_drop_cell} | `60%` | {s3_dot} `{apv_gap:+.1f}%p` / {rec_apv_dot} `{recent_apv - 60.0:+.1f}%p` |
 {chr(10).join(q_rows)}
 
 ---
@@ -4821,7 +4916,7 @@ class StudioAnalyticsReporter:
 
 | Axis | 7d Trend | Current (`All / Rec`) | **W+1 Target** | Focus |
 | :--- | :---: | :---: | :---: | :--- |
-| **① Funnel & Seed** | {w1_t1} | `{shown_now:,} → {views_now:,} ({engaged_now:,})` | **`Shown +800/d` · `Seed <=24h` (`5,000+`)** | Multi-video seeding via `Related Video` chain |
+| **① Funnel & Seed** | {w1_t1} | `{shown_now:,} → {views_now:,} ({engaged_now_lbl})` | **`Shown +800/d` · `Seed <=24h` (`5,000+`)** | Multi-video seeding via `Related Video` chain |
 | **② Retention (`ΔQ`)** | {w1_t2} | `{viewed_now:.1f}% / {apv_now:.1f}%` (`{recent_viewed:.1f}% / {recent_apv:.1f}%`) | **`All Viewed >=72%` · `Q1→Q3 <=-5.0%p`** | Compress Clips 3–8 drop (`{q1_q3_drop:+.1f}%p → -5.0%p`) |
 | **③ Market & Subs** | {w1_t3} | `US {us_geo['pct']:.1f}% · T1 {tier1_now:.1f}%` (`{subs_now:,} · {subs_per_1k:.2f}/1K`) | **`US >=55%` · `T1 >=62%` (`Subs 20+`)** | Habit, memory & sleep neural circuit topics |
 

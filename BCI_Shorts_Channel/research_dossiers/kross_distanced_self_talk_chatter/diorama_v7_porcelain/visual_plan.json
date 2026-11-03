@@ -1,0 +1,1126 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "kross_distanced_self_talk_chatter",
+  "topic": "Ethan Kross (2014) University of Michigan Five-Minute Speech Stress & Silent Named Self-Talk Experiments, Moser (2017) One-Second Effortless Brain Calming, and Midnight Replay Shutdown",
+  "act5_climax_episode": "Keeping first-name coaching completely silent inside your head to boost stage composure and shut down late-night shame replays across seven studies at zero cost.",
+  "outro_title_lines": [
+    "ETHAN KROSS (2014)",
+    "MICHIGAN SPEECH STUDY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "I AM CALM?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "USE YOUR NAME"
+    },
+    {
+      "sentence_index": 10,
+      "text": "ONE TINY WORD"
+    },
+    {
+      "sentence_index": 19,
+      "text": "FRIEND OR TRAP"
+    },
+    {
+      "sentence_index": 27,
+      "text": "UNDER A SECOND"
+    },
+    {
+      "sentence_index": 35,
+      "text": "KEEP IT SILENT"
+    },
+    {
+      "sentence_index": 43,
+      "text": "COACH YOURSELF"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "I AM CALM?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "USE YOUR NAME"
+    },
+    {
+      "sentence_index": 10,
+      "text": "ONE TINY WORD"
+    },
+    {
+      "sentence_index": 19,
+      "text": "FRIEND OR TRAP"
+    },
+    {
+      "sentence_index": 27,
+      "text": "UNDER A SECOND"
+    },
+    {
+      "sentence_index": 35,
+      "text": "KEEP IT SILENT"
+    },
+    {
+      "sentence_index": 43,
+      "text": "COACH YOURSELF"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 15,
+      "mode": "split_hstack",
+      "left_clip_index": 15,
+      "right_clip_index": 47,
+      "left_label": "FIRST PERSON: TENSE",
+      "right_label": "OWN NAME: POISED"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt sleeves and matte-white smooth sculptural matte-white porcelain gloved hands extending from the bottom frame edge gripping a pale-lavender prep card",
+      "prop_action": "both matte-white smooth sculptural matte-white porcelain gloved hands squeeze the edges of the pale-lavender card tightly and tap the desk tensely",
+      "consequence": "the soft-slate countdown clock ticks steadily beside the notepad",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted sage sweater sleeves and matte-white smooth sculptural matte-white porcelain gloved hands sliding the muted-sage coaching card center stage",
+      "prop_action": "one matte-white smooth sculptural matte-white porcelain gloved hand pushes the pale-lavender card aside and sets the muted-sage card cleanly beside the notepad",
+      "consequence": "calm posture settles smoothly over the pale ash-wood prep desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a calm psychology speech laboratory in soft diffused daylight with a prep desk, soft-slate clock, wooden podium, and two evaluator clipboards",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain speaker in a powder-blue shirt stands at the podium facing two seated clothed matte-white porcelain judges in navy blazers holding clipboards",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a calm university reception hallway leading into the speech-testing room with pale ash-wood doors",
+      "action": "viewed strictly from behind, clothed matte-white porcelain volunteers in muted sage, slate, and powder-blue sweaters walk calmly down the corridor toward the lab door as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and matte-white smooth sculptural matte-white porcelain gloved hands lining up seven muted-sage study binders on a pale ash-wood shelf",
+      "prop_action": "one matte-white smooth sculptural matte-white porcelain gloved hand lifts the seventh muted-sage binder into place and aligns the row neatly",
+      "consequence": "seven matched sunlit study binders stand side by side",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a calm university reception hallway leading into the speech-testing room with pale ash-wood doors",
+      "action": "viewed strictly from behind, clothed matte-white porcelain volunteers in muted sage, slate, and powder-blue sweaters walk calmly down the corridor toward the lab door as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 6,
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the quiet speech room with a tripod camera, wooden podium, and two evaluator desks",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain speaker in a powder-blue shirt steps up before the podium as two blazer-clad evaluators hold clipboards",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a calm cool-cream countertop holding a matte powder-blue mechanical kitchen egg tally counter shaped like a smooth matte-white porcelain dome",
+      "comparison_action": "two matte-white smooth sculptural matte-white porcelain gloved hands in sage sleeves twist the top half of the matte powder-blue kitchen egg tally counter to a short notch and set it down ticking softly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "clean_pullback_reveal",
+      "attire_and_hands": "soft slate blazer sleeves and matte-white smooth sculptural matte-white porcelain gloved hands extending from the bottom frame edge flipping one small pronoun tile",
+      "prop_action": "both matte-white smooth sculptural matte-white porcelain gloved hands flip a single pale-lavender tile over to reveal a muted-sage tile on the prep card",
+      "consequence": "one swapped tile transforms the entire silent prompt",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-lavender sweater sleeves and matte-white smooth sculptural matte-white porcelain gloved hands extending from the bottom frame edge over a cramped notepad",
+      "prop_action": "one matte-white smooth sculptural matte-white porcelain gloved hand traces a tight inward spiral on the cool cream notepad and taps the pencil anxiously",
+      "consequence": "tightly knotted pale-lavender loops crowd the prep page",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-lavender sweater sleeves and matte-white smooth sculptural matte-white porcelain gloved hands extending from the bottom frame edge over a cramped notepad",
+      "prop_action": "one matte-white smooth sculptural matte-white porcelain gloved hand traces a tight inward spiral on the cool cream notepad and taps the pencil anxiously",
+      "consequence": "tightly knotted pale-lavender loops crowd the prep page",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 11,
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 12,
+      "end_sentence_index": 12,
+      "act": 2,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key michigan speech lab with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 12
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the calm judge screening room with two cool cream clipboards and a matte slate monitor on a pale ash-wood table",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain judges in navy blazers compare their clipboards and align wooden score bars",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and matte-white smooth sculptural matte-white porcelain gloved hands watching playback monitors with two clipboards",
+      "prop_action": "both matte-white smooth sculptural matte-white porcelain gloved hands hold cool cream score clipboards and slide a slate pen down anonymous rating columns",
+      "consequence": "blind speech ratings get logged cleanly without knowing group assignment",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 14,
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-lavender shirt sleeves and matte-white smooth sculptural matte-white porcelain gloved hands fidgeting tightly with crumpled notes on a podium",
+      "prop_action": "both matte-white smooth sculptural matte-white porcelain gloved hands grip the sides of the wooden podium and fold the cool cream note card nervously",
+      "consequence": "a short pale-lavender confidence bar sits beside the podium",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "evening_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a quiet evening bedroom desk in soft cool twilight with a crumpled notepad and soft-slate desk lamp",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain speaker in a pale-lavender cardigan sits hunched at the desk flipping back through crumpled speech notes",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 17,
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "evening_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "evening_study_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "pale-lavender cardigan sleeves and matte-white smooth sculptural matte-white porcelain gloved hands piling crumpled cool cream paper balls onto the desk",
+      "prop_action": "both matte-white smooth sculptural matte-white porcelain gloved hands crumple another cool cream note sheet and drop it onto the crowded blotter",
+      "consequence": "a heap of crumpled replay notes covers the evening desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "evening_study_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and matte-white smooth sculptural matte-white porcelain gloved hands placing matching tall muted-sage gain blocks for both shy and outgoing groups",
+      "prop_action": "both matte-white smooth sculptural matte-white porcelain gloved hands set two equal-height muted-sage wooden bars side by side on the chart mat and tap them level",
+      "consequence": "both groups rise by the exact same calm margin",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a calm sunlit lounge bench with two muted-sage mugs on a pale ash-wood side table",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain friends in muted sage and powder-blue sweaters sit side by side sharing an open notebook calmly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a calm sunlit lounge bench with two muted-sage mugs on a pale ash-wood side table",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain friends in muted sage and powder-blue sweaters sit side by side sharing an open notebook calmly",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 21,
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nFEAR CENTER",
+      "camera": "gentle_push_in",
+      "brain_scene": "deep inside the flat side-profile half-brain cross-section, the almond-shaped amygdala pulses rapidly with soft rose-lavender threat ripples",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nCHATTER BRAKE",
+      "camera": "locked_tripod",
+      "brain_scene": "across the front forehead lobes of the matte cool-ivory 3D brain model, busy rose-lavender ripples quiet smoothly into calm powder-blue facets",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nCALM CONTROL",
+      "camera": "locked_tripod",
+      "brain_scene": "along the inner midline arch of the flat side-profile half-brain model, soft muted-sage facets pulse evenly across the anterior cingulate",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "neuro_wave_suite",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a calm sunlit neurophysiology suite with a matte slate waveform screen and a scanner console",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain volunteer in a muted sage sweater and white sensor cap sits calmly while a white-coated researcher aligns the trace",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "neuro_wave_suite",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "neuro_wave_suite",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and matte-white smooth sculptural matte-white porcelain gloved hands pointing a slate stylus at the start mark of a waveform sheet",
+      "prop_action": "the right matte-white smooth sculptural matte-white porcelain gloved hand taps the zero-second start line on a cool cream waveform chart and slides right",
+      "consequence": "two contrasting sunlit wave curves wait to diverge",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 26,
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "neuro_wave_suite",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "act": 4,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a calm cool-cream plaster wall panel fitted with a minimalist matte powder-blue rocker wall light switch",
+      "comparison_action": "a matte-white smooth sculptural matte-white porcelain gloved hand in a slate sleeve reaches up and flips the matte powder-blue wall light switch cleanly down in one crisp click",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "neuro_wave_suite",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "dove-gray sweater sleeves and matte-white smooth sculptural matte-white porcelain gloved hands straining to push back a heavy spring block on a track",
+      "prop_action": "both matte-white smooth sculptural matte-white porcelain gloved hands push hard against a stiff metal spring block until it rebounds backward",
+      "consequence": "forced suppression drains energy quickly on the bench",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 29,
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "neuro_wave_suite",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit cafe table with two cool cream cups and a notebook",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain person in a navy sweater leans calmly across the table offering steady encouragement to a friend",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "modern_boardroom_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit cafe table with two cool cream cups and a notebook",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain person in a navy sweater leans calmly across the table offering steady encouragement to a friend",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 31,
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "modern_boardroom_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a calm playroom corner with wooden puzzle blocks and a small powder-blue cape draped on a chair",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain five-year-old child in a powder-blue cape stands calmly fitting wooden puzzle blocks together with steady focus in tailored linen sleeves and a woven cardigan as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "end_sentence_index": 33,
+      "act": 4,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a calm playroom corner with wooden puzzle blocks and a small powder-blue cape draped on a chair",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 31
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a calm indoor court sideline bench in soft diffused stadium light with folded muted-sage towels",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain athlete in a navy warm-up jacket stands composed at the sideline squaring shoulders calmly as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "modern_boardroom_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 5,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a calm sunlit dinner party table with cool cream plates and water pitchers",
+      "action": "viewed strictly from behind, clothed matte-white porcelain guests in sweaters turn puzzled toward one standing speaker gesturing dramatically out loud",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 36,
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "modern_boardroom_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the calm sunlit dinner table with cool cream dishes in soft daylight",
+      "action": "viewed strictly from behind, clothed matte-white porcelain diners in muted sage and powder-blue sweaters sit conversing naturally and calmly around the table",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "modern_boardroom_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the calm sunlit dinner table with cool cream dishes in soft daylight",
+      "action": "viewed strictly from behind, clothed matte-white porcelain diners in muted sage and powder-blue sweaters sit conversing naturally and calmly around the table",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 38,
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "modern_boardroom_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "evening_study_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted sage cardigan sleeves and matte-white smooth sculptural matte-white porcelain gloved hands closing the evening journal peacefully",
+      "prop_action": "both matte-white smooth sculptural matte-white porcelain gloved hands fold the muted-sage journal cover shut and set the slate pen beside it",
+      "consequence": "the evening desk stays tidy, calm, and free of crumpled paper",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "evening_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the Michigan speech laboratory and brainwave suite charts spread across a long pale ash-wood table",
+      "action": "viewed strictly from behind, clothed matte-white porcelain psychologists and neuroscientists in navy and white coats step back and set down their pens in quiet wonder",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 41,
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy interview blazer sleeves and matte-white smooth sculptural matte-white porcelain gloved hands holding a cool cream portfolio folder outside a glass door",
+      "prop_action": "both matte-white smooth sculptural matte-white porcelain gloved hands align the edges of the cool cream portfolio folder and pause before a brushed-slate door handle",
+      "consequence": "the boardroom door handle waits just ahead in calm daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "modern_boardroom_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 43,
+      "act": 6,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright glass-walled workplace hallway outside a conference room door with pale ash-wood trim",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain candidate in a navy blazer pauses outside the closed conference room door holding a portfolio",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "modern_boardroom_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and matte-white smooth sculptural matte-white porcelain gloved hands gripping a cool cream portfolio too tightly before loosening",
+      "prop_action": "both matte-white smooth sculptural matte-white porcelain gloved hands unclench from the portfolio spine and slide smoothly down to hold it lightly",
+      "consequence": "tense grip gives way to balanced composure",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 44,
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "modern_boardroom_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nALARM COOLED",
+      "camera": "gentle_push_in",
+      "brain_scene": "deep inside the flat side-profile half-brain cross-section, the almond-shaped amygdala settles smoothly into soft powder-blue and muted-sage facets",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and matte-white smooth sculptural matte-white porcelain gloved hands extending from the bottom frame edge opening the portfolio cover",
+      "prop_action": "the right matte-white smooth sculptural matte-white porcelain gloved hand taps a small muted-sage first-name tab at the top of the speaking notes",
+      "consequence": "clean step-one talking points appear in calm order",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "modern_boardroom_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright glass-walled conference room with a pale ash-wood table and seated panelists",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain candidate in a navy blazer walks smoothly inside and sets the portfolio calmly on the table",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "modern_boardroom_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "modern_boardroom_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and matte-white smooth sculptural matte-white porcelain gloved hands pressing down the matte slate conference door handle",
+      "prop_action": "the right matte-white smooth sculptural matte-white porcelain gloved hand presses the matte slate lever smoothly down and pushes the door open",
+      "consequence": "soft daylight streams across the conference room threshold",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 48,
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "modern_boardroom_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the calm sunlit Michigan speech room with the muted-sage coaching card resting on the wooden podium before neat empty chairs",
+      "action": "viewed strictly from behind, clothed matte-white porcelain speakers and researchers stand together looking calmly out the tall sunlit windows",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the calm sunlit Michigan speech room with the muted-sage coaching card resting on the wooden podium before neat empty chairs",
+      "action": "viewed strictly from behind, clothed matte-white porcelain speakers and researchers stand together looking calmly out the tall sunlit windows",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 50,
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted sage shirt sleeves and matte-white smooth sculptural matte-white porcelain gloved hands resting open and steady on the wooden podium",
+      "prop_action": "both matte-white smooth sculptural matte-white porcelain gloved hands set the neat note card flat on the podium and gesture smoothly outward",
+      "consequence": "a tall muted-sage confidence bar stands beside the podium",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "michigan_speech_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "michigan_speech_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a calm sunlit Ann Arbor campus diag with pale stone walkways, muted sage slate-stone trees, and a soft powder-blue sky",
+      "action": "viewed strictly from behind, clothed matte-white porcelain students and professors walk peacefully along the campus path as the camera tilts upward in tailored linen sleeves and a woven cardigan.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "USE YOUR NAME",
+    "cover_sentence_index": 3,
+    "cover_brief": "clothed low-poly speaker from behind at a wooden podium facing two clipboard judges with a countdown clock"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

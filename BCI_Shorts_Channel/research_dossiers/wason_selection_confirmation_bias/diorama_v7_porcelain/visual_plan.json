@@ -1,0 +1,1162 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "wason_selection_confirmation_bias",
+  "topic": "Peter Wason Four-Card Selection Task, Confirmation Bias, 2-4-6 Hypothesis Rule & Social-Contract Falsification Rescue",
+  "act5_climax_episode": "Richard Griggs reframing the four-card logic puzzle into an everyday pub age-check rule so human disproof accuracy jumps from ten percent to eighty percent.",
+  "outro_title_lines": [
+    "PETER WASON (1968)",
+    "LONDON, UNITED KINGDOM"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "SMART MINDS?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FOUR CARD TRAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "PICK TWO TILES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "DISPROOF KEY"
+    },
+    {
+      "sentence_index": 28,
+      "text": "THE YES TRAP"
+    },
+    {
+      "sentence_index": 37,
+      "text": "PUB AGE RULE"
+    },
+    {
+      "sentence_index": 45,
+      "text": "PROVE IT WRONG"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "SMART MINDS?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FOUR CARD TRAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "PICK TWO TILES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "DISPROOF KEY"
+    },
+    {
+      "sentence_index": 28,
+      "text": "THE YES TRAP"
+    },
+    {
+      "sentence_index": 37,
+      "text": "PUB AGE RULE"
+    },
+    {
+      "sentence_index": 45,
+      "text": "PROVE IT WRONG"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 22,
+      "mode": "split_hstack",
+      "left_clip_index": 20,
+      "right_clip_index": 48,
+      "left_label": "CONFIRM FLIP",
+      "right_label": "DISPROOF FLIP"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit cool clear daylight-white London university seminar room with a long cool slate-stone table and powder-blue chairs",
+      "action": "viewed strictly from behind, three clothed matte-white porcelain scholars in slate blazers lean forward and point gloved hands confidently toward four sunlit geometric flip-tiles",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sleeve cuffs and cool porcelain-white gloved matte-white porcelain hands flipping a powder-blue triangle tile while leaving a clear daylight-white hexagon tile untouched on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand taps and pivots the powder-blue triangle tile as a soft coral-rose indicator bar dims",
+      "consequence": "the neglected clear daylight-white hexagon tile sits quietly hiding the real test",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the bright London seminar room with tall cool-toned windows and four unmarked sunlit geometric flip-tiles centered on the cool slate-stone desk",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a charcoal blazer steps beside the slate-stone desk and gestures open gloved hands toward the four tiles",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a cool powder-blue lecture room holding a symmetrical brushed-silver balance sculpture on a cool clear daylight-white stand",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain professors in slate suits walk past the silver balance sculpture and tilt gloved hands in doubt",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate suit cuffs and cool porcelain-white gloved matte-white porcelain hands sliding interlocking brushed-silver gear wheels across a cool clear daylight-white tray",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands mesh and turn the brushed-silver gear wheels in rigid mechanical lockstep",
+      "consequence": "the tidy gear model assumes human reasoning runs without bias",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved matte-white porcelain hands sliding a cool slate-stone test tray forward across the seminar table",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands push and center the slate-stone tray holding four sunlit flip-tiles before a seated participant",
+      "consequence": "a deceptively simple four-tile test challenges the longstanding assumption",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "charcoal cuffs and cool porcelain-white gloved matte-white porcelain hands touching four unmarked sunlit geometric flip-tiles in order along a cool slate-stone rack",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand glides and taps above the coral-rose circle, sage-green square, powder-blue triangle, and clear daylight-white hexagon tiles",
+      "consequence": "each distinct geometric shape represents one distinct category on the rack",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 7,
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit London seminar room with clothed matte-white porcelain students seated around the cool slate-stone table",
+      "action": "viewed strictly from behind, clothed matte-white porcelain students in sage and powder-blue sweaters lean in and hover gloved hands eagerly over the four flip-tiles",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved matte-white porcelain hands linking a coral-rose circle token to a powder-blue triangle token with a silver bar on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands snap and align the silver connector bar between the coral-rose circle and powder-blue triangle tokens",
+      "consequence": "a single one-way rule links the first shape to the matching partner shape",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 9,
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a wide cool clear daylight-white testing hall with rows of slate-stone desks and unmarked sunlit four-tile racks",
+      "action": "viewed strictly from behind, a row of clothed matte-white porcelain participants in sunlit cardigans reach forward in unison and tap the same first and third tiles with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "end_sentence_index": 11,
+      "act": 2,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a wide cool clear daylight-white testing hall with rows of slate-stone desks and unmarked sunlit four-tile racks",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "clip_number": 11
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cuffs and cool porcelain-white gloved matte-white porcelain hands dropping silver rings onto the coral-rose circle and powder-blue triangle tiles on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lower and snap the two silver rings around the coral-rose circle tile and powder-blue triangle tile",
+      "consequence": "the hand picks the two shapes named directly in the rule",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 12,
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a heavy matte powder-blue steel padlock clamped shut on a brushed-silver hasp over cool slate-stone",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in blazer cuffs lift and pull the locked powder-blue padlock shackle without opening it",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved matte-white porcelain hands rotating the powder-blue triangle tile on its silver pivot over cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand flips and turns the powder-blue triangle tile revealing a harmless sage-green square on its back",
+      "consequence": "the flipped third tile leaves the one-way rule completely unharmed",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a smooth sculptural matte sage-green rubber stamp poised above a cool clear daylight-white pad on a cool slate-stone desk",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in shirt cuffs press and lift the matte sage-green rubber stamp repeatedly onto blank sunlit tokens",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "the quiet London seminar room with dozens of completed cool slate-stone tile trays stacked neatly along the bench",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain researcher in a charcoal blazer walks beside the stacked trays and places gloved hands onto the desk edge",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 17,
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "the quiet London seminar room with dozens of completed cool slate-stone tile trays stacked neatly along the bench",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain researcher in a charcoal blazer walks beside the stacked trays and places gloved hands onto the desk edge",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright seminar room where a large unmarked sunlit geometric filter funnel hangs on a cool clear daylight-white easel",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain scientist in a charcoal blazer steps to the easel and traces gloved hands along the one-sided filter funnel",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 20,
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved matte-white porcelain hands lifting a brushed-silver spotlight ring over the fourth clear daylight-white hexagon flip-tile on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lower and center the silver ring around the fourth clear daylight-white hexagon tile",
+      "consequence": "the overlooked fourth tile becomes the decisive falsification check",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 21,
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cuffs and cool porcelain-white gloved matte-white porcelain hands flipping the third powder-blue triangle tile repeatedly on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand taps and flips the powder-blue triangle tile while the silver rule bar stays static",
+      "consequence": "confirming the third tile never tests whether the rule fails",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the London seminar table showing the flipped fourth tile with its exposed coral-rose circle and separated silver rule bar",
+      "action": "viewed strictly from behind, clothed matte-white porcelain students in sunlit sweaters lean back in surprise and raise gloved hands around the table",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model on a cool clear daylight-white stand where the front prefrontal cortex glows bright soft cyan braking impulsive pattern matching",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater cuffs and cool porcelain-white gloved matte-white porcelain hands stubbornly pushing the powder-blue triangle tile forward again on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide the third powder-blue triangle tile forward and wave away the flipped fourth tile",
+      "consequence": "first intuition clings stubbornly even when shown the counterexample",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_right",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nERROR ALARM",
+      "brain_scene": "a matte-sunlit sagittal cutaway 3D brain model where the medial anterior cingulate arch stays dim pale lavender while fast surface matching glides past",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit seminar room with the four geometric flip-tiles on one side of the cool slate-stone desk and a row of rising sunlit blocks on the other",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain researcher in a charcoal blazer turns from the flip-tiles and lifts three stepped sunlit blocks with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved matte-white porcelain hands placing three stepped powder-blue blocks of increasing height onto cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set and align a short, medium, and tall powder-blue block in an upward staircase row",
+      "consequence": "three rising blocks invite volunteers to guess the hidden rule",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key london logic desk with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 27
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "powder-blue cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands lining up evenly spaced sunlit blocks as mint-sage indicator domes light up on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place another evenly stepped trio of blocks and tap a glowing mint-sage dome",
+      "consequence": "ten positive mint-sage domes glow in a row reinforcing a narrow guess",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and cool porcelain-white gloved matte-white porcelain hands hesitating above a descending trio of coral-rose blocks beside the slate-stone track",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand reaches toward the descending coral-rose trio then pulls back toward the safe powder-blue blocks",
+      "consequence": "nobody dares test a sequence designed to trigger a negative answer",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a brushed-silver rule housing opening cleanly on cool slate-stone to display three uneven sunlit blocks climbing gently upward",
+      "internal_mechanism": "any three upward-stepping blocks of unequal spacing glide smoothly through the wide silver gauge",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 32,
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the cool clear daylight-white testing room with abstract geometric flip-tiles sitting motionless under even soft daylight",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in shirt cuffs push and tap the brushed-silver sharp pin popping the pale lavender balloon cleanly",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "end_sentence_index": 34,
+      "act": 4,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the cool clear daylight-white testing room with abstract geometric flip-tiles sitting motionless under even soft daylight",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 32
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "the cool clear daylight-white testing room with abstract geometric flip-tiles sitting motionless under even soft daylight",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain student in a slate sweater sits motionless before the abstract geometric tiles and rests gloved hands flat",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "the cool clear daylight-white testing room with abstract geometric flip-tiles sitting motionless under even soft daylight",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain student in a slate sweater sits motionless before the abstract geometric tiles and rests gloved hands flat",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 36,
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "social_rule_lounge",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright cool-toned campus lounge counter made of cool slate-stone with four everyday drink and attire tokens set on silver pivots",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain psychologist in a navy blazer places four concrete lounge tokens onto silver pivots with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "social_rule_lounge",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "social_rule_lounge",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands setting a frosted slate-blue mug beside a tall adult coat token on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands link and align the frosted slate-blue mug with the tall adult coat token using a silver rule bar",
+      "consequence": "the abstract rule transforms into an instant real-world rule-breaker check",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 38,
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "social_rule_lounge",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "end_sentence_index": 39,
+      "act": 5,
+      "location_id": "social_rule_lounge",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a bright cool-toned campus lounge counter made of cool slate-stone with four everyday drink and attire tokens set on silver pivots",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "social_rule_lounge",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 37
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "social_rule_lounge",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a bright cool-toned campus lounge counter made of cool slate-stone with four everyday drink and attire tokens set on silver pivots",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in coat cuffs turn and lift the wide brushed-silver floodgate letting smooth cyan water surge through",
+      "end_sentence_index": 41,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "social_rule_lounge",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "social_rule_lounge",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright campus lounge counter surrounded by clothed matte-white porcelain participants in sunlit jackets",
+      "action": "viewed strictly from behind, clothed matte-white porcelain participants in sage and powder-blue jackets point gloved hands swiftly to the first and fourth lounge tokens as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 43,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "social_rule_lounge",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 5,
+      "location_id": "social_rule_lounge",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands flipping the fourth youth cap token to reveal a hidden slate-blue mug emblem underneath",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand pivots and turns the fourth token cleanly catching the rule violation",
+      "consequence": "social rule-breaker framing unlocks effortless falsification logic",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 44,
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "social_rule_lounge",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and cool porcelain-white gloved matte-white porcelain hands placing the clear daylight-white hexagon disproof tile onto a modern cool powder-blue work desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set and center the clear daylight-white hexagon tile beside a sleek silver laptop shell",
+      "consequence": "the fourth-card disproof habit moves directly into daily decision-making",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "social_rule_lounge",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a calm sunlit cool clear daylight-white study with a slate-stone desk and two trays of sunlit decision tokens",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain person in a powder-blue sweater pauses at the slate-stone desk and lifts a gloved hand between the two trays",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 47,
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "social_rule_lounge",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved matte-white porcelain hands reaching decisively for the clear daylight-white hexagon flip-tile on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand lifts and turns the clear daylight-white hexagon tile upside down to inspect its hidden underside",
+      "consequence": "seeking the single disproving fact tests the plan honestly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nERROR ALARM",
+      "brain_scene": "a matte-sunlit sagittal cutaway 3D brain model where the medial anterior cingulate arch lights up crisp bright cyan alongside the front prefrontal cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "social_rule_lounge",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved matte-white porcelain hands swapping abstract geometric blocks for concrete three-dimensional lounge tokens on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide away plain blocks and set concrete mug and cap tokens into silver check pivots",
+      "consequence": "concrete rule-breaker framing makes hidden flaws stand out immediately",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "social_rule_lounge",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cuffs and cool porcelain-white gloved matte-white porcelain hands resting a silver check ring around the flipped clear daylight-white hexagon tile on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands press and secure the brushed-silver ring around the tested fourth tile as calm cyan light glows",
+      "consequence": "one honest disproof flip protects important choices from costly blind spots",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved matte-white porcelain hands aligning all four unmarked sunlit geometric flip-tiles cleanly on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands pivot the fourth clear daylight-white hexagon tile open beside the coral-rose circle tile in balanced symmetry",
+      "consequence": "true clarity comes from testing the one tile capable of proving a hunch wrong",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 52,
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "cut_role": "split_right",
+      "act": 3,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer cuffs and cool porcelain-white gloved matte-white porcelain hands flipping the fourth clear daylight-white hexagon tile cleanly on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand lifts and pivots the clear daylight-white hexagon tile exposing a hidden coral-rose circle underneath",
+      "consequence": "flipping the fourth tile immediately tests whether the rule breaks",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48,
+      "scene_state": {
+        "location_id": "london_logic_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "london_logic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the serene sunlit London seminar room with the four unmarked sunlit geometric flip-tiles on cool slate-stone and tall windows opening to pale powder-blue sky",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain researcher in a charcoal blazer walks calmly toward the tall sunlit window as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 49
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "FOUR CARD TRAP",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered cool slate-stone tabletop holding four unmarked faceted pastel geometric flip-tiles on brushed-silver pivots"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

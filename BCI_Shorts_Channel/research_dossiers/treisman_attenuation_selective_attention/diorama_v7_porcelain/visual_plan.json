@@ -1,0 +1,1192 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "treisman_attenuation_selective_attention",
+  "topic": "Anne Treisman (1964) Oxford Dichotic Channel-Swap & Attenuation Theory: Dimmer-Knob Gain & 87% vs 8% Target Detection",
+  "act5_climax_episode": "Treisman and Geffen's 1967 ruler-tapping showdown proving 87% attended vs 8% unattended detection settles early-filter vs late-selection extremes.",
+  "outro_title_lines": [
+    "ANNE TREISMAN (1964)",
+    "UNIVERSITY OF OXFORD"
+  ],
+  "thumbnail": {
+    "hook_text": "THE DIMMER EAR",
+    "cover_sentence_index": 3,
+    "cover_brief": "Centered brushed-silver dual-channel studio audio console with a powder-blue rotary dimmer dial wired to padded pastel audio cups"
+  },
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "MUTED TO ZERO?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "THE DIMMER EAR"
+    },
+    {
+      "sentence_index": 10,
+      "text": "CHANNEL SWAP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "VOLUME DIMMER"
+    },
+    {
+      "sentence_index": 27,
+      "text": "TWIN LANGUAGES"
+    },
+    {
+      "sentence_index": 35,
+      "text": "RULER SHOWDOWN"
+    },
+    {
+      "sentence_index": 43,
+      "text": "NAME FIRST RULE"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "MUTED TO ZERO?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "THE DIMMER EAR"
+    },
+    {
+      "sentence_index": 10,
+      "text": "CHANNEL SWAP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "VOLUME DIMMER"
+    },
+    {
+      "sentence_index": 27,
+      "text": "TWIN LANGUAGES"
+    },
+    {
+      "sentence_index": 35,
+      "text": "RULER SHOWDOWN"
+    },
+    {
+      "sentence_index": 43,
+      "text": "NAME FIRST RULE"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 13,
+      "mode": "split_hstack",
+      "left_clip_index": 13,
+      "right_clip_index": 47,
+      "left_label": "RIGHT EAR SCRAMBLE",
+      "right_label": "LEFT EAR STORY"
+    }
+  ],
+  "clips": [
+    {
+      "index": 2,
+      "sentence_index": 1,
+      "role": "hook",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "noisy_lounge_hall",
+      "environment": "bright sunlit concourse filled with soft sage acoustic wave rings drifting around cool slate-stone café tables",
+      "action": "viewed strictly from behind, clothed matte-white porcelain travelers in slate coats stand chatting in clusters while soft sunlit wave rings overlap",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "noisy_lounge_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "sentence_index": 2,
+      "role": "hook",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "location_id": "noisy_lounge_hall",
+      "environment": "sunlit clear daylight-white lounge where a single crisp cyan-blue sound wave ring glides across three sunlit tables",
+      "action": "viewed strictly from behind, one figure in a navy coat turns briskly at the shoulders and steps toward the distant table",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "noisy_lounge_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "sentence_index": 3,
+      "role": "case_stamp",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "pan_left",
+      "location_id": "oxford_audio_lab",
+      "environment": "clean architectural cutaway of a bright Oxford acoustic laboratory linking a control console desk to an adjacent sound booth",
+      "action": "viewed strictly from behind, Anne Treisman in a powder-blue cardigan adjusts dual rotary dials while a student in a navy sweater sits inside the booth",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 8,
+      "sentence_index": 4,
+      "role": "setup",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "oxford_audio_lab",
+      "environment": "sunlit clear daylight-white Oxford psychology room with brushed-silver twin tape reels and cool slate-stone instrument tables",
+      "action": "viewed strictly from behind, Anne Treisman in a powder-blue cardigan walks to the twin-reel console and places two sunlit tape spools in place",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 7,
+      "sentence_index": 5,
+      "role": "context",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "grey coat cuffs and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "slide a solid slate shutter across a left sunlit groove while leaving the right sky-blue groove wide open",
+      "consequence": "sunlit signal beads stop completely against the closed left shutter",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "act": 1,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 8,
+      "sentence_index": 6,
+      "role": "setup",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "oxford_audio_lab",
+      "environment": "sunlit clear daylight-white Oxford psychology room with brushed-silver twin tape reels and cool slate-stone instrument tables",
+      "action": "viewed strictly from behind, Anne Treisman in a powder-blue cardigan walks to the twin-reel console and places two sunlit tape spools in place",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 6,
+      "act": 1,
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 9,
+      "sentence_index": 7,
+      "role": "setup",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "plug a sky-blue right-channel cord and a pale-lavender left-channel cord into twin console jacks and press play",
+      "consequence": "both brushed-silver tape reels spin smoothly in unison",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 10,
+      "sentence_index": 8,
+      "role": "experiment",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "location_id": "oxford_booth",
+      "environment": "bright frosted acoustic booth with a brushed-silver desk stand and a glowing sky-blue right-side waveform rail",
+      "action": "viewed strictly from behind, a student in a navy sweater and padded silver earcups leans toward the desk stand and taps along with the right rail",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "oxford_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 11,
+      "sentence_index": 9,
+      "role": "rehook",
+      "grammar": "porcelain_pov_hands",
+      "camera": "pan_right",
+      "location_id": "oxford_booth",
+      "attire_and_hands": "navy sweater sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "trace the bright sky-blue right-side acoustic rail while sliding a frosted cover beside the faint lavender left rail",
+      "consequence": "the quiet left rail keeps gliding softly alongside",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 9,
+      "act": 1,
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "oxford_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 12,
+      "sentence_index": 10,
+      "role": "question",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "reach toward a silent silver crossover switch between the sky-blue and lavender tracks and rest two gloved fingers lightly",
+      "consequence": "twin sunlit wave rails approach the crossover bridge",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 13,
+      "sentence_index": 11,
+      "role": "experiment",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "flip the silent brushed-silver crossover toggle cleanly across the dual-track console and hold the lever firm",
+      "consequence": "the diagonal track bridge snaps smoothly between the two channels",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 11,
+      "act": 1,
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 15,
+      "sentence_index": 12,
+      "role": "experiment",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_booth",
+      "attire_and_hands": "navy sweater cuffs and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "watch scattered mismatched grey blocks tumble down the right-side chute and pull one hand back slightly",
+      "consequence": "the right-channel stream breaks into jumbled geometric fragments",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "oxford_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 16,
+      "sentence_index": 13,
+      "role": "comparison_left",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_booth",
+      "attire_and_hands": "navy sweater sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "push scattered mismatched slate cubes along the right acoustic chute and pause at the broken sequence",
+      "consequence": "disjointed blocks pile unevenly on the right track",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "oxford_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 18,
+      "sentence_index": 14,
+      "role": "question",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "oxford_booth",
+      "environment": "high-key clear daylight-white testing booth where the glowing mint-green story arc leaps from the right rail onto the left rail",
+      "action": "viewed strictly from behind, the seated student in a navy sweater and silver earcups leans forward toward the studio stand",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 15,
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "oxford_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 21,
+      "sentence_index": 16,
+      "end_sentence_index": 17,
+      "role": "context",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "location_id": "oxford_audio_lab",
+      "environment": "bright sunlit control room looking through a wide observation window into the frosted Oxford listening booth",
+      "action": "viewed strictly from behind, Anne Treisman in a powder-blue cardigan places two mint-green marker pins onto a clean slate timeline board",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 22,
+      "sentence_index": 18,
+      "role": "nightmare_stamp",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "grey coat sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "lift the rigid on-off gate model and drop it into a cool slate storage bin",
+      "consequence": "the broken all-or-nothing switch model leaves the laboratory bench",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "act": 1,
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 23,
+      "sentence_index": 19,
+      "role": "instead_pivot",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "set a brushed-silver rotary dimmer module onto the console and turn the smooth sunlit dial halfway",
+      "consequence": "soft cyan-blue wave bars scale smoothly instead of snapping off",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 24,
+      "sentence_index": 20,
+      "role": "analogy",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "analogy_world": "clean sunlit studio stage platform with a matte sky-blue stage lamp housing on a brushed-silver tripod in soft daylight",
+      "comparison_action": "navy coat sleeves and cool porcelain-white gloved matte-white porcelain hands push a smooth silver fader up and tilt the sky-blue lamp shutter wide open",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18
+    },
+    {
+      "index": 25,
+      "sentence_index": 21,
+      "role": "analogy",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "analogy_world": "cool slate-stone counter holding a minimalist sage-green tabletop radio with a large brushed-silver rotary volume dial",
+      "comparison_action": "powder-blue cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands grip the brushed-silver radio dial and turn it gently down to a soft hum",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19
+    },
+    {
+      "index": 26,
+      "sentence_index": 22,
+      "role": "question",
+      "grammar": "porcelain_pov_hands",
+      "camera": "tilt_down",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "roll a tiny sunlit cyan bead toward two unequal silver hurdles and align it with the ultra-low hurdle",
+      "consequence": "the tiny bead clears the low hurdle effortlessly while tall hurdles stand firm",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 27,
+      "sentence_index": 23,
+      "role": "brain_link",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "location_id": "bright_brain_studio",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "HEARING CENTER\\nDIMMED GAIN STREAM",
+      "brain_scene": "matte-white matte-white porcelain lateral brain model in a bright clear daylight-white studio where the side hearing cortex glows bright cyan-blue alongside a faint pale-green trickle",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21
+    },
+    {
+      "index": 28,
+      "sentence_index": 24,
+      "role": "brain_link",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "location_id": "bright_brain_studio",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "Wernicke's area",
+      "anatomy_label": "LANGUAGE DECODER\\nHAIR TRIGGER WORDS",
+      "brain_scene": "matte-white matte-white porcelain left cortical brain model in a bright gallery where the posterior language hub lights up soft cyan-blue from a delicate green fiber pulse",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22
+    },
+    {
+      "index": 31,
+      "sentence_index": 25,
+      "role": "twist_question",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "oxford_booth",
+      "environment": "bright sunlit Oxford booth where a sky-blue wave ribbon and a soft sage wave ribbon weave parallel paths toward a central stand",
+      "action": "viewed strictly from behind, a bilingual listener in a slate blazer sits wearing silver earcups and raises one gloved hand",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "oxford_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 31,
+      "sentence_index": 26,
+      "role": "twist_question",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "oxford_booth",
+      "environment": "bright sunlit Oxford booth where a sky-blue wave ribbon and a soft sage wave ribbon weave parallel paths toward a central stand",
+      "action": "viewed strictly from behind, a bilingual listener in a slate blazer sits wearing silver earcups and raises one gloved hand",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 26,
+      "act": 1,
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "oxford_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 32,
+      "sentence_index": 27,
+      "role": "setup",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "place a sky-blue tape spool and a sage-green tape spool onto twin silver spindles and latch both hubs",
+      "consequence": "two language reels sit slightly offset on the console",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 33,
+      "sentence_index": 28,
+      "role": "experiment",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "pan_left",
+      "location_id": "oxford_booth",
+      "environment": "architectural cutaway of the sunlit booth showing a tall sky-blue wave ribbon on the right and a low dimmed sage wave ribbon on the left",
+      "action": "viewed strictly from behind, the listener in a slate blazer tracks the tall right ribbon while the quiet left ribbon mirrors every curve",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "oxford_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "end_sentence_index": 29,
+      "act": 1,
+      "location_id": "oxford_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key oxford booth with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "oxford_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "clip_number": 27
+    },
+    {
+      "index": 36,
+      "sentence_index": 30,
+      "role": "result",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "location_id": "oxford_booth",
+      "environment": "sunlit clear daylight-white testing booth with the matched sky-blue and sage story contours glowing gently on the desk",
+      "action": "viewed strictly from behind, the bilingual listener in a slate blazer lifts one gloved hand toward the booth window as Treisman nods in a blue cardigan",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "oxford_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 35,
+      "sentence_index": 31,
+      "role": "result",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_booth",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "slide the compact sage wave prism beside the tall sky-blue wave prism and snap both onto one silver base",
+      "consequence": "both differently colored prisms lock into identical story contours",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 31,
+      "act": 1,
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "oxford_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 38,
+      "sentence_index": 32,
+      "end_sentence_index": 33,
+      "role": "context",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "location_id": "oxford_audio_lab",
+      "environment": "cool slate-and-white seminar room where ten sunlit wave rails all stand cranked to maximum height on a wide rack",
+      "action": "elevated wide view from behind as two rival scholars in grey coats push every silver fader all the way to the top as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "end_sentence_index": 34,
+      "act": 1,
+      "location_id": "oxford_audio_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over cool slate-and-white seminar room where ten sunlit wave rails all stand cranked to maximum height on a wide rack",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 31
+    },
+    {
+      "index": 40,
+      "sentence_index": 35,
+      "role": "climax",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "oxford_audio_lab",
+      "environment": "bright Oxford acoustic room where two researchers stand beside a dual-column sunlit bead counter and twin silver reels",
+      "action": "viewed strictly from behind, Anne Treisman and Gina Geffen in sunlit cardigans start the twin reels and watch the booth window as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 40,
+      "sentence_index": 36,
+      "role": "climax",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "location_id": "oxford_audio_lab",
+      "environment": "bright Oxford acoustic room where two researchers stand beside a dual-column sunlit bead counter and twin silver reels",
+      "action": "viewed strictly from behind, Anne Treisman and Gina Geffen in sunlit cardigans start the twin reels and watch the booth window as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 36,
+      "act": 1,
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 42,
+      "sentence_index": 37,
+      "role": "climax",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "oxford_booth",
+      "attire_and_hands": "navy sweater cuffs and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "hold the mint-green ruler still above the silver pad while nine lavender cubes glide past uncounted",
+      "consequence": "only a tiny handful of beads land inside the left-channel tube",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "oxford_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 43,
+      "sentence_index": 38,
+      "role": "analogy",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "location_id": "noisy_lounge_hall",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "bright sunlit concourse filled with soft sage acoustic wave rings drifting around cool slate-stone café tables",
+      "action": "slate jacket sleeves and cool porcelain-white gloved matte-white porcelain hands lift the wide mint-green net frame and catch nearly every floating white sphere",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "noisy_lounge_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "end_sentence_index": 39,
+      "act": 1,
+      "location_id": "noisy_lounge_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over bright sunlit concourse filled with soft sage acoustic wave rings drifting around cool slate-stone café tables",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "noisy_lounge_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 36
+    },
+    {
+      "index": 45,
+      "sentence_index": 40,
+      "role": "brain_link",
+      "grammar": "porcelain_living_brain",
+      "camera": "locked_tripod",
+      "location_id": "bright_brain_studio",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "SPATIAL MAP\\nFOCUS SHIFT HUB",
+      "brain_scene": "matte-white matte-white porcelain dorsal cortical brain model in a bright clear daylight-white studio where the upper back spatial hub glows soft cyan-blue with calm green fiber arcs",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37
+    },
+    {
+      "index": 47,
+      "sentence_index": 41,
+      "role": "stunned_stamp",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "environment": "sunlit Oxford laboratory with the brushed-silver dimmer console and the tall-versus-short sunlit bead columns",
+      "action": "viewed strictly from behind, Treisman and Geffen in sunlit cardigans step back together and observe the settled ratio",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 42,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 49,
+      "sentence_index": 43,
+      "role": "takeaway",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "clinical_station",
+      "attire_and_hands": "sage clinical jacket sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "push a sunlit data prism forward too early and watch it bounce off a tilted slate shield",
+      "consequence": "the unprimed data prism slides aside unnoticed",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "clinical_station",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 52,
+      "sentence_index": 44,
+      "role": "takeaway",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "location_id": "clinical_station",
+      "environment": "bright sunlit clinical bay with cool slate counters and soft diffused ceiling light",
+      "action": "viewed strictly from behind, the clinician in a sky-blue coat turns squarely toward the colleague in the sage jacket as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "clinical_station",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 51,
+      "sentence_index": 45,
+      "role": "takeaway",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "clinical_station",
+      "attire_and_hands": "sage clinical sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "slide the bright cyan bell token gently across the slate counter and tap the silver chime bar once",
+      "consequence": "a soft cyan ripple spreads cleanly across the station",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 45,
+      "act": 1,
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "clinical_station",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 53,
+      "sentence_index": 46,
+      "role": "takeaway",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "clinical_station",
+      "attire_and_hands": "sky-blue coat sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "pause one beat beside the silver chime bar and rotate the sunlit gain dial smoothly to full open",
+      "consequence": "the receiving tray opens wide on the counter",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "clinical_station",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 54,
+      "sentence_index": 47,
+      "role": "takeaway",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "location_id": "clinical_station",
+      "attire_and_hands": "sage and sky-blue sleeves with cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "slide the mint-green data prism straight into the open receiving tray and latch it cleanly",
+      "consequence": "the key prism locks in with zero loss",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "clinical_station",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 55,
+      "sentence_index": 48,
+      "role": "takeaway",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "pan_left",
+      "location_id": "clinical_station",
+      "environment": "clean architectural cutaway pairing a sunlit flight-deck console with a bright clinical station in soft daylight",
+      "action": "viewed strictly from behind, crews in navy jackets and clinicians in sky-blue coats exchange cyan bell tokens before sliding data trays",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 48,
+      "act": 1,
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "clinical_station",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 56,
+      "sentence_index": 49,
+      "role": "conclusion",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "turn the brushed-silver dimmer knob smoothly upward as a low cyan hurdle opens the main channel gate",
+      "consequence": "full sunlit wave bars glide cleanly across the console",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 57,
+      "sentence_index": 50,
+      "role": "conclusion_stamp",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "location_id": "oxford_audio_lab",
+      "attire_and_hands": "powder-blue cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "rest padded silver audio cups beside the smooth rotary dimmer dial and align both sunlit wave rails",
+      "consequence": "the balanced dimmer console gleams softly on the slate desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 50,
+      "act": 1,
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "index": 17,
+      "sentence_index": 13,
+      "cut_role": "split_right",
+      "role": "comparison_right",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "location_id": "oxford_booth",
+      "attire_and_hands": "navy sweater sleeves and cool porcelain-white gloved matte-white porcelain hands",
+      "prop_action": "glide interlocking mint-green story prisms smoothly down the left acoustic chute and snap them into one arc",
+      "consequence": "the connected story arc continues seamlessly on the left track",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "oxford_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "index": 58,
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "role": "outro",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "location_id": "oxford_audio_lab",
+      "environment": "serene sunlit Oxford acoustic laboratory with twin silver tape reels and the sunlit dimmer console on a slate-stone bench",
+      "action": "wide elevated view strictly from behind as Anne Treisman in a powder-blue cardigan stands calmly before tall clear daylight-white windows as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

@@ -80,6 +80,8 @@ CONTAINER_DOWNLOADS_PATH = "/home/seluser/chrome-profile/flow_bridge" if os.name
 
 def _normalize_engine_mode(engine_mode: str | None) -> str:
     mode = str(engine_mode or DEFAULT_FLOW_ENGINE_MODE).strip().lower()
+    if mode == "zero_credit":
+        mode = "zero-credit"
     if mode not in FLOW_ENGINE_MODES:
         raise ValueError(f"Unsupported Flow engine_mode={engine_mode!r}; expected one of {FLOW_ENGINE_MODES}")
     return mode

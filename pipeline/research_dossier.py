@@ -450,12 +450,21 @@ def research_depth_report(
             issues.append(f"media {m.get('id')}: {len(tcs)} shot notes < {need}")
         local = (m.get("analysis") or {}).get("local_dir") if isinstance(m.get("analysis"), dict) else None
         kf_dir = (d / local / "keyframes") if local else (d / "media" / str(m.get("id")) / "keyframes")
-        if kf_dir.exists() and len(list(kf_dir.glob("*.jpg"))) >= DOSSIER_MIN_KEYFRAMES:
+        has_kf_jpgs = kf_dir.exists() and len(list(kf_dir.glob("*.jpg"))) >= DOSSIER_MIN_KEYFRAMES
+        edl_p = d / "08_reenactment_edl.json"
+        has_reenact_edl = False
+        if edl_p.exists():
+            try:
+                edl_data = json.loads(edl_p.read_text(encoding="utf-8"))
+                has_reenact_edl = int(edl_data.get("shot_count") or len(edl_data.get("shots") or [])) >= DOSSIER_MIN_KEYFRAMES
+            except Exception:
+                has_reenact_edl = False
+        if has_kf_jpgs or has_reenact_edl:
             analysed += 1
     if analysed < DOSSIER_MIN_ANALYZED_MEDIA:
         issues.append(
-            f"{analysed} media analysed on disk (media/<id>/keyframes >= {DOSSIER_MIN_KEYFRAMES}) < {DOSSIER_MIN_ANALYZED_MEDIA}: "
-            "run `dossier yt-analyze` on the original footage"
+            f"{analysed} media analysed on disk (media/<id>/keyframes >= {DOSSIER_MIN_KEYFRAMES} or 08_reenactment_edl.json) < {DOSSIER_MIN_ANALYZED_MEDIA}: "
+            "run `dossier yt-analyze` or `reenact-extract` on the original footage"
         )
     iconic = [s for s in scenes if isinstance(s, dict) and s.get("iconic")]
     if iconic:
@@ -576,6 +585,8 @@ def diorama_seed_from_dossier(
     """Draft Schema v7 (`porcelain_cinematic_v7` default or `lowpoly_pastel_v7`) or Schema v6 `neuro_diorama` visual_plan seed."""
     from pipeline.config import (
         DEFAULT_DIORAMA_STYLE_PROFILE,
+        DIORAMA_CLIP_COUNT_DEFAULT,
+        PORCELAIN_V7_STYLE_PROFILE,
         PROMPT_SCHEMA_VERSION_V6,
         PROMPT_SCHEMA_VERSION_V7,
         resolve_diorama_v7_style_profile,
@@ -592,6 +603,7 @@ def diorama_seed_from_dossier(
         if iconic_scenes:
             kv = iconic_scenes[0].get("key_visual") if isinstance(iconic_scenes[0].get("key_visual"), dict) else {}
             cover_brief = str(kv.get("description") or iconic_scenes[0].get("title") or "").strip()
+        seed_clip_count = DIORAMA_CLIP_COUNT_DEFAULT if resolved_style == PORCELAIN_V7_STYLE_PROFILE else 61
         return {
             "schema": PROMPT_SCHEMA_VERSION_V7,
             "schema_version": PROMPT_SCHEMA_VERSION_V7,
@@ -612,7 +624,7 @@ def diorama_seed_from_dossier(
             "brain_link": base["brain_link"],
             "chapter_headlines": [{"sentence_index": 3, "text": "TODO"}],
             "split_comparisons": [],
-            "target_clip_count": 61,
+            "target_clip_count": seed_clip_count,
             "clips": [],
             "outro_title_lines": ["", ""],
         }

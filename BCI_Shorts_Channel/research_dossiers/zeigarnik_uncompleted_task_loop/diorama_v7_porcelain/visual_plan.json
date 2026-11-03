@@ -1,0 +1,1167 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "zeigarnik_uncompleted_task_loop",
+  "topic": "Bluma Zeigarnik Berlin Cafe Waiter & Interrupted Puzzle Memory Discovery, Working-Memory Goal Tension & Concrete Shutdown Plans",
+  "act5_climax_episode": "End-of-day planning experiments proving a sixty-second concrete place-and-time plan silences intrusive unfinished-task loops without midnight labor.",
+  "outro_title_lines": [
+    "BLUMA ZEIGARNIK (1927)",
+    "UNIVERSITY OF BERLIN"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "FINISHED WINS?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "OPEN LOOP GRIP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "TWENTY PUZZLES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "TENSION SPRING"
+    },
+    {
+      "sentence_index": 28,
+      "text": "HIDDEN LIMITS"
+    },
+    {
+      "sentence_index": 37,
+      "text": "SIXTY-SEC PLAN"
+    },
+    {
+      "sentence_index": 45,
+      "text": "SHUTDOWN RITUAL"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "FINISHED WINS?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "OPEN LOOP GRIP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "TWENTY PUZZLES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "TENSION SPRING"
+    },
+    {
+      "sentence_index": 28,
+      "text": "HIDDEN LIMITS"
+    },
+    {
+      "sentence_index": 37,
+      "text": "SIXTY-SEC PLAN"
+    },
+    {
+      "sentence_index": 45,
+      "text": "SHUTDOWN RITUAL"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 34,
+      "mode": "split_hstack",
+      "left_clip_index": 33,
+      "right_clip_index": 48,
+      "left_label": "ONE CLIFFHANGER",
+      "right_label": "TWENTY OPEN TABS"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit Berlin psychology room with a cool slate-gray workbench, sunlit geometric puzzle tiles, clay dog figurine, sliding drawer, and closed sunlit notebook",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a lavender-gray cardigan leans beside a seated volunteer in a slate vest and closes the workbench drawer",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate vest sleeves and cool porcelain-white gloved matte-white porcelain hands hovering above the closed slate-gray workbench drawer beside the ignored finished star",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands reach toward the closed slate drawer and hold the final two mint-sage puzzle pieces",
+      "consequence": "attention stays locked on the unfinished puzzle hidden inside the drawer",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the bright Berlin laboratory featuring the cool slate-gray workbench, twenty sunlit craft tasks, closed sunlit notebook, and tall comparison bar columns",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain psychologist in a lavender-gray cardigan steps beside the workbench and points toward the tall coral-rose bar",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "berlin_cafe_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright cool-limestone cafe terrace with round marble-gray bistro tables, powder-blue ceramic coffee cups, and sunlit pastry plates",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain waiter in a white apron walks briskly to a six-chair limestone table and sets down ceramic cups",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "berlin_cafe_terrace",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "berlin_cafe_terrace",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "crisp white apron cuffs and cool porcelain-white gloved matte-white porcelain hands arranging twelve powder-blue coffee cups and sunlit saucers on a cool limestone tray",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and align all twelve ceramic cups smoothly without any notepad on the tray",
+      "consequence": "all twelve orders sit organized in exact sequence on the cool limestone table",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "berlin_cafe_terrace",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a compact matte powder-blue and lavender-gray theater stage with draped sunlit side curtains on a cool slate-gray platform",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in blazer cuffs pull a silver cord drawing the sunlit stage curtains smoothly open and shut",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 6
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "berlin_cafe_terrace",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket cuffs and cool porcelain-white gloved matte-white porcelain hands placing smooth silver coins into a matte slate-gray bill folder on a cool limestone table",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand slides three silver coins onto the folder while a white-cuffed gloved hand closes the slate folder firmly",
+      "consequence": "closing the slate folder marks the table account officially finished",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "berlin_cafe_terrace",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sleek matte slate-gray street signal post displaying a soft coral-rose circle that flips to calm mint-sage above a cool limestone curb",
+      "comparison_action": "viewed strictly from behind, a clothed matte-white porcelain pedestrian in a powder-blue coat waits briefly at the limestone curb then steps forward as mint-sage lights",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "berlin_cafe_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit limestone cafe terrace beside the cleared bistro table and closed slate bill folder",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain waiter in a white apron turns back three steps from the table and lifts empty gloved hands in a blank shrug",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "berlin_cafe_terrace",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the Berlin institute hall lined with cool slate-gray workbenches holding rows of sunlit geometric puzzles, bead cords, and clay figurines",
+      "action": "viewed strictly from behind, clothed matte-white porcelain volunteers in cardigans and vests walk inside and step beside the slate-gray workbenches",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate vest cuffs and cool porcelain-white gloved matte-white porcelain hands sculpting a chalk-white clay figure beside sunlit beads and puzzle frames on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand slides mint-sage beads onto a silver cord while the other presses a smooth sculptural clay dog",
+      "consequence": "twenty varied hands-on craft tasks fill the cool slate-gray workbench",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 11,
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt cuffs and cool porcelain-white gloved matte-white porcelain hands folding a crisp pale-lavender paper star on cool limestone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands press the final crease of the sunlit paper star flat and set it neatly at the table corner",
+      "consequence": "the finished sunlit star rests completed and forgotten on the corner",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 12,
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the Berlin workbench as the researcher slides the interrupted puzzle and half-strung sunlit beads toward the open slate drawer",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain volunteer in a slate vest leans forward and reaches gloved hands above the empty table spot",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands stepping in over the cool slate-gray workbench right before the last piece drops",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift and slide the unfinished mint-sage puzzle frame away from the volunteer's hovering gloved hands",
+      "consequence": "the final mint-sage piece never reaches the open puzzle slot",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 14,
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "tilt_down",
+      "attire_and_hands": "lavender-gray cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands placing interrupted craft tasks inside the deep cool slate-gray drawer",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set the unfinished puzzle inside and push the slate-gray drawer smoothly shut",
+      "consequence": "every unfinished piece is hidden completely out of visual sight",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 15,
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the Berlin institute hall lined with cool slate-gray workbenches holding rows of sunlit geometric puzzles, bead cords, and clay figurines",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in cardigan cuffs place one more coral-rose peg row into the packed sunlit bus and roll it forward",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "end_sentence_index": 17,
+      "act": 2,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the Berlin institute hall lined with cool slate-gray workbenches holding rows of sunlit geometric puzzles, bead cords, and clay figurines",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 17
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands holding the completed sunlit paper star over the cool slate-gray workbench",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand lifts the finished sunlit star while the volunteer's gloved hand points instead toward the closed drawer",
+      "consequence": "completed work sits forgotten right on the open workbench",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands comparing two plain tick-mark interval relay cams on cool limestone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and align a wider-angle completed tally counter beside a shorter-angle interrupted tally counter",
+      "consequence": "the tally counters show completed puzzles actually used more total minutes",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the sunlit Berlin workbench after the session with the closed slate drawer holding unfinished puzzles",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in blazer cuffs pull and hold the coral-rose band onto the second silver post with steady inward tension",
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "end_sentence_index": 21,
+      "act": 3,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the sunlit Berlin workbench after the session with the closed slate drawer holding unfinished puzzles",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 21
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL CORTEX\nWORKING-MEMORY DESK",
+      "brain_scene": "a matte-sunlit 3D cortical brain model on a cool alabaster stand where the upper front dorsolateral prefrontal cortex glows bright cyan-blue holding an active goal online",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_left",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nCONFLICT DETECTOR",
+      "brain_scene": "a matte-sunlit sagittal cutaway brain model highlighting the inner anterior cingulate cortex pulsing coral-rose whenever an active goal stays incomplete",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate vest cuffs and cool porcelain-white gloved matte-white porcelain hands snapping the final mint-sage triangle into the puzzle frame on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and press the last mint-sage piece flush into the frame releasing a small silver tension spring beside it",
+      "consequence": "the silver spring relaxes flat the instant the final piece clicks home",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 25,
+      "end_sentence_index": 25,
+      "act": 3,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key berlin puzzle lab with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 25
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Berlin workbench after the session with the closed slate drawer holding unfinished puzzles",
+      "action": "viewed strictly from behind, two smaller clothed matte-white porcelain figures in coats and caps lean beside the slate workbench and point gloved hands eagerly toward the drawer handle",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands turning a silver balance bar between two sunlit puzzle tiles on cool limestone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand tilts the silver bar while the other places a boundary marker beside the coral-rose tile",
+      "consequence": "three clear boundary tiles line up across the cool limestone desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 27,
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the Berlin workbench showing two equal low sunlit bars beside the depleted battery gauge on the cool slate-gray table",
+      "action": "viewed strictly from behind, a tired clothed matte-white porcelain volunteer in a gray sweater leans back from the workbench and rests gloved hands on knees",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands sweeping away an untouched puzzle before the first piece is lifted on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand lifts and slides the untouched frame aside while the silver spring beside it stays completely unstretched",
+      "consequence": "without engagement, the tension spring never stretches",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 29,
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "morning sunlight streaming into the Berlin laboratory as the cool slate-gray workbench drawer slides open again",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain researcher in a cardigan opens the slate drawer and slides the unfinished puzzle back to a seated volunteer",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate vest cuffs and cool porcelain-white gloved matte-white porcelain hands snapping the last piece in so the tall coral-rose column drops level with the pale-blue column",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands press the final piece down and slide the coral-rose bar down to baseline height",
+      "consequence": "finishing the task erases the extra recall boost right away",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 31,
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands sliding a frosted shield over a coral-rose fault token on cool limestone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands push the coral-rose token under the frosted cover and pull a mint-sage success token forward",
+      "consequence": "self-protective shielding hides the painful interrupted task",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 33,
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "berlin_puzzle_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater cuffs and cool porcelain-white gloved matte-white porcelain hands resting beside a single glowing cyan bookmark tile on a tidy cool slate-gray desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and align the single cyan cliffhanger tile cleanly at the center of the desk",
+      "consequence": "one intentional open loop points forward with calm focus",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "modern_shutdown_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a dim cool-toned evening study room where twenty small coral-rose task tiles glow softly across a slate-gray desk beside an armchair",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain worker in a lavender-gray sweater leans in the armchair and turns back toward the glowing desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 36,
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "modern_shutdown_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a modern university psychology lab with cool limestone desks, blank sunlit planning cards, and calm powder-blue indicator columns",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain psychologists in blazers walk along the limestone desks and lift completed focus trays",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "modern_shutdown_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt cuffs and cool porcelain-white gloved matte-white porcelain hands setting an unfinished puzzle tray beside a new focus sorting board on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand slides the unfinished tray aside while the other aligns the new sunlit sorting board",
+      "consequence": "the unfinished task waits right beside the new focus test",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 38,
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "modern_shutdown_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands tracing two crisp geometric slot icons on a blank sunlit card with a silver stylus",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and press a compact desk icon and a morning-sun icon into two neat slots on the sunlit card",
+      "consequence": "the concrete plan locks into the two geometric card slots",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 40,
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "modern_shutdown_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a modern university psychology lab with cool limestone desks, blank sunlit planning cards, and calm powder-blue indicator columns",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in slate cuffs pull and press the crisp white laces into one neat symmetrical bow",
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "modern_shutdown_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "gentle_push_in",
+      "structure": "the matte-sunlit goal beacon on cool slate-gray stone receiving the docked mint-sage plan card into its side slot",
+      "internal_mechanism": "sliding the mint-sage plan card into the slot closes the silver switch and quiets the pulsing coral-rose light completely",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 42,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "modern_shutdown_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide view of the modern psychology laboratory showing matching calm mint-sage focus bars for both the finished group and the planned group",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in blazers step back beside the limestone counter and shake gloved hands warmly",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 44,
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "modern_shutdown_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the calm sunlit office with the closed sunlit notebook and silver laptop resting neatly on the cool slate-gray desk",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in coat cuffs close the powder-blue door gently and slide the brushed-silver latch bar into its catch",
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "modern_shutdown_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "end_sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray sweater sleeves and cool porcelain-white gloved matte-white porcelain hands gathering scattered coral-rose task tiles onto one tidy mint-sage card on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide and set the loose coral-rose tiles neatly onto the mint-sage card at the center of the desk",
+      "consequence": "twelve scattered open loops consolidate onto one clean shutdown card",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "modern_shutdown_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "lavender-gray sweater cuffs and cool porcelain-white gloved matte-white porcelain hands docking small morning-dial pegs beside three task tokens on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and press three matching place-and-hour pegs into the mint-sage shutdown tray",
+      "consequence": "all three open items turn calm mint-sage in unison",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "modern_shutdown_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model where serene cyan-blue light settles across the prefrontal cortex as open-loop conflict signals quiet down",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray sweater cuffs and cool porcelain-white gloved matte-white porcelain hands placing one sleek cyan bookmark ribbon inside a sunlit notebook on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand sets the cyan ribbon mid-page while the other hand aligns a silver stylus beside it",
+      "consequence": "one intentional starting point waits cleanly for tomorrow morning",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "modern_shutdown_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the calm sunlit office with the closed sunlit notebook and silver laptop resting neatly on the cool slate-gray desk",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain worker in a lavender-gray sweater rises smoothly from the desk chair and walks toward the sunlit doorway",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "modern_shutdown_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the calm sunlit office with the closed sunlit notebook and silver laptop resting neatly on the cool slate-gray desk",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain worker in a lavender-gray sweater rises smoothly from the desk chair and walks toward the sunlit doorway",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 52,
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "modern_shutdown_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "modern_shutdown_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray sweater cuffs and cool porcelain-white gloved matte-white porcelain hands surrounded by twenty scattered coral-rose square tiles across a cool slate-gray desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands push and slide through the twenty blinking coral-rose tiles trying to clear a spot",
+      "consequence": "twenty unplanned open loops crowd every inch of the workspace",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48,
+      "scene_state": {
+        "location_id": "modern_shutdown_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "berlin_puzzle_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the serene Berlin psychology laboratory with the cool slate-gray workbench, sunlit geometric puzzle frame, closed drawer, and tall windows opening to pale sunlit sky",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in cardigan and blazer walk calmly toward the tall window as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 49
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "OPEN LOOP GRIP",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered low-poly pastel jigsaw puzzle missing one final mint-sage piece hovering above an open cool-slate drawer"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

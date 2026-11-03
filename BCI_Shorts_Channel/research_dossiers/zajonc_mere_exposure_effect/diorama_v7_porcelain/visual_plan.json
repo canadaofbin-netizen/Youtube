@@ -1,0 +1,1152 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "zajonc_mere_exposure_effect",
+  "topic": "Robert Zajonc Mere Exposure Effect, Visual Perceptual Fluency, Subliminal Millisecond Polygon Preference & Mirror-Reversed Orientation Liking",
+  "act5_climax_episode": "Theodore Mita testing mirror-flipped versus true camera orientation so people pick their daily mirror view while close friends pick the real unflipped view.",
+  "outro_title_lines": [
+    "ROBERT ZAJONC (1968)",
+    "ANN ARBOR, MICHIGAN"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "NEED MEMORY?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "HIDDEN WARMTH"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FLASH COUNT"
+    },
+    {
+      "sentence_index": 19,
+      "text": "SAFETY FLUENCY"
+    },
+    {
+      "sentence_index": 28,
+      "text": "ZERO RECALL"
+    },
+    {
+      "sentence_index": 37,
+      "text": "MIRROR TWIST"
+    },
+    {
+      "sentence_index": 45,
+      "text": "EIGHT CALM TRIES"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "NEED MEMORY?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "HIDDEN WARMTH"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FLASH COUNT"
+    },
+    {
+      "sentence_index": 19,
+      "text": "SAFETY FLUENCY"
+    },
+    {
+      "sentence_index": 28,
+      "text": "ZERO RECALL"
+    },
+    {
+      "sentence_index": 37,
+      "text": "MIRROR TWIST"
+    },
+    {
+      "sentence_index": 45,
+      "text": "EIGHT CALM TRIES"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 39,
+      "mode": "split_hstack",
+      "left_clip_index": 35,
+      "right_clip_index": 48,
+      "left_label": "MIRROR FLIP",
+      "right_label": "TRUE CAMERA"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit cool clear daylight-white Michigan psychology lab with a brushed-silver shutter aperture box resting on a cool slate-stone bench",
+      "action": "viewed strictly from behind, clothed matte-white porcelain students in powder-blue and sage sweaters sit before the silver shutter box and lean forward placing gloved hands on the bench",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater cuffs and cool porcelain-white gloved matte-white porcelain hands sliding a mint-sage preference token toward a flashed sunlit relief tile on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand pushes and sets the mint-sage heart-shaped sculpture token beside the powder-blue wave tile",
+      "consequence": "brief silent flashes pull preference toward the repeated shape",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the bright Ann Arbor laboratory with tall cool-toned windows, a cool slate-stone bench, and the brushed-silver shutter aperture box",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain psychologist in a charcoal blazer steps to the shutter box and turns a silver timing dial with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a cool powder-blue seminar hall where two opposing silver balance arms sit tilted on a cool clear daylight-white pedestal",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scholars in slate jackets walk up to the tilted balance arms and lift gloved hands in debate",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved matte-white porcelain hands arranging unmarked sunlit sculptural tiles beside the brushed-silver shutter box on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands align and push the unmarked sunlit relief tiles into separate frequency slots",
+      "consequence": "pure unrewarded repetition gets isolated under controlled lab timing",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "charcoal cuffs and cool porcelain-white gloved matte-white porcelain hands fanning twelve unmarked sunlit geometric relief tiles across cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands spread and align the twelve unfamiliar symmetric and asymmetric sunlit relief tiles in two neat rows",
+      "consequence": "every novel geometric relief starts completely unfamiliar to the viewer",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 7,
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a matte powder-blue coastal lighthouse tower sweeping a soft cyan light cone across a cool clear daylight-white harbor model",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in coat cuffs turn and push the silver lantern housing sweeping a clean two-second beam",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Michigan lab with the brushed-silver shutter aperture clicking softly in front of seated clothed matte-white porcelain volunteers",
+      "action": "viewed strictly from behind, clothed matte-white porcelain volunteers in sunlit sweaters watch the shutter window and rest gloved hands calmly on the slate bench as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands sliding a silver pointer along a cool clear daylight-white rating slider bar on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand lifts a sunlit relief tile while the other slides the silver pointer toward a glowing mint-sage end",
+      "consequence": "volunteers rate how positive each unfamiliar item feels by pure intuition",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 11,
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands sliding a silver pointer along a cool clear daylight-white rating slider bar on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand lifts a sunlit relief tile while the other slides the silver pointer toward a glowing mint-sage end",
+      "consequence": "volunteers rate how positive each unfamiliar item feels by pure intuition",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 12,
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright Ann Arbor lab showing a rising staircase of glowing mint-sage columns on a cool clear daylight-white display stand",
+      "action": "viewed strictly from behind, clothed matte-white porcelain students in sunlit cardigans step beside the slate bench and place mint-sage tokens onto the tallest column with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 14,
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a smooth sculptural matte slate-blue ship anchor hanging on a silver chain inside a clear cool powder-blue water tank",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in blazer cuffs lift and drop the silver chain letting the heavy slate-blue anchor sink to the bottom",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "the quiet Michigan lab with rows of rising mint-sage bar sculptures standing across the cool slate-stone table",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain psychologists in charcoal blazers walk beside the table and place gloved hands on the bench edge",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sleeves and cool porcelain-white gloved matte-white porcelain hands lifting a glowing mint-sage warmth sphere beside the repeated relief tile on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands cradle and set the glowing mint-sage sphere onto a silver cradle beside the repeated tile",
+      "consequence": "sheer exposure manufactures genuine liking without a single reward",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 17,
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "the quiet Michigan lab with rows of rising mint-sage bar sculptures standing across the cool slate-stone table",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain psychologists in charcoal blazers walk beside the table and place gloved hands on the bench edge",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright cool clear daylight-white studio room linking the silver shutter aperture box to a matte-sunlit 3D brain model on a slate pedestal",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain researcher in a charcoal blazer steps between the shutter box and brain pedestal and points gloved hands across both",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nTHREAT ALARM",
+      "brain_scene": "a matte-sunlit sagittal cutaway 3D brain model on a cool clear daylight-white stand where the deep almond-shaped amygdala glows alert coral-rose on first sight",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "daily_mirror_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a stylized matte-white porcelain sunlit forest clearing with cool sage-green pine trees and an unfamiliar smooth sculptural lavender boulder on the path",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain hiker in a slate jacket pauses on the path and raises gloved hands cautiously before the unfamiliar boulder",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "daily_mirror_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal cuffs and cool porcelain-white gloved matte-white porcelain hands sliding a brushed-silver safety shield gate ahead of a sunlit sorting tray on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lower and latch the silver safety check gate first before opening the sorting tray",
+      "consequence": "survival circuits verify harmlessness before slower reasoning begins",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 22,
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "locked_tripod",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nTHREAT ALARM",
+      "brain_scene": "a matte-sunlit sagittal cutaway 3D brain model where the deep amygdala softens from coral-rose into calm pale mint-sage as safe encounters repeat",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_right",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "VISUAL CORTEX\nVISION CENTER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model highlighting the rear primary visual cortex in crisp electric cyan pulsing swiftly and smoothly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Michigan lab with the smooth silver track glowing soft cyan across the cool slate-stone bench",
+      "action": "viewed strictly from behind, clothed matte-white porcelain volunteers in powder-blue sweaters nod and slide mint-sage preference tokens forward with gloved hands as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nWARMTH PLANNER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model where smooth cyan waves from the back reach the front prefrontal cortex lighting it in soft mint-sage",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved matte-white porcelain hands turning the brushed-silver shutter speed dial to its fastest notch on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands twist and click the silver speed dial to an ultra-brief flash setting",
+      "consequence": "the shutter prepares to flash shapes faster than conscious recall can catch",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in shirt cuffs tap and trip the silver release lever snapping the spring bar shut in an instant",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 26
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in sweater cuffs flip and catch the blank brushed-silver coin onto the clear daylight-white pad",
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "end_sentence_index": 31,
+      "act": 4,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 28
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in coat cuffs push and glide the hidden powder-blue magnet underneath pulling the silver spheres smoothly across",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "end_sentence_index": 33,
+      "act": 4,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 30
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in slate blazers walk past the stacked folders and align tall cyan summary bars with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "end_sentence_index": 35,
+      "act": 4,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 32
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal cuffs and cool porcelain-white gloved matte-white porcelain hands setting a glowing mint-sage warmth token ahead of a silver gear wheel on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place the mint-sage token first while the silver reasoning gear sits still behind it",
+      "consequence": "warm preference arrives before deliberate reasoning even turns",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 36,
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "daily_mirror_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit cool powder-blue dressing room with a tall brushed-silver mirror frame and an asymmetric clothed torso bust on a slate stand",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a navy blazer walks in and sets an asymmetric jacket bust with one mint-sage lapel pin before the silver mirror frame using gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 38,
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "daily_mirror_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "daily_mirror_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands rotating an asymmetric sunlit sculpture with a left cyan wing before a silver mirror frame",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set and align the asymmetric sculpture as the silver mirror reverses the cyan wing left to right",
+      "consequence": "the mirror reverses every asymmetric detail horizontally",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "daily_mirror_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "daily_mirror_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a sunlit cool powder-blue dressing room with a tall brushed-silver mirror frame and an asymmetric clothed torso bust on a slate stand",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in cardigan cuffs reach and slide the comfortable sage-green felt slipper smoothly forward",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "daily_mirror_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "end_sentence_index": 41,
+      "act": 5,
+      "location_id": "daily_mirror_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a sunlit cool powder-blue dressing room with a tall brushed-silver mirror frame and an asymmetric clothed torso bust on a slate stand",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "daily_mirror_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 37
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "daily_mirror_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright cool-toned cafe table with two clothed matte-white porcelain friends seated across a cool slate-stone tabletop",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain friends in powder-blue and sage jackets slide the unflipped silhouette card forward and tap it happily with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 43,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "daily_mirror_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 5,
+      "location_id": "daily_mirror_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy cuffs and cool porcelain-white gloved matte-white porcelain hands balancing the mirror-flipped and true-camera silhouette tiles side by side on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set a mint-sage token beside each opposite tile cleanly",
+      "consequence": "daily viewing history alone makes two observers love opposite orientations",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "daily_mirror_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "daily_mirror_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a calm sunlit cool clear daylight-white kitchen and study counter with sunlit headphones and a bowl of sage-green greens on slate-stone",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain person in a powder-blue sweater walks along the slate counter and touches the headphones and bowl with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "daily_mirror_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "daily_mirror_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved matte-white porcelain hands picking up an unfamiliar sunlit geometric bowl beside sleek silver headphones on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift and inspect the unfamiliar bowl cautiously before setting it gently down",
+      "consequence": "brand-new songs and habits start with low fluency on day one",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 46,
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "daily_mirror_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "daily_mirror_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cuffs and cool porcelain-white gloved matte-white porcelain hands lining up eight calm mint-sage stepping stones while pushing away a jagged coral-rose block on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands align eight smooth mint-sage tokens in a row and slide the harsh coral-rose block off the tray",
+      "consequence": "gentle spaced tries build comfort for neutral habits while noxious things stay unpleasant",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "daily_mirror_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "end_sentence_index": 48,
+      "act": 6,
+      "location_id": "daily_mirror_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key daily mirror room with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "daily_mirror_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 43
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket cuffs and cool porcelain-white gloved matte-white porcelain hands pausing a row of identical echoing sunlit megaphone cones on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand lifts and places a silver divider wall blocking the row of repeating sunlit cones",
+      "consequence": "pausing breaks the spell of sheer viral repetition",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and cool porcelain-white gloved matte-white porcelain hands comparing a solid brushed-silver cube beside a hollow repeated sunlit shell on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift and slide the solid brushed-silver cube over the hollow sunlit shell",
+      "consequence": "checking solid evidence separates real truth from mere familiarity",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 50,
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "daily_mirror_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater cuffs and cool porcelain-white gloved matte-white porcelain hands placing a tenth glowing mint-sage token onto a neat desk rack on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands click the tenth mint-sage token into place completing a smooth glowing arc",
+      "consequence": "ten spaced calm sessions turn awkward effort into warm ease",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "daily_mirror_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved matte-white porcelain hands resting a glowing mint-sage warmth token beside the brushed-silver shutter box on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands center and align the mint-sage warmth token beside the sunlit wave relief tile",
+      "consequence": "steady gentle encounters quietly shape what feels like home",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 52,
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "michigan_shutter_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "daily_mirror_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "sage cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands placing a toothbrush cup beside the silver mirror frame on a cool clear daylight-white counter",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand sets the powder-blue cup down and straightens a mint-sage lapel pin reflected in the mirror",
+      "consequence": "thousands of morning routines build deep fluency for the reversed view",
+      "style_profile": "porcelain_cinematic_v7",
+      "cut_role": "split_right",
+      "clip_number": 48,
+      "scene_state": {
+        "location_id": "daily_mirror_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "michigan_shutter_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the serene sunlit Ann Arbor laboratory with the brushed-silver shutter aperture box, sunlit geometric reliefs on cool slate-stone, and tall windows opening to pale sky",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain psychologist in a charcoal blazer walks calmly toward the tall sunlit window as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 49
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "HIDDEN WARMTH",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered brushed-silver shutter aperture box on cool slate-stone flashing an unmarked pastel geometric wave relief beside a glowing mint-sage token"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

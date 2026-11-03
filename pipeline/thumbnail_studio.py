@@ -201,6 +201,29 @@ def score_candidate(
     return m
 
 
+def _has_head_occlusion_in_hook_band(img_bgr: np.ndarray, grammar: str = "") -> bool:
+    """Detects a compact matte-white oval porcelain head inside the top hook-text band (`y=265..415`) directly above a clothed torso."""
+    if not img_bgr.size or img_bgr.shape[0] < 600 or img_bgr.shape[1] < 600:
+        return False
+    g_low = str(grammar or "").lower()
+    if "brain" in g_low or "hands" in g_low or "cutaway" in g_low:
+        return False
+    hsv = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2HSV)
+    band = hsv[265:415, 140:940]
+    white_mask = ((band[:, :, 2] >= 165) & (band[:, :, 1] <= 42)).astype(np.uint8)
+    n_lbl, _, stats, cents = cv2.connectedComponentsWithStats(white_mask)
+    for k in range(1, n_lbl):
+        bw = int(stats[k, cv2.CC_STAT_WIDTH])
+        bh = int(stats[k, cv2.CC_STAT_HEIGHT])
+        area = int(stats[k, cv2.CC_STAT_AREA])
+        if 2200 <= area <= 25000 and 40 <= bw <= 210 and 48 <= bh <= 150 and 0.45 <= bw / max(1, bh) <= 1.65:
+            cx = int(cents[k][0]) + 140
+            below = hsv[415:575, max(0, cx - 85) : min(img_bgr.shape[1], cx + 85)]
+            if below.size and float(below[:, :, 1].mean()) >= 45.0:
+                return True
+    return False
+
+
 def _finalize_candidate_scores(candidates: list[ThumbCandidate]) -> None:
     """Normalizes raw metrics across the episode pool and assigns weighted composite totals."""
     if not candidates:
@@ -226,7 +249,7 @@ def _finalize_candidate_scores(candidates: list[ThumbCandidate]) -> None:
         c.scores = {k: round(val, 4) for k, val in norm.items()}
 
         weighted = sum(float(THUMB_SCORE_WEIGHTS[k]) * norm[k] for k in THUMB_SCORE_WEIGHTS)
-        # Hard-floor quality penalty so blurred, flat, or empty-centre frames never outrank clean frames
+        # Hard-floor quality penalty so blurred, flat, empty-centre, or head-decapitated frames never outrank clean frames
         penalty = 0.0
         if float(c.raw_metrics.get("sharpness", 0.0)) < THUMB_MIN_SHARPNESS:
             penalty += 0.60
@@ -234,6 +257,8 @@ def _finalize_candidate_scores(candidates: list[ThumbCandidate]) -> None:
             penalty += 0.60
         if float(c.raw_metrics.get("center_salience", 0.0)) < THUMB_MIN_CENTER_SALIENCE:
             penalty += 0.45
+        if _has_head_occlusion_in_hook_band(c.image, c.grammar):
+            penalty += 0.22
         c.total = round(weighted - penalty, 4)
 
     candidates.sort(key=lambda x: (x.total, x.raw_metrics.get("sharpness", 0.0)), reverse=True)
@@ -1136,12 +1161,95 @@ def run(
     return report
 
 
+def render_longform_4k_thumbnails(
+    project_dir: str | Path,
+    frames_bgr: list[np.ndarray] | None = None,
+    hook: str = "",
+    *,
+    hook_text: str | None = None,
+) -> dict[str, Any]:
+    """
+    Renders 3 distinct `16:9` 4K (`3840x2160`) CTV thumbnails (`thumb_longform_A.png`, `B`, `C`) in `06_publish/`
+    for YouTube Studio native `Test & Compare` (`Watch Time Share` optimization).
+    """
+    from pipeline.config import THUMB_LONGFORM_HEIGHT, THUMB_LONGFORM_WIDTH
+
+    p_dir = Path(project_dir) if Path(project_dir).is_dir() else (Path(PROJECTS_DIR) / str(project_dir))
+    pub_dir = p_dir / "06_publish"
+    pub_dir.mkdir(parents=True, exist_ok=True)
+    eff_hook = str(hook_text if hook_text is not None else hook or "BRAIN MYSTERY?").strip() or "BRAIN MYSTERY?"
+    eff_frames = list(frames_bgr or [])
+    if not eff_frames:
+        vis_dir = p_dir / "03_visuals" / "flow_native_clips"
+        for c_mp4 in sorted(vis_dir.glob("clip_*.mp4"), key=lambda p: int("".join(filter(str.isdigit, p.stem)) or "0"))[:3]:
+            cap = cv2.VideoCapture(str(c_mp4))
+            ok, frm = cap.read()
+            cap.release()
+            if ok and frm is not None:
+                eff_frames.append(frm)
+    font_path = _resolve_v7_font_path()
+    lines = _split_hook_lines(eff_hook.upper())
+    try:
+        fnt = ImageFont.truetype(str(font_path), 240)
+    except Exception:
+        fnt = ImageFont.load_default()
+
+    saved: dict[str, str] = {}
+    for idx, var_name in enumerate(("A", "B", "C")):
+        src = eff_frames[min(idx, len(eff_frames) - 1)] if eff_frames else np.full((1080, 1920, 3), (225, 232, 238), dtype=np.uint8)
+        h0, w0 = src.shape[:2]
+        target_ratio = float(THUMB_LONGFORM_WIDTH) / float(THUMB_LONGFORM_HEIGHT)
+        cur_ratio = float(w0) / max(float(h0), 1.0)
+        if cur_ratio > target_ratio:
+            nw = int(round(h0 * target_ratio))
+            x0 = max(0, (w0 - nw) // 2)
+            cropped = src[:, x0 : x0 + nw]
+        else:
+            nh = int(round(w0 / target_ratio))
+            y0 = max(0, (h0 - nh) // 2)
+            cropped = src[y0 : y0 + nh, :]
+        # Subtle framing variation across A/B/C when fewer than 3 input frames are supplied
+        if len(eff_frames) < 3 and idx > 0:
+            zf = 1.0 + 0.06 * idx
+            zh, zw = int(cropped.shape[0] / zf), int(cropped.shape[1] / zf)
+            zy = (cropped.shape[0] - zh) // (2 if idx == 1 else 3)
+            zx = (cropped.shape[1] - zw) // (2 if idx == 1 else 4)
+            cropped = cropped[zy : zy + zh, zx : zx + zw]
+        resized = cv2.resize(cropped, (THUMB_LONGFORM_WIDTH, THUMB_LONGFORM_HEIGHT), interpolation=cv2.INTER_LANCZOS4)
+        pil_rgba = Image.fromarray(cv2.cvtColor(resized, cv2.COLOR_BGR2RGB)).convert("RGBA")
+        txt_layer = Image.new("RGBA", (THUMB_LONGFORM_WIDTH, THUMB_LONGFORM_HEIGHT), (0, 0, 0, 0))
+        draw = ImageDraw.Draw(txt_layer)
+        cur_y = 220 + (idx * 24)
+        for ln in lines:
+            draw.text(
+                (180, cur_y),
+                ln,
+                font=fnt,
+                fill=(255, 255, 255, 255),
+                stroke_width=18,
+                stroke_fill=(10, 15, 24, 255),
+            )
+            bb = fnt.getbbox(ln, stroke_width=18)
+            cur_y += (bb[3] - bb[1]) + 28
+        out_rgb = Image.alpha_composite(pil_rgba, txt_layer).convert("RGB")
+        out_p = pub_dir / f"thumb_longform_{var_name}.png"
+        out_rgb.save(out_p, format="PNG", compress_level=3)
+        saved[var_name] = str(out_p)
+    return {
+        "project_id": p_dir.name,
+        "dimensions": [THUMB_LONGFORM_WIDTH, THUMB_LONGFORM_HEIGHT],
+        "hook_text": eff_hook.upper(),
+        "variants": saved,
+    }
+
+
 __all__ = [
     "ThumbCandidate",
     "collect_candidates",
     "compute_image_metrics",
     "measure_shelf_text_contrast",
     "pick_top_distinct",
+    "render_longform_4k_thumbnails",
     "render_overlay",
     "render_overlay_with_meta",
     "resolve_hook",
@@ -1152,3 +1260,4 @@ __all__ = [
     "validate_hook_lexical",
     "write_contact_sheet",
 ]
+

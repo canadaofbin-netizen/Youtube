@@ -294,6 +294,20 @@ def verify_publish_ready_qa_bundle(
     }
 
 
+def _safe_exists(path: Path) -> bool:
+    try:
+        return path.exists()
+    except OSError:
+        return False
+
+
+def _safe_glob(path: Path, pattern: str) -> list[Path]:
+    try:
+        return list(path.glob(pattern)) if _safe_exists(path) else []
+    except OSError:
+        return []
+
+
 def resolve_project_video_path(project_dir: Path, project_id: str | None = None) -> Path | None:
     """
     Resolves compiled vertical Short MP4 for a project:
@@ -303,14 +317,14 @@ def resolve_project_video_path(project_dir: Path, project_id: str | None = None)
     """
     pid = project_id or project_dir.name
     primary = project_dir / "05_assembly" / "final_shorts_1080x1920.mp4"
-    if primary.exists():
+    if _safe_exists(primary):
         return primary
 
     assembly_dir = project_dir / "05_assembly"
     mp4_candidates = [
         p for p in (
-            (list(assembly_dir.glob("*.mp4")) if assembly_dir.exists() else [])
-            + list(project_dir.glob("*.mp4"))
+            _safe_glob(assembly_dir, "*.mp4")
+            + _safe_glob(project_dir, "*.mp4")
         )
         if "burnin" not in p.name
     ]
@@ -327,7 +341,7 @@ def resolve_project_video_path(project_dir: Path, project_id: str | None = None)
             rel_roots.append(ws_root)
     for root_cand in rel_roots:
         archive_mp4 = root_cand / "Completed_Psychology_100_Shorts" / f"final_shorts_{pid}.mp4"
-        if archive_mp4.exists():
+        if _safe_exists(archive_mp4):
             return archive_mp4
 
     return None

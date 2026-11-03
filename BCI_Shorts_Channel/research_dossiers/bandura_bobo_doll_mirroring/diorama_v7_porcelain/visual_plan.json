@@ -1,0 +1,1147 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "bandura_bobo_doll_mirroring",
+  "topic": "Albert Bandura Stanford Nursery Bobo Doll Study: How Young Brains Acquire Motor and Verbal Scripts Through Pure Observation With Zero External Reward",
+  "act5_climax_episode": "Stanford follow-up testing children who watched an adult scolded for striking the weighted rebound doll and immediately performed every hidden move from memory once offered fruit juice.",
+  "outro_title_lines": [
+    "ALBERT BANDURA (1961, 1963)",
+    "STANFORD UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "REWARD MYTH?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "LEARN BY SIGHT?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FIVE FOOT DOLL"
+    },
+    {
+      "sentence_index": 19,
+      "text": "MIRROR ROOM"
+    },
+    {
+      "sentence_index": 28,
+      "text": "CALM CATCHES ON"
+    },
+    {
+      "sentence_index": 37,
+      "text": "HIDDEN MEMORY"
+    },
+    {
+      "sentence_index": 45,
+      "text": "WATCH YOUR LEAD"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "REWARD MYTH?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "LEARN BY SIGHT?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FIVE FOOT DOLL"
+    },
+    {
+      "sentence_index": 19,
+      "text": "MIRROR ROOM"
+    },
+    {
+      "sentence_index": 28,
+      "text": "CALM CATCHES ON"
+    },
+    {
+      "sentence_index": 37,
+      "text": "HIDDEN MEMORY"
+    },
+    {
+      "sentence_index": 45,
+      "text": "WATCH YOUR LEAD"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 13,
+      "mode": "split_hstack",
+      "left_clip_index": 12,
+      "right_clip_index": 48,
+      "left_label": "MALLET MODEL",
+      "right_label": "TINKERTOY CALM"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright sunlit nursery playroom with pale linoleum flooring, a corner wooden craft table, and a tall weighted sunlit rebound doll in the center",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain preschooler in a soft-mint cardigan sweater steps past an empty treat bowl and walks straight toward the center play mat",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "one_way_mirror_booth",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands holding a brushed-silver response tally counter and wooden clipboard behind a wide observation glass window",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand presses the brushed-silver response tally counter crown while the other hand traces a crisp check line across the blank scoring sheet",
+      "consequence": "through the wide glass window, the weighted sunlit rebound doll tilts and rocks smoothly upright",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "one_way_mirror_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit Stanford nursery room adjoining a quiet observation booth through a wide glass partition",
+      "action": "viewed strictly from behind, clothed matte-white porcelain researchers in tweed blazer jackets stand beside the glass window and point toward the sunny playroom center",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "grey wool blazer sleeves and cool porcelain-white gloved matte-white porcelain hands over a cool-slate demonstration desk holding a brushed-silver treat lever and wooden token tray",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand presses the brushed-silver lever down while the other hand slides a single sunlit reward token into the tray",
+      "consequence": "the sunlit token drops neatly into the recessed wooden dish",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "one_way_mirror_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit California university psychology corridor leading into three side-by-side sunlit nursery playrooms with observation windows",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain psychologist in a tailored navy blazer walks down the bright corridor and opens the center playroom door",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "one_way_mirror_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "one_way_mirror_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit California university psychology corridor leading into three side-by-side sunlit nursery playrooms with observation windows",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain psychologist in a tailored navy blazer walks down the bright corridor and opens the center playroom door",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 7,
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "one_way_mirror_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit circular courtyard displaying a bright soft-mint matte-white porcelain school bus parked cleanly along a pale-stone curb",
+      "comparison_action": "viewed strictly from behind, clothed matte-white porcelain children in sunlit sweaters and caps step briskly off the soft-mint school bus steps and walk onto the sunny courtyard",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the quiet sunlit corner of the Stanford nursery room with a child-sized maple craft table, paper sheets, and wooden potato stamps",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain child in a sky-blue sweater sits at the small craft table and presses a wooden stamp onto pale paper as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the sunny center rug of the nursery playroom featuring a tall weighted pastel-striped vinyl rebound doll with a rounded sand-filled base",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain adult model in a dove-gray cardigan steps onto the center rug and places a wooden mallet beside the tall rebound doll",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit sidewalk displaying a classic tall blue steel curbside mailbox standing upright beside a five-foot wooden measuring rod",
+      "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in blazer sleeves align the top of the five-foot wooden rod level with the rounded dome of the blue curbside mailbox and tap the top gently",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray cardigan sleeves and matte-white gloved matte-white porcelain adult hands gripping a wooden mallet beside the tall weighted sunlit rebound doll",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands push the tall rebound doll onto its side and tap its top dome rhythmically with the wooden mallet",
+      "consequence": "the weighted vinyl doll rocks backward across the sunny rug and springs upright again",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands lifting a wooden mallet over the weighted sunlit rebound doll",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand braces the doll shoulder while the other hand taps the wooden mallet briskly against the rounded vinyl top",
+      "consequence": "the tall rebound doll tilts sharply across the linoleum floor",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the sunny center rug of the nursery playroom featuring a tall weighted pastel-striped vinyl rebound doll with a rounded sand-filled base",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in cardigan sleeves flip the brushed-silver marker cylinder upright and set the warm ceramic coffee cup onto its saucer",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "one_way_mirror_booth",
+      "grammar": "porcelain_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands resting beside two blank rating sheets behind the observation glass",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand holds a cedar pencil poised above the two comparison columns and taps the desk lightly",
+      "consequence": "in the sunny room beyond the glass, the child sits motionless at the small craft table",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 15,
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "one_way_mirror_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "one_way_mirror_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the dim-lit sunlit observation booth overlooking the bright test playroom stocked with both calm wooden toys and a three-foot rebound doll",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain judges in collared shirts and blazer jackets lean forward at the glass window and lift their scoring clipboards",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "one_way_mirror_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed blazer sleeves and cool porcelain-white gloved matte-white porcelain hands placing three empty sunlit porcelain bowls along a side shelf",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands turn all three empty bowls upside down and slide a wooden cover over the shelf",
+      "consequence": "zero treats or tokens remain anywhere inside the playroom",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 17,
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "one_way_mirror_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the dim-lit sunlit observation booth overlooking the bright test playroom stocked with both calm wooden toys and a three-foot rebound doll",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain judges in collared shirts and blazer jackets lean forward at the glass window and lift their scoring clipboards",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "one_way_mirror_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit test playroom containing a child-sized ceramic tea set, wooden Tinkertoys on one rug, and a three-foot weighted rebound doll with a peg mallet",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain preschooler in a soft-mint cardigan walks through the open doorway and steps into the center of the test room",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "end_sentence_index": 20,
+      "act": 3,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the sunlit test playroom containing a child-sized ceramic tea set, wooden Tinkertoys on one rug, and a three-foot weighted rebound doll with a peg mallet",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 19
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the sunlit test playroom containing a child-sized ceramic tea set, wooden Tinkertoys on one rug, and a three-foot weighted rebound doll with a peg mallet",
+      "action": "one cool porcelain-white gloved matte-white porcelain hand in a blazer cuff holds a brushed-silver tally counter while the other hand taps a crisp check mark on each rhythmic swing of the pulse arm",
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-mint cardigan cuffs and matte-white gloved matte-white porcelain child hands reaching past the wooden peg board on a low maple table",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand pushes the colorful peg board aside while the other hand lifts the smooth wooden mallet briskly",
+      "consequence": "the wooden pegs roll gently across the table as the mallet rises",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 22,
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "one_way_mirror_booth",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and matte-white gloved matte-white porcelain rater hands holding a cedar pencil over a grid of motor and vocal tally boxes",
+      "prop_action": "the matte-white gloved matte-white porcelain right hand checks box after box down the imitative column while the left hand braces the wooden clipboard",
+      "consequence": "a long row of crisp graphite check marks fills the scoring column",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22,
+      "scene_state": {
+        "location_id": "one_way_mirror_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "premotor cortex",
+      "anatomy_label": "PREMOTOR CORTEX\nACTION PLANNER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model on a pale pedestal where electric cyan-blue internal glow illuminates the premotor cortex strip and sends emerald-green rehearsal pulses toward the movement strip",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_right",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA\nHABIT ENGINE",
+      "brain_scene": "a matte-sunlit sagittal cutaway brain model where warm amber-gold luminescence settles deep inside the central basal ganglia hub storing the rehearsed action sequence",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the quiet sunlit corner of the test playroom where colorful wooden Tinkertoy spools and rods rest on a soft woven rug",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain child in a mint cardigan walks calmly past the rebound doll and kneels beside the wooden Tinkertoy set",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the quiet sunlit corner of the test playroom where colorful wooden Tinkertoy spools and rods rest on a soft woven rug",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain child in a mint cardigan walks calmly past the rebound doll and kneels beside the wooden Tinkertoy set",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 27,
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the bright sunlit nursery playroom with a completed wooden Tinkertoy windmill spinning gently on the corner rug beside an untouched rebound doll",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain child in a mint cardigan sits cross-legged and turns the wooden Tinkertoy windmill blades gently",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the bright sunlit nursery playroom with a completed wooden Tinkertoy windmill spinning gently on the corner rug beside an untouched rebound doll",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain child in a mint cardigan sits cross-legged and turns the wooden Tinkertoy windmill blades gently",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 29,
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and matte-white gloved matte-white porcelain rater hands comparing three sunlit wooden block columns on the observation desk",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand places a tiny sky-blue block onto the calm-group column sitting lower than the middle control column and points to the gap",
+      "consequence": "the sky-blue calm column rests visibly lower than even the no-model baseline stack",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 30,
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model where calm electric cyan-blue light fills the prefrontal cortex behind the forehead and sends steady golden control signals backward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "sage adult sweater sleeves alongside mint child cardigan sleeves with cool porcelain-white gloved matte-white porcelain hands over a wooden building tray",
+      "prop_action": "the adult matte-white gloved hands set a wooden arch down slowly and the child hands align a matching wooden block smoothly on top",
+      "consequence": "the balanced sunlit wooden bridge stands steady across the sunlit tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "one_way_mirror_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit Stanford seminar room with a slate-stone conference table holding a 16mm film reel canister and a vintage sunlit television set",
+      "action": "viewed strictly from behind, clothed matte-white porcelain researchers in wool blazer jackets stand around the slate-stone table and lift the silver film reel toward the television cabinet",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 34,
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "one_way_mirror_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "one_way_mirror_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a quiet sunlit viewing room where a vintage television cabinet displays a matte-white porcelain figure tapping a rebound doll with a wooden mallet",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain preschooler in a coral sweater sits on a wooden chair and leans forward watching the glowing television screen",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "one_way_mirror_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "coral child sweater cuffs and cool porcelain-white gloved matte-white porcelain hands lifting the wooden peg mallet inside the sunny test playroom",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands tilt the weighted rebound doll sideways and tap its rounded top with the exact televised rhythm",
+      "consequence": "the rebound doll rocks back and pops upright across the sunny linoleum floor",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 36,
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit viewing room where the vintage television screen shows a second matte-white porcelain adult figure shaking a finger and taking away the wooden mallet",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain child in a pale-blue cardigan sits quietly on the wooden chair and rests both hands in lap",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 38,
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "end_sentence_index": 40,
+      "act": 5,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue cardigan cuffs and matte-white gloved matte-white porcelain child hands hovering quietly over the maple peg-board table",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands reach halfway toward the wooden mallet, pause cleanly, and fold back onto the edge of the maple table",
+      "consequence": "the wooden mallet remains motionless beside the untouched rebound doll",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the bright Stanford test playroom as the child reenacts every stored step beside the three-foot weighted rebound doll",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain child in a pale-blue cardigan pushes the rebound doll sideways and taps it with the wooden mallet in exact sequence",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-blue cardigan sleeves and matte-white gloved matte-white porcelain child hands reaching straight for the wooden peg mallet",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift the wooden mallet briskly off the maple table and turn toward the center rug",
+      "consequence": "the mallet rises cleanly in one decisive motion",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 42,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "one_way_mirror_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the sunlit Stanford observation booth filled with tall stacks of completed scoring sheets behind the wide glass window",
+      "action": "viewed strictly from behind, three clothed matte-white porcelain researchers in blazer jackets stand up together behind the glass and point at the matching score columns",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 44,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "one_way_mirror_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "family_kitchen_home",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a warm sunlit modern family kitchen with a cool-slate island, ceramic mugs, and morning light streaming across clean wood floors",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain parent in a cream knit sweater and a child in a sky-blue cardigan stand together beside the kitchen island as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "family_kitchen_home",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "family_kitchen_home",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal jacket sleeves and matte-white gloved matte-white porcelain adult hands gripping a car steering wheel beside a rear child seat",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand taps the steering wheel rim sharply and then rests flat as a small gloved hand in the back copies the exact tap on the armrest",
+      "consequence": "both hands mirror the identical rhythm inside the sunlit cabin",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 46,
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "family_kitchen_home",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 47,
+      "end_sentence_index": 47,
+      "act": 6,
+      "location_id": "family_kitchen_home",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a warm sunlit modern family kitchen with a cool-slate island, ceramic mugs, and morning light streaming across clean wood floors",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "family_kitchen_home",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 42
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "family_kitchen_home",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit hallway doorway inside the sunlit family home with a wooden interior door and a low toy bench nearby",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain adult in a charcoal jacket pushes the wooden hallway door shut briskly while a child in a cardigan watches every move from the bench",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "family_kitchen_home",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 49,
+      "end_sentence_index": 49,
+      "act": 6,
+      "location_id": "family_kitchen_home",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a sunlit hallway doorway inside the sunlit family home with a wooden interior door and a low toy bench nearby",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "family_kitchen_home",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 44
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model glowing with serene electric cyan-blue light across the prefrontal cortex and steady warm amber-gold pathways to the motor strip",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "family_kitchen_home",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the warm sunlit family kitchen island with neatly stacked ceramic cups, folded cotton towels, and bright morning windows",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain parent in a cream sweater and the child in a sky-blue cardigan set the clean cups onto the counter together as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "family_kitchen_home",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "family_kitchen_home",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the warm sunlit family kitchen island with neatly stacked ceramic cups, folded cotton towels, and bright morning windows",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain parent in a cream sweater and the child in a sky-blue cardigan set the clean cups onto the counter together as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 52,
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "family_kitchen_home",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage knit sweater sleeves and cool porcelain-white gloved matte-white porcelain hands sitting calmly over a woven rug full of wooden Tinkertoy spools and rods",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide smooth wooden rods into circular wooden Tinkertoy spools and lift a neat spinning wheel",
+      "consequence": "the delicate wooden Tinkertoy wheel turns smoothly in quiet sunlight while the rebound doll behind stays untouched",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48,
+      "scene_state": {
+        "location_id": "stanford_nursery_playroom",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "stanford_nursery_playroom",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a sunlit Stanford sandstone courtyard arcade framed by warm muted-lavender roofs, green slate-stone trees, and a clear brushed-matte California sky",
+      "action": "viewed strictly from behind, clothed matte-white porcelain figures in blazer jackets and sunlit sweaters walk and step calmly along the sunlit courtyard path as the camera tilts upward into the sky",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 49
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "LEARN BY SIGHT?",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered low-poly weighted pastel rebound doll beside a smooth wooden toy mallet on sunlit nursery floor"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

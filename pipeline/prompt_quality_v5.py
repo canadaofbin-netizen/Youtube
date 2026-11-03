@@ -136,6 +136,7 @@ def validate_cold_open_v7(lines: list[str]) -> list[str]:
       S3 'This is the true story of <case>.' case stamp                                       (stamp gear)
     """
     from pipeline.config import (
+        DIORAMA_COLD_OPEN_S3_BANK,
         DIORAMA_V7_COLD_OPEN_CASE_STAMP_PREFIX,
         DIORAMA_V7_COLD_OPEN_S1_MAX_WORDS,
         DIORAMA_V7_COLD_OPEN_S2_MAX_WORDS,
@@ -162,14 +163,85 @@ def validate_cold_open_v7(lines: list[str]) -> list[str]:
             f"[cold_open_v7] S2 must open with a contrast word {DIORAMA_V7_COLD_OPEN_S2_PREFIXES}: '{s2[:70]}' (R57-H2)"
         )
     stamp_prefix = DIORAMA_V7_COLD_OPEN_CASE_STAMP_PREFIX.strip().lower()
+    valid_prefixes = tuple(
+        dict.fromkeys([stamp_prefix] + [p.strip().lower() for p in DIORAMA_COLD_OPEN_S3_BANK if p.strip()])
+    )
     s3_core = re.sub(r"[.!?\s]+$", "", s3.lower())
-    if not s3_core.startswith(stamp_prefix):
+    matched_prefix = next((pref for pref in valid_prefixes if s3_core.startswith(pref)), None)
+    if matched_prefix is None:
         issues.append(
-            f"[cold_open_v7] S3 must be the case stamp '{stamp_prefix.capitalize()} <case>.': "
-            f"'{s3[:70]}' (R57-H2)"
+            f"[cold_open_v7] S3 must be the case stamp '{stamp_prefix.capitalize()} <case>.' "
+            f"(or a registered DIORAMA_COLD_OPEN_S3_BANK opener): '{s3[:70]}' (R57-H2)"
         )
-    elif len(s3_core[len(stamp_prefix):].strip()) < 2:
-        issues.append("[cold_open_v7] S3 case stamp must name the case after 'This is the true story of' (R57-H2)")
+    elif len(s3_core[len(matched_prefix) :].strip()) < 2:
+        issues.append(
+            f"[cold_open_v7] S3 case stamp must name the case after '{matched_prefix}' (R57-H2)"
+        )
+    return issues
+
+
+def _word_ngrams(lines: list[str], n: int = 4) -> set[tuple[str, ...]]:
+    toks = re.findall(r"[a-z0-9']+", " ".join(str(x) for x in lines).lower())
+    if len(toks) < n:
+        return set()
+    return {tuple(toks[i : i + n]) for i in range(len(toks) - n + 1)}
+
+
+def compute_4gram_jaccard(lines_a: list[str], lines_b: list[str]) -> float:
+    """Computes word-level 4-gram Jaccard similarity between two scripts (`0.0..1.0`)."""
+    ga = _word_ngrams(lines_a, 4)
+    gb = _word_ngrams(lines_b, 4)
+    if not ga or not gb:
+        return 0.0
+    return float(len(ga & gb)) / float(len(ga | gb))
+
+
+def validate_anti_clone_uniqueness(
+    lines: list[str],
+    adjacent_scripts: list[list[str]] | None = None,
+) -> list[str]:
+    """
+    YPP Anti-Clone Uniqueness Gate (`[US-06]`):
+      - Rejects reuse of identical S3 case-stamp opener or final takeaway bridge within `DIORAMA_ADJACENT_OPENER_WINDOW` (4) episodes.
+      - Enforces word 4-gram Jaccard `< DIORAMA_MAX_4GRAM_JACCARD` (`0.08`) against adjacent episodes.
+    """
+    if not lines or not adjacent_scripts:
+        return []
+    from pipeline.config import (
+        DIORAMA_ADJACENT_OPENER_WINDOW,
+        DIORAMA_COLD_OPEN_S3_BANK,
+        DIORAMA_MAX_4GRAM_JACCARD,
+        DIORAMA_TAKEAWAY_BRIDGE_BANK,
+    )
+
+    issues: list[str] = []
+    window = [sc for sc in adjacent_scripts[:DIORAMA_ADJACENT_OPENER_WINDOW] if sc]
+    if not window:
+        return []
+
+    s3_low = lines[2].strip().lower() if len(lines) >= 3 else ""
+    cur_s3_pref = next((p.strip().lower() for p in DIORAMA_COLD_OPEN_S3_BANK if s3_low.startswith(p.strip().lower())), "")
+    last_low = lines[-1].strip().lower()
+    cur_end_pref = next((p.strip().lower() for p in DIORAMA_TAKEAWAY_BRIDGE_BANK if last_low.startswith(p.strip().lower())), "")
+
+    for idx_adj, adj in enumerate(window, start=1):
+        jac = compute_4gram_jaccard(lines, adj)
+        if jac >= DIORAMA_MAX_4GRAM_JACCARD:
+            issues.append(
+                f"[anti_clone] 4-gram Jaccard {jac:.3f} >= {DIORAMA_MAX_4GRAM_JACCARD} vs adjacent episode #{idx_adj} (R57-C)"
+            )
+        if cur_s3_pref and len(adj) >= 3:
+            adj_s3 = adj[2].strip().lower()
+            if adj_s3.startswith(cur_s3_pref):
+                issues.append(
+                    f"[anti_clone] S3 case-stamp opener '{cur_s3_pref}' reused within adjacent {DIORAMA_ADJACENT_OPENER_WINDOW}-episode window (#{idx_adj}) (R57-H2)"
+                )
+        if cur_end_pref and adj:
+            adj_last = adj[-1].strip().lower()
+            if adj_last.startswith(cur_end_pref):
+                issues.append(
+                    f"[anti_clone] final takeaway bridge '{cur_end_pref}' reused within adjacent {DIORAMA_ADJACENT_OPENER_WINDOW}-episode window (#{idx_adj}) (R57-C)"
+                )
     return issues
 
 
@@ -242,6 +314,394 @@ def validate_thumbnail_block_v7(
     return issues
 
 
+_CHRONOMETER_PROP_RE = re.compile(
+    r"\b(?:stopwatch(?:es)?|(?:(?:[a-z0-9]+-)*[a-z0-9]+\s+)?timers?|sandglass(?:es)?|hourglass(?:es)?|pocket\s+watch(?:es)?|wrist\s*watch(?:es)?|(?:wall|alarm|desk|table|mantel|pendulum|analog|digital|flip)\s+clocks?|interval\s+chimes?)\b",
+    flags=re.IGNORECASE,
+)
+_LOW_IMPACT_SCALE_FILLER_RE = re.compile(
+    r"\b(?:measuring\s+tapes?|tape\s+measures?|yardsticks?|dollhouses?|postage\s+stamps?|dioramas?|miniature\s+(?:wooden\s+)?(?:rooms?|room\s+bays?|houses?|neighborhoods?|stations?|cities|towns?|villages?|streets?|booths?|buildings?)|five\s+identical\s+miniature|(?:giant|oversized)\s+film\s+reels?|row\s+of\s+empty\s+(?:wooden\s+)?chairs?|empty\s+wooden\s+chairs?\s+in\s+a\s+row)\b",
+    flags=re.IGNORECASE,
+)
+
+
+def validate_substantive_visual_relevance(
+    plan: dict[str, Any] | None,
+    lines: list[str],
+    clips: list[dict[str, Any]],
+) -> list[str]:
+    """
+    R66.4 Balanced Documentary Pacing & Substantive Visual Relevance Gate for active `porcelain_cinematic_v7` episodes:
+      - Clip count in [PORCELAIN_V7_TARGET_CLIP_MIN (45), PORCELAIN_V7_TARGET_CLIP_MAX (52)] on full episodes
+        (~46-48 cuts, ~3.0-3.2s avg; blocks both <=42 stagnant holds and 60+ hyper-cut flash builds).
+      - Primary clip hold span <= PORCELAIN_V7_MAX_HOLD_SENTENCES (2) (blocks 3+ sentence stagnant holds;
+        break longer room/brain moments with same-scene multi-angle coverage).
+      - porcelain_literal_analogy count <= PORCELAIN_V7_LITERAL_ANALOGY_MAX_CLIPS (2).
+      - Bans stopwatch / kitchen-timer / pocket-watch / wall-clock / measuring-tape / dollhouse / postage-stamp
+        filler props unless allow_chronometer_apparatus=True on the plan.
+      - Validates explicit split_comparisons left_clip_index / right_clip_index bindings.
+    """
+    from pipeline.config import (
+        DIORAMA_SENTENCE_COUNT_MIN,
+        PORCELAIN_V7_LITERAL_ANALOGY_MAX_CLIPS,
+        PORCELAIN_V7_MAX_HOLD_SENTENCES,
+        PORCELAIN_V7_TARGET_CLIP_MAX,
+        PORCELAIN_V7_TARGET_CLIP_MIN,
+    )
+
+    issues: list[str] = []
+    plan = plan or {}
+    clips = clips or []
+    raw_clips = plan.get("clips") if isinstance(plan.get("clips"), list) else []
+
+    n_clips = len(raw_clips) if raw_clips else len(clips)
+    if n_clips > PORCELAIN_V7_TARGET_CLIP_MAX:
+        issues.append(
+            f"[pacing_v7] clip count {n_clips} exceeds balanced documentary ceiling {PORCELAIN_V7_TARGET_CLIP_MAX} "
+            "— merge adjacent short beats into 2-sentence holds (R66.4)"
+        )
+    if len(lines or []) >= DIORAMA_SENTENCE_COUNT_MIN and n_clips < PORCELAIN_V7_TARGET_CLIP_MIN:
+        issues.append(
+            f"[pacing_v7] clip count {n_clips} below balanced documentary floor {PORCELAIN_V7_TARGET_CLIP_MIN} "
+            "— split stagnant >4.3s holds with same-scene multi-angle coverage (R66.4)"
+        )
+
+    total_len = max(len(clips), len(raw_clips))
+    merged_clips = [
+        {
+            **(clips[i] if i < len(clips) and isinstance(clips[i], dict) else {}),
+            **(raw_clips[i] if i < len(raw_clips) and isinstance(raw_clips[i], dict) else {}),
+        }
+        for i in range(total_len)
+    ]
+
+    lit_cnt = sum(1 for c in merged_clips if str(c.get("grammar") or "") == "porcelain_literal_analogy")
+    if lit_cnt > PORCELAIN_V7_LITERAL_ANALOGY_MAX_CLIPS:
+        issues.append(
+            f"[analogy_cap_v7] {lit_cnt} clips use porcelain_literal_analogy > max {PORCELAIN_V7_LITERAL_ANALOGY_MAX_CLIPS} "
+            "— keep camera inside the case room or 3D brain unless a concrete physical scale analogy demands it (R57/R66.4)"
+        )
+
+    allow_chrono = bool(plan.get("allow_chronometer_apparatus"))
+    for idx, c in enumerate(merged_clips, start=1):
+        clip_id = c.get("clip_number") or c.get("clip_index") or idx
+        c_role = str(c.get("cut_role") or "").strip().lower()
+        if c_role not in ("outro", "split_right", "split_bottom"):
+            s0 = c.get("sentence_index")
+            if isinstance(s0, int) and s0 >= 1:
+                hold_explicit = int(c.get("hold_sentences") or 1)
+                s1 = max(s0, int(c.get("end_sentence_index") or (s0 + hold_explicit - 1)))
+                hold_span = max(hold_explicit, s1 - s0 + 1)
+                if hold_span > PORCELAIN_V7_MAX_HOLD_SENTENCES:
+                    issues.append(
+                        f"clip {clip_id}: [pacing_v7] multi-sentence hold spans {hold_span} sentences "
+                        f"({s0}..{s1}) > max {PORCELAIN_V7_MAX_HOLD_SENTENCES} — split with same-scene multi-angle coverage (R66.4)"
+                    )
+        sc_txt = " ".join(
+            str(c.get(k) or "")
+            for k in (
+                "scene",
+                "prompt",
+                "action",
+                "environment",
+                "attire_and_hands",
+                "prop_action",
+                "consequence",
+                "structure",
+                "internal_mechanism",
+                "analogy_world",
+                "comparison_action",
+                "analogy_scene",
+                "analogy_object",
+            )
+            if c.get(k)
+        )
+        if not allow_chrono:
+            m_chrono = _CHRONOMETER_PROP_RE.search(sc_txt)
+            if m_chrono:
+                issues.append(
+                    f"clip {clip_id}: [filler_ban_v7] low-impact chronometer filler prop '{m_chrono.group(0)}' banned "
+                    "unless allow_chronometer_apparatus=True (R66.4)"
+                )
+        m_scale = _LOW_IMPACT_SCALE_FILLER_RE.search(sc_txt)
+        if m_scale:
+            issues.append(
+                f"clip {clip_id}: [filler_ban_v7] scale-breaking / low-impact filler prop '{m_scale.group(0)}' banned (R66.4)"
+            )
+
+    for sp in plan.get("split_comparisons") or []:
+        if not isinstance(sp, dict):
+            continue
+        s_idx = int(sp.get("sentence_index") or 0)
+        left_idx = sp.get("left_clip_index") or sp.get("top_clip_index")
+        right_idx = sp.get("right_clip_index") or sp.get("bottom_clip_index")
+        if left_idx is not None:
+            li = int(left_idx)
+            if not (1 <= li <= len(merged_clips)):
+                issues.append(f"[split_v7] split_comparisons sentence {s_idx} left_clip_index={li} out of range 1..{len(merged_clips)}")
+            else:
+                lc = merged_clips[li - 1]
+                l_role = str(lc.get("cut_role") or "").strip().lower()
+                s0 = int(lc.get("sentence_index") or 0)
+                s1 = max(s0, int(lc.get("end_sentence_index") or s0))
+                if l_role in ("outro", "split_right", "split_bottom") or not (s0 <= s_idx <= s1):
+                    issues.append(
+                        f"[split_v7] split_comparisons sentence {s_idx} left_clip_index={li} does not cover sentence {s_idx} "
+                        f"as a primary clip (got range {s0}..{s1}, role='{l_role}') (R63/R66.4)"
+                    )
+        if right_idx is not None:
+            ri = int(right_idx)
+            if not (1 <= ri <= len(merged_clips)):
+                issues.append(f"[split_v7] split_comparisons sentence {s_idx} right_clip_index={ri} out of range 1..{len(merged_clips)}")
+    return issues
+
+
+def validate_scene_state_continuity(
+    plan: dict[str, Any] | None,
+    clips: list[dict[str, Any]],
+) -> list[str]:
+    """
+    R66.4 / R67 Spatial & Entrance Continuity Ledger Gate (`scene_state`):
+      - Blocks duplicate-actor entrances (`entering_cast` overlapping `present_cast_start` or start reference `present_cast`).
+      - Blocks simultaneous start+end scene reference images on entrance/exit transitions.
+      - Blocks unauthorized ghost cast in bound reference images (`ref_spec.present_cast` must be subset of `present_cast_start` / `present_cast_end`).
+      - Blocks cross-location reference leaks (`ref_spec.location_id != clip.location_id`) and `ref_brain_master` on room clips.
+      - Enforces sequential cross-clip room state continuity across consecutive clips in the same `location_id`
+        (departed actors cannot reappear without `entering_cast` or `scene_reset`/`protocol_phase_jump`, and
+        actors already inside `location_id` cannot re-enter through the door without exiting first).
+    """
+    issues: list[str] = []
+    plan = plan or {}
+    clips = clips or []
+    raw_clips = plan.get("clips") if isinstance(plan.get("clips"), list) else []
+    total_len = max(len(clips), len(raw_clips))
+    merged_clips = [
+        {
+            **(clips[i] if i < len(clips) and isinstance(clips[i], dict) else {}),
+            **(raw_clips[i] if i < len(raw_clips) and isinstance(raw_clips[i], dict) else {}),
+        }
+        for i in range(total_len)
+    ]
+
+    ref_map: dict[str, dict[str, Any]] = {}
+    for rspec in list(plan.get("reference_anchors") or []) + list(plan.get("reference_specs") or []):
+        if isinstance(rspec, dict):
+            rid = str(rspec.get("ref_id") or "").strip()
+            fname = str(rspec.get("filename") or "").strip()
+            if rid:
+                ref_map[rid] = rspec
+                ref_map[f"{rid}.png"] = rspec
+            if fname:
+                ref_map[fname] = rspec
+                if fname.endswith(".png"):
+                    ref_map[fname[:-4]] = rspec
+
+    ledger_required = bool(
+        plan.get("require_scene_state_ledger")
+        or plan.get("source_edl")
+        or any(isinstance(mc.get("scene_state"), dict) or mc.get("source_shot_id") for mc in merged_clips)
+    )
+    strict_room_continuity = bool(plan.get("strict_room_continuity") or plan.get("source_edl"))
+    loc_state: dict[str, dict[str, Any]] = {}
+
+    def _norm_rid(val: Any) -> str:
+        s = str(val or "").strip().replace("\\", "/")
+        if not s:
+            return ""
+        base = s.rsplit("/", 1)[-1]
+        return base[:-4] if base.lower().endswith(".png") else base
+
+    for idx, mc in enumerate(merged_clips, start=1):
+        clip_id = mc.get("clip_number") or mc.get("clip_index") or idx
+        g_name = str(mc.get("grammar") or "")
+        c_role = str(mc.get("cut_role") or "").strip().lower()
+        is_brain_or_outro = (
+            g_name in (
+                "porcelain_living_brain",
+                "porcelain_data_sculpture",
+                "lowpoly_living_brain",
+                "lowpoly_matte_brain",
+                "lowpoly_data_sculpture",
+                "arch_brain_maquette",
+                "frosted_crystal_specimen",
+            )
+            or bool(mc.get("brain_mode"))
+            or c_role == "outro"
+        )
+
+        start_rids: list[str] = []
+        end_rids: list[str] = []
+        for k_s in ("reference_image", "start_reference_image"):
+            nr = _norm_rid(mc.get(k_s))
+            if nr and nr not in start_rids:
+                start_rids.append(nr)
+        for item_r in mc.get("reference_images") or []:
+            nr = _norm_rid(item_r)
+            if nr and nr not in start_rids:
+                start_rids.append(nr)
+        nr_end = _norm_rid(mc.get("end_reference_image"))
+        if nr_end:
+            end_rids.append(nr_end)
+
+        if not is_brain_or_outro:
+            for rid in start_rids + end_rids:
+                if "brain_master" in rid:
+                    issues.append(
+                        f"clip {clip_id}: [scene_state_v7] non-brain clip binds cutaway brain reference '{rid}' "
+                        "(causes severed mannequin head prop contamination) (R66.4/R67)"
+                    )
+
+        st = mc.get("scene_state")
+        if ledger_required and not is_brain_or_outro and g_name != "porcelain_literal_analogy":
+            if not isinstance(st, dict):
+                issues.append(
+                    f"clip {clip_id}: [scene_state_v7] room/cast clip missing scene_state ledger dict "
+                    "(location_id, present_cast_start, entering_cast, exiting_cast, present_cast_end) (R66.4/R67)"
+                )
+                continue
+
+        if not isinstance(st, dict):
+            continue
+
+        loc_id = str(st.get("location_id") or mc.get("location_id") or "").strip()
+        p_start = [str(x).strip() for x in (st.get("present_cast_start") or []) if str(x).strip()]
+        entering = [str(x).strip() for x in (st.get("entering_cast") or []) if str(x).strip()]
+        exiting = [str(x).strip() for x in (st.get("exiting_cast") or []) if str(x).strip()]
+        expected_end = (set(p_start) | set(entering)) - set(exiting)
+        p_end = (
+            [str(x).strip() for x in (st.get("present_cast_end") or []) if str(x).strip()]
+            if "present_cast_end" in st
+            else sorted(expected_end)
+        )
+
+        overlap_enter = sorted(set(entering) & set(p_start))
+        if overlap_enter:
+            issues.append(
+                f"clip {clip_id}: [scene_state_v7] entering_cast {overlap_enter} already in present_cast_start {p_start} "
+                "(causes duplicate-actor entrance) (R66.4/R67)"
+            )
+
+        missing_exit = sorted(set(exiting) - (set(p_start) | set(entering)))
+        if missing_exit:
+            issues.append(
+                f"clip {clip_id}: [scene_state_v7] exiting_cast {missing_exit} not present in room {p_start} (R66.4/R67)"
+            )
+
+        if "present_cast_end" in st and set(p_end) != expected_end:
+            issues.append(
+                f"clip {clip_id}: [scene_state_v7] present_cast_end {sorted(p_end)} != "
+                f"(present_cast_start | entering_cast) - exiting_cast {sorted(expected_end)} (R66.4/R67)"
+            )
+
+        if loc_id and not is_brain_or_outro and c_role not in ("split_right", "split_bottom"):
+            has_phase_reset = bool(st.get("scene_reset") or st.get("protocol_phase_jump"))
+            prev_loc = loc_state.get(loc_id)
+            if prev_loc is not None and not has_phase_reset:
+                ghost_returns = sorted(set(p_start) & prev_loc["departed"])
+                if ghost_returns:
+                    issues.append(
+                        f"clip {clip_id}: [scene_state_v7] departed cast {ghost_returns} reappeared in "
+                        f"present_cast_start {p_start} at '{loc_id}' without entering_cast or scene_reset/protocol_phase_jump "
+                        f"(after exiting in clip {prev_loc['last_exit_clip']}) (R66.4/R67)"
+                    )
+                dup_reentries = sorted(set(entering) & prev_loc["present_end"])
+                if dup_reentries:
+                    issues.append(
+                        f"clip {clip_id}: [scene_state_v7] entering_cast {dup_reentries} was already inside '{loc_id}' "
+                        f"at end of clip {prev_loc['prev_clip_id']} ({sorted(prev_loc['present_end'])}) without exiting or "
+                        "scene_reset/protocol_phase_jump (R66.4/R67)"
+                    )
+                if (
+                    strict_room_continuity
+                    and g_name == "porcelain_fullbleed_world"
+                    and prev_loc.get("prev_fullbleed_end") is not None
+                    and not bool(st.get("camera_framing_subset"))
+                    and set(p_start) != prev_loc["prev_fullbleed_end"]
+                ):
+                    issues.append(
+                        f"clip {clip_id}: [scene_state_v7] sequential room occupancy mismatch at '{loc_id}': "
+                        f"present_cast_start {sorted(p_start)} != previous fullbleed present_cast_end "
+                        f"{sorted(prev_loc['prev_fullbleed_end'])} (clip {prev_loc['prev_fullbleed_clip']}) "
+                        "— declare entering_cast/exiting_cast or protocol_phase_jump/scene_reset (R66.4/R67)"
+                    )
+
+            new_departed = (
+                set(exiting)
+                if (prev_loc is None or bool(st.get("scene_reset")))
+                else ((prev_loc["departed"] - set(entering)) | set(exiting))
+            )
+            explicit_absent = {str(x).strip() for x in (st.get("absent_cast") or []) if str(x).strip()}
+            new_departed |= (explicit_absent - set(p_end))
+            loc_state[loc_id] = {
+                "present_end": set(p_end),
+                "departed": new_departed,
+                "prev_clip_id": clip_id,
+                "last_exit_clip": (clip_id if exiting else (prev_loc["last_exit_clip"] if prev_loc else clip_id)),
+                "prev_fullbleed_end": (
+                    set(p_end)
+                    if g_name == "porcelain_fullbleed_world"
+                    else (prev_loc.get("prev_fullbleed_end") if prev_loc and not has_phase_reset else None)
+                ),
+                "prev_fullbleed_clip": (
+                    clip_id
+                    if g_name == "porcelain_fullbleed_world"
+                    else (prev_loc.get("prev_fullbleed_clip") if prev_loc and not has_phase_reset else None)
+                ),
+            }
+
+        if entering or exiting:
+            scene_refs = [
+                r
+                for r in (start_rids + end_rids)
+                if not r.startswith("ref_cast")
+                and str((ref_map.get(r) or {}).get("role") or "") not in ("character", "cast")
+            ]
+            if (start_rids and end_rids) or len(scene_refs) > 1:
+                issues.append(
+                    f"clip {clip_id}: [scene_state_v7] entrance/exit clip binds multiple scene keyframes {scene_refs} "
+                    "(never combine start + end scene keyframes across an entrance or exit) (R66.4/R67)"
+                )
+
+        for rid in start_rids:
+            rspec = ref_map.get(rid)
+            if not isinstance(rspec, dict):
+                continue
+            r_loc = str(rspec.get("location_id") or "").strip()
+            if r_loc and loc_id and r_loc != loc_id:
+                issues.append(
+                    f"clip {clip_id}: [scene_state_v7] start reference '{rid}' location_id='{r_loc}' != "
+                    f"clip location_id='{loc_id}' (cross-location prop/room leak) (R66.4/R67)"
+                )
+            if rspec.get("present_cast") is not None:
+                ref_cast = {str(x).strip() for x in (rspec.get("present_cast") or []) if str(x).strip()}
+                unauthorized = sorted(ref_cast - set(p_start))
+                if unauthorized:
+                    issues.append(
+                        f"clip {clip_id}: [scene_state_v7] start reference '{rid}' depicts {unauthorized} "
+                        f"not in present_cast_start {p_start} (causes pre-seated duplicate or ghost stranger) (R66.4/R67)"
+                    )
+
+        for rid in end_rids:
+            rspec = ref_map.get(rid)
+            if not isinstance(rspec, dict):
+                continue
+            r_loc = str(rspec.get("location_id") or "").strip()
+            if r_loc and loc_id and r_loc != loc_id:
+                issues.append(
+                    f"clip {clip_id}: [scene_state_v7] end reference '{rid}' location_id='{r_loc}' != "
+                    f"clip location_id='{loc_id}' (cross-location prop/room leak) (R66.4/R67)"
+                )
+            if rspec.get("present_cast") is not None:
+                ref_cast = {str(x).strip() for x in (rspec.get("present_cast") or []) if str(x).strip()}
+                unauthorized_end = sorted(ref_cast - set(p_end))
+                if unauthorized_end:
+                    issues.append(
+                        f"clip {clip_id}: [scene_state_v7] end reference '{rid}' depicts {unauthorized_end} "
+                        f"not in present_cast_end {p_end} (causes ghost actor in reunion/exit) (R66.4/R67)"
+                    )
+
+    return issues
+
+
 # ------------------------------------------------------------------------------
 # Main gate (v5 + Schema v6 `neuro_diorama` R56-R61)
 # ------------------------------------------------------------------------------
@@ -250,20 +710,24 @@ def validate_production_diorama_v6(
     narrations: list[str],
     clips: list[dict[str, Any]],
     script_doc: dict[str, Any] | None = None,
+    adjacent_scripts: list[list[str]] | None = None,
 ) -> list[str]:
     """
-    R61 pre-Flow production gate for Schema v6 `neuro_diorama` (3-Minute US English Long-Short):
-      - R56: Zero-flesh Ghost-Lab (>=80%) + pedestal satin-frosted optical crystal specimen (<=20%),
-             zero in-scene AI text, single-axis camera moves, recurring analog gauge motif (4-6x).
-      - R57: 6-Act structure, 54-66 short US English sentences (450-505 words, <=14 words/sentence),
-             100% [Number] -> [Immediate Everyday Analogy] pairing, Act 5 crisis episode, 100% en-US ASCII/Latin.
-      - R15/R48/R49-T: Plain language FK grade <= 8.0, glossed anatomy, TTS-safe spoken text, viewer 'you/your'.
+    R61 pre-Flow production gate for Schema v6/v7 `neuro_diorama`:
+      - R56/R63/R66: Zero-flesh Ghost-Lab / Low-Poly / Porcelain world, zero in-scene AI text, single-axis camera moves.
+      - R57/R57-C: 6-Act structure, US English sentence/word budget (430-470w & <=13w/sent on `dynamic_us_v7`;
+                   430-505w & <=18w/sent on legacy `dynamic_rush_v7`), rotating Anti-Clone transition banks,
+                   100% [Number] -> [Immediate Everyday Analogy] pairing, Act 5 crisis episode, 100% en-US ASCII/Latin.
+      - R15/R48/R49-T: Plain language FK grade (<= 5.5 on `dynamic_us_v7`, <= 8.0 legacy), glossed anatomy, TTS-safe spoken text.
     """
     from pipeline.config import (
         DIORAMA_ACT_COUNT,
         DIORAMA_BANNED_SLOGAN_OPENERS,
         DIORAMA_BANNED_WEAK_HOOK_PREFIXES,
+        DIORAMA_CRISIS_BEAT_BANK,
         DIORAMA_CRYSTAL_SPECIMEN_MAX_RATIO,
+        DIORAMA_EUREKA_REVEAL_BANK,
+        DIORAMA_MECHANISM_PIVOT_BANK,
         DIORAMA_MIN_CONVERSATIONAL_QUESTIONS,
         DIORAMA_MOTIF_APPEARANCES_MAX,
         DIORAMA_MOTIF_APPEARANCES_MIN,
@@ -271,12 +735,24 @@ def validate_production_diorama_v6(
         DIORAMA_SENTENCE_COUNT_MAX,
         DIORAMA_SENTENCE_COUNT_MIN,
         DIORAMA_SENTENCE_WORDS_MAX,
+        DIORAMA_TAKEAWAY_BRIDGE_BANK,
         DIORAMA_TARGET_CUT_MIN,
+        DIORAMA_US_SENTENCE_WORDS_MAX,
+        DIORAMA_US_WORD_COUNT_MAX,
+        DIORAMA_V7_MAX_FK_GRADE,
         DIORAMA_V7_REQUIRE_COLD_OPEN,
         DIORAMA_V7_SENTENCE_WORDS_MAX,
+        DIORAMA_V7_US_PROSODY_MODE,
         DIORAMA_WORD_COUNT_MAX,
         DIORAMA_WORD_COUNT_MIN,
+        MICRO_SHORT_CUT_MAX,
+        MICRO_SHORT_CUT_MIN,
+        MICRO_SHORT_PROFILE,
+        MICRO_SHORT_WORD_MAX,
+        MICRO_SHORT_WORD_MIN,
+        PRE_R66_FROZEN_PROJECT_PREFIXES,
         is_diorama_v7_plan,
+        is_porcelain_v7_plan,
     )
     from pipeline.flow_prompt_builder import count_words, validate_diorama_v6_prompts
     from pipeline.plain_language import find_duplicate_analogy_idioms, validate_number_analogy_pairing
@@ -286,24 +762,52 @@ def validate_production_diorama_v6(
     is_v7 = is_diorama_v7_plan(plan) or (isinstance(script_doc, dict) and is_diorama_v7_plan(script_doc))
     lines = [str(n).strip() for n in (narrations or []) if str(n).strip()]
 
+    project_id = str((script_doc or {}).get("project_id") or plan.get("project_id") or "").strip()
+    dossier_slug = str(plan.get("dossier") or (script_doc or {}).get("dossier") or "").strip()
+    format_profile = str((script_doc or {}).get("format_profile") or plan.get("format_profile") or "").strip().lower()
+    is_micro = format_profile == MICRO_SHORT_PROFILE
+    prosody_mode = str((script_doc or {}).get("prosody_mode") or plan.get("prosody_mode") or "").strip().lower()
+
     # 1. R57 / R63 US English & 6-Act sentence/word budget ---------------------
-    max_sents = DIORAMA_SENTENCE_COUNT_MAX
-    if not (DIORAMA_SENTENCE_COUNT_MIN <= len(lines) <= max_sents):
-        issues.append(
-            f"[diorama_script] sentence count {len(lines)} outside {DIORAMA_SENTENCE_COUNT_MIN}-{max_sents} (R57)"
-        )
     total_words = sum(count_words(s) for s in lines)
     is_frozen_gage_v7 = is_v7 and (
-        str((script_doc or {}).get("project_id") or "") == "gage_diorama_v7_lowpoly"
-        or (str(plan.get("dossier") or "") == "phineas_gage_iron_rod" and len(lines) == 56 and total_words == 535)
+        project_id == "gage_diorama_v7_lowpoly"
+        or (dossier_slug == "phineas_gage_iron_rod" and len(lines) == 56 and total_words == 535)
     )
-    max_words = 535 if is_frozen_gage_v7 else DIORAMA_WORD_COUNT_MAX
-    if not (DIORAMA_WORD_COUNT_MIN <= total_words <= max_words):
-        issues.append(
-            f"[diorama_script] total spoken words {total_words} outside {DIORAMA_WORD_COUNT_MIN}-{max_words} "
-            "for poised 3-minute pacing (R57/R63)"
-        )
-    sent_words_max = DIORAMA_V7_SENTENCE_WORDS_MAX if is_v7 else DIORAMA_SENTENCE_WORDS_MAX
+    is_pre_r66_frozen = (
+        is_frozen_gage_v7
+        or dossier_slug in _PRE_R65_ASSEMBLED_DOSSIERS
+        or (bool(project_id) and any(project_id.startswith(pref) for pref in PRE_R66_FROZEN_PROJECT_PREFIXES))
+    )
+    is_us_v7 = is_v7 and not is_pre_r66_frozen and (
+        prosody_mode == DIORAMA_V7_US_PROSODY_MODE or bool(plan.get("us_anti_clone_v7"))
+    )
+
+    if is_micro:
+        if not (10 <= len(lines) <= 18):
+            issues.append(f"[micro_short_v7] sentence count {len(lines)} outside 10-18 (R63)")
+        if not (MICRO_SHORT_WORD_MIN <= total_words <= MICRO_SHORT_WORD_MAX):
+            issues.append(
+                f"[micro_short_v7] total spoken words {total_words} outside {MICRO_SHORT_WORD_MIN}-{MICRO_SHORT_WORD_MAX} (R63)"
+            )
+    else:
+        max_sents = DIORAMA_SENTENCE_COUNT_MAX
+        if not (DIORAMA_SENTENCE_COUNT_MIN <= len(lines) <= max_sents):
+            issues.append(
+                f"[diorama_script] sentence count {len(lines)} outside {DIORAMA_SENTENCE_COUNT_MIN}-{max_sents} (R57)"
+            )
+        max_words = 535 if is_frozen_gage_v7 else (DIORAMA_US_WORD_COUNT_MAX if is_us_v7 else DIORAMA_WORD_COUNT_MAX)
+        if not (DIORAMA_WORD_COUNT_MIN <= total_words <= max_words):
+            issues.append(
+                f"[diorama_script] total spoken words {total_words} outside {DIORAMA_WORD_COUNT_MIN}-{max_words} "
+                "for poised 3-minute pacing (R57/R63)"
+            )
+
+    sent_words_max = (
+        DIORAMA_US_SENTENCE_WORDS_MAX
+        if (is_us_v7 or is_micro)
+        else (DIORAMA_V7_SENTENCE_WORDS_MAX if is_v7 else DIORAMA_SENTENCE_WORDS_MAX)
+    )
     for idx, s in enumerate(lines, start=1):
         wc = count_words(s)
         if wc > sent_words_max:
@@ -313,7 +817,7 @@ def validate_production_diorama_v6(
         if re.search(r"[\uac00-\ud7a3\u3040-\u30ff\u4e00-\u9fff]", s):
             issues.append(f"[en_us_lock] sentence {idx} contains non-English CJK/Korean characters (R36/R57)")
 
-    if isinstance(script_doc, dict) and isinstance(script_doc.get("acts"), list):
+    if not is_micro and isinstance(script_doc, dict) and isinstance(script_doc.get("acts"), list):
         acts = script_doc["acts"]
         if len(acts) != DIORAMA_ACT_COUNT:
             issues.append(f"[diorama_script] script.acts must have {DIORAMA_ACT_COUNT} acts (got {len(acts)}) (R57)")
@@ -332,17 +836,17 @@ def validate_production_diorama_v6(
                     f"[hook_v7] sentence 1 starts with weak hypothetical opener {DIORAMA_BANNED_WEAK_HOOK_PREFIXES}: "
                     f"'{lines[0][:65]}' — open at 0.0s with concrete event/paradox shock (R57-H)"
                 )
-            if bool(plan.get("require_cold_open_v7", DIORAMA_V7_REQUIRE_COLD_OPEN)) and not is_frozen_gage_v7:
+            if bool(plan.get("require_cold_open_v7", DIORAMA_V7_REQUIRE_COLD_OPEN)) and not is_frozen_gage_v7 and not is_micro:
                 issues.extend(validate_cold_open_v7(lines))
             from pipeline.config import DIORAMA_V7_REQUIRE_THUMBNAIL_BLOCK
 
-            dossier_slug = str(plan.get("dossier") or (script_doc or {}).get("dossier") or "").strip()
             has_thumb_block = "thumbnail" in plan
             explicit_req = plan.get("require_thumbnail_v7")
             if explicit_req is True or has_thumb_block or (
                 explicit_req is None
                 and DIORAMA_V7_REQUIRE_THUMBNAIL_BLOCK
                 and not is_frozen_gage_v7
+                and not is_micro
                 and dossier_slug not in _PRE_R65_ASSEMBLED_DOSSIERS
             ):
                 issues.extend(validate_thumbnail_block_v7(plan, script_doc=script_doc))
@@ -351,24 +855,42 @@ def validate_production_diorama_v6(
             c_low = str(c_item.get("text") or "").lower()
             if "university neuroscience" in c_low or "made simple" in c_low or "all about brain" in c_low:
                 issues.append(f"[diorama_script] headline/callout contains banned channel-slogan badge: '{c_item.get('text')}' (R57)")
-    if bool(plan.get("require_signature_hooks", DIORAMA_REQUIRE_SIGNATURE_HOOKS)) and lines:
+    if bool(plan.get("require_signature_hooks", DIORAMA_REQUIRE_SIGNATURE_HOOKS)) and lines and not is_micro:
         full_low = " ".join(lines).lower()
-        if "here is what went wrong" not in full_low:
-            issues.append("[hooks] missing R26 diagnostic opener 'Here is what went wrong.' (R57)")
-        if "total nightmare" not in full_low:
-            issues.append("[hooks] missing R24 crisis signature meme '...a total nightmare.' (R57)")
-        if "instead of" not in full_low:
-            issues.append("[hooks] missing R26 paradigm-flip pivot 'Instead of...' (R57)")
-        if "completely stunned" not in full_low:
-            issues.append("[hooks] missing R24 breakthrough signature meme 'The researchers were left completely stunned.' (R57)")
-        if not lines[-1].lower().startswith(("which proves", "which is why")):
-            issues.append("[hooks] final sentence must open with 'Which proves' or 'Which is why' (R26/R57)")
+        if is_v7 and not is_pre_r66_frozen:
+            if not any(p.strip().lower() in full_low for p in DIORAMA_CRISIS_BEAT_BANK):
+                issues.append("[hooks] missing crisis transition beat from DIORAMA_CRISIS_BEAT_BANK (R57)")
+            if not any(p.strip().lower() in full_low for p in DIORAMA_MECHANISM_PIVOT_BANK):
+                issues.append("[hooks] missing mechanism pivot phrase from DIORAMA_MECHANISM_PIVOT_BANK (R57)")
+            if not any(p.strip().lower() in full_low for p in DIORAMA_EUREKA_REVEAL_BANK):
+                issues.append("[hooks] missing breakthrough reveal phrase from DIORAMA_EUREKA_REVEAL_BANK (R57)")
+            last_clean = re.sub(r"^[\"'“”‘’\s]+", "", lines[-1]).lower()
+            if not any(last_clean.startswith(p.strip().lower()) for p in DIORAMA_TAKEAWAY_BRIDGE_BANK):
+                issues.append("[hooks] final sentence must open with a takeaway bridge from DIORAMA_TAKEAWAY_BRIDGE_BANK (R57)")
+        else:
+            if "here is what went wrong" not in full_low:
+                issues.append("[hooks] missing R26 diagnostic opener 'Here is what went wrong.' (R57)")
+            if "total nightmare" not in full_low:
+                issues.append("[hooks] missing R24 crisis signature meme '...a total nightmare.' (R57)")
+            if "instead of" not in full_low:
+                issues.append("[hooks] missing R26 paradigm-flip pivot 'Instead of...' (R57)")
+            if "completely stunned" not in full_low:
+                issues.append("[hooks] missing R24 breakthrough signature meme 'The researchers were left completely stunned.' (R57)")
+            if not lines[-1].lower().startswith(("which proves", "which is why")):
+                issues.append("[hooks] final sentence must open with 'Which proves' or 'Which is why' (R26/R57)")
+    if adjacent_scripts and not is_pre_r66_frozen:
+        issues.extend(validate_anti_clone_uniqueness(lines, adjacent_scripts))
     if bool(plan.get("zero_clip_reuse", True)) and lines and clips:
         if is_v7:
-            if len(clips) < DIORAMA_TARGET_CUT_MIN:
+            min_cuts = MICRO_SHORT_CUT_MIN if is_micro else DIORAMA_TARGET_CUT_MIN
+            if len(clips) < min_cuts:
                 issues.append(
-                    f"[zero_reuse_v7] Schema v7 zero_clip_reuse=True requires >= {DIORAMA_TARGET_CUT_MIN} unique clips "
-                    f"(got {len(clips)}) so dynamic long-take holds + rapid sub-cuts maintain >= {DIORAMA_TARGET_CUT_MIN} cuts (R63)"
+                    f"[zero_reuse_v7] Schema v7 zero_clip_reuse=True requires >= {min_cuts} unique clips "
+                    f"(got {len(clips)}) so dynamic long-take holds + rapid sub-cuts maintain >= {min_cuts} cuts (R63)"
+                )
+            if is_micro and len(clips) > MICRO_SHORT_CUT_MAX + 4:
+                issues.append(
+                    f"[micro_short_v7] clip count {len(clips)} exceeds micro-short ceiling {MICRO_SHORT_CUT_MAX + 4} (R63)"
                 )
             covered_sentences: set[int] = set()
             for c in clips:
@@ -435,6 +957,9 @@ def validate_production_diorama_v6(
                     f"[spatial_aba_v7] Schema v7 requires >= 2 A-B-A spatial location_id returns across clips "
                     f"(found {aba_returns}) (R63)"
                 )
+            if is_porcelain_v7_plan(plan, *(clips or []), script_doc) and not is_pre_r66_frozen and not is_micro:
+                issues.extend(validate_substantive_visual_relevance(plan, lines, clips))
+                issues.extend(validate_scene_state_continuity(plan, clips))
         else:
             crystal_cnt = sum(1 for c in clips if str(c.get("grammar")) == "frosted_crystal_specimen")
             max_crystal = int(len(clips) * DIORAMA_CRYSTAL_SPECIMEN_MAX_RATIO + 1e-6)
@@ -459,20 +984,22 @@ def validate_production_diorama_v6(
                     f"[motif] recurring gauge motif appears in {motif_hits} clips (must be "
                     f"{DIORAMA_MOTIF_APPEARANCES_MIN}-{DIORAMA_MOTIF_APPEARANCES_MAX} across Acts 1-6) (R56)"
                 )
-        acts_covered = {int(c.get("act") or 0) for c in clips}
-        missing_acts = [a for a in range(1, DIORAMA_ACT_COUNT + 1) if a not in acts_covered]
-        if missing_acts:
-            issues.append(f"[diorama] base clips missing coverage for Act(s) {missing_acts} (R58)")
+        if not is_micro:
+            acts_covered = {int(c.get("act") or 0) for c in clips}
+            missing_acts = [a for a in range(1, DIORAMA_ACT_COUNT + 1) if a not in acts_covered]
+            if missing_acts:
+                issues.append(f"[diorama] base clips missing coverage for Act(s) {missing_acts} (R58)")
 
     # 4. Plain-language, conversational prosody & anatomy glossing -------------
     _expressive_ok = ("question mark", "exclamation mark", "em dash", "en dash", "ellipsis")
     q_count = sum(1 for s in lines if "?" in s)
-    if q_count < DIORAMA_MIN_CONVERSATIONAL_QUESTIONS:
+    min_q = 1 if is_micro else DIORAMA_MIN_CONVERSATIONAL_QUESTIONS
+    if q_count < min_q:
         issues.append(
             f"[storyteller] script has only {q_count} conversational question(s) '?' "
-            f"(need >= {DIORAMA_MIN_CONVERSATIONAL_QUESTIONS} to avoid flat textbook reading) (R57)"
+            f"(need >= {min_q} to avoid flat textbook reading) (R57)"
         )
-    if is_v7 and len(lines) >= 20:
+    if is_v7 and not is_micro and len(lines) >= 20:
         mid_lo = max(0, len(lines) // 3 - 2)
         mid_hi = min(len(lines), (2 * len(lines)) // 3 + 2)
         if not any("?" in s for s in lines[mid_lo:mid_hi]):
@@ -481,8 +1008,9 @@ def validate_production_diorama_v6(
                 "to sustain AVD past 60-90s across the Act 3 -> Act 4 transition (R57-M)"
             )
     a = analyze_script(lines)
-    if a["script_fk_grade"] > READABILITY_SCRIPT_FK_MAX:
-        issues.append(f"[plain] script reading grade {a['script_fk_grade']} > {READABILITY_SCRIPT_FK_MAX} (R15)")
+    fk_cap = DIORAMA_V7_MAX_FK_GRADE if is_us_v7 else READABILITY_SCRIPT_FK_MAX
+    if a["script_fk_grade"] > fk_cap:
+        issues.append(f"[plain] script reading grade {a['script_fk_grade']} > {fk_cap} (R15)")
     for c in a["clips"]:
         for t in c["tts_issues"]:
             if any(k in t for k in _expressive_ok):
@@ -785,6 +1313,10 @@ def score_project(project_dir: Path) -> dict[str, Any]:
         "analogy": "plain",
         "filler_ban_v7": "scene",
         "spatial_aba_v7": "scene",
+        "pacing_v7": "structure",
+        "analogy_cap_v7": "scene",
+        "split_v7": "structure",
+        "scene_state_v7": "scene",
         "lowpoly_v7": "scene",
         "camera": "acting",
         "world": "scene",

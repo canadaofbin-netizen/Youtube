@@ -1,0 +1,1148 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "zihl_akinetopsia_motion_blindness",
+  "topic": "Josef Zihl Munich Motion Blindness Discovery, Frozen Teapot Column, Strobe Street Jumps, Intact Auditory Tracking & Acoustic Pitch Compensation",
+  "act5_climax_episode": "Eight-year follow-up showing bilateral motion-blindness bypassed in daily life by listening to rising acoustic resonance inside a filling ceramic mug.",
+  "outro_title_lines": [
+    "JOSEF ZIHL ET AL. (1983)",
+    "MAX PLANCK INSTITUTE, MUNICH"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "ONE MOVIE SCREEN?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FROZEN TEA POUR"
+    },
+    {
+      "sentence_index": 10,
+      "text": "STROBE WORLD"
+    },
+    {
+      "sentence_index": 19,
+      "text": "MOTION WORKSHOP"
+    },
+    {
+      "sentence_index": 28,
+      "text": "SOUND GLIDES ON"
+    },
+    {
+      "sentence_index": 37,
+      "text": "POURING BY EAR"
+    },
+    {
+      "sentence_index": 45,
+      "text": "KITCHEN PITCH"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "ONE MOVIE SCREEN?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FROZEN TEA POUR"
+    },
+    {
+      "sentence_index": 10,
+      "text": "STROBE WORLD"
+    },
+    {
+      "sentence_index": 19,
+      "text": "MOTION WORKSHOP"
+    },
+    {
+      "sentence_index": 28,
+      "text": "SOUND GLIDES ON"
+    },
+    {
+      "sentence_index": 37,
+      "text": "POURING BY EAR"
+    },
+    {
+      "sentence_index": 45,
+      "text": "KITCHEN PITCH"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 34,
+      "mode": "split_hstack",
+      "left_clip_index": 33,
+      "right_clip_index": 48,
+      "left_label": "FROZEN SIGHT",
+      "right_label": "SMOOTH SOUND"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit Munich clinical testing room with a cool slate-gray table, matte chalk-white teapot, teacup and saucer, and a curved sunlit dot-speed perimeter screen",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain patient in a lavender-gray cardigan tilts the teapot while a researcher in a white coat leans beside the table",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "the matte chalk-white teapot tilted over a sunlit powder-blue teacup on a cool limestone tray where the stream stands rigid as solid crystal",
+      "internal_mechanism": "without visible rising motion inside the cup, pale powder-blue liquid abruptly brims out across the saucer rim",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the bright Munich clinic room featuring the cool slate-gray table, chalk-white teapot, overflowing saucer, and curved sunlit dot-speed screen",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain neurologist in a white coat steps beside the perimeter screen and points toward the stationary target dot",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a tidy cool-toned Munich kitchen with a cool limestone counter, matte chalk-white teapot, and powder-blue ceramic breakfast cups",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain woman in a lavender-gray coat walks to the limestone counter and lifts the white teapot handle with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "munich_kitchen_counter",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands placing two symmetrical coral-rose markers onto both sides of a matte-sunlit brain cast on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set and press the matching coral-rose markers onto the left and right side hubs simultaneously",
+      "consequence": "matching side patches glow coral-rose while the back vision hub stays calm cyan",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands arranging crisp geometric shape tiles and sunlit color swatches on cool limestone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand slides a mint-sage color swatch forward while a cardigan-cuffed gloved hand places and aligns its twin cleanly",
+      "consequence": "every stationary color and shape tile aligns without error",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 6,
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands aligning three stepped sunlit depth blocks on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and align the three sunlit depth blocks in exact front-to-back order",
+      "consequence": "stationary depth and crisp geometric edges remain razor sharp",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 7,
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands lifting and tilting the matte chalk-white teapot above a powder-blue cup on cool limestone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands tilt the white spout forward and brace the teapot lid steady",
+      "consequence": "a translucent pale-blue column emerges rigidly between spout and cup",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "munich_kitchen_counter",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands holding the tilted white teapot above the motionless translucent column on cool limestone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands hold the teapot still then set it abruptly back down onto the cool limestone counter",
+      "consequence": "the rigid-looking stream gives zero hint of rising cup depth",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 9,
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "munich_kitchen_counter",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "gentle_push_in",
+      "analogy_world": "a crisp smooth sculptural translucent powder-blue glass icicle suspended vertically from a brushed-silver eave bar over a cool slate-gray stone ledge",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in coat cuffs reach beside the smooth sculptural glass icicle and tap it gently showing its solid frozen stillness",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands steady on the white teapot handle beside the powder-blue teacup on cool limestone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands hold and tilt the teapot while the cup interior appears unchangingly still",
+      "consequence": "no smooth upward climb registers inside the ceramic cup",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 12,
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "munich_kitchen_counter",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "munich_street_crosswalk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a quiet sunlit Munich avenue with cool slate-gray pavement, pale limestone sidewalks, and a distant powder-blue matte-white porcelain sedan far down the block",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain woman in a slate trench coat steps to the limestone curb and leans slightly to check the distant car",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "munich_street_crosswalk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "clean_pullback_reveal",
+      "analogy_world": "a long matte mint-sage green-turf football field framed by clean white yard-line stripes and brushed-silver goalposts on a cool limestone base",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in blazer cuffs place a tiny powder-blue car token at the far goalpost end and point across the entire football field span",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "munich_street_crosswalk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Munich street curb as the powder-blue matte-white porcelain sedan now sits abruptly right in front of the crosswalk",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain woman in a slate trench coat steps sharply back onto the limestone sidewalk and braces one gloved hand on a silver post",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "munich_street_crosswalk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "end_sentence_index": 16,
+      "act": 2,
+      "location_id": "munich_street_crosswalk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the sunlit Munich street curb as the powder-blue matte-white porcelain sedan now sits abruptly right in front of the crosswalk",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "munich_street_crosswalk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 15
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the quiet Munich clinical room with the curved dot-speed screen and cool slate-gray testing table",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain patient in a cardigan rests gloved hands on the slate-gray table while the doctor in a white coat leans attentively nearby",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the quiet Munich clinical room with the curved dot-speed screen and cool slate-gray testing table",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain patient in a cardigan rests gloved hands on the slate-gray table while the doctor in a white coat leans attentively nearby",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the Max Planck testing suite with the curved white perimeter arc and a sliding cyan light dot on a cool limestone stand",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coats slide the target control lever and point along the perimeter arc",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the Max Planck testing suite with the curved white perimeter arc and a sliding cyan light dot on a cool limestone stand",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coats slide the target control lever and point along the perimeter arc",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 20,
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "PRIMARY VISUAL CORTEX\nVISION CENTER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model on a cool alabaster stand where the rear primary visual cortex glows steady cyan-blue preserving crisp color and stationary form",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands connecting three separate sunlit workshop tiles into one central frame on cool limestone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and slide silver fiber bridges from the three specialist tiles into the central picture frame",
+      "consequence": "three independent specialist workshops feed one combined scene",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_right",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "temporal lobe",
+      "anatomy_label": "TEMPORAL LOBE\nMOTION MODULE",
+      "brain_scene": "a matte-sunlit 3D cortical brain model rotating slightly to show symmetrical coral-rose lesion patches on the back-side temporal lobe motion zones of both hemispheres",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands demonstrating twin hemisphere backup switches on a cool slate-gray console",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand flips the left switch off while the right mint-sage backup switch stays lit and carries the signal",
+      "consequence": "one healthy hemisphere keeps the smooth motion bar glowing",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 25,
+      "end_sentence_index": 25,
+      "act": 3,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key munich clinic room with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 24
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands flipping both left and right motion switches off together on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands press both side switches down simultaneously turning both motion bars coral-rose",
+      "consequence": "losing both side modules at once drops continuous visual speed to zero",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands lifting a brushed-silver acoustic chime slider and a soft sunlit brush on cool limestone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand sets the silver chime track center stage while the other aligns the soft sunlit brush beside it",
+      "consequence": "hearing and touch motion tools sit ready for blindfolded testing",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 27,
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit Munich clinic room with the curved silver chime rail and frosted screen shield resting on the cool slate-gray table",
+      "action": "viewed strictly from behind, the seated clothed matte-white porcelain patient in a cardigan rests gloved hands calmly as the researcher in a white coat steps to the chime rail",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands gliding a ringing brushed-silver chime carriage smoothly along a curved track on cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand pushes and glides the silver chime carriage steadily from left to right along the smooth rail",
+      "consequence": "soft concentric cyan sound ripples travel smoothly across the rail",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 29,
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands raised attentively behind the frosted screen over cool slate-gray stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand lifts its index finger ready to trace the sound while the other hand rests steady on the table",
+      "consequence": "the gloved finger tracks the exact starting point of the hidden chime",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands pointing smoothly from left to right in exact lockstep with the hidden silver chime",
+      "prop_action": "the cool porcelain-white gloved matte-white porcelain hand glides and points continuously across the arc matching the moving chime position millimeter for millimeter",
+      "consequence": "auditory motion tracking stays completely fluid and accurate",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 31,
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands gliding a soft powder-blue brush along a lavender-gray cardigan sleeve over cool limestone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand slides the soft brush steadily up the sleeve while the patient's gloved hand traces the direction on a pad",
+      "consequence": "tactile motion sensation registers with complete smoothness",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 32,
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "AUDITORY CORTEX\nSOUND CENTER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model highlighting the upper side auditory cortex in bright mint-sage processing continuous sound movement without interruption",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands beside three choppy coral-rose snapshot blocks on a cool slate-gray track",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands tap and set the separated coral-rose blocks with wide empty gaps between them",
+      "consequence": "visual motion fractures into frozen disconnected stills",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the sunlit Munich clinic room with the curved silver chime rail and frosted screen shield resting on the cool slate-gray table",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in coat cuffs reach and press the silver shutter button triggering one crisp brief white flash pulse",
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a matte slate-gray display screen filled with crisp cyan and mint-sage dots beside a brushed-silver figure-eight magnetic loop",
+      "internal_mechanism": "when the silver loop pulses briefly, the drifting sunlit dots pause motionless in place while their crisp colors stay unchanged",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 36,
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright Munich home kitchen with the cool limestone table, tall powder-blue mug, matte-white teapot, and sunlit window",
+      "action": "viewed strictly from behind, two visiting clothed matte-white porcelain neurologists in coats step beside the kitchen table and lean gloved hands attentively",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "munich_kitchen_counter",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage sweater sleeves and cool porcelain-white gloved matte-white porcelain hands lifting the matte-white teapot calmly above the tall powder-blue mug on cool limestone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand tilts the teapot handle steadily while the other rests relaxed beside the dry saucer",
+      "consequence": "liquid begins filling the tall ceramic mug at a steady pace",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 38,
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "munich_kitchen_counter",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "close rear view at the sunlit limestone kitchen table as liquid pours from the matte-white teapot into the tall powder-blue mug",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain woman in a mint-sage coat leans toward the mug listening closely and tilts the teapot with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 40,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "munich_kitchen_counter",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_left",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "AUDITORY CORTEX\nSOUND CENTER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model where the side auditory cortex glows vibrant mint-sage sending a crisp stop cue forward to hand control",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 39
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright Munich home kitchen with the cool limestone table, tall powder-blue mug, matte-white teapot, and sunlit window",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in mint-sage cuffs place and hold the white sugar cube flush against the mug rim matching the exact clean gap above the liquid",
+      "end_sentence_index": 43,
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "munich_kitchen_counter",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 5,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint-sage sweater cuffs and cool porcelain-white gloved matte-white porcelain hands lifting the filled powder-blue mug cleanly off its dry white saucer on cool limestone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift the mug smoothly and set the teapot down without a single drop on the stone",
+      "consequence": "the white saucer gleams dry and spotless in morning light",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 44,
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "munich_kitchen_counter",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a modern cool-slate kitchen sink counter with a brushed-silver faucet and a tall matte powder-blue ceramic mug",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain person in a powder-blue coat steps up to the cool-slate sink and places the mug beneath the faucet with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 46,
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "munich_kitchen_counter",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 47,
+      "end_sentence_index": 47,
+      "act": 6,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a modern cool-slate kitchen sink counter with a brushed-silver faucet and a tall matte powder-blue ceramic mug",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "munich_kitchen_counter",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 43
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "powder-blue sweater cuffs and cool porcelain-white gloved matte-white porcelain hands closing the brushed-silver tap right as water nears the mug rim",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand pushes the silver tap lever shut cleanly while the other lifts the full mug without spilling",
+      "consequence": "water stops cleanly just below the rim purely by acoustic pitch",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "munich_kitchen_counter",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "temporal lobe",
+      "anatomy_label": "TEMPORAL LOBE\nMOTION MODULE",
+      "brain_scene": "a matte-sunlit 3D cortical brain model where healthy cyan-blue light flows across the side temporal lobe motion zone stitching discrete snapshots into fluid motion",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands interlocking sunlit color, shape, and motion tiles into one unified frame on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide and press the three sunlit specialist tiles flush into a single seamless square",
+      "consequence": "separate sensory workshops unite into one vivid coherent picture",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 51,
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "munich_kitchen_counter",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the calm cool-limestone kitchen table with the matte-white teapot and neatly filled powder-blue cup",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain woman in a mint-sage coat lifts her morning cup with gloved hands and turns toward the bright window",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "munich_kitchen_counter",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "lavender-gray cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands gliding a silver slider along an unbroken mint-sage wave ribbon on cool slate-gray stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands push and glide the silver slider smoothly along the continuous mint-sage wave",
+      "consequence": "sound motion flows in one unbroken stream",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48,
+      "scene_state": {
+        "location_id": "munich_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "munich_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the serene Munich clinical room with the matte-white teapot, dry saucer, sunlit brain model, and tall windows opening to pale sunlit sky",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coats walk and step calmly toward the tall window as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 49
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "FROZEN TEA POUR",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered matte-white low-poly teapot tilted above a powder-blue cup with a rigid crystal-like frozen pour column"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

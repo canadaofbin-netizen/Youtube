@@ -1,0 +1,1174 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "cosmides_tooby_cheater_detection",
+  "topic": "Leda Cosmides & John Tooby (1989) Stanford Four-Card Cassava-Root Social Exchange Experiments, Switched-Contract Proof, and Patient R.M. (2002) Limbic Dissociation",
+  "act5_climax_episode": "Neuropsychological dissociation in Patient R.M. alongside cross-laboratory replication confirming human reasoning triples when abstract four-card rules become benefit-for-cost social contracts.",
+  "outro_title_lines": [
+    "COSMIDES & TOOBY (1989)",
+    "STANFORD LOGIC STUDY"
+  ],
+  "thumbnail": {
+    "hook_text": "FOUR CARD TRAP",
+    "cover_sentence_index": 3,
+    "cover_brief": "Centered row of four oversized matte pastel symbol cards on a cool slate Stanford table with two cards flipping upward"
+  },
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "PURE LOGIC?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FOUR CARD TRAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "CASSAVA RULE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "FAIRNESS RADAR"
+    },
+    {
+      "sentence_index": 27,
+      "text": "FLIPPED LOGIC"
+    },
+    {
+      "sentence_index": 35,
+      "text": "TWO SWITCHES"
+    },
+    {
+      "sentence_index": 43,
+      "text": "FAIR RULES"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "PURE LOGIC?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FOUR CARD TRAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "CASSAVA RULE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "FAIRNESS RADAR"
+    },
+    {
+      "sentence_index": 27,
+      "text": "FLIPPED LOGIC"
+    },
+    {
+      "sentence_index": 35,
+      "text": "TWO SWITCHES"
+    },
+    {
+      "sentence_index": 43,
+      "text": "FAIR RULES"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 15,
+      "mode": "split_hstack",
+      "left_clip_index": 14,
+      "right_clip_index": 47,
+      "left_label": "NEUTRAL: STUMPED",
+      "right_label": "FAIR DEAL: SOLVED"
+    }
+  ],
+  "clips": [
+    {
+      "clip_index": 2,
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands hovering over the four sunlit icon cards",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands reach toward the third card, pause uncertainly, and pull back onto the pale ash desk",
+      "consequence": "all four sunlit cards remain unflipped on the cool cream mat",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 3,
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-sage coat sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands snapping directly to two specific sunlit cards",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands lift and flip the first muted-sage root card and the fourth blank cream card briskly",
+      "consequence": "the two target cards click face-up onto the cool slate mat",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 5,
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view from behind inside a sunlit Stanford psychology room with pale sage walls and cool slate tables",
+      "action": "viewed strictly from behind, a researcher in a slate blazer lifts a sunlit folder while two seated students in sweaters and gloves reach toward four cards",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 7,
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "stanford_seminar_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal coat sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands laying down four two-toned geometric pattern tiles",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands set down a powder-blue circle card, a slate square card, a two-dot card, and a three-dot card and tap the first",
+      "consequence": "the four abstract pattern cards line up neatly across the cool cream mat",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "stanford_seminar_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 7,
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "stanford_seminar_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal coat sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands laying down four two-toned geometric pattern tiles",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands set down a powder-blue circle card, a slate square card, a two-dot card, and a three-dot card and tap the first",
+      "consequence": "the four abstract pattern cards line up neatly across the cool cream mat",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "stanford_seminar_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "end_sentence_index": 6,
+      "act": 1,
+      "location_id": "stanford_seminar_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key stanford seminar room with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "stanford_seminar_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 6
+    },
+    {
+      "clip_index": 8,
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_object": "a matte powder-blue low-poly combination padlock resting on a cool slate block with a brushed-silver shackle",
+      "analogy_action": "the matte pastel dial rings spin partway and catch stiffly while the brushed-silver shackle stays locked down in soft studio light",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7
+    },
+    {
+      "clip_index": 10,
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "stanford_seminar_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright sunlit seminar room with pale slate tables and soft diffused window light",
+      "action": "viewed strictly from behind, two matte-white porcelain researchers in coats wave off a sunlit cup tray and slide forward an unfamiliar botanical root model",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "stanford_seminar_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 10,
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "stanford_seminar_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright sunlit seminar room with pale slate tables and soft diffused window light",
+      "action": "viewed strictly from behind, two matte-white porcelain researchers in coats wave off a sunlit cup tray and slide forward an unfamiliar botanical root model",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 9,
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "stanford_seminar_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 12,
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright sunlit Stanford laboratory with pale sage shelves and two neat test stations",
+      "action": "viewed strictly from behind, two matte-white porcelain researchers in blazers and gloves place matching four-card trays onto two cool slate desks",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 12,
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright sunlit Stanford laboratory with pale sage shelves and two neat test stations",
+      "action": "viewed strictly from behind, two matte-white porcelain researchers in blazers and gloves place matching four-card trays onto two cool slate desks",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 11,
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 15,
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a crisp elevated view from behind inside the sunlit Stanford card lab with soft window daylight",
+      "action": "viewed strictly from behind, two matte-white porcelain students in sweaters and gloves lean forward and reach over the four identical symbol cards",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 13,
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 14,
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands dealing four oversized sunlit icon cards",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands lift and set down a sage root card, a lavender nut card, a powder-blue diamond card, and a blank cream card",
+      "consequence": "four identical symbol cards sit crisp and unmarked on the slate table",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 14,
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 16,
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-gray sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands hesitating beside a plain slate map folder",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands flip the sage root card and mistakenly tap the powder-blue diamond card beside it",
+      "consequence": "the fourth blank cream card sits overlooked at the edge",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 18,
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "slate blazer sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands swapping only a sunlit folder behind the untouched four cards",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands lift away a gray folder and slide in a muted-sage folder without touching the four cards",
+      "consequence": "the four symbol cards stay in the exact same spots",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 19,
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_object": "a clean brushed-silver and powder-blue low-poly subway turnstile gate standing on a cool slate studio floor with a sunlit token slot",
+      "analogy_action": "a pale-lavender token drops into the slot rotating the three silver turnstile arms smoothly while a second empty pass locks the gate bar firm",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16
+    },
+    {
+      "clip_index": 20,
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "stanford_seminar_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "charcoal coat sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands setting aside a rigid pale-slate abacus frame",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands push a jammed sunlit bead frame aside and lift the muted-sage root card instead",
+      "consequence": "the rigid bead frame rests idle at the table corner",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "stanford_seminar_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 22,
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands sliding straight to the fourth blank card",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands lift and flip the fourth blank cream card revealing a sage root icon underneath",
+      "consequence": "the hidden free-rider card lies exposed on the mat",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 23,
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-sage sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands gliding past the middle two sunlit cards",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands pass smoothly over the lavender nut card and powder-blue diamond card and tap the table edge",
+      "consequence": "both middle cards remain calm and unflipped",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 20,
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 24,
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "slate coat sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands balancing a sunlit two-pan fairness scale",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands place a sage root cube on one sunlit pan causing the empty opposite pan to rise sharply",
+      "consequence": "the uneven sunlit pans tilt clearly toward the unpaid perk",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 25,
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL PFC\nMENTAL SCRATCHPAD",
+      "brain_scene": "a matte cream matte-white porcelain brain model on a cool slate stand where upper lateral dorsolateral prefrontal cortex flickers dimly under heavy abstract load",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21
+    },
+    {
+      "clip_index": 26,
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nEMOTIONAL ALARM",
+      "brain_scene": "a cutaway matte sunlit brain model showing the deep almond-shaped amygdala lighting up in soft muted-rose alertness",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22
+    },
+    {
+      "clip_index": 27,
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_right",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "VENTROMEDIAL PFC\nJUDGMENT CENTER",
+      "brain_scene": "the cutaway matte sunlit brain model where lower frontal ventromedial prefrontal cortex glows calm powder-blue linked smoothly to the amygdala",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23
+    },
+    {
+      "clip_index": 29,
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "stanford_seminar_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a quiet bright sunlit Stanford seminar table surrounded by pale ash chairs",
+      "action": "viewed strictly from behind, three matte-white porcelain students in sweaters and gloves lean in and reach toward the reversed four-card layout",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "stanford_seminar_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 29,
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "stanford_seminar_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a quiet bright sunlit Stanford seminar table surrounded by pale ash chairs",
+      "action": "viewed strictly from behind, three matte-white porcelain students in sweaters and gloves lean in and reach toward the reversed four-card layout",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 26,
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "stanford_seminar_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 30,
+      "sentence_index": 27,
+      "act": 4,
+      "location_id": "stanford_seminar_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-sage blazer sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands sliding a sage root token toward a diamond badge tile",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands tap the powder-blue diamond tile first and push a muted-sage root token across the mat",
+      "consequence": "the sunlit token rests beside the diamond tile",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "stanford_seminar_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 31,
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "stanford_seminar_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands pointing a silver pointer at two left cards",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands tap two left sunlit cards lightly with a silver rod and pull the rod away",
+      "consequence": "the left card pair stays untouched",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 28,
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "stanford_seminar_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 33,
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "stanford_seminar_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "powder-blue sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands lifting the flipped free-rider root card",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands lift the exposed sage root card and set it into a pale-lavender catch tray",
+      "consequence": "the caught free-rider tile rests inside the sunlit tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "stanford_seminar_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 34,
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright sunlit neuropsychology testing suite with a matte brain model beside two four-card boards on a cool slate table",
+      "action": "viewed strictly from behind, a clinician in a white coat places two sunlit four-card trays before a seated patient in a navy sweater and gloves as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 35,
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands setting a powder-blue mask icon tray beside a sage root tray",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands align a safety-mask icon card set on the left and a sage-root card set on the right",
+      "consequence": "both four-card sets sit side by side in soft sunlit light",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 31,
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 36,
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA\nEMOTIONAL ALARM",
+      "brain_scene": "a cutaway matte cream matte-white porcelain brain model where the deep amygdala zone appears muted pale-gray and quiet without its social alert pulse",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31
+    },
+    {
+      "clip_index": 37,
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "analogy_object": "a round matte-white and powder-blue low-poly ceiling smoke detector mounted on a pale sage studio panel",
+      "analogy_action": "wisp-like pale-gray geometric puffs drift beneath the round detector and its soft cyan-blue indicator ring pulses steadily",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a bright sunlit neuropsychology testing suite with a matte brain model beside two four-card boards on a cool slate table",
+      "action": "viewed strictly from behind, a clinician in a white coat places two sunlit four-card trays before a seated patient in a navy sweater and gloves as porcelain hands reach forward and press cleanly into position.",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 38,
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands flipping safety mask cards smoothly",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands flip two powder-blue safety mask cards cleanly on the left tray",
+      "consequence": "the safety hazard pair aligns neatly",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 34,
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 41,
+      "sentence_index": 35,
+      "act": 5,
+      "location_id": "team_charter_office",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "analogy_object": "a clean matte-slate low-poly household breaker box holding two side-by-side sunlit rocker switches in powder-blue and muted-sage",
+      "analogy_action": "the left powder-blue breaker switch clicks crisply upward while the separate right muted-sage switch flips independently beside it",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a sunlit collaborative studio with a round pale-ash table and muted-sage chairs",
+      "action": "viewed strictly from behind, four matte-white porcelain teammates in coats and sweaters pass sunlit harvest tokens evenly around the circle and places the wooden marker onto the table",
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "team_charter_office",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "end_sentence_index": 36,
+      "act": 5,
+      "location_id": "team_charter_office",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a sunlit collaborative studio with a round pale-ash table and muted-sage chairs",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "team_charter_office",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 35
+    },
+    {
+      "clip_index": 42,
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "stanford_seminar_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "pale-slate blazer sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands stacking sunlit scholarly folders neatly",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands align a powder-blue folder and a muted-sage folder side by side and tap both",
+      "consequence": "both sunlit folders sit balanced on the cool cream desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 38,
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "stanford_seminar_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 44,
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "team_charter_office",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit collaborative studio with a round pale-ash table and muted-sage chairs",
+      "action": "viewed strictly from behind, four matte-white porcelain teammates in coats and sweaters pass sunlit harvest tokens evenly around the circle",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "team_charter_office",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 45,
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "team_charter_office",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue coat sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands spotting an uneven token stack on a pale slate tray",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands slide a lone extra sage token back into the shared center bowl and tap the rim",
+      "consequence": "all sunlit token stacks sit equal around the tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 40,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "team_charter_office",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 46,
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view from behind of the bright sunlit Stanford laboratory with the four-card table and three-block score stand",
+      "action": "viewed strictly from behind, three matte-white porcelain researchers in blazers and gloves step back from the desk and raise gloved hands in quiet awe",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 42,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 50,
+      "sentence_index": 43,
+      "act": 6,
+      "location_id": "team_charter_office",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright sunlit modern team room with pale sage walls and a clean slate table",
+      "action": "viewed strictly from behind, three matte-white porcelain colleagues in coats and sweaters lean in and tap the interlocking sunlit charter tiles together",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "team_charter_office",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 49,
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "team_charter_office",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue coat sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands snapping two interlocking sunlit puzzle tiles together",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands press a muted-sage perk tile into a matching powder-blue contribution tile",
+      "consequence": "the two sunlit tiles lock flush on the cool slate mat",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 44,
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "team_charter_office",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 51,
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "VENTROMEDIAL PFC\nJUDGMENT CENTER",
+      "brain_scene": "a cutaway matte cream matte-white porcelain brain model where ventromedial prefrontal cortex glows steady calm powder-blue in balanced harmony",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42
+    },
+    {
+      "clip_index": 52,
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "team_charter_office",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-sage blazer sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands sliding three matching sunlit tokens smoothly into slots",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands drop three powder-blue tokens briskly into three aligned slots along a cool cream tray",
+      "consequence": "all three slots fill cleanly on the first pass",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "team_charter_office",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 53,
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "team_charter_office",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "pan_left",
+      "environment": "a two-room sunlit office cutaway showing two matte-white porcelain coworkers in coats separated by a pale-slate partition wall",
+      "action": "viewed strictly from behind, one figure in a navy coat lifts an empty tray while the neighbor in a sage coat reaches for a dropped folder",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 47,
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "team_charter_office",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 56,
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "team_charter_office",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright sunlit collaborative office with soft window light and pale ash desks",
+      "action": "viewed strictly from behind, two matte-white porcelain teammates in coats and gloves place matching sunlit tokens onto the shared center tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 49,
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "team_charter_office",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 57,
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view from behind of the sunlit Stanford four-card room with balanced sunlit scales and four neat symbol cards",
+      "action": "viewed strictly from behind, the matte-white porcelain researcher in a slate coat lifts and aligns the four sunlit cards beside a level two-pan fairness scale",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 17,
+      "sentence_index": 15,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "stanford_card_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands moving decisively beside a muted-sage ration basket",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands lift and flip both the sage root card and the fourth blank cream card in one brisk motion",
+      "consequence": "both target cheater cards click cleanly face-up",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "stanford_card_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 58,
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a serene bright sunlit neuro-studio gallery with cool cream arches and a matte sunlit brain model beside four geometric symbol tiles",
+      "action": "viewed strictly from behind, a matte-white porcelain researcher in a white coat walks forward and sets a muted-sage token onto a balanced silver scale beside the brain model",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

@@ -44,6 +44,7 @@ from pipeline.config import (
     DIORAMA_V7_LONG_TAKE_MAX_SEC,
     DIORAMA_V7_LUMA_RANGE,
     DIORAMA_V7_MID_ACT_MAX_CUT_SEC,
+    DIORAMA_V7_RAPID_CUT_MIN_SEC,
     DIORAMA_V7_SATURATION_RANGE,
     DIORAMA_V7_SUBTITLE_FONT_NAME,
     DIORAMA_V7_SUBTITLE_MARGIN_V,
@@ -51,14 +52,22 @@ from pipeline.config import (
     DIORAMA_V7_WPM_MAX,
     DIORAMA_V7_WPM_MIN,
     DIORAMA_V7_ZOOM_CAMERA_MAX_RATIO,
+    PORCELAIN_V7_AVG_CUT_MAX_SEC,
+    PORCELAIN_V7_AVG_CUT_MIN_SEC,
     PORCELAIN_V7_BRAIN_MARGIN_SAT_MAX,
+    PORCELAIN_V7_CUT_CV_MIN,
     PORCELAIN_V7_DARK_VOID_RATIO_MAX,
     PORCELAIN_V7_HUMAN_SKIN_MAX,
+    PORCELAIN_V7_LONG_TAKE_MAX_SEC,
     PORCELAIN_V7_LUMA_RANGE,
+    PORCELAIN_V7_MID_ACT_MAX_CUT_SEC,
+    PORCELAIN_V7_MIN_CUT_SEC,
     PORCELAIN_V7_NEON_GREEN_SPILL_MAX,
     PORCELAIN_V7_SATURATION_RANGE,
     PROJECTS_DIR,
     PROMPT_SCHEMA_VERSION_V7,
+    REENACT_EDL_FILENAME,
+    REENACT_MIN_DHASH_DISTANCE,
     VIDEO_FPS,
     is_diorama_v7_plan,
     is_porcelain_v7_plan,
@@ -334,12 +343,14 @@ def compile_episode_qa_contract(
         {
             "wpm_min": DIORAMA_V7_WPM_MIN,
             "wpm_max": DIORAMA_V7_WPM_MAX,
-            "avg_cut_max_sec": 3.45,
-            "fast_cut_threshold_sec": 1.50,
-            "fast_cut_ratio_min": 0.20,
-            "cut_duration_cv_min": DIORAMA_V7_CUT_CV_MIN,
-            "max_single_sentence_cut_sec": DIORAMA_V7_MID_ACT_MAX_CUT_SEC,
-            "max_single_speech_cut_sec": DIORAMA_V7_LONG_TAKE_MAX_SEC,
+            "min_cut_sec": (PORCELAIN_V7_MIN_CUT_SEC if is_porcelain else DIORAMA_V7_RAPID_CUT_MIN_SEC),
+            "avg_cut_min_sec": (PORCELAIN_V7_AVG_CUT_MIN_SEC if is_porcelain else 0.0),
+            "avg_cut_max_sec": (PORCELAIN_V7_AVG_CUT_MAX_SEC if is_porcelain else 3.45),
+            "fast_cut_threshold_sec": (2.30 if is_porcelain else 1.50),
+            "fast_cut_ratio_min": (0.0 if is_porcelain else 0.20),
+            "cut_duration_cv_min": (PORCELAIN_V7_CUT_CV_MIN if is_porcelain else DIORAMA_V7_CUT_CV_MIN),
+            "max_single_sentence_cut_sec": (PORCELAIN_V7_MID_ACT_MAX_CUT_SEC if is_porcelain else DIORAMA_V7_MID_ACT_MAX_CUT_SEC),
+            "max_single_speech_cut_sec": (PORCELAIN_V7_LONG_TAKE_MAX_SEC if is_porcelain else DIORAMA_V7_LONG_TAKE_MAX_SEC),
             "max_clip_reuse": DIORAMA_MAX_CLIP_REUSE,
         }
         if is_v7
@@ -390,6 +401,18 @@ def write_episode_qa_contract(
     base = Path(project_or_draft_dir)
     out_dir = (base / "03_visuals") if (base / "03_visuals").exists() else base
     out_dir.mkdir(parents=True, exist_ok=True)
+    edl_path = out_dir / REENACT_EDL_FILENAME
+    if edl_path.exists():
+        try:
+            edl_doc = json.loads(edl_path.read_text(encoding="utf-8"))
+            src_dhashes = [str(x) for x in (edl_doc.get("source_dhash_64_list") or []) if str(x)]
+            if src_dhashes:
+                contract["reenactment_dhash_lock"] = {
+                    "min_dhash_bits": int(REENACT_MIN_DHASH_DISTANCE),
+                    "source_dhash_64_list": src_dhashes,
+                }
+        except Exception:
+            pass
     out_path = out_dir / "episode_qa_contract.json"
     tmp_path = out_dir / f".tmp_{os.getpid()}_{time.time_ns()}_episode_qa_contract.json"
     tmp_path.write_text(json.dumps(contract, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -740,6 +763,31 @@ def verify_clip_multimodal_contract(
                     r_msg = f"missing_ceramic_figure_contrast:ratio={max_cer:.4f}<0.004"
                     return {"passed": False, "reason": r_msg, "issues": [r_msg]}
 
+    # Check R67 source-reenactment dHash non-infringement lock across (0.15, 0.50, 0.85)
+    reenact_lock = contract.get("reenactment_dhash_lock")
+    if isinstance(reenact_lock, dict):
+        src_dhashes = [str(x) for x in (reenact_lock.get("source_dhash_64_list") or []) if str(x)]
+        min_req_bits = int(reenact_lock.get("min_dhash_bits") or REENACT_MIN_DHASH_DISTANCE)
+        if src_dhashes:
+            from pipeline.reference_image_qa import _dhash_64, _hamming_hex
+
+            cap_dh = cv2.VideoCapture(str(mp4_path))
+            min_clip_dhash = 64
+            if cap_dh.isOpened():
+                fc_dh = int(cap_dh.get(cv2.CAP_PROP_FRAME_COUNT) or 0)
+                for frac in (0.15, 0.50, 0.85):
+                    cap_dh.set(cv2.CAP_PROP_POS_FRAMES, max(0, int(fc_dh * frac)))
+                    ok_dh, frm_dh = cap_dh.read()
+                    if ok_dh and frm_dh is not None:
+                        dh_val = _dhash_64(cv2.cvtColor(frm_dh, cv2.COLOR_BGR2GRAY))
+                        dist_bits = min(_hamming_hex(dh_val, sdh) for sdh in src_dhashes)
+                        min_clip_dhash = min(min_clip_dhash, dist_bits)
+                cap_dh.release()
+            checks_run.append(f"reenact_dhash={min_clip_dhash}")
+            if min_clip_dhash < min_req_bits:
+                r_msg = f"reenact_dhash_too_close:{min_clip_dhash}<{min_req_bits}"
+                return {"passed": False, "reason": r_msg, "issues": [r_msg]}
+
     return {"passed": True, "checks": checks_run, "issues": []}
 
 
@@ -790,6 +838,7 @@ def verify_final_mp4_against_contract(
         compute_porcelain_flesh_leak_ratio,
         detect_escher_dual_edge_closeup,
         detect_transient_top_intrusion_pov,
+        detect_unintended_horizontal_split_seam,
     )
     from pipeline.flow_prompt_builder import build_diorama_v6_prompts
 
@@ -1033,6 +1082,7 @@ def verify_final_mp4_against_contract(
         avg_cut = round(float(np.mean(speech_durs)), 3) if speech_durs else 99.0
         cut_cv = round(float(np.std(all_cut_durs) / max(1e-6, np.mean(all_cut_durs))), 4) if all_cut_durs else 0.0
         fast_ratio = round(sum(1 for d in speech_durs if d <= t_targets["fast_cut_threshold_sec"]) / max(1, len(speech_durs)), 3)
+        min_cut = round(min(all_cut_durs, default=0.0), 3)
         max_cut = round(max(speech_durs, default=99.0), 3)
         max_single_sent_cut = round(max(single_sent_durs, default=0.0), 3)
         hstack_divider_ok = True
@@ -1081,10 +1131,21 @@ def verify_final_mp4_against_contract(
                     div_strip = cv2.cvtColor(hfrm[int(hh * 0.30) : int(hh * 0.55), hw // 2 - 2 : hw // 2 + 2], cv2.COLOR_BGR2GRAY)
                     hstack_divider_ok = float(np.mean(div_strip)) <= 24.0
             single_sent_cap = float(t_targets.get("max_single_sentence_cut_sec", DIORAMA_V7_MID_ACT_MAX_CUT_SEC))
+            min_cut_floor = float(
+                t_targets.get(
+                    "min_cut_sec",
+                    PORCELAIN_V7_MIN_CUT_SEC if is_porcelain else DIORAMA_V7_RAPID_CUT_MIN_SEC,
+                )
+            )
+            avg_cut_min = float(
+                t_targets.get("avg_cut_min_sec", PORCELAIN_V7_AVG_CUT_MIN_SEC if is_porcelain else 0.0)
+            )
             dq5_ok = (
                 len(cuts) >= DIORAMA_TARGET_CUT_MIN
                 and abs(fps - float(DIORAMA_V7_VIDEO_FPS)) <= 0.25
                 and cut_cv >= float(t_targets["cut_duration_cv_min"])
+                and min_cut >= min_cut_floor - (0.35 if is_synth_test else 0.002)
+                and avg_cut >= avg_cut_min - (0.45 if is_synth_test else 0.0)
                 and avg_cut <= t_targets["avg_cut_max_sec"] + (0.45 if is_synth_test else 0.0)
                 and max_single_sent_cut <= single_sent_cap + (0.50 if is_synth_test else 0.0)
                 and max_cut <= t_targets["max_single_speech_cut_sec"] + (0.60 if is_synth_test else 0.0)
@@ -1237,13 +1298,14 @@ def verify_final_mp4_against_contract(
                             and not is_outro
                             and g_str in ("porcelain_hands_closeup", "porcelain_pov_hands", "porcelain_fullbleed_world")
                         ):
-                            flesh_cap_dq8 = (
-                                0.24
-                                if g_str == "porcelain_fullbleed_world"
-                                else (PORCELAIN_V7_HUMAN_SKIN_MAX + 0.04)
-                            )
+                            flesh_cap_dq8 = PORCELAIN_V7_HUMAN_SKIN_MAX + 0.04
                             for sf in sample_frames_cut:
-                                if compute_porcelain_flesh_leak_ratio(sf[int(h_f * 0.27) : int(h_f * 0.55), :]) > flesh_cap_dq8:
+                                sh_f, sw_f = sf.shape[:2]
+                                full_roi_sf = sf[int(sh_f * 0.10) : int(sh_f * 0.92), int(sw_f * 0.04) : int(sw_f * 0.96)]
+                                if compute_porcelain_flesh_leak_ratio(full_roi_sf) > flesh_cap_dq8:
+                                    cut_leak = True
+                                    break
+                                if c.get("mode") not in ("split_hstack", "split_vstack") and detect_unintended_horizontal_split_seam(sf) >= 0.72:
                                     cut_leak = True
                                     break
                         if cut_leak:
@@ -1431,9 +1493,11 @@ def verify_final_mp4_against_contract(
         "DQ5_three_gear_cut_rhythm": {
             "passed": dq5_ok,
             "fps": round(fps, 2),
+            "min_cut_sec": min_cut,
             "avg_cut_sec": avg_cut,
             "cut_duration_cv": cut_cv,
             "fast_cut_ratio": fast_ratio,
+            "max_single_sentence_cut_sec": max_single_sent_cut,
             "max_cut_sec": max_cut,
             "hstack_divider_ok": hstack_divider_ok,
             "all_cuts_have_camera_move": all_cuts_have_camera,

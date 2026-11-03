@@ -28,27 +28,29 @@ Master: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Yout
 ## Step 2 — Script + visual plan (Gear 2)
 1. `main.py dossier seed --slug <slug> --profile neuro_diorama` → JSON seed (`style_profile: "porcelain_cinematic_v7"` default; save draft under `research_dossiers/<slug>/diorama_v7_porcelain/` or `diorama_v7/`).
 2. Hand-author `script.json` + `visual_plan.json` in that draft dir per [bci-script-gen](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/bci-script-gen/SKILL.md) and R66 (`PorcelainV7PromptComposer` in `pipeline/depiction_rules.py`). Checklist:
-   - [ ] 6 Acts, total words within `DIORAMA_WORD_COUNT_MIN..MAX`, every sentence `<= DIORAMA_V7_SENTENCE_WORDS_MAX` words, 100% US English, TTS-safe.
-   - [ ] **R57-H2 cold-open:** S1 myth-flip/paradox ending `!` (`<= 18` words) → S2 `Yet/But …` contrast (`<= 12` words) → S3 `This is the true story of <case>.` + matching chapter headline.
-   - [ ] Signature hooks: `Here is what went wrong…`, `…a total nightmare.`, `Instead of…`, `…completely stunned.`, final sentence starts `Which proves` / `Which is why`.
-   - [ ] **R57-R re-hooks:** a `?`, stamp line, or `But here's…` at least every ~6 sentences (P10 gap `<= PROSODY_P10_OPEN_LOOP_MAX_GAP_SEC`); midpoint `?` across Act 3→4.
+   - [ ] 6 Acts, total words within `DIORAMA_WORD_COUNT_MIN..MAX` (`DIORAMA_WORD_COUNT_MIN..DIORAMA_US_WORD_COUNT_MAX` on `dynamic_us_v7`), every sentence `<= DIORAMA_V7_SENTENCE_WORDS_MAX` (`<= DIORAMA_US_SENTENCE_WORDS_MAX` on `dynamic_us_v7`, Flesch-Kincaid `<= DIORAMA_V7_MAX_FK_GRADE`), 100% US English, TTS-safe.
+   - [ ] **R57-H2 cold-open:** S1 myth-flip/paradox ending `!` (`<= DIORAMA_V7_COLD_OPEN_S1_MAX_WORDS` words) → S2 `Yet/But …` contrast (`<= DIORAMA_V7_COLD_OPEN_S2_MAX_WORDS` words) → S3 rotating case stamp from `DIORAMA_COLD_OPEN_S3_BANK` + matching chapter headline.
+   - [ ] Signature hooks from rotating Anti-Clone banks (`DIORAMA_CRISIS_BEAT_BANK`, `DIORAMA_MECHANISM_PIVOT_BANK`, `DIORAMA_EUREKA_REVEAL_BANK`, `DIORAMA_TAKEAWAY_BRIDGE_BANK`, `DIORAMA_MIDPOINT_REHOOK_BANK` — zero opener reuse across `DIORAMA_ADJACENT_OPENER_WINDOW` adjacent episodes).
+   - [ ] **R57-R re-hooks:** a `?`, stamp line, or midpoint re-hook at least every ~6 sentences (P10 gap `<= PROSODY_P10_OPEN_LOOP_MAX_GAP_SEC`); midpoint `?` across Act 3→4.
    - [ ] Every number paired with an everyday analogy; real names; glossed anatomy; no `Imagine…`.
-   - [ ] No `prosody_mode` key (channel default `dynamic_rush_v7`); optional `emphasis_words`.
+   - [ ] Voice & prosody: `voice_preset` from `DIORAMA_VOICE_PRESETS` (`DEFAULT_DIORAMA_VOICE_PRESET` = `andrew_v7`; `DEFAULT_REENACTMENT_VOICE_PRESET` = `emma_v7`) and `prosody_mode` (`DIORAMA_V7_PROSODY_MODE` = `dynamic_rush_v7` or US `45+` `DIORAMA_V7_US_PROSODY_MODE` = `dynamic_us_v7`); optional `emphasis_words`.
    - [ ] `visual_plan` (`style_profile: "porcelain_cinematic_v7"`): 1:1 zero-reuse clips covering every sentence (`>= DIORAMA_TARGET_CUT_MIN`), `PORCELAIN_V7_VISUAL_GRAMMARS` (`porcelain_hands_closeup`, `porcelain_pov_hands`, `porcelain_fullbleed_world`, `porcelain_cutaway_section`, `porcelain_literal_analogy`, `porcelain_living_brain`) & v7 camera ratios, clothed articulated matte-white porcelain figures/hands in photorealistic high-key environments, **Contained Living 4-Color 3D Brain** (`PORCELAIN_V7_BRAIN_RENDER_MODES`: `cortical_vascular_whole`, `sagittal_coronal_cutaway`, `frosted_glass_subcortical_xray`, `bounded_micro_channel`; strictly enclosed `clear cyan-blue` / `deep crimson-red` / `warm amber-gold` / `luminous pearl-aqua` fluid or `champagne-white` impulse; zero `"bioluminescent green"`, `"particles"`, `"mist"`, `"slime"`), positive phrasing only, no plaque-trigger nouns (plaque, sign, newspaper, textbook…).
    - [ ] **R65 thumbnail & cover frame:** author `visual_plan.thumbnail` (`hook_text` `<= THUMB_HOOK_MAX_WORDS` words / `<= THUMB_HOOK_MAX_CHARS` chars uppercase complementing the title, `cover_sentence_index: 3`, `cover_brief`) and set the `chapter_headlines` entry at `sentence_index: 3` to the exact `hook_text`.
-   - [ ] `metadata.json` title = R60 2-clause paradox (`<= TITLE_MAX_CHARS_DIORAMA`).
+   - [ ] `metadata.json` title = R60 5-archetype US title (`<= TITLE_MAX_CHARS_DIORAMA`).
 3. `main.py prompt-gate --dir BCI_Shorts_Channel/research_dossiers/<slug>/diorama_v7_porcelain` → `passed: true, issues: []`. Fix and repeat until clean.
 
 ## Step 3 — Precheck (no Flow credits)
 ```bash
-main.py diorama-episode --slug <slug> --project <project_id> --pillar <pillar> --precheck-only
+main.py diorama-episode --slug <slug> --project <project_id> --pillar <pillar> [--voice-preset <id>] --precheck-only
 ```
-Syncs the draft into `projects/<project_id>/`, re-runs prompt-gate + fact trace + paradox title + plaque lock, and synthesizes the TTS master clock (must land in `DIORAMA_V7_DURATION_MIN_SEC..SHORTS_HARD_CEILING_SEC`). If the clock is long/short, trim/add words in Step 2 and repeat.
+Syncs the draft into `projects/<project_id>/`, re-runs prompt-gate + fact trace + paradox title + plaque lock, and synthesizes the TTS master clock (must land in `DIORAMA_V7_DURATION_MIN_SEC..SHORTS_HARD_CEILING_SEC`). For **R67 Source-Conditioned 1:1 Porcelain Reenactment** episodes, run `main.py reenact-extract --source <url_or_mp4> --slug <slug> --project <project_id>` → `main.py reenact-refs --project <project_id> --slug <slug>` → `main.py ref-qa --project <project_id>` before Flow generation.
 
 ## Step 4 — Generate + assemble + full QA (Gears 3–4)
 Preconditions: Naver Whale running with CDP on port 9222 and logged in to Google Flow (R5). If not reachable, stop and ask the user to open it.
 ```bash
-main.py diorama-episode --slug <slug> --project <project_id> --pillar <pillar> [--engine auto] [--tabs 5]
+main.py diorama-episode --slug <slug> --project <project_id> --pillar <pillar> [--voice-preset <id>] [--engine auto] [--tabs 5]
+# Or for R67 Source-Conditioned Porcelain Reenactment (auto-purges /tmp/aab_reenact + runs RQ1-RQ5):
+main.py reenact-produce --slug <slug> --project <project_id> --pillar <pillar> --voice-preset emma_v7 --prosody-mode dynamic_us_v7
 ```
 This runs: 5-tab sharded Flow generation → `finalize_and_verify_diorama_project` (assembly with `dynamic_rush_v7` native per-gear TTS, true-peak-guarded mux, DQ1–DQ12, R64 post-hoc, autopsy, **prosody-qa P1–P10**, asset manifest, KB sync, `verify`) with up to 2 auto-heal rounds (EDL-only rebuild or targeted clip regeneration). Expect ~1–3 h (Flow) + ~20 min (TTS + assembly; edge-tts ≈ 8 min cold).
 

@@ -1,6 +1,6 @@
 {
-  "updated_at_utc": "2026-11-02T13:20:51.242651+00:00",
-  "count": 117,
+  "updated_at_utc": "2026-11-03T19:52:46.530806+00:00",
+  "count": 122,
   "locations": [
     {
       "location_id": "adjoining_chair_room",
@@ -86,12 +86,14 @@
         "diorama_24_bodamer_prosopagnosia_face_blindness",
         "diorama_25_false_memory_elizabeth_loftus",
         "diorama_26_clark_doll_experiment_bias",
-        "gage_diorama_v7_lowpoly"
+        "gage_diorama_v7_lowpoly",
+        "reenact_01_ainsworth_strange_situation"
       ],
       "style_profiles": [
-        "lowpoly_pastel_v7"
+        "lowpoly_pastel_v7",
+        "porcelain_cinematic_v7"
       ],
-      "cut_appearances": 183,
+      "cut_appearances": 195,
       "mean_clarity_score": 97.1,
       "sample_scene": "Untextured flat-shaded matte low-poly 3D animation filling the entire full-bleed vertical viewport under bright diffused pastel daylight with soft desaturated slate, sage, pale sand, and sky-blue tones: sunlit pale-sand architectural studio room filling the full frame: three-quarter lateral side view of a whole untextured flat-shaded matte warm-ivory low-poly 3D anatomical brain model resting on a clean pale-wood stand with crisp geometric lobes, folded cerebellum, and brainstem. Along the precentral motor strip just forward of the central groove on the matte warm-ivory 3D whole brain model, bright terracotta-coral facets pulse repeatedly downward while return pathways stay dim slate. Razor-sharp infinite deep focus from foreground to distant horizon with clean geometric polygon facets and smooth blank unlabelled solid-color matte surfaces.",
       "sample_prompt": "Generate an 8-second vertical portrait video clip. Static locked-off tripod shot with crisp internal mechanical and figure motion. Untextured flat-shaded matte low-poly 3D animation filling the entire full-bleed vertical viewport under bright diffused pastel daylight with soft desaturated slate, sage, pale sand, and sky-blue tones: sunlit pale-sand architectural studio room filling the full frame: three-quarter lateral side view of a whole untextured flat-shaded matte warm-ivory low-poly 3D anatomical brain model resting on a clean pale-wood stand with crisp geometric lobes, folded cerebellum, and brainstem. Along the precentral motor strip just forward of the central groove on the matte warm-ivory 3D whole brain model, bright terracotta-coral facets pulse repeatedly downward while return pathways stay dim slate. Razor-sharp infinite deep focus from foreground to distant horizon with clean geometric polygon facets and smooth blank unlabelled solid-color matte surfaces Subtle crisp physical foley and quiet daylight ambience only, silent voice track.",
@@ -349,6 +351,34 @@
       "sample_scene": "Untextured flat-shaded matte low-poly 3D animation filling the entire full-bleed vertical viewport under bright diffused pastel daylight with soft desaturated slate, sage, pale sand, and sky-blue tones: tight neck-down work close-up framed strictly below the collar showing untextured matte low-poly forearms and geometric hands (olive sweater cuffs pausing and lifting the bare brass key ring from the center of the desk). Pausing calmly, the right low-poly hand reaches straight down and lifts the bare brass key ring alongside an unattached red leather fob, while the brass keys jingle cleanly in bright morning light. Razor-sharp infinite deep focus from foreground to distant horizon with clean geometric polygon facets and smooth blank unlabelled solid-color matte surfaces.",
       "sample_prompt": "Generate an 8-second vertical portrait video clip. Static locked-off tripod shot with crisp internal mechanical and figure motion. Untextured flat-shaded matte low-poly 3D animation filling the entire full-bleed vertical viewport under bright diffused pastel daylight with soft desaturated slate, sage, pale sand, and sky-blue tones: tight neck-down work close-up framed strictly below the collar showing untextured matte low-poly forearms and geometric hands (olive sweater cuffs pausing and lifting the bare brass key ring from the center of the desk). Pausing calmly, the right low-poly hand reaches straight down and lifts the bare brass key ring alongside an unattached red leather fob, while the brass keys jingle cleanly in bright morning light. Razor-sharp infinite deep focus from foreground to distant horizon with clean geometric polygon facets and smooth blank unlabelled solid-color matte surfaces. Subtle crisp physical foley and quiet daylight ambience only, silent voice track.",
       "sample_clip_path": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/diorama_07_invisible_gorilla_attention/03_visuals/flow_native_clips/clip_52.mp4"
+    },
+    {
+      "location_id": "home_nursery_room",
+      "project_ids": [
+        "reenact_01_ainsworth_strange_situation"
+      ],
+      "style_profiles": [
+        "porcelain_cinematic_v7"
+      ],
+      "cut_appearances": 2,
+      "mean_clarity_score": 97.3,
+      "sample_scene": "Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: tight neck-down work close-up framed strictly below the collar showing smooth matte-white ball-jointed porcelain forearms and articulated hands in tailored cuffs (sky-blue knit sweater cuffs and small smooth ball-jointed matte-white porcelain hands resting quietly over unpainted maple wooden cubes on a soft cream nursery rug). Both small matte-white porcelain hands lower slowly toward the sweater hem and press a single unpainted maple cube silently flat against the cream rug, while the surrounding wooden cubes remain completely still in warm daylight. Crisp cinema prime lens clarity on tactile porcelain, metal, glass, and wood with unmarked walls.",
+      "sample_prompt": "Generate an 8-second vertical portrait video clip. Static locked-off tripod shot with crisp internal mechanical and figure motion. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: tight neck-down work close-up framed strictly below the collar showing smooth matte-white ball-jointed porcelain forearms and articulated hands in tailored cuffs (sky-blue knit sweater cuffs and small smooth ball-jointed matte-white porcelain hands resting quietly over unpainted maple wooden cubes on a soft cream nursery rug). Both small matte-white porcelain hands lower slowly toward the sweater hem and press a single unpainted maple cube silently flat against the cream rug, while the surrounding wooden cubes remain completely still in warm daylight. Crisp cinema prime lens clarity on tactile porcelain, metal, glass, and wood with unmarked walls. Subtle crisp physical foley and quiet studio daylight ambience only, silent voice track.",
+      "sample_clip_path": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/03_visuals/flow_native_clips/clip_42.mp4"
+    },
+    {
+      "location_id": "hopkins_playroom_1970",
+      "project_ids": [
+        "reenact_01_ainsworth_strange_situation"
+      ],
+      "style_profiles": [
+        "porcelain_cinematic_v7"
+      ],
+      "cut_appearances": 21,
+      "mean_clarity_score": 97.3,
+      "sample_scene": "Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: full-bleed high-key view of a sunlit 1970 playroom with warm oak flooring, an empty left chair, a right chair, and wooden blocks on a center mat in soft bright studio daylight with crisp rim light. In three-quarter profile, one matte-white porcelain toddler with a smooth featureless white oval head in a sky-blue sweater and cream trousers sits on the mat, lifts a maple block, and turns it between white hands while one porcelain mother with a smooth featureless white oval head in a camel cardigan and dark slacks rests her hands on the right chair. Crisp cinema prime lens clarity on tactile porcelain, metal, glass, and wood with unmarked walls.",
+      "sample_prompt": "Generate an 8-second vertical portrait video clip. Static locked-off tripod shot with crisp internal mechanical and figure motion. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: full-bleed high-key view of a sunlit 1970 playroom with warm oak flooring, an empty left chair, a right chair, and wooden blocks on a center mat in soft bright studio daylight with crisp rim light. In three-quarter profile, one matte-white porcelain toddler with a smooth featureless white oval head in a sky-blue sweater and cream trousers sits on the mat, lifts a maple block, and turns it between white hands while one porcelain mother with a smooth featureless white oval head in a camel cardigan and dark slacks rests her hands on the right chair. Crisp cinema prime lens clarity on tactile porcelain, metal, glass, and wood with unmarked walls. Subtle crisp physical foley and quiet studio daylight ambience only, silent voice track.",
+      "sample_clip_path": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/03_visuals/flow_native_clips/clip_1.mp4"
     },
     {
       "location_id": "hospital_consult_room",
@@ -688,6 +718,20 @@
       "sample_clip_path": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/diorama_21_delgado_stimoceiver_bull/03_visuals/flow_native_clips/clip_54.mp4"
     },
     {
+      "location_id": "modern_dining_room",
+      "project_ids": [
+        "reenact_01_ainsworth_strange_situation"
+      ],
+      "style_profiles": [
+        "porcelain_cinematic_v7"
+      ],
+      "cut_appearances": 2,
+      "mean_clarity_score": 97.6,
+      "sample_scene": "Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: full-bleed high-key view of wide full-length side view of a sunlit dining room showing two wooden chairs facing across a narrow oak table on a wood floor in soft bright studio daylight with crisp rim light. Two full-body clothed matte-white porcelain adults with smooth featureless white oval heads, knit sweaters, linen trousers, and white shoes sit upright on the wooden chairs with feet on the floor as the left porcelain figure places both white hands flat on the tabletop beside two white mugs and turns away toward the window. Crisp cinema prime lens clarity on tactile porcelain, metal, glass, and wood with unmarked walls.",
+      "sample_prompt": "Generate an 8-second vertical portrait video clip. Smooth steady orthogonal horizontal camera pan rightward across the scene. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: full-bleed high-key view of wide full-length side view of a sunlit dining room showing two wooden chairs facing across a narrow oak table on a wood floor in soft bright studio daylight with crisp rim light. Two full-body clothed matte-white porcelain adults with smooth featureless white oval heads, knit sweaters, linen trousers, and white shoes sit upright on the wooden chairs with feet on the floor as the left porcelain figure places both white hands flat on the tabletop beside two white mugs and turns away toward the window. Crisp cinema prime lens clarity on tactile porcelain, metal, glass, and wood with unmarked walls. Subtle crisp physical foley and quiet studio daylight ambience only, silent voice track.",
+      "sample_clip_path": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/03_visuals/flow_native_clips/clip_45.mp4"
+    },
+    {
       "location_id": "modern_ethics_room",
       "project_ids": [
         "diorama_04_milgram_obedience_switch"
@@ -955,6 +999,20 @@
       "sample_scene": "Untextured flat-shaded matte low-poly 3D animation filling the entire full-bleed vertical viewport under bright diffused pastel daylight with soft desaturated slate, sage, pale sand, and sky-blue tones: tight neck-down work close-up framed strictly below the collar showing untextured matte low-poly forearms and geometric hands (rolled white shirt sleeves and cool porcelain-white gloved low-poly hands holding a fine artist brush and warm-brown matte paint dish). One cool porcelain-white gloved low-poly hand steadies a sculpted doll while the other hand glides the soft brush smoothly across the doll's arm, while even warm-brown matte pigment covers the smooth geometric surface. Razor-sharp infinite deep focus from foreground to distant horizon with clean geometric polygon facets and smooth blank unlabelled solid-color matte surfaces.",
       "sample_prompt": "Generate an 8-second vertical portrait video clip. Static locked-off tripod shot with crisp internal mechanical and figure motion. Untextured flat-shaded matte low-poly 3D animation filling the entire full-bleed vertical viewport under bright diffused pastel daylight with soft desaturated slate, sage, pale sand, and sky-blue tones: tight neck-down work close-up framed strictly below the collar showing untextured matte low-poly forearms and geometric hands (rolled white shirt sleeves and cool porcelain-white gloved low-poly hands holding a fine artist brush and warm-brown matte paint dish). One cool porcelain-white gloved low-poly hand steadies a sculpted doll while the other hand glides the soft brush smoothly across the doll's arm, while even warm-brown matte pigment covers the smooth geometric surface. Razor-sharp infinite deep focus from foreground to distant horizon with clean geometric polygon facets and smooth blank unlabelled solid-color matte surfaces. Subtle crisp physical foley and quiet daylight ambience only, silent voice track.",
       "sample_clip_path": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/diorama_26_clark_doll_experiment_bias/03_visuals/flow_native_clips/clip_11.mp4"
+    },
+    {
+      "location_id": "observation_booth_1970",
+      "project_ids": [
+        "reenact_01_ainsworth_strange_situation"
+      ],
+      "style_profiles": [
+        "porcelain_cinematic_v7"
+      ],
+      "cut_appearances": 6,
+      "mean_clarity_score": 97.2,
+      "sample_scene": "Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: first-person POV looking down at smooth matte-white ball-jointed porcelain forearms and articulated hands in tailored cuffs (tailored tweed jacket cuffs and smooth matte-white porcelain hands over a bright oak study desk). Both porcelain hands open an unmarked clothbound folio volume and place a polished brass paperweight onto the clean ivory page, while the stiff cream pages settle flat under bright studio daylight. Crisp cinema prime lens clarity on tactile porcelain, metal, glass, and wood with unmarked walls.",
+      "sample_prompt": "Generate an 8-second vertical portrait video clip. Static locked-off tripod shot with crisp internal mechanical and figure motion. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: first-person POV looking down at smooth matte-white ball-jointed porcelain forearms and articulated hands in tailored cuffs (tailored tweed jacket cuffs and smooth matte-white porcelain hands over a bright oak study desk). Both porcelain hands open an unmarked clothbound folio volume and place a polished brass paperweight onto the clean ivory page, while the stiff cream pages settle flat under bright studio daylight. Crisp cinema prime lens clarity on tactile porcelain, metal, glass, and wood with unmarked walls. Subtle crisp physical foley and quiet studio daylight ambience only, silent voice track.",
+      "sample_clip_path": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/03_visuals/flow_native_clips/clip_26.mp4"
     },
     {
       "location_id": "observer_screening_room",
@@ -1316,6 +1374,20 @@
       "sample_scene": "Untextured flat-shaded matte low-poly 3D animation filling the entire full-bleed vertical viewport under bright diffused pastel daylight with soft desaturated slate, sage, pale sand, and sky-blue tones: full-bleed wide architectural view of the sunlit Regensburg MRI scanner bay with a motorized padded bed aligned at the circular bore lit by soft bright diffused pastel daylight. Viewed strictly from behind, the clothed low-poly technician in a white coat presses the bed switch and slides a volunteer smoothly into the scanner ring. Razor-sharp infinite deep focus from foreground to distant horizon with clean geometric polygon facets and smooth blank unlabelled solid-color matte surfaces.",
       "sample_prompt": "Generate an 8-second vertical portrait video clip. Static locked-off tripod shot with crisp internal mechanical and figure motion. Untextured flat-shaded matte low-poly 3D animation filling the entire full-bleed vertical viewport under bright diffused pastel daylight with soft desaturated slate, sage, pale sand, and sky-blue tones: full-bleed wide architectural view of the sunlit Regensburg MRI scanner bay with a motorized padded bed aligned at the circular bore lit by soft bright diffused pastel daylight. Viewed strictly from behind, the clothed low-poly technician in a white coat presses the bed switch and slides a volunteer smoothly into the scanner ring. Razor-sharp infinite deep focus from foreground to distant horizon with clean geometric polygon facets and smooth blank unlabelled solid-color matte surfaces. Subtle crisp physical foley and quiet daylight ambience only, silent voice track.",
       "sample_clip_path": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/diorama_15_draganski_juggling_gray_matter/03_visuals/flow_native_clips/clip_11.mp4"
+    },
+    {
+      "location_id": "regensburg_telemetry_1993",
+      "project_ids": [
+        "reenact_01_ainsworth_strange_situation"
+      ],
+      "style_profiles": [
+        "porcelain_cinematic_v7"
+      ],
+      "cut_appearances": 5,
+      "mean_clarity_score": 97.0,
+      "sample_scene": "Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: clean photorealistic high-key architectural and mechanical cross-section of a twin-channel brushed-aluminum cardiac oscillograph displaying two parallel glass waveform ribbons spanning edge-to-edge. Both bright crimson stylus arms oscillate at matching high speed across unruled ivory paper rolls. Crisp cinema prime lens clarity on tactile porcelain, metal, glass, and wood with unmarked walls.",
+      "sample_prompt": "Generate an 8-second vertical portrait video clip. Smooth steady orthogonal horizontal camera pan leftward across the scene. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: clean photorealistic high-key architectural and mechanical cross-section of a twin-channel brushed-aluminum cardiac oscillograph displaying two parallel glass waveform ribbons spanning edge-to-edge. Both bright crimson stylus arms oscillate at matching high speed across unruled ivory paper rolls. Crisp cinema prime lens clarity on tactile porcelain, metal, glass, and wood with unmarked walls. Subtle crisp physical foley and quiet studio daylight ambience only, silent voice track.",
+      "sample_clip_path": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/03_visuals/flow_native_clips/clip_37.mp4"
     },
     {
       "location_id": "sandiego_neuro_lab",

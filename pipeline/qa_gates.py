@@ -196,21 +196,46 @@ def run_preflight_qa(cdp_port: int = 9222, require_live_cdp: bool = False) -> di
     try:
         from pipeline.config import (
             DEFAULT_DIORAMA_STYLE_PROFILE,
+            DEFAULT_DIORAMA_VOICE_PRESET,
             DEFAULT_FLOW_ENGINE_MODE,
             DEFAULT_PRODUCTION_PROFILE,
+            DEFAULT_REENACTMENT_VOICE_PRESET,
             DIORAMA_TTS_VOICE,
+            DIORAMA_V7_PROSODY_GEAR_RATES,
+            DIORAMA_V7_PROSODY_GEARS,
             DIORAMA_V7_STYLE_PROFILES,
             DIORAMA_V7_TTS_PITCH,
             DIORAMA_V7_TTS_RATE,
             DIORAMA_V7_TTS_SPEED,
             DIORAMA_V7_TTS_VOLUME,
+            DIORAMA_V7_US_PROSODY_GEAR_RATES,
+            DIORAMA_V7_US_PROSODY_GEARS,
             DIORAMA_V7_VIDEO_FPS,
+            DIORAMA_VOICE_PRESETS,
             FLOW_PRIMARY_VIDEO_MODEL,
             FLOW_ZERO_CREDIT_MODEL,
             FONT_CONDENSED_BLACK_PATH,
             PORCELAIN_V7_STYLE_PROFILE,
         )
 
+        presets_ok = (
+            DEFAULT_DIORAMA_VOICE_PRESET == "andrew_v7"
+            and DEFAULT_REENACTMENT_VOICE_PRESET in DIORAMA_VOICE_PRESETS
+            and {"andrew_v7", "emma_v7", "ava_v7", "aria_v7", "christopher_v7"}.issubset(DIORAMA_VOICE_PRESETS.keys())
+            and DIORAMA_VOICE_PRESETS["andrew_v7"]["voice"] == DIORAMA_TTS_VOICE
+            and all(
+                bool(cfg.get("voice")) and bool(cfg.get("pitch")) and bool(cfg.get("eq_profile")) and bool(cfg.get("kokoro_voice"))
+                for cfg in DIORAMA_VOICE_PRESETS.values()
+            )
+        )
+        prosody_lockstep_ok = (
+            set(DIORAMA_V7_PROSODY_GEARS.keys()) == set(DIORAMA_V7_PROSODY_GEAR_RATES.keys())
+            and set(DIORAMA_V7_US_PROSODY_GEARS.keys()) == set(DIORAMA_V7_US_PROSODY_GEAR_RATES.keys())
+            and all(
+                abs(DIORAMA_V7_US_PROSODY_GEARS[g]["tempo"] - (1.0 + int(DIORAMA_V7_US_PROSODY_GEAR_RATES[g].replace("%", "")) / 100.0)) < 1e-6
+                for g in DIORAMA_V7_US_PROSODY_GEARS
+            )
+        )
         v7_ssot_ok = (
             DEFAULT_PRODUCTION_PROFILE == "neuro_diorama"
             and DEFAULT_DIORAMA_STYLE_PROFILE == PORCELAIN_V7_STYLE_PROFILE
@@ -225,12 +250,18 @@ def run_preflight_qa(cdp_port: int = 9222, require_live_cdp: bool = False) -> di
             and FLOW_PRIMARY_VIDEO_MODEL == "Omni 1.1 Flash"
             and FLOW_ZERO_CREDIT_MODEL == "Veo 3.1 - Lite [Lower Priority]"
             and DEFAULT_FLOW_ENGINE_MODE == "auto"
+            and presets_ok
+            and prosody_lockstep_ok
         )
         checks["schema_v7_diorama_ssot_lock"] = {
             "passed": v7_ssot_ok,
             "default_profile": DEFAULT_PRODUCTION_PROFILE,
             "style_profile": DEFAULT_DIORAMA_STYLE_PROFILE,
             "tts_voice": DIORAMA_TTS_VOICE,
+            "voice_presets": sorted(DIORAMA_VOICE_PRESETS.keys()),
+            "default_voice_preset": DEFAULT_DIORAMA_VOICE_PRESET,
+            "reenactment_voice_preset": DEFAULT_REENACTMENT_VOICE_PRESET,
+            "prosody_lockstep_ok": prosody_lockstep_ok,
             "tts_rate": DIORAMA_V7_TTS_RATE,
             "tts_pitch": DIORAMA_V7_TTS_PITCH,
             "tts_volume": DIORAMA_V7_TTS_VOLUME,
@@ -509,7 +540,7 @@ def run_media_integrity_qa(project_id: str | None = None) -> dict[str, Any]:
                 except Exception:
                     is_v5_plan = False
                     is_diorama_plan = False
-            has_clip_contract_artifacts = (
+            has_clip_contract_artifacts = (not is_diorama_plan) and (
                 (p_dir / "03_visuals" / CLIP_QA_CONTRACT_FILENAME).exists()
                 or (p_dir / "03_visuals" / CLIP_QA_REPORT_FILENAME).exists()
                 or is_v5_plan
@@ -696,7 +727,9 @@ class ExecutableQASuite:
         clip_rep_file = vis_dir / CLIP_QA_REPORT_FILENAME
         clip_contract_file = vis_dir / CLIP_QA_CONTRACT_FILENAME
         clip_sem_file = vis_dir / CLIP_SEMANTIC_REVIEW_FILENAME
-        require_clip_qa = clip_rep_file.exists() or clip_contract_file.exists() or (is_v5_plan and has_native_clips)
+        require_clip_qa = (not is_diorama_plan) and (
+            clip_rep_file.exists() or clip_contract_file.exists() or (is_v5_plan and has_native_clips)
+        )
         clip_qa_ok = True
         if require_clip_qa:
             if not clip_rep_file.exists():

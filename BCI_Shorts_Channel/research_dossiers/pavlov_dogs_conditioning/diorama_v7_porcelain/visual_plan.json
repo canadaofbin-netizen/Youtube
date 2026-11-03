@@ -1,0 +1,1129 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "pavlov_dogs_conditioning",
+  "topic": "Ivan Pavlov (1903-1927) Saint Petersburg Metronome Salivary Conditioning, Soundproof Trench Laboratory, Krestovnikov 374 Backward-Order Trials, and Brainstem Reflex Wiring",
+  "act5_climax_episode": "Krestovnikov's 374 failed backward-order bell pairings versus 1-trial forward buzzer conditioning and Rescorla's 1988 contingency discovery proving brains wire predictive cues rather than mere temporal contiguity.",
+  "outro_title_lines": [
+    "IVAN PAVLOV (1903)",
+    "SAINT PETERSBURG LAB"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "BELL MYTH?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "NO DINNER BELL?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "ELEVEN DROPS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "SILENT FORTRESS"
+    },
+    {
+      "sentence_index": 27,
+      "text": "ORDER MATTERS"
+    },
+    {
+      "sentence_index": 35,
+      "text": "HABIT PREDICTION"
+    },
+    {
+      "sentence_index": 43,
+      "text": "MUTE THE CUE"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "BELL MYTH?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "NO DINNER BELL?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "ELEVEN DROPS"
+    },
+    {
+      "sentence_index": 19,
+      "text": "SILENT FORTRESS"
+    },
+    {
+      "sentence_index": 27,
+      "text": "ORDER MATTERS"
+    },
+    {
+      "sentence_index": 35,
+      "text": "HABIT PREDICTION"
+    },
+    {
+      "sentence_index": 43,
+      "text": "MUTE THE CUE"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 32,
+      "mode": "split_hstack",
+      "left_clip_index": 31,
+      "right_clip_index": 47,
+      "left_label": "LATE BELL: DRY TUBE",
+      "right_label": "EARLY CUE: DROPS FLOW"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide the brushed-silver dinner bell out of view and place a pyramid wooden metronome center stage",
+      "consequence": "the warm-maple pyramid metronome rests squarely in bright window light",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "petersburg_digestion_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved matte-white porcelain hands releasing the silver pendulum arm of the pyramid wooden metronome",
+      "prop_action": "a cool porcelain-white gloved matte-white porcelain hand unlatches the silver pendulum rod and pulls back so the rod swings briskly left and right",
+      "consequence": "steady sunlit acoustic ripples pulse outward with each metronome swing",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "petersburg_digestion_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a bright sunlit Saint Petersburg physiology room with tall arched windows, a wooden harness stand, and a shelf metronome",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain physiologists in white lab coats stand beside a smooth sculptural ivory matte-white porcelain dog in a brown matte-slate harness on the wooden table",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "petersburg_digestion_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "dark wool suit sleeves and cool porcelain-white gloved matte-white porcelain hands placing a round brushed-gold medallion case beside glass digestion flasks",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands open the velvet medallion case and align three clear digestion flasks along the slate-stone counter",
+      "consequence": "warm morning sunlight glints across the gold disc and clear flasks",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "petersburg_digestion_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key petersburg digestion lab with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "petersburg_digestion_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 5
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands fitting a tiny clear glass funnel gently onto the outer cheek of a smooth sculptural ivory matte-white porcelain dog model",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands press the smooth compact glass funnel onto the side of the smooth sculptural ivory muzzle and connect a thin clear tube",
+      "consequence": "the neat glass funnel and flexible clear tube sit securely in place",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "petersburg_digestion_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved matte-white porcelain hands holding an ivory tally pad beside the clear glass funnel and vial",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand holds the ivory pad while the other writes neat tally strokes with a wooden pencil as clear sky-blue drops fall into the vial",
+      "consequence": "clear sky-blue droplets collect cleanly at the bottom of the glass vial",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 7,
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "petersburg_digestion_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit physiology room showing the bare wooden stand in front of the harnessed matte-white porcelain dog with zero food present",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain chief scientist in a white lab coat leans over the collecting vial and lifts his notebook in surprise",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "petersburg_digestion_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit physiology room showing the bare wooden stand in front of the harnessed matte-white porcelain dog with zero food present",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain chief scientist in a white lab coat leans over the collecting vial and lifts his notebook in surprise",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 9,
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "petersburg_digestion_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit wooden testing stand with overhead matte-slate harness straps and a pyramid wooden metronome perched on a front shelf",
+      "action": "viewed strictly from behind, an assistant in a white lab coat steadies the brown matte-slate harness on the smooth sculptural matte-white porcelain dog and places the metronome on the shelf",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "petersburg_digestion_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit wooden testing stand with overhead matte-slate harness straps and a pyramid wooden metronome perched on a front shelf",
+      "action": "viewed strictly from behind, an assistant in a white lab coat steadies the brown matte-slate harness on the smooth sculptural matte-white porcelain dog and places the metronome on the shelf",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 11,
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "petersburg_digestion_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands sliding a full ceramic food bowl onto the wooden stand",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift the warm-amber kibble bowl and slide it smoothly beneath the smooth sculptural matte-white porcelain dog's muzzle",
+      "consequence": "the smooth sculptural matte-white porcelain dog lowers its head happily to the bowl",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "petersburg_digestion_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge",
+      "prop_action": "the left cool porcelain-white gloved matte-white porcelain hand lifts the food bowl completely off the table while the right hand pushes the ticking metronome rod alone",
+      "consequence": "only the ticking pyramid metronome stands on the bare wooden shelf",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 13,
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "petersburg_digestion_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster kitchen counter holding a sunlit sky-blue stovetop kettle beside a brushed-silver pocket tally counter",
+      "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in shirt sleeves set the sky-blue kettle down and turn the tally counter knob as a crisp white steam puff rises from the spout",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "gentle_push_in",
+      "analogy_world": "a sunlit pale-stone sink basin fitted with a minimalist brushed-silver kitchen faucet",
+      "comparison_action": "a cool porcelain-white gloved matte-white porcelain hand in a coat sleeve turns the silver tap handle slightly so clear sky-blue droplets drip rhythmically into a glass cup",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the cramped early laboratory room where a wooden chair sits right beside the dog's harness stand",
+      "action": "viewed strictly from behind, a seated clothed matte-white porcelain assistant in a white coat shifts his shoulders slightly on the chair and the smooth sculptural matte-white porcelain dog turns its head sharply toward him",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "petersburg_digestion_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "dark wool trousers and matte-slate shoes stepping past a half-open wooden laboratory door beside a vibrating glass tube",
+      "prop_action": "clothed matte-white porcelain legs walk briskly past the hallway threshold while gloved hands inside reach to steady the trembling glass vial",
+      "consequence": "unwanted sky-blue droplets surge unevenly inside the vial",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 17,
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "petersburg_digestion_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the noisy wooden laboratory with open hallway doors and spoiled tally sheets on the desk",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain chief physiologist and two assistants in white coats close their notebooks and push aside the spoiled vials",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "petersburg_digestion_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "soundproof_trench_tower",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands operating brushed-silver pneumatic switches and a periscope viewer outside the booth",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand presses a brushed-silver air valve while the other traces a clean sky-blue pathway line on a schematic sheet",
+      "consequence": "the pneumatic drop counter clicks evenly on the outer desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "soundproof_trench_tower",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "soundproof_trench_tower",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "an architectural cross-section of four soundproof corner chambers divided by a cross-shaped corridor and thick partition walls",
+      "internal_mechanism": "in the outer booth a researcher presses a pneumatic bulb that sends a silent air pulse through the wall to start the metronome beside the isolated dog",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 20,
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "soundproof_trench_tower",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "soundproof_trench_tower",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands operating brushed-silver pneumatic switches and a periscope viewer outside the booth",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand presses a brushed-silver air valve while the other traces a clean sky-blue pathway line on a schematic sheet",
+      "consequence": "the pneumatic drop counter clicks evenly on the outer desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 21,
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "soundproof_trench_tower",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "AUDITORY CORTEX\nHEARING CENTER",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the side temporal surface of the matte warm-ivory 3D brain model above the ear, bright sky-blue facets pulse rhythmically across the auditory cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "brainstem",
+      "anatomy_label": "BRAINSTEM\nREFLEX CENTER",
+      "camera": "tilt_down",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, a glowing warm-gold pathway descends into the lower brainstem stalk and lights its reflex core",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23
+    },
+    {
+      "sentence_index": 24,
+      "end_sentence_index": 25,
+      "act": 3,
+      "location_id": "soundproof_trench_tower",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved matte-white porcelain hands observing a horizontal clear glass tube filled with sky-blue indicator fluid",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand flips the remote metronome toggle and points as the sky-blue fluid column glides steadily forward along the glass tube",
+      "consequence": "eleven crisp fluid steps advance automatically without food",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "soundproof_trench_tower",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "soundproof_trench_tower",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge over two brushed-silver switches",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift a food-bowl card and a sound-bell card and swap their left-to-right positions on the control desk",
+      "consequence": "the reversed sequence cards sit ready for testing",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "soundproof_trench_tower",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "act": 4,
+      "location_id": "soundproof_trench_tower",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright outer control corridor of the soundproof laboratory with brushed-silver pneumatic levers and five neat ivory record folders",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white lab coats stand at the control panel aligning five sunlit experiment folders",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "soundproof_trench_tower",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "soundproof_trench_tower",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands pushing the pneumatic lever that swings a ceramic food bowl forward first",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands push the amber food lever forward first and hold the electric bell switch idle",
+      "consequence": "the ceramic food bowl swings out silently before any sound",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 28,
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "soundproof_trench_tower",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "soundproof_trench_tower",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright outer control corridor of the soundproof laboratory with brushed-silver pneumatic levers and five neat ivory record folders",
+      "action": "the sky-blue matte-white porcelain train glides away down the track first before a gloved hand in a coat sleeve slides a late signal flag up behind it",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "soundproof_trench_tower",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "soundproof_trench_tower",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands stacking thick bundles of completed ivory trial cards on the control desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift a third tall stack of ivory trial cards and set it beside two full stacks",
+      "consequence": "hundreds of backward-order trial cards pile high on the slate-stone desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 30,
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "soundproof_trench_tower",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "soundproof_trench_tower",
+      "grammar": "porcelain_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge beside the clear collecting vial",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand presses the standalone bell switch and points to the bone-dry clear glass vial",
+      "consequence": "the clear glass vial stays completely empty and dry",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "soundproof_trench_tower",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "soundproof_trench_tower",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved matte-white porcelain hands holding the dry empty glass vial beside the backward bell card",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift the completely dry glass vial and tap its empty side gently",
+      "consequence": "zero droplets appear anywhere inside the dry glass wall",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "soundproof_trench_tower",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "soundproof_trench_tower",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge",
+      "prop_action": "the left cool porcelain-white gloved matte-white porcelain hand taps the brushed-silver buzzer once alone and places a single gold star token beside the dripping vial",
+      "consequence": "sky-blue drops flow immediately after one single forward pairing",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 34,
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "soundproof_trench_tower",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 5,
+      "location_id": "modern_habit_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit university lecture library with slate-stone reading tables and stacks of cloth-bound ivory volumes",
+      "action": "viewed strictly from behind, clothed matte-white porcelain scholars in tweed jackets sit reading crisp newly opened volumes and sketching arrow diagrams",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "modern_habit_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "end_sentence_index": 36,
+      "act": 5,
+      "location_id": "modern_habit_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a sunlit university lecture library with slate-stone reading tables and stacks of cloth-bound ivory volumes",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "modern_habit_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 34
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "modern_habit_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands striking a suspended iron bar with a mallet behind a small white plush toy rat",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand sets the soft white plush rat on a mat while the other strikes the iron bar overhead",
+      "consequence": "sharp coral shock rings radiate around the harmless plush toy",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "modern_habit_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "modern_habit_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sunlit knit romper cuffs and small cool porcelain-white gloved matte-white porcelain hands pulling back quickly from a soft furry plush block",
+      "prop_action": "both small cool porcelain-white gloved matte-white porcelain hands push the soft white plush toy away across the woven rug and pull back",
+      "consequence": "the harmless plush toy sits untouched across the mat",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 38,
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "modern_habit_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "modern_habit_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "modern navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands comparing reliable versus random cue-light boards on a lab desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide a steady sky-blue predictor tile forward and push a scattered random gray tile aside",
+      "consequence": "only the true predictor tile lights up the reward lamp",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "modern_habit_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "modern_habit_desk",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean sunlit probability gate model linking a sky-blue cue funnel to a warm-gold forecast meter",
+      "internal_mechanism": "when every sky-blue ball is followed by a gold ball, the forecast needle swings smoothly to full lock",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 40,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "modern_habit_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "soundproof_trench_tower",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit physiology hall displaying the metronome, clear glass funnel model, and modern prediction charts",
+      "action": "viewed strictly from behind, clothed matte-white porcelain neuroscientists and historians in blazers stand around the historic wooden stand admiring the clean apparatus",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 42,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "soundproof_trench_tower",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 43,
+      "act": 6,
+      "location_id": "modern_habit_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit modern home office desk with a laptop, ceramic mug, sunlit smartphone, and crinkly paper snack bag",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain person in a sage sweater sits typing calmly at the sunlit wooden desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "modern_habit_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "brainstem",
+      "anatomy_label": "BRAINSTEM\nEARLY SALIVA REFLEX",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, soft amber-gold and sky-blue facets glimmer rapidly inside the lower brainstem reflex column",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "modern_habit_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge over the desk",
+      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand grasps the ringing sunlit smartphone automatically before pausing mid-lift",
+      "consequence": "the automatic reflex catch becomes visible in bright daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "modern_habit_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "AUDITORY CORTEX\nCHIME HIJACK",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the side temporal ridge of the matte warm-ivory 3D brain model, coral-amber facets flash across the auditory cortex and arc forward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_habit_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place a crinkly sunlit snack bag beside an unopened wooden box and fold hands calmly on the desk",
+      "consequence": "the unrewarded cue sits harmlessly without any treat following",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 48,
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "modern_habit_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Saint Petersburg physiology room with the still wooden metronome and clear glass funnel beside a modern muted phone on the slate-stone table",
+      "action": "viewed strictly from behind, clothed matte-white porcelain researchers in white coats stand calmly looking out through the tall sunlit laboratory windows",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "petersburg_digestion_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Saint Petersburg physiology room with the still wooden metronome and clear glass funnel beside a modern muted phone on the slate-stone table",
+      "action": "viewed strictly from behind, clothed matte-white porcelain researchers in white coats stand calmly looking out through the tall sunlit laboratory windows",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 50,
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "petersburg_digestion_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "soundproof_trench_tower",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved matte-white porcelain hands holding a brimming glass vial beside the forward buzzer card",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift the clear glass vial as bright sky-blue droplets drip briskly from the top spout",
+      "consequence": "the forward-cue glass vial fills steadily with clear sky-blue liquid",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "soundproof_trench_tower",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "petersburg_digestion_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a sunlit river embankment and neoclassical stone institute garden in Saint Petersburg under a clear morning sky",
+      "action": "viewed strictly from behind, clothed matte-white porcelain scholars in overcoats walk peacefully along the tree-lined stone path as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "NO DINNER BELL?",
+    "cover_sentence_index": 3,
+    "cover_brief": "faceted low-poly dog in a brown leather harness beside a ticking wooden pyramid metronome and clear glass tube"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

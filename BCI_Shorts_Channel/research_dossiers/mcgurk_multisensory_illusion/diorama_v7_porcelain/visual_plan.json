@@ -1,0 +1,1177 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "mcgurk_multisensory_illusion",
+  "topic": "Harry McGurk & John MacDonald (1976) Surrey Audiovisual Speech Fusion Illusion and Temporal Lobe Multisensory Integration",
+  "act5_climax_episode": "Causal magnetic disruption of posterior temporal multisensory hub temporarily restoring pure acoustic perception alongside noisy-room visual clarity boost.",
+  "outro_title_lines": [
+    "MCGURK & MACDONALD (1976)",
+    "SURREY SPEECH STUDIO"
+  ],
+  "thumbnail": {
+    "hook_text": "SEEING VOICES",
+    "cover_sentence_index": 3,
+    "cover_brief": "Centered brushed-silver desktop speaker cone paired with a pastel mechanical acoustic shutter and mist-white occlusion paddle"
+  },
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "EARS ALONE?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "SEEING VOICES"
+    },
+    {
+      "sentence_index": 10,
+      "text": "PHANTOM SOUND"
+    },
+    {
+      "sentence_index": 19,
+      "text": "VISUAL PREVIEW"
+    },
+    {
+      "sentence_index": 27,
+      "text": "WELDING HUB"
+    },
+    {
+      "sentence_index": 35,
+      "text": "NOISY BOOST"
+    },
+    {
+      "sentence_index": 43,
+      "text": "CLEAR LIGHT"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "EARS ALONE?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "SEEING VOICES"
+    },
+    {
+      "sentence_index": 10,
+      "text": "PHANTOM SOUND"
+    },
+    {
+      "sentence_index": 19,
+      "text": "VISUAL PREVIEW"
+    },
+    {
+      "sentence_index": 27,
+      "text": "WELDING HUB"
+    },
+    {
+      "sentence_index": 35,
+      "text": "NOISY BOOST"
+    },
+    {
+      "sentence_index": 43,
+      "text": "CLEAR LIGHT"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 25,
+      "mode": "split_hstack",
+      "left_clip_index": 24,
+      "right_clip_index": 47,
+      "left_label": "UNCOVERED: FUSED",
+      "right_label": "COVERED: PURE"
+    }
+  ],
+  "clips": [
+    {
+      "clip_index": 2,
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "sage sweater sleeves and cool porcelain-white gloved matte-white porcelain hands sliding a clear daylight-white occlusion paddle beside a mechanical phonetic shutter box",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands lift the clear daylight-white paddle away from a wide-aperture slate acoustic shutter and set it on the console",
+      "consequence": "the wide-aperture slate shutter opens rhythmically beside the pulsing silver speaker cone",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 3,
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "dual-channel sunlit prism junction where a narrow powder-blue acoustic wave bar meets a wide sage-green visual shutter bar",
+      "internal_mechanism": "both sunlit bars enter a central lavender prism and emerge as a new unified pale-cyan geometric wave",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 4,
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "sunlit British university audiovisual studio centering a brushed-silver desktop speaker cone, sunlit mechanical shutter box, and clear daylight-white occlusion paddle on a slate desk",
+      "action": "viewed strictly from behind, two matte-white porcelain researchers in navy and sage jackets step up to the dual-track sync console and flip a silver toggle",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 6,
+      "sentence_index": 4,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "acoustic_test_table",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "clear daylight-white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands fitting a single sealed powder-blue tube onto a silver speaker stand",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands slide the straight powder-blue tube onto the speaker nozzle and tap its closed side seam",
+      "consequence": "a single isolated sunlit sound wave travels down the sealed tube",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "acoustic_test_table",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 7,
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "bright British psychology studio with cool slate walls, twin brushed-silver speaker stands, and a sunlit sync console",
+      "action": "viewed strictly from behind, a matte-white porcelain psychologist in a slate tweed jacket walks between the twin silver speakers and places a sunlit reel box on the desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 8,
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and cool porcelain-white gloved matte-white porcelain hands passing two mismatched sunlit track blocks across a splicing bench",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands slide a narrow powder-blue wave block alongside a wide-aperture sage shutter block and clip them together",
+      "consequence": "the mismatched sunlit pair locks into a single silver carrier cartridge",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 7,
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 11,
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "sunlit Surrey audiovisual control room with the silver dual-reel deck, desktop speaker cone, and mechanical shutter unit",
+      "action": "viewed strictly from behind, three matte-white porcelain figures in slate and navy coats step toward the desktop speaker cone and lean forward with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 11,
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "sunlit Surrey audiovisual control room with the silver dual-reel deck, desktop speaker cone, and mechanical shutter unit",
+      "action": "viewed strictly from behind, three matte-white porcelain figures in slate and navy coats step toward the desktop speaker cone and lean forward with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 9,
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 12,
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "navy jacket sleeves and cool porcelain-white gloved matte-white porcelain hands stopping the silver tape reel to inspect the sunlit track strip",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands press the silver stop key and lift the powder-blue audio cartridge out of the deck",
+      "consequence": "the unchanged powder-blue wave strip gleams cleanly in gloved fingers",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 13,
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "acoustic_test_table",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and cool porcelain-white gloved matte-white porcelain hands sliding aside both the powder-blue tile and sage-green tile",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands push the powder-blue and sage-green response tiles back and pull forward a third pale-lavender tile",
+      "consequence": "the unexpected third pale-lavender tile sits centered on the slate mat",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 11,
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "acoustic_test_table",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 14,
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and cool porcelain-white gloved matte-white porcelain hands tapping the third pale-lavender prism block beside the speaker cone",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands set the pale-lavender third prism upright and point toward the active shutter display",
+      "consequence": "a blended pale-lavender wave bar rises steadily on the blank sunlit meter",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 15,
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy jacket sleeves and cool porcelain-white gloved matte-white porcelain hands sliding the clear daylight-white occlusion paddle across the mechanical shutter display",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands slide the opaque clear daylight-white paddle cleanly in front of the wide sage shutter and tap the powder-blue tile",
+      "consequence": "the meter switches right back to pure powder-blue waves while the speaker cone keeps playing",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 13,
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 16,
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "acoustic_test_table",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "bright testing room with three neat rows of cool slate chairs arranged in small, medium, and adult heights before the speaker and shutter console",
+      "action": "elevated wide view from behind showing clothed matte-white porcelain volunteers in sunlit sweaters lifting lavender response tiles across the three seating rows as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "acoustic_test_table",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 17,
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "acoustic_test_table",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "clean clear daylight-white design studio tabletop holding two translucent powder-blue and sage-green color paddles on a silver pivot",
+      "comparison_action": "navy coat sleeves and cool porcelain-white gloved matte-white porcelain hands swing the powder-blue and sage-green paddles together until their overlap forms a crisp third mint-lavender shade",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14
+    },
+    {
+      "clip_index": 18,
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "acoustic_test_table",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "powder-blue cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands comparing a short sunlit bar column beside a tall adult bar column",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands place a medium sage bar beside a tall pale-lavender bar on a slate base and tap both tops",
+      "consequence": "the adult fusion bar stands nearly twice as tall on the clean slate tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "acoustic_test_table",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 19,
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "acoustic_test_table",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "cool clear daylight-white studio wall featuring a smooth brushed-silver rotary dimmer knob set at a halfway sunlit mark",
+      "comparison_action": "sage jacket sleeves and cool porcelain-white gloved matte-white porcelain hands grip the brushed-silver dimmer knob and turn it smoothly to a gentle halfway glow",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16
+    },
+    {
+      "clip_index": 20,
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "sunlit Surrey studio with the desktop speaker cone, mechanical shutter box, and sliding clear daylight-white paddle on the central console",
+      "action": "viewed strictly from behind, two matte-white porcelain researchers in navy and slate jackets slide the clear daylight-white paddle back and forth while leaning toward the unchanged speaker",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 21,
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and cool porcelain-white gloved matte-white porcelain hands swapping the two sunlit cartridges into opposite slots",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands place the wide sage wave block into the audio slot and fit a narrow-aperture powder-blue shutter beside it",
+      "consequence": "two stacked sunlit blocks pop up together as a double combination",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 22,
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands holding the clear daylight-white paddle beside the spinning sync reels",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands pull the clear daylight-white paddle aside and watch the blended lavender bar rise right back up",
+      "consequence": "the lavender fusion bar locks back in automatically despite open inspection",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 20,
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 23,
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "converging twin sunlit conduits carrying a fast sage visual shutter wave and a trailing powder-blue acoustic wave into one shared chamber",
+      "internal_mechanism": "the leading sage wave primes the chamber gate so both streams fuse seamlessly into one lavender output bar",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 21,
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 24,
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "locked_tripod",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "VISUAL CORTEX\nVISION CENTER",
+      "brain_scene": "At the back occipital pole, the primary visual cortex lights crisp sage-blue first and dispatches a rapid forward stream along the lateral side",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21
+    },
+    {
+      "clip_index": 25,
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "AUDITORY CORTEX\nHEARING CENTER",
+      "brain_scene": "Along the upper lateral temporal ridge, the auditory cortex glows soft sky-blue as early visual timing primes incoming sound waves",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22
+    },
+    {
+      "clip_index": 26,
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "magnetic_coil_suite",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "clean sunlit cognitive neuroscience suite with a brushed-silver figure-eight magnetic wand mounted beside a matte matte-white porcelain brain stand",
+      "action": "clear daylight-white coat sleeves and cool porcelain-white gloved matte-white porcelain hands push both sliders as the sage preview reel frame glides well ahead of the sound block",
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "magnetic_coil_suite",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 28,
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy jacket sleeves and cool porcelain-white gloved matte-white porcelain hands holding the clear daylight-white paddle clear of the open sage shutter",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands pull the clear daylight-white paddle open and tap the fused pale-lavender prism block",
+      "consequence": "the uncovered sage shutter and silver speaker produce the fused lavender output",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 30,
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "magnetic_coil_suite",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "clean sunlit cognitive neuroscience suite with a brushed-silver figure-eight magnetic wand mounted beside a matte matte-white porcelain brain stand",
+      "action": "viewed strictly from behind, two matte-white porcelain neuroscientists in clear daylight-white lab coats wheel the silver figure-eight wand stand beside the sunlit brain model",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "magnetic_coil_suite",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 31,
+      "sentence_index": 27,
+      "act": 4,
+      "location_id": "magnetic_coil_suite",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "clear daylight-white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands positioning a brushed-silver figure-eight wand near a sunlit brain model",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands align the silver figure-eight loop beside the lateral furrow of a warm-ivory brain sculpture and lock the arm",
+      "consequence": "a soft cyan-blue alignment ring marks the lateral multisensory hub",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "magnetic_coil_suite",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 32,
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "magnetic_coil_suite",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "clear daylight-white coat sleeves and cool porcelain-white gloved matte-white porcelain hands tracing a converging sunlit pathway chart on a slate desk",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands slide two silver pointers along sage and sky-blue lines and tap one lavender node",
+      "consequence": "the single lateral junction node gleams crisply on the slate board",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 28,
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "magnetic_coil_suite",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 33,
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "temporal lobe",
+      "anatomy_label": "TEMPORAL LOBE\nSIDE LOBE",
+      "brain_scene": "Along the posterior lateral temporal lobe, clean sky-blue auditory streams and sage-green visual streams converge into one luminous cyan-lavender hub",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 28
+    },
+    {
+      "clip_index": 36,
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "sunlit British university audiovisual studio centering a brushed-silver desktop speaker cone, sunlit mechanical shutter box, and clear daylight-white occlusion paddle on a slate desk",
+      "action": "clear daylight-white coat sleeves and cool porcelain-white gloved matte-white porcelain hands grip the brushed-silver bridge plug and pull it cleanly out of the sunlit mixer",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "end_sentence_index": 31,
+      "act": 4,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over sunlit British university audiovisual studio centering a brushed-silver desktop speaker cone, sunlit mechanical shutter box, and clear daylight-white occlusion paddle on a slate desk",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 30
+    },
+    {
+      "clip_index": 37,
+      "sentence_index": 32,
+      "end_sentence_index": 33,
+      "act": 4,
+      "location_id": "magnetic_coil_suite",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "clear daylight-white coat sleeves and cool porcelain-white gloved matte-white porcelain hands checking two separate single-channel sunlit meters on the console",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands tap the standalone powder-blue sound meter and tap the standalone sage visual meter",
+      "consequence": "both individual single-sense sunlit bars stand steady at full height",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "magnetic_coil_suite",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 38,
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "magnetic_coil_suite",
+      "grammar": "porcelain_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "clear daylight-white coat sleeves and cool porcelain-white gloved matte-white porcelain hands lifting the silver figure-eight wand back onto its cradle",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands dock the silver figure-eight wand on its stand and point to the central prism",
+      "consequence": "the fused pale-lavender output bar rises right back into place",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "magnetic_coil_suite",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 39,
+      "sentence_index": 35,
+      "act": 5,
+      "location_id": "acoustic_test_table",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "sunlit testing gallery displaying a smooth row of varied sunlit bar columns ranging from low to tall across a slate table",
+      "action": "elevated wide view from behind showing two matte-white porcelain researchers in clear daylight-white coats walking along the table and comparing the varied sunlit fusion columns",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "acoustic_test_table",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 40,
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "magnetic_coil_suite",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands linking a thick cyan connector bridge to a tall lavender fusion column",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands snap a wide cyan bridge bar onto the tall lavender column and set a thin bridge beside a short column",
+      "consequence": "bridge width matches fusion bar height cleanly across the slate board",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 36,
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "magnetic_coil_suite",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 41,
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "acoustic_test_table",
+      "grammar": "porcelain_pov_hands",
+      "camera": "tilt_down",
+      "attire_and_hands": "slate sweater sleeves and cool porcelain-white gloved matte-white porcelain hands juggling extra sunlit puzzle cubes beside the shutter box",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands stack three extra grey distraction cubes in front of the shutter box and tap the blue tile",
+      "consequence": "the lavender fusion bar dips lower when extra task cubes crowd the tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 37,
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "acoustic_test_table",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 44,
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "navy jacket sleeves and cool porcelain-white gloved matte-white porcelain hands watching a sunlit clarity slider rise beside an uncovered shutter",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands pull open a bright window louver above the shutter unit and slide a sage clarity marker upward",
+      "consequence": "the sunlit clarity bar climbs smoothly to the top of the silver scale",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 44,
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "navy jacket sleeves and cool porcelain-white gloved matte-white porcelain hands watching a sunlit clarity slider rise beside an uncovered shutter",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands pull open a bright window louver above the shutter unit and slide a sage clarity marker upward",
+      "consequence": "the sunlit clarity bar climbs smoothly to the top of the silver scale",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 39,
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 45,
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "sunlit_cafe_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "sunlit cafe interior with wide daylight windows, slate-top tables, and mint-ceramic cups",
+      "action": "elevated wide view from behind showing matte-white porcelain guests in sage and powder-blue sweaters sitting across bright window-lit tables and gesturing smoothly",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 41,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "sunlit_cafe_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 47,
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "sunlit_cafe_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved matte-white porcelain hands resting beside a lone desktop speaker phone with a blank dark screen",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands turn up the silver volume knob on the audio-only speaker box and tap the desk",
+      "consequence": "choppy fragmented powder-blue bars flicker unevenly on a small sunlit meter",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 42,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "sunlit_cafe_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 50,
+      "sentence_index": 43,
+      "act": 6,
+      "location_id": "sunlit_cafe_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "bright window-lit sunlit cafe booth with two slate chairs angled cleanly into clear natural daylight",
+      "action": "viewed strictly from behind, two matte-white porcelain friends in sage and navy sweaters angle their chairs into the bright window light and set two sunlit cups down",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 44,
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "sunlit_cafe_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 51,
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "locked_tripod",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "temporal lobe",
+      "anatomy_label": "TEMPORAL LOBE\nSIDE LOBE",
+      "brain_scene": "Along the lateral temporal lobe, synchronized sage-green and sky-blue streams glide harmoniously into a calm luminous integration ridge",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41
+    },
+    {
+      "clip_index": 52,
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "sunlit_cafe_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "navy coat sleeves and cool porcelain-white gloved matte-white porcelain hands unfolding sleek brushed-silver eyeglasses from a powder-blue case",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands open the clean brushed-silver eyeglass frames and lift them smoothly upward from the slate table",
+      "consequence": "crisp sunlit geometry through the clear lenses sharpens into razor focus",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "sunlit_cafe_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 53,
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "sunlit_cafe_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and cool porcelain-white gloved matte-white porcelain hands sliding a soft sunlit table lamp closer to the center of a family table",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands position the matte clear daylight-white table lamp centered on the slate table and tap its base switch",
+      "consequence": "gentle diffused cool-cream light brightens the shared table evenly",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 47,
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "sunlit_cafe_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 55,
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "sunlit_cafe_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "sage cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands placing two mint-sunlit teacups onto the bright sunlit table",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands set down two smooth mint teacups and fold calmly on the sunlit slate tabletop",
+      "consequence": "calm steam wisps rise steadily in the bright quiet bay",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "sunlit_cafe_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 57,
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "sunlit Surrey audiovisual studio centering the silver speaker cone, open sage phonetic shutter, and joined sunlit prisms",
+      "action": "viewed strictly from behind, two matte-white porcelain researchers in navy and slate jackets stand calmly before the console and place the clear daylight-white paddle flat",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 57,
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "sunlit Surrey audiovisual studio centering the silver speaker cone, open sage phonetic shutter, and joined sunlit prisms",
+      "action": "viewed strictly from behind, two matte-white porcelain researchers in navy and slate jackets stand calmly before the console and place the clear daylight-white paddle flat",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 50,
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 29,
+      "sentence_index": 25,
+      "cut_role": "split_right",
+      "act": 3,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy jacket sleeves and cool porcelain-white gloved matte-white porcelain hands sliding the clear daylight-white paddle directly over the sage shutter",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands cover the sage shutter completely with the clear daylight-white paddle and tap the pure powder-blue block",
+      "consequence": "blocking the shutter restores the pure powder-blue acoustic wave right away",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "surrey_sync_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 58,
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "surrey_sync_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "wide sunlit British university speech studio rising upward toward tall geometric skylights and calm pale-blue rafters",
+      "action": "elevated wide view from behind showing the two researchers standing beside the dual-track sync console and speaker cone as daylight fills the high ceiling in tailored linen sleeves and a woven cardigan as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

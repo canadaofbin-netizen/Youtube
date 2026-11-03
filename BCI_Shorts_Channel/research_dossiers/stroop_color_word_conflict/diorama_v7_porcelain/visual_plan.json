@@ -1,0 +1,1128 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "stroop_color_word_conflict",
+  "topic": "J. Ridley Stroop (1935) Automatic Interference, 8-Day Reverse Practice, and Anterior Cingulate Conflict Monitoring",
+  "act5_climax_episode": "Stroop's 1935 stopwatch test replicated over 700 times and guiding modern cockpit human-factors design and ACC brain mapping.",
+  "outro_title_lines": [
+    "J. RIDLEY STROOP (1935)",
+    "PEABODY COLLEGE NASHVILLE"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "IGNORE READING?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BRAIN CLASH TRAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "STOPWATCH JAM"
+    },
+    {
+      "sentence_index": 19,
+      "text": "CONFLICT ALARM"
+    },
+    {
+      "sentence_index": 28,
+      "text": "REVERSE PRACTICE"
+    },
+    {
+      "sentence_index": 36,
+      "text": "FLUENCY TELL"
+    },
+    {
+      "sentence_index": 44,
+      "text": "ALIGN YOUR CUES"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "IGNORE READING?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BRAIN CLASH TRAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "STOPWATCH JAM"
+    },
+    {
+      "sentence_index": 19,
+      "text": "CONFLICT ALARM"
+    },
+    {
+      "sentence_index": 28,
+      "text": "REVERSE PRACTICE"
+    },
+    {
+      "sentence_index": 36,
+      "text": "FLUENCY TELL"
+    },
+    {
+      "sentence_index": 44,
+      "text": "ALIGN YOUR CUES"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 13,
+      "mode": "split_hstack",
+      "left_clip_index": 12,
+      "right_clip_index": 47,
+      "left_label": "SOLID HUES",
+      "right_label": "CLASH TOKENS"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit cool clear daylight-white psychology classroom with two upright slate-stone easel grids and brushed-silver response tally counter stands",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain student in a sage-green sweater steps before the twin easel grids while a researcher holds a silver response tally counter",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green sweater cuffs and cool porcelain-white gloved matte-white porcelain hands hovering over sunlit sorting slots",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands lift a muted-coral outer frame holding a powder-blue inner cube and hesitate midair between two sunlit bins",
+      "consequence": "the brushed-silver response tally counter needle sweeps steadily onward during the hesitation",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright Nashville testing hall pairing a matched single-hue square grid stand on the left with a clashing nested-token grid stand on the right",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a slate-gray three-piece suit steps between the twin easel stands and presses a brushed-silver response tally counter",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "pastel_control_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a cool powder-blue cognitive studio with slate-stone tables and parallel brushed-silver track models",
+      "action": "elevated wide view from behind as clothed matte-white porcelain scholars in slate blazer coats walk forward and point across two unequal sunlit track lanes",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "pastel_control_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "the sunlit university testing room with neat rows of cool clear daylight-white student desks and slate-stone sorting trays",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain researcher in a slate-gray suit walks down the aisle and sets brushed-silver response latency counters beside the sorting trays",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-gray suit cuffs and cool porcelain-white gloved matte-white porcelain hands over a ten-by-ten cool clear daylight-white matrix board",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands snap nested dual-hue geometric tokens into neat ten-by-ten recesses across the matrix board",
+      "consequence": "every slot holds an outer sunlit frame contrasting sharply with its inner sunlit core",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 6,
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white shirt cuffs and cool porcelain-white gloved matte-white porcelain hands inspecting two nested geometric tokens on cool slate-stone",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands rotate a powder-blue outer shell holding a muted-coral core beside a sage-green shell holding a lavender core",
+      "consequence": "outer shell geometry and inner core hue pull attention in opposite directions",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 7,
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a smooth sunlit cool limestone walkway with one tiny powder-blue pebble resting near the center",
+      "comparison_action": "viewed strictly from behind, a clothed matte-white porcelain walker in slate trousers steps effortlessly right over the tiny pebble without losing stride",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green cuffs and cool porcelain-white gloved matte-white porcelain hands sorting by outer shape along row one",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands glide briskly down the matrix tapping each outer frame smoothly",
+      "consequence": "two nearly equal short mint-sage timing bars sit side by side on the stand",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "slate-gray suit sleeves and cool porcelain-white gloved matte-white porcelain hands at the easel stand",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands rotate a brushed-silver selector arrow from outer-frame mode to inner-hue mode and reset the silver response tally counter",
+      "consequence": "the silver response tally counter hand snaps cleanly to the top tick mark",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 11,
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "PRIMARY VISUAL CORTEX\nSIGHT SCREEN",
+      "camera": "gentle_push_in",
+      "brain_scene": "at the rear occipital pole of the matte-sunlit 3D cortical brain model, the primary visual cortex launches parallel powder-blue and muted-coral ribbons forward together",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sweater cuffs and cool porcelain-white gloved matte-white porcelain hands over solid single-hue sunlit squares",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands lift and place solid powder-blue, sage-green, and lavender cubes smoothly into matching sunlit slots",
+      "consequence": "the silver response tally counter stops early beside a moderate mint-sage bar",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool clear daylight-white winter path model where smooth slate flagstones transition into a knee-deep matte-white smooth sculptural snow pile",
+      "comparison_action": "viewed strictly from behind, a clothed matte-white porcelain figure in a slate-blue coat walks briskly on clear stone then climbs slowly through a deep white snow pile",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright Nashville classroom with rows of students seated before nested-token easels",
+      "action": "elevated wide view from behind as every clothed matte-white porcelain student in a sweater leans forward and points mid-row while the researcher presses the silver response tally counter",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 16,
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright Nashville classroom with rows of students seated before nested-token easels",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in white coat sleeves steer and slide one tiny muted-coral coupe upstream against four lanes of powder-blue cars",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit psychology classroom with the towering muted-coral delay bar dwarfing the modest mint-sage baseline bar",
+      "action": "viewed strictly from behind, researcher and student stand side by side examining the huge height gap between the two bars in tailored linen sleeves and a woven cardigan as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "pastel_control_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "blazer cuffs and cool porcelain-white gloved matte-white porcelain hands over two equal narrow silver chutes",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands release two sunlit marbles simultaneously down two identical narrow chutes",
+      "consequence": "both marbles reach the bottom gate at nearly the same moment",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 20,
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "pastel_control_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "pastel_control_studio",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean side cutaway of a wide four-lane mint-sage express ramp merging into a narrow single-lane powder-blue ramp",
+      "internal_mechanism": "heavy flow from the wide automatic ramp still blocks the narrow side lane despite its early entry",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 21,
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "pastel_control_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "pastel_control_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright cool clear daylight-white cognitive studio displaying a wide polished brushed-silver expressway model beside a thin gravel-textured slate path",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain neuroscientists in blazers trace the thick polished expressway dwarfing the thin side lane",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "pastel_control_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "end_sentence_index": 23,
+      "act": 3,
+      "location_id": "pastel_control_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the bright cool clear daylight-white cognitive studio displaying a wide polished brushed-silver expressway model beside a thin gravel-textured slate path",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "pastel_control_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 20
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "pastel_control_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a modern cool clear daylight-white brain-imaging bay with a sunlit ring scanner and slate-stone control desk",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coats lean toward a medial brain projection on the clear daylight-white wall",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 24,
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "pastel_control_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nCONFLICT ALARM",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the medial sagittal cutaway of the matte-sunlit 3D brain model, the curved dorsal anterior cingulate cortex glows brightly in muted coral as two rival ribbons meet",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL PFC\nMENTAL BRAKE",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the outer front surface of the matte-sunlit 3D cortical brain model, the powder-blue dorsolateral prefrontal cortex sends a steady calming ribbon downward to quiet the competing stream",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-gray suit cuffs and cool porcelain-white gloved matte-white porcelain hands beside eight progressive practice trays",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands lift and align eight cool clear daylight-white practice trays in a neat row beside the silver response tally counter",
+      "consequence": "the descending row of delay bars hints at a surprising reversal at the end",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Nashville laboratory with students seated at practice benches sorting inner-hue tokens repeatedly",
+      "action": "viewed strictly from behind, clothed matte-white porcelain students in sunlit coats and trousers lift and place nested tokens rapidly while the researcher logs response tally counter speeds",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the sunlit Nashville laboratory with students seated at practice benches sorting inner-hue tokens repeatedly",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "clip_number": 26
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sweater cuffs and cool porcelain-white gloved matte-white porcelain hands over the nested-token matrix",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands sort the inner-hue blocks swiftly across the sunlit slots without hesitation",
+      "consequence": "the muted-coral delay bar shrinks down step by step across eight slots",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 30,
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green cuffs and cool porcelain-white gloved matte-white porcelain hands switching back to outer-frame sorting",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands reach for an outer frame yet pause briefly pulled toward the newly practiced inner-hue bin",
+      "consequence": "a small reverse delay bar rises on the ninth slot of the stand",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "pastel_control_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright cool clear daylight-white developmental clinic table where a small matte-white porcelain child figure in a sunlit sweater and a tall professor figure in a tweed coat sit side by side",
+      "action": "viewed strictly from behind, the small matte-white porcelain child figure lifts and places nested color tokens effortlessly while the tweed coat professor figure reaches and pauses",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "pastel_control_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "end_sentence_index": 33,
+      "act": 4,
+      "location_id": "pastel_control_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a bright cool clear daylight-white developmental clinic table where a small matte-white porcelain child figure in a sunlit sweater and a tall professor figure in a tweed coat sit side by side",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "pastel_control_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 30
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "pastel_control_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "blazer sleeves and cool porcelain-white gloved matte-white porcelain hands sliding progressive age bars along a slate-stone track",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands place a flat bar at early childhood followed by a steep rising mint-sage bar right after school entry",
+      "consequence": "the interference bar jumps sharply once automatic habit strength locks in",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "pastel_control_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "pastel_control_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands comparing two brushed-silver cable bundles",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands lift a thick multi-strand silver cable beside a single thin silver wire",
+      "consequence": "the thick practiced bundle clearly outweighs the thin unpracticed wire",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 35,
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "pastel_control_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "pastel_control_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a clean cool clear daylight-white acoustic timing booth with a brushed-silver desk microphone and two geometric pattern trays",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain subject in a dark coat and trousers walks past unfamiliar geometric shapes then leans over familiar paired tokens",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "pastel_control_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "end_sentence_index": 37,
+      "act": 5,
+      "location_id": "pastel_control_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a clean cool clear daylight-white acoustic timing booth with a brushed-silver desk microphone and two geometric pattern trays",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "pastel_control_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "clip_number": 34
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a quiet sunlit lecture room with cool slate-stone desks and neat unlined sunlit folders",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain professor in a modest wool suit sets the silver response tally counter inside a drawer and walks calmly toward a lectern",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "pastel_control_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored blazer cuffs and cool porcelain-white gloved matte-white porcelain hands beside tall archive shelves of unlined sunlit binders",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands lift and slide another sage-green volume neatly into a wide wall of matching research binders",
+      "consequence": "hundreds of uniform sunlit spines fill the bright gallery shelves",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 39,
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "pastel_control_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "modern_ux_cockpit",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright modern human-factors design studio pairing a flight simulator console with a cortical scan monitor",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain engineers in powder-blue shirts evaluate switch response speeds on a silver bar gauge",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "modern_ux_cockpit",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nCLASH DETECTOR",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the sagittal cutaway of the matte-sunlit 3D brain model, the anterior cingulate cortex lights sharply whenever a sage-green cue clashes with a stop ribbon",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 38
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "pastel_control_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit cognitive neuroscience gallery uniting the vintage silver response tally counter, nested geometric trays, and modern brain model",
+      "action": "viewed strictly from behind, three clothed matte-white porcelain scientists in blazers stand together nodding before the aligned display",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 43,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "pastel_control_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_ux_cockpit",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit cool clear daylight-white interface design desk with a brushed-silver display panel and cool slate-stone surface",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain designer in a sage-green overshirt sits before two contrasting control pad layouts",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "modern_ux_cockpit",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "modern_ux_cockpit",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green overshirt cuffs and cool porcelain-white gloved matte-white porcelain hands over a modular control pad",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands lift out a clashing sage-green cross-shaped cancel cap and set it aside",
+      "consequence": "the confusing mismatched cap leaves the control board",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 45,
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "modern_ux_cockpit",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "modern_ux_cockpit",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green cuffs and cool porcelain-white gloved matte-white porcelain hands snapping aligned geometric caps onto a brushed-silver pad",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands snap a muted-coral octagon stop cap on the left and a mint-sage circle go cap on the right",
+      "consequence": "shape and hue match cleanly across both controls",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "modern_ux_cockpit",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "modern_ux_cockpit",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "powder-blue shirt sleeves and cool porcelain-white gloved matte-white porcelain hands tapping the aligned control pad",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands press the mint-sage circle cap smoothly in one swift motion",
+      "consequence": "the response timing bar drops low and fast on the gauge",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 47,
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "modern_ux_cockpit",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL PFC\nENERGY SAVED",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the matte-sunlit 3D cortical brain model, the powder-blue dorsolateral prefrontal cortex rests in calm steady balance without conflict strain",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "modern_ux_cockpit",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright sunlit cool clear daylight-white workspace with color-coded sunlit trays neatly aligned along the slate-stone desk",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain designer in a sage-green shirt leans forward and slides sunlit trays smoothly across the aligned workspace",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 50,
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "modern_ux_cockpit",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Nashville psychology hall uniting the brushed-silver response tally counter and aligned single-hue sunlit geometric grids",
+      "action": "elevated wide view from behind as the clothed matte-white porcelain researcher in a slate-gray suit steps forward and points beside the aligned sunlit stands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sweater cuffs and cool porcelain-white gloved matte-white porcelain hands over clashing nested dual-hue tokens",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands reach and pull back repeatedly while placing clashing nested tokens into inner-hue slots",
+      "consequence": "the silver response tally counter keeps sweeping as a tall muted-coral delay bar towers upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "nashville_timing_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "nashville_timing_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "wide sunlit architectural vista of the cool clear daylight-white Nashville hall with soft skylight beams across slate-stone floors",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain scientist in a white coat steps beside the silver response tally counter stand and lifts a silver pointer as the camera tilts smoothly toward the bright skylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "BRAIN CLASH TRAP",
+    "cover_sentence_index": 3,
+    "cover_brief": "nested clashing coral-and-blue low-poly geometric token beside brushed-silver stopwatch"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

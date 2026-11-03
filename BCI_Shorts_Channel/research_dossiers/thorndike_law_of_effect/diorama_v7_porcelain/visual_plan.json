@@ -1,0 +1,1123 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "thorndike_law_of_effect",
+  "topic": "Edward Lee Thorndike (1898) Slatted Puzzle Boxes, Gradual Escape-Time Curves & the Law of Effect Powering Reinforcement Learning",
+  "act5_climax_episode": "From 1898 Columbia attic slatted latch models and Herrnstein's quantitative matching equations to modern reinforcement-learning robotic arms following the exact same trial-and-reward slope.",
+  "outro_title_lines": [
+    "EDWARD THORNDIKE (1898)",
+    "COLUMBIA UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "CLEVER PET MYTH"
+    },
+    {
+      "sentence_index": 3,
+      "text": "PUZZLE BOX MYTH"
+    },
+    {
+      "sentence_index": 10,
+      "text": "160S TO 6S CURVE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "LAW OF EFFECT"
+    },
+    {
+      "sentence_index": 28,
+      "text": "VISIBLE INSIGHT"
+    },
+    {
+      "sentence_index": 36,
+      "text": "AI REWARD LOOP"
+    },
+    {
+      "sentence_index": 44,
+      "text": "STAMP IN SKILL"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "CLEVER PET MYTH"
+    },
+    {
+      "sentence_index": 3,
+      "text": "PUZZLE BOX MYTH"
+    },
+    {
+      "sentence_index": 10,
+      "text": "160S TO 6S CURVE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "LAW OF EFFECT"
+    },
+    {
+      "sentence_index": 28,
+      "text": "VISIBLE INSIGHT"
+    },
+    {
+      "sentence_index": 36,
+      "text": "AI REWARD LOOP"
+    },
+    {
+      "sentence_index": 44,
+      "text": "STAMP IN SKILL"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 16,
+      "mode": "split_hstack",
+      "left_clip_index": 15,
+      "right_clip_index": 47,
+      "left_label": "GRADUAL SLOPE",
+      "right_label": "SUDDEN CLIFF?"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "columbia_attic_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue shirt sleeves and cool porcelain-white gloved matte-white porcelain hands in gloves extending from the bottom frame edge over a cool slate bench",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands press a pale-birch treadle lever so an overhead cord lifts the cool-slate latch",
+      "consequence": "the pale-birch slatted door swings smoothly open",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "columbia_attic_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "cool_slate_latch_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-slate coat cuffs and cool porcelain-white gloved matte-white porcelain hands in gloves over a powder-blue stone tabletop",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand presses a brushed-silver pocket response tally counter button while the other hand slides a brushed-matte curve bar",
+      "consequence": "the brushed-silver response tally counter hand sweeps cleanly forward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "cool_slate_latch_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "columbia_attic_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright sunlit Columbia attic laboratory with pale-birch rafters, cool-slate floor tiles, a pale-birch and cool-slate slatted latch box model, and a matte cool-slate wall board",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher figure in a waistcoat and trousers kneels and holds a brushed-silver response tally counter beside the matte-white smooth sculptural matte-white porcelain compact cat sculpture",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "columbia_attic_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "pastel_seminar_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a calm brushed-matte parlor study with pale-stone wainscoting and dove-grey armchairs under soft diffused daylight",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scholar figures in muted-slate coats and trousers lean back and point toward a decorative parlor door",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "pastel_seminar_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "pastel_seminar_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a calm brushed-matte parlor study with pale-stone wainscoting and dove-grey armchairs under soft diffused daylight",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scholar figures in muted-slate coats and trousers lean back and point toward a decorative parlor door",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "pastel_seminar_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "pastel_seminar_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright pale-stone Cambridge house stairwell descending into a clean pastel-slate cellar workshop",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researcher figures in muted coats and hats lift a pale-birch slatted crate and walk down the steps",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "pastel_seminar_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "pastel_seminar_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright pale-stone Cambridge house stairwell descending into a clean pastel-slate cellar workshop",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researcher figures in muted coats and hats lift a pale-birch slatted crate and walk down the steps",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 7,
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "pastel_seminar_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "columbia_attic_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright Columbia attic laboratory lined with fifteen neat pale-birch and cool-slate slatted latch box models under tall frosted skylights",
+      "action": "elevated wide view from behind showing the clothed matte-white porcelain researcher figure in waistcoat and trousers walking along the row and aligning two slatted models",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "columbia_attic_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "cool_slate_latch_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "shirt sleeves and cool porcelain-white gloved matte-white porcelain hands in gloves over the cool slate floor mat",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place a powder-blue porcelain saucer holding a brushed-matte fish token right outside the slatted door",
+      "consequence": "the matte-white smooth sculptural matte-white porcelain compact cat sculpture steps toward the slats inside",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 9,
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "cool_slate_latch_bench",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "columbia_attic_lab",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean architectural cutaway of the pale-birch and cool-slate slatted latch box model with an overhead silver pulley cord",
+      "internal_mechanism": "inside the pale-birch box, the matte-white smooth sculptural matte-white porcelain compact cat sculpture steps around the cool-slate floor beside a raised pale-birch treadle",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "columbia_attic_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "cool_slate_latch_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "waistcoat sleeves and cool porcelain-white gloved matte-white porcelain hands in gloves over the pale-birch and cool-slate latch model",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands tension the silver cord loop, test the pale-birch pedal, and turn a cool-slate latch bar",
+      "consequence": "all three sunlit latch parts link cleanly in sequence",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "cool_slate_latch_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 12,
+      "end_sentence_index": 12,
+      "act": 2,
+      "location_id": "cool_slate_latch_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key cool slate latch bench with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "cool_slate_latch_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 12
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a breezy powder-blue courtyard bench holding a matte-sunlit diamond kite wrapped in looped silver string",
+      "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in sleeves and gloves pull and turn the looped silver string gradually freeing the sunlit diamond kite",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "columbia_attic_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright Columbia attic floor beside the pale-birch and cool-slate slatted latch box model and powder-blue saucer",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain researcher in waistcoat and trousers clicks the response tally counter as the slatted door swings open and the matte-white smooth sculptural matte-white porcelain compact cat sculpture steps out",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 15,
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "columbia_attic_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "cool_slate_latch_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "waistcoat cuffs and cool porcelain-white gloved matte-white porcelain hands in gloves over a cool slate plotting board",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place twenty-five muted-sage pegs in a smooth gradual downward slope from left to right",
+      "consequence": "the muted-sage pegs form a steady gentle ramp across the cool slate board",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "cool_slate_latch_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-cream architectural platform featuring a long smooth muted-sage incline ramp",
+      "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in sleeves and gloves release a matte-white smooth sculptural sphere that rolls and glides smoothly down the gentle muted-sage ramp",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "columbia_attic_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the quiet Columbia attic laboratory with the cool-slate plotting board showing the gradual muted-sage slope beside the slatted crate",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain researcher figure in waistcoat and trousers leans in and traces the gradual slope with a silver pointer",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "columbia_attic_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "columbia_attic_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright Columbia attic floor holding two side-by-side pale-birch and cool-slate slatted latch box models",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain researcher in waistcoat and trousers sets a second matte-white smooth sculptural matte-white porcelain compact cat sculpture inside the viewing crate",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "columbia_attic_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "end_sentence_index": 20,
+      "act": 3,
+      "location_id": "columbia_attic_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the bright Columbia attic floor holding two side-by-side pale-birch and cool-slate slatted latch box models",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "columbia_attic_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 19
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "columbia_attic_lab",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean cutaway of the active pale-birch and cool-slate slatted latch box model",
+      "internal_mechanism": "the second matte-white smooth sculptural matte-white porcelain compact cat sculpture turns and steps around the slats missing the pale-birch treadle at first",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 21,
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "columbia_attic_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "cool_slate_latch_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "shirt sleeves and cool porcelain-white gloved matte-white porcelain hands in gloves over the open pale-birch latch box top",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands gently lift and place the front white smooth sculptural paw of the compact cat sculpture onto the pale-birch pedal",
+      "consequence": "when released the compact cat sculpture steps back off the pedal without pressing",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "cool_slate_latch_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "cool_slate_latch_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "waistcoat sleeves and cool porcelain-white gloved matte-white porcelain hands in gloves over the pale-birch box",
+      "prop_action": "the matte-white smooth sculptural matte-white porcelain compact cat sculpture presses its own white smooth sculptural paw down on the pedal while gloved hands hold a polished brass counter",
+      "consequence": "the cool-slate latch lifts cleanly right away",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 23,
+      "clip_number": 22,
+      "scene_state": {
+        "location_id": "cool_slate_latch_bench",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "cool_slate_latch_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "muted-slate blazer sleeves and cool porcelain-white gloved matte-white porcelain hands in gloves over a cool slate plotting board",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands snap a smooth powder-blue curve rail across the descending muted-sage pegs",
+      "consequence": "the powder-blue curve rail locks cleanly from top left to bottom right",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "cool_slate_latch_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "nucleus accumbens",
+      "anatomy_label": "NUCLEUS ACCUMBENS\nREWARD CENTER",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat matte-sunlit sagittal half-brain cutaway, the deep ventral nucleus accumbens lights up in soft powder-blue and muted sage",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA\nHABIT ENGINE",
+      "camera": "pan_right",
+      "brain_scene": "within the matte-sunlit half-brain cross-section, smooth powder-blue pathways connect the reward hub directly into the central basal ganglia loop",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "pastel_seminar_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a bright comparative psychology seminar room displaying a hidden-cord pale-birch box beside an open stack of sunlit blocks",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain scientist figure in a dove-grey coat and trousers steps between the two models and points to both",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "pastel_seminar_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "pastel_seminar_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit pastel-stone courtyard enclosure with three visible pale-birch stacking cubes beneath a suspended brushed-matte fruit token",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher figure in a linen coat and hat steps in and points toward the open courtyard layout",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "pastel_seminar_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "cool_slate_latch_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-grey jacket sleeves and cool porcelain-white gloved matte-white porcelain hands in gloves over a cool slate table",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide a frosted cover panel over the pulley cord of the pale-birch latch model",
+      "consequence": "the internal pulley cord sits concealed behind the frosted cover",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 29,
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "cool_slate_latch_bench",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nVISIBLE PLANNER",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the matte-sunlit 3D cortical model, the front prefrontal cortex illuminates in crisp powder-blue linking spatial pathways forward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "pastel_seminar_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright Columbia testing hall with cool-slate desks holding paired muted-sage and pale-coral sorting trays",
+      "action": "viewed strictly from behind, clothed matte-white porcelain student figures in coats and sweaters lean forward and sort sunlit tokens into trays",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "pastel_seminar_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "pastel_seminar_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright Columbia testing hall with cool-slate desks holding paired muted-sage and pale-coral sorting trays",
+      "action": "viewed strictly from behind, clothed matte-white porcelain student figures in coats and sweaters lean forward and sort sunlit tokens into trays",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 32,
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "pastel_seminar_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "end_sentence_index": 34,
+      "act": 4,
+      "location_id": "cool_slate_latch_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-slate suit sleeves and cool porcelain-white gloved matte-white porcelain hands in gloves over a powder-blue stone desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift away a pale-coral penalty bar while pressing a strong muted-sage reward bar firmly into place",
+      "consequence": "the muted-sage reward bar stands tall and stable alone",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "cool_slate_latch_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "cool_slate_latch_bench",
+      "grammar": "porcelain_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "muted-slate cuffs and cool porcelain-white gloved matte-white porcelain hands in gloves extending from the bottom frame edge over a cool slate track",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide a powder-blue habit block effortlessly along a grooved muted-sage channel",
+      "consequence": "the powder-blue habit block glides straight to the end stop",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "cool_slate_latch_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "pastel_robotics_bay",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright modern pastel-slate robotics studio with a sleek matte-white articulated robot arm mounted beside a pale-birch latch box",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scientist figures in powder-blue lab coats and trousers step up and align the robot arm",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 37,
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "pastel_robotics_bay",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "pastel_robotics_bay",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "dove-grey blazer cuffs and cool porcelain-white gloved matte-white porcelain hands in gloves over a powder-blue plotting table",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands align proportional muted-sage ratio blocks along a brushed-silver balance track",
+      "consequence": "the brushed-silver track rests in clean mathematical balance",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 38,
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "pastel_robotics_bay",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "pastel_robotics_bay",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a bright modern pastel-slate robotics studio with a sleek matte-white articulated robot arm mounted beside a pale-birch latch box",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scientist figures in powder-blue lab coats and trousers step up and align the robot arm",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "pastel_robotics_bay",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "pastel_robotics_bay",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a clean benchtop cutaway of the matte-white articulated robot arm and a cool-slate pedal latch",
+      "internal_mechanism": "the matte-white robot gripper tests two angles, presses the cool-slate pedal cleanly, and swings open the brushed-matte gate",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 40,
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "pastel_robotics_bay",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "pastel_robotics_bay",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit pastel-slate robotics bay displaying the classic pale-birch crate beside the modern articulated robot arm",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scientist figures in lab coats and trousers step together and point toward the matching sunlit slope boards",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 42,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "pastel_robotics_bay",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "pastel_robotics_bay",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue lab coat cuffs and cool porcelain-white gloved matte-white porcelain hands in gloves extending from the bottom frame edge over a cool slate bench",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place the matte-white smooth sculptural matte-white porcelain compact cat sculpture beside the sleek robot gripper",
+      "consequence": "both models rest side by side under soft diffused daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 43,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "pastel_robotics_bay",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "pastel_seminar_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright brushed-matte park courtyard with a smooth dove-grey cycling lane and cool-slate practice bench",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain cyclist figure in a powder-blue jacket and helmet steps up and grips sunlit bicycle handlebars",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "pastel_seminar_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "end_sentence_index": 45,
+      "act": 6,
+      "location_id": "pastel_seminar_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a bright brushed-matte park courtyard with a smooth dove-grey cycling lane and cool-slate practice bench",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "pastel_seminar_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 41
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "motor cortex",
+      "anatomy_label": "MOTOR CORTEX\nMOVEMENT STRIP",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper arch of the matte-sunlit 3D brain model, the motor cortex strip glows cleanly in soft powder-blue and muted sage",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "pastel_seminar_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a bright brushed-matte park courtyard with a smooth dove-grey cycling lane and cool-slate practice bench",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in sleeves and gloves place a brushed-matte card flat and tap the brushed-silver desk bell crisply",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "pastel_seminar_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "end_sentence_index": 48,
+      "act": 6,
+      "location_id": "pastel_seminar_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a bright brushed-matte park courtyard with a smooth dove-grey cycling lane and cool-slate practice bench",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "pastel_seminar_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 44
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "pastel_seminar_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit brushed-matte park lane with smooth dove-grey paving and soft sage trees",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain cyclist figure in a powder-blue jacket and helmet pedals and glides smoothly forward",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 50,
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "pastel_seminar_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "columbia_attic_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the bright sunlit Columbia attic laboratory with the pale-birch slatted latch box model, matte-white compact cat sculpture, and descending sunlit curve board",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain researcher figure in waistcoat and trousers stands and rests a hand beside the completed sunlit curve",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "columbia_attic_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "cool_slate_latch_bench",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "waistcoat cuffs and cool porcelain-white gloved matte-white porcelain hands in gloves over a cool slate plotting board",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands drop a brushed-matte bar straight down in one vertical cliff step",
+      "consequence": "the vertical brushed-matte drop contrasts sharply with the gradual ramp",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "cool_slate_latch_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "columbia_attic_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a tranquil sunlit pastel-stone university courtyard with pale-birch trees opening upward into a clear powder-blue sky",
+      "action": "viewed strictly from behind, clothed matte-white porcelain figures in muted-slate coats and trousers step and walk calmly across the courtyard as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "PUZZLE BOX MYTH",
+    "cover_sentence_index": 3,
+    "cover_brief": "matte-white low-poly cat sculpture pressing latch inside pale-birch slatted box beside researcher silhouette with stopwatch"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

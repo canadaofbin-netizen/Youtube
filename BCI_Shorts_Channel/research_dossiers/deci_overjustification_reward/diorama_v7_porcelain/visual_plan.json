@@ -1,0 +1,1157 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "deci_overjustification_reward",
+  "topic": "Edward Deci University of Rochester Puzzle Cube Experiment: How Piece-Rate Cash Rewards Undermine Intrinsic Motivation and Dampen Striatal Valuation",
+  "act5_climax_episode": "Follow-up MRI brain-scanning replication showing that once performance pay stops, spontaneous reward activity in the nucleus accumbens and striatum drops below unpaid peers during solitary play.",
+  "outro_title_lines": [
+    "EDWARD DECI (1971)",
+    "UNIVERSITY OF ROCHESTER"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "BONUS MYTH?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "PAID TO QUIT?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SECRET BREAK"
+    },
+    {
+      "sentence_index": 19,
+      "text": "FUNDS RUN OUT"
+    },
+    {
+      "sentence_index": 28,
+      "text": "HONEST PRAISE"
+    },
+    {
+      "sentence_index": 37,
+      "text": "SILENT BRAIN"
+    },
+    {
+      "sentence_index": 45,
+      "text": "GUARD PURE PLAY"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "BONUS MYTH?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "PAID TO QUIT?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SECRET BREAK"
+    },
+    {
+      "sentence_index": 19,
+      "text": "FUNDS RUN OUT"
+    },
+    {
+      "sentence_index": 28,
+      "text": "HONEST PRAISE"
+    },
+    {
+      "sentence_index": 37,
+      "text": "SILENT BRAIN"
+    },
+    {
+      "sentence_index": 45,
+      "text": "GUARD PURE PLAY"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 23,
+      "mode": "split_hstack",
+      "left_clip_index": 22,
+      "right_clip_index": 48,
+      "left_label": "FORMERLY PAID",
+      "right_label": "NEVER PAID"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit university lab room with a maple table holding seven carved wooden puzzle blocks, sunlit magazines, and a wide observation mirror window",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain college student in a plaid flannel shirt sits at the maple table and reaches toward the wooden puzzle blocks",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "plaid flannel sleeves and cool porcelain-white gloved matte-white porcelain hands resting beside disassembled maple puzzle cubes and a glossy sunlit magazine on the table",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands push the seven maple puzzle cubes away and flip open the glossy sunlit magazine",
+      "consequence": "the wooden puzzle cubes sit abandoned near the far edge of the sunlit table",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit Rochester psychology room and adjacent observation window overlooking the maple puzzle table",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain psychologist in a wool blazer and tie stands behind the observation window and points toward the puzzle table as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "grey blazer sleeves and cool porcelain-white gloved matte-white porcelain hands stacking brushed-matte bonus blocks atop sky-blue play blocks on an slate-stone desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set three green bonus cubes neatly onto three sky-blue cubes and align the tall column",
+      "consequence": "the stacked wooden column stands neat and tall on the slate-stone desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "mirror_stopwatch_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "grey blazer sleeves and cool porcelain-white gloved matte-white porcelain hands stacking brushed-matte bonus blocks atop sky-blue play blocks on an slate-stone desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set three green bonus cubes neatly onto three sky-blue cubes and align the tall column",
+      "consequence": "the stacked wooden column stands neat and tall on the slate-stone desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "mirror_stopwatch_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit New York university hallway outside the psychology laboratory where wooden chairs line a bright corridor",
+      "action": "viewed strictly from behind, clothed matte-white porcelain college students in flannel shirts, sweaters, and jackets walk down the bright corridor and step into the lab room",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit New York university hallway outside the psychology laboratory where wooden chairs line a bright corridor",
+      "action": "viewed strictly from behind, clothed matte-white porcelain college students in flannel shirts, sweaters, and jackets walk down the bright corridor and step into the lab room",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 7,
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool blazer cuffs and cool porcelain-white gloved matte-white porcelain hands arranging the sunlit maple test table before the session",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place seven smooth L-shaped maple puzzle blocks in the center and set three sunlit magazines on the corner",
+      "consequence": "the seven carved wooden blocks and sunlit magazines sit side by side in bright daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 8,
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "porcelain_pov_hands",
+      "camera": "pan_left",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands lining up three crisp ivory session folders across the observation counter",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand slides the three ivory folders into an even row and rests a cedar pencil beside the third folder",
+      "consequence": "the third ivory folder gleams at the end of the sunlit counter",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "mirror_stopwatch_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Rochester puzzle room with the maple table, wooden blocks, magazines, and white wooden door",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain researcher in a wool blazer walks to the white door, opens it, and steps quietly outside",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-maple cafe counter holding a steaming sunlit ceramic coffee cup on a saucer beside an brushed-silver marker cylinder",
+      "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in sweater sleeves flip the brushed-silver marker cylinder upright and set the sunlit ceramic coffee cup gently onto the saucer",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool blazer sleeves and cool porcelain-white gloved matte-white porcelain hands holding a brushed-silver response tally counter right behind the observation glass window",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand presses the response tally counter start button while the other hand traces a pencil line along a timing sheet",
+      "consequence": "beyond the glass window, the solitary student leans toward the wooden blocks",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "mirror_stopwatch_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "oatmeal knit sweater cuffs and matte-white gloved matte-white porcelain student hands working eagerly over the seven maple puzzle blocks",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift two carved maple corner blocks and press them snugly onto a symmetrical wooden cube while magazines stay untouched",
+      "consequence": "all seven maple pieces lock cleanly into a solid geometric cube",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool blazer cuffs opposite plaid flannel shirt cuffs with cool porcelain-white gloved matte-white porcelain hands across the maple puzzle table",
+      "prop_action": "the researcher matte-white gloved hand slides a crisp brushed-matte dollar bill across the slate-stone grain as the student hand completes a wooden shape and pulls the bill close",
+      "consequence": "a neat stack of brushed-matte bills grows beside the puzzle mat",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 14,
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit commuter platform where a sleek sky-blue matte-white porcelain train car glides smoothly along clean steel rails between two nearby stations",
+      "comparison_action": "viewed strictly from behind, a clothed matte-white porcelain commuter in a dove-gray coat steps onto the platform and holds a brass balance weight as the sky-blue train car pulls smoothly into the next stop",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the quiet observation booth overlooking the sunlit Rochester table where green bills sit beside the wooden puzzle cubes",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain researcher in a wool blazer leans toward the glass window and holds the brushed-silver response tally counter steady",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "mirror_stopwatch_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "plaid flannel shirt sleeves and cool porcelain-white gloved matte-white porcelain hands practicing fast cube combinations beside the green dollar bills",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands flip an isometric shape card upright and snap three maple blocks rapidly together",
+      "consequence": "the wooden blocks click briskly into a tall tower shape",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "pan_left",
+      "structure": "a sunlit polished brass counter tally counter mounted beside a small coin tray that tips empty onto a cool-slate shelf",
+      "internal_mechanism": "the moment the last brushed-matte token drops out of the coin tray, the warm-gold sand stream shuts off abruptly",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "mirror_stopwatch_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Rochester lab room on the final day with an empty powder-blue payout tray resting on the maple puzzle table",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain researcher in a wool blazer opens the empty powder-blue tray and sets it flat beside the student",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 20,
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the dim sunlit observation booth overlooking the solitary student at the sunlit puzzle and magazine table",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain researcher in a wool blazer steps up to the observation glass and presses the brushed-silver response tally counter",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "mirror_stopwatch_booth",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "plaid flannel shirt cuffs and cool porcelain-white gloved matte-white porcelain hands resting beside the seven maple puzzle blocks",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand pushes the seven maple puzzle blocks away across the table while the other hand reaches for the sunlit magazines",
+      "consequence": "the wooden puzzle blocks slide apart into an unfinished heap",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 22,
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "plaid flannel sleeves and cool porcelain-white gloved matte-white porcelain hands turning glossy sunlit magazine pages beside untouched wooden cubes",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands hold the sunlit magazine wide open and flip casually to the next spread",
+      "consequence": "the maple puzzle blocks sit completely ignored in the background",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the sunlit Rochester lab room on the final day with an empty powder-blue payout tray resting on the maple puzzle table",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain cyclist in a navy jacket rolls up to the white stop line, presses the hand brake, and rests one foot on the curb beneath the red light",
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "pan_right",
+      "structure": "a sunlit reversible wooden block mechanism where a bright sky-blue play gear flips over into a dull slate-grey punch-clock gear",
+      "internal_mechanism": "once the green coin key pulls out, the dull slate-grey gear grinds immediately to a halt",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 25,
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA\nHABIT ENGINE",
+      "brain_scene": "a matte-sunlit sagittal cutaway brain model on an alabaster stand where warm amber-gold curiosity glow inside the central basal ganglia fades softly downward after external payout stops",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "porcelain_pov_hands",
+      "camera": "pan_left",
+      "attire_and_hands": "wool blazer cuffs and cool porcelain-white gloved matte-white porcelain hands comparing a green cash envelope against a warm-ivory feedback card on the slate-stone desk",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand slides the green cash envelope aside while the other hand lifts the warm-ivory mastery feedback card into sunlight",
+      "consequence": "the clean ivory feedback card takes center place on the desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "mirror_stopwatch_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright sunlit Rochester puzzle room with zero cash envelopes on the maple table and seven carved wooden blocks ready",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain researcher in a wool blazer steps beside a student in a collegiate cardigan and points warmly to a fast response tally counter dial",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 29,
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "end_sentence_index": 30,
+      "act": 4,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the bright sunlit Rochester puzzle room with zero cash envelopes on the maple table and seven carved wooden blocks ready",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "clip_number": 28
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the Rochester lab room as the praised student builds shape after shape alone while magazines stay closed",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain student in a mint cardigan leans forward and places the top maple block onto a third sculpture",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 32,
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "wool blazer cuffs and cool porcelain-white gloved matte-white porcelain hands comparing a rising sky-blue wooden bar beside a falling coral wooden bar",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand sets a tall sky-blue block onto the praise column while tapping the short coral cash-cutoff column",
+      "consequence": "the sky-blue mastery column towers cleanly above the coral column",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "mirror_stopwatch_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL CORTEX\nWORKING MEMORY",
+      "brain_scene": "a matte-sunlit 3D cortical brain model where bright electric cyan-blue glow illuminates the upper dorsolateral prefrontal cortex and links smoothly with internal curiosity circuits",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright sunlit Rochester puzzle room with zero cash envelopes on the maple table and seven carved wooden blocks ready",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in coat sleeves turn the brushed-silver winch handle and pull the heavy braided tow rope taut, sliding the wooden boat along a rigid track",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit harbor cove with gentle sky-blue ripples and a crisp white-sailed wooden dinghy gliding freely without any tow line",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain sailor in a navy windbreaker holds the wooden tiller and steers the white-sailed boat smoothly across open water",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 36,
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit university conference room with stacks of sunlit research binders arranged across a long slate-stone table",
+      "action": "viewed strictly from behind, clothed matte-white porcelain scholars in tweed blazer jackets stand around the slate-stone table and open the thick sunlit research binders",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "mirror_stopwatch_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "end_sentence_index": 38,
+      "act": 5,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a sunlit university conference room with stacks of sunlit research binders arranged across a long slate-stone table",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "mirror_stopwatch_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 35
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright modern sunlit neuroimaging suite featuring a smooth matte-ivory cylindrical scanner arch behind a control window",
+      "action": "viewed strictly from behind, clothed matte-white porcelain neuroscientists in white lab coats stand at the control console and point toward the scanner window",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "mirror_stopwatch_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "end_sentence_index": 40,
+      "act": 5,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a bright modern sunlit neuroimaging suite featuring a smooth matte-ivory cylindrical scanner arch behind a control window",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "mirror_stopwatch_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 37
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright modern sunlit neuroimaging suite featuring a smooth matte-ivory cylindrical scanner arch behind a control window",
+      "action": "viewed strictly from behind, clothed matte-white porcelain neuroscientists in white lab coats stand at the control console and point toward the scanner window",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 41,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "mirror_stopwatch_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "nucleus accumbens",
+      "anatomy_label": "NUCLEUS ACCUMBENS\nREWARD CENTER",
+      "brain_scene": "a matte-sunlit sagittal cutaway brain model where the deep nucleus accumbens reward hub dims to cool muted slate after piece-rate payment is withdrawn",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 39
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "mirror_stopwatch_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit neuroimaging control gallery displaying twin side-by-side sunlit brain wave ribbons on a clean glass screen",
+      "action": "viewed strictly from behind, three clothed matte-white porcelain scientists in lab coats and blazers lean forward together and point to the quiet lower wave ribbon",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 44,
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "mirror_stopwatch_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "cozy_living_study",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a warm sunlit modern living room with a plush cream sofa, wooden bookshelves, and morning light pouring across an slate-stone coffee table",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain parent in a sage sweater and a child in a soft-mint cardigan sit side by side on the sofa holding open picture books",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 46,
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "cozy_living_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "cozy_living_study",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "chambray shirt sleeves and cool porcelain-white gloved matte-white porcelain hands setting a vintage sunlit camera beside an invoice stack on a home desk",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand pushes the stack of billing envelopes into a drawer and lifts the sunlit camera cleanly toward the sunlit window",
+      "consequence": "the drawer closes smoothly leaving the desk clear for creative play",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "cozy_living_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "cozy_living_study",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands placing a solid brushed-matte foundation block beneath an open studio workbench",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set the wide brushed-matte base block level under the workbench and align wooden craft tools on top",
+      "consequence": "the entire studio workbench rests balanced and rock-steady",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 48,
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "cozy_living_study",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "cozy_living_study",
+      "grammar": "porcelain_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "tweed jacket cuffs and cool porcelain-white gloved matte-white porcelain hands placing a ribbon-tied sunlit gift box beside an already completed wooden architectural model",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set the small sunlit ribbon box gently beside the finished maple sculpture and tap the table warmly",
+      "consequence": "the unexpected thank-you gift gleams beside the completed craftwork",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 49,
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "cozy_living_study",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
+      "brain_scene": "a matte-sunlit 3D cortical brain model where calm electric cyan-blue light in the prefrontal cortex connects in a steady golden loop with the deep basal ganglia curiosity hub",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "cozy_living_study",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit cozy living room where books, wooden puzzles, and a vintage camera rest on warm slate-stone tables without a single tally sheet",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain parent in a sage sweater and child in a soft-mint cardigan turn pages together in quiet morning sunlight",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "cozy_living_study",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "cozy_living_study",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit cozy living room where books, wooden puzzles, and a vintage camera rest on warm slate-stone tables without a single tally sheet",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain parent in a sage sweater and child in a soft-mint cardigan turn pages together in quiet morning sunlight",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 52,
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "cozy_living_study",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "cut_role": "split_right",
+      "act": 3,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "oatmeal knit sweater sleeves and matte-white gloved matte-white porcelain unpaid student hands building a tall wooden castle from the seven maple blocks",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands fit the seventh maple piece onto the geometric castle and draw a fresh shape card eagerly",
+      "consequence": "the completed maple castle stands proud beside the unopened magazines",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48,
+      "scene_state": {
+        "location_id": "rochester_puzzle_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "rochester_puzzle_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a sunlit brick university riverfront quadrangle lined with green maple trees, limestone columns, and a clear brushed-matte sky",
+      "action": "viewed strictly from behind, clothed matte-white porcelain figures in blazer jackets and knit sweaters walk and step calmly along the sunlit path as the camera tilts upward into the sky",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 49
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "PAID TO QUIT?",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered seven-piece maple low-poly puzzle cube pushed aside next to a crisp dollar voucher on sunlit wooden desk"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

@@ -1,0 +1,1170 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "langer_copy_machine_because_heuristic",
+  "topic": "Ellen Langer, Blank & Chanowitz (1978) Manhattan Library Copy-Machine Study: 5-Page Placebic Compliance vs 20-Page Cost Scrutiny",
+  "act5_climax_episode": "Boundary replications confirming low-cost favors trigger automatic polite scripts while high-cost 20-page favors wake prefrontal scrutiny.",
+  "outro_title_lines": [
+    "ELLEN LANGER (1978)",
+    "MANHATTAN COPY STUDY"
+  ],
+  "thumbnail": {
+    "hook_text": "ONE WORD TRICK",
+    "cover_sentence_index": 3,
+    "cover_brief": "Centered powder-blue and mist-white low-poly library copy machine beside a thin five-sheet pastel stack"
+  },
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "WEIGH REASONS?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "ONE WORD TRICK"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FIVE PAGE TEST"
+    },
+    {
+      "sentence_index": 19,
+      "text": "HABIT SCRIPT"
+    },
+    {
+      "sentence_index": 27,
+      "text": "TWENTY PAGES"
+    },
+    {
+      "sentence_index": 35,
+      "text": "COST FILTER"
+    },
+    {
+      "sentence_index": 43,
+      "text": "HONEST REASONS"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "WEIGH REASONS?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "ONE WORD TRICK"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FIVE PAGE TEST"
+    },
+    {
+      "sentence_index": 19,
+      "text": "HABIT SCRIPT"
+    },
+    {
+      "sentence_index": 27,
+      "text": "TWENTY PAGES"
+    },
+    {
+      "sentence_index": 35,
+      "text": "COST FILTER"
+    },
+    {
+      "sentence_index": 43,
+      "text": "HONEST REASONS"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 30,
+      "mode": "split_hstack",
+      "left_clip_index": 28,
+      "right_clip_index": 47,
+      "left_label": "FIVE PAGES: YES",
+      "right_label": "TWENTY PAGES: NO"
+    }
+  ],
+  "clips": [
+    {
+      "clip_index": 2,
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "sage-green sweater sleeves and cool porcelain-white gloved matte-white porcelain hands lifting the powder-blue copier cover",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands lift the smooth powder-blue lid slightly and slide a blank white sheet onto the glass plate",
+      "consequence": "soft cool daylight gleams evenly across the clean glass platen",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 3,
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "sunlit Manhattan graduate library copy alcove with a freestanding powder-blue and clear daylight-white matte-white porcelain copy machine and cool slate bookshelves",
+      "action": "viewed strictly from behind, a matte-white porcelain scholar in a slate coat steps politely aside and waves one gloved hand toward the open copy machine",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 4,
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "bright Manhattan library copy alcove featuring a centered powder-blue and clear daylight-white matte-white porcelain copy machine on clean pale-slate flooring",
+      "action": "viewed strictly from behind, two matte-white porcelain figures in navy and sage coats step beside the centered copy machine as one lifts and extends five blank white sheets",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 6,
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "library_reading_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "wide sunlit graduate library reading room with cool slate study tables, sunlit sage lamps, and neat rows of blank hardcover volumes",
+      "action": "elevated wide view from behind showing matte-white porcelain scholars in sweaters and blazers turning blank cream pages and sliding silver bookmarks across slate desks",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "library_reading_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "library_reading_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over wide sunlit graduate library reading room with cool slate study tables, sunlit sage lamps, and neat rows of blank hardcover volumes",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "library_reading_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 5
+    },
+    {
+      "clip_index": 7,
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "research_planning_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer sleeves and cool porcelain-white gloved matte-white porcelain hands arranging three color-coded sunlit cue cards on a slate desk",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands align three unmarked lavender, mint, and sky-blue cards in a row and tap each card",
+      "consequence": "three crisp blank sunlit condition cards sit ready beside a thin five-sheet stack",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "research_planning_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 8,
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "sunlit library copy alcove with a neat queue of matte-white porcelain graduate scholars holding blank sunlit folders near the powder-blue copier",
+      "action": "viewed strictly from behind, a matte-white porcelain helper in a sage jacket walks calmly toward the copier while a scholar in a navy coat turns slightly aside",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 8,
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 11,
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "research_planning_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "powder-blue blazer sleeves and cool porcelain-white gloved matte-white porcelain hands sliding a brushed-silver clip onto three sunlit prompt slips",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands clip three unmarked sunlit slips onto a slate clipboard and lift the board up",
+      "consequence": "all three blank sunlit test slips gleam cleanly in soft daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "research_planning_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 14,
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "sunlit library copy alcove with the powder-blue copier and slate book stacks",
+      "action": "viewed strictly from behind, one matte-white porcelain scholar in a grey sweater steps aside from the copier while another in a navy coat keeps loading pages",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 11,
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 14,
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "sunlit library copy alcove with the powder-blue copier and slate book stacks",
+      "action": "viewed strictly from behind, one matte-white porcelain scholar in a grey sweater steps aside from the copier while another in a navy coat keeps loading pages",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 12,
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 15,
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "research_planning_desk",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "cool clear daylight-white studio entryway featuring a powder-blue geometric door lock and a brushed-silver master key",
+      "comparison_action": "navy coat sleeves and cool porcelain-white gloved matte-white porcelain hands slide the brushed-silver master key smoothly into the lock and turn the bolt open",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11
+    },
+    {
+      "clip_index": 18,
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "sunlit library copy alcove with the powder-blue copy machine and clean slate-stone counters",
+      "action": "viewed strictly from behind, a matte-white porcelain scholar in a navy blazer lifts a thick binder off the copier and steps willingly back to yield the machine",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 17,
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage jacket sleeves and cool porcelain-white gloved matte-white porcelain hands holding five white sheets beside the circular sky-blue tile pair",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands lift the five blank sheets and slide them gently toward the powder-blue feeder tray",
+      "consequence": "the slim five-page stack hovers cleanly above the open feeder",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 15,
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 19,
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "library_reading_hall",
+      "grammar": "porcelain_pov_hands",
+      "camera": "tilt_down",
+      "attire_and_hands": "slate cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands turning a circular sky-blue ring model on a desk",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands rotate the smooth sky-blue circular ring and tap its hollow center on the slate desk",
+      "consequence": "the hollow sunlit ring spins lightly and settles flat",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "library_reading_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 20,
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "gentle_push_in",
+      "analogy_world": "sunlit pale-slate courtyard entrance featuring a crisp powder-blue double courtyard gate framed by sage-green hedges",
+      "comparison_action": "sage coat sleeves and cool porcelain-white gloved matte-white porcelain hands push lightly on the latch as both powder-blue gate panels swing wide open",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15
+    },
+    {
+      "clip_index": 21,
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "library_reading_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "bright graduate library hall overlooking the copy alcove where several matte-white porcelain scholars stand in line",
+      "action": "elevated wide view from behind showing three matte-white porcelain scholars in coats stepping aside one after another while the helper feeds five crisp sheets",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "library_reading_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 22,
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "office_memo_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "clear daylight-white shirt sleeves with slate cuffs and cool porcelain-white gloved matte-white porcelain hands sorting blank sunlit interoffice folders",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands slide a blank sky-blue memo slip from an inbox tray and stamp a smooth silver marker onto the outbox tray",
+      "consequence": "the routine sunlit memo glides straight into the completed tray without hesitation",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "office_memo_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "end_sentence_index": 20,
+      "act": 3,
+      "location_id": "office_memo_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key office memo desk with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "office_memo_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 18
+    },
+    {
+      "clip_index": 24,
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "research_planning_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer sleeves and cool porcelain-white gloved matte-white porcelain hands snapping a sage bridge block between two pale-cream tiles",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands press the sage bridge block into the middle slot and slide the joined trio forward",
+      "consequence": "all three geometric tiles glide smoothly together along a silver rail",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "research_planning_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 24,
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "research_planning_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer sleeves and cool porcelain-white gloved matte-white porcelain hands snapping a sage bridge block between two pale-cream tiles",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands press the sage bridge block into the middle slot and slide the joined trio forward",
+      "consequence": "all three geometric tiles glide smoothly together along a silver rail",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 22,
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "research_planning_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 25,
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "locked_tripod",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA\nHABIT ENGINE",
+      "brain_scene": "Deep inside the central subcortical core, the basal ganglia glows smooth sky-blue as a fast routine pathway loops effortlessly without cortical delay",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21
+    },
+    {
+      "clip_index": 29,
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "sunlit Manhattan copy alcove as a helper approaches carrying a thick heavy bundle of twenty clear daylight-white pages",
+      "action": "viewed strictly from behind, the matte-white porcelain helper in a sage jacket lifts a thick twenty-sheet stack with both gloved hands toward the powder-blue copier",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22,
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 28,
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "library_reading_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "slate coat sleeves and cool porcelain-white gloved matte-white porcelain hands stacking tall blank sunlit books beside a small sage bridge block",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands place a small sage connector block atop a stack of blank powder-blue covers and tap it",
+      "consequence": "the tiny sage block sits perched atop the tall sunlit book stack",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 25,
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "library_reading_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 29,
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "sunlit Manhattan copy alcove as a helper approaches carrying a thick heavy bundle of twenty clear daylight-white pages",
+      "action": "viewed strictly from behind, the matte-white porcelain helper in a sage jacket lifts a thick twenty-sheet stack with both gloved hands toward the powder-blue copier",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 26,
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 32,
+      "sentence_index": 27,
+      "act": 4,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "sunlit library copy alcove with two waiting scholars holding thick sunlit study binders behind the machine",
+      "action": "viewed strictly from behind, a matte-white porcelain scholar in a navy coat leans toward the thick twenty-sheet bundle and places one gloved hand firmly on the copier rim",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 32,
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "sunlit library copy alcove with two waiting scholars holding thick sunlit study binders behind the machine",
+      "action": "viewed strictly from behind, a matte-white porcelain scholar in a navy coat leans toward the thick twenty-sheet bundle and places one gloved hand firmly on the copier rim",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 28,
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 35,
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage jacket sleeves and cool porcelain-white gloved matte-white porcelain hands holding the thick twenty-sheet bundle beside the circular sky-blue tile",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands extend the thick twenty-sheet stack forward and pause at the closed powder-blue lid",
+      "consequence": "the scholar in front keeps both gloved hands planted on the copier console",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 29,
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 33,
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy coat sleeves and cool porcelain-white gloved matte-white porcelain hands waving a thin five-sheet bundle politely onto the copier glass",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands lift the copier lid open and guide the slim five-sheet stack onto the glass platen",
+      "consequence": "access to the powder-blue copier opens right away for the small favor",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 36,
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "sunlit library copy alcove with two waiting scholars holding thick sunlit study binders behind the machine",
+      "action": "slate coat sleeves and cool porcelain-white gloved matte-white porcelain hands pull a silver lever as the striped powder-blue tollgate arm drops crisply shut across the lane",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 37,
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "research_planning_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue blazer sleeves and cool porcelain-white gloved matte-white porcelain hands setting two equal short sunlit bar columns side by side",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands place a short pale-lavender column right beside an equally short sky-blue column and level their tops",
+      "consequence": "both short sunlit columns sit at the exact same low height on the slate mat",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 32,
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "research_planning_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "end_sentence_index": 33,
+      "act": 4,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over sunlit library copy alcove with two waiting scholars holding thick sunlit study binders behind the machine",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 31
+    },
+    {
+      "clip_index": 40,
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "locked_tripod",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nCONFLICT DETECTOR",
+      "brain_scene": "Along the medial inner wall above the corpus callosum, the anterior cingulate cortex lights soft coral-rose as it flags high-cost conflict and routes attention forward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32
+    },
+    {
+      "clip_index": 41,
+      "sentence_index": 35,
+      "act": 5,
+      "location_id": "library_reading_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "sunlit graduate library hall showing both the five-sheet quick handoff and a calm study table with sunlit comparison bars",
+      "action": "elevated wide view from behind showing two matte-white porcelain researchers in powder-blue blazers comparing the slim five-sheet bundle and thick twenty-sheet bundle on a slate table",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "library_reading_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 42,
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "research_planning_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved matte-white porcelain hands sliding a silver balance slider between low-cost and high-cost trays",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands move the brushed-silver slider toward the thick twenty-sheet tray and lock a crisp gate pin",
+      "consequence": "the silver audit gate engages cleanly beside the thick stack",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 36,
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "research_planning_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 43,
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nTHE PLANNER",
+      "brain_scene": "Across the front third of the brain behind the forehead, the prefrontal cortex illuminates clear sky-blue as crisp analytical pathways evaluate incoming claims",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35
+    },
+    {
+      "clip_index": 45,
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "research_planning_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "tilt_down",
+      "attire_and_hands": "powder-blue blazer sleeves and cool porcelain-white gloved matte-white porcelain hands unfolding the second half of a blank sunlit chart board",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands flip open a folded slate panel to reveal the paired twenty-page sunlit bar columns and tap them",
+      "consequence": "both halves of the sunlit bar display sit side by side in full view",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "research_planning_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 45,
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "research_planning_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "tilt_down",
+      "attire_and_hands": "powder-blue blazer sleeves and cool porcelain-white gloved matte-white porcelain hands unfolding the second half of a blank sunlit chart board",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands flip open a folded slate panel to reveal the paired twenty-page sunlit bar columns and tap them",
+      "consequence": "both halves of the sunlit bar display sit side by side in full view",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 39,
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "research_planning_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 47,
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "research_planning_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "sunlit research office with the two-tier sunlit bar sculpture resting on a wide cool slate conference table",
+      "action": "viewed strictly from behind, three matte-white porcelain researchers in powder-blue and slate coats gather around the table, lean in together, and gesture toward the sharp twenty-page drop",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 41,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "research_planning_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 48,
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "office_memo_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "modern sunlit workspace with clean slate desks, brushed-silver laptops showing blank sunlit panes, and neat sage folders",
+      "action": "viewed strictly from behind, two matte-white porcelain colleagues in sage and navy sweaters turn their chairs toward a shared slate desk and exchange a crisp sunlit folder",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "office_memo_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 49,
+      "sentence_index": 43,
+      "act": 6,
+      "location_id": "office_memo_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage sweater sleeves and cool porcelain-white gloved matte-white porcelain hands setting aside a bare single pale-lavender request block",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands slide the isolated single block off the desk mat and pick up a connected two-part sage card",
+      "consequence": "the bare isolated block sits unused at the edge of the slate desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 44,
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "office_memo_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 52,
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "sunlit copy alcove with the powder-blue copier and a neat stack of twenty white sheets beside a solid sage reason card",
+      "action": "viewed strictly from behind, a matte-white porcelain scholar in a navy coat nods once and steps aside so the helper in a sage jacket can place the twenty-sheet bundle",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 53,
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "locked_tripod",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nTHE PLANNER",
+      "brain_scene": "Directly behind the forehead, the prefrontal cortex glows calm luminous cyan-blue while steady frontal pathways hold top-level focus",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42
+    },
+    {
+      "clip_index": 55,
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "office_memo_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands lifting the hollow sunlit tile off the silver rail",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands unclip the hollow sunlit tile and replace it with a solid weighted sky-blue block",
+      "consequence": "the solid sky-blue block balances the silver rail evenly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "office_memo_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 56,
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "office_memo_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "slate coat sleeves and cool porcelain-white gloved matte-white porcelain hands testing a hollow sunlit ring against a solid sage cube",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands press gently on the thin hollow ring until its segments fold flat and lift the solid sage cube upright",
+      "consequence": "the solid sage cube stands steady on the clean slate mat",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "office_memo_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 49,
+      "end_sentence_index": 49,
+      "act": 6,
+      "location_id": "office_memo_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key office memo desk with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "office_memo_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 45
+    },
+    {
+      "clip_index": 57,
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "sunlit Manhattan graduate library copy alcove with the powder-blue and clear daylight-white copy machine flanked by thin five-sheet and thick twenty-sheet trays",
+      "action": "viewed strictly from behind, two matte-white porcelain scholars in navy and sage coats stand calmly beside the copy machine and place a solid sky-blue block onto the counter",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 34,
+      "sentence_index": 30,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy coat sleeves and cool porcelain-white gloved matte-white porcelain hands lowering the powder-blue copier lid shut in front of a thick twenty-sheet stack",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands close the powder-blue copier lid firmly and press the start button for their own stack",
+      "consequence": "the thick twenty-sheet bundle remains waiting outside on the slate side ledge",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "manhattan_copy_alcove",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 58,
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "manhattan_copy_alcove",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "tall sunlit Manhattan graduate library atrium rising above the powder-blue copy alcove toward clerestory sunlit windows",
+      "action": "elevated wide view from behind showing the quiet library alcove and scholars standing beside the copier as soft daylight fills the high geometric ceiling in tailored linen sleeves and a woven cardigan as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

@@ -13,6 +13,9 @@ from pipeline.config import (
     ALLOWED_NARRATIVE_STYLES,
     CLIP_COUNT_MAX,
     CLIP_COUNT_MIN,
+    DIORAMA_V7_PROSODY_MODES,
+    DIORAMA_VOICE_PRESETS,
+    DOSSIERS_DIR,
     PROJECTS_DIR,
     WORKSPACE_ROOT,
 )
@@ -794,12 +797,19 @@ def main():
     p_da.add_argument(
         "--prosody-mode",
         default=None,
-        choices=["uniform_108x", "uniform_110x", "dynamic_rush_v7"],
+        choices=list(DIORAMA_V7_PROSODY_MODES),
         help="Sentence-level prosody engine mode (default: script.json `prosody_mode`, else config default)",
+    )
+    p_da.add_argument(
+        "--voice-preset",
+        default=None,
+        choices=list(DIORAMA_VOICE_PRESETS),
+        help="Narrator voice preset from DIORAMA_VOICE_PRESETS (e.g. andrew_v7, emma_v7, ava_v7)",
     )
     p_da.add_argument("--preview-sec", type=float, default=None, help="Render only the first N seconds to 05_assembly/preview_0-Ns.mp4 (skips QA)")
     p_da.add_argument("--allow-published-overwrite", action="store_true", default=False, help="Allow rebuilding a project that already has an upload receipt")
     p_da.add_argument("--plaque-optimize", action=argparse.BooleanOptionalAction, default=True, help="F-1 pre-render plaque-safe source window refinement (default: True)")
+    p_da.add_argument("--preserve-audio", action="store_true", default=False, help="Reuse existing 04_audio/audio_master.wav and voice_report.json untouched without re-synthesizing or re-mixing audio")
 
     p_rc = subparsers.add_parser("diorama-recut", help="F-3 re-render only the given EDL cuts from the segment cache and re-mux")
     p_rc.add_argument("--project", required=True, help="Target project ID or directory")
@@ -842,6 +852,7 @@ def main():
         choices=["auto", "omni", "zero_credit", "zero-credit"],
         help="Flow engine policy: auto (Omni 1.1 Flash -> 0-credit auto-fallback), omni, or zero-credit",
     )
+    p_db.add_argument("--voice-preset", default=None, choices=list(DIORAMA_VOICE_PRESETS), help="Optional narrator voice preset override")
 
     p_pg = subparsers.add_parser("prompt-gate", help="Run the v5/v6/v7 production gate on a project or dossier draft")
     p_de = subparsers.add_parser(
@@ -860,6 +871,7 @@ def main():
     p_de.add_argument("--force", action="store_true", default=False, help="Purge existing clips and regenerate")
     p_de.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
     p_de.add_argument("--engine", default="auto", choices=["auto", "omni", "zero_credit", "zero-credit"], help="Flow engine policy")
+    p_de.add_argument("--voice-preset", default=None, choices=list(DIORAMA_VOICE_PRESETS), help="Optional narrator voice preset override")
 
     p_dp = subparsers.add_parser(
         "diorama-pipeline",
@@ -875,6 +887,7 @@ def main():
     p_dp.add_argument("--force", action="store_true", default=False, help="Purge existing clips and regenerate")
     p_dp.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
     p_dp.add_argument("--engine", default="auto", choices=["auto", "omni", "zero_credit", "zero-credit"], help="Flow engine policy")
+    p_dp.add_argument("--voice-preset", default=None, choices=list(DIORAMA_VOICE_PRESETS), help="Optional narrator voice preset override")
     p_pg.add_argument("--dir", required=True, help="Folder holding 02_script/script.json or script.json, visual_plan.json, 03_visuals/")
 
     p_ap = subparsers.add_parser("audit-prompts", help="Score every project against Prompt System v5 and write the score sheet")
@@ -966,10 +979,101 @@ def main():
     p_gp.add_argument("--skip-browser", action="store_true", default=False, help="Skip browser generation if all 10 clips already exist")
     p_gp.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
 
+    p_rx = subparsers.add_parser(
+        "reenact-extract",
+        help="Stage 1-2 source-conditioned reenactment: extract shot EDL + dHash/5-gram hashes & sanitize structural frames in /tmp/aab_reenact (R67)",
+    )
+    p_rx.add_argument("--source", required=True, help="YouTube URL or local MP4 path")
+    p_rx.add_argument("--slug", required=True, help="Research dossier slug (e.g. ainsworth_strange_situation)")
+    p_rx.add_argument("--project", default="", help="Optional project_id to write 03_visuals/source_edl.json")
+    p_rx.add_argument("--personal-names", default="", help="Comma-separated source personal names to ban in RQ3 (e.g. Lisa,Lizbeth)")
+    p_rx.add_argument("--no-whisper", action="store_true", default=False, help="Skip Whisper ASR if source_analysis.json already exists")
+
+    p_rr = subparsers.add_parser(
+        "reenact-refs",
+        help="Stage 3 source-conditioned reenactment: translate sanitized guides into porcelain 9:16 reference PNGs via 0-credit Google Flow x4 Image mode (R67)",
+    )
+    p_rr.add_argument("--project", required=True, help="Target project_id")
+    p_rr.add_argument("--slug", required=True, help="Research dossier slug")
+    p_rr.add_argument("--refs", default="", help="Optional comma-separated reference_ids to regenerate")
+    p_rr.add_argument("--backend", default="flow", choices=["flow", "gemini"], help="0-credit image backend (default: flow)")
+    p_rr.add_argument("--batch-count", type=int, default=4, help="0-credit candidate images per Flow submission (1..4, default: 4)")
+    p_rr.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port")
+    p_rr.add_argument("--force", action="store_true", default=False, help="Overwrite existing reference PNGs")
+    p_rr.add_argument("--purge-quarantine", action="store_true", default=False, help="Purge /tmp/aab_reenact after translation")
+
+    p_rp = subparsers.add_parser(
+        "reenact-produce",
+        help="Full R67 source-conditioned porcelain reenactment episode production + quarantine purge + RQ1-RQ5 & R64 QA",
+    )
+    p_rp.add_argument("--slug", required=True, help="Research dossier slug")
+    p_rp.add_argument("--project", required=True, help="Target project_id")
+    p_rp.add_argument("--pillar", required=True, help="Channel pillar id")
+    p_rp.add_argument("--voice-preset", default="emma_v7", choices=list(DIORAMA_VOICE_PRESETS), help="Voice preset (default: emma_v7)")
+    p_rp.add_argument("--prosody-mode", default="dynamic_us_v7", choices=list(DIORAMA_V7_PROSODY_MODES), help="Prosody mode (default: dynamic_us_v7)")
+    p_rp.add_argument("--tabs", type=int, default=5, help="Parallel Flow tabs (max 5)")
+    p_rp.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port")
+    p_rp.add_argument("--engine", default="auto", choices=["auto", "omni", "zero-credit"], help="Flow engine mode")
+    p_rp.add_argument("--precheck-only", action="store_true", default=False, help="Run prompt-gate + TTS clock + ref-qa precheck only")
+    p_rp.add_argument("--force", action="store_true", default=False, help="Force regenerate clips and assembly")
+
+    p_rqa = subparsers.add_parser(
+        "reenact-qa",
+        help="Run 5-axis Reenactment Non-Infringement & Fidelity QA contract (RQ1-RQ5, R67)",
+    )
+    p_rqa.add_argument("--project", required=True, help="Target project_id")
+    p_rqa.add_argument("--slug", default="", help="Optional dossier slug")
+    p_rqa.add_argument("--allow-quarantine", action="store_true", default=False, help="Allow /tmp/aab_reenact during pre-purge check")
+    p_rqa.add_argument("--purge", action="store_true", default=False, help="Purge /tmp/aab_reenact before evaluating RQ1-RQ5")
+
+    p_sw = subparsers.add_parser(
+        "studio-watchdog",
+        help="Autonomous YouTube Studio Go-Live Watchdog: promote elapsed Scheduled Shorts, pin R35 DOI comments & link R35-B Public rings",
+    )
+    p_sw.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port")
+    p_sw.add_argument("--apply", action="store_true", default=False, help="Execute live pins/links/promotions (default: dry-run)")
+    p_sw.add_argument("--no-pins", action="store_true", default=False, help="Skip R35 DOI comment pinning")
+    p_sw.add_argument("--no-links", action="store_true", default=False, help="Skip R35-B Short-to-Short related video linking")
+
+    p_nr = subparsers.add_parser(
+        "news-radar",
+        help="Scan recent Crossref / ClinicalTrials breaking BCI & neuroscience papers into Completed_Neuro_News_Shorts staging",
+    )
+    p_nr.add_argument("--days", type=int, default=14, help="Lookback window in days (default: 14)")
+    p_nr.add_argument("--max-candidates", type=int, default=5, help="Max staged news cards (default: 5)")
+
+    p_lf = subparsers.add_parser(
+        "longform-assemble",
+        help="Assemble 16:9 3840x2160 @ 24fps (-14.0 LUFS) CTV Long-Form documentary MP4 + 4K A/B/C thumbnails",
+    )
+    p_lf.add_argument("--project", required=True, help="Target project_id or path")
+    p_lf.add_argument("--hook-text", default="THE HIDDEN CIRCUIT", help="4K thumbnail hook headline")
+
     args = parser.parse_args()
 
     if args.command == "gemini-produce":
         cmd_gemini_produce(args)
+        return
+    if args.command == "reenact-extract":
+        cmd_reenact_extract(args)
+        return
+    if args.command == "reenact-refs":
+        cmd_reenact_refs(args)
+        return
+    if args.command == "reenact-produce":
+        cmd_reenact_produce(args)
+        return
+    if args.command == "reenact-qa":
+        cmd_reenact_qa(args)
+        return
+    if args.command == "studio-watchdog":
+        cmd_studio_watchdog(args)
+        return
+    if args.command == "news-radar":
+        cmd_news_radar(args)
+        return
+    if args.command == "longform-assemble":
+        cmd_longform_assemble(args)
         return
     if args.command == "diorama-batch":
         import json as _json
@@ -985,6 +1089,7 @@ def main():
             force_regenerate=bool(args.force),
             cdp_port=int(args.cdp_port),
             engine_mode=eng_mode,
+            voice_preset=args.voice_preset,
         )
         print(_json.dumps(rep, indent=2, ensure_ascii=False))
         return
@@ -1001,6 +1106,7 @@ def main():
             force_regenerate=bool(args.force),
             cdp_port=int(args.cdp_port),
             engine_mode=str(args.engine).replace("-", "_"),
+            voice_preset=args.voice_preset,
         )
         print(_json.dumps(rep, indent=2, ensure_ascii=False, default=str))
         return
@@ -1016,6 +1122,7 @@ def main():
             force_regenerate=bool(args.force),
             cdp_port=int(args.cdp_port),
             engine_mode=str(args.engine).replace("_", "-"),
+            voice_preset=args.voice_preset,
         )
         print(_json.dumps(rep, indent=2, ensure_ascii=False, default=str))
         return
@@ -1369,9 +1476,11 @@ def cmd_diorama_assemble(args):
         force_rebuild=bool(args.force),
         run_posthoc_qa=(run_ph and preview_sec is None),
         prosody_mode=getattr(args, "prosody_mode", None),
+        voice_preset=getattr(args, "voice_preset", None),
         preview_sec=preview_sec,
         allow_published_overwrite=bool(getattr(args, "allow_published_overwrite", False)),
         optimize_plaque_windows=bool(getattr(args, "plaque_optimize", True)),
+        preserve_audio_master=bool(getattr(args, "preserve_audio", False)),
     )
     if preview_sec is not None:
         print(json.dumps(res, indent=2, ensure_ascii=False))
@@ -1777,8 +1886,159 @@ def cmd_gemini_produce(args):
         sys.exit(1)
 
 
+def cmd_reenact_extract(args):
+    import json
+
+    from pipeline.source_reenactment import (
+        REENACT_QUARANTINE_ROOT,
+        extract_source_edl,
+        sanitize_structural_frames,
+    )
+
+    slug = str(args.slug).strip()
+    p_dir = (Path(PROJECTS_DIR) / str(args.project).strip()) if str(args.project).strip() else None
+    d_dir = Path(DOSSIERS_DIR) / slug
+    names = [x.strip() for x in str(args.personal_names).split(",") if x.strip()] or None
+    q_dir = REENACT_QUARANTINE_ROOT / slug
+    edl = extract_source_edl(
+        url_or_mp4=str(args.source),
+        slug=slug,
+        project_dir=p_dir,
+        dossier_dir=d_dir if d_dir.exists() else None,
+        work_dir=q_dir,
+        source_personal_names=names,
+        run_whisper=not bool(args.no_whisper),
+    )
+    san = sanitize_structural_frames(
+        work_dir=q_dir,
+        edl_doc=edl,
+        project_dir=p_dir,
+        dossier_dir=d_dir if d_dir.exists() else None,
+    )
+    print(json.dumps({"slug": slug, "shot_count": len(edl.get("shots") or []), "sanitized": san}, indent=2, ensure_ascii=False))
+
+
+def cmd_reenact_refs(args):
+    import json
+
+    from pipeline.source_reenactment import purge_reenactment_quarantine, translate_porcelain_keyframes
+
+    p_dir = Path(PROJECTS_DIR) / str(args.project).strip()
+    only_ids = {x.strip() for x in str(args.refs).split(",") if x.strip()} or None
+    res = translate_porcelain_keyframes(
+        project_dir=p_dir,
+        slug=str(args.slug).strip(),
+        cdp_port=int(args.cdp_port),
+        only_ref_ids=only_ids,
+        force=bool(args.force),
+        backend=str(getattr(args, "backend", "flow")),
+        batch_count=int(getattr(args, "batch_count", 4)),
+    )
+    if bool(args.purge_quarantine):
+        res["quarantine_purge"] = purge_reenactment_quarantine()
+    print(json.dumps(res, indent=2, ensure_ascii=False))
+    if res.get("failed_ids"):
+        sys.exit(1)
+
+
+def cmd_reenact_produce(args):
+    import json
+
+    from pipeline.diorama_batch_orchestrator import run_single_diorama_episode
+    from pipeline.source_reenactment import purge_reenactment_quarantine, validate_reenactment_non_infringement
+
+    slug = str(args.slug).strip()
+    pid = str(args.project).strip()
+    p_dir = Path(PROJECTS_DIR) / pid
+    d_dir = Path(DOSSIERS_DIR) / slug
+    ep_res = run_single_diorama_episode(
+        slug=slug,
+        project_id=pid,
+        pillar=str(args.pillar).strip(),
+        precheck_only=bool(args.precheck_only),
+        tabs=int(args.tabs),
+        force_regenerate=bool(args.force),
+        cdp_port=int(args.cdp_port),
+        engine_mode=str(args.engine).replace("-", "_"),
+        voice_preset=str(args.voice_preset),
+        prosody_mode=str(getattr(args, "prosody_mode", "") or "").strip() or None,
+    )
+    if bool(args.precheck_only):
+        print(json.dumps(ep_res, indent=2, ensure_ascii=False, default=str))
+        if not ep_res.get("passed", True):
+            sys.exit(1)
+        return
+    purge_res = purge_reenactment_quarantine()
+    rqa = validate_reenactment_non_infringement(
+        project_dir=p_dir,
+        dossier_dir=d_dir if d_dir.exists() else None,
+        require_quarantine_purged=True,
+        save_report=True,
+    )
+    out = {"episode": ep_res, "quarantine_purge": purge_res, "reenactment_qa": rqa}
+    print(json.dumps(out, indent=2, ensure_ascii=False, default=str))
+    if not ep_res.get("passed", False) or not rqa.get("passed", False):
+        sys.exit(1)
+
+
+def cmd_reenact_qa(args):
+    import json
+
+    from pipeline.source_reenactment import purge_reenactment_quarantine, validate_reenactment_non_infringement
+
+    if bool(args.purge):
+        purge_reenactment_quarantine()
+    p_dir = Path(PROJECTS_DIR) / str(args.project).strip()
+    slug = str(args.slug).strip()
+    d_dir = (Path(DOSSIERS_DIR) / slug) if slug else None
+    rep = validate_reenactment_non_infringement(
+        project_dir=p_dir,
+        dossier_dir=d_dir if (d_dir and d_dir.exists()) else None,
+        require_quarantine_purged=not bool(args.allow_quarantine),
+        save_report=True,
+    )
+    print(json.dumps(rep, indent=2, ensure_ascii=False))
+    if not rep.get("passed"):
+        sys.exit(1)
+
+
+def cmd_studio_watchdog(args):
+    import json
+
+    from pipeline.studio.studio_watchdog import run_studio_watchdog
+
+    rep = run_studio_watchdog(
+        cdp_port=int(args.cdp_port),
+        dry_run=not bool(args.apply),
+        apply_pins=not bool(args.no_pins),
+        apply_links=not bool(args.no_links),
+    )
+    print(json.dumps(rep, indent=2, ensure_ascii=False, default=str))
+
+
+def cmd_news_radar(args):
+    import json
+
+    from pipeline.news_radar import scan_breaking_neuro_news
+
+    rep = scan_breaking_neuro_news(
+        window_days=int(args.days),
+        max_candidates=int(args.max_candidates),
+    )
+    print(json.dumps(rep, indent=2, ensure_ascii=False))
+
+
+def cmd_longform_assemble(args):
+    import json
+
+    from pipeline.longform_assembler import assemble_longform_4k_episode
+
+    res = assemble_longform_4k_episode(args.project, hook_text=str(args.hook_text))
+    res["thumbnails_4k"] = res.get("thumbnails")
+    print(json.dumps(res, indent=2, ensure_ascii=False))
+    if not res.get("passed", True):
+        sys.exit(1)
+
 
 if __name__ == "__main__":
     main()
-
-

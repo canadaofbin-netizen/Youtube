@@ -1,0 +1,1153 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "miller_magical_number_seven",
+  "topic": "George A. Miller Magical Number Seven & Cognitive Chunking, Unmarked sunlit Triplet Trays, Nelson Cowan Four-Slot Focus & Chess Pattern Grouping",
+  "act5_climax_episode": "Chess master packing twenty-five pastel geometric chess pieces into five cohesive cluster trays after a brief glance.",
+  "outro_title_lines": [
+    "GEORGE A. MILLER (1956)",
+    "HARVARD UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "RAW BYTE LIMIT?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "CHUNKING SECRET"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SEVEN ENVELOPES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "FORTY IN A ROW"
+    },
+    {
+      "sentence_index": 28,
+      "text": "FOUR PURE SLOTS"
+    },
+    {
+      "sentence_index": 37,
+      "text": "CHESS PATTERNS"
+    },
+    {
+      "sentence_index": 45,
+      "text": "THREE BUCKETS"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "RAW BYTE LIMIT?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "CHUNKING SECRET"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SEVEN ENVELOPES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "FORTY IN A ROW"
+    },
+    {
+      "sentence_index": 28,
+      "text": "FOUR PURE SLOTS"
+    },
+    {
+      "sentence_index": 37,
+      "text": "CHESS PATTERNS"
+    },
+    {
+      "sentence_index": 45,
+      "text": "THREE BUCKETS"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 34,
+      "mode": "split_hstack",
+      "left_clip_index": 31,
+      "right_clip_index": 48,
+      "left_label": "LOOSE OVERFLOW",
+      "right_label": "GROUPED FIT"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit cool clear daylight-white Harvard seminar room with a long cool slate-stone table holding blank sunlit geometric memory cubes and powder-blue triplet trays",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain Harvard researchers in slate blazers lean at the slate-stone table and slide sunlit cubes into grouped trays with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "forty small mint-sage memory cubes nested cleanly inside powder-blue three-cube bracket trays along a cool slate-stone rack",
+      "internal_mechanism": "each powder-blue bracket tray locks three small mint-sage cubes into one compact unit quadrupling what fits along the rack",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the bright Harvard Psycho-Acoustic Laboratory room with the seven-slot slate rack, sunlit memory cubes, and brushed-silver tone generator",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain psychologist in a slate blazer steps beside the slate-stone table and points a gloved hand along the seven-slot rack",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a cool-toned acoustic instrument room with brushed-silver relay racks and a narrow single-file pebble chute on cool slate-stone",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain engineer in a white coat walks beside the silver relay rack and places a gloved hand on the narrow chute",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands lining up tiny two-tone mint-sage and lavender-gray bit pebbles on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and align a single-file row of tiny sunlit pebbles along a silver ruler bar",
+      "consequence": "each tiny pebble represents one minimal unit of raw data",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved matte-white porcelain hands testing how many tiny sunlit pebbles fit inside a narrow silver gauge on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand slides pebbles into the gauge while the other holds a thicker powder-blue block ready beside it",
+      "consequence": "testing raw pebbles against rich blocks probes the true memory limit",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 7,
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the Harvard seminar table with the seven thick ten-layer powder-blue blocks standing tall beside the seven-slot slate rack",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain volunteer in a cardigan leans forward and reaches gloved hands toward the seven thick powder-blue blocks",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved matte-white porcelain hands sweeping the tiny cubes aside and placing thick ten-layer powder-blue blocks on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide the tiny cubes away and set seven thick ten-layer blocks center stage",
+      "consequence": "heavy information-rich blocks replace the tiny single-bit cubes",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 9,
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands slotting all seven tall ten-layer powder-blue blocks effortlessly into the seven-slot slate rack",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift and set the seventh tall powder-blue block cleanly into the seventh slot",
+      "consequence": "all seven information-packed blocks fit with zero trouble",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands slotting all seven tall ten-layer powder-blue blocks effortlessly into the seven-slot slate rack",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift and set the seventh tall powder-blue block cleanly into the seventh slot",
+      "consequence": "all seven information-packed blocks fit with zero trouble",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 11,
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sleek brushed-silver seven-compartment mail slot sorter mounted on a cool clear daylight-white counter holding seven thick sunlit envelopes",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in blazer cuffs slide and set seven thick powder-blue envelopes smoothly into the seven silver mail slots",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "acoustic_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a quiet cool powder-blue Harvard acoustic booth with a brushed-silver tone dial and ten unmarked sunlit response keys on a slate-stone desk",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain listener in a sage-green jacket and headphones leans over the desk and presses sunlit keys with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 14,
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "acoustic_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "gentle_push_in",
+      "analogy_world": "a single isolated matte chalk-white piano key mounted alone on a cool slate-stone pedestal with soft cyan sound ripples",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in coat cuffs reach and press the lone white piano key once as a single pure ripple ring expands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "acoustic_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green jacket cuffs and cool porcelain-white gloved matte-white porcelain hands hesitating above ten unmarked sunlit tone buttons on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand reaches uncertainly between buttons seven and eight then rests back on the cool stone",
+      "consequence": "past six isolated tones, unanchored pitch judgment blurs",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "acoustic_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "tilt_down",
+      "attire_and_hands": "cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands trying to gather twelve loose unmarked coral-rose cubes at once on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift the loose pile of twelve coral-rose cubes as five cubes tumble and roll across the stone",
+      "consequence": "juggling twelve ungrouped cubes raw overwhelms live focus immediately",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "end_sentence_index": 18,
+      "act": 2,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key harvard chunk lab with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 16
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a long line across the cool slate-stone table",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in rolled white shirt sleeves steps up to the long cube line and lifts powder-blue triplet trays with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved matte-white porcelain hands framing five to nine sunlit chunk slots along a brushed-silver bar on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide and align silver bracket stops to five and nine centered squarely on slot seven",
+      "consequence": "seven grouped slots define the classic immediate span range",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 20,
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a long line across the cool slate-stone table",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in rolled white shirt sleeves steps up to the long cube line and lifts powder-blue triplet trays with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 21,
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "rolled white shirt cuffs and cool porcelain-white gloved matte-white porcelain hands sliding powder-blue three-cube brackets rapidly over every three mint-sage cubes on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set and align triplet bracket after triplet bracket along the mint-sage row",
+      "consequence": "loose individual cubes snap into rhythmic triplets down the table",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a powder-blue three-cube bracket tray on cool clear daylight-white stone closing its smooth hinged lid into one solid cyan gem block",
+      "internal_mechanism": "three separate mint-sage cubes merge beneath the smooth lid into one compact cyan chunk token",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 23,
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL CORTEX\nWORKING-MEMORY DESK",
+      "brain_scene": "a matte-sunlit 3D cortical brain model on a cool clear daylight-white stand where the upper front dorsolateral prefrontal cortex glows bright cyan compressing details into chunk pointers",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the long Harvard slate-stone table showing the unbroken chain of forty grouped mint-sage cubes",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain psychologist in a slate blazer steps beside his colleague and shakes gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_left",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nATTENTION SPOTLIGHT",
+      "brain_scene": "a matte-sunlit 3D cortical brain model highlighting the upper rear parietal cortex in crisp mint-sage maintaining distinct active working-memory slots",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved matte-white porcelain hands separating the tone-dial model from the chunk-tray rack on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide the silver tone dial left and the powder-blue chunk rack right onto separate mats",
+      "consequence": "the two famous sevens turn out to come from separate mechanisms",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit lecture podium with two separate blank sunlit folder stacks tied together by one playful cyan ribbon on cool slate-stone",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain lecturer in a slate blazer lifts both sunlit folder stacks with gloved hands and aligns them side by side",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "acoustic_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands placing a silver divider wall between the tone buttons and chunk trays on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set and press the silver divider upright between the two distinct setups",
+      "consequence": "sensory tone judgment and chunked memory follow totally separate laws",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "acoustic_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "acoustic_booth",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands placing a four-slot clear daylight-white tray onto the cool slate-stone desk",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand sets the four-slot tray down while the other holds a steady metronome tapper that blocks silent grouping",
+      "consequence": "blocking silent rehearsal tests raw unchunked focus directly",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 31,
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "acoustic_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "acoustic_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a modern cool clear daylight-white cognitive lab desk holding a crisp four-slot powder-blue tray and colored geometric blocks",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a navy blazer leans beside a seated volunteer in a coat and points gloved hands at the four-slot tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "acoustic_booth",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "acoustic_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy coat cuffs and cool porcelain-white gloved matte-white porcelain hands filling all four slots of the powder-blue tray with four sunlit blocks on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and press the fourth sunlit block flush filling the entire raw tray",
+      "consequence": "pure unchunked attention caps cleanly at four slots",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 33,
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "acoustic_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cardigan cuffs and cool porcelain-white gloved matte-white porcelain hands dropping twelve loose coral-rose cubes onto a four-slot slate tray",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands drop the loose cubes as eight coral-rose cubes spill off onto cool slate-stone",
+      "consequence": "loose scattered fragments overflow the four slots instantly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands clustering seven sunlit cubes into two tiny trios and one single on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and slide the seven cubes into three quick mini-clusters across the stone",
+      "consequence": "everyday seven-item recall secretly rides on automatic mini-grouping",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nATTENTION SPOTLIGHT",
+      "brain_scene": "a matte-sunlit 3D cortical brain model where four distinct cyan nodes glow across the upper parietal cortex marking the four-chunk focus limit",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "chess_study_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a quiet sunlit tournament room with a cool clear daylight-white and powder-blue geometric chessboard holding twenty-five matte-sunlit chess pieces on cool slate-stone",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain chess master in a charcoal coat leans over the sunlit chessboard and rests gloved hands beside a silver response tally counter",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "chess_study_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "end_sentence_index": 38,
+      "act": 5,
+      "location_id": "chess_study_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a quiet sunlit tournament room with a cool clear daylight-white and powder-blue geometric chessboard holding twenty-five matte-sunlit chess pieces on cool slate-stone",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "chess_study_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 35
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "chess_study_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands lowering a frosted cover over the first chessboard beside an empty second board on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand sets the frosted cover down while the other slides a tray of spare sunlit chess pieces forward",
+      "consequence": "the empty sunlit chessboard awaits full reconstruction from memory",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 39,
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "chess_study_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "chess_study_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the tournament table as the frosted cover lifts revealing two identical twenty-five-piece sunlit chessboards side by side",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain chess master in a charcoal coat steps back calmly while an examiner in a white coat lifts the cover with gloved hands",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 41,
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "chess_study_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_right",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL CORTEX\nWORKING-MEMORY DESK",
+      "brain_scene": "a matte-sunlit 3D cortical brain model where the upper front dorsolateral prefrontal cortex glows vivid cyan holding five rich pattern chunks effortlessly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 38
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "chess_study_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit tournament study room with the two matching twenty-five-piece sunlit chessboards gleaming on cool slate-stone",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in blazers lean closer and shake gloved hands over the reconstructed board",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 44,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "chess_study_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a clean modern cool clear daylight-white workspace desk covered with scattered sunlit task tiles beside three empty powder-blue organizer trays",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain worker in a sage-green blazer steps up to the clear daylight-white desk and reaches gloved hands toward the scattered sunlit tiles",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green blazer cuffs and cool porcelain-white gloved matte-white porcelain hands spacing ten small powder-blue cubes into three neat blocks with two silver spacer bars on cool slate-stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and align two slim silver spacer bars dividing the ten cubes into three clean groups",
+      "consequence": "ten overwhelming items turn into three effortless visual blocks",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 46,
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 47,
+      "end_sentence_index": 47,
+      "act": 6,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a clean modern cool clear daylight-white workspace desk covered with scattered sunlit task tiles beside three empty powder-blue organizer trays",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "clip_number": 42
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a clean modern cool clear daylight-white workspace desk covered with scattered sunlit task tiles beside three empty powder-blue organizer trays",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in coat cuffs place four sunlit boxes into the sturdy mint-sage tote bag and lift both handles effortlessly",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green blazer sleeves and cool porcelain-white gloved matte-white porcelain hands sweeping twelve cluttered coral-rose pins off a blank presentation board on cool slate-stone",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand slides the twelve cluttered pins away while the other sets down three clean cyan summary blocks",
+      "consequence": "replacing clutter with three summary blocks restores instant clarity",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 49,
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "sage-green blazer cuffs and cool porcelain-white gloved matte-white porcelain hands sorting twelve blank sunlit note tiles into three powder-blue bucket trays on cool clear daylight-white stone",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and align four sunlit note tiles cleanly inside each of the three powder-blue buckets",
+      "consequence": "twelve loose tasks organize into three calm actionable buckets",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the tidy clear daylight-white workspace desk with the three neat powder-blue bucket trays gleaming in order",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain worker in a sage-green blazer aligns the third tray with gloved hands and steps calmly back",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "wide sunlit view of the tidy clear daylight-white workspace desk with the three neat powder-blue bucket trays gleaming in order",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain worker in a sage-green blazer aligns the third tray with gloved hands and steps calmly back",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 52,
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer cuffs and cool porcelain-white gloved matte-white porcelain hands placing three neat four-cube mint-sage bundles into the four-slot slate tray",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set and align all three four-cube bundles cleanly with one slot still spare",
+      "consequence": "twelve grouped items fit easily inside four slots",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48,
+      "scene_state": {
+        "location_id": "harvard_chunk_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "harvard_chunk_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "the serene sunlit Harvard seminar room with the seven-slot slate rack, powder-blue chunk trays, sunlit brain model, and tall windows opening to pale sky",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in slate blazers walk and step calmly toward the tall window as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 49
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "CHUNKING SECRET",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered powder-blue three-cube grouping trays neatly bundling small mint-sage geometric memory cubes on cool slate-stone"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

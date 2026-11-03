@@ -94,7 +94,11 @@ def parse_pipeline_specs(raw_projects: str) -> list[dict[str, Any]]:
     return specs
 
 
-def _assembly_worker_entry(project_id: str) -> dict[str, Any]:
+def _assembly_worker_entry(
+    project_id: str,
+    voice_preset: str | None = None,
+    prosody_mode: str | None = None,
+) -> dict[str, Any]:
     """
     Subprocess entrypoint for CPU-bound Assembly + 5-Gate QA.
     Caps OpenMP/OpenCV threads to 2 on a 4-core host so Whale/Flow on the main process stays responsive.
@@ -110,7 +114,12 @@ def _assembly_worker_entry(project_id: str) -> dict[str, Any]:
         pass
 
     try:
-        fin = finalize_and_verify_diorama_project(project_id)
+        fin_kwargs: dict[str, Any] = {}
+        if voice_preset:
+            fin_kwargs["voice_preset"] = voice_preset
+        if prosody_mode:
+            fin_kwargs["prosody_mode"] = prosody_mode
+        fin = finalize_and_verify_diorama_project(project_id, **fin_kwargs)
         return {"ok": True, "project_id": project_id, "result": fin}
     except Exception as exc:  # noqa: BLE001
         heal_plan = _collect_auto_heal_plan(project_id)
@@ -141,6 +150,8 @@ def run_diorama_pipeline(
     engine_mode: str | None = "auto",
     max_heal_rounds: int = 2,
     isolate_precheck_failures: bool = True,
+    voice_preset: str | None = None,
+    prosody_mode: str | None = None,
 ) -> dict[str, Any]:
     """
     Pipelined multi-episode production:
@@ -153,6 +164,10 @@ def run_diorama_pipeline(
     """
     if not specs:
         raise ValueError("specs must not be empty")
+    if voice_preset:
+        specs = [{**sp, "voice_preset": voice_preset} for sp in specs]
+    if prosody_mode:
+        specs = [{**sp, "prosody_mode": prosody_mode} for sp in specs]
 
     for sp in specs:
         pid = str(sp["project_id"])
@@ -243,8 +258,10 @@ def run_diorama_pipeline(
 
         def _submit_assembly(task_meta: dict[str, Any]) -> None:
             pid_sub = str(task_meta["project_id"])
+            vp_sub = (task_meta.get("spec") or {}).get("voice_preset") or voice_preset
+            pm_sub = (task_meta.get("spec") or {}).get("prosody_mode") or prosody_mode
             print(f"[DioramaPipeline][AssemblyQueue] Queued background assembly+QA for {pid_sub} (heal_round={task_meta['heal_round']})")
-            fut = asm_pool.submit(_assembly_worker_entry, pid_sub)
+            fut = asm_pool.submit(_assembly_worker_entry, pid_sub, vp_sub, pm_sub)
             in_flight.append((task_meta, fut))
 
         def _harvest_done_assemblies() -> None:
@@ -288,7 +305,9 @@ def run_diorama_pipeline(
                         )
                         nxt = dict(t_meta)
                         nxt["heal_round"] = h_round + 1
-                        fut2 = asm_pool.submit(_assembly_worker_entry, pid_done)
+                        vp_done = (t_meta.get("spec") or {}).get("voice_preset") or voice_preset
+                        pm_done = (t_meta.get("spec") or {}).get("prosody_mode") or prosody_mode
+                        fut2 = asm_pool.submit(_assembly_worker_entry, pid_done, vp_done, pm_done)
                         still_running.append((nxt, fut2))
                         continue
                     regen_clips = list(heal_plan.get("regenerate_clips") or [])

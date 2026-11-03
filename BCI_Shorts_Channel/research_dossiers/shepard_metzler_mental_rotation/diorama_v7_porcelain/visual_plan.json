@@ -1,0 +1,1120 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "shepard_metzler_mental_rotation",
+  "topic": "Roger Shepard & Jacqueline Metzler (1971) 10-Cube 3D Mental Rotation, Linear 60-Degrees-Per-Second Slope, and Parietal-Premotor Simulation",
+  "act5_climax_episode": "Neuroimaging and spatial training proving parietal and premotor hand circuits physically simulate 3D block rotation.",
+  "outro_title_lines": [
+    "SHEPARD & METZLER (1971)",
+    "STANFORD UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "INSTANT IMAGE?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "MIND'S EYE SPEED"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FOUR SEC FLIP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "STRAIGHT LINE"
+    },
+    {
+      "sentence_index": 28,
+      "text": "INVISIBLE HANDS"
+    },
+    {
+      "sentence_index": 36,
+      "text": "TRAINABLE SPACE"
+    },
+    {
+      "sentence_index": 44,
+      "text": "TURN IT REAL"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "INSTANT IMAGE?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "MIND'S EYE SPEED"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FOUR SEC FLIP"
+    },
+    {
+      "sentence_index": 19,
+      "text": "STRAIGHT LINE"
+    },
+    {
+      "sentence_index": 28,
+      "text": "INVISIBLE HANDS"
+    },
+    {
+      "sentence_index": 36,
+      "text": "TRAINABLE SPACE"
+    },
+    {
+      "sentence_index": 44,
+      "text": "TURN IT REAL"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 12,
+      "mode": "split_hstack",
+      "left_clip_index": 12,
+      "right_clip_index": 47,
+      "left_label": "MATCHED PAIR",
+      "right_label": "MIRROR TWIN"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a sunlit cool clear daylight-white Stanford psychology laboratory with a twin-circle display hood, response levers, and cool slate-stone desks",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain volunteer in a sage-green sweater sits before the twin-circle screen and rests hands on silver levers as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored blazer cuffs and cool porcelain-white gloved matte-white porcelain hands at a brushed-silver turntable stand",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands grip and rotate the right cool clear daylight-white ten-cube sculpture smoothly through steady degree ticks",
+      "consequence": "a brushed-silver tally counter needle sweeps steadily as the ten-cube elbow aligns",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright Stanford cognitive lab with two clothed matte-white porcelain researchers beside a tall brushed-silver diagonal step-bar stand",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scientists in slate-blue blazers step beside the console and align a ten-cube model with the twin-circle screen",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "pastel_design_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a cool powder-blue lecture room with slate-stone tables and plain geometric cube sets",
+      "action": "elevated wide view from behind as clothed matte-white porcelain scholars in gray jackets step forward and cover a hollow translucent cube frame with a slate lid",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "pastel_design_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "pastel_design_studio",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "gray jacket sleeves and cool porcelain-white gloved matte-white porcelain hands extending over a cool slate-stone desk",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands close a blank powder-blue folder over a faint wireframe cube outline and push it aside",
+      "consequence": "only a mechanical silver lever box remains on the slate-stone desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "pastel_design_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "pastel_design_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "knit cuffs and cool porcelain-white gloved matte-white porcelain hands holding an unlined brushed-silver straightedge",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands lift and hold the brushed-silver straightedge above an empty powder-blue cloud sculpture",
+      "consequence": "the silver straightedge finds nothing solid to rest against in midair",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 6,
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "pastel_design_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_down",
+      "environment": "the sunlit Stanford test bay with eight cool clear daylight-white chairs arranged neatly beside the viewing console",
+      "action": "viewed strictly from behind, clothed matte-white porcelain researchers in blazers walk down the row and set ten-cube test models on the slate-stone counter",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate-blue blazer sleeves and cool porcelain-white gloved matte-white porcelain hands beside a tray of smooth sunlit geometric slides",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands slide and stack neat rows of blank powder-blue view plates beside the optical hood",
+      "consequence": "tall neat stacks of sunlit plates line the cool slate-stone bench",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 8,
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "white shirt cuffs and cool porcelain-white gloved matte-white porcelain hands over a cool clear daylight-white pedestal",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands place two crisp powder-blue ten-cube elbow sculptures side by side at different tilts",
+      "consequence": "the two ten-cube arms cast clean geometric shadows across the cool clear daylight-white base",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 9,
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "blazer sleeves and cool porcelain-white gloved matte-white porcelain hands holding a brushed-silver tick-mark response tally counter",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands press the top silver crown and align the response tally counter beside two response levers",
+      "consequence": "the silver sweep hand glides smoothly around the clean tick-mark ring",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "PRIMARY VISUAL CORTEX\nSIGHT SCREEN",
+      "camera": "gentle_push_in",
+      "brain_scene": "at the rear occipital pole of the matte-sunlit 3D cortical brain model, the powder-blue primary visual cortex lights softly and sends twin geometry ribbons upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white cuffs and cool porcelain-white gloved matte-white porcelain hands over a cool slate-stone mat",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands rotate two matching mint-sage ten-cube blocks until every elbow aligns flush",
+      "consequence": "both mint-sage ten-cube sculptures lock into identical orientation",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool slate-stone kitchen counter with a brushed-silver skillet beside a flipped powder-blue ten-cube sculpture",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in white coat sleeves grip the silver handle and flip a smooth sunlit disc cleanly upside down through a full half-turn",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the cool clear daylight-white viewing booth showing two ten-cube shapes upside down on the twin-circle screen",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain volunteer in a sage-green sweater tilts their head slightly and pulls the right lever after a steady pause",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green cuffs and cool porcelain-white gloved matte-white porcelain hands at the silver lever box",
+      "prop_action": "as two upright ten-cube shapes appear aligned, the right cool porcelain-white gloved matte-white porcelain hand snaps the lever back right away",
+      "consequence": "a short mint-sage bar rises on the left end of the graph stand",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 15,
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "pastel_analogy_stage",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "tilt_up",
+      "analogy_world": "a sleek compact powder-blue glass elevator cab gliding up four floors of a cool clear daylight-white architectural tower beside a rotating ten-cube block",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in white coat sleeves hold and brace the base as the compact sunlit elevator cab rises smoothly from floor one to floor four",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright Stanford lab with ten-cube block models lined in progressive angle steps across a cool slate-stone bench",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in blazers lean over the progressive row and trace each intermediate tilt",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "pastel_design_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the cool powder-blue seminar room with a brushed-silver logic rack beside the ascending mint-sage bar stand",
+      "action": "elevated wide view from behind as clothed matte-white porcelain theorists in dark jackets step back and stare at the steep diagonal bar climb",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "pastel_design_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored wool blazer cuffs and cool porcelain-white gloved matte-white porcelain hands at a brushed-silver pegboard chart",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands lift and place nine progressive mint-sage peg bars across equal horizontal slots",
+      "consequence": "the tops of the nine mint-sage bars form a razor-straight diagonal slope",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "wool blazer sleeves and cool porcelain-white gloved matte-white porcelain hands holding a brushed-silver straightedge",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands lay the brushed-silver straightedge cleanly across all nine rising mint-sage bar tips",
+      "consequence": "every single bar tip touches the straight silver edge without a gap",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 20,
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the sunlit Stanford laboratory with three large cool clear daylight-white ten-cube sculptures suspended on thin silver gimbals",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain figure in a slate-gray coat pushes and walks through one steady sixty-degree wing turn of the frosted revolving door",
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "end_sentence_index": 22,
+      "act": 3,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the sunlit Stanford laboratory with three large cool clear daylight-white ten-cube sculptures suspended on thin silver gimbals",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 22
+    },
+    {
+      "sentence_index": 23,
+      "end_sentence_index": 23,
+      "act": 3,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the sunlit Stanford laboratory with three large cool clear daylight-white ten-cube sculptures suspended on thin silver gimbals",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 23
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nSPATIAL WORKSPACE",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper crown of the matte-sunlit 3D cortical brain model, the superior parietal cortex glows in soft mint-sage as a smooth geometric ribbon arcs forward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Stanford laboratory with three large cool clear daylight-white ten-cube sculptures suspended on thin silver gimbals",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain scientist in a tweed jacket grips and turns the middle ten-cube gimbal smoothly in full depth",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 26,
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sweater cuffs and cool porcelain-white gloved matte-white porcelain hands hovering in midair before the twin-circle screen",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands mime grasping and turning an invisible block clockwise in midair",
+      "consequence": "the right-hand ten-cube outline on the screen aligns in parallel",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "pastel_design_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a modern cool clear daylight-white neuroimaging room with a sunlit cylindrical scanner arch and slate-stone control console",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain neuroscientists in white coats step beside the console and point to dual glowing zones on a brain display",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "pastel_design_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "pastel_design_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs and cool porcelain-white gloved matte-white porcelain hands over a cool clear daylight-white brain relief panel",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands trace forward from the rear visual pole up toward the frontal motor strip",
+      "consequence": "both upper spatial and frontal motor zones light in soft sunlit tones",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 29,
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "pastel_design_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "premotor cortex",
+      "anatomy_label": "PREMOTOR CORTEX\nMOVEMENT PLANNER",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the dorsal frontal curve of the matte-sunlit 3D cortical brain model, the powder-blue premotor cortex exchanges a steady mint-sage ribbon with the parietal crown",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the cool clear daylight-white test station pairing the tabletop silver rotary knob with the twin-circle ten-cube screen",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain volunteer in a powder-blue sweater places left fingers on the rotary knob while watching the screen as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sweater sleeves and cool porcelain-white gloved matte-white porcelain hands at the rotary knob station",
+      "prop_action": "the left cool porcelain-white gloved matte-white porcelain hand twists the brushed-silver knob counterclockwise while the screen block tilts clockwise",
+      "consequence": "the right gloved hand hesitates noticeably before pulling the lever as the tally counter bar climbs higher",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "end_sentence_index": 33,
+      "act": 4,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key stanford rotation lab with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 32
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "powder-blue cuffs and cool porcelain-white gloved matte-white porcelain hands at the silver rotary knob",
+      "prop_action": "the left cool porcelain-white gloved matte-white porcelain hand turns the silver knob clockwise in harmony with the screen block",
+      "consequence": "the right gloved hand pulls the match lever briskly and smoothly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "powder-blue cuffs and cool porcelain-white gloved matte-white porcelain hands at the silver rotary knob",
+      "prop_action": "the left cool porcelain-white gloved matte-white porcelain hand turns the silver knob clockwise in harmony with the screen block",
+      "consequence": "the right gloved hand pulls the match lever briskly and smoothly",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 35,
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "pastel_design_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit cool clear daylight-white auditorium stage displaying the straight diagonal mint-sage bar stand beside a ten-cube sculpture",
+      "action": "elevated wide view from behind as two clothed matte-white porcelain researchers in blazers stand on opposite sides of the stage and gesture toward the diagonal slope",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "pastel_design_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "pastel_design_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark blazer sleeves and cool porcelain-white gloved matte-white porcelain hands over a cool slate-stone lectern",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands lift and align flat rectangular slate tiles in a rigid horizontal list",
+      "consequence": "the flat tiles sit static without any spatial depth",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 37,
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "pastel_design_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "pastel_design_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright cool clear daylight-white molecular studio with symmetrical sunlit ball-and-rod chiral models on brushed-silver stands",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain chemists in crisp white coats rotate mirrored sunlit molecular models to test alignment",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "pastel_design_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "pastel_design_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright cool clear daylight-white molecular studio with symmetrical sunlit ball-and-rod chiral models on brushed-silver stands",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain chemists in crisp white coats rotate mirrored sunlit molecular models to test alignment",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 39,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "pastel_design_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "pastel_design_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage-green shirt sleeves and cool porcelain-white gloved matte-white porcelain hands over a cool slate-stone table",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands fold crisp powder-blue geometric paper facets and snap interlocking sunlit cubes together",
+      "consequence": "the adjacent reaction-time bar drops shorter and faster",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "pastel_design_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "parietal cortex",
+      "anatomy_label": "PARIETAL CORTEX\nSHARPENED MAP",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the upper parietal cortex of the matte-sunlit 3D cortical brain model, a brighter mint-sage spatial band links smoothly into the frontal premotor strip",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40
+    },
+    {
+      "sentence_index": 42,
+      "end_sentence_index": 43,
+      "act": 5,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Stanford laboratory with ten-cube block sculptures and sleek modern architectural models side by side",
+      "action": "viewed strictly from behind, three clothed matte-white porcelain researchers in blazers stand together and nod as a volunteer aligns two ten-cube sculptures effortlessly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "pastel_design_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright skylit architectural studio with cool slate-stone drafting tables and white foam stairwell models",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain architect in a powder-blue overshirt stands before a flat blueprint sheet and reaches for a 3D foam model",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 45,
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "pastel_design_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "pastel_design_studio",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue sleeves and cool porcelain-white gloved matte-white porcelain hands holding a cool clear daylight-white foam L-couch model",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands lift and pivot the compact white L-couch model smoothly around the compact stairwell corner",
+      "consequence": "the compact L-couch clears the landing cleanly on the first turn",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 47,
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "pastel_design_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "premotor cortex",
+      "anatomy_label": "PREMOTOR CORTEX\nFREED BANDWIDTH",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the frontal curve of the matte-sunlit 3D cortical brain model, the powder-blue premotor cortex settles into a calm steady glow freeing the frontal pole",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "pastel_design_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright cool clear daylight-white garage courtyard with an open sunlit powder-blue hatchback trunk and three geometric suitcases",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain traveler in a sage-green jacket turns one sunlit suitcase quarter-way in hand and slides all three flush inside",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 50,
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "pastel_design_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Stanford psychology lab uniting the white ten-cube sculptures and the ascending diagonal mint-sage bar stand",
+      "action": "elevated wide view from behind as a clothed matte-white porcelain researcher in a tweed blazer steps forward and points beside the aligned ten-cube pair",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 12,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white cuffs and cool porcelain-white gloved matte-white porcelain hands over a cool slate-stone mat",
+      "prop_action": "cool porcelain-white gloved matte-white porcelain hands turn a muted-coral mirror ten-cube block whose top elbow juts the opposite way",
+      "consequence": "the chiral mirror twin refuses to align with the reference sculpture",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "stanford_rotation_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "stanford_rotation_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "wide sunlit architectural vista of the cool clear daylight-white Stanford laboratory with soft skylight beams across slate-stone floors",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain scientist in a tweed coat steps beside the ten-cube sculptures and lifts a silver pointer as the camera tilts smoothly toward the bright skylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "MIND'S EYE SPEED",
+    "cover_sentence_index": 3,
+    "cover_brief": "two crisp white low-poly ten-cube 3D blocks rotating beside straight diagonal bar graph"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

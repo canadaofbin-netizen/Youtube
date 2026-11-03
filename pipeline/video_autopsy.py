@@ -58,8 +58,12 @@ from pipeline.config import (
     FINAL_SHORTS_DURATION_MIN_SEC,
     FINAL_TAIL_SEC,
     MAX_PERCEPTUAL_DHASH_HAMMING_DISTANCE,
+    MICRO_SHORT_CUT_MIN,
+    MICRO_SHORT_PROFILE,
     MIN_CLIP_SIZE_BYTES,
     MIN_OPTICAL_FLOW_THRESHOLD,
+    PORCELAIN_V7_LONG_TAKE_MAX_SEC,
+    PORCELAIN_V7_MIN_CUT_SEC,
     PROJECTS_DIR,
     SHORTS_HARD_CEILING_FRAMES,
     SHORTS_HARD_CEILING_FRAMES_V7,
@@ -71,6 +75,7 @@ from pipeline.config import (
     expected_final_duration_sec,
     is_diorama_profile,
     is_diorama_v7_plan,
+    is_porcelain_v7_plan,
     max_allowed_dead_air_sec,
 )
 from pipeline.media_integrity import MediaIntegrityValidator, get_pipeline_logger
@@ -1483,7 +1488,7 @@ class VideoAutopsyEngine:
         has_native_clips = (p_dir / "03_visuals" / "flow_native_clips").exists() and any(
             (p_dir / "03_visuals" / "flow_native_clips").glob("clip_*.mp4")
         )
-        if clip_qa_file.exists() or clip_contract_file.exists() or (is_v5_plan and has_native_clips):
+        if (not is_diorama) and (clip_qa_file.exists() or clip_contract_file.exists() or (is_v5_plan and has_native_clips)):
             if clip_qa_file.exists():
                 try:
                     clip_qa_metrics = json.loads(clip_qa_file.read_text(encoding="utf-8"))
@@ -1702,15 +1707,45 @@ class VideoAutopsyEngine:
             if edl_path.exists():
                 try:
                     edl_obj = json.loads(edl_path.read_text(encoding="utf-8"))
-                    if int(edl_obj.get("cut_count") or 0) < DIORAMA_TARGET_CUT_MIN:
+                    fmt_prof = str(vp_obj.get("format_profile") or "").strip().lower()
+                    min_edl_cuts = MICRO_SHORT_CUT_MIN if fmt_prof == MICRO_SHORT_PROFILE else DIORAMA_TARGET_CUT_MIN
+                    if int(edl_obj.get("cut_count") or 0) < min_edl_cuts:
                         score -= 15.0
                         prescriptions.append({
                             "defect_code": "DEFECT_DIORAMA_LOW_CUT_DENSITY",
                             "severity": "HIGH",
                             "component": "05_assembly/edit_decision_list.json",
-                            "measured": {"edl_cut_count": edl_obj.get("cut_count")},
-                            "prescription": f"Ensure NLE EDL has >= {DIORAMA_TARGET_CUT_MIN} cuts (R58).",
+                            "measured": {"edl_cut_count": edl_obj.get("cut_count"), "min_required": min_edl_cuts},
+                            "prescription": f"Ensure NLE EDL has >= {min_edl_cuts} cuts (R58/R66.4).",
                         })
+                    if is_porcelain_v7_plan(vp_obj, edl_obj) and fmt_prof != MICRO_SHORT_PROFILE:
+                        edl_cuts = [c for c in (edl_obj.get("cuts") or []) if isinstance(c, dict)]
+                        bad_dur_cuts = [
+                            {
+                                "cut_index": c.get("cut_index"),
+                                "duration_sec": round(float(c.get("duration_sec") or 0.0), 4),
+                            }
+                            for c in edl_cuts
+                            if float(c.get("duration_sec") or 0.0) < PORCELAIN_V7_MIN_CUT_SEC - 1e-3
+                            or float(c.get("duration_sec") or 0.0) > PORCELAIN_V7_LONG_TAKE_MAX_SEC + 1e-3
+                        ]
+                        if bad_dur_cuts:
+                            score -= 20.0
+                            prescriptions.append({
+                                "defect_code": "DEFECT_PORCELAIN_CUT_DURATION_BOUNDS",
+                                "severity": "HIGH",
+                                "component": "05_assembly/edit_decision_list.json",
+                                "measured": {
+                                    "out_of_bounds_cuts": bad_dur_cuts[:10],
+                                    "min_cut_sec": PORCELAIN_V7_MIN_CUT_SEC,
+                                    "max_cut_sec": PORCELAIN_V7_LONG_TAKE_MAX_SEC,
+                                },
+                                "prescription": (
+                                    f"Keep every porcelain_cinematic_v7 cut strictly within "
+                                    f"[{PORCELAIN_V7_MIN_CUT_SEC:.2f}s, {PORCELAIN_V7_LONG_TAKE_MAX_SEC:.2f}s] "
+                                    "using same-scene multi-angle coverage instead of stagnant holds (R66.4)."
+                                ),
+                            })
                     planned_fc = int(edl_obj.get("total_frames") or dec_fc)
                     if abs(dec_fc - planned_fc) > 2:
                         score -= 20.0

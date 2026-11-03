@@ -1,0 +1,1113 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "dunbar_number_neocortex_limit",
+  "topic": "Robin Dunbar (1992, 1995) 38-Primate Neocortex Ratio Regression, 4.1 Human Cortex Ratio Predicting ~150 Social Ties, Concentric 5/15/50/150 Support Layers, and Digital Network Plateau",
+  "act5_climax_episode": "Big-data social network analyses and 2021 confidence-band audits showing digital platforms expanded passive storage while active reciprocal human ties remain bounded by prefrontal capacity and the 24-hour clock.",
+  "outro_title_lines": [
+    "DUNBAR (1992, 1995)",
+    "UNIVERSITY COLLEGE LONDON"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "ENDLESS FRIENDS?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "THE 150 CAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SOCIAL BRAIN"
+    },
+    {
+      "sentence_index": 19,
+      "text": "TRUST WEB"
+    },
+    {
+      "sentence_index": 28,
+      "text": "INNER FIVE"
+    },
+    {
+      "sentence_index": 36,
+      "text": "CLOCK LIMIT"
+    },
+    {
+      "sentence_index": 44,
+      "text": "GUARD REAL TIES"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "ENDLESS FRIENDS?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "THE 150 CAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "SOCIAL BRAIN"
+    },
+    {
+      "sentence_index": 19,
+      "text": "TRUST WEB"
+    },
+    {
+      "sentence_index": 28,
+      "text": "INNER FIVE"
+    },
+    {
+      "sentence_index": 36,
+      "text": "CLOCK LIMIT"
+    },
+    {
+      "sentence_index": 44,
+      "text": "GUARD REAL TIES"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 16,
+      "mode": "split_hstack",
+      "left_clip_index": 15,
+      "right_clip_index": 47,
+      "left_label": "FRUIT MAP: SCATTER",
+      "right_label": "TROOP SIZE: TIGHT FIT"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "digital_network_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright diffused sunlit research gallery with a cool slate-gray circular table holding concentric mint-sage ceramic rings",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a navy blazer, trousers, and boots leans over the slate-gray table and aligns small porcelain pegs inside the mint-sage barrier",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "digital_network_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool porcelain-white gloved matte-white porcelain hands over a cool limestone bench",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lower a frosted powder-blue ring gate neatly around a tight cluster of porcelain pegs and lock the latch",
+      "consequence": "the frosted powder-blue ring gate encloses the bounded central cluster cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a bright London anthropology hall with tall arched windows, a cool slate-gray specimen bench, and a smooth unmarked glass trend wall",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain scientists in slate blazers, caps, and boots step along the ascending row of five porcelain brain casts and trace an upward mint-sage bar slope",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "powder-blue shirt cuffs and cool porcelain-white gloved matte-white porcelain hands over a cool limestone tray",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand slides three sunlit mint-sage fruit-tree compact sculpted tokens aside while the other hand places a matte porcelain brain cast forward",
+      "consequence": "the porcelain brain cast sits separated from the mint-sage tree compact sculpted tokens",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit cool-limestone anthropology hall lined with stepped slate shelves holding rows of matte cool-porcelain primate brain casts",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain scientist in a charcoal coat, trousers, and boots walks along the stepped slate shelves and sets a porcelain cast onto the upper tier",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a bright cool-alabaster studio pedestal mounting a brushed-silver stage spotlight housing aimed across a pale-slate platform",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves flip the brushed-silver spotlight toggle and turn the soft powder-blue lamp lens forward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 6
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved matte-white porcelain hands over a smooth unmarked glass grid",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands sweep scattered pale-gray range pegs off the smooth glass grid and lift a rising mint-sage bar rod into place",
+      "consequence": "only the clean upward mint-sage bar slope remains on the cool glass grid",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "slate blazer sleeves and cool porcelain-white gloved matte-white porcelain hands over a smooth unmarked glass grid",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands sweep scattered pale-gray range pegs off the smooth glass grid and lift a rising mint-sage bar rod into place",
+      "consequence": "only the clean upward mint-sage bar slope remains on the cool glass grid",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 9,
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright London anthropology hall with five ascending matte cool-porcelain brain casts paired beside five growing clusters of compact porcelain figures",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a navy blazer and boots steps beside the slate bench and aligns the largest figure cluster next to the largest brain cast",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands comparing a small smooth brain cast against a deeply folded large brain cast",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift the two matte cool-porcelain brain casts side by side over a powder-blue stone mat and tilt their outer shells toward the light",
+      "consequence": "the expanded outer cortical folds on the larger porcelain cast stand out clearly",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 11,
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nALLIANCE PLANNER",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front third of the matte cool-porcelain 3D brain model, soft powder-blue and muted mint-sage light illuminates the expanded prefrontal cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "tilt_up",
+      "analogy_world": "a sunlit cool-limestone plaza displaying a four-story sunlit powder-blue architectural tower standing beside a single-story slate base block",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in charcoal sleeves lift and place the fourth powder-blue story cleanly atop the tower beside the one-story block",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright London anthropology hall with five ascending matte cool-porcelain brain casts paired beside five growing clusters of compact porcelain figures",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in navy sleeves place the final compact porcelain figure onto the front slate bench and close the double hall doors",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "end_sentence_index": 15,
+      "act": 2,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the bright London anthropology hall with five ascending matte cool-porcelain brain casts paired beside five growing clusters of compact porcelain figures",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 14
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved matte-white porcelain hands over the left slate tray",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands drop pale-gray pegs onto a flat slate board where they roll into a loose random cloud",
+      "consequence": "the left slate board shows a scattered cloud without any straight line",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright London anthropology hall with five ascending matte cool-porcelain brain casts paired beside five growing clusters of compact porcelain figures",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a navy blazer and boots steps beside the slate bench and aligns the largest figure cluster next to the largest brain cast",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a cool-limestone civic courtyard crowded with compact matte-white porcelain figures spilling past a mint-sage boundary circle",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain planners in slate coats, hats, and boots step forward and slide a second mint-sage boundary ring onto the courtyard floor",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "digital_network_studio",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a geometric pale-slate ring of twelve porcelain nodes interconnected by criss-crossing silver threads inside a bright studio frame",
+      "internal_mechanism": "as two extra porcelain nodes drop into the ring, dozens of additional silver threads snap taut across the center web",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "digital_network_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "end_sentence_index": 20,
+      "act": 3,
+      "location_id": "digital_network_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key digital network studio with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "digital_network_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "clip_number": 19
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "digital_network_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands over a cool slate-gray pegboard",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands hook soft powder-blue elastic bands between paired porcelain pegs and tension the web",
+      "consequence": "a dense geometric web of powder-blue alliance links stretches across the pegboard",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "digital_network_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nTRUST TRACKER",
+      "camera": "locked_tripod",
+      "brain_scene": "across the frontal surface of the matte cool-porcelain 3D brain model, soft powder-blue pathways pulse steadily inside the prefrontal cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "temporal lobe",
+      "anatomy_label": "TEMPORAL LOBE\nIDENTITY HUB",
+      "camera": "pan_right",
+      "brain_scene": "along the lateral side of the matte cool-porcelain 3D brain model, soft mint-sage light warms the temporal lobe and links forward toward the frontal pole",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "digital_network_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a calm sunlit studio room centered on a cool limestone table carved with four concentric circular grooves",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in charcoal sleeves raise the silver gangway ramp onto the full ferry deck and slide the dock latch shut",
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "digital_network_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 25,
+      "end_sentence_index": 25,
+      "act": 3,
+      "location_id": "digital_network_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a calm sunlit studio room centered on a cool limestone table carved with four concentric circular grooves",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "digital_network_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 24
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "digital_network_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a calm sunlit studio room centered on a cool limestone table carved with four concentric circular grooves",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain participant in a powder-blue sweater, slacks, and boots leans over the limestone rings and sets five tall porcelain pegs in the center",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "digital_network_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "digital_network_studio",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy sweater sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge over concentric slate rings",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands clear outer pale-gray pegs aside and point directly to the tiny center ring",
+      "consequence": "five tall mint-sage pegs stand isolated at the bullseye center",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 27,
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "digital_network_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "digital_network_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a bright modern computational studio with a large unmarked frosted-glass light wall showing geometric node clusters",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves lift and set a smooth pale-blue stone arch cleanly atop the five fluted porcelain pillars",
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "digital_network_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 29,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "digital_network_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a bright modern computational studio with a large unmarked frosted-glass light wall showing geometric node clusters",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "digital_network_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 28
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "digital_network_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a bright modern computational studio with a large unmarked frosted-glass light wall showing geometric node clusters",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in cardigan sleeves lift and place the smaller mint-sage and powder-blue ceramic bowls smoothly inside the wider outer bowls",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "digital_network_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "digital_network_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate shirt sleeves and cool porcelain-white gloved matte-white porcelain hands beside a brushed-silver network toggle console",
+      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand flips a brushed-silver filter switch while the left hand steadies a frosted glass display frame",
+      "consequence": "hundreds of faint gray threads dim out across the frosted glass display",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 31,
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "digital_network_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "digital_network_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a bright modern computational studio with a large unmarked frosted-glass light wall showing geometric node clusters",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain figure in a powder-blue coat, cap, and boots stands on the plaza steps as crowds of pale-slate silhouettes walk past",
+      "end_sentence_index": 33,
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "digital_network_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "digital_network_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a bright modern computational studio with a large unmarked frosted-glass light wall showing geometric node clusters",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves align and slide a neat single file of compact porcelain figures smoothly across the narrow limestone footbridge",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "digital_network_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "digital_network_studio",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands comparing a silver server rack model and a matte porcelain brain cast",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand sets a tall silver server block down while the other hand taps an unchanged matte cool-porcelain brain cast beside it",
+      "consequence": "the porcelain brain cast remains the exact same size beside the server block",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 35,
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "digital_network_studio",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "end_sentence_index": 37,
+      "act": 5,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright London anthropology hall with a wide frosted powder-blue confidence band arching softly around the stepped slate trend wall",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain biologists in charcoal coats and boots attach translucent powder-blue margin rails above and below the central mint-sage slope",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright London anthropology hall with a wide frosted powder-blue confidence band arching softly around the stepped slate trend wall",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain biologists in charcoal coats and boots attach translucent powder-blue margin rails above and below the central mint-sage slope and places the wooden marker onto the table",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "parkside_gathering_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "an elevated wide view of a bright sunlit limestone city skyline connected by clean geometric transit bridges",
+      "action": "viewed strictly from behind, clothed matte-white porcelain commuters in slate coats, hats, and boots walk smoothly across a wide limestone pedestrian bridge toward sunlit civic towers",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 39,
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "parkside_gathering_terrace",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright London anthropology hall with a wide frosted powder-blue confidence band arching softly around the stepped slate trend wall",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves lift and flip the brushed-silver polished brass counter cleanly on the limestone pedestal so powder-blue sand pours steadily through the narrow neck",
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "end_sentence_index": 41,
+      "act": 5,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the bright London anthropology hall with a wide frosted powder-blue confidence band arching softly around the stepped slate trend wall",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 38
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright London anthropology hall with the five porcelain brain casts and the matching concentric ring sculpture on the slate table",
+      "action": "viewed strictly from behind, three clothed matte-white porcelain researchers in blazers, coats, and boots stand still around the slate table and tilt their heads toward the matching rings",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 43,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "parkside_gathering_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright cool-limestone garden terrace with a round slate table set for five beside soft sunlit sage trees",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain host in a powder-blue sweater, trousers, and boots arranges five matte-porcelain cups evenly around the round slate table",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 45,
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "parkside_gathering_terrace",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nDEEP FOCUS",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front lobe of the matte cool-porcelain 3D brain model, calm soft powder-blue light fills the prefrontal cortex smoothly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "temporal lobe",
+      "anatomy_label": "TEMPORAL LOBE\nVOICE & BONDING",
+      "camera": "pan_left",
+      "brain_scene": "along the side of the matte cool-porcelain 3D brain model, soft mint-sage light links the temporal lobe smoothly with the calm frontal pole",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "parkside_gathering_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a bright cool-limestone garden terrace with a round slate table set for five beside soft sunlit sage trees",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain host in a powder-blue sweater, trousers, and boots arranges five matte-porcelain cups evenly around the round slate table and places the wooden marker onto the table",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "parkside_gathering_terrace",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "parkside_gathering_terrace",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge over the round slate table",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands pour warm herbal tea from a matte-white porcelain teapot into sunlit mint-sage cups and set the pot down",
+      "consequence": "gentle steam rises between the five sunlit mint-sage cups on the phone-free slate table",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 49,
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "parkside_gathering_terrace",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "parkside_gathering_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright cool-limestone garden terrace surrounded by sunlit sage trees in soft afternoon daylight",
+      "action": "viewed strictly from behind, five clothed matte-white porcelain friends in sweaters, jackets, caps, and boots sit close around the round slate table and lean inward together",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "parkside_gathering_terrace",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "parkside_gathering_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit limestone terrace framed by concentric stone garden paths and soft sage trees",
+      "action": "viewed strictly from behind, the five clothed matte-white porcelain friends in coats, hats, and boots rise from the round slate table and walk together along the inner garden path",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 51,
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "parkside_gathering_terrace",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "ucl_anthropology_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved matte-white porcelain hands over the right slate tray",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands align mint-sage pegs along a straight rising diagonal channel on the cool slate board",
+      "consequence": "the right slate board shows a crisp straight upward alignment",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "ucl_anthropology_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "parkside_gathering_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a serene sunlit limestone park promenade lined by sunlit mint-sage trees opening up into a clear powder-blue sky with soft white matte-white porcelain clouds",
+      "action": "viewed strictly from behind, five clothed matte-white porcelain friends in coats, caps, and boots walk side by side down the limestone promenade as the camera tilts smoothly upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "THE 150 CAP",
+    "cover_sentence_index": 3,
+    "cover_brief": "ascending row of five matte cool-porcelain low-poly primate brain casts on a cool slate-gray bench beside a rising mint-sage bar slope"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

@@ -1,0 +1,1156 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "wernicke_sensory_aphasia",
+  "topic": "Carl Wernicke (1874) Breslau Sensory Aphasia Discovery, Three-Object Tray & Bell Dissociation, Two-Hub Network Prediction of Conduction Aphasia, and 2015 MRI Vocal Self-Monitor Refinement",
+  "act5_climax_episode": "Modern MRI lesion mapping confirming posterior temporal self-monitoring alongside emergency hospital recognition of sudden fluent jargon speech as an acute left-temporal stroke.",
+  "outro_title_lines": [
+    "CARL WERNICKE (1874)",
+    "BRESLAU HOSPITAL CLINIC"
+  ],
+  "thumbnail": {
+    "hook_text": "FLUENT STROKE?",
+    "cover_sentence_index": 3,
+    "cover_brief": "Centered low-poly pastel tray holding a brushed-silver key, a pale powder-blue cup, and a muted-sage brush beside a silver hand bell on a cool slate clinic desk"
+  },
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "SMOOTH SPEECH?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FLUENT STROKE?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "BELL AND KEY"
+    },
+    {
+      "sentence_index": 19,
+      "text": "SOUND DECODER"
+    },
+    {
+      "sentence_index": 27,
+      "text": "CUT CABLE"
+    },
+    {
+      "sentence_index": 35,
+      "text": "VOICE MONITOR"
+    },
+    {
+      "sentence_index": 43,
+      "text": "VISUAL BRIDGE"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "SMOOTH SPEECH?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FLUENT STROKE?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "BELL AND KEY"
+    },
+    {
+      "sentence_index": 19,
+      "text": "SOUND DECODER"
+    },
+    {
+      "sentence_index": 27,
+      "text": "CUT CABLE"
+    },
+    {
+      "sentence_index": 35,
+      "text": "VOICE MONITOR"
+    },
+    {
+      "sentence_index": 43,
+      "text": "VISUAL BRIDGE"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 13,
+      "mode": "split_hstack",
+      "left_clip_index": 12,
+      "right_clip_index": 47,
+      "left_label": "BROCA: SILENT HALT",
+      "right_label": "WERNICKE: SCRAMBLED"
+    }
+  ],
+  "clips": [
+    {
+      "clip_index": 2,
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "breslau_clinic_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "pale lavender shawl sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands gesturing smoothly above the muted-sage tray",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands reach smoothly past the silver key and lift the muted-sage hairbrush off the tray",
+      "consequence": "the silver key remains untouched on the cool cream mat",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "breslau_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 3,
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "breslau_clinic_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark slate jacket sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands sliding a cool cream diagram sheet onto the pale ash desk",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands trace a curved powder-blue line linking two unmarked geometric circles on the cool cream sheet",
+      "consequence": "a soft slate pencil pauses over the rear sunlit circle",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "breslau_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 5,
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "breslau_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view from behind inside a bright sunlit European clinic room with pale sage walls and cool slate desks",
+      "action": "viewed strictly from behind, a matte-white porcelain doctor in a dark slate coat leans across the pale ash table toward a seated patient in a pale lavender shawl who lifts a brush",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "breslau_clinic_room",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 7,
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "breslau_study_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands tapping one powder-blue wooden block on a cool slate desk",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands tap a single powder-blue wooden cube once and then slide a silver cup accurately into a matching circle",
+      "consequence": "the silver cup clicks cleanly onto the cool cream target pad",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "breslau_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 7,
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "breslau_study_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal blazer sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands tapping one powder-blue wooden block on a cool slate desk",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands tap a single powder-blue wooden cube once and then slide a silver cup accurately into a matching circle",
+      "consequence": "the silver cup clicks cleanly onto the cool cream target pad",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "breslau_study_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "end_sentence_index": 6,
+      "act": 1,
+      "location_id": "breslau_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key breslau study desk with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "breslau_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 6
+    },
+    {
+      "clip_index": 8,
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "breslau_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a soft diffused sunlit hospital courtyard doorway leading into a pale sage consultation room with tall arched windows",
+      "action": "viewed strictly from behind, a young matte-white porcelain physician in a slate frock coat walks briskly through the doorway and sets a silver bell onto the desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "breslau_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 9,
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_object": "a compact powder-blue low-poly desk flip-stand holding six blank sunlit leaf cards beside a muted-sage pencil cup on a cool cream studio table",
+      "analogy_action": "six clean unmarked pastel cards flip briskly one after another across the compact powder-blue stand and settle flat in soft studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8
+    },
+    {
+      "clip_index": 10,
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "breslau_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright sunlit clinic consultation room with two pale ash chairs facing a cool slate table",
+      "action": "viewed strictly from behind the doctor in a slate coat, two matte-white porcelain patients in pale lavender and muted-sage shawls wave expressive hands in lively rhythm",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "breslau_clinic_room",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 13,
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "breslau_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight",
+      "action": "viewed strictly from behind at the end of the hall, a matte-white porcelain doctor in a slate coat pauses and tilts toward smooth sunlit sound ripples floating from the doorway",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 11,
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "breslau_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 13,
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "breslau_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight",
+      "action": "viewed strictly from behind at the end of the hall, a matte-white porcelain doctor in a slate coat pauses and tilts toward smooth sunlit sound ripples floating from the doorway",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 12,
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "breslau_clinic_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 14,
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "breslau_study_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal sweater sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands pressing a single powder-blue tile on a pale slate mat",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands press one lone powder-blue tile repeatedly while other sunlit tiles stay still",
+      "consequence": "a single clean sunlit ripple rises from the lone tile",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "breslau_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 17,
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "breslau_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright sunlit Breslau consultation room with pale sage walls and soft window light",
+      "action": "viewed strictly from behind, the seated matte-white porcelain patient in a pale lavender coat and gloves turns briskly and reaches toward the doctor tapping the silver bell",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "breslau_clinic_room",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 18,
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "AUDITORY CORTEX\nHEARING CENTER",
+      "brain_scene": "a matte powder-cream matte-white porcelain left hemisphere model on a cool slate stand where the upper temporal auditory cortex ridge glows soft cyan-blue with calm sound waves",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14
+    },
+    {
+      "clip_index": 19,
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_object": "a neat muted-sage low-poly valet pocket tray holding three everyday items — a silver house key, a powder-blue cup, and a pale slate brush — on a cool cream surface",
+      "analogy_action": "the three distinct pastel objects settle into three recessed slots along the muted-sage pocket tray under soft studio light",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15
+    },
+    {
+      "clip_index": 20,
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "breslau_clinic_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale lavender sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands reaching over the muted-sage three-object tray",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands hover past the silver key and lift the pale slate hairbrush off the tray",
+      "consequence": "the silver key stays behind in its recessed slot",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "breslau_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 21,
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "breslau_clinic_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "pale lavender sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands holding the wrong pale slate brush above the cool cream blotter",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands turn the pale slate brush uncertainly while soft powder-blue sound rings fade into scrambled sunlit cubes",
+      "consequence": "the brush sets softly down beside the untouched silver key",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "breslau_clinic_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 23,
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "breslau_clinic_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale lavender sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands reaching directly to the silver key",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands pick up the brushed-silver key promptly and place it into an open matte-white gloved palm",
+      "consequence": "the silver key rests squarely in the doctor's gloved hand",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "breslau_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 24,
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "breslau_clinic_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "slate coat sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands sliding a clear geometric key icon card beside a misty frosted glass block",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands tap the crisp silver key silhouette tile and push aside a cloudy frosted cube",
+      "consequence": "the crisp silver key tile sits centered on the muted-sage mat",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 20,
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "breslau_clinic_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 26,
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "breslau_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a quiet high-key sunlit pathology study room with pale slate cabinets and a cool cream examination table",
+      "action": "viewed strictly from behind, a matte-white porcelain neuroanatomist in a white lab coat places a matte sunlit brain cast onto a silver cradle stand",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "breslau_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 26,
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "breslau_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a quiet high-key sunlit pathology study room with pale slate cabinets and a cool cream examination table",
+      "action": "viewed strictly from behind, a matte-white porcelain neuroanatomist in a white lab coat places a matte sunlit brain cast onto a silver cradle stand",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 22,
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "breslau_study_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 27,
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "locked_tripod",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "Broca's area",
+      "anatomy_label": "BROCA'S AREA\nSPEECH PRODUCER",
+      "brain_scene": "a matte cream matte-white porcelain left hemisphere model where frontal Broca's area glows calm steady powder-blue completely intact and unharmed",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22
+    },
+    {
+      "clip_index": 28,
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "Wernicke's area",
+      "anatomy_label": "WERNICKE'S AREA\nLANGUAGE DECODER",
+      "brain_scene": "the matte cream matte-white porcelain left hemisphere rotating slightly to show posterior temporal Wernicke's area behind the ear shaded in muted dusty-rose",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23
+    },
+    {
+      "clip_index": 29,
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_left",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "white matter",
+      "anatomy_label": "WHITE MATTER\nBRAIN CABLES",
+      "brain_scene": "a cutaway matte sunlit left hemisphere revealing a sweeping arched white-matter fiber bundle in soft sage-green linking rear temporal cortex to frontal cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24
+    },
+    {
+      "clip_index": 30,
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "breslau_study_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark slate sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands holding a soft rose pencil over an unmarked two-circle sunlit sketch",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands draw a small crisp cross mark strictly across the curved sunlit line connecting two intact circles",
+      "consequence": "both outer sunlit circles stay clean while the middle bridge line is crossed",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "breslau_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 32,
+      "sentence_index": 27,
+      "act": 4,
+      "location_id": "breslau_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view from behind inside the bright sunlit Breslau study with tall pale-slate shelves and cool daylight",
+      "action": "viewed strictly from behind, two matte-white porcelain physicians in slate coats lean over the pale ash desk pointing to the three sunlit blocks beside a brain model",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "breslau_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "end_sentence_index": 28,
+      "act": 4,
+      "location_id": "breslau_study_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over an elevated wide view from behind inside the bright sunlit Breslau study with tall pale-slate shelves and cool daylight",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "breslau_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 27
+    },
+    {
+      "clip_index": 34,
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "breslau_clinic_room",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "pan_right",
+      "environment": "a two-zone sunlit clinic cutaway showing a pale-sage exam desk on the left and a study table on the right",
+      "action": "viewed strictly from behind, a patient in a powder-blue sweater hands over a silver key accurately and then pauses mid-gesture while a doctor nods beside a sketch",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "breslau_clinic_room",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "end_sentence_index": 30,
+      "act": 4,
+      "location_id": "breslau_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a reverse three-quarter wide angle inside the bright high-key breslau clinic room with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+      "action": "viewed from a clean three-quarter angle, a clothed matte-white porcelain figure with a smooth featureless white oval head in tailored linen sleeves leans forward, adjusts the tabletop apparatus, and slides the marker cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "breslau_clinic_room",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "clip_number": 29
+    },
+    {
+      "clip_index": 36,
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "breslau_study_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "analogy_object": "a clean muted-sage low-poly relief map board with a small brushed-silver location pin sliding between three sunlit zones",
+      "analogy_action": "the brushed-silver pin glides from a rear powder-blue zone to a lower lavender zone and back again across the unmarked pastel relief board",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "an elevated wide view from behind inside the bright sunlit Breslau study with tall pale-slate shelves and cool daylight",
+      "action": "viewed strictly from behind, two matte-white porcelain physicians in slate coats lean over the pale ash desk pointing to the three sunlit blocks beside a brain model",
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "breslau_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "end_sentence_index": 32,
+      "act": 4,
+      "location_id": "breslau_study_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over an elevated wide view from behind inside the bright sunlit Breslau study with tall pale-slate shelves and cool daylight",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "breslau_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 31
+    },
+    {
+      "clip_index": 37,
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "rehab_care_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a modern bright sunlit neuroimaging suite with cool cream walls and a soft powder-blue light panel showing unmarked brain silhouettes",
+      "action": "viewed strictly from behind, a neurologist in a white lab coat slides translucent sunlit brain overlays together on a cool slate console as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "rehab_care_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 38,
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "rehab_care_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands connecting a silver headphone jack into a sunlit audio mixer",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands lift a brushed-silver headphone cord and press it into a muted-sage tabletop monitor box",
+      "consequence": "two soft powder-blue level bars balance evenly on the matte box",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 34,
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "rehab_care_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 40,
+      "sentence_index": 35,
+      "act": 5,
+      "location_id": "rehab_care_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "analogy_object": "a pair of matte powder-blue low-poly studio headphones resting beside a silver microphone stand with its gray cord hanging unplugged in midair",
+      "analogy_action": "pastel sound rings float out from the silver microphone while the unplugged powder-blue headphones stay completely still on the cool cream stand",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a clean modern sunlit neurology triage bay with pale sage curtains and cool cream floors",
+      "action": "viewed strictly from behind, two matte-white porcelain clinicians in powder-blue scrubs wheel a pale-slate exam chair briskly toward the scan doorway as porcelain hands reach forward and press cleanly into position.",
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "rehab_care_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "end_sentence_index": 36,
+      "act": 5,
+      "location_id": "rehab_care_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a clean modern sunlit neurology triage bay with pale sage curtains and cool cream floors",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "rehab_care_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 35
+    },
+    {
+      "clip_index": 41,
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "pan_right",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "Broca's area",
+      "anatomy_label": "BROCA'S AREA\nSPEECH PRODUCER",
+      "brain_scene": "a matte cream matte-white porcelain left hemisphere where frontal Broca's area pulses smooth powder-blue waves forward without feedback from the rear temporal zone",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 36
+    },
+    {
+      "clip_index": 42,
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "clean_pullback_reveal",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "temporal lobe",
+      "anatomy_label": "TEMPORAL LOBE\nTHE SIDE LOBE",
+      "brain_scene": "the matte cream matte-white porcelain left hemisphere showing a broad soft-sage glow spreading across the middle and front temporal lobe meaning neighborhood",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37
+    },
+    {
+      "clip_index": 43,
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "breslau_study_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dark slate sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands placing a translucent sunlit brain model beside the unmarked two-hub sketch",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands set a compact matte-cream brain model right beside the curved sunlit bridge drawing",
+      "consequence": "the historic sketch and 3D model align side by side in soft daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "breslau_study_desk",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 45,
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "rehab_care_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a clean modern sunlit neurology triage bay with pale sage curtains and cool cream floors",
+      "action": "viewed strictly from behind, two matte-white porcelain clinicians in powder-blue scrubs wheel a pale-slate exam chair briskly toward the scan doorway as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 41,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "rehab_care_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 47,
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "rehab_care_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-sage cardigan sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands setting picture icon tiles onto a cool cream table",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands lay out three clean sunlit picture tiles showing a silver cup, a key, and a chair silhouette",
+      "consequence": "the three clear visual icon tiles sit neatly spaced for easy pointing",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 42,
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "rehab_care_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 50,
+      "sentence_index": 43,
+      "act": 6,
+      "location_id": "rehab_care_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit home living room opening onto a calm pale-slate entryway",
+      "action": "viewed strictly from behind, a matte-white porcelain family member in a navy sweater guides a seated relative in a pale-lavender cardigan calmly by the elbow",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 44,
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "rehab_care_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 51,
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "camera": "gentle_push_in",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "Wernicke's area",
+      "anatomy_label": "WERNICKE'S AREA\nLANGUAGE DECODER",
+      "brain_scene": "a matte cream matte-white porcelain left hemisphere model where posterior temporal Wernicke's area transitions smoothly from muted rose back to calm powder-blue",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42
+    },
+    {
+      "clip_index": 52,
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "rehab_care_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-sage jacket sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands lowering a silver megaphone cone onto a pale slate mat",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands set aside a small brushed-silver megaphone and slide forward a clean sunlit cup picture tile",
+      "consequence": "the megaphone rests unused while the picture tile takes center stage",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 47,
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "rehab_care_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 57,
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "breslau_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "an elevated wide view from behind of the sunlit Breslau consultation room with the silver key tray and a matte two-hub brain model",
+      "action": "viewed strictly from behind, the matte-white porcelain doctor in a slate coat lifts the silver key and slides it calmly toward the patient in a pale-lavender sweater",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "breslau_clinic_room",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 56,
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "rehab_care_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "powder-blue sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands placing one clean picture tile onto a muted-sage mat",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands center a single unmarked house-key silhouette card on the muted-sage communication board",
+      "consequence": "the single visual icon card sits uncluttered in soft sunlit light",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 49,
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "rehab_care_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 57,
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "breslau_clinic_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view from behind of the sunlit Breslau consultation room with the silver key tray and a matte two-hub brain model",
+      "action": "viewed strictly from behind, the matte-white porcelain doctor in a slate coat lifts the silver key and slides it calmly toward the patient in a pale-lavender sweater",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 50,
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "breslau_clinic_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_index": 15,
+      "sentence_index": 13,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "breslau_clinic_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale lavender sleeves and cool matte-white smooth sculptural matte-white porcelain gloved hands scattering mismatched sunlit geometric tiles across a cool cream mat",
+      "prop_action": "cool matte-white smooth sculptural matte-white porcelain gloved hands slide triangles, cubes, and cylinders in a rapid mismatched stream across the cool cream mat",
+      "consequence": "scrambled sunlit geometric shapes tumble out of order",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "breslau_clinic_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_index": 58,
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a serene bright sunlit neuro-studio gallery with cool cream arches and a matte left-hemisphere language highway sculpture on a pale slate pedestal",
+      "action": "viewed strictly from behind, a matte-white porcelain neurologist in a white lab coat sets a silver key beside the glowing powder-blue and sage two-hub brain sculpture as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

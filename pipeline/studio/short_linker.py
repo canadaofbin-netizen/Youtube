@@ -652,13 +652,18 @@ class ShortLinkGraph:
         return node
 
     @staticmethod
-    def is_valid_link_direction(src: dict[str, Any], dst: dict[str, Any]) -> bool:
+    def is_valid_link_direction(
+        src: dict[str, Any],
+        dst: dict[str, Any],
+        *,
+        public_targets_only: bool = False,
+    ) -> bool:
         """
         Enforces directional visibility safety so viewers never hit an Unlisted/Private/Future video:
         - No self-links.
         - Public -> Public ONLY.
-        - Scheduled(T_src) -> Public OR Scheduled(T_dst <= T_src) (fail-closed if timestamps missing).
-        - Unlisted -> Public, Scheduled, or Unlisted.
+        - Scheduled(T_src) -> Public ONLY when public_targets_only=True; otherwise Public OR Scheduled(T_dst <= T_src).
+        - Unlisted -> Public (when public_targets_only=True) or Public/Scheduled/Unlisted.
         """
         if src.get("project_id") == dst.get("project_id"):
             return False
@@ -672,6 +677,11 @@ class ShortLinkGraph:
         src_vis = str(src.get("visibility") or "").lower()
         dst_vis = str(dst.get("visibility") or "").lower()
         if dst_vis in {"private", "deleted", "unknown", ""}:
+            return False
+
+        if public_targets_only:
+            if src_vis in {"public", "scheduled", "unlisted"}:
+                return dst_vis == "public"
             return False
 
         if src_vis == "public":
@@ -829,6 +839,8 @@ class ShortLinkGraph:
         force: bool = False,
         project_filter: set[str] | None = None,
         explicit_target_video_id: str | None = None,
+        *,
+        public_targets_only: bool = False,
     ) -> dict[str, Any]:
         """
         Plans cycle-safe directional Related Video assignments across all discovered nodes.
@@ -853,7 +865,9 @@ class ShortLinkGraph:
                 if not src:
                     continue
                 if target_node:
-                    if not self.is_valid_link_direction(src, target_node):
+                    if not self.is_valid_link_direction(
+                        src, target_node, public_targets_only=public_targets_only
+                    ):
                         edge_meta[pid] = {
                             "status": "blocked_invalid_direction",
                             "reason": f"Illegal visibility direction: {src['visibility']} -> {target_node['visibility']}",
@@ -978,7 +992,7 @@ class ShortLinkGraph:
 
             valid_candidates = [
                 dst for dst in nodes
-                if self.is_valid_link_direction(src, dst)
+                if self.is_valid_link_direction(src, dst, public_targets_only=public_targets_only)
             ]
             if not valid_candidates:
                 edge_meta[pid] = {
@@ -1115,9 +1129,62 @@ class ShortLinkGraph:
         }
         return plan_doc
 
-    def save_graph(self, plan_doc: dict[str, Any]) -> Path:
+    def save_graph(self, plan_doc: dict[str, Any], *, merge_existing: bool = False) -> Path:
         self.graph_file.parent.mkdir(parents=True, exist_ok=True)
-        self.graph_file.write_text(json.dumps(plan_doc, indent=2, ensure_ascii=False), encoding="utf-8")
+        out_doc = dict(plan_doc)
+        if merge_existing and self.graph_file.exists():
+            prior = _load_json_safe(self.graph_file)
+            if prior and isinstance(prior.get("edges"), list):
+                merged_edges_by_pid: dict[str, dict[str, Any]] = {}
+                edge_order: list[str] = []
+                for e in prior.get("edges") or []:
+                    if isinstance(e, dict) and e.get("source_project_id"):
+                        spid = str(e["source_project_id"])
+                        merged_edges_by_pid[spid] = dict(e)
+                        if spid not in edge_order:
+                            edge_order.append(spid)
+                for e in plan_doc.get("edges") or []:
+                    if isinstance(e, dict) and e.get("source_project_id"):
+                        spid = str(e["source_project_id"])
+                        merged_edges_by_pid[spid] = dict(e)
+                        if spid not in edge_order:
+                            edge_order.append(spid)
+                merged_edges = [merged_edges_by_pid[p] for p in edge_order if p in merged_edges_by_pid]
+                out_doc["edges"] = merged_edges
+                out_doc["edge_count"] = len(merged_edges)
+
+                pair_map = {
+                    e["source_video_id"]: e["target_video_id"]
+                    for e in merged_edges
+                    if e.get("source_video_id") and e.get("target_video_id")
+                }
+                two_cycles = [
+                    (u_vid, v_vid)
+                    for u_vid, v_vid in pair_map.items()
+                    if pair_map.get(v_vid) == u_vid and u_vid < v_vid
+                ]
+                out_doc["two_cycle_count"] = len(two_cycles)
+                out_doc["two_cycles"] = two_cycles
+
+                if isinstance(prior.get("execution_results"), list) or isinstance(plan_doc.get("execution_results"), list):
+                    res_by_pid: dict[str, dict[str, Any]] = {}
+                    res_order: list[str] = []
+                    for r in (prior.get("execution_results") or []):
+                        if isinstance(r, dict) and r.get("project_id"):
+                            rpid = str(r["project_id"])
+                            res_by_pid[rpid] = dict(r)
+                            if rpid not in res_order:
+                                res_order.append(rpid)
+                    for r in (plan_doc.get("execution_results") or []):
+                        if isinstance(r, dict) and r.get("project_id"):
+                            rpid = str(r["project_id"])
+                            res_by_pid[rpid] = dict(r)
+                            if rpid not in res_order:
+                                res_order.append(rpid)
+                    merged_res = [res_by_pid[p] for p in res_order if p in res_by_pid]
+                    out_doc["execution_results"] = merged_res
+                    out_doc["verified_count"] = sum(1 for r in merged_res if r.get("verified"))
+        self.graph_file.write_text(json.dumps(out_doc, indent=2, ensure_ascii=False), encoding="utf-8")
         return self.graph_file
 
 
@@ -1343,12 +1410,18 @@ class StudioShortLinker:
                     const dlg = deepQueryAll('ytcp-video-pick-dialog')[0]
                         || document.querySelector('ytcp-video-pick-dialog')
                         || document;
-                    const cards = deepQueryAll('ytcp-entity-card', dlg);
+                    const cards = deepQueryAll('ytcp-entity-card, ytcp-video-pick-card, [role="option"]', dlg);
                     const extractVid = (c) => {{
                         try {{
                             if (c.video && c.video.videoId) return c.video.videoId;
                             if (c.data && c.data.videoId) return c.data.videoId;
                             if (c.__data && c.__data.video && c.__data.video.videoId) return c.__data.video.videoId;
+                            const hrefs = deepQueryAll('a[href]', c);
+                            for (const a of hrefs) {{
+                                const h = a.getAttribute('href') || '';
+                                const mHref = h.match(/(?:\/video\/|v=|\/shorts\/)([A-Za-z0-9_-]{{11}})/);
+                                if (mHref) return mHref[1];
+                            }}
                             const imgs = deepQueryAll('img', c);
                             for (const img of imgs) {{
                                 const src = img.src || img.getAttribute('src') || '';
@@ -1415,10 +1488,38 @@ class StudioShortLinker:
             return res if isinstance(res, dict) else {"matched": False}
 
         pick_result = await _try_click_card()
-        if not pick_result.get("matched") and target_title:
-            search_query = re.sub(r"[^\w\s]", " ", target_title).strip()[:36]
+        if not pick_result.get("matched") and (target_title or target_video_id):
+            search_query = (
+                re.sub(r"[^\w\s]", " ", target_title).strip()[:36]
+                if target_title
+                else target_video_id
+            )
             if search_query:
                 typed = await client.type_into(RELATED_VIDEO_SELECTORS["search_input"], search_query)
+                if not typed:
+                    typed = bool(
+                        await client.eval(
+                            f"""(() => {{
+                                {_DEEP_QUERY_HELPER_JS}
+                                const dlg = deepQueryAll('ytcp-video-pick-dialog')[0] || document;
+                                const inputs = deepQueryAll(
+                                    'tp-yt-paper-input input, ytcp-form-input-container input, #search-input, input[aria-label*="Search"], input[placeholder*="Search"], input[placeholder*="검색"], input[type="text"]',
+                                    dlg
+                                );
+                                const inp = inputs.find(el => {{
+                                    const r = el.getBoundingClientRect();
+                                    return r.width > 0 && r.height > 0;
+                                }}) || inputs[0];
+                                if (!inp) return false;
+                                inp.focus();
+                                inp.value = {json.dumps(search_query)};
+                                inp.dispatchEvent(new InputEvent('input', {{ bubbles: true }}));
+                                inp.dispatchEvent(new Event('change', {{ bubbles: true }}));
+                                inp.dispatchEvent(new KeyboardEvent('keydown', {{ key: 'Enter', bubbles: true }}));
+                                return true;
+                            }})()"""
+                        )
+                    )
                 if typed:
                     await asyncio.sleep(1.6)
                     pick_result = await _try_click_card()
@@ -1664,6 +1765,8 @@ class StudioShortLinker:
         project_id: str | None = None,
         target_video_id: str | None = None,
         nodes: list[dict[str, Any]] | None = None,
+        *,
+        public_targets_only: bool | None = None,
     ) -> dict[str, Any]:
         graph = ShortLinkGraph(
             projects_dir=self.projects_dir,
@@ -1671,14 +1774,17 @@ class StudioShortLinker:
             nodes=nodes,
         )
         p_filter = {project_id} if project_id else None
+        effective_public_only = (nodes is None) if public_targets_only is None else bool(public_targets_only)
+        merge_save = bool(project_id)
         plan_doc = graph.plan_links(
             mode=mode,
             force=force,
             project_filter=p_filter,
             explicit_target_video_id=target_video_id,
+            public_targets_only=effective_public_only,
         )
         if not dry_run:
-            graph.save_graph(plan_doc)
+            graph.save_graph(plan_doc, merge_existing=merge_save)
 
         async def _run_batch() -> list[dict[str, Any]]:
             results: list[dict[str, Any]] = []
@@ -1722,5 +1828,5 @@ class StudioShortLinker:
         plan_doc["execution_results"] = results
         plan_doc["verified_count"] = sum(1 for r in results if r.get("verified"))
         if not dry_run:
-            graph.save_graph(plan_doc)
+            graph.save_graph(plan_doc, merge_existing=merge_save)
         return plan_doc

@@ -1,0 +1,1110 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "wegner_white_bear_suppression",
+  "topic": "Daniel Wegner (1987, 1994) White Bear Thought-Suppression Bell Booth, 40% Post-Suppression Rebound Surge, Ironic Process Theory (Prefrontal Search vs Anterior Cingulate Monitor), and Single Replacement Focus Cure",
+  "act5_climax_episode": "Wegner's Experiment 2 discovery that anchoring attention on a single concrete positive replacement object eliminates the 40% post-suppression rebound completely by aligning prefrontal focus.",
+  "outro_title_lines": [
+    "WEGNER ET AL. (1987, 1994)",
+    "TRINITY UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "FORCE IT OUT?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "WHITE BEAR TRAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "REBOUND SURGE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "IRONIC RADAR"
+    },
+    {
+      "sentence_index": 28,
+      "text": "STRESS SLIPS"
+    },
+    {
+      "sentence_index": 36,
+      "text": "ONE ANCHOR CURE"
+    },
+    {
+      "sentence_index": 44,
+      "text": "FEED THE TARGET"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "FORCE IT OUT?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "WHITE BEAR TRAP"
+    },
+    {
+      "sentence_index": 10,
+      "text": "REBOUND SURGE"
+    },
+    {
+      "sentence_index": 19,
+      "text": "IRONIC RADAR"
+    },
+    {
+      "sentence_index": 28,
+      "text": "STRESS SLIPS"
+    },
+    {
+      "sentence_index": 36,
+      "text": "ONE ANCHOR CURE"
+    },
+    {
+      "sentence_index": 44,
+      "text": "FEED THE TARGET"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 16,
+      "mode": "split_hstack",
+      "left_clip_index": 16,
+      "right_clip_index": 47,
+      "left_label": "EXPRESS FIRST: 11",
+      "right_label": "SUPPRESS FIRST: 16+"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "act": 1,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cuffs and cool porcelain-white gloved matte-white porcelain hands trying to slide a matte chalk-white smooth sculptural matte-white porcelain geometric polar-bear sculpture off a slate tray",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands push the matte chalk-white smooth sculptural matte-white porcelain geometric polar-bear sculpture aside on a spring track where it slides right back to center",
+      "consequence": "the matte chalk-white geometric polar-bear sculpture stands squarely beside the brushed-silver desk bell",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate jacket sleeves and cool porcelain-white gloved matte-white porcelain hands compressing a spring-mounted pedestal on a limestone base",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands press the matte chalk-white geometric polar-bear sculpture downward onto a silver spring platform and lift back",
+      "consequence": "the matte chalk-white geometric polar-bear sculpture rises higher atop the extended silver platform",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a bright cool-limestone psychology recording booth with an observation glass window, a cool slate-gray desk, a silver stand microphone, and a brushed-silver desk bell",
+      "action": "viewed strictly from behind a researcher in a navy blazer and boots outside the glass, a clothed matte-white porcelain student in a powder-blue sweater leans forward at the slate desk and taps the brushed-silver desk bell",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "stone_study_corner",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit pale-limestone study room corner with a slate wall shelf holding a small matte chalk-white smooth sculptural matte-white porcelain geometric polar-bear sculpture",
+      "action": "viewed strictly from behind, a young clothed matte-white porcelain figure in a powder-blue coat, trousers, and boots steps into the pale-limestone corner while an older figure in a slate blazer points to the chalk-white bear sculpture",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "stone_study_corner",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 5,
+      "act": 1,
+      "location_id": "stone_study_corner",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit pale-limestone study room corner with a slate wall shelf holding a small matte chalk-white smooth sculptural matte-white porcelain geometric polar-bear sculpture",
+      "action": "viewed strictly from behind, a young clothed matte-white porcelain figure in a powder-blue coat, trousers, and boots steps into the pale-limestone corner while an older figure in a slate blazer points to the chalk-white bear sculpture",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 5,
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "stone_study_corner",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "end_sentence_index": 6,
+      "act": 1,
+      "location_id": "stone_study_corner",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a sunlit pale-limestone study room corner with a slate wall shelf holding a small matte chalk-white smooth sculptural matte-white porcelain geometric polar-bear sculpture",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "stone_study_corner",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 6
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright university hallway lined with cool-limestone recording booth doors and observation windows",
+      "action": "viewed strictly from behind, clothed matte-white porcelain students in sunlit sweaters, slacks, caps, and boots walk and step quietly into the bright recording booths as a researcher in a navy blazer holds a silver tally clicker",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-limestone hotel reception counter displaying a polished cool brushed-silver service tap-bell beside a plain tick-only silver tally counter dial without numbers",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in navy sleeves set the cool brushed-silver tap-bell centered on the limestone counter and tap the plain tick-only silver tally counter",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "powder-blue shirt sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge beside the silver stand microphone",
+      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand holds defensively above the brushed-silver desk bell then drops down to tap the silver dome",
+      "consequence": "a crisp silver chime ring expands across the cool slate tabletop",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright cool-limestone recording booth with bare pale-slate walls, a desk lamp, and the brushed-silver desk bell",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain student in a powder-blue sweater and slacks turns their faceless matte-white porcelain head toward the desk lamp then reaches down to tap the silver bell",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool limestone basin mounted with a brushed-silver water faucet turning tightly shut",
+      "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves turn the brushed-silver faucet handle tightly shut as six clear powder-blue droplets still drop steadily into the basin",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands outside the booth window lining up six silver counter beads",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide and align six brushed-silver tally beads one by one along a cool slate counting rail",
+      "consequence": "six brushed-silver tally beads gleam in a row beside the matte chalk-white polar-bear sculpture",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright cool-limestone recording booth with bare pale-slate walls, a desk lamp, and the brushed-silver desk bell",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves push the sunlit beach ball deep beneath the water surface and lift back so it arcs high above the rim",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 14,
+      "end_sentence_index": 14,
+      "act": 2,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the bright cool-limestone recording booth with bare pale-slate walls, a desk lamp, and the brushed-silver desk bell",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 14
+    },
+    {
+      "sentence_index": 15,
+      "end_sentence_index": 15,
+      "act": 2,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the bright cool-limestone recording booth with bare pale-slate walls, a desk lamp, and the brushed-silver desk bell",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 15
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands over the left slate counter rail",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands align and tap the moderate stack of eleven mint-sage blocks beside a calm brushed-silver desk bell",
+      "consequence": "the left mint-sage column stays at a modest mid-level height",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright cool-limestone recording booth with bare pale-slate walls, a desk lamp, and the brushed-silver desk bell",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves press the brushed-silver metal spring tightly flat and open the side latch so the spring snaps upward forcefully",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the bright recording booth with sixteen silver chime rings surrounding the desk and observation window",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain student in a powder-blue sweater leans forward at the slate desk as the researcher in a navy blazer places the tall block stack",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 18,
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright cool-limestone booth containing a slate desk lamp, a gray chair, and pale-slate wall tiles",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain student in a powder-blue sweater turns rapidly toward the desk lamp and reaches toward the gray chair away from the silver bell",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 20,
+      "end_sentence_index": 20,
+      "act": 3,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the bright cool-limestone booth containing a slate desk lamp, a gray chair, and pale-slate wall tiles",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "clip_number": 20
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright cool-limestone booth containing a slate desk lamp, a gray chair, and pale-slate wall tiles",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain student in a powder-blue sweater turns rapidly toward the desk lamp and reaches toward the gray chair away from the silver bell",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 21,
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "DORSOLATERAL PFC\nDISTRACTION SEARCH",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the upper lateral forehead of the matte cool-porcelain 3D brain model, soft powder-blue light works busily across the dorsolateral prefrontal cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nCONFLICT DETECTOR",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, muted rose-coral radar pulses fire rhythmically along the inner anterior cingulate cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the bright cool-limestone booth containing a slate desk lamp, a gray chair, and pale-slate wall tiles",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain student in a powder-blue sweater turns rapidly toward the desk lamp and reaches toward the gray chair away from the silver bell",
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 25,
+      "end_sentence_index": 25,
+      "act": 3,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the bright cool-limestone booth containing a slate desk lamp, a gray chair, and pale-slate wall tiles",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "clip_number": 25
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the cool-limestone booth under dim evening window light with the silver desk bell gleaming center stage",
+      "action": "viewed strictly from behind, a tired clothed matte-white porcelain student in a slate cardigan leans forward on elbows and taps the brushed-silver desk bell repeatedly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs and cool porcelain-white gloved matte-white porcelain hands adding heavy slate load weights onto a balance arm",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set two heavy slate load blocks onto the upper search pan so the lower radar pointer tilts sharply upward",
+      "consequence": "the rose-coral radar pointer dominates under heavy load",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 27,
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a two-tank architectural fuel gauge comparing an emptying powder-blue upper cylinder against a self-spinning rose-coral flywheel below",
+      "internal_mechanism": "as the upper powder-blue cylinder drains low, the lower rose-coral flywheel keeps spinning at full effortless speed",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "bounded_micro_channel",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nTIRED PLANNER",
+      "camera": "locked_tripod",
+      "brain_scene": "across the front lobe of the matte cool-porcelain 3D brain model, soft powder-blue light dims gently across the fatigued prefrontal cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nTIRELESS MONITOR",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, muted rose-coral pulses keep firing briskly along the anterior cingulate cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "putting_green_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright sunlit mint-sage putting green bordered on the right by a calm powder-blue pond and a white center flagstick",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain golfer in a slate sweater, slacks, cap, and boots steps forward and turns slightly toward the powder-blue pond",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "putting_green_terrace",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "putting_green_terrace",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "slate sweater sleeves and cool porcelain-white gloved matte-white porcelain hands retrieving the matte-white ball beside the limestone pond rim",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand lifts the matte-white golf ball from the stone rim while the other hand points the silver putter head toward the center white pin",
+      "consequence": "the silver putter face aligns squarely toward the center flagstick",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 33,
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "putting_green_terrace",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright cool-limestone recording booth with the single muted rose-coral compact car compact centered on the slate desk",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain researcher in a navy blazer and boots steps out of the booth and closes the glass door beside the student",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 35,
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "researcher",
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit cool-limestone booth with the silent silver desk bell and the single muted rose-coral compact car compact",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain student in a powder-blue sweater leans calmly toward the silver stand microphone while both gloved hands rest on the slate desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 37,
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "the sunlit cool-limestone booth with the silent silver desk bell and the single muted rose-coral compact car compact",
+      "action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves lift and set a smooth mint-sage stone gently onto the limestone pool rim beside glass-smooth powder-blue water",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "end_sentence_index": 39,
+      "act": 5,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over the sunlit cool-limestone booth with the silent silver desk bell and the single muted rose-coral compact car compact",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 36
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "putting_green_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit mint-sage putting green with a crisp white center flagstick",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain golfer in a slate sweater, slacks, cap, and boots aligns squarely with the white flagstick and rolls the ball cleanly into the center cup",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "putting_green_terrace",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright Trinity University observation gallery overlooking the silent silver desk bell",
+      "action": "viewed strictly from behind, three clothed matte-white porcelain psychologists in blazers, shirts, slacks, and boots step around the slate counter tray and point toward the flat mint-sage bars",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 42,
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "powder-blue cuffs and cool porcelain-white gloved matte-white porcelain hands beside the silent silver desk bell",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand slides the chalk-white bear sculpture away while the other hand taps the single compact car model calmly",
+      "consequence": "the brushed-silver desk bell sits quiet in soft studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 43,
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "stone_study_corner",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a calm sunlit evening bedroom study with cool powder-blue walls, a slate nightstand, and a soft frosted bedside lamp",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain person in a soft mint-sage cardigan and trousers leans calmly on the bed edge and reaches to dim the frosted lamp",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 45,
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "stone_study_corner",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "anterior cingulate cortex",
+      "anatomy_label": "ANTERIOR CINGULATE\nBEDTIME LOOP",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, muted rose-coral tension along the anterior cingulate cortex softens gently to calm ivory",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nSINGLE TARGET",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front third of the matte cool-porcelain 3D brain model, steady soft mint-sage and powder-blue light focuses cleanly inside the prefrontal cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "stone_study_corner",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "style_profile": "porcelain_cinematic_v7",
+      "environment": "a calm sunlit evening bedroom study with cool powder-blue walls, a slate nightstand, and a soft frosted bedside lamp",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain person in a soft mint-sage cardigan and trousers leans calmly on the bed edge and reaches to dim the frosted lamp",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "stone_study_corner",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 49,
+      "end_sentence_index": 49,
+      "act": 6,
+      "location_id": "stone_study_corner",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a calm sunlit evening bedroom study with cool powder-blue walls, a slate nightstand, and a soft frosted bedside lamp",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "stone_study_corner",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "clip_number": 44
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "putting_green_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright sunlit limestone garden path leading straight toward a sunlit mint-sage pavilion",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain figures in sunlit jackets, caps, trousers, and boots walk and step steadily forward along the straight limestone path",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "putting_green_terrace",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "putting_green_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit campus courtyard with calm stone walkways and mint-sage trees",
+      "action": "viewed strictly from behind, clothed matte-white porcelain students in sweaters, coats, caps, and boots walk and step calmly across the open limestone courtyard",
+      "style_profile": "porcelain_cinematic_v7",
+      "end_sentence_index": 51,
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "putting_green_terrace",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "trinity_bell_booth",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands over the right slate counter rail",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand taps the brushed-silver desk bell rapidly while the other hand places sixteen rose-coral blocks towering above",
+      "consequence": "the right rose-coral rebound column towers high above the left column",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "trinity_bell_booth",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "putting_green_terrace",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a serene sunlit limestone courtyard framed by sunlit mint-sage trees opening into a clear powder-blue sky with soft white geometric clouds",
+      "action": "viewed strictly from behind, clothed matte-white porcelain figures in sunlit coats, caps, and boots walk and step calmly forward as the camera tilts smoothly upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "WHITE BEAR TRAP",
+    "cover_sentence_index": 3,
+    "cover_brief": "matte chalk-white faceted low-poly geometric polar-bear sculpture beside a cool brushed-silver desk bell on a cool slate-gray booth table"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true
+}

@@ -1,13 +1,25 @@
 {
-  "updated_at_utc": "2026-11-02T13:20:51.285413+00:00",
-  "episodes_indexed": 27,
-  "total_cuts_evaluated": 1530,
+  "updated_at_utc": "2026-11-03T19:52:46.552450+00:00",
+  "episodes_indexed": 28,
+  "total_cuts_evaluated": 1578,
   "overall_mean_clarity": 97.0,
   "overall_min_clarity": 93.6,
-  "golden_prompts_banked": 150,
+  "golden_prompts_banked": 198,
   "analogies_indexed": 23,
-  "brain_models_indexed": 178,
-  "locations_indexed": 117,
+  "brain_models_indexed": 190,
+  "locations_indexed": 122,
+  "episodes_by_voice_preset": {
+    "emma_v7": {
+      "episodes": 1,
+      "mean_wpm": 188.2,
+      "mean_clarity": 97.2
+    },
+    "unspecified": {
+      "episodes": 27,
+      "mean_wpm": 182.5,
+      "mean_clarity": 97.0
+    }
+  },
   "clarity_by_grammar": {
     "lowpoly_cutaway_section": {
       "cuts": 86,
@@ -50,53 +62,88 @@
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
       "min_clarity": 95.8
+    },
+    "porcelain_cutaway_section": {
+      "cuts": 1,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.3,
+      "min_clarity": 97.3
+    },
+    "porcelain_fullbleed_world": {
+      "cuts": 22,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.3,
+      "min_clarity": 95.5
+    },
+    "porcelain_hands_closeup": {
+      "cuts": 11,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.2,
+      "min_clarity": 96.7
+    },
+    "porcelain_living_brain": {
+      "cuts": 12,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.1,
+      "min_clarity": 96.6
+    },
+    "porcelain_pov_hands": {
+      "cuts": 2,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.5,
+      "min_clarity": 97.4
     }
   },
   "clarity_by_camera_move": {
     "clean_pullback_reveal": {
-      "cuts": 79,
+      "cuts": 81,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
       "min_clarity": 95.4
     },
     "gentle_push_in": {
-      "cuts": 178,
+      "cuts": 186,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
       "min_clarity": 95.1
     },
     "locked_tripod": {
-      "cuts": 932,
+      "cuts": 955,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
       "min_clarity": 94.4
     },
     "pan_left": {
-      "cuts": 126,
+      "cuts": 134,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.9,
       "min_clarity": 93.6
     },
     "pan_right": {
-      "cuts": 157,
+      "cuts": 162,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
       "min_clarity": 94.4
     },
     "tilt_down": {
-      "cuts": 19,
+      "cuts": 20,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.7,
       "min_clarity": 94.2
     },
     "tilt_up": {
-      "cuts": 39,
+      "cuts": 40,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 95.5,
@@ -105,45 +152,45 @@
   },
   "clarity_by_act": {
     "act_1": {
-      "cuts": 297,
+      "cuts": 305,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
       "min_clarity": 95.1
     },
     "act_2": {
-      "cuts": 257,
+      "cuts": 263,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
       "min_clarity": 94.4
     },
     "act_3": {
-      "cuts": 250,
+      "cuts": 259,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
       "min_clarity": 95.2
     },
     "act_4": {
-      "cuts": 215,
+      "cuts": 223,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.9,
       "min_clarity": 94.6
     },
     "act_5": {
-      "cuts": 260,
+      "cuts": 268,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.1,
       "min_clarity": 94.0
     },
     "act_6": {
-      "cuts": 251,
+      "cuts": 260,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 96.7,
+      "mean_clarity": 96.8,
       "min_clarity": 93.6
     }
   },
