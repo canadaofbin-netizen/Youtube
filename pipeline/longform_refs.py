@@ -61,56 +61,243 @@ def purge_longform_quarantine(slug: str | None = None) -> dict[str, Any]:
     return {"quarantine_target": str(target), "purged": removed, "exists_after": target.exists()}
 
 
-def sanitize_longform_16x9_guide_frame(src_bgr: np.ndarray, out_guide_png: Path) -> dict[str, Any]:
+def sanitize_longform_16x9_guide_frame(
+    src_bgr: np.ndarray | str | Path,
+    out_guide_png: Path,
+    *,
+    poster_boxes_norm: list[tuple[float, float, float, float]] | None = None,
+) -> dict[str, Any]:
     """
-    Sanitizes an academic/experiment `16:9` frame into a non-infringing grayscale/blurred structural blocking guide:
-      - Detects & masks any human faces via YuNet (`face_detection_yunet_2023mar.onnx`) + oval smooth matte-white silhouette
-      - Heavy bilateral/Gaussian surface abstraction + margin text-band blur so zero original pixels/faces/captions survive.
+    Sanitizes an academic/experiment frame into an aspect-preserving `16:9` (`1920x1080`) structural blocking guide:
+      1. Trims black letterbox/pillarbox borders without cropping room geometry.
+      2. Scrubs corner high-chroma posters, lower-third subtitle bands, and VHS bottom caption strips.
+      3. Replaces exposed human faces & skin (YuNet B&W/color ovals + HSV/YCrCb skin mask) with smooth
+         featureless matte-white porcelain silhouettes, then applies chalk surface abstraction.
+      4. Preserves original aspect ratio onto `1920x1080` (e.g. `4:3 -> 1440x1080` centered + `240px`
+         left/right blurred high-key matte architectural wall extensions; zero horizontal stretch, zero black bars).
     """
-    resized = cv2.resize(src_bgr, (LONGFORM_VIDEO_WIDTH, LONGFORM_VIDEO_HEIGHT), interpolation=cv2.INTER_AREA)
-    gray = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY)
-    # Compute source dHash BEFORE heavy abstraction so RQ2 dHash >= 18 verifies distance from original frame
-    dh_resized = cv2.resize(gray, (9, 8), interpolation=cv2.INTER_AREA)
+    from pipeline.source_reenactment import detect_human_faces_yunet
+
+    if isinstance(src_bgr, (str, Path)):
+        loaded = cv2.imread(str(src_bgr))
+        if loaded is None:
+            raise ValueError(f"Could not read source guide frame: {src_bgr}")
+        src_arr = loaded
+    else:
+        src_arr = src_bgr
+
+    # Compute source dHash BEFORE abstraction so RQ2 dHash >= 18 verifies distance from original frame
+    raw_gray = cv2.cvtColor(src_arr, cv2.COLOR_BGR2GRAY)
+    dh_resized = cv2.resize(raw_gray, (9, 8), interpolation=cv2.INTER_AREA)
     dh_bits = "".join("1" if b else "0" for b in (dh_resized[:, 1:] > dh_resized[:, :-1]).flatten())
     src_dhash = f"{int(dh_bits, 2):016x}"
 
-    abstracted = cv2.GaussianBlur(resized, (31, 31), 9.0)
-    # Desaturate toward neutral warm architectural chalk so zero skin chrominance leaks into i2i conditioning
+    img = src_arr.copy()
+    h0, w0 = img.shape[:2]
+    if h0 >= 64 and w0 >= 64:
+        g0 = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        max_trim_y = h0 // 4
+        max_trim_x = w0 // 4
+        ty0 = 0
+        while ty0 < max_trim_y and float(np.mean(g0[ty0, :])) < 20.0 and float(np.percentile(g0[ty0, :], 90)) < 38.0:
+            ty0 += 1
+        ty1 = h0
+        while (h0 - ty1) < max_trim_y and ty1 > ty0 + 32 and float(np.mean(g0[ty1 - 1, :])) < 20.0 and float(np.percentile(g0[ty1 - 1, :], 90)) < 38.0:
+            ty1 -= 1
+        tx0 = 0
+        while tx0 < max_trim_x and float(np.mean(g0[ty0:ty1, tx0])) < 20.0 and float(np.percentile(g0[ty0:ty1, tx0], 90)) < 38.0:
+            tx0 += 1
+        tx1 = w0
+        while (w0 - tx1) < max_trim_x and tx1 > tx0 + 32 and float(np.mean(g0[ty0:ty1, tx1 - 1])) < 20.0 and float(np.percentile(g0[ty0:ty1, tx1 - 1], 90)) < 38.0:
+            tx1 -= 1
+        if (ty0 > 0 or ty1 < h0 or tx0 > 0 or tx1 < w0) and (ty1 - ty0) >= h0 // 2 and (tx1 - tx0) >= w0 // 2:
+            img = img[ty0:ty1, tx0:tx1].copy()
+
+    h, w = img.shape[:2]
+    hsv_init = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    med_sat = float(np.median(hsv_init[:, :, 1]))
+
+    # 1. Corner poster / decal scrubbing into neutral matte architectural plates
+    wall_sample = img[max(0, int(h * 0.08)) : max(4, int(h * 0.24)), int(w * 0.35) : int(w * 0.65)]
+    wall_med = (
+        np.median(wall_sample.reshape(-1, 3), axis=0).astype(np.uint8)
+        if wall_sample.size > 0
+        else np.array([218, 222, 226], dtype=np.uint8)
+    )
+    wall_color = tuple(int(max(198, min(238, c))) for c in wall_med.tolist())
+    boxes_to_mask = list(poster_boxes_norm) if poster_boxes_norm is not None else []
+    if poster_boxes_norm is None:
+        for cx0, cy0, cx1, cy1 in ((0.00, 0.00, 0.24, 0.34), (0.74, 0.00, 1.00, 0.34)):
+            px0, py0 = int(w * cx0), int(h * cy0)
+            px1, py1 = int(w * cx1), int(h * cy1)
+            patch_s = hsv_init[py0:py1, px0:px1, 1]
+            if patch_s.size > 0 and float(np.mean(patch_s >= 80)) >= 0.06:
+                boxes_to_mask.append((cx0, cy0, cx1, cy1))
+    for x0n, y0n, x1n, y1n in boxes_to_mask:
+        x0, y0 = int(w * x0n), int(h * y0n)
+        x1, y1 = int(w * x1n), int(h * y1n)
+        cv2.rectangle(img, (x0, y0), (x1, y1), wall_color, -1)
+
+    # 2. Lower-third subtitle & bottom VHS caption scrubbing
+    lt_y0, lt_y1 = int(h * 0.78), int(h * 0.98)
+    lt_x0, lt_x1 = int(w * 0.08), int(w * 0.92)
+    if lt_y1 > lt_y0 + 8 and lt_x1 > lt_x0 + 16:
+        lt_band = img[lt_y0:lt_y1, lt_x0:lt_x1]
+        lt_gray = cv2.cvtColor(lt_band, cv2.COLOR_BGR2GRAY)
+        if float(np.mean(cv2.Canny(lt_gray, 70, 170) > 0)) > 0.045:
+            img[lt_y0:lt_y1, :] = cv2.GaussianBlur(img[lt_y0:lt_y1, :], (45, 45), 14.0)
+    bot_y0 = int(h * 0.88)
+    if h - bot_y0 >= 4:
+        gray_bot = cv2.cvtColor(img[bot_y0:, :], cv2.COLOR_BGR2GRAY)
+        if float(np.mean(cv2.Canny(gray_bot, 70, 170) > 0)) > 0.035:
+            floor_strip = img[max(0, bot_y0 - max(6, int(h * 0.05))) : bot_y0, :]
+            if floor_strip.size > 0:
+                img[bot_y0:, :] = cv2.resize(floor_strip, (w, h - bot_y0), interpolation=cv2.INTER_LINEAR)
+
+    # 3. YuNet B&W/color face ovals + HSV/YCrCb skin-tone masking -> smooth featureless porcelain silhouettes
+    face_boxes = detect_human_faces_yunet(img, score_threshold=0.42)
+    face_mask = np.zeros((h, w), dtype=np.uint8)
+    for fx, fy, fw, fh, _fsc in face_boxes:
+        cx_f = int(round(fx + fw * 0.50))
+        cy_f = int(round(fy + fh * 0.48))
+        ax_w = max(10, int(round(fw * 0.72)))
+        ax_h = max(12, int(round(fh * 0.84)))
+        cv2.ellipse(face_mask, (cx_f, cy_f), (ax_w, ax_h), 0, 0, 360, 255, -1)
+
+    if med_sat >= 16.0:
+        hsv_c = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+        ycrcb_c = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
+        skin_mask = (
+            (hsv_c[:, :, 0] <= 22)
+            & (hsv_c[:, :, 1] >= 42)
+            & (hsv_c[:, :, 1] <= 175)
+            & (hsv_c[:, :, 2] >= 65)
+            & (ycrcb_c[:, :, 1] >= 135)
+            & (ycrcb_c[:, :, 1] <= 180)
+            & (ycrcb_c[:, :, 2] >= 85)
+            & (ycrcb_c[:, :, 2] <= 135)
+        ).astype(np.uint8) * 255
+        kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7, 7))
+        skin_mask = cv2.morphologyEx(skin_mask, cv2.MORPH_CLOSE, kernel, iterations=2)
+    else:
+        skin_mask = np.zeros((h, w), dtype=np.uint8)
+
+    combined_mask = cv2.GaussianBlur(np.maximum(skin_mask, face_mask), (13, 13), 0)
+    gray_full = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY).astype(np.float32)
+    gray_smooth = cv2.GaussianBlur(gray_full, (31, 31), 0)
+    porcelain_luma = np.clip(220.0 + 0.06 * (gray_smooth - 128.0), 202.0, 245.0).astype(np.uint8)
+    porcelain_bgr = np.stack(
+        [
+            porcelain_luma,
+            porcelain_luma,
+            np.clip(porcelain_luma.astype(np.int16) + 2, 0, 248).astype(np.uint8),
+        ],
+        axis=-1,
+    )
+    alpha = (combined_mask.astype(np.float32) / 255.0)[:, :, None]
+    img = np.clip(img.astype(np.float32) * (1.0 - alpha) + porcelain_bgr.astype(np.float32) * alpha, 0, 255).astype(np.uint8)
+
+    # Heavy chalk architectural abstraction across room surfaces
+    abstracted = cv2.GaussianBlur(img, (29, 29), 8.5)
     hsv = cv2.cvtColor(abstracted, cv2.COLOR_BGR2HSV)
-    hsv[:, :, 1] = (hsv[:, :, 1].astype(np.float32) * 0.18).astype(np.uint8)
-    hsv[:, :, 2] = np.clip(hsv[:, :, 2].astype(np.float32) * 1.12 + 24.0, 60, 244).astype(np.uint8)
-    clean_bgr = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
+    hsv[:, :, 1] = (hsv[:, :, 1].astype(np.float32) * 0.16).astype(np.uint8)
+    hsv[:, :, 2] = np.clip(hsv[:, :, 2].astype(np.float32) * 1.12 + 26.0, 72, 244).astype(np.uint8)
+    sanitized_core = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
+    # Re-stamp crisp smooth matte-white ovals over detected faces after room blur so head blocking stays legible & faceless
+    for fx, fy, fw, fh, _fsc in face_boxes:
+        cx_f = int(round(fx + fw * 0.50))
+        cy_f = int(round(fy + fh * 0.48))
+        ax_w = max(10, int(round(fw * 0.68)))
+        ax_h = max(12, int(round(fh * 0.80)))
+        cv2.ellipse(sanitized_core, (cx_f, cy_f), (ax_w, ax_h), 0, 0, 360, (238, 240, 242), -1)
 
-    faces_masked = 0
-    if Path(YUNET_FACE_MODEL_PATH).exists():
-        try:
-            det = cv2.FaceDetectorYN.create(str(YUNET_FACE_MODEL_PATH), "", (640, 360), 0.55, 0.3, 5000)
-            small = cv2.resize(resized, (640, 360))
-            _, faces = det.detect(small)
-            if faces is not None:
-                sx, sy = LONGFORM_VIDEO_WIDTH / 640.0, LONGFORM_VIDEO_HEIGHT / 360.0
-                for f_row in faces:
-                    fx, fy, fw, fh = f_row[:4]
-                    cx = int(round((fx + 0.5 * fw) * sx))
-                    cy = int(round((fy + 0.5 * fh) * sy))
-                    rx = max(24, int(round(0.65 * fw * sx)))
-                    ry = max(30, int(round(0.80 * fh * sy)))
-                    cv2.ellipse(clean_bgr, (cx, cy), (rx, ry), 0, 0, 360, (238, 240, 242), -1)
-                    faces_masked += 1
-        except Exception:
-            pass
+    # 4. Aspect-preserving placement onto 1920x1080 (16:9) with matte studio wall side/vertical extensions (zero stretch)
+    target_w, target_h = int(LONGFORM_VIDEO_WIDTH), int(LONGFORM_VIDEO_HEIGHT)
+    src_ar = w / max(float(h), 1.0)
+    target_ar = target_w / float(target_h)
+    pad_left = pad_right = pad_top = pad_bottom = 0
 
-    # Blank top 10% and bottom 16% subtitle/banner zones to soft studio neutral
-    clean_bgr[: int(LONGFORM_VIDEO_HEIGHT * 0.10), :] = cv2.GaussianBlur(
-        clean_bgr[: int(LONGFORM_VIDEO_HEIGHT * 0.10), :], (61, 61), 18.0
-    )
-    clean_bgr[int(LONGFORM_VIDEO_HEIGHT * 0.84) :, :] = cv2.GaussianBlur(
-        clean_bgr[int(LONGFORM_VIDEO_HEIGHT * 0.84) :, :], (61, 61), 18.0
-    )
+    if src_ar < target_ar - 0.02:
+        scaled_h = target_h
+        scaled_w = max(64, min(target_w, int(round(target_h * src_ar))))
+        center_bgr = cv2.resize(sanitized_core, (scaled_w, scaled_h), interpolation=cv2.INTER_AREA)
+        pad_left = (target_w - scaled_w) // 2
+        pad_right = target_w - scaled_w - pad_left
+        canvas = np.full((target_h, target_w, 3), 228, dtype=np.uint8)
+        canvas[:, pad_left : pad_left + scaled_w] = center_bgr
+        strip_w = max(8, scaled_w // 10)
+        if pad_left > 0:
+            l_ext = cv2.resize(center_bgr[:, :strip_w], (pad_left, target_h), interpolation=cv2.INTER_LINEAR)
+            l_ext = cv2.GaussianBlur(l_ext, (91, 91), 28.0)
+            canvas[:, :pad_left] = np.clip(l_ext.astype(np.int16) + 8, 90, 244).astype(np.uint8)
+            seam = min(24, pad_left, scaled_w // 4)
+            if seam >= 4:
+                ramp = np.linspace(0.0, 1.0, seam, dtype=np.float32)[None, :, None]
+                blend_l = cv2.GaussianBlur(canvas[:, pad_left - seam : pad_left + seam], (31, 31), 9.0)
+                canvas[:, pad_left - seam : pad_left] = (
+                    canvas[:, pad_left - seam : pad_left].astype(np.float32) * (1.0 - ramp)
+                    + blend_l[:, :seam].astype(np.float32) * ramp
+                ).astype(np.uint8)
+        if pad_right > 0:
+            rx0 = pad_left + scaled_w
+            r_ext = cv2.resize(center_bgr[:, scaled_w - strip_w :], (pad_right, target_h), interpolation=cv2.INTER_LINEAR)
+            r_ext = cv2.GaussianBlur(r_ext, (91, 91), 28.0)
+            canvas[:, rx0:] = np.clip(r_ext.astype(np.int16) + 8, 90, 244).astype(np.uint8)
+            seam = min(24, pad_right, scaled_w // 4)
+            if seam >= 4:
+                ramp = np.linspace(1.0, 0.0, seam, dtype=np.float32)[None, :, None]
+                blend_r = cv2.GaussianBlur(canvas[:, rx0 - seam : rx0 + seam], (31, 31), 9.0)
+                canvas[:, rx0 : rx0 + seam] = (
+                    canvas[:, rx0 : rx0 + seam].astype(np.float32) * (1.0 - ramp)
+                    + blend_r[:, seam:].astype(np.float32) * ramp
+                ).astype(np.uint8)
+        clean_bgr = canvas
+    elif src_ar > target_ar + 0.02:
+        scaled_w = target_w
+        scaled_h = max(64, min(target_h, int(round(target_w / max(src_ar, 0.1)))))
+        center_bgr = cv2.resize(sanitized_core, (scaled_w, scaled_h), interpolation=cv2.INTER_AREA)
+        pad_top = (target_h - scaled_h) // 2
+        pad_bottom = target_h - scaled_h - pad_top
+        canvas = np.full((target_h, target_w, 3), 228, dtype=np.uint8)
+        canvas[pad_top : pad_top + scaled_h, :] = center_bgr
+        strip_h = max(8, scaled_h // 10)
+        if pad_top > 0:
+            t_ext = cv2.GaussianBlur(
+                cv2.resize(center_bgr[:strip_h, :], (target_w, pad_top), interpolation=cv2.INTER_LINEAR),
+                (91, 91),
+                28.0,
+            )
+            canvas[:pad_top, :] = np.clip(t_ext.astype(np.int16) + 8, 90, 244).astype(np.uint8)
+        if pad_bottom > 0:
+            by0 = pad_top + scaled_h
+            b_ext = cv2.GaussianBlur(
+                cv2.resize(center_bgr[scaled_h - strip_h :, :], (target_w, pad_bottom), interpolation=cv2.INTER_LINEAR),
+                (91, 91),
+                28.0,
+            )
+            canvas[by0:, :] = np.clip(b_ext.astype(np.int16) + 6, 90, 244).astype(np.uint8)
+        clean_bgr = canvas
+    else:
+        scaled_w, scaled_h = target_w, target_h
+        clean_bgr = cv2.resize(sanitized_core, (target_w, target_h), interpolation=cv2.INTER_AREA)
+
+    # Soften top 10% and bottom 16% title/banner zones to neutral studio chalk
+    clean_bgr[: int(target_h * 0.10), :] = cv2.GaussianBlur(clean_bgr[: int(target_h * 0.10), :], (61, 61), 18.0)
+    clean_bgr[int(target_h * 0.84) :, :] = cv2.GaussianBlur(clean_bgr[int(target_h * 0.84) :, :], (61, 61), 18.0)
 
     out_guide_png.parent.mkdir(parents=True, exist_ok=True)
     cv2.imwrite(str(out_guide_png), clean_bgr)
-    return {"guide_png": str(out_guide_png), "source_dhash_64": src_dhash, "faces_masked": faces_masked}
+    return {
+        "guide_png": str(out_guide_png),
+        "resolution": [target_w, target_h],
+        "aspect_preserved": True,
+        "source_dhash_64": src_dhash,
+        "faces_masked": len(face_boxes),
+        "content_width": scaled_w,
+        "content_height": scaled_h,
+        "side_pad_px": [pad_left, pad_right],
+        "vertical_pad_px": [pad_top, pad_bottom],
+    }
 
 
 def build_longform_reference_specs(project_dir: Path) -> dict[str, Any]:
@@ -183,10 +370,10 @@ def build_longform_reference_specs(project_dir: Path) -> dict[str, Any]:
             prompt_16x9 = (
                 "Generate a single 16:9 horizontal widescreen architectural documentary still photograph (1920x1080 landscape frame): "
                 f"In a {PORCELAIN_V7_WORLD_STYLE}, {clean_desc}. "
-                "Every human role is an articulated matte-white porcelain mannequin with a completely smooth featureless oval white head and tailored fabric attire. "
+                f"Every human role is staged as {PORCELAIN_V7_CAST_STYLE} in tailored fabric attire. "
                 f"{PORCELAIN_V7_OPTICS_LOCK}. Clean unmarked walls, zero text, zero clock digits, zero labels, no watermark."
             )
-        spec_entry = {
+        spec_entry: dict[str, Any] = {
             "ref_id": ref_id,
             "filename": str(anc.get("filename") or f"{ref_id}.png"),
             "category": str(anc.get("category") or ("brain_anchor" if is_brain else "clip_keyframe_anchor")),
@@ -201,6 +388,9 @@ def build_longform_reference_specs(project_dir: Path) -> dict[str, Any]:
             "present_cast": list(anc.get("present_cast") or []),
             "prompt": prompt_16x9,
         }
+        for opt_k in ("source_shot_id", "source_url", "reenactment_section"):
+            if anc.get(opt_k):
+                spec_entry[opt_k] = anc[opt_k]
         all_specs.append(spec_entry)
 
     payload = {
@@ -575,6 +765,184 @@ async def _generate_gemini_image_16x9(
     return out_path.exists() and out_path.stat().st_size > 30_000
 
 
+LONGFORM_TRACK_A_I2I_PREFIX = (
+    "Horizontal 16:9 high-key architectural documentary photograph (1920x1080). "
+    "Match the room layout, apparatus placement, camera angle, and body pose geometry of the first structural guide image "
+    "while transforming every human role into a clothed matte-white porcelain figure with a smooth featureless solid "
+    "matte-white egg-shaped oval head matching the cast reference: "
+)
+
+
+def _prepare_longform_track_a_guides(
+    *,
+    p_dir: Path,
+    slug: str,
+    ordered_specs: list[dict[str, Any]],
+    q_dir: Path,
+    guides_dir: Path,
+    need_fresh_guides: bool,
+) -> list[str]:
+    """
+    Loads or extracts quarantined `Track A` shots (`extract_source_edl` into `/tmp/aab_reenact_lf/<slug>`),
+    sanitizes `16:9` aspect-preserving structural guide PNGs via `sanitize_longform_16x9_guide_frame`,
+    updates `03_visuals/source_edl.json` + `<dossier>/08_reenactment_edl.json` (`sanitization_verified: True`),
+    and returns `source_dhash_64_list`.
+    """
+    from pipeline.config import REENACT_EDL_FILENAME
+    from pipeline.research_dossier import DOSSIERS_ROOT
+    from pipeline.source_reenactment import extract_source_edl
+
+    vis_dir = p_dir / "03_visuals"
+    edl_proj_path = vis_dir / REENACT_EDL_FILENAME
+    d_dir = DOSSIERS_ROOT / slug
+    edl_dossier_path = d_dir / "08_reenactment_edl.json"
+
+    track_a_specs = [
+        sp
+        for sp in ordered_specs
+        if str(sp.get("track") or "").lower() == "track_a"
+        and sp.get("setting") not in (*BRAIN_SETTINGS, "brain_studio")
+    ]
+
+    existing_edl: dict[str, Any] | None = None
+    for cand_p in (edl_proj_path, edl_dossier_path):
+        if cand_p.exists():
+            try:
+                existing_edl = json.loads(cand_p.read_text(encoding="utf-8"))
+                break
+            except Exception:
+                existing_edl = None
+
+    if not track_a_specs:
+        return list((existing_edl or {}).get("source_dhash_64_list") or [])
+
+    if not need_fresh_guides and existing_edl:
+        if not edl_proj_path.exists():
+            edl_proj_path.write_text(json.dumps(existing_edl, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        return list(existing_edl.get("source_dhash_64_list") or [])
+
+    # Resolve primary Track A media URL/file + section window from spec or <dossier>/04_media_refs.json
+    src_url = ""
+    src_sec: str | None = None
+    for sp in track_a_specs:
+        if sp.get("source_url"):
+            src_url = str(sp["source_url"]).strip()
+            src_sec = str(sp.get("reenactment_section") or "").strip() or None
+            break
+    if not src_url and (d_dir / "04_media_refs.json").exists():
+        try:
+            m_doc = json.loads((d_dir / "04_media_refs.json").read_text(encoding="utf-8"))
+            m_list = [m for m in (m_doc.get("media") or []) if isinstance(m, dict)]
+            prim_id = str(m_doc.get("primary_reenactment_media_id") or "").strip()
+            prim_m = next((m for m in m_list if prim_id and str(m.get("id") or "") == prim_id), None)
+            if prim_m is None:
+                prim_m = next(
+                    (
+                        m
+                        for m in m_list
+                        if str(m.get("reenactment_suitability") or "") in ("suitable_track_a", "needs_section_window")
+                    ),
+                    m_list[0] if m_list else None,
+                )
+            if prim_m is not None:
+                src_url = str(prim_m.get("url") or "").strip()
+                src_sec = str(prim_m.get("reenactment_section") or prim_m.get("recommended_section") or "").strip() or None
+        except Exception:
+            pass
+    if not src_url and existing_edl:
+        cand_ref = str(existing_edl.get("source_reference_id") or "").strip()
+        if cand_ref.startswith("http") or Path(cand_ref).exists():
+            src_url = cand_ref
+            src_sec = str(existing_edl.get("section_window") or "").strip() or None
+
+    shots_dir = q_dir / "shots"
+    edl_doc = existing_edl
+    if src_url and (not shots_dir.exists() or not list(shots_dir.glob("S*_start.png"))):
+        edl_doc = extract_source_edl(
+            url_or_mp4=src_url,
+            slug=slug,
+            project_dir=p_dir,
+            dossier_dir=d_dir if d_dir.exists() else None,
+            work_dir=q_dir,
+            section=src_sec,
+        )
+
+    shot_pngs = sorted(shots_dir.glob("S*_start.png")) if shots_dir.exists() else []
+    source_dhashes: list[str] = list((edl_doc or {}).get("source_dhash_64_list") or [])
+    guides_dir.mkdir(parents=True, exist_ok=True)
+
+    if shot_pngs:
+        for idx_t, sp in enumerate(track_a_specs):
+            req_shot = str(sp.get("source_shot_id") or "").strip()
+            chosen_png = None
+            if req_shot:
+                cand_s = shots_dir / (req_shot if req_shot.endswith(".png") else f"{req_shot}_start.png")
+                if cand_s.exists():
+                    chosen_png = cand_s
+            if chosen_png is None:
+                chosen_png = shot_pngs[idx_t % len(shot_pngs)]
+            raw_bgr = cv2.imread(str(chosen_png), cv2.IMREAD_COLOR)
+            if raw_bgr is None:
+                continue
+            guide_out = guides_dir / f"{sp['scene_id']}_guide.png"
+            san_info = sanitize_longform_16x9_guide_frame(raw_bgr, guide_out)
+            dh = str(san_info.get("source_dhash_64") or "")
+            if dh and dh not in source_dhashes:
+                source_dhashes.append(dh)
+
+        if edl_doc is None:
+            edl_doc = {
+                "schema": "source_reenactment_edl_v1",
+                "rule": "R67",
+                "slug": slug,
+                "shot_count": len(shot_pngs),
+                "shots": [{"shot_id": p.stem.replace("_start", "")} for p in shot_pngs],
+                "source_dhash_64_list": source_dhashes,
+                "source_5gram_sha256_list": [],
+                "source_personal_names": [],
+                "zero_raw_pixels_in_repo": True,
+            }
+        edl_doc["source_dhash_64_list"] = source_dhashes
+        edl_doc["sanitization_verified"] = True
+        edl_proj_path.write_text(json.dumps(edl_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        if d_dir.exists():
+            edl_dossier_path.write_text(json.dumps(edl_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    return source_dhashes
+
+
+def _render_longform_reenactment_comparison_sheet(
+    p_dir: Path,
+    ordered_specs: list[dict[str, Any]],
+    guides_dir: Path,
+) -> Path | None:
+    """Renders a 16:9 side-by-side comparison sheet (`sanitized 16:9 guide` vs `porcelain 16:9 anchor`) before quarantine purge."""
+    ref_dir = p_dir / "03_visuals" / REF_IMAGES_DIRNAME
+    rows: list[np.ndarray] = []
+    for sp in ordered_specs:
+        if str(sp.get("track") or "").lower() != "track_a":
+            continue
+        g_png = guides_dir / f"{sp['scene_id']}_guide.png"
+        r_png = ref_dir / str(sp["filename"])
+        if not g_png.exists() or not r_png.exists():
+            continue
+        g_bgr = cv2.imread(str(g_png), cv2.IMREAD_COLOR)
+        r_bgr = cv2.imread(str(r_png), cv2.IMREAD_COLOR)
+        if g_bgr is None or r_bgr is None:
+            continue
+        g_tile = cv2.resize(g_bgr, (640, 360), interpolation=cv2.INTER_AREA)
+        r_tile = cv2.resize(r_bgr, (640, 360), interpolation=cv2.INTER_AREA)
+        cv2.putText(g_tile, f"GUIDE: {sp['scene_id']}", (16, 34), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (40, 40, 40), 2)
+        cv2.putText(r_tile, f"ANCHOR: {sp['ref_id']}", (16, 34), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (25, 110, 40), 2)
+        rows.append(np.hstack([g_tile, np.full((360, 12, 3), 245, dtype=np.uint8), r_tile]))
+    if not rows:
+        return None
+    out_sheet = p_dir / "03_visuals" / "reenactment_comparison_sheet.png"
+    stacked = rows[0] if len(rows) == 1 else np.vstack(rows)
+    cv2.imwrite(str(out_sheet), stacked)
+    return out_sheet
+
+
 async def ensure_longform_reference_pack_async(
     project_id_or_dir: str | Path,
     *,
@@ -588,6 +956,7 @@ async def ensure_longform_reference_pack_async(
     (or `--backend gemini` web fallback), never touching pre-existing user tabs and always closing its dedicated
     worker tab + purging quarantine in `finally:`.
     """
+    from pipeline.config import REENACT_EDL_FILENAME
     from pipeline.flow_ingredients import generate_flow_image_batch
     from pipeline.flow_live_single_worker import allocate_dedicated_flow_project_tab
     from pipeline.studio.whale_session import DirectCDPClient
@@ -601,9 +970,23 @@ async def ensure_longform_reference_pack_async(
     slug = str(vp_doc.get("dossier") or p_dir.name).strip()
 
     specs_payload = build_longform_reference_specs(p_dir)
+    edl_proj_path = vis_dir / REENACT_EDL_FILENAME
+    cached_dhashes: list[str] = []
+    if edl_proj_path.exists():
+        try:
+            cached_dhashes = list((json.loads(edl_proj_path.read_text(encoding="utf-8"))).get("source_dhash_64_list") or [])
+        except Exception:
+            cached_dhashes = []
+
     if not force:
-        cached = inspect_longform_reference_pack(p_dir, specs_payload=specs_payload, save_report=True)
-        if cached.get("cv_pre_generation_ready"):
+        cached = inspect_longform_reference_pack(
+            p_dir,
+            specs_payload=specs_payload,
+            source_dhashes=cached_dhashes or None,
+            save_report=True,
+        )
+        has_track_a = any(str(s.get("track") or "").lower() == "track_a" for s in specs_payload["all_specs"])
+        if cached.get("cv_pre_generation_ready") and (not has_track_a or bool(cached_dhashes)):
             _bind_longform_anchors_to_plan(p_dir, specs_payload)
             sheet = render_longform_ref_contact_sheet(p_dir, specs_payload)
             return {
@@ -618,7 +1001,15 @@ async def ensure_longform_reference_pack_async(
     ordered_specs = sorted(specs_payload["all_specs"], key=lambda s: int(s.get("generation_order") or 2))
     q_dir = Path(LONGFORM_QUARANTINE_ROOT) / slug
     guides_dir = q_dir / "guides"
-    source_dhashes: list[str] = []
+
+    need_fresh_track_a = bool(force)
+    if not need_fresh_track_a:
+        for sp in ordered_specs:
+            if str(sp.get("track") or "").lower() == "track_a" and sp.get("setting") not in (*BRAIN_SETTINGS, "brain_studio"):
+                out_cand = ref_dir / str(sp["filename"])
+                if not out_cand.exists() or not cached_dhashes:
+                    need_fresh_track_a = True
+                    break
 
     opened_tab_id: str | None = None
     client_cm = None
@@ -628,6 +1019,7 @@ async def ensure_longform_reference_pack_async(
     existing_prov = load_provenance(p_dir)
     generated: list[str] = []
     failed: list[str] = []
+    source_dhashes: list[str] = []
 
     def _close_tab(tid: str | None) -> None:
         if not tid:
@@ -639,11 +1031,25 @@ async def ensure_longform_reference_pack_async(
             pass
 
     try:
+        source_dhashes = _prepare_longform_track_a_guides(
+            p_dir=p_dir,
+            slug=slug,
+            ordered_specs=ordered_specs,
+            q_dir=q_dir,
+            guides_dir=guides_dir,
+            need_fresh_guides=need_fresh_track_a,
+        )
+
         for idx_sp, spec in enumerate(ordered_specs, start=1):
             ref_id = str(spec["ref_id"])
             out_png = ref_dir / str(spec["filename"])
             if out_png.exists() and not force:
-                chk = inspect_single_reference_image(out_png, spec, aspect=FLOW_ASPECT_LONGFORM)
+                chk = inspect_single_reference_image(
+                    out_png,
+                    spec,
+                    aspect=FLOW_ASPECT_LONGFORM,
+                    source_dhashes=source_dhashes or None,
+                )
                 if chk.get("passed"):
                     if out_png.name not in existing_prov:
                         prov_tag = "gemini_image_generation" if eff_backend == "gemini" else "flow_image_generation"
@@ -653,15 +1059,31 @@ async def ensure_longform_reference_pack_async(
                     continue
 
             cond_paths: list[Path] = []
+            has_guide_cond = False
             guide_cand = guides_dir / f"{spec['scene_id']}_guide.png"
-            if guide_cand.exists() and spec.get("setting") not in (*BRAIN_SETTINGS, "brain_studio"):
+            if (
+                str(spec.get("track") or "").lower() == "track_a"
+                and guide_cand.exists()
+                and spec.get("setting") not in (*BRAIN_SETTINGS, "brain_studio")
+            ):
                 cond_paths.append(guide_cand)
-            for cid in (spec.get("conditioned_on") or []):
+                has_guide_cond = True
+            # When Track A guide is slot #1, prioritize a cast reference (`ref_lf_cast_*` / `ref_cast_*`) in slot #2
+            ordered_cids = list(spec.get("conditioned_on") or [])
+            if has_guide_cond:
+                ordered_cids.sort(key=lambda cid: 0 if "cast" in str(cid).lower() else 1)
+            for cid in ordered_cids:
                 if len(cond_paths) >= 2:
                     break
                 cp = ref_dir / f"{cid}.png"
                 if cp.exists() and cp not in cond_paths:
                     cond_paths.append(cp)
+
+            eff_prompt_base = (
+                f"{LONGFORM_TRACK_A_I2I_PREFIX}{spec['prompt']}"
+                if has_guide_cond
+                else str(spec["prompt"])
+            )
 
             ok_this = False
             for attempt in range(3):
@@ -692,14 +1114,19 @@ async def ensure_longform_reference_pack_async(
                         )
                         gen_ok = await _generate_gemini_image_16x9(
                             client=client,
-                            prompt=str(spec["prompt"]) + retry_tail,
+                            prompt=eff_prompt_base + retry_tail,
                             out_path=out_png,
                             conditioning_paths=cond_paths[:2] if cond_paths else None,
                             force_new_chat=(attempt > 0 or (idx_sp % 5 == 0)),
                         )
                         if gen_ok and out_png.exists():
                             _normalize_generated_png_16x9(out_png)
-                            q_chk = inspect_single_reference_image(out_png, spec, aspect=FLOW_ASPECT_LONGFORM)
+                            q_chk = inspect_single_reference_image(
+                                out_png,
+                                spec,
+                                aspect=FLOW_ASPECT_LONGFORM,
+                                source_dhashes=source_dhashes or None,
+                            )
                             if q_chk.get("passed"):
                                 register_reference_image(p_dir, out_png.name, "gemini_image_generation")
                                 generated.append(ref_id)
@@ -713,7 +1140,7 @@ async def ensure_longform_reference_pack_async(
                         )
                         flow_res = await generate_flow_image_batch(
                             client=client,
-                            prompt=str(spec["prompt"]) + retry_tail,
+                            prompt=eff_prompt_base + retry_tail,
                             out_path=out_png,
                             conditioning_paths=cond_paths[:2] if cond_paths else None,
                             batch_count=batch_count,
@@ -752,6 +1179,8 @@ async def ensure_longform_reference_pack_async(
 
             if not ok_this:
                 failed.append(ref_id)
+
+        _render_longform_reenactment_comparison_sheet(p_dir, ordered_specs, guides_dir)
     finally:
         if client_cm is not None:
             try:
@@ -761,7 +1190,12 @@ async def ensure_longform_reference_pack_async(
         _close_tab(opened_tab_id)
         purge_longform_quarantine(slug)
 
-    qa_rep = inspect_longform_reference_pack(p_dir, specs_payload=specs_payload, source_dhashes=source_dhashes, save_report=True)
+    qa_rep = inspect_longform_reference_pack(
+        p_dir,
+        specs_payload=specs_payload,
+        source_dhashes=source_dhashes or None,
+        save_report=True,
+    )
     _bind_longform_anchors_to_plan(p_dir, specs_payload)
     sheet = render_longform_ref_contact_sheet(p_dir, specs_payload)
     return {

@@ -32,11 +32,14 @@ def prepare_longform_publish_package(
     *,
     hook_text: str | None = None,
     upload_cc_srt: bool = LONGFORM_UPLOAD_CC_SRT_DEFAULT,
+    dossiers_root: str | Path | None = None,
 ) -> dict[str, Any]:
     """Generates `06_publish/metadata.json`, `thumbnail_var_{A,B,C}.jpg`, and `prepared_comment.json`."""
     p_dir = resolve_longform_project_dir(project_id_or_dir, create=False)
     script_doc = json.loads((p_dir / "02_script" / "script.json").read_text(encoding="utf-8"))
     vp_doc = json.loads((p_dir / "03_visuals" / "visual_plan.json").read_text(encoding="utf-8"))
+    rc_path = p_dir / "01_ideation" / "research_card.json"
+    rc_doc = json.loads(rc_path.read_text(encoding="utf-8")) if rc_path.exists() else {}
     pub_dir = p_dir / "06_publish"
     pub_dir.mkdir(parents=True, exist_ok=True)
 
@@ -110,17 +113,23 @@ def prepare_longform_publish_package(
 
     thumb_rep = render_longform_thumbnails(p_dir, frames_bgr=ref_frames or None, hook_text=eff_hook)
 
-    cm = CommunityManager(projects_dir=p_dir.parent)
-    comm_doc = cm.stage_prepared_comment(p_dir.name)
     staged_comm_path = pub_dir / "prepared_comment.json"
-    line1 = comm_doc["comment_text"].splitlines()[0].strip()
-    comm_issues = validate_debate_pinned_comment_line1(line1, full_comment=comm_doc["comment_text"])
+    meta_path = pub_dir / "metadata.json"
+    script_deb = script_doc.get("debate_ignition") if isinstance(script_doc.get("debate_ignition"), dict) else {}
+    offcenter_bet = str(
+        script_doc.get("offcenter_creator_bet")
+        or script_deb.get("offcenter_creator_bet")
+        or ""
+    ).strip()
 
-    metadata_doc = {
+    metadata_doc: dict[str, Any] = {
         "schema": "longform_publish_metadata_v1",
         "project_id": p_dir.name,
+        "dossier_slug": str(script_doc.get("dossier_slug") or vp_doc.get("dossier") or "").strip(),
+        "doi": str(script_doc.get("doi") or "").strip(),
         "title": title,
         "description": description,
+        "offcenter_creator_bet": offcenter_bet,
         "aspect": FLOW_ASPECT_LONGFORM,
         "resolution": [LONGFORM_VIDEO_WIDTH, LONGFORM_VIDEO_HEIGHT],
         "privacy_status": "unlisted",
@@ -131,10 +140,19 @@ def prepare_longform_publish_package(
         "thumbnails": thumb_rep["jpg_variants"],
         "thumbnail_sizes_bytes": thumb_rep["jpg_sizes_bytes"],
         "prepared_comment_path": str(staged_comm_path),
-        "pinned_comment_line1": line1,
-        "pinned_comment_valid": len(comm_issues) == 0,
+        "pinned_comment_line1": "",
+        "pinned_comment_valid": False,
         "generated_at": datetime.now(timezone.utc).isoformat(),
     }
-    meta_path = pub_dir / "metadata.json"
+    meta_path.write_text(json.dumps(metadata_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    eff_dossiers_root = dossiers_root or (str(rc_doc.get("dossiers_dir") or "").strip() or None)
+    cm = CommunityManager(projects_dir=p_dir.parent, dossiers_root=eff_dossiers_root)
+    comm_doc = cm.stage_prepared_comment(p_dir.name)
+    line1 = comm_doc["comment_text"].splitlines()[0].strip()
+    comm_issues = validate_debate_pinned_comment_line1(line1, full_comment=comm_doc["comment_text"])
+
+    metadata_doc["pinned_comment_line1"] = line1
+    metadata_doc["pinned_comment_valid"] = len(comm_issues) == 0
     meta_path.write_text(json.dumps(metadata_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return metadata_doc

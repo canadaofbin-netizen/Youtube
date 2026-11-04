@@ -1325,7 +1325,7 @@ def _compose_porcelain_v7_clip_scene(clip_spec: dict[str, Any]) -> str:
         action=str(
             clip_spec.get("action")
             or clip_spec.get("kinetic_action")
-            or "clothed matte-white porcelain researchers with translucent frosted-glass craniums inspect a precision instrument"
+            or "clothed matte-white porcelain researchers with smooth featureless solid matte-white egg-shaped oval heads inspect a precision instrument"
         ),
         lighting=str(clip_spec.get("lighting") or "soft bright studio daylight with crisp rim light"),
     )
@@ -1599,8 +1599,24 @@ def validate_diorama_v7_prompts(
             )
         if "silent voice track" not in prompt_str.lower():
             issues.append(f"[prompt] clip {idx}: missing silent-voice ambient audio clause ({rule_tag})")
-        scene_validator = validate_porcelain_v7_scene if use_porcelain else validate_lowpoly_v7_scene
-        for v7_err in scene_validator(prompt_str, grammar=grammar, camera_move=cam):
+        if use_porcelain:
+            from pipeline.config import FROZEN_PRE_SCHEMA_V2_DOSSIER_SLUGS, FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES
+
+            plan_pid = str((plan or {}).get("project_id") or "").strip().lower()
+            plan_slug = str((plan or {}).get("dossier") or "").strip().lower()
+            is_frozen_pre_v2 = bool(
+                any(plan_pid.startswith(pfx.lower()) for pfx in FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES)
+                or (plan_slug and plan_slug in FROZEN_PRE_SCHEMA_V2_DOSSIER_SLUGS and not plan_pid)
+            )
+            v7_errs = validate_porcelain_v7_scene(
+                prompt_str,
+                grammar=grammar,
+                camera_move=cam,
+                allow_legacy_frosted_cranium=is_frozen_pre_v2,
+            )
+        else:
+            v7_errs = validate_lowpoly_v7_scene(prompt_str, grammar=grammar, camera_move=cam)
+        for v7_err in v7_errs:
             issues.append(f"clip {idx}: {v7_err}")
 
     n_total = max(1, len(clips))

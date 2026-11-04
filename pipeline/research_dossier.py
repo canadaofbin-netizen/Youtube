@@ -33,7 +33,14 @@ from pathlib import Path
 from typing import Any
 
 from pipeline.anatomy_map import resolve_region
-from pipeline.config import RESEARCH_DOSSIERS_DIRNAME, VISUAL_MODES
+from pipeline.config import (
+    DOSSIER_NEURO_MODERN_MIN_YEAR,
+    DOSSIER_SCHEMA_VERSION,
+    EVERYDAY_LONGFORM_DOMAINS,
+    MEDIA_SUITABILITY_SCHEMA_VERSION,
+    RESEARCH_DOSSIERS_DIRNAME,
+    VISUAL_MODES,
+)
 
 WORKSPACE_ROOT = Path(__file__).resolve().parent.parent
 DOSSIERS_ROOT = WORKSPACE_ROOT / "BCI_Shorts_Channel" / RESEARCH_DOSSIERS_DIRNAME
@@ -47,15 +54,25 @@ _FACT_META_EXCLUDED_KEYS = frozenset(
         "url",
         "schema",
         "schema_version",
+        "suitability_schema_version",
         "shorts_priority",
         "id",
         "source_id",
         "media_id",
+        "primary_reenactment_media_id",
         "published_longform_video_id",
         "slug",
         "linked_projects",
         "local_dir",
         "t",
+        "reenactment_section",
+        "recommended_section",
+        "psychology_studies",
+        "neuroscience_studies",
+        "psychology_doi",
+        "neuroscience_doi",
+        "psychology_source_ids",
+        "neuroscience_source_ids",
     }
 )
 
@@ -149,18 +166,43 @@ def resolve_dossier_for_project(project_id_or_dir: str | Path, root: Path | None
     return None
 
 
-def _templates(slug: str, topic: str, pillar: str, visual_mode: str) -> dict[str, Any]:
+def _templates(
+    slug: str,
+    topic: str,
+    pillar: str,
+    visual_mode: str,
+    *,
+    everyday_domain: str = "",
+    schema_version: int = DOSSIER_SCHEMA_VERSION,
+) -> dict[str, Any]:
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     return {
         "dossier.json": {
-            "schema_version": 1,
+            "schema_version": int(schema_version),
             "slug": slug,
             "topic": topic,
             "pillar": pillar,
+            "everyday_domain": everyday_domain,
             "created_at": now,
             "status": "draft",
             "visual_mode": visual_mode,
             "visual_mode_reason": "",
+            "three_layer_formula": {
+                "everyday_problem": "",
+                "psychology_experiment": {
+                    "source_id": "",
+                    "doi": "",
+                    "summary": "",
+                },
+                "neuroscience_mechanism": {
+                    "source_id": "",
+                    "doi": "",
+                    "year": None,
+                    "summary": "",
+                },
+                "psychology_studies": [],
+                "neuroscience_studies": [],
+            },
             "primary_case": {"title": "", "year": None, "place": "", "people": []},
             "core_facts": [],
             "wow_facts": [],
@@ -168,12 +210,13 @@ def _templates(slug: str, topic: str, pillar: str, visual_mode: str) -> dict[str
             "everyday_hooks": [],
             "offcenter_creator_bet": "",
             "debate_ignition": {
-                "offcenter_creator_bet": "",
+                "prebunk_myth": "",
                 "open_verdict_question": "",
+                "offcenter_creator_bet": "",
             },
             "linked_projects": [],
         },
-        "01_sources.json": {"sources": []},
+        "01_sources.json": {"sources": [], "followups_replications_critiques": []},
         "02_master_story.md": (
             f"# {topic} — Master Story (longform depth)\n\n"
             "## 1. Cold open (the iconic moment)\n\n## 2. World before (era, place, why it mattered)\n\n"
@@ -182,7 +225,13 @@ def _templates(slug: str, topic: str, pillar: str, visual_mode: str) -> dict[str
             "## 8. What it means for you\n\n## Sources\n"
         ),
         "03_visual_reference.json": {"scenes": []},
-        "04_media_refs.json": {"media": []},
+        "04_media_refs.json": {
+            "suitability_schema_version": 2,
+            "reenactment_track": "",
+            "track_selection_reason": "",
+            "primary_reenactment_media_id": None,
+            "media": [],
+        },
         "05_plain_language.json": {"one_sentence_story": "", "so_what_for_you": "", "jargon_map": []},
         "06_brain_link.json": {"visual_mode": visual_mode, "links": []},
         "07_longform_outline.json": {
@@ -202,6 +251,9 @@ def init_dossier(
     visual_mode: str = "HYBRID",
     root: Path | None = None,
     overwrite: bool = False,
+    *,
+    everyday_domain: str = "",
+    schema_version: int = DOSSIER_SCHEMA_VERSION,
 ) -> Path:
     """Creates the dossier folder with empty, schema-shaped files (never overwrites authored files unless asked)."""
     mode = visual_mode.upper()
@@ -209,7 +261,15 @@ def init_dossier(
         raise ValueError(f"visual_mode must be one of {VISUAL_MODES}")
     d = dossier_dir(slug, root)
     (d / "media").mkdir(parents=True, exist_ok=True)
-    for name, content in _templates(slugify(slug), topic, pillar, mode).items():
+    templates = _templates(
+        slugify(slug),
+        topic,
+        pillar,
+        mode,
+        everyday_domain=str(everyday_domain or "").strip().lower(),
+        schema_version=int(schema_version),
+    )
+    for name, content in templates.items():
         path = d / name
         if path.exists() and not overwrite:
             continue
@@ -271,8 +331,229 @@ def _is_valid_source_record(entry: Any, *, require_title_key: bool = False) -> b
     return bool(has_title and has_locator)
 
 
-def validate_dossier(slug_or_dir: str | Path, root: Path | None = None) -> dict[str, Any]:
-    """Returns {'ready': bool, 'checklist': {item: bool}, 'issues': [...]} for the R44 completeness gate."""
+def _extract_study_refs(field_val: Any) -> list[str]:
+    refs: list[str] = []
+    if isinstance(field_val, str) and field_val.strip():
+        refs.append(field_val.strip())
+    elif isinstance(field_val, dict):
+        for k in ("source_id", "id", "doi"):
+            v = str(field_val.get(k) or "").strip()
+            if v:
+                refs.append(v)
+    elif isinstance(field_val, list):
+        for item in field_val:
+            refs.extend(_extract_study_refs(item))
+    return refs
+
+
+def _validate_schema_v2_fields(
+    *,
+    d_dir: Path,
+    meta: dict[str, Any],
+    media_doc: dict[str, Any],
+    media: list[Any],
+    valid_sources: list[dict[str, Any]],
+    valid_extra_followups: list[dict[str, Any]],
+    require_schema_v2: bool,
+) -> tuple[dict[str, bool], list[str]]:
+    from pipeline.studio.community import validate_debate_pinned_comment_line1
+
+    v2_issues: list[str] = []
+    schema_ver = int(meta.get("schema_version") or 1)
+    ver_ok = schema_ver >= DOSSIER_SCHEMA_VERSION
+    if require_schema_v2 and not ver_ok:
+        v2_issues.append(
+            f"[schema_v2] dossier.schema_version={schema_ver} < {DOSSIER_SCHEMA_VERSION}; upgrade dossier to Schema v2"
+        )
+
+    domain = str(meta.get("everyday_domain") or "").strip().lower()
+    domain_ok = domain in EVERYDAY_LONGFORM_DOMAINS
+    if not domain_ok:
+        v2_issues.append(
+            f"[schema_v2] everyday_domain {domain!r} must be one of {list(EVERYDAY_LONGFORM_DOMAINS)}"
+        )
+
+    # Index verified sources from 01_sources.json (both sources and followups_replications_critiques)
+    verified_by_id: dict[str, dict[str, Any]] = {}
+    verified_by_doi: dict[str, dict[str, Any]] = {}
+    for idx_s, s in enumerate(list(valid_sources) + list(valid_extra_followups), start=1):
+        if not isinstance(s, dict) or not bool(s.get("verified")):
+            continue
+        s_doi = str(s.get("doi") or "").strip()
+        is_hist_url = s.get("type") == "primary_historical" and _nonempty(s.get("url"))
+        if not (_is_valid_doi_syntax(s_doi) or is_hist_url):
+            continue
+        sid = str(s.get("id") or f"FU_{idx_s}").strip()
+        if sid:
+            verified_by_id[sid] = s
+        if _is_valid_doi_syntax(s_doi):
+            verified_by_doi[s_doi.lower()] = s
+
+    def _resolve_verified(token: str) -> dict[str, Any] | None:
+        tok = str(token or "").strip()
+        if not tok:
+            return None
+        if tok in verified_by_id:
+            return verified_by_id[tok]
+        return verified_by_doi.get(tok.lower())
+
+    tlf = meta.get("three_layer_formula") if isinstance(meta.get("three_layer_formula"), dict) else {}
+    prob_ok = _nonempty(tlf.get("everyday_problem"))
+    if not prob_ok:
+        v2_issues.append("[schema_v2] three_layer_formula.everyday_problem is empty")
+
+    psych_refs = (
+        _extract_study_refs(tlf.get("psychology_experiment"))
+        + _extract_study_refs(tlf.get("psychology_studies"))
+        + _extract_study_refs(tlf.get("psychology_source_ids"))
+        + _extract_study_refs(tlf.get("psychology_doi"))
+    )
+    psych_matched = [m for m in (_resolve_verified(r) for r in psych_refs) if m is not None]
+    if not psych_matched:
+        v2_issues.append(
+            "[schema_v2] three_layer_formula must reference >= 1 verified Behavioral Psychology Experiment source/DOI in 01_sources.json"
+        )
+
+    neuro_refs = (
+        _extract_study_refs(tlf.get("neuroscience_mechanism"))
+        + _extract_study_refs(tlf.get("neuroscience_studies"))
+        + _extract_study_refs(tlf.get("neuroscience_source_ids"))
+        + _extract_study_refs(tlf.get("neuroscience_doi"))
+    )
+    neuro_matched: list[dict[str, Any]] = []
+    for r in neuro_refs:
+        m = _resolve_verified(r)
+        if m is None:
+            continue
+        m_doi = str(m.get("doi") or "").strip()
+        try:
+            m_year = int(m.get("year") or 0)
+        except (TypeError, ValueError):
+            m_year = 0
+        if _is_valid_doi_syntax(m_doi) and m_year >= DOSSIER_NEURO_MODERN_MIN_YEAR:
+            neuro_matched.append(m)
+    if not neuro_matched:
+        v2_issues.append(
+            f"[schema_v2] three_layer_formula must reference >= 1 verified Neural Circuit/Imaging/BCI DOI with year >= {DOSSIER_NEURO_MODERN_MIN_YEAR} in 01_sources.json"
+        )
+
+    psych_keys = {
+        str(m.get("doi") or m.get("id") or "").strip().lower()
+        for m in psych_matched
+        if str(m.get("doi") or m.get("id") or "").strip()
+    }
+    neuro_keys = {
+        str(m.get("doi") or m.get("id") or "").strip().lower()
+        for m in neuro_matched
+        if str(m.get("doi") or m.get("id") or "").strip()
+    }
+    distinct_pair_ok = bool(psych_matched and neuro_matched and (len(psych_keys | neuro_keys) >= 2))
+    if psych_matched and neuro_matched and not distinct_pair_ok:
+        v2_issues.append(
+            "[schema_v2] three_layer_formula psychology and >=2015 neuroscience layers must cite distinct verified sources"
+        )
+    three_layer_ok = bool(prob_ok and psych_matched and neuro_matched and distinct_pair_ok)
+
+    # Media conditioning v2 (`04_media_refs.json` + `08_reenactment_edl.json` for track_a)
+    suit_ver = int(media_doc.get("suitability_schema_version") or 0)
+    r_track = str(media_doc.get("reenactment_track") or meta.get("reenactment_track") or "").strip().lower()
+    media_v2_ok = suit_ver >= MEDIA_SUITABILITY_SCHEMA_VERSION and r_track in ("track_a", "track_b")
+    if suit_ver < MEDIA_SUITABILITY_SCHEMA_VERSION:
+        v2_issues.append(
+            f"[schema_v2] 04_media_refs.json suitability_schema_version={suit_ver} < {MEDIA_SUITABILITY_SCHEMA_VERSION}; run `dossier audit-media --write`"
+        )
+    if r_track not in ("track_a", "track_b"):
+        v2_issues.append(
+            f"[schema_v2] 04_media_refs.json reenactment_track={r_track!r} must be 'track_a' or 'track_b'"
+        )
+    elif r_track == "track_a":
+        mlist = [m for m in media if isinstance(m, dict)]
+        prim_id = str(media_doc.get("primary_reenactment_media_id") or "").strip()
+        prim_m = next((m for m in mlist if prim_id and str(m.get("id") or "") == prim_id), None)
+        if prim_m is None:
+            prim_m = next(
+                (m for m in mlist if str(m.get("reenactment_suitability") or "") in ("suitable_track_a", "needs_section_window")),
+                mlist[0] if mlist else None,
+            )
+        if prim_m is None:
+            media_v2_ok = False
+            v2_issues.append("[schema_v2] track_a dossier has no primary media entry in 04_media_refs.json")
+        else:
+            sec_raw = str(prim_m.get("reenactment_section") or "").strip()
+            if not sec_raw:
+                media_v2_ok = False
+                v2_issues.append(
+                    f"[schema_v2] track_a primary media '{prim_m.get('id')}' missing explicit 'reenactment_section' ('MM:SS-MM:SS')"
+                )
+            else:
+                try:
+                    _parse_section_bounds(sec_raw)
+                except ValueError as exc:
+                    media_v2_ok = False
+                    v2_issues.append(f"[schema_v2] track_a primary media '{prim_m.get('id')}' invalid reenactment_section: {exc}")
+        edl_path = d_dir / "08_reenactment_edl.json"
+        if not edl_path.exists():
+            media_v2_ok = False
+            v2_issues.append("[schema_v2] track_a dossier missing 08_reenactment_edl.json (run `reenact-extract`)")
+        else:
+            try:
+                edl_doc = json.loads(edl_path.read_text(encoding="utf-8"))
+                shot_n = int(edl_doc.get("shot_count") or len(edl_doc.get("shots") or []))
+                san_ok = bool(edl_doc.get("sanitization_verified"))
+                if shot_n < 3 or not san_ok:
+                    media_v2_ok = False
+                    v2_issues.append(
+                        f"[schema_v2] 08_reenactment_edl.json invalid (shot_count={shot_n} need >=3, sanitization_verified={san_ok})"
+                    )
+            except Exception as exc:  # noqa: BLE001
+                media_v2_ok = False
+                v2_issues.append(f"[schema_v2] 08_reenactment_edl.json unreadable: {exc}")
+    elif r_track == "track_b":
+        has_reason = _nonempty(media_doc.get("track_selection_reason")) or _nonempty(media_doc.get("track_subtier"))
+        if not has_reason:
+            media_v2_ok = False
+            v2_issues.append(
+                "[schema_v2] track_b dossier must record track_selection_reason or track_subtier in 04_media_refs.json"
+            )
+
+    # 3-Stage Comment Debate Ignition
+    deb = meta.get("debate_ignition") if isinstance(meta.get("debate_ignition"), dict) else {}
+    prebunk_ok = _nonempty(deb.get("prebunk_myth"))
+    if not prebunk_ok:
+        v2_issues.append("[schema_v2] debate_ignition.prebunk_myth is empty (Stage 1 pre-bunking required)")
+    ovq = str(deb.get("open_verdict_question") or deb.get("forced_choice_question") or "").strip()
+    ovq_ok = bool(ovq.endswith("?") and re.search(r"\bor\b", ovq, re.IGNORECASE))
+    if not ovq_ok:
+        v2_issues.append(
+            "[schema_v2] debate_ignition.open_verdict_question must end with '?' and pose a binary 'or' choice (Stage 2)"
+        )
+    bet_raw = str(deb.get("offcenter_creator_bet") or meta.get("offcenter_creator_bet") or "").strip()
+    bet_errs = validate_debate_pinned_comment_line1(bet_raw)
+    bet_ok = len(bet_errs) == 0
+    if not bet_ok:
+        v2_issues.append(
+            f"[schema_v2] debate_ignition.offcenter_creator_bet failed Stage 3 creator-bet gate: {bet_errs}"
+        )
+    debate_ok = bool(prebunk_ok and ovq_ok and bet_ok)
+
+    v2_checks = {
+        "schema_v2_domain": domain_ok,
+        "schema_v2_three_layer": three_layer_ok,
+        "schema_v2_media_conditioning": media_v2_ok,
+        "schema_v2_debate_ignition": debate_ok,
+    }
+    if require_schema_v2:
+        v2_checks["schema_v2_version"] = ver_ok
+    return v2_checks, v2_issues
+
+
+def validate_dossier(
+    slug_or_dir: str | Path,
+    root: Path | None = None,
+    *,
+    require_schema_v2: bool = False,
+) -> dict[str, Any]:
+    """Returns {'ready': bool, 'checklist': {item: bool}, 'issues': [...]} for the R44 + Schema v2 completeness gate."""
     ds = load_dossier(slug_or_dir, root)
     issues: list[str] = []
     for name in DOSSIER_FILES:
@@ -285,7 +566,8 @@ def validate_dossier(slug_or_dir: str | Path, root: Path | None = None) -> dict[
     sources = sources_doc.get("sources") or []
     extra_followups = sources_doc.get("followups_replications_critiques") or []
     scenes = (ds.get("03_visual_reference.json") or {}).get("scenes") or []
-    media = (ds.get("04_media_refs.json") or {}).get("media") or []
+    media_doc = ds.get("04_media_refs.json") if isinstance(ds.get("04_media_refs.json"), dict) else {}
+    media = media_doc.get("media") or []
     plain = ds.get("05_plain_language.json") or {}
     brain = ds.get("06_brain_link.json") or {}
     longform = ds.get("07_longform_outline.json") or {}
@@ -383,6 +665,21 @@ def validate_dossier(slug_or_dir: str | Path, root: Path | None = None) -> dict[
     depth = research_depth_report(ds, sources, scenes, media, meta, story)
     checklist["depth_standard"] = depth["passed"]
     issues += [f"[depth] {x}" for x in depth["issues"]]
+
+    schema_ver = int(meta.get("schema_version") or 1) if isinstance(meta, dict) else 1
+    if schema_ver >= DOSSIER_SCHEMA_VERSION or require_schema_v2:
+        v2_checks, v2_issues = _validate_schema_v2_fields(
+            d_dir=Path(ds["_dir"]),
+            meta=meta if isinstance(meta, dict) else {},
+            media_doc=media_doc,
+            media=media,
+            valid_sources=valid_sources,
+            valid_extra_followups=valid_extra_followups,
+            require_schema_v2=require_schema_v2,
+        )
+        checklist.update(v2_checks)
+        issues.extend(v2_issues)
+
     for key, ok in checklist.items():
         if not ok and key in dict(RESEARCH_CHECKLIST):
             desc = dict(RESEARCH_CHECKLIST)[key]
@@ -390,6 +687,7 @@ def validate_dossier(slug_or_dir: str | Path, root: Path | None = None) -> dict[
     has_fatal_source_issue = any("invalid DOI syntax" in i for i in issues)
     return {
         "dir": ds["_dir"],
+        "schema_version": schema_ver,
         "ready": all(checklist.values()) and not has_fatal_source_issue and not any("invalid JSON" in i for i in issues),
         "checklist": checklist,
         "issues": issues,
@@ -1356,8 +1654,12 @@ def audit_dossier_media_suitability(
             m["reenactment_suitability"] = suit_cls
             m["reenactment_suitability_reason"] = res["reason"]
             m["reenactment_suitability_metrics"] = dict(res.get("metrics") or {})
+            if m.get("reenactment_section"):
+                m["reenactment_section"] = str(m["reenactment_section"]).strip().lstrip("*")
             if res.get("recommended_section"):
                 m["recommended_section"] = str(res["recommended_section"]).lstrip("*")
+                if not m.get("reenactment_section"):
+                    m["reenactment_section"] = str(res["recommended_section"]).lstrip("*")
             else:
                 m.pop("recommended_section", None)
 
@@ -1367,6 +1669,7 @@ def audit_dossier_media_suitability(
             "title": m.get("title"),
             "channel": m.get("channel"),
             "url": m.get("url"),
+            "reenactment_section": m.get("reenactment_section"),
             "has_keyframes_on_disk": has_kfs,
             **res,
         }
@@ -1397,6 +1700,8 @@ def audit_dossier_media_suitability(
             media_doc["suitability_schema_version"] = MEDIA_SUITABILITY_SCHEMA_VERSION
             media_doc["reenactment_track"] = track
             media_doc["track_subtier"] = best_subtier
+            if primary_track_a_media is not None and primary_track_a_media.get("id"):
+                media_doc["primary_reenactment_media_id"] = primary_track_a_media["id"]
             (d_dir / "04_media_refs.json").write_text(
                 json.dumps(media_doc, indent=2, ensure_ascii=False) + "\n",
                 encoding="utf-8",
@@ -1710,6 +2015,8 @@ def analyze_reference_video(
                     ):
                         m_item["reenactment_suitability"] = suit_res["suitability"]
                         m_item["reenactment_suitability_reason"] = suit_res["reason"]
+                        if section is not None and str(section).strip():
+                            m_item["reenactment_section"] = str(section).strip().lstrip("*")
                         if suit_res.get("recommended_section"):
                             m_item["recommended_section"] = suit_res["recommended_section"]
                         m_item.setdefault("analysis", {})

@@ -656,6 +656,8 @@ def precheck_diorama_project(
 
     from pipeline.config import (
         DIORAMA_V7_DURATION_MIN_SEC,
+        FROZEN_PRE_SCHEMA_V2_DOSSIER_SLUGS,
+        FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES,
         MICRO_SHORT_MAX_SEC,
         MICRO_SHORT_MIN_SEC,
         MICRO_SHORT_PROFILE,
@@ -673,12 +675,21 @@ def precheck_diorama_project(
         eff_spec["prosody_mode"] = prosody_mode
     p_dir = sync_project_from_dossier_diorama(eff_spec)
     slug = str(spec["slug"])
+    proj_id = str(spec["project_id"])
     sentences, script_doc = load_diorama_script_sentences(p_dir)
     visual_plan = json.loads((p_dir / "03_visuals" / "visual_plan.json").read_text(encoding="utf-8"))
     is_v7 = is_diorama_v7_plan(visual_plan) or is_diorama_v7_plan(script_doc)
     clips = build_flow_prompts(visual_plan, sentences)
 
     issues: list[str] = []
+    is_frozen_v1 = (
+        slug in FROZEN_PRE_SCHEMA_V2_DOSSIER_SLUGS
+        or any(proj_id.startswith(pref) for pref in FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES)
+    )
+    if bool(spec.get("require_schema_v2", not is_frozen_v1)):
+        d_val = rd.validate_dossier(slug, require_schema_v2=True)
+        if not d_val.get("ready"):
+            issues.extend([f"[dossier_v2] {iss}" for iss in (d_val.get("issues") or [])])
     issues.extend(validate_production_diorama_v6(visual_plan, sentences, clips, script_doc=script_doc))
     issues.extend(rd.check_narration_facts(slug, sentences))
     issues.extend(validate_diorama_paradox_title(str(script_doc.get("title") or "")))
@@ -1208,7 +1219,14 @@ def _collect_auto_heal_clip_indices(project_id: str) -> list[int]:
 
 
 def _is_already_completed(project_id: str) -> bool:
-    from pipeline.config import REENACT_QA_REPORT_FILENAME
+    from pipeline.config import (
+        DEFAULT_DIORAMA_VOICE_PRESET,
+        DIORAMA_V7_US_PROSODY_MODE,
+        DOSSIER_SCHEMA_VERSION,
+        FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES,
+        PORCELAIN_V7_STYLE_PROFILE,
+        REENACT_QA_REPORT_FILENAME,
+    )
 
     p_dir = Path(PROJECTS_DIR) / project_id
     comp_mp4 = COMPLETED_SHORTS_DIR / f"final_shorts_{project_id}.mp4"
@@ -1245,6 +1263,38 @@ def _is_already_completed(project_id: str) -> bool:
             return False
         vp_path = p_dir / "03_visuals" / "visual_plan.json"
         vp_doc = json.loads(vp_path.read_text(encoding="utf-8")) if vp_path.exists() else {}
+        sc_path = p_dir / "02_script" / "script.json"
+        sc_doc = json.loads(sc_path.read_text(encoding="utf-8")) if sc_path.exists() else {}
+        is_frozen_v1 = any(project_id.startswith(pref) for pref in FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES)
+        if not is_frozen_v1:
+            if str(vp_doc.get("style_profile") or "") != PORCELAIN_V7_STYLE_PROFILE:
+                return False
+            vp_voice = str(sc_doc.get("voice_preset") or vp_doc.get("voice_preset") or "")
+            vp_prosody = str(sc_doc.get("prosody_mode") or vp_doc.get("prosody_mode") or "")
+            if vp_voice != DEFAULT_DIORAMA_VOICE_PRESET or vp_prosody != DIORAMA_V7_US_PROSODY_MODE:
+                return False
+            pr_meta_path = p_dir / "04_audio" / "prosody_report.json"
+            if pr_meta_path.exists():
+                pr_meta = json.loads(pr_meta_path.read_text(encoding="utf-8"))
+                if (
+                    str(pr_meta.get("voice_preset") or "") != DEFAULT_DIORAMA_VOICE_PRESET
+                    or str(pr_meta.get("prosody_mode") or "") != DIORAMA_V7_US_PROSODY_MODE
+                ):
+                    return False
+            ref_qa_path = p_dir / "03_visuals" / "reference_image_qa_report.json"
+            if not ref_qa_path.exists():
+                return False
+            ref_qa_doc = json.loads(ref_qa_path.read_text(encoding="utf-8"))
+            if not bool(ref_qa_doc.get("pre_generation_ready")):
+                return False
+            d_slug = str(vp_doc.get("dossier") or sc_doc.get("dossier") or "").strip()
+            if d_slug:
+                d_meta_path = rd.dossier_dir(d_slug) / "dossier.json"
+                if not d_meta_path.exists():
+                    return False
+                d_meta = json.loads(d_meta_path.read_text(encoding="utf-8"))
+                if int(d_meta.get("schema_version") or 1) < DOSSIER_SCHEMA_VERSION:
+                    return False
         if (p_dir / "03_visuals" / "source_edl.json").exists() or str(vp_doc.get("reenactment_track") or "") == "track_a":
             rqa_path = asm_dir / REENACT_QA_REPORT_FILENAME
             if not rqa_path.exists():

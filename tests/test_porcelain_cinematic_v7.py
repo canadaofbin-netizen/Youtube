@@ -813,7 +813,8 @@ def test_porcelain_actor_injection_and_optics_tail_unmasked_validation() -> None
         "two guards in khaki shirts and dark sunglasses march a prisoner in a linen smock down the hall",
     )
     assert "clothed matte-white porcelain figures" in stanford_scene
-    assert "translucent frosted-glass craniums" in stanford_scene
+    assert "smooth featureless solid matte-white egg-shaped oval heads" in stanford_scene
+    assert "frosted-glass cranium" not in stanford_scene.lower()
     assert validate_porcelain_v7_scene(stanford_scene, grammar="porcelain_fullbleed_world", camera_move="pan_right") == []
 
     # Cast-free landscape/prop prompt even with locked_tripod ('...and figure motion') must NOT false-fire actor check
@@ -876,7 +877,8 @@ def test_porcelain_veo_retry_softening_and_cv_reinforcement() -> None:
     )
     assert "faceted geometric" not in softened.lower()
     assert "lower geometric jaw" not in softened.lower()
-    assert "translucent frosted-glass cranium" in softened.lower()
+    assert "smooth featureless solid matte-white egg-shaped oval head" in softened.lower()
+    assert "frosted-glass cranium" not in softened.lower()
     assert "smooth matte-white porcelain jawline" in softened.lower()
     assert validate_porcelain_v7_scene(softened, grammar="porcelain_fullbleed_world", camera_move="pan_right") == []
 

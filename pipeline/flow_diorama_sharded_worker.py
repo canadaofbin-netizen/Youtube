@@ -115,18 +115,23 @@ def _soften_veo_false_positive_words(
 
     out = prompt_text
     g_norm = str(grammar or "").strip().lower()
-    use_porcelain = (
-        is_porcelain_v7_plan(style_profile)
-        or g_norm in PORCELAIN_V7_VISUAL_GRAMMARS
-        or g_norm.startswith("porcelain_")
-        or "photorealistic bright high-key documentary cinema" in out.lower()
+    sp_norm = str(style_profile or "").strip().lower()
+    is_explicit_lowpoly = (
+        sp_norm == "lowpoly_pastel_v7"
+        or g_norm == "lowpoly_pastel"
+        or "low-poly pastel" in out.lower()
+        or "faceted low-poly" in out.lower()
     )
+    use_porcelain = not is_explicit_lowpoly
     subs = (
         (r"\bsevered\b", "unlinked"),
         (r"\binjured\b", "disconnected"),
         (r"\bpiercing\b", "passing"),
         (r"\bpierces\b", "passes"),
-        (r"\bskull\b", "translucent frosted-glass cranium" if use_porcelain else "faceted geometric head"),
+        (
+            r"\bskull\b",
+            "smooth featureless solid matte-white egg-shaped oval head" if use_porcelain else "faceted geometric head",
+        ),
         (r"\bcheek\b", "smooth matte-white porcelain jawline" if use_porcelain else "lower geometric jaw"),
         (r"\btrauma\b", "structural impact"),
         (r"\bviolently\b", "briskly"),

@@ -548,11 +548,16 @@ class CommunityManager:
             or (deb_ign or {}).get("offcenter_creator_bet")
             or ""
         ).strip()
-        fc_q = str((deb_ign or {}).get("forced_choice_question") or "").strip()
+        fc_q = str(
+            (deb_ign or {}).get("open_verdict_question")
+            or (deb_ign or {}).get("forced_choice_question")
+            or ""
+        ).strip()
         if explicit_dossier_bet and fc_q and ("—" not in explicit_dossier_bet) and not explicit_dossier_bet.endswith("?"):
             explicit_dossier_bet = f"{explicit_dossier_bet.rstrip(' —.,:;')} — {fc_q}"
 
-        if slug in _DIORAMA_NATURAL_PACKAGES:
+        is_schema_v2 = int(d_meta.get("schema_version") or 1) >= 2
+        if slug in _DIORAMA_NATURAL_PACKAGES and not is_schema_v2:
             curated = dict(_DIORAMA_NATURAL_PACKAGES[slug])
             if doi_val:
                 curated["doi"] = doi_val
@@ -607,13 +612,27 @@ class CommunityManager:
                 t_w0 = truth.split()[0]
                 t_lead = truth if t_w0 in people_first_tokens else (truth[0].lower() + truth[1:])
                 myth_truth = f"People often assume that {m_lead}. In reality, {t_lead}."
+        elif (deb_ign or {}).get("prebunk_myth"):
+            pb_myth = _strip_emojis_and_bullets(str(deb_ign.get("prebunk_myth") or "")).rstrip(".")
+            if pb_myth:
+                myth_truth = pb_myth + "."
+
+        tlf = d_meta.get("three_layer_formula") if isinstance(d_meta.get("three_layer_formula"), dict) else {}
+        raw_tlf_psych = tlf.get("psychology_experiment")
+        if isinstance(raw_tlf_psych, dict):
+            raw_tlf_psych = raw_tlf_psych.get("summary") or ""
+        raw_tlf_neuro = tlf.get("neuroscience_mechanism")
+        if isinstance(raw_tlf_neuro, dict):
+            raw_tlf_neuro = raw_tlf_neuro.get("summary") or ""
+        tlf_psych = _strip_emojis_and_bullets(str(raw_tlf_psych or "")).strip()
+        tlf_neuro = _strip_emojis_and_bullets(str(raw_tlf_neuro or "")).strip()
 
         raw_f2 = (core_facts[1] if len(core_facts) > 1 else (core_facts[0] if core_facts else "the underlying experimental mechanism in detail")).rstrip(".")
         f2_w0 = raw_f2.split()[0] if raw_f2 else ""
         f2_lead = raw_f2 if f2_w0 in people_first_tokens else (raw_f2[0].lower() + raw_f2[1:] if len(raw_f2) > 1 else raw_f2)
         p1 = one_sentence or (core_facts[0] if core_facts else f"A landmark case in {p_case.get('place', 'neuroscience')} continues to reshape how we understand human behavior.")
-        p2 = f"In the study by {cite_str}, researchers documented how {f2_lead}."
-        p3 = wow_facts[0] if wow_facts else (core_facts[2] if len(core_facts) > 2 else p1)
+        p2 = (tlf_psych if (is_schema_v2 and tlf_psych) else f"In the study by {cite_str}, researchers documented how {f2_lead}.")
+        p3 = (tlf_neuro if (is_schema_v2 and tlf_neuro) else (wow_facts[0] if wow_facts else (core_facts[2] if len(core_facts) > 2 else p1)))
         p4 = myth_truth or (core_facts[3] if len(core_facts) > 3 else "Rather than a vague psychological quirk, the evidence points to a concrete circuit-level mechanism.")
         p5 = so_what or "Once you see how this pathway works, everyday habits and split-second reactions make much more sense."
 
@@ -676,11 +695,11 @@ class CommunityManager:
             or manifest.get("dossier_slug")
             or ""
         ).strip()
-        dossiers_base = self.dossiers_root or (CHANNEL_ROOT / "research_dossiers")
+        dossiers_base = Path(self.dossiers_root) if self.dossiers_root else (CHANNEL_ROOT / "research_dossiers")
         dossier_dir = (
             (dossiers_base / explicit_slug)
             if (explicit_slug and (dossiers_base / explicit_slug).is_dir())
-            else _find_matching_dossier_dir(project_id, dossiers_root=self.dossiers_root)
+            else _find_matching_dossier_dir(project_id, dossiers_root=dossiers_base)
         )
         dossier_pkg = self._synthesize_from_dossier(dossier_dir) if dossier_dir else None
 
@@ -776,7 +795,17 @@ class CommunityManager:
         }
 
         pkg = _TOPIC_PACKAGES.get(project_id) or dossier_pkg or {}
-        dissonance_trigger = str(metadata.get("offcenter_creator_bet") or pkg.get("question") or "").strip() or None
+        script_deb = script_doc.get("debate_ignition") if isinstance(script_doc.get("debate_ignition"), dict) else {}
+        dissonance_trigger = (
+            str(
+                metadata.get("offcenter_creator_bet")
+                or script_doc.get("offcenter_creator_bet")
+                or script_deb.get("offcenter_creator_bet")
+                or pkg.get("question")
+                or ""
+            ).strip()
+            or None
+        )
         if not dissonance_trigger and research_card and isinstance(research_card.get("story_context"), dict):
             cand = str(research_card["story_context"].get("social_comment_trigger") or "").strip()
             if cand and cand.lower() not in _GENERIC_PLACEHOLDERS:

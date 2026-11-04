@@ -11,17 +11,18 @@ Location: `BCI_Shorts_Channel/research_dossiers/<slug>/` (one per topic, shared 
 
 | File | Content |
 |---|---|
-| `dossier.json` | `visual_mode` + `visual_mode_reason` (R45), `primary_case`, `core_facts`, `wow_facts` (≥ 3, ranked), `misconceptions`, `everyday_hooks`, `linked_projects` |
-| `01_sources.json` | primary (DOI verified via Crossref) or `primary_historical` (verified archival URL), replications / follow-ups / reviews, critiques, books, biographies, archives, museums, documentaries |
+| `dossier.json` | `schema_version: 2`, `everyday_domain` (`sleep\|habits\|memory\|anxiety\|relationships`), `three_layer_formula` (`everyday_problem`, `psychology_experiment`, `neuroscience_mechanism`, `psychology_studies`, `neuroscience_studies` with `year >= DOSSIER_NEURO_MODERN_MIN_YEAR`), `debate_ignition` (`prebunk_myth`, `open_verdict_question` binary `... or ...?`, `offcenter_creator_bet` passing `validate_debate_pinned_comment_line1`), `visual_mode` + `visual_mode_reason` (R45), `primary_case`, `core_facts`, `wow_facts` (≥ 3, ranked), `misconceptions`, `everyday_hooks`, `linked_projects` |
+| `01_sources.json` | verified Behavioral Psychology experiment source + distinct verified `>= 2015` Neural Circuit / Imaging / BCI DOI (Crossref `verify_doi`), replications / follow-ups / reviews, critiques, books, biographies, archives, museums, documentaries |
 | `02_master_story.md` | longform storyline: cold open → world before → people → event step by step → results (as reported) → twist / controversy → aftermath → what it means for you |
 | `03_visual_reference.json` | scenes with the 5 required fields **era, layout (blocking + positions), props (period detail + physical behaviour), actions (verb sequence), reactions** + `recognition_hook`, wardrobe, lighting, sources. Exactly one `iconic: true` |
-| `04_media_refs.json` | YouTube / archive film / photos / museum objects with timecodes and shot notes |
+| `04_media_refs.json` | `suitability_schema_version: 2`, `reenactment_track` (`track_a` \| `track_b`), `primary_reenactment_media_id`, YouTube / archive film / photos / museum objects with timecodes, shot notes, and explicit `reenactment_section` (`MM:SS-MM:SS`) for Track A |
+| `08_reenactment_edl.json` | Required when `reenactment_track == "track_a"`: quarantined structural shot EDL (`shot_count >= 3`, `sanitization_verified: true`, dHash + 5-gram hashes; zero raw pixels) |
 | `media/<id>/` | `analyze_reference_video` output: scene keyframes, contact sheet, transcript (analysis only) |
 | `05_plain_language.json` | one-sentence story, "so what for you", jargon → plain word → analogy |
 | `06_brain_link.json` | region ↔ plain name ↔ function ↔ scene ↔ narration bridge (anatomy_map regions only); empty for `BEHAVIORAL_PSYCH` |
 | `07_longform_outline.json` | ≥ 5 chapters (beats, scene ids, reusable Shorts roles, new shots needed) + `shorts_extract {hook, core_experiment, twist}` |
 
-**Research checklist** (`RESEARCH_CHECKLIST`, enforced by `validate_dossier`): primary source · method details (layout + ≥ 1500-char story) · follow-up · critique / misconception · people · visual media · iconic scene with all 5 fields · ≥ 3 wow facts · everyday hook · plain-language map · brain link (NEURO / HYBRID) · longform outline. Gear 2 starts only when `validate_dossier(slug)["ready"]` is true.
+**Research checklist** (`RESEARCH_CHECKLIST`, enforced by `validate_dossier(..., require_schema_v2=True)`): `Schema v2` 3-Layer Formula (`everyday_domain` + verified Behavioral Psych + `>= 2015` Neuro DOIs) · primary source · method details (layout + ≥ 6000-char story) · follow-up · critique / misconception · people · Dual-Track visual media (`suitability_schema_version == 2` + `reenactment_section` + `08_reenactment_edl.json` for `track_a`) · iconic scene with all 5 fields · ≥ 3 wow facts · everyday hook · 3-Stage `debate_ignition` · plain-language map · brain link (NEURO / HYBRID) · longform outline. Gear 2 starts only when `validate_dossier(slug, require_schema_v2=True)["ready"]` is true (`main.py dossier validate --slug <slug> --require-v2`).
 
 ### R44-D — Depth standard (how detailed is detailed enough)
 Rule of thumb: research is deep enough when **someone who has never seen the original footage could stage the iconic scene from the dossier alone**, with every number in the script traceable to a source. `research_depth_report` (inside `validate_dossier`, checklist key `depth_standard`) enforces:

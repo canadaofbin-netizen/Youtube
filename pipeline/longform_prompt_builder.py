@@ -427,18 +427,42 @@ def initialize_longform_project(
     episode_spec: dict[str, Any],
     *,
     projects_longform_dir: str | Path | None = None,
+    dossiers_dir: str | Path | None = None,
+    require_valid_dossier: bool | None = None,
 ) -> dict[str, Any]:
     """
     Creates a complete standalone `16:9` (`1920x1080`) Long-Form project inside `projects_longform/<project_id>/`
     with `script.json`, `visual_plan.json`, `flow_longform_prompts.json`, `research_card.json`, and `00_project_manifest.json`.
     """
+    import pipeline.config as _cfg
+    from pipeline.research_dossier import validate_dossier
+
+    now_iso = datetime.now(timezone.utc).isoformat()
+    slug = str(episode_spec.get("dossier_slug") or re.sub(r"^longform_\d+_", "", project_id)).strip()
+    d_root = Path(dossiers_dir) if dossiers_dir is not None else Path(DOSSIERS_DIR)
+    raw_pid = str(project_id).strip()
+    is_canonical_prod_target = (
+        projects_longform_dir is None
+        and not (Path(raw_pid).is_absolute() or "/" in raw_pid or "\\" in raw_pid)
+        and Path(_cfg.LONGFORM_PROJECTS_DIR).resolve() == Path(LONGFORM_PROJECTS_DIR).resolve()
+    )
+    eff_require = (
+        bool(require_valid_dossier)
+        if require_valid_dossier is not None
+        else ((d_root / slug).exists() or is_canonical_prod_target)
+    )
+    if eff_require:
+        d_val = validate_dossier(slug, root=d_root, require_schema_v2=True)
+        if not d_val.get("ready"):
+            raise ValueError(
+                f"Long-Form initialization blocked: dossier '{slug}' failed Schema v2 validation: {d_val.get('issues')}"
+            )
+
     proj_dir = resolve_longform_project_dir(
         project_id,
         projects_longform_dir=projects_longform_dir,
         create=True,
     )
-    now_iso = datetime.now(timezone.utc).isoformat()
-    slug = str(episode_spec.get("dossier_slug") or re.sub(r"^longform_\d+_", "", project_id)).strip()
     title = str(episode_spec["title"]).strip()
     pillar = str(episode_spec.get("pillar") or "brain_health").strip()
     everyday_domain = str(episode_spec.get("everyday_domain") or "sleep").strip()
@@ -623,6 +647,7 @@ def initialize_longform_project(
     research_card = {
         "project_id": project_id,
         "dossier_slug": slug,
+        "dossiers_dir": str(Path(dossiers_dir).resolve()) if dossiers_dir is not None else "",
         "title": title,
         "pillar": pillar,
         "everyday_domain": everyday_domain,
@@ -683,11 +708,21 @@ def compile_longform_plan_from_dossier(
     voice_preset: str = LONGFORM_DEFAULT_VOICE_PRESET,
     target_wpm: int = 145,
     save: bool = True,
+    require_valid_dossier: bool = True,
 ) -> dict[str, Any]:
     """Compiles `07_longform_outline.json` from a research dossier into a `1920x1080` `16:9` Long-Form plan."""
+    from pipeline.research_dossier import validate_dossier
+
     d_dir = Path(slug_or_dir) if Path(slug_or_dir).is_dir() else (Path(DOSSIERS_DIR) / str(slug_or_dir))
     if not d_dir.exists():
         raise FileNotFoundError(f"Dossier directory not found: {d_dir}")
+
+    if require_valid_dossier:
+        d_val = validate_dossier(d_dir.name, root=d_dir.parent, require_schema_v2=True)
+        if not d_val.get("ready"):
+            raise ValueError(
+                f"Long-Form plan compilation blocked: dossier '{d_dir.name}' failed Schema v2 validation: {d_val.get('issues')}"
+            )
 
     dossier = json.loads((d_dir / "dossier.json").read_text(encoding="utf-8"))
     outline_path = d_dir / "07_longform_outline.json"

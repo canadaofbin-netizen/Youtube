@@ -196,6 +196,27 @@ def compute_4gram_jaccard(lines_a: list[str], lines_b: list[str]) -> float:
     return float(len(ga & gb)) / float(len(ga | gb))
 
 
+def _resolve_takeaway_bridge_sentence(
+    lines: list[str],
+    bank: tuple[str, ...],
+) -> tuple[str | None, str]:
+    """Resolves the closing takeaway/open-verdict bridge sentence across 1-sentence (`S_N`) or 2-sentence (`S_{N-1}` + `S_N ?`) closes."""
+    if not lines:
+        return None, ""
+    last_raw = lines[-1]
+    last_clean = re.sub(r"^[\"'“”‘’\s]+", "", last_raw).lower()
+    pref_last = next((p.strip().lower() for p in bank if last_clean.startswith(p.strip().lower())), "")
+    if pref_last:
+        return last_raw, pref_last
+    if len(lines) >= 2 and last_raw.strip().endswith("?"):
+        prev_raw = lines[-2]
+        prev_clean = re.sub(r"^[\"'“”‘’\s]+", "", prev_raw).lower()
+        pref_prev = next((p.strip().lower() for p in bank if prev_clean.startswith(p.strip().lower())), "")
+        if pref_prev:
+            return prev_raw, pref_prev
+    return None, ""
+
+
 def validate_anti_clone_uniqueness(
     lines: list[str],
     adjacent_scripts: list[list[str]] | None = None,
@@ -221,8 +242,7 @@ def validate_anti_clone_uniqueness(
 
     s3_low = lines[2].strip().lower() if len(lines) >= 3 else ""
     cur_s3_pref = next((p.strip().lower() for p in DIORAMA_COLD_OPEN_S3_BANK if s3_low.startswith(p.strip().lower())), "")
-    last_low = lines[-1].strip().lower()
-    cur_end_pref = next((p.strip().lower() for p in DIORAMA_TAKEAWAY_BRIDGE_BANK if last_low.startswith(p.strip().lower())), "")
+    _, cur_end_pref = _resolve_takeaway_bridge_sentence(lines, DIORAMA_TAKEAWAY_BRIDGE_BANK)
 
     for idx_adj, adj in enumerate(window, start=1):
         jac = compute_4gram_jaccard(lines, adj)
@@ -237,8 +257,8 @@ def validate_anti_clone_uniqueness(
                     f"[anti_clone] S3 case-stamp opener '{cur_s3_pref}' reused within adjacent {DIORAMA_ADJACENT_OPENER_WINDOW}-episode window (#{idx_adj}) (R57-H2)"
                 )
         if cur_end_pref and adj:
-            adj_last = adj[-1].strip().lower()
-            if adj_last.startswith(cur_end_pref):
+            _, adj_end_pref = _resolve_takeaway_bridge_sentence(adj, DIORAMA_TAKEAWAY_BRIDGE_BANK)
+            if adj_end_pref == cur_end_pref:
                 issues.append(
                     f"[anti_clone] final takeaway bridge '{cur_end_pref}' reused within adjacent {DIORAMA_ADJACENT_OPENER_WINDOW}-episode window (#{idx_adj}) (R57-C)"
                 )
@@ -810,6 +830,9 @@ def validate_production_diorama_v6(
         MICRO_SHORT_PROFILE,
         MICRO_SHORT_WORD_MAX,
         MICRO_SHORT_WORD_MIN,
+        DOSSIER_SCHEMA_VERSION,
+        FROZEN_PRE_SCHEMA_V2_DOSSIER_SLUGS,
+        FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES,
         PRE_R66_FROZEN_PROJECT_PREFIXES,
         is_diorama_v7_plan,
         is_porcelain_v7_plan,
@@ -838,6 +861,11 @@ def validate_production_diorama_v6(
         is_frozen_gage_v7
         or dossier_slug in _PRE_R65_ASSEMBLED_DOSSIERS
         or (bool(project_id) and any(project_id.startswith(pref) for pref in PRE_R66_FROZEN_PROJECT_PREFIXES))
+    )
+    is_pre_schema_v2_frozen = (
+        is_pre_r66_frozen
+        or dossier_slug in FROZEN_PRE_SCHEMA_V2_DOSSIER_SLUGS
+        or (bool(project_id) and any(project_id.startswith(pref) for pref in FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES))
     )
     is_us_v7 = is_v7 and not is_pre_r66_frozen and (
         prosody_mode == DIORAMA_V7_US_PROSODY_MODE or bool(plan.get("us_anti_clone_v7"))
@@ -924,11 +952,41 @@ def validate_production_diorama_v6(
                 issues.append("[hooks] missing mechanism pivot phrase from DIORAMA_MECHANISM_PIVOT_BANK (R57)")
             if not any(p.strip().lower() in full_low for p in DIORAMA_EUREKA_REVEAL_BANK):
                 issues.append("[hooks] missing breakthrough reveal phrase from DIORAMA_EUREKA_REVEAL_BANK (R57)")
-            last_clean = re.sub(r"^[\"'“”‘’\s]+", "", lines[-1]).lower()
-            if not any(last_clean.startswith(p.strip().lower()) for p in DIORAMA_TAKEAWAY_BRIDGE_BANK):
-                issues.append("[hooks] final sentence must open with a takeaway bridge from DIORAMA_TAKEAWAY_BRIDGE_BANK (R57)")
+            bridge_sent, _ = _resolve_takeaway_bridge_sentence(lines, DIORAMA_TAKEAWAY_BRIDGE_BANK)
+            if bridge_sent is None:
+                issues.append(
+                    "[hooks] closing beat (S_N, or S_{N-1} before a final '?' open-verdict question) must open with a takeaway bridge from DIORAMA_TAKEAWAY_BRIDGE_BANK (R57)"
+                )
             else:
-                issues.extend(validate_takeaway_bridge_grammar(lines[-1]))
+                issues.extend(validate_takeaway_bridge_grammar(bridge_sent))
+
+            explicit_ov = plan.get("require_open_verdict_v2")
+            if explicit_ov is None and isinstance(script_doc, dict):
+                explicit_ov = script_doc.get("require_open_verdict_v2")
+            dossier_schema_ver = int(
+                (script_doc or {}).get("dossier_schema_version") or plan.get("dossier_schema_version") or 0
+            )
+            if explicit_ov is None and not is_pre_schema_v2_frozen and dossier_slug and dossier_schema_ver < DOSSIER_SCHEMA_VERSION:
+                try:
+                    from pipeline.research_dossier import DOSSIERS_ROOT
+
+                    d_meta_path = DOSSIERS_ROOT / dossier_slug / "dossier.json"
+                    if d_meta_path.exists():
+                        d_meta_doc = json.loads(d_meta_path.read_text(encoding="utf-8"))
+                        dossier_schema_ver = int(d_meta_doc.get("schema_version") or 1)
+                except Exception:
+                    dossier_schema_ver = 0
+            require_open_verdict = (
+                bool(explicit_ov)
+                if explicit_ov is not None
+                else (not is_pre_schema_v2_frozen and dossier_schema_ver >= DOSSIER_SCHEMA_VERSION)
+            )
+            if require_open_verdict:
+                final_s = lines[-1].strip()
+                if not final_s.endswith("?") or not re.search(r"\bor\b", final_s, re.IGNORECASE):
+                    issues.append(
+                        "[open_verdict_v2] Schema v2 episode must close with a binary '... or ...?' open-verdict question (Stage 2 Debate Ignition)"
+                    )
         else:
             if "here is what went wrong" not in full_low:
                 issues.append("[hooks] missing R26 diagnostic opener 'Here is what went wrong.' (R57)")
@@ -1370,6 +1428,7 @@ def score_project(project_dir: Path) -> dict[str, Any]:
         "en_us_lock": "plain",
         "hook_v7": "plain",
         "hooks": "structure",
+        "open_verdict_v2": "structure",
         "zero_reuse": "scene",
         "zero_reuse_v7": "scene",
         "analogy": "plain",

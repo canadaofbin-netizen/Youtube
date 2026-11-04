@@ -517,6 +517,12 @@ MAX_DAILY_SUBSCRIBER_NOTIFICATIONS = 3
 PRE_R66_FROZEN_PROJECT_PREFIXES: tuple[str, ...] = tuple(
     f"diorama_{i:02d}_" for i in range(1, 8)
 ) + ("gage_diorama_v6", "gage_diorama_v7", "psych_")
+FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES: tuple[str, ...] = PRE_R66_FROZEN_PROJECT_PREFIXES + (
+    "reenact_01_ainsworth_strange_situation",
+)
+FROZEN_PRE_SCHEMA_V2_DOSSIER_SLUGS: tuple[str, ...] = (
+    "ainsworth_strange_situation",
+)
 DIORAMA_BANNED_AI_CLICHES: tuple[str, ...] = (
     "delve into",
     "delving into",
@@ -621,7 +627,9 @@ DIORAMA_V7_STYLE_PROFILES: tuple[str, ...] = (DIORAMA_V7_STYLE_PROFILE, PORCELAI
 DEFAULT_DIORAMA_STYLE_PROFILE = PORCELAIN_V7_STYLE_PROFILE
 
 PORCELAIN_V7_WORLD_STYLE = "photorealistic bright high-key documentary studio world"
-PORCELAIN_V7_CAST_STYLE = "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums"
+PORCELAIN_V7_CAST_STYLE = (
+    "clothed articulated matte-white porcelain figures with smooth featureless solid matte-white egg-shaped oval heads"
+)
 PORCELAIN_V7_OPTICS_LOCK = "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting"
 PORCELAIN_V7_LUMA_RANGE: tuple[float, float] = (88.0, 226.0)
 PORCELAIN_V7_DARK_VOID_RATIO_MAX = 0.24          # HSV V < 35 ceiling across photorealistic high-key porcelain scenes
@@ -1247,7 +1255,9 @@ def word_count_range_for_profile(profile: str | None = None) -> tuple[int, int]:
         return (DIORAMA_WORD_COUNT_MIN, DIORAMA_WORD_COUNT_MAX)
     return (SCRIPT_WORD_MIN, SCRIPT_WORD_MAX)
 
-# Research depth standard (R44 depth): enforced by validate_dossier
+# Research depth standard (R44 depth + Schema v2 3-Layer Formula): enforced by validate_dossier
+DOSSIER_SCHEMA_VERSION = 2
+DOSSIER_NEURO_MODERN_MIN_YEAR = 2015
 DOSSIER_MIN_SOURCES = 6
 DOSSIER_MIN_FOLLOWUP_SOURCES = 2         # replication / follow_up / review
 DOSSIER_MIN_CORE_FACTS = 8               # each with a source_id that exists in 01_sources.json

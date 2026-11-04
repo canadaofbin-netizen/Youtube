@@ -82,6 +82,7 @@ def run_longform_qa(
     project_id_or_dir: str | Path,
     *,
     projects_longform_dir: str | Path | None = None,
+    dossiers_root: str | Path | None = None,
     require_audio: bool = False,
     require_refs: bool = False,
     require_final_mp4: bool = False,
@@ -172,7 +173,8 @@ def run_longform_qa(
         last_txt = str(sentences[-1].get("text") or "").strip()
         if not last_txt.endswith("?"):
             g4_issues.append(f"Stage 2 final spoken sentence must end with an open-verdict forced-choice '?', got: {last_txt!r}")
-    cm = CommunityManager(projects_dir=p_dir.parent)
+    eff_dossiers_root = dossiers_root or (str(rc_doc.get("dossiers_dir") or "").strip() or None)
+    cm = CommunityManager(projects_dir=p_dir.parent, dossiers_root=eff_dossiers_root)
     comm_pkg = cm.prepare_comment_content(p_dir.name)
     comm_line1 = comm_pkg["comment_text"].splitlines()[0].strip() if comm_pkg.get("comment_text") else ""
     g4_issues.extend(
@@ -349,7 +351,7 @@ def run_longform_qa(
             g9_issues.append(f"True peak {tp_val:.2f} dBTP > -1.2 dBTP")
     _record("LFQ9_relaxed_audio_master_integrity", g9_issues, g9_metrics)
 
-    # --- LFQ10: 1920x1080 (16:9) Reference Anchor Pack & Quarantine Purge ---
+    # --- LFQ10: 1920x1080 (16:9) Reference Anchor Pack, Quarantine Purge & Track A RQ1-RQ5 ---
     ref_rep_path = p_dir / "03_visuals" / "reference_image_qa_report.json"
     g10_issues: list[str] = []
     g10_metrics: dict[str, Any] = {"present": ref_rep_path.exists()}
@@ -371,9 +373,184 @@ def run_longform_qa(
                     ih, iw = arr.shape[:2]
                     if iw <= ih or abs((iw / max(ih, 1)) - (16.0 / 9.0)) > 0.05:
                         g10_issues.append(f"Reference image {fp.name} is {iw}x{ih}, expected 16:9 widescreen")
-    q_dir = Path(LONGFORM_QUARANTINE_ROOT) / str(script_doc.get("dossier_slug") or p_dir.name)
+    slug_lf = str(script_doc.get("dossier_slug") or vp_doc.get("dossier") or p_dir.name).strip()
+    q_dir = Path(LONGFORM_QUARANTINE_ROOT) / slug_lf
     if q_dir.exists() and any(q_dir.iterdir()):
         g10_issues.append(f"Track A quarantine directory not purged: {q_dir}")
+
+    raw_anchors_lf = list(vp_doc.get("reference_anchors") or [])
+    track_a_anchor_ids = [
+        str(a.get("ref_id") or a.get("id") or "")
+        for a in raw_anchors_lf
+        if isinstance(a, dict) and str(a.get("track") or a.get("conditioning_track") or "").lower() == "track_a"
+    ]
+    edl_lf_path = p_dir / "03_visuals" / "source_edl.json"
+    if track_a_anchor_ids or edl_lf_path.exists():
+        from pipeline.config import (
+            PORCELAIN_V7_STYLE_PROFILE,
+            REENACT_BRAIN_RATIO_MIN,
+            REENACT_MAX_TRANSCRIPT_5GRAM_OVERLAP,
+            REENACT_MIN_DHASH_DISTANCE,
+            REENACT_QA_REPORT_FILENAME,
+            REF_IMAGES_DIRNAME,
+        )
+        from pipeline.reference_image_qa import _dhash_64, _hamming_hex
+        from pipeline.source_reenactment import (
+            BANNED_SOURCE_BRAND_TOKENS,
+            _normalize_words,
+            compute_5gram_sha256_set,
+        )
+
+        if not edl_lf_path.exists():
+            if require_refs:
+                g10_issues.append(
+                    f"Track A anchors {track_a_anchor_ids} declared in visual_plan.json but 03_visuals/source_edl.json is missing"
+                )
+        else:
+            edl_doc = json.loads(edl_lf_path.read_text(encoding="utf-8"))
+            leaked_raw = [
+                str(f.relative_to(p_dir))
+                for f in p_dir.rglob("*")
+                if f.is_file()
+                and (
+                    f.name == "ref.mp4"
+                    or re.match(r"^S\d{2}_(?:start|end)\.png$", f.name)
+                    or f.name.endswith("_guide.png")
+                )
+            ]
+            quarantine_clean = not (q_dir.exists() and any(q_dir.iterdir()))
+            rq1_ok = len(leaked_raw) == 0 and quarantine_clean
+
+            source_dhashes = [str(x) for x in (edl_doc.get("source_dhash_64_list") or []) if str(x)]
+            min_ref_dhash = 64
+            min_clip_dhash = 64
+            checked_refs = 0
+            checked_clips = 0
+            ref_img_dir = p_dir / "03_visuals" / REF_IMAGES_DIRNAME
+            if ref_img_dir.exists() and source_dhashes:
+                for rp in sorted(ref_img_dir.glob("*.png")):
+                    im_r = cv2.imread(str(rp), cv2.IMREAD_GRAYSCALE)
+                    if im_r is not None:
+                        dh = _dhash_64(im_r)
+                        min_ref_dhash = min(min_ref_dhash, min(_hamming_hex(dh, sdh) for sdh in source_dhashes))
+                        checked_refs += 1
+            clips_mp4_dir = p_dir / "03_visuals" / "flow_native_clips"
+            if clips_mp4_dir.exists() and source_dhashes:
+                for cp in sorted(clips_mp4_dir.glob("clip_*.mp4")):
+                    cap_c = cv2.VideoCapture(str(cp))
+                    fc_c = int(cap_c.get(cv2.CAP_PROP_FRAME_COUNT) or 0)
+                    for frac in (0.15, 0.50, 0.85):
+                        cap_c.set(cv2.CAP_PROP_POS_FRAMES, max(0, int(fc_c * frac)))
+                        ok_c, frm_c = cap_c.read()
+                        if ok_c and frm_c is not None:
+                            dh_c = _dhash_64(cv2.cvtColor(frm_c, cv2.COLOR_BGR2GRAY))
+                            min_clip_dhash = min(min_clip_dhash, min(_hamming_hex(dh_c, sdh) for sdh in source_dhashes))
+                    cap_c.release()
+                    checked_clips += 1
+            overall_min_dh = min(min_ref_dhash, min_clip_dhash)
+            rq2_ok = bool(
+                len(source_dhashes) > 0
+                and (checked_refs > 0 or checked_clips > 0)
+                and overall_min_dh >= REENACT_MIN_DHASH_DISTANCE
+            )
+
+            lf_sents = [
+                str(s["text"] if isinstance(s, dict) else s).strip()
+                for s in (script_doc.get("sentences") or [])
+                if str(s["text"] if isinstance(s, dict) else s).strip()
+            ]
+            lf_text = " ".join(lf_sents)
+            lf_5grams = compute_5gram_sha256_set(lf_text)
+            src_5grams = set(edl_doc.get("source_5gram_sha256_list") or [])
+            ov_count = len(lf_5grams & src_5grams)
+            ov_ratio = round(ov_count / max(len(lf_5grams), 1), 6)
+            lf_words = set(_normalize_words(lf_text))
+            leaked_names = [
+                str(n).lower()
+                for n in (edl_doc.get("source_personal_names") or [])
+                if str(n).lower() in lf_words
+            ]
+            rq3_ok = bool(bool(lf_text) and ov_ratio <= REENACT_MAX_TRANSCRIPT_5GRAM_OVERLAP and not leaked_names)
+
+            meta_blob = (p_dir / "06_publish" / "metadata.json").read_text(encoding="utf-8") if (p_dir / "06_publish" / "metadata.json").exists() else ""
+            fp_blob = (p_dir / "03_visuals" / "flow_longform_prompts.json").read_text(encoding="utf-8") if (p_dir / "03_visuals" / "flow_longform_prompts.json").exists() else ""
+            brand_hits = [tok for tok in BANNED_SOURCE_BRAND_TOKENS if tok in f"{lf_text}\n{meta_blob}\n{fp_blob}".lower()]
+            rq4_ok = bool(edl_doc.get("sanitization_verified", False) and not brand_hits)
+
+            lf_clips = [c for c in (vp_doc.get("clips") or []) if isinstance(c, dict)]
+            brain_lf = [
+                c
+                for c in lf_clips
+                if str(c.get("grammar") or "") == "porcelain_living_brain"
+                or bool(c.get("brain_mode"))
+                or str(c.get("split_mode") or "") == "hstack"
+            ]
+            brain_ratio_lf = round(len(brain_lf) / max(len(lf_clips), 1), 4)
+            bound_anchor_ids = {
+                str(c.get("reference_anchor_id") or c.get("anchor_id") or Path(str(c.get("reference_image") or "")).stem)
+                for c in lf_clips
+            } | {
+                str(parent_id)
+                for a in raw_anchors_lf
+                if isinstance(a, dict)
+                for parent_id in (a.get("conditioned_on") or [])
+                if str(parent_id)
+            }
+            missing_track_a_bindings = [aid for aid in track_a_anchor_ids if aid and aid not in bound_anchor_ids]
+            rq5_ok = bool(
+                str(vp_doc.get("style_profile") or "") == PORCELAIN_V7_STYLE_PROFILE
+                and brain_ratio_lf >= REENACT_BRAIN_RATIO_MIN
+                and not missing_track_a_bindings
+            )
+
+            rq_gates = {
+                "RQ1_zero_raw_source_leak": {"passed": rq1_ok, "leaked_files": leaked_raw, "quarantine_purged": quarantine_clean},
+                "RQ2_perceptual_dhash_distance": {
+                    "passed": rq2_ok,
+                    "min_required_bits": REENACT_MIN_DHASH_DISTANCE,
+                    "min_reference_dhash_bits": min_ref_dhash if checked_refs else None,
+                    "min_clip_dhash_bits": min_clip_dhash if checked_clips else None,
+                    "checked_reference_images": checked_refs,
+                    "checked_native_clips": checked_clips,
+                },
+                "RQ3_zero_transcript_and_name_overlap": {
+                    "passed": rq3_ok,
+                    "overlap_5gram_ratio": ov_ratio,
+                    "leaked_personal_names": leaked_names,
+                },
+                "RQ4_zero_poster_or_brand_leak": {
+                    "passed": rq4_ok,
+                    "sanitization_verified": bool(edl_doc.get("sanitization_verified", False)),
+                    "brand_token_hits": brand_hits,
+                },
+                "RQ5_brain_intercut_and_anchor_alignment": {
+                    "passed": rq5_ok,
+                    "brain_ratio": brain_ratio_lf,
+                    "track_a_anchors": track_a_anchor_ids,
+                    "missing_track_a_bindings": missing_track_a_bindings,
+                },
+            }
+            failed_rq = [k for k, v in rq_gates.items() if not v["passed"]]
+            rq_report = {
+                "schema": "longform_reenactment_qa_report_v1",
+                "rule": "R67",
+                "project_id": p_dir.name,
+                "slug": slug_lf,
+                "evaluated_at": datetime.now(timezone.utc).isoformat(),
+                "passed": len(failed_rq) == 0,
+                "failed_gates": failed_rq,
+                "gates": rq_gates,
+            }
+            if save_report:
+                (p_dir / "05_assembly").mkdir(parents=True, exist_ok=True)
+                (p_dir / "05_assembly" / REENACT_QA_REPORT_FILENAME).write_text(
+                    json.dumps(rq_report, indent=2, ensure_ascii=False) + "\n",
+                    encoding="utf-8",
+                )
+            g10_metrics["reenactment_qa_passed"] = rq_report["passed"]
+            g10_metrics["reenactment_failed_gates"] = failed_rq
+            if failed_rq:
+                g10_issues.append(f"Long-Form Track A failed R67 Reenactment QA {failed_rq}: {rq_gates}")
     _record("LFQ10_reference_pack_16x9_qa", g10_issues, g10_metrics)
 
     # --- LFQ11: 1920x1080 < 2 MB Thumbnails & Publish Metadata ---

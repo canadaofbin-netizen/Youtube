@@ -1138,7 +1138,7 @@ _PORCELAIN_V7_ACTOR_NOUN_RE = re.compile(
 
 
 class PorcelainWorldRule:
-    """R66 Tier 3 Grammar: Photorealistic bright high-key world with clothed matte-white porcelain figures & frosted-glass craniums."""
+    """R66 Tier 3 Grammar: Photorealistic bright high-key world with clothed matte-white porcelain figures & smooth featureless solid matte-white egg-shaped oval heads."""
 
     @staticmethod
     def compose(
@@ -1149,19 +1149,46 @@ class PorcelainWorldRule:
         env = SceneDepictionRule.clean_clause(environment)
         act = SceneDepictionRule.clean_clause(action)
         lit = SceneDepictionRule.clean_clause(lighting)
+        # Normalize any legacy Schema v4 frosted-glass cranium wording on cast figures to R66/R67 solid matte-white oval heads
+        act = re.sub(
+            r"\bwith\s+translucent\s+frosted[- ]glass\s+craniums\b",
+            "with smooth featureless solid matte-white egg-shaped oval heads",
+            act,
+            flags=re.IGNORECASE,
+        )
+        act = re.sub(
+            r"\bwith\s+(?:a\s+)?translucent\s+frosted[- ]glass\s+cranium\b",
+            "with a smooth featureless solid matte-white egg-shaped oval head",
+            act,
+            flags=re.IGNORECASE,
+        )
+        act = re.sub(
+            r"\btranslucent\s+frosted[- ]glass\s+craniums\b",
+            "smooth featureless solid matte-white egg-shaped oval heads",
+            act,
+            flags=re.IGNORECASE,
+        )
+        act = re.sub(
+            r"\btranslucent\s+frosted[- ]glass\s+cranium\b",
+            "smooth featureless solid matte-white egg-shaped oval head",
+            act,
+            flags=re.IGNORECASE,
+        )
         combined = f"{env} {act}"
         low_combined = combined.lower()
         has_actor = bool(_PORCELAIN_V7_ACTOR_NOUN_RE.search(combined))
         has_head_spec = any(
             tok in low_combined
-            for tok in ("cranium", "oval head", "porcelain head", "featureless")
+            for tok in ("oval head", "porcelain head", "featureless", "faceless", "egg-shaped head")
         )
         if not has_actor or ("porcelain" in low_combined and has_head_spec):
             actor_clause = ""
         elif "porcelain" in low_combined:
-            actor_clause = ", each figure topped by a smooth featureless white head with a translucent frosted-glass cranium"
+            actor_clause = ", each figure with a smooth featureless matte-white oval head"
+        elif has_head_spec:
+            actor_clause = ", staged as clothed matte-white porcelain figures"
         else:
-            actor_clause = ", staged as clothed matte-white porcelain figures with translucent frosted-glass craniums"
+            actor_clause = ", staged as clothed matte-white porcelain figures with smooth featureless solid matte-white egg-shaped oval heads"
         return (
             f"{PORCELAIN_V7_WORLD_LEAD}: full-bleed high-key view of {env} in {lit}. "
             f"{act[:1].upper() + act[1:]}{actor_clause}. {PORCELAIN_V7_OPTICS_TAIL}"
@@ -1364,8 +1391,10 @@ def validate_porcelain_v7_scene(
     scene_or_prompt: str,
     grammar: str = "porcelain_fullbleed_world",
     camera_move: str = "",
+    *,
+    allow_legacy_frosted_cranium: bool = False,
 ) -> list[str]:
-    """R66 Schema v7 `porcelain_cinematic_v7` scene & prompt validator: enforces high-key porcelain/glass cast and contained 4-color 3D brain while blocking fluorescent green spill, particles, mist, low-poly, and Escher/face traps."""
+    """R66 Schema v7 `porcelain_cinematic_v7` scene & prompt validator: enforces high-key porcelain cast (solid smooth oval heads) and contained 4-color 3D brain while blocking fluorescent green spill, particles, mist, low-poly, and Escher/face traps."""
     issues: list[str] = []
     g = str(grammar or "").strip()
     cam_norm = str(camera_move or "").strip().lower()
@@ -1401,6 +1430,14 @@ def validate_porcelain_v7_scene(
                 )
         elif "porcelain" not in low:
             issues.append("[porcelain_v7] 'porcelain_fullbleed_world' scene missing 'porcelain' material anchor (R66)")
+    if (
+        not allow_legacy_frosted_cranium
+        and g != "porcelain_living_brain"
+        and re.search(r"\bfrosted[- ]glass\s+craniums?\b", low)
+    ):
+        issues.append(
+            f"[porcelain_v7] '{g}' cast scene contains legacy Schema v4 'frosted-glass cranium'; use smooth featureless solid matte-white egg-shaped oval head (R66)"
+        )
     style_hits = sorted({m.group(0).lower() for m in _PORCELAIN_V7_BANNED_STYLE_RE.finditer(raw)})
     if style_hits:
         issues.append(

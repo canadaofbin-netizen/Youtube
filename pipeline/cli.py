@@ -768,6 +768,7 @@ def main():
     p_ds.add_argument("--slug", default=None, help="Dossier slug (BCI_Shorts_Channel/research_dossiers/<slug>)")
     p_ds.add_argument("--topic", default="", help="Topic title (init)")
     p_ds.add_argument("--pillar", default="", help="Pillar id (init)")
+    p_ds.add_argument("--everyday-domain", default="", help="Everyday domain: sleep|habits|memory|anxiety|relationships (init)")
     p_ds.add_argument("--mode", default="HYBRID", help="BEHAVIORAL_PSYCH | HYBRID | NEURO_BIOLOGY (init)")
     p_ds.add_argument("--profile", default="neuro_diorama", choices=["classic_v5", "neuro_diorama"], help="Seed profile (seed)")
     p_ds.add_argument(
@@ -776,6 +777,7 @@ def main():
         choices=["porcelain_cinematic_v7", "lowpoly_pastel_v7"],
         help="Schema v7 style profile override for seed (default: porcelain_cinematic_v7)",
     )
+    p_ds.add_argument("--require-v2", action="store_true", default=False, help="Require Schema v2 dossier compliance (validate)")
     p_ds.add_argument("--doi", default=None, help="DOI to verify via Crossref (doi)")
     p_ds.add_argument("--query", default=None, help="YouTube search query (yt-search)")
     p_ds.add_argument("--url", default=None, help="Reference video URL (yt-analyze)")
@@ -1499,9 +1501,17 @@ def cmd_dossier(args):
         print("--slug is required for this action", file=sys.stderr)
         sys.exit(2)
     if args.action == "init":
-        print(rd.init_dossier(args.slug, args.topic or args.slug, pillar=args.pillar, visual_mode=args.mode))
+        print(
+            rd.init_dossier(
+                args.slug,
+                args.topic or args.slug,
+                pillar=args.pillar,
+                visual_mode=args.mode,
+                everyday_domain=getattr(args, "everyday_domain", ""),
+            )
+        )
     elif args.action == "validate":
-        res = rd.validate_dossier(args.slug)
+        res = rd.validate_dossier(args.slug, require_schema_v2=bool(getattr(args, "require_v2", False)))
         print(json.dumps(res, indent=2, ensure_ascii=False))
         if not res["ready"]:
             sys.exit(1)
@@ -2267,7 +2277,7 @@ def cmd_longform_init(args):
     from pipeline.longform_prompt_builder import initialize_longform_project
 
     spec_doc = json.loads(Path(args.spec).read_text(encoding="utf-8"))
-    res = initialize_longform_project(str(args.project).strip(), spec_doc)
+    res = initialize_longform_project(str(args.project).strip(), spec_doc, require_valid_dossier=True)
     print(json.dumps(res, indent=2, ensure_ascii=False))
 
 
