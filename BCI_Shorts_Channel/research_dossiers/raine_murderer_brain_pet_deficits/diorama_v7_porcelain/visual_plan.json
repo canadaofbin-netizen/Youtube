@@ -105,7 +105,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 2,
@@ -150,7 +151,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -172,7 +174,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 5,
@@ -196,7 +199,8 @@
           "researcher"
         ]
       },
-      "clip_number": 5
+      "clip_number": 5,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 6,
@@ -231,7 +235,18 @@
       "analogy_world": "a sunlit cool-alabaster compact highway loop with a sunlit sedan cruising steadily beside a brushed-silver tally counter",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in coat sleeves steer and guide the sunlit sedan smoothly along the highway lane and press the silver tally counter button",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 7
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 8,
@@ -254,7 +269,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 9,
@@ -314,7 +330,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "across the front third of the matte warm-ivory 3D brain model, the prefrontal cortex dims down to cool muted slate-blue",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 11
+      "clip_number": 11,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 12,
@@ -327,7 +344,8 @@
       "camera": "locked_tripod",
       "brain_scene": "inside the flat mid-sagittal half-brain cross-section, the curved central corpus callosum bridge softens to pale muted blue",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 12
+      "clip_number": 12,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 13,
@@ -338,7 +356,18 @@
       "analogy_world": "a sunlit cool-alabaster compact hallway arch lit by a warm brushed-silver wall sconce wired to a slide fader",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in suit sleeves pull and slide the brushed-silver fader slightly downward so the hallway wall lamp dims noticeably",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 13
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 14,
@@ -351,7 +380,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "inside the flat mid-sagittal half-brain cross-section, the deep almond-shaped amygdala glows hot terracotta-coral without top-down balance",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 14
+      "clip_number": 14,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 15,
@@ -374,7 +404,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 16,
@@ -397,7 +428,8 @@
           "researcher"
         ]
       },
-      "clip_number": 16
+      "clip_number": 16,
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 17,
@@ -419,7 +451,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 18,
@@ -441,8 +474,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 19,
@@ -488,7 +523,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 21,
@@ -511,7 +547,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 22,
@@ -532,8 +569,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 23,
@@ -546,7 +585,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "across the front third of the matte warm-ivory 3D brain model, the prefrontal cortex glows at full warm amber-gold strength while deep coral centers also shine",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 23
+      "clip_number": 23,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 24,
@@ -568,7 +608,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 25,
@@ -590,8 +631,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 26,
@@ -638,7 +681,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 28,
@@ -661,7 +705,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 30,
@@ -683,7 +728,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 31,
@@ -752,7 +798,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 35,
@@ -776,7 +823,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 36,
@@ -797,8 +845,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 37,
@@ -820,8 +870,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 38,
@@ -842,8 +894,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 39,
@@ -890,7 +944,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 42,
@@ -961,7 +1016,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 47,
@@ -987,7 +1043,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "inside the flat mid-sagittal half-brain cross-section, the deep amygdala flares briefly in warm coral before cooling back down",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 43
+      "clip_number": 43,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 49,
@@ -1022,7 +1079,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "across the front third of the matte warm-ivory 3D brain model, smooth sky-blue and warm amber-gold light restores full balance across the prefrontal cortex",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 45
+      "clip_number": 45,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 51,
@@ -1091,5 +1149,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "irvine_pet_gallery",
+  "real_environment": "the bright sunlit Irvine seminar room displaying two separate 3D brain sculptures on twin pedestals",
+  "environment_props": [
+    "4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Planned Normal-PFC | Safe-Home Buffer)",
+    "41-vs-41 Matched FDG-PET & Biosocial Interaction Stand (shows biology × childhood environment interaction clearly)"
+  ],
+  "cast": {
+    "subject": "1997 California medical-research attire: tailored charcoal suit and tie with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "crisp white laboratory coats over collared shirts with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_irvine_pet_gallery",
+      "location_id": "irvine_pet_gallery",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (irvine_pet_gallery: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright sunlit Irvine seminar room displaying two separate 3D brain sculptures on twin pedestals, featuring 4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Planned Normal-PFC | Safe-Home Buffer). Inside the room, researcher (crisp white laboratory coats over collared shirts with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Planned Normal-PFC | Safe-Home Buffer). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright sunlit Irvine seminar room displaying two separate 3D brain s",
+        "4-Panel Illuminated Brain Metabolism Lightbox (Control |"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_irvine_pet_gallery",
+      "location_id": "irvine_pet_gallery",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 2 (irvine_pet_gallery: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the bright sunlit Irvine seminar room displaying two separate 3D brain sculptures on twin pedestals, featuring 41-vs-41 Matched FDG-PET & Biosocial Interaction Stand (shows biology × childhood environment interaction clearly). Inside the room, subject (1997 California medical-research attire: tailored charcoal suit and tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 41-vs-41 Matched FDG-PET & Biosocial Interaction Stand (shows biology × childhood environment interaction clearly). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright sunlit Irvine seminar room displaying two separate 3D brain s",
+        "41-vs-41 Matched FDG-PET & Biosocial Interaction Stand ("
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_professor_sunlit_study",
+      "location_id": "professor_sunlit_study",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (professor_sunlit_study: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a warm sunlit university neuroanatomy office lined with wooden bookshelves, a globe, and a desktop lightbox, featuring 4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Planned Normal-PFC | Safe-Home Buffer). Inside the room, researcher (crisp white laboratory coats over collared shirts with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Planned Normal-PFC | Safe-Home Buffer). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a warm sunlit university neuroanatomy office lined with wooden bookshelv",
+        "4-Panel Illuminated Brain Metabolism Lightbox (Control |"
+      ]
+    }
+  ]
 }

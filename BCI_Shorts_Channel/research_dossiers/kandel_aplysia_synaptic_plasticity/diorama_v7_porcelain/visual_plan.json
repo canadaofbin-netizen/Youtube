@@ -158,7 +158,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 6,
@@ -182,7 +183,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 6,
@@ -229,7 +231,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 9,
@@ -254,7 +257,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "clip_index": 11,
@@ -277,8 +281,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "clip_index": 12,
@@ -314,7 +320,18 @@
       "analogy_world": "cool slate-stone studio tabletop holding a sharpened powder-blue matte-white porcelain graphite pencil tip right beside a single round pale-sage nerve sphere of matching width",
       "comparison_action": "the sharpened matte-white porcelain graphite pencil tip slides forward and rests cleanly next to the matching sunlit sphere for direct side-by-side scale",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 10
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "marine_basin_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "clip_index": 15,
@@ -408,8 +425,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 20,
@@ -457,8 +476,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "clip_index": 22,
@@ -521,7 +542,8 @@
       "anatomy_label": "SOMATOSENSORY CORTEX\nTOUCH MAP",
       "brain_scene": "Along the upper lateral postcentral strip, the somatosensory cortex glows soft sky-blue with a gentle surface pulse that dials up briefly and settles smoothly",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 19
+      "clip_number": 19,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 26,
@@ -567,7 +589,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -593,7 +616,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "clip_index": 29,
@@ -616,7 +640,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "clip_index": 30,
@@ -689,7 +714,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 35,
@@ -712,7 +738,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "clip_index": 36,
@@ -724,7 +751,18 @@
       "analogy_world": "open sunlit courtyard garden featuring a full sage-green matte-white porcelain tree canopy sprouting fresh symmetrical outer twigs against a pale sky-blue backdrop",
       "comparison_action": "fresh geometric sage-green branches open and rise smoothly across the wide tree canopy to double its lush crown",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 28
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "microscope_suite",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "clip_index": 38,
@@ -747,7 +785,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 33,
@@ -817,8 +856,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 41,
@@ -843,7 +884,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "clip_index": 42,
@@ -857,7 +899,8 @@
       "anatomy_label": "HIPPOCAMPUS\nMEMORY MAKER",
       "brain_scene": "Deep inside the medial temporal curve, the curved C-shaped hippocampus glows soft cyan-blue and sprouts crisp sage-green structural ridges along its inner arch",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 34
+      "clip_number": 34,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 44,
@@ -919,7 +962,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 48,
@@ -992,7 +1036,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "clip_index": 52,
@@ -1053,7 +1098,8 @@
       "anatomy_label": "HIPPOCAMPUS\nMEMORY MAKER",
       "brain_scene": "Along the medial temporal arch, the hippocampus glows serene sage-cyan with crisp doubled geometric ridges holding steady across the inner curve",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 43
+      "clip_number": 43,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 54,
@@ -1077,7 +1123,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 55,
@@ -1125,7 +1172,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 33,
@@ -1169,5 +1217,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_a",
+  "track_subtier": "A1a_ready_keyframes",
+  "default_location_id": "archive_corridor",
+  "real_environment": "cool slate physiology room with stacks of blank sunlit strip-chart rolls and a looping wire ring model on a table",
+  "environment_props": [
+    "articulated matte-white porcelain Aplysia sea-hare sculpture in clear glass dish & gentle water-jet pipette",
+    "dual micromanipulator probes & twin-trace EPSP oscilloscope",
+    "'850 (Habituated) | 1,300 (Baseline) | 2,600 (Long-Term Spaced)' terminal-tree brushed metal plate (visualizes physical pruning and doubling of synaptic branches)"
+  ],
+  "cast": {
+    "subject": "1970 academic laboratory attire: crisp white lab coat, blue Oxford button-down, signature bow tie with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clinical investigator in a clear daylight-white coat with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_archive_corridor",
+      "location_id": "archive_corridor",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (archive_corridor: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across cool slate physiology room with stacks of blank sunlit strip-chart rolls and a looping wire ring model on a table, featuring articulated matte-white porcelain Aplysia sea-hare sculpture in clear glass dish & gentle water-jet pipette. Inside the room, researcher (clinical investigator in a clear daylight-white coat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside articulated matte-white porcelain Aplysia sea-hare sculpture in clear glass dish & gentle water-jet pipette. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "cool slate physiology room with stacks of blank sunlit strip-chart rolls",
+        "articulated matte-white porcelain Aplysia sea-hare sculp"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_ny_snail_lab",
+      "location_id": "ny_snail_lab",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (ny_snail_lab: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across sunlit New York neurobiology laboratory with slate-stone benches, brushed-silver stands, and a centered clear shallow basin holding a sunlit lavender-sage marine snail sculpture, featuring dual micromanipulator probes & twin-trace EPSP oscilloscope. Inside the room, researcher (clinical investigator in a clear daylight-white coat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside dual micromanipulator probes & twin-trace EPSP oscilloscope. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "sunlit New York neurobiology laboratory with slate-stone benches, brushe",
+        "dual micromanipulator probes & twin-trace EPSP oscillosc"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_microscope_suite",
+      "location_id": "microscope_suite",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (microscope_suite: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside sunlit microscope suite with the tall brushed-silver column and a large tabletop model of doubled sage-green nerve terminals, featuring articulated matte-white porcelain Aplysia sea-hare sculpture in clear glass dish & gentle water-jet pipette. Inside the room, researcher (clinical investigator in a clear daylight-white coat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside articulated matte-white porcelain Aplysia sea-hare sculpture in clear glass dish & gentle water-jet pipette. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "sunlit microscope suite with the tall brushed-silver column and a large ",
+        "articulated matte-white porcelain Aplysia sea-hare sculp"
+      ]
+    }
+  ]
 }

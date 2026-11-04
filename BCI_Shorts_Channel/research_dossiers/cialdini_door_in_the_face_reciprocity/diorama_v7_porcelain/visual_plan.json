@@ -107,7 +107,8 @@
           "researcher",
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 2,
@@ -151,8 +152,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -199,7 +202,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 6,
@@ -221,7 +225,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 7,
@@ -243,8 +248,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 8,
@@ -279,7 +286,18 @@
       "analogy_world": "a soft daylight powder-blue ceramic sports table displaying a muted-sage compact green-turf soccer field with two silver goal frames",
       "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in slate blazer sleeves roll a tiny white geometric ball across the muted-sage soccer field and set a two-hour silver dial beside the touchline",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 9
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 10,
@@ -313,7 +331,18 @@
       "analogy_world": "a soft-lit cool alabaster stone counter holding a matte powder-blue porcelain pie dish with one narrow slice beside five untouched slices",
       "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in muted-sage sleeves lift the single narrow pie slice with a brushed-silver server and place it onto a small cool-cream plate",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 11
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 12,
@@ -335,8 +364,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 14,
@@ -360,7 +391,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 15,
@@ -382,7 +414,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 16,
@@ -428,7 +461,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 18,
@@ -450,7 +484,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -473,7 +508,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 20,
@@ -496,7 +532,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 21,
@@ -542,7 +579,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 23,
@@ -564,7 +602,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 24,
@@ -586,7 +625,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 25,
@@ -599,7 +639,8 @@
       "anatomy_label": "ANTERIOR CINGULATE\nCONFLICT DETECTOR",
       "brain_scene": "a matte-sunlit sagittal cutaway brain model on a cool alabaster stand where soft coral-rose glow illuminates the inner anterior cingulate registering an unreturned social concession",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 24
+      "clip_number": 24,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 26,
@@ -658,7 +699,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 30,
@@ -682,7 +724,8 @@
           "researcher"
         ]
       },
-      "clip_number": 28
+      "clip_number": 28,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 31,
@@ -695,7 +738,8 @@
       "anatomy_label": "NUCLEUS ACCUMBENS\nREWARD CENTER",
       "brain_scene": "a matte-sunlit sagittal cutaway brain model where soft champagne-gold glow illuminates the deep nucleus accumbens reflecting active ownership over a freely chosen compromise",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 29
+      "clip_number": 29,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 32,
@@ -716,8 +760,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 33,
@@ -785,8 +831,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 38,
@@ -810,7 +858,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 39,
@@ -878,8 +927,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 42,
@@ -901,8 +952,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 43,
@@ -925,7 +978,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 45,
@@ -971,7 +1025,8 @@
           "researcher"
         ]
       },
-      "clip_number": 41
+      "clip_number": 41,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 47,
@@ -1008,7 +1063,8 @@
       "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
       "brain_scene": "a matte-sunlit 3D cortical brain model on a cool stone stand where clear electric cyan-blue light fills the prefrontal cortex evaluating standalone value calmly",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 43
+      "clip_number": 43,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 49,
@@ -1052,7 +1108,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -1074,8 +1131,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 52,
@@ -1097,8 +1156,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 23,
@@ -1121,7 +1182,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 52,
@@ -1144,5 +1206,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "asu_campus_walkway",
+  "real_environment": "the cool-slate Arizona campus walkway where two separate clipboard researchers stand ten paces apart",
+  "environment_props": [
+    "flip-over two-stage Clipboard ('Request 1: 2 Years Weekly [0% Yes]' -> 'Concession 2: One 2-Hour Zoo Trip [50% Yes!]') (shows the immediate Big-No -> Small-Yes pivot in one physical prop)",
+    "3-Condition Comparison Stand ('Direct Ask: 16.7% | Two Different Requesters: 10.7% | Same-Person Concession: 50–55.5%!') (visualizes both the 3x jump and Experiment 2's reciprocity proof)"
+  ],
+  "cast": {
+    "subject": "1975 American Southwest campus attire: wide-collar cotton shirts, corduroy/denim jacket, flared chinos, canvas sneakers with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clinical investigator in a powder-blue shirt with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_asu_campus_walkway",
+      "location_id": "asu_campus_walkway",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (asu_campus_walkway: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the cool-slate Arizona campus walkway where two separate clipboard researchers stand ten paces apart, featuring flip-over two-stage Clipboard ('Request 1: 2 Years Weekly [0% Yes]' -> 'Concession 2: One 2-Hour Zoo Trip [50% Yes!]') (shows the immediate Big-No -> Small-Yes pivot in one physical prop). Inside the room, researcher (clinical investigator in a powder-blue shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside flip-over two-stage Clipboard ('Request 1: 2 Years Weekly [0% Yes]' -> 'Concession 2: One 2-Hour Zoo Trip [50% Yes!]') (shows the immediate Big-No -> Small-Yes pivot in one physical prop). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the cool-slate Arizona campus walkway where two separate clipboard resea",
+        "flip-over two-stage Clipboard ('Request 1: 2 Years Weekl"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_asu_campus_walkway",
+      "location_id": "asu_campus_walkway",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 2 (asu_campus_walkway: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the cool-slate Arizona campus walkway where two separate clipboard researchers stand ten paces apart, featuring 3-Condition Comparison Stand ('Direct Ask: 16.7% | Two Different Requesters: 10.7% | Same-Person Concession: 50–55.5%!') (visualizes both the 3x jump and Experiment 2's reciprocity proof). Inside the room, subject (1975 American Southwest campus attire: wide-collar cotton shirts, corduroy/denim jacket, flared chinos, canvas sneakers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 3-Condition Comparison Stand ('Direct Ask: 16.7% | Two Different Requesters: 10.7% | Same-Person Concession: 50–55.5%!') (visualizes both the 3x jump and Experiment 2's reciprocity proof). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the cool-slate Arizona campus walkway where two separate clipboard resea",
+        "3-Condition Comparison Stand ('Direct Ask: 16.7% | Two D"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_persuasion_data_room",
+      "location_id": "persuasion_data_room",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (persuasion_data_room: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a cool-lit psychology seminar room with a slate conference table holding three empty matte-ceramic tally trays, featuring flip-over two-stage Clipboard ('Request 1: 2 Years Weekly [0% Yes]' -> 'Concession 2: One 2-Hour Zoo Trip [50% Yes!]') (shows the immediate Big-No -> Small-Yes pivot in one physical prop). Inside the room, researcher (clinical investigator in a powder-blue shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside flip-over two-stage Clipboard ('Request 1: 2 Years Weekly [0% Yes]' -> 'Concession 2: One 2-Hour Zoo Trip [50% Yes!]') (shows the immediate Big-No -> Small-Yes pivot in one physical prop). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a cool-lit psychology seminar room with a slate conference table holding",
+        "flip-over two-stage Clipboard ('Request 1: 2 Years Weekl"
+      ]
+    }
+  ]
 }

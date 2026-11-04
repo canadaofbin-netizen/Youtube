@@ -105,7 +105,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 2,
@@ -150,7 +151,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -172,7 +174,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 5,
@@ -195,7 +198,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 6,
@@ -242,7 +246,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 8,
@@ -264,7 +269,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 9,
@@ -275,7 +281,18 @@
       "analogy_world": "a matte powder-blue turntable spinning a smooth blank lavender-gray disc in endless circles on a cool slate-gray stone counter",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in blazer cuffs hold and lift the silver tonearm off the spinning sunlit disc revealing an unmarked surface underneath",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 9
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 10,
@@ -309,7 +326,18 @@
       "analogy_world": "a single smooth powder-blue ceramic raindrop falling cleanly into a shallow cool-limestone basin",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in white coat cuffs hold a silver pipette and drop the single sunlit droplet cleanly into the basin in a split second",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 11
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 12,
@@ -331,8 +359,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 14,
@@ -355,7 +385,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 15,
@@ -376,9 +407,11 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       },
-      "clip_number": 14
+      "clip_number": 14,
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 16,
@@ -402,8 +435,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 18,
@@ -448,8 +483,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 20,
@@ -473,7 +510,8 @@
           "researcher"
         ]
       },
-      "clip_number": 18
+      "clip_number": 18,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 21,
@@ -486,7 +524,8 @@
       "anatomy_label": "PRIMARY VISUAL CORTEX\nVISION CENTER",
       "brain_scene": "a matte-sunlit 3D cortical brain model where a brief pale powder-blue flicker stays confined to the rear primary visual cortex without reaching front or deep memory hubs",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 19
+      "clip_number": 19,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 22,
@@ -508,7 +547,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 23,
@@ -556,7 +596,8 @@
           "researcher"
         ]
       },
-      "clip_number": 22
+      "clip_number": 22,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 25,
@@ -582,7 +623,8 @@
       "anatomy_label": "HIPPOCAMPUS\nMEMORY MAKER",
       "brain_scene": "a matte-sunlit sagittal cutaway brain model where luminous mint-emerald streams travel from the frontal hub into the curved deep hippocampus locking durable traces",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 24
+      "clip_number": 24,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 27,
@@ -604,7 +646,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 28,
@@ -626,7 +669,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 29,
@@ -673,7 +717,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 33,
@@ -742,7 +787,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 36,
@@ -766,7 +812,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 37,
@@ -810,7 +857,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -824,7 +872,8 @@
       "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
       "brain_scene": "a matte-sunlit 3D cortical brain model where an intense cyan-blue pulse blooms across the left prefrontal cortex on a deeply processed trial",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 35
+      "clip_number": 35,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 40,
@@ -837,7 +886,8 @@
       "anatomy_label": "HIPPOCAMPUS\nMEMORY CENTER",
       "brain_scene": "a matte-sunlit sagittal cutaway brain model where the curved deep hippocampus flares bright mint-emerald in lockstep with the frontal surge",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 36
+      "clip_number": 36,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 41,
@@ -858,7 +908,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -928,7 +979,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 46,
@@ -975,7 +1027,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 48,
@@ -996,7 +1049,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -1021,7 +1075,8 @@
           "researcher"
         ]
       },
-      "clip_number": 44
+      "clip_number": 44,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 50,
@@ -1058,7 +1113,8 @@
       "anatomy_label": "HIPPOCAMPUS\nMEMORY MAKER",
       "brain_scene": "a matte-sunlit sagittal cutaway brain model where calm cyan-blue and mint-emerald pathways lock together smoothly inside the deep hippocampus",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 46
+      "clip_number": 46,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 52,
@@ -1079,8 +1135,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 33,
@@ -1104,7 +1162,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 52,
@@ -1127,5 +1186,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "toronto_memory_bench",
+  "real_environment": "the sunlit Toronto psychology room with two side-by-side cool slate-gray testing stations prepared for a head-to-head comparison",
+  "environment_props": [
+    "three-level Encoding Question Cards (1. Font Case | 2. Rhyme Sound | 3. Sentence Meaning) (identical 200-ms word flashes differed ONLY by the question asked)",
+    "Surprise Recall Staircase Board ('17% Shallow -> 48% Rhyme -> 82% Deep Semantic')"
+  ],
+  "cast": {
+    "subject": "Early-1970s Canadian academic attire: tweed jacket over turtleneck with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "Oxford shirt and wool cardigan with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_toronto_memory_bench",
+      "location_id": "toronto_memory_bench",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (toronto_memory_bench: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunlit Toronto psychology room with two side-by-side cool slate-gray testing stations prepared for a head-to-head comparison, featuring three-level Encoding Question Cards (1. Font Case | 2. Rhyme Sound | 3. Sentence Meaning) (identical 200-ms word flashes differed ONLY by the question asked). Inside the room, researcher (Oxford shirt and wool cardigan with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-level Encoding Question Cards (1. Font Case | 2. Rhyme Sound | 3. Sentence Meaning) (identical 200-ms word flashes differed ONLY by the question asked). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the sunlit Toronto psychology room with two side-by-side cool slate-gray",
+        "three-level Encoding Question Cards (1. Font Case | 2. R"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_library_study_carrel",
+      "location_id": "library_study_carrel",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 2 (library_study_carrel: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit cool-slate modern study desk with tall morning windows, a neat stack of sunlit folders, and calm uncluttered stone workspace, featuring Surprise Recall Staircase Board ('17% Shallow -> 48% Rhyme -> 82% Deep Semantic'). Inside the room, subject (Early-1970s Canadian academic attire: tweed jacket over turtleneck with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Surprise Recall Staircase Board ('17% Shallow -> 48% Rhyme -> 82% Deep Semantic'). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a sunlit cool-slate modern study desk with tall morning windows, a neat ",
+        "Surprise Recall Staircase Board ('17% Shallow -> 48% Rhy"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_toronto_memory_bench",
+      "location_id": "toronto_memory_bench",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 3 (toronto_memory_bench: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the sunlit Toronto psychology room with two side-by-side cool slate-gray testing stations prepared for a head-to-head comparison, featuring three-level Encoding Question Cards (1. Font Case | 2. Rhyme Sound | 3. Sentence Meaning) (identical 200-ms word flashes differed ONLY by the question asked). Inside the room, subject (Early-1970s Canadian academic attire: tweed jacket over turtleneck with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-level Encoding Question Cards (1. Font Case | 2. Rhyme Sound | 3. Sentence Meaning) (identical 200-ms word flashes differed ONLY by the question asked). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the sunlit Toronto psychology room with two side-by-side cool slate-gray",
+        "three-level Encoding Question Cards (1. Font Case | 2. R"
+      ]
+    }
+  ]
 }

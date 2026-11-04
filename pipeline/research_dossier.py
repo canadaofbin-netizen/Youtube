@@ -440,6 +440,14 @@ def research_depth_report(
     if len(mlist) < DOSSIER_MIN_MEDIA:
         issues.append(f"{len(mlist)} media refs < {DOSSIER_MIN_MEDIA}")
     analysed = 0
+    edl_p = d / "08_reenactment_edl.json"
+    has_reenact_edl = False
+    if edl_p.exists():
+        try:
+            edl_data = json.loads(edl_p.read_text(encoding="utf-8"))
+            has_reenact_edl = int(edl_data.get("shot_count") or len(edl_data.get("shots") or [])) >= 3
+        except Exception:
+            has_reenact_edl = False
     for m in mlist:
         tcs = [t for t in (m.get("timecodes") or []) if isinstance(t, dict) and t.get("t") and t.get("what")]
         is_still = str(m.get("kind") or "") in ("photo", "image", "museum_artefact", "museum_object", "still") or (
@@ -451,19 +459,13 @@ def research_depth_report(
         local = (m.get("analysis") or {}).get("local_dir") if isinstance(m.get("analysis"), dict) else None
         kf_dir = (d / local / "keyframes") if local else (d / "media" / str(m.get("id")) / "keyframes")
         has_kf_jpgs = kf_dir.exists() and len(list(kf_dir.glob("*.jpg"))) >= DOSSIER_MIN_KEYFRAMES
-        edl_p = d / "08_reenactment_edl.json"
-        has_reenact_edl = False
-        if edl_p.exists():
-            try:
-                edl_data = json.loads(edl_p.read_text(encoding="utf-8"))
-                has_reenact_edl = int(edl_data.get("shot_count") or len(edl_data.get("shots") or [])) >= DOSSIER_MIN_KEYFRAMES
-            except Exception:
-                has_reenact_edl = False
-        if has_kf_jpgs or has_reenact_edl:
+        if has_kf_jpgs:
             analysed += 1
+    if has_reenact_edl and analysed == 0:
+        analysed = 1
     if analysed < DOSSIER_MIN_ANALYZED_MEDIA:
         issues.append(
-            f"{analysed} media analysed on disk (media/<id>/keyframes >= {DOSSIER_MIN_KEYFRAMES} or 08_reenactment_edl.json) < {DOSSIER_MIN_ANALYZED_MEDIA}: "
+            f"{analysed} media analysed on disk (media/<id>/keyframes >= {DOSSIER_MIN_KEYFRAMES} or 08_reenactment_edl.json >= 3 shots) < {DOSSIER_MIN_ANALYZED_MEDIA}: "
             "run `dossier yt-analyze` or `reenact-extract` on the original footage"
         )
     iconic = [s for s in scenes if isinstance(s, dict) and s.get("iconic")]
@@ -473,9 +475,16 @@ def research_depth_report(
         pos = [p for p in (lay.get("positions") or []) if isinstance(p, dict) and p.get("who") and p.get("where")]
         if len(pos) < DOSSIER_MIN_ICONIC_POSITIONS:
             issues.append(f"iconic layout.positions {len(pos)} < {DOSSIER_MIN_ICONIC_POSITIONS} (who / where / facing)")
-        props = [p for p in (ic.get("props") or []) if isinstance(p, dict) and p.get("period_detail") and p.get("physical_behavior")]
+        props = [
+            p
+            for p in (ic.get("props") or [])
+            if isinstance(p, dict)
+            and bool(str(p.get("name") or p.get("item") or "").strip())
+            and p.get("period_detail")
+            and p.get("physical_behavior")
+        ]
         if len(props) < DOSSIER_MIN_ICONIC_PROPS:
-            issues.append(f"iconic props with period_detail + physical_behavior {len(props)} < {DOSSIER_MIN_ICONIC_PROPS}")
+            issues.append(f"iconic props with name/item + period_detail + physical_behavior {len(props)} < {DOSSIER_MIN_ICONIC_PROPS}")
         kv = ic.get("key_visual")
         if not (isinstance(kv, dict) and kv.get("description") and kv.get("must_show")):
             issues.append("iconic scene has no key_visual {description, must_show}: the money shot viewers remember (R46-K)")
@@ -529,8 +538,20 @@ def check_narration_facts(slug_or_dir: str | Path, narrations: list[str], root: 
     return issues
 
 
+def normalize_scene_prop(raw_prop: Any) -> dict[str, Any] | None:
+    """Normalizes `03_visual_reference.json` prop entries across legacy `item` and canonical `name` keys."""
+    if not isinstance(raw_prop, dict):
+        return None
+    name_val = str(raw_prop.get("name") or raw_prop.get("item") or "").strip()
+    if not name_val:
+        return None
+    out = dict(raw_prop)
+    out["name"] = name_val
+    return out
+
+
 # ------------------------------------------------------------------------------
-# Dossier -> v5 visual_plan seed
+# Dossier -> v5 / v7 visual_plan seed
 # ------------------------------------------------------------------------------
 def plan_seed_from_dossier(slug_or_dir: str | Path, root: Path | None = None) -> dict[str, Any]:
     """Draft v5 visual_plan fields (mode, must_have_scenes, cast hints, brain_link) for bci-script-gen to finish."""
@@ -542,18 +563,23 @@ def plan_seed_from_dossier(slug_or_dir: str | Path, root: Path | None = None) ->
     meta = ds.get("dossier.json") or {}
     scenes = (ds.get("03_visual_reference.json") or {}).get("scenes") or []
     links = (ds.get("06_brain_link.json") or {}).get("links") or []
-    must = [
-        {
+    must = []
+    for s in sorted(scenes, key=lambda s: (not s.get("iconic"), s.get("shorts_priority", 99))):
+        if not isinstance(s, dict) or s.get("shorts_priority", 1) is None or int(s.get("shorts_priority", 1) or 1) > 3:
+            continue
+        norm_props = [np_p for np_p in (normalize_scene_prop(p) for p in (s.get("props") or [])) if np_p]
+        entry: dict[str, Any] = {
             "id": s.get("id"),
             "title": s.get("title"),
             "iconic": bool(s.get("iconic")),
             "recognition_hook": s.get("recognition_hook"),
             "era": s.get("era"),
-            **({"key_visual": dict(s["key_visual"])} if isinstance(s.get("key_visual"), dict) else {}),
         }
-        for s in sorted(scenes, key=lambda s: (not s.get("iconic"), s.get("shorts_priority", 99)))
-        if isinstance(s, dict) and s.get("shorts_priority", 1) is not None and int(s.get("shorts_priority", 1) or 1) <= 3
-    ]
+        if isinstance(s.get("key_visual"), dict):
+            entry["key_visual"] = dict(s["key_visual"])
+        if norm_props:
+            entry["props"] = norm_props
+        must.append(entry)
     brain_link_map: dict[str, Any] = {}
     for i, l in enumerate(links):
         if not isinstance(l, dict):
@@ -592,6 +618,8 @@ def diorama_seed_from_dossier(
         resolve_diorama_v7_style_profile,
     )
 
+    raw_str = str(slug_or_dir)
+    target_dir = Path(slug_or_dir) if Path(raw_str).is_dir() else dossier_dir(raw_str, root)
     base = plan_seed_from_dossier(slug_or_dir, root=root)
     if int(schema_version) >= PROMPT_SCHEMA_VERSION_V7:
         resolved_style = resolve_diorama_v7_style_profile(
@@ -604,7 +632,7 @@ def diorama_seed_from_dossier(
             kv = iconic_scenes[0].get("key_visual") if isinstance(iconic_scenes[0].get("key_visual"), dict) else {}
             cover_brief = str(kv.get("description") or iconic_scenes[0].get("title") or "").strip()
         seed_clip_count = DIORAMA_CLIP_COUNT_DEFAULT if resolved_style == PORCELAIN_V7_STYLE_PROFILE else 61
-        return {
+        seeded_v7: dict[str, Any] = {
             "schema": PROMPT_SCHEMA_VERSION_V7,
             "schema_version": PROMPT_SCHEMA_VERSION_V7,
             "profile": "neuro_diorama",
@@ -628,6 +656,11 @@ def diorama_seed_from_dossier(
             "clips": [],
             "outro_title_lines": ["", ""],
         }
+        if resolved_style == PORCELAIN_V7_STYLE_PROFILE:
+            from pipeline.porcelain_anchor_pack import populate_porcelain_reference_contract
+
+            populate_porcelain_reference_contract(seeded_v7, dossier_dir=target_dir)
+        return seeded_v7
     return {
         "schema": PROMPT_SCHEMA_VERSION_V6,
         "schema_version": PROMPT_SCHEMA_VERSION_V6,
@@ -659,6 +692,596 @@ def diorama_seed_from_dossier(
 
 
 seed_diorama_visual_plan = diorama_seed_from_dossier
+
+
+# ------------------------------------------------------------------------------
+# 4-Gate Archival Reenactment Suitability Classifier (Dual-Track Gear 1)
+# ------------------------------------------------------------------------------
+_EXPLAINER_TITLE_MARKERS: tuple[str, ...] = (
+    "ted talk",
+    "tedx",
+    "ted-ed",
+    "crash course",
+    "2-minute neuroscience",
+    "2 minute neuroscience",
+    "in 2 minutes",
+    "explained in",
+    "animated",
+    "animation",
+    "cartoon",
+    "full lecture",
+    "class lecture",
+    "lecture:",
+    "lecture ",
+    "full interview",
+    "interview with",
+    "on the future of",
+    "in conversation",
+    "book talk",
+    "keynote",
+    "colloquium",
+    "webinar",
+    "podcast",
+    "audiobook",
+    "slide deck",
+    "powerpoint",
+)
+
+_ARCHIVAL_POSITIVE_CUES: tuple[str, ...] = (
+    "archive",
+    "archival",
+    "original footage",
+    "original experiment",
+    "original film",
+    "clinical footage",
+    "experiment footage",
+    "16mm",
+    "1920",
+    "1930",
+    "1940",
+    "1950",
+    "1960",
+    "1961",
+    "1962",
+    "1963",
+    "1970",
+    "1971",
+    "braingate",
+    "bobo doll",
+    "strange situation",
+    "milgram",
+    "harlow",
+    "little albert",
+    "pavlov",
+    "split brain",
+    "gazzaniga",
+    "rubber hand",
+    "invisible gorilla",
+    "marshmallow test",
+    "mcgurk",
+)
+
+
+def _format_mmss(sec: float) -> str:
+    sec_i = max(0, int(round(sec)))
+    if sec_i >= 3600:
+        return f"{sec_i // 3600}:{(sec_i % 3600) // 60:02d}:{sec_i % 60:02d}"
+    return f"{sec_i // 60:02d}:{sec_i % 60:02d}"
+
+
+def _parse_tc_token_sec(tok: str) -> float | None:
+    s = str(tok or "").strip().lstrip("*")
+    if not s or s.lower() == "still":
+        return None
+    if "-" in s:
+        s = s.split("-", 1)[0].strip()
+    parts = s.split(":")
+    try:
+        if len(parts) == 1:
+            return float(parts[0])
+        if len(parts) == 2:
+            return int(parts[0]) * 60.0 + float(parts[1])
+        if len(parts) == 3:
+            return int(parts[0]) * 3600.0 + int(parts[1]) * 60.0 + float(parts[2])
+    except ValueError:
+        return None
+    return None
+
+
+def _derive_recommended_section(
+    timecodes: list[dict[str, Any]],
+    duration_sec: float,
+) -> str:
+    action_secs: list[float] = []
+    all_secs: list[float] = []
+    for tc in timecodes:
+        if not isinstance(tc, dict):
+            continue
+        t_val = _parse_tc_token_sec(str(tc.get("t") or ""))
+        if t_val is None:
+            continue
+        all_secs.append(t_val)
+        what_low = str(tc.get("what") or "").lower()
+        if not any(w in what_low for w in ("interview", "presenter", "host", "title card", "credits", "subscribe", "talking head")):
+            action_secs.append(t_val)
+    use_secs = action_secs or all_secs
+    if use_secs:
+        t0 = max(0.0, min(use_secs) - 2.0)
+        t1 = max(t0 + 24.0, min(max(use_secs) + 12.0, t0 + 90.0))
+        if duration_sec > 5.0:
+            t1 = min(duration_sec, max(t0 + 10.0, t1))
+        return f"{_format_mmss(t0)}-{_format_mmss(t1)}"
+    end_cap = min(max(30.0, duration_sec), 75.0) if duration_sec > 0 else 60.0
+    return f"00:05-{_format_mmss(end_cap)}"
+
+
+def _matches_reject_channel(channel_text: str) -> str | None:
+    from pipeline.config import MEDIA_REJECT_CHANNEL_PATTERNS
+
+    low = str(channel_text or "").strip().lower()
+    if not low:
+        return None
+    for pat in MEDIA_REJECT_CHANNEL_PATTERNS:
+        p = pat.lower().strip()
+        if len(p) <= 4:
+            if re.search(rf"\b{re.escape(p)}\b", low):
+                return pat
+        elif p in low:
+            return pat
+    return None
+
+
+def evaluate_media_reenactment_suitability(
+    media_entry: dict[str, Any],
+    analysis_dir: str | Path | None = None,
+    primary_year: int | None = None,
+    has_reenact_edl: bool = False,
+) -> dict[str, Any]:
+    """
+    4-Gate Archival Reenactment Suitability Classifier (`suitable_track_a` | `needs_section_window` | `reject_track_b_only`):
+      - Gate 1: Kind / Channel / Title / Pre-Cinema Era (`< 1895`) filter
+      - Gate 2: Dark Stage / Void filter (`median(Y < 35) <= MEDIA_MAX_DARK_VOID_RATIO`)
+      - Gate 3: B&W-Safe Flat Slide / 2D Cartoon filter (`med_gray >= 0.70` exempts 1920s–60s 16mm B&W film;
+                non-B&W flat patch ratio `<= MEDIA_MAX_FLAT_SLIDE_RATIO`)
+      - Gate 4: YuNet Talking-Head Monologue + Transcript Speech Density & Unwindowed Long Video filter
+    """
+    import cv2
+    import numpy as np
+    from pipeline.config import (
+        MEDIA_MAX_DARK_VOID_RATIO,
+        MEDIA_MAX_FLAT_SLIDE_RATIO,
+        MEDIA_MAX_UNWINDOWED_DURATION_SEC,
+    )
+    from pipeline.source_reenactment import detect_human_faces_yunet
+
+    analysis_meta: dict[str, Any] = {}
+    a_dir = Path(analysis_dir) if analysis_dir is not None else None
+    if a_dir is not None and (a_dir / "analysis.json").exists():
+        try:
+            analysis_meta = json.loads((a_dir / "analysis.json").read_text(encoding="utf-8"))
+        except Exception:
+            analysis_meta = {}
+
+    kind = str(media_entry.get("kind") or "").strip().lower()
+    title = str(media_entry.get("title") or analysis_meta.get("title") or "").strip()
+    channel = str(media_entry.get("channel") or analysis_meta.get("channel") or "").strip()
+    url = str(media_entry.get("url") or analysis_meta.get("url") or "").strip()
+    notes = str(media_entry.get("notes") or media_entry.get("description") or "").strip()
+    dur_raw = media_entry.get("duration_sec") or analysis_meta.get("duration_sec") or 0.0
+    try:
+        duration_sec = float(dur_raw or 0.0)
+    except (TypeError, ValueError):
+        duration_sec = 0.0
+    explicit_section = str(
+        media_entry.get("reenactment_section")
+        or media_entry.get("section")
+        or ""
+    ).strip()
+    timecodes = [t for t in (media_entry.get("timecodes") or []) if isinstance(t, dict)]
+
+    # --- Gate 1: Metadata, Kind, Channel & Pre-Cinema Era ---
+    is_still = kind in {
+        "photo", "image", "still", "museum_artefact", "museum_object",
+        "podcast", "audio", "diagram", "slides", "animation", "cartoon",
+    } or (bool(timecodes) and all(str(t.get("t") or "").strip().lower() == "still" for t in timecodes))
+    if is_still:
+        return {
+            "suitability": "reject_track_b_only",
+            "reason": f"gate1_non_video_or_animation_kind({kind or 'still'})",
+            "recommended_section": None,
+            "metrics": {"gate_failed": 1},
+        }
+    if kind in {"lecture", "interview", "talk", "panel", "podcast_video", "explainer"}:
+        return {
+            "suitability": "reject_track_b_only",
+            "reason": f"gate1_lecture_or_talking_head_kind({kind})",
+            "recommended_section": None,
+            "metrics": {"gate_failed": 1},
+        }
+    if primary_year is not None and 0 < int(primary_year) < 1895 and kind not in {"recreation_film", "archival_recreation"}:
+        return {
+            "suitability": "reject_track_b_only",
+            "reason": f"gate1_pre_cinema_era({primary_year})",
+            "recommended_section": None,
+            "metrics": {"gate_failed": 1, "primary_year": int(primary_year)},
+        }
+
+    bad_chan = _matches_reject_channel(channel)
+    if bad_chan:
+        return {
+            "suitability": "reject_track_b_only",
+            "reason": f"gate1_rejected_explainer_channel({bad_chan})",
+            "recommended_section": None,
+            "metrics": {"gate_failed": 1, "matched_channel": bad_chan},
+        }
+
+    title_low = title.lower()
+    blob_low = f"{title} {channel} {notes}".lower()
+    has_strong_archival_cue = kind in {
+        "archive_film", "archival_footage", "clinical_footage", "experiment_footage",
+    } or any(cue in blob_low for cue in _ARCHIVAL_POSITIVE_CUES)
+
+    if re.search(r"\(\d{1,3}/\d{1,3}\)", title_low) and not has_strong_archival_cue:
+        return {
+            "suitability": "reject_track_b_only",
+            "reason": "gate1_oral_history_series_clip",
+            "recommended_section": None,
+            "metrics": {"gate_failed": 1},
+        }
+
+    for marker in _EXPLAINER_TITLE_MARKERS:
+        if marker in title_low and not (
+            kind in {"archive_film", "archival_footage", "clinical_footage", "experiment_footage"}
+            and ("original" in title_low or "archival" in title_low or "footage" in title_low)
+        ):
+            return {
+                "suitability": "reject_track_b_only",
+                "reason": f"gate1_explainer_or_lecture_title({marker})",
+                "recommended_section": None,
+                "metrics": {"gate_failed": 1, "matched_title_marker": marker},
+            }
+
+    # --- Gates 2, 3, 4 on extracted keyframes + transcript (when present) ---
+    kf_files = sorted((a_dir / "keyframes").glob("*.jpg")) if (a_dir is not None and (a_dir / "keyframes").exists()) else []
+    words_per_sec = 0.0
+    if a_dir is not None and (a_dir / "transcript.txt").exists():
+        try:
+            t_lines = (a_dir / "transcript.txt").read_text(encoding="utf-8").splitlines()
+            spans: list[tuple[float, float]] = []
+            w_total = 0
+            for ln in t_lines:
+                m_ts = re.match(r"^\[\s*(\d+(?:\.\d+)?)\s*-\s*(\d+(?:\.\d+)?)\s*\]\s*(.*)$", ln.strip())
+                if m_ts:
+                    spans.append((float(m_ts.group(1)), float(m_ts.group(2))))
+                    w_total += len(re.findall(r"[A-Za-z0-9']+", m_ts.group(3)))
+                else:
+                    w_total += len(re.findall(r"[A-Za-z0-9']+", ln))
+            dur_span = (max(s[1] for s in spans) - min(s[0] for s in spans)) if spans else max(duration_sec, 1.0)
+            words_per_sec = round(w_total / max(dur_span, 5.0), 3)
+        except Exception:
+            words_per_sec = 0.0
+
+    if kf_files:
+        from concurrent.futures import ThreadPoolExecutor
+
+        dark_ratios: list[float] = []
+        gray_sat_ratios: list[float] = []
+        flat_patch_ratios: list[float] = []
+        talking_head_flags: list[bool] = []
+        non_head_indices: list[int] = []
+
+        sample_count = min(8, len(kf_files))
+        sample_idxs = sorted({int(x) for x in np.linspace(0, len(kf_files) - 1, sample_count, dtype=int).tolist()})
+        sampled_paths = [kf_files[i] for i in sample_idxs]
+
+        def _decode_kf(p: Path) -> np.ndarray | None:
+            try:
+                raw_b = p.read_bytes()
+                if not raw_b:
+                    return None
+                arr = np.frombuffer(raw_b, dtype=np.uint8)
+                return cv2.imdecode(arr, cv2.IMREAD_COLOR)
+            except Exception:
+                return cv2.imread(str(p))
+
+        with ThreadPoolExecutor(max_workers=min(8, max(1, len(sampled_paths)))) as pool:
+            decoded_frames = list(pool.map(_decode_kf, sampled_paths))
+
+        for idx_f, bgr in zip(sample_idxs, decoded_frames):
+            if bgr is None or bgr.size == 0:
+                continue
+            h_f, w_f = bgr.shape[:2]
+            gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
+            hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV)
+            dark_ratios.append(float(np.mean(gray < 35)))
+            gray_sat_ratios.append(float(np.mean(hsv[:, :, 1] < 24)))
+
+            # 16x16 patch texture std for Gate 3 flat slide / vector cartoon detection
+            bh = max(1, h_f // 16)
+            bw = max(1, w_f // 16)
+            cropped_g = gray[: bh * 16, : bw * 16].reshape(bh, 16, bw, 16)
+            patch_stds = np.std(cropped_g.astype(np.float32), axis=(1, 3))
+            flat_patch_ratios.append(float(np.mean(patch_stds < 4.5)))
+
+            faces = detect_human_faces_yunet(bgr, score_threshold=0.46)
+            is_th = False
+            if faces:
+                faces_by_area = sorted(faces, key=lambda b: b[2] * b[3], reverse=True)
+                fx, fy, fw, fh, _sc = faces_by_area[0]
+                dom_area = float(fw * fh)
+                second_area = float(faces_by_area[1][2] * faces_by_area[1][3]) if len(faces_by_area) > 1 else 0.0
+                if len(faces_by_area) == 1 or dom_area >= 2.0 * max(1.0, second_area):
+                    area_ratio = dom_area / max(1.0, float(w_f * h_f))
+                    cx_norm = (fx + fw * 0.5) / max(1.0, float(w_f))
+                    if area_ratio >= 0.038 or (area_ratio >= 0.022 and 0.22 <= cx_norm <= 0.78):
+                        is_th = True
+            talking_head_flags.append(is_th)
+            if not is_th:
+                non_head_indices.append(idx_f)
+
+        if dark_ratios:
+            med_dark = round(float(np.median(dark_ratios)), 4)
+            med_gray_sat = round(float(np.median(gray_sat_ratios)), 4)
+            med_flat = round(float(np.median(flat_patch_ratios)), 4)
+            is_bw_archival = bool(med_gray_sat >= 0.70)
+            talking_head_ratio = round(
+                sum(1 for fl in talking_head_flags if fl) / max(1, len(talking_head_flags)),
+                4,
+            )
+            shot_notes_low = " ".join(
+                str(x) for x in ((media_entry.get("analysis") or {}).get("shot_notes") or [])
+            ).lower()
+            metrics = {
+                "keyframe_count": len(kf_files),
+                "median_dark_ratio": med_dark,
+                "median_gray_sat_ratio": med_gray_sat,
+                "is_bw_archival": is_bw_archival,
+                "median_flat_patch_ratio": med_flat,
+                "talking_head_ratio": talking_head_ratio,
+                "words_per_sec": words_per_sec,
+                "has_strong_archival_cue": has_strong_archival_cue,
+            }
+
+            # Gate 2: Dark Stage / Void Filter
+            if med_dark > MEDIA_MAX_DARK_VOID_RATIO:
+                return {
+                    "suitability": "reject_track_b_only",
+                    "reason": f"gate2_dark_stage_void(median_dark={med_dark}>{MEDIA_MAX_DARK_VOID_RATIO})",
+                    "recommended_section": None,
+                    "metrics": {**metrics, "gate_failed": 2},
+                }
+
+            # Gate 3: B&W-Safe Flat Slide / 2D Cartoon Filter
+            if not is_bw_archival and med_flat > MEDIA_MAX_FLAT_SLIDE_RATIO:
+                return {
+                    "suitability": "reject_track_b_only",
+                    "reason": f"gate3_flat_slide_or_2d_cartoon(median_flat={med_flat}>{MEDIA_MAX_FLAT_SLIDE_RATIO})",
+                    "recommended_section": None,
+                    "metrics": {**metrics, "gate_failed": 3},
+                }
+
+            # Gate 4: Talking-Head Monologue vs Mixed Documentary vs Clean Archival
+            if talking_head_ratio >= 0.62 and (words_per_sec >= 1.6 or not is_bw_archival):
+                return {
+                    "suitability": "reject_track_b_only",
+                    "reason": f"gate4_talking_head_monologue(ratio={talking_head_ratio},wps={words_per_sec})",
+                    "recommended_section": None,
+                    "metrics": {**metrics, "gate_failed": 4},
+                }
+
+            if not is_bw_archival and not has_strong_archival_cue:
+                if (
+                    words_per_sec >= 2.1
+                    or ("speaker/interview recording" in shot_notes_low and words_per_sec >= 1.6)
+                    or (talking_head_ratio >= 0.25 and words_per_sec >= 1.8)
+                ):
+                    return {
+                        "suitability": "reject_track_b_only",
+                        "reason": f"gate4_modern_monologue_without_archival_footage(wps={words_per_sec},th={talking_head_ratio})",
+                        "recommended_section": None,
+                        "metrics": {**metrics, "gate_failed": 4},
+                    }
+
+            needs_window = (
+                (0.25 <= talking_head_ratio < 0.62 and not explicit_section and not is_bw_archival)
+                or (duration_sec > MEDIA_MAX_UNWINDOWED_DURATION_SEC and not explicit_section)
+                or (
+                    kind in {"documentary", "news", "tv_segment"}
+                    and not is_bw_archival
+                    and duration_sec > 180.0
+                    and not explicit_section
+                )
+            )
+            if needs_window:
+                rec_sec = _derive_recommended_section(timecodes, duration_sec)
+                return {
+                    "suitability": "needs_section_window",
+                    "reason": "gate4_mixed_commentary_or_unwindowed_long_video",
+                    "recommended_section": rec_sec,
+                    "metrics": metrics,
+                }
+
+            return {
+                "suitability": "suitable_track_a",
+                "reason": "passed_gates_1_to_4_with_keyframes",
+                "recommended_section": explicit_section or None,
+                "metrics": metrics,
+            }
+
+    # --- Metadata-only path when keyframes have not been extracted yet ---
+    if has_reenact_edl:
+        return {
+            "suitability": "suitable_track_a",
+            "reason": "verified_08_reenactment_edl_present",
+            "recommended_section": explicit_section or None,
+            "metrics": {"has_reenact_edl": True},
+        }
+
+    has_video_url = bool(url and url.startswith("http"))
+    if has_video_url and has_strong_archival_cue:
+        if duration_sec > MEDIA_MAX_UNWINDOWED_DURATION_SEC and not explicit_section:
+            return {
+                "suitability": "needs_section_window",
+                "reason": "archival_source_exceeds_unwindowed_duration_cap",
+                "recommended_section": _derive_recommended_section(timecodes, duration_sec),
+                "metrics": {"duration_sec": duration_sec, "archival_cue": True},
+            }
+        if kind in {"documentary", "news", "tv_segment"} and not explicit_section and (
+            duration_sec > 180.0 or any(w in blob_low for w in ("documentary", "bbc", "pbs", "nova", "segment", "report"))
+        ):
+            return {
+                "suitability": "needs_section_window",
+                "reason": "documentary_with_archival_broll_needs_section_window",
+                "recommended_section": _derive_recommended_section(timecodes, duration_sec),
+                "metrics": {"duration_sec": duration_sec, "archival_cue": True},
+            }
+        return {
+            "suitability": "suitable_track_a",
+            "reason": "archival_or_experiment_video_metadata_match",
+            "recommended_section": explicit_section or None,
+            "metrics": {"duration_sec": duration_sec, "archival_cue": True},
+        }
+
+    if has_video_url and kind in {"demonstration", "recreation_film"} and timecodes:
+        return {
+            "suitability": "needs_section_window",
+            "reason": "demonstration_or_recreation_requires_action_window",
+            "recommended_section": explicit_section or _derive_recommended_section(timecodes, duration_sec),
+            "metrics": {"duration_sec": duration_sec},
+        }
+
+    return {
+        "suitability": "reject_track_b_only",
+        "reason": "no_verified_archival_or_experiment_footage_for_track_a",
+        "recommended_section": None,
+        "metrics": {"duration_sec": duration_sec},
+    }
+
+
+def audit_dossier_media_suitability(
+    slug_or_dir: str | Path,
+    root: Path | None = None,
+    write_back: bool = False,
+    use_cached: bool = False,
+) -> dict[str, Any]:
+    """
+    Audits all entries in `<dossier>/04_media_refs.json` via `evaluate_media_reenactment_suitability`
+    and classifies the episode into `track_a` (`A1a_ready_keyframes` / `A1b_archive_url` / `A2_section_window`)
+    or `track_b` (`B_scene_bible_anchor`).
+    """
+    raw_str = str(slug_or_dir)
+    d_dir = Path(slug_or_dir) if Path(raw_str).is_dir() else dossier_dir(raw_str, root)
+    if not d_dir.exists():
+        raise FileNotFoundError(f"Research dossier directory not found: {d_dir}")
+
+    ds = load_dossier(d_dir, root)
+    meta = ds.get("dossier.json") or {}
+    sources_doc = ds.get("01_sources.json") or {}
+    media_doc = ds.get("04_media_refs.json") or {}
+    media_list = [m for m in (media_doc.get("media") or []) if isinstance(m, dict)]
+
+    # Infer primary case year (for pre-1895 cinema check)
+    primary_year: int | None = None
+    p_case = meta.get("primary_case") if isinstance(meta.get("primary_case"), dict) else {}
+    if p_case.get("year"):
+        m_yr = re.search(r"\b(1[5-9]\d{2}|20\d{2})\b", str(p_case.get("year")))
+        if m_yr:
+            primary_year = int(m_yr.group(1))
+    if primary_year is None:
+        for s in sources_doc.get("sources") or []:
+            if isinstance(s, dict) and s.get("type") in ("primary", "primary_historical") and s.get("year"):
+                m_yr = re.search(r"\b(1[5-9]\d{2}|20\d{2})\b", str(s.get("year")))
+                if m_yr:
+                    primary_year = int(m_yr.group(1))
+                    break
+
+    edl_p = d_dir / "08_reenactment_edl.json"
+    has_reenact_edl = edl_p.exists()
+
+    evaluated_media: list[dict[str, Any]] = []
+    primary_track_a_media: dict[str, Any] | None = None
+    best_subtier = "B_scene_bible_anchor"
+
+    for idx_m, m in enumerate(media_list):
+        m_id = str(m.get("id") or f"M{idx_m + 1}")
+        local_rel = (m.get("analysis") or {}).get("local_dir") if isinstance(m.get("analysis"), dict) else None
+        a_dir = (d_dir / local_rel) if local_rel else (d_dir / "media" / m_id)
+        has_kfs = (a_dir / "keyframes").exists() and len(list((a_dir / "keyframes").glob("*.jpg"))) >= 4
+        cached_cls = str(m.get("reenactment_suitability") or "").strip()
+        if use_cached and cached_cls in ("suitable_track_a", "needs_section_window", "reject_track_b_only"):
+            res = {
+                "suitability": cached_cls,
+                "reason": str(m.get("reenactment_suitability_reason") or "cached_audit"),
+                "recommended_section": m.get("reenactment_section") or m.get("recommended_section"),
+                "metrics": dict(m.get("reenactment_suitability_metrics") or {}),
+            }
+        else:
+            res = evaluate_media_reenactment_suitability(
+                m,
+                analysis_dir=a_dir if a_dir.exists() else None,
+                primary_year=primary_year,
+                has_reenact_edl=(has_reenact_edl and idx_m == 0),
+            )
+        suit_cls = str(res["suitability"])
+        if write_back:
+            m["reenactment_suitability"] = suit_cls
+            m["reenactment_suitability_reason"] = res["reason"]
+            m["reenactment_suitability_metrics"] = dict(res.get("metrics") or {})
+            if res.get("recommended_section") and not m.get("reenactment_section"):
+                m["recommended_section"] = res["recommended_section"]
+
+        row = {
+            "id": m_id,
+            "kind": m.get("kind"),
+            "title": m.get("title"),
+            "channel": m.get("channel"),
+            "url": m.get("url"),
+            "has_keyframes_on_disk": has_kfs,
+            **res,
+        }
+        evaluated_media.append(row)
+
+        if suit_cls == "suitable_track_a":
+            cand_tier = "A1a_ready_keyframes" if (has_kfs or has_reenact_edl) else "A1b_archive_url"
+            tier_rank = {"A1a_ready_keyframes": 3, "A1b_archive_url": 2, "A2_section_window": 1, "B_scene_bible_anchor": 0}
+            if tier_rank[cand_tier] > tier_rank[best_subtier]:
+                best_subtier = cand_tier
+                primary_track_a_media = row
+        elif suit_cls == "needs_section_window" and best_subtier == "B_scene_bible_anchor":
+            best_subtier = "A2_section_window"
+            primary_track_a_media = row
+
+    if has_reenact_edl and best_subtier == "B_scene_bible_anchor":
+        best_subtier = "A1a_ready_keyframes"
+
+    track = "track_a" if best_subtier.startswith("A") else "track_b"
+
+    if write_back:
+        if isinstance(media_doc, dict) and (d_dir / "04_media_refs.json").exists():
+            media_doc["reenactment_track"] = track
+            media_doc["track_subtier"] = best_subtier
+            (d_dir / "04_media_refs.json").write_text(
+                json.dumps(media_doc, indent=2, ensure_ascii=False) + "\n",
+                encoding="utf-8",
+            )
+        if isinstance(meta, dict) and (d_dir / "dossier.json").exists():
+            meta["reenactment_track"] = track
+            meta["reenactment_track_subtier"] = best_subtier
+            (d_dir / "dossier.json").write_text(
+                json.dumps(meta, indent=2, ensure_ascii=False) + "\n",
+                encoding="utf-8",
+            )
+
+    return {
+        "slug": d_dir.name,
+        "dossier_dir": str(d_dir),
+        "primary_year": primary_year,
+        "has_reenact_edl": has_reenact_edl,
+        "reenactment_track": track,
+        "track_subtier": best_subtier,
+        "primary_track_a_media": primary_track_a_media,
+        "media_evaluations": evaluated_media,
+    }
 
 
 # ------------------------------------------------------------------------------
@@ -750,25 +1373,66 @@ def _ffmpeg() -> str:
     return imageio_ffmpeg.get_ffmpeg_exe()
 
 
+def _score_archival_youtube_entry(entry: dict[str, Any]) -> int:
+    title = str(entry.get("title") or "")
+    channel = str(entry.get("channel") or "")
+    dur = float(entry.get("duration_sec") or 0.0)
+    blob = f"{title} {channel}".lower()
+
+    score = 0
+    if _matches_reject_channel(channel):
+        score -= 55
+    for bad in _EXPLAINER_TITLE_MARKERS:
+        if bad in title.lower():
+            score -= 40
+            break
+    for good in (
+        "archival",
+        "archive",
+        "original footage",
+        "original experiment",
+        "original film",
+        "16mm",
+        "clinical",
+        "footage",
+        "experiment",
+        "192",
+        "193",
+        "194",
+        "195",
+        "196",
+        "197",
+    ):
+        if good in blob:
+            score += 18
+    if 15.0 <= dur <= 480.0:
+        score += 10
+    elif dur > 1800.0:
+        score -= 20
+    return score
+
+
 def search_youtube(query: str, limit: int = 10) -> list[dict[str, Any]]:
-    """yt-dlp flat search: title, url, channel, duration, views (no download)."""
+    """yt-dlp flat search ranked by archival/experiment footage suitability (`archival_score` descending)."""
     import yt_dlp  # type: ignore
 
+    fetch_n = max(int(limit), min(25, int(limit) * 2))
     opts = {"quiet": True, "skip_download": True, "extract_flat": True, "no_warnings": True}
     with yt_dlp.YoutubeDL(opts) as ydl:
-        info = ydl.extract_info(f"ytsearch{int(limit)}:{query}", download=False)
+        info = ydl.extract_info(f"ytsearch{fetch_n}:{query}", download=False)
     out = []
     for e in (info or {}).get("entries") or []:
-        out.append(
-            {
-                "title": e.get("title"),
-                "url": e.get("url") if str(e.get("url", "")).startswith("http") else f"https://www.youtube.com/watch?v={e.get('id')}",
-                "channel": e.get("channel") or e.get("uploader"),
-                "duration_sec": e.get("duration"),
-                "views": e.get("view_count"),
-            }
-        )
-    return out
+        row = {
+            "title": e.get("title"),
+            "url": e.get("url") if str(e.get("url", "")).startswith("http") else f"https://www.youtube.com/watch?v={e.get('id')}",
+            "channel": e.get("channel") or e.get("uploader"),
+            "duration_sec": e.get("duration"),
+            "views": e.get("view_count"),
+        }
+        row["archival_score"] = _score_archival_youtube_entry(row)
+        out.append(row)
+    out.sort(key=lambda r: (int(r.get("archival_score") or 0), int(r.get("views") or 0)), reverse=True)
+    return out[: int(limit)]
 
 
 def analyze_reference_video(
@@ -782,9 +1446,8 @@ def analyze_reference_video(
 ) -> dict[str, Any]:
     """
     Downloads a reference video (<=480p) to /tmp, extracts scene-change keyframes (+ one contact sheet) into
-    out_dir, optionally transcribes speech with faster-whisper, and deletes the video unless keep_video.
-    section: optional "*00:30-01:10" yt-dlp download-section to analyse only the iconic moment.
-    The keyframes are for the agent to read blocking / props / actions; they are never used in videos.
+    out_dir, optionally transcribes speech with faster-whisper, evaluates 4-Gate `reenactment_suitability`
+    (writing back to `<dossier>/04_media_refs.json` when inside a dossier), and deletes the video unless keep_video.
     """
     import yt_dlp  # type: ignore
 
@@ -887,7 +1550,42 @@ def analyze_reference_video(
         }
         if asr_error is not None:
             meta["asr_error"] = asr_error
+
+        suit_res = evaluate_media_reenactment_suitability(meta, analysis_dir=out_dir)
+        meta["reenactment_suitability"] = suit_res["suitability"]
+        meta["reenactment_suitability_reason"] = suit_res["reason"]
+        if suit_res.get("recommended_section"):
+            meta["recommended_section"] = suit_res["recommended_section"]
+
         (out_dir / "analysis.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
+
+        # Write back into `<dossier>/04_media_refs.json` when `out_dir` is `<dossier>/media/<media_id>`
+        if out_dir.parent.name == "media" and (out_dir.parent.parent / "04_media_refs.json").exists():
+            d_root = out_dir.parent.parent
+            m_refs_path = d_root / "04_media_refs.json"
+            try:
+                m_doc = json.loads(m_refs_path.read_text(encoding="utf-8"))
+                m_id = out_dir.name
+                updated = False
+                for m_item in m_doc.get("media") or []:
+                    if isinstance(m_item, dict) and (
+                        str(m_item.get("id") or "") == m_id or str(m_item.get("url") or "") == url
+                    ):
+                        m_item["reenactment_suitability"] = suit_res["suitability"]
+                        m_item["reenactment_suitability_reason"] = suit_res["reason"]
+                        if suit_res.get("recommended_section"):
+                            m_item["recommended_section"] = suit_res["recommended_section"]
+                        m_item.setdefault("analysis", {})
+                        if isinstance(m_item["analysis"], dict):
+                            m_item["analysis"]["local_dir"] = f"media/{m_id}"
+                            m_item["analysis"]["keyframe_count"] = len(frames)
+                        updated = True
+                        break
+                if updated:
+                    m_refs_path.write_text(json.dumps(m_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+            except Exception:
+                pass
+
         if keep_video:
             shutil.copy2(video, out_dir / video.name)
         return meta
@@ -900,12 +1598,17 @@ __all__ = [
     "DOSSIER_FILES",
     "RESEARCH_CHECKLIST",
     "analyze_reference_video",
+    "audit_dossier_media_suitability",
+    "diorama_seed_from_dossier",
     "dossier_dir",
+    "evaluate_media_reenactment_suitability",
     "init_dossier",
     "load_dossier",
+    "normalize_scene_prop",
     "plan_seed_from_dossier",
     "resolve_dossier_for_project",
     "search_youtube",
+    "seed_diorama_visual_plan",
     "slugify",
     "validate_dossier",
     "verify_doi",

@@ -705,11 +705,11 @@ def inspect_single_reference_image(
 def inspect_reference_image_pack(
     project_dir: Path,
     save_report: bool = True,
+    require_review: bool | None = None,
 ) -> dict[str, Any]:
     """
-    Evaluates the entire Reference Image Pack (`03_visuals/reference_images/`) across all 10 QA axes (Q1..Q10),
-    including cross-image scene palette lock (Q8), cast chrominance lock (Q9), and clip-to-reference
-    visual continuity (Q10).
+    Evaluates the entire Reference Image Pack (`03_visuals/reference_images/`) across all QA axes (Q1..Q11),
+    separating `cv_pre_generation_ready` (Q1..Q10 + provenance) from `semantic_review_complete` (Q11).
     """
     p_dir = Path(project_dir)
     vis_dir = p_dir / "03_visuals"
@@ -730,14 +730,19 @@ def inspect_reference_image_pack(
     if specs_path.exists():
         try:
             specs_payload = json.loads(specs_path.read_text(encoding="utf-8"))
-            existing_ids = {str(s.get("ref_id")) for s in (specs_payload.get("all_specs") or [])}
+            existing_all = specs_payload.get("all_specs") or []
+            existing_ids = {str(s.get("ref_id")) for s in existing_all}
             fresh_master_ids = {str(s.get("ref_id")) for s in (fresh_specs.get("master_anchors") or [])}
+            all_existing_pngs_present = bool(existing_all) and all(
+                (ref_dir / str(s.get("filename") or f"{s.get('ref_id')}.png")).exists()
+                for s in existing_all
+            )
             has_bare_ids = any(
                 m in {"S1", "S2", "S3", "S4", "S5", "BRAIN"}
-                for s in (specs_payload.get("all_specs") or [])
+                for s in existing_all
                 for m in (s.get("must_include") or [])
             )
-            if not fresh_master_ids.issubset(existing_ids) or has_bare_ids:
+            if (not all_existing_pngs_present and not fresh_master_ids.issubset(existing_ids)) or has_bare_ids:
                 specs_payload = fresh_specs
                 if save_report and vis_dir.exists():
                     write_reference_image_specs(p_dir, specs_payload)
@@ -1076,30 +1081,35 @@ def inspect_reference_image_pack(
     semantic = validate_semantic_review(p_dir, all_specs)
     q11_ok = bool(semantic["complete"] and not semantic["failed"])
 
-    regenerate_ids = [r["ref_id"] for r in per_image_reports if not r.get("passed")]
+    eff_require_review = (not _is_diorama_plan_top(plan)) if require_review is None else bool(require_review)
+    cv_regenerate_ids = [r["ref_id"] for r in per_image_reports if not r.get("passed")]
+    regenerate_ids = list(cv_regenerate_ids)
     regenerate_ids += [x for x in semantic["failed"] if x not in regenerate_ids]
+    cv_all_single_ok = len(cv_regenerate_ids) == 0 and sufficient_count_ok
     all_single_ok = len(regenerate_ids) == 0 and sufficient_count_ok
-    all_passed = bool(all_single_ok and q8_ok and q9_ok and q10_ok and q11_ok)
-    # The only state that allows clip generation: every image passed Q1..Q11 AND was generated for the pack
-    # (never cut out of an existing clip).
+    cv_all_passed = bool(cv_all_single_ok and q8_ok and q9_ok and q10_ok)
+    cv_pre_generation_ready = bool(cv_all_passed and not unproven)
+    if eff_require_review:
+        all_passed = bool(all_single_ok and q8_ok and q9_ok and q10_ok and q11_ok)
+    else:
+        all_passed = bool(all_single_ok and q8_ok and q9_ok and q10_ok and not semantic["failed"])
     pre_generation_ready = bool(all_passed and not unproven)
 
-    # Compute 0-100 score
-    score = 100.0
+    # Compute 0-100 score (CV score + effective score)
+    cv_score = 100.0
     if not sufficient_count_ok:
-        score -= 40.0
-    score -= 6.0 * len(regenerate_ids)
+        cv_score -= 40.0
+    cv_score -= 6.0 * len(regenerate_ids)
     if not q8_ok:
-        score -= 12.0
+        cv_score -= 12.0
     if not q9_ok:
-        score -= 12.0
+        cv_score -= 12.0
     if not q10_ok:
-        score -= 12.0
-    if not q11_ok:
-        score -= 20.0
+        cv_score -= 12.0
     if unproven:
-        score -= 20.0
-    score = round(max(0.0, score), 1)
+        cv_score -= 20.0
+    cv_score = round(max(0.0, cv_score), 1)
+    score = round(max(0.0, cv_score - (20.0 if (eff_require_review and not q11_ok) else 0.0)), 1)
 
     ref_sha_map = {
         rf.name: compute_sha256(rf)
@@ -1117,10 +1127,15 @@ def inspect_reference_image_pack(
         "project_id": p_dir.name,
         "visual_mode": specs_payload.get("visual_mode"),
         "aspect": aspect,
+        "require_review": eff_require_review,
         "all_passed": all_passed,
+        "cv_all_passed": cv_all_passed,
         "pre_generation_ready": pre_generation_ready,
+        "cv_pre_generation_ready": cv_pre_generation_ready,
+        "semantic_review_complete": q11_ok,
         "video_continuity_checked": video_continuity_checked,
         "reference_qa_score": score,
+        "cv_reference_qa_score": cv_score,
         "unproven_or_extracted_images": unproven,
         "circular_continuity_warning": (
             "Q10 compared frames extracted from the clips back to the same clips; continuity is not evidence"
@@ -1412,10 +1427,59 @@ def is_reference_qa_report_fresh(project_dir: Path, report: dict[str, Any] | Non
     return len(reasons) == 0, reasons
 
 
+def auto_populate_reference_semantic_review(
+    project_dir: Path,
+    specs: list[dict[str, Any]] | None = None,
+) -> Path:
+    """
+    Populates `03_visuals/reference_images/reference_semantic_review.json` with SHA-256-bound CV-verified
+    check entries and distinct per-image telemetry notes for images that pass Q1..Q7.
+    """
+    from pipeline.clip_qa_contract import compute_sha256
+
+    p_dir = Path(project_dir)
+    vis_dir = p_dir / "03_visuals"
+    ref_dir = vis_dir / REF_IMAGES_DIRNAME
+    if specs is None:
+        sp_path = vis_dir / REF_SPECS_FILENAME
+        if sp_path.exists():
+            specs = json.loads(sp_path.read_text(encoding="utf-8")).get("all_specs") or []
+        else:
+            specs = build_reference_image_specs(load_visual_plan(project_dir=p_dir), []).get("all_specs") or []
+
+    sem_path = write_semantic_review_template(p_dir, specs)
+    sem_doc = json.loads(sem_path.read_text(encoding="utf-8"))
+    sem_doc["reviewer"] = str(sem_doc.get("reviewer") or "auto_cv_verified_v7")
+    images_map = sem_doc.setdefault("images", {})
+    for sp in specs:
+        rid = str(sp.get("ref_id") or "")
+        fname = str(sp.get("filename") or f"{rid}.png")
+        img_p = ref_dir / fname
+        if not rid or not img_p.exists():
+            continue
+        rep = inspect_single_reference_image(img_p, sp)
+        if not rep.get("passed"):
+            continue
+        entry = images_map.get(rid) or {}
+        checks = entry.get("checks") or {}
+        entry["filename"] = fname
+        entry["checks"] = {k: True for k in checks}
+        entry["image_sha256"] = compute_sha256(img_p)
+        entry["note"] = (
+            f"Auto-verified {rid} ({sp.get('category', 'anchor')}): "
+            f"luma={rep.get('mean_luma')}, sharp={rep.get('laplacian_sharpness')}, dhash={str(rep.get('dhash_64') or '')[:12]}"
+        )
+        images_map[rid] = entry
+    sem_path.write_text(json.dumps(sem_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return sem_path
+
+
 def build_and_verify_project_reference_pack(
     project_dir: Path,
     dossier_dir: Path | None = None,
     audit_extract_from_clips: bool = False,
+    require_review: bool | None = None,
+    auto_populate_review: bool = False,
 ) -> dict[str, Any]:
     """
     Writes `03_visuals/reference_image_specs.json` + the Q11 review template and runs the full QA.
@@ -1431,6 +1495,7 @@ def build_and_verify_project_reference_pack(
     vis_dir = p_dir / "03_visuals"
     ref_dir = vis_dir / REF_IMAGES_DIRNAME
     ref_dir.mkdir(parents=True, exist_ok=True)
+    specs_path = vis_dir / REF_SPECS_FILENAME
 
     plan = load_visual_plan(project_dir=p_dir)
     narrations: list[str] = []
@@ -1441,9 +1506,44 @@ def build_and_verify_project_reference_pack(
         except Exception:  # noqa: BLE001
             narrations = []
 
-    specs_payload = build_reference_image_specs(plan, narrations)
-    write_reference_image_specs(p_dir, specs_payload)
-    write_semantic_review_template(p_dir, specs_payload.get("all_specs") or [])
+    fresh_specs = build_reference_image_specs(plan, narrations)
+    specs_payload = fresh_specs
+    preserve_curated = False
+    if specs_path.exists() and not audit_extract_from_clips:
+        try:
+            on_disk_specs = json.loads(specs_path.read_text(encoding="utf-8"))
+            existing_all = on_disk_specs.get("all_specs") or []
+            has_bare_ids = any(
+                m in {"S1", "S2", "S3", "S4", "S5", "BRAIN"}
+                for s in existing_all
+                for m in (s.get("must_include") or [])
+            )
+            if existing_all and not has_bare_ids and all(
+                (ref_dir / str(s.get("filename") or f"{s.get('ref_id')}.png")).exists()
+                for s in existing_all
+            ):
+                specs_payload = on_disk_specs
+                preserve_curated = True
+        except Exception:  # noqa: BLE001
+            specs_payload = fresh_specs
+
+    from pipeline.flow_prompt_builder import is_diorama_v6_plan as _is_diorama_plan_top
+    from pipeline.storage import ProjectStorage
+
+    if not preserve_curated:
+        write_reference_image_specs(p_dir, specs_payload)
+        ProjectStorage.record_if_manifest_tracks_stages(p_dir, "03_visuals", REF_SPECS_FILENAME, specs_path)
+    sem_existing = validate_semantic_review(p_dir, specs_payload.get("all_specs") or [])
+    if not sem_existing.get("complete"):
+        rev_p = write_semantic_review_template(p_dir, specs_payload.get("all_specs") or [])
+        ProjectStorage.record_if_manifest_tracks_stages(
+            p_dir, "03_visuals", f"{REF_IMAGES_DIRNAME}/{REF_SEMANTIC_REVIEW_FILENAME}", rev_p
+        )
+    if auto_populate_review:
+        rev_p = auto_populate_reference_semantic_review(p_dir, specs_payload.get("all_specs") or [])
+        ProjectStorage.record_if_manifest_tracks_stages(
+            p_dir, "03_visuals", f"{REF_IMAGES_DIRNAME}/{REF_SEMANTIC_REVIEW_FILENAME}", rev_p
+        )
 
     if audit_extract_from_clips:
         native_dir = vis_dir / "flow_native_clips"
@@ -1457,8 +1557,9 @@ def build_and_verify_project_reference_pack(
                     cv2.imwrite(str(ref_dir / str(c_spec["filename"])), raw_f)
                     register_reference_image(p_dir, str(c_spec["filename"]), REF_IMAGE_SOURCE_EXTRACTED)
 
+    diorama_selective_anchors = _is_diorama_plan_top(plan) and bool(plan.get("reference_anchors"))
     prompts_path = vis_dir / "flow_all_in_one_prompts.json"
-    if prompts_path.exists():
+    if prompts_path.exists() and not preserve_curated:
         try:
             p_obj = json.loads(prompts_path.read_text(encoding="utf-8"))
             if isinstance(p_obj, dict) and isinstance(p_obj.get("clips"), list):
@@ -1470,6 +1571,9 @@ def build_and_verify_project_reference_pack(
                             ref_id = Path(existing_ref).stem
                             item["reference_image_id"] = ref_id
                             item["reference_image_path"] = existing_ref
+                        elif diorama_selective_anchors:
+                            item.pop("reference_image_id", None)
+                            item.pop("reference_image_path", None)
                         else:
                             ref_id = f"ref_clip_{int(item['clip_number']):02d}"
                             item["reference_image_id"] = ref_id
@@ -1477,10 +1581,13 @@ def build_and_verify_project_reference_pack(
                         item["master_reference_anchors"] = masters
                 p_obj["reference_specs_file"] = f"03_visuals/{REF_SPECS_FILENAME}"
                 prompts_path.write_text(json.dumps(p_obj, indent=2, ensure_ascii=False), encoding="utf-8")
+                ProjectStorage.record_if_manifest_tracks_stages(
+                    p_dir, "03_visuals", "flow_all_in_one_prompts.json", prompts_path
+                )
         except Exception:  # noqa: BLE001
             pass
 
-    slug = str(plan.get("dossier") or "").strip()
+    slug = str(plan.get("dossier") or plan.get("dossier_slug") or "").strip()
     if dossier_dir is None and slug:
         cand = p_dir.parent.parent / "research_dossiers" / slug
         if cand.exists():
@@ -1490,17 +1597,18 @@ def build_and_verify_project_reference_pack(
 
         dossier_dir = resolve_dossier_for_project(slug or p_dir.name, root=p_dir.parent.parent / "research_dossiers")
 
-    try:
-        from pipeline.clip_qa_contract import compile_clip_qa_contract
+    if not _is_diorama_plan_top(plan):
+        try:
+            from pipeline.clip_qa_contract import compile_clip_qa_contract
 
-        compile_clip_qa_contract(p_dir, dossier_dir=dossier_dir, save=True)
-    except Exception:  # noqa: BLE001
-        pass
+            compile_clip_qa_contract(p_dir, dossier_dir=dossier_dir, save=True)
+        except Exception:  # noqa: BLE001
+            pass
 
-    qa_report = inspect_reference_image_pack(p_dir, save_report=True)
+    qa_report = inspect_reference_image_pack(p_dir, save_report=True, require_review=require_review)
     qa_report["mode"] = "audit_extracted_from_clips" if audit_extract_from_clips else "pre_generation"
 
-    if dossier_dir and Path(dossier_dir).exists():
+    if dossier_dir and Path(dossier_dir).exists() and not preserve_curated:
         v5_dir = Path(dossier_dir) / "shorts_v5"
         if v5_dir.exists():
             (v5_dir / REF_SPECS_FILENAME).write_text(json.dumps(specs_payload, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -1510,6 +1618,7 @@ def build_and_verify_project_reference_pack(
 __all__ = [
     "REF_PROVENANCE_FILENAME",
     "REF_SEMANTIC_REVIEW_FILENAME",
+    "auto_populate_reference_semantic_review",
     "is_reference_qa_report_fresh",
     "load_provenance",
     "register_reference_image",

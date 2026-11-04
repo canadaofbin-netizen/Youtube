@@ -34,6 +34,18 @@
           "The dog stands up in the harness with room to shift its weight forward, prick its ears, and lunge toward the front of the stand when food arrives.",
           "The experimenter sits in a separate compartment facing wall-mounted dials, push-buttons, and recording gauges, matching Pavlov's Lecture II description of the soundproof laboratory."
         ]
+      },
+      "reenactment_suitability": "suitable_track_a",
+      "reenactment_suitability_reason": "passed_gates_1_to_4_with_keyframes",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 13,
+        "median_dark_ratio": 0.3402,
+        "median_gray_sat_ratio": 1.0,
+        "is_bw_archival": true,
+        "median_flat_patch_ratio": 0.3969,
+        "talking_head_ratio": 0.125,
+        "words_per_sec": 0.0,
+        "has_strong_archival_cue": true
       }
     },
     {
@@ -70,7 +82,20 @@
           "Macro cutaways to the cheek tube clearly show individual clear drops swelling at the spout and raising the meniscus inside the graduated glass tube.",
           "Two-person staging works best in 9:16 vertical framing: dog side-on in the central wooden harness stand, bearded physiologist and white-coated assistant flanking the stand."
         ]
-      }
+      },
+      "reenactment_suitability": "needs_section_window",
+      "reenactment_suitability_reason": "gate4_mixed_commentary_or_unwindowed_long_video",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 24,
+        "median_dark_ratio": 0.3029,
+        "median_gray_sat_ratio": 0.1019,
+        "is_bw_archival": false,
+        "median_flat_patch_ratio": 0.3235,
+        "talking_head_ratio": 0.375,
+        "words_per_sec": 1.527,
+        "has_strong_archival_cue": true
+      },
+      "recommended_section": "00:01-01:31"
     },
     {
       "id": "M3",
@@ -90,7 +115,14 @@
         "shot_notes": [
           "Confirms the compact scale of the cheek-mounted glass collection vial/funnel hanging just below the jaw line."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(museum_artefact)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "reenactment_track": "track_a",
+  "track_subtier": "A1a_ready_keyframes"
 }

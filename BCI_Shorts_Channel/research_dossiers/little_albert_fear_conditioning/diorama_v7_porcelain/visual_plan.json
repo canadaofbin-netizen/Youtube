@@ -105,7 +105,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 2,
@@ -150,7 +151,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -172,7 +174,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 5,
@@ -207,7 +210,18 @@
       "analogy_world": "a sunlit cool-alabaster bench displaying nine smooth sunlit calendar blocks beside a compact sage carry-on travel bag",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in coat sleeves place and slide nine sunlit calendar blocks beside the compact sage carry-on bag and lift its top handle",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 6
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 7,
@@ -230,7 +244,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 8,
@@ -241,7 +256,18 @@
       "analogy_world": "a sunlit cool-alabaster table comparing a four-foot brushed-silver steel bar directly alongside a turned pale-ash wooden baseball bat",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in suit sleeves place and align the brushed-silver steel bar parallel to the wooden baseball bat showing matching length",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 8
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 9,
@@ -263,7 +289,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 10,
@@ -285,7 +312,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 11,
@@ -333,7 +361,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 13,
@@ -355,7 +384,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 14,
@@ -403,7 +433,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 16,
@@ -449,7 +480,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 18,
@@ -471,7 +503,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 19,
@@ -493,7 +526,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 20,
@@ -506,7 +540,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "along the lateral temporal side of the matte warm-ivory 3D brain model, the auditory cortex glows in crisp sunlit coral-amber as sound pathways travel inward",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 20
+      "clip_number": 20,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 21,
@@ -519,7 +554,8 @@
       "camera": "locked_tripod",
       "brain_scene": "inside the flat mid-sagittal half-brain cross-section, the central egg-shaped thalamus relay station glows warm amber-gold where sound and touch streams meet",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 21
+      "clip_number": 21,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 22,
@@ -532,7 +568,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "inside the flat mid-sagittal half-brain cross-section, a fast shortcut from the thalamus lights the lower almond-shaped amygdala in vivid sunlit terracotta-coral while the outer prefrontal planner stays dim",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 22
+      "clip_number": 22,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 23,
@@ -579,7 +616,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 25,
@@ -650,7 +688,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 28,
@@ -672,7 +711,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 29,
@@ -720,7 +760,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 32,
@@ -742,7 +783,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 33,
@@ -788,7 +830,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 35,
@@ -810,8 +853,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 36,
@@ -834,7 +879,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 38,
@@ -856,7 +902,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 39,
@@ -880,7 +927,8 @@
           "researcher"
         ]
       },
-      "clip_number": 37
+      "clip_number": 37,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 40,
@@ -916,7 +964,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 43,
@@ -977,7 +1026,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "inside the flat mid-sagittal half-brain cross-section, the deep almond-shaped amygdala glows briefly in sunlit coral when a sharp sensory cue arrives",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 42
+      "clip_number": 42,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 47,
@@ -1000,7 +1050,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 49,
@@ -1022,7 +1073,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -1036,7 +1088,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "across the front third of the matte warm-ivory 3D brain model, smooth sky-blue and warm amber-gold light spreads across the prefrontal cortex into calm balance",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 45
+      "clip_number": 45,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 51,
@@ -1057,8 +1110,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 17,
@@ -1082,7 +1137,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 51,
@@ -1105,5 +1161,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_a",
+  "track_subtier": "A1a_ready_keyframes",
+  "default_location_id": "hopkins_nursery_room",
+  "real_environment": "the sunlit nursery room with the raised white-sheeted testing table at center",
+  "environment_props": [
+    "suspended 4-foot steel bar & carpenter's claw hammer (iron rod hung from ceiling cord behind the padded table head)",
+    "articulated matte-white porcelain tame rat & white rabbit sculptures (porcelain animal figures placed gently on the white cotton mattress)",
+    "wooden toy blocks & hand-cranked 1920 35mm cinema camera"
+  ],
+  "cast": {
+    "subject": "1920 Baltimore clinic attire: white cotton clinical smock over long skirt with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "1920 wool suit under lab coat with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_hopkins_nursery_room",
+      "location_id": "hopkins_nursery_room",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (hopkins_nursery_room: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunlit nursery room with the raised white-sheeted testing table at center, featuring suspended 4-foot steel bar & carpenter's claw hammer (iron rod hung from ceiling cord behind the padded table head). Inside the room, researcher (1920 wool suit under lab coat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside suspended 4-foot steel bar & carpenter's claw hammer (iron rod hung from ceiling cord behind the padded table head). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the sunlit nursery room with the raised white-sheeted testing table at c",
+        "suspended 4-foot steel bar & carpenter's claw hammer (ir"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_columbia_playroom",
+      "location_id": "columbia_playroom",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (columbia_playroom: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a cheerful sunlit Columbia Teachers College playroom with pale-wood floors, tall windows, and a small child-sized snack table, featuring articulated matte-white porcelain tame rat & white rabbit sculptures (porcelain animal figures placed gently on the white cotton mattress). Inside the room, researcher (1920 wool suit under lab coat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside articulated matte-white porcelain tame rat & white rabbit sculptures (porcelain animal figures placed gently on the white cotton mattress). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a cheerful sunlit Columbia Teachers College playroom with pale-wood floo",
+        "articulated matte-white porcelain tame rat & white rabbi"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_modern_archive_room",
+      "location_id": "modern_archive_room",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (modern_archive_room: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright university history archive room lined with wooden bookshelves holding over a hundred sunlit hardcover volumes, featuring suspended 4-foot steel bar & carpenter's claw hammer (iron rod hung from ceiling cord behind the padded table head). Inside the room, researcher (1920 wool suit under lab coat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside suspended 4-foot steel bar & carpenter's claw hammer (iron rod hung from ceiling cord behind the padded table head). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a bright university history archive room lined with wooden bookshelves h",
+        "suspended 4-foot steel bar & carpenter's claw hammer (ir"
+      ]
+    }
+  ]
 }

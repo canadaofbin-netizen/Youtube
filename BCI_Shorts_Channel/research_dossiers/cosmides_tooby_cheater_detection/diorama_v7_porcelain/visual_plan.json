@@ -161,7 +161,8 @@
           "researcher",
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 7,
@@ -210,7 +211,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 6,
@@ -245,7 +247,18 @@
       "analogy_object": "a matte powder-blue low-poly combination padlock resting on a cool slate block with a brushed-silver shackle",
       "analogy_action": "the matte pastel dial rings spin partway and catch stiffly while the brushed-silver shackle stays locked down in soft studio light",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 7
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "bright_brain_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "clip_index": 10,
@@ -291,8 +304,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "clip_index": 12,
@@ -314,8 +329,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "clip_index": 12,
@@ -338,8 +355,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "clip_index": 15,
@@ -363,7 +382,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "clip_index": 14,
@@ -436,7 +456,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 19,
@@ -448,7 +469,18 @@
       "analogy_object": "a clean brushed-silver and powder-blue low-poly subway turnstile gate standing on a cool slate studio floor with a sunlit token slot",
       "analogy_action": "a pale-lavender token drops into the slot rotating the three silver turnstile arms smoothly while a second empty pass locks the gate bar firm",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 16
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "bright_brain_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "clip_index": 20,
@@ -521,7 +553,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "clip_index": 24,
@@ -559,7 +592,8 @@
       "anatomy_label": "DORSOLATERAL PFC\nMENTAL SCRATCHPAD",
       "brain_scene": "a matte cream matte-white porcelain brain model on a cool slate stand where upper lateral dorsolateral prefrontal cortex flickers dimly under heavy abstract load",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 21
+      "clip_number": 21,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 26,
@@ -573,7 +607,8 @@
       "anatomy_label": "AMYGDALA\nEMOTIONAL ALARM",
       "brain_scene": "a cutaway matte sunlit brain model showing the deep almond-shaped amygdala lighting up in soft muted-rose alertness",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 22
+      "clip_number": 22,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 27,
@@ -587,7 +622,8 @@
       "anatomy_label": "VENTROMEDIAL PFC\nJUDGMENT CENTER",
       "brain_scene": "the cutaway matte sunlit brain model where lower frontal ventromedial prefrontal cortex glows calm powder-blue linked smoothly to the amygdala",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 23
+      "clip_number": 23,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 29,
@@ -610,7 +646,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "clip_index": 29,
@@ -634,7 +671,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "clip_index": 30,
@@ -658,7 +696,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 31,
@@ -707,7 +746,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 34,
@@ -731,8 +771,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 35,
@@ -798,7 +840,8 @@
           "researcher",
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 38,
@@ -848,7 +891,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 36,
@@ -872,7 +916,8 @@
           "researcher"
         ]
       },
-      "clip_number": 35
+      "clip_number": 35,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 42,
@@ -920,7 +965,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 45,
@@ -945,7 +991,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "clip_index": 46,
@@ -968,8 +1015,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "clip_index": 50,
@@ -992,7 +1041,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 49,
@@ -1031,7 +1081,8 @@
       "anatomy_label": "VENTROMEDIAL PFC\nJUDGMENT CENTER",
       "brain_scene": "a cutaway matte cream matte-white porcelain brain model where ventromedial prefrontal cortex glows steady calm powder-blue in balanced harmony",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 42
+      "clip_number": 42,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 52,
@@ -1055,7 +1106,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 53,
@@ -1103,7 +1155,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 57,
@@ -1126,7 +1179,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "clip_index": 17,
@@ -1170,5 +1224,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "stanford_card_lab",
+  "real_environment": "the bright sunlit Stanford laboratory with pale sage shelves and two neat test stations",
+  "environment_props": [
+    "4 oversized Wason test cards ('Eats Cassava Root' | 'Eats Molo Nuts' | 'Has Tattoo' | 'No Tattoo') (keeps every word of the unfamiliar rule 100% constant across conditions)",
+    "Story-Frame Flip Board ('Neutral Fact: 23% | Catch the Benefit-Without-Cost Cheater: 75%!') (makes the 3x reasoning leap unmistakable at a glance)"
+  ],
+  "cast": {
+    "subject": "1989 California academic attire: structured cotton/linen blazer and blouse with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "collegiate crewneck sweaters and khakis with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_team_charter_office",
+      "location_id": "team_charter_office",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (team_charter_office: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit collaborative studio with a round pale-ash table and muted-sage chairs, featuring 4 oversized Wason test cards ('Eats Cassava Root' | 'Eats Molo Nuts' | 'Has Tattoo' | 'No Tattoo') (keeps every word of the unfamiliar rule 100% constant across conditions). Inside the room, researcher (collegiate crewneck sweaters and khakis with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 4 oversized Wason test cards ('Eats Cassava Root' | 'Eats Molo Nuts' | 'Has Tattoo' | 'No Tattoo') (keeps every word of the unfamiliar rule 100% constant across conditions). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a sunlit collaborative studio with a round pale-ash table and muted-sage",
+        "4 oversized Wason test cards ('Eats Cassava Root' | 'Eat"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_stanford_card_lab",
+      "location_id": "stanford_card_lab",
+      "present_cast": [
+        "researcher",
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (stanford_card_lab: researcher, subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the bright sunlit Stanford laboratory with pale sage shelves and two neat test stations, featuring Story-Frame Flip Board ('Neutral Fact: 23% | Catch the Benefit-Without-Cost Cheater: 75%!') (makes the 3x reasoning leap unmistakable at a glance). Inside the room, researcher (collegiate crewneck sweaters and khakis with a completely smooth featureless solid matte-white egg-shaped oval head), subject (1989 California academic attire: structured cotton/linen blazer and blouse with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Story-Frame Flip Board ('Neutral Fact: 23% | Catch the Benefit-Without-Cost Cheater: 75%!') (makes the 3x reasoning leap unmistakable at a glance). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright sunlit Stanford laboratory with pale sage shelves and two nea",
+        "Story-Frame Flip Board ('Neutral Fact: 23% | Catch the B"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_stanford_seminar_room",
+      "location_id": "stanford_seminar_room",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 3 (stanford_seminar_room: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright sunlit seminar room with pale slate tables and soft diffused window light, featuring 4 oversized Wason test cards ('Eats Cassava Root' | 'Eats Molo Nuts' | 'Has Tattoo' | 'No Tattoo') (keeps every word of the unfamiliar rule 100% constant across conditions). Inside the room, subject (1989 California academic attire: structured cotton/linen blazer and blouse with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 4 oversized Wason test cards ('Eats Cassava Root' | 'Eats Molo Nuts' | 'Has Tattoo' | 'No Tattoo') (keeps every word of the unfamiliar rule 100% constant across conditions). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a bright sunlit seminar room with pale slate tables and soft diffused wi",
+        "4 oversized Wason test cards ('Eats Cassava Root' | 'Eat"
+      ]
+    }
+  ]
 }

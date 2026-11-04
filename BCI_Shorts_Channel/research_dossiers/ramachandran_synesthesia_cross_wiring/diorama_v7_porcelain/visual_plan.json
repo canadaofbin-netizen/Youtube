@@ -129,7 +129,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 3,
@@ -151,7 +152,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 4,
@@ -172,8 +174,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 5,
@@ -220,7 +224,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 8,
@@ -231,7 +236,18 @@
       "analogy_world": "a cool slate-stone pedestal supporting a large brushed-silver mechanical leaf camera shutter with interlocking matte-slate blades",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in navy sleeves press the silver cable plunger so the brushed-silver shutter blades open and close in one crisp beat",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 7
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 9,
@@ -277,7 +293,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 11,
@@ -300,7 +317,8 @@
           "researcher"
         ]
       },
-      "clip_number": 10
+      "clip_number": 10,
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 12,
@@ -311,7 +329,18 @@
       "analogy_world": "a sunlit garden terrace featuring a wide cool dove-gray pebble gravel path filled with hundreds of matching smooth gray stones",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves reach down, slide, and tap slowly across the uniform dove-gray gravel stones row by row",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 11
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 13,
@@ -332,8 +361,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 14,
@@ -380,7 +411,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 16,
@@ -403,7 +435,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 17,
@@ -425,7 +458,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 18,
@@ -448,7 +482,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 19,
@@ -470,7 +505,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 20,
@@ -483,7 +519,8 @@
       "camera": "locked_tripod",
       "brain_scene": "at the rear occipital pole of the matte cool-porcelain 3D brain model, neutral cool clear daylight-white light registers plain uncolored geometric strokes in the primary visual cortex",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 19
+      "clip_number": 19,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 21,
@@ -519,7 +556,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "along the underside of the temporal lobe on the matte cool-porcelain 3D brain model, soft powder-blue light jumps directly into adjacent sunlit rose-coral light across the fusiform gyrus",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 21
+      "clip_number": 21,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 23,
@@ -540,8 +578,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 24,
@@ -565,7 +605,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 25,
@@ -578,7 +619,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "across the upper rear crown of the matte cool-porcelain 3D brain model, crisp mint-sage light links three focal points into a triangle pattern across the parietal cortex",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 24
+      "clip_number": 24,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 26,
@@ -600,7 +642,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 27,
@@ -646,7 +689,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 29,
@@ -670,7 +714,8 @@
           "researcher"
         ]
       },
-      "clip_number": 28
+      "clip_number": 28,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 30,
@@ -692,7 +737,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 31,
@@ -738,7 +784,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 33,
@@ -762,7 +809,8 @@
           "researcher"
         ]
       },
-      "clip_number": 32
+      "clip_number": 32,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 34,
@@ -785,7 +833,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 36,
@@ -831,7 +880,8 @@
           "researcher"
         ]
       },
-      "clip_number": 35
+      "clip_number": 35,
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 38,
@@ -866,7 +916,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -890,7 +941,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 43,
@@ -914,7 +966,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 44,
@@ -984,7 +1037,8 @@
           "researcher"
         ]
       },
-      "clip_number": 42
+      "clip_number": 42,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 47,
@@ -997,7 +1051,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "at the rear pole of the matte cool-porcelain 3D brain model, crisp powder-blue and mint-sage light illuminates the primary visual cortex",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 43
+      "clip_number": 43,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 48,
@@ -1010,7 +1065,8 @@
       "camera": "locked_tripod",
       "brain_scene": "across the upper rear crown of the matte cool-porcelain 3D brain model, soft mint-sage light links organized zones across the parietal cortex",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 44
+      "clip_number": 44,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 49,
@@ -1054,7 +1110,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -1102,5 +1159,89 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "ucsd_matrix_studio",
+  "real_environment": "a reverse three-quarter wide angle inside the bright high-key ucsd matrix studio with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows",
+  "environment_props": [
+    "all-black digital '2s hidden in 5s' matrix card (block-font mirrored 2s and 5s that foil ordinary fast vision)",
+    "1.0-second flash timer & 'Control 59% vs Synesthete 81%' bar brushed metal plate (prevents slow memorization tricks from faking performance)",
+    "transparent ruby-red / emerald-green educational reveal sheet"
+  ],
+  "cast": {
+    "subject": "2001 California academic attire: tailored dark blazer over open-collar dress shirt with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "casual button-downs with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_ucsd_matrix_studio",
+      "location_id": "ucsd_matrix_studio",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (ucsd_matrix_studio: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a reverse three-quarter wide angle inside the bright high-key ucsd matrix studio with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows, featuring all-black digital '2s hidden in 5s' matrix card (block-font mirrored 2s and 5s that foil ordinary fast vision). Inside the room, researcher (casual button-downs with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside all-black digital '2s hidden in 5s' matrix card (block-font mirrored 2s and 5s that foil ordinary fast vision). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a reverse three-quarter wide angle inside the bright high-key ucsd matri",
+        "all-black digital '2s hidden in 5s' matrix card (block-f"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_ucsd_matrix_studio",
+      "location_id": "ucsd_matrix_studio",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 2 (ucsd_matrix_studio: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a reverse three-quarter wide angle inside the bright high-key ucsd matrix studio with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows, featuring 1.0-second flash timer & 'Control 59% vs Synesthete 81%' bar brushed metal plate (prevents slow memorization tricks from faking performance). Inside the room, subject (2001 California academic attire: tailored dark blazer over open-collar dress shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1.0-second flash timer & 'Control 59% vs Synesthete 81%' bar brushed metal plate (prevents slow memorization tricks from faking performance). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a reverse three-quarter wide angle inside the bright high-key ucsd matri",
+        "1.0-second flash timer & 'Control 59% vs Synesthete 81%'"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_lecture_shape_hall",
+      "location_id": "lecture_shape_hall",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (lecture_shape_hall: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the bright UCSD lecture hall with the large rounded cloud sculpture on the left pedestal and the sharp star sculpture on the right pedestal, featuring all-black digital '2s hidden in 5s' matrix card (block-font mirrored 2s and 5s that foil ordinary fast vision). Inside the room, researcher (casual button-downs with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside all-black digital '2s hidden in 5s' matrix card (block-font mirrored 2s and 5s that foil ordinary fast vision). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright UCSD lecture hall with the large rounded cloud sculpture on t",
+        "all-black digital '2s hidden in 5s' matrix card (block-f"
+      ]
+    }
+  ]
 }

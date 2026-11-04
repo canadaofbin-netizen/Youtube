@@ -111,7 +111,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 3,
@@ -158,7 +159,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "index": 7,
@@ -205,7 +207,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -229,7 +232,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 9,
@@ -254,7 +258,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "index": 11,
@@ -327,7 +332,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "index": 14,
@@ -339,7 +345,18 @@
       "analogy_world": "clean clear daylight-white hallway wall holding a matte powder-blue toggle light switch in soft diffused sunlit daylight",
       "comparison_action": "navy coat sleeves and cool porcelain-white gloved matte-white porcelain hands reach forward and flip the smooth powder-blue wall switch cleanly upward",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 11
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "bristol_booth_row",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "index": 15,
@@ -386,7 +403,8 @@
           "researcher"
         ]
       },
-      "clip_number": 13
+      "clip_number": 13,
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "index": 17,
@@ -409,7 +427,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "index": 17,
@@ -433,8 +452,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "index": 18,
@@ -460,7 +481,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "index": 20,
@@ -507,7 +529,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 23,
@@ -519,7 +542,18 @@
       "analogy_world": "clean slate-stone counter holding a tall column of unmarked matte mint-green coin discs beside a brushed-silver divider blade in soft sunlit light",
       "comparison_action": "navy blazer sleeves and cool porcelain-white gloved matte-white porcelain hands grip the tall disc column and push the top two-thirds off into a side chute",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 19
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "bristol_art_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "index": 27,
@@ -542,7 +576,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "index": 26,
@@ -568,7 +603,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "index": 27,
@@ -593,7 +629,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "index": 28,
@@ -607,7 +644,8 @@
       "anatomy_label": "REWARD CENTER\\nGROUP PRIDE HUB",
       "brain_scene": "matte-white matte-white porcelain sagittal brain model in a bright clear daylight-white studio where the deep ventral reward hub glows soft cyan-blue with gentle internal fiber pulses",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 23
+      "clip_number": 23,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "index": 29,
@@ -679,7 +717,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 32,
@@ -705,7 +744,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "index": 34,
@@ -727,8 +767,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "index": 35,
@@ -814,8 +856,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 39,
@@ -841,7 +885,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "index": 42,
@@ -915,7 +960,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "index": 44,
@@ -929,7 +975,8 @@
       "anatomy_label": "FEAR CENTER\\nTHREAT ALARM",
       "brain_scene": "matte-white matte-white porcelain sagittal brain model in a bright clear daylight-white gallery where the deep almond-shaped alarm hub rests in calm pale cyan stillness without crimson flare",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 37
+      "clip_number": 37,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "index": 45,
@@ -952,7 +999,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 46,
@@ -1001,7 +1049,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 50,
@@ -1039,7 +1088,8 @@
       "anatomy_label": "PLANNER\\nSHARED GOAL MAP",
       "brain_scene": "matte-white matte-white porcelain cortical brain model in a bright clear daylight-white studio where the front planning cortex glows soft cyan-blue with calm green fiber pulses",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 42
+      "clip_number": 42,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "index": 54,
@@ -1062,7 +1112,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -1137,7 +1188,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "index": 21,
@@ -1181,5 +1233,87 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "bristol_art_hall",
+  "real_environment": "sunlit cool clear daylight-white Bristol university room with two brushed-silver easels holding abstract geometric sunlit mosaic reliefs in soft diffused daylight",
+  "environment_props": [
+    "paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random)",
+    "Tajfel Payoff Matrix Board ('19 / 25 Richer For Everyone [Skipped] vs 7 / 1 We Beat Them! [Chosen]') (exposes relative-status tribalism with zero personal greed)"
+  ],
+  "cast": {
+    "subject": "1971 British attire: professor wool tweed jacket with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "1971 British comprehensive-school navy blazers, white shirts, and striped school ties with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_bristol_art_hall",
+      "location_id": "bristol_art_hall",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (bristol_art_hall: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit cool clear daylight-white Bristol university room with two brushed-silver easels holding abstract geometric sunlit mosaic reliefs in soft diffused daylight, featuring paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random). Inside the room, researcher (1971 British comprehensive-school navy blazers, white shirts, and striped school ties with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "sunlit cool clear daylight-white Bristol university room with two brushe",
+        "paired abstract modernist art prints ('Klee' & 'Kandinsk"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_bristol_booth_row",
+      "location_id": "bristol_booth_row",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (bristol_booth_row: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk, featuring Tajfel Payoff Matrix Board ('19 / 25 Richer For Everyone [Skipped] vs 7 / 1 We Beat Them! [Chosen]') (exposes relative-status tribalism with zero personal greed). Inside the room, researcher (1971 British comprehensive-school navy blazers, white shirts, and striped school ties with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Tajfel Payoff Matrix Board ('19 / 25 Richer For Everyone [Skipped] vs 7 / 1 We Beat Them! [Chosen]') (exposes relative-status tribalism with zero personal greed). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "high-key powder-blue private study booth with two color-coded token tray",
+        "Tajfel Payoff Matrix Board ('19 / 25 Richer For Everyone"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_bristol_booth_row",
+      "location_id": "bristol_booth_row",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 3 (bristol_booth_row: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk, featuring paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random). Inside the room, subject (1971 British attire: professor wool tweed jacket with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "high-key powder-blue private study booth with two color-coded token tray",
+        "paired abstract modernist art prints ('Klee' & 'Kandinsk"
+      ]
+    }
+  ]
 }

@@ -151,7 +151,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -172,8 +173,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 5,
@@ -197,7 +200,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 6,
@@ -220,7 +224,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 7,
@@ -241,8 +246,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 8,
@@ -253,7 +260,18 @@
       "analogy_world": "a calm cool-cream countertop holding a matte powder-blue mechanical kitchen egg tally counter shaped like a smooth matte-white porcelain dome",
       "comparison_action": "two matte-white smooth sculptural matte-white porcelain gloved hands in sage sleeves twist the top half of the matte powder-blue kitchen egg tally counter to a short notch and set it down ticking softly",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 8
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 9,
@@ -346,7 +364,8 @@
           "researcher"
         ]
       },
-      "clip_number": 12
+      "clip_number": 12,
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 13,
@@ -368,7 +387,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 14,
@@ -415,7 +435,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 16,
@@ -485,7 +506,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 20,
@@ -507,7 +529,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 21,
@@ -529,8 +552,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 22,
@@ -543,7 +568,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "deep inside the flat side-profile half-brain cross-section, the almond-shaped amygdala pulses rapidly with soft rose-lavender threat ripples",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 21
+      "clip_number": 21,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 23,
@@ -556,7 +582,8 @@
       "camera": "locked_tripod",
       "brain_scene": "across the front forehead lobes of the matte cool-ivory 3D brain model, busy rose-lavender ripples quiet smoothly into calm powder-blue facets",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 22
+      "clip_number": 22,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 24,
@@ -628,7 +655,18 @@
       "analogy_world": "a calm cool-cream plaster wall panel fitted with a minimalist matte powder-blue rocker wall light switch",
       "comparison_action": "a matte-white smooth sculptural matte-white porcelain gloved hand in a slate sleeve reaches up and flips the matte powder-blue wall light switch cleanly down in one crisp click",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 26
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 28,
@@ -652,7 +690,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 30,
@@ -674,7 +713,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 31,
@@ -696,7 +736,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -718,8 +759,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 33,
@@ -764,8 +807,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 35,
@@ -788,7 +833,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 37,
@@ -810,7 +856,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 38,
@@ -832,7 +879,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -856,7 +904,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 40,
@@ -879,7 +928,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 42,
@@ -923,8 +973,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 44,
@@ -948,7 +1000,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 45,
@@ -961,7 +1014,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "deep inside the flat side-profile half-brain cross-section, the almond-shaped amygdala settles smoothly into soft powder-blue and muted-sage facets",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 41
+      "clip_number": 41,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 46,
@@ -1006,7 +1060,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 48,
@@ -1052,7 +1107,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 50,
@@ -1074,8 +1130,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 15,
@@ -1099,7 +1157,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 50,
@@ -1122,5 +1181,89 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "michigan_speech_lab",
+  "real_environment": "a calm university reception hallway leading into the speech-testing room with pale ash-wood doors",
+  "environment_props": [
+    "5:00 countdown speech-prep timer (crisp tabletop LED clock counting down the 5-minute preparation window)",
+    "paired 'I' vs '[Own Name]' silent-reflection cards (two clean white instruction placards showing the single-pronoun shift)",
+    "blind judge rating clipboards ('Confidence / Composure')"
+  ],
+  "cast": {
+    "subject": "2014 university smart-casual shirts, blazers for evaluators with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_michigan_speech_lab",
+      "location_id": "michigan_speech_lab",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (michigan_speech_lab: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a calm university reception hallway leading into the speech-testing room with pale ash-wood doors, featuring 5:00 countdown speech-prep timer (crisp tabletop LED clock counting down the 5-minute preparation window). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 5:00 countdown speech-prep timer (crisp tabletop LED clock counting down the 5-minute preparation window). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a calm university reception hallway leading into the speech-testing room",
+        "5:00 countdown speech-prep timer (crisp tabletop LED clo"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_modern_boardroom_hall",
+      "location_id": "modern_boardroom_hall",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (modern_boardroom_hall: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit cafe table with two cool cream cups and a notebook, featuring paired 'I' vs '[Own Name]' silent-reflection cards (two clean white instruction placards showing the single-pronoun shift). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired 'I' vs '[Own Name]' silent-reflection cards (two clean white instruction placards showing the single-pronoun shift). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a sunlit cafe table with two cool cream cups and a notebook",
+        "paired 'I' vs '[Own Name]' silent-reflection cards (two "
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_michigan_speech_lab",
+      "location_id": "michigan_speech_lab",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 3 (michigan_speech_lab: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a calm university reception hallway leading into the speech-testing room with pale ash-wood doors, featuring 5:00 countdown speech-prep timer (crisp tabletop LED clock counting down the 5-minute preparation window). Inside the room, subject (2014 university smart-casual shirts, blazers for evaluators with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 5:00 countdown speech-prep timer (crisp tabletop LED clock counting down the 5-minute preparation window). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a calm university reception hallway leading into the speech-testing room",
+        "5:00 countdown speech-prep timer (crisp tabletop LED clo"
+      ]
+    }
+  ]
 }

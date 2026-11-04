@@ -493,6 +493,12 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
     preset_name, preset_cfg = resolve_diorama_voice_preset(eff_voice_preset, script_doc=script_doc, visual_plan=visual_plan)
 
     sentences = [str(s).strip() for s in script_doc["sentences"] if str(s).strip()]
+    from pipeline.config import is_porcelain_v7_plan
+
+    if is_porcelain_v7_plan(visual_plan) and not visual_plan.get("reference_anchors"):
+        from pipeline.porcelain_anchor_pack import populate_porcelain_reference_contract
+
+        populate_porcelain_reference_contract(visual_plan, dossier_dir=d_root)
     clips = build_flow_prompts(visual_plan, sentences)
 
     # Save canonical prompts in draft_dir too
@@ -533,6 +539,36 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
         json.dumps(visual_plan, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
     write_flow_prompts_json(p_dir, clips)
+
+    if is_porcelain_v7_plan(visual_plan):
+        from pipeline.reference_image_qa import build_reference_image_specs, write_reference_image_specs
+
+        dst_specs = p_dir / "03_visuals" / "reference_image_specs.json"
+        preserve_dst_specs = False
+        if dst_specs.exists():
+            try:
+                ex_doc = json.loads(dst_specs.read_text(encoding="utf-8"))
+                ex_specs = ex_doc.get("all_specs") or ex_doc.get("specs") or []
+                ref_dir = p_dir / "03_visuals" / "reference_images"
+                preserve_dst_specs = bool(ex_specs) and all(
+                    (ref_dir / str(s.get("filename") or "")).exists() for s in ex_specs if isinstance(s, dict)
+                )
+            except Exception:
+                preserve_dst_specs = False
+        if not preserve_dst_specs:
+            src_specs = draft_dir / "reference_image_specs.json"
+            if src_specs.exists():
+                dst_specs.write_text(src_specs.read_text(encoding="utf-8"), encoding="utf-8")
+            else:
+                built_specs = build_reference_image_specs(visual_plan, sentences)
+                write_reference_image_specs(p_dir, built_specs)
+                (draft_dir / "reference_image_specs.json").write_text(
+                    dst_specs.read_text(encoding="utf-8"), encoding="utf-8"
+                )
+        d_edl = d_root / "08_reenactment_edl.json"
+        dst_edl = p_dir / "03_visuals" / "source_edl.json"
+        if d_edl.exists() and not dst_edl.exists():
+            dst_edl.write_text(d_edl.read_text(encoding="utf-8"), encoding="utf-8")
 
     meta_src = draft_dir / "metadata.json"
     if meta_src.exists():
@@ -1254,6 +1290,29 @@ def generate_and_finalize_diorama_episode(
         extra_flow_kwargs["engine_mode"] = engine_mode
 
     pid = str(project_id)
+    p_dir = Path(PROJECTS_DIR) / pid
+    vp_path = p_dir / "03_visuals" / "visual_plan.json"
+    if vp_path.exists():
+        from pipeline.config import is_porcelain_v7_plan
+        from pipeline.porcelain_anchor_pack import ensure_porcelain_reference_pack
+
+        vp_doc = json.loads(vp_path.read_text(encoding="utf-8"))
+        if is_porcelain_v7_plan(vp_doc) and (
+            vp_doc.get("reference_anchors")
+            or any(isinstance(c, dict) and c.get("reference_image") for c in (vp_doc.get("clips") or []))
+        ):
+            ref_res = ensure_porcelain_reference_pack(
+                p_dir,
+                cdp_port=cdp_port,
+                force=False,
+                require_review=False,
+            )
+            if not ref_res.get("pre_generation_ready"):
+                raise RuntimeError(
+                    f"Porcelain reference pack failed pre_generation_ready for {pid}: "
+                    f"regenerate={ref_res.get('regenerate_image_ids')} score={ref_res.get('reference_qa_score')}"
+                )
+
     asyncio.run(
         run_sharded_diorama_flow_generation(
             project_id=pid,

@@ -366,6 +366,28 @@ def run_diorama_pipeline(
                     f"(only_clips={only_clips or 'ALL'}, tabs={eff_tabs}, bg_assemblies={len(in_flight)}) ===================="
                 )
                 try:
+                    p_dir_flow = Path(PROJECTS_DIR) / pid
+                    vp_path_flow = p_dir_flow / "03_visuals" / "visual_plan.json"
+                    if vp_path_flow.exists():
+                        from pipeline.config import is_porcelain_v7_plan
+                        from pipeline.porcelain_anchor_pack import ensure_porcelain_reference_pack
+
+                        vp_doc_flow = json.loads(vp_path_flow.read_text(encoding="utf-8"))
+                        if is_porcelain_v7_plan(vp_doc_flow) and (
+                            vp_doc_flow.get("reference_anchors")
+                            or any(isinstance(c, dict) and c.get("reference_image") for c in (vp_doc_flow.get("clips") or []))
+                        ):
+                            ref_res = ensure_porcelain_reference_pack(
+                                p_dir_flow,
+                                cdp_port=cdp_port,
+                                force=False,
+                                require_review=False,
+                            )
+                            if not ref_res.get("pre_generation_ready"):
+                                raise RuntimeError(
+                                    f"Porcelain reference pack failed pre_generation_ready for {pid}: "
+                                    f"regenerate={ref_res.get('regenerate_image_ids')} score={ref_res.get('reference_qa_score')}"
+                                )
                     asyncio.run(
                         run_sharded_diorama_flow_generation(
                             project_id=pid,

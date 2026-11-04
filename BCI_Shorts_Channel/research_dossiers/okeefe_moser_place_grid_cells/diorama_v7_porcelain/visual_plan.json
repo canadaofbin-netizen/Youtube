@@ -105,7 +105,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 2,
@@ -127,7 +128,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 3,
@@ -149,7 +151,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -196,7 +199,8 @@
           "researcher"
         ]
       },
-      "clip_number": 5
+      "clip_number": 5,
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 7,
@@ -265,7 +269,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 11,
@@ -278,7 +283,8 @@
       "anatomy_label": "HIPPOCAMPUS\nMEMORY CENTER",
       "brain_scene": "a matte-sunlit sagittal 3D brain cutaway on a cool clear daylight-white stand where eight distinct cyan points sparkle along the curved deep hippocampus ridge",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 9
+      "clip_number": 9,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 12,
@@ -301,7 +307,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 13,
@@ -336,7 +343,18 @@
       "analogy_world": "a giant matte coral-rose map pushpin planted cleanly in the upper-left corner of a smooth cool clear daylight-white architectural floor board",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in blazer cuffs lift and press the matte coral-rose map pushpin firmly into the corner spot on the clear daylight-white board",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 12
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 15,
@@ -358,7 +376,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 16,
@@ -380,7 +399,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -428,7 +448,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 19,
@@ -450,7 +471,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 20,
@@ -497,7 +519,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 22,
@@ -508,7 +531,18 @@
       "analogy_world": "a wide matte clear daylight-white matte-white porcelain king-size platform bed dressed with neat powder-blue geometric pillows on a cool slate-stone floor",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in sweater cuffs pull and align the wide powder-blue coverlet across the expansive two-meter king bed surface",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 20
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 23,
@@ -521,7 +555,8 @@
       "anatomy_label": "TEMPORAL LOBE\nHEXAGONAL GRID MAP",
       "brain_scene": "a matte-sunlit 3D cortical brain model on a cool clear daylight-white stand where the lower medial temporal lobe glows bright mint-sage projecting a hexagonal grid pattern",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 21
+      "clip_number": 21,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 24,
@@ -543,7 +578,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 25,
@@ -589,7 +625,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 27,
@@ -635,7 +672,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 29,
@@ -670,7 +708,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 31,
@@ -694,7 +733,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 32,
@@ -716,7 +756,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 33,
@@ -753,7 +794,8 @@
       "anatomy_label": "PREFRONTAL CORTEX\nROUTE PLANNER",
       "brain_scene": "a matte-sunlit 3D cortical brain model where the front prefrontal cortex glows bright powder-blue exchanging smooth hexagonal trajectories with the lower side lobe",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 32
+      "clip_number": 32,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 35,
@@ -776,7 +818,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 36,
@@ -799,7 +842,8 @@
           "researcher"
         ]
       },
-      "clip_number": 34
+      "clip_number": 34,
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 37,
@@ -822,7 +866,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 39,
@@ -845,7 +890,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 40,
@@ -869,8 +915,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 42,
@@ -883,7 +931,8 @@
       "anatomy_label": "TEMPORAL LOBE\nEARLY GRID HUB",
       "brain_scene": "a matte-sunlit 3D cortical brain model highlighting the lower medial temporal lobe in soft coral-rose ringed by protective cyan diagnostic markers",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 38
+      "clip_number": 38,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 43,
@@ -905,8 +954,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 45,
@@ -928,7 +979,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 46,
@@ -974,7 +1026,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 48,
@@ -1022,7 +1075,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 50,
@@ -1035,7 +1089,8 @@
       "anatomy_label": "HIPPOCAMPUS\nMEMORY CENTER",
       "brain_scene": "a matte-sunlit sagittal 3D brain cutaway where four bright mint-sage landmark pins lock steadily along the curved deep hippocampus ridge",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 45
+      "clip_number": 45,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 51,
@@ -1057,7 +1112,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 52,
@@ -1105,7 +1161,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 52,
@@ -1128,5 +1185,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "trondheim_grid_suite",
+  "real_environment": "a modern cool clear daylight-white human neuroimaging suite with a smooth powder-blue scanner ring and a blank sunlit six-fold symmetry screen",
+  "environment_props": [
+    "2-meter clean white open-field arena with rotatable visual cue card (the enlarged floor that unmasked the repeating 60° hexagonal grid in 2005)",
+    "articulated matte-white porcelain rat sculpture",
+    "Side-by-Side '1971 Place Cell (1 Spot)' vs '2005 Grid Cell (Hexagonal Lattice)' trajectory screens (shows single pushpin vs full honeycomb coordinate paper in one glance)"
+  ],
+  "cast": {
+    "subject": "Academic tweed blazer and shirt with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clean Scandinavian tailored knitwear and blazers with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_trondheim_grid_suite",
+      "location_id": "trondheim_grid_suite",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (trondheim_grid_suite: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a modern cool clear daylight-white human neuroimaging suite with a smooth powder-blue scanner ring and a blank sunlit six-fold symmetry screen, featuring 2-meter clean white open-field arena with rotatable visual cue card (the enlarged floor that unmasked the repeating 60° hexagonal grid in 2005). Inside the room, researcher (clean Scandinavian tailored knitwear and blazers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 2-meter clean white open-field arena with rotatable visual cue card (the enlarged floor that unmasked the repeating 60° hexagonal grid in 2005). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a modern cool clear daylight-white human neuroimaging suite with a smoot",
+        "2-meter clean white open-field arena with rotatable visu"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_memory_palace_study",
+      "location_id": "memory_palace_study",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (memory_palace_study: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit city plaza terrace overlooking crisp powder-blue rooftops, a distant sage park tower, and clean slate-stone walkways, featuring articulated matte-white porcelain rat sculpture. Inside the room, researcher (clean Scandinavian tailored knitwear and blazers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside articulated matte-white porcelain rat sculpture. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a sunlit city plaza terrace overlooking crisp powder-blue rooftops, a di",
+        "articulated matte-white porcelain rat sculpture"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_london_arena_lab",
+      "location_id": "london_arena_lab",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (london_arena_lab: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a softly dimmed cool powder-blue London testing room where room lamps sit switched off yet the single corner hotspot still glows under the trotting chalk-white rat, featuring 2-meter clean white open-field arena with rotatable visual cue card (the enlarged floor that unmasked the repeating 60° hexagonal grid in 2005). Inside the room, researcher (clean Scandinavian tailored knitwear and blazers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 2-meter clean white open-field arena with rotatable visual cue card (the enlarged floor that unmasked the repeating 60° hexagonal grid in 2005). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a softly dimmed cool powder-blue London testing room where room lamps si",
+        "2-meter clean white open-field arena with rotatable visu"
+      ]
+    }
+  ]
 }

@@ -32,7 +32,20 @@
           "Deduplicated English transcript (53 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (0.0s–107.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
-      }
+      },
+      "reenactment_suitability": "suitable_track_a",
+      "reenactment_suitability_reason": "passed_gates_1_to_4_with_keyframes",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 14,
+        "median_dark_ratio": 0.5056,
+        "median_gray_sat_ratio": 0.9484,
+        "is_bw_archival": true,
+        "median_flat_patch_ratio": 0.5381,
+        "talking_head_ratio": 0.375,
+        "words_per_sec": 3.0,
+        "has_strong_archival_cue": false
+      },
+      "recommended_section": "*00:00-02:00"
     },
     {
       "id": "M2",
@@ -66,7 +79,21 @@
           "Deduplicated English transcript (29 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (1740.8s–1823.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
-      }
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_talking_head_monologue(ratio=1.0,wps=2.909)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 14,
+        "median_dark_ratio": 0.0354,
+        "median_gray_sat_ratio": 0.4386,
+        "is_bw_archival": false,
+        "median_flat_patch_ratio": 0.3557,
+        "talking_head_ratio": 1.0,
+        "words_per_sec": 2.909,
+        "has_strong_archival_cue": true,
+        "gate_failed": 4
+      },
+      "recommended_section": "*00:29:00-00:30:24"
     },
     {
       "id": "M3",
@@ -89,7 +116,14 @@
           "Inspected media/M3/still.jpg (1280x1087 px, Public domain, National Numismatic Collection, National Museum of American History (Smithsonian Institution)) — subject organism reference: United States $1 Silver Certificate, Series of 1957 (Fr. Ref#1619), representing the era $1 insufficient-justification payment prop in Festinger and Carlsmith's 1959 Stanford forced-compliance experim.",
           "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(museum_artefact)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "reenactment_track": "track_a",
+  "track_subtier": "A1a_ready_keyframes"
 }

@@ -150,7 +150,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -172,7 +173,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 5,
@@ -196,7 +198,8 @@
           "researcher"
         ]
       },
-      "clip_number": 5
+      "clip_number": 5,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 6,
@@ -219,7 +222,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 8,
@@ -230,7 +234,18 @@
       "analogy_world": "a sunlit cool-limestone pedestal supporting a sleek pyramid-shaped matte powder-blue and brushed-silver mechanical metronome without numbers",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in dark sleeves open the side latch so the brushed-silver metronome arm swings crisply left and right in rapid even rhythm",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 7
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 9,
@@ -287,7 +302,18 @@
       "analogy_world": "a cool limestone courtyard platform holding a matte powder-blue cylindrical stave barrel with an open upper spigot and a low trickle spout",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves open the upper silver spigot so clear water pours fast from the top half then slows near the base",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 10
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 12,
@@ -309,7 +335,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 13,
@@ -333,7 +360,8 @@
           "subject"
         ]
       },
-      "clip_number": 12
+      "clip_number": 12,
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 14,
@@ -380,7 +408,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 16,
@@ -393,7 +422,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, soft mint-sage and powder-blue light illuminates the curved inner hippocampus ridge",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 15
+      "clip_number": 15,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 17,
@@ -415,7 +445,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 18,
@@ -438,7 +469,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 19,
@@ -484,7 +516,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 22,
@@ -508,7 +541,8 @@
           "researcher"
         ]
       },
-      "clip_number": 20
+      "clip_number": 20,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 23,
@@ -543,7 +577,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 25,
@@ -635,7 +670,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -660,7 +696,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 30,
@@ -730,7 +767,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 33,
@@ -775,8 +813,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 36,
@@ -798,7 +838,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 37,
@@ -811,7 +852,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "across the front third of the matte cool-porcelain 3D brain model, soft powder-blue light activates the prefrontal cortex and sends signals deep inward",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 34
+      "clip_number": 34,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 38,
@@ -824,7 +866,8 @@
       "camera": "locked_tripod",
       "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, bright mint-sage light strengthens the curved inner hippocampus bridge",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 35
+      "clip_number": 35,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 39,
@@ -845,8 +888,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 40,
@@ -869,7 +914,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 41,
@@ -914,7 +960,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 44,
@@ -936,8 +983,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 46,
@@ -961,7 +1010,8 @@
           "researcher"
         ]
       },
-      "clip_number": 41
+      "clip_number": 41,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 47,
@@ -983,7 +1033,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 48,
@@ -1020,7 +1071,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "across the front lobe of the matte cool-porcelain 3D brain model, crisp powder-blue and mint-sage light illuminates the prefrontal cortex smoothly",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 44
+      "clip_number": 44,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 50,
@@ -1042,7 +1094,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 51,
@@ -1064,8 +1117,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 15,
@@ -1089,7 +1144,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 51,
@@ -1112,5 +1168,89 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "modern_study_desk",
+  "real_environment": "an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp",
+  "environment_props": [
+    "13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments)",
+    "pyramid wooden 150-bpm brushed-metal instrument & pocket timer (swinging brass pendulum keeping strict 0.4-second cadence per syllable)",
+    "1885 Forgetting Curve chart ('20m: 58% | 1h: 44% | 1d: 34% | 31d: 21%')"
+  ],
+  "cast": {
+    "subject": "1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_berlin_slate_study",
+      "location_id": "berlin_slate_study",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (berlin_slate_study: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright sunlit Berlin slate study with thirteen blank ceramic tiles arranged neatly beside the brushed-silver brushed-metal instrument, featuring 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright sunlit Berlin slate study with thirteen blank ceramic tiles a",
+        "13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_modern_study_desk",
+      "location_id": "modern_study_desk",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 2 (modern_study_desk: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, featuring pyramid wooden 150-bpm brushed-metal instrument & pocket timer (swinging brass pendulum keeping strict 0.4-second cadence per syllable). Inside the room, subject (1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside pyramid wooden 150-bpm brushed-metal instrument & pocket timer (swinging brass pendulum keeping strict 0.4-second cadence per syllable). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "an elevated wide view of a cool-slate student study room with scattered ",
+        "pyramid wooden 150-bpm brushed-metal instrument & pocket"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_modern_study_desk",
+      "location_id": "modern_study_desk",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (modern_study_desk: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, featuring 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "an elevated wide view of a cool-slate student study room with scattered ",
+        "13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300"
+      ]
+    }
+  ]
 }

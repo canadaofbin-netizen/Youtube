@@ -105,7 +105,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 2,
@@ -149,8 +150,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 4,
@@ -197,7 +200,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 6,
@@ -218,8 +222,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 7,
@@ -242,7 +248,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 8,
@@ -310,8 +317,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 11,
@@ -322,7 +331,18 @@
       "analogy_world": "a sunlit pale-maple cafe counter holding a steaming sunlit ceramic coffee cup on a saucer beside an brushed-silver marker cylinder",
       "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in sweater sleeves flip the brushed-silver marker cylinder upright and set the sunlit ceramic coffee cup gently onto the saucer",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 11
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 12,
@@ -368,7 +388,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 14,
@@ -403,7 +424,18 @@
       "analogy_world": "a sunlit commuter platform where a sleek sky-blue matte-white porcelain train car glides smoothly along clean steel rails between two nearby stations",
       "comparison_action": "viewed strictly from behind, a clothed matte-white porcelain commuter in a dove-gray coat steps onto the platform and holds a brass balance weight as the sky-blue train car pulls smoothly into the next stop",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 15
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 16,
@@ -425,7 +457,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 17,
@@ -448,7 +481,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 18,
@@ -495,8 +529,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 21,
@@ -519,8 +555,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 22,
@@ -567,7 +605,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 24,
@@ -588,8 +627,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 25,
@@ -612,7 +653,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 26,
@@ -625,7 +667,8 @@
       "anatomy_label": "BASAL GANGLIA\nHABIT ENGINE",
       "brain_scene": "a matte-sunlit sagittal cutaway brain model on an alabaster stand where warm amber-gold curiosity glow inside the central basal ganglia fades softly downward after external payout stops",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 25
+      "clip_number": 25,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 27,
@@ -672,8 +715,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 30,
@@ -721,8 +766,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 33,
@@ -745,7 +792,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 34,
@@ -758,7 +806,8 @@
       "anatomy_label": "DORSOLATERAL CORTEX\nWORKING MEMORY",
       "brain_scene": "a matte-sunlit 3D cortical brain model where bright electric cyan-blue glow illuminates the upper dorsolateral prefrontal cortex and links smoothly with internal curiosity circuits",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 31
+      "clip_number": 31,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 35,
@@ -779,8 +828,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 36,
@@ -824,8 +875,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 38,
@@ -871,7 +924,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 40,
@@ -895,7 +949,8 @@
           "researcher"
         ]
       },
-      "clip_number": 37
+      "clip_number": 37,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 41,
@@ -917,7 +972,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -931,7 +987,8 @@
       "anatomy_label": "NUCLEUS ACCUMBENS\nREWARD CENTER",
       "brain_scene": "a matte-sunlit sagittal cutaway brain model where the deep nucleus accumbens reward hub dims to cool muted slate after piece-rate payment is withdrawn",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 39
+      "clip_number": 39,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 43,
@@ -953,8 +1010,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 45,
@@ -1105,7 +1164,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -1130,7 +1190,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 52,
@@ -1153,5 +1214,89 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "rochester_puzzle_room",
+  "real_environment": "a sunlit New York university hallway outside the psychology laboratory where wooden chairs line a bright corridor",
+  "environment_props": [
+    "seven wooden Soma polycube blocks",
+    "printed payment-ended voucher envelope",
+    "stack of 1971 waiting-room magazines (glossy magazines placed deliberately as a free-time alternative)"
+  ],
+  "cast": {
+    "subject": "1971 collegiate wear: plaid flannel overshirt, crew tee, denim trousers with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "researcher in early-1970s wool sport coat and wide tie with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_rochester_puzzle_room",
+      "location_id": "rochester_puzzle_room",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 1 (rochester_puzzle_room: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit New York university hallway outside the psychology laboratory where wooden chairs line a bright corridor, featuring seven wooden Soma polycube blocks. Inside the room, subject (1971 collegiate wear: plaid flannel overshirt, crew tee, denim trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside seven wooden Soma polycube blocks. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a sunlit New York university hallway outside the psychology laboratory w",
+        "seven wooden Soma polycube blocks"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_rochester_puzzle_room",
+      "location_id": "rochester_puzzle_room",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (rochester_puzzle_room: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit New York university hallway outside the psychology laboratory where wooden chairs line a bright corridor, featuring printed payment-ended voucher envelope. Inside the room, researcher (researcher in early-1970s wool sport coat and wide tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside printed payment-ended voucher envelope. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a sunlit New York university hallway outside the psychology laboratory w",
+        "printed payment-ended voucher envelope"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_mirror_stopwatch_booth",
+      "location_id": "mirror_stopwatch_booth",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (mirror_stopwatch_booth: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright modern sunlit neuroimaging suite featuring a smooth matte-ivory cylindrical scanner arch behind a control window, featuring seven wooden Soma polycube blocks. Inside the room, researcher (researcher in early-1970s wool sport coat and wide tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside seven wooden Soma polycube blocks. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a bright modern sunlit neuroimaging suite featuring a smooth matte-ivory",
+        "seven wooden Soma polycube blocks"
+      ]
+    }
+  ]
 }

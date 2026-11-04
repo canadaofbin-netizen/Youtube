@@ -32,7 +32,21 @@
           "Deduplicated English transcript (5 timestamped cues in media/M1_hubel_wiesel_visual_orientat/transcript.txt) aligned directly to keyframe timestamps (0.0s–71.5s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
-      }
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_modern_monologue_without_archival_footage(wps=2.533,th=0.0)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 14,
+        "median_dark_ratio": 0.023,
+        "median_gray_sat_ratio": 0.1471,
+        "is_bw_archival": false,
+        "median_flat_patch_ratio": 0.2896,
+        "talking_head_ratio": 0.0,
+        "words_per_sec": 2.533,
+        "has_strong_archival_cue": false,
+        "gate_failed": 4
+      },
+      "recommended_section": "*00:08-00:44"
     },
     {
       "id": "M2",
@@ -66,6 +80,11 @@
           "Deduplicated English transcript (11 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–100.5s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_lecture_or_talking_head_kind(interview)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     },
     {
@@ -89,7 +108,14 @@
           "Inspected media/M3/still.jpg (387x520 px, CC BY-SA 3.0, Jimmierock) — neuroanatomy reference: Recording of specialized neurons that only respond to specific orientation of a line.",
           "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor"
 }

@@ -151,7 +151,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 4,
@@ -172,8 +173,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 5,
@@ -196,7 +199,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 6,
@@ -220,7 +224,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 7,
@@ -231,7 +236,18 @@
       "analogy_world": "a calm cool-alabaster classroom shelf holding a round muted-sage classroom brass observation dial with soft slate hands",
       "comparison_action": "two matte-white smooth sculptural matte-white porcelain gloved hands in slate sleeves lift the round muted-sage classroom brass observation dial onto a stand and turn the minute hand halfway around",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 7
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 8,
@@ -278,7 +294,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 10,
@@ -323,9 +340,11 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       },
-      "clip_number": 11
+      "clip_number": 11,
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 13,
@@ -348,7 +367,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 14,
@@ -416,8 +436,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 17,
@@ -440,7 +462,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 18,
@@ -463,7 +486,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 19,
@@ -474,7 +498,18 @@
       "analogy_world": "a calm cool-cream studio pedestal holding a matte dove-gray and powder-blue vintage matte-white porcelain camera with a mechanical lens shutter",
       "comparison_action": "two matte-white smooth sculptural matte-white porcelain gloved hands in navy sleeves hold the powder-blue camera and press the top shutter button so the matte slate shutter blades snap closed and open",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 18
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 20,
@@ -520,7 +555,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 22,
@@ -533,7 +569,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "inside the flat side-profile midline half-brain cross-section, soft pale-lavender facets pulse rapidly along the curved anterior cingulate arch",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 21
+      "clip_number": 21,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 23,
@@ -546,7 +583,8 @@
       "camera": "locked_tripod",
       "brain_scene": "across the upper-side forehead ridge of the matte cool-ivory 3D brain model, soft powder-blue scratchpad facets dim slightly as pale-lavender ripples crowd in",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 22
+      "clip_number": 22,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 24,
@@ -568,7 +606,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 25,
@@ -591,7 +630,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 26,
@@ -635,8 +675,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 28,
@@ -660,7 +702,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 29,
@@ -705,7 +748,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 31,
@@ -727,8 +771,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 32,
@@ -795,8 +841,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 36,
@@ -819,7 +867,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 37,
@@ -842,7 +891,8 @@
           "researcher"
         ]
       },
-      "clip_number": 35
+      "clip_number": 35,
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 38,
@@ -912,7 +962,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 42,
@@ -958,7 +1009,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 44,
@@ -995,7 +1047,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "across the upper-side forehead ridge of the matte cool-ivory 3D brain model, soft powder-blue and muted sage-mint facets pulse evenly in calm harmony",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 42
+      "clip_number": 42,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 46,
@@ -1088,8 +1141,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 13,
@@ -1136,5 +1191,89 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "stanford_exam_room",
+  "real_environment": "the quiet sunlit classroom with pale ash-wood desks and cool cream exam booklets",
+  "environment_props": [
+    "Packet A ('DIAGNOSTIC INTELLECTUAL ABILITY TEST' + Page-1 Demographic Box) (cream 1995 test cover with demographic bubble right above Question 1)",
+    "Packet B ('NON-DIAGNOSTIC PROBLEM-SOLVING STUDY' — Demographics on Last Page) (identical interior GRE verbal items with clean Page 1)",
+    "adjusted SAT-matched score bar chart"
+  ],
+  "cast": {
+    "subject": "1995 Stanford attire: tailored tweed/navy blazer over open shirt on researchers with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "collegiate sweatshirts, button-downs, and denim on students with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_stanford_exam_room",
+      "location_id": "stanford_exam_room",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 1 (stanford_exam_room: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the quiet sunlit classroom with pale ash-wood desks and cool cream exam booklets, featuring Packet A ('DIAGNOSTIC INTELLECTUAL ABILITY TEST' + Page-1 Demographic Box) (cream 1995 test cover with demographic bubble right above Question 1). Inside the room, subject (1995 Stanford attire: tailored tweed/navy blazer over open shirt on researchers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Packet A ('DIAGNOSTIC INTELLECTUAL ABILITY TEST' + Page-1 Demographic Box) (cream 1995 test cover with demographic bubble right above Question 1). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the quiet sunlit classroom with pale ash-wood desks and cool cream exam ",
+        "Packet A ('DIAGNOSTIC INTELLECTUAL ABILITY TEST' + Page-"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_stanford_exam_room",
+      "location_id": "stanford_exam_room",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (stanford_exam_room: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the quiet sunlit classroom with pale ash-wood desks and cool cream exam booklets, featuring Packet B ('NON-DIAGNOSTIC PROBLEM-SOLVING STUDY' — Demographics on Last Page) (identical interior GRE verbal items with clean Page 1). Inside the room, researcher (collegiate sweatshirts, button-downs, and denim on students with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Packet B ('NON-DIAGNOSTIC PROBLEM-SOLVING STUDY' — Demographics on Last Page) (identical interior GRE verbal items with clean Page 1). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the quiet sunlit classroom with pale ash-wood desks and cool cream exam ",
+        "Packet B ('NON-DIAGNOSTIC PROBLEM-SOLVING STUDY' — Demog"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_exam_design_studio",
+      "location_id": "exam_design_studio",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (exam_design_studio: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a wide sunlit seminar room where diverse clothed matte-white porcelain adults sit around a pale ash-wood table holding matching puzzle cards, featuring Packet A ('DIAGNOSTIC INTELLECTUAL ABILITY TEST' + Page-1 Demographic Box) (cream 1995 test cover with demographic bubble right above Question 1). Inside the room, researcher (collegiate sweatshirts, button-downs, and denim on students with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Packet A ('DIAGNOSTIC INTELLECTUAL ABILITY TEST' + Page-1 Demographic Box) (cream 1995 test cover with demographic bubble right above Question 1). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a wide sunlit seminar room where diverse clothed matte-white porcelain a",
+        "Packet A ('DIAGNOSTIC INTELLECTUAL ABILITY TEST' + Page-"
+      ]
+    }
+  ]
 }

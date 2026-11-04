@@ -128,7 +128,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 3,
@@ -152,7 +153,8 @@
           "researcher",
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -174,8 +176,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 6,
@@ -198,8 +202,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 7,
@@ -221,8 +227,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 8,
@@ -233,7 +241,18 @@
       "analogy_world": "a cool slate-stone machinist bench holding a sleek brushed-silver carpenter spirit level with a centered mint-sage air bubble",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in slate sleeves set and align the brushed-silver spirit level flat on the stone bench so the mint-sage bubble stays dead center",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 7
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 9,
@@ -279,7 +298,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 11,
@@ -300,9 +320,11 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       },
-      "clip_number": 10
+      "clip_number": 10,
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 12,
@@ -313,7 +335,18 @@
       "analogy_world": "a cool pale-slate compact theater stage illuminated by a sleek brushed-silver stage spotlight housing mounted on a limestone rail",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in dark sleeves grip and tilt the brushed-silver stage spotlight so a soft powder-blue beam lands cleanly on the left stage box",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 11
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 13,
@@ -336,7 +369,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 15,
@@ -383,7 +417,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 17,
@@ -405,7 +440,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 18,
@@ -427,8 +463,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 19,
@@ -476,7 +514,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 22,
@@ -489,7 +528,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "across the upper rear crown of the matte cool-porcelain 3D brain model, crisp powder-blue light activates the parietal cortex to unlock spatial focus",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 19
+      "clip_number": 19,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 23,
@@ -502,7 +542,8 @@
       "camera": "locked_tripod",
       "brain_scene": "inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, soft mint-sage pulses travel swiftly up the upper brainstem orienting hub",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 20
+      "clip_number": 20,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 24,
@@ -515,7 +556,8 @@
       "camera": "locked_tripod",
       "brain_scene": "at the central core of the matte cool-porcelain 3D brain cutaway, steady powder-blue light locks cleanly inside the thalamus relay hub",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 21
+      "clip_number": 21,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 25,
@@ -528,7 +570,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "at the back pole of the matte cool-porcelain 3D brain model, bright mint-sage light amplifies across the primary visual cortex",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 22
+      "clip_number": 22,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 26,
@@ -549,8 +592,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 27,
@@ -595,8 +640,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 29,
@@ -620,7 +667,8 @@
           "subject"
         ]
       },
-      "clip_number": 26
+      "clip_number": 26,
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 30,
@@ -641,8 +689,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 31,
@@ -688,7 +738,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 33,
@@ -711,7 +762,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 34,
@@ -733,7 +785,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 35,
@@ -779,7 +832,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 37,
@@ -836,8 +890,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 40,
@@ -859,7 +915,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -883,7 +940,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 43,
@@ -943,7 +1001,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "across the upper rear crown of the matte cool-porcelain 3D brain model, distracted rose-coral flickers pull light away from the parietal cortex spatial map",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 41
+      "clip_number": 41,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 47,
@@ -989,7 +1048,8 @@
           "researcher"
         ]
       },
-      "clip_number": 43
+      "clip_number": 43,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 49,
@@ -1010,8 +1070,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 50,
@@ -1057,7 +1119,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 16,
@@ -1081,7 +1144,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 51,
@@ -1104,5 +1168,89 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "oregon_cueing_lab",
+  "real_environment": "an elevated wide view of the cool-limestone Oregon lab showing the flat eye-stability trace alongside the split valid and invalid timing columns",
+  "environment_props": [
+    "three-element Posner screen ('[ ] +← [ ]')",
+    "flat-line EOG eye-stability trace",
+    "dual millisecond digital readout"
+  ],
+  "cast": {
+    "subject": "1980 Pacific Northwest university wear: knit crew sweater on participant with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "collared plaid shirt and wool vest on researcher with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_oregon_cueing_lab",
+      "location_id": "oregon_cueing_lab",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (oregon_cueing_lab: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across an elevated wide view of the cool-limestone Oregon lab showing the flat eye-stability trace alongside the split valid and invalid timing columns, featuring three-element Posner screen ('[ ] +← [ ]'). Inside the room, researcher (collared plaid shirt and wool vest on researcher with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-element Posner screen ('[ ] +← [ ]'). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "an elevated wide view of the cool-limestone Oregon lab showing the flat ",
+        "three-element Posner screen ('[ ] +← [ ]')"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_oregon_cueing_lab",
+      "location_id": "oregon_cueing_lab",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 2 (oregon_cueing_lab: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across an elevated wide view of the cool-limestone Oregon lab showing the flat eye-stability trace alongside the split valid and invalid timing columns, featuring flat-line EOG eye-stability trace. Inside the room, subject (1980 Pacific Northwest university wear: knit crew sweater on participant with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside flat-line EOG eye-stability trace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "an elevated wide view of the cool-limestone Oregon lab showing the flat ",
+        "flat-line EOG eye-stability trace"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_gym_court_terrace",
+      "location_id": "gym_court_terrace",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (gym_court_terrace: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright indoor cool-slate athletic court with powder-blue boundary lines and two clothed matte-white porcelain teammates, featuring three-element Posner screen ('[ ] +← [ ]'). Inside the room, researcher (collared plaid shirt and wool vest on researcher with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-element Posner screen ('[ ] +← [ ]'). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a bright indoor cool-slate athletic court with powder-blue boundary line",
+        "three-element Posner screen ('[ ] +← [ ]')"
+      ]
+    }
+  ]
 }

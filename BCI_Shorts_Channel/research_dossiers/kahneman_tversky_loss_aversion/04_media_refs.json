@@ -32,6 +32,12 @@
           "Deduplicated English transcript (51 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (0.0s–110.9s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_rejected_explainer_channel(big think)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1,
+        "matched_channel": "big think"
       }
     },
     {
@@ -66,7 +72,21 @@
           "Deduplicated English transcript (25 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (180.8s–263.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
-      }
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_modern_monologue_without_archival_footage(wps=2.697,th=0.5)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 14,
+        "median_dark_ratio": 0.379,
+        "median_gray_sat_ratio": 0.0451,
+        "is_bw_archival": false,
+        "median_flat_patch_ratio": 0.3568,
+        "talking_head_ratio": 0.5,
+        "words_per_sec": 2.697,
+        "has_strong_archival_cue": false,
+        "gate_failed": 4
+      },
+      "recommended_section": "*00:03:00-00:04:24"
     },
     {
       "id": "M3",
@@ -89,7 +109,14 @@
           "Inspected media/M3/still.jpg (688x818 px, CC BY-SA 2.0, nrkbeta) — portrait reference: This work by nrkbeta.no is licensed under a <a href=\" https://creativecommons.org/licenses/by-sa/3.0/no/ \" rel=\"noreferr.",
           "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor"
 }

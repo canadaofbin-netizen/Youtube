@@ -151,7 +151,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 4,
@@ -174,7 +175,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 5,
@@ -209,7 +211,18 @@
       "analogy_world": "a bright brushed-matte schoolyard court bench holding a matte ceramic bowl filled with equal powder-blue and muted-sage team draw tokens",
       "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in sleeves and gloves draw sunlit tokens one by one and place them into two equal team rows",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 6
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 7,
@@ -230,8 +243,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 8,
@@ -254,7 +269,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 9,
@@ -277,7 +293,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 10,
@@ -299,7 +316,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 11,
@@ -336,7 +354,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "along the lower ventral temporal curve of the matte-sunlit 3D brain model, the fusiform face area dims into cool dove-grey",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 12
+      "clip_number": 12,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 13,
@@ -347,7 +366,18 @@
       "analogy_world": "a clean pastel-slate factory shift station with three rotating powder-blue duty boards and a brushed-silver shift dial",
       "comparison_action": "clothed matte-white porcelain worker figures in muted-sage jackets and caps step past the shift dial and pass a clipboard baton from behind",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 13
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 14,
@@ -370,7 +400,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 15,
@@ -416,7 +447,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 18,
@@ -439,7 +471,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 19,
@@ -461,8 +494,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 21,
@@ -475,7 +510,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "inside the flat matte-sunlit sagittal half-brain cutaway, the lower front ventromedial prefrontal cortex dims softly in pale slate",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 19
+      "clip_number": 19,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 22,
@@ -497,7 +533,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 23,
@@ -543,7 +580,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 25,
@@ -567,7 +605,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 26,
@@ -611,7 +650,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -682,7 +722,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 31,
@@ -703,8 +744,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 32,
@@ -751,7 +794,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 34,
@@ -787,7 +831,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "across the matte-sunlit 3D cortical model, top-down brushed-matte pathways steer the front prefrontal cortex while calm powder-blue social circuits sit quiet",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 33
+      "clip_number": 33,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 36,
@@ -810,7 +855,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 38,
@@ -846,7 +892,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "inside the flat matte-sunlit sagittal half-brain cutaway, the medial anterior cingulate cortex dims quietly under soft lavender-slate shading",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 36
+      "clip_number": 36,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 40,
@@ -868,7 +915,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 41,
@@ -914,7 +962,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -937,7 +986,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 45,
@@ -961,7 +1011,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 46,
@@ -984,7 +1035,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 48,
@@ -1042,7 +1094,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 51,
@@ -1064,7 +1117,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -1089,7 +1143,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 51,
@@ -1112,5 +1167,89 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "jordan_hall_corridor",
+  "real_environment": "the brightly lit pastel-slate Jordan Hall corridor lined with three clean frosted alcove doors",
+  "environment_props": [
+    "silver mirrored aviator sunglasses (reflective 1971 sunglasses worn by guards to hide eye-to-eye human contact)",
+    "Day-6 'STUDY TERMINATED' calendar & orientation tape reel",
+    "'Stanford County Jail' painted hallway sign"
+  ],
+  "cast": {
+    "subject": "1971 Stanford attire: khaki short-sleeve button shirts and chinos on guards with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "numbered cotton smocks on prisoners with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_jordan_hall_corridor",
+      "location_id": "jordan_hall_corridor",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 1 (jordan_hall_corridor: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the brightly lit pastel-slate Jordan Hall corridor lined with three clean frosted alcove doors, featuring silver mirrored aviator sunglasses (reflective 1971 sunglasses worn by guards to hide eye-to-eye human contact). Inside the room, subject (1971 Stanford attire: khaki short-sleeve button shirts and chinos on guards with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside silver mirrored aviator sunglasses (reflective 1971 sunglasses worn by guards to hide eye-to-eye human contact). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the brightly lit pastel-slate Jordan Hall corridor lined with three clea",
+        "silver mirrored aviator sunglasses (reflective 1971 sung"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_ethics_review_chamber",
+      "location_id": "ethics_review_chamber",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (ethics_review_chamber: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the sunlit Stanford courtyard outside Jordan Hall with pale-stone arches and muted-sage trees, featuring Day-6 'STUDY TERMINATED' calendar & orientation tape reel. Inside the room, researcher (numbered cotton smocks on prisoners with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Day-6 'STUDY TERMINATED' calendar & orientation tape reel. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the sunlit Stanford courtyard outside Jordan Hall with pale-stone arches",
+        "Day-6 'STUDY TERMINATED' calendar & orientation tape ree"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_jordan_hall_corridor",
+      "location_id": "jordan_hall_corridor",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (jordan_hall_corridor: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the brightly lit pastel-slate Jordan Hall corridor lined with three clean frosted alcove doors, featuring silver mirrored aviator sunglasses (reflective 1971 sunglasses worn by guards to hide eye-to-eye human contact). Inside the room, researcher (numbered cotton smocks on prisoners with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside silver mirrored aviator sunglasses (reflective 1971 sunglasses worn by guards to hide eye-to-eye human contact). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the brightly lit pastel-slate Jordan Hall corridor lined with three clea",
+        "silver mirrored aviator sunglasses (reflective 1971 sung"
+      ]
+    }
+  ]
 }

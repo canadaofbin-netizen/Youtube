@@ -105,7 +105,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 2,
@@ -150,7 +151,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -196,7 +198,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 7,
@@ -218,7 +221,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -230,7 +234,18 @@
       "analogy_world": "a sunlit circular courtyard displaying a bright soft-mint matte-white porcelain school bus parked cleanly along a pale-stone curb",
       "comparison_action": "viewed strictly from behind, clothed matte-white porcelain children in sunlit sweaters and caps step briskly off the soft-mint school bus steps and walk onto the sunny courtyard",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 7
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 9,
@@ -252,7 +267,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 10,
@@ -274,7 +290,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 11,
@@ -285,7 +302,18 @@
       "analogy_world": "a sunlit sidewalk displaying a classic tall blue steel curbside mailbox standing upright beside a five-foot wooden measuring rod",
       "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in blazer sleeves align the top of the five-foot wooden rod level with the rounded dome of the blue curbside mailbox and tap the top gently",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 10
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 12,
@@ -308,7 +336,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 13,
@@ -353,7 +382,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 15,
@@ -398,8 +428,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 17,
@@ -445,7 +477,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -468,7 +501,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 20,
@@ -492,7 +526,8 @@
           "researcher"
         ]
       },
-      "clip_number": 19
+      "clip_number": 19,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 21,
@@ -514,7 +549,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 22,
@@ -574,7 +610,8 @@
       "anatomy_label": "PREMOTOR CORTEX\nACTION PLANNER",
       "brain_scene": "a matte-sunlit 3D cortical brain model on a pale pedestal where electric cyan-blue internal glow illuminates the premotor cortex strip and sends emerald-green rehearsal pulses toward the movement strip",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 23
+      "clip_number": 23,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 25,
@@ -587,7 +624,8 @@
       "anatomy_label": "BASAL GANGLIA\nHABIT ENGINE",
       "brain_scene": "a matte-sunlit sagittal cutaway brain model where warm amber-gold luminescence settles deep inside the central basal ganglia hub storing the rehearsed action sequence",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 24
+      "clip_number": 24,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 26,
@@ -609,7 +647,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 27,
@@ -631,8 +670,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 28,
@@ -653,8 +694,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 29,
@@ -676,8 +719,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 30,
@@ -737,7 +782,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 33,
@@ -759,8 +805,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 35,
@@ -782,7 +830,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 36,
@@ -828,8 +877,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 39,
@@ -853,7 +904,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 41,
@@ -875,7 +927,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 42,
@@ -922,7 +975,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 45,
@@ -944,7 +998,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 46,
@@ -968,7 +1023,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 47,
@@ -1014,7 +1070,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 49,
@@ -1038,7 +1095,8 @@
           "researcher"
         ]
       },
-      "clip_number": 44
+      "clip_number": 44,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 50,
@@ -1051,7 +1109,8 @@
       "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
       "brain_scene": "a matte-sunlit 3D cortical brain model glowing with serene electric cyan-blue light across the prefrontal cortex and steady warm amber-gold pathways to the motor strip",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 45
+      "clip_number": 45,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 51,
@@ -1073,7 +1132,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 52,
@@ -1095,7 +1155,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -1143,5 +1204,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_a",
+  "track_subtier": "A1a_ready_keyframes",
+  "default_location_id": "stanford_nursery_playroom",
+  "real_environment": "the sunny center rug of the nursery playroom featuring a tall weighted pastel-striped vinyl rebound doll with a rounded sand-filled base",
+  "environment_props": [
+    "weighted inflatable Bobo rebound doll",
+    "wooden nursery peg mallet (smooth light-wood child's toy mallet borrowed from the peg-board table)",
+    "peaceful Tinkertoy set in corner (wooden spool-and-rod building kit sitting untouched on the side rug)"
+  ],
+  "cast": {
+    "subject": "1961 California preschool attire: striped cotton polo shirt, pleated shorts, canvas sneakers with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "researchers in crisp early-1960s collared shirts, narrow ties, and sport coats with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_stanford_nursery_playroom",
+      "location_id": "stanford_nursery_playroom",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (stanford_nursery_playroom: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunny center rug of the nursery playroom featuring a tall weighted pastel-striped vinyl rebound doll with a rounded sand-filled base, featuring weighted inflatable Bobo rebound doll. Inside the room, researcher (researchers in crisp early-1960s collared shirts, narrow ties, and sport coats with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside weighted inflatable Bobo rebound doll. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the sunny center rug of the nursery playroom featuring a tall weighted p",
+        "weighted inflatable Bobo rebound doll"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_one_way_mirror_booth",
+      "location_id": "one_way_mirror_booth",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (one_way_mirror_booth: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit California university psychology corridor leading into three side-by-side sunlit nursery playrooms with observation windows, featuring wooden nursery peg mallet (smooth light-wood child's toy mallet borrowed from the peg-board table). Inside the room, researcher (researchers in crisp early-1960s collared shirts, narrow ties, and sport coats with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside wooden nursery peg mallet (smooth light-wood child's toy mallet borrowed from the peg-board table). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a sunlit California university psychology corridor leading into three si",
+        "wooden nursery peg mallet (smooth light-wood child's toy"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_family_kitchen_home",
+      "location_id": "family_kitchen_home",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (family_kitchen_home: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the warm sunlit family kitchen island with neatly stacked ceramic cups, folded cotton towels, and bright morning windows, featuring weighted inflatable Bobo rebound doll. Inside the room, researcher (researchers in crisp early-1960s collared shirts, narrow ties, and sport coats with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside weighted inflatable Bobo rebound doll. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the warm sunlit family kitchen island with neatly stacked ceramic cups, ",
+        "weighted inflatable Bobo rebound doll"
+      ]
+    }
+  ]
 }

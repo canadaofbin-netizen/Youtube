@@ -105,7 +105,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 2,
@@ -127,7 +128,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 3,
@@ -149,7 +151,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -171,7 +174,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 5,
@@ -208,7 +212,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "inside the matte-sunlit sagittal head-and-brain cutaway, tiny concentric powder-blue light rings activate the curved retina at the back of the eye",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 6
+      "clip_number": 6,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 7,
@@ -231,7 +236,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 8,
@@ -242,7 +248,18 @@
       "analogy_world": "a cool slate-gray studio wall illuminated by five brushed-silver pocket flashlights mounted on a powder-blue rail",
       "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in coat sleeves hold and press the five silver flashlights casting five soft round pale-mint circles across the cool-white wall",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 8
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "pastel_analogy_stage",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 9,
@@ -287,7 +304,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 11,
@@ -300,7 +318,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "at the back of the matte-sunlit 3D cortical brain model, a hair-thin brushed-silver probe rests gently against the powder-blue primary visual cortex",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 11
+      "clip_number": 11,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 12,
@@ -311,7 +330,18 @@
       "analogy_world": "a sunlit cool-limestone tabletop comparing a rectangular frosted-glass slide beside a smooth brushed-silver pocket mirror",
       "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in white coat sleeves align the rectangular glass slide beside the silver pocket mirror and slide it into a silver slot",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 12
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "pastel_analogy_stage",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 13,
@@ -333,7 +363,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 14,
@@ -355,8 +386,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 15,
@@ -377,8 +410,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 16,
@@ -402,7 +437,8 @@
           "researcher"
         ]
       },
-      "clip_number": 16
+      "clip_number": 16,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 17,
@@ -424,7 +460,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 18,
@@ -446,8 +483,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 19,
@@ -493,7 +532,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 21,
@@ -540,7 +580,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 23,
@@ -562,7 +603,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 24,
@@ -643,7 +685,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -666,7 +709,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 29,
@@ -690,7 +734,8 @@
           "researcher"
         ]
       },
-      "clip_number": 29
+      "clip_number": 29,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 30,
@@ -737,7 +782,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 32,
@@ -783,7 +829,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 34,
@@ -807,7 +854,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 36,
@@ -828,8 +876,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 37,
@@ -866,7 +916,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "along the side of the matte-sunlit 3D cortical brain model, mint-sage edge streams from the back flow forward into the powder-blue temporal lobe to assemble whole shapes",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 37
+      "clip_number": 37,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 39,
@@ -888,7 +939,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 40,
@@ -912,7 +964,8 @@
           "researcher"
         ]
       },
-      "clip_number": 39
+      "clip_number": 39,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 41,
@@ -959,7 +1012,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 44,
@@ -1030,7 +1084,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 50,
@@ -1052,7 +1107,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 51,
@@ -1074,8 +1130,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 20,
@@ -1099,7 +1157,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 51,
@@ -1122,5 +1181,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "hopkins_optical_bench",
+  "real_environment": "a cool slate-gray Baltimore optical room with a wide matte-white wall screen and a brushed-silver slide projector on a limestone table",
+  "environment_props": [
+    "optical slide projector with 45°-angled glass slide & white tangent screen",
+    "desktop green-trace oscilloscope & '0° Silent | 45° BURST! | 90° Silent' tuning polar chart (visualizes razor-sharp orientation tuning across clock angles)",
+    "articulated matte-white porcelain cat sculpture (honors R46 porcelain animal rule with clean museum styling)"
+  ],
+  "cast": {
+    "subject": "1959 laboratory attire: rolled-sleeve white cotton shirts, slim dark ties, open white lab coats with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clinical investigator in a white coat with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_hopkins_optical_bench",
+      "location_id": "hopkins_optical_bench",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (hopkins_optical_bench: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a cool slate-gray Baltimore optical room with a wide matte-white wall screen and a brushed-silver slide projector on a limestone table, featuring optical slide projector with 45°-angled glass slide & white tangent screen. Inside the room, researcher (clinical investigator in a white coat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside optical slide projector with 45°-angled glass slide & white tangent screen. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a cool slate-gray Baltimore optical room with a wide matte-white wall sc",
+        "optical slide projector with 45°-angled glass slide & wh"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_harvard_column_studio",
+      "location_id": "harvard_column_studio",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (harvard_column_studio: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the cool powder-blue seminar studio where a flat pixel camera model sits closed beside an illuminated diagonal edge screen, featuring desktop green-trace oscilloscope & '0° Silent | 45° BURST! | 90° Silent' tuning polar chart (visualizes razor-sharp orientation tuning across clock angles). Inside the room, researcher (clinical investigator in a white coat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside desktop green-trace oscilloscope & '0° Silent | 45° BURST! | 90° Silent' tuning polar chart (visualizes razor-sharp orientation tuning across clock angles). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the cool powder-blue seminar studio where a flat pixel camera model sits",
+        "desktop green-trace oscilloscope & '0° Silent | 45° BURS"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_harvard_column_studio",
+      "location_id": "harvard_column_studio",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 3 (harvard_column_studio: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the cool powder-blue seminar studio where a flat pixel camera model sits closed beside an illuminated diagonal edge screen, featuring optical slide projector with 45°-angled glass slide & white tangent screen. Inside the room, subject (1959 laboratory attire: rolled-sleeve white cotton shirts, slim dark ties, open white lab coats with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside optical slide projector with 45°-angled glass slide & white tangent screen. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the cool powder-blue seminar studio where a flat pixel camera model sits",
+        "optical slide projector with 45°-angled glass slide & wh"
+      ]
+    }
+  ]
 }

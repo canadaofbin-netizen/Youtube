@@ -161,7 +161,8 @@
           "researcher",
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 7,
@@ -185,7 +186,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 7,
@@ -233,7 +235,8 @@
           "researcher"
         ]
       },
-      "clip_number": 6
+      "clip_number": 6,
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 8,
@@ -255,8 +258,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "clip_index": 9,
@@ -268,7 +273,18 @@
       "analogy_object": "a compact powder-blue low-poly desk flip-stand holding six blank sunlit leaf cards beside a muted-sage pencil cup on a cool cream studio table",
       "analogy_action": "six clean unmarked pastel cards flip briskly one after another across the compact powder-blue stand and settle flat in soft studio daylight",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 8
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "bright_brain_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "clip_index": 10,
@@ -292,8 +308,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 13,
@@ -316,8 +334,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "clip_index": 13,
@@ -340,8 +360,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "clip_index": 14,
@@ -365,7 +387,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 17,
@@ -389,8 +412,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 18,
@@ -404,7 +429,8 @@
       "anatomy_label": "AUDITORY CORTEX\nHEARING CENTER",
       "brain_scene": "a matte powder-cream matte-white porcelain left hemisphere model on a cool slate stand where the upper temporal auditory cortex ridge glows soft cyan-blue with calm sound waves",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 14
+      "clip_number": 14,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 19,
@@ -416,7 +442,18 @@
       "analogy_object": "a neat muted-sage low-poly valet pocket tray holding three everyday items — a silver house key, a powder-blue cup, and a pale slate brush — on a cool cream surface",
       "analogy_action": "the three distinct pastel objects settle into three recessed slots along the muted-sage pocket tray under soft studio light",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 15
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "bright_brain_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "clip_index": 20,
@@ -514,7 +551,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "clip_index": 26,
@@ -537,7 +575,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 26,
@@ -560,7 +599,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -575,7 +615,8 @@
       "anatomy_label": "BROCA'S AREA\nSPEECH PRODUCER",
       "brain_scene": "a matte cream matte-white porcelain left hemisphere model where frontal Broca's area glows calm steady powder-blue completely intact and unharmed",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 22
+      "clip_number": 22,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 28,
@@ -589,7 +630,8 @@
       "anatomy_label": "WERNICKE'S AREA\nLANGUAGE DECODER",
       "brain_scene": "the matte cream matte-white porcelain left hemisphere rotating slightly to show posterior temporal Wernicke's area behind the ear shaded in muted dusty-rose",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 23
+      "clip_number": 23,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 29,
@@ -603,7 +645,8 @@
       "anatomy_label": "WHITE MATTER\nBRAIN CABLES",
       "brain_scene": "a cutaway matte sunlit left hemisphere revealing a sweeping arched white-matter fiber bundle in soft sage-green linking rear temporal cortex to frontal cortex",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 24
+      "clip_number": 24,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 30,
@@ -649,8 +692,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 28,
@@ -674,7 +719,8 @@
           "researcher"
         ]
       },
-      "clip_number": 27
+      "clip_number": 27,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 34,
@@ -699,7 +745,8 @@
           "researcher",
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 30,
@@ -724,7 +771,8 @@
           "subject"
         ]
       },
-      "clip_number": 29
+      "clip_number": 29,
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 36,
@@ -749,7 +797,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 32,
@@ -796,7 +845,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "clip_index": 38,
@@ -821,7 +871,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "clip_index": 40,
@@ -846,7 +897,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 36,
@@ -884,7 +936,8 @@
       "anatomy_label": "BROCA'S AREA\nSPEECH PRODUCER",
       "brain_scene": "a matte cream matte-white porcelain left hemisphere where frontal Broca's area pulses smooth powder-blue waves forward without feedback from the rear temporal zone",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 36
+      "clip_number": 36,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 42,
@@ -922,7 +975,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 45,
@@ -946,7 +1000,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "clip_index": 47,
@@ -995,7 +1050,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "clip_index": 51,
@@ -1009,7 +1065,8 @@
       "anatomy_label": "WERNICKE'S AREA\nLANGUAGE DECODER",
       "brain_scene": "a matte cream matte-white porcelain left hemisphere model where posterior temporal Wernicke's area transitions smoothly from muted rose back to calm powder-blue",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 42
+      "clip_number": 42,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 52,
@@ -1034,7 +1091,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 57,
@@ -1059,7 +1117,8 @@
           "researcher",
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 56,
@@ -1107,8 +1166,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "clip_index": 15,
@@ -1133,7 +1194,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 58,
@@ -1152,5 +1214,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "breslau_clinic_room",
+  "real_environment": "a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight",
+  "environment_props": [
+    "three-object comprehension tray (key, water glass, hairbrush) & desk bell",
+    "Wernicke's 1874 hand-inked 'a1 -> b' cortical network diagram"
+  ],
+  "cast": {
+    "subject": "1874 German medical frock coat, high collar, cravat with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "modest 19th-century wool shawl over buttoned dress with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_breslau_clinic_room",
+      "location_id": "breslau_clinic_room",
+      "present_cast": [
+        "researcher",
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (breslau_clinic_room: researcher, subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight, featuring three-object comprehension tray (key, water glass, hairbrush) & desk bell. Inside the room, researcher (modest 19th-century wool shawl over buttoned dress with a completely smooth featureless solid matte-white egg-shaped oval head), subject (1874 German medical frock coat, high collar, cravat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-object comprehension tray (key, water glass, hairbrush) & desk bell. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a long pale-sage hospital hallway viewed toward an open clinic doorway b",
+        "three-object comprehension tray (key, water glass, hairb"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_breslau_study_desk",
+      "location_id": "breslau_study_desk",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (breslau_study_desk: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a quiet high-key sunlit pathology study room with pale slate cabinets and a cool cream examination table, featuring Wernicke's 1874 hand-inked 'a1 -> b' cortical network diagram. Inside the room, researcher (modest 19th-century wool shawl over buttoned dress with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Wernicke's 1874 hand-inked 'a1 -> b' cortical network diagram. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a quiet high-key sunlit pathology study room with pale slate cabinets an",
+        "Wernicke's 1874 hand-inked 'a1 -> b' cortical network di"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_rehab_care_room",
+      "location_id": "rehab_care_room",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (rehab_care_room: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a clean modern sunlit neurology triage bay with pale sage curtains and cool cream floors, featuring three-object comprehension tray (key, water glass, hairbrush) & desk bell. Inside the room, researcher (modest 19th-century wool shawl over buttoned dress with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-object comprehension tray (key, water glass, hairbrush) & desk bell. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a clean modern sunlit neurology triage bay with pale sage curtains and c",
+        "three-object comprehension tray (key, water glass, hairb"
+      ]
+    }
+  ]
 }

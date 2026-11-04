@@ -111,7 +111,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 3,
@@ -181,7 +182,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 7,
@@ -231,7 +233,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -306,7 +309,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "index": 12,
@@ -341,7 +345,18 @@
       "analogy_world": "clean clear daylight-white corridor holding a large matte powder-blue travel trunk strapped with silver clasps on a slate-stone dolly",
       "comparison_action": "navy coat sleeves and cool porcelain-white gloved matte-white porcelain hands latch the heavy powder-blue travel trunk shut and push the loaded dolly steadily forward",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 11
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "harvard_zoology_hall",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "index": 14,
@@ -388,7 +403,8 @@
           "researcher"
         ]
       },
-      "clip_number": 13
+      "clip_number": 13,
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "index": 16,
@@ -411,7 +427,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "index": 16,
@@ -435,7 +452,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -486,7 +504,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "index": 21,
@@ -508,8 +527,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 23,
@@ -557,7 +578,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "index": 26,
@@ -604,7 +626,8 @@
           "researcher"
         ]
       },
-      "clip_number": 22
+      "clip_number": 22,
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "index": 27,
@@ -618,7 +641,8 @@
       "anatomy_label": "HORMONE CONTROL\\nCARE BONDING HUB",
       "brain_scene": "matte-white matte-white porcelain sagittal brain model in a bright clear daylight-white studio where the deep midline hormone hub glows soft cyan-blue with gentle green fiber pulses",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 23
+      "clip_number": 23,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "index": 28,
@@ -640,8 +664,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "index": 29,
@@ -667,7 +693,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "index": 31,
@@ -740,7 +767,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "index": 34,
@@ -764,8 +792,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "index": 35,
@@ -779,7 +809,8 @@
       "anatomy_label": "GUT-FEELING CENTER\\nFAIRNESS ALARM",
       "brain_scene": "matte-white matte-white porcelain lateral brain cutaway in a bright clear daylight-white studio where the deep folded insula glows soft crimson-rose and cyan-blue along internal fibers",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 30
+      "clip_number": 30,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "index": 36,
@@ -803,7 +834,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "index": 37,
@@ -828,7 +860,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "index": 39,
@@ -875,7 +908,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "index": 41,
@@ -887,7 +921,18 @@
       "analogy_world": "cool slate-stone counter holding a brushed-silver twin-pan balance with equal mint-green geometric cubes resting in each pan",
       "comparison_action": "sage cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands place matching mint-green cubes into both silver pans and align the crossbar level",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 35
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "family_home_table",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "index": 42,
@@ -910,7 +955,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 43,
@@ -950,7 +996,8 @@
       "anatomy_label": "JUDGMENT CENTER\\nFAMILY SHARE SCALE",
       "brain_scene": "matte-white matte-white porcelain medial brain cutaway in a bright gallery where the lower frontal judgment hub glows calm cyan-blue with balanced green fiber arcs",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 38
+      "clip_number": 38,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "index": 47,
@@ -974,7 +1021,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 48,
@@ -996,8 +1044,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "index": 51,
@@ -1021,7 +1071,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "index": 52,
@@ -1047,7 +1098,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "index": 54,
@@ -1109,7 +1161,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "index": 57,
@@ -1135,7 +1188,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "index": 20,
@@ -1179,5 +1233,87 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "family_home_table",
+  "real_environment": "cool clear daylight-white studio room where teammates exchange sunlit favor tokens across a round slate-stone table",
+  "environment_props": [
+    "paired matte-white porcelain zoological sculptures (Peacock/Peahen vs Brooding Pipefish/Jacana Dad)",
+    "Harvard Comparative Investment bound notebook ('Mammals: Female Invests More | Pipefish/Jacana: Male Invests More | Long-Term Humans: Biparental Mutual Choice!') (captures standard, reversed, and human biparental cases on one board)"
+  ],
+  "cast": {
+    "subject": "1972 Cambridge academic attire: tan corduroy sport coat, oxford shirt, knit pullovers, and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_harvard_zoology_hall",
+      "location_id": "harvard_zoology_hall",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (harvard_zoology_hall: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit clear daylight-white Harvard zoology hall with two cool slate-stone display stands holding matte-white smooth sculptural matte-white porcelain bird and marine sculptures, featuring paired matte-white porcelain zoological sculptures (Peacock/Peahen vs Brooding Pipefish/Jacana Dad). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired matte-white porcelain zoological sculptures (Peacock/Peahen vs Brooding Pipefish/Jacana Dad). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "sunlit clear daylight-white Harvard zoology hall with two cool slate-sto",
+        "paired matte-white porcelain zoological sculptures (Peac"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_family_home_table",
+      "location_id": "family_home_table",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (family_home_table: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across cool clear daylight-white studio room where teammates exchange sunlit favor tokens across a round slate-stone table, featuring Harvard Comparative Investment bound notebook ('Mammals: Female Invests More | Pipefish/Jacana: Male Invests More | Long-Term Humans: Biparental Mutual Choice!') (captures standard, reversed, and human biparental cases on one board). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Harvard Comparative Investment bound notebook ('Mammals: Female Invests More | Pipefish/Jacana: Male Invests More | Long-Term Humans: Biparental Mutual Choice!') (captures standard, reversed, and human biparental cases on one board). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "cool clear daylight-white studio room where teammates exchange sunlit fa",
+        "Harvard Comparative Investment bound notebook ('Mammals:"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_marine_lab_bench",
+      "location_id": "marine_lab_bench",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (marine_lab_bench: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside cool powder-blue and clear daylight-white marine biology room with geometric seagrass prisms and smooth sculptural matte-white porcelain pipefish sculptures on slate trays, featuring paired matte-white porcelain zoological sculptures (Peacock/Peahen vs Brooding Pipefish/Jacana Dad). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired matte-white porcelain zoological sculptures (Peacock/Peahen vs Brooding Pipefish/Jacana Dad). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "cool powder-blue and clear daylight-white marine biology room with geome",
+        "paired matte-white porcelain zoological sculptures (Peac"
+      ]
+    }
+  ]
 }

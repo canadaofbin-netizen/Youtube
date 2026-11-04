@@ -32,6 +32,20 @@
           "Non-vocal archival/demonstration clip (media/M1/transcript.txt); visual timing and staging inspected directly across 14 keyframes (16.2s–98.4s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_talking_head_monologue(ratio=0.625,wps=0.083)",
+      "recommended_section": "*00:00:15-00:01:39",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 14,
+        "median_dark_ratio": 0.0891,
+        "median_gray_sat_ratio": 0.0179,
+        "is_bw_archival": false,
+        "median_flat_patch_ratio": 0.3182,
+        "talking_head_ratio": 0.625,
+        "words_per_sec": 0.083,
+        "has_strong_archival_cue": true,
+        "gate_failed": 4
       }
     },
     {
@@ -66,6 +80,11 @@
           "Deduplicated English transcript (25 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (620.8s–703.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_lecture_or_talking_head_kind(lecture)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     },
     {
@@ -89,7 +108,14 @@
           "Inspected media/M3/still.jpg (960x1280 px, CC0, CityLimitsJunction) — apparatus reference: Kitty Genovese's Childhood Home at 29 St Johns Pl. in Park Slope, Brooklyn.",
           "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor"
 }

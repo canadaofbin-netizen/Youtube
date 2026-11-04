@@ -824,6 +824,54 @@ REENACT_BRAIN_RATIO_MIN = 0.20                 # RQ5: >= 20% original R66 4-colo
 REENACT_COMPOSITION_MATCH_MIN = 0.85           # RQ5: >= 85% shot blocking / zone layout alignment
 PORCELAIN_REF_WHITE_RATIO_MAX = 0.72           # R66 Q2: high-key bright studio white ratio ceiling (up from 0.55)
 PORCELAIN_REF_NEON_GREEN_MAX = 0.012           # R66 Q6: max uncontained neon-green ratio (allows electric cyan-blue)
+REENACTMENT_TRACKS: tuple[str, ...] = ("track_a", "track_b")
+MEDIA_SUITABILITY_CLASSES: tuple[str, ...] = (
+    "suitable_track_a",
+    "needs_section_window",
+    "reject_track_b_only",
+)
+MEDIA_REJECT_CHANNEL_PATTERNS: tuple[str, ...] = (
+    "ted",
+    "tedx",
+    "ted-ed",
+    "ted ed",
+    "big think",
+    "scishow",
+    "crashcourse",
+    "crash course",
+    "sprouts",
+    "khan academy",
+    "khanacademy",
+    "brainfacts",
+    "yalecourses",
+    "yale courses",
+    "mit opencourseware",
+    "veritasium",
+    "kurzgesagt",
+    "asapscience",
+    "minutephysics",
+    "neuroscientifically challenged",
+    "2-minute neuroscience",
+    "osmosis",
+    "armando hasudungan",
+    "northwell health",
+    "mayo clinic",
+    "cleveland clinic",
+    "johns hopkins medicine",
+    "huberman lab",
+    "web of stories",
+    "psychology unlocked",
+    "gocognitive",
+    "serious science",
+    "closer to truth",
+    "after skool",
+    "practical psychology",
+    "psych2go",
+)
+MEDIA_MAX_DARK_VOID_RATIO = 0.72               # Gate 2: max median dark pixel ratio (Y < 35) before rejecting dark TED/stage voids
+MEDIA_MAX_FLAT_SLIDE_RATIO = 0.62              # Gate 3: max flat low-texture slide/vector ratio on non-B&W frames
+MEDIA_MAX_UNWINDOWED_DURATION_SEC = 600.0      # Gate 4: >10 min videos without explicit section window require timestamp windowing
+YUNET_FACE_MODEL_PATH = WORKSPACE_ROOT / "pipeline" / "assets" / "models" / "face_detection_yunet_2023mar.onnx"
 
 # --- 3-Format Funnel (Micro-Short -> Flagship Diorama -> 16:9 4K CTV Long-Form) & Breaking News ---
 MICRO_SHORT_PROFILE = "micro_short_v7"

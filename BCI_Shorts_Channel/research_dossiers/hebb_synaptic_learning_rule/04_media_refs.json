@@ -32,6 +32,19 @@
           "Deduplicated English transcript (47 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (0.0s–117.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_talking_head_monologue(ratio=0.75,wps=2.513)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 14,
+        "median_dark_ratio": 0.0244,
+        "median_gray_sat_ratio": 0.1616,
+        "is_bw_archival": false,
+        "median_flat_patch_ratio": 0.1306,
+        "talking_head_ratio": 0.75,
+        "words_per_sec": 2.513,
+        "has_strong_archival_cue": false,
+        "gate_failed": 4
       }
     },
     {
@@ -66,7 +79,14 @@
           "Deduplicated English transcript (23 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–117.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
-      }
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_rejected_explainer_channel(web of stories)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1,
+        "matched_channel": "web of stories"
+      },
+      "recommended_section": "*00:00-02:00"
     },
     {
       "id": "M3",
@@ -89,7 +109,14 @@
           "Inspected media/M3/still.jpg (1344x1024 px, CC BY-SA 2.5, MethoxyRoxy) — neuroanatomy reference: Golgi stained pyramidal neuron in the hippocampus of an epileptic patient. 40 times magnification.",
           "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor"
 }

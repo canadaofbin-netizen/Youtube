@@ -32,6 +32,11 @@
           "Deduplicated English transcript (7 timestamped cues in media/M1_zimbardo_stanford_prison_rol/transcript.txt) aligned directly to keyframe timestamps (0.0s–71.5s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_lecture_or_talking_head_kind(lecture)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     },
     {
@@ -66,6 +71,11 @@
           "Deduplicated English transcript (27 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (890.8s–973.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_lecture_or_talking_head_kind(lecture)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     },
     {
@@ -89,7 +99,14 @@
           "Inspected media/M3/still.jpg (543x350 px, CC BY 2.0, Eric. E. Castro) — subject organism reference: This image shows a plaque marking the site where the famous Stanford Prison Experiment was conducted. The point of this experiment was to study the psychological effects of students becoming either a.",
           "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor"
 }

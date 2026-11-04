@@ -105,7 +105,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 2,
@@ -127,7 +128,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 3,
@@ -149,7 +151,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -171,7 +174,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 5,
@@ -217,8 +221,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 7,
@@ -265,7 +271,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 10,
@@ -276,7 +283,18 @@
       "analogy_world": "a matte powder-blue rotating garden sprinkler head mounted at the center of a cool mint-sage and limestone courtyard",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in slate cuffs turn the silver water valve open and step back as soft powder-blue water arcs spray on a fixed rhythm",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 9
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 11,
@@ -287,7 +305,18 @@
       "analogy_world": "a compact matte powder-blue and brushed-silver elevator portal resting on a cool slate-gray architectural stone base",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in blazer cuffs press a side test button so the brushed-silver doors slide open briefly and close smoothly",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 10
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 12,
@@ -309,8 +338,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 14,
@@ -332,7 +363,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 15,
@@ -354,8 +386,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 16,
@@ -400,8 +434,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 18,
@@ -423,8 +459,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 19,
@@ -447,7 +485,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 20,
@@ -470,7 +509,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 21,
@@ -483,7 +523,8 @@
       "anatomy_label": "VENTRAL TEGMENTAL AREA\nDOPAMINE FACTORY",
       "brain_scene": "a matte-sunlit sagittal cutaway brain model on a cool alabaster stand where the deep midbrain ventral tegmental area flashes coral-rose sending an upward surprise signal",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 19
+      "clip_number": 19,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 22,
@@ -496,7 +537,8 @@
       "anatomy_label": "BASAL GANGLIA\nHABIT ENGINE",
       "brain_scene": "a matte-sunlit sagittal cutaway brain model highlighting the central basal ganglia in bright cyan-blue locking the preceding movement pattern into an automatic loop",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 20
+      "clip_number": 20,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 23,
@@ -540,9 +582,11 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       },
-      "clip_number": 22
+      "clip_number": 22,
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 25,
@@ -564,7 +608,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 26,
@@ -611,7 +656,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 28,
@@ -633,7 +679,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 29,
@@ -655,8 +702,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 30,
@@ -677,8 +726,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 31,
@@ -701,7 +752,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 32,
@@ -723,7 +775,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 33,
@@ -793,7 +846,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 36,
@@ -912,7 +966,8 @@
       "anatomy_label": "VENTRAL TEGMENTAL AREA\nDOPAMINE FACTORY",
       "brain_scene": "a matte-sunlit sagittal cutaway brain model where the midbrain ventral tegmental area pulses coral-rose sending reward-timing flashes upward to the striatum",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 39
+      "clip_number": 39,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 43,
@@ -934,7 +989,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -957,7 +1013,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 46,
@@ -981,7 +1038,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 48,
@@ -1003,7 +1061,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 49,
@@ -1040,7 +1099,8 @@
       "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
       "brain_scene": "a matte-sunlit 3D cortical brain model where cool cyan-blue light brightens the prefrontal cortex testing true cause against random coincidence",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 45
+      "clip_number": 45,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 51,
@@ -1062,7 +1122,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 52,
@@ -1084,7 +1145,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -1132,5 +1194,89 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_a",
+  "track_subtier": "A1a_ready_keyframes",
+  "default_location_id": "indiana_pigeon_lab",
+  "real_environment": "a soft daylight psychology laboratory with a clear acrylic conditioning chamber box, lower grain hopper tray, plain tick-mark interval relay cams, and matte chalk-white smooth sculptural matte-white porcelain pigeon sculpture on a cool slate-gray bench",
+  "environment_props": [
+    "clear-walled operant conditioning chamber",
+    "15-second interval timer dial",
+    "cumulative paper-drum recorder (rotating white paper cylinder with stepped ink stylus)"
+  ],
+  "cast": {
+    "subject": "Experimenter mannequin in crisp 1940s white cotton lab coat, collared shirt, dark tie with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "subject staged as an articulated matte-white porcelain pigeon sculpture with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_indiana_pigeon_lab",
+      "location_id": "indiana_pigeon_lab",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (indiana_pigeon_lab: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a soft daylight psychology laboratory with a clear acrylic conditioning chamber box, lower grain hopper tray, plain tick-mark interval relay cams, and matte chalk-white smooth sculptural matte-white porcelain pigeon sculpture on a cool slate-gray bench, featuring clear-walled operant conditioning chamber. Inside the room, researcher (subject staged as an articulated matte-white porcelain pigeon sculpture with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside clear-walled operant conditioning chamber. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a soft daylight psychology laboratory with a clear acrylic conditioning ",
+        "clear-walled operant conditioning chamber"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_indiana_pigeon_lab",
+      "location_id": "indiana_pigeon_lab",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 2 (indiana_pigeon_lab: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a soft daylight psychology laboratory with a clear acrylic conditioning chamber box, lower grain hopper tray, plain tick-mark interval relay cams, and matte chalk-white smooth sculptural matte-white porcelain pigeon sculpture on a cool slate-gray bench, featuring 15-second interval timer dial. Inside the room, subject (Experimenter mannequin in crisp 1940s white cotton lab coat, collared shirt, dark tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 15-second interval timer dial. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a soft daylight psychology laboratory with a clear acrylic conditioning ",
+        "15-second interval timer dial"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_city_crosswalk_corner",
+      "location_id": "city_crosswalk_corner",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (city_crosswalk_corner: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a clean sunlit city intersection with cool slate-gray asphalt, pale limestone curbs, and a matte powder-blue pedestrian button box on a brushed-silver pole, featuring clear-walled operant conditioning chamber. Inside the room, researcher (subject staged as an articulated matte-white porcelain pigeon sculpture with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside clear-walled operant conditioning chamber. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a clean sunlit city intersection with cool slate-gray asphalt, pale lime",
+        "clear-walled operant conditioning chamber"
+      ]
+    }
+  ]
 }

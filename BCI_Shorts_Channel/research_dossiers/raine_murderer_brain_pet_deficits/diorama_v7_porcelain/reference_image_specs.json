@@ -1,0 +1,402 @@
+{
+  "schema_version": 5,
+  "visual_mode": "NEURO_BIOLOGY",
+  "aspect": "9:16",
+  "dossier": "raine_murderer_brain_pet_deficits",
+  "total_reference_images": 8,
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in 1997 California medical-research attire: tailored charcoal suit and tie with a completely smooth featureless solid matte-white egg-shaped oval head; researcher in crisp white laboratory coats over collared shirts with a completely smooth featureless solid matte-white egg-shaped oval head.",
+  "generation_order": "1 env plate + master brain bust -> 2 cast sheets + hero prop (conditioned on env) -> 3 clip start / key frames (conditioned on master anchors)",
+  "master_anchors": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "present_cast": [],
+      "location_id": "irvine_pet_gallery",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of the bright sunlit Irvine seminar room displaying two separate 3D brain sculptures on twin pedestals, featuring 4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Planned Normal-PFC | Safe-Home Buffer). Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "must_include": [
+        "the bright sunlit Irvine seminar room displaying two separate 3D brain sculpture",
+        "4-Panel Illuminated Brain Metabolism Lightbox (Control | Imp"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_subject",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_subject.png",
+      "title": "Cast sheet: subject (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "subject"
+      ],
+      "location_id": "irvine_pet_gallery",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1997 California medical-research attire: tailored charcoal suit and tie with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the bright sunlit Irvine seminar room displaying two separate 3D brain sculptures on twin pedestals. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "must_include": [
+        "1997 California medical-research attire: tailored charcoal suit and tie with a c",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_researcher",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_researcher.png",
+      "title": "Cast sheet: researcher (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "researcher"
+      ],
+      "location_id": "irvine_pet_gallery",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing crisp white laboratory coats over collared shirts with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the bright sunlit Irvine seminar room displaying two separate 3D brain sculptures on twin pedestals. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "must_include": [
+        "crisp white laboratory coats over collared shirts with a completely smooth featu",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [],
+      "location_id": "irvine_pet_gallery",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of 4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Planned Normal-PFC | Safe-Home Buffer) inside the bright sunlit Irvine seminar room displaying two separate 3D brain sculptures on twin pedestals, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "must_include": [
+        "4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Pla"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_brain_master",
+      "category": "brain_master_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_void",
+      "filename": "ref_brain_master.png",
+      "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the prefrontal cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. Across the front third of the matte warm-ivory 3D brain model, the prefrontal cortex dims down to cool muted slate-blue. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait composition against a high-contrast cool slate-grey studio backdrop, with dynamic camera progression from the porcelain head into the open anatomical brain cross-section tracking the neural circuit. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
+        "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    }
+  ],
+  "clip_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_irvine_pet_gallery",
+      "setting": "real_env",
+      "filename": "ref_anchor_01.png",
+      "title": "Room state anchor 1 (irvine_pet_gallery: researcher)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright sunlit Irvine seminar room displaying two separate 3D brain sculptures on twin pedestals, featuring 4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Planned Normal-PFC | Safe-Home Buffer). Inside the room, researcher (crisp white laboratory coats over collared shirts with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Planned Normal-PFC | Safe-Home Buffer). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright sunlit Irvine seminar room displaying two separate 3D brain s",
+        "4-Panel Illuminated Brain Metabolism Lightbox (Control |"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "location_id": "irvine_pet_gallery",
+      "present_cast": [
+        "researcher"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_irvine_pet_gallery",
+      "setting": "real_env",
+      "filename": "ref_anchor_02.png",
+      "title": "Room state anchor 2 (irvine_pet_gallery: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the bright sunlit Irvine seminar room displaying two separate 3D brain sculptures on twin pedestals, featuring 41-vs-41 Matched FDG-PET & Biosocial Interaction Stand (shows biology × childhood environment interaction clearly). Inside the room, subject (1997 California medical-research attire: tailored charcoal suit and tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 41-vs-41 Matched FDG-PET & Biosocial Interaction Stand (shows biology × childhood environment interaction clearly). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright sunlit Irvine seminar room displaying two separate 3D brain s",
+        "41-vs-41 Matched FDG-PET & Biosocial Interaction Stand ("
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "location_id": "irvine_pet_gallery",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_professor_sunlit_study",
+      "setting": "real_env",
+      "filename": "ref_anchor_03.png",
+      "title": "Room state anchor 3 (professor_sunlit_study: researcher)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a warm sunlit university neuroanatomy office lined with wooden bookshelves, a globe, and a desktop lightbox, featuring 4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Planned Normal-PFC | Safe-Home Buffer). Inside the room, researcher (crisp white laboratory coats over collared shirts with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Planned Normal-PFC | Safe-Home Buffer). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a warm sunlit university neuroanatomy office lined with wooden bookshelv",
+        "4-Panel Illuminated Brain Metabolism Lightbox (Control |"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_cast_researcher"
+      ],
+      "location_id": "professor_sunlit_study",
+      "present_cast": [
+        "researcher"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    }
+  ],
+  "all_specs": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "present_cast": [],
+      "location_id": "irvine_pet_gallery",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of the bright sunlit Irvine seminar room displaying two separate 3D brain sculptures on twin pedestals, featuring 4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Planned Normal-PFC | Safe-Home Buffer). Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "must_include": [
+        "the bright sunlit Irvine seminar room displaying two separate 3D brain sculpture",
+        "4-Panel Illuminated Brain Metabolism Lightbox (Control | Imp"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_subject",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_subject.png",
+      "title": "Cast sheet: subject (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "subject"
+      ],
+      "location_id": "irvine_pet_gallery",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1997 California medical-research attire: tailored charcoal suit and tie with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the bright sunlit Irvine seminar room displaying two separate 3D brain sculptures on twin pedestals. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "must_include": [
+        "1997 California medical-research attire: tailored charcoal suit and tie with a c",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_researcher",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_researcher.png",
+      "title": "Cast sheet: researcher (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "researcher"
+      ],
+      "location_id": "irvine_pet_gallery",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing crisp white laboratory coats over collared shirts with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the bright sunlit Irvine seminar room displaying two separate 3D brain sculptures on twin pedestals. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "must_include": [
+        "crisp white laboratory coats over collared shirts with a completely smooth featu",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [],
+      "location_id": "irvine_pet_gallery",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of 4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Planned Normal-PFC | Safe-Home Buffer) inside the bright sunlit Irvine seminar room displaying two separate 3D brain sculptures on twin pedestals, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "must_include": [
+        "4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Pla"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_brain_master",
+      "category": "brain_master_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_void",
+      "filename": "ref_brain_master.png",
+      "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the prefrontal cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. Across the front third of the matte warm-ivory 3D brain model, the prefrontal cortex dims down to cool muted slate-blue. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait composition against a high-contrast cool slate-grey studio backdrop, with dynamic camera progression from the porcelain head into the open anatomical brain cross-section tracking the neural circuit. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
+        "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_01",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_irvine_pet_gallery",
+      "setting": "real_env",
+      "filename": "ref_anchor_01.png",
+      "title": "Room state anchor 1 (irvine_pet_gallery: researcher)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright sunlit Irvine seminar room displaying two separate 3D brain sculptures on twin pedestals, featuring 4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Planned Normal-PFC | Safe-Home Buffer). Inside the room, researcher (crisp white laboratory coats over collared shirts with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Planned Normal-PFC | Safe-Home Buffer). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright sunlit Irvine seminar room displaying two separate 3D brain s",
+        "4-Panel Illuminated Brain Metabolism Lightbox (Control |"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "location_id": "irvine_pet_gallery",
+      "present_cast": [
+        "researcher"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_irvine_pet_gallery",
+      "setting": "real_env",
+      "filename": "ref_anchor_02.png",
+      "title": "Room state anchor 2 (irvine_pet_gallery: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the bright sunlit Irvine seminar room displaying two separate 3D brain sculptures on twin pedestals, featuring 41-vs-41 Matched FDG-PET & Biosocial Interaction Stand (shows biology × childhood environment interaction clearly). Inside the room, subject (1997 California medical-research attire: tailored charcoal suit and tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 41-vs-41 Matched FDG-PET & Biosocial Interaction Stand (shows biology × childhood environment interaction clearly). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright sunlit Irvine seminar room displaying two separate 3D brain s",
+        "41-vs-41 Matched FDG-PET & Biosocial Interaction Stand ("
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "location_id": "irvine_pet_gallery",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_professor_sunlit_study",
+      "setting": "real_env",
+      "filename": "ref_anchor_03.png",
+      "title": "Room state anchor 3 (professor_sunlit_study: researcher)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a warm sunlit university neuroanatomy office lined with wooden bookshelves, a globe, and a desktop lightbox, featuring 4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Planned Normal-PFC | Safe-Home Buffer). Inside the room, researcher (crisp white laboratory coats over collared shirts with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 4-Panel Illuminated Brain Metabolism Lightbox (Control | Impulsive Low-PFC | Planned Normal-PFC | Safe-Home Buffer). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a warm sunlit university neuroanatomy office lined with wooden bookshelv",
+        "4-Panel Illuminated Brain Metabolism Lightbox (Control |"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_cast_researcher"
+      ],
+      "location_id": "professor_sunlit_study",
+      "present_cast": [
+        "researcher"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    }
+  ],
+  "style_profile": "porcelain_cinematic_v7"
+}

@@ -105,7 +105,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 2,
@@ -150,7 +151,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -172,7 +174,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 5,
@@ -194,8 +197,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 6,
@@ -218,7 +223,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 7,
@@ -288,7 +294,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 10,
@@ -299,7 +306,18 @@
       "analogy_world": "a thick matte cool-cream geometric paper flipbook resting on a cool-slate stone tabletop",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in muted-sage blazer cuffs hold and flip the twenty-four crisp pages rapidly so a tiny coral bar vanishes inside the smooth motion blur",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 10
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 11,
@@ -322,7 +340,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 13,
@@ -357,7 +376,18 @@
       "analogy_world": "a large matte brushed-silver and powder-blue mechanical camera shutter mounted on a cool alabaster stand",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in slate coat cuffs press the silver release cable so the sunlit shutter blades snap open and close in one crisp split-second click",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 13
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 15,
@@ -381,8 +411,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 17,
@@ -408,7 +440,8 @@
           "subject"
         ]
       },
-      "clip_number": 15
+      "clip_number": 15,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 18,
@@ -453,7 +486,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 20,
@@ -466,7 +500,8 @@
       "anatomy_label": "AMYGDALA\nEMOTIONAL ALARM",
       "brain_scene": "a matte-sunlit sagittal cutaway brain model on a cool alabaster stand where the deep almond-shaped amygdala flashes crimson-coral and launches a rapid signal pulse downward",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 18
+      "clip_number": 18,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 21,
@@ -489,7 +524,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 22,
@@ -512,7 +548,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 23,
@@ -525,7 +562,8 @@
       "anatomy_label": "MOTOR CORTEX\nMOVEMENT STRIP",
       "brain_scene": "a matte-sunlit 3D cortical brain model where an electric cyan-blue band across the upper motor cortex fires downward to send a calm control signal",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 21
+      "clip_number": 21,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 24,
@@ -547,7 +585,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 25,
@@ -569,8 +608,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 26,
@@ -591,8 +632,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 27,
@@ -637,8 +680,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 29,
@@ -660,7 +705,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 30,
@@ -706,7 +752,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 32,
@@ -729,7 +776,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 33,
@@ -751,7 +799,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 34,
@@ -788,7 +837,8 @@
       "anatomy_label": "ANTERIOR CINGULATE\nCONFLICT DETECTOR",
       "brain_scene": "a matte-sunlit sagittal cutaway brain model where the curved inner anterior cingulate glows warm champagne-coral under honest questioning pressure",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 33
+      "clip_number": 33,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 36,
@@ -810,7 +860,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 37,
@@ -832,7 +883,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 38,
@@ -856,7 +908,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 39,
@@ -924,7 +977,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 42,
@@ -946,8 +1000,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 43,
@@ -970,7 +1026,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 45,
@@ -991,8 +1048,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 46,
@@ -1016,7 +1075,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 47,
@@ -1076,7 +1136,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 52,
@@ -1098,8 +1159,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 39,
@@ -1146,5 +1209,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "clinic_interview_lounge",
+  "real_environment": "a cool-toned television studio set with powder-blue backdrop panels, brushed-silver studio cameras, and a cool-slate prop desk",
+  "environment_props": [
+    "16mm flatbed Steenbeck film viewer",
+    "three-frame contact strip ('Frame 13 Neutral / Frame 14-15 Distress / Frame 17 Polite Smile') (enlarged black-and-white photographic strip resting on the desk)",
+    "anatomical Facial Action Coding chart"
+  ],
+  "cast": {
+    "subject": "1969 San Francisco academic wear: Ekman in tweed jacket over collared shirt with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "Friesen in wool button cardigan and tie with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_sf_film_console_lab",
+      "location_id": "sf_film_console_lab",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (sf_film_console_lab: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a bright sunlit anatomy cataloging studio lined with forty-four geometric vector cards, cool-cream binders, and a cool-slate drafting table, featuring 16mm flatbed Steenbeck film viewer. Inside the room, researcher (Friesen in wool button cardigan and tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 16mm flatbed Steenbeck film viewer. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a bright sunlit anatomy cataloging studio lined with forty-four geometri",
+        "16mm flatbed Steenbeck film viewer"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_clinic_interview_lounge",
+      "location_id": "clinic_interview_lounge",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (clinic_interview_lounge: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a cool-toned television studio set with powder-blue backdrop panels, brushed-silver studio cameras, and a cool-slate prop desk, featuring three-frame contact strip ('Frame 13 Neutral / Frame 14-15 Distress / Frame 17 Polite Smile') (enlarged black-and-white photographic strip resting on the desk). Inside the room, researcher (Friesen in wool button cardigan and tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-frame contact strip ('Frame 13 Neutral / Frame 14-15 Distress / Frame 17 Polite Smile') (enlarged black-and-white photographic strip resting on the desk). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a cool-toned television studio set with powder-blue backdrop panels, bru",
+        "three-frame contact strip ('Frame 13 Neutral / Frame 14-"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_sf_film_console_lab",
+      "location_id": "sf_film_console_lab",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 3 (sf_film_console_lab: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright sunlit anatomy cataloging studio lined with forty-four geometric vector cards, cool-cream binders, and a cool-slate drafting table, featuring 16mm flatbed Steenbeck film viewer. Inside the room, subject (1969 San Francisco academic wear: Ekman in tweed jacket over collared shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 16mm flatbed Steenbeck film viewer. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a bright sunlit anatomy cataloging studio lined with forty-four geometri",
+        "16mm flatbed Steenbeck film viewer"
+      ]
+    }
+  ]
 }

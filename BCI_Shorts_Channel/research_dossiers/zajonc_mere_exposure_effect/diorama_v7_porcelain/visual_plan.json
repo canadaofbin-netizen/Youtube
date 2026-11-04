@@ -105,7 +105,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 2,
@@ -149,8 +150,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -173,7 +176,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 6,
@@ -220,7 +224,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 8,
@@ -231,7 +236,18 @@
       "analogy_world": "a matte powder-blue coastal lighthouse tower sweeping a soft cyan light cone across a cool clear daylight-white harbor model",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in coat cuffs turn and push the silver lantern housing sweeping a clean two-second beam",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 7
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 9,
@@ -252,8 +268,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 10,
@@ -301,7 +319,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 13,
@@ -324,7 +343,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 15,
@@ -335,7 +355,18 @@
       "analogy_world": "a smooth sculptural matte slate-blue ship anchor hanging on a silver chain inside a clear cool powder-blue water tank",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in blazer cuffs lift and drop the silver chain letting the heavy slate-blue anchor sink to the bottom",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 12
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 16,
@@ -356,8 +387,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 17,
@@ -403,8 +436,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 19,
@@ -425,8 +460,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 20,
@@ -439,7 +476,8 @@
       "anatomy_label": "AMYGDALA\nTHREAT ALARM",
       "brain_scene": "a matte-sunlit sagittal cutaway 3D brain model on a cool clear daylight-white stand where the deep almond-shaped amygdala glows alert coral-rose on first sight",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 17
+      "clip_number": 17,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 21,
@@ -461,7 +499,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 22,
@@ -498,7 +537,8 @@
       "anatomy_label": "AMYGDALA\nTHREAT ALARM",
       "brain_scene": "a matte-sunlit sagittal cutaway 3D brain model where the deep amygdala softens from coral-rose into calm pale mint-sage as safe encounters repeat",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 20
+      "clip_number": 20,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 24,
@@ -511,7 +551,8 @@
       "anatomy_label": "VISUAL CORTEX\nVISION CENTER",
       "brain_scene": "a matte-sunlit 3D cortical brain model highlighting the rear primary visual cortex in crisp electric cyan pulsing swiftly and smoothly",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 21
+      "clip_number": 21,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 25,
@@ -532,8 +573,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 26,
@@ -590,8 +633,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 29,
@@ -615,7 +660,8 @@
           "researcher"
         ]
       },
-      "clip_number": 26
+      "clip_number": 26,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 30,
@@ -637,7 +683,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 31,
@@ -683,7 +730,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 33,
@@ -707,7 +755,8 @@
           "researcher"
         ]
       },
-      "clip_number": 30
+      "clip_number": 30,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 34,
@@ -729,7 +778,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 35,
@@ -777,7 +827,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 37,
@@ -800,7 +851,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 39,
@@ -845,7 +897,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 41,
@@ -869,7 +922,8 @@
           "researcher"
         ]
       },
-      "clip_number": 37
+      "clip_number": 37,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 42,
@@ -892,7 +946,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 44,
@@ -937,7 +992,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 46,
@@ -984,7 +1040,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 48,
@@ -1007,7 +1064,8 @@
           "researcher"
         ]
       },
-      "clip_number": 43
+      "clip_number": 43,
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 49,
@@ -1077,7 +1135,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 52,
@@ -1148,5 +1207,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "michigan_shutter_lab",
+  "real_environment": "the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns",
+  "environment_props": [
+    "stimulus flash cards ('IKTITAF 25x' | Calligraphic Character 25x | Yearbook Portrait 25x) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph)",
+    "Logarithmic Exposure-Liking Graph ('0 -> 1 -> 2 -> 5 -> 10 -> 25 Views') (visualizes steep early warmth gains tapering gracefully at high counts)"
+  ],
+  "cast": {
+    "subject": "1968 American university attire: tailored charcoal suit and narrow tie with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "collegiate cardigan and V-neck sweaters with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_michigan_shutter_lab",
+      "location_id": "michigan_shutter_lab",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (michigan_shutter_lab: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns, featuring stimulus flash cards ('IKTITAF 25x' | Calligraphic Character 25x | Yearbook Portrait 25x) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Inside the room, researcher (collegiate cardigan and V-neck sweaters with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside stimulus flash cards ('IKTITAF 25x' | Calligraphic Character 25x | Yearbook Portrait 25x) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright Ann Arbor archive room filled with neat stacks of cool clear ",
+        "stimulus flash cards ('IKTITAF 25x' | Calligraphic Chara"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_daily_mirror_room",
+      "location_id": "daily_mirror_room",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (daily_mirror_room: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit cool powder-blue dressing room with a tall brushed-silver mirror frame and an asymmetric clothed torso bust on a slate stand, featuring Logarithmic Exposure-Liking Graph ('0 -> 1 -> 2 -> 5 -> 10 -> 25 Views') (visualizes steep early warmth gains tapering gracefully at high counts). Inside the room, researcher (collegiate cardigan and V-neck sweaters with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Logarithmic Exposure-Liking Graph ('0 -> 1 -> 2 -> 5 -> 10 -> 25 Views') (visualizes steep early warmth gains tapering gracefully at high counts). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a sunlit cool powder-blue dressing room with a tall brushed-silver mirro",
+        "Logarithmic Exposure-Liking Graph ('0 -> 1 -> 2 -> 5 -> "
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_michigan_shutter_lab",
+      "location_id": "michigan_shutter_lab",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 3 (michigan_shutter_lab: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns, featuring stimulus flash cards ('IKTITAF 25x' | Calligraphic Character 25x | Yearbook Portrait 25x) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Inside the room, subject (1968 American university attire: tailored charcoal suit and narrow tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside stimulus flash cards ('IKTITAF 25x' | Calligraphic Character 25x | Yearbook Portrait 25x) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright Ann Arbor archive room filled with neat stacks of cool clear ",
+        "stimulus flash cards ('IKTITAF 25x' | Calligraphic Chara"
+      ]
+    }
+  ]
 }

@@ -107,7 +107,8 @@
           "researcher",
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 2,
@@ -151,8 +152,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -174,7 +177,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 5,
@@ -196,7 +200,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -210,7 +215,8 @@
       "anatomy_label": "BRAINSTEM\nREFLEX CENTER",
       "brain_scene": "a matte-sunlit sagittal cutaway 3D brain model on a cool clear daylight-white stand where the lower brainstem glows muted coral-rose blocking descending pathways while the upper cortex shines bright cyan",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 6
+      "clip_number": 6,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 7,
@@ -232,7 +238,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 8,
@@ -280,7 +287,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 10,
@@ -303,7 +311,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 12,
@@ -325,8 +334,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 13,
@@ -337,7 +348,18 @@
       "analogy_world": "a tiny round matte clear daylight-white baby aspirin tablet resting beside a four-millimeter brushed-silver sensor square on cool slate-stone",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in coat cuffs lift and place the tiny brushed-silver square right beside the small clear daylight-white tablet for scale",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 12
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 14,
@@ -350,7 +372,8 @@
       "anatomy_label": "MOTOR CORTEX\nMOVEMENT STRIP",
       "brain_scene": "a matte-sunlit 3D cortical brain model on a cool clear daylight-white stand where the upper motor cortex strip glows bright electric cyan beneath a tiny silver square",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 13
+      "clip_number": 13,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 15,
@@ -361,7 +384,18 @@
       "analogy_world": "a neat grid of compact brushed-silver boom microphones arranged around a sunlit mint-sage stage ring on cool slate-stone",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in shirt cuffs turn and push the compact brushed-silver boom microphones inward together",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 14
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 16,
@@ -382,8 +416,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 17,
@@ -453,7 +489,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 20,
@@ -466,7 +503,8 @@
       "anatomy_label": "VISUAL CORTEX\nVISION CENTER",
       "brain_scene": "a matte-sunlit 3D cortical brain model where the rear primary visual cortex lights up crisp cyan locking onto target coordinates",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 19
+      "clip_number": 19,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 21,
@@ -502,7 +540,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 23,
@@ -525,8 +564,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 24,
@@ -539,7 +580,8 @@
       "anatomy_label": "MOTOR CORTEX\nMOVEMENT STRIP",
       "brain_scene": "a matte-sunlit 3D cortical brain model where the upper motor cortex strip pulses rhythmic electric cyan waves straight into the tiny silver sensor",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 23
+      "clip_number": 23,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 25,
@@ -587,7 +629,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 28,
@@ -608,8 +651,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 29,
@@ -677,9 +722,11 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       },
-      "clip_number": 29
+      "clip_number": 29,
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 32,
@@ -703,7 +750,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 34,
@@ -725,7 +773,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 35,
@@ -794,7 +843,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 38,
@@ -841,7 +891,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 40,
@@ -887,7 +938,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 42,
@@ -911,8 +963,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 44,
@@ -957,8 +1011,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 46,
@@ -1006,7 +1062,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 49,
@@ -1076,7 +1133,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 52,
@@ -1146,5 +1204,90 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_a",
+  "track_subtier": "A1b_archive_url",
+  "default_location_id": "braingate_trial_room",
+  "real_environment": "the sunlit neuroengineering lab with a large matte-sunlit brain arch linked by a brushed-silver cable to a tabletop robotic arm",
+  "environment_props": [
+    "Brushed-silver multi-joint five-fingered robotic arm",
+    "Cylindrical insulated coffee bottle with angled drinking straw",
+    "4-millimeter 96-channel silicon cortical array model"
+  ],
+  "cast": {
+    "subject": "Participant dressed in a comfortable powder-blue cardigan seated in a slate motorized wheelchair (strictly rear / neck-down framing) with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clinical researchers in crisp white coat and charcoal blazer with cool porcelain-white gloved smooth architectural hands with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_braingate_trial_room",
+      "location_id": "braingate_trial_room",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (braingate_trial_room: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunlit neuroengineering lab with a large matte-sunlit brain arch linked by a brushed-silver cable to a tabletop robotic arm, featuring Brushed-silver multi-joint five-fingered robotic arm. Inside the room, researcher (clinical researchers in crisp white coat and charcoal blazer with cool porcelain-white gloved smooth architectural hands with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Brushed-silver multi-joint five-fingered robotic arm. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the sunlit neuroengineering lab with a large matte-sunlit brain arch lin",
+        "Brushed-silver multi-joint five-fingered robotic arm"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_rehab_morning_room",
+      "location_id": "rehab_morning_room",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (rehab_morning_room: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a quiet cool powder-blue hospital recovery room with a slate-stone side table and pale clear daylight-white curtains, featuring Cylindrical insulated coffee bottle with angled drinking straw. Inside the room, researcher (clinical researchers in crisp white coat and charcoal blazer with cool porcelain-white gloved smooth architectural hands with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Cylindrical insulated coffee bottle with angled drinking straw. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a quiet cool powder-blue hospital recovery room with a slate-stone side ",
+        "Cylindrical insulated coffee bottle with angled drinking"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_braingate_trial_room",
+      "location_id": "braingate_trial_room",
+      "present_cast": [
+        "researcher",
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (braingate_trial_room: researcher, subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the sunlit neuroengineering lab with a large matte-sunlit brain arch linked by a brushed-silver cable to a tabletop robotic arm, featuring Brushed-silver multi-joint five-fingered robotic arm. Inside the room, researcher (clinical researchers in crisp white coat and charcoal blazer with cool porcelain-white gloved smooth architectural hands with a completely smooth featureless solid matte-white egg-shaped oval head), subject (Participant dressed in a comfortable powder-blue cardigan seated in a slate motorized wheelchair (strictly rear / neck-down framing) with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Brushed-silver multi-joint five-fingered robotic arm. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the sunlit neuroengineering lab with a large matte-sunlit brain arch lin",
+        "Brushed-silver multi-joint five-fingered robotic arm"
+      ]
+    }
+  ]
 }

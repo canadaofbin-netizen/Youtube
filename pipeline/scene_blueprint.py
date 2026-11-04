@@ -152,8 +152,19 @@ def cast_lock_entries(plan: dict[str, Any]) -> list[dict[str, str]]:
     for key, look in wardrobe.items():
         if _clean(look):
             out.append({"id": str(key), "look": _clean(look)})
-    if not out and _clean(cast.get("subject")):
-        out.append({"id": "subject", "look": _clean(cast.get("subject"))})
+    if not out:
+        skip_meta = {"wardrobe", "style", "cast_style", "notes", "cranium", "count", "profile"}
+        ordered_keys: list[str] = []
+        if "subject" in cast:
+            ordered_keys.append("subject")
+        for k in cast.keys():
+            ks = str(k)
+            if ks not in skip_meta and ks not in ordered_keys:
+                ordered_keys.append(ks)
+        for ks in ordered_keys:
+            val = cast.get(ks)
+            if isinstance(val, str) and _clean(val):
+                out.append({"id": ks, "look": _clean(val)})
     return out
 
 

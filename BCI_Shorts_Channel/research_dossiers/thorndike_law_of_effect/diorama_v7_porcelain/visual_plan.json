@@ -151,7 +151,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 4,
@@ -173,7 +174,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 5,
@@ -195,8 +197,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 6,
@@ -217,8 +221,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 7,
@@ -240,8 +246,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 8,
@@ -263,7 +271,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 9,
@@ -287,7 +296,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 10,
@@ -366,7 +376,18 @@
       "analogy_world": "a breezy powder-blue courtyard bench holding a matte-sunlit diamond kite wrapped in looped silver string",
       "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in sleeves and gloves pull and turn the looped silver string gradually freeing the sunlit diamond kite",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 13
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 14,
@@ -389,7 +410,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 16,
@@ -412,7 +434,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 17,
@@ -423,7 +446,18 @@
       "analogy_world": "a sunlit cool-cream architectural platform featuring a long smooth muted-sage incline ramp",
       "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in sleeves and gloves release a matte-white smooth sculptural sphere that rolls and glides smoothly down the gentle muted-sage ramp",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 16
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 18,
@@ -445,7 +479,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 19,
@@ -467,7 +502,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 20,
@@ -537,7 +573,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 23,
@@ -584,7 +621,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 25,
@@ -597,7 +635,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "inside the flat matte-sunlit sagittal half-brain cutaway, the deep ventral nucleus accumbens lights up in soft powder-blue and muted sage",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 24
+      "clip_number": 24,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 26,
@@ -610,7 +649,8 @@
       "camera": "pan_right",
       "brain_scene": "within the matte-sunlit half-brain cross-section, smooth powder-blue pathways connect the reward hub directly into the central basal ganglia loop",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 25
+      "clip_number": 25,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 27,
@@ -631,8 +671,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 28,
@@ -654,7 +696,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 29,
@@ -691,7 +734,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "across the matte-sunlit 3D cortical model, the front prefrontal cortex illuminates in crisp powder-blue linking spatial pathways forward",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 29
+      "clip_number": 29,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 31,
@@ -712,8 +756,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 32,
@@ -736,7 +782,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 33,
@@ -760,7 +807,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 35,
@@ -943,8 +991,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 45,
@@ -968,7 +1018,8 @@
           "researcher"
         ]
       },
-      "clip_number": 41
+      "clip_number": 41,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 46,
@@ -1003,7 +1054,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 48,
@@ -1050,7 +1102,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 51,
@@ -1072,7 +1125,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 16,
@@ -1096,7 +1150,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 51,
@@ -1119,5 +1174,89 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_a",
+  "track_subtier": "A1a_ready_keyframes",
+  "default_location_id": "pastel_seminar_studio",
+  "real_environment": "a calm brushed-matte parlor study with pale-stone wainscoting and dove-grey armchairs under soft diffused daylight",
+  "environment_props": [
+    "1898 slatted pine Puzzle Box with internal wooden treadle & cord latch",
+    "articulated matte-white porcelain cat sculpture & exterior porcelain reward dish (matte-white sculpted animal figure operating the wooden treadle cleanly)",
+    "Escape-Time Curve smooth slate wall panel ('Trial 1: 160s ... Trial 25: 6s')"
+  ],
+  "cast": {
+    "subject": "1898 graduate-researcher attire: waistcoat over rolled-sleeve cotton shirt, wool trousers, wire-rim spectacles with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_pastel_seminar_studio",
+      "location_id": "pastel_seminar_studio",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (pastel_seminar_studio: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a calm brushed-matte parlor study with pale-stone wainscoting and dove-grey armchairs under soft diffused daylight, featuring 1898 slatted pine Puzzle Box with internal wooden treadle & cord latch. Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1898 slatted pine Puzzle Box with internal wooden treadle & cord latch. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a calm brushed-matte parlor study with pale-stone wainscoting and dove-g",
+        "1898 slatted pine Puzzle Box with internal wooden treadl"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_columbia_attic_lab",
+      "location_id": "columbia_attic_lab",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (columbia_attic_lab: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a bright sunlit Columbia attic laboratory with pale-birch rafters, cool-slate floor tiles, a pale-birch and cool-slate slatted latch box model, and a matte cool-slate wall board, featuring articulated matte-white porcelain cat sculpture & exterior porcelain reward dish (matte-white sculpted animal figure operating the wooden treadle cleanly). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside articulated matte-white porcelain cat sculpture & exterior porcelain reward dish (matte-white sculpted animal figure operating the wooden treadle cleanly). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a bright sunlit Columbia attic laboratory with pale-birch rafters, cool-",
+        "articulated matte-white porcelain cat sculpture & exteri"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_pastel_seminar_studio",
+      "location_id": "pastel_seminar_studio",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 3 (pastel_seminar_studio: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a calm brushed-matte parlor study with pale-stone wainscoting and dove-grey armchairs under soft diffused daylight, featuring 1898 slatted pine Puzzle Box with internal wooden treadle & cord latch. Inside the room, subject (1898 graduate-researcher attire: waistcoat over rolled-sleeve cotton shirt, wool trousers, wire-rim spectacles with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1898 slatted pine Puzzle Box with internal wooden treadle & cord latch. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a calm brushed-matte parlor study with pale-stone wainscoting and dove-g",
+        "1898 slatted pine Puzzle Box with internal wooden treadl"
+      ]
+    }
+  ]
 }

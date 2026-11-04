@@ -32,6 +32,20 @@
           "Deduplicated English transcript (11 timestamped cues in media/M1_rosenhan_sane_in_insane_plac/transcript.txt) aligned directly to keyframe timestamps (0.0s–55.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_talking_head_monologue(ratio=0.625,wps=2.103)",
+      "recommended_section": "*00:08-00:44",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 11,
+        "median_dark_ratio": 0.2401,
+        "median_gray_sat_ratio": 0.0329,
+        "is_bw_archival": false,
+        "median_flat_patch_ratio": 0.1242,
+        "talking_head_ratio": 0.625,
+        "words_per_sec": 2.103,
+        "has_strong_archival_cue": true,
+        "gate_failed": 4
       }
     },
     {
@@ -66,6 +80,11 @@
           "Deduplicated English transcript (45 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (2.7s–81.7s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_lecture_or_talking_head_kind(interview)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     },
     {
@@ -89,7 +108,14 @@
           "Inspected media/M3/still.jpg (960x690 px, Public domain, National Photo Company) — architecture reference: Center Building at St. Elizabeths Hospital in Washington, D.C. This building is one of the oldest on the hospital campus. Southwest, Washington, District of Columbia.",
           "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor"
 }

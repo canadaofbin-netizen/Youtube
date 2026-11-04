@@ -135,7 +135,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 5,
@@ -159,8 +160,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 6,
@@ -183,7 +186,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 7,
@@ -220,7 +224,18 @@
       "analogy_object": "a sleek pale-ash low-poly tasting tray paddle holding five matching powder-blue ramekin bowls filled with crisp cream squares",
       "analogy_action": "the five powder-blue tasting bowls slide smoothly in a neat row across a cool slate studio counter under soft diffused light",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 6
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "bright_brain_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "clip_index": 9,
@@ -269,7 +284,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "clip_index": 11,
@@ -291,8 +307,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 12,
@@ -316,7 +334,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 13,
@@ -353,7 +372,18 @@
       "analogy_object": "a clean frosted-glass and brushed-silver low-poly sand polished brass counter standing on a cool slate studio block",
       "analogy_action": "fine pale-sage geometric sand trickles steadily through the narrow waist into the lower bulb until the top half empties",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 12
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "bright_brain_studio",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "clip_index": 15,
@@ -377,7 +407,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 16,
@@ -450,7 +481,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "clip_index": 20,
@@ -498,7 +530,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 22,
@@ -522,7 +555,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 24,
@@ -546,7 +580,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 25,
@@ -560,7 +595,8 @@
       "anatomy_label": "HYPOTHALAMUS\nBODY THERMOSTAT",
       "brain_scene": "a cutaway matte cream matte-white porcelain brain model on a cool slate stand where the deep central hypothalamus glows steady balanced sage-green",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 21
+      "clip_number": 21,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 26,
@@ -574,7 +610,8 @@
       "anatomy_label": "INSULA\nGUT-FEELING CENTER",
       "brain_scene": "the cutaway matte cream matte-white porcelain brain model showing the deep folded insula dimming softly into quiet pale-slate shadow",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 22
+      "clip_number": 22,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 27,
@@ -588,7 +625,8 @@
       "anatomy_label": "PREFRONTAL CORTEX\nTHE PLANNER",
       "brain_scene": "a matte cream matte-white porcelain brain model where front prefrontal cortex behind the forehead pulses brisk powder-blue waves overriding the quiet deep core",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 23
+      "clip_number": 23,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 28,
@@ -660,7 +698,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 28,
@@ -684,7 +723,8 @@
           "researcher"
         ]
       },
-      "clip_number": 27
+      "clip_number": 27,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 32,
@@ -731,7 +771,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 34,
@@ -754,7 +795,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -793,8 +835,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 37,
@@ -843,7 +887,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "clip_index": 39,
@@ -917,7 +962,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "clip_index": 42,
@@ -942,8 +988,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "clip_index": 44,
@@ -1015,7 +1063,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 49,
@@ -1029,7 +1078,8 @@
       "anatomy_label": "HYPOTHALAMUS\nBODY THERMOSTAT",
       "brain_scene": "a cutaway matte cream matte-white porcelain brain model where the deep central hypothalamus glows in calm steady sage-green balance",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 42
+      "clip_number": 42,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 54,
@@ -1100,7 +1150,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -1124,7 +1175,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "clip_index": 17,
@@ -1169,5 +1221,88 @@
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
   "require_scene_state_ledger": true,
-  "allow_chronometer_apparatus": true
+  "allow_chronometer_apparatus": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "columbia_clock_room",
+  "real_environment": "the bright sunlit Columbia lab room beneath the unmarked round powder-blue circular acoustic damper with silver hands aligned straight up and down",
+  "environment_props": [
+    "paired smooth-face electric wall dials ('5:20 Slow' vs '6:05 Fast' at real 5:35 PM) (reconstructs Schachter & Gross's time-speed manipulation)",
+    "weighed open cracker boxes + 19.3g vs 37.1g Intake Stand (turns invisible cue-driven appetite into a crisp measurable weight jump)"
+  ],
+  "cast": {
+    "subject": "1968 Ivy League academic attire: tweed sport coat and dark tie with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "collegiate crew-neck sweater and chinos with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_columbia_clock_room",
+      "location_id": "columbia_clock_room",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 1 (columbia_clock_room: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright sunlit Columbia lab room beneath the unmarked round powder-blue circular acoustic damper with silver hands aligned straight up and down, featuring paired smooth-face electric wall dials ('5:20 Slow' vs '6:05 Fast' at real 5:35 PM) (reconstructs Schachter & Gross's time-speed manipulation). Inside the room, subject (1968 Ivy League academic attire: tweed sport coat and dark tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired smooth-face electric wall dials ('5:20 Slow' vs '6:05 Fast' at real 5:35 PM) (reconstructs Schachter & Gross's time-speed manipulation). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright sunlit Columbia lab room beneath the unmarked round powder-bl",
+        "paired smooth-face electric wall dials ('5:20 Slow' vs '"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_columbia_control_booth",
+      "location_id": "columbia_control_booth",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (columbia_control_booth: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a modern bright sunlit nutrition laboratory with cool slate counters and neat portion bowls, featuring weighed open cracker boxes + 19.3g vs 37.1g Intake Stand (turns invisible cue-driven appetite into a crisp measurable weight jump). Inside the room, researcher (collegiate crew-neck sweater and chinos with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside weighed open cracker boxes + 19.3g vs 37.1g Intake Stand (turns invisible cue-driven appetite into a crisp measurable weight jump). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a modern bright sunlit nutrition laboratory with cool slate counters and",
+        "weighed open cracker boxes + 19.3g vs 37.1g Intake Stand"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_columbia_clock_room",
+      "location_id": "columbia_clock_room",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (columbia_clock_room: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the bright sunlit Columbia lab room beneath the unmarked round powder-blue circular acoustic damper with silver hands aligned straight up and down, featuring paired smooth-face electric wall dials ('5:20 Slow' vs '6:05 Fast' at real 5:35 PM) (reconstructs Schachter & Gross's time-speed manipulation). Inside the room, researcher (collegiate crew-neck sweater and chinos with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired smooth-face electric wall dials ('5:20 Slow' vs '6:05 Fast' at real 5:35 PM) (reconstructs Schachter & Gross's time-speed manipulation). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright sunlit Columbia lab room beneath the unmarked round powder-bl",
+        "paired smooth-face electric wall dials ('5:20 Slow' vs '"
+      ]
+    }
+  ]
 }

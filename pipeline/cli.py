@@ -762,9 +762,9 @@ def main():
     p_sr.add_argument("--dry-run", action="store_true", default=False, help="Generate report without launching/navigating Naver Whale")
     p_sr.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
 
-    # Prompt System v5 & Neuro-Diorama System v6 (R44-R61)
-    p_ds = subparsers.add_parser("dossier", help="Research dossier: init / validate / seed / doi / yt-search / yt-analyze (R44)")
-    p_ds.add_argument("action", choices=["init", "validate", "seed", "doi", "yt-search", "yt-analyze", "checklist"])
+    # Prompt System v5 & Neuro-Diorama System v6/v7 (R44-R67)
+    p_ds = subparsers.add_parser("dossier", help="Research dossier: init / validate / seed / doi / yt-search / yt-analyze / audit-media (R44)")
+    p_ds.add_argument("action", choices=["init", "validate", "seed", "doi", "yt-search", "yt-analyze", "audit-media", "checklist"])
     p_ds.add_argument("--slug", default=None, help="Dossier slug (BCI_Shorts_Channel/research_dossiers/<slug>)")
     p_ds.add_argument("--topic", default="", help="Topic title (init)")
     p_ds.add_argument("--pillar", default="", help="Pillar id (init)")
@@ -781,6 +781,8 @@ def main():
     p_ds.add_argument("--url", default=None, help="Reference video URL (yt-analyze)")
     p_ds.add_argument("--media-id", default=None, help="Media id folder name under <dossier>/media (yt-analyze)")
     p_ds.add_argument("--section", default=None, help="Optional '*mm:ss-mm:ss' range (yt-analyze)")
+    p_ds.add_argument("--all-queued", action="store_true", default=False, help="Audit media suitability across all 65 queued porcelain episodes (audit-media)")
+    p_ds.add_argument("--write", action="store_true", default=False, help="Persist suitability classifications into 04_media_refs.json & dossier.json (audit-media)")
 
     p_da = subparsers.add_parser(
         "diorama-assemble",
@@ -906,6 +908,18 @@ def main():
     p_rq.add_argument("--register", default=None, help="Register an image already saved in reference_images/: <filename>")
     p_rq.add_argument("--source", default="flow_image_generation",
                       help="Provenance for --register: flow_image_generation | gemini_image_generation")
+    p_rq.add_argument(
+        "--require-review",
+        action=argparse.BooleanOptionalAction,
+        default=None,
+        help="Require SHA-256-bound reference_semantic_review.json (default: True for Schema v5, False for neuro_diorama)",
+    )
+    p_rq.add_argument(
+        "--auto-populate-review",
+        action="store_true",
+        default=False,
+        help="Auto-populate reference_semantic_review.json from measured Q1-Q7 CV telemetry",
+    )
 
     p_pk = subparsers.add_parser("packets", help="Scene blueprint + per-clip generation packets (start / key / end frame, timed prompt) (R52)")
     p_pk.add_argument("--project", required=True, help="Target project ID or directory")
@@ -987,6 +1001,7 @@ def main():
     p_rx.add_argument("--slug", required=True, help="Research dossier slug (e.g. ainsworth_strange_situation)")
     p_rx.add_argument("--project", default="", help="Optional project_id to write 03_visuals/source_edl.json")
     p_rx.add_argument("--personal-names", default="", help="Comma-separated source personal names to ban in RQ3 (e.g. Lisa,Lizbeth)")
+    p_rx.add_argument("--section", default=None, help="Optional MM:SS-MM:SS or *MM:SS-MM:SS window to clip long documentaries before shot detection")
     p_rx.add_argument("--no-whisper", action="store_true", default=False, help="Skip Whisper ASR if source_analysis.json already exists")
 
     p_rr = subparsers.add_parser(
@@ -1001,6 +1016,19 @@ def main():
     p_rr.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port")
     p_rr.add_argument("--force", action="store_true", default=False, help="Overwrite existing reference PNGs")
     p_rr.add_argument("--purge-quarantine", action="store_true", default=False, help="Purge /tmp/aab_reenact after translation")
+
+    p_pr = subparsers.add_parser(
+        "porcelain-refs",
+        help="Synthesize & verify Dual-Track porcelain_cinematic_v7 9:16 reference pack via 0-credit Google Flow x4 Image mode (R51/R66/R67)",
+    )
+    p_pr.add_argument("--project", required=True, help="Target project_id or path")
+    p_pr.add_argument("--slug", default="", help="Optional research dossier slug override")
+    p_pr.add_argument("--backend", default="flow", choices=["flow", "gemini"], help="0-credit image backend (default: flow)")
+    p_pr.add_argument("--batch-count", type=int, default=4, help="0-credit candidate images per Flow submission (1..4, default: 4)")
+    p_pr.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port")
+    p_pr.add_argument("--force", action="store_true", default=False, help="Force regenerate all reference PNGs")
+    p_pr.add_argument("--require-review", action="store_true", default=False, help="Require SHA-256-bound reference_semantic_review.json")
+    p_pr.add_argument("--auto-populate-review", action="store_true", default=False, help="Auto-populate reference_semantic_review.json from measured CV telemetry")
 
     p_rp = subparsers.add_parser(
         "reenact-produce",
@@ -1059,6 +1087,9 @@ def main():
         return
     if args.command == "reenact-refs":
         cmd_reenact_refs(args)
+        return
+    if args.command == "porcelain-refs":
+        cmd_porcelain_refs(args)
         return
     if args.command == "reenact-produce":
         cmd_reenact_produce(args)
@@ -1311,6 +1342,64 @@ def cmd_dossier(args):
         return
     if args.action == "yt-search":
         print(json.dumps(rd.search_youtube(args.query or args.topic), indent=2, ensure_ascii=False))
+        return
+    if args.action == "audit-media":
+        from collections import Counter
+        from pipeline.config import WORKSPACE_ROOT
+
+        if getattr(args, "all_queued", False):
+            q_path = Path(WORKSPACE_ROOT) / "BCI_Shorts_Channel" / "porcelain_rebalanced_queue.json"
+            q_doc = json.loads(q_path.read_text(encoding="utf-8"))
+            entries = q_doc.get("queue") or q_doc.get("episodes") or []
+            results = []
+            track_counts: Counter[str] = Counter()
+            subtier_counts: Counter[str] = Counter()
+            for ep in entries:
+                ep_slug = str(ep.get("slug") or "").strip()
+                if not ep_slug:
+                    continue
+                rep_m = rd.audit_dossier_media_suitability(
+                    rd.dossier_dir(ep_slug),
+                    write_back=bool(getattr(args, "write", False)),
+                )
+                track_counts[str(rep_m.get("reenactment_track") or "track_b")] += 1
+                subtier_counts[str(rep_m.get("track_subtier") or "B_scene_bible_anchor")] += 1
+                results.append(
+                    {
+                        "slug": ep_slug,
+                        "project_id": ep.get("project_id"),
+                        "reenactment_track": rep_m.get("reenactment_track"),
+                        "track_subtier": rep_m.get("track_subtier"),
+                        "media_count": len(rep_m.get("media_evaluations") or []),
+                        "primary_track_a_url": (rep_m.get("primary_track_a_media") or {}).get("url"),
+                    }
+                )
+            print(
+                json.dumps(
+                    {
+                        "audited_episodes": len(results),
+                        "track_counts": dict(track_counts),
+                        "subtier_counts": dict(subtier_counts),
+                        "episodes": results,
+                    },
+                    indent=2,
+                    ensure_ascii=False,
+                )
+            )
+            return
+        if not args.slug:
+            print("--slug or --all-queued is required for audit-media", file=sys.stderr)
+            sys.exit(2)
+        print(
+            json.dumps(
+                rd.audit_dossier_media_suitability(
+                    rd.dossier_dir(args.slug),
+                    write_back=bool(getattr(args, "write", False)),
+                ),
+                indent=2,
+                ensure_ascii=False,
+            )
+        )
         return
     if not args.slug:
         print("--slug is required for this action", file=sys.stderr)
@@ -1732,7 +1821,12 @@ def cmd_ref_qa(args):
     p_dir = Path(args.project) if Path(args.project).is_dir() else (Path(PROJECTS_DIR) / args.project)
     if args.register:
         register_reference_image(p_dir, args.register, args.source)
-    rep = build_and_verify_project_reference_pack(p_dir, audit_extract_from_clips=args.audit)
+    rep = build_and_verify_project_reference_pack(
+        p_dir,
+        audit_extract_from_clips=args.audit,
+        require_review=getattr(args, "require_review", None),
+        auto_populate_review=bool(getattr(args, "auto_populate_review", False)),
+    )
     rep.pop("images", None)
     print(json.dumps(rep, indent=2, ensure_ascii=False))
     if not rep.get("pre_generation_ready"):
@@ -1908,6 +2002,7 @@ def cmd_reenact_extract(args):
         work_dir=q_dir,
         source_personal_names=names,
         run_whisper=not bool(args.no_whisper),
+        section=getattr(args, "section", None),
     )
     san = sanitize_structural_frames(
         work_dir=q_dir,
@@ -1938,6 +2033,29 @@ def cmd_reenact_refs(args):
         res["quarantine_purge"] = purge_reenactment_quarantine()
     print(json.dumps(res, indent=2, ensure_ascii=False))
     if res.get("failed_ids"):
+        sys.exit(1)
+
+
+def cmd_porcelain_refs(args):
+    import json
+
+    from pipeline.porcelain_anchor_pack import ensure_porcelain_reference_pack
+
+    p_dir = Path(args.project) if Path(args.project).is_dir() else (Path(PROJECTS_DIR) / str(args.project).strip())
+    slug = str(getattr(args, "slug", "") or "").strip()
+    d_dir = (Path(DOSSIERS_DIR) / slug) if slug and (Path(DOSSIERS_DIR) / slug).exists() else None
+    res = ensure_porcelain_reference_pack(
+        project_dir=p_dir,
+        dossier_dir=d_dir,
+        cdp_port=int(args.cdp_port),
+        backend=str(getattr(args, "backend", "flow")),
+        batch_count=int(getattr(args, "batch_count", 4)),
+        force=bool(args.force),
+        require_review=bool(getattr(args, "require_review", False)),
+        auto_populate_review=bool(getattr(args, "auto_populate_review", False)),
+    )
+    print(json.dumps(res, indent=2, ensure_ascii=False))
+    if not res.get("pre_generation_ready"):
         sys.exit(1)
 
 

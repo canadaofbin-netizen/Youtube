@@ -32,6 +32,19 @@
           "Deduplicated English transcript (6 timestamped cues in media/M1_langer_copy_machine_because_/transcript.txt) aligned directly to keyframe timestamps (0.0s–60.5s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_talking_head_monologue(ratio=0.75,wps=3.118)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 12,
+        "median_dark_ratio": 0.6071,
+        "median_gray_sat_ratio": 0.08,
+        "is_bw_archival": false,
+        "median_flat_patch_ratio": 0.2781,
+        "talking_head_ratio": 0.75,
+        "words_per_sec": 3.118,
+        "has_strong_archival_cue": false,
+        "gate_failed": 4
       }
     },
     {
@@ -66,6 +79,19 @@
           "Deduplicated English transcript (28 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.1s–169.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate2_dark_stage_void(median_dark=0.7502>0.72)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 12,
+        "median_dark_ratio": 0.7502,
+        "median_gray_sat_ratio": 0.0927,
+        "is_bw_archival": false,
+        "median_flat_patch_ratio": 0.7375,
+        "talking_head_ratio": 0.0,
+        "words_per_sec": 2.344,
+        "has_strong_archival_cue": false,
+        "gate_failed": 2
       }
     },
     {
@@ -89,7 +115,14 @@
           "Inspected media/M3/still.jpg (960x640 px, CC BY-SA 2.0, PopTech) — apparatus reference: Ellen Langer - PopTech 2013 - Camden, ME.",
           "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor"
 }

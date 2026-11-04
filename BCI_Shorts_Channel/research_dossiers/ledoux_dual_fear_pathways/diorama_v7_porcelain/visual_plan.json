@@ -111,7 +111,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 3,
@@ -134,7 +135,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 4,
@@ -157,7 +159,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 6,
@@ -204,7 +207,8 @@
           "researcher"
         ]
       },
-      "clip_number": 5
+      "clip_number": 5,
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "clip_index": 8,
@@ -227,7 +231,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "clip_index": 8,
@@ -250,8 +255,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 11,
@@ -273,8 +280,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "clip_index": 11,
@@ -297,8 +306,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 13,
@@ -323,7 +334,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 14,
@@ -337,7 +349,8 @@
       "anatomy_label": "THALAMUS\nSENSORY SWITCHBOARD",
       "brain_scene": "Right in the deep geometric center of the hemisphere, the egg-shaped thalamus glows crisp cyan-blue and splits an incoming stream along two clean diverging tracts",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 11
+      "clip_number": 11,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 15,
@@ -373,7 +386,18 @@
       "analogy_world": "clean clear daylight-white kitchen ceiling featuring a round matte powder-blue clear daylight detector disc above a sunlit toaster",
       "comparison_action": "sage sweater sleeves and cool porcelain-white gloved matte-white porcelain hands press a silver lever and lift a slice of pale toast as a soft coral ring lights around the clear daylight detector disc",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 13
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "hallway_coatrack",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "clip_index": 17,
@@ -387,7 +411,8 @@
       "anatomy_label": "AMYGDALA\nFEAR CENTER",
       "brain_scene": "Deep inside the anterior medial temporal lobe, the almond-shaped amygdala lights soft coral-rose as the fast lower tract arrives directly at its front gate",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 14
+      "clip_number": 14,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 18,
@@ -423,7 +448,18 @@
       "analogy_world": "bright sunlit mail-sorting room with a brushed-silver roller chute delivering a neat powder-blue postal parcel box onto a slate counter",
       "comparison_action": "slate jacket sleeves and cool porcelain-white gloved matte-white porcelain hands slide the powder-blue postal parcel off the silver rollers and open its clean lid",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 16
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "nyu_pathway_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "clip_index": 20,
@@ -446,7 +482,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 21,
@@ -469,7 +506,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 22,
@@ -493,7 +531,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 24,
@@ -516,7 +555,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 25,
@@ -530,7 +570,8 @@
       "anatomy_label": "VISUAL CORTEX\nVISION CENTER",
       "brain_scene": "At the very back occipital pole of the brain, the primary visual cortex glows clear sky-blue as sharp high-resolution contour waves assemble",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 21
+      "clip_number": 21,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 26,
@@ -553,7 +594,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 27,
@@ -649,7 +691,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 30,
@@ -722,7 +765,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "clip_index": 34,
@@ -745,7 +789,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 32,
@@ -783,7 +828,8 @@
       "anatomy_label": "PREFRONTAL CORTEX\nTHE PLANNER",
       "brain_scene": "Across the anterior frontal pole behind the forehead, the prefrontal cortex glows calm sky-blue as slower cortical integration waves gather cleanly",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 32
+      "clip_number": 32,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 37,
@@ -831,7 +877,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 39,
@@ -855,7 +902,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 42,
@@ -878,7 +926,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 42,
@@ -901,8 +950,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "clip_index": 43,
@@ -1038,7 +1089,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 51,
@@ -1061,7 +1113,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -1084,8 +1137,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 56,
@@ -1135,7 +1190,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 58,
@@ -1154,5 +1210,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "sage_forest_trail",
+  "real_environment": "sunlit sage-green forest footpath with a dry S-curved slate-grey driftwood branch resting across pale-stone gravel",
+  "environment_props": [
+    "S-curved dark oak tree root on gravel path",
+    "blurry vs razor-sharp comparison frames",
+    "Dual-Pathway Thalamus-Cortex-Amygdala board (museum-clean anatomical diagram with two clean path lines)"
+  ],
+  "cast": {
+    "subject": "Clean khaki outdoor hiking shirt, canvas pack, and boots on hiker with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "dark NYU blazer and collared shirt on LeDoux with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_sage_forest_trail",
+      "location_id": "sage_forest_trail",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (sage_forest_trail: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit sage-green forest footpath with a dry S-curved slate-grey driftwood branch resting across pale-stone gravel, featuring S-curved dark oak tree root on gravel path. Inside the room, researcher (dark NYU blazer and collared shirt on LeDoux with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside S-curved dark oak tree root on gravel path. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "sunlit sage-green forest footpath with a dry S-curved slate-grey driftwo",
+        "S-curved dark oak tree root on gravel path"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_nyu_pathway_bench",
+      "location_id": "nyu_pathway_bench",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 2 (nyu_pathway_bench: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across sunlit New York neural laboratory with slate-stone benches, a brushed-silver acoustic tone box, and a blank two-peak wave display, featuring blurry vs razor-sharp comparison frames. Inside the room, subject (Clean khaki outdoor hiking shirt, canvas pack, and boots on hiker with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside blurry vs razor-sharp comparison frames. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "sunlit New York neural laboratory with slate-stone benches, a brushed-si",
+        "blurry vs razor-sharp comparison frames"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_nyu_pathway_bench",
+      "location_id": "nyu_pathway_bench",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (nyu_pathway_bench: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside sunlit New York neural laboratory with slate-stone benches, a brushed-silver acoustic tone box, and a blank two-peak wave display, featuring S-curved dark oak tree root on gravel path. Inside the room, researcher (dark NYU blazer and collared shirt on LeDoux with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside S-curved dark oak tree root on gravel path. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "sunlit New York neural laboratory with slate-stone benches, a brushed-si",
+        "S-curved dark oak tree root on gravel path"
+      ]
+    }
+  ]
 }

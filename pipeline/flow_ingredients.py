@@ -818,9 +818,17 @@ async def generate_flow_image_batch(
             rep = inspect_single_reference_image(tmp_png, spec)
             qa_passed = bool(rep.get("passed"))
             metrics = rep.get("metrics") or {}
-            sharpness = float(metrics.get("sharpness_laplacian") or sharpness)
-            contrast = float(metrics.get("luma_std") or contrast)
-            qa_reason = str(rep.get("failed_checks") or "")
+            sharpness = float(
+                rep.get("laplacian_sharpness")
+                or metrics.get("sharpness_laplacian")
+                or sharpness
+            )
+            contrast = float(
+                rep.get("luma_std")
+                or metrics.get("luma_std")
+                or contrast
+            )
+            qa_reason = str(rep.get("failed_axes") or rep.get("failed_checks") or "")
 
         min_dhash = 64
         dhash_ok = True

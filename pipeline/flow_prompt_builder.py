@@ -2143,8 +2143,14 @@ def load_visual_plan(
 
 
 def write_flow_prompts_json(project_dir: Path, clips: list[dict[str, Any]], voice: str = FLOW_DEFAULT_VOICE) -> Path:
-    """Writes 03_visuals/flow_all_in_one_prompts.json (Schema v4, v5, v6, or v7 `neuro_diorama`)."""
-    vis_dir = Path(project_dir) / "03_visuals"
+    """Writes flow_all_in_one_prompts.json (to 03_visuals/ for project dirs, or directly inside draft dirs)."""
+    p = Path(project_dir)
+    if p.name == "03_visuals" or (
+        (p / VISUAL_PLAN_FILENAME).exists() and not (p / "03_visuals" / VISUAL_PLAN_FILENAME).exists()
+    ):
+        vis_dir = p
+    else:
+        vis_dir = p / "03_visuals"
     vis_dir.mkdir(parents=True, exist_ok=True)
     out_path = vis_dir / FLOW_PROMPTS_FILENAME
     v7 = any(int(c.get("schema_version") or 0) >= PROMPT_SCHEMA_VERSION_V7 for c in clips)

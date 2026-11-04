@@ -105,7 +105,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 2,
@@ -127,7 +128,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 3,
@@ -149,7 +151,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 4,
@@ -170,8 +173,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 5,
@@ -230,7 +235,18 @@
       "analogy_world": "a crisp matte powder-blue picket garden gate mounted between two cool limestone posts with a heavy brushed-silver slide bolt",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in cardigan cuffs push the powder-blue garden gate firmly shut and slide the heavy silver bolt locked",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 7
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 8,
@@ -252,7 +268,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 9,
@@ -276,7 +293,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 10,
@@ -310,7 +328,18 @@
       "analogy_world": "a tiny crisp matte mint-sage scalloped ivory index cards square resting beside a frosted glass pane on cool slate-gray stone",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in cardigan cuffs lift the tiny mint-sage ivory index cards square and press it neatly into the corner of the frosted glass",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 11
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 12,
@@ -332,7 +361,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 13,
@@ -378,7 +408,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 15,
@@ -401,7 +432,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 16,
@@ -425,7 +457,8 @@
           "subject"
         ]
       },
-      "clip_number": 16
+      "clip_number": 16,
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 17,
@@ -447,7 +480,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 18,
@@ -542,7 +576,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 24,
@@ -579,7 +614,8 @@
       "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
       "brain_scene": "a matte-sunlit 3D cortical brain model on a cool alabaster stand where the front prefrontal cortex glows steady cyan-blue updating personal civic identity",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 23
+      "clip_number": 23,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 26,
@@ -601,7 +637,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 27,
@@ -647,7 +684,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 29,
@@ -671,7 +709,8 @@
           "subject"
         ]
       },
-      "clip_number": 27
+      "clip_number": 27,
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 30,
@@ -694,7 +733,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 32,
@@ -729,7 +769,8 @@
       "anatomy_label": "ANTERIOR CINGULATE\nCONFLICT DETECTOR",
       "brain_scene": "a matte-sunlit sagittal cutaway 3D brain model where the inner anterior cingulate cortex stays dim lavender-gray with zero consistency pressure after external cash payment",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 30
+      "clip_number": 30,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 34,
@@ -799,7 +840,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 37,
@@ -821,7 +863,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 38,
@@ -891,7 +934,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 42,
@@ -904,7 +948,8 @@
       "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
       "brain_scene": "a matte-sunlit 3D cortical brain model where the front prefrontal cortex glows bright mint-sage stabilizing the new generous helper self-concept",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 38
+      "clip_number": 38,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 43,
@@ -948,8 +993,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 46,
@@ -995,7 +1042,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 48,
@@ -1055,7 +1103,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 51,
@@ -1078,7 +1127,8 @@
           "researcher"
         ]
       },
-      "clip_number": 46
+      "clip_number": 46,
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 52,
@@ -1100,7 +1150,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 34,
@@ -1147,5 +1198,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "palo_alto_porch",
+  "real_environment": "the Palo Alto porch where the tiny mint-sage square gleams inside the corner of the frosted front window as a second volunteer arrives",
+  "environment_props": [
+    "tiny 3×3-inch 'Be a Safe Driver' window sticker vs giant clunky 'DRIVE CAREFULLY' lawn billboard",
+    "4-Group Palo Alto Results Stand ('Cold Ask: 16.7% | Different-Topic Petition: 47.4% | 3-Inch Sticker First: 76.0%!') (shows both the 4.5x sticker jump and 3x cross-topic identity proof)"
+  ],
+  "cast": {
+    "subject": "1966 California suburban style: crisp collegiate button-down and chinos with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "mid-century knit cardigan and slacks with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_palo_alto_porch",
+      "location_id": "palo_alto_porch",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 1 (palo_alto_porch: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the Palo Alto porch where the tiny mint-sage square gleams inside the corner of the frosted front window as a second volunteer arrives, featuring tiny 3×3-inch 'Be a Safe Driver' window sticker vs giant clunky 'DRIVE CAREFULLY' lawn billboard. Inside the room, subject (1966 California suburban style: crisp collegiate button-down and chinos with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside tiny 3×3-inch 'Be a Safe Driver' window sticker vs giant clunky 'DRIVE CAREFULLY' lawn billboard. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the Palo Alto porch where the tiny mint-sage square gleams inside the co",
+        "tiny 3×3-inch 'Be a Safe Driver' window sticker vs giant"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_palo_alto_porch",
+      "location_id": "palo_alto_porch",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (palo_alto_porch: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the Palo Alto porch where the tiny mint-sage square gleams inside the corner of the frosted front window as a second volunteer arrives, featuring 4-Group Palo Alto Results Stand ('Cold Ask: 16.7% | Different-Topic Petition: 47.4% | 3-Inch Sticker First: 76.0%!') (shows both the 4.5x sticker jump and 3x cross-topic identity proof). Inside the room, researcher (mid-century knit cardigan and slacks with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 4-Group Palo Alto Results Stand ('Cold Ask: 16.7% | Different-Topic Petition: 47.4% | 3-Inch Sticker First: 76.0%!') (shows both the 4.5x sticker jump and 3x cross-topic identity proof). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the Palo Alto porch where the tiny mint-sage square gleams inside the co",
+        "4-Group Palo Alto Results Stand ('Cold Ask: 16.7% | Diff"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_palo_alto_kitchen",
+      "location_id": "palo_alto_kitchen",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 3 (palo_alto_kitchen: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a sunlit cool-toned Palo Alto kitchen with a powder-blue rotary desk phone on a cool limestone counter and closed sunlit slate cupboards, featuring tiny 3×3-inch 'Be a Safe Driver' window sticker vs giant clunky 'DRIVE CAREFULLY' lawn billboard. Inside the room, subject (1966 California suburban style: crisp collegiate button-down and chinos with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside tiny 3×3-inch 'Be a Safe Driver' window sticker vs giant clunky 'DRIVE CAREFULLY' lawn billboard. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a sunlit cool-toned Palo Alto kitchen with a powder-blue rotary desk pho",
+        "tiny 3×3-inch 'Be a Safe Driver' window sticker vs giant"
+      ]
+    }
+  ]
 }

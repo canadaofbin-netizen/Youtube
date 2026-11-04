@@ -107,7 +107,8 @@
           "researcher",
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 2,
@@ -151,8 +152,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 4,
@@ -174,7 +177,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 5,
@@ -197,8 +201,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 6,
@@ -257,7 +263,18 @@
       "analogy_world": "a smooth sunlit cool limestone walkway with one tiny powder-blue pebble resting near the center",
       "comparison_action": "viewed strictly from behind, a clothed matte-white porcelain walker in slate trousers steps effortlessly right over the tiny pebble without losing stride",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 8
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "pastel_analogy_stage",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 9,
@@ -280,7 +297,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 10,
@@ -317,7 +335,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "at the rear occipital pole of the matte-sunlit 3D cortical brain model, the primary visual cortex launches parallel powder-blue and muted-coral ribbons forward together",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 11
+      "clip_number": 11,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 13,
@@ -340,7 +359,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 14,
@@ -351,7 +371,18 @@
       "analogy_world": "a sunlit cool clear daylight-white winter path model where smooth slate flagstones transition into a knee-deep matte-white smooth sculptural snow pile",
       "comparison_action": "viewed strictly from behind, a clothed matte-white porcelain figure in a slate-blue coat walks briskly on clear stone then climbs slowly through a deep white snow pile",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 13
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "pastel_analogy_stage",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 15,
@@ -376,7 +407,8 @@
           "researcher",
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 17,
@@ -397,8 +429,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 18,
@@ -421,7 +455,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 19,
@@ -490,7 +525,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 23,
@@ -514,7 +550,8 @@
           "researcher"
         ]
       },
-      "clip_number": 20
+      "clip_number": 20,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 24,
@@ -536,7 +573,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -550,7 +588,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "inside the medial sagittal cutaway of the matte-sunlit 3D brain model, the curved dorsal anterior cingulate cortex glows brightly in muted coral as two rival ribbons meet",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 22
+      "clip_number": 22,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 26,
@@ -609,8 +648,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 29,
@@ -636,7 +677,8 @@
           "subject"
         ]
       },
-      "clip_number": 26
+      "clip_number": 26,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 30,
@@ -704,8 +746,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 33,
@@ -729,7 +773,8 @@
           "researcher"
         ]
       },
-      "clip_number": 30
+      "clip_number": 30,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 34,
@@ -776,7 +821,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 36,
@@ -797,7 +843,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -843,8 +890,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 39,
@@ -868,7 +917,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 40,
@@ -903,7 +953,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "inside the sagittal cutaway of the matte-sunlit 3D brain model, the anterior cingulate cortex lights sharply whenever a sage-green cue clashes with a stop ribbon",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 38
+      "clip_number": 38,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 42,
@@ -925,8 +976,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 44,
@@ -1019,7 +1072,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 48,
@@ -1032,7 +1086,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "across the matte-sunlit 3D cortical brain model, the powder-blue dorsolateral prefrontal cortex rests in calm steady balance without conflict strain",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 44
+      "clip_number": 44,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 49,
@@ -1077,7 +1132,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 13,
@@ -1124,5 +1180,89 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "nashville_timing_hall",
+  "real_environment": "the bright Nashville classroom with rows of students seated before nested-token easels",
+  "environment_props": [
+    "1935 10×10 Solid Color Patch Card vs Mismatched Color-Word Card",
+    "chrome 1935 laboratory brushed-metal instrument & '+47.0s (+74.3%)' smooth slate wall panel tally"
+  ],
+  "cast": {
+    "subject": "1935 American collegiate wear: wool vest suit with necktie with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "collegiate knit cardigan and pleated trousers with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_nashville_timing_hall",
+      "location_id": "nashville_timing_hall",
+      "present_cast": [
+        "researcher",
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (nashville_timing_hall: researcher, subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright Nashville classroom with rows of students seated before nested-token easels, featuring 1935 10×10 Solid Color Patch Card vs Mismatched Color-Word Card. Inside the room, researcher (collegiate knit cardigan and pleated trousers with a completely smooth featureless solid matte-white egg-shaped oval head), subject (1935 American collegiate wear: wool vest suit with necktie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1935 10×10 Solid Color Patch Card vs Mismatched Color-Word Card. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright Nashville classroom with rows of students seated before neste",
+        "1935 10×10 Solid Color Patch Card vs Mismatched Color-Wo"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_pastel_control_studio",
+      "location_id": "pastel_control_studio",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (pastel_control_studio: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a cool powder-blue cognitive studio with slate-stone tables and parallel brushed-silver track models, featuring chrome 1935 laboratory brushed-metal instrument & '+47.0s (+74.3%)' smooth slate wall panel tally. Inside the room, researcher (collegiate knit cardigan and pleated trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside chrome 1935 laboratory brushed-metal instrument & '+47.0s (+74.3%)' smooth slate wall panel tally. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a cool powder-blue cognitive studio with slate-stone tables and parallel",
+        "chrome 1935 laboratory brushed-metal instrument & '+47.0"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_nashville_timing_hall",
+      "location_id": "nashville_timing_hall",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (nashville_timing_hall: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the bright Nashville classroom with rows of students seated before nested-token easels, featuring 1935 10×10 Solid Color Patch Card vs Mismatched Color-Word Card. Inside the room, researcher (collegiate knit cardigan and pleated trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1935 10×10 Solid Color Patch Card vs Mismatched Color-Word Card. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright Nashville classroom with rows of students seated before neste",
+        "1935 10×10 Solid Color Patch Card vs Mismatched Color-Wo"
+      ]
+    }
+  ]
 }

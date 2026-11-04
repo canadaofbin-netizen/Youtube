@@ -32,6 +32,11 @@
           "Deduplicated English transcript (29 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (1670.8s–1753.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_lecture_or_talking_head_kind(lecture)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     },
     {
@@ -66,6 +71,11 @@
           "Deduplicated English transcript (33 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (1790.8s–1873.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_lecture_or_talking_head_kind(lecture)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     },
     {
@@ -89,7 +99,14 @@
           "Inspected media/M3/still.jpg (701x488 px, CC BY 2.5, John A Beal, PhD Dep't. of Cellular Biology & Anatomy, Louisiana State University Health Sciences Center Shreveport) — neuroanatomy reference: Human brain left dissected - midsagittal view Fornix & Septum Pellucidum Resected – Lateral Ventricle Exposed The head and body of the Caudate nucleus produce a large elevation in the lateral wall of.",
           "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor"
 }

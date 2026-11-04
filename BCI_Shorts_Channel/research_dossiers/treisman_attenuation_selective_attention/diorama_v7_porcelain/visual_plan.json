@@ -111,7 +111,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "index": 3,
@@ -134,7 +135,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "index": 5,
@@ -157,7 +159,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "index": 8,
@@ -180,7 +183,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 7,
@@ -230,8 +234,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "index": 9,
@@ -255,7 +261,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "index": 10,
@@ -278,7 +285,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "index": 11,
@@ -354,7 +362,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "index": 15,
@@ -402,7 +411,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "index": 18,
@@ -426,7 +436,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "index": 21,
@@ -449,8 +460,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 22,
@@ -500,7 +513,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "index": 24,
@@ -512,7 +526,18 @@
       "analogy_world": "clean sunlit studio stage platform with a matte sky-blue stage lamp housing on a brushed-silver tripod in soft daylight",
       "comparison_action": "navy coat sleeves and cool porcelain-white gloved matte-white porcelain hands push a smooth silver fader up and tilt the sky-blue lamp shutter wide open",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 18
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "index": 25,
@@ -524,7 +549,18 @@
       "analogy_world": "cool slate-stone counter holding a minimalist sage-green tabletop radio with a large brushed-silver rotary volume dial",
       "comparison_action": "powder-blue cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands grip the brushed-silver radio dial and turn it gently down to a soft hum",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 19
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "oxford_audio_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "index": 26,
@@ -562,7 +598,8 @@
       "anatomy_label": "HEARING CENTER\\nDIMMED GAIN STREAM",
       "brain_scene": "matte-white matte-white porcelain lateral brain model in a bright clear daylight-white studio where the side hearing cortex glows bright cyan-blue alongside a faint pale-green trickle",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 21
+      "clip_number": 21,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "index": 28,
@@ -576,7 +613,8 @@
       "anatomy_label": "LANGUAGE DECODER\\nHAIR TRIGGER WORDS",
       "brain_scene": "matte-white matte-white porcelain left cortical brain model in a bright gallery where the posterior language hub lights up soft cyan-blue from a delicate green fiber pulse",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 22
+      "clip_number": 22,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "index": 31,
@@ -598,7 +636,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -623,8 +662,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "index": 32,
@@ -671,7 +712,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 29,
@@ -694,7 +736,8 @@
           "subject"
         ]
       },
-      "clip_number": 27
+      "clip_number": 27,
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "index": 36,
@@ -716,7 +759,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -743,7 +787,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "index": 38,
@@ -767,7 +812,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 34,
@@ -814,7 +860,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 40,
@@ -838,8 +885,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "index": 42,
@@ -886,7 +935,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 39,
@@ -910,7 +960,8 @@
           "researcher"
         ]
       },
-      "clip_number": 36
+      "clip_number": 36,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "index": 45,
@@ -924,7 +975,8 @@
       "anatomy_label": "SPATIAL MAP\\nFOCUS SHIFT HUB",
       "brain_scene": "matte-white matte-white porcelain dorsal cortical brain model in a bright clear daylight-white studio where the upper back spatial hub glows soft cyan-blue with calm green fiber arcs",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 37
+      "clip_number": 37,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "index": 47,
@@ -947,8 +999,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 49,
@@ -1021,7 +1075,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "index": 53,
@@ -1118,7 +1173,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "index": 57,
@@ -1188,5 +1244,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "oxford_audio_lab",
+  "real_environment": "sunlit clear daylight-white Oxford psychology room with brushed-silver twin tape reels and cool slate-stone instrument tables",
+  "environment_props": [
+    "dual-channel studio audio console & padded headphones (reconstructs Treisman's dichotic crossover)",
+    "Diagonal Sentence-Crossover Card ('Right Ear: MAHOGANY \\ Left Ear: TABLE!') (demonstrates the semantic ear-jump)",
+    "Dictionary Threshold Bar Chart ('Random Word: High Bar | Primed Word & [OWN NAME]: Hair-Trigger Low Bar!')"
+  ],
+  "cast": {
+    "subject": "1964 British Oxford academic style: classic knit cardigan twinset and pleated skirt with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "collegiate V-neck jumper over Oxford shirt with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_oxford_audio_lab",
+      "location_id": "oxford_audio_lab",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (oxford_audio_lab: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit clear daylight-white Oxford psychology room with brushed-silver twin tape reels and cool slate-stone instrument tables, featuring dual-channel studio audio console & padded headphones (reconstructs Treisman's dichotic crossover). Inside the room, researcher (collegiate V-neck jumper over Oxford shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside dual-channel studio audio console & padded headphones (reconstructs Treisman's dichotic crossover). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "sunlit clear daylight-white Oxford psychology room with brushed-silver t",
+        "dual-channel studio audio console & padded headphones (r"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_oxford_booth",
+      "location_id": "oxford_booth",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 2 (oxford_booth: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across bright sunlit Oxford booth where a sky-blue wave ribbon and a soft sage wave ribbon weave parallel paths toward a central stand, featuring Diagonal Sentence-Crossover Card ('Right Ear: MAHOGANY \\ Left Ear: TABLE!') (demonstrates the semantic ear-jump). Inside the room, subject (1964 British Oxford academic style: classic knit cardigan twinset and pleated skirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Diagonal Sentence-Crossover Card ('Right Ear: MAHOGANY \\ Left Ear: TABLE!') (demonstrates the semantic ear-jump). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "bright sunlit Oxford booth where a sky-blue wave ribbon and a soft sage ",
+        "Diagonal Sentence-Crossover Card ('Right Ear: MAHOGANY \\"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_noisy_lounge_hall",
+      "location_id": "noisy_lounge_hall",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (noisy_lounge_hall: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside bright sunlit concourse filled with soft sage acoustic wave rings drifting around cool slate-stone café tables, featuring dual-channel studio audio console & padded headphones (reconstructs Treisman's dichotic crossover). Inside the room, researcher (collegiate V-neck jumper over Oxford shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside dual-channel studio audio console & padded headphones (reconstructs Treisman's dichotic crossover). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "bright sunlit concourse filled with soft sage acoustic wave rings drifti",
+        "dual-channel studio audio console & padded headphones (r"
+      ]
+    }
+  ]
 }

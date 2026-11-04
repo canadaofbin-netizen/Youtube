@@ -111,7 +111,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 3,
@@ -158,7 +159,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "index": 8,
@@ -181,7 +183,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 7,
@@ -231,8 +234,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "index": 12,
@@ -254,8 +259,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 10,
@@ -305,8 +312,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "index": 13,
@@ -354,7 +363,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 12,
@@ -375,9 +385,11 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       },
-      "clip_number": 12
+      "clip_number": 12,
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 15,
@@ -401,7 +413,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 17,
@@ -413,7 +426,18 @@
       "analogy_world": "clean sunlit screening room with a blank matte clear daylight-white projection frame and an unplugged brushed-silver power cord on a slate floor",
       "comparison_action": "navy coat sleeves and cool porcelain-white gloved matte-white porcelain hands lift the unplugged silver power cord beside the blank clear daylight-white frame and set it gently down",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 14
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "toronto_chess_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "index": 19,
@@ -484,7 +508,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 23,
@@ -508,7 +533,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "index": 24,
@@ -522,7 +548,8 @@
       "anatomy_label": "SIDE LOBE\\nWORLD FACT VAULT",
       "brain_scene": "matte-white matte-white porcelain lateral brain model in a bright clear daylight-white studio where the outer side lobe glows steady cyan-blue with intact green fiber lines",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 19
+      "clip_number": 19,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "index": 25,
@@ -536,7 +563,8 @@
       "anatomy_label": "MEMORY MAKER\\nSCENE TIME ENGINE",
       "brain_scene": "matte-white matte-white porcelain sagittal brain cutaway in a bright studio where the deep curved memory ridge shows soft crimson-rose loss cutting off scene binding",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 20
+      "clip_number": 20,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "index": 26,
@@ -559,7 +587,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 27,
@@ -611,7 +640,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "index": 31,
@@ -634,7 +664,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 31,
@@ -658,8 +689,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "index": 32,
@@ -695,7 +728,18 @@
       "analogy_world": "minimalist clear daylight-white and pale-blue empty room with bare geometric walls and an empty slate-stone floor without a single chair",
       "comparison_action": "viewed strictly from behind, a clothed matte-white porcelain figure in a sky-blue flannel jacket steps through the doorway and turns slowly across the empty floor",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 27
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "empty_white_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "index": 35,
@@ -718,8 +762,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 37,
@@ -766,7 +812,8 @@
           "researcher"
         ]
       },
-      "clip_number": 30
+      "clip_number": 30,
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "index": 39,
@@ -789,7 +836,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 34,
@@ -813,7 +861,8 @@
           "researcher"
         ]
       },
-      "clip_number": 32
+      "clip_number": 32,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "index": 40,
@@ -836,7 +885,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "index": 41,
@@ -886,7 +936,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "index": 44,
@@ -923,7 +974,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "index": 46,
@@ -972,7 +1024,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "index": 50,
@@ -1057,7 +1110,8 @@
       "anatomy_label": "PLANNER\\nTOMORROW REHEARSAL",
       "brain_scene": "matte-white matte-white porcelain cortical brain model in a bright clear daylight-white gallery where the front planning hub glows soft cyan-blue with smooth green fiber arcs",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 43
+      "clip_number": 43,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "index": 54,
@@ -1105,7 +1159,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "index": 57,
@@ -1175,5 +1230,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_a",
+  "track_subtier": "A2_section_window",
+  "default_location_id": "toronto_chess_room",
+  "real_environment": "sunlit clear daylight-white Toronto neuropsychology room with a powder-blue geometric chessboard on a cool slate-stone table beside two blank white easel frames",
+  "environment_props": [
+    "wooden Staunton chessboard & Ontario cottage map ('Semantic Knowledge: 100%') (proves intact intelligence, rules, and geographic facts)",
+    "paired 'Relive Yesterday: Blank' & 'Imagine Tomorrow: Blank' white frame easels"
+  ],
+  "cast": {
+    "subject": "Early-2000s Toronto attire: academic dark blazer over collared shirt with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "neat casual flannel overshirt and chinos with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_toronto_chess_room",
+      "location_id": "toronto_chess_room",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (toronto_chess_room: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit clear daylight-white Toronto neuropsychology room with a powder-blue geometric chessboard on a cool slate-stone table beside two blank white easel frames, featuring wooden Staunton chessboard & Ontario cottage map ('Semantic Knowledge: 100%') (proves intact intelligence, rules, and geographic facts). Inside the room, researcher (neat casual flannel overshirt and chinos with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside wooden Staunton chessboard & Ontario cottage map ('Semantic Knowledge: 100%') (proves intact intelligence, rules, and geographic facts). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "sunlit clear daylight-white Toronto neuropsychology room with a powder-b",
+        "wooden Staunton chessboard & Ontario cottage map ('Seman"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_toronto_chess_room",
+      "location_id": "toronto_chess_room",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 2 (toronto_chess_room: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across sunlit clear daylight-white Toronto neuropsychology room with a powder-blue geometric chessboard on a cool slate-stone table beside two blank white easel frames, featuring paired 'Relive Yesterday: Blank' & 'Imagine Tomorrow: Blank' white frame easels. Inside the room, subject (Early-2000s Toronto attire: academic dark blazer over collared shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired 'Relive Yesterday: Blank' & 'Imagine Tomorrow: Blank' white frame easels. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "sunlit clear daylight-white Toronto neuropsychology room with a powder-b",
+        "paired 'Relive Yesterday: Blank' & 'Imagine Tomorrow: Bl"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_scanner_suite",
+      "location_id": "scanner_suite",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (scanner_suite: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a reverse three-quarter wide angle inside the bright high-key scanner suite with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows, featuring wooden Staunton chessboard & Ontario cottage map ('Semantic Knowledge: 100%') (proves intact intelligence, rules, and geographic facts). Inside the room, researcher (neat casual flannel overshirt and chinos with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside wooden Staunton chessboard & Ontario cottage map ('Semantic Knowledge: 100%') (proves intact intelligence, rules, and geographic facts). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a reverse three-quarter wide angle inside the bright high-key scanner su",
+        "wooden Staunton chessboard & Ontario cottage map ('Seman"
+      ]
+    }
+  ]
 }

@@ -63,6 +63,7 @@ from pipeline.config import (
     REENACT_QA_REPORT_FILENAME,
     REENACT_QUARANTINE_ROOT,
     WORKSPACE_ROOT,
+    YUNET_FACE_MODEL_PATH,
 )
 from pipeline.reference_image_qa import (
     _dhash_64,
@@ -73,6 +74,8 @@ from pipeline.reference_image_qa import (
     write_reference_image_specs,
 )
 
+import threading
+
 BANNED_SOURCE_BRAND_TOKENS: tuple[str, ...] = (
     "tweety",
     "winnie the pooh",
@@ -81,6 +84,175 @@ BANNED_SOURCE_BRAND_TOKENS: tuple[str, ...] = (
     "disney",
     "warner bros",
 )
+
+_DETECTOR_TLS = threading.local()
+
+
+def _extract_youtube_id(url_or_id: str) -> str:
+    raw = str(url_or_id or "").strip()
+    if not raw:
+        return ""
+    for pat in (
+        r"(?:v=|youtu\.be/|/shorts/|/embed/)([A-Za-z0-9_-]{11})",
+        r"^([A-Za-z0-9_-]{11})$",
+    ):
+        m = re.search(pat, raw)
+        if m:
+            return m.group(1)
+    return ""
+
+
+def _parse_ts_sec(token: str) -> float | None:
+    s = str(token or "").strip()
+    if not s:
+        return None
+    parts = s.split(":")
+    try:
+        if len(parts) == 1:
+            return max(0.0, float(parts[0]))
+        if len(parts) == 2:
+            return max(0.0, int(parts[0]) * 60.0 + float(parts[1]))
+        if len(parts) == 3:
+            return max(0.0, int(parts[0]) * 3600.0 + int(parts[1]) * 60.0 + float(parts[2]))
+    except ValueError:
+        return None
+    return None
+
+
+def _parse_section_window(section: str | None) -> tuple[float, float] | None:
+    raw = str(section or "").strip().lstrip("*")
+    if not raw or "-" not in raw:
+        return None
+    lhs, rhs = raw.split("-", 1)
+    t0 = _parse_ts_sec(lhs)
+    t1 = _parse_ts_sec(rhs)
+    if t0 is None or t1 is None or t1 <= t0:
+        return None
+    return (round(t0, 2), round(t1, 2))
+
+
+def detect_human_faces_yunet(
+    bgr: np.ndarray,
+    score_threshold: float = 0.42,
+) -> list[tuple[int, int, int, int, float]]:
+    """
+    Detects human faces on both color and B&W (1920s–1960s 16mm grayscale) frames using bundled
+    OpenCV Zoo Apache-2.0 `face_detection_yunet_2023mar.onnx` (plus Haar fallback if unavailable).
+    Returns `[(x, y, w, h, score), ...]` in original image pixel coordinates.
+    """
+    if bgr is None or bgr.size == 0:
+        return []
+    h, w = bgr.shape[:2]
+    if h < 16 or w < 16:
+        return []
+
+    max_dim = max(h, w)
+    if max_dim > 640:
+        scale = 640.0 / float(max_dim)
+    elif max_dim < 240:
+        scale = 320.0 / float(max_dim)
+    else:
+        scale = 1.0
+    in_w = max(32, int(round(w * scale)))
+    in_h = max(32, int(round(h * scale)))
+    resized = cv2.resize(bgr, (in_w, in_h), interpolation=cv2.INTER_LINEAR) if scale != 1.0 else bgr.copy()
+
+    hsv_r = cv2.cvtColor(resized, cv2.COLOR_BGR2HSV)
+    is_bw = float(np.median(hsv_r[:, :, 1])) < 24.0
+    probe_frames: list[np.ndarray] = [resized]
+    if is_bw:
+        gray_r = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY)
+        clahe = cv2.createCLAHE(clipLimit=2.2, tileGridSize=(8, 8)).apply(gray_r)
+        probe_frames.append(cv2.cvtColor(clahe, cv2.COLOR_GRAY2BGR))
+
+    boxes_raw: list[tuple[int, int, int, int, float]] = []
+    model_path = Path(YUNET_FACE_MODEL_PATH)
+    if model_path.exists():
+        det = getattr(_DETECTOR_TLS, "yunet", None)
+        if det is None:
+            try:
+                det = cv2.FaceDetectorYN.create(
+                    str(model_path),
+                    "",
+                    (in_w, in_h),
+                    float(score_threshold),
+                    0.3,
+                    5000,
+                )
+                _DETECTOR_TLS.yunet = det
+            except Exception:
+                det = None
+                _DETECTOR_TLS.yunet = False
+        if det:
+            det.setScoreThreshold(float(score_threshold))
+            det.setInputSize((in_w, in_h))
+            for pf in probe_frames:
+                try:
+                    _, faces = det.detect(pf)
+                except Exception:
+                    faces = None
+                if faces is not None and len(faces) > 0:
+                    for row in faces:
+                        fx, fy, fw, fh = float(row[0]), float(row[1]), float(row[2]), float(row[3])
+                        sc = float(row[-1])
+                        if fw >= 8 and fh >= 8 and sc >= score_threshold:
+                            boxes_raw.append(
+                                (
+                                    int(round(fx / scale)),
+                                    int(round(fy / scale)),
+                                    int(round(fw / scale)),
+                                    int(round(fh / scale)),
+                                    round(sc, 4),
+                                )
+                            )
+
+    if not boxes_raw and is_bw:
+        gray_orig = cv2.equalizeHist(cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY))
+        haar_dir = getattr(cv2.data, "haarcascades", "")
+        if haar_dir:
+            frontal = getattr(_DETECTOR_TLS, "haar_frontal", None)
+            if frontal is None:
+                p_f = Path(haar_dir) / "haarcascade_frontalface_default.xml"
+                frontal = cv2.CascadeClassifier(str(p_f)) if p_f.exists() else False
+                _DETECTOR_TLS.haar_frontal = frontal
+            profile = getattr(_DETECTOR_TLS, "haar_profile", None)
+            if profile is None:
+                p_p = Path(haar_dir) / "haarcascade_profileface.xml"
+                profile = cv2.CascadeClassifier(str(p_p)) if p_p.exists() else False
+                _DETECTOR_TLS.haar_profile = profile
+            for casc in (frontal, profile):
+                if casc:
+                    rects = casc.detectMultiScale(gray_orig, scaleFactor=1.12, minNeighbors=5, minSize=(22, 22))
+                    for rx, ry, rw, rh in rects if rects is not None else []:
+                        boxes_raw.append(
+                            (
+                                int(round(rx / scale)),
+                                int(round(ry / scale)),
+                                int(round(rw / scale)),
+                                int(round(rh / scale)),
+                                0.50,
+                            )
+                        )
+
+    boxes_raw.sort(key=lambda b: b[4], reverse=True)
+    deduped: list[tuple[int, int, int, int, float]] = []
+    for bx, by, bw_box, bh_box, bsc in boxes_raw:
+        x0 = max(0, min(w - 1, bx))
+        y0 = max(0, min(h - 1, by))
+        x1 = max(x0 + 1, min(w, bx + bw_box))
+        y1 = max(y0 + 1, min(h, by + bh_box))
+        keep = True
+        for ex, ey, ew, eh, _ in deduped:
+            ix0, iy0 = max(x0, ex), max(y0, ey)
+            ix1, iy1 = min(x1, ex + ew), min(y1, ey + eh)
+            inter = max(0, ix1 - ix0) * max(0, iy1 - iy0)
+            union = max(1, (x1 - x0) * (y1 - y0) + ew * eh - inter)
+            if (inter / float(union)) > 0.45:
+                keep = False
+                break
+        if keep:
+            deduped.append((x0, y0, x1 - x0, y1 - y0, bsc))
+    return deduped
 
 
 def _resolve_ffmpeg_bin() -> str:
@@ -144,15 +316,15 @@ def _classify_camera_and_zones(start_bgr: np.ndarray, end_bgr: np.ndarray) -> di
     h, w = edges.shape
     zones: list[str] = []
     if float(np.mean(edges[int(h * 0.25) : int(h * 0.78), : int(w * 0.38)])) > 0.035:
-        zones.append("left_chair_zone")
+        zones.append("left_foreground_zone")
     if float(np.mean(edges[int(h * 0.25) : int(h * 0.78), int(w * 0.62) :])) > 0.035:
-        zones.append("right_chair_or_door_zone")
+        zones.append("right_foreground_zone")
     if float(np.mean(edges[int(h * 0.52) : int(h * 0.92), int(w * 0.25) : int(w * 0.75)])) > 0.030:
-        zones.append("center_floor_playmat")
+        zones.append("center_action_zone")
     if float(np.mean(edges[: int(h * 0.32), int(w * 0.20) : int(w * 0.80)])) > 0.025:
-        zones.append("upper_observation_mirror")
+        zones.append("upper_background_zone")
     if not zones:
-        zones.append("center_floor_playmat")
+        zones.append("center_action_zone")
 
     return {
         "camera_motion": cam_move,
@@ -163,6 +335,31 @@ def _classify_camera_and_zones(start_bgr: np.ndarray, end_bgr: np.ndarray) -> di
     }
 
 
+def _resolve_dossier_personal_names(dossier_dir: Path | None) -> list[str]:
+    if dossier_dir is None or not Path(dossier_dir).exists():
+        return []
+    d_dir = Path(dossier_dir)
+    found: set[str] = set()
+    for fname in ("dossier.json", "04_media_refs.json"):
+        p = d_dir / fname
+        if not p.exists():
+            continue
+        try:
+            doc = json.loads(p.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        if isinstance(doc, dict):
+            for n in doc.get("source_personal_names") or []:
+                if str(n).strip():
+                    found.add(str(n).strip().lower())
+            for m in doc.get("media") or []:
+                if isinstance(m, dict):
+                    for n in m.get("source_personal_names") or []:
+                        if str(n).strip():
+                            found.add(str(n).strip().lower())
+    return sorted(found)
+
+
 def extract_source_edl(
     url_or_mp4: str | Path,
     slug: str,
@@ -171,6 +368,10 @@ def extract_source_edl(
     work_dir: Path | None = None,
     source_personal_names: list[str] | None = None,
     run_whisper: bool = True,
+    section: str | None = None,
+    scene_corr_threshold: float = 0.72,
+    min_shot_sec: float = 3.0,
+    sub_event_min_sec: float = 12.0,
 ) -> dict[str, Any]:
     """
     Stage 1: Downloads or opens the reference source video strictly inside `/tmp/aab_reenact/<slug>/`,
@@ -181,15 +382,40 @@ def extract_source_edl(
     shots_dir = q_dir / "shots"
     shots_dir.mkdir(parents=True, exist_ok=True)
     src_mp4 = q_dir / "source.mp4"
+    sec_bounds = _parse_section_window(section)
+    ffmpeg_bin = _resolve_ffmpeg_bin()
 
     raw_in = str(url_or_mp4).strip()
     if Path(raw_in).exists():
         in_p = Path(raw_in).resolve()
-        if in_p != src_mp4:
+        if sec_bounds is not None:
+            subprocess.run(
+                [
+                    ffmpeg_bin,
+                    "-y",
+                    "-ss",
+                    f"{sec_bounds[0]:.2f}",
+                    "-to",
+                    f"{sec_bounds[1]:.2f}",
+                    "-i",
+                    str(in_p),
+                    "-c:v",
+                    "libx264",
+                    "-preset",
+                    "ultrafast",
+                    "-c:a",
+                    "aac",
+                    str(src_mp4),
+                ],
+                check=False,
+                capture_output=True,
+                timeout=180,
+            )
+        if not src_mp4.exists() and in_p != src_mp4:
             shutil.copy2(in_p, src_mp4)
     elif not src_mp4.exists():
-        ffmpeg_bin = _resolve_ffmpeg_bin()
         yt_dlp_bin = shutil.which("yt-dlp") or str(Path("/home/canadaofbin/hermes-venv/bin/yt-dlp"))
+        dl_target = (q_dir / "source_full.mp4") if sec_bounds is not None else src_mp4
         cmd = [
             yt_dlp_bin,
             "--ignore-errors",
@@ -198,11 +424,91 @@ def extract_source_edl(
             str(Path(ffmpeg_bin).parent),
             "-f",
             "mp4/best[height<=720]/best",
-            "-o",
-            str(src_mp4),
-            raw_in,
         ]
+        if sec_bounds is not None:
+            cmd += ["--download-sections", f"*{sec_bounds[0]:.2f}-{sec_bounds[1]:.2f}"]
+        cmd += ["-o", str(dl_target), raw_in]
         subprocess.run(cmd, check=False, capture_output=True, text=True, timeout=180)
+        if sec_bounds is not None:
+            if dl_target.exists():
+                # Ensure exact window if yt-dlp returned a wider stream
+                probe_cap = cv2.VideoCapture(str(dl_target))
+                p_fps = float(probe_cap.get(cv2.CAP_PROP_FPS) or 30.0)
+                p_fc = int(probe_cap.get(cv2.CAP_PROP_FRAME_COUNT) or 0)
+                probe_cap.release()
+                p_dur = p_fc / max(p_fps, 1.0)
+                expected_dur = sec_bounds[1] - sec_bounds[0]
+                if p_dur > (expected_dur + 3.0):
+                    subprocess.run(
+                        [
+                            ffmpeg_bin,
+                            "-y",
+                            "-ss",
+                            f"{sec_bounds[0]:.2f}",
+                            "-to",
+                            f"{sec_bounds[1]:.2f}",
+                            "-i",
+                            str(dl_target),
+                            "-c:v",
+                            "libx264",
+                            "-preset",
+                            "ultrafast",
+                            "-c:a",
+                            "aac",
+                            str(src_mp4),
+                        ],
+                        check=False,
+                        capture_output=True,
+                        timeout=180,
+                    )
+                if not src_mp4.exists():
+                    shutil.move(str(dl_target), str(src_mp4))
+                else:
+                    dl_target.unlink(missing_ok=True)
+            else:
+                # Fallback without --download-sections + local ffmpeg trim
+                subprocess.run(
+                    [
+                        yt_dlp_bin,
+                        "--ignore-errors",
+                        "--no-playlist",
+                        "--ffmpeg-location",
+                        str(Path(ffmpeg_bin).parent),
+                        "-f",
+                        "mp4/best[height<=720]/best",
+                        "-o",
+                        str(dl_target),
+                        raw_in,
+                    ],
+                    check=False,
+                    capture_output=True,
+                    text=True,
+                    timeout=180,
+                )
+                if dl_target.exists():
+                    subprocess.run(
+                        [
+                            ffmpeg_bin,
+                            "-y",
+                            "-ss",
+                            f"{sec_bounds[0]:.2f}",
+                            "-to",
+                            f"{sec_bounds[1]:.2f}",
+                            "-i",
+                            str(dl_target),
+                            "-c:v",
+                            "libx264",
+                            "-preset",
+                            "ultrafast",
+                            "-c:a",
+                            "aac",
+                            str(src_mp4),
+                        ],
+                        check=False,
+                        capture_output=True,
+                        timeout=180,
+                    )
+                    dl_target.unlink(missing_ok=True)
         if not src_mp4.exists():
             raise FileNotFoundError(f"Failed to stage source video into quarantine: {src_mp4}")
 
@@ -216,10 +522,12 @@ def extract_source_edl(
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) or 0)
     duration_sec = round(frame_count / max(fps, 1.0), 2)
 
-    # Detect shot cuts using sampled HSV histogram deltas every 0.25s (min shot length 3.0s)
+    # Detect shot cuts using sampled HSV+Gray histogram deltas every 0.25s
     step_frames = max(1, int(round(fps * 0.25)))
     cut_times: list[float] = [0.0]
     prev_hist: np.ndarray | None = None
+    eff_min_shot = max(1.0, float(min_shot_sec))
+    eff_corr_thresh = float(scene_corr_threshold)
     f_idx = 0
     while True:
         ok, frm = cap.read()
@@ -227,24 +535,32 @@ def extract_source_edl(
             break
         if f_idx % step_frames == 0:
             t_s = f_idx / max(fps, 1.0)
-            hsv = cv2.cvtColor(cv2.resize(frm, (160, 120)), cv2.COLOR_BGR2HSV)
-            h_vec = cv2.calcHist([hsv], [0, 1], None, [16, 16], [0, 180, 0, 256]).flatten()
+            small = cv2.resize(frm, (160, 120))
+            hsv = cv2.cvtColor(small, cv2.COLOR_BGR2HSV)
+            # Combine HSV (H,S) + V/luma histogram so B&W 16mm films segment accurately too
+            hs_vec = cv2.calcHist([hsv], [0, 1], None, [12, 12], [0, 180, 0, 256]).flatten()
+            v_vec = cv2.calcHist([hsv], [2], None, [32], [0, 256]).flatten()
+            h_vec = np.concatenate([hs_vec, v_vec])
             norm = float(np.linalg.norm(h_vec))
             h_vec = h_vec / max(norm, 1e-6)
             if prev_hist is not None:
                 corr = float(np.dot(prev_hist, h_vec))
-                if corr < 0.72 and (t_s - cut_times[-1]) >= 3.0 and (duration_sec - t_s) >= 2.5:
+                if (
+                    corr < eff_corr_thresh
+                    and (t_s - cut_times[-1]) >= eff_min_shot
+                    and (duration_sec - t_s) >= max(1.5, eff_min_shot * 0.75)
+                ):
                     cut_times.append(round(t_s, 2))
             prev_hist = h_vec
         f_idx += 1
 
-    if len(cut_times) < 4 and duration_sec > 20.0:
-        # Uniform fallback if continuous single-take camera recording
-        n_seg = min(12, max(6, int(duration_sec // 15.0)))
+    if len(cut_times) < 4 and duration_sec > 15.0:
+        n_seg = min(12, max(4, int(duration_sec // max(5.0, min(15.0, duration_sec / 5.0)))))
         cut_times = [round(i * (duration_sec / n_seg), 2) for i in range(n_seg)]
 
     shots_meta: list[dict[str, Any]] = []
     source_dhashes: list[str] = []
+    eff_sub_min = max(6.0, float(sub_event_min_sec))
 
     def _grab_at(sec: float) -> np.ndarray | None:
         cap.set(cv2.CAP_PROP_POS_MSEC, max(0.0, sec) * 1000.0)
@@ -275,19 +591,19 @@ def extract_source_edl(
 
         zone_info = _classify_camera_and_zones(s_bgr, e_bgr)
         sub_events: list[dict[str, Any]] = []
-        if (t1 - t0) >= 12.0:
+        if (t1 - t0) >= eff_sub_min:
             prev_hsv = cv2.cvtColor(s_bgr, cv2.COLOR_BGR2HSV)
-            prev_hist = cv2.calcHist([prev_hsv], [0, 1], None, [32, 32], [0, 180, 0, 256])
-            cv2.normalize(prev_hist, prev_hist)
+            prev_sub_hist = cv2.calcHist([prev_hsv], [0, 1, 2], None, [8, 8, 16], [0, 180, 0, 256, 0, 256])
+            cv2.normalize(prev_sub_hist, prev_sub_hist)
             probe_t = t0 + 6.0
             sub_idx = 0
             while probe_t < (t1 - 1.5):
                 p_bgr = _grab_at(probe_t)
                 if p_bgr is not None:
                     p_hsv = cv2.cvtColor(p_bgr, cv2.COLOR_BGR2HSV)
-                    p_hist = cv2.calcHist([p_hsv], [0, 1], None, [32, 32], [0, 180, 0, 256])
+                    p_hist = cv2.calcHist([p_hsv], [0, 1, 2], None, [8, 8, 16], [0, 180, 0, 256, 0, 256])
                     cv2.normalize(p_hist, p_hist)
-                    corr = float(cv2.compareHist(prev_hist, p_hist, cv2.HISTCMP_CORREL))
+                    corr = float(cv2.compareHist(prev_sub_hist, p_hist, cv2.HISTCMP_CORREL))
                     if corr < 0.84:
                         sub_idx += 1
                         sub_id = f"{shot_id}_sub{sub_idx:02d}"
@@ -304,7 +620,7 @@ def extract_source_edl(
                                 "source_dhash_64": dh_sub,
                             }
                         )
-                    prev_hist = p_hist
+                    prev_sub_hist = p_hist
                 probe_t += 6.0
 
         shot_entry: dict[str, Any] = {
@@ -322,7 +638,6 @@ def extract_source_edl(
         shots_meta.append(shot_entry)
     cap.release()
 
-    # Load cached source_analysis.json in quarantine if present, or run faster-whisper
     transcript_texts: list[str] = []
     cached_analysis = q_dir / "source_analysis.json"
     if cached_analysis.exists():
@@ -347,19 +662,21 @@ def extract_source_edl(
             transcript_texts = []
 
     fivegram_hashes = sorted(compute_5gram_sha256_set(transcript_texts))
-    banned_names = sorted(
-        {
-            str(n).strip().lower()
-            for n in (source_personal_names or ["lisa", "lizbeth"])
-            if str(n).strip()
-        }
+    resolved_names = (
+        source_personal_names
+        if source_personal_names is not None
+        else _resolve_dossier_personal_names(dossier_dir)
     )
+    banned_names = sorted({str(n).strip().lower() for n in resolved_names if str(n).strip()})
+    yt_id = _extract_youtube_id(raw_in)
+    source_video_id = yt_id if yt_id else Path(raw_in).stem
 
     edl_doc: dict[str, Any] = {
         "schema": "source_reenactment_edl_v1",
         "rule": "R67",
         "slug": slug,
         "source_reference_id": raw_in if raw_in.startswith("http") else Path(raw_in).name,
+        "source_video_id": source_video_id,
         "extracted_at": datetime.now(timezone.utc).isoformat(),
         "source_geometry": {
             "width": width,
@@ -376,6 +693,9 @@ def extract_source_edl(
         "sanitization_verified": False,
         "zero_raw_pixels_in_repo": True,
     }
+    if sec_bounds is not None:
+        edl_doc["section_window"] = str(section)
+        edl_doc["section_bounds_sec"] = [sec_bounds[0], sec_bounds[1]]
 
     if project_dir is not None:
         vis_dir = Path(project_dir) / "03_visuals"
@@ -402,22 +722,38 @@ def sanitize_structural_frame_bgr(
 ) -> np.ndarray:
     """
     Stage 2 single-frame OpenCV sanitizer:
-      1. Masks wall posters / cartoon decals (`poster_boxes_norm` + upper-wall high-chroma decals) into neutral gallery plates.
+      1. Masks explicit `poster_boxes_norm` or detected high-chroma upper-corner wall decals into neutral gallery plates.
       2. Masks bottom VHS caption strip (`y >= 0.89`) if high-frequency text edges appear.
-      3. Replaces exposed human skin/face regions with smooth matte-white porcelain mannequin silhouettes.
+      3. Replaces exposed human faces/skin (both color skin tones AND YuNet B&W/color face ovals) with smooth
+         featureless matte-white porcelain mannequin silhouettes.
       4. Expands `4:3 -> 9:16` (`720x1280`) vertical studio framing seamlessly (zero black bars).
     """
     img = raw_bgr.copy()
-    h, w = img.shape[:2]
+    h0, w0 = img.shape[:2]
+    if h0 >= 64 and w0 >= 64:
+        g0 = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        max_trim_y = h0 // 4
+        max_trim_x = w0 // 4
+        ty0 = 0
+        while ty0 < max_trim_y and float(np.mean(g0[ty0, :])) < 20.0 and float(np.percentile(g0[ty0, :], 90)) < 38.0:
+            ty0 += 1
+        ty1 = h0
+        while (h0 - ty1) < max_trim_y and ty1 > ty0 + 32 and float(np.mean(g0[ty1 - 1, :])) < 20.0 and float(np.percentile(g0[ty1 - 1, :], 90)) < 38.0:
+            ty1 -= 1
+        tx0 = 0
+        while tx0 < max_trim_x and float(np.mean(g0[ty0:ty1, tx0])) < 20.0 and float(np.percentile(g0[ty0:ty1, tx0], 90)) < 38.0:
+            tx0 += 1
+        tx1 = w0
+        while (w0 - tx1) < max_trim_x and tx1 > tx0 + 32 and float(np.mean(g0[ty0:ty1, tx1 - 1])) < 20.0 and float(np.percentile(g0[ty0:ty1, tx1 - 1], 90)) < 38.0:
+            tx1 -= 1
+        if (ty0 > 0 or ty1 < h0 or tx0 > 0 or tx1 < w0) and (ty1 - ty0) >= h0 // 2 and (tx1 - tx0) >= w0 // 2:
+            img = img[ty0:ty1, tx0:tx1].copy()
 
-    # 1. Mask upper-left / upper-right copyrighted wall posters into clean neutral studio wall/frames
-    boxes = list(
-        poster_boxes_norm
-        or [
-            (0.00, 0.00, 0.24, 0.34),  # Upper-left cartoon poster zone
-            (0.74, 0.00, 1.00, 0.34),  # Upper-right cartoon poster zone
-        ]
-    )
+    h, w = img.shape[:2]
+    hsv_init = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    med_sat = float(np.median(hsv_init[:, :, 1]))
+
+    # 1. Conditional or explicit wall poster masking (preserves B&W / unmarked laboratory corners)
     wall_sample = img[max(0, int(h * 0.08)) : max(4, int(h * 0.24)), int(w * 0.35) : int(w * 0.65)]
     wall_med = (
         np.median(wall_sample.reshape(-1, 3), axis=0).astype(np.uint8)
@@ -425,11 +761,25 @@ def sanitize_structural_frame_bgr(
         else np.array([216, 222, 226], dtype=np.uint8)
     )
     wall_color = tuple(int(max(195, min(238, c))) for c in wall_med.tolist())
-    for x0n, y0n, x1n, y1n in boxes:
+
+    if poster_boxes_norm is not None:
+        boxes_to_mask = list(poster_boxes_norm)
+    else:
+        boxes_to_mask = []
+        for cx0, cy0, cx1, cy1 in (
+            (0.00, 0.00, 0.24, 0.34),
+            (0.74, 0.00, 1.00, 0.34),
+        ):
+            px0, py0 = int(w * cx0), int(h * cy0)
+            px1, py1 = int(w * cx1), int(h * cy1)
+            patch_s = hsv_init[py0:py1, px0:px1, 1]
+            if patch_s.size > 0 and float(np.mean(patch_s >= 80)) >= 0.06:
+                boxes_to_mask.append((cx0, cy0, cx1, cy1))
+
+    for x0n, y0n, x1n, y1n in boxes_to_mask:
         x0, y0 = int(w * x0n), int(h * y0n)
         x1, y1 = int(w * x1n), int(h * y1n)
         cv2.rectangle(img, (x0, y0), (x1, y1), wall_color, -1)
-        # Subtle minimalist blank architectural gallery frame outline
         pad_x, pad_y = max(4, (x1 - x0) // 7), max(4, (y1 - y0) // 7)
         if (x1 - x0) > 28 and (y1 - y0) > 28:
             cv2.rectangle(img, (x0 + pad_x, y0 + pad_y), (x1 - pad_x, y1 - pad_y), (234, 236, 238), -1)
@@ -443,51 +793,81 @@ def sanitize_structural_frame_bgr(
         if floor_strip.size > 0:
             img[bot_y0:, :] = cv2.resize(floor_strip, (w, h - bot_y0), interpolation=cv2.INTER_LINEAR)
 
-    # 3. Replace human skin/head regions with matte-white porcelain silhouette shading
-    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    ycrcb = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
-    skin_mask = (
-        (hsv[:, :, 0] <= 22)
-        & (hsv[:, :, 1] >= 42)
-        & (hsv[:, :, 1] <= 175)
-        & (hsv[:, :, 2] >= 65)
-        & (ycrcb[:, :, 1] >= 135)
-        & (ycrcb[:, :, 1] <= 180)
-        & (ycrcb[:, :, 2] >= 85)
-        & (ycrcb[:, :, 2] <= 135)
-    ).astype(np.uint8) * 255
-    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7, 7))
-    skin_mask = cv2.morphologyEx(skin_mask, cv2.MORPH_CLOSE, kernel, iterations=2)
-    skin_mask = cv2.GaussianBlur(skin_mask, (9, 9), 0)
+    # 3. Replace human faces & skin regions (YuNet B&W + color face ovals + HSV/YCrCb color skin mask)
+    face_boxes = detect_human_faces_yunet(img, score_threshold=0.42)
+    face_mask = np.zeros((h, w), dtype=np.uint8)
+    for fx, fy, fw, fh, _fsc in face_boxes:
+        cx_f = int(round(fx + fw * 0.50))
+        cy_f = int(round(fy + fh * 0.48))
+        ax_w = max(8, int(round(fw * 0.68)))
+        ax_h = max(10, int(round(fh * 0.80)))
+        cv2.ellipse(face_mask, (cx_f, cy_f), (ax_w, ax_h), 0, 0, 360, 255, -1)
+
+    if med_sat >= 16.0:
+        hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+        ycrcb = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
+        skin_mask = (
+            (hsv[:, :, 0] <= 22)
+            & (hsv[:, :, 1] >= 42)
+            & (hsv[:, :, 1] <= 175)
+            & (hsv[:, :, 2] >= 65)
+            & (ycrcb[:, :, 1] >= 135)
+            & (ycrcb[:, :, 1] <= 180)
+            & (ycrcb[:, :, 2] >= 85)
+            & (ycrcb[:, :, 2] <= 135)
+        ).astype(np.uint8) * 255
+        kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7, 7))
+        skin_mask = cv2.morphologyEx(skin_mask, cv2.MORPH_CLOSE, kernel, iterations=2)
+    else:
+        skin_mask = np.zeros((h, w), dtype=np.uint8)
+
+    combined_mask = np.maximum(skin_mask, face_mask)
+    combined_mask = cv2.GaussianBlur(combined_mask, (11, 11), 0)
 
     gray_full = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY).astype(np.float32)
-    porcelain_luma = np.clip(208.0 + 0.16 * (gray_full - 128.0), 192.0, 245.0).astype(np.uint8)
-    porcelain_bgr = np.stack([porcelain_luma, porcelain_luma, np.clip(porcelain_luma.astype(np.int16) + 2, 0, 248).astype(np.uint8)], axis=-1)
-    alpha = (skin_mask.astype(np.float32) / 255.0)[:, :, None]
+    gray_smooth = cv2.GaussianBlur(gray_full, (31, 31), 0)
+    # Smooth featureless matte-white oval shading (erases eye/nose/mouth high-frequency identity details)
+    porcelain_luma = np.clip(214.0 + 0.08 * (gray_smooth - 128.0), 196.0, 245.0).astype(np.uint8)
+    porcelain_bgr = np.stack(
+        [
+            porcelain_luma,
+            porcelain_luma,
+            np.clip(porcelain_luma.astype(np.int16) + 2, 0, 248).astype(np.uint8),
+        ],
+        axis=-1,
+    )
+    alpha = (combined_mask.astype(np.float32) / 255.0)[:, :, None]
     img = np.clip(img.astype(np.float32) * (1.0 - alpha) + porcelain_bgr.astype(np.float32) * alpha, 0, 255).astype(np.uint8)
 
     # 4. Expand 4:3 -> 9:16 vertical high-key studio composition (center room band + architectural ceiling & carpet floor)
     scaled_h = int(round(h * (target_w / max(float(w), 1.0))))
     scaled_h = min(target_h - 120, max(int(target_h * 0.42), scaled_h))
     mid_band = cv2.resize(img, (target_w, scaled_h), interpolation=cv2.INTER_CUBIC)
+    # Neutralize residual yellow/sepia VHS cast on grayscale archival frames so guide matches neutral high-key porcelain
+    if med_sat < 24.0:
+        mid_g = cv2.cvtColor(mid_band, cv2.COLOR_BGR2GRAY)
+        mid_band = np.stack([np.clip(mid_g.astype(np.int16) + 2, 0, 255).astype(np.uint8), mid_g, mid_g], axis=-1)
 
     top_pad = int(round((target_h - scaled_h) * 0.44))
     bot_pad = target_h - scaled_h - top_pad
 
     top_anchor = cv2.GaussianBlur(mid_band[: max(8, scaled_h // 10), :], (31, 31), 0)
     top_ext = cv2.resize(top_anchor, (target_w, top_pad), interpolation=cv2.INTER_LINEAR)
-    yy_top = np.linspace(0.32, 0.0, top_pad, dtype=np.float32)[:, None, None]
+    top_w_max = 0.72 if float(np.mean(top_ext)) < 130.0 else 0.36
+    top_w_min = 0.28 if float(np.mean(top_ext)) < 130.0 else 0.0
+    yy_top = np.linspace(top_w_max, top_w_min, top_pad, dtype=np.float32)[:, None, None]
     studio_white = np.full_like(top_ext, (232, 236, 240), dtype=np.uint8)
     top_ext = np.clip(top_ext.astype(np.float32) * (1.0 - yy_top) + studio_white.astype(np.float32) * yy_top, 0, 255).astype(np.uint8)
 
     bot_anchor = cv2.GaussianBlur(mid_band[scaled_h - max(8, scaled_h // 10) :, :], (31, 31), 0)
     bot_ext = cv2.resize(bot_anchor, (target_w, bot_pad), interpolation=cv2.INTER_LINEAR)
-    yy_bot = np.linspace(0.0, 0.24, bot_pad, dtype=np.float32)[:, None, None]
+    bot_w_min = 0.28 if float(np.mean(bot_ext)) < 120.0 else 0.0
+    bot_w_max = 0.76 if float(np.mean(bot_ext)) < 120.0 else 0.28
+    yy_bot = np.linspace(bot_w_min, bot_w_max, bot_pad, dtype=np.float32)[:, None, None]
     warm_carpet = np.full_like(bot_ext, (196, 206, 214), dtype=np.uint8)
     bot_ext = np.clip(bot_ext.astype(np.float32) * (1.0 - yy_bot) + warm_carpet.astype(np.float32) * yy_bot, 0, 255).astype(np.uint8)
 
     out_916 = np.vstack([top_ext, mid_band, bot_ext])
-    # Smooth seam transitions
     for seam_y in (top_pad, top_pad + scaled_h):
         y0s, y1s = max(0, seam_y - 10), min(target_h, seam_y + 10)
         out_916[y0s:y1s, :] = cv2.GaussianBlur(out_916[y0s:y1s, :], (15, 15), 0)
@@ -616,6 +996,11 @@ def render_reenactment_comparison_sheet(
     )
 
     zone_boxes = {
+        "upper_background_zone": (35, 65, 235, 145, (190, 210, 225)),
+        "left_foreground_zone": (22, 185, 112, 330, (175, 195, 215)),
+        "right_foreground_zone": (158, 185, 248, 330, (175, 215, 195)),
+        "center_action_zone": (68, 290, 202, 415, (210, 195, 180)),
+        # Legacy R67 pilot zone aliases:
         "upper_observation_mirror": (35, 65, 235, 145, (190, 210, 225)),
         "left_chair_zone": (22, 185, 112, 330, (175, 195, 215)),
         "right_chair_or_door_zone": (158, 185, 248, 330, (175, 215, 195)),
@@ -629,7 +1014,7 @@ def render_reenactment_comparison_sheet(
         cv2.rectangle(diag, (2, 2), (cell_w - 3, cell_h - 3), (180, 188, 198), 2)
         sc_id = str(sp.get("scene_id") or "")
         sh = shots_by_id.get(sc_id, {})
-        active_z = sh.get("active_zones") or ["center_floor_playmat", "left_chair_zone"]
+        active_z = sh.get("active_zones") or ["center_action_zone", "left_foreground_zone"]
         for z_name in active_z:
             if z_name in zone_boxes:
                 zx0, zy0, zx1, zy1, zcol = zone_boxes[z_name]
@@ -901,7 +1286,7 @@ async def translate_porcelain_keyframes_async(
                             ok_this = True
                             break
                     print(
-                        f"[reenact-refs {idx_sp}/{len(ordered_specs)}] {ref_id} try {attempt + 1} QA retry: passed={q_chk.get('passed')} issues={q_chk.get('issues')} dHash={min_dh}",
+                        f"[reenact-refs {idx_sp}/{len(ordered_specs)}] {ref_id} try {attempt + 1} QA retry: passed={q_chk.get('passed')} failed_axes={q_chk.get('failed_axes')} dHash={min_dh}",
                         flush=True,
                     )
                 except Exception as tab_exc:
@@ -1010,7 +1395,15 @@ def validate_reenactment_non_infringement(
 
     # --- RQ1: Zero raw source files in repo & quarantine purged ---
     leaked_files: list[str] = []
-    suspicious_patterns = ("source.mp4", "source_shots_sheet", "shot_0", "shot_1", "qtsewnrhuhu")
+    dyn_patterns: list[str] = ["source.mp4", "source_shots_sheet", "shot_0", "shot_1"]
+    for cand_vid in (
+        str(edl_doc.get("source_video_id") or "").strip(),
+        _extract_youtube_id(str(edl_doc.get("source_reference_id") or "")),
+    ):
+        low_vid = cand_vid.lower()
+        if len(low_vid) >= 5 and low_vid not in dyn_patterns:
+            dyn_patterns.append(low_vid)
+    suspicious_patterns = tuple(dyn_patterns)
     scan_roots = [p_dir] + ([d_dir] if (d_dir and d_dir.exists()) else [])
     for root in scan_roots:
         for f in root.rglob("*"):
@@ -1067,7 +1460,11 @@ def validate_reenactment_non_infringement(
     # --- RQ3: 0.0% 5-gram transcript overlap & zero source personal names ---
     script_path = scr_dir / "script.json"
     s_doc = json.loads(script_path.read_text(encoding="utf-8")) if script_path.exists() else {}
-    sents = [str(x) for x in (s_doc.get("sentences") or s_doc.get("clip_narrations") or []) if str(x).strip()]
+    sents = [
+        str(x)
+        for x in (s_doc.get("sentences") or s_doc.get("clip_narrations") or s_doc.get("narrations") or [])
+        if str(x).strip()
+    ]
     script_text = " ".join(sents) or str(s_doc.get("full_script") or "")
     script_5grams = compute_5gram_sha256_set(script_text)
     src_5grams = set(edl_doc.get("source_5gram_sha256_list") or [])

@@ -32,6 +32,11 @@
           "Deduplicated English transcript (53 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (0.0s–113.1s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_lecture_or_talking_head_kind(interview)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     },
     {
@@ -66,6 +71,11 @@
           "Deduplicated English transcript (26 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (110.8s–193.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_lecture_or_talking_head_kind(interview)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     },
     {
@@ -89,7 +99,14 @@
           "Inspected media/M3/still.jpg (500x337 px, CC BY 4.0, Robert H. Wurtz) — neuroanatomy reference: The brain circuits for visually guided saccades extend from cerebral cortex to the pons in the brain stem. This side view of the monkey brain shows that the circuit extends from retina to primary visu.",
           "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor"
 }

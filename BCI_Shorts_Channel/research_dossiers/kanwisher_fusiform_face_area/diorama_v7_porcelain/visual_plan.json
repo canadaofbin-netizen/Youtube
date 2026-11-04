@@ -105,7 +105,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 2,
@@ -150,7 +151,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -174,7 +176,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 6,
@@ -197,7 +200,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 8,
@@ -219,8 +223,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 9,
@@ -241,8 +247,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 10,
@@ -253,7 +261,18 @@
       "analogy_world": "a single smooth pale mint-sage ceramic garden pea resting on a cool slate-gray stone dish beside a matte-sunlit brain model",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in powder-blue cuffs lift the tiny mint-sage ceramic pea gently and hold it beside the matching coral-rose ventral spot",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 8
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 11,
@@ -275,7 +294,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 12,
@@ -336,7 +356,8 @@
       "anatomy_label": "PRIMARY VISUAL CORTEX\nVISION CENTER",
       "brain_scene": "a matte-sunlit 3D cortical brain model on a cool alabaster stand where the rear primary visual cortex glows evenly in soft powder-blue for all shapes alike",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 12
+      "clip_number": 12,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 15,
@@ -381,7 +402,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 17,
@@ -405,7 +427,8 @@
           "researcher"
         ]
       },
-      "clip_number": 15
+      "clip_number": 15,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 18,
@@ -427,8 +450,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 19,
@@ -450,7 +475,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 20,
@@ -463,7 +489,8 @@
       "anatomy_label": "FUSIFORM FACE AREA\nFACE DETECTOR",
       "brain_scene": "a matte-sunlit 3D cortical brain model tilted slightly to reveal the underside of the right hemisphere where the pea-sized fusiform face area glows bright coral-rose",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 18
+      "clip_number": 18,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 21,
@@ -474,7 +501,18 @@
       "analogy_world": "a sleek matte brushed-silver and powder-blue mechanical camera shutter mounted on a cool slate-gray block",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in slate coat cuffs press and release the silver trigger so the sunlit shutter blades click open and shut in one instant",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 19
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 22,
@@ -496,7 +534,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 23,
@@ -554,8 +593,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 26,
@@ -578,7 +619,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 27,
@@ -601,7 +643,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 28,
@@ -622,8 +665,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 29,
@@ -647,7 +692,8 @@
           "researcher"
         ]
       },
-      "clip_number": 27
+      "clip_number": 27,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 30,
@@ -669,8 +715,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 31,
@@ -683,7 +731,8 @@
       "anatomy_label": "FUSIFORM FACE AREA\nFACE DETECTOR",
       "brain_scene": "a matte-sunlit 3D cortical brain model where the right ventral fusiform face area flashes crisp coral-rose and cyan-blue the instant upright geometry engages",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 29
+      "clip_number": 29,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 32,
@@ -728,8 +777,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 35,
@@ -753,7 +804,8 @@
           "researcher"
         ]
       },
-      "clip_number": 32
+      "clip_number": 32,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 36,
@@ -796,7 +848,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -865,7 +918,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -888,7 +942,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -911,7 +966,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -935,7 +991,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 45,
@@ -957,7 +1014,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 46,
@@ -1017,7 +1075,8 @@
       "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
       "brain_scene": "a matte-sunlit 3D cortical brain model where crisp cyan-blue light fills the prefrontal cortex coordinating deliberate workspace alignment",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 44
+      "clip_number": 44,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 49,
@@ -1041,7 +1100,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 51,
@@ -1063,7 +1123,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 52,
@@ -1085,8 +1146,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 39,
@@ -1133,5 +1196,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "seminar_flip_room",
+  "real_environment": "a sunlit vision seminar room with a cool limestone table holding twin brushed-silver swivel frames and powder-blue chairs",
+  "environment_props": [
+    "five-card 1997 control deck (Faces / Houses / Scrambled / Objects / Hands)",
+    "180-degree swivel portrait frame ('Upright vs Inverted Face')",
+    "Faces (2x) vs Objects/Hands bar graph & ventral fusiform map"
+  ],
+  "cast": {
+    "subject": "1997 Boston academic wear: tailored blazer over crisp collared shirt and chinos with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "rolled-sleeve Oxford button-down with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_boston_fmri_console",
+      "location_id": "boston_fmri_console",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (boston_fmri_console: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the cool-toned scanner bay with a smooth matte-white cylindrical MRI bore, pale mint-sage walls, and a cool slate-gray operator window, featuring five-card 1997 control deck (Faces / Houses / Scrambled / Objects / Hands). Inside the room, researcher (rolled-sleeve Oxford button-down with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside five-card 1997 control deck (Faces / Houses / Scrambled / Objects / Hands). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the cool-toned scanner bay with a smooth matte-white cylindrical MRI bor",
+        "five-card 1997 control deck (Faces / Houses / Scrambled "
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_seminar_flip_room",
+      "location_id": "seminar_flip_room",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (seminar_flip_room: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit vision seminar room with a cool limestone table holding twin brushed-silver swivel frames and powder-blue chairs, featuring 180-degree swivel portrait frame ('Upright vs Inverted Face'). Inside the room, researcher (rolled-sleeve Oxford button-down with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 180-degree swivel portrait frame ('Upright vs Inverted Face'). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a sunlit vision seminar room with a cool limestone table holding twin br",
+        "180-degree swivel portrait frame ('Upright vs Inverted F"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_boston_fmri_console",
+      "location_id": "boston_fmri_console",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 3 (boston_fmri_console: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the cool-toned scanner bay with a smooth matte-white cylindrical MRI bore, pale mint-sage walls, and a cool slate-gray operator window, featuring five-card 1997 control deck (Faces / Houses / Scrambled / Objects / Hands). Inside the room, subject (1997 Boston academic wear: tailored blazer over crisp collared shirt and chinos with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside five-card 1997 control deck (Faces / Houses / Scrambled / Objects / Hands). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the cool-toned scanner bay with a smooth matte-white cylindrical MRI bor",
+        "five-card 1997 control deck (Faces / Houses / Scrambled "
+      ]
+    }
+  ]
 }

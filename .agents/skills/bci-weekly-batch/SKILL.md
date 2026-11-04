@@ -12,20 +12,19 @@ Master: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Yout
 ## Procedure
 | Step | Action | Rule |
 |---|---|---|
-| 1 | Pick one topic per pillar (7 total); reject duplicate topics / DOIs against `BCI_Shorts_Channel/database/` and existing projects. | P1, R20 |
-| 2 | Per topic: [bci-news-hunt](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/bci-news-hunt/SKILL.md) → [bci-script-gen](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/bci-script-gen/SKILL.md) (validators must return `[]`). | R1, R2, R40-A |
-| 3 | Generate in chunks of ≤ `FLOW_MAX_PARALLEL_BATCH_SIZE` projects: 1 topic = 1 subagent = 1 Whale tab. | R37 Guard 6 |
-| 4 | Per project: [bci-video-assembly](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/bci-video-assembly/SKILL.md). | R25 |
-| 5 | Batch QA: unique provenance and dHash across the batch, all G1–G12 / V1–V5 pass. | R18, R37 |
-| 6 | Stage uploads as unlisted and queue into pillar slots via [youtube-studio-manager](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-studio-manager/SKILL.md). | R30, R33, R34 |
+| 1 | Pick 7 pillar-balanced episodes from `BCI_Shorts_Channel/porcelain_rebalanced_queue.json` (or author new dossiers via [bci-deep-research](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/bci-deep-research/SKILL.md) + `main.py dossier audit-media --slug <slug> --write`); reject duplicate topics / DOIs against existing projects. | P1, R20, R34, R44-M |
+| 2 | Per topic: verify `diorama_v7_porcelain` (`script.json`, `visual_plan.json`, `reference_image_specs.json`) passes `main.py prompt-gate` + `--precheck-only` TTS clock (`populate_porcelain_reference_contract` compiled). | R1, R57-H2, R66, R67 |
+| 3 | Synthesize `0-credit` `9:16` reference pack (`ensure_porcelain_reference_pack` / `porcelain-refs` → `Q1–Q10` pass) and generate `46–48` 1:1 Zero-Reuse Flow clips in `<= FLOW_MAX_PARALLEL_BATCH_SIZE` tabs (`diorama-pipeline` overlaps Flow producer with CPU Assembly+QA consumer). | R5, R37 Guard 6, R51, R66 |
+| 4 | Per project: automatic `diorama-assemble` + `prosody-qa` (`P1–P10`) + `episode-qa` (`DQ1–DQ12`) + `posthoc-qa` (`R64`) + `autopsy` + `thumbnail` (`TQ1–TQ7`) + `verify` + `kb sync` (+ `reenact-qa` `RQ1–RQ5` on Track A episodes). | R25, R50-B, R62–R67 |
+| 5 | Stage uploads as unlisted and queue into North American 5-slot timetable via [youtube-studio-manager](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-studio-manager/SKILL.md). | R30, R33, R34 |
 
 ## Standing Preferences
 - **10-minute progress reports**: During multi-wave batch runs, schedule a recurring `10m` cronjob (`deliver="origin"`) that reports seeded count, active wave/Flow status, and completed MP4 count in Korean, and removes itself once the batch finishes.
 
 ## Commands
 ```bash
-python -X utf8 main.py batch --count 7 --style auto
-python -X utf8 main.py flow-parallel --projects <p1>,<p2>,<p3>,<p4>,<p5> --trigger
-python -X utf8 main.py qa
+python -X utf8 main.py dossier audit-media --all-queued
+python -X utf8 main.py diorama-pipeline --projects <slug1:p1:pil1>,...,<slug7:p7:pil7> --precheck-only
+python -X utf8 main.py diorama-pipeline --projects <slug1:p1:pil1>,...,<slug7:p7:pil7> --tabs 5 --engine auto
 python -X utf8 main.py studio-queue --action plan --days 7
 ```

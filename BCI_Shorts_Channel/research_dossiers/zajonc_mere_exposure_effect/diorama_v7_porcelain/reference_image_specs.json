@@ -1,0 +1,402 @@
+{
+  "schema_version": 5,
+  "visual_mode": "HYBRID",
+  "aspect": "9:16",
+  "dossier": "zajonc_mere_exposure_effect",
+  "total_reference_images": 8,
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in 1968 American university attire: tailored charcoal suit and narrow tie with a completely smooth featureless solid matte-white egg-shaped oval head; researcher in collegiate cardigan and V-neck sweaters with a completely smooth featureless solid matte-white egg-shaped oval head.",
+  "generation_order": "1 env plate + master brain bust -> 2 cast sheets + hero prop (conditioned on env) -> 3 clip start / key frames (conditioned on master anchors)",
+  "master_anchors": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "present_cast": [],
+      "location_id": "michigan_shutter_lab",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns, featuring stimulus flash cards ('IKTITAF rapid' | Calligraphic Character rapid | Yearbook Portrait rapid) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "must_include": [
+        "the bright Ann Arbor archive room filled with neat stacks of cool clear daylight",
+        "stimulus flash cards ('IKTITAF 25x' | Calligraphic Character"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_subject",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_subject.png",
+      "title": "Cast sheet: subject (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "subject"
+      ],
+      "location_id": "michigan_shutter_lab",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1968 American university attire: tailored charcoal suit and narrow tie with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "must_include": [
+        "1968 American university attire: tailored charcoal suit and narrow tie with a co",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_researcher",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_researcher.png",
+      "title": "Cast sheet: researcher (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "researcher"
+      ],
+      "location_id": "michigan_shutter_lab",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing collegiate cardigan and V-neck sweaters with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "must_include": [
+        "collegiate cardigan and V-neck sweaters with a completely smooth featureless sol",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [],
+      "location_id": "michigan_shutter_lab",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of stimulus flash cards ('IKTITAF rapid' | Calligraphic Character rapid | Yearbook Portrait rapid) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph) inside the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "must_include": [
+        "stimulus flash cards ('IKTITAF 25x' | Calligraphic Character 25x | Yearbook Port"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_brain_master",
+      "category": "brain_master_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_void",
+      "filename": "ref_brain_master.png",
+      "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: sagittal-coronal cross-section of a matte-white 3D brain focusing on the amygdala on an acrylic pedestal with living impulses gliding strictly inside enclosed white-matter sheaths. A matte-sunlit sagittal cutaway 3D brain model on a cool clear daylight-white stand where the deep almond-shaped amygdala glows alert coral-rose on first sight. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait composition against a high-contrast cool slate-grey studio backdrop, with dynamic camera progression from the porcelain head into the open anatomical brain cross-section tracking the neural circuit. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
+        "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    }
+  ],
+  "clip_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_michigan_shutter_lab",
+      "setting": "real_env",
+      "filename": "ref_anchor_01.png",
+      "title": "Room state anchor 1 (michigan_shutter_lab: researcher)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns, featuring stimulus flash cards ('IKTITAF rapid' | Calligraphic Character rapid | Yearbook Portrait rapid) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Inside the room, researcher (collegiate cardigan and V-neck sweaters with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside stimulus flash cards ('IKTITAF rapid' | Calligraphic Character rapid | Yearbook Portrait rapid) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright Ann Arbor archive room filled with neat stacks of cool clear ",
+        "stimulus flash cards ('IKTITAF 25x' | Calligraphic Chara"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "location_id": "michigan_shutter_lab",
+      "present_cast": [
+        "researcher"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_daily_mirror_room",
+      "setting": "real_env",
+      "filename": "ref_anchor_02.png",
+      "title": "Room state anchor 2 (daily_mirror_room: researcher)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit cool powder-blue dressing room with a tall brushed-silver mirror frame and an asymmetric clothed torso bust on a slate stand, featuring Logarithmic Exposure-Liking Graph ('0 -> 1 -> 2 -> 5 -> 10 -> 25 Views') (visualizes steep early warmth gains tapering gracefully at high counts). Inside the room, researcher (collegiate cardigan and V-neck sweaters with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Logarithmic Exposure-Liking Graph ('0 -> 1 -> 2 -> 5 -> 10 -> 25 Views') (visualizes steep early warmth gains tapering gracefully at high counts). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a sunlit cool powder-blue dressing room with a tall brushed-silver mirro",
+        "Logarithmic Exposure-Liking Graph ('0 -> 1 -> 2 -> 5 -> "
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_cast_researcher"
+      ],
+      "location_id": "daily_mirror_room",
+      "present_cast": [
+        "researcher"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_michigan_shutter_lab",
+      "setting": "real_env",
+      "filename": "ref_anchor_03.png",
+      "title": "Room state anchor 3 (michigan_shutter_lab: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns, featuring stimulus flash cards ('IKTITAF rapid' | Calligraphic Character rapid | Yearbook Portrait rapid) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Inside the room, subject (1968 American university attire: tailored charcoal suit and narrow tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside stimulus flash cards ('IKTITAF rapid' | Calligraphic Character rapid | Yearbook Portrait rapid) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright Ann Arbor archive room filled with neat stacks of cool clear ",
+        "stimulus flash cards ('IKTITAF 25x' | Calligraphic Chara"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "location_id": "michigan_shutter_lab",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    }
+  ],
+  "all_specs": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "present_cast": [],
+      "location_id": "michigan_shutter_lab",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns, featuring stimulus flash cards ('IKTITAF rapid' | Calligraphic Character rapid | Yearbook Portrait rapid) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "must_include": [
+        "the bright Ann Arbor archive room filled with neat stacks of cool clear daylight",
+        "stimulus flash cards ('IKTITAF 25x' | Calligraphic Character"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_subject",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_subject.png",
+      "title": "Cast sheet: subject (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "subject"
+      ],
+      "location_id": "michigan_shutter_lab",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1968 American university attire: tailored charcoal suit and narrow tie with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "must_include": [
+        "1968 American university attire: tailored charcoal suit and narrow tie with a co",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_researcher",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_researcher.png",
+      "title": "Cast sheet: researcher (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "researcher"
+      ],
+      "location_id": "michigan_shutter_lab",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing collegiate cardigan and V-neck sweaters with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "must_include": [
+        "collegiate cardigan and V-neck sweaters with a completely smooth featureless sol",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [],
+      "location_id": "michigan_shutter_lab",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of stimulus flash cards ('IKTITAF rapid' | Calligraphic Character rapid | Yearbook Portrait rapid) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph) inside the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "must_include": [
+        "stimulus flash cards ('IKTITAF 25x' | Calligraphic Character 25x | Yearbook Port"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_brain_master",
+      "category": "brain_master_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_void",
+      "filename": "ref_brain_master.png",
+      "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: sagittal-coronal cross-section of a matte-white 3D brain focusing on the amygdala on an acrylic pedestal with living impulses gliding strictly inside enclosed white-matter sheaths. A matte-sunlit sagittal cutaway 3D brain model on a cool clear daylight-white stand where the deep almond-shaped amygdala glows alert coral-rose on first sight. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait composition against a high-contrast cool slate-grey studio backdrop, with dynamic camera progression from the porcelain head into the open anatomical brain cross-section tracking the neural circuit. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "must_include": [
+        "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
+        "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_01",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_michigan_shutter_lab",
+      "setting": "real_env",
+      "filename": "ref_anchor_01.png",
+      "title": "Room state anchor 1 (michigan_shutter_lab: researcher)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns, featuring stimulus flash cards ('IKTITAF rapid' | Calligraphic Character rapid | Yearbook Portrait rapid) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Inside the room, researcher (collegiate cardigan and V-neck sweaters with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside stimulus flash cards ('IKTITAF rapid' | Calligraphic Character rapid | Yearbook Portrait rapid) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright Ann Arbor archive room filled with neat stacks of cool clear ",
+        "stimulus flash cards ('IKTITAF 25x' | Calligraphic Chara"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "location_id": "michigan_shutter_lab",
+      "present_cast": [
+        "researcher"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_daily_mirror_room",
+      "setting": "real_env",
+      "filename": "ref_anchor_02.png",
+      "title": "Room state anchor 2 (daily_mirror_room: researcher)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit cool powder-blue dressing room with a tall brushed-silver mirror frame and an asymmetric clothed torso bust on a slate stand, featuring Logarithmic Exposure-Liking Graph ('0 -> 1 -> 2 -> 5 -> 10 -> 25 Views') (visualizes steep early warmth gains tapering gracefully at high counts). Inside the room, researcher (collegiate cardigan and V-neck sweaters with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Logarithmic Exposure-Liking Graph ('0 -> 1 -> 2 -> 5 -> 10 -> 25 Views') (visualizes steep early warmth gains tapering gracefully at high counts). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a sunlit cool powder-blue dressing room with a tall brushed-silver mirro",
+        "Logarithmic Exposure-Liking Graph ('0 -> 1 -> 2 -> 5 -> "
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_cast_researcher"
+      ],
+      "location_id": "daily_mirror_room",
+      "present_cast": [
+        "researcher"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_michigan_shutter_lab",
+      "setting": "real_env",
+      "filename": "ref_anchor_03.png",
+      "title": "Room state anchor 3 (michigan_shutter_lab: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns, featuring stimulus flash cards ('IKTITAF rapid' | Calligraphic Character rapid | Yearbook Portrait rapid) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Inside the room, subject (1968 American university attire: tailored charcoal suit and narrow tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside stimulus flash cards ('IKTITAF rapid' | Calligraphic Character rapid | Yearbook Portrait rapid) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright Ann Arbor archive room filled with neat stacks of cool clear ",
+        "stimulus flash cards ('IKTITAF 25x' | Calligraphic Chara"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "location_id": "michigan_shutter_lab",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    }
+  ],
+  "style_profile": "porcelain_cinematic_v7"
+}

@@ -105,7 +105,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 2,
@@ -127,7 +128,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 3,
@@ -149,7 +151,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -171,7 +174,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 5,
@@ -240,8 +244,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 9,
@@ -288,7 +294,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 11,
@@ -323,7 +330,18 @@
       "analogy_world": "a sleek brushed-silver seven-compartment mail slot sorter mounted on a cool clear daylight-white counter holding seven thick sunlit envelopes",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in blazer cuffs slide and set seven thick powder-blue envelopes smoothly into the seven silver mail slots",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 11
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 13,
@@ -357,7 +375,18 @@
       "analogy_world": "a single isolated matte chalk-white piano key mounted alone on a cool slate-stone pedestal with soft cyan sound ripples",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in coat cuffs reach and press the lone white piano key once as a single pure ripple ring expands",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 13
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 16,
@@ -380,7 +409,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 17,
@@ -424,9 +454,11 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       },
-      "clip_number": 16
+      "clip_number": 16,
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 19,
@@ -448,7 +480,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 20,
@@ -494,8 +527,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 22,
@@ -541,7 +576,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 24,
@@ -554,7 +590,8 @@
       "anatomy_label": "DORSOLATERAL CORTEX\nWORKING-MEMORY DESK",
       "brain_scene": "a matte-sunlit 3D cortical brain model on a cool clear daylight-white stand where the upper front dorsolateral prefrontal cortex glows bright cyan compressing details into chunk pointers",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 22
+      "clip_number": 22,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 25,
@@ -575,8 +612,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 26,
@@ -635,7 +674,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 30,
@@ -658,7 +698,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 31,
@@ -705,7 +746,8 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -753,7 +795,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 35,
@@ -789,7 +832,8 @@
       "anatomy_label": "PARIETAL CORTEX\nATTENTION SPOTLIGHT",
       "brain_scene": "a matte-sunlit 3D cortical brain model where four distinct cyan nodes glow across the upper parietal cortex marking the four-chunk focus limit",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 33
+      "clip_number": 33,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 37,
@@ -811,7 +855,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 38,
@@ -882,7 +927,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 42,
@@ -895,7 +941,8 @@
       "anatomy_label": "DORSOLATERAL CORTEX\nWORKING-MEMORY DESK",
       "brain_scene": "a matte-sunlit 3D cortical brain model where the upper front dorsolateral prefrontal cortex glows vivid cyan holding five rich pattern chunks effortlessly",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 38
+      "clip_number": 38,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 43,
@@ -918,7 +965,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 45,
@@ -939,8 +987,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 46,
@@ -964,7 +1014,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 47,
@@ -1009,8 +1060,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 49,
@@ -1057,7 +1110,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 51,
@@ -1078,8 +1132,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 52,
@@ -1102,7 +1158,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 34,
@@ -1149,5 +1206,89 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "harvard_chunk_lab",
+  "real_environment": "the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a long line across the cool slate-stone table",
+  "environment_props": [
+    "loose binary 0/1 tile row",
+    "octal chunking brackets (carved wooden 3-tile trays unmarked with single octal digits 0 through 7)",
+    "smooth slate wall panel span comparison chart"
+  ],
+  "cast": {
+    "subject": "1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clinical investigator in a navy blazer leans beside a seated volunteer in a coat with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_harvard_chunk_lab",
+      "location_id": "harvard_chunk_lab",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (harvard_chunk_lab: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a long line across the cool slate-stone table, featuring loose binary 0/1 tile row. Inside the room, researcher (clinical investigator in a navy blazer leans beside a seated volunteer in a coat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside loose binary 0/1 tile row. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the sunlit Harvard seminar room where forty small mint-sage cubes stretc",
+        "loose binary 0/1 tile row"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_harvard_chunk_lab",
+      "location_id": "harvard_chunk_lab",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 2 (harvard_chunk_lab: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a long line across the cool slate-stone table, featuring octal chunking brackets (carved wooden 3-tile trays unmarked with single octal digits 0 through 7). Inside the room, subject (1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside octal chunking brackets (carved wooden 3-tile trays unmarked with single octal digits 0 through 7). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the sunlit Harvard seminar room where forty small mint-sage cubes stretc",
+        "octal chunking brackets (carved wooden 3-tile trays unma"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_chess_study_room",
+      "location_id": "chess_study_room",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (chess_study_room: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a quiet sunlit tournament room with a cool clear daylight-white and powder-blue geometric chessboard holding twenty-five matte-sunlit chess pieces on cool slate-stone, featuring loose binary 0/1 tile row. Inside the room, researcher (clinical investigator in a navy blazer leans beside a seated volunteer in a coat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside loose binary 0/1 tile row. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a quiet sunlit tournament room with a cool clear daylight-white and powd",
+        "loose binary 0/1 tile row"
+      ]
+    }
+  ]
 }

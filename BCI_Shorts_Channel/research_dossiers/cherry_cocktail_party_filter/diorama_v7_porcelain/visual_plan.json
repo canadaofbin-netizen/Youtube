@@ -151,7 +151,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -173,7 +174,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 5,
@@ -195,8 +197,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 6,
@@ -219,7 +223,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 7,
@@ -240,9 +245,11 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       },
-      "clip_number": 7
+      "clip_number": 7,
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 8,
@@ -264,7 +271,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 9,
@@ -286,8 +294,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 10,
@@ -309,8 +319,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 12,
@@ -357,7 +369,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 14,
@@ -392,7 +405,18 @@
       "analogy_world": "a calm cool-cream acoustic pedestal holding a matte brushed-silver tuning fork mounted on a pale ash-wood resonator box",
       "comparison_action": "two matte-white smooth sculptural matte-white porcelain gloved hands in slate sleeves tap the silver tuning fork gently with a soft rubber mallet and set the mallet down as soft powder-blue sound rings radiate",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 14
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 16,
@@ -438,7 +462,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 18,
@@ -485,7 +510,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 20,
@@ -543,7 +569,18 @@
       "analogy_world": "a calm dove-gray tabletop model railway junction with a matte soft-slate metal railroad track switch splitting one track into left and right rails",
       "comparison_action": "two matte-white smooth sculptural matte-white porcelain gloved hands in navy sleeves pull the soft-slate throw lever so the compact railroad track switch slides firmly from the left rail to the right rail",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 21
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 23,
@@ -556,7 +593,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "inside the flat side-profile auditory pathway model, both soft powder-blue and pale-lavender spiral waves travel cleanly through the snail-shaped cochlea",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 22
+      "clip_number": 22,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 24,
@@ -569,7 +607,8 @@
       "camera": "locked_tripod",
       "brain_scene": "on the left front temple ridge of the matte cool-ivory 3D brain model, soft muted-sage facets pulse in a steady rhythmic loop across Broca's area",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 23
+      "clip_number": 23,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 25,
@@ -592,7 +631,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 26,
@@ -638,7 +678,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 28,
@@ -662,7 +703,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 29,
@@ -684,7 +726,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 30,
@@ -706,8 +749,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 31,
@@ -729,7 +774,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 32,
@@ -810,7 +856,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 36,
@@ -834,7 +881,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 38,
@@ -903,8 +951,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 42,
@@ -973,7 +1023,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 45,
@@ -986,7 +1037,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "along the side temporal ridge of the matte cool-ivory 3D brain model, one smooth muted-sage pathway pulses cleanly across the auditory cortex",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 42
+      "clip_number": 42,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 46,
@@ -1054,7 +1106,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -1077,7 +1130,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 16,
@@ -1124,5 +1178,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_a",
+  "track_subtier": "A2_section_window",
+  "default_location_id": "london_acoustics_lab",
+  "real_environment": "a calm sunlit reception room with small round cocktail tables and soft powder-blue and pale-lavender acoustic wave arcs overlapping overhead",
+  "environment_props": [
+    "dual-channel studio audio console & padded over-ear headphones (delivers independent Left vs Right speech streams cleanly)",
+    "Left-Ear Test Toggle Board ('400Hz Tone [YES] | Male->Female Pitch [YES] | English->German [NO!]') (contrasts noticed physical features against missed linguistic meaning)"
+  ],
+  "cast": {
+    "subject": "1953 British academic attire: warm wool tweed jacket, waistcoat, club tie with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "ribbed wool jumper over collared shirt with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_london_acoustics_lab",
+      "location_id": "london_acoustics_lab",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (london_acoustics_lab: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a calm sunlit reception room with small round cocktail tables and soft powder-blue and pale-lavender acoustic wave arcs overlapping overhead, featuring dual-channel studio audio console & padded over-ear headphones (delivers independent Left vs Right speech streams cleanly). Inside the room, researcher (ribbed wool jumper over collared shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside dual-channel studio audio console & padded over-ear headphones (delivers independent Left vs Right speech streams cleanly). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a calm sunlit reception room with small round cocktail tables and soft p",
+        "dual-channel studio audio console & padded over-ear head"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_london_acoustics_lab",
+      "location_id": "london_acoustics_lab",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 2 (london_acoustics_lab: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a calm sunlit reception room with small round cocktail tables and soft powder-blue and pale-lavender acoustic wave arcs overlapping overhead, featuring Left-Ear Test Toggle Board ('400Hz Tone [YES] | Male->Female Pitch [YES] | English->German [NO!]') (contrasts noticed physical features against missed linguistic meaning). Inside the room, subject (1953 British academic attire: warm wool tweed jacket, waistcoat, club tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Left-Ear Test Toggle Board ('400Hz Tone [YES] | Male->Female Pitch [YES] | English->German [NO!]') (contrasts noticed physical features against missed linguistic meaning). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a calm sunlit reception room with small round cocktail tables and soft p",
+        "Left-Ear Test Toggle Board ('400Hz Tone [YES] | Male->Fe"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_neural_decoding_suite",
+      "location_id": "neural_decoding_suite",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (neural_decoding_suite: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a modern clinical neurophysiology room in soft diffused light with two sunlit waveform displays on a clean console, featuring dual-channel studio audio console & padded over-ear headphones (delivers independent Left vs Right speech streams cleanly). Inside the room, researcher (ribbed wool jumper over collared shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside dual-channel studio audio console & padded over-ear headphones (delivers independent Left vs Right speech streams cleanly). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a modern clinical neurophysiology room in soft diffused light with two s",
+        "dual-channel studio audio console & padded over-ear head"
+      ]
+    }
+  ]
 }

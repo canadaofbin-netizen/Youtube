@@ -266,6 +266,13 @@ Owner of all numeric thresholds, budgets, and timing constants across the ALL AB
 | `REENACT_MAX_TRANSCRIPT_5GRAM_OVERLAP` | `0.0` | ratio | `RQ3` `0.0%` verbatim 5-gram SHA-256 overlap against source video captions/ASR |
 | `REENACT_LAB_RATIO_TARGET` / `REENACT_BRAIN_RATIO_MIN` / `REENACT_COMPOSITION_MATCH_MIN` | `0.78` / `0.20` / `0.85` | ratio | `~78%` source-conditioned room choreography cuts, `>= 20%` original `R66` 4-color 3D brain / `hstack` cuts (`RQ5`), and `>= 85%` blocking zone match (`RQ5`) |
 | `PORCELAIN_REF_WHITE_RATIO_MAX` / `PORCELAIN_REF_NEON_GREEN_MAX` | `0.72` / `0.012` | ratio | Calibrated `R66` `porcelain_cinematic_v7` `Q2` high-key white ratio ceiling (`0.72`) and `Q6` uncontained neon-green cap (`0.012`, allowing `electric cyan-blue`) |
+| `REENACTMENT_TRACKS` | `("track_a", "track_b")` | tuple | Dual-Track `porcelain_cinematic_v7` reference-conditioning tracks: `track_a` (`R67` archival film reenactment) and `track_b` (`R66-Anchor` scene-bible room & cast pack) |
+| `MEDIA_SUITABILITY_CLASSES` | `("suitable_track_a", "needs_section_window", "reject_track_b_only")` | tuple | 4-Gate CV/Transcript/Metadata suitability classes for `04_media_refs.json` entries (`pipeline/research_dossier.py`) |
+| `MEDIA_REJECT_CHANNEL_PATTERNS` | `("ted", "tedx", "ted-ed", ..., "huberman lab")` | tuple | Lecture, dark-stage, 2D-explainer, and hospital PR channel patterns rejected by Gate 1 (`reject_track_b_only`) |
+| `MEDIA_MAX_DARK_VOID_RATIO` | `0.72` | ratio | Gate 2 max median dark pixel ratio (`Y < 35`) across sampled keyframes before rejecting dark TED/stage voids |
+| `MEDIA_MAX_FLAT_SLIDE_RATIO` | `0.62` | ratio | Gate 3 max flat low-texture slide/vector ratio on non-B&W frames (1920s–60s grayscale `S_p90 <= 22` film is exempt) |
+| `MEDIA_MAX_UNWINDOWED_DURATION_SEC` | `600.0` | s | Gate 4 max unwindowed video duration (`10 min`) before requiring an explicit `--section MM:SS-MM:SS` window |
+| `YUNET_FACE_MODEL_PATH` | `ASSETS_DIR / "models" / "face_detection_yunet_2023mar.onnx"` | path | Bundled OpenCV Zoo Apache-2.0 YuNet ONNX face detector for B&W + color archival face sanitization (`R67`) & talking-head rejection (`Gate 4`) |
 | `MICRO_SHORT_PROFILE` | `"micro_short_v7"` | str | `35–45s` Micro-Short discovery funnel profile |
 | `MICRO_SHORT_DURATION_MIN_SEC` / `MICRO_SHORT_DURATION_MAX_SEC` (`MICRO_SHORT_MIN_SEC` / `MICRO_SHORT_MAX_SEC`) | `35.0` / `45.0` | s | Assembled duration bounds for `micro_short_v7` |
 | `MICRO_SHORT_WORD_COUNT_MIN` / `MICRO_SHORT_WORD_COUNT_MAX` (`MICRO_SHORT_WORD_MIN` / `MICRO_SHORT_WORD_MAX`) | `95` / `120` | words | Spoken word budget for `micro_short_v7` |

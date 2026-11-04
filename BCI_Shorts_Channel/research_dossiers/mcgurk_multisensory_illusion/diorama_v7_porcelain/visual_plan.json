@@ -135,7 +135,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 4,
@@ -158,7 +159,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 6,
@@ -206,7 +208,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 8,
@@ -254,7 +257,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 11,
@@ -277,8 +281,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 12,
@@ -302,7 +308,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 13,
@@ -376,7 +383,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "clip_index": 16,
@@ -411,7 +419,18 @@
       "analogy_world": "clean clear daylight-white design studio tabletop holding two translucent powder-blue and sage-green color paddles on a silver pivot",
       "comparison_action": "navy coat sleeves and cool porcelain-white gloved matte-white porcelain hands swing the powder-blue and sage-green paddles together until their overlap forms a crisp third mint-lavender shade",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 14
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "acoustic_test_table",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "clip_index": 18,
@@ -447,7 +466,18 @@
       "analogy_world": "cool clear daylight-white studio wall featuring a smooth brushed-silver rotary dimmer knob set at a halfway sunlit mark",
       "comparison_action": "sage jacket sleeves and cool porcelain-white gloved matte-white porcelain hands grip the brushed-silver dimmer knob and turn it smoothly to a gentle halfway glow",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 16
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "acoustic_test_table",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "clip_index": 20,
@@ -469,8 +499,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 21,
@@ -494,7 +526,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 22,
@@ -543,7 +576,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 24,
@@ -557,7 +591,8 @@
       "anatomy_label": "VISUAL CORTEX\nVISION CENTER",
       "brain_scene": "At the back occipital pole, the primary visual cortex lights crisp sage-blue first and dispatches a rapid forward stream along the lateral side",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 21
+      "clip_number": 21,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 25,
@@ -594,7 +629,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "clip_index": 28,
@@ -641,7 +677,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "clip_index": 31,
@@ -665,7 +702,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 32,
@@ -704,7 +742,8 @@
       "anatomy_label": "TEMPORAL LOBE\nSIDE LOBE",
       "brain_scene": "Along the posterior lateral temporal lobe, clean sky-blue auditory streams and sage-green visual streams converge into one luminous cyan-lavender hub",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 28
+      "clip_number": 28,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 36,
@@ -727,7 +766,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 31,
@@ -776,7 +816,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 38,
@@ -822,7 +863,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -897,7 +939,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 44,
@@ -971,7 +1014,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "clip_index": 50,
@@ -1009,7 +1053,8 @@
       "anatomy_label": "TEMPORAL LOBE\nSIDE LOBE",
       "brain_scene": "Along the lateral temporal lobe, synchronized sage-green and sky-blue streams glide harmoniously into a calm luminous integration ridge",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 41
+      "clip_number": 41,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "clip_index": 52,
@@ -1105,7 +1150,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "clip_index": 57,
@@ -1128,8 +1174,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "clip_index": 29,
@@ -1154,7 +1202,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "clip_index": 58,
@@ -1173,5 +1222,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "surrey_sync_studio",
+  "real_environment": "sunlit British university audiovisual studio centering a brushed-silver desktop speaker cone, sunlit mechanical shutter box, and clear daylight-white occlusion paddle on a slate desk",
+  "environment_props": [
+    "1976 studio video monitor ('Visual Lips: GA') paired with desktop loudspeaker ('Audio Wave: BA')",
+    "sliding white 'Eyes Open = DA / Screen Covered = BA' test paddle"
+  ],
+  "cast": {
+    "subject": "1976 British academic attire: warm tweed jacket, patterned tie, collared shirt, knit jumper with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_surrey_sync_studio",
+      "location_id": "surrey_sync_studio",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (surrey_sync_studio: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit British university audiovisual studio centering a brushed-silver desktop speaker cone, sunlit mechanical shutter box, and clear daylight-white occlusion paddle on a slate desk, featuring 1976 studio video monitor ('Visual Lips: GA') paired with desktop loudspeaker ('Audio Wave: BA'). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1976 studio video monitor ('Visual Lips: GA') paired with desktop loudspeaker ('Audio Wave: BA'). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "sunlit British university audiovisual studio centering a brushed-silver ",
+        "1976 studio video monitor ('Visual Lips: GA') paired wit"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_surrey_sync_studio",
+      "location_id": "surrey_sync_studio",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 2 (surrey_sync_studio: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across sunlit British university audiovisual studio centering a brushed-silver desktop speaker cone, sunlit mechanical shutter box, and clear daylight-white occlusion paddle on a slate desk, featuring sliding white 'Eyes Open = DA / Screen Covered = BA' test paddle. Inside the room, subject (1976 British academic attire: warm tweed jacket, patterned tie, collared shirt, knit jumper with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside sliding white 'Eyes Open = DA / Screen Covered = BA' test paddle. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "sunlit British university audiovisual studio centering a brushed-silver ",
+        "sliding white 'Eyes Open = DA / Screen Covered = BA' tes"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_magnetic_coil_suite",
+      "location_id": "magnetic_coil_suite",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (magnetic_coil_suite: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside clean sunlit cognitive neuroscience suite with a brushed-silver figure-eight magnetic wand mounted beside a matte matte-white porcelain brain stand, featuring 1976 studio video monitor ('Visual Lips: GA') paired with desktop loudspeaker ('Audio Wave: BA'). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1976 studio video monitor ('Visual Lips: GA') paired with desktop loudspeaker ('Audio Wave: BA'). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "clean sunlit cognitive neuroscience suite with a brushed-silver figure-e",
+        "1976 studio video monitor ('Visual Lips: GA') paired wit"
+      ]
+    }
+  ]
 }

@@ -105,7 +105,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 2,
@@ -127,7 +128,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 3,
@@ -149,7 +151,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 4,
@@ -196,7 +199,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 6,
@@ -218,7 +222,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 7,
@@ -253,7 +258,18 @@
       "analogy_world": "a sunlit pale-stone travel platform displaying a sturdy dove-gray leather heavy suitcase resting beside a brushed-silver luggage floor dial",
       "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in coat sleeves grip the stitched handle, lift the heavy dove-gray suitcase cleanly off the stone floor, and set it onto the platform",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 8
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 9,
@@ -298,7 +314,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 11,
@@ -321,7 +338,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 12,
@@ -342,7 +360,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -367,7 +386,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 14,
@@ -378,7 +398,18 @@
       "analogy_world": "a sunlit cafe tabletop holding a porcelain lunch plate, a folded linen napkin, and neat mint-green tip coins on a small wooden tray",
       "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in shirt cuffs place a crisp stack of mint-green tip coins onto the wooden cafe tray and slide it forward",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 14
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 15,
@@ -400,7 +431,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 16,
@@ -446,7 +478,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 18,
@@ -468,7 +501,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -490,8 +524,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 20,
@@ -560,7 +596,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 23,
@@ -582,7 +619,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 24,
@@ -595,7 +633,8 @@
       "anatomy_label": "NUCLEUS ACCUMBENS\nREWARD CENTER",
       "brain_scene": "a matte-sunlit sagittal cutaway brain model on an alabaster pedestal where warm amber-gold light inside the deep nucleus accumbens surges when outranking a peer and dims when outranked",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 24
+      "clip_number": 24,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 25,
@@ -608,7 +647,8 @@
       "anatomy_label": "ANTERIOR CINGULATE\nERROR ALARM",
       "brain_scene": "a matte-sunlit sagittal cutaway brain model where crimson-red conflict glow pulses along the inner anterior cingulate wall detecting a narrow miss below top rank",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 25
+      "clip_number": 25,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 26,
@@ -631,7 +671,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 27,
@@ -677,8 +718,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 30,
@@ -723,8 +766,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 32,
@@ -748,7 +793,8 @@
           "researcher"
         ]
       },
-      "clip_number": 31
+      "clip_number": 31,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 33,
@@ -794,8 +840,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 36,
@@ -817,7 +865,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 37,
@@ -839,8 +888,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 39,
@@ -887,7 +938,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 42,
@@ -910,7 +962,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 44,
@@ -923,7 +976,8 @@
       "anatomy_label": "PREFRONTAL CORTEX\nFRONT PLANNER",
       "brain_scene": "a matte-sunlit 3D cortical brain model glowing with serene electric cyan-blue light in the prefrontal cortex behind the forehead redirecting warm golden pathways inward",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 39
+      "clip_number": 39,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 45,
@@ -945,7 +999,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 46,
@@ -969,7 +1024,8 @@
           "researcher"
         ]
       },
-      "clip_number": 41
+      "clip_number": 41,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 47,
@@ -991,7 +1047,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 48,
@@ -1013,7 +1070,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 49,
@@ -1072,7 +1130,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 52,
@@ -1094,7 +1153,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -1118,7 +1178,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 52,
@@ -1141,5 +1202,87 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_a",
+  "track_subtier": "A2_section_window",
+  "default_location_id": "minnesota_comparison_lab",
+  "real_environment": "a sunlit behavioral economics survey room with two sunlit architectural housing layout boards displayed on a cool-slate table",
+  "environment_props": [
+    "three-tier white 1st / 2nd / 3rd Podium + #4 Floor Marker",
+    "Upward vs Downward Sightline Chart ('Silver 4.8 vs Bronze 7.1') (visualizes Festinger's reference-point mechanics in one instant)"
+  ],
+  "cast": {
+    "subject": "Clean classic white-and-navy Olympic track warmups with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "mid-century academic wool blazer and tie with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_modern_home_desk",
+      "location_id": "modern_home_desk",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (modern_home_desk: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit office workspace with two side-by-side cool-slate desks separated by a low glass divider, featuring three-tier white 1st / 2nd / 3rd Podium + #4 Floor Marker. Inside the room, researcher (mid-century academic wool blazer and tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-tier white 1st / 2nd / 3rd Podium + #4 Floor Marker. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a sunlit office workspace with two side-by-side cool-slate desks separat",
+        "three-tier white 1st / 2nd / 3rd Podium + #4 Floor Marke"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_olympic_podium_stage",
+      "location_id": "olympic_podium_stage",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (olympic_podium_stage: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit arena stage featuring a crisp three-tier white championship podium beside an empty fourth-place floor mat, featuring Upward vs Downward Sightline Chart ('Silver 4.8 vs Bronze 7.1') (visualizes Festinger's reference-point mechanics in one instant). Inside the room, researcher (mid-century academic wool blazer and tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Upward vs Downward Sightline Chart ('Silver 4.8 vs Bronze 7.1') (visualizes Festinger's reference-point mechanics in one instant). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a sunlit arena stage featuring a crisp three-tier white championship pod",
+        "Upward vs Downward Sightline Chart ('Silver 4.8 vs Bronz"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_minnesota_comparison_lab",
+      "location_id": "minnesota_comparison_lab",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 3 (minnesota_comparison_lab: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a sunlit behavioral economics survey room with two sunlit architectural housing layout boards displayed on a cool-slate table, featuring three-tier white 1st / 2nd / 3rd Podium + #4 Floor Marker. Inside the room, subject (Clean classic white-and-navy Olympic track warmups with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-tier white 1st / 2nd / 3rd Podium + #4 Floor Marker. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a sunlit behavioral economics survey room with two sunlit architectural ",
+        "three-tier white 1st / 2nd / 3rd Podium + #4 Floor Marke"
+      ]
+    }
+  ]
 }

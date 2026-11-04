@@ -105,7 +105,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 2,
@@ -151,8 +152,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -175,7 +178,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 5,
@@ -196,9 +200,11 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       },
-      "clip_number": 5
+      "clip_number": 5,
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 6,
@@ -221,8 +227,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 7,
@@ -267,8 +275,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 9,
@@ -291,7 +301,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 10,
@@ -314,7 +325,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 11,
@@ -349,7 +361,18 @@
       "analogy_world": "a sunlit cool-limestone podium holding a compact matte powder-blue vault safe filled with three neat mint-sage value blocks",
       "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in slate sleeves swing the powder-blue vault door shut and turn the brushed-silver spoke wheel locking the blocks inside",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 12
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "pastel_analogy_stage",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 13,
@@ -372,7 +395,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 14,
@@ -418,7 +442,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 17,
@@ -431,7 +456,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "inside the matte-sunlit sagittal brain cutaway, the deep folded insula glows with muted sunlit coral-rose discomfort waves",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 16
+      "clip_number": 16,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 18,
@@ -452,8 +478,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 19,
@@ -476,7 +504,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 20,
@@ -499,7 +528,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 21,
@@ -533,7 +563,18 @@
       "analogy_world": "a sunlit cool-limestone park bench comparing a fresh sunlit mint-sage ice cream cone on the right with a tumbled scoop on clean stone on the left",
       "comparison_action": "viewed strictly from behind, a clothed matte-white porcelain figure in a powder-blue jacket leans down and reaches toward the dropped sunlit scoop beside an untouched extra scoop",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 21
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "pastel_analogy_stage",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 23,
@@ -557,7 +598,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 25,
@@ -592,7 +634,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 27,
@@ -637,7 +680,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 29,
@@ -684,7 +728,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 31,
@@ -705,7 +750,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       },
       "clip_number": 29
     },
@@ -776,7 +822,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 35,
@@ -799,7 +846,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 36,
@@ -821,7 +869,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 37,
@@ -843,7 +892,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -865,8 +915,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 39,
@@ -890,7 +942,8 @@
           "researcher"
         ]
       },
-      "clip_number": 37
+      "clip_number": 37,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 40,
@@ -927,7 +980,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "inside the matte-sunlit sagittal half-brain cutaway, muted sunlit rose waves flare inside the deep insula until a powder-blue frontal pathway calms them",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 39
+      "clip_number": 39,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 42,
@@ -950,7 +1004,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 44,
@@ -974,7 +1029,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 46,
@@ -1021,7 +1077,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 48,
@@ -1034,7 +1091,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "across the front of the matte-sunlit 3D cortical brain model, calm powder-blue and mint-sage pathways glow evenly across the prefrontal cortex",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 44
+      "clip_number": 44,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 49,
@@ -1057,7 +1115,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 51,
@@ -1079,7 +1138,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 14,
@@ -1126,5 +1186,89 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "jerusalem_choice_room",
+  "real_environment": "a sunlit cool-limestone seminar room with slate-gray tables and a sculpted sunlit S-curve wall board",
+  "environment_props": [
+    "paired Gain (+3,000) vs Loss (-3,000) placard cards",
+    "asymmetric S-curve smooth slate wall panel graph",
+    "ceramic university coffee mug (plain ceramic mug resting at the reference-point origin)"
+  ],
+  "cast": {
+    "subject": "1979 academic attire: open-collar Oxford shirt, light tweed blazer, corduroy trousers with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_jerusalem_choice_room",
+      "location_id": "jerusalem_choice_room",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 1 (jerusalem_choice_room: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit cool-limestone seminar room with slate-gray tables and a sculpted sunlit S-curve wall board, featuring paired Gain (+3,000) vs Loss (-3,000) placard cards. Inside the room, subject (1979 academic attire: open-collar Oxford shirt, light tweed blazer, corduroy trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired Gain (+3,000) vs Loss (-3,000) placard cards. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a sunlit cool-limestone seminar room with slate-gray tables and a sculpt",
+        "paired Gain (+3,000) vs Loss (-3,000) placard cards"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_jerusalem_choice_room",
+      "location_id": "jerusalem_choice_room",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (jerusalem_choice_room: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit cool-limestone seminar room with slate-gray tables and a sculpted sunlit S-curve wall board, featuring asymmetric S-curve smooth slate wall panel graph. Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside asymmetric S-curve smooth slate wall panel graph. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a sunlit cool-limestone seminar room with slate-gray tables and a sculpt",
+        "asymmetric S-curve smooth slate wall panel graph"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_modern_reset_desk",
+      "location_id": "modern_reset_desk",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (modern_reset_desk: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright cool powder-blue hospital conference room with a limestone table displaying nine mint-sage figure pins and one pale-gray pin, featuring paired Gain (+3,000) vs Loss (-3,000) placard cards. Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired Gain (+3,000) vs Loss (-3,000) placard cards. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a bright cool powder-blue hospital conference room with a limestone tabl",
+        "paired Gain (+3,000) vs Loss (-3,000) placard cards"
+      ]
+    }
+  ]
 }

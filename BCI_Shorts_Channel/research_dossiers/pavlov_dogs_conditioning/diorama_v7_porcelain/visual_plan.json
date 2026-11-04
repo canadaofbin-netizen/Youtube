@@ -151,7 +151,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -174,7 +175,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 5,
@@ -197,7 +199,8 @@
           "researcher"
         ]
       },
-      "clip_number": 5
+      "clip_number": 5,
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 6,
@@ -244,7 +247,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 8,
@@ -266,7 +270,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 9,
@@ -288,8 +293,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 10,
@@ -310,8 +317,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 11,
@@ -333,8 +342,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 12,
@@ -392,7 +403,18 @@
       "analogy_world": "a sunlit cool-alabaster kitchen counter holding a sunlit sky-blue stovetop kettle beside a brushed-silver pocket tally counter",
       "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in shirt sleeves set the sky-blue kettle down and turn the tally counter knob as a crisp white steam puff rises from the spout",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 14
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 15,
@@ -403,7 +425,18 @@
       "analogy_world": "a sunlit pale-stone sink basin fitted with a minimalist brushed-silver kitchen faucet",
       "comparison_action": "a cool porcelain-white gloved matte-white porcelain hand in a coat sleeve turns the silver tap handle slightly so clear sky-blue droplets drip rhythmically into a glass cup",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 15
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 16,
@@ -424,8 +457,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 17,
@@ -449,7 +484,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 18,
@@ -471,7 +507,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 19,
@@ -541,7 +578,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 22,
@@ -554,7 +592,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "on the side temporal surface of the matte warm-ivory 3D brain model above the ear, bright sky-blue facets pulse rhythmically across the auditory cortex",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 22
+      "clip_number": 22,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 23,
@@ -567,7 +606,8 @@
       "camera": "tilt_down",
       "brain_scene": "inside the flat side-profile half-brain cross-section, a glowing warm-gold pathway descends into the lower brainstem stalk and lights its reflex core",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 23
+      "clip_number": 23,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 24,
@@ -636,7 +676,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 28,
@@ -660,7 +701,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 29,
@@ -682,7 +724,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 30,
@@ -752,7 +795,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 33,
@@ -845,7 +889,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 38,
@@ -892,7 +937,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 40,
@@ -938,7 +984,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 43,
@@ -1009,7 +1056,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "along the side temporal ridge of the matte warm-ivory 3D brain model, coral-amber facets flash across the auditory cortex and arc forward",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 43
+      "clip_number": 43,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 47,
@@ -1055,7 +1103,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 50,
@@ -1077,8 +1126,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 32,
@@ -1125,5 +1176,90 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_a",
+  "track_subtier": "A1a_ready_keyframes",
+  "default_location_id": "petersburg_digestion_lab",
+  "real_environment": "the sunlit physiology room showing the bare wooden stand in front of the harnessed matte-white porcelain dog with zero food present",
+  "environment_props": [
+    "brushed-metal instrument",
+    "glass funnel on the cheek",
+    "graduated glass tube / cylinder (thin glass tube with etched scale marks)",
+    "leather harness and straps"
+  ],
+  "cast": {
+    "subject": "Pavlov: white laboratory coat, full white beard (portrait photographs with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "actor in M2 recreation) with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_petersburg_digestion_lab",
+      "location_id": "petersburg_digestion_lab",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (petersburg_digestion_lab: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunlit physiology room showing the bare wooden stand in front of the harnessed matte-white porcelain dog with zero food present, featuring brushed-metal instrument. Inside the room, researcher (actor in M2 recreation) with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside brushed-metal instrument. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the sunlit physiology room showing the bare wooden stand in front of the",
+        "brushed-metal instrument"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_petersburg_digestion_lab",
+      "location_id": "petersburg_digestion_lab",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 2 (petersburg_digestion_lab: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the sunlit physiology room showing the bare wooden stand in front of the harnessed matte-white porcelain dog with zero food present, featuring glass funnel on the cheek. Inside the room, subject (Pavlov: white laboratory coat, full white beard (portrait photographs with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside glass funnel on the cheek. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the sunlit physiology room showing the bare wooden stand in front of the",
+        "glass funnel on the cheek"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_soundproof_trench_tower",
+      "location_id": "soundproof_trench_tower",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (soundproof_trench_tower: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the bright outer control corridor of the soundproof laboratory with brushed-silver pneumatic levers and five neat ivory record folders, featuring brushed-metal instrument. Inside the room, researcher (actor in M2 recreation) with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside brushed-metal instrument. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the bright outer control corridor of the soundproof laboratory with brus",
+        "brushed-metal instrument"
+      ]
+    }
+  ]
 }

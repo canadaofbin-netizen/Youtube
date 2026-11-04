@@ -153,7 +153,8 @@
           "researcher",
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -174,8 +175,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 5,
@@ -199,7 +202,8 @@
           "researcher"
         ]
       },
-      "clip_number": 5
+      "clip_number": 5,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 6,
@@ -210,7 +214,18 @@
       "analogy_world": "a sunlit cool-alabaster kitchen counter holding a round brushed-matte brushed-brass acoustic chime bar beside a compact charcoal pager",
       "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in shirt sleeves turn and set the round mint acoustic brushed-brass acoustic chime bar knob as both the acoustic chime bar and pager pulse together",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 6
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 7,
@@ -233,7 +248,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 9,
@@ -278,8 +294,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 11,
@@ -290,7 +308,18 @@
       "analogy_world": "a sunlit cool-alabaster architectural table showing a sleek sunlit sky-blue commuter train track linking two close compact rail platform markers",
       "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in coat sleeves release the sunlit sky-blue train car so it glides briskly from the first platform straight into the second platform",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 10
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 12,
@@ -312,7 +341,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 13,
@@ -325,7 +355,8 @@
       "camera": "locked_tripod",
       "brain_scene": "inside the flat side-profile half-brain cross-section, the deep almond-shaped amygdala flashes in warm terracotta-coral facets as overload ripples upward",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 12
+      "clip_number": 12,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 14,
@@ -348,7 +379,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 15,
@@ -370,7 +402,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 16,
@@ -407,7 +440,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "across the front forehead pole of the matte warm-ivory 3D whole brain model, bright coral facets flare across the prefrontal cortex and interrupt smooth sky-blue motor pathways",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 16
+      "clip_number": 16,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 18,
@@ -429,7 +463,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 19,
@@ -451,7 +486,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 20,
@@ -498,7 +534,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 22,
@@ -521,7 +558,8 @@
           "researcher"
         ]
       },
-      "clip_number": 21
+      "clip_number": 21,
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 23,
@@ -534,7 +572,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "inside the flat side-profile half-brain cross-section, the medial midline hubs of the default mode network soften from warm coral down to calm cool-ivory repose",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 22
+      "clip_number": 22,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 24,
@@ -556,7 +595,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 25,
@@ -569,7 +609,8 @@
       "camera": "locked_tripod",
       "brain_scene": "inside the flat side-profile half-brain cross-section, the deep C-shaped basal ganglia hub illuminates in steady sky-blue and sage-green facets",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 24
+      "clip_number": 24,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 26,
@@ -616,7 +657,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 28,
@@ -638,7 +680,8 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
+        ],
+        "protocol_phase_jump": true
       }
     },
     {
@@ -676,7 +719,8 @@
       "camera": "locked_tripod",
       "brain_scene": "inside the flat side-profile half-brain cross-section, both the medial self-judging wall and the deep amygdala cool smoothly into soft sunlit slate-blue",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 29
+      "clip_number": 29,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 32,
@@ -689,7 +733,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "across the upper-back crown of the matte warm-ivory 3D whole brain model, the parietal cortex glows crisply in bright sky-blue and warm amber-gold facets",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 30
+      "clip_number": 30,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 33,
@@ -712,7 +757,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 34,
@@ -771,7 +817,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 38,
@@ -793,7 +840,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 39,
@@ -839,7 +887,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 41,
@@ -863,7 +912,8 @@
           "researcher"
         ]
       },
-      "clip_number": 38
+      "clip_number": 38,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 42,
@@ -885,8 +935,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 44,
@@ -933,8 +985,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 47,
@@ -984,7 +1038,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 49,
@@ -997,7 +1052,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "inside the flat side-profile half-brain cross-section, the deep basal ganglia glows in calm sky-blue and warm amber-gold harmony while the inner critic stays quiet",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 44
+      "clip_number": 44,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 50,
@@ -1021,7 +1077,8 @@
           "researcher",
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 51,
@@ -1043,8 +1100,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 14,
@@ -1091,5 +1150,88 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "chicago_cello_studio",
+  "real_environment": "the sunlit Chicago music and research studio opening onto a tranquil sunlit park courtyard",
+  "environment_props": [
+    "electronic ESM pager & diary booklet",
+    "diagonal 'Challenge vs Skill' Flow Channel board",
+    "wooden cello & sheet-music stand (rich natural wood instrument with clear phrase markings)"
+  ],
+  "cast": {
+    "subject": "Natural linen button shirt with rolled sleeves on cellist with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "academic tweed blazer and open-collar Oxford shirt on researchers with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_chicago_cello_studio",
+      "location_id": "chicago_cello_studio",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 1 (chicago_cello_studio: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunlit Chicago music and research studio opening onto a tranquil sunlit park courtyard, featuring electronic ESM pager & diary booklet. Inside the room, subject (Natural linen button shirt with rolled sleeves on cellist with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside electronic ESM pager & diary booklet. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the sunlit Chicago music and research studio opening onto a tranquil sun",
+        "electronic ESM pager & diary booklet"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_home_craft_workbench",
+      "location_id": "home_craft_workbench",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (home_craft_workbench: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit modern woodworking and design studio with a clean maple workbench, wooden plane, and mechanical tally counter, featuring diagonal 'Challenge vs Skill' Flow Channel board. Inside the room, researcher (academic tweed blazer and open-collar Oxford shirt on researchers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside diagonal 'Challenge vs Skill' Flow Channel board. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a sunlit modern woodworking and design studio with a clean maple workben",
+        "diagonal 'Challenge vs Skill' Flow Channel board"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_neuro_scanner_room",
+      "location_id": "neuro_scanner_room",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (neuro_scanner_room: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright cognitive neuroscience laboratory with a warm-ivory 3D brain sculpture and energy balance blocks on a pale-wood table, featuring electronic ESM pager & diary booklet. Inside the room, researcher (academic tweed blazer and open-collar Oxford shirt on researchers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside electronic ESM pager & diary booklet. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "a bright cognitive neuroscience laboratory with a warm-ivory 3D brain sc",
+        "electronic ESM pager & diary booklet"
+      ]
+    }
+  ]
 }

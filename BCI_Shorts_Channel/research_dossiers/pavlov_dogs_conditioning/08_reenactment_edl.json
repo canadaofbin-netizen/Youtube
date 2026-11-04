@@ -1,0 +1,111 @@
+{
+  "schema": "source_reenactment_edl_v1",
+  "rule": "R67",
+  "slug": "pavlov_dogs_conditioning",
+  "source_reference_id": "https://www.youtube.com/watch?v=axJ9CwcH9WM",
+  "source_video_id": "axJ9CwcH9WM",
+  "extracted_at": "2026-11-03T23:54:54.400229+00:00",
+  "source_geometry": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30.0,
+    "duration_sec": 38.5,
+    "aspect_ratio": 1.7778
+  },
+  "shot_count": 4,
+  "shots": [
+    {
+      "shot_id": "S01",
+      "shot_index": 1,
+      "start_sec": 0.0,
+      "end_sec": 9.62,
+      "duration_sec": 9.62,
+      "source_start_dhash_64": "e4e8e0e6c2c0e0a2",
+      "source_end_dhash_64": "e4d4c4c4d0c0e0a0",
+      "camera_motion": "gentle_tilt_down",
+      "optical_flow_dx": 0.0,
+      "optical_flow_dy": 0.0,
+      "motion_magnitude": 5.04,
+      "active_zones": [
+        "right_foreground_zone",
+        "center_action_zone",
+        "upper_background_zone"
+      ]
+    },
+    {
+      "shot_id": "S02",
+      "shot_index": 2,
+      "start_sec": 9.62,
+      "end_sec": 19.25,
+      "duration_sec": 9.63,
+      "source_start_dhash_64": "e4c8ccc4c6e8f8f8",
+      "source_end_dhash_64": "e4e0e4e4c4e4f0f8",
+      "camera_motion": "lateral_pan_left",
+      "optical_flow_dx": 0.105,
+      "optical_flow_dy": 0.0,
+      "motion_magnitude": 2.963,
+      "active_zones": [
+        "right_foreground_zone",
+        "center_action_zone",
+        "upper_background_zone"
+      ]
+    },
+    {
+      "shot_id": "S03",
+      "shot_index": 3,
+      "start_sec": 19.25,
+      "end_sec": 28.88,
+      "duration_sec": 9.63,
+      "source_start_dhash_64": "e4f0e2e2c4f4f4f4",
+      "source_end_dhash_64": "a4e6c0b094d4c0a2",
+      "camera_motion": "gentle_tilt_down",
+      "optical_flow_dx": -0.0,
+      "optical_flow_dy": 0.0,
+      "motion_magnitude": 5.374,
+      "active_zones": [
+        "right_foreground_zone",
+        "center_action_zone",
+        "upper_background_zone"
+      ]
+    },
+    {
+      "shot_id": "S04",
+      "shot_index": 4,
+      "start_sec": 28.88,
+      "end_sec": 38.5,
+      "duration_sec": 9.62,
+      "source_start_dhash_64": "e4b8f8c0e0e0e4e4",
+      "source_end_dhash_64": "dcb2f2dac4f0f4b8",
+      "camera_motion": "lateral_pan_left",
+      "optical_flow_dx": 0.0,
+      "optical_flow_dy": 0.0,
+      "motion_magnitude": 3.081,
+      "active_zones": [
+        "left_foreground_zone",
+        "right_foreground_zone",
+        "center_action_zone",
+        "upper_background_zone"
+      ]
+    }
+  ],
+  "source_dhash_64_list": [
+    "e4e8e0e6c2c0e0a2",
+    "e4d4c4c4d0c0e0a0",
+    "e4c8ccc4c6e8f8f8",
+    "e4e0e4e4c4e4f0f8",
+    "e4f0e2e2c4f4f4f4",
+    "a4e6c0b094d4c0a2",
+    "e4b8f8c0e0e0e4e4",
+    "dcb2f2dac4f0f4b8"
+  ],
+  "source_5gram_sha256_list": [],
+  "source_personal_names": [],
+  "sanitization_verified": true,
+  "zero_raw_pixels_in_repo": true,
+  "section_window": "00:00-00:40",
+  "section_bounds_sec": [
+    0.0,
+    40.0
+  ],
+  "sanitized_guide_count": 8
+}

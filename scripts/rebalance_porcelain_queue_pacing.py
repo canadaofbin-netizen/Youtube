@@ -584,6 +584,8 @@ def _sync_unproduced_project_dir(draft_dir: Path, project_id: str, *, write: boo
     dst_vp = dst_vis / "visual_plan.json"
     src_prompts = draft_dir / "flow_all_in_one_prompts.json"
     dst_prompts = dst_vis / "flow_all_in_one_prompts.json"
+    src_specs = draft_dir / "reference_image_specs.json"
+    dst_specs = dst_vis / "reference_image_specs.json"
     src_script = draft_dir / "script.json"
     dst_script = proj_dir / "02_script" / "script.json"
 
@@ -591,8 +593,9 @@ def _sync_unproduced_project_dir(draft_dir: Path, project_id: str, *, write: boo
     src_vp_bytes = src_vp.read_bytes()
     needs_vp = (not dst_vp.exists()) or (dst_vp.read_bytes() != src_vp_bytes)
     needs_prompts = src_prompts.exists() and ((not dst_prompts.exists()) or (dst_prompts.read_bytes() != src_prompts.read_bytes()))
+    needs_specs = src_specs.exists() and ((not dst_specs.exists()) or (dst_specs.read_bytes() != src_specs.read_bytes()))
     needs_script = src_script.exists() and ((not dst_script.exists()) or (dst_script.read_bytes() != src_script.read_bytes()))
-    if not (needs_vp or needs_prompts or needs_script):
+    if not (needs_vp or needs_prompts or needs_specs or needs_script):
         return False, []
 
     if not write:
@@ -605,6 +608,8 @@ def _sync_unproduced_project_dir(draft_dir: Path, project_id: str, *, write: boo
     shutil.copy2(src_vp, dst_vp)
     if src_prompts.exists():
         shutil.copy2(src_prompts, dst_prompts)
+    if src_specs.exists():
+        shutil.copy2(src_specs, dst_specs)
     if src_script.exists():
         dst_script.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(src_script, dst_script)
@@ -782,18 +787,39 @@ def normalize_draft_dir(pdir: Path, *, write: bool = True) -> dict[str, Any]:
     if _rebalance_camera_ratios(clips):
         changed = True
 
+    plan["clips"] = clips
+    from pipeline.porcelain_anchor_pack import populate_porcelain_reference_contract
+    from pipeline.reference_image_qa import build_reference_image_specs
+
+    before_contract = json.dumps(plan, sort_keys=True, ensure_ascii=False)
+    populate_porcelain_reference_contract(plan, dossier_dir=pdir.parent)
+    if json.dumps(plan, sort_keys=True, ensure_ascii=False) != before_contract:
+        changed = True
+    clips = list(plan.get("clips") or [])
+
     if changed and write:
-        plan["clips"] = clips
         vp_path.write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     plan_chk = plan if not write else json.loads(vp_path.read_text(encoding="utf-8"))
     _, narrations_chk, script_doc = cli._load_gate_inputs(pdir)
     built = build_flow_prompts(plan_chk, narrations_chk)
     prompts_json_path = pdir / "flow_all_in_one_prompts.json"
+    specs_json_path = pdir / "reference_image_specs.json"
     if write and (changed or not prompts_json_path.exists()):
         from pipeline.flow_prompt_builder import write_flow_prompts_json
 
         write_flow_prompts_json(pdir, built)
+    if write and (changed or not specs_json_path.exists()):
+        specs_payload = build_reference_image_specs(plan_chk, narrations_chk)
+        specs_json_path.write_text(
+            json.dumps(specs_payload, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+    stale_nested = pdir / "03_visuals"
+    if write and stale_nested.is_dir():
+        import shutil
+
+        shutil.rmtree(stale_nested, ignore_errors=True)
     issues = list(validate_production_diorama_v6(plan_chk, narrations_chk, built, script_doc=script_doc))
     issues.extend(verify_pre_flow_contract(plan_chk, narrations_chk, built, script_doc=script_doc))
     raw_title = str(script_doc.get("title") or plan_chk.get("title") or "").strip()

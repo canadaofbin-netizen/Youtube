@@ -32,6 +32,12 @@
           "Deduplicated English transcript (24 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (0.0s–112.6s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_rejected_explainer_channel(big think)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1,
+        "matched_channel": "big think"
       }
     },
     {
@@ -66,6 +72,12 @@
           "Deduplicated English transcript (24 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_rejected_explainer_channel(big think)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1,
+        "matched_channel": "big think"
       }
     },
     {
@@ -89,7 +101,14 @@
           "Inspected media/M3/still.jpg (960x1280 px, CC BY-SA 3.0, Viktorbuehler) — portrait reference: Robert Cialdini and Lars Kolind at ZURICH.MINDS 2012.",
           "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor"
 }

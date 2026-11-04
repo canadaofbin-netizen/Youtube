@@ -32,6 +32,19 @@
           "Deduplicated English transcript (28 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (410.8s–493.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_talking_head_monologue(ratio=1.0,wps=2.847)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 14,
+        "median_dark_ratio": 0.7056,
+        "median_gray_sat_ratio": 0.6949,
+        "is_bw_archival": false,
+        "median_flat_patch_ratio": 0.5578,
+        "talking_head_ratio": 1.0,
+        "words_per_sec": 2.847,
+        "has_strong_archival_cue": false,
+        "gate_failed": 4
       }
     },
     {
@@ -66,6 +79,19 @@
           "Deduplicated English transcript (33 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_talking_head_monologue(ratio=0.75,wps=2.712)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 14,
+        "median_dark_ratio": 0.1133,
+        "median_gray_sat_ratio": 0.4378,
+        "is_bw_archival": false,
+        "median_flat_patch_ratio": 0.2406,
+        "talking_head_ratio": 0.75,
+        "words_per_sec": 2.712,
+        "has_strong_archival_cue": true,
+        "gate_failed": 4
       }
     },
     {
@@ -89,7 +115,14 @@
           "Inspected media/M3/still.jpg (960x443 px, CC BY-SA 3.0, Smith609) — apparatus reference: Marshmallows.",
           "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor"
 }

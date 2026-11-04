@@ -32,6 +32,19 @@
           "Deduplicated English transcript (6 timestamped cues in media/M1_steele_aronson_stereotype_th/transcript.txt) aligned directly to keyframe timestamps (0.0s–60.5s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_talking_head_monologue(ratio=1.0,wps=2.532)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 12,
+        "median_dark_ratio": 0.1006,
+        "median_gray_sat_ratio": 0.0607,
+        "is_bw_archival": false,
+        "median_flat_patch_ratio": 0.5677,
+        "talking_head_ratio": 1.0,
+        "words_per_sec": 2.532,
+        "has_strong_archival_cue": false,
+        "gate_failed": 4
       }
     },
     {
@@ -66,6 +79,11 @@
           "Deduplicated English transcript (31 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_lecture_or_talking_head_kind(lecture)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     },
     {
@@ -89,7 +107,14 @@
           "Inspected media/M3/still.jpg (393x329 px, CC BY-SA 3.0, Futurebird at English Wikipedia) — portrait reference: Graph created by me, based on data from The Effects of Stereotype Threat on the Standardized Test Performance of College Students, J Aronson, CM Steele, MF Salinas, MJ Lustina - Readings About the Soc.",
           "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor"
 }

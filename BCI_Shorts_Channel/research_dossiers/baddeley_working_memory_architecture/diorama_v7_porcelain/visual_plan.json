@@ -152,7 +152,8 @@
           "researcher",
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 4,
@@ -175,7 +176,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 5,
@@ -219,9 +221,11 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
+        ],
+        "protocol_phase_jump": true
       },
-      "clip_number": 6
+      "clip_number": 6,
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 7,
@@ -244,8 +248,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 8,
@@ -271,7 +277,8 @@
           "subject"
         ]
       },
-      "clip_number": 8
+      "clip_number": 8,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 9,
@@ -319,7 +326,8 @@
           "researcher",
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 11,
@@ -365,8 +373,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 14,
@@ -377,7 +387,18 @@
       "analogy_world": "a sunlit cool-alabaster tabletop holding a round sage felt pad and a gleaming unnumbered brushed-silver coin",
       "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in blazer sleeves flip the brushed-silver coin high above the pad and catch it as it lands flat",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 13
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 15,
@@ -388,7 +409,18 @@
       "analogy_world": "a sunlit pale-stone studio wall mounting a circular sunlit cork dartboard with concentric sky-blue, amber, and coral rings",
       "comparison_action": "cool porcelain-white gloved matte-white porcelain hands in tweed sleeves hold and arc feathered sunlit darts that strike and land tightly inside the center coral bullseye",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 14
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
     },
     {
       "sentence_index": 16,
@@ -409,8 +441,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 17,
@@ -434,7 +468,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 18,
@@ -456,7 +491,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 19,
@@ -503,7 +539,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 21,
@@ -516,7 +553,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "on the left frontal side of the matte warm-ivory 3D brain model behind the temple, sky-blue facets cycle in a steady rhythmic loop across Broca's area",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 20
+      "clip_number": 20,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 22,
@@ -529,7 +567,8 @@
       "camera": "pan_right",
       "brain_scene": "across the upper outer sides of the front lobe on the matte warm-ivory 3D brain model, warm amber-gold facets shine clearly across the dorsolateral prefrontal cortex",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 21
+      "clip_number": 21,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 23,
@@ -590,7 +629,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 27,
@@ -613,8 +653,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 28,
@@ -661,8 +703,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 30,
@@ -708,7 +752,8 @@
         "present_cast_end": [
           "researcher"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 32,
@@ -732,7 +777,8 @@
           "researcher"
         ]
       },
-      "clip_number": 30
+      "clip_number": 30,
+      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
     },
     {
       "sentence_index": 33,
@@ -779,7 +825,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 35,
@@ -802,8 +849,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 36,
@@ -849,8 +898,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 39,
@@ -895,8 +946,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "researcher"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
     },
     {
       "sentence_index": 42,
@@ -954,7 +1007,8 @@
       "camera": "gentle_push_in",
       "brain_scene": "across the upper front sides of the matte warm-ivory 3D brain model, bright warm-gold facets concentrate intensely across the dorsolateral prefrontal cortex",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 40
+      "clip_number": 40,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 45,
@@ -1001,7 +1055,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
     },
     {
       "sentence_index": 47,
@@ -1037,7 +1092,8 @@
       "camera": "locked_tripod",
       "brain_scene": "across the upper rear parietal cortex of the matte warm-ivory 3D brain model, calm sage-green and warm-gold facets connect smoothly forward",
       "style_profile": "porcelain_cinematic_v7",
-      "clip_number": 44
+      "clip_number": 44,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
     },
     {
       "sentence_index": 49,
@@ -1060,8 +1116,10 @@
         "present_cast_end": [
           "researcher",
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
     },
     {
       "sentence_index": 50,
@@ -1083,8 +1141,10 @@
         "exiting_cast": [],
         "present_cast_end": [
           "subject"
-        ]
-      }
+        ],
+        "protocol_phase_jump": true
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
     },
     {
       "sentence_index": 39,
@@ -1131,5 +1191,91 @@
   "shader_style": "photorealistic bright high-key documentary studio world",
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
-  "require_scene_state_ledger": true
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "stirling_psych_lab",
+  "real_environment": "the sunlit Stirling testing room with the short-tile tray, long-bar tray, and silver tally counter on the slate-stone desk",
+  "environment_props": [
+    "8-Digit Vocal Load Strip & 'A is NOT preceded by B -> [B A]' Logic Card (pits full verbal rehearsal directly against active reasoning)",
+    "Accuracy & Latency Graph ('0 Digits: 2.15s / 95% -> 8 Digits: 3.27s / 95% — No Crash!') (shows smooth graceful trade-off instead of the predicted 50% collapse)",
+    "4-Room Working Memory Blueprint (Central Executive -> Phonological Loop | Visuospatial Sketchpad | Episodic Buffer) (clean architectural schematic beside the table)"
+  ],
+  "cast": {
+    "subject": "1974 British university attire: tan corduroy/tweed jackets, patterned ties, collared shirts, V-neck wool jumper with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clinical investigator in a white coat with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_stirling_psych_lab",
+      "location_id": "stirling_psych_lab",
+      "present_cast": [
+        "researcher",
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 1 (stirling_psych_lab: researcher, subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunlit Stirling testing room with the short-tile tray, long-bar tray, and silver tally counter on the slate-stone desk, featuring 8-Digit Vocal Load Strip & 'A is NOT preceded by B -> [B A]' Logic Card (pits full verbal rehearsal directly against active reasoning). Inside the room, researcher (clinical investigator in a white coat with a completely smooth featureless solid matte-white egg-shaped oval head), subject (1974 British university attire: tan corduroy/tweed jackets, patterned ties, collared shirts, V-neck wool jumper with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 8-Digit Vocal Load Strip & 'A is NOT preceded by B -> [B A]' Logic Card (pits full verbal rehearsal directly against active reasoning). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the sunlit Stirling testing room with the short-tile tray, long-bar tray",
+        "8-Digit Vocal Load Strip & 'A is NOT preceded by B -> [B"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_stirling_psych_lab",
+      "location_id": "stirling_psych_lab",
+      "present_cast": [
+        "researcher"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 2 (stirling_psych_lab: researcher)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the sunlit Stirling testing room with the short-tile tray, long-bar tray, and silver tally counter on the slate-stone desk, featuring Accuracy & Latency Graph ('0 Digits: 2.15s / 95% -> 8 Digits: 3.27s / 95% — No Crash!') (shows smooth graceful trade-off instead of the predicted 50% collapse). Inside the room, researcher (clinical investigator in a white coat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Accuracy & Latency Graph ('0 Digits: 2.15s / 95% -> 8 Digits: 3.27s / 95% — No Crash!') (shows smooth graceful trade-off instead of the predicted 50% collapse). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the sunlit Stirling testing room with the short-tile tray, long-bar tray",
+        "Accuracy & Latency Graph ('0 Digits: 2.15s / 95% -> 8 Di"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_stirling_psych_lab",
+      "location_id": "stirling_psych_lab",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 3 (stirling_psych_lab: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the sunlit Stirling testing room with the short-tile tray, long-bar tray, and silver tally counter on the slate-stone desk, featuring 8-Digit Vocal Load Strip & 'A is NOT preceded by B -> [B A]' Logic Card (pits full verbal rehearsal directly against active reasoning). Inside the room, subject (1974 British university attire: tan corduroy/tweed jackets, patterned ties, collared shirts, V-neck wool jumper with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 8-Digit Vocal Load Strip & 'A is NOT preceded by B -> [B A]' Logic Card (pits full verbal rehearsal directly against active reasoning). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "must_include": [
+        "the sunlit Stirling testing room with the short-tile tray, long-bar tray",
+        "8-Digit Vocal Load Strip & 'A is NOT preceded by B -> [B"
+      ]
+    }
+  ]
 }
