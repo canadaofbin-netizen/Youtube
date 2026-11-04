@@ -202,8 +202,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 6,
@@ -391,8 +390,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 15,
@@ -532,8 +530,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 21,
@@ -724,8 +721,7 @@
           "researcher"
         ]
       },
-      "clip_number": 28,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 28
     },
     {
       "sentence_index": 31,
@@ -858,8 +854,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 39,
@@ -1025,8 +1020,7 @@
           "researcher"
         ]
       },
-      "clip_number": 41,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 41
     },
     {
       "sentence_index": 47,
@@ -1210,14 +1204,14 @@
   "reenactment_track": "track_b",
   "track_subtier": "B_scene_bible_anchor",
   "default_location_id": "asu_campus_walkway",
-  "real_environment": "the cool-slate Arizona campus walkway where two separate clipboard researchers stand ten paces apart",
+  "real_environment": "the cool-slate campus walkway bordered by pale-lavender planters and muted-sage hedges",
   "environment_props": [
-    "flip-over two-stage Clipboard ('Request 1: 2 Years Weekly [0% Yes]' -> 'Concession 2: One 2-Hour Zoo Trip [50% Yes!]') (shows the immediate Big-No -> Small-Yes pivot in one physical prop)",
-    "3-Condition Comparison Stand ('Direct Ask: 16.7% | Two Different Requesters: 10.7% | Same-Person Concession: 50–55.5%!') (visualizes both the 3x jump and Experiment 2's reciprocity proof)"
+    "flip-over two-stage Clipboard ( -> ) (shows the immediate Big-No -> Small-Yes pivot in one physical prop)",
+    "3-Condition Comparison Stand () (visualizes both the 3x jump and Experiment 2's reciprocity proof)"
   ],
   "cast": {
     "subject": "1975 American Southwest campus attire: wide-collar cotton shirts, corduroy/denim jacket, flared chinos, canvas sneakers with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "clinical investigator in a powder-blue shirt with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "researcher": "1975 American Southwest campus attire: wide-collar cotton shirts, corduroy/denim jacket, flared chinos, canvas sneakers with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1238,10 +1232,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (asu_campus_walkway: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the cool-slate Arizona campus walkway where two separate clipboard researchers stand ten paces apart, featuring flip-over two-stage Clipboard ('Request 1: 2 Years Weekly [0% Yes]' -> 'Concession 2: One 2-Hour Zoo Trip [50% Yes!]') (shows the immediate Big-No -> Small-Yes pivot in one physical prop). Inside the room, researcher (clinical investigator in a powder-blue shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside flip-over two-stage Clipboard ('Request 1: 2 Years Weekly [0% Yes]' -> 'Concession 2: One 2-Hour Zoo Trip [50% Yes!]') (shows the immediate Big-No -> Small-Yes pivot in one physical prop). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the cool-slate campus walkway bordered by pale-lavender planters and muted-sage hedges, featuring flip-over two-stage Clipboard ( -> ) (shows the immediate Big-No -> Small-Yes pivot in one physical prop). Inside the room, researcher (1975 American Southwest campus attire: wide-collar cotton shirts, corduroy/denim jacket, flared chinos, canvas sneakers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside flip-over two-stage Clipboard ( -> ) (shows the immediate Big-No -> Small-Yes pivot in one physical prop). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the cool-slate Arizona campus walkway where two separate clipboard resea",
-        "flip-over two-stage Clipboard ('Request 1: 2 Years Weekl"
+        "the cool-slate campus walkway bordered by pale-lavender planters and mut",
+        "flip-over two-stage Clipboard ( -> ) (shows the immediat"
       ]
     },
     {
@@ -1261,10 +1255,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 2 (asu_campus_walkway: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the cool-slate Arizona campus walkway where two separate clipboard researchers stand ten paces apart, featuring 3-Condition Comparison Stand ('Direct Ask: 16.7% | Two Different Requesters: 10.7% | Same-Person Concession: 50–55.5%!') (visualizes both the 3x jump and Experiment 2's reciprocity proof). Inside the room, subject (1975 American Southwest campus attire: wide-collar cotton shirts, corduroy/denim jacket, flared chinos, canvas sneakers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 3-Condition Comparison Stand ('Direct Ask: 16.7% | Two Different Requesters: 10.7% | Same-Person Concession: 50–55.5%!') (visualizes both the 3x jump and Experiment 2's reciprocity proof). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the cool-slate campus walkway bordered by pale-lavender planters and muted-sage hedges, featuring 3-Condition Comparison Stand () (visualizes both the 3x jump and Experiment 2's reciprocity proof). Inside the room, subject (1975 American Southwest campus attire: wide-collar cotton shirts, corduroy/denim jacket, flared chinos, canvas sneakers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 3-Condition Comparison Stand () (visualizes both the 3x jump and Experiment 2's reciprocity proof). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the cool-slate Arizona campus walkway where two separate clipboard resea",
-        "3-Condition Comparison Stand ('Direct Ask: 16.7% | Two D"
+        "the cool-slate campus walkway bordered by pale-lavender planters and mut",
+        "3-Condition Comparison Stand () (visualizes both the 3x "
       ]
     },
     {
@@ -1283,10 +1277,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (persuasion_data_room: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a cool-lit psychology seminar room with a slate conference table holding three empty matte-ceramic tally trays, featuring flip-over two-stage Clipboard ('Request 1: 2 Years Weekly [0% Yes]' -> 'Concession 2: One 2-Hour Zoo Trip [50% Yes!]') (shows the immediate Big-No -> Small-Yes pivot in one physical prop). Inside the room, researcher (clinical investigator in a powder-blue shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside flip-over two-stage Clipboard ('Request 1: 2 Years Weekly [0% Yes]' -> 'Concession 2: One 2-Hour Zoo Trip [50% Yes!]') (shows the immediate Big-No -> Small-Yes pivot in one physical prop). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a cool-lit psychology seminar room with a slate conference table holding three empty matte-ceramic tally trays. Inside the room, researcher (1975 American Southwest campus attire: wide-collar cotton shirts, corduroy/denim jacket, flared chinos, canvas sneakers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a cool-lit psychology seminar room with a slate conference table holding",
-        "flip-over two-stage Clipboard ('Request 1: 2 Years Weekl"
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ]

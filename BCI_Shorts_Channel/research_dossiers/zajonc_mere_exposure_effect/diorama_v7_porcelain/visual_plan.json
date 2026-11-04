@@ -224,8 +224,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 8,
@@ -319,8 +318,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 13,
@@ -660,8 +658,7 @@
           "researcher"
         ]
       },
-      "clip_number": 26,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 26
     },
     {
       "sentence_index": 30,
@@ -755,8 +752,7 @@
           "researcher"
         ]
       },
-      "clip_number": 30,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 30
     },
     {
       "sentence_index": 34,
@@ -827,8 +823,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 37,
@@ -922,8 +917,7 @@
           "researcher"
         ]
       },
-      "clip_number": 37,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 37
     },
     {
       "sentence_index": 42,
@@ -1040,8 +1034,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 48,
@@ -1135,8 +1128,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 52,
@@ -1211,14 +1203,14 @@
   "reenactment_track": "track_b",
   "track_subtier": "B_scene_bible_anchor",
   "default_location_id": "michigan_shutter_lab",
-  "real_environment": "the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns",
+  "real_environment": "the quiet Michigan lab with rows of rising mint-sage bar sculptures standing across the cool slate-stone table",
   "environment_props": [
-    "stimulus flash cards ('IKTITAF 25x' | Calligraphic Character 25x | Yearbook Portrait 25x) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph)",
-    "Logarithmic Exposure-Liking Graph ('0 -> 1 -> 2 -> 5 -> 10 -> 25 Views') (visualizes steep early warmth gains tapering gracefully at high counts)"
+    "stimulus flash blank matte blank matte cards ( | Calligraphic Character 25x | Yearbook Portrait 25x) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph)",
+    "Logarithmic Exposure-Liking unmarked paper sheet () (visualizes steep early warmth gains tapering gracefully at high counts)"
   ],
   "cast": {
-    "subject": "1968 American university attire: tailored charcoal suit and narrow tie with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "collegiate cardigan and V-neck sweaters with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "1968 American university attire: tailored charcoal suit and narrow tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "collegiate cardigan and V-neck sweaters and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1239,10 +1231,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (michigan_shutter_lab: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns, featuring stimulus flash cards ('IKTITAF 25x' | Calligraphic Character 25x | Yearbook Portrait 25x) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Inside the room, researcher (collegiate cardigan and V-neck sweaters with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside stimulus flash cards ('IKTITAF 25x' | Calligraphic Character 25x | Yearbook Portrait 25x) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the quiet Michigan lab with rows of rising mint-sage bar sculptures standing across the cool slate-stone table, featuring stimulus flash blank matte blank matte blank matte cards ( | Calligraphic Character 25x | Yearbook Portrait 25x) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Inside the room, researcher (collegiate cardigan and V-neck sweaters and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside stimulus flash blank matte blank matte blank matte cards ( | Calligraphic Character 25x | Yearbook Portrait 25x) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the bright Ann Arbor archive room filled with neat stacks of cool clear ",
-        "stimulus flash cards ('IKTITAF 25x' | Calligraphic Chara"
+        "the quiet Michigan lab with rows of rising mint-sage bar sculptures stan",
+        "stimulus flash blank matte blank matte cards ( | Calligr"
       ]
     },
     {
@@ -1261,10 +1253,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (daily_mirror_room: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit cool powder-blue dressing room with a tall brushed-silver mirror frame and an asymmetric clothed torso bust on a slate stand, featuring Logarithmic Exposure-Liking Graph ('0 -> 1 -> 2 -> 5 -> 10 -> 25 Views') (visualizes steep early warmth gains tapering gracefully at high counts). Inside the room, researcher (collegiate cardigan and V-neck sweaters with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Logarithmic Exposure-Liking Graph ('0 -> 1 -> 2 -> 5 -> 10 -> 25 Views') (visualizes steep early warmth gains tapering gracefully at high counts). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit cool powder-blue dressing room with a tall brushed-silver mirror frame and an asymmetric clothed torso bust on a slate stand. Inside the room, researcher (collegiate cardigan and V-neck sweaters and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a sunlit cool powder-blue dressing room with a tall brushed-silver mirro",
-        "Logarithmic Exposure-Liking Graph ('0 -> 1 -> 2 -> 5 -> "
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1284,10 +1276,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 3 (michigan_shutter_lab: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the bright Ann Arbor archive room filled with neat stacks of cool clear daylight-white study folders beside glowing cyan preference columns, featuring stimulus flash cards ('IKTITAF 25x' | Calligraphic Character 25x | Yearbook Portrait 25x) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Inside the room, subject (1968 American university attire: tailored charcoal suit and narrow tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside stimulus flash cards ('IKTITAF 25x' | Calligraphic Character 25x | Yearbook Portrait 25x) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the quiet Michigan lab with rows of rising mint-sage bar sculptures standing across the cool slate-stone table, featuring stimulus flash blank matte blank matte blank matte cards ( | Calligraphic Character 25x | Yearbook Portrait 25x) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Inside the room, subject (1968 American university attire: tailored charcoal suit and narrow tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside stimulus flash blank matte blank matte blank matte cards ( | Calligraphic Character 25x | Yearbook Portrait 25x) (displays Zajonc's exact 3 stimulus families from the 1968 Monograph). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the bright Ann Arbor archive room filled with neat stacks of cool clear ",
-        "stimulus flash cards ('IKTITAF 25x' | Calligraphic Chara"
+        "the quiet Michigan lab with rows of rising mint-sage bar sculptures stan",
+        "stimulus flash blank matte blank matte cards ( | Calligr"
       ]
     }
   ]

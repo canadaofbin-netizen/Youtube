@@ -496,9 +496,11 @@ def test_track_b_contract_compiler_and_reference_qa_defaults(tmp_path: Path) -> 
     assert "ledger" not in sanitize_porcelain_contract_text("Leather case ledger").lower()
     assert {"subject", "researcher"} <= set(plan["cast"].keys())
 
-    # Selective binding: fullbleed + brain anchored; hands closeup + outro unanchored!
+    # Selective binding: fullbleed + brain anchored; ALL hands closeup (even 2nd/3rd/4th) + outro unanchored!
     assert plan["clips"][0].get("reference_image")
-    assert not plan["clips"][1].get("reference_image")
+    for hc_idx in (1, 5, 9, 13, 17):
+        assert plan["clips"][hc_idx]["grammar"] == "porcelain_hands_closeup"
+        assert not plan["clips"][hc_idx].get("reference_image"), f"Hands closeup clip {hc_idx + 1} must not be wide-locked"
     assert str(plan["clips"][2].get("reference_image")).endswith("ref_brain_master.png")
     assert plan["clips"][3].get("reference_image")
     assert not plan["clips"][19].get("reference_image")
@@ -520,6 +522,7 @@ def test_track_b_contract_compiler_and_reference_qa_defaults(tmp_path: Path) -> 
     (proj_dir / "02_script").mkdir(parents=True)
     (proj_dir / "03_visuals" / "visual_plan.json").write_text(json.dumps(plan), encoding="utf-8")
     (proj_dir / "02_script" / "script.json").write_text(json.dumps({"narrations": narrs}), encoding="utf-8")
+    write_flow_prompts_json(proj_dir, built)
 
     specs_payload = build_reference_image_specs(plan, narrs)
     all_specs = specs_payload["all_specs"]
@@ -569,3 +572,325 @@ def test_track_b_contract_compiler_and_reference_qa_defaults(tmp_path: Path) -> 
     auto_populate_reference_semantic_review(proj_dir)
     rep_reviewed = inspect_reference_image_pack(proj_dir, require_review=True)
     assert rep_reviewed["pre_generation_ready"] is True
+
+
+def test_adversarial_suitability_bw_vs_powerpoint_and_silent_subject(tmp_path: Path) -> None:
+    from pipeline.research_dossier import audit_dossier_media_suitability
+
+    rng = np.random.default_rng(99)
+
+    # 1. Course code PowerPoint lecture ("PSY 2510 ...") -> rejected at Gate 1
+    r_course = evaluate_media_reenactment_suitability(
+        {
+            "id": "M_course",
+            "kind": "documentary",
+            "title": "PSY 2510 Social Psychology: Self-Perception & Social Comparison",
+            "channel": "University Media",
+            "url": "https://www.youtube.com/watch?v=course2510ab",
+        }
+    )
+    assert r_course["suitability"] == "reject_track_b_only"
+    assert r_course["metrics"]["gate_failed"] == 1
+
+    # 2. Frozen static book cover / slide (zero inter-frame motion) -> rejected at Gate 3
+    static_dir = tmp_path / "static_cover"
+    cover_frm = np.clip(160 + rng.normal(0, 18, (240, 320, 3)), 0, 255).astype(np.uint8)
+    _write_keyframes(static_dir / "keyframes", [cover_frm.copy() for _ in range(6)])
+    r_static = evaluate_media_reenactment_suitability(
+        {
+            "id": "M_static",
+            "kind": "archive_film",
+            "title": "1953 Dichotic Listening Recording",
+            "channel": "Audio Archive",
+            "url": "https://www.youtube.com/watch?v=staticcov01",
+        },
+        analysis_dir=static_dir,
+    )
+    assert r_static["suitability"] == "reject_track_b_only"
+    assert r_static["metrics"]["gate_failed"] == 3
+
+    # 3. Color speaker/slide on mostly grey wall (med_gray_sat >= 0.82, but p90(HSV S) > 80 and flat > 0.62) -> NOT B&W!
+    fake_bw_dir = tmp_path / "color_on_grey_wall"
+    fake_bw_frames: list[np.ndarray] = []
+    for i in range(6):
+        frm = np.full((256, 320, 3), 235, dtype=np.uint8)  # 85% flat white slide background -> med_gray_sat > 0.82
+        # Saturated color corner inset (e.g. university logo + color lecturer shirt, >12% area -> p90(S) > 100)
+        frm[150 : 245, 20 + i * 8 : 135 + i * 8] = (25, 95, 235)
+        fake_bw_frames.append(frm)
+    _write_keyframes(fake_bw_dir / "keyframes", fake_bw_frames)
+    r_fake_bw = evaluate_media_reenactment_suitability(
+        {
+            "id": "M_fake_bw",
+            "kind": "documentary",
+            "title": "Memory Encoding and Retrieval pt1",
+            "channel": "Campus Channel",
+            "url": "https://www.youtube.com/watch?v=fakebwslide",
+        },
+        analysis_dir=fake_bw_dir,
+    )
+    assert r_fake_bw["suitability"] == "reject_track_b_only"
+    assert r_fake_bw["metrics"]["is_bw_archival"] is False
+    assert r_fake_bw["metrics"]["gate_failed"] == 3
+
+    # 4. Mixed color host + B&W 16mm archival segment -> needs_section_window with clean MM:SS-MM:SS (no leading '*')
+    mixed_dir = tmp_path / "mixed_host_bw"
+    mixed_frames: list[np.ndarray] = []
+    for i in range(6):
+        g = np.clip(165 + rng.normal(0, 14, (256, 320)), 0, 255).astype(np.uint8)
+        bgr = cv2.cvtColor(g, cv2.COLOR_GRAY2BGR)
+        if i < 2:
+            bgr[:, :] = np.clip(np.array([70, 140, 225], dtype=np.float32) + rng.normal(0, 14, (256, 320, 3)), 0, 255).astype(np.uint8)
+        cv2.rectangle(bgr, (40 + i * 15, 70), (140 + i * 15, 200), (60, 60, 60), 3)
+        mixed_frames.append(bgr)
+    _write_keyframes(mixed_dir / "keyframes", mixed_frames)
+    r_mixed = evaluate_media_reenactment_suitability(
+        {
+            "id": "M_mixed",
+            "kind": "documentary",
+            "title": "1959 Cognitive Dissonance archival segment",
+            "channel": "Archive Series",
+            "url": "https://www.youtube.com/watch?v=mixed1959ab",
+            "duration_sec": 160.0,
+            "timecodes": [{"t": "*00:35-01:25", "what": "Participant turns wooden pegs on pegboard"}],
+        },
+        analysis_dir=mixed_dir,
+    )
+    assert r_mixed["suitability"] == "needs_section_window"
+    assert r_mixed["recommended_section"] is not None
+    assert not r_mixed["recommended_section"].startswith("*")
+
+    # 5. Dossier audit prefers keyframe-verified M1 (needs_section_window) over unanalyzed M2 (0 keyframes)
+    dos_dir = tmp_path / "braingate_dossier"
+    dos_dir.mkdir()
+    (dos_dir / "dossier.json").write_text(json.dumps({"slug": "braingate_dossier", "primary_case": {"year": 2012}}), encoding="utf-8")
+    (dos_dir / "01_sources.json").write_text(json.dumps({"sources": []}), encoding="utf-8")
+    m1_dir = dos_dir / "media" / "M1"
+    _write_keyframes(m1_dir / "keyframes", mixed_frames)
+    (dos_dir / "04_media_refs.json").write_text(
+        json.dumps(
+            {
+                "media": [
+                    {
+                        "id": "M1",
+                        "kind": "video",
+                        "title": "BrainGate clinical trial robotic arm - Nature Video",
+                        "channel": "nature video",
+                        "url": "https://www.youtube.com/watch?v=ogBX18maUiM",
+                        "duration_sec": 260,
+                        "analysis": {"local_dir": "media/M1"},
+                        "timecodes": [{"t": "03:31-04:16", "what": "Participant guides robotic arm to lift thermos"}],
+                    },
+                    {
+                        "id": "M2",
+                        "kind": "video",
+                        "title": "BrainGate clinical trial demonstration (2012)",
+                        "channel": "University",
+                        "url": "https://www.youtube.com/watch?v=unanalyzed99",
+                        "timecodes": [{"t": "00:10-00:55", "what": "Robotic arm reach"}],
+                    },
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    audit_res = audit_dossier_media_suitability(dos_dir, write_back=True)
+    assert audit_res["reenactment_track"] == "track_a"
+    assert audit_res["primary_track_a_media"]["id"] == "M1"
+    assert audit_res["primary_track_a_media"]["has_keyframes_on_disk"] is True
+
+
+def test_wardrobe_semicolon_classifier_plaque_sanitizer_and_track_a_rq5_wiring(tmp_path: Path, monkeypatch) -> None:
+    from pipeline.depiction_rules import PromptComposer
+    from pipeline.porcelain_anchor_pack import ensure_porcelain_reference_pack
+    from pipeline.source_reenactment import _parse_section_window
+
+    # 1. Anti-plaque sanitizer strips quoted chart titles & percentages while preserving word-internal apostrophes
+    cleaned = sanitize_porcelain_contract_text(
+        "1880 Case Subtype '86% Organ Negation | 69% Immortality' Chart (86% vs 14%) on subject's oak table"
+    )
+    assert "86%" not in cleaned
+    assert "organ negation" not in cleaned.lower()
+    assert "chart" not in cleaned.lower()
+    assert "subject's" in cleaned
+
+    # 2. Brain still prompt enforces featureless blank oval porcelain bust without sculpted eyes/nose/mouth
+    brain_prompt = PromptComposer.compose_brain_still_prompt("Crimson-red insula disconnection dims cyan-blue cortex.")
+    assert "zero eyes, zero nose, zero mouth, zero ears" in brain_prompt
+    assert "dynamic camera progression" not in brain_prompt
+
+    # 3. Semicolon wardrobe parsing: preserves "St. Louis", strips "Dr. Jules Cotard" / "Mademoiselle X", excludes animal sculptures
+    d_cotard = tmp_path / "cotard_semicolon"
+    d_cotard.mkdir()
+    (d_cotard / "03_visual_reference.json").write_text(
+        json.dumps(
+            {
+                "scenes": [
+                    {
+                        "id": "S1",
+                        "iconic": True,
+                        "wardrobe": (
+                            "Dr. Jules Cotard in a dark charcoal 1880 French physician frock coat and waistcoat; "
+                            "Mademoiselle X in a muted slate-grey high-collared 1880 French wool dress"
+                        ),
+                        "layout": {"description": "1880 Paris neurological ward"},
+                        "props": [],
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    plan_c = {
+        "schema": 7,
+        "profile": "neuro_diorama",
+        "style_profile": "porcelain_cinematic_v7",
+        "visual_mode": "HYBRID",
+        "reenactment_track": "track_b",
+        "clips": [
+            {
+                "index": 1,
+                "grammar": "porcelain_fullbleed_world",
+                "cut_role": "hook",
+                "action": "Patient sits across the desk.",
+                "scene_state": {"location_id": "ward", "present_cast_start": ["subject", "researcher"], "present_cast_end": ["subject", "researcher"]},
+            }
+        ],
+    }
+    populate_porcelain_reference_contract(plan_c, dossier_dir=d_cotard)
+    assert "wool dress" in plan_c["cast"]["subject"]
+    assert "frock coat" in plan_c["cast"]["researcher"]
+    assert "cotard" not in plan_c["cast"]["researcher"].lower()
+    assert "mademoiselle" not in plan_c["cast"]["subject"].lower()
+    assert "shoes" in plan_c["cast"]["subject"].lower()
+    assert "shoes" in plan_c["cast"]["researcher"].lower()
+
+    d_animal = tmp_path / "st_louis_dog"
+    d_animal.mkdir()
+    (d_animal / "03_visual_reference.json").write_text(
+        json.dumps(
+            {
+                "scenes": [
+                    {
+                        "id": "S1",
+                        "iconic": True,
+                        "wardrobe": (
+                            "St. Louis research team in crisp white clinical coats over slate shirts; "
+                            "animal subject strictly rendered as a clean articulated matte-white porcelain dog sculpture"
+                        ),
+                        "layout": {"description": "1967 conditioning chamber"},
+                        "props": [{"name": " oak shuttle box "}],
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    plan_a = {
+        "schema": 7,
+        "profile": "neuro_diorama",
+        "style_profile": "porcelain_cinematic_v7",
+        "visual_mode": "HYBRID",
+        "reenactment_track": "track_a",
+        "clips": [
+            {
+                "index": i,
+                "grammar": "porcelain_living_brain" if i % 4 == 0 else "porcelain_fullbleed_world",
+                "brain_mode": "frosted_glass_subcortical_xray" if i % 4 == 0 else "",
+                "cut_role": "outro" if i == 44 else ("mechanism" if i % 4 == 0 else "experiment"),
+                "action": "Porcelain investigator observes the chamber.",
+                "scene_state": {"location_id": "chamber", "present_cast_start": ["subject", "researcher"], "present_cast_end": ["subject", "researcher"]},
+            }
+            for i in range(1, 45)
+        ],
+    }
+    populate_porcelain_reference_contract(plan_a, dossier_dir=d_animal)
+    assert "porcelain dog" not in plan_a["cast"]["subject"].lower()
+    assert "porcelain dog" not in plan_a["cast"]["researcher"].lower()
+    assert any("porcelain dog" in p.lower() for p in plan_a["environment_props"])
+    assert all(str(a["scene_id"]).startswith("S") for a in plan_a["reference_anchors"])
+
+    # Verify Track A plan compiled by populate_porcelain_reference_contract passes RQ5 (>= 0.85 blocking alignment)!
+    proj_ta = tmp_path / "proj_track_a"
+    (proj_ta / "02_script").mkdir(parents=True)
+    (proj_ta / "03_visuals" / "reference_images").mkdir(parents=True)
+    (proj_ta / "05_assembly").mkdir(parents=True)
+    (proj_ta / "02_script" / "script.json").write_text(json.dumps({"sentences": ["Sentence one."] * 44}), encoding="utf-8")
+    edl_ta = {
+        "slug": "st_louis_dog",
+        "source_reference_id": "https://www.youtube.com/watch?v=axJ9CwcH9WM",
+        "source_video_id": "axJ9CwcH9WM",
+        "shot_count": 4,
+        "source_dhash_64_list": ["aa55aa55aa55aa55"],
+        "source_5gram_sha256_list": [],
+        "source_personal_names": [],
+        "sanitization_verified": True,
+        "shots": [
+            {"shot_id": f"S0{k}", "start_sec": (k - 1) * 4.0, "end_sec": k * 4.0, "duration_sec": 4.0, "camera_motion": "locked_tripod", "active_zones": ["center_action_zone"]}
+            for k in range(1, 5)
+        ],
+    }
+    (proj_ta / "03_visuals" / "source_edl.json").write_text(json.dumps(edl_ta), encoding="utf-8")
+    (proj_ta / "03_visuals" / "visual_plan.json").write_text(json.dumps(plan_a), encoding="utf-8")
+    (proj_ta / "03_visuals" / "flow_all_in_one_prompts.json").write_text(
+        json.dumps({"prompts": [{"index": c["index"], "prompt": c["action"]} for c in plan_a["clips"]]}),
+        encoding="utf-8",
+    )
+    kf = np.full((1280, 720, 3), 220, dtype=np.uint8)
+    cv2.line(kf, (0, 100), (720, 900), (130, 135, 140), 8)
+    cv2.circle(kf, (360, 640), 90, (125, 130, 135), -1)
+    cv2.imwrite(str(proj_ta / "03_visuals" / "reference_images" / "ref_anchor_01.png"), kf)
+    rq_rep = validate_reenactment_non_infringement(proj_ta, require_quarantine_purged=False)
+    assert rq_rep["passed"] is True, rq_rep["failed_gates"]
+    assert rq_rep["gates"]["RQ5_brain_intercut_and_blocking_alignment"]["blocking_alignment_ratio"] == 1.0
+
+    # 4. Quarantine purge guarantee even when extract_source_edl / translate raises mid-way
+    assert _parse_section_window("*03:31-04:16") == (211.0, 256.0)
+    lt_frame = np.full((360, 480, 3), 185, dtype=np.uint8)
+    lt_frame[295:345, 55:425] = 35
+    for tx in range(70, 405, 14):
+        cv2.rectangle(lt_frame, (tx, 308), (tx + 8, 332), (248, 248, 248), -1)
+    san_lt = sanitize_structural_frame_bgr(lt_frame)
+    assert san_lt.shape == (1280, 720, 3)
+
+    slug_q = "test_quarantine_leak_guard_slug"
+    q_leak_dir = Path("/tmp/aab_reenact") / slug_q
+    (d_animal / "04_media_refs.json").write_text(
+        json.dumps(
+            {
+                "suitability_schema_version": 2,
+                "reenactment_track": "track_a",
+                "track_subtier": "A1a_ready_keyframes",
+                "media": [
+                    {
+                        "id": "M1",
+                        "kind": "archive_film",
+                        "title": "1927 Pavlov archival film",
+                        "url": "https://www.youtube.com/watch?v=axJ9CwcH9WM",
+                        "reenactment_suitability": "suitable_track_a",
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    plan_a["dossier_slug"] = slug_q
+    (proj_ta / "03_visuals" / "visual_plan.json").write_text(json.dumps(plan_a), encoding="utf-8")
+
+    def _boom_extract(*_args, **_kwargs):
+        q_leak_dir.mkdir(parents=True, exist_ok=True)
+        (q_leak_dir / "source.mp4").write_bytes(b"quarantined_bytes")
+        raise RuntimeError("simulated network abort mid-download")
+
+    def _boom_translate(*_args, **_kwargs):
+        raise RuntimeError("simulated browser abort")
+
+    import pipeline.source_reenactment as sr_mod
+
+    monkeypatch.setattr(sr_mod, "extract_source_edl", _boom_extract)
+    monkeypatch.setattr(sr_mod, "translate_porcelain_keyframes", _boom_translate)
+    try:
+        ensure_porcelain_reference_pack(proj_ta, dossier_dir=d_animal, force=True)
+    except RuntimeError:
+        pass
+    assert not q_leak_dir.exists(), "Quarantine directory /tmp/aab_reenact/<slug> must ALWAYS be purged on exception!"
+

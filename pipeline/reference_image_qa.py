@@ -223,7 +223,7 @@ def build_reference_image_specs(
 
     sprefix = still_prefix(aspect)
     no_text = (
-        "Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls."
+        "Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark."
         if porcelain_v7
         else "Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark."
     )
@@ -926,6 +926,8 @@ def inspect_reference_image_pack(
                 variant = str(sp_meta.get("frame") or "start")
                 fname_key = str(r.get("filename") or f"{r['ref_id']}.png")
                 bound_cands = diorama_ref_to_clips.get(fname_key) or []
+                if is_diorama_pack and prompts_file.exists() and not bound_cands:
+                    continue
                 if bound_cands:
                     full_scene_cands = [
                         cn for cn, gm in bound_cands

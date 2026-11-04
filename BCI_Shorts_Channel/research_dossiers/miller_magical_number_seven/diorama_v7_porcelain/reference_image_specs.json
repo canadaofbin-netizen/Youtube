@@ -4,7 +4,7 @@
   "aspect": "9:16",
   "dossier": "miller_magical_number_seven",
   "total_reference_images": 8,
-  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in 1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head; researcher in clinical investigator in a navy blazer leans beside a seated volunteer in a coat with a completely smooth featureless solid matte-white egg-shaped oval head.",
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in 1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head; researcher in 1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head.",
   "generation_order": "1 env plate + master brain bust -> 2 cast sheets + hero prop (conditioned on env) -> 3 clip start / key frames (conditioned on master anchors)",
   "master_anchors": [
     {
@@ -19,9 +19,9 @@
       "conditioned_on": [],
       "present_cast": [],
       "location_id": "harvard_chunk_lab",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a long line across the cool slate-stone table, featuring loose binary 0/1 tile row. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a sunlit cool clear daylight-white Harvard seminar room with a long cool slate-stone table holding blank sunlit geometric memory cubes and powder-blue triplet trays, featuring loose binary 0/1 tile row. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a l",
+        "a sunlit cool clear daylight-white Harvard seminar room with a long cool slate-s",
         "loose binary 0/1 tile row"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -42,7 +42,7 @@
         "subject"
       ],
       "location_id": "harvard_chunk_lab",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a long line across the cool slate-stone table. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a sunlit cool clear daylight-white Harvard seminar room with a long cool slate-stone table holding blank sunlit geometric memory cubes and powder-blue triplet trays. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-d",
         "porcelain mannequin, no human skin or face"
@@ -65,9 +65,9 @@
         "researcher"
       ],
       "location_id": "harvard_chunk_lab",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing clinical investigator in a navy blazer leans beside a seated volunteer in a coat with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a long line across the cool slate-stone table. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing 1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a sunlit cool clear daylight-white Harvard seminar room with a long cool slate-stone table holding blank sunlit geometric memory cubes and powder-blue triplet trays. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "clinical investigator in a navy blazer leans beside a seated volunteer in a coat",
+        "1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-d",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -86,7 +86,7 @@
       ],
       "present_cast": [],
       "location_id": "harvard_chunk_lab",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of loose binary 0/1 tile row inside the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a long line across the cool slate-stone table, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of loose binary 0/1 tile row inside a sunlit cool clear daylight-white Harvard seminar room with a long cool slate-stone table holding blank sunlit geometric memory cubes and powder-blue triplet trays, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "loose binary 0/1 tile row"
       ],
@@ -102,7 +102,7 @@
       "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
       "generation_order": 1,
       "conditioned_on": [],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the dorsolateral prefrontal cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. A matte-sunlit 3D cortical brain model on a cool clear daylight-white stand where the upper front dorsolateral prefrontal cortex glows bright cyan compressing details into chunk pointers. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait composition against a high-contrast cool slate-grey studio backdrop, with dynamic camera progression from the porcelain head into the open anatomical brain cross-section tracking the neural circuit. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the dorsolateral prefrontal cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. A matte-sunlit 3D cortical brain model on a cool clear daylight-white stand where the upper front dorsolateral prefrontal cortex glows bright cyan compressing details into chunk pointers. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, zero human facial features, no text, no letters, no watermark.",
       "must_include": [
         "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
         "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
@@ -126,9 +126,9 @@
         "ref_env_master",
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a long line across the cool slate-stone table, featuring loose binary 0/1 tile row. Inside the room, researcher (clinical investigator in a navy blazer leans beside a seated volunteer in a coat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside loose binary 0/1 tile row. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit cool clear daylight-white Harvard seminar room with a long cool slate-stone table holding blank sunlit geometric memory cubes and powder-blue triplet trays, featuring loose binary 0/1 tile row. Inside the room, researcher (1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside loose binary 0/1 tile row. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the sunlit Harvard seminar room where forty small mint-sage cubes stretc",
+        "a sunlit cool clear daylight-white Harvard seminar room with a long cool",
         "loose binary 0/1 tile row"
       ],
       "key_visual": null,
@@ -157,9 +157,9 @@
         "ref_env_master",
         "ref_cast_subject"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a long line across the cool slate-stone table, featuring octal chunking brackets (carved wooden 3-tile trays unmarked with single octal digits 0 through 7). Inside the room, subject (1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside octal chunking brackets (carved wooden 3-tile trays unmarked with single octal digits 0 through 7). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit cool clear daylight-white Harvard seminar room with a long cool slate-stone table holding blank sunlit geometric memory cubes and powder-blue triplet trays, featuring octal chunking brackets (carved wooden 3-tile trays unmarked with single octal digits 0 through 7). Inside the room, subject (1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside octal chunking brackets (carved wooden 3-tile trays unmarked with single octal digits 0 through 7). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the sunlit Harvard seminar room where forty small mint-sage cubes stretc",
+        "a sunlit cool clear daylight-white Harvard seminar room with a long cool",
         "octal chunking brackets (carved wooden 3-tile trays unma"
       ],
       "key_visual": null,
@@ -187,10 +187,10 @@
       "conditioned_on": [
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a quiet sunlit tournament room with a cool clear daylight-white and powder-blue geometric chessboard holding twenty-five matte-sunlit chess pieces on cool slate-stone, featuring loose binary 0/1 tile row. Inside the room, researcher (clinical investigator in a navy blazer leans beside a seated volunteer in a coat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside loose binary 0/1 tile row. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a quiet sunlit tournament room with a cool clear daylight-white and powder-blue geometric chessboard holding twenty-five matte-sunlit chess pieces on cool slate-stone. Inside the room, researcher (1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a quiet sunlit tournament room with a cool clear daylight-white and powd",
-        "loose binary 0/1 tile row"
+        "an unmarked clinical tabletop apparatus"
       ],
       "key_visual": null,
       "bound_master_anchors": [
@@ -216,9 +216,9 @@
       "conditioned_on": [],
       "present_cast": [],
       "location_id": "harvard_chunk_lab",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a long line across the cool slate-stone table, featuring loose binary 0/1 tile row. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a sunlit cool clear daylight-white Harvard seminar room with a long cool slate-stone table holding blank sunlit geometric memory cubes and powder-blue triplet trays, featuring loose binary 0/1 tile row. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a l",
+        "a sunlit cool clear daylight-white Harvard seminar room with a long cool slate-s",
         "loose binary 0/1 tile row"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -239,7 +239,7 @@
         "subject"
       ],
       "location_id": "harvard_chunk_lab",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a long line across the cool slate-stone table. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a sunlit cool clear daylight-white Harvard seminar room with a long cool slate-stone table holding blank sunlit geometric memory cubes and powder-blue triplet trays. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-d",
         "porcelain mannequin, no human skin or face"
@@ -262,9 +262,9 @@
         "researcher"
       ],
       "location_id": "harvard_chunk_lab",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing clinical investigator in a navy blazer leans beside a seated volunteer in a coat with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a long line across the cool slate-stone table. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing 1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a sunlit cool clear daylight-white Harvard seminar room with a long cool slate-stone table holding blank sunlit geometric memory cubes and powder-blue triplet trays. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "clinical investigator in a navy blazer leans beside a seated volunteer in a coat",
+        "1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-d",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -283,7 +283,7 @@
       ],
       "present_cast": [],
       "location_id": "harvard_chunk_lab",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of loose binary 0/1 tile row inside the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a long line across the cool slate-stone table, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of loose binary 0/1 tile row inside a sunlit cool clear daylight-white Harvard seminar room with a long cool slate-stone table holding blank sunlit geometric memory cubes and powder-blue triplet trays, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "loose binary 0/1 tile row"
       ],
@@ -299,7 +299,7 @@
       "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
       "generation_order": 1,
       "conditioned_on": [],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the dorsolateral prefrontal cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. A matte-sunlit 3D cortical brain model on a cool clear daylight-white stand where the upper front dorsolateral prefrontal cortex glows bright cyan compressing details into chunk pointers. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait composition against a high-contrast cool slate-grey studio backdrop, with dynamic camera progression from the porcelain head into the open anatomical brain cross-section tracking the neural circuit. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the dorsolateral prefrontal cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. A matte-sunlit 3D cortical brain model on a cool clear daylight-white stand where the upper front dorsolateral prefrontal cortex glows bright cyan compressing details into chunk pointers. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, zero human facial features, no text, no letters, no watermark.",
       "must_include": [
         "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
         "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
@@ -321,9 +321,9 @@
         "ref_env_master",
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a long line across the cool slate-stone table, featuring loose binary 0/1 tile row. Inside the room, researcher (clinical investigator in a navy blazer leans beside a seated volunteer in a coat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside loose binary 0/1 tile row. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit cool clear daylight-white Harvard seminar room with a long cool slate-stone table holding blank sunlit geometric memory cubes and powder-blue triplet trays, featuring loose binary 0/1 tile row. Inside the room, researcher (1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside loose binary 0/1 tile row. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the sunlit Harvard seminar room where forty small mint-sage cubes stretc",
+        "a sunlit cool clear daylight-white Harvard seminar room with a long cool",
         "loose binary 0/1 tile row"
       ],
       "key_visual": null,
@@ -352,9 +352,9 @@
         "ref_env_master",
         "ref_cast_subject"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the sunlit Harvard seminar room where forty small mint-sage cubes stretch in a long line across the cool slate-stone table, featuring octal chunking brackets (carved wooden 3-tile trays unmarked with single octal digits 0 through 7). Inside the room, subject (1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside octal chunking brackets (carved wooden 3-tile trays unmarked with single octal digits 0 through 7). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit cool clear daylight-white Harvard seminar room with a long cool slate-stone table holding blank sunlit geometric memory cubes and powder-blue triplet trays, featuring octal chunking brackets (carved wooden 3-tile trays unmarked with single octal digits 0 through 7). Inside the room, subject (1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside octal chunking brackets (carved wooden 3-tile trays unmarked with single octal digits 0 through 7). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the sunlit Harvard seminar room where forty small mint-sage cubes stretc",
+        "a sunlit cool clear daylight-white Harvard seminar room with a long cool",
         "octal chunking brackets (carved wooden 3-tile trays unma"
       ],
       "key_visual": null,
@@ -382,10 +382,10 @@
       "conditioned_on": [
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a quiet sunlit tournament room with a cool clear daylight-white and powder-blue geometric chessboard holding twenty-five matte-sunlit chess pieces on cool slate-stone, featuring loose binary 0/1 tile row. Inside the room, researcher (clinical investigator in a navy blazer leans beside a seated volunteer in a coat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside loose binary 0/1 tile row. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a quiet sunlit tournament room with a cool clear daylight-white and powder-blue geometric chessboard holding twenty-five matte-sunlit chess pieces on cool slate-stone. Inside the room, researcher (1956 Ivy League academic attire: brown herringbone tweed jacket, Oxford button-down shirts, narrow knit ties, khaki and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a quiet sunlit tournament room with a cool clear daylight-white and powd",
-        "loose binary 0/1 tile row"
+        "an unmarked clinical tabletop apparatus"
       ],
       "key_visual": null,
       "bound_master_anchors": [

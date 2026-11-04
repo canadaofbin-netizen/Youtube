@@ -4,7 +4,7 @@
   "aspect": "9:16",
   "dossier": "harlow_cloth_mother_attachment",
   "total_reference_images": 8,
-  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in Experimenter mannequin in 1958 white cotton lab coat, collared shirt, and narrow tie with a completely smooth featureless solid matte-white egg-shaped oval head; researcher in animal subject strictly rendered as an articulated matte-white porcelain infant macaque sculpture with a completely smooth featureless solid matte-white egg-shaped oval head.",
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in adult participant in a muted slate-blue woven cardigan over a crisp pale linen shirt, dark tailored trousers, and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head; researcher in clinical investigator in 1958 white cotton lab coat, collared shirt, and narrow tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head.",
   "generation_order": "1 env plate + master brain bust -> 2 cast sheets + hero prop (conditioned on env) -> 3 clip start / key frames (conditioned on master anchors)",
   "master_anchors": [
     {
@@ -19,7 +19,7 @@
       "conditioned_on": [],
       "present_cast": [],
       "location_id": "wisconsin_surrogate_chamber",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers, featuring bare welded-wire milk surrogate. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers, featuring bare welded-wire milk surrogate. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testi",
         "bare welded-wire milk surrogate"
@@ -42,9 +42,9 @@
         "subject"
       ],
       "location_id": "wisconsin_surrogate_chamber",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing Experimenter mannequin in 1958 white cotton lab coat, collared shirt, and narrow tie with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing adult participant in a muted slate-blue woven cardigan over a crisp pale linen shirt, dark tailored trousers, and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "Experimenter mannequin in 1958 white cotton lab coat, collared shirt, and narrow",
+        "adult participant in a muted slate-blue woven cardigan over a crisp pale linen s",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -65,9 +65,9 @@
         "researcher"
       ],
       "location_id": "wisconsin_surrogate_chamber",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing animal subject strictly rendered as an articulated matte-white porcelain infant macaque sculpture with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing clinical investigator in 1958 white cotton lab coat, collared shirt, and narrow tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "animal subject strictly rendered as an articulated matte-white porcelain infant ",
+        "clinical investigator in 1958 white cotton lab coat, collared shirt, and narrow ",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -86,7 +86,7 @@
       ],
       "present_cast": [],
       "location_id": "wisconsin_surrogate_chamber",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of bare welded-wire milk surrogate inside the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of bare welded-wire milk surrogate inside the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "bare welded-wire milk surrogate"
       ],
@@ -102,7 +102,7 @@
       "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
       "generation_order": 1,
       "conditioned_on": [],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the somatosensory cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. Across the upper sensory strip of the matte warm-ivory 3D brain model, gentle warm amber-gold light spreads smoothly through the somatosensory cortex. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait composition against a high-contrast cool slate-grey studio backdrop, with dynamic camera progression from the porcelain head into the open anatomical brain cross-section tracking the neural circuit. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the somatosensory cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. Across the upper sensory strip of the matte warm-ivory 3D brain model, gentle warm amber-gold light spreads smoothly through the somatosensory cortex. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, zero human facial features, no text, no letters, no watermark.",
       "must_include": [
         "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
         "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
@@ -117,16 +117,16 @@
       "frame": "start",
       "category": "clip_keyframe_anchor",
       "role": "reenactment",
-      "scene_id": "LOC_wisconsin_surrogate_chamber",
+      "scene_id": "S01",
       "setting": "real_env",
       "filename": "ref_anchor_01.png",
-      "title": "Room state anchor 1 (wisconsin_surrogate_chamber: researcher)",
+      "title": "Shot S01 anchor 1 (wisconsin_surrogate_chamber: researcher)",
       "generation_order": 3,
       "conditioned_on": [
         "ref_env_master",
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers, featuring bare welded-wire milk surrogate. Inside the room, researcher (animal subject strictly rendered as an articulated matte-white porcelain infant macaque sculpture with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside bare welded-wire milk surrogate. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers, featuring bare welded-wire milk surrogate. Inside the room, researcher (clinical investigator in 1958 white cotton lab coat, collared shirt, and narrow tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside bare welded-wire milk surrogate. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the bright sunlit Wisconsin laboratory hall lined with clean glass-front",
         "bare welded-wire milk surrogate"
@@ -148,18 +148,18 @@
       "frame": "start",
       "category": "clip_keyframe_anchor",
       "role": "reenactment",
-      "scene_id": "LOC_open_field_playroom",
+      "scene_id": "S02",
       "setting": "real_env",
       "filename": "ref_anchor_02.png",
-      "title": "Room state anchor 2 (open_field_playroom: researcher)",
+      "title": "Shot S02 anchor 2 (open_field_playroom: researcher)",
       "generation_order": 3,
       "conditioned_on": [
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the bright sunlit fear-test chamber containing the bare wire bottle frame on one side and the dove-gray terrycloth cylinder on the other, featuring soft tan terrycloth surrogate. Inside the room, researcher (animal subject strictly rendered as an articulated matte-white porcelain infant macaque sculpture with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside soft tan terrycloth surrogate. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the bright sunlit fear-test chamber containing the bare wire bottle frame on one side and the dove-gray terrycloth cylinder on the other. Inside the room, researcher (clinical investigator in 1958 white cotton lab coat, collared shirt, and narrow tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the bright sunlit fear-test chamber containing the bare wire bottle fram",
-        "soft tan terrycloth surrogate"
+        "an unmarked clinical tabletop apparatus"
       ],
       "key_visual": null,
       "bound_master_anchors": [
@@ -177,18 +177,18 @@
       "frame": "start",
       "category": "clip_keyframe_anchor",
       "role": "reenactment",
-      "scene_id": "LOC_maternity_care_suite",
+      "scene_id": "S03",
       "setting": "real_env",
       "filename": "ref_anchor_03.png",
-      "title": "Room state anchor 3 (maternity_care_suite: researcher)",
+      "title": "Shot S03 anchor 3 (maternity_care_suite: researcher)",
       "generation_order": 3,
       "conditioned_on": [
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a sterile brushed-matte mid-century hospital nursery row with glass partitions separating neat white metal cribs, featuring bare welded-wire milk surrogate. Inside the room, researcher (animal subject strictly rendered as an articulated matte-white porcelain infant macaque sculpture with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside bare welded-wire milk surrogate. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a sterile brushed-matte mid-century hospital nursery row with glass partitions separating neat white metal cribs. Inside the room, researcher (clinical investigator in 1958 white cotton lab coat, collared shirt, and narrow tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a sterile brushed-matte mid-century hospital nursery row with glass part",
-        "bare welded-wire milk surrogate"
+        "an unmarked clinical tabletop apparatus"
       ],
       "key_visual": null,
       "bound_master_anchors": [
@@ -214,7 +214,7 @@
       "conditioned_on": [],
       "present_cast": [],
       "location_id": "wisconsin_surrogate_chamber",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers, featuring bare welded-wire milk surrogate. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers, featuring bare welded-wire milk surrogate. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testi",
         "bare welded-wire milk surrogate"
@@ -237,9 +237,9 @@
         "subject"
       ],
       "location_id": "wisconsin_surrogate_chamber",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing Experimenter mannequin in 1958 white cotton lab coat, collared shirt, and narrow tie with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing adult participant in a muted slate-blue woven cardigan over a crisp pale linen shirt, dark tailored trousers, and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "Experimenter mannequin in 1958 white cotton lab coat, collared shirt, and narrow",
+        "adult participant in a muted slate-blue woven cardigan over a crisp pale linen s",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -260,9 +260,9 @@
         "researcher"
       ],
       "location_id": "wisconsin_surrogate_chamber",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing animal subject strictly rendered as an articulated matte-white porcelain infant macaque sculpture with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing clinical investigator in 1958 white cotton lab coat, collared shirt, and narrow tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "animal subject strictly rendered as an articulated matte-white porcelain infant ",
+        "clinical investigator in 1958 white cotton lab coat, collared shirt, and narrow ",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -281,7 +281,7 @@
       ],
       "present_cast": [],
       "location_id": "wisconsin_surrogate_chamber",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of bare welded-wire milk surrogate inside the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of bare welded-wire milk surrogate inside the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "bare welded-wire milk surrogate"
       ],
@@ -297,7 +297,7 @@
       "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
       "generation_order": 1,
       "conditioned_on": [],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the somatosensory cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. Across the upper sensory strip of the matte warm-ivory 3D brain model, gentle warm amber-gold light spreads smoothly through the somatosensory cortex. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait composition against a high-contrast cool slate-grey studio backdrop, with dynamic camera progression from the porcelain head into the open anatomical brain cross-section tracking the neural circuit. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the somatosensory cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. Across the upper sensory strip of the matte warm-ivory 3D brain model, gentle warm amber-gold light spreads smoothly through the somatosensory cortex. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, zero human facial features, no text, no letters, no watermark.",
       "must_include": [
         "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
         "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
@@ -310,16 +310,16 @@
       "frame": "start",
       "category": "clip_keyframe_anchor",
       "role": "reenactment",
-      "scene_id": "LOC_wisconsin_surrogate_chamber",
+      "scene_id": "S01",
       "setting": "real_env",
       "filename": "ref_anchor_01.png",
-      "title": "Room state anchor 1 (wisconsin_surrogate_chamber: researcher)",
+      "title": "Shot S01 anchor 1 (wisconsin_surrogate_chamber: researcher)",
       "generation_order": 3,
       "conditioned_on": [
         "ref_env_master",
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers, featuring bare welded-wire milk surrogate. Inside the room, researcher (animal subject strictly rendered as an articulated matte-white porcelain infant macaque sculpture with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside bare welded-wire milk surrogate. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright sunlit Wisconsin laboratory hall lined with clean glass-fronted testing chambers, featuring bare welded-wire milk surrogate. Inside the room, researcher (clinical investigator in 1958 white cotton lab coat, collared shirt, and narrow tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside bare welded-wire milk surrogate. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the bright sunlit Wisconsin laboratory hall lined with clean glass-front",
         "bare welded-wire milk surrogate"
@@ -341,18 +341,18 @@
       "frame": "start",
       "category": "clip_keyframe_anchor",
       "role": "reenactment",
-      "scene_id": "LOC_open_field_playroom",
+      "scene_id": "S02",
       "setting": "real_env",
       "filename": "ref_anchor_02.png",
-      "title": "Room state anchor 2 (open_field_playroom: researcher)",
+      "title": "Shot S02 anchor 2 (open_field_playroom: researcher)",
       "generation_order": 3,
       "conditioned_on": [
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the bright sunlit fear-test chamber containing the bare wire bottle frame on one side and the dove-gray terrycloth cylinder on the other, featuring soft tan terrycloth surrogate. Inside the room, researcher (animal subject strictly rendered as an articulated matte-white porcelain infant macaque sculpture with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside soft tan terrycloth surrogate. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the bright sunlit fear-test chamber containing the bare wire bottle frame on one side and the dove-gray terrycloth cylinder on the other. Inside the room, researcher (clinical investigator in 1958 white cotton lab coat, collared shirt, and narrow tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the bright sunlit fear-test chamber containing the bare wire bottle fram",
-        "soft tan terrycloth surrogate"
+        "an unmarked clinical tabletop apparatus"
       ],
       "key_visual": null,
       "bound_master_anchors": [
@@ -370,18 +370,18 @@
       "frame": "start",
       "category": "clip_keyframe_anchor",
       "role": "reenactment",
-      "scene_id": "LOC_maternity_care_suite",
+      "scene_id": "S03",
       "setting": "real_env",
       "filename": "ref_anchor_03.png",
-      "title": "Room state anchor 3 (maternity_care_suite: researcher)",
+      "title": "Shot S03 anchor 3 (maternity_care_suite: researcher)",
       "generation_order": 3,
       "conditioned_on": [
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a sterile brushed-matte mid-century hospital nursery row with glass partitions separating neat white metal cribs, featuring bare welded-wire milk surrogate. Inside the room, researcher (animal subject strictly rendered as an articulated matte-white porcelain infant macaque sculpture with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside bare welded-wire milk surrogate. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a sterile brushed-matte mid-century hospital nursery row with glass partitions separating neat white metal cribs. Inside the room, researcher (clinical investigator in 1958 white cotton lab coat, collared shirt, and narrow tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a sterile brushed-matte mid-century hospital nursery row with glass part",
-        "bare welded-wire milk surrogate"
+        "an unmarked clinical tabletop apparatus"
       ],
       "key_visual": null,
       "bound_master_anchors": [

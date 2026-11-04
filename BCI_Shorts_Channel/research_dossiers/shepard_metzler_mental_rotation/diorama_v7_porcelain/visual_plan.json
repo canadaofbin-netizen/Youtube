@@ -224,8 +224,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 7,
@@ -319,8 +318,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 11,
@@ -427,8 +425,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 16,
@@ -592,8 +589,7 @@
           "researcher"
         ]
       },
-      "clip_number": 22,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 22
     },
     {
       "sentence_index": 23,
@@ -726,8 +722,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 30,
@@ -859,8 +854,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 36,
@@ -977,8 +971,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 41,
@@ -1181,15 +1174,15 @@
   "reenactment_track": "track_b",
   "track_subtier": "B_scene_bible_anchor",
   "default_location_id": "stanford_rotation_lab",
-  "real_environment": "the sunlit Stanford laboratory with three large cool clear daylight-white ten-cube sculptures suspended on thin silver gimbals",
+  "real_environment": "a sunlit cool clear daylight-white Stanford psychology laboratory with a twin-circle display hood, response levers, and cool slate-stone desks",
   "environment_props": [
     "physical white 10-cube wooden reference models",
     "twin-circle stimulus display screen",
-    "linear 0°-to-180° reaction-time chart"
+    "linear 0°-to-180° reaction-time unmarked paper sheet"
   ],
   "cast": {
-    "subject": "1971 Stanford academic wear: Metzler in tailored wool blazer and blouse with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "Shepard in Oxford shirt and tweed jacket with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "adult participant in ribbed knit sweater and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clinical investigator in Oxford shirt and tweed jacket with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1210,9 +1203,9 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (stanford_rotation_lab: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunlit Stanford laboratory with three large cool clear daylight-white ten-cube sculptures suspended on thin silver gimbals, featuring physical white 10-cube wooden reference models. Inside the room, researcher (Shepard in Oxford shirt and tweed jacket with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside physical white 10-cube wooden reference models. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit cool clear daylight-white Stanford psychology laboratory with a twin-circle display hood, response levers, and cool slate-stone desks, featuring physical white 10-cube wooden reference models. Inside the room, researcher (clinical investigator in Oxford shirt and tweed jacket with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside physical white 10-cube wooden reference models. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the sunlit Stanford laboratory with three large cool clear daylight-whit",
+        "a sunlit cool clear daylight-white Stanford psychology laboratory with a",
         "physical white 10-cube wooden reference models"
       ]
     },
@@ -1232,10 +1225,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (pastel_design_studio: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a bright cool clear daylight-white molecular studio with symmetrical sunlit ball-and-rod chiral models on brushed-silver stands, featuring twin-circle stimulus display screen. Inside the room, researcher (Shepard in Oxford shirt and tweed jacket with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside twin-circle stimulus display screen. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a cool powder-blue lecture room with slate-stone tables and plain geometric cube sets. Inside the room, researcher (clinical investigator in Oxford shirt and tweed jacket with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "a bright cool clear daylight-white molecular studio with symmetrical sun",
-        "twin-circle stimulus display screen"
+        "a cool powder-blue lecture room with slate-stone tables and plain geomet",
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1255,9 +1248,9 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 3 (stanford_rotation_lab: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the sunlit Stanford laboratory with three large cool clear daylight-white ten-cube sculptures suspended on thin silver gimbals, featuring physical white 10-cube wooden reference models. Inside the room, subject (1971 Stanford academic wear: Metzler in tailored wool blazer and blouse with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside physical white 10-cube wooden reference models. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a sunlit cool clear daylight-white Stanford psychology laboratory with a twin-circle display hood, response levers, and cool slate-stone desks, featuring physical white 10-cube wooden reference models. Inside the room, subject (adult participant in ribbed knit sweater and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside physical white 10-cube wooden reference models. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the sunlit Stanford laboratory with three large cool clear daylight-whit",
+        "a sunlit cool clear daylight-white Stanford psychology laboratory with a",
         "physical white 10-cube wooden reference models"
       ]
     }

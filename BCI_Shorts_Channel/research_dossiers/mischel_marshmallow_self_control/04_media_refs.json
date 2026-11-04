@@ -39,8 +39,12 @@
         "keyframe_count": 14,
         "median_dark_ratio": 0.7056,
         "median_gray_sat_ratio": 0.6949,
+        "median_p90_sat": 105.0,
+        "max_p90_sat": 126.0,
         "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
         "median_flat_patch_ratio": 0.5578,
+        "median_motion_diff": 19.185,
         "talking_head_ratio": 1.0,
         "words_per_sec": 2.847,
         "has_strong_archival_cue": false,
@@ -86,8 +90,12 @@
         "keyframe_count": 14,
         "median_dark_ratio": 0.1133,
         "median_gray_sat_ratio": 0.4378,
+        "median_p90_sat": 111.0,
+        "max_p90_sat": 135.0,
         "is_bw_archival": false,
+        "is_mixed_bw_and_color": true,
         "median_flat_patch_ratio": 0.2406,
+        "median_motion_diff": 9.401,
         "talking_head_ratio": 0.75,
         "words_per_sec": 2.712,
         "has_strong_archival_cue": true,
@@ -124,5 +132,6 @@
     }
   ],
   "reenactment_track": "track_b",
-  "track_subtier": "B_scene_bible_anchor"
+  "track_subtier": "B_scene_bible_anchor",
+  "suitability_schema_version": 2
 }

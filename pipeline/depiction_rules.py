@@ -384,14 +384,24 @@ class PromptComposer:
         )
         core = re.sub(r"\bas the full brain turns slowly in the (?:gallery )?light\b", "in crisp studio light", core, flags=re.IGNORECASE)
         core = re.sub(r"\bThe camera tracks the (?:flowing signal|internal luminance) along\b", "Smooth subsurface luminance traces", core, flags=re.IGNORECASE)
-        if "porcelain mannequin head" not in core.lower():
+        if "porcelain mannequin head" not in core.lower() and "featureless matte-white oval porcelain bust" not in core.lower():
             core = (
-                "Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural "
-                "cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast "
-                f"cool slate-grey studio backdrop. {core}"
+                "Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped "
+                "head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing "
+                "a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. "
+                f"{core}"
             )
-        framing = PromptComposer._aspect_framing_clause(aspect)
-        return f"{prefix} {core} {framing} Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark."
+        still_framing = (
+            "Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, "
+            "framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section."
+            if aspect == FLOW_ASPECT_SHORTS
+            else "Native horizontal 16:9 widescreen still composition against a high-contrast cool slate-grey studio backdrop, "
+            "framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section."
+        )
+        return (
+            f"{prefix} {core} {still_framing} Minimalist clean porcelain sculpture style, razor-sharp focus, "
+            f"soft studio light, zero human facial features, no text, no letters, no watermark."
+        )
 
     @staticmethod
     def compose_brain_video_prompt(

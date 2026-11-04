@@ -307,8 +307,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 13,
@@ -448,8 +447,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 19,
@@ -519,8 +517,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 22,
@@ -733,8 +730,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 32,
@@ -818,8 +814,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 36,
@@ -1075,8 +1070,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 50,
@@ -1161,8 +1155,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 52,
@@ -1189,15 +1182,15 @@
   "reenactment_track": "track_b",
   "track_subtier": "B_scene_bible_anchor",
   "default_location_id": "trondheim_grid_suite",
-  "real_environment": "a modern cool clear daylight-white human neuroimaging suite with a smooth powder-blue scanner ring and a blank sunlit six-fold symmetry screen",
+  "real_environment": "a sunlit Nordic neurobiology room featuring a wide cool clear daylight-white two-meter open arena platform where a matte chalk-white matte-white porcelain rat trots across glowing cyan hexagons",
   "environment_props": [
-    "2-meter clean white open-field arena with rotatable visual cue card (the enlarged floor that unmasked the repeating 60° hexagonal grid in 2005)",
+    "2-meter clean white open-field arena with rotatable visual blank unmarked matte blank matte blank matte card (the enlarged floor that unmasked the repeating 60° hexagonal grid in 2005)",
     "articulated matte-white porcelain rat sculpture",
-    "Side-by-Side '1971 Place Cell (1 Spot)' vs '2005 Grid Cell (Hexagonal Lattice)' trajectory screens (shows single pushpin vs full honeycomb coordinate paper in one glance)"
+    "Side-by-Side vs trajectory screens (shows single pushpin vs full honeycomb coordinate paper in one glance)"
   ],
   "cast": {
-    "subject": "Academic tweed blazer and shirt with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "clean Scandinavian tailored knitwear and blazers with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "Academic tweed blazer and shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clean Scandinavian tailored knitwear and blazers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1218,9 +1211,9 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (trondheim_grid_suite: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a modern cool clear daylight-white human neuroimaging suite with a smooth powder-blue scanner ring and a blank sunlit six-fold symmetry screen, featuring 2-meter clean white open-field arena with rotatable visual cue card (the enlarged floor that unmasked the repeating 60° hexagonal grid in 2005). Inside the room, researcher (clean Scandinavian tailored knitwear and blazers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 2-meter clean white open-field arena with rotatable visual cue card (the enlarged floor that unmasked the repeating 60° hexagonal grid in 2005). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit Nordic neurobiology room featuring a wide cool clear daylight-white two-meter open arena platform where a matte chalk-white matte-white porcelain rat trots across glowing cyan hexagons, featuring 2-meter clean white open-field arena with rotatable visual blank unmarked matte blank matte blank matte blank matte card (the enlarged floor that unmasked the repeating 60° hexagonal grid in 2005). Inside the room, researcher (clean Scandinavian tailored knitwear and blazers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 2-meter clean white open-field arena with rotatable visual blank unmarked matte blank matte blank matte blank matte card (the enlarged floor that unmasked the repeating 60° hexagonal grid in 2005). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "a modern cool clear daylight-white human neuroimaging suite with a smoot",
+        "a sunlit Nordic neurobiology room featuring a wide cool clear daylight-w",
         "2-meter clean white open-field arena with rotatable visu"
       ]
     },
@@ -1240,10 +1233,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (memory_palace_study: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit city plaza terrace overlooking crisp powder-blue rooftops, a distant sage park tower, and clean slate-stone walkways, featuring articulated matte-white porcelain rat sculpture. Inside the room, researcher (clean Scandinavian tailored knitwear and blazers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside articulated matte-white porcelain rat sculpture. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit city plaza terrace overlooking crisp powder-blue rooftops, a distant sage park tower, and clean slate-stone walkways. Inside the room, researcher (clean Scandinavian tailored knitwear and blazers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a sunlit city plaza terrace overlooking crisp powder-blue rooftops, a di",
-        "articulated matte-white porcelain rat sculpture"
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1262,10 +1255,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (london_arena_lab: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a softly dimmed cool powder-blue London testing room where room lamps sit switched off yet the single corner hotspot still glows under the trotting chalk-white rat, featuring 2-meter clean white open-field arena with rotatable visual cue card (the enlarged floor that unmasked the repeating 60° hexagonal grid in 2005). Inside the room, researcher (clean Scandinavian tailored knitwear and blazers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 2-meter clean white open-field arena with rotatable visual cue card (the enlarged floor that unmasked the repeating 60° hexagonal grid in 2005). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a softly dimmed cool powder-blue London testing room where room lamps sit switched off yet the single corner hotspot still glows under the trotting chalk-white rat. Inside the room, researcher (clean Scandinavian tailored knitwear and blazers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a softly dimmed cool powder-blue London testing room where room lamps si",
-        "2-meter clean white open-field arena with rotatable visu"
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ]

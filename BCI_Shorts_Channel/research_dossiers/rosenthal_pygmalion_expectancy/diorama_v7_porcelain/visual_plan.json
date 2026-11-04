@@ -202,8 +202,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 6,
@@ -250,8 +249,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 8,
@@ -436,8 +434,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 17,
@@ -714,8 +711,7 @@
           "researcher"
         ]
       },
-      "clip_number": 28,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 28
     },
     {
       "sentence_index": 31,
@@ -833,8 +829,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 36,
@@ -881,8 +876,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 38,
@@ -1050,8 +1044,7 @@
           "researcher"
         ]
       },
-      "clip_number": 42,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 42
     },
     {
       "sentence_index": 47,
@@ -1175,18 +1168,18 @@
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
   "require_scene_state_ledger": true,
-  "reenactment_track": "track_a",
-  "track_subtier": "A2_section_window",
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
   "default_location_id": "slate_school_room",
   "real_environment": "the bright cool-limestone classroom in spring daylight as pupils arrange geometric puzzle tiles on cool slate-stone desks",
   "environment_props": [
-    "typed 'Harvard Test of Inflected Acquisition' memo",
-    "random-number table booklet (printed statistical table in Rosenthal's hand)",
+    "typed memo",
+    "random-number table booklet (unmarked statistical table in Rosenthal's hand)",
     "nonverbal geometric pattern booklet (1960s Flanagan picture-and-shape test pages)"
   ],
   "cast": {
-    "subject": "1964 public-school attire: teacher in modest pastel wool cardigan over A-line dress with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "children in cotton collared shirts and jumpers with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "young child participant in cotton collared shirts and jumpers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "classroom instructor in modest pastel wool cardigan over A-line dress and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1207,10 +1200,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (slate_school_room: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright cool-limestone classroom in spring daylight as pupils arrange geometric puzzle tiles on cool slate-stone desks, featuring typed 'Harvard Test of Inflected Acquisition' memo. Inside the room, researcher (children in cotton collared shirts and jumpers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside typed 'Harvard Test of Inflected Acquisition' memo. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright cool-limestone classroom in spring daylight as pupils arrange geometric puzzle tiles on cool slate-stone desks, featuring typed memo. Inside the room, researcher (classroom instructor in modest pastel wool cardigan over A-line dress and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside typed memo. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the bright cool-limestone classroom in spring daylight as pupils arrange",
-        "typed 'Harvard Test of Inflected Acquisition' memo"
+        "typed memo"
       ]
     },
     {
@@ -1229,10 +1222,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (principal_slate_office: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit university seminar room where scholars inspect a balanced mid-height mint-sage bar beside the tall early-grade bar, featuring random-number table booklet (printed statistical table in Rosenthal's hand). Inside the room, researcher (children in cotton collared shirts and jumpers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside random-number table booklet (printed statistical table in Rosenthal's hand). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit university seminar room where scholars inspect a balanced mid-height mint-sage bar beside the tall early-grade bar. Inside the room, researcher (classroom instructor in modest pastel wool cardigan over A-line dress and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a sunlit university seminar room where scholars inspect a balanced mid-h",
-        "random-number table booklet (printed statistical table i"
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1251,10 +1244,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (modern_team_studio: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright modern cool-slate design room with an unmarked frosted glass diagram wall, featuring typed 'Harvard Test of Inflected Acquisition' memo. Inside the room, researcher (children in cotton collared shirts and jumpers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside typed 'Harvard Test of Inflected Acquisition' memo. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright modern cool-slate design room with an unmarked frosted glass unmarked anatomical relief model wall. Inside the room, researcher (classroom instructor in modest pastel wool cardigan over A-line dress and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "a bright modern cool-slate design room with an unmarked frosted glass di",
-        "typed 'Harvard Test of Inflected Acquisition' memo"
+        "a bright modern cool-slate design room with an unmarked frosted glass un",
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ]

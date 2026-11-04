@@ -202,8 +202,7 @@
           "researcher"
         ]
       },
-      "clip_number": 5,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 5
     },
     {
       "sentence_index": 6,
@@ -379,8 +378,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 15,
@@ -534,8 +532,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 22,
@@ -657,8 +654,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 28,
@@ -757,8 +753,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 34,
@@ -912,8 +907,7 @@
           "researcher"
         ]
       },
-      "clip_number": 38,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 38
     },
     {
       "sentence_index": 42,
@@ -1038,8 +1032,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 49,
@@ -1154,14 +1147,14 @@
   "reenactment_track": "track_b",
   "track_subtier": "B_scene_bible_anchor",
   "default_location_id": "chicago_cello_studio",
-  "real_environment": "the sunlit Chicago music and research studio opening onto a tranquil sunlit park courtyard",
+  "real_environment": "the sunlit Chicago cello studio with a blank round circular acoustic damper high above the maple music stand",
   "environment_props": [
     "electronic ESM pager & diary booklet",
-    "diagonal 'Challenge vs Skill' Flow Channel board",
+    "diagonal Flow Channel board",
     "wooden cello & sheet-music stand (rich natural wood instrument with clear phrase markings)"
   ],
   "cast": {
-    "subject": "Natural linen button shirt with rolled sleeves on cellist with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "subject": "Natural linen button shirt with rolled sleeves on cellist and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
     "researcher": "academic tweed blazer and open-collar Oxford shirt on researchers with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
@@ -1183,9 +1176,9 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 1 (chicago_cello_studio: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunlit Chicago music and research studio opening onto a tranquil sunlit park courtyard, featuring electronic ESM pager & diary booklet. Inside the room, subject (Natural linen button shirt with rolled sleeves on cellist with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside electronic ESM pager & diary booklet. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunlit Chicago cello studio with a blank round circular acoustic damper high above the maple music stand, featuring electronic ESM pager & diary booklet. Inside the room, subject (Natural linen button shirt with rolled sleeves on cellist and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside electronic ESM pager & diary booklet. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the sunlit Chicago music and research studio opening onto a tranquil sun",
+        "the sunlit Chicago cello studio with a blank round circular acoustic dam",
         "electronic ESM pager & diary booklet"
       ]
     },
@@ -1205,10 +1198,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (home_craft_workbench: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit modern woodworking and design studio with a clean maple workbench, wooden plane, and mechanical tally counter, featuring diagonal 'Challenge vs Skill' Flow Channel board. Inside the room, researcher (academic tweed blazer and open-collar Oxford shirt on researchers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside diagonal 'Challenge vs Skill' Flow Channel board. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit modern woodworking and design studio with a clean maple workbench, wooden plane, and mechanical tally counter. Inside the room, researcher (academic tweed blazer and open-collar Oxford shirt on researchers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a sunlit modern woodworking and design studio with a clean maple workben",
-        "diagonal 'Challenge vs Skill' Flow Channel board"
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1227,10 +1220,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (neuro_scanner_room: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright cognitive neuroscience laboratory with a warm-ivory 3D brain sculpture and energy balance blocks on a pale-wood table, featuring electronic ESM pager & diary booklet. Inside the room, researcher (academic tweed blazer and open-collar Oxford shirt on researchers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside electronic ESM pager & diary booklet. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright cognitive neuroscience laboratory with a warm-ivory 3D brain sculpture and energy balance blocks on a pale-wood table. Inside the room, researcher (academic tweed blazer and open-collar Oxford shirt on researchers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a bright cognitive neuroscience laboratory with a warm-ivory 3D brain sc",
-        "electronic ESM pager & diary booklet"
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ]

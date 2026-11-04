@@ -175,8 +175,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 5,
@@ -293,8 +292,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 10,
@@ -400,8 +398,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 15,
@@ -605,8 +602,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 26,
@@ -722,8 +718,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 31,
@@ -794,8 +789,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 34,
@@ -1011,8 +1005,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 46,
@@ -1143,8 +1136,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 51,
@@ -1174,12 +1166,12 @@
   "real_environment": "the brightly lit pastel-slate Jordan Hall corridor lined with three clean frosted alcove doors",
   "environment_props": [
     "silver mirrored aviator sunglasses (reflective 1971 sunglasses worn by guards to hide eye-to-eye human contact)",
-    "Day-6 'STUDY TERMINATED' calendar & orientation tape reel",
-    "'Stanford County Jail' painted hallway sign"
+    "Day-6 calendar & orientation tape reel",
+    "painted hallway sign"
   ],
   "cast": {
-    "subject": "1971 Stanford attire: khaki short-sleeve button shirts and chinos on guards with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "numbered cotton smocks on prisoners with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "numbered cotton smocks on prisoners and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clinical investigator in dark 1971 slacks and shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1200,7 +1192,7 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 1 (jordan_hall_corridor: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the brightly lit pastel-slate Jordan Hall corridor lined with three clean frosted alcove doors, featuring silver mirrored aviator sunglasses (reflective 1971 sunglasses worn by guards to hide eye-to-eye human contact). Inside the room, subject (1971 Stanford attire: khaki short-sleeve button shirts and chinos on guards with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside silver mirrored aviator sunglasses (reflective 1971 sunglasses worn by guards to hide eye-to-eye human contact). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the brightly lit pastel-slate Jordan Hall corridor lined with three clean frosted alcove doors, featuring silver mirrored aviator sunglasses (reflective 1971 sunglasses worn by guards to hide eye-to-eye human contact). Inside the room, subject (numbered cotton smocks on prisoners and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside silver mirrored aviator sunglasses (reflective 1971 sunglasses worn by guards to hide eye-to-eye human contact). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the brightly lit pastel-slate Jordan Hall corridor lined with three clea",
         "silver mirrored aviator sunglasses (reflective 1971 sung"
@@ -1222,10 +1214,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (ethics_review_chamber: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the sunlit Stanford courtyard outside Jordan Hall with pale-stone arches and muted-sage trees, featuring Day-6 'STUDY TERMINATED' calendar & orientation tape reel. Inside the room, researcher (numbered cotton smocks on prisoners with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Day-6 'STUDY TERMINATED' calendar & orientation tape reel. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the sunlit Stanford courtyard outside Jordan Hall with pale-stone arches and muted-sage trees. Inside the room, researcher (clinical investigator in dark 1971 slacks and shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the sunlit Stanford courtyard outside Jordan Hall with pale-stone arches",
-        "Day-6 'STUDY TERMINATED' calendar & orientation tape ree"
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1245,7 +1237,7 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (jordan_hall_corridor: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the brightly lit pastel-slate Jordan Hall corridor lined with three clean frosted alcove doors, featuring silver mirrored aviator sunglasses (reflective 1971 sunglasses worn by guards to hide eye-to-eye human contact). Inside the room, researcher (numbered cotton smocks on prisoners with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside silver mirrored aviator sunglasses (reflective 1971 sunglasses worn by guards to hide eye-to-eye human contact). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the brightly lit pastel-slate Jordan Hall corridor lined with three clean frosted alcove doors, featuring silver mirrored aviator sunglasses (reflective 1971 sunglasses worn by guards to hide eye-to-eye human contact). Inside the room, researcher (clinical investigator in dark 1971 slacks and shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside silver mirrored aviator sunglasses (reflective 1971 sunglasses worn by guards to hide eye-to-eye human contact). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the brightly lit pastel-slate Jordan Hall corridor lined with three clea",
         "silver mirrored aviator sunglasses (reflective 1971 sung"

@@ -220,8 +220,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 7,
@@ -292,8 +291,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 10,
@@ -485,8 +483,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 20,
@@ -726,8 +723,7 @@
           "researcher"
         ]
       },
-      "clip_number": 29,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 29
     },
     {
       "sentence_index": 31,
@@ -827,8 +823,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 36,
@@ -900,8 +895,7 @@
           "subject"
         ]
       },
-      "clip_number": 37,
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      "clip_number": 37
     },
     {
       "sentence_index": 40,
@@ -1073,8 +1067,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 51,
@@ -1151,12 +1144,12 @@
   "default_location_id": "modern_pet_clinic",
   "real_environment": "the sunlit neuroimaging review room with the bright restored 3D brain sculpture gleaming on the table",
   "environment_props": [
-    "1880 acoustic stethoscope & normal pulse chart vs 'Hollow Shell' silhouette card",
-    "Berrios & Luque 100-Case Subtype Chart ('86% Organ Negation | Type I Neurological vs Type II/Depressive') (clean clinical typology brushed metal plate beside Cotard's bound notebook)"
+    "1880 acoustic stethoscope & normal pulse unmarked paper sheet vs silhouette blank matte blank matte card",
+    "Berrios & Luque 100-Case Subtype unmarked paper sheet ()"
   ],
   "cast": {
-    "subject": "1880 Parisian physician frock coat and waistcoat with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "modest high-collared 1880 wool dress with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "modest high-collared 1880 wool dress and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "1880 Parisian physician frock coat and waistcoat and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1177,10 +1170,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (modern_pet_clinic: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunlit neuroimaging review room with the bright restored 3D brain sculpture gleaming on the table, featuring 1880 acoustic stethoscope & normal pulse chart vs 'Hollow Shell' silhouette card. Inside the room, researcher (modest high-collared 1880 wool dress with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1880 acoustic stethoscope & normal pulse chart vs 'Hollow Shell' silhouette card. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunlit neuroimaging review room with the bright restored 3D brain sculpture gleaming on the table, featuring 1880 acoustic stethoscope & normal pulse unmarked paper sheet vs silhouette blank matte blank matte blank matte card. Inside the room, researcher (1880 Parisian physician frock coat and waistcoat and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1880 acoustic stethoscope & normal pulse unmarked paper sheet vs silhouette blank matte blank matte blank matte card. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the sunlit neuroimaging review room with the bright restored 3D brain sc",
-        "1880 acoustic stethoscope & normal pulse chart vs 'Hollo"
+        "1880 acoustic stethoscope & normal pulse unmarked paper "
       ]
     },
     {
@@ -1200,10 +1193,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 2 (modern_pet_clinic: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the sunlit neuroimaging review room with the bright restored 3D brain sculpture gleaming on the table, featuring Berrios & Luque 100-Case Subtype Chart ('86% Organ Negation | Type I Neurological vs Type II/Depressive') (clean clinical typology brushed metal plate beside Cotard's bound notebook). Inside the room, subject (1880 Parisian physician frock coat and waistcoat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Berrios & Luque 100-Case Subtype Chart ('86% Organ Negation | Type I Neurological vs Type II/Depressive') (clean clinical typology brushed metal plate beside Cotard's bound notebook). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the sunlit neuroimaging review room with the bright restored 3D brain sculpture gleaming on the table, featuring Berrios & Luque 100-Case Subtype unmarked paper sheet (). Inside the room, subject (modest high-collared 1880 wool dress and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Berrios & Luque 100-Case Subtype unmarked paper sheet (). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the sunlit neuroimaging review room with the bright restored 3D brain sc",
-        "Berrios & Luque 100-Case Subtype Chart ('86% Organ Negat"
+        "Berrios & Luque 100-Case Subtype unmarked paper sheet ()"
       ]
     },
     {
@@ -1222,10 +1215,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (cambridge_seminar_hall: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the bright Cambridge neuropsychiatry seminar room with a balanced two-branch wooden see-saw model on the center table, featuring 1880 acoustic stethoscope & normal pulse chart vs 'Hollow Shell' silhouette card. Inside the room, researcher (modest high-collared 1880 wool dress with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1880 acoustic stethoscope & normal pulse chart vs 'Hollow Shell' silhouette card. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the bright Cambridge neuropsychiatry seminar room with a balanced two-branch wooden see-saw model on the center table. Inside the room, researcher (1880 Parisian physician frock coat and waistcoat and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the bright Cambridge neuropsychiatry seminar room with a balanced two-br",
-        "1880 acoustic stethoscope & normal pulse chart vs 'Hollo"
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ],

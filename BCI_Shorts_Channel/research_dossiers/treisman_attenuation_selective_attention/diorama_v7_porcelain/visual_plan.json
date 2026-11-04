@@ -261,8 +261,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "index": 10,
@@ -362,8 +361,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "index": 15,
@@ -411,8 +409,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "index": 18,
@@ -513,8 +510,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "index": 24,
@@ -787,8 +783,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "index": 38,
@@ -960,8 +955,7 @@
           "researcher"
         ]
       },
-      "clip_number": 36,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 36
     },
     {
       "index": 45,
@@ -1075,8 +1069,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "index": 53,
@@ -1173,8 +1166,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "index": 57,
@@ -1251,8 +1243,8 @@
   "real_environment": "sunlit clear daylight-white Oxford psychology room with brushed-silver twin tape reels and cool slate-stone instrument tables",
   "environment_props": [
     "dual-channel studio audio console & padded headphones (reconstructs Treisman's dichotic crossover)",
-    "Diagonal Sentence-Crossover Card ('Right Ear: MAHOGANY \\ Left Ear: TABLE!') (demonstrates the semantic ear-jump)",
-    "Dictionary Threshold Bar Chart ('Random Word: High Bar | Primed Word & [OWN NAME]: Hair-Trigger Low Bar!')"
+    "Diagonal Sentence-Crossover blank matte blank matte card () (demonstrates the semantic ear-jump)",
+    "Dictionary Threshold Bar unmarked paper sheet ()"
   ],
   "cast": {
     "subject": "1964 British Oxford academic style: classic knit cardigan twinset and pleated skirt with a completely smooth featureless solid matte-white egg-shaped oval head",
@@ -1277,7 +1269,7 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (oxford_audio_lab: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit clear daylight-white Oxford psychology room with brushed-silver twin tape reels and cool slate-stone instrument tables, featuring dual-channel studio audio console & padded headphones (reconstructs Treisman's dichotic crossover). Inside the room, researcher (collegiate V-neck jumper over Oxford shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside dual-channel studio audio console & padded headphones (reconstructs Treisman's dichotic crossover). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit clear daylight-white Oxford psychology room with brushed-silver twin tape reels and cool slate-stone instrument tables, featuring dual-channel studio audio console & padded headphones (reconstructs Treisman's dichotic crossover). Inside the room, researcher (collegiate V-neck jumper over Oxford shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside dual-channel studio audio console & padded headphones (reconstructs Treisman's dichotic crossover). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "sunlit clear daylight-white Oxford psychology room with brushed-silver t",
         "dual-channel studio audio console & padded headphones (r"
@@ -1299,10 +1291,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 2 (oxford_booth: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across bright sunlit Oxford booth where a sky-blue wave ribbon and a soft sage wave ribbon weave parallel paths toward a central stand, featuring Diagonal Sentence-Crossover Card ('Right Ear: MAHOGANY \\ Left Ear: TABLE!') (demonstrates the semantic ear-jump). Inside the room, subject (1964 British Oxford academic style: classic knit cardigan twinset and pleated skirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Diagonal Sentence-Crossover Card ('Right Ear: MAHOGANY \\ Left Ear: TABLE!') (demonstrates the semantic ear-jump). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across bright frosted acoustic booth with a brushed-silver desk stand and a glowing sky-blue right-side waveform rail. Inside the room, subject (1964 British Oxford academic style: classic knit cardigan twinset and pleated skirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "bright sunlit Oxford booth where a sky-blue wave ribbon and a soft sage ",
-        "Diagonal Sentence-Crossover Card ('Right Ear: MAHOGANY \\"
+        "bright frosted acoustic booth with a brushed-silver desk stand and a glo",
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1321,10 +1313,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (noisy_lounge_hall: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside bright sunlit concourse filled with soft sage acoustic wave rings drifting around cool slate-stone café tables, featuring dual-channel studio audio console & padded headphones (reconstructs Treisman's dichotic crossover). Inside the room, researcher (collegiate V-neck jumper over Oxford shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside dual-channel studio audio console & padded headphones (reconstructs Treisman's dichotic crossover). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside bright sunlit concourse filled with soft sage acoustic wave rings drifting around cool slate-stone café tables. Inside the room, researcher (collegiate V-neck jumper over Oxford shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "bright sunlit concourse filled with soft sage acoustic wave rings drifti",
-        "dual-channel studio audio console & padded headphones (r"
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ]

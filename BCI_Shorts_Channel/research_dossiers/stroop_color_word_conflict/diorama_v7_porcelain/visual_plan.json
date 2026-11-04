@@ -297,8 +297,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 10,
@@ -359,8 +358,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 14,
@@ -550,8 +548,7 @@
           "researcher"
         ]
       },
-      "clip_number": 20,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 20
     },
     {
       "sentence_index": 24,
@@ -677,8 +674,7 @@
           "subject"
         ]
       },
-      "clip_number": 26,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 26
     },
     {
       "sentence_index": 30,
@@ -773,8 +769,7 @@
           "researcher"
         ]
       },
-      "clip_number": 30,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 30
     },
     {
       "sentence_index": 34,
@@ -821,8 +816,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 36,
@@ -917,8 +911,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 40,
@@ -1072,8 +1065,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 48,
@@ -1186,12 +1178,12 @@
   "default_location_id": "nashville_timing_hall",
   "real_environment": "the bright Nashville classroom with rows of students seated before nested-token easels",
   "environment_props": [
-    "1935 10×10 Solid Color Patch Card vs Mismatched Color-Word Card",
-    "chrome 1935 laboratory brushed-metal instrument & '+47.0s (+74.3%)' smooth slate wall panel tally"
+    "1935 10×10 Solid Color Patch blank matte blank matte card vs Mismatched Color-Word blank matte blank matte card",
+    "chrome 1935 laboratory brushed-metal instrument & smooth unmarked slate wall panel tally"
   ],
   "cast": {
-    "subject": "1935 American collegiate wear: wool vest suit with necktie with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "collegiate knit cardigan and pleated trousers with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "1935 American collegiate wear: wool vest suit with necktie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "collegiate knit cardigan and pleated trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1213,10 +1205,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (nashville_timing_hall: researcher, subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright Nashville classroom with rows of students seated before nested-token easels, featuring 1935 10×10 Solid Color Patch Card vs Mismatched Color-Word Card. Inside the room, researcher (collegiate knit cardigan and pleated trousers with a completely smooth featureless solid matte-white egg-shaped oval head), subject (1935 American collegiate wear: wool vest suit with necktie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1935 10×10 Solid Color Patch Card vs Mismatched Color-Word Card. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright Nashville classroom with rows of students seated before nested-token easels, featuring 1935 10×10 Solid Color Patch blank matte blank matte blank matte card vs Mismatched Color-Word blank matte blank matte blank matte card. Inside the room, researcher (collegiate knit cardigan and pleated trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head), subject (1935 American collegiate wear: wool vest suit with necktie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1935 10×10 Solid Color Patch blank matte blank matte blank matte card vs Mismatched Color-Word blank matte blank matte blank matte card. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the bright Nashville classroom with rows of students seated before neste",
-        "1935 10×10 Solid Color Patch Card vs Mismatched Color-Wo"
+        "1935 10×10 Solid Color Patch blank matte blank matte car"
       ]
     },
     {
@@ -1235,10 +1227,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (pastel_control_studio: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a cool powder-blue cognitive studio with slate-stone tables and parallel brushed-silver track models, featuring chrome 1935 laboratory brushed-metal instrument & '+47.0s (+74.3%)' smooth slate wall panel tally. Inside the room, researcher (collegiate knit cardigan and pleated trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside chrome 1935 laboratory brushed-metal instrument & '+47.0s (+74.3%)' smooth slate wall panel tally. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a cool powder-blue cognitive studio with slate-stone tables and parallel brushed-silver track models. Inside the room, researcher (collegiate knit cardigan and pleated trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a cool powder-blue cognitive studio with slate-stone tables and parallel",
-        "chrome 1935 laboratory brushed-metal instrument & '+47.0"
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1258,10 +1250,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (nashville_timing_hall: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the bright Nashville classroom with rows of students seated before nested-token easels, featuring 1935 10×10 Solid Color Patch Card vs Mismatched Color-Word Card. Inside the room, researcher (collegiate knit cardigan and pleated trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1935 10×10 Solid Color Patch Card vs Mismatched Color-Word Card. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the bright Nashville classroom with rows of students seated before nested-token easels, featuring 1935 10×10 Solid Color Patch blank matte blank matte blank matte card vs Mismatched Color-Word blank matte blank matte blank matte card. Inside the room, researcher (collegiate knit cardigan and pleated trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1935 10×10 Solid Color Patch blank matte blank matte blank matte card vs Mismatched Color-Word blank matte blank matte blank matte card. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the bright Nashville classroom with rows of students seated before neste",
-        "1935 10×10 Solid Color Patch Card vs Mismatched Color-Wo"
+        "1935 10×10 Solid Color Patch blank matte blank matte car"
       ]
     }
   ]

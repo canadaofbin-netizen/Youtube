@@ -178,8 +178,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 5,
@@ -325,8 +324,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 11,
@@ -395,8 +393,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 14,
@@ -504,8 +501,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 20,
@@ -598,8 +594,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 25,
@@ -728,8 +723,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 31,
@@ -942,8 +936,7 @@
           "researcher"
         ]
       },
-      "clip_number": 37,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 37
     },
     {
       "sentence_index": 40,
@@ -1029,8 +1022,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 46,
@@ -1077,8 +1069,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 48,
@@ -1192,13 +1183,13 @@
   "default_location_id": "jerusalem_choice_room",
   "real_environment": "a sunlit cool-limestone seminar room with slate-gray tables and a sculpted sunlit S-curve wall board",
   "environment_props": [
-    "paired Gain (+3,000) vs Loss (-3,000) placard cards",
-    "asymmetric S-curve smooth slate wall panel graph",
+    "paired Gain (+3,000) vs Loss (-3,000) unmarked brushed-metal plate blank matte blank matte cards",
+    "asymmetric S-curve smooth unmarked slate wall panel unmarked paper sheet",
     "ceramic university coffee mug (plain ceramic mug resting at the reference-point origin)"
   ],
   "cast": {
     "subject": "1979 academic attire: open-collar Oxford shirt, light tweed blazer, corduroy trousers with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "researcher": "1979 academic attire: open-collar Oxford shirt, light tweed blazer, corduroy trousers with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1219,10 +1210,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 1 (jerusalem_choice_room: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit cool-limestone seminar room with slate-gray tables and a sculpted sunlit S-curve wall board, featuring paired Gain (+3,000) vs Loss (-3,000) placard cards. Inside the room, subject (1979 academic attire: open-collar Oxford shirt, light tweed blazer, corduroy trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired Gain (+3,000) vs Loss (-3,000) placard cards. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit cool-limestone seminar room with slate-gray tables and a sculpted sunlit S-curve wall board, featuring paired Gain (+3,000) vs Loss (-3,000) unmarked brushed-metal plate blank matte blank matte blank matte cards. Inside the room, subject (1979 academic attire: open-collar Oxford shirt, light tweed blazer, corduroy trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired Gain (+3,000) vs Loss (-3,000) unmarked brushed-metal plate blank matte blank matte blank matte cards. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a sunlit cool-limestone seminar room with slate-gray tables and a sculpt",
-        "paired Gain (+3,000) vs Loss (-3,000) placard cards"
+        "paired Gain (+3,000) vs Loss (-3,000) unmarked brushed-m"
       ]
     },
     {
@@ -1242,10 +1233,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (jerusalem_choice_room: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit cool-limestone seminar room with slate-gray tables and a sculpted sunlit S-curve wall board, featuring asymmetric S-curve smooth slate wall panel graph. Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside asymmetric S-curve smooth slate wall panel graph. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit cool-limestone seminar room with slate-gray tables and a sculpted sunlit S-curve wall board, featuring asymmetric S-curve smooth unmarked slate wall panel unmarked paper sheet. Inside the room, researcher (1979 academic attire: open-collar Oxford shirt, light tweed blazer, corduroy trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside asymmetric S-curve smooth unmarked slate wall panel unmarked paper sheet. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a sunlit cool-limestone seminar room with slate-gray tables and a sculpt",
-        "asymmetric S-curve smooth slate wall panel graph"
+        "asymmetric S-curve smooth unmarked slate wall panel unma"
       ]
     },
     {
@@ -1264,10 +1255,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (modern_reset_desk: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright cool powder-blue hospital conference room with a limestone table displaying nine mint-sage figure pins and one pale-gray pin, featuring paired Gain (+3,000) vs Loss (-3,000) placard cards. Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired Gain (+3,000) vs Loss (-3,000) placard cards. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright cool powder-blue hospital conference room with a limestone table displaying nine mint-sage figure pins and one pale-gray pin. Inside the room, researcher (1979 academic attire: open-collar Oxford shirt, light tweed blazer, corduroy trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a bright cool powder-blue hospital conference room with a limestone tabl",
-        "paired Gain (+3,000) vs Loss (-3,000) placard cards"
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ]

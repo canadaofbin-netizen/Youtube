@@ -1,10 +1,6 @@
 {
   "schema_version": 7,
-  "profile": "neuro_diorama",
   "voice": "en-US-AndrewMultilingualNeural",
-  "voice_preset": "andrew_v7",
-  "visual_mode": "NEURO_BIOLOGY",
-  "aspect": "9:16",
   "clips": [
     {
       "clip_number": 1,
@@ -221,7 +217,7 @@
       "beat_index": null,
       "beat_weight": null,
       "cut_role": null,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png",
+      "reference_image": null,
       "end_reference_image": null,
       "source_shot_id": null,
       "aspect": "9:16",
@@ -335,7 +331,7 @@
       "beat_index": null,
       "beat_weight": null,
       "cut_role": null,
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png",
+      "reference_image": null,
       "end_reference_image": null,
       "source_shot_id": null,
       "aspect": "9:16",
@@ -677,7 +673,7 @@
       "beat_index": null,
       "beat_weight": null,
       "cut_role": null,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png",
+      "reference_image": null,
       "end_reference_image": null,
       "source_shot_id": null,
       "aspect": "9:16",
@@ -1095,7 +1091,7 @@
       "beat_index": null,
       "beat_weight": null,
       "cut_role": null,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png",
+      "reference_image": null,
       "end_reference_image": null,
       "source_shot_id": null,
       "aspect": "9:16",
@@ -1285,7 +1281,7 @@
       "beat_index": null,
       "beat_weight": null,
       "cut_role": null,
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png",
+      "reference_image": null,
       "end_reference_image": null,
       "source_shot_id": null,
       "aspect": "9:16",
@@ -1399,7 +1395,7 @@
       "beat_index": null,
       "beat_weight": null,
       "cut_role": null,
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png",
+      "reference_image": null,
       "end_reference_image": null,
       "source_shot_id": null,
       "aspect": "9:16",
@@ -1703,7 +1699,7 @@
       "beat_index": null,
       "beat_weight": null,
       "cut_role": null,
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png",
+      "reference_image": null,
       "end_reference_image": null,
       "source_shot_id": null,
       "aspect": "9:16",
@@ -1881,5 +1877,8 @@
     "Generate an 8-second vertical portrait video clip. Smooth steady orthogonal horizontal camera pan leftward across the scene. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: tight neck-down work close-up framed strictly below the collar showing smooth matte-white ball-jointed porcelain forearms and articulated hands in tailored cuffs (academic blazer sleeves and cool porcelain-white gloved matte-white porcelain hands turning an inward-pointing brushed-silver arrow). Both cool porcelain-white gloved matte-white porcelain hands pivot the brushed-brushed-silver attribution arrow inward toward a hollow geometric torso outline frame, while the inward branch tilts down on the right side of the board. Crisp cinema prime lens clarity on tactile porcelain, metal, glass, and wood with unmarked walls. Subtle crisp physical foley and quiet studio daylight ambience only, silent voice track.",
     "Generate an 8-second vertical portrait video clip. Smooth steady vertical camera tilt upward across the bright sunlit scene. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: full-bleed high-key view of a serene sunlit Parisian chestnut tree promenade and pale-limestone rooftops opening upward into a clear sunlit sky in soft bright studio daylight with crisp rim light. Viewed from behind, clothed matte-white porcelain figures in coats and cardigans walk calmly along the sunlit garden path as the camera tilts upward, each figure topped by a smooth featureless white head with a translucent frosted-glass cranium. Crisp cinema prime lens clarity on tactile porcelain, metal, glass, and wood with unmarked walls. Subtle crisp physical foley and quiet studio daylight ambience only, silent voice track."
   ],
-  "style_profile": "porcelain_cinematic_v7"
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "aspect": "9:16"
 }

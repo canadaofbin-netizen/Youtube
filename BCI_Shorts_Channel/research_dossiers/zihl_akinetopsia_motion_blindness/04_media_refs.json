@@ -39,13 +39,17 @@
         "keyframe_count": 14,
         "median_dark_ratio": 0.2057,
         "median_gray_sat_ratio": 0.3839,
+        "median_p90_sat": 113.5,
+        "max_p90_sat": 155.0,
         "is_bw_archival": false,
+        "is_mixed_bw_and_color": true,
         "median_flat_patch_ratio": 0.3733,
+        "median_motion_diff": 55.154,
         "talking_head_ratio": 0.25,
         "words_per_sec": 1.202,
         "has_strong_archival_cue": false
       },
-      "recommended_section": "00:06-01:36"
+      "recommended_section": "00:06-00:49"
     },
     {
       "id": "M2",
@@ -116,5 +120,6 @@
     }
   ],
   "reenactment_track": "track_a",
-  "track_subtier": "A2_section_window"
+  "track_subtier": "A2_section_window",
+  "suitability_schema_version": 2
 }

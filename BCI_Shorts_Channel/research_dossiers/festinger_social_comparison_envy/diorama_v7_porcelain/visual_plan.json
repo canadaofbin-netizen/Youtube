@@ -151,8 +151,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_env_master.png"
+      }
     },
     {
       "sentence_index": 4,
@@ -199,8 +198,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 6,
@@ -386,8 +384,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 14,
@@ -503,7 +500,8 @@
           "subject"
         ],
         "protocol_phase_jump": true
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 19,
@@ -671,8 +669,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 27,
@@ -768,8 +765,7 @@
           "researcher"
         ],
         "protocol_phase_jump": true
-      },
-      "reference_image": "03_visuals/reference_images/ref_env_master.png"
+      }
     },
     {
       "sentence_index": 32,
@@ -793,8 +789,7 @@
           "researcher"
         ]
       },
-      "clip_number": 31,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 31
     },
     {
       "sentence_index": 33,
@@ -865,8 +860,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_env_master.png"
+      }
     },
     {
       "sentence_index": 37,
@@ -1024,8 +1018,7 @@
           "researcher"
         ]
       },
-      "clip_number": 41,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 41
     },
     {
       "sentence_index": 47,
@@ -1155,7 +1148,8 @@
           "subject"
         ],
         "protocol_phase_jump": true
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "sentence_index": 23,
@@ -1203,17 +1197,17 @@
   "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
   "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
   "require_scene_state_ledger": true,
-  "reenactment_track": "track_a",
-  "track_subtier": "A2_section_window",
-  "default_location_id": "minnesota_comparison_lab",
-  "real_environment": "a sunlit behavioral economics survey room with two sunlit architectural housing layout boards displayed on a cool-slate table",
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "default_location_id": "modern_home_desk",
+  "real_environment": "a sunlit office workspace with two side-by-side cool-slate desks separated by a low glass divider",
   "environment_props": [
     "three-tier white 1st / 2nd / 3rd Podium + #4 Floor Marker",
-    "Upward vs Downward Sightline Chart ('Silver 4.8 vs Bronze 7.1') (visualizes Festinger's reference-point mechanics in one instant)"
+    "Upward vs Downward Sightline unmarked paper sheet () (visualizes Festinger's reference-point mechanics in one instant)"
   ],
   "cast": {
-    "subject": "Clean classic white-and-navy Olympic track warmups with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "mid-century academic wool blazer and tie with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "Clean classic white-and-navy Olympic track warmups and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "mid-century academic wool blazer and tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1230,10 +1224,11 @@
       "setting": "real_env",
       "generation_order": 3,
       "conditioned_on": [
+        "ref_env_master",
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (modern_home_desk: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit office workspace with two side-by-side cool-slate desks separated by a low glass divider, featuring three-tier white 1st / 2nd / 3rd Podium + #4 Floor Marker. Inside the room, researcher (mid-century academic wool blazer and tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-tier white 1st / 2nd / 3rd Podium + #4 Floor Marker. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit office workspace with two side-by-side cool-slate desks separated by a low glass divider, featuring three-tier white 1st / 2nd / 3rd Podium + #4 Floor Marker. Inside the room, researcher (mid-century academic wool blazer and tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-tier white 1st / 2nd / 3rd Podium + #4 Floor Marker. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a sunlit office workspace with two side-by-side cool-slate desks separat",
         "three-tier white 1st / 2nd / 3rd Podium + #4 Floor Marke"
@@ -1255,10 +1250,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (olympic_podium_stage: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit arena stage featuring a crisp three-tier white championship podium beside an empty fourth-place floor mat, featuring Upward vs Downward Sightline Chart ('Silver 4.8 vs Bronze 7.1') (visualizes Festinger's reference-point mechanics in one instant). Inside the room, researcher (mid-century academic wool blazer and tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Upward vs Downward Sightline Chart ('Silver 4.8 vs Bronze 7.1') (visualizes Festinger's reference-point mechanics in one instant). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit arena stage featuring a crisp three-tier white championship podium beside an empty fourth-place floor mat. Inside the room, researcher (mid-century academic wool blazer and tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a sunlit arena stage featuring a crisp three-tier white championship pod",
-        "Upward vs Downward Sightline Chart ('Silver 4.8 vs Bronz"
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1274,14 +1269,13 @@
       "setting": "real_env",
       "generation_order": 3,
       "conditioned_on": [
-        "ref_env_master",
         "ref_cast_subject"
       ],
       "title": "Room state anchor 3 (minnesota_comparison_lab: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a sunlit behavioral economics survey room with two sunlit architectural housing layout boards displayed on a cool-slate table, featuring three-tier white 1st / 2nd / 3rd Podium + #4 Floor Marker. Inside the room, subject (Clean classic white-and-navy Olympic track warmups with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-tier white 1st / 2nd / 3rd Podium + #4 Floor Marker. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a sunlit behavioral economics survey room with two sunlit architectural housing layout boards displayed on a cool-slate table. Inside the room, subject (Clean classic white-and-navy Olympic track warmups and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a sunlit behavioral economics survey room with two sunlit architectural ",
-        "three-tier white 1st / 2nd / 3rd Podium + #4 Floor Marke"
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ]

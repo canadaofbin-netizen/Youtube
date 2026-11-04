@@ -39,8 +39,12 @@
         "keyframe_count": 12,
         "median_dark_ratio": 0.5053,
         "median_gray_sat_ratio": 0.7363,
-        "is_bw_archival": true,
+        "median_p90_sat": 76.5,
+        "max_p90_sat": 102.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
         "median_flat_patch_ratio": 0.5188,
+        "median_motion_diff": 51.74,
         "talking_head_ratio": 0.125,
         "words_per_sec": 0.156,
         "has_strong_archival_cue": true
@@ -85,14 +89,17 @@
         "keyframe_count": 11,
         "median_dark_ratio": 0.1174,
         "median_gray_sat_ratio": 0.5155,
+        "median_p90_sat": 216.0,
+        "max_p90_sat": 255.0,
         "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
         "median_flat_patch_ratio": 0.1146,
+        "median_motion_diff": 92.253,
         "talking_head_ratio": 0.5,
         "words_per_sec": 3.348,
         "has_strong_archival_cue": false,
         "gate_failed": 4
-      },
-      "recommended_section": "*00:00-01:20"
+      }
     },
     {
       "id": "M3",
@@ -124,5 +131,6 @@
     }
   ],
   "reenactment_track": "track_a",
-  "track_subtier": "A1a_ready_keyframes"
+  "track_subtier": "A1a_ready_keyframes",
+  "suitability_schema_version": 2
 }

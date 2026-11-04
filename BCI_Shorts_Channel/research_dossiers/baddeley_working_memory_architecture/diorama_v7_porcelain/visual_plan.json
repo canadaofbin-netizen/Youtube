@@ -176,8 +176,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 5,
@@ -277,8 +276,7 @@
           "subject"
         ]
       },
-      "clip_number": 8,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 8
     },
     {
       "sentence_index": 9,
@@ -468,8 +466,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 18,
@@ -539,8 +536,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 21,
@@ -629,8 +625,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 27,
@@ -777,8 +772,7 @@
           "researcher"
         ]
       },
-      "clip_number": 30,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 30
     },
     {
       "sentence_index": 33,
@@ -825,8 +819,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 35,
@@ -1055,8 +1048,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 47,
@@ -1195,15 +1187,15 @@
   "reenactment_track": "track_b",
   "track_subtier": "B_scene_bible_anchor",
   "default_location_id": "stirling_psych_lab",
-  "real_environment": "the sunlit Stirling testing room with the short-tile tray, long-bar tray, and silver tally counter on the slate-stone desk",
+  "real_environment": "the bright Scottish university psychology lab with rows of testing cubicles, slate-stone desks, and brushed-silver tally counters",
   "environment_props": [
-    "8-Digit Vocal Load Strip & 'A is NOT preceded by B -> [B A]' Logic Card (pits full verbal rehearsal directly against active reasoning)",
-    "Accuracy & Latency Graph ('0 Digits: 2.15s / 95% -> 8 Digits: 3.27s / 95% — No Crash!') (shows smooth graceful trade-off instead of the predicted 50% collapse)",
+    "8-Digit Vocal Load Strip & Logic blank matte blank matte card (pits full verbal rehearsal directly against active reasoning)",
+    "Accuracy & Latency unmarked paper sheet ()",
     "4-Room Working Memory Blueprint (Central Executive -> Phonological Loop | Visuospatial Sketchpad | Episodic Buffer) (clean architectural schematic beside the table)"
   ],
   "cast": {
-    "subject": "1974 British university attire: tan corduroy/tweed jackets, patterned ties, collared shirts, V-neck wool jumper with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "clinical investigator in a white coat with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "1974 British university attire: tan corduroy/tweed jackets, patterned ties, collared shirts, V-neck wool jumper and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "1974 British university attire: tan corduroy/tweed jackets, patterned ties, collared shirts, V-neck wool jumper and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1225,10 +1217,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (stirling_psych_lab: researcher, subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunlit Stirling testing room with the short-tile tray, long-bar tray, and silver tally counter on the slate-stone desk, featuring 8-Digit Vocal Load Strip & 'A is NOT preceded by B -> [B A]' Logic Card (pits full verbal rehearsal directly against active reasoning). Inside the room, researcher (clinical investigator in a white coat with a completely smooth featureless solid matte-white egg-shaped oval head), subject (1974 British university attire: tan corduroy/tweed jackets, patterned ties, collared shirts, V-neck wool jumper with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 8-Digit Vocal Load Strip & 'A is NOT preceded by B -> [B A]' Logic Card (pits full verbal rehearsal directly against active reasoning). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright Scottish university psychology lab with rows of testing cubicles, slate-stone desks, and brushed-silver tally counters, featuring 8-Digit Vocal Load Strip & Logic blank matte blank matte blank matte card (pits full verbal rehearsal directly against active reasoning). Inside the room, researcher (1974 British university attire: tan corduroy/tweed jackets, patterned ties, collared shirts, V-neck wool jumper and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head), subject (1974 British university attire: tan corduroy/tweed jackets, patterned ties, collared shirts, V-neck wool jumper and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 8-Digit Vocal Load Strip & Logic blank matte blank matte blank matte card (pits full verbal rehearsal directly against active reasoning). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the sunlit Stirling testing room with the short-tile tray, long-bar tray",
-        "8-Digit Vocal Load Strip & 'A is NOT preceded by B -> [B"
+        "the bright Scottish university psychology lab with rows of testing cubic",
+        "8-Digit Vocal Load Strip & Logic blank matte blank matte"
       ]
     },
     {
@@ -1248,10 +1240,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (stirling_psych_lab: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the sunlit Stirling testing room with the short-tile tray, long-bar tray, and silver tally counter on the slate-stone desk, featuring Accuracy & Latency Graph ('0 Digits: 2.15s / 95% -> 8 Digits: 3.27s / 95% — No Crash!') (shows smooth graceful trade-off instead of the predicted 50% collapse). Inside the room, researcher (clinical investigator in a white coat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Accuracy & Latency Graph ('0 Digits: 2.15s / 95% -> 8 Digits: 3.27s / 95% — No Crash!') (shows smooth graceful trade-off instead of the predicted 50% collapse). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the bright Scottish university psychology lab with rows of testing cubicles, slate-stone desks, and brushed-silver tally counters, featuring Accuracy & Latency unmarked paper sheet (). Inside the room, researcher (1974 British university attire: tan corduroy/tweed jackets, patterned ties, collared shirts, V-neck wool jumper and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Accuracy & Latency unmarked paper sheet (). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the sunlit Stirling testing room with the short-tile tray, long-bar tray",
-        "Accuracy & Latency Graph ('0 Digits: 2.15s / 95% -> 8 Di"
+        "the bright Scottish university psychology lab with rows of testing cubic",
+        "Accuracy & Latency unmarked paper sheet ()"
       ]
     },
     {
@@ -1271,10 +1263,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 3 (stirling_psych_lab: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the sunlit Stirling testing room with the short-tile tray, long-bar tray, and silver tally counter on the slate-stone desk, featuring 8-Digit Vocal Load Strip & 'A is NOT preceded by B -> [B A]' Logic Card (pits full verbal rehearsal directly against active reasoning). Inside the room, subject (1974 British university attire: tan corduroy/tweed jackets, patterned ties, collared shirts, V-neck wool jumper with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 8-Digit Vocal Load Strip & 'A is NOT preceded by B -> [B A]' Logic Card (pits full verbal rehearsal directly against active reasoning). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the bright Scottish university psychology lab with rows of testing cubicles, slate-stone desks, and brushed-silver tally counters, featuring 8-Digit Vocal Load Strip & Logic blank matte blank matte blank matte card (pits full verbal rehearsal directly against active reasoning). Inside the room, subject (1974 British university attire: tan corduroy/tweed jackets, patterned ties, collared shirts, V-neck wool jumper and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 8-Digit Vocal Load Strip & Logic blank matte blank matte blank matte card (pits full verbal rehearsal directly against active reasoning). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the sunlit Stirling testing room with the short-tile tray, long-bar tray",
-        "8-Digit Vocal Load Strip & 'A is NOT preceded by B -> [B"
+        "the bright Scottish university psychology lab with rows of testing cubic",
+        "8-Digit Vocal Load Strip & Logic blank matte blank matte"
       ]
     }
   ]

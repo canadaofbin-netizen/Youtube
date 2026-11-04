@@ -293,8 +293,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 10,
@@ -457,8 +456,7 @@
           "subject"
         ]
       },
-      "clip_number": 16,
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      "clip_number": 16
     },
     {
       "sentence_index": 17,
@@ -576,8 +574,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 24,
@@ -709,8 +706,7 @@
           "subject"
         ]
       },
-      "clip_number": 27,
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      "clip_number": 27
     },
     {
       "sentence_index": 30,
@@ -840,8 +836,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 37,
@@ -934,8 +929,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 42,
@@ -1103,8 +1097,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 51,
@@ -1204,12 +1197,12 @@
   "default_location_id": "palo_alto_porch",
   "real_environment": "the Palo Alto porch where the tiny mint-sage square gleams inside the corner of the frosted front window as a second volunteer arrives",
   "environment_props": [
-    "tiny 3×3-inch 'Be a Safe Driver' window sticker vs giant clunky 'DRIVE CAREFULLY' lawn billboard",
-    "4-Group Palo Alto Results Stand ('Cold Ask: 16.7% | Different-Topic Petition: 47.4% | 3-Inch Sticker First: 76.0%!') (shows both the 4.5x sticker jump and 3x cross-topic identity proof)"
+    "tiny 3×3-inch window sticker vs giant clunky lawn billboard",
+    "4-Group Palo Alto Results Stand () (shows both the 4.5x sticker jump and 3x cross-topic identity proof)"
   ],
   "cast": {
-    "subject": "1966 California suburban style: crisp collegiate button-down and chinos with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "mid-century knit cardigan and slacks with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "1966 California suburban style: crisp collegiate button-down and chinos and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "mid-century knit cardigan and slacks and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1230,10 +1223,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 1 (palo_alto_porch: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the Palo Alto porch where the tiny mint-sage square gleams inside the corner of the frosted front window as a second volunteer arrives, featuring tiny 3×3-inch 'Be a Safe Driver' window sticker vs giant clunky 'DRIVE CAREFULLY' lawn billboard. Inside the room, subject (1966 California suburban style: crisp collegiate button-down and chinos with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside tiny 3×3-inch 'Be a Safe Driver' window sticker vs giant clunky 'DRIVE CAREFULLY' lawn billboard. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the Palo Alto porch where the tiny mint-sage square gleams inside the corner of the frosted front window as a second volunteer arrives, featuring tiny 3×3-inch window sticker vs giant clunky lawn billboard. Inside the room, subject (1966 California suburban style: crisp collegiate button-down and chinos and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside tiny 3×3-inch window sticker vs giant clunky lawn billboard. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the Palo Alto porch where the tiny mint-sage square gleams inside the co",
-        "tiny 3×3-inch 'Be a Safe Driver' window sticker vs giant"
+        "tiny 3×3-inch window sticker vs giant clunky lawn billbo"
       ]
     },
     {
@@ -1253,10 +1246,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (palo_alto_porch: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the Palo Alto porch where the tiny mint-sage square gleams inside the corner of the frosted front window as a second volunteer arrives, featuring 4-Group Palo Alto Results Stand ('Cold Ask: 16.7% | Different-Topic Petition: 47.4% | 3-Inch Sticker First: 76.0%!') (shows both the 4.5x sticker jump and 3x cross-topic identity proof). Inside the room, researcher (mid-century knit cardigan and slacks with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 4-Group Palo Alto Results Stand ('Cold Ask: 16.7% | Different-Topic Petition: 47.4% | 3-Inch Sticker First: 76.0%!') (shows both the 4.5x sticker jump and 3x cross-topic identity proof). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the Palo Alto porch where the tiny mint-sage square gleams inside the corner of the frosted front window as a second volunteer arrives, featuring 4-Group Palo Alto Results Stand () (shows both the 4.5x sticker jump and 3x cross-topic identity proof). Inside the room, researcher (mid-century knit cardigan and slacks and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 4-Group Palo Alto Results Stand () (shows both the 4.5x sticker jump and 3x cross-topic identity proof). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the Palo Alto porch where the tiny mint-sage square gleams inside the co",
-        "4-Group Palo Alto Results Stand ('Cold Ask: 16.7% | Diff"
+        "4-Group Palo Alto Results Stand () (shows both the 4.5x "
       ]
     },
     {
@@ -1275,10 +1268,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 3 (palo_alto_kitchen: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a sunlit cool-toned Palo Alto kitchen with a powder-blue rotary desk phone on a cool limestone counter and closed sunlit slate cupboards, featuring tiny 3×3-inch 'Be a Safe Driver' window sticker vs giant clunky 'DRIVE CAREFULLY' lawn billboard. Inside the room, subject (1966 California suburban style: crisp collegiate button-down and chinos with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside tiny 3×3-inch 'Be a Safe Driver' window sticker vs giant clunky 'DRIVE CAREFULLY' lawn billboard. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a sunlit cool-toned Palo Alto kitchen with a powder-blue rotary desk phone on a cool limestone counter and closed sunlit slate cupboards. Inside the room, subject (1966 California suburban style: crisp collegiate button-down and chinos and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a sunlit cool-toned Palo Alto kitchen with a powder-blue rotary desk pho",
-        "tiny 3×3-inch 'Be a Safe Driver' window sticker vs giant"
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ]

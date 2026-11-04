@@ -73,18 +73,11 @@
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
       },
-      "reenactment_suitability": "needs_section_window",
-      "reenactment_suitability_reason": "gate4_mixed_commentary_or_unwindowed_long_video",
-      "recommended_section": "05:49-07:19",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_explainer_or_lecture_title(new free)",
       "reenactment_suitability_metrics": {
-        "keyframe_count": 14,
-        "median_dark_ratio": 0.1582,
-        "median_gray_sat_ratio": 0.0913,
-        "is_bw_archival": false,
-        "median_flat_patch_ratio": 0.5625,
-        "talking_head_ratio": 0.0,
-        "words_per_sec": 2.362,
-        "has_strong_archival_cue": true
+        "gate_failed": 1,
+        "matched_title_marker": "new free"
       }
     },
     {
@@ -116,6 +109,7 @@
       }
     }
   ],
-  "reenactment_track": "track_a",
-  "track_subtier": "A2_section_window"
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "suitability_schema_version": 2
 }

@@ -4,7 +4,7 @@
   "aspect": "9:16",
   "dossier": "ebbinghaus_forgetting_curve",
   "total_reference_images": 8,
-  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in 1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles with a completely smooth featureless solid matte-white egg-shaped oval head; researcher in clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head.",
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in 1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head; researcher in 1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head.",
   "generation_order": "1 env plate + master brain bust -> 2 cast sheets + hero prop (conditioned on env) -> 3 clip start / key frames (conditioned on master anchors)",
   "master_anchors": [
     {
@@ -19,10 +19,10 @@
       "conditioned_on": [],
       "present_cast": [],
       "location_id": "modern_study_desk",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, featuring 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments). Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, featuring 13-blank matte blank matte card nonsense-syllable deck & 2,300-blank matte blank matte card box (crisp hand-inked 3-letter blank matte blank matte cards arranged in wooden compartments). Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "an elevated wide view of a cool-slate student study room with scattered blank gr",
-        "13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-car"
+        "13-blank matte blank matte card nonsense-syllable deck & 2,3"
       ],
       "style_profile": "porcelain_cinematic_v7"
     },
@@ -42,7 +42,7 @@
         "subject"
       ],
       "location_id": "modern_study_desk",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles with a completely smooth featureless solid matte-white egg-shaped oval head, standing in an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, rou",
         "porcelain mannequin, no human skin or face"
@@ -65,9 +65,9 @@
         "researcher"
       ],
       "location_id": "modern_study_desk",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head, standing in an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing 1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "clinical investigator in a tailored crisp white laboratory coat over a charcoal ",
+        "1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, rou",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -86,9 +86,9 @@
       ],
       "present_cast": [],
       "location_id": "modern_study_desk",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments) inside an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of 13-blank matte blank matte card nonsense-syllable deck & 2,300-blank matte blank matte card box (crisp hand-inked 3-letter blank matte blank matte cards arranged in wooden compartments) inside an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-in"
+        "13-blank matte blank matte card nonsense-syllable deck & 2,300-blank matte blank"
       ],
       "style_profile": "porcelain_cinematic_v7"
     },
@@ -102,7 +102,7 @@
       "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
       "generation_order": 1,
       "conditioned_on": [],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: sagittal-coronal cross-section of a matte-white 3D brain focusing on the hippocampus on an acrylic pedestal with living impulses gliding strictly inside enclosed white-matter sheaths. Inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, soft mint-sage and powder-blue light illuminates the curved inner hippocampus ridge. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait composition against a high-contrast cool slate-grey studio backdrop, with dynamic camera progression from the porcelain head into the open anatomical brain cross-section tracking the neural circuit. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: sagittal-coronal cross-section of a matte-white 3D brain focusing on the hippocampus on an acrylic pedestal with living impulses gliding strictly inside enclosed white-matter sheaths. Inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, soft mint-sage and powder-blue light illuminates the curved inner hippocampus ridge. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, zero human facial features, no text, no letters, no watermark.",
       "must_include": [
         "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
         "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
@@ -125,10 +125,10 @@
       "conditioned_on": [
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright sunlit Berlin slate study with thirteen blank ceramic tiles arranged neatly beside the brushed-silver brushed-metal instrument, featuring 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across an elevated wide view of a sunlit European scholar study with tall arched casement windows, a cool slate-gray desk, compartmentalized stone tile trays, and an unmarked curved glass slope. Inside the room, researcher (1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the bright sunlit Berlin slate study with thirteen blank ceramic tiles a",
-        "13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300"
+        "an elevated wide view of a sunlit European scholar study with tall arche",
+        "an unmarked clinical tabletop apparatus"
       ],
       "key_visual": null,
       "bound_master_anchors": [
@@ -155,7 +155,7 @@
         "ref_env_master",
         "ref_cast_subject"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, featuring pyramid wooden 150-bpm brushed-metal instrument & pocket timer (swinging brass pendulum keeping strict 0.4-second cadence per syllable). Inside the room, subject (1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside pyramid wooden 150-bpm brushed-metal instrument & pocket timer (swinging brass pendulum keeping strict 0.4-second cadence per syllable). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, featuring pyramid wooden 150-bpm brushed-metal instrument & pocket timer (swinging brass pendulum keeping strict 0.4-second cadence per syllable). Inside the room, subject (1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside pyramid wooden 150-bpm brushed-metal instrument & pocket timer (swinging brass pendulum keeping strict 0.4-second cadence per syllable). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "an elevated wide view of a cool-slate student study room with scattered ",
         "pyramid wooden 150-bpm brushed-metal instrument & pocket"
@@ -186,10 +186,10 @@
         "ref_env_master",
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, featuring 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, featuring 13-blank matte blank matte blank matte card nonsense-syllable deck & 2,300-blank matte blank matte blank matte card box (crisp hand-inked 3-letter blank matte blank matte blank matte cards arranged in wooden compartments). Inside the room, researcher (1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 13-blank matte blank matte blank matte card nonsense-syllable deck & 2,300-blank matte blank matte blank matte card box (crisp hand-inked 3-letter blank matte blank matte blank matte cards arranged in wooden compartments). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "an elevated wide view of a cool-slate student study room with scattered ",
-        "13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300"
+        "13-blank matte blank matte card nonsense-syllable deck &"
       ],
       "key_visual": null,
       "bound_master_anchors": [
@@ -216,10 +216,10 @@
       "conditioned_on": [],
       "present_cast": [],
       "location_id": "modern_study_desk",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, featuring 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments). Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, featuring 13-blank matte blank matte card nonsense-syllable deck & 2,300-blank matte blank matte card box (crisp hand-inked 3-letter blank matte blank matte cards arranged in wooden compartments). Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "an elevated wide view of a cool-slate student study room with scattered blank gr",
-        "13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-car"
+        "13-blank matte blank matte card nonsense-syllable deck & 2,3"
       ],
       "style_profile": "porcelain_cinematic_v7"
     },
@@ -239,7 +239,7 @@
         "subject"
       ],
       "location_id": "modern_study_desk",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles with a completely smooth featureless solid matte-white egg-shaped oval head, standing in an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, rou",
         "porcelain mannequin, no human skin or face"
@@ -262,9 +262,9 @@
         "researcher"
       ],
       "location_id": "modern_study_desk",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head, standing in an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing 1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "clinical investigator in a tailored crisp white laboratory coat over a charcoal ",
+        "1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, rou",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -283,9 +283,9 @@
       ],
       "present_cast": [],
       "location_id": "modern_study_desk",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments) inside an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of 13-blank matte blank matte card nonsense-syllable deck & 2,300-blank matte blank matte card box (crisp hand-inked 3-letter blank matte blank matte cards arranged in wooden compartments) inside an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-in"
+        "13-blank matte blank matte card nonsense-syllable deck & 2,300-blank matte blank"
       ],
       "style_profile": "porcelain_cinematic_v7"
     },
@@ -299,7 +299,7 @@
       "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
       "generation_order": 1,
       "conditioned_on": [],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: sagittal-coronal cross-section of a matte-white 3D brain focusing on the hippocampus on an acrylic pedestal with living impulses gliding strictly inside enclosed white-matter sheaths. Inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, soft mint-sage and powder-blue light illuminates the curved inner hippocampus ridge. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait composition against a high-contrast cool slate-grey studio backdrop, with dynamic camera progression from the porcelain head into the open anatomical brain cross-section tracking the neural circuit. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: sagittal-coronal cross-section of a matte-white 3D brain focusing on the hippocampus on an acrylic pedestal with living impulses gliding strictly inside enclosed white-matter sheaths. Inside the flat mid-sagittal cross-section of the matte cool-porcelain 3D brain model, soft mint-sage and powder-blue light illuminates the curved inner hippocampus ridge. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, zero human facial features, no text, no letters, no watermark.",
       "must_include": [
         "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
         "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
@@ -320,10 +320,10 @@
       "conditioned_on": [
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright sunlit Berlin slate study with thirteen blank ceramic tiles arranged neatly beside the brushed-silver brushed-metal instrument, featuring 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across an elevated wide view of a sunlit European scholar study with tall arched casement windows, a cool slate-gray desk, compartmentalized stone tile trays, and an unmarked curved glass slope. Inside the room, researcher (1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the bright sunlit Berlin slate study with thirteen blank ceramic tiles a",
-        "13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300"
+        "an elevated wide view of a sunlit European scholar study with tall arche",
+        "an unmarked clinical tabletop apparatus"
       ],
       "key_visual": null,
       "bound_master_anchors": [
@@ -350,7 +350,7 @@
         "ref_env_master",
         "ref_cast_subject"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, featuring pyramid wooden 150-bpm brushed-metal instrument & pocket timer (swinging brass pendulum keeping strict 0.4-second cadence per syllable). Inside the room, subject (1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside pyramid wooden 150-bpm brushed-metal instrument & pocket timer (swinging brass pendulum keeping strict 0.4-second cadence per syllable). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, featuring pyramid wooden 150-bpm brushed-metal instrument & pocket timer (swinging brass pendulum keeping strict 0.4-second cadence per syllable). Inside the room, subject (1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside pyramid wooden 150-bpm brushed-metal instrument & pocket timer (swinging brass pendulum keeping strict 0.4-second cadence per syllable). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "an elevated wide view of a cool-slate student study room with scattered ",
         "pyramid wooden 150-bpm brushed-metal instrument & pocket"
@@ -381,10 +381,10 @@
         "ref_env_master",
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, featuring 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, featuring 13-blank matte blank matte blank matte card nonsense-syllable deck & 2,300-blank matte blank matte blank matte card box (crisp hand-inked 3-letter blank matte blank matte blank matte cards arranged in wooden compartments). Inside the room, researcher (1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 13-blank matte blank matte blank matte card nonsense-syllable deck & 2,300-blank matte blank matte blank matte card box (crisp hand-inked 3-letter blank matte blank matte blank matte cards arranged in wooden compartments). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "an elevated wide view of a cool-slate student study room with scattered ",
-        "13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300"
+        "13-blank matte blank matte card nonsense-syllable deck &"
       ],
       "key_visual": null,
       "bound_master_anchors": [

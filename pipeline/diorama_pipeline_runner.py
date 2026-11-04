@@ -373,10 +373,7 @@ def run_diorama_pipeline(
                         from pipeline.porcelain_anchor_pack import ensure_porcelain_reference_pack
 
                         vp_doc_flow = json.loads(vp_path_flow.read_text(encoding="utf-8"))
-                        if is_porcelain_v7_plan(vp_doc_flow) and (
-                            vp_doc_flow.get("reference_anchors")
-                            or any(isinstance(c, dict) and c.get("reference_image") for c in (vp_doc_flow.get("clips") or []))
-                        ):
+                        if is_porcelain_v7_plan(vp_doc_flow):
                             ref_res = ensure_porcelain_reference_pack(
                                 p_dir_flow,
                                 cdp_port=cdp_port,

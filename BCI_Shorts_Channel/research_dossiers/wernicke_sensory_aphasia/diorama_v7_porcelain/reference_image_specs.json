@@ -4,7 +4,7 @@
   "aspect": "9:16",
   "dossier": "wernicke_sensory_aphasia",
   "total_reference_images": 8,
-  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in 1874 German medical frock coat, high collar, cravat with a completely smooth featureless solid matte-white egg-shaped oval head; researcher in modest 19th-century wool shawl over buttoned dress with a completely smooth featureless solid matte-white egg-shaped oval head.",
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in modest 19th-century wool shawl over buttoned dress and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head; researcher in 1874 German medical frock coat, high collar, cravat and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head.",
   "generation_order": "1 env plate + master brain bust -> 2 cast sheets + hero prop (conditioned on env) -> 3 clip start / key frames (conditioned on master anchors)",
   "master_anchors": [
     {
@@ -19,7 +19,7 @@
       "conditioned_on": [],
       "present_cast": [],
       "location_id": "breslau_clinic_room",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight, featuring three-object comprehension tray (key, water glass, hairbrush) & desk bell. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight, featuring three-object comprehension tray (key, water glass, hairbrush) & desk bell. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in",
         "three-object comprehension tray (key, water glass, hairbrush"
@@ -42,9 +42,9 @@
         "subject"
       ],
       "location_id": "breslau_clinic_room",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1874 German medical frock coat, high collar, cravat with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing modest 19th-century wool shawl over buttoned dress and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "1874 German medical frock coat, high collar, cravat with a completely smooth fea",
+        "modest 19th-century wool shawl over buttoned dress and closed matte-white leathe",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -65,9 +65,9 @@
         "researcher"
       ],
       "location_id": "breslau_clinic_room",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing modest 19th-century wool shawl over buttoned dress with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing 1874 German medical frock coat, high collar, cravat and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "modest 19th-century wool shawl over buttoned dress with a completely smooth feat",
+        "1874 German medical frock coat, high collar, cravat and closed matte-white leath",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -86,7 +86,7 @@
       ],
       "present_cast": [],
       "location_id": "breslau_clinic_room",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of three-object comprehension tray (key, water glass, hairbrush) & desk bell inside a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of three-object comprehension tray (key, water glass, hairbrush) & desk bell inside a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "three-object comprehension tray (key, water glass, hairbrush) & desk bell"
       ],
@@ -102,7 +102,7 @@
       "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
       "generation_order": 1,
       "conditioned_on": [],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the auditory cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. A matte powder-cream matte-white porcelain left hemisphere model on a cool slate stand where the upper temporal auditory cortex ridge glows soft subtle warm amber-gold with calm sound waves. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait composition against a high-contrast cool slate-grey studio backdrop, with dynamic camera progression from the porcelain head into the open anatomical brain cross-section tracking the neural circuit. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the auditory cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. A matte powder-cream matte-white porcelain left hemisphere model on a cool slate stand where the upper temporal auditory cortex ridge glows soft subtle warm amber-gold with calm sound waves. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, zero human facial features, no text, no letters, no watermark.",
       "must_include": [
         "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
         "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
@@ -126,7 +126,7 @@
         "ref_env_master",
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight, featuring three-object comprehension tray (key, water glass, hairbrush) & desk bell. Inside the room, researcher (modest 19th-century wool shawl over buttoned dress with a completely smooth featureless solid matte-white egg-shaped oval head), subject (1874 German medical frock coat, high collar, cravat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-object comprehension tray (key, water glass, hairbrush) & desk bell. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight, featuring three-object comprehension tray (key, water glass, hairbrush) & desk bell. Inside the room, researcher (1874 German medical frock coat, high collar, cravat and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head), subject (modest 19th-century wool shawl over buttoned dress and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-object comprehension tray (key, water glass, hairbrush) & desk bell. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a long pale-sage hospital hallway viewed toward an open clinic doorway b",
         "three-object comprehension tray (key, water glass, hairb"
@@ -157,10 +157,10 @@
       "conditioned_on": [
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a quiet high-key sunlit pathology study room with pale slate cabinets and a cool cream examination table, featuring Wernicke's 1874 hand-inked 'a1 -> b' cortical network diagram. Inside the room, researcher (modest 19th-century wool shawl over buttoned dress with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Wernicke's 1874 hand-inked 'a1 -> b' cortical network diagram. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a reverse three-quarter wide angle inside the bright high-key breslau study desk with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows. Inside the room, researcher (1874 German medical frock coat, high collar, cravat and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "a quiet high-key sunlit pathology study room with pale slate cabinets an",
-        "Wernicke's 1874 hand-inked 'a1 -> b' cortical network di"
+        "a reverse three-quarter wide angle inside the bright high-key breslau st",
+        "an unmarked clinical tabletop apparatus"
       ],
       "key_visual": null,
       "bound_master_anchors": [
@@ -186,10 +186,10 @@
       "conditioned_on": [
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a clean modern sunlit neurology triage bay with pale sage curtains and cool cream floors, featuring three-object comprehension tray (key, water glass, hairbrush) & desk bell. Inside the room, researcher (modest 19th-century wool shawl over buttoned dress with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-object comprehension tray (key, water glass, hairbrush) & desk bell. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a clean modern sunlit neurology triage bay with pale sage curtains and cool cream floors. Inside the room, researcher (1874 German medical frock coat, high collar, cravat and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a clean modern sunlit neurology triage bay with pale sage curtains and c",
-        "three-object comprehension tray (key, water glass, hairb"
+        "an unmarked clinical tabletop apparatus"
       ],
       "key_visual": null,
       "bound_master_anchors": [
@@ -215,7 +215,7 @@
       "conditioned_on": [],
       "present_cast": [],
       "location_id": "breslau_clinic_room",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight, featuring three-object comprehension tray (key, water glass, hairbrush) & desk bell. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight, featuring three-object comprehension tray (key, water glass, hairbrush) & desk bell. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in",
         "three-object comprehension tray (key, water glass, hairbrush"
@@ -238,9 +238,9 @@
         "subject"
       ],
       "location_id": "breslau_clinic_room",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1874 German medical frock coat, high collar, cravat with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing modest 19th-century wool shawl over buttoned dress and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "1874 German medical frock coat, high collar, cravat with a completely smooth fea",
+        "modest 19th-century wool shawl over buttoned dress and closed matte-white leathe",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -261,9 +261,9 @@
         "researcher"
       ],
       "location_id": "breslau_clinic_room",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing modest 19th-century wool shawl over buttoned dress with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing 1874 German medical frock coat, high collar, cravat and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "modest 19th-century wool shawl over buttoned dress with a completely smooth feat",
+        "1874 German medical frock coat, high collar, cravat and closed matte-white leath",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -282,7 +282,7 @@
       ],
       "present_cast": [],
       "location_id": "breslau_clinic_room",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of three-object comprehension tray (key, water glass, hairbrush) & desk bell inside a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of three-object comprehension tray (key, water glass, hairbrush) & desk bell inside a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "three-object comprehension tray (key, water glass, hairbrush) & desk bell"
       ],
@@ -298,7 +298,7 @@
       "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
       "generation_order": 1,
       "conditioned_on": [],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the auditory cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. A matte powder-cream matte-white porcelain left hemisphere model on a cool slate stand where the upper temporal auditory cortex ridge glows soft subtle warm amber-gold with calm sound waves. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait composition against a high-contrast cool slate-grey studio backdrop, with dynamic camera progression from the porcelain head into the open anatomical brain cross-section tracking the neural circuit. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the auditory cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. A matte powder-cream matte-white porcelain left hemisphere model on a cool slate stand where the upper temporal auditory cortex ridge glows soft subtle warm amber-gold with calm sound waves. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, zero human facial features, no text, no letters, no watermark.",
       "must_include": [
         "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
         "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
@@ -320,7 +320,7 @@
         "ref_env_master",
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight, featuring three-object comprehension tray (key, water glass, hairbrush) & desk bell. Inside the room, researcher (modest 19th-century wool shawl over buttoned dress with a completely smooth featureless solid matte-white egg-shaped oval head), subject (1874 German medical frock coat, high collar, cravat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-object comprehension tray (key, water glass, hairbrush) & desk bell. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight, featuring three-object comprehension tray (key, water glass, hairbrush) & desk bell. Inside the room, researcher (1874 German medical frock coat, high collar, cravat and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head), subject (modest 19th-century wool shawl over buttoned dress and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-object comprehension tray (key, water glass, hairbrush) & desk bell. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a long pale-sage hospital hallway viewed toward an open clinic doorway b",
         "three-object comprehension tray (key, water glass, hairb"
@@ -351,10 +351,10 @@
       "conditioned_on": [
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a quiet high-key sunlit pathology study room with pale slate cabinets and a cool cream examination table, featuring Wernicke's 1874 hand-inked 'a1 -> b' cortical network diagram. Inside the room, researcher (modest 19th-century wool shawl over buttoned dress with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Wernicke's 1874 hand-inked 'a1 -> b' cortical network diagram. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a reverse three-quarter wide angle inside the bright high-key breslau study desk with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows. Inside the room, researcher (1874 German medical frock coat, high collar, cravat and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "a quiet high-key sunlit pathology study room with pale slate cabinets an",
-        "Wernicke's 1874 hand-inked 'a1 -> b' cortical network di"
+        "a reverse three-quarter wide angle inside the bright high-key breslau st",
+        "an unmarked clinical tabletop apparatus"
       ],
       "key_visual": null,
       "bound_master_anchors": [
@@ -380,10 +380,10 @@
       "conditioned_on": [
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a clean modern sunlit neurology triage bay with pale sage curtains and cool cream floors, featuring three-object comprehension tray (key, water glass, hairbrush) & desk bell. Inside the room, researcher (modest 19th-century wool shawl over buttoned dress with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-object comprehension tray (key, water glass, hairbrush) & desk bell. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a clean modern sunlit neurology triage bay with pale sage curtains and cool cream floors. Inside the room, researcher (1874 German medical frock coat, high collar, cravat and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a clean modern sunlit neurology triage bay with pale sage curtains and c",
-        "three-object comprehension tray (key, water glass, hairb"
+        "an unmarked clinical tabletop apparatus"
       ],
       "key_visual": null,
       "bound_master_anchors": [

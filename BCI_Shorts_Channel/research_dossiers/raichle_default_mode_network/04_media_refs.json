@@ -35,13 +35,16 @@
       },
       "reenactment_suitability": "reject_track_b_only",
       "reenactment_suitability_reason": "gate4_talking_head_monologue(ratio=1.0,wps=2.611)",
-      "recommended_section": "*00:08-00:44",
       "reenactment_suitability_metrics": {
         "keyframe_count": 11,
         "median_dark_ratio": 0.2864,
         "median_gray_sat_ratio": 0.0014,
+        "median_p90_sat": 255.0,
+        "max_p90_sat": 255.0,
         "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
         "median_flat_patch_ratio": 0.3937,
+        "median_motion_diff": 53.611,
         "talking_head_ratio": 1.0,
         "words_per_sec": 2.611,
         "has_strong_archival_cue": false,
@@ -83,13 +86,16 @@
       },
       "reenactment_suitability": "reject_track_b_only",
       "reenactment_suitability_reason": "gate4_modern_monologue_without_archival_footage(wps=2.338,th=0.125)",
-      "recommended_section": "*00:00-01:20",
       "reenactment_suitability_metrics": {
         "keyframe_count": 14,
         "median_dark_ratio": 0.2459,
         "median_gray_sat_ratio": 0.1613,
+        "median_p90_sat": 211.5,
+        "max_p90_sat": 255.0,
         "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
         "median_flat_patch_ratio": 0.2854,
+        "median_motion_diff": 66.493,
         "talking_head_ratio": 0.125,
         "words_per_sec": 2.338,
         "has_strong_archival_cue": false,
@@ -126,5 +132,6 @@
     }
   ],
   "reenactment_track": "track_b",
-  "track_subtier": "B_scene_bible_anchor"
+  "track_subtier": "B_scene_bible_anchor",
+  "suitability_schema_version": 2
 }

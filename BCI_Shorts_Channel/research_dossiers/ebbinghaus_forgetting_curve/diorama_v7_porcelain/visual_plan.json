@@ -198,8 +198,7 @@
           "researcher"
         ]
       },
-      "clip_number": 5,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 5
     },
     {
       "sentence_index": 6,
@@ -360,8 +359,7 @@
           "subject"
         ]
       },
-      "clip_number": 12,
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      "clip_number": 12
     },
     {
       "sentence_index": 14,
@@ -408,8 +406,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 16,
@@ -541,8 +538,7 @@
           "researcher"
         ]
       },
-      "clip_number": 20,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 20
     },
     {
       "sentence_index": 23,
@@ -696,8 +692,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 30,
@@ -767,8 +762,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 33,
@@ -1010,8 +1004,7 @@
           "researcher"
         ]
       },
-      "clip_number": 41,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 41
     },
     {
       "sentence_index": 47,
@@ -1144,8 +1137,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 51,
@@ -1174,13 +1166,13 @@
   "default_location_id": "modern_study_desk",
   "real_environment": "an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp",
   "environment_props": [
-    "13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments)",
+    "13-blank matte blank matte card nonsense-syllable deck & 2,300-blank matte blank matte card box (crisp hand-inked 3-letter blank matte blank matte cards arranged in wooden compartments)",
     "pyramid wooden 150-bpm brushed-metal instrument & pocket timer (swinging brass pendulum keeping strict 0.4-second cadence per syllable)",
-    "1885 Forgetting Curve chart ('20m: 58% | 1h: 44% | 1d: 34% | 31d: 21%')"
+    "1885 Forgetting Curve unmarked paper sheet ()"
   ],
   "cast": {
-    "subject": "1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1200,10 +1192,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (berlin_slate_study: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright sunlit Berlin slate study with thirteen blank ceramic tiles arranged neatly beside the brushed-silver brushed-metal instrument, featuring 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across an elevated wide view of a sunlit European scholar study with tall arched casement windows, a cool slate-gray desk, compartmentalized stone tile trays, and an unmarked curved glass slope. Inside the room, researcher (1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the bright sunlit Berlin slate study with thirteen blank ceramic tiles a",
-        "13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300"
+        "an elevated wide view of a sunlit European scholar study with tall arche",
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1223,7 +1215,7 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 2 (modern_study_desk: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, featuring pyramid wooden 150-bpm brushed-metal instrument & pocket timer (swinging brass pendulum keeping strict 0.4-second cadence per syllable). Inside the room, subject (1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside pyramid wooden 150-bpm brushed-metal instrument & pocket timer (swinging brass pendulum keeping strict 0.4-second cadence per syllable). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, featuring pyramid wooden 150-bpm brushed-metal instrument & pocket timer (swinging brass pendulum keeping strict 0.4-second cadence per syllable). Inside the room, subject (1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside pyramid wooden 150-bpm brushed-metal instrument & pocket timer (swinging brass pendulum keeping strict 0.4-second cadence per syllable). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "an elevated wide view of a cool-slate student study room with scattered ",
         "pyramid wooden 150-bpm brushed-metal instrument & pocket"
@@ -1246,10 +1238,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (modern_study_desk: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, featuring 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300-card box (crisp hand-inked 3-letter cards arranged in wooden compartments). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside an elevated wide view of a cool-slate student study room with scattered blank gray tiles spilled off a desk beside a dim frosted lamp, featuring 13-blank matte blank matte blank matte card nonsense-syllable deck & 2,300-blank matte blank matte blank matte card box (crisp hand-inked 3-letter blank matte blank matte blank matte cards arranged in wooden compartments). Inside the room, researcher (1885 German academic wool coat, high-buttoned waistcoat, crisp white collar, round wire spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 13-blank matte blank matte blank matte card nonsense-syllable deck & 2,300-blank matte blank matte blank matte card box (crisp hand-inked 3-letter blank matte blank matte blank matte cards arranged in wooden compartments). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "an elevated wide view of a cool-slate student study room with scattered ",
-        "13-card 'WID / ZOF / KAF' nonsense-syllable deck & 2,300"
+        "13-blank matte blank matte card nonsense-syllable deck &"
       ]
     }
   ]

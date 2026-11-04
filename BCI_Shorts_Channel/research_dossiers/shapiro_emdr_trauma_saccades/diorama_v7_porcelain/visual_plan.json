@@ -203,8 +203,7 @@
           "subject"
         ]
       },
-      "clip_number": 5,
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      "clip_number": 5
     },
     {
       "sentence_index": 6,
@@ -403,8 +402,7 @@
           "researcher"
         ]
       },
-      "clip_number": 14,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 14
     },
     {
       "sentence_index": 15,
@@ -474,8 +472,7 @@
           "researcher"
         ]
       },
-      "clip_number": 17,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 17
     },
     {
       "sentence_index": 18,
@@ -630,8 +627,7 @@
           "researcher"
         ]
       },
-      "clip_number": 24,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 24
     },
     {
       "sentence_index": 26,
@@ -749,8 +745,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 32,
@@ -860,8 +855,7 @@
           "researcher"
         ]
       },
-      "clip_number": 35,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 35
     },
     {
       "sentence_index": 38,
@@ -1160,12 +1154,12 @@
   "real_environment": "the bright sunlit therapy room with the horizontal silver tracking rail switched off and dark",
   "environment_props": [
     "horizontal bilateral LED light-bar",
-    "0-to-10 SUD rating scale card",
-    "3-node Nature circuit placard"
+    "0-to-10 SUD rating scale blank matte blank matte card (clean visual scale where the marker slides from down to)",
+    "3-node Nature circuit unmarked brushed-metal plate (clean schematic on side desk reading)"
   ],
   "cast": {
-    "subject": "Clean documentary clinical attire: soft wool sweater and slacks on patient with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "tailored blazer and white blouse on clinician with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "Clean documentary clinical attire: soft wool sweater and slacks on patient and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "tailored blazer and white blouse on clinician and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1186,7 +1180,7 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (clinical_tracking_suite: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright sunlit therapy room with the horizontal silver tracking rail switched off and dark, featuring horizontal bilateral LED light-bar. Inside the room, researcher (tailored blazer and white blouse on clinician with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside horizontal bilateral LED light-bar. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright sunlit therapy room with the horizontal silver tracking rail switched off and dark, featuring horizontal bilateral LED light-bar. Inside the room, researcher (tailored blazer and white blouse on clinician and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside horizontal bilateral LED light-bar. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the bright sunlit therapy room with the horizontal silver tracking rail ",
         "horizontal bilateral LED light-bar"
@@ -1208,10 +1202,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (park_walk_promenade: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a bright open limestone park overlook facing a calm powder-blue lake and soft sage hills, featuring 0-to-10 SUD rating scale card. Inside the room, researcher (tailored blazer and white blouse on clinician with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 0-to-10 SUD rating scale card. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a bright cool-limestone park walkway lined on both sides by neat alternating rows of sunlit mint-sage trees. Inside the room, researcher (tailored blazer and white blouse on clinician and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "a bright open limestone park overlook facing a calm powder-blue lake and",
-        "0-to-10 SUD rating scale card"
+        "a bright cool-limestone park walkway lined on both sides by neat alterna",
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1232,7 +1226,7 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (clinical_tracking_suite: researcher, subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the bright sunlit therapy room with the horizontal silver tracking rail switched off and dark, featuring horizontal bilateral LED light-bar. Inside the room, researcher (tailored blazer and white blouse on clinician with a completely smooth featureless solid matte-white egg-shaped oval head), subject (Clean documentary clinical attire: soft wool sweater and slacks on patient with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside horizontal bilateral LED light-bar. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the bright sunlit therapy room with the horizontal silver tracking rail switched off and dark, featuring horizontal bilateral LED light-bar. Inside the room, researcher (tailored blazer and white blouse on clinician and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head), subject (Clean documentary clinical attire: soft wool sweater and slacks on patient and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside horizontal bilateral LED light-bar. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the bright sunlit therapy room with the horizontal silver tracking rail ",
         "horizontal bilateral LED light-bar"

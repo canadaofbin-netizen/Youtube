@@ -200,8 +200,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 6,
@@ -435,8 +434,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 16,
@@ -506,8 +504,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 20,
@@ -690,8 +687,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 30,
@@ -904,8 +900,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 40,
@@ -1000,8 +995,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 45,
@@ -1157,8 +1151,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 50,
@@ -1188,12 +1181,12 @@
   "real_environment": "a calm university reception hallway leading into the speech-testing room with pale ash-wood doors",
   "environment_props": [
     "5:00 countdown speech-prep timer (crisp tabletop LED clock counting down the 5-minute preparation window)",
-    "paired 'I' vs '[Own Name]' silent-reflection cards (two clean white instruction placards showing the single-pronoun shift)",
-    "blind judge rating clipboards ('Confidence / Composure')"
+    "paired 'I' vs silent-reflection blank matte blank matte cards",
+    "blind judge rating clipboards ()"
   ],
   "cast": {
-    "subject": "2014 university smart-casual shirts, blazers for evaluators with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "2014 university smart-casual shirts, blazers for evaluators and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "2014 university smart-casual shirts, blazers for evaluators and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1214,7 +1207,7 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (michigan_speech_lab: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a calm university reception hallway leading into the speech-testing room with pale ash-wood doors, featuring 5:00 countdown speech-prep timer (crisp tabletop LED clock counting down the 5-minute preparation window). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 5:00 countdown speech-prep timer (crisp tabletop LED clock counting down the 5-minute preparation window). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a calm university reception hallway leading into the speech-testing room with pale ash-wood doors, featuring 5:00 countdown speech-prep timer (crisp tabletop LED clock counting down the 5-minute preparation window). Inside the room, researcher (2014 university smart-casual shirts, blazers for evaluators and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 5:00 countdown speech-prep timer (crisp tabletop LED clock counting down the 5-minute preparation window). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a calm university reception hallway leading into the speech-testing room",
         "5:00 countdown speech-prep timer (crisp tabletop LED clo"
@@ -1236,10 +1229,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (modern_boardroom_hall: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit cafe table with two cool cream cups and a notebook, featuring paired 'I' vs '[Own Name]' silent-reflection cards (two clean white instruction placards showing the single-pronoun shift). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired 'I' vs '[Own Name]' silent-reflection cards (two clean white instruction placards showing the single-pronoun shift). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit cafe table with two cool cream cups and a notebook. Inside the room, researcher (2014 university smart-casual shirts, blazers for evaluators and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a sunlit cafe table with two cool cream cups and a notebook",
-        "paired 'I' vs '[Own Name]' silent-reflection cards (two "
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1259,7 +1252,7 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 3 (michigan_speech_lab: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a calm university reception hallway leading into the speech-testing room with pale ash-wood doors, featuring 5:00 countdown speech-prep timer (crisp tabletop LED clock counting down the 5-minute preparation window). Inside the room, subject (2014 university smart-casual shirts, blazers for evaluators with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 5:00 countdown speech-prep timer (crisp tabletop LED clock counting down the 5-minute preparation window). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a calm university reception hallway leading into the speech-testing room with pale ash-wood doors, featuring 5:00 countdown speech-prep timer (crisp tabletop LED clock counting down the 5-minute preparation window). Inside the room, subject (2014 university smart-casual shirts, blazers for evaluators and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 5:00 countdown speech-prep timer (crisp tabletop LED clock counting down the 5-minute preparation window). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a calm university reception hallway leading into the speech-testing room",
         "5:00 countdown speech-prep timer (crisp tabletop LED clo"

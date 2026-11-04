@@ -186,8 +186,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 7,
@@ -387,8 +386,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 17,
@@ -551,8 +549,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "clip_index": 26,
@@ -719,8 +716,7 @@
           "researcher"
         ]
       },
-      "clip_number": 27,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 27
     },
     {
       "clip_index": 34,
@@ -871,8 +867,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "clip_index": 40,
@@ -975,8 +970,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 45,
@@ -1091,8 +1085,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 57,
@@ -1194,8 +1187,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 58,
@@ -1221,11 +1213,11 @@
   "real_environment": "a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight",
   "environment_props": [
     "three-object comprehension tray (key, water glass, hairbrush) & desk bell",
-    "Wernicke's 1874 hand-inked 'a1 -> b' cortical network diagram"
+    "Wernicke's 1874 hand-inked cortical network unmarked anatomical relief model"
   ],
   "cast": {
-    "subject": "1874 German medical frock coat, high collar, cravat with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "modest 19th-century wool shawl over buttoned dress with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "modest 19th-century wool shawl over buttoned dress and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "1874 German medical frock coat, high collar, cravat and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1247,7 +1239,7 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (breslau_clinic_room: researcher, subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight, featuring three-object comprehension tray (key, water glass, hairbrush) & desk bell. Inside the room, researcher (modest 19th-century wool shawl over buttoned dress with a completely smooth featureless solid matte-white egg-shaped oval head), subject (1874 German medical frock coat, high collar, cravat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-object comprehension tray (key, water glass, hairbrush) & desk bell. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a long pale-sage hospital hallway viewed toward an open clinic doorway bathed in soft cool daylight, featuring three-object comprehension tray (key, water glass, hairbrush) & desk bell. Inside the room, researcher (1874 German medical frock coat, high collar, cravat and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head), subject (modest 19th-century wool shawl over buttoned dress and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-object comprehension tray (key, water glass, hairbrush) & desk bell. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a long pale-sage hospital hallway viewed toward an open clinic doorway b",
         "three-object comprehension tray (key, water glass, hairb"
@@ -1269,10 +1261,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (breslau_study_desk: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a quiet high-key sunlit pathology study room with pale slate cabinets and a cool cream examination table, featuring Wernicke's 1874 hand-inked 'a1 -> b' cortical network diagram. Inside the room, researcher (modest 19th-century wool shawl over buttoned dress with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Wernicke's 1874 hand-inked 'a1 -> b' cortical network diagram. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a reverse three-quarter wide angle inside the bright high-key breslau study desk with warm birch workbenches, brushed-metal research apparatus, and tall daylight windows. Inside the room, researcher (1874 German medical frock coat, high collar, cravat and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "a quiet high-key sunlit pathology study room with pale slate cabinets an",
-        "Wernicke's 1874 hand-inked 'a1 -> b' cortical network di"
+        "a reverse three-quarter wide angle inside the bright high-key breslau st",
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1291,10 +1283,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (rehab_care_room: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a clean modern sunlit neurology triage bay with pale sage curtains and cool cream floors, featuring three-object comprehension tray (key, water glass, hairbrush) & desk bell. Inside the room, researcher (modest 19th-century wool shawl over buttoned dress with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-object comprehension tray (key, water glass, hairbrush) & desk bell. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a clean modern sunlit neurology triage bay with pale sage curtains and cool cream floors. Inside the room, researcher (1874 German medical frock coat, high collar, cravat and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a clean modern sunlit neurology triage bay with pale sage curtains and c",
-        "three-object comprehension tray (key, water glass, hairb"
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ]

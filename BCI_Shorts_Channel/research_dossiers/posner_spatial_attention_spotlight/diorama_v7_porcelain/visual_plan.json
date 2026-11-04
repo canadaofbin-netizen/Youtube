@@ -298,8 +298,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 11,
@@ -417,8 +416,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 17,
@@ -514,8 +512,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 22,
@@ -667,8 +664,7 @@
           "subject"
         ]
       },
-      "clip_number": 26,
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      "clip_number": 26
     },
     {
       "sentence_index": 30,
@@ -832,8 +828,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 37,
@@ -1048,8 +1043,7 @@
           "researcher"
         ]
       },
-      "clip_number": 43,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 43
     },
     {
       "sentence_index": 49,
@@ -1144,8 +1138,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 51,
@@ -1174,13 +1167,13 @@
   "default_location_id": "oregon_cueing_lab",
   "real_environment": "an elevated wide view of the cool-limestone Oregon lab showing the flat eye-stability trace alongside the split valid and invalid timing columns",
   "environment_props": [
-    "three-element Posner screen ('[ ] +← [ ]')",
+    "three-element Posner screen ()",
     "flat-line EOG eye-stability trace",
-    "dual millisecond digital readout"
+    "dual millisecond digital readout (clean 1980 LED counter contrasting ~235 ms vs ~295 ms)"
   ],
   "cast": {
-    "subject": "1980 Pacific Northwest university wear: knit crew sweater on participant with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "collared plaid shirt and wool vest on researcher with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "1980 Pacific Northwest university wear: knit crew sweater on participant and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "collared plaid shirt and wool vest on researcher and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1201,10 +1194,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (oregon_cueing_lab: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across an elevated wide view of the cool-limestone Oregon lab showing the flat eye-stability trace alongside the split valid and invalid timing columns, featuring three-element Posner screen ('[ ] +← [ ]'). Inside the room, researcher (collared plaid shirt and wool vest on researcher with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-element Posner screen ('[ ] +← [ ]'). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across an elevated wide view of the cool-limestone Oregon lab showing the flat eye-stability trace alongside the split valid and invalid timing columns, featuring three-element Posner screen (). Inside the room, researcher (collared plaid shirt and wool vest on researcher and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-element Posner screen (). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "an elevated wide view of the cool-limestone Oregon lab showing the flat ",
-        "three-element Posner screen ('[ ] +← [ ]')"
+        "three-element Posner screen ()"
       ]
     },
     {
@@ -1224,7 +1217,7 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 2 (oregon_cueing_lab: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across an elevated wide view of the cool-limestone Oregon lab showing the flat eye-stability trace alongside the split valid and invalid timing columns, featuring flat-line EOG eye-stability trace. Inside the room, subject (1980 Pacific Northwest university wear: knit crew sweater on participant with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside flat-line EOG eye-stability trace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across an elevated wide view of the cool-limestone Oregon lab showing the flat eye-stability trace alongside the split valid and invalid timing columns, featuring flat-line EOG eye-stability trace. Inside the room, subject (1980 Pacific Northwest university wear: knit crew sweater on participant and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside flat-line EOG eye-stability trace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "an elevated wide view of the cool-limestone Oregon lab showing the flat ",
         "flat-line EOG eye-stability trace"
@@ -1246,10 +1239,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (gym_court_terrace: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright indoor cool-slate athletic court with powder-blue boundary lines and two clothed matte-white porcelain teammates, featuring three-element Posner screen ('[ ] +← [ ]'). Inside the room, researcher (collared plaid shirt and wool vest on researcher with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-element Posner screen ('[ ] +← [ ]'). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright indoor cool-slate athletic court with powder-blue boundary lines and two clothed matte-white porcelain teammates. Inside the room, researcher (collared plaid shirt and wool vest on researcher and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a bright indoor cool-slate athletic court with powder-blue boundary line",
-        "three-element Posner screen ('[ ] +← [ ]')"
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ]

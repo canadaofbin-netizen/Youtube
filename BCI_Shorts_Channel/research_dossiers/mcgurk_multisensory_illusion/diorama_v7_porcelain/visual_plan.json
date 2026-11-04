@@ -308,8 +308,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 13,
@@ -383,8 +382,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "clip_index": 16,
@@ -526,8 +524,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 22,
@@ -702,8 +699,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 32,
@@ -816,8 +812,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 38,
@@ -939,8 +934,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 44,
@@ -1014,8 +1008,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "clip_index": 50,
@@ -1202,8 +1195,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 58,
@@ -1226,14 +1218,14 @@
   "reenactment_track": "track_b",
   "track_subtier": "B_scene_bible_anchor",
   "default_location_id": "surrey_sync_studio",
-  "real_environment": "sunlit British university audiovisual studio centering a brushed-silver desktop speaker cone, sunlit mechanical shutter box, and clear daylight-white occlusion paddle on a slate desk",
+  "real_environment": "sunlit Surrey audiovisual control room with the silver dual-reel deck, desktop speaker cone, and mechanical shutter unit",
   "environment_props": [
-    "1976 studio video monitor ('Visual Lips: GA') paired with desktop loudspeaker ('Audio Wave: BA')",
-    "sliding white 'Eyes Open = DA / Screen Covered = BA' test paddle"
+    "1976 studio video monitor () paired with desktop loudspeaker ()",
+    "sliding white test paddle"
   ],
   "cast": {
-    "subject": "1976 British academic attire: warm tweed jacket, patterned tie, collared shirt, knit jumper with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "1976 British academic attire: warm tweed jacket, patterned tie, collared shirt, knit jumper and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "1976 British academic attire: warm tweed jacket, patterned tie, collared shirt, knit jumper and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1254,10 +1246,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (surrey_sync_studio: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit British university audiovisual studio centering a brushed-silver desktop speaker cone, sunlit mechanical shutter box, and clear daylight-white occlusion paddle on a slate desk, featuring 1976 studio video monitor ('Visual Lips: GA') paired with desktop loudspeaker ('Audio Wave: BA'). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1976 studio video monitor ('Visual Lips: GA') paired with desktop loudspeaker ('Audio Wave: BA'). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit Surrey audiovisual control room with the silver dual-reel deck, desktop speaker cone, and mechanical shutter unit, featuring 1976 studio video monitor () paired with desktop loudspeaker (). Inside the room, researcher (1976 British academic attire: warm tweed jacket, patterned tie, collared shirt, knit jumper and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1976 studio video monitor () paired with desktop loudspeaker (). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "sunlit British university audiovisual studio centering a brushed-silver ",
-        "1976 studio video monitor ('Visual Lips: GA') paired wit"
+        "sunlit Surrey audiovisual control room with the silver dual-reel deck, d",
+        "1976 studio video monitor () paired with desktop loudspe"
       ]
     },
     {
@@ -1277,10 +1269,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 2 (surrey_sync_studio: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across sunlit British university audiovisual studio centering a brushed-silver desktop speaker cone, sunlit mechanical shutter box, and clear daylight-white occlusion paddle on a slate desk, featuring sliding white 'Eyes Open = DA / Screen Covered = BA' test paddle. Inside the room, subject (1976 British academic attire: warm tweed jacket, patterned tie, collared shirt, knit jumper with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside sliding white 'Eyes Open = DA / Screen Covered = BA' test paddle. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across sunlit Surrey audiovisual control room with the silver dual-reel deck, desktop speaker cone, and mechanical shutter unit, featuring sliding white test paddle. Inside the room, subject (1976 British academic attire: warm tweed jacket, patterned tie, collared shirt, knit jumper and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside sliding white test paddle. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "sunlit British university audiovisual studio centering a brushed-silver ",
-        "sliding white 'Eyes Open = DA / Screen Covered = BA' tes"
+        "sunlit Surrey audiovisual control room with the silver dual-reel deck, d",
+        "sliding white test paddle"
       ]
     },
     {
@@ -1299,10 +1291,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (magnetic_coil_suite: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside clean sunlit cognitive neuroscience suite with a brushed-silver figure-eight magnetic wand mounted beside a matte matte-white porcelain brain stand, featuring 1976 studio video monitor ('Visual Lips: GA') paired with desktop loudspeaker ('Audio Wave: BA'). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1976 studio video monitor ('Visual Lips: GA') paired with desktop loudspeaker ('Audio Wave: BA'). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside clean sunlit cognitive neuroscience suite with a brushed-silver figure-eight magnetic wand mounted beside a matte matte-white porcelain brain stand. Inside the room, researcher (1976 British academic attire: warm tweed jacket, patterned tie, collared shirt, knit jumper and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "clean sunlit cognitive neuroscience suite with a brushed-silver figure-e",
-        "1976 studio video monitor ('Visual Lips: GA') paired wit"
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ]

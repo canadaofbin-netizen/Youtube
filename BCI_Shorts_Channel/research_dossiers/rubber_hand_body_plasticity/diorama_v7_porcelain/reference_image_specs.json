@@ -4,7 +4,7 @@
   "aspect": "9:16",
   "dossier": "rubber_hand_body_plasticity",
   "total_reference_images": 8,
-  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in Late-1990s academic attire: crisp white lab coat over button-down shirt with a completely smooth featureless solid matte-white egg-shaped oval head; researcher in crew-neck cotton sweater with a completely smooth featureless solid matte-white egg-shaped oval head.",
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in crew-neck cotton sweater and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head; researcher in Late-1990s academic attire: crisp white lab coat over button-down shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head.",
   "generation_order": "1 env plate + master brain bust -> 2 cast sheets + hero prop (conditioned on env) -> 3 clip start / key frames (conditioned on master anchors)",
   "master_anchors": [
     {
@@ -19,9 +19,9 @@
       "conditioned_on": [],
       "present_cast": [],
       "location_id": "pittsburgh_partition_lab",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of an elevated wide view of a sunlit cognitive laboratory with cool clear daylight-white walls, a cool slate-stone testing table divided by a vertical slate partition, and an unmarked under-table drift bar, featuring vertical tabletop occlusion partition & realistic prosthetic left hand. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of an elevated wide view of the bright Pittsburgh partition table showing the shifted mint-sage drift peg beneath the matte chalk-white decoy hand, featuring vertical tabletop occlusion partition & realistic prosthetic left hand. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "an elevated wide view of a sunlit cognitive laboratory with cool clear daylight-",
+        "an elevated wide view of the bright Pittsburgh partition table showing the shift",
         "vertical tabletop occlusion partition & realistic prosthetic"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -42,9 +42,9 @@
         "subject"
       ],
       "location_id": "pittsburgh_partition_lab",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing Late-1990s academic attire: crisp white lab coat over button-down shirt with a completely smooth featureless solid matte-white egg-shaped oval head, standing in an elevated wide view of a sunlit cognitive laboratory with cool clear daylight-white walls, a cool slate-stone testing table divided by a vertical slate partition, and an unmarked under-table drift bar. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing crew-neck cotton sweater and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in an elevated wide view of the bright Pittsburgh partition table showing the shifted mint-sage drift peg beneath the matte chalk-white decoy hand. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "Late-1990s academic attire: crisp white lab coat over button-down shirt with a c",
+        "crew-neck cotton sweater and closed matte-white leather shoes with a completely ",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -65,9 +65,9 @@
         "researcher"
       ],
       "location_id": "pittsburgh_partition_lab",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing crew-neck cotton sweater with a completely smooth featureless solid matte-white egg-shaped oval head, standing in an elevated wide view of a sunlit cognitive laboratory with cool clear daylight-white walls, a cool slate-stone testing table divided by a vertical slate partition, and an unmarked under-table drift bar. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing Late-1990s academic attire: crisp white lab coat over button-down shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in an elevated wide view of the bright Pittsburgh partition table showing the shifted mint-sage drift peg beneath the matte chalk-white decoy hand. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "crew-neck cotton sweater with a completely smooth featureless solid matte-white ",
+        "Late-1990s academic attire: crisp white lab coat over button-down shirt and clos",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -86,7 +86,7 @@
       ],
       "present_cast": [],
       "location_id": "pittsburgh_partition_lab",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of vertical tabletop occlusion partition & realistic prosthetic left hand inside an elevated wide view of a sunlit cognitive laboratory with cool clear daylight-white walls, a cool slate-stone testing table divided by a vertical slate partition, and an unmarked under-table drift bar, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of vertical tabletop occlusion partition & realistic prosthetic left hand inside an elevated wide view of the bright Pittsburgh partition table showing the shifted mint-sage drift peg beneath the matte chalk-white decoy hand, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "vertical tabletop occlusion partition & realistic prosthetic left hand"
       ],
@@ -102,7 +102,7 @@
       "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
       "generation_order": 1,
       "conditioned_on": [],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the somatosensory cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. Along the upper postcentral strip of the matte cool-porcelain 3D brain model, rhythmic powder-blue touch pulses flicker across the somatosensory cortex. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait composition against a high-contrast cool slate-grey studio backdrop, with dynamic camera progression from the porcelain head into the open anatomical brain cross-section tracking the neural circuit. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the somatosensory cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. Along the upper postcentral strip of the matte cool-porcelain 3D brain model, rhythmic powder-blue touch pulses flicker across the somatosensory cortex. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, zero human facial features, no text, no letters, no watermark.",
       "must_include": [
         "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
         "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
@@ -117,18 +117,18 @@
       "frame": "start",
       "category": "clip_keyframe_anchor",
       "role": "reenactment",
-      "scene_id": "LOC_pittsburgh_partition_lab",
+      "scene_id": "S01",
       "setting": "real_env",
       "filename": "ref_anchor_01.png",
-      "title": "Room state anchor 1 (pittsburgh_partition_lab: subject)",
+      "title": "Shot S01 anchor 1 (pittsburgh_partition_lab: subject)",
       "generation_order": 3,
       "conditioned_on": [
         "ref_env_master",
         "ref_cast_subject"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across an elevated wide view of a sunlit cognitive laboratory with cool clear daylight-white walls, a cool slate-stone testing table divided by a vertical slate partition, and an unmarked under-table drift bar, featuring vertical tabletop occlusion partition & realistic prosthetic left hand. Inside the room, subject (Late-1990s academic attire: crisp white lab coat over button-down shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside vertical tabletop occlusion partition & realistic prosthetic left hand. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across an elevated wide view of the bright Pittsburgh partition table showing the shifted mint-sage drift peg beneath the matte chalk-white decoy hand, featuring vertical tabletop occlusion partition & realistic prosthetic left hand. Inside the room, subject (crew-neck cotton sweater and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside vertical tabletop occlusion partition & realistic prosthetic left hand. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "an elevated wide view of a sunlit cognitive laboratory with cool clear d",
+        "an elevated wide view of the bright Pittsburgh partition table showing t",
         "vertical tabletop occlusion partition & realistic prosth"
       ],
       "key_visual": null,
@@ -148,18 +148,18 @@
       "frame": "start",
       "category": "clip_keyframe_anchor",
       "role": "reenactment",
-      "scene_id": "LOC_pittsburgh_partition_lab",
+      "scene_id": "S02",
       "setting": "real_env",
       "filename": "ref_anchor_02.png",
-      "title": "Room state anchor 2 (pittsburgh_partition_lab: researcher)",
+      "title": "Shot S02 anchor 2 (pittsburgh_partition_lab: researcher)",
       "generation_order": 3,
       "conditioned_on": [
         "ref_env_master",
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across an elevated wide view of a sunlit cognitive laboratory with cool clear daylight-white walls, a cool slate-stone testing table divided by a vertical slate partition, and an unmarked under-table drift bar, featuring matched pair of fine camel-hair paintbrushes (delivers identical synchronous strokes (vs 500-ms asynchronous control)). Inside the room, researcher (crew-neck cotton sweater with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside matched pair of fine camel-hair paintbrushes (delivers identical synchronous strokes (vs 500-ms asynchronous control)). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across an elevated wide view of the bright Pittsburgh partition table showing the shifted mint-sage drift peg beneath the matte chalk-white decoy hand, featuring matched pair of fine camel-hair paintbrushes (delivers identical synchronous strokes (vs 500-ms asynchronous control)). Inside the room, researcher (Late-1990s academic attire: crisp white lab coat over button-down shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside matched pair of fine camel-hair paintbrushes (delivers identical synchronous strokes (vs 500-ms asynchronous control)). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "an elevated wide view of a sunlit cognitive laboratory with cool clear d",
+        "an elevated wide view of the bright Pittsburgh partition table showing t",
         "matched pair of fine camel-hair paintbrushes (delivers i"
       ],
       "key_visual": null,
@@ -179,18 +179,18 @@
       "frame": "start",
       "category": "clip_keyframe_anchor",
       "role": "reenactment",
-      "scene_id": "LOC_stockholm_threat_lab",
+      "scene_id": "S03",
       "setting": "real_env",
       "filename": "ref_anchor_03.png",
-      "title": "Room state anchor 3 (stockholm_threat_lab: subject)",
+      "title": "Shot S03 anchor 3 (stockholm_threat_lab: subject)",
       "generation_order": 3,
       "conditioned_on": [
         "ref_cast_subject"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright Scandinavian neuroimaging suite with a sleek matte-white fMRI ring where twin powder-blue brushes stroke a volunteer's hand setup, featuring vertical tabletop occlusion partition & realistic prosthetic left hand. Inside the room, subject (Late-1990s academic attire: crisp white lab coat over button-down shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside vertical tabletop occlusion partition & realistic prosthetic left hand. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright Scandinavian neuroimaging suite with a sleek matte-white fMRI ring where twin powder-blue brushes stroke a volunteer's hand setup. Inside the room, subject (crew-neck cotton sweater and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a bright Scandinavian neuroimaging suite with a sleek matte-white fMRI r",
-        "vertical tabletop occlusion partition & realistic prosth"
+        "an unmarked clinical tabletop apparatus"
       ],
       "key_visual": null,
       "bound_master_anchors": [
@@ -216,9 +216,9 @@
       "conditioned_on": [],
       "present_cast": [],
       "location_id": "pittsburgh_partition_lab",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of an elevated wide view of a sunlit cognitive laboratory with cool clear daylight-white walls, a cool slate-stone testing table divided by a vertical slate partition, and an unmarked under-table drift bar, featuring vertical tabletop occlusion partition & realistic prosthetic left hand. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of an elevated wide view of the bright Pittsburgh partition table showing the shifted mint-sage drift peg beneath the matte chalk-white decoy hand, featuring vertical tabletop occlusion partition & realistic prosthetic left hand. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "an elevated wide view of a sunlit cognitive laboratory with cool clear daylight-",
+        "an elevated wide view of the bright Pittsburgh partition table showing the shift",
         "vertical tabletop occlusion partition & realistic prosthetic"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -239,9 +239,9 @@
         "subject"
       ],
       "location_id": "pittsburgh_partition_lab",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing Late-1990s academic attire: crisp white lab coat over button-down shirt with a completely smooth featureless solid matte-white egg-shaped oval head, standing in an elevated wide view of a sunlit cognitive laboratory with cool clear daylight-white walls, a cool slate-stone testing table divided by a vertical slate partition, and an unmarked under-table drift bar. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing crew-neck cotton sweater and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in an elevated wide view of the bright Pittsburgh partition table showing the shifted mint-sage drift peg beneath the matte chalk-white decoy hand. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "Late-1990s academic attire: crisp white lab coat over button-down shirt with a c",
+        "crew-neck cotton sweater and closed matte-white leather shoes with a completely ",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -262,9 +262,9 @@
         "researcher"
       ],
       "location_id": "pittsburgh_partition_lab",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing crew-neck cotton sweater with a completely smooth featureless solid matte-white egg-shaped oval head, standing in an elevated wide view of a sunlit cognitive laboratory with cool clear daylight-white walls, a cool slate-stone testing table divided by a vertical slate partition, and an unmarked under-table drift bar. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing Late-1990s academic attire: crisp white lab coat over button-down shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in an elevated wide view of the bright Pittsburgh partition table showing the shifted mint-sage drift peg beneath the matte chalk-white decoy hand. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "crew-neck cotton sweater with a completely smooth featureless solid matte-white ",
+        "Late-1990s academic attire: crisp white lab coat over button-down shirt and clos",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -283,7 +283,7 @@
       ],
       "present_cast": [],
       "location_id": "pittsburgh_partition_lab",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of vertical tabletop occlusion partition & realistic prosthetic left hand inside an elevated wide view of a sunlit cognitive laboratory with cool clear daylight-white walls, a cool slate-stone testing table divided by a vertical slate partition, and an unmarked under-table drift bar, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of vertical tabletop occlusion partition & realistic prosthetic left hand inside an elevated wide view of the bright Pittsburgh partition table showing the shifted mint-sage drift peg beneath the matte chalk-white decoy hand, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "vertical tabletop occlusion partition & realistic prosthetic left hand"
       ],
@@ -299,7 +299,7 @@
       "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
       "generation_order": 1,
       "conditioned_on": [],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the somatosensory cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. Along the upper postcentral strip of the matte cool-porcelain 3D brain model, rhythmic powder-blue touch pulses flicker across the somatosensory cortex. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait composition against a high-contrast cool slate-grey studio backdrop, with dynamic camera progression from the porcelain head into the open anatomical brain cross-section tracking the neural circuit. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the somatosensory cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. Along the upper postcentral strip of the matte cool-porcelain 3D brain model, rhythmic powder-blue touch pulses flicker across the somatosensory cortex. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, zero human facial features, no text, no letters, no watermark.",
       "must_include": [
         "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
         "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
@@ -312,18 +312,18 @@
       "frame": "start",
       "category": "clip_keyframe_anchor",
       "role": "reenactment",
-      "scene_id": "LOC_pittsburgh_partition_lab",
+      "scene_id": "S01",
       "setting": "real_env",
       "filename": "ref_anchor_01.png",
-      "title": "Room state anchor 1 (pittsburgh_partition_lab: subject)",
+      "title": "Shot S01 anchor 1 (pittsburgh_partition_lab: subject)",
       "generation_order": 3,
       "conditioned_on": [
         "ref_env_master",
         "ref_cast_subject"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across an elevated wide view of a sunlit cognitive laboratory with cool clear daylight-white walls, a cool slate-stone testing table divided by a vertical slate partition, and an unmarked under-table drift bar, featuring vertical tabletop occlusion partition & realistic prosthetic left hand. Inside the room, subject (Late-1990s academic attire: crisp white lab coat over button-down shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside vertical tabletop occlusion partition & realistic prosthetic left hand. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across an elevated wide view of the bright Pittsburgh partition table showing the shifted mint-sage drift peg beneath the matte chalk-white decoy hand, featuring vertical tabletop occlusion partition & realistic prosthetic left hand. Inside the room, subject (crew-neck cotton sweater and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside vertical tabletop occlusion partition & realistic prosthetic left hand. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "an elevated wide view of a sunlit cognitive laboratory with cool clear d",
+        "an elevated wide view of the bright Pittsburgh partition table showing t",
         "vertical tabletop occlusion partition & realistic prosth"
       ],
       "key_visual": null,
@@ -343,18 +343,18 @@
       "frame": "start",
       "category": "clip_keyframe_anchor",
       "role": "reenactment",
-      "scene_id": "LOC_pittsburgh_partition_lab",
+      "scene_id": "S02",
       "setting": "real_env",
       "filename": "ref_anchor_02.png",
-      "title": "Room state anchor 2 (pittsburgh_partition_lab: researcher)",
+      "title": "Shot S02 anchor 2 (pittsburgh_partition_lab: researcher)",
       "generation_order": 3,
       "conditioned_on": [
         "ref_env_master",
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across an elevated wide view of a sunlit cognitive laboratory with cool clear daylight-white walls, a cool slate-stone testing table divided by a vertical slate partition, and an unmarked under-table drift bar, featuring matched pair of fine camel-hair paintbrushes (delivers identical synchronous strokes (vs 500-ms asynchronous control)). Inside the room, researcher (crew-neck cotton sweater with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside matched pair of fine camel-hair paintbrushes (delivers identical synchronous strokes (vs 500-ms asynchronous control)). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across an elevated wide view of the bright Pittsburgh partition table showing the shifted mint-sage drift peg beneath the matte chalk-white decoy hand, featuring matched pair of fine camel-hair paintbrushes (delivers identical synchronous strokes (vs 500-ms asynchronous control)). Inside the room, researcher (Late-1990s academic attire: crisp white lab coat over button-down shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside matched pair of fine camel-hair paintbrushes (delivers identical synchronous strokes (vs 500-ms asynchronous control)). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "an elevated wide view of a sunlit cognitive laboratory with cool clear d",
+        "an elevated wide view of the bright Pittsburgh partition table showing t",
         "matched pair of fine camel-hair paintbrushes (delivers i"
       ],
       "key_visual": null,
@@ -374,18 +374,18 @@
       "frame": "start",
       "category": "clip_keyframe_anchor",
       "role": "reenactment",
-      "scene_id": "LOC_stockholm_threat_lab",
+      "scene_id": "S03",
       "setting": "real_env",
       "filename": "ref_anchor_03.png",
-      "title": "Room state anchor 3 (stockholm_threat_lab: subject)",
+      "title": "Shot S03 anchor 3 (stockholm_threat_lab: subject)",
       "generation_order": 3,
       "conditioned_on": [
         "ref_cast_subject"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright Scandinavian neuroimaging suite with a sleek matte-white fMRI ring where twin powder-blue brushes stroke a volunteer's hand setup, featuring vertical tabletop occlusion partition & realistic prosthetic left hand. Inside the room, subject (Late-1990s academic attire: crisp white lab coat over button-down shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside vertical tabletop occlusion partition & realistic prosthetic left hand. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright Scandinavian neuroimaging suite with a sleek matte-white fMRI ring where twin powder-blue brushes stroke a volunteer's hand setup. Inside the room, subject (crew-neck cotton sweater and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a bright Scandinavian neuroimaging suite with a sleek matte-white fMRI r",
-        "vertical tabletop occlusion partition & realistic prosth"
+        "an unmarked clinical tabletop apparatus"
       ],
       "key_visual": null,
       "bound_master_anchors": [

@@ -32,20 +32,23 @@
           "what": "Complete clinical milestone sequence: S3 guides the five-fingered robotic hand to grasp, lift, tilt the coffee straw for her first self-served sip in nearly 15 years, and place the bottle upright back onto the tabletop as researchers watch in awe."
         }
       ],
-      "reenactment_suitability": "reject_track_b_only",
-      "reenactment_suitability_reason": "gate4_modern_monologue_without_archival_footage(wps=2.651,th=0.5)",
+      "reenactment_suitability": "needs_section_window",
+      "reenactment_suitability_reason": "gate4_mixed_commentary_or_unwindowed_long_video",
       "reenactment_suitability_metrics": {
         "keyframe_count": 23,
         "median_dark_ratio": 0.5857,
         "median_gray_sat_ratio": 0.2542,
+        "median_p90_sat": 137.5,
+        "max_p90_sat": 225.0,
         "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
         "median_flat_patch_ratio": 0.3073,
+        "median_motion_diff": 56.064,
         "talking_head_ratio": 0.5,
         "words_per_sec": 2.651,
-        "has_strong_archival_cue": false,
-        "gate_failed": 4
+        "has_strong_archival_cue": true
       },
-      "recommended_section": "00:00-01:30"
+      "recommended_section": "03:30-04:18"
     },
     {
       "id": "M2",
@@ -65,14 +68,17 @@
           "what": "Continuous neural velocity decoding across X, Y, and Z axes plus state-machine hand aperture closing and releasing cylindrical and spherical targets."
         }
       ],
-      "reenactment_suitability": "suitable_track_a",
-      "reenactment_suitability_reason": "archival_or_experiment_video_metadata_match",
+      "reenactment_suitability": "needs_section_window",
+      "reenactment_suitability_reason": "unanalyzed_archival_url_requires_section_window",
       "reenactment_suitability_metrics": {
         "duration_sec": 0.0,
-        "archival_cue": true
-      }
+        "archival_cue": true,
+        "unanalyzed": true
+      },
+      "recommended_section": "01:04-02:17"
     }
   ],
   "reenactment_track": "track_a",
-  "track_subtier": "A1b_archive_url"
+  "track_subtier": "A2_section_window",
+  "suitability_schema_version": 2
 }

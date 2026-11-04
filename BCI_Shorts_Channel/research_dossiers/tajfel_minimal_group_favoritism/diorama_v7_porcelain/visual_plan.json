@@ -481,8 +481,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "index": 20,
@@ -603,8 +602,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "index": 27,
@@ -744,8 +742,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "index": 34,
@@ -769,8 +766,7 @@
           "subject"
         ],
         "protocol_phase_jump": true
-      },
-      "reference_image": "03_visuals/reference_images/ref_env_master.png"
+      }
     },
     {
       "index": 35,
@@ -885,8 +881,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "index": 42,
@@ -960,8 +955,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "index": 44,
@@ -1188,8 +1182,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "index": 21,
@@ -1236,15 +1229,15 @@
   "require_scene_state_ledger": true,
   "reenactment_track": "track_b",
   "track_subtier": "B_scene_bible_anchor",
-  "default_location_id": "bristol_art_hall",
-  "real_environment": "sunlit cool clear daylight-white Bristol university room with two brushed-silver easels holding abstract geometric sunlit mosaic reliefs in soft diffused daylight",
+  "default_location_id": "bristol_booth_row",
+  "real_environment": "high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk",
   "environment_props": [
-    "paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random)",
-    "Tajfel Payoff Matrix Board ('19 / 25 Richer For Everyone [Skipped] vs 7 / 1 We Beat Them! [Chosen]') (exposes relative-status tribalism with zero personal greed)"
+    "paired abstract modernist art prints ( & ) + random group ID badges",
+    "Tajfel Payoff Matrix Board () (exposes relative-status tribalism with zero personal greed)"
   ],
   "cast": {
-    "subject": "1971 British attire: professor wool tweed jacket with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "1971 British comprehensive-school navy blazers, white shirts, and striped school ties with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "1971 British comprehensive-school navy blazers, white shirts, and striped school ties and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "1971 British attire: professor wool tweed jacket and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1261,14 +1254,13 @@
       "setting": "real_env",
       "generation_order": 3,
       "conditioned_on": [
-        "ref_env_master",
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (bristol_art_hall: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit cool clear daylight-white Bristol university room with two brushed-silver easels holding abstract geometric sunlit mosaic reliefs in soft diffused daylight, featuring paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random). Inside the room, researcher (1971 British comprehensive-school navy blazers, white shirts, and striped school ties with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit cool clear daylight-white Bristol university room with two brushed-silver easels holding abstract geometric sunlit mosaic reliefs in soft diffused daylight. Inside the room, researcher (1971 British attire: professor wool tweed jacket and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "sunlit cool clear daylight-white Bristol university room with two brushe",
-        "paired abstract modernist art prints ('Klee' & 'Kandinsk"
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1284,13 +1276,14 @@
       "setting": "real_env",
       "generation_order": 3,
       "conditioned_on": [
+        "ref_env_master",
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (bristol_booth_row: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk, featuring Tajfel Payoff Matrix Board ('19 / 25 Richer For Everyone [Skipped] vs 7 / 1 We Beat Them! [Chosen]') (exposes relative-status tribalism with zero personal greed). Inside the room, researcher (1971 British comprehensive-school navy blazers, white shirts, and striped school ties with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Tajfel Payoff Matrix Board ('19 / 25 Richer For Everyone [Skipped] vs 7 / 1 We Beat Them! [Chosen]') (exposes relative-status tribalism with zero personal greed). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk, featuring Tajfel Payoff Matrix Board () (exposes relative-status tribalism with zero personal greed). Inside the room, researcher (1971 British attire: professor wool tweed jacket and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Tajfel Payoff Matrix Board () (exposes relative-status tribalism with zero personal greed). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "high-key powder-blue private study booth with two color-coded token tray",
-        "Tajfel Payoff Matrix Board ('19 / 25 Richer For Everyone"
+        "Tajfel Payoff Matrix Board () (exposes relative-status t"
       ]
     },
     {
@@ -1306,13 +1299,14 @@
       "setting": "real_env",
       "generation_order": 3,
       "conditioned_on": [
+        "ref_env_master",
         "ref_cast_subject"
       ],
       "title": "Room state anchor 3 (bristol_booth_row: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk, featuring paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random). Inside the room, subject (1971 British attire: professor wool tweed jacket with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk, featuring paired abstract modernist art prints ( & ) + random group ID badges. Inside the room, subject (1971 British comprehensive-school navy blazers, white shirts, and striped school ties and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired abstract modernist art prints ( & ) + random group ID badges. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "high-key powder-blue private study booth with two color-coded token tray",
-        "paired abstract modernist art prints ('Klee' & 'Kandinsk"
+        "paired abstract modernist art prints ( & ) + random grou"
       ]
     }
   ]

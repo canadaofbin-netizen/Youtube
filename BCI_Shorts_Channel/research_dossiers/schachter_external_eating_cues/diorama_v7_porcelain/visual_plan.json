@@ -284,8 +284,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "clip_index": 11,
@@ -407,8 +406,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 16,
@@ -481,8 +479,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "clip_index": 20,
@@ -580,8 +577,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 25,
@@ -723,8 +719,7 @@
           "researcher"
         ]
       },
-      "clip_number": 27,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 27
     },
     {
       "clip_index": 32,
@@ -887,8 +882,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "clip_index": 39,
@@ -962,8 +956,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "clip_index": 42,
@@ -1063,8 +1056,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 49,
@@ -1225,14 +1217,14 @@
   "reenactment_track": "track_b",
   "track_subtier": "B_scene_bible_anchor",
   "default_location_id": "columbia_clock_room",
-  "real_environment": "the bright sunlit Columbia lab room beneath the unmarked round powder-blue circular acoustic damper with silver hands aligned straight up and down",
+  "real_environment": "a soft sunlit Columbia psychology room with pale sage walls and a round powder-blue circular acoustic damper with unmarked sunlit tick wedges and two clean silver hands",
   "environment_props": [
-    "paired smooth-face electric wall dials ('5:20 Slow' vs '6:05 Fast' at real 5:35 PM) (reconstructs Schachter & Gross's time-speed manipulation)",
+    "paired smooth-face electric wall dials ( vs at real 5:35 PM) (reconstructs Schachter & Gross's time-speed manipulation)",
     "weighed open cracker boxes + 19.3g vs 37.1g Intake Stand (turns invisible cue-driven appetite into a crisp measurable weight jump)"
   ],
   "cast": {
-    "subject": "1968 Ivy League academic attire: tweed sport coat and dark tie with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "collegiate crew-neck sweater and chinos with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "1968 Ivy League academic attire: tweed sport coat and dark tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "collegiate crew-neck sweater and chinos and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1253,10 +1245,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 1 (columbia_clock_room: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright sunlit Columbia lab room beneath the unmarked round powder-blue circular acoustic damper with silver hands aligned straight up and down, featuring paired smooth-face electric wall dials ('5:20 Slow' vs '6:05 Fast' at real 5:35 PM) (reconstructs Schachter & Gross's time-speed manipulation). Inside the room, subject (1968 Ivy League academic attire: tweed sport coat and dark tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired smooth-face electric wall dials ('5:20 Slow' vs '6:05 Fast' at real 5:35 PM) (reconstructs Schachter & Gross's time-speed manipulation). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a soft sunlit Columbia psychology room with pale sage walls and a round powder-blue circular acoustic damper with unmarked sunlit tick wedges and two clean silver hands, featuring paired smooth-face electric wall dials ( vs at real 5:35 PM) (reconstructs Schachter & Gross's time-speed manipulation). Inside the room, subject (1968 Ivy League academic attire: tweed sport coat and dark tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired smooth-face electric wall dials ( vs at real 5:35 PM) (reconstructs Schachter & Gross's time-speed manipulation). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the bright sunlit Columbia lab room beneath the unmarked round powder-bl",
-        "paired smooth-face electric wall dials ('5:20 Slow' vs '"
+        "a soft sunlit Columbia psychology room with pale sage walls and a round ",
+        "paired smooth-face electric wall dials ( vs at real 5:35"
       ]
     },
     {
@@ -1275,10 +1267,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (columbia_control_booth: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a modern bright sunlit nutrition laboratory with cool slate counters and neat portion bowls, featuring weighed open cracker boxes + 19.3g vs 37.1g Intake Stand (turns invisible cue-driven appetite into a crisp measurable weight jump). Inside the room, researcher (collegiate crew-neck sweater and chinos with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside weighed open cracker boxes + 19.3g vs 37.1g Intake Stand (turns invisible cue-driven appetite into a crisp measurable weight jump). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a modern bright sunlit nutrition laboratory with cool slate counters and neat portion bowls. Inside the room, researcher (collegiate crew-neck sweater and chinos and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a modern bright sunlit nutrition laboratory with cool slate counters and",
-        "weighed open cracker boxes + 19.3g vs 37.1g Intake Stand"
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1298,10 +1290,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (columbia_clock_room: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the bright sunlit Columbia lab room beneath the unmarked round powder-blue circular acoustic damper with silver hands aligned straight up and down, featuring paired smooth-face electric wall dials ('5:20 Slow' vs '6:05 Fast' at real 5:35 PM) (reconstructs Schachter & Gross's time-speed manipulation). Inside the room, researcher (collegiate crew-neck sweater and chinos with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired smooth-face electric wall dials ('5:20 Slow' vs '6:05 Fast' at real 5:35 PM) (reconstructs Schachter & Gross's time-speed manipulation). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a soft sunlit Columbia psychology room with pale sage walls and a round powder-blue circular acoustic damper with unmarked sunlit tick wedges and two clean silver hands, featuring paired smooth-face electric wall dials ( vs at real 5:35 PM) (reconstructs Schachter & Gross's time-speed manipulation). Inside the room, researcher (collegiate crew-neck sweater and chinos and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired smooth-face electric wall dials ( vs at real 5:35 PM) (reconstructs Schachter & Gross's time-speed manipulation). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the bright sunlit Columbia lab room beneath the unmarked round powder-bl",
-        "paired smooth-face electric wall dials ('5:20 Slow' vs '"
+        "a soft sunlit Columbia psychology room with pale sage walls and a round ",
+        "paired smooth-face electric wall dials ( vs at real 5:35"
       ]
     }
   ]

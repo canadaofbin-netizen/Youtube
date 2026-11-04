@@ -176,8 +176,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 6,
@@ -269,8 +268,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 10,
@@ -400,8 +398,7 @@
           "researcher"
         ]
       },
-      "clip_number": 14,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 14
     },
     {
       "sentence_index": 16,
@@ -543,8 +540,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 22,
@@ -715,8 +711,7 @@
           "researcher"
         ]
       },
-      "clip_number": 28,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 28
     },
     {
       "sentence_index": 30,
@@ -834,8 +829,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 36,
@@ -1145,8 +1139,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 51,
@@ -1176,12 +1169,12 @@
   "real_environment": "the bright London anthropology hall with five ascending matte cool-porcelain brain casts paired beside five growing clusters of compact porcelain figures",
   "environment_props": [
     "ascending row of five matte-white primate cranial endocasts",
-    "log-log Neocortex Ratio vs Group Size chart",
-    "historical ~150 bound notebook cards ('Neolithic Village: 150 / Roman Maniple: 130 / Hutterite Split: 150') (crisp comparison cards stacked on the table)"
+    "log-log Neocortex Ratio vs Group Size unmarked paper sheet",
+    "historical ~150 bound notebook blank matte blank matte cards () (crisp comparison blank matte blank matte cards stacked on the table)"
   ],
   "cast": {
     "subject": "1992 British academic attire: warm herringbone tweed jacket, blue Oxford shirt, corduroy trousers with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "clinical investigator in a charcoal coat with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "researcher": "1992 British academic attire: warm herringbone tweed jacket, blue Oxford shirt, corduroy trousers with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1202,7 +1195,7 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (ucl_anthropology_hall: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright London anthropology hall with five ascending matte cool-porcelain brain casts paired beside five growing clusters of compact porcelain figures, featuring ascending row of five matte-white primate cranial endocasts. Inside the room, researcher (clinical investigator in a charcoal coat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside ascending row of five matte-white primate cranial endocasts. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright London anthropology hall with five ascending matte cool-porcelain brain casts paired beside five growing clusters of compact porcelain figures, featuring ascending row of five matte-white primate cranial endocasts. Inside the room, researcher (1992 British academic attire: warm herringbone tweed jacket, blue Oxford shirt, corduroy trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside ascending row of five matte-white primate cranial endocasts. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the bright London anthropology hall with five ascending matte cool-porce",
         "ascending row of five matte-white primate cranial endoca"
@@ -1224,10 +1217,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (digital_network_studio: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a bright modern computational studio with a large unmarked frosted-glass light wall showing geometric node clusters, featuring log-log Neocortex Ratio vs Group Size chart. Inside the room, researcher (clinical investigator in a charcoal coat with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside log-log Neocortex Ratio vs Group Size chart. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a bright modern computational studio with a large unmarked frosted-glass light wall showing geometric node clusters. Inside the room, researcher (1992 British academic attire: warm herringbone tweed jacket, blue Oxford shirt, corduroy trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a bright modern computational studio with a large unmarked frosted-glass",
-        "log-log Neocortex Ratio vs Group Size chart"
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1246,10 +1239,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 3 (digital_network_studio: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright modern computational studio with a large unmarked frosted-glass light wall showing geometric node clusters, featuring ascending row of five matte-white primate cranial endocasts. Inside the room, subject (1992 British academic attire: warm herringbone tweed jacket, blue Oxford shirt, corduroy trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside ascending row of five matte-white primate cranial endocasts. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright modern computational studio with a large unmarked frosted-glass light wall showing geometric node clusters. Inside the room, subject (1992 British academic attire: warm herringbone tweed jacket, blue Oxford shirt, corduroy trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a bright modern computational studio with a large unmarked frosted-glass",
-        "ascending row of five matte-white primate cranial endoca"
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ]

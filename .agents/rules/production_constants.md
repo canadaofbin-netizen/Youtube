@@ -269,9 +269,13 @@ Owner of all numeric thresholds, budgets, and timing constants across the ALL AB
 | `REENACTMENT_TRACKS` | `("track_a", "track_b")` | tuple | Dual-Track `porcelain_cinematic_v7` reference-conditioning tracks: `track_a` (`R67` archival film reenactment) and `track_b` (`R66-Anchor` scene-bible room & cast pack) |
 | `MEDIA_SUITABILITY_CLASSES` | `("suitable_track_a", "needs_section_window", "reject_track_b_only")` | tuple | 4-Gate CV/Transcript/Metadata suitability classes for `04_media_refs.json` entries (`pipeline/research_dossier.py`) |
 | `MEDIA_REJECT_CHANNEL_PATTERNS` | `("ted", "tedx", "ted-ed", ..., "huberman lab")` | tuple | Lecture, dark-stage, 2D-explainer, and hospital PR channel patterns rejected by Gate 1 (`reject_track_b_only`) |
+| `MEDIA_SUITABILITY_SCHEMA_VERSION` / `MEDIA_MIN_CINEMA_YEAR` | `2` / `1895` | int / year | Schema version & pre-cinema year floor (`< 1895` routes to Track B unless recreation film) (`R44-M`) |
 | `MEDIA_MAX_DARK_VOID_RATIO` | `0.72` | ratio | Gate 2 max median dark pixel ratio (`Y < 35`) across sampled keyframes before rejecting dark TED/stage voids |
-| `MEDIA_MAX_FLAT_SLIDE_RATIO` | `0.62` | ratio | Gate 3 max flat low-texture slide/vector ratio on non-B&W frames (1920s–60s grayscale `S_p90 <= 22` film is exempt) |
+| `MEDIA_BW_ARCHIVAL_SAT_MAX` / `MEDIA_BW_FRAME_P90_SAT_MAX` | `24.0` / `36.0` | HSV S | Gate 3 per-pixel (`S < 24`) and frame-wide (`p90(S) <= 36`) chroma caps separating true 16mm B&W film from color lectures & mixed hosts |
+| `MEDIA_MAX_FLAT_SLIDE_RATIO` / `MEDIA_MIN_MOTION_DIFF` | `0.62` / `1.2` | ratio / L1 diff | Gate 3 max flat low-texture slide/vector ratio (`0.62` on non-B&W; `0.92` blank-screen ceiling on true `p90(S) <= 36` B&W) and min median inter-keyframe motion (`1.2`, rejecting static slides/covers) |
 | `MEDIA_MAX_UNWINDOWED_DURATION_SEC` | `600.0` | s | Gate 4 max unwindowed video duration (`10 min`) before requiring an explicit `--section MM:SS-MM:SS` window |
+| `MEDIA_ARCHIVAL_SEARCH_SUFFIXES` | `("original archival footage", "16mm experiment film", "clinical demonstration video")` | tuple | Archival query boost suffixes used during `dossier yt-search` (`R44-M`) |
+| `PORCELAIN_ANCHOR_MIN_CLIP_RATIO` / `PORCELAIN_ANCHOR_MAX_CLIP_RATIO` | `0.28` / `0.88` | ratio | Non-outro clip reference-binding ratio bounds across `R66-Anchor` & `R67` (zero full-body wide locks on hand closeups) |
 | `YUNET_FACE_MODEL_PATH` | `ASSETS_DIR / "models" / "face_detection_yunet_2023mar.onnx"` | path | Bundled OpenCV Zoo Apache-2.0 YuNet ONNX face detector for B&W + color archival face sanitization (`R67`) & talking-head rejection (`Gate 4`) |
 | `MICRO_SHORT_PROFILE` | `"micro_short_v7"` | str | `35–45s` Micro-Short discovery funnel profile |
 | `MICRO_SHORT_DURATION_MIN_SEC` / `MICRO_SHORT_DURATION_MAX_SEC` (`MICRO_SHORT_MIN_SEC` / `MICRO_SHORT_MAX_SEC`) | `35.0` / `45.0` | s | Assembled duration bounds for `micro_short_v7` |

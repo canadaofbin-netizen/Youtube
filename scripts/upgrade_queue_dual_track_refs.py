@@ -166,8 +166,39 @@ def upgrade_one_queued_episode(
     non_outro = [c for c in clips if str(c.get("cut_role") or "").lower() != "outro"]
     anchored = [c for c in non_outro if str(c.get("reference_image") or "").strip()]
     anchored_ratio = round(len(anchored) / max(1, len(non_outro)), 3)
-    if not (0.35 <= anchored_ratio <= 0.88):
-        issues.append(f"anchored_clip_ratio={anchored_ratio} outside 0.35..0.88")
+    if not (config.PORCELAIN_ANCHOR_MIN_CLIP_RATIO <= anchored_ratio <= config.PORCELAIN_ANCHOR_MAX_CLIP_RATIO):
+        issues.append(
+            f"anchored_clip_ratio={anchored_ratio} outside "
+            f"{config.PORCELAIN_ANCHOR_MIN_CLIP_RATIO}..{config.PORCELAIN_ANCHOR_MAX_CLIP_RATIO}"
+        )
+    locked_closeups = [
+        idx + 1
+        for idx, c in enumerate(clips)
+        if str(c.get("grammar") or "") in ("porcelain_hands_closeup", "porcelain_pov_hands")
+        and str(c.get("reference_image") or "").strip()
+        and not plan.get("source_edl")
+    ]
+    if locked_closeups:
+        issues.append(f"closeup clips wide-locked to full-body/room reference_image: {locked_closeups}")
+    if track == "track_a":
+        has_s_anchors = any(
+            str(a.get("scene_id") or "").startswith("S")
+            for a in (plan.get("reference_anchors") or [])
+            if isinstance(a, dict)
+        )
+        if not has_s_anchors:
+            issues.append("track_a plan has zero S01..S0N shot-bound reference_anchors")
+        lab_clips = [
+            c
+            for c in non_outro
+            if str(c.get("grammar") or "") not in ("porcelain_living_brain", "porcelain_data_sculpture")
+            and not c.get("brain_mode")
+            and str(c.get("cut_role") or "").lower() not in ("split_left", "split_right", "split_top", "split_bottom")
+        ]
+        mapped_lab = [c for c in lab_clips if str(c.get("source_shot_id") or "").startswith("S")]
+        align_ratio = len(mapped_lab) / max(1, len(lab_clips))
+        if align_ratio < config.REENACT_COMPOSITION_MATCH_MIN:
+            issues.append(f"track_a RQ5 blocking_alignment_ratio={align_ratio:.3f} < {config.REENACT_COMPOSITION_MATCH_MIN}")
     if check_only:
         if not prompts_path.exists():
             issues.append("missing direct flow_all_in_one_prompts.json")

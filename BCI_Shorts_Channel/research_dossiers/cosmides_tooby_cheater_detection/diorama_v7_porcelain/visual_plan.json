@@ -211,8 +211,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 6,
@@ -456,8 +455,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 19,
@@ -553,8 +551,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "clip_index": 24,
@@ -696,8 +693,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 31,
@@ -746,8 +742,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 34,
@@ -916,8 +911,7 @@
           "researcher"
         ]
       },
-      "clip_number": 35,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 35
     },
     {
       "clip_index": 42,
@@ -991,8 +985,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "clip_index": 46,
@@ -1106,8 +1099,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 53,
@@ -1230,12 +1222,12 @@
   "default_location_id": "stanford_card_lab",
   "real_environment": "the bright sunlit Stanford laboratory with pale sage shelves and two neat test stations",
   "environment_props": [
-    "4 oversized Wason test cards ('Eats Cassava Root' | 'Eats Molo Nuts' | 'Has Tattoo' | 'No Tattoo') (keeps every word of the unfamiliar rule 100% constant across conditions)",
-    "Story-Frame Flip Board ('Neutral Fact: 23% | Catch the Benefit-Without-Cost Cheater: 75%!') (makes the 3x reasoning leap unmistakable at a glance)"
+    "4 oversized Wason test blank matte blank matte cards ( | | | )",
+    "Story-Frame Flip Board () (makes the 3x reasoning leap unmistakable at a glance)"
   ],
   "cast": {
-    "subject": "1989 California academic attire: structured cotton/linen blazer and blouse with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "collegiate crewneck sweaters and khakis with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "1989 California academic attire: structured cotton/linen blazer and blouse and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "collegiate crewneck sweaters and khakis and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1255,10 +1247,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (team_charter_office: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit collaborative studio with a round pale-ash table and muted-sage chairs, featuring 4 oversized Wason test cards ('Eats Cassava Root' | 'Eats Molo Nuts' | 'Has Tattoo' | 'No Tattoo') (keeps every word of the unfamiliar rule 100% constant across conditions). Inside the room, researcher (collegiate crewneck sweaters and khakis with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 4 oversized Wason test cards ('Eats Cassava Root' | 'Eats Molo Nuts' | 'Has Tattoo' | 'No Tattoo') (keeps every word of the unfamiliar rule 100% constant across conditions). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit collaborative studio with a round pale-ash table and muted-sage chairs. Inside the room, researcher (collegiate crewneck sweaters and khakis and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a sunlit collaborative studio with a round pale-ash table and muted-sage",
-        "4 oversized Wason test cards ('Eats Cassava Root' | 'Eat"
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1279,10 +1271,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (stanford_card_lab: researcher, subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the bright sunlit Stanford laboratory with pale sage shelves and two neat test stations, featuring Story-Frame Flip Board ('Neutral Fact: 23% | Catch the Benefit-Without-Cost Cheater: 75%!') (makes the 3x reasoning leap unmistakable at a glance). Inside the room, researcher (collegiate crewneck sweaters and khakis with a completely smooth featureless solid matte-white egg-shaped oval head), subject (1989 California academic attire: structured cotton/linen blazer and blouse with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Story-Frame Flip Board ('Neutral Fact: 23% | Catch the Benefit-Without-Cost Cheater: 75%!') (makes the 3x reasoning leap unmistakable at a glance). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the bright sunlit Stanford laboratory with pale sage shelves and two neat test stations, featuring Story-Frame Flip Board () (makes the 3x reasoning leap unmistakable at a glance). Inside the room, researcher (collegiate crewneck sweaters and khakis and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head), subject (1989 California academic attire: structured cotton/linen blazer and blouse and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Story-Frame Flip Board () (makes the 3x reasoning leap unmistakable at a glance). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the bright sunlit Stanford laboratory with pale sage shelves and two nea",
-        "Story-Frame Flip Board ('Neutral Fact: 23% | Catch the B"
+        "Story-Frame Flip Board () (makes the 3x reasoning leap u"
       ]
     },
     {
@@ -1301,10 +1293,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 3 (stanford_seminar_room: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright sunlit seminar room with pale slate tables and soft diffused window light, featuring 4 oversized Wason test cards ('Eats Cassava Root' | 'Eats Molo Nuts' | 'Has Tattoo' | 'No Tattoo') (keeps every word of the unfamiliar rule 100% constant across conditions). Inside the room, subject (1989 California academic attire: structured cotton/linen blazer and blouse with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 4 oversized Wason test cards ('Eats Cassava Root' | 'Eats Molo Nuts' | 'Has Tattoo' | 'No Tattoo') (keeps every word of the unfamiliar rule 100% constant across conditions). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright sunlit seminar room with pale slate tables and soft diffused window light. Inside the room, subject (1989 California academic attire: structured cotton/linen blazer and blouse and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a bright sunlit seminar room with pale slate tables and soft diffused wi",
-        "4 oversized Wason test cards ('Eats Cassava Root' | 'Eat"
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ]

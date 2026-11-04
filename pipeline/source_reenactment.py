@@ -431,22 +431,26 @@ def extract_source_edl(
         subprocess.run(cmd, check=False, capture_output=True, text=True, timeout=180)
         if sec_bounds is not None:
             if dl_target.exists():
-                # Ensure exact window if yt-dlp returned a wider stream
+                # Ensure exact window: if yt-dlp returned the full untrimmed stream (p_dur >= t1*0.95),
+                # seek to sec_bounds[0]; if yt-dlp already trimmed near sec_bounds[0] with keyframe pad, trim from 0.0
                 probe_cap = cv2.VideoCapture(str(dl_target))
                 p_fps = float(probe_cap.get(cv2.CAP_PROP_FPS) or 30.0)
                 p_fc = int(probe_cap.get(cv2.CAP_PROP_FRAME_COUNT) or 0)
                 probe_cap.release()
                 p_dur = p_fc / max(p_fps, 1.0)
-                expected_dur = sec_bounds[1] - sec_bounds[0]
+                expected_dur = max(3.0, sec_bounds[1] - sec_bounds[0])
                 if p_dur > (expected_dur + 3.0):
+                    full_stream_returned = bool(sec_bounds[0] > 2.0 and p_dur >= sec_bounds[1] * 0.95)
+                    trim_args = (
+                        ["-ss", f"{sec_bounds[0]:.2f}", "-to", f"{sec_bounds[1]:.2f}"]
+                        if full_stream_returned
+                        else ["-ss", "0.00", "-t", f"{expected_dur:.2f}"]
+                    )
                     subprocess.run(
                         [
                             ffmpeg_bin,
                             "-y",
-                            "-ss",
-                            f"{sec_bounds[0]:.2f}",
-                            "-to",
-                            f"{sec_bounds[1]:.2f}",
+                            *trim_args,
                             "-i",
                             str(dl_target),
                             "-c:v",
@@ -785,7 +789,28 @@ def sanitize_structural_frame_bgr(
             cv2.rectangle(img, (x0 + pad_x, y0 + pad_y), (x1 - pad_x, y1 - pad_y), (234, 236, 238), -1)
             cv2.rectangle(img, (x0 + pad_x, y0 + pad_y), (x1 - pad_x, y1 - pad_y), (185, 190, 195), 1)
 
-    # 2. Remove any burned-in VHS bottom caption strip
+    # 2. Remove any burned-in VHS bottom caption strip or lower-third subtitle overlay (y=0.78..0.98)
+    lt_y0, lt_y1 = int(h * 0.78), int(h * 0.98)
+    lt_x0, lt_x1 = int(w * 0.10), int(w * 0.90)
+    if lt_y1 > lt_y0 + 8 and lt_x1 > lt_x0 + 16:
+        lt_band = img[lt_y0:lt_y1, lt_x0:lt_x1]
+        lt_gray = cv2.cvtColor(lt_band, cv2.COLOR_BGR2GRAY)
+        if (
+            float(np.mean(cv2.Canny(lt_gray, 70, 170) > 0)) > 0.055
+            and float(np.percentile(lt_gray, 96)) >= 205.0
+            and float(np.median(lt_gray)) <= 125.0
+        ):
+            txt_mask = cv2.dilate((lt_gray >= 175).astype(np.uint8) * 255, np.ones((7, 13), np.uint8), iterations=1)
+            blurred_lt = cv2.GaussianBlur(img[lt_y0:lt_y1, :], (35, 35), 0)
+            full_lt_mask = np.zeros((lt_y1 - lt_y0, w), dtype=np.float32)
+            full_lt_mask[:, lt_x0:lt_x1] = txt_mask.astype(np.float32) / 255.0
+            full_lt_mask = cv2.GaussianBlur(full_lt_mask, (9, 9), 0)[:, :, None]
+            img[lt_y0:lt_y1, :] = np.clip(
+                img[lt_y0:lt_y1, :].astype(np.float32) * (1.0 - full_lt_mask) + blurred_lt.astype(np.float32) * full_lt_mask,
+                0,
+                255,
+            ).astype(np.uint8)
+
     bot_y0 = int(h * 0.89)
     gray_bot = cv2.cvtColor(img[bot_y0:, :], cv2.COLOR_BGR2GRAY)
     if float(np.mean(cv2.Canny(gray_bot, 70, 170) > 0)) > 0.04:
@@ -976,6 +1001,7 @@ def render_reenactment_comparison_sheet(
     vis_dir = p_dir / "03_visuals"
     ref_dir = vis_dir / REF_IMAGES_DIRNAME
     shots_by_id = {str(s.get("shot_id")): s for s in (edl_doc.get("shots") or [])}
+    is_track_a = bool(shots_by_id)
 
     clip_specs = [s for s in (specs_payload.get("clip_anchors") or []) if (ref_dir / str(s.get("filename"))).exists()]
     if not clip_specs:
@@ -984,27 +1010,32 @@ def render_reenactment_comparison_sheet(
     rows = max(1, len(selected))
     cell_w, cell_h = 270, 480
     canvas = np.full((rows * (cell_h + 24) + 64, cell_w * 2 + 72, 3), (245, 247, 250), dtype=np.uint8)
+    sheet_hdr = (
+        f"R67 SOURCE-CONDITIONED PORCELAIN REENACTMENT SHEET ({p_dir.name})"
+        if is_track_a
+        else f"R66-ANCHOR SCENE-BIBLE PORCELAIN REFERENCE SHEET ({p_dir.name})"
+    )
     cv2.putText(
         canvas,
-        f"R67 SOURCE-CONDITIONED PORCELAIN REENACTMENT SHEET ({p_dir.name})",
-        (24, 38),
+        sheet_hdr,
+        (20, 38),
         cv2.FONT_HERSHEY_SIMPLEX,
-        0.62,
+        0.54,
         (28, 36, 48),
         2,
         cv2.LINE_AA,
     )
 
     zone_boxes = {
-        "upper_background_zone": (35, 65, 235, 145, (190, 210, 225)),
-        "left_foreground_zone": (22, 185, 112, 330, (175, 195, 215)),
-        "right_foreground_zone": (158, 185, 248, 330, (175, 215, 195)),
-        "center_action_zone": (68, 290, 202, 415, (210, 195, 180)),
+        "upper_background_zone": (35, 65, 235, 145, (190, 210, 225), "upper_bg"),
+        "left_foreground_zone": (22, 185, 112, 330, (175, 195, 215), "left_fg"),
+        "right_foreground_zone": (158, 185, 248, 330, (175, 215, 195), "right_fg"),
+        "center_action_zone": (68, 290, 202, 415, (210, 195, 180), "center_prop"),
         # Legacy R67 pilot zone aliases:
-        "upper_observation_mirror": (35, 65, 235, 145, (190, 210, 225)),
-        "left_chair_zone": (22, 185, 112, 330, (175, 195, 215)),
-        "right_chair_or_door_zone": (158, 185, 248, 330, (175, 215, 195)),
-        "center_floor_playmat": (68, 290, 202, 415, (210, 195, 180)),
+        "upper_observation_mirror": (35, 65, 235, 145, (190, 210, 225), "obs_mirror"),
+        "left_chair_zone": (22, 185, 112, 330, (175, 195, 215), "left_chair"),
+        "right_chair_or_door_zone": (158, 185, 248, 330, (175, 215, 195), "right_door"),
+        "center_floor_playmat": (68, 290, 202, 415, (210, 195, 180), "floor_mat"),
     }
 
     for idx, sp in enumerate(selected):
@@ -1014,24 +1045,26 @@ def render_reenactment_comparison_sheet(
         cv2.rectangle(diag, (2, 2), (cell_w - 3, cell_h - 3), (180, 188, 198), 2)
         sc_id = str(sp.get("scene_id") or "")
         sh = shots_by_id.get(sc_id, {})
-        active_z = sh.get("active_zones") or ["center_action_zone", "left_foreground_zone"]
+        active_z = sh.get("active_zones") or (
+            ["center_action_zone", "left_foreground_zone"]
+            if sp.get("present_cast")
+            else ["upper_background_zone", "center_action_zone"]
+        )
         for z_name in active_z:
             if z_name in zone_boxes:
-                zx0, zy0, zx1, zy1, zcol = zone_boxes[z_name]
+                zx0, zy0, zx1, zy1, zcol, zlbl = zone_boxes[z_name]
                 cv2.rectangle(diag, (zx0, zy0), (zx1, zy1), zcol, -1)
                 cv2.rectangle(diag, (zx0, zy0), (zx1, zy1), (95, 110, 128), 2)
-                cv2.putText(diag, z_name[:18], (zx0 + 4, zy0 + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.36, (40, 50, 65), 1)
+                cv2.putText(diag, zlbl, (zx0 + 6, zy0 + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.36, (40, 50, 65), 1)
         cv2.putText(diag, f"Ref: {sp.get('ref_id')}", (12, 28), cv2.FONT_HERSHEY_SIMPLEX, 0.46, (25, 35, 50), 1)
-        cv2.putText(
-            diag,
-            f"Scene: {sc_id} | Cam: {sh.get('camera_motion', 'locked')[:14]}",
-            (12, 48),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            0.38,
-            (55, 65, 80),
-            1,
+        sub_lbl = (
+            f"Shot: {sc_id} | Cam: {sh.get('camera_motion', 'locked')[:14]}"
+            if is_track_a
+            else f"Loc: {str(sp.get('location_id') or sc_id)[:18]} | Cast: {len(sp.get('present_cast') or [])}"
         )
-        cv2.putText(diag, "Poster/Skin Masked: YES", (12, cell_h - 18), cv2.FONT_HERSHEY_SIMPLEX, 0.40, (25, 110, 55), 1)
+        cv2.putText(diag, sub_lbl, (12, 48), cv2.FONT_HERSHEY_SIMPLEX, 0.36, (55, 65, 80), 1)
+        foot_lbl = "Poster/Face Sanitized: YES" if is_track_a else "Scene-Bible Zero-Pixel: YES"
+        cv2.putText(diag, foot_lbl, (12, cell_h - 18), cv2.FONT_HERSHEY_SIMPLEX, 0.38, (25, 110, 55), 1)
         canvas[y_off : y_off + cell_h, 24 : 24 + cell_w] = diag
 
         # Right panel: generated R66 porcelain keyframe PNG
@@ -1182,13 +1215,15 @@ async def translate_porcelain_keyframes_async(
                     cast_suffix += f" Exactly {len(p_list)} clothed matte-white porcelain figure(s) appear in the frame ({', '.join(p_list)})."
             if spec.get("empty_chairs_note"):
                 cast_suffix += f" {str(spec['empty_chairs_note']).strip()}"
+            if "no text" not in base_prompt.lower() and "zero text" not in base_prompt.lower():
+                cast_suffix += " Strictly zero text, zero letters, zero numbers, zero labels, no watermark."
 
             if guide_cand in cond_paths:
                 i2i_prefix = (
                     "Vertical 9:16 high-key architectural documentary photograph. Match the room layout, chair placement, "
-                    "floor toys, and body pose geometry of the first structural guide image, replacing every figure with "
+                    "tabletop props, and body pose geometry of the first structural guide image, replacing every figure with "
                     "articulated matte-white porcelain mannequins with smooth featureless oval porcelain heads and period "
-                    "fabric clothing (bright studio daylight, clean blank unmarked walls). "
+                    "fabric clothing (bright studio daylight, clean blank unmarked walls, zero text or labels). "
                 )
                 full_prompt = f"{i2i_prefix}{base_prompt}{cast_suffix}"
             else:

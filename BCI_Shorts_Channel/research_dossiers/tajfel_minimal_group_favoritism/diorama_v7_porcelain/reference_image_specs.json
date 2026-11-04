@@ -4,7 +4,7 @@
   "aspect": "9:16",
   "dossier": "tajfel_minimal_group_favoritism",
   "total_reference_images": 8,
-  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in 1971 British attire: professor wool tweed jacket with a completely smooth featureless solid matte-white egg-shaped oval head; researcher in 1971 British comprehensive-school navy blazers, white shirts, and striped school ties with a completely smooth featureless solid matte-white egg-shaped oval head.",
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in 1971 British comprehensive-school navy blazers, white shirts, and striped school ties and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head; researcher in 1971 British attire: professor wool tweed jacket and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head.",
   "generation_order": "1 env plate + master brain bust -> 2 cast sheets + hero prop (conditioned on env) -> 3 clip start / key frames (conditioned on master anchors)",
   "master_anchors": [
     {
@@ -18,11 +18,11 @@
       "generation_order": 1,
       "conditioned_on": [],
       "present_cast": [],
-      "location_id": "bristol_art_hall",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of sunlit cool clear daylight-white Bristol university room with two brushed-silver easels holding abstract geometric sunlit mosaic reliefs in soft diffused daylight, featuring paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random). Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "location_id": "bristol_booth_row",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk, featuring paired abstract modernist art prints ( & ) + random group ID badges. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "sunlit cool clear daylight-white Bristol university room with two brushed-silver",
-        "paired abstract modernist art prints ('Klee' & 'Kandinsky') "
+        "high-key powder-blue private study booth with two color-coded token trays on a c",
+        "paired abstract modernist art prints ( & ) + random group ID"
       ],
       "style_profile": "porcelain_cinematic_v7"
     },
@@ -41,10 +41,10 @@
       "present_cast": [
         "subject"
       ],
-      "location_id": "bristol_art_hall",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1971 British attire: professor wool tweed jacket with a completely smooth featureless solid matte-white egg-shaped oval head, standing in sunlit cool clear daylight-white Bristol university room with two brushed-silver easels holding abstract geometric sunlit mosaic reliefs in soft diffused daylight. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "location_id": "bristol_booth_row",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1971 British comprehensive-school navy blazers, white shirts, and striped school ties and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "1971 British attire: professor wool tweed jacket with a completely smooth featur",
+        "1971 British comprehensive-school navy blazers, white shirts, and striped school",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -64,10 +64,10 @@
       "present_cast": [
         "researcher"
       ],
-      "location_id": "bristol_art_hall",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing 1971 British comprehensive-school navy blazers, white shirts, and striped school ties with a completely smooth featureless solid matte-white egg-shaped oval head, standing in sunlit cool clear daylight-white Bristol university room with two brushed-silver easels holding abstract geometric sunlit mosaic reliefs in soft diffused daylight. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "location_id": "bristol_booth_row",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing 1971 British attire: professor wool tweed jacket and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "1971 British comprehensive-school navy blazers, white shirts, and striped school",
+        "1971 British attire: professor wool tweed jacket and closed matte-white leather ",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -85,10 +85,10 @@
         "ref_env_master"
       ],
       "present_cast": [],
-      "location_id": "bristol_art_hall",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random) inside sunlit cool clear daylight-white Bristol university room with two brushed-silver easels holding abstract geometric sunlit mosaic reliefs in soft diffused daylight, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "location_id": "bristol_booth_row",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of paired abstract modernist art prints ( & ) + random group ID badges inside high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID ba"
+        "paired abstract modernist art prints ( & ) + random group ID badges"
       ],
       "style_profile": "porcelain_cinematic_v7"
     },
@@ -102,7 +102,7 @@
       "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
       "generation_order": 1,
       "conditioned_on": [],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: sagittal-coronal cross-section of a matte-white 3D brain focusing on the nucleus accumbens on an acrylic pedestal with living impulses gliding strictly inside enclosed white-matter sheaths. Matte-white matte-white porcelain sagittal brain model in a bright clear daylight-white studio where the deep ventral reward hub glows soft subtle warm amber-gold with gentle internal fiber pulses. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait composition against a high-contrast cool slate-grey studio backdrop, with dynamic camera progression from the porcelain head into the open anatomical brain cross-section tracking the neural circuit. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: sagittal-coronal cross-section of a matte-white 3D brain focusing on the nucleus accumbens on an acrylic pedestal with living impulses gliding strictly inside enclosed white-matter sheaths. Matte-white matte-white porcelain sagittal brain model in a bright clear daylight-white studio where the deep ventral reward hub glows soft subtle warm amber-gold with gentle internal fiber pulses. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, zero human facial features, no text, no letters, no watermark.",
       "must_include": [
         "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
         "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
@@ -123,17 +123,15 @@
       "title": "Room state anchor 1 (bristol_art_hall: researcher)",
       "generation_order": 3,
       "conditioned_on": [
-        "ref_env_master",
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit cool clear daylight-white Bristol university room with two brushed-silver easels holding abstract geometric sunlit mosaic reliefs in soft diffused daylight, featuring paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random). Inside the room, researcher (1971 British comprehensive-school navy blazers, white shirts, and striped school ties with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit cool clear daylight-white Bristol university room with two brushed-silver easels holding abstract geometric sunlit mosaic reliefs in soft diffused daylight. Inside the room, researcher (1971 British attire: professor wool tweed jacket and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "sunlit cool clear daylight-white Bristol university room with two brushe",
-        "paired abstract modernist art prints ('Klee' & 'Kandinsk"
+        "an unmarked clinical tabletop apparatus"
       ],
       "key_visual": null,
       "bound_master_anchors": [
-        "ref_env_master",
         "ref_cast_researcher"
       ],
       "location_id": "bristol_art_hall",
@@ -154,15 +152,17 @@
       "title": "Room state anchor 2 (bristol_booth_row: researcher)",
       "generation_order": 3,
       "conditioned_on": [
+        "ref_env_master",
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk, featuring Tajfel Payoff Matrix Board ('19 / 25 Richer For Everyone [Skipped] vs 7 / 1 We Beat Them! [Chosen]') (exposes relative-status tribalism with zero personal greed). Inside the room, researcher (1971 British comprehensive-school navy blazers, white shirts, and striped school ties with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Tajfel Payoff Matrix Board ('19 / 25 Richer For Everyone [Skipped] vs 7 / 1 We Beat Them! [Chosen]') (exposes relative-status tribalism with zero personal greed). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk, featuring Tajfel Payoff Matrix Board (exposes relative-status tribalism with zero personal greed). Inside the room, researcher (1971 British attire: professor wool tweed jacket and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Tajfel Payoff Matrix Board (exposes relative-status tribalism with zero personal greed). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "high-key powder-blue private study booth with two color-coded token tray",
-        "Tajfel Payoff Matrix Board ('19 / 25 Richer For Everyone"
+        "Tajfel Payoff Matrix Board () (exposes relative-status t"
       ],
       "key_visual": null,
       "bound_master_anchors": [
+        "ref_env_master",
         "ref_cast_researcher"
       ],
       "location_id": "bristol_booth_row",
@@ -183,15 +183,17 @@
       "title": "Room state anchor 3 (bristol_booth_row: subject)",
       "generation_order": 3,
       "conditioned_on": [
+        "ref_env_master",
         "ref_cast_subject"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk, featuring paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random). Inside the room, subject (1971 British attire: professor wool tweed jacket with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk, featuring paired abstract modernist art prints ( & ) + random group ID badges. Inside the room, subject (1971 British comprehensive-school navy blazers, white shirts, and striped school ties and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired abstract modernist art prints ( & ) + random group ID badges. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "high-key powder-blue private study booth with two color-coded token tray",
-        "paired abstract modernist art prints ('Klee' & 'Kandinsk"
+        "paired abstract modernist art prints ( & ) + random grou"
       ],
       "key_visual": null,
       "bound_master_anchors": [
+        "ref_env_master",
         "ref_cast_subject"
       ],
       "location_id": "bristol_booth_row",
@@ -213,11 +215,11 @@
       "generation_order": 1,
       "conditioned_on": [],
       "present_cast": [],
-      "location_id": "bristol_art_hall",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of sunlit cool clear daylight-white Bristol university room with two brushed-silver easels holding abstract geometric sunlit mosaic reliefs in soft diffused daylight, featuring paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random). Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "location_id": "bristol_booth_row",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk, featuring paired abstract modernist art prints ( & ) + random group ID badges. Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "sunlit cool clear daylight-white Bristol university room with two brushed-silver",
-        "paired abstract modernist art prints ('Klee' & 'Kandinsky') "
+        "high-key powder-blue private study booth with two color-coded token trays on a c",
+        "paired abstract modernist art prints ( & ) + random group ID"
       ],
       "style_profile": "porcelain_cinematic_v7"
     },
@@ -236,10 +238,10 @@
       "present_cast": [
         "subject"
       ],
-      "location_id": "bristol_art_hall",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1971 British attire: professor wool tweed jacket with a completely smooth featureless solid matte-white egg-shaped oval head, standing in sunlit cool clear daylight-white Bristol university room with two brushed-silver easels holding abstract geometric sunlit mosaic reliefs in soft diffused daylight. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "location_id": "bristol_booth_row",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1971 British comprehensive-school navy blazers, white shirts, and striped school ties and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "1971 British attire: professor wool tweed jacket with a completely smooth featur",
+        "1971 British comprehensive-school navy blazers, white shirts, and striped school",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -259,10 +261,10 @@
       "present_cast": [
         "researcher"
       ],
-      "location_id": "bristol_art_hall",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing 1971 British comprehensive-school navy blazers, white shirts, and striped school ties with a completely smooth featureless solid matte-white egg-shaped oval head, standing in sunlit cool clear daylight-white Bristol university room with two brushed-silver easels holding abstract geometric sunlit mosaic reliefs in soft diffused daylight. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "location_id": "bristol_booth_row",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing 1971 British attire: professor wool tweed jacket and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "1971 British comprehensive-school navy blazers, white shirts, and striped school",
+        "1971 British attire: professor wool tweed jacket and closed matte-white leather ",
         "porcelain mannequin, no human skin or face"
       ],
       "style_profile": "porcelain_cinematic_v7"
@@ -280,10 +282,10 @@
         "ref_env_master"
       ],
       "present_cast": [],
-      "location_id": "bristol_art_hall",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random) inside sunlit cool clear daylight-white Bristol university room with two brushed-silver easels holding abstract geometric sunlit mosaic reliefs in soft diffused daylight, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls.",
+      "location_id": "bristol_booth_row",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of paired abstract modernist art prints ( & ) + random group ID badges inside high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID ba"
+        "paired abstract modernist art prints ( & ) + random group ID badges"
       ],
       "style_profile": "porcelain_cinematic_v7"
     },
@@ -297,7 +299,7 @@
       "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
       "generation_order": 1,
       "conditioned_on": [],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a smooth matte-white porcelain mannequin head and neck with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: sagittal-coronal cross-section of a matte-white 3D brain focusing on the nucleus accumbens on an acrylic pedestal with living impulses gliding strictly inside enclosed white-matter sheaths. Matte-white matte-white porcelain sagittal brain model in a bright clear daylight-white studio where the deep ventral reward hub glows soft subtle warm amber-gold with gentle internal fiber pulses. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait composition against a high-contrast cool slate-grey studio backdrop, with dynamic camera progression from the porcelain head into the open anatomical brain cross-section tracking the neural circuit. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, no text, no watermark.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: sagittal-coronal cross-section of a matte-white 3D brain focusing on the nucleus accumbens on an acrylic pedestal with living impulses gliding strictly inside enclosed white-matter sheaths. Matte-white matte-white porcelain sagittal brain model in a bright clear daylight-white studio where the deep ventral reward hub glows soft subtle warm amber-gold with gentle internal fiber pulses. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, zero human facial features, no text, no letters, no watermark.",
       "must_include": [
         "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
         "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
@@ -316,17 +318,15 @@
       "title": "Room state anchor 1 (bristol_art_hall: researcher)",
       "generation_order": 3,
       "conditioned_on": [
-        "ref_env_master",
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit cool clear daylight-white Bristol university room with two brushed-silver easels holding abstract geometric sunlit mosaic reliefs in soft diffused daylight, featuring paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random). Inside the room, researcher (1971 British comprehensive-school navy blazers, white shirts, and striped school ties with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit cool clear daylight-white Bristol university room with two brushed-silver easels holding abstract geometric sunlit mosaic reliefs in soft diffused daylight. Inside the room, researcher (1971 British attire: professor wool tweed jacket and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "sunlit cool clear daylight-white Bristol university room with two brushe",
-        "paired abstract modernist art prints ('Klee' & 'Kandinsk"
+        "an unmarked clinical tabletop apparatus"
       ],
       "key_visual": null,
       "bound_master_anchors": [
-        "ref_env_master",
         "ref_cast_researcher"
       ],
       "location_id": "bristol_art_hall",
@@ -347,15 +347,17 @@
       "title": "Room state anchor 2 (bristol_booth_row: researcher)",
       "generation_order": 3,
       "conditioned_on": [
+        "ref_env_master",
         "ref_cast_researcher"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk, featuring Tajfel Payoff Matrix Board ('19 / 25 Richer For Everyone [Skipped] vs 7 / 1 We Beat Them! [Chosen]') (exposes relative-status tribalism with zero personal greed). Inside the room, researcher (1971 British comprehensive-school navy blazers, white shirts, and striped school ties with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Tajfel Payoff Matrix Board ('19 / 25 Richer For Everyone [Skipped] vs 7 / 1 We Beat Them! [Chosen]') (exposes relative-status tribalism with zero personal greed). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk, featuring Tajfel Payoff Matrix Board (exposes relative-status tribalism with zero personal greed). Inside the room, researcher (1971 British attire: professor wool tweed jacket and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Tajfel Payoff Matrix Board (exposes relative-status tribalism with zero personal greed). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "high-key powder-blue private study booth with two color-coded token tray",
-        "Tajfel Payoff Matrix Board ('19 / 25 Richer For Everyone"
+        "Tajfel Payoff Matrix Board () (exposes relative-status t"
       ],
       "key_visual": null,
       "bound_master_anchors": [
+        "ref_env_master",
         "ref_cast_researcher"
       ],
       "location_id": "bristol_booth_row",
@@ -376,15 +378,17 @@
       "title": "Room state anchor 3 (bristol_booth_row: subject)",
       "generation_order": 3,
       "conditioned_on": [
+        "ref_env_master",
         "ref_cast_subject"
       ],
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk, featuring paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random). Inside the room, subject (1971 British attire: professor wool tweed jacket with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired abstract modernist art prints ('Klee' & 'Kandinsky') + random group ID badges (meaningless aesthetic labels assigned 100% at random). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside high-key powder-blue private study booth with two color-coded token trays on a cool slate-stone desk, featuring paired abstract modernist art prints ( & ) + random group ID badges. Inside the room, subject (1971 British comprehensive-school navy blazers, white shirts, and striped school ties and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired abstract modernist art prints ( & ) + random group ID badges. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "high-key powder-blue private study booth with two color-coded token tray",
-        "paired abstract modernist art prints ('Klee' & 'Kandinsk"
+        "paired abstract modernist art prints ( & ) + random grou"
       ],
       "key_visual": null,
       "bound_master_anchors": [
+        "ref_env_master",
         "ref_cast_subject"
       ],
       "location_id": "bristol_booth_row",

@@ -222,8 +222,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 7,
@@ -442,8 +441,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 18,
@@ -537,8 +535,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 22,
@@ -636,8 +633,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 27,
@@ -730,8 +726,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 31,
@@ -803,8 +798,7 @@
           "researcher",
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 34,
@@ -921,8 +915,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 39,
@@ -969,8 +962,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 41,
@@ -1174,8 +1166,7 @@
           "researcher",
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 50,
@@ -1202,15 +1193,15 @@
   "reenactment_track": "track_b",
   "track_subtier": "B_scene_bible_anchor",
   "default_location_id": "psychiatric_ward_corridor",
-  "real_environment": "the sunlit hospital dayroom with its doors propped wide open, soft-mint pads resting beside anonymous modern work folders on a bright wooden table",
+  "real_environment": "a sunlit hospital dayroom with mint walls, wooden chairs, a barred window, and a soft-mint lined notepad on a small table",
   "environment_props": [
     "open spiral field notebook (ordinary college-ruled notebook filled with calm timestamped notes)",
-    "aluminum medical chart stamped 'IN REMISSION'",
+    "aluminum medical unmarked paper sheet stamped (1970s metal clipboard showing intake words and discharge stamp)",
     "glass-enclosed central nurses' station"
   ],
   "cast": {
-    "subject": "Early-1970s casual sweater and denim on pseudopatient with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "crisp white 1972 clinical coat/uniform on staff with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "Early-1970s casual sweater and denim on pseudopatient and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "crisp white 1972 clinical coat/uniform on staff and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1231,9 +1222,9 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 1 (psychiatric_ward_corridor: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunlit hospital dayroom with its doors propped wide open, soft-mint pads resting beside anonymous modern work folders on a bright wooden table, featuring open spiral field notebook (ordinary college-ruled notebook filled with calm timestamped notes). Inside the room, subject (Early-1970s casual sweater and denim on pseudopatient with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside open spiral field notebook (ordinary college-ruled notebook filled with calm timestamped notes). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit hospital dayroom with mint walls, wooden chairs, a barred window, and a soft-mint lined notepad on a small table, featuring open spiral field notebook (ordinary college-ruled notebook filled with calm timestamped notes). Inside the room, subject (Early-1970s casual sweater and denim on pseudopatient and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside open spiral field notebook (ordinary college-ruled notebook filled with calm timestamped notes). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the sunlit hospital dayroom with its doors propped wide open, soft-mint ",
+        "a sunlit hospital dayroom with mint walls, wooden chairs, a barred windo",
         "open spiral field notebook (ordinary college-ruled noteb"
       ]
     },
@@ -1253,10 +1244,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 2 (stanford_study_office: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a bright university seminar room with an slate-stone table holding eight neat travel folders and soft-mint pads, featuring aluminum medical chart stamped 'IN REMISSION'. Inside the room, subject (Early-1970s casual sweater and denim on pseudopatient with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside aluminum medical chart stamped 'IN REMISSION'. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a bright university seminar room with an slate-stone table holding eight neat travel folders and soft-mint pads. Inside the room, subject (Early-1970s casual sweater and denim on pseudopatient and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a bright university seminar room with an slate-stone table holding eight",
-        "aluminum medical chart stamped 'IN REMISSION'"
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1277,9 +1268,9 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (psychiatric_ward_corridor: researcher, subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the sunlit hospital dayroom with its doors propped wide open, soft-mint pads resting beside anonymous modern work folders on a bright wooden table, featuring open spiral field notebook (ordinary college-ruled notebook filled with calm timestamped notes). Inside the room, researcher (crisp white 1972 clinical coat/uniform on staff with a completely smooth featureless solid matte-white egg-shaped oval head), subject (Early-1970s casual sweater and denim on pseudopatient with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside open spiral field notebook (ordinary college-ruled notebook filled with calm timestamped notes). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a sunlit hospital dayroom with mint walls, wooden chairs, a barred window, and a soft-mint lined notepad on a small table, featuring open spiral field notebook (ordinary college-ruled notebook filled with calm timestamped notes). Inside the room, researcher (crisp white 1972 clinical coat/uniform on staff and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head), subject (Early-1970s casual sweater and denim on pseudopatient and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside open spiral field notebook (ordinary college-ruled notebook filled with calm timestamped notes). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the sunlit hospital dayroom with its doors propped wide open, soft-mint ",
+        "a sunlit hospital dayroom with mint walls, wooden chairs, a barred windo",
         "open spiral field notebook (ordinary college-ruled noteb"
       ]
     }

@@ -868,9 +868,21 @@ MEDIA_REJECT_CHANNEL_PATTERNS: tuple[str, ...] = (
     "practical psychology",
     "psych2go",
 )
+MEDIA_SUITABILITY_SCHEMA_VERSION = 2           # Schema version for 4-Gate archival suitability audit (R44-M)
+MEDIA_MIN_CINEMA_YEAR = 1895                   # Gate 1: pre-cinema cases (< 1895) route to Track B unless recreation film
 MEDIA_MAX_DARK_VOID_RATIO = 0.72               # Gate 2: max median dark pixel ratio (Y < 35) before rejecting dark TED/stage voids
+MEDIA_BW_ARCHIVAL_SAT_MAX = 24.0               # Gate 3: per-pixel HSV S threshold for grayscale ratio on 16mm B&W frames
+MEDIA_BW_FRAME_P90_SAT_MAX = 36.0              # Gate 3: max frame-wide 90th-percentile HSV S on genuine B&W archival film
 MEDIA_MAX_FLAT_SLIDE_RATIO = 0.62              # Gate 3: max flat low-texture slide/vector ratio on non-B&W frames
+MEDIA_MIN_MOTION_DIFF = 1.2                    # Gate 3: min median inter-keyframe luma diff (rejects static slides/book covers)
 MEDIA_MAX_UNWINDOWED_DURATION_SEC = 600.0      # Gate 4: >10 min videos without explicit section window require timestamp windowing
+MEDIA_ARCHIVAL_SEARCH_SUFFIXES: tuple[str, ...] = (
+    "original archival footage",
+    "16mm experiment film",
+    "clinical demonstration video",
+)
+PORCELAIN_ANCHOR_MIN_CLIP_RATIO = 0.28         # R66-Anchor: min non-outro clip reference binding ratio (zero closeup wide-locks)
+PORCELAIN_ANCHOR_MAX_CLIP_RATIO = 0.88         # R66-Anchor / R67: max non-outro clip reference binding ratio
 YUNET_FACE_MODEL_PATH = WORKSPACE_ROOT / "pipeline" / "assets" / "models" / "face_detection_yunet_2023mar.onnx"
 
 # --- 3-Format Funnel (Micro-Short -> Flagship Diorama -> 16:9 4K CTV Long-Form) & Breaking News ---

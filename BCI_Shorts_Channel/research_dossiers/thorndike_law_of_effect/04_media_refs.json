@@ -35,8 +35,12 @@
         "keyframe_count": 12,
         "median_dark_ratio": 0.0491,
         "median_gray_sat_ratio": 0.481,
+        "median_p90_sat": 82.0,
+        "max_p90_sat": 91.0,
         "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
         "median_flat_patch_ratio": 0.2667,
+        "median_motion_diff": 28.685,
         "talking_head_ratio": 0.0,
         "words_per_sec": 0.156,
         "has_strong_archival_cue": true
@@ -111,5 +115,6 @@
     }
   ],
   "reenactment_track": "track_a",
-  "track_subtier": "A1a_ready_keyframes"
+  "track_subtier": "A1a_ready_keyframes",
+  "suitability_schema_version": 2
 }

@@ -35,13 +35,16 @@
       },
       "reenactment_suitability": "suitable_track_a",
       "reenactment_suitability_reason": "passed_gates_1_to_4_with_keyframes",
-      "recommended_section": "*00:04-00:52",
       "reenactment_suitability_metrics": {
         "keyframe_count": 10,
         "median_dark_ratio": 0.0847,
         "median_gray_sat_ratio": 0.907,
+        "median_p90_sat": 19.5,
+        "max_p90_sat": 32.0,
         "is_bw_archival": true,
+        "is_mixed_bw_and_color": false,
         "median_flat_patch_ratio": 0.3727,
+        "median_motion_diff": 29.376,
         "talking_head_ratio": 0.5,
         "words_per_sec": 0.758,
         "has_strong_archival_cue": true
@@ -117,5 +120,6 @@
     }
   ],
   "reenactment_track": "track_a",
-  "track_subtier": "A1a_ready_keyframes"
+  "track_subtier": "A1a_ready_keyframes",
+  "suitability_schema_version": 2
 }

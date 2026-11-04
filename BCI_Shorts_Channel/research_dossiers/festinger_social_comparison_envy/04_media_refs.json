@@ -33,18 +33,10 @@
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
       },
-      "reenactment_suitability": "needs_section_window",
-      "reenactment_suitability_reason": "gate4_mixed_commentary_or_unwindowed_long_video",
-      "recommended_section": "24:52-26:03",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_university_course_slide_lecture",
       "reenactment_suitability_metrics": {
-        "keyframe_count": 14,
-        "median_dark_ratio": 0.0089,
-        "median_gray_sat_ratio": 0.9758,
-        "is_bw_archival": true,
-        "median_flat_patch_ratio": 0.725,
-        "talking_head_ratio": 0.0,
-        "words_per_sec": 2.998,
-        "has_strong_archival_cue": false
+        "gate_failed": 1
       }
     },
     {
@@ -82,13 +74,16 @@
       },
       "reenactment_suitability": "reject_track_b_only",
       "reenactment_suitability_reason": "gate4_modern_monologue_without_archival_footage(wps=3.123,th=0.0)",
-      "recommended_section": "*00:00-02:00",
       "reenactment_suitability_metrics": {
         "keyframe_count": 12,
         "median_dark_ratio": 0.0857,
         "median_gray_sat_ratio": 0.3474,
+        "median_p90_sat": 100.5,
+        "max_p90_sat": 113.0,
         "is_bw_archival": false,
+        "is_mixed_bw_and_color": true,
         "median_flat_patch_ratio": 0.479,
+        "median_motion_diff": 6.983,
         "talking_head_ratio": 0.0,
         "words_per_sec": 3.123,
         "has_strong_archival_cue": false,
@@ -124,6 +119,7 @@
       }
     }
   ],
-  "reenactment_track": "track_a",
-  "track_subtier": "A2_section_window"
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "suitability_schema_version": 2
 }

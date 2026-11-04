@@ -25,7 +25,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.66
+      "anchored_clip_ratio": 0.511
     },
     {
       "slug": "cotard_walking_corpse_syndrome",
@@ -40,7 +40,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.574
+      "anchored_clip_ratio": 0.426
     },
     {
       "slug": "hochberg_braingate_robotic_coffee",
@@ -53,9 +53,9 @@
       "target_clips": 49,
       "target_cuts": 48,
       "reenactment_track": "track_a",
-      "track_subtier": "A1b_archive_url",
+      "track_subtier": "A2_section_window",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.562
+      "anchored_clip_ratio": 0.417
     },
     {
       "slug": "little_albert_fear_conditioning",
@@ -70,7 +70,7 @@
       "reenactment_track": "track_a",
       "track_subtier": "A1a_ready_keyframes",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.66
+      "anchored_clip_ratio": 0.468
     },
     {
       "slug": "darley_latane_bystander_effect",
@@ -82,10 +82,10 @@
       "queue_rank": 5,
       "target_clips": 48,
       "target_cuts": 47,
-      "reenactment_track": "track_b",
-      "track_subtier": "B_scene_bible_anchor",
+      "reenactment_track": "track_a",
+      "track_subtier": "A1a_ready_keyframes",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.596
+      "anchored_clip_ratio": 0.426
     },
     {
       "slug": "baddeley_working_memory_architecture",
@@ -100,7 +100,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.574
+      "anchored_clip_ratio": 0.404
     }
   ],
   "queue": [
@@ -117,7 +117,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.66
+      "anchored_clip_ratio": 0.511
     },
     {
       "slug": "cotard_walking_corpse_syndrome",
@@ -132,7 +132,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.574
+      "anchored_clip_ratio": 0.426
     },
     {
       "slug": "hochberg_braingate_robotic_coffee",
@@ -145,10 +145,10 @@
       "target_clips": 49,
       "target_cuts": 48,
       "reenactment_track": "track_a",
-      "track_subtier": "A1b_archive_url",
+      "track_subtier": "A2_section_window",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.562,
-      "primary_track_a_url": "https://www.youtube.com/watch?v=5s8NsgllTvg"
+      "anchored_clip_ratio": 0.417,
+      "primary_track_a_url": "https://www.youtube.com/watch?v=ogBX18maUiM"
     },
     {
       "slug": "little_albert_fear_conditioning",
@@ -163,7 +163,7 @@
       "reenactment_track": "track_a",
       "track_subtier": "A1a_ready_keyframes",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.66,
+      "anchored_clip_ratio": 0.468,
       "primary_track_a_url": "https://www.youtube.com/watch?v=FM-8GmWJgB4"
     },
     {
@@ -176,10 +176,11 @@
       "queue_rank": 5,
       "target_clips": 48,
       "target_cuts": 47,
-      "reenactment_track": "track_b",
-      "track_subtier": "B_scene_bible_anchor",
+      "reenactment_track": "track_a",
+      "track_subtier": "A1a_ready_keyframes",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.596
+      "anchored_clip_ratio": 0.426,
+      "primary_track_a_url": "https://www.youtube.com/watch?v=KE5YwN4NW5o"
     },
     {
       "slug": "baddeley_working_memory_architecture",
@@ -194,7 +195,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.574
+      "anchored_clip_ratio": 0.404
     },
     {
       "slug": "festinger_social_comparison_envy",
@@ -206,11 +207,10 @@
       "queue_rank": 7,
       "target_clips": 49,
       "target_cuts": 48,
-      "reenactment_track": "track_a",
-      "track_subtier": "A2_section_window",
+      "reenactment_track": "track_b",
+      "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.646,
-      "primary_track_a_url": "https://www.youtube.com/watch?v=OdVcezCXiDc"
+      "anchored_clip_ratio": 0.521
     },
     {
       "slug": "deci_overjustification_reward",
@@ -225,7 +225,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.542
+      "anchored_clip_ratio": 0.396
     },
     {
       "slug": "pavlov_dogs_conditioning",
@@ -240,7 +240,7 @@
       "reenactment_track": "track_a",
       "track_subtier": "A1a_ready_keyframes",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.511,
+      "anchored_clip_ratio": 0.34,
       "primary_track_a_url": "https://www.youtube.com/watch?v=axJ9CwcH9WM"
     },
     {
@@ -256,7 +256,7 @@
       "reenactment_track": "track_a",
       "track_subtier": "A1a_ready_keyframes",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.625,
+      "anchored_clip_ratio": 0.5,
       "primary_track_a_url": "https://www.youtube.com/watch?v=hHHdovKHDNU"
     },
     {
@@ -272,7 +272,7 @@
       "reenactment_track": "track_a",
       "track_subtier": "A1a_ready_keyframes",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.681,
+      "anchored_clip_ratio": 0.511,
       "primary_track_a_url": "https://www.youtube.com/watch?v=vbEdNJ-e-Yc"
     },
     {
@@ -288,7 +288,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.596
+      "anchored_clip_ratio": 0.404
     },
     {
       "slug": "raine_murderer_brain_pet_deficits",
@@ -303,7 +303,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.638
+      "anchored_clip_ratio": 0.489
     },
     {
       "slug": "baron_cohen_theory_of_mind",
@@ -318,7 +318,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.532
+      "anchored_clip_ratio": 0.362
     },
     {
       "slug": "kross_distanced_self_talk_chatter",
@@ -333,7 +333,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.596
+      "anchored_clip_ratio": 0.447
     },
     {
       "slug": "dunning_kruger_metacognitive_blindness",
@@ -348,7 +348,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.596
+      "anchored_clip_ratio": 0.511
     },
     {
       "slug": "rosenhan_sane_in_insane_places",
@@ -363,7 +363,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.596
+      "anchored_clip_ratio": 0.404
     },
     {
       "slug": "cherry_cocktail_party_filter",
@@ -375,11 +375,10 @@
       "queue_rank": 18,
       "target_clips": 48,
       "target_cuts": 47,
-      "reenactment_track": "track_a",
-      "track_subtier": "A2_section_window",
+      "reenactment_track": "track_b",
+      "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.532,
-      "primary_track_a_url": "https://www.youtube.com/watch?v=vKnFGYaZibg"
+      "anchored_clip_ratio": 0.362
     },
     {
       "slug": "raichle_default_mode_network",
@@ -394,7 +393,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.583
+      "anchored_clip_ratio": 0.458
     },
     {
       "slug": "ekman_microexpressions_deception",
@@ -409,7 +408,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.688
+      "anchored_clip_ratio": 0.583
     },
     {
       "slug": "thorndike_law_of_effect",
@@ -424,7 +423,7 @@
       "reenactment_track": "track_a",
       "track_subtier": "A1a_ready_keyframes",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.574,
+      "anchored_clip_ratio": 0.426,
       "primary_track_a_url": "https://www.youtube.com/watch?v=OIo86W83_k0"
     },
     {
@@ -440,7 +439,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.604
+      "anchored_clip_ratio": 0.479
     },
     {
       "slug": "schachter_external_eating_cues",
@@ -455,7 +454,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.511
+      "anchored_clip_ratio": 0.34
     },
     {
       "slug": "kanwisher_fusiform_face_area",
@@ -470,7 +469,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.604
+      "anchored_clip_ratio": 0.396
     },
     {
       "slug": "steele_aronson_stereotype_threat",
@@ -485,7 +484,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.553
+      "anchored_clip_ratio": 0.404
     },
     {
       "slug": "cosmides_tooby_cheater_detection",
@@ -500,7 +499,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.574
+      "anchored_clip_ratio": 0.404
     },
     {
       "slug": "seligman_learned_helplessness",
@@ -515,7 +514,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.562
+      "anchored_clip_ratio": 0.417
     },
     {
       "slug": "skinner_operant_superstition",
@@ -530,7 +529,7 @@
       "reenactment_track": "track_a",
       "track_subtier": "A1a_ready_keyframes",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.625,
+      "anchored_clip_ratio": 0.521,
       "primary_track_a_url": "https://www.youtube.com/watch?v=ymkT_C_NWXw"
     },
     {
@@ -546,7 +545,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.681
+      "anchored_clip_ratio": 0.511
     },
     {
       "slug": "craik_lockhart_levels_of_processing",
@@ -561,7 +560,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.604
+      "anchored_clip_ratio": 0.458
     },
     {
       "slug": "shapiro_emdr_trauma_saccades",
@@ -576,7 +575,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.596
+      "anchored_clip_ratio": 0.468
     },
     {
       "slug": "wegner_white_bear_suppression",
@@ -591,7 +590,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.574
+      "anchored_clip_ratio": 0.426
     },
     {
       "slug": "zimbardo_stanford_prison_roles",
@@ -606,7 +605,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.574
+      "anchored_clip_ratio": 0.404
     },
     {
       "slug": "dunbar_number_neocortex_limit",
@@ -621,7 +620,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.638
+      "anchored_clip_ratio": 0.489
     },
     {
       "slug": "zeigarnik_uncompleted_task_loop",
@@ -636,7 +635,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.583
+      "anchored_clip_ratio": 0.438
     },
     {
       "slug": "zihl_akinetopsia_motion_blindness",
@@ -651,7 +650,7 @@
       "reenactment_track": "track_a",
       "track_subtier": "A2_section_window",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.583,
+      "anchored_clip_ratio": 0.438,
       "primary_track_a_url": "https://www.youtube.com/watch?v=yz6GF7Szb2Y"
     },
     {
@@ -667,7 +666,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.617
+      "anchored_clip_ratio": 0.447
     },
     {
       "slug": "festinger_carlsmith_insufficient_reward",
@@ -680,9 +679,9 @@
       "target_clips": 49,
       "target_cuts": 48,
       "reenactment_track": "track_a",
-      "track_subtier": "A1a_ready_keyframes",
+      "track_subtier": "A2_section_window",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.521,
+      "anchored_clip_ratio": 0.375,
       "primary_track_a_url": "https://www.youtube.com/watch?v=O1DIrjEnz0Q"
     },
     {
@@ -698,7 +697,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.562
+      "anchored_clip_ratio": 0.417
     },
     {
       "slug": "godden_baddeley_diver_context_memory",
@@ -710,11 +709,10 @@
       "queue_rank": 40,
       "target_clips": 48,
       "target_cuts": 47,
-      "reenactment_track": "track_a",
-      "track_subtier": "A1a_ready_keyframes",
+      "reenactment_track": "track_b",
+      "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.638,
-      "primary_track_a_url": "https://www.youtube.com/watch?v=u4NpWUJbarQ"
+      "anchored_clip_ratio": 0.511
     },
     {
       "slug": "hebb_synaptic_learning_rule",
@@ -729,7 +727,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.617
+      "anchored_clip_ratio": 0.447
     },
     {
       "slug": "hubel_wiesel_visual_orientation",
@@ -741,10 +739,11 @@
       "queue_rank": 42,
       "target_clips": 48,
       "target_cuts": 47,
-      "reenactment_track": "track_b",
-      "track_subtier": "B_scene_bible_anchor",
+      "reenactment_track": "track_a",
+      "track_subtier": "A1a_ready_keyframes",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.66
+      "anchored_clip_ratio": 0.468,
+      "primary_track_a_url": "https://www.youtube.com/watch?v=IOHayh06LJ4"
     },
     {
       "slug": "kahneman_tversky_loss_aversion",
@@ -759,7 +758,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.638
+      "anchored_clip_ratio": 0.447
     },
     {
       "slug": "kandel_aplysia_synaptic_plasticity",
@@ -772,9 +771,9 @@
       "target_clips": 48,
       "target_cuts": 47,
       "reenactment_track": "track_a",
-      "track_subtier": "A1a_ready_keyframes",
+      "track_subtier": "A2_section_window",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.447,
+      "anchored_clip_ratio": 0.319,
       "primary_track_a_url": "https://www.youtube.com/watch?v=wE54PPXgstM"
     },
     {
@@ -790,7 +789,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.532
+      "anchored_clip_ratio": 0.404
     },
     {
       "slug": "ledoux_dual_fear_pathways",
@@ -805,7 +804,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.596
+      "anchored_clip_ratio": 0.447
     },
     {
       "slug": "mcgurk_multisensory_illusion",
@@ -820,7 +819,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.489
+      "anchored_clip_ratio": 0.319
     },
     {
       "slug": "melzack_wall_pain_gate",
@@ -835,7 +834,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.542
+      "anchored_clip_ratio": 0.396
     },
     {
       "slug": "miller_magical_number_seven",
@@ -850,7 +849,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.562
+      "anchored_clip_ratio": 0.438
     },
     {
       "slug": "mischel_marshmallow_self_control",
@@ -865,7 +864,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.604
+      "anchored_clip_ratio": 0.479
     },
     {
       "slug": "okeefe_moser_place_grid_cells",
@@ -880,7 +879,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.667
+      "anchored_clip_ratio": 0.521
     },
     {
       "slug": "posner_spatial_attention_spotlight",
@@ -895,7 +894,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.66
+      "anchored_clip_ratio": 0.511
     },
     {
       "slug": "ramachandran_synesthesia_cross_wiring",
@@ -910,7 +909,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.638
+      "anchored_clip_ratio": 0.468
     },
     {
       "slug": "rosenthal_pygmalion_expectancy",
@@ -922,11 +921,10 @@
       "queue_rank": 54,
       "target_clips": 48,
       "target_cuts": 47,
-      "reenactment_track": "track_a",
-      "track_subtier": "A2_section_window",
+      "reenactment_track": "track_b",
+      "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.681,
-      "primary_track_a_url": "https://www.youtube.com/watch?v=R1Yl9nvXIE0"
+      "anchored_clip_ratio": 0.532
     },
     {
       "slug": "rubber_hand_body_plasticity",
@@ -941,7 +939,7 @@
       "reenactment_track": "track_a",
       "track_subtier": "A1a_ready_keyframes",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.553,
+      "anchored_clip_ratio": 0.404,
       "primary_track_a_url": "https://www.youtube.com/watch?v=IKyctCYtsh8"
     },
     {
@@ -957,7 +955,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.638
+      "anchored_clip_ratio": 0.489
     },
     {
       "slug": "shepard_metzler_mental_rotation",
@@ -972,7 +970,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.596
+      "anchored_clip_ratio": 0.447
     },
     {
       "slug": "sperling_iconic_memory_buffer",
@@ -984,11 +982,10 @@
       "queue_rank": 58,
       "target_clips": 48,
       "target_cuts": 47,
-      "reenactment_track": "track_a",
-      "track_subtier": "A1a_ready_keyframes",
+      "reenactment_track": "track_b",
+      "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.574,
-      "primary_track_a_url": "https://www.youtube.com/watch?v=GkZNHe49GcA"
+      "anchored_clip_ratio": 0.468
     },
     {
       "slug": "stroop_color_word_conflict",
@@ -1003,7 +1000,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.532
+      "anchored_clip_ratio": 0.362
     },
     {
       "slug": "tajfel_minimal_group_favoritism",
@@ -1018,7 +1015,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.532
+      "anchored_clip_ratio": 0.383
     },
     {
       "slug": "treisman_attenuation_selective_attention",
@@ -1033,7 +1030,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.574
+      "anchored_clip_ratio": 0.404
     },
     {
       "slug": "trivers_parental_investment_drives",
@@ -1048,7 +1045,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.553
+      "anchored_clip_ratio": 0.426
     },
     {
       "slug": "tulving_episodic_mental_time_travel",
@@ -1063,7 +1060,7 @@
       "reenactment_track": "track_a",
       "track_subtier": "A2_section_window",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.574,
+      "anchored_clip_ratio": 0.447,
       "primary_track_a_url": "https://www.youtube.com/watch?v=Z0P03rxVIZ4"
     },
     {
@@ -1079,7 +1076,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.583
+      "anchored_clip_ratio": 0.438
     },
     {
       "slug": "zajonc_mere_exposure_effect",
@@ -1094,7 +1091,7 @@
       "reenactment_track": "track_b",
       "track_subtier": "B_scene_bible_anchor",
       "reference_spec_count": 8,
-      "anchored_clip_ratio": 0.625
+      "anchored_clip_ratio": 0.458
     }
   ],
   "pacing_profile": {
@@ -1122,23 +1119,22 @@
   "dual_track_summary": {
     "total_episodes": 65,
     "track_counts": {
-      "track_b": 48,
-      "track_a": 17
+      "track_b": 51,
+      "track_a": 14
     },
     "subtier_counts": {
-      "B_scene_bible_anchor": 48,
-      "A1b_archive_url": 1,
-      "A1a_ready_keyframes": 11,
-      "A2_section_window": 5
+      "B_scene_bible_anchor": 51,
+      "A2_section_window": 5,
+      "A1a_ready_keyframes": 9
     },
     "reference_spec_count_min_max": [
       8,
       8
     ],
     "anchored_clip_ratio_min_max": [
-      0.447,
-      0.688
+      0.319,
+      0.583
     ],
-    "anchored_clip_ratio_mean": 0.591
+    "anchored_clip_ratio_mean": 0.44
   }
 }

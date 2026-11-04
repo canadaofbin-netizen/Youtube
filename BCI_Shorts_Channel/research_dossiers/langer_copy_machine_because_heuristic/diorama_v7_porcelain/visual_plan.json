@@ -232,8 +232,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 8,
@@ -501,8 +500,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 20,
@@ -764,8 +762,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 36,
@@ -839,8 +836,7 @@
           "researcher"
         ]
       },
-      "clip_number": 31,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 31
     },
     {
       "clip_index": 40,
@@ -1040,8 +1036,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "clip_index": 52,
@@ -1127,8 +1122,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 49,
@@ -1223,14 +1217,14 @@
   "reenactment_track": "track_b",
   "track_subtier": "B_scene_bible_anchor",
   "default_location_id": "manhattan_copy_alcove",
-  "real_environment": "sunlit library copy alcove with two waiting scholars holding thick sunlit study binders behind the machine",
+  "real_environment": "sunlit library copy alcove with the powder-blue copier and slate book stacks",
   "environment_props": [
     "1978 freestanding beige library Xerox photocopier + thin 5-page vs thick 20-page paper stacks (makes the effort-cost switch visually unmistakable)",
-    "Langer 1978 2×3 Compliance Matrix Board ('5 Pages: 60% / 94% / 93% vs 20 Pages: 24% / 42% / 24%')"
+    "Langer 1978 2×3 Compliance Matrix Board ()"
   ],
   "cast": {
-    "subject": "1978 New York academic attire: tan corduroy jacket over collared shirt with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "ribbed knit turtleneck, wool slacks, and wire-rim spectacles with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "1978 New York academic attire: tan corduroy jacket over collared shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "ribbed knit turtleneck, wool slacks, and wire-rim spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1251,9 +1245,9 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (manhattan_copy_alcove: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit library copy alcove with two waiting scholars holding thick sunlit study binders behind the machine, featuring 1978 freestanding beige library Xerox photocopier + thin 5-page vs thick 20-page paper stacks (makes the effort-cost switch visually unmistakable). Inside the room, researcher (ribbed knit turtleneck, wool slacks, and wire-rim spectacles with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1978 freestanding beige library Xerox photocopier + thin 5-page vs thick 20-page paper stacks (makes the effort-cost switch visually unmistakable). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit library copy alcove with the powder-blue copier and slate book stacks, featuring 1978 freestanding beige library Xerox photocopier + thin 5-page vs thick 20-page paper stacks (makes the effort-cost switch visually unmistakable). Inside the room, researcher (ribbed knit turtleneck, wool slacks, and wire-rim spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1978 freestanding beige library Xerox photocopier + thin 5-page vs thick 20-page paper stacks (makes the effort-cost switch visually unmistakable). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "sunlit library copy alcove with two waiting scholars holding thick sunli",
+        "sunlit library copy alcove with the powder-blue copier and slate book st",
         "1978 freestanding beige library Xerox photocopier + thin"
       ]
     },
@@ -1273,10 +1267,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (library_reading_hall: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across wide sunlit graduate library reading room with cool slate study tables, sunlit sage lamps, and neat rows of blank hardcover volumes, featuring Langer 1978 2×3 Compliance Matrix Board ('5 Pages: 60% / 94% / 93% vs 20 Pages: 24% / 42% / 24%'). Inside the room, researcher (ribbed knit turtleneck, wool slacks, and wire-rim spectacles with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Langer 1978 2×3 Compliance Matrix Board ('5 Pages: 60% / 94% / 93% vs 20 Pages: 24% / 42% / 24%'). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across wide sunlit graduate library reading room with cool slate study tables, sunlit sage lamps, and neat rows of blank hardcover volumes. Inside the room, researcher (ribbed knit turtleneck, wool slacks, and wire-rim spectacles and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "wide sunlit graduate library reading room with cool slate study tables, ",
-        "Langer 1978 2×3 Compliance Matrix Board ('5 Pages: 60% /"
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1296,9 +1290,9 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 3 (manhattan_copy_alcove: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside sunlit library copy alcove with two waiting scholars holding thick sunlit study binders behind the machine, featuring 1978 freestanding beige library Xerox photocopier + thin 5-page vs thick 20-page paper stacks (makes the effort-cost switch visually unmistakable). Inside the room, subject (1978 New York academic attire: tan corduroy jacket over collared shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1978 freestanding beige library Xerox photocopier + thin 5-page vs thick 20-page paper stacks (makes the effort-cost switch visually unmistakable). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside sunlit library copy alcove with the powder-blue copier and slate book stacks, featuring 1978 freestanding beige library Xerox photocopier + thin 5-page vs thick 20-page paper stacks (makes the effort-cost switch visually unmistakable). Inside the room, subject (1978 New York academic attire: tan corduroy jacket over collared shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1978 freestanding beige library Xerox photocopier + thin 5-page vs thick 20-page paper stacks (makes the effort-cost switch visually unmistakable). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "sunlit library copy alcove with two waiting scholars holding thick sunli",
+        "sunlit library copy alcove with the powder-blue copier and slate book st",
         "1978 freestanding beige library Xerox photocopier + thin"
       ]
     }

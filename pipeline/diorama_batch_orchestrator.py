@@ -1297,10 +1297,7 @@ def generate_and_finalize_diorama_episode(
         from pipeline.porcelain_anchor_pack import ensure_porcelain_reference_pack
 
         vp_doc = json.loads(vp_path.read_text(encoding="utf-8"))
-        if is_porcelain_v7_plan(vp_doc) and (
-            vp_doc.get("reference_anchors")
-            or any(isinstance(c, dict) and c.get("reference_image") for c in (vp_doc.get("clips") or []))
-        ):
+        if is_porcelain_v7_plan(vp_doc):
             ref_res = ensure_porcelain_reference_pack(
                 p_dir,
                 cdp_port=cdp_port,

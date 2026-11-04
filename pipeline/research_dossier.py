@@ -718,6 +718,10 @@ _EXPLAINER_TITLE_MARKERS: tuple[str, ...] = (
     "on the future of",
     "in conversation",
     "book talk",
+    "book summary",
+    "new free",
+    "demo of a",
+    "iconic memory test",
     "keynote",
     "colloquium",
     "webinar",
@@ -725,6 +729,11 @@ _EXPLAINER_TITLE_MARKERS: tuple[str, ...] = (
     "audiobook",
     "slide deck",
     "powerpoint",
+)
+
+_COURSE_CODE_RE = re.compile(
+    r"\b(?:psy|psyc|psych|neuro|bio|biol|cog|cogs|soc|anth|mit|yale|stanf)\s*[-_]?\s*\d{3,4}\b",
+    re.IGNORECASE,
 )
 
 _ARCHIVAL_POSITIVE_CUES: tuple[str, ...] = (
@@ -735,6 +744,12 @@ _ARCHIVAL_POSITIVE_CUES: tuple[str, ...] = (
     "original film",
     "clinical footage",
     "experiment footage",
+    "clinical trial",
+    "nature video",
+    "smoke filled room",
+    "cat experiment",
+    "puzzle box",
+    "skinner",
     "16mm",
     "1920",
     "1930",
@@ -792,22 +807,46 @@ def _derive_recommended_section(
     timecodes: list[dict[str, Any]],
     duration_sec: float,
 ) -> str:
-    action_secs: list[float] = []
+    action_spans: list[tuple[float, float]] = []
     all_secs: list[float] = []
     for tc in timecodes:
         if not isinstance(tc, dict):
             continue
-        t_val = _parse_tc_token_sec(str(tc.get("t") or ""))
+        raw_t = str(tc.get("t") or "").strip().lstrip("*")
+        t_val = _parse_tc_token_sec(raw_t)
         if t_val is None:
             continue
+        t_end = t_val + 14.0
+        if "-" in raw_t:
+            rhs_val = _parse_tc_token_sec(raw_t.split("-", 1)[1])
+            if rhs_val is not None and rhs_val > t_val:
+                t_end = rhs_val
         all_secs.append(t_val)
         what_low = str(tc.get("what") or "").lower()
-        if not any(w in what_low for w in ("interview", "presenter", "host", "title card", "credits", "subscribe", "talking head")):
-            action_secs.append(t_val)
-    use_secs = action_secs or all_secs
-    if use_secs:
-        t0 = max(0.0, min(use_secs) - 2.0)
-        t1 = max(t0 + 24.0, min(max(use_secs) + 12.0, t0 + 90.0))
+        if not any(
+            w in what_low
+            for w in (
+                "interview", "presenter", "host", "title card", "credits",
+                "subscribe", "talking head", "dark-backdrop stage", "studio camera frame",
+            )
+        ):
+            action_spans.append((t_val, t_end))
+    if action_spans:
+        # Prefer the longest contiguous action span or bounded early-action window (<= 75s)
+        best_span = max(action_spans, key=lambda sp: sp[1] - sp[0])
+        if (best_span[1] - best_span[0]) >= 18.0:
+            t0 = max(0.0, best_span[0] - 1.0)
+            t1 = min(best_span[1] + 2.0, t0 + 90.0)
+        else:
+            t0 = max(0.0, action_spans[0][0] - 2.0)
+            reachable = [sp[1] for sp in action_spans if sp[1] <= t0 + 88.0]
+            t1 = max(t0 + 24.0, (max(reachable) + 4.0) if reachable else (t0 + 45.0))
+        if duration_sec > 5.0:
+            t1 = min(duration_sec, max(t0 + 10.0, t1))
+        return f"{_format_mmss(t0)}-{_format_mmss(t1)}"
+    if all_secs:
+        t0 = max(0.0, min(all_secs) - 2.0)
+        t1 = max(t0 + 24.0, min(max(all_secs) + 12.0, t0 + 75.0))
         if duration_sec > 5.0:
             t1 = min(duration_sec, max(t0 + 10.0, t1))
         return f"{_format_mmss(t0)}-{_format_mmss(t1)}"
@@ -839,18 +878,22 @@ def evaluate_media_reenactment_suitability(
 ) -> dict[str, Any]:
     """
     4-Gate Archival Reenactment Suitability Classifier (`suitable_track_a` | `needs_section_window` | `reject_track_b_only`):
-      - Gate 1: Kind / Channel / Title / Pre-Cinema Era (`< 1895`) filter
+      - Gate 1: Kind / Channel / Title / Course-Code / Pre-Cinema Era (`< MEDIA_MIN_CINEMA_YEAR`) filter
       - Gate 2: Dark Stage / Void filter (`median(Y < 35) <= MEDIA_MAX_DARK_VOID_RATIO`)
-      - Gate 3: B&W-Safe Flat Slide / 2D Cartoon filter (`med_gray >= 0.70` exempts 1920s–60s 16mm B&W film;
-                non-B&W flat patch ratio `<= MEDIA_MAX_FLAT_SLIDE_RATIO`)
-      - Gate 4: YuNet Talking-Head Monologue + Transcript Speech Density & Unwindowed Long Video filter
+      - Gate 3: Static Slide / Frozen Cover motion floor (`median_motion >= MEDIA_MIN_MOTION_DIFF`) +
+                True 16mm B&W (`p90(HSV S) <= MEDIA_BW_FRAME_P90_SAT_MAX`) vs Flat Slide / 2D Vector (`<= MEDIA_MAX_FLAT_SLIDE_RATIO`)
+      - Gate 4: YuNet Talking-Head Monologue + Transcript Speech Density & Mixed Host/B-Roll Windowing
     """
     import cv2
     import numpy as np
     from pipeline.config import (
+        MEDIA_BW_ARCHIVAL_SAT_MAX,
+        MEDIA_BW_FRAME_P90_SAT_MAX,
         MEDIA_MAX_DARK_VOID_RATIO,
         MEDIA_MAX_FLAT_SLIDE_RATIO,
         MEDIA_MAX_UNWINDOWED_DURATION_SEC,
+        MEDIA_MIN_CINEMA_YEAR,
+        MEDIA_MIN_MOTION_DIFF,
     )
     from pipeline.source_reenactment import detect_human_faces_yunet
 
@@ -876,7 +919,7 @@ def evaluate_media_reenactment_suitability(
         media_entry.get("reenactment_section")
         or media_entry.get("section")
         or ""
-    ).strip()
+    ).strip().lstrip("*")
     timecodes = [t for t in (media_entry.get("timecodes") or []) if isinstance(t, dict)]
 
     # --- Gate 1: Metadata, Kind, Channel & Pre-Cinema Era ---
@@ -898,7 +941,7 @@ def evaluate_media_reenactment_suitability(
             "recommended_section": None,
             "metrics": {"gate_failed": 1},
         }
-    if primary_year is not None and 0 < int(primary_year) < 1895 and kind not in {"recreation_film", "archival_recreation"}:
+    if primary_year is not None and 0 < int(primary_year) < MEDIA_MIN_CINEMA_YEAR and kind not in {"recreation_film", "archival_recreation"}:
         return {
             "suitability": "reject_track_b_only",
             "reason": f"gate1_pre_cinema_era({primary_year})",
@@ -917,11 +960,22 @@ def evaluate_media_reenactment_suitability(
 
     title_low = title.lower()
     blob_low = f"{title} {channel} {notes}".lower()
-    has_strong_archival_cue = kind in {
+    is_archival_kind = kind in {
         "archive_film", "archival_footage", "clinical_footage", "experiment_footage",
-    } or any(cue in blob_low for cue in _ARCHIVAL_POSITIVE_CUES)
+    }
+    has_strong_archival_cue = is_archival_kind or any(cue in blob_low for cue in _ARCHIVAL_POSITIVE_CUES)
 
-    if re.search(r"\(\d{1,3}/\d{1,3}\)", title_low) and not has_strong_archival_cue:
+    if _COURSE_CODE_RE.search(title_low):
+        return {
+            "suitability": "reject_track_b_only",
+            "reason": "gate1_university_course_slide_lecture",
+            "recommended_section": None,
+            "metrics": {"gate_failed": 1},
+        }
+
+    if re.search(r"\(\d{1,3}/\d{1,3}\)", title_low) and not (
+        is_archival_kind and ("archival" in title_low or "footage" in title_low or "original" in title_low)
+    ):
         return {
             "suitability": "reject_track_b_only",
             "reason": "gate1_oral_history_series_clip",
@@ -931,7 +985,7 @@ def evaluate_media_reenactment_suitability(
 
     for marker in _EXPLAINER_TITLE_MARKERS:
         if marker in title_low and not (
-            kind in {"archive_film", "archival_footage", "clinical_footage", "experiment_footage"}
+            is_archival_kind
             and ("original" in title_low or "archival" in title_low or "footage" in title_low)
         ):
             return {
@@ -966,7 +1020,9 @@ def evaluate_media_reenactment_suitability(
 
         dark_ratios: list[float] = []
         gray_sat_ratios: list[float] = []
+        p90_sats: list[float] = []
         flat_patch_ratios: list[float] = []
+        small_grays: list[np.ndarray] = []
         talking_head_flags: list[bool] = []
         non_head_indices: list[int] = []
 
@@ -993,8 +1049,13 @@ def evaluate_media_reenactment_suitability(
             h_f, w_f = bgr.shape[:2]
             gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
             hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV)
+            small_grays.append(cv2.resize(gray, (160, 120), interpolation=cv2.INTER_AREA))
             dark_ratios.append(float(np.mean(gray < 35)))
-            gray_sat_ratios.append(float(np.mean(hsv[:, :, 1] < 24)))
+            gray_sat_ratios.append(float(np.mean(hsv[:, :, 1] < MEDIA_BW_ARCHIVAL_SAT_MAX)))
+            # Trim 4% outer overscan/tracking border before measuring p90 chroma so 2px green VHS lines don't skew B&W film
+            my, mx = max(1, int(h_f * 0.04)), max(1, int(w_f * 0.04))
+            inner_s = hsv[my : h_f - my, mx : w_f - mx, 1]
+            p90_sats.append(float(np.percentile(inner_s if inner_s.size else hsv[:, :, 1], 90)))
 
             # 16x16 patch texture std for Gate 3 flat slide / vector cartoon detection
             bh = max(1, h_f // 16)
@@ -1020,10 +1081,26 @@ def evaluate_media_reenactment_suitability(
                 non_head_indices.append(idx_f)
 
         if dark_ratios:
+            motion_diffs = [
+                float(np.mean(np.abs(small_grays[i + 1].astype(np.float32) - small_grays[i].astype(np.float32))))
+                for i in range(len(small_grays) - 1)
+            ]
+            med_motion = round(float(np.median(motion_diffs)), 3) if motion_diffs else 99.0
+            max_motion = round(float(max(motion_diffs)), 3) if motion_diffs else 99.0
             med_dark = round(float(np.median(dark_ratios)), 4)
             med_gray_sat = round(float(np.median(gray_sat_ratios)), 4)
+            med_p90_sat = round(float(np.median(p90_sats)), 2) if p90_sats else 0.0
+            min_p90_sat = round(float(min(p90_sats)), 2) if p90_sats else 0.0
+            max_p90_sat = round(float(max(p90_sats)), 2) if p90_sats else 0.0
             med_flat = round(float(np.median(flat_patch_ratios)), 4)
-            is_bw_archival = bool(med_gray_sat >= 0.70)
+            # True 1920s–60s B&W 16mm film has low frame-wide p90 chroma across ALL frames (not blank >92% white test screen)
+            is_bw_archival = bool(
+                med_gray_sat >= 0.82
+                and med_p90_sat <= MEDIA_BW_FRAME_P90_SAT_MAX
+                and max_p90_sat <= 52.0
+                and med_flat <= 0.92
+            )
+            is_mixed_bw_and_color = bool(min_p90_sat < 25.0 and max_p90_sat >= 75.0)
             talking_head_ratio = round(
                 sum(1 for fl in talking_head_flags if fl) / max(1, len(talking_head_flags)),
                 4,
@@ -1035,8 +1112,12 @@ def evaluate_media_reenactment_suitability(
                 "keyframe_count": len(kf_files),
                 "median_dark_ratio": med_dark,
                 "median_gray_sat_ratio": med_gray_sat,
+                "median_p90_sat": med_p90_sat,
+                "max_p90_sat": max_p90_sat,
                 "is_bw_archival": is_bw_archival,
+                "is_mixed_bw_and_color": is_mixed_bw_and_color,
                 "median_flat_patch_ratio": med_flat,
+                "median_motion_diff": med_motion,
                 "talking_head_ratio": talking_head_ratio,
                 "words_per_sec": words_per_sec,
                 "has_strong_archival_cue": has_strong_archival_cue,
@@ -1051,8 +1132,17 @@ def evaluate_media_reenactment_suitability(
                     "metrics": {**metrics, "gate_failed": 2},
                 }
 
-            # Gate 3: B&W-Safe Flat Slide / 2D Cartoon Filter
-            if not is_bw_archival and med_flat > MEDIA_MAX_FLAT_SLIDE_RATIO:
+            # Gate 3a: Static Slide / Frozen Book Cover / Audio Upload Filter
+            if len(motion_diffs) >= 2 and (med_motion < MEDIA_MIN_MOTION_DIFF or max_motion < 1.8):
+                return {
+                    "suitability": "reject_track_b_only",
+                    "reason": f"gate3_static_slide_or_frozen_cover(med_motion={med_motion}<{MEDIA_MIN_MOTION_DIFF})",
+                    "recommended_section": None,
+                    "metrics": {**metrics, "gate_failed": 3},
+                }
+
+            # Gate 3b: B&W-Safe Flat Slide / 2D Cartoon Filter
+            if (not is_bw_archival and med_flat > MEDIA_MAX_FLAT_SLIDE_RATIO) or med_flat > 0.92:
                 return {
                     "suitability": "reject_track_b_only",
                     "reason": f"gate3_flat_slide_or_2d_cartoon(median_flat={med_flat}>{MEDIA_MAX_FLAT_SLIDE_RATIO})",
@@ -1060,8 +1150,12 @@ def evaluate_media_reenactment_suitability(
                     "metrics": {**metrics, "gate_failed": 3},
                 }
 
-            # Gate 4: Talking-Head Monologue vs Mixed Documentary vs Clean Archival
-            if talking_head_ratio >= 0.62 and (words_per_sec >= 1.6 or not is_bw_archival):
+            # Gate 4: Talking-Head Monologue vs Silent Archival Subject vs Mixed Documentary
+            is_silent_archival_subject = bool(
+                (is_archival_kind or is_bw_archival or has_strong_archival_cue)
+                and words_per_sec < 1.05
+            )
+            if talking_head_ratio >= 0.62 and not is_silent_archival_subject:
                 return {
                     "suitability": "reject_track_b_only",
                     "reason": f"gate4_talking_head_monologue(ratio={talking_head_ratio},wps={words_per_sec})",
@@ -1069,11 +1163,14 @@ def evaluate_media_reenactment_suitability(
                     "metrics": {**metrics, "gate_failed": 4},
                 }
 
-            if not is_bw_archival and not has_strong_archival_cue:
+            has_embedded_bw_archival = bool(
+                is_mixed_bw_and_color and med_p90_sat <= MEDIA_BW_FRAME_P90_SAT_MAX
+            )
+            if not is_bw_archival and not has_strong_archival_cue and not has_embedded_bw_archival:
                 if (
                     words_per_sec >= 2.1
                     or ("speaker/interview recording" in shot_notes_low and words_per_sec >= 1.6)
-                    or (talking_head_ratio >= 0.25 and words_per_sec >= 1.8)
+                    or (talking_head_ratio >= 0.25 and words_per_sec >= 1.75)
                 ):
                     return {
                         "suitability": "reject_track_b_only",
@@ -1084,9 +1181,10 @@ def evaluate_media_reenactment_suitability(
 
             needs_window = (
                 (0.25 <= talking_head_ratio < 0.62 and not explicit_section and not is_bw_archival)
+                or (is_mixed_bw_and_color and not explicit_section)
                 or (duration_sec > MEDIA_MAX_UNWINDOWED_DURATION_SEC and not explicit_section)
                 or (
-                    kind in {"documentary", "news", "tv_segment"}
+                    kind in {"documentary", "news", "tv_segment", "video"}
                     and not is_bw_archival
                     and duration_sec > 180.0
                     and not explicit_section
@@ -1118,20 +1216,11 @@ def evaluate_media_reenactment_suitability(
         }
 
     has_video_url = bool(url and url.startswith("http"))
-    if has_video_url and has_strong_archival_cue:
+    if has_video_url and is_archival_kind and has_strong_archival_cue:
         if duration_sec > MEDIA_MAX_UNWINDOWED_DURATION_SEC and not explicit_section:
             return {
                 "suitability": "needs_section_window",
                 "reason": "archival_source_exceeds_unwindowed_duration_cap",
-                "recommended_section": _derive_recommended_section(timecodes, duration_sec),
-                "metrics": {"duration_sec": duration_sec, "archival_cue": True},
-            }
-        if kind in {"documentary", "news", "tv_segment"} and not explicit_section and (
-            duration_sec > 180.0 or any(w in blob_low for w in ("documentary", "bbc", "pbs", "nova", "segment", "report"))
-        ):
-            return {
-                "suitability": "needs_section_window",
-                "reason": "documentary_with_archival_broll_needs_section_window",
                 "recommended_section": _derive_recommended_section(timecodes, duration_sec),
                 "metrics": {"duration_sec": duration_sec, "archival_cue": True},
             }
@@ -1140,6 +1229,14 @@ def evaluate_media_reenactment_suitability(
             "reason": "archival_or_experiment_video_metadata_match",
             "recommended_section": explicit_section or None,
             "metrics": {"duration_sec": duration_sec, "archival_cue": True},
+        }
+
+    if has_video_url and has_strong_archival_cue and timecodes:
+        return {
+            "suitability": "needs_section_window",
+            "reason": "unanalyzed_archival_url_requires_section_window",
+            "recommended_section": explicit_section or _derive_recommended_section(timecodes, duration_sec),
+            "metrics": {"duration_sec": duration_sec, "archival_cue": True, "unanalyzed": True},
         }
 
     if has_video_url and kind in {"demonstration", "recreation_film"} and timecodes:
@@ -1169,6 +1266,8 @@ def audit_dossier_media_suitability(
     and classifies the episode into `track_a` (`A1a_ready_keyframes` / `A1b_archive_url` / `A2_section_window`)
     or `track_b` (`B_scene_bible_anchor`).
     """
+    from pipeline.config import MEDIA_SUITABILITY_SCHEMA_VERSION
+
     raw_str = str(slug_or_dir)
     d_dir = Path(slug_or_dir) if Path(raw_str).is_dir() else dossier_dir(raw_str, root)
     if not d_dir.exists():
@@ -1197,10 +1296,12 @@ def audit_dossier_media_suitability(
 
     edl_p = d_dir / "08_reenactment_edl.json"
     has_reenact_edl = edl_p.exists()
+    cached_schema_ok = int(media_doc.get("suitability_schema_version") or 0) == MEDIA_SUITABILITY_SCHEMA_VERSION
 
     evaluated_media: list[dict[str, Any]] = []
     primary_track_a_media: dict[str, Any] | None = None
     best_subtier = "B_scene_bible_anchor"
+    best_score_tuple = (0, 0)
 
     for idx_m, m in enumerate(media_list):
         m_id = str(m.get("id") or f"M{idx_m + 1}")
@@ -1208,11 +1309,12 @@ def audit_dossier_media_suitability(
         a_dir = (d_dir / local_rel) if local_rel else (d_dir / "media" / m_id)
         has_kfs = (a_dir / "keyframes").exists() and len(list((a_dir / "keyframes").glob("*.jpg"))) >= 4
         cached_cls = str(m.get("reenactment_suitability") or "").strip()
-        if use_cached and cached_cls in ("suitable_track_a", "needs_section_window", "reject_track_b_only"):
+        if use_cached and cached_schema_ok and cached_cls in ("suitable_track_a", "needs_section_window", "reject_track_b_only"):
+            rec_s = str(m.get("reenactment_section") or m.get("recommended_section") or "").strip().lstrip("*") or None
             res = {
                 "suitability": cached_cls,
                 "reason": str(m.get("reenactment_suitability_reason") or "cached_audit"),
-                "recommended_section": m.get("reenactment_section") or m.get("recommended_section"),
+                "recommended_section": rec_s,
                 "metrics": dict(m.get("reenactment_suitability_metrics") or {}),
             }
         else:
@@ -1227,8 +1329,10 @@ def audit_dossier_media_suitability(
             m["reenactment_suitability"] = suit_cls
             m["reenactment_suitability_reason"] = res["reason"]
             m["reenactment_suitability_metrics"] = dict(res.get("metrics") or {})
-            if res.get("recommended_section") and not m.get("reenactment_section"):
-                m["recommended_section"] = res["recommended_section"]
+            if res.get("recommended_section"):
+                m["recommended_section"] = str(res["recommended_section"]).lstrip("*")
+            else:
+                m.pop("recommended_section", None)
 
         row = {
             "id": m_id,
@@ -1241,15 +1345,20 @@ def audit_dossier_media_suitability(
         }
         evaluated_media.append(row)
 
+        # Prefer keyframe-verified media (`has_kfs=1`) over unanalyzed URLs (`has_kfs=0`)
         if suit_cls == "suitable_track_a":
             cand_tier = "A1a_ready_keyframes" if (has_kfs or has_reenact_edl) else "A1b_archive_url"
-            tier_rank = {"A1a_ready_keyframes": 3, "A1b_archive_url": 2, "A2_section_window": 1, "B_scene_bible_anchor": 0}
-            if tier_rank[cand_tier] > tier_rank[best_subtier]:
+            cand_score = (3 if (has_kfs or has_reenact_edl) else 1, 1 if has_kfs else 0)
+            if cand_score > best_score_tuple:
+                best_score_tuple = cand_score
                 best_subtier = cand_tier
                 primary_track_a_media = row
-        elif suit_cls == "needs_section_window" and best_subtier == "B_scene_bible_anchor":
-            best_subtier = "A2_section_window"
-            primary_track_a_media = row
+        elif suit_cls == "needs_section_window":
+            cand_score = (2 if has_kfs else 1, 1 if has_kfs else 0)
+            if cand_score > best_score_tuple:
+                best_score_tuple = cand_score
+                best_subtier = "A2_section_window"
+                primary_track_a_media = row
 
     if has_reenact_edl and best_subtier == "B_scene_bible_anchor":
         best_subtier = "A1a_ready_keyframes"
@@ -1258,6 +1367,7 @@ def audit_dossier_media_suitability(
 
     if write_back:
         if isinstance(media_doc, dict) and (d_dir / "04_media_refs.json").exists():
+            media_doc["suitability_schema_version"] = MEDIA_SUITABILITY_SCHEMA_VERSION
             media_doc["reenactment_track"] = track
             media_doc["track_subtier"] = best_subtier
             (d_dir / "04_media_refs.json").write_text(

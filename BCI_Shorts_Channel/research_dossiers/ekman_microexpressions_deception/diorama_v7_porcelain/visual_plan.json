@@ -223,8 +223,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 7,
@@ -440,8 +439,7 @@
           "subject"
         ]
       },
-      "clip_number": 15,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 15
     },
     {
       "sentence_index": 18,
@@ -524,8 +522,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 22,
@@ -908,8 +905,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 39,
@@ -1075,8 +1071,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 47,
@@ -1216,12 +1211,12 @@
   "real_environment": "a cool-toned television studio set with powder-blue backdrop panels, brushed-silver studio cameras, and a cool-slate prop desk",
   "environment_props": [
     "16mm flatbed Steenbeck film viewer",
-    "three-frame contact strip ('Frame 13 Neutral / Frame 14-15 Distress / Frame 17 Polite Smile') (enlarged black-and-white photographic strip resting on the desk)",
-    "anatomical Facial Action Coding chart"
+    "three-frame contact strip () (enlarged black-and-white photographic strip resting on the desk)",
+    "anatomical Facial Action Coding unmarked paper sheet"
   ],
   "cast": {
-    "subject": "1969 San Francisco academic wear: Ekman in tweed jacket over collared shirt with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "Friesen in wool button cardigan and tie with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "adult participant in tweed jacket over collared shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clinical investigator in wool button cardigan and tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1241,10 +1236,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (sf_film_console_lab: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a bright sunlit anatomy cataloging studio lined with forty-four geometric vector cards, cool-cream binders, and a cool-slate drafting table, featuring 16mm flatbed Steenbeck film viewer. Inside the room, researcher (Friesen in wool button cardigan and tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 16mm flatbed Steenbeck film viewer. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a bright sunlit anatomy cataloging studio lined with forty-four geometric vector blank matte blank matte cards, cool-cream binders, and a cool-slate drafting table. Inside the room, researcher (clinical investigator in wool button cardigan and tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a bright sunlit anatomy cataloging studio lined with forty-four geometri",
-        "16mm flatbed Steenbeck film viewer"
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1264,10 +1259,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (clinic_interview_lounge: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a cool-toned television studio set with powder-blue backdrop panels, brushed-silver studio cameras, and a cool-slate prop desk, featuring three-frame contact strip ('Frame 13 Neutral / Frame 14-15 Distress / Frame 17 Polite Smile') (enlarged black-and-white photographic strip resting on the desk). Inside the room, researcher (Friesen in wool button cardigan and tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-frame contact strip ('Frame 13 Neutral / Frame 14-15 Distress / Frame 17 Polite Smile') (enlarged black-and-white photographic strip resting on the desk). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a cool-toned television studio set with powder-blue backdrop panels, brushed-silver studio cameras, and a cool-slate prop desk, featuring three-frame contact strip () (enlarged black-and-white photographic strip resting on the desk). Inside the room, researcher (clinical investigator in wool button cardigan and tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-frame contact strip () (enlarged black-and-white photographic strip resting on the desk). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a cool-toned television studio set with powder-blue backdrop panels, bru",
-        "three-frame contact strip ('Frame 13 Neutral / Frame 14-"
+        "three-frame contact strip () (enlarged black-and-white p"
       ]
     },
     {
@@ -1286,10 +1281,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 3 (sf_film_console_lab: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright sunlit anatomy cataloging studio lined with forty-four geometric vector cards, cool-cream binders, and a cool-slate drafting table, featuring 16mm flatbed Steenbeck film viewer. Inside the room, subject (1969 San Francisco academic wear: Ekman in tweed jacket over collared shirt with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 16mm flatbed Steenbeck film viewer. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright sunlit anatomy cataloging studio lined with forty-four geometric vector blank matte blank matte cards, cool-cream binders, and a cool-slate drafting table. Inside the room, subject (adult participant in tweed jacket over collared shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a bright sunlit anatomy cataloging studio lined with forty-four geometri",
-        "16mm flatbed Steenbeck film viewer"
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ]

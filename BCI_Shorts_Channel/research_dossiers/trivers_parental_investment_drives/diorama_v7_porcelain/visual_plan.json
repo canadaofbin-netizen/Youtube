@@ -159,7 +159,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "index": 8,
@@ -235,7 +236,8 @@
           "subject"
         ],
         "protocol_phase_jump": true
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "index": 9,
@@ -309,8 +311,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "index": 12,
@@ -333,7 +334,8 @@
         "present_cast_end": [
           "subject"
         ]
-      }
+      },
+      "reference_image": "03_visuals/reference_images/ref_env_master.png"
     },
     {
       "index": 13,
@@ -504,8 +506,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "index": 21,
@@ -693,8 +694,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "index": 31,
@@ -794,8 +794,7 @@
           "subject"
         ],
         "protocol_phase_jump": true
-      },
-      "reference_image": "03_visuals/reference_images/ref_env_master.png"
+      }
     },
     {
       "index": 35,
@@ -834,8 +833,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "index": 37,
@@ -860,8 +858,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_env_master.png"
+      }
     },
     {
       "index": 39,
@@ -908,8 +905,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_env_master.png"
+      }
     },
     {
       "index": 41,
@@ -1098,8 +1094,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "index": 54,
@@ -1188,8 +1183,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "index": 20,
@@ -1236,15 +1230,15 @@
   "require_scene_state_ledger": true,
   "reenactment_track": "track_b",
   "track_subtier": "B_scene_bible_anchor",
-  "default_location_id": "family_home_table",
-  "real_environment": "cool clear daylight-white studio room where teammates exchange sunlit favor tokens across a round slate-stone table",
+  "default_location_id": "harvard_zoology_hall",
+  "real_environment": "bright sunlit Harvard seminar room with tall clear daylight-white windows, slate-stone tables, and brushed-silver care balances",
   "environment_props": [
     "paired matte-white porcelain zoological sculptures (Peacock/Peahen vs Brooding Pipefish/Jacana Dad)",
-    "Harvard Comparative Investment bound notebook ('Mammals: Female Invests More | Pipefish/Jacana: Male Invests More | Long-Term Humans: Biparental Mutual Choice!') (captures standard, reversed, and human biparental cases on one board)"
+    "Harvard Comparative Investment bound notebook () (captures standard, reversed, and human biparental cases on one board)"
   ],
   "cast": {
     "subject": "1972 Cambridge academic attire: tan corduroy sport coat, oxford shirt, knit pullovers, and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "researcher": "1972 Cambridge academic attire: tan corduroy sport coat, oxford shirt, knit pullovers, and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1261,12 +1255,13 @@
       "setting": "real_env",
       "generation_order": 3,
       "conditioned_on": [
+        "ref_env_master",
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (harvard_zoology_hall: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across sunlit clear daylight-white Harvard zoology hall with two cool slate-stone display stands holding matte-white smooth sculptural matte-white porcelain bird and marine sculptures, featuring paired matte-white porcelain zoological sculptures (Peacock/Peahen vs Brooding Pipefish/Jacana Dad). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired matte-white porcelain zoological sculptures (Peacock/Peahen vs Brooding Pipefish/Jacana Dad). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across bright sunlit Harvard seminar room with tall clear daylight-white windows, slate-stone tables, and brushed-silver care balances, featuring paired matte-white porcelain zoological sculptures (Peacock/Peahen vs Brooding Pipefish/Jacana Dad). Inside the room, researcher (1972 Cambridge academic attire: tan corduroy sport coat, oxford shirt, knit pullovers, and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired matte-white porcelain zoological sculptures (Peacock/Peahen vs Brooding Pipefish/Jacana Dad). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "sunlit clear daylight-white Harvard zoology hall with two cool slate-sto",
+        "bright sunlit Harvard seminar room with tall clear daylight-white window",
         "paired matte-white porcelain zoological sculptures (Peac"
       ]
     },
@@ -1283,14 +1278,13 @@
       "setting": "real_env",
       "generation_order": 3,
       "conditioned_on": [
-        "ref_env_master",
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (family_home_table: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across cool clear daylight-white studio room where teammates exchange sunlit favor tokens across a round slate-stone table, featuring Harvard Comparative Investment bound notebook ('Mammals: Female Invests More | Pipefish/Jacana: Male Invests More | Long-Term Humans: Biparental Mutual Choice!') (captures standard, reversed, and human biparental cases on one board). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Harvard Comparative Investment bound notebook ('Mammals: Female Invests More | Pipefish/Jacana: Male Invests More | Long-Term Humans: Biparental Mutual Choice!') (captures standard, reversed, and human biparental cases on one board). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across cool clear daylight-white studio room where teammates exchange sunlit favor tokens across a round slate-stone table. Inside the room, researcher (1972 Cambridge academic attire: tan corduroy sport coat, oxford shirt, knit pullovers, and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "cool clear daylight-white studio room where teammates exchange sunlit fa",
-        "Harvard Comparative Investment bound notebook ('Mammals:"
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1309,10 +1303,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (marine_lab_bench: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside cool powder-blue and clear daylight-white marine biology room with geometric seagrass prisms and smooth sculptural matte-white porcelain pipefish sculptures on slate trays, featuring paired matte-white porcelain zoological sculptures (Peacock/Peahen vs Brooding Pipefish/Jacana Dad). Inside the room, researcher (clinical investigator in a tailored crisp white laboratory coat over a charcoal wool waistcoat and dark trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired matte-white porcelain zoological sculptures (Peacock/Peahen vs Brooding Pipefish/Jacana Dad). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside cool powder-blue and clear daylight-white marine biology room with geometric seagrass prisms and smooth sculptural matte-white porcelain pipefish sculptures on slate trays. Inside the room, researcher (1972 Cambridge academic attire: tan corduroy sport coat, oxford shirt, knit pullovers, and wool trousers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "cool powder-blue and clear daylight-white marine biology room with geome",
-        "paired matte-white porcelain zoological sculptures (Peac"
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ]

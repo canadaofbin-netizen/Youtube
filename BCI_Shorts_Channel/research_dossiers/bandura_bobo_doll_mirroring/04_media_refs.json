@@ -35,13 +35,16 @@
       },
       "reenactment_suitability": "suitable_track_a",
       "reenactment_suitability_reason": "passed_gates_1_to_4_with_keyframes",
-      "recommended_section": "*00:08-00:44",
       "reenactment_suitability_metrics": {
         "keyframe_count": 14,
         "median_dark_ratio": 0.3994,
         "median_gray_sat_ratio": 0.2673,
+        "median_p90_sat": 120.0,
+        "max_p90_sat": 132.0,
         "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
         "median_flat_patch_ratio": 0.3697,
+        "median_motion_diff": 32.507,
         "talking_head_ratio": 0.125,
         "words_per_sec": 1.151,
         "has_strong_archival_cue": true
@@ -82,13 +85,16 @@
       },
       "reenactment_suitability": "reject_track_b_only",
       "reenactment_suitability_reason": "gate4_talking_head_monologue(ratio=0.75,wps=1.848)",
-      "recommended_section": "*00:00-01:20",
       "reenactment_suitability_metrics": {
         "keyframe_count": 14,
         "median_dark_ratio": 0.0114,
         "median_gray_sat_ratio": 0.3317,
+        "median_p90_sat": 64.0,
+        "max_p90_sat": 173.0,
         "is_bw_archival": false,
+        "is_mixed_bw_and_color": true,
         "median_flat_patch_ratio": 0.1348,
+        "median_motion_diff": 4.261,
         "talking_head_ratio": 0.75,
         "words_per_sec": 1.848,
         "has_strong_archival_cue": true,
@@ -125,5 +131,6 @@
     }
   ],
   "reenactment_track": "track_a",
-  "track_subtier": "A1a_ready_keyframes"
+  "track_subtier": "A1a_ready_keyframes",
+  "suitability_schema_version": 2
 }

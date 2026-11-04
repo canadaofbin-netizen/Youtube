@@ -223,8 +223,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 7,
@@ -295,8 +294,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 10,
@@ -518,8 +516,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 20,
@@ -613,8 +610,7 @@
           "researcher"
         ]
       },
-      "clip_number": 23,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 23
     },
     {
       "sentence_index": 25,
@@ -769,8 +765,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 32,
@@ -902,8 +897,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 38,
@@ -1153,8 +1147,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 51,
@@ -1184,11 +1177,11 @@
   "real_environment": "the cool clear daylight-white conditioning booth with the matte-white smooth sculptural matte-white porcelain compact monkey sculpture calm beside the silver nozzle",
   "environment_props": [
     "articulated matte-white porcelain macaque sculpture at Cue Lamp + Juice Dropper panel",
-    "3-Row Dopamine Raster Plot Board ('+Surprise | 0 Expected | −Withheld' + 'δ = Actual − Expected') (the single most famous figure in modern computational neuroscience)"
+    "3-Row Dopamine Raster Plot Board ( + ) (the single most famous figure in modern computational neuroscience)"
   ],
   "cast": {
-    "subject": "1997 European & computational academic attire: crisp white lab coat and dark tie with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "tweed blazers and button-down shirts with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "tweed blazers and button-down shirts and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "1997 European & computational academic attire: crisp white lab coat and dark tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1209,7 +1202,7 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (fribourg_neuro_gallery: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the cool clear daylight-white conditioning booth with the matte-white smooth sculptural matte-white porcelain compact monkey sculpture calm beside the silver nozzle, featuring articulated matte-white porcelain macaque sculpture at Cue Lamp + Juice Dropper panel. Inside the room, researcher (tweed blazers and button-down shirts with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside articulated matte-white porcelain macaque sculpture at Cue Lamp + Juice Dropper panel. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the cool clear daylight-white conditioning booth with the matte-white smooth sculptural matte-white porcelain compact monkey sculpture calm beside the silver nozzle, featuring articulated matte-white porcelain macaque sculpture at Cue Lamp + Juice Dropper panel. Inside the room, researcher (1997 European & computational academic attire: crisp white lab coat and dark tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside articulated matte-white porcelain macaque sculpture at Cue Lamp + Juice Dropper panel. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the cool clear daylight-white conditioning booth with the matte-white sm",
         "articulated matte-white porcelain macaque sculpture at C"
@@ -1231,10 +1224,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (pastel_seminar_studio: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit cool clear daylight-white AI and neuroscience studio pairing a sunlit 3D brain sculpture with a layered brushed-silver node grid, featuring 3-Row Dopamine Raster Plot Board ('+Surprise | 0 Expected | −Withheld' + 'δ = Actual − Expected') (the single most famous figure in modern computational neuroscience). Inside the room, researcher (tweed blazers and button-down shirts with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 3-Row Dopamine Raster Plot Board ('+Surprise | 0 Expected | −Withheld' + 'δ = Actual − Expected') (the single most famous figure in modern computational neuroscience). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a cool powder-blue academic studio with slate-stone tables and smooth unlined sunlit geometry models. Inside the room, researcher (1997 European & computational academic attire: crisp white lab coat and dark tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "a sunlit cool clear daylight-white AI and neuroscience studio pairing a ",
-        "3-Row Dopamine Raster Plot Board ('+Surprise | 0 Expecte"
+        "a cool powder-blue academic studio with slate-stone tables and smooth un",
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1253,10 +1246,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (modern_pastel_desk: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a quiet evening powder-blue study room with a cool slate-stone desk and a glowing clear daylight-white handheld slate, featuring articulated matte-white porcelain macaque sculpture at Cue Lamp + Juice Dropper panel. Inside the room, researcher (tweed blazers and button-down shirts with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside articulated matte-white porcelain macaque sculpture at Cue Lamp + Juice Dropper panel. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a quiet evening powder-blue study room with a cool slate-stone desk and a glowing clear daylight-white handheld slate. Inside the room, researcher (1997 European & computational academic attire: crisp white lab coat and dark tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a quiet evening powder-blue study room with a cool slate-stone desk and ",
-        "articulated matte-white porcelain macaque sculpture at C"
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ]

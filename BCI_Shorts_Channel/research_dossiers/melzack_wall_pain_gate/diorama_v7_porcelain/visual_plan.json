@@ -246,8 +246,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 8,
@@ -388,8 +387,7 @@
           "researcher"
         ]
       },
-      "clip_number": 13,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 13
     },
     {
       "sentence_index": 14,
@@ -574,8 +572,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 23,
@@ -674,8 +671,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 28,
@@ -745,8 +741,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 31,
@@ -866,8 +861,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 37,
@@ -961,8 +955,7 @@
           "researcher"
         ]
       },
-      "clip_number": 39,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 39
     },
     {
       "sentence_index": 41,
@@ -1194,15 +1187,15 @@
   "reenactment_track": "track_b",
   "track_subtier": "B_scene_bible_anchor",
   "default_location_id": "mit_gate_lab",
-  "real_environment": "the Cambridge laboratory bench holding a compact brushed-silver pulse generator wired to two small powder-blue round pads on cool slate-stone",
+  "real_environment": "a bright Cambridge laboratory room with a cool slate-stone bench, brushed-silver pulse box, and a blank sunlit three-channel spinal gate board on the wall",
   "environment_props": [
-    "1965 Gate Control smooth slate wall panel schematic",
+    "1965 Gate Control smooth unmarked slate wall panel schematic",
     "prototype benchtop tactile nerve stimulator",
     "myelinated vs unmyelinated cable model"
   ],
   "cast": {
-    "subject": "1965 MIT academic dress: Melzack in herringbone jacket, white shirt, narrow dark tie with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "Wall in rolled Oxford sleeves, dark trousers, lab coat draped on chair with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "adult participant in herringbone jacket, white shirt, narrow dark tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clinical investigator in rolled Oxford sleeves, dark trousers, lab coat draped on chair with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1223,10 +1216,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (mit_gate_lab: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the Cambridge laboratory bench holding a compact brushed-silver pulse generator wired to two small powder-blue round pads on cool slate-stone, featuring 1965 Gate Control smooth slate wall panel schematic. Inside the room, researcher (Wall in rolled Oxford sleeves, dark trousers, lab coat draped on chair with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1965 Gate Control smooth slate wall panel schematic. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a bright Cambridge laboratory room with a cool slate-stone bench, brushed-silver pulse box, and a blank sunlit three-channel spinal gate board on the wall, featuring 1965 Gate Control smooth unmarked slate wall panel schematic. Inside the room, researcher (clinical investigator in rolled Oxford sleeves, dark trousers, lab coat draped on chair with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1965 Gate Control smooth unmarked slate wall panel schematic. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the Cambridge laboratory bench holding a compact brushed-silver pulse ge",
-        "1965 Gate Control smooth slate wall panel schematic"
+        "a bright Cambridge laboratory room with a cool slate-stone bench, brushe",
+        "1965 Gate Control smooth unmarked slate wall panel schem"
       ]
     },
     {
@@ -1245,10 +1238,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (living_room_sofa: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across wide sunlit view of the cool clear daylight-white living room with the slate-stone coffee table and powder-blue sofa, featuring prototype benchtop tactile nerve stimulator. Inside the room, researcher (Wall in rolled Oxford sleeves, dark trousers, lab coat draped on chair with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside prototype benchtop tactile nerve stimulator. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit cool clear daylight-white living room with a low cool slate-stone coffee table and a powder-blue sofa. Inside the room, researcher (clinical investigator in rolled Oxford sleeves, dark trousers, lab coat draped on chair with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "wide sunlit view of the cool clear daylight-white living room with the s",
-        "prototype benchtop tactile nerve stimulator"
+        "a sunlit cool clear daylight-white living room with a low cool slate-sto",
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1268,10 +1261,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 3 (mit_gate_lab: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the Cambridge laboratory bench holding a compact brushed-silver pulse generator wired to two small powder-blue round pads on cool slate-stone, featuring 1965 Gate Control smooth slate wall panel schematic. Inside the room, subject (1965 MIT academic dress: Melzack in herringbone jacket, white shirt, narrow dark tie with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1965 Gate Control smooth slate wall panel schematic. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright Cambridge laboratory room with a cool slate-stone bench, brushed-silver pulse box, and a blank sunlit three-channel spinal gate board on the wall, featuring 1965 Gate Control smooth unmarked slate wall panel schematic. Inside the room, subject (adult participant in herringbone jacket, white shirt, narrow dark tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1965 Gate Control smooth unmarked slate wall panel schematic. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the Cambridge laboratory bench holding a compact brushed-silver pulse ge",
-        "1965 Gate Control smooth slate wall panel schematic"
+        "a bright Cambridge laboratory room with a cool slate-stone bench, brushe",
+        "1965 Gate Control smooth unmarked slate wall panel schem"
       ]
     }
   ]

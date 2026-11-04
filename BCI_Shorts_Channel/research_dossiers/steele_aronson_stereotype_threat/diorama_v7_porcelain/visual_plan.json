@@ -224,8 +224,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 7,
@@ -294,8 +293,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 10,
@@ -367,8 +365,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 14,
@@ -486,8 +483,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 19,
@@ -702,8 +698,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 29,
@@ -867,8 +862,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 37,
@@ -1009,8 +1003,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 44,
@@ -1197,13 +1190,13 @@
   "default_location_id": "stanford_exam_room",
   "real_environment": "the quiet sunlit classroom with pale ash-wood desks and cool cream exam booklets",
   "environment_props": [
-    "Packet A ('DIAGNOSTIC INTELLECTUAL ABILITY TEST' + Page-1 Demographic Box) (cream 1995 test cover with demographic bubble right above Question 1)",
-    "Packet B ('NON-DIAGNOSTIC PROBLEM-SOLVING STUDY' — Demographics on Last Page) (identical interior GRE verbal items with clean Page 1)",
-    "adjusted SAT-matched score bar chart"
+    "Packet A ( + Page-1 Demographic Box) (cream 1995 test cover with demographic bubble right above Question 1)",
+    "Packet B ( — Demographics on Last Page) (identical interior GRE verbal items with clean Page 1)",
+    "adjusted SAT-matched score bar unmarked paper sheet"
   ],
   "cast": {
-    "subject": "1995 Stanford attire: tailored tweed/navy blazer over open shirt on researchers with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "collegiate sweatshirts, button-downs, and denim on students with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "collegiate sweatshirts, button-downs, and denim on students and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "1995 Stanford attire: tailored tweed/navy blazer over open shirt on researchers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1224,10 +1217,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 1 (stanford_exam_room: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the quiet sunlit classroom with pale ash-wood desks and cool cream exam booklets, featuring Packet A ('DIAGNOSTIC INTELLECTUAL ABILITY TEST' + Page-1 Demographic Box) (cream 1995 test cover with demographic bubble right above Question 1). Inside the room, subject (1995 Stanford attire: tailored tweed/navy blazer over open shirt on researchers with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Packet A ('DIAGNOSTIC INTELLECTUAL ABILITY TEST' + Page-1 Demographic Box) (cream 1995 test cover with demographic bubble right above Question 1). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the quiet sunlit classroom with pale ash-wood desks and cool cream exam booklets, featuring Packet A ( + Page-1 Demographic Box) (cream 1995 test cover with demographic bubble right above Question 1). Inside the room, subject (collegiate sweatshirts, button-downs, and denim on students and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Packet A ( + Page-1 Demographic Box) (cream 1995 test cover with demographic bubble right above Question 1). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the quiet sunlit classroom with pale ash-wood desks and cool cream exam ",
-        "Packet A ('DIAGNOSTIC INTELLECTUAL ABILITY TEST' + Page-"
+        "Packet A ( + Page-1 Demographic Box) (cream 1995 test co"
       ]
     },
     {
@@ -1247,10 +1240,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (stanford_exam_room: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the quiet sunlit classroom with pale ash-wood desks and cool cream exam booklets, featuring Packet B ('NON-DIAGNOSTIC PROBLEM-SOLVING STUDY' — Demographics on Last Page) (identical interior GRE verbal items with clean Page 1). Inside the room, researcher (collegiate sweatshirts, button-downs, and denim on students with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Packet B ('NON-DIAGNOSTIC PROBLEM-SOLVING STUDY' — Demographics on Last Page) (identical interior GRE verbal items with clean Page 1). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the quiet sunlit classroom with pale ash-wood desks and cool cream exam booklets, featuring Packet B ( — Demographics on Last Page) (identical interior GRE verbal items with clean Page 1). Inside the room, researcher (1995 Stanford attire: tailored tweed/navy blazer over open shirt on researchers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Packet B ( — Demographics on Last Page) (identical interior GRE verbal items with clean Page 1). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the quiet sunlit classroom with pale ash-wood desks and cool cream exam ",
-        "Packet B ('NON-DIAGNOSTIC PROBLEM-SOLVING STUDY' — Demog"
+        "Packet B ( — Demographics on Last Page) (identical inter"
       ]
     },
     {
@@ -1269,10 +1262,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (exam_design_studio: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a wide sunlit seminar room where diverse clothed matte-white porcelain adults sit around a pale ash-wood table holding matching puzzle cards, featuring Packet A ('DIAGNOSTIC INTELLECTUAL ABILITY TEST' + Page-1 Demographic Box) (cream 1995 test cover with demographic bubble right above Question 1). Inside the room, researcher (collegiate sweatshirts, button-downs, and denim on students with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Packet A ('DIAGNOSTIC INTELLECTUAL ABILITY TEST' + Page-1 Demographic Box) (cream 1995 test cover with demographic bubble right above Question 1). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a wide sunlit seminar room where diverse clothed matte-white porcelain adults sit around a pale ash-wood table holding matching puzzle blank matte blank matte cards. Inside the room, researcher (1995 Stanford attire: tailored tweed/navy blazer over open shirt on researchers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a wide sunlit seminar room where diverse clothed matte-white porcelain a",
-        "Packet A ('DIAGNOSTIC INTELLECTUAL ABILITY TEST' + Page-"
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ]

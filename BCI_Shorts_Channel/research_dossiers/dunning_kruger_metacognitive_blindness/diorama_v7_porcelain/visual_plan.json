@@ -199,8 +199,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 6,
@@ -401,8 +400,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 15,
@@ -738,8 +736,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 32,
@@ -918,8 +915,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 40,
@@ -1181,15 +1177,15 @@
   "reenactment_track": "track_b",
   "track_subtier": "B_scene_bible_anchor",
   "default_location_id": "cornell_seminar_hall",
-  "real_environment": "the bright Cornell seminar room with cool-slate desks and soft diffused skylight illumination",
+  "real_environment": "a sunlit pastel-stone university quadrangle leading into a pale-birch psychology seminar room with cool-slate desks",
   "environment_props": [
-    "authentic 1999 two-line smooth slate wall panel graph + crossed-out 'Mount Stupid' myth card",
-    "paired 'Self-Estimate: 62%' vs 'Actual Score: 12%' test sheet (crisp paper sheets side-by-side on the student's desk)",
-    "Study 4 '10-Minute Wason Logic Packet' (brief instructional booklet on the desk)"
+    "authentic 1999 two-line smooth unmarked slate wall panel unmarked paper sheet + crossed-out myth blank matte blank matte card",
+    "paired vs test sheet (crisp paper sheets side-by-side on the student's desk)",
+    "Study 4 (brief instructional booklet on the desk)"
   ],
   "cast": {
-    "subject": "1999 Ivy League attire: tweed sport coat and collared shirt on Dunning with a completely smooth featureless solid matte-white egg-shaped oval head",
-    "researcher": "crew-neck wool sweater on Kruger with a completely smooth featureless solid matte-white egg-shaped oval head"
+    "subject": "late-1990s fleece vest and flannel shirt on student and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "crew-neck wool sweater on Kruger and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
   "reference_anchors": [
@@ -1210,10 +1206,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 1 (cornell_seminar_hall: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the bright Cornell seminar room with cool-slate desks and soft diffused skylight illumination, featuring authentic 1999 two-line smooth slate wall panel graph + crossed-out 'Mount Stupid' myth card. Inside the room, subject (1999 Ivy League attire: tweed sport coat and collared shirt on Dunning with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside authentic 1999 two-line smooth slate wall panel graph + crossed-out 'Mount Stupid' myth card. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit pastel-stone university quadrangle leading into a pale-birch psychology seminar room with cool-slate desks, featuring authentic 1999 two-line smooth unmarked slate wall panel unmarked paper sheet + crossed-out myth blank matte blank matte blank matte card. Inside the room, subject (late-1990s fleece vest and flannel shirt on student and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside authentic 1999 two-line smooth unmarked slate wall panel unmarked paper sheet + crossed-out myth blank matte blank matte blank matte card. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the bright Cornell seminar room with cool-slate desks and soft diffused ",
-        "authentic 1999 two-line smooth slate wall panel graph + "
+        "a sunlit pastel-stone university quadrangle leading into a pale-birch ps",
+        "authentic 1999 two-line smooth unmarked slate wall panel"
       ]
     },
     {
@@ -1233,10 +1229,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 2 (cornell_seminar_hall: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the bright Cornell seminar room with cool-slate desks and soft diffused skylight illumination, featuring paired 'Self-Estimate: 62%' vs 'Actual Score: 12%' test sheet (crisp paper sheets side-by-side on the student's desk). Inside the room, researcher (crew-neck wool sweater on Kruger with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired 'Self-Estimate: 62%' vs 'Actual Score: 12%' test sheet (crisp paper sheets side-by-side on the student's desk). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit pastel-stone university quadrangle leading into a pale-birch psychology seminar room with cool-slate desks, featuring paired vs test sheet (crisp paper sheets side-by-side on the student's desk). Inside the room, researcher (crew-neck wool sweater on Kruger and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside paired vs test sheet (crisp paper sheets side-by-side on the student's desk). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "the bright Cornell seminar room with cool-slate desks and soft diffused ",
-        "paired 'Self-Estimate: 62%' vs 'Actual Score: 12%' test "
+        "a sunlit pastel-stone university quadrangle leading into a pale-birch ps",
+        "paired vs test sheet (crisp paper sheets side-by-side on"
       ]
     },
     {
@@ -1255,10 +1251,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 3 (pastel_archive_studio: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a clean pastel-slate bank lobby with pale-stone teller arches and a brushed-silver ceiling lens housing under soft matte daylight, featuring authentic 1999 two-line smooth slate wall panel graph + crossed-out 'Mount Stupid' myth card. Inside the room, researcher (crew-neck wool sweater on Kruger with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside authentic 1999 two-line smooth slate wall panel graph + crossed-out 'Mount Stupid' myth card. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a clean pastel-slate bank lobby with pale-stone teller arches and a brushed-silver ceiling lens housing under soft matte daylight. Inside the room, researcher (crew-neck wool sweater on Kruger and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "a clean pastel-slate bank lobby with pale-stone teller arches and a brus",
-        "authentic 1999 two-line smooth slate wall panel graph + "
+        "an unmarked clinical tabletop apparatus"
       ]
     }
   ]

@@ -246,8 +246,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 8,
@@ -385,8 +384,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 15,
@@ -510,8 +508,7 @@
           "researcher"
         ]
       },
-      "clip_number": 18,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 18
     },
     {
       "sentence_index": 21,
@@ -596,8 +593,7 @@
           "researcher"
         ]
       },
-      "clip_number": 22,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 22
     },
     {
       "sentence_index": 25,
@@ -812,8 +808,7 @@
         "present_cast_end": [
           "subject"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_subject.png"
+      }
     },
     {
       "sentence_index": 37,
@@ -1075,8 +1070,7 @@
           "researcher"
         ]
       },
-      "clip_number": 44,
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      "clip_number": 44
     },
     {
       "sentence_index": 50,
@@ -1162,8 +1156,7 @@
         "present_cast_end": [
           "researcher"
         ]
-      },
-      "reference_image": "03_visuals/reference_images/ref_cast_researcher.png"
+      }
     },
     {
       "sentence_index": 52,
@@ -1192,11 +1185,11 @@
   "default_location_id": "toronto_memory_bench",
   "real_environment": "the sunlit Toronto psychology room with two side-by-side cool slate-gray testing stations prepared for a head-to-head comparison",
   "environment_props": [
-    "three-level Encoding Question Cards (1. Font Case | 2. Rhyme Sound | 3. Sentence Meaning) (identical 200-ms word flashes differed ONLY by the question asked)",
-    "Surprise Recall Staircase Board ('17% Shallow -> 48% Rhyme -> 82% Deep Semantic')"
+    "three-level Encoding Question blank matte blank matte cards (1. Font Case | 2. Rhyme Sound | 3. Sentence Meaning) (identical 200-ms word flashes differed ONLY by the question asked)",
+    "Surprise Recall Staircase Board ()"
   ],
   "cast": {
-    "subject": "Early-1970s Canadian academic attire: tweed jacket over turtleneck with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "subject": "Early-1970s Canadian academic attire: tweed jacket over turtleneck and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
     "researcher": "Oxford shirt and wool cardigan with a completely smooth featureless solid matte-white egg-shaped oval head"
   },
   "strict_room_continuity": true,
@@ -1218,10 +1211,10 @@
         "ref_cast_researcher"
       ],
       "title": "Room state anchor 1 (toronto_memory_bench: researcher)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunlit Toronto psychology room with two side-by-side cool slate-gray testing stations prepared for a head-to-head comparison, featuring three-level Encoding Question Cards (1. Font Case | 2. Rhyme Sound | 3. Sentence Meaning) (identical 200-ms word flashes differed ONLY by the question asked). Inside the room, researcher (Oxford shirt and wool cardigan with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-level Encoding Question Cards (1. Font Case | 2. Rhyme Sound | 3. Sentence Meaning) (identical 200-ms word flashes differed ONLY by the question asked). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across the sunlit Toronto psychology room with two side-by-side cool slate-gray testing stations prepared for a head-to-head comparison, featuring three-level Encoding Question blank matte blank matte blank matte cards (1. Font Case | 2. Rhyme Sound | 3. Sentence Meaning) (identical 200-ms word flashes differed ONLY by the question asked). Inside the room, researcher (Oxford shirt and wool cardigan with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-level Encoding Question blank matte blank matte blank matte cards (1. Font Case | 2. Rhyme Sound | 3. Sentence Meaning) (identical 200-ms word flashes differed ONLY by the question asked). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the sunlit Toronto psychology room with two side-by-side cool slate-gray",
-        "three-level Encoding Question Cards (1. Font Case | 2. R"
+        "three-level Encoding Question blank matte blank matte ca"
       ]
     },
     {
@@ -1240,10 +1233,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 2 (library_study_carrel: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a sunlit cool-slate modern study desk with tall morning windows, a neat stack of sunlit folders, and calm uncluttered stone workspace, featuring Surprise Recall Staircase Board ('17% Shallow -> 48% Rhyme -> 82% Deep Semantic'). Inside the room, subject (Early-1970s Canadian academic attire: tweed jacket over turtleneck with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside Surprise Recall Staircase Board ('17% Shallow -> 48% Rhyme -> 82% Deep Semantic'). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a quiet cool-toned university study hall with slate-gray carrel desks, soft powder-blue lamps, and rows of closed sunlit binders. Inside the room, subject (Early-1970s Canadian academic attire: tweed jacket over turtleneck and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
-        "a sunlit cool-slate modern study desk with tall morning windows, a neat ",
-        "Surprise Recall Staircase Board ('17% Shallow -> 48% Rhy"
+        "a quiet cool-toned university study hall with slate-gray carrel desks, s",
+        "an unmarked clinical tabletop apparatus"
       ]
     },
     {
@@ -1263,10 +1256,10 @@
         "ref_cast_subject"
       ],
       "title": "Room state anchor 3 (toronto_memory_bench: subject)",
-      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the sunlit Toronto psychology room with two side-by-side cool slate-gray testing stations prepared for a head-to-head comparison, featuring three-level Encoding Question Cards (1. Font Case | 2. Rhyme Sound | 3. Sentence Meaning) (identical 200-ms word flashes differed ONLY by the question asked). Inside the room, subject (Early-1970s Canadian academic attire: tweed jacket over turtleneck with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-level Encoding Question Cards (1. Font Case | 2. Rhyme Sound | 3. Sentence Meaning) (identical 200-ms word flashes differed ONLY by the question asked). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field.",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside the sunlit Toronto psychology room with two side-by-side cool slate-gray testing stations prepared for a head-to-head comparison, featuring three-level Encoding Question blank matte blank matte blank matte cards (1. Font Case | 2. Rhyme Sound | 3. Sentence Meaning) (identical 200-ms word flashes differed ONLY by the question asked). Inside the room, subject (Early-1970s Canadian academic attire: tweed jacket over turtleneck and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three-level Encoding Question blank matte blank matte blank matte cards (1. Font Case | 2. Rhyme Sound | 3. Sentence Meaning) (identical 200-ms word flashes differed ONLY by the question asked). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
       "must_include": [
         "the sunlit Toronto psychology room with two side-by-side cool slate-gray",
-        "three-level Encoding Question Cards (1. Font Case | 2. R"
+        "three-level Encoding Question blank matte blank matte ca"
       ]
     }
   ]

@@ -78,14 +78,17 @@
         "keyframe_count": 14,
         "median_dark_ratio": 0.0979,
         "median_gray_sat_ratio": 0.1195,
+        "median_p90_sat": 167.5,
+        "max_p90_sat": 255.0,
         "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
         "median_flat_patch_ratio": 0.2354,
+        "median_motion_diff": 59.078,
         "talking_head_ratio": 0.375,
         "words_per_sec": 1.752,
         "has_strong_archival_cue": false,
         "gate_failed": 4
-      },
-      "recommended_section": "*00:00-01:20"
+      }
     },
     {
       "id": "M3",
@@ -117,5 +120,6 @@
     }
   ],
   "reenactment_track": "track_b",
-  "track_subtier": "B_scene_bible_anchor"
+  "track_subtier": "B_scene_bible_anchor",
+  "suitability_schema_version": 2
 }

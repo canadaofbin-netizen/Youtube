@@ -35,7 +35,6 @@
       },
       "reenactment_suitability": "reject_track_b_only",
       "reenactment_suitability_reason": "gate1_rejected_explainer_channel(gocognitive)",
-      "recommended_section": "*00:08-00:44",
       "reenactment_suitability_metrics": {
         "gate_failed": 1,
         "matched_channel": "gocognitive"
@@ -76,7 +75,6 @@
       },
       "reenactment_suitability": "reject_track_b_only",
       "reenactment_suitability_reason": "gate1_rejected_explainer_channel(psychology unlocked)",
-      "recommended_section": "*00:00-01:20",
       "reenactment_suitability_metrics": {
         "gate_failed": 1,
         "matched_channel": "psychology unlocked"
@@ -112,5 +110,6 @@
     }
   ],
   "reenactment_track": "track_b",
-  "track_subtier": "B_scene_bible_anchor"
+  "track_subtier": "B_scene_bible_anchor",
+  "suitability_schema_version": 2
 }
