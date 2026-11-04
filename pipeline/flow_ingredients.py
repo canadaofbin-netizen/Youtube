@@ -483,7 +483,11 @@ async def configure_flow_zero_credit_image_mode(
             continue
         state = await client.eval(f"""(() => {{
             const btns = Array.from(document.querySelectorAll('flow-prompt-box-settings button, .cdk-overlay-pane button'));
-            const bAsp = btns.find(b => (b.innerText || '').includes({json.dumps(target_aspect)}));
+            const aspKey = {json.dumps(target_aspect)};
+            const bAsp = btns.find(b => {{
+                const t = (b.innerText || '');
+                return t.includes(aspKey) || (aspKey === '16:9' && t.includes('Landscape')) || (aspKey === '9:16' && t.includes('Portrait'));
+            }});
             if (bAsp && !bAsp.disabled) bAsp.click();
             const bCnt = btns.find(b => (b.innerText || '').trim() === {json.dumps(f"x{cand_n}")});
             if (bCnt && !bCnt.disabled) bCnt.click();
@@ -815,7 +819,7 @@ async def generate_flow_image_batch(
         contrast = float(np.std(cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)))
         qa_reason = ""
         if spec is not None:
-            rep = inspect_single_reference_image(tmp_png, spec)
+            rep = inspect_single_reference_image(tmp_png, spec, aspect=aspect)
             qa_passed = bool(rep.get("passed"))
             metrics = rep.get("metrics") or {}
             sharpness = float(

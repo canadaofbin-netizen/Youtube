@@ -1,0 +1,1276 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "delgado_stimoceiver_bull_stop",
+  "topic": "Jose Delgado (1955, 1964) Wireless Stimoceiver Bull Stop in Cordoba, Caudate Nucleus (Basal Ganglia) Forced Motor Turning vs Mind-Control Myth, and Evolution into Modern Deep Brain Stimulation",
+  "act5_climax_episode": "The transformation of Delgado's 1955-1964 wireless basal-ganglia stimoceiver into modern FDA-approved Deep Brain Stimulation (DBS) and closed-loop neuro-pacemakers restoring movement to over 250,000 Parkinson's and epilepsy patients.",
+  "outro_title_lines": [
+    "DELGADO (1955, 1964)",
+    "CORDOBA & YALE UNIVERSITY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "RADIO BUTTON?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BULL RADIO STOP?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "MIND CONTROL?"
+    },
+    {
+      "sentence_index": 19,
+      "text": "MOTOR TURN"
+    },
+    {
+      "sentence_index": 28,
+      "text": "ETHICS CLASH"
+    },
+    {
+      "sentence_index": 36,
+      "text": "MODERN DBS"
+    },
+    {
+      "sentence_index": 44,
+      "text": "TECH LIMITS"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "RADIO BUTTON?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BULL RADIO STOP?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "MIND CONTROL?"
+    },
+    {
+      "sentence_index": 19,
+      "text": "MOTOR TURN"
+    },
+    {
+      "sentence_index": 28,
+      "text": "ETHICS CLASH"
+    },
+    {
+      "sentence_index": 36,
+      "text": "MODERN DBS"
+    },
+    {
+      "sentence_index": 44,
+      "text": "TECH LIMITS"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 17,
+      "mode": "split_hstack",
+      "left_clip_index": 20,
+      "right_clip_index": 20,
+      "left_label": "MYTH: TAMED RAGE",
+      "right_label": "FACT: MOTOR TURN"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and cool pale-slate barriers",
+      "action": "a matte geometric matte-white porcelain dark-charcoal bull sculpture with ivory horns charges briskly across the pale-limestone ground sending up small geometric dust puffs",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "cordoba_bullring_sand",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-gray shirt sleeves and matte-white gloved matte-white porcelain hands extending from the bottom frame edge holding a brushed-brushed-silver radio box",
+      "prop_action": "the matte-white gloved matte-white porcelain right thumb presses a silver button on the brushed-silver radio transmitter box extending a telescopic silver antenna",
+      "consequence": "concentric soft-sage radio rings pulse outward from the antenna tip",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "cordoba_bullring_sand",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit pale-limestone ground arena in front of the cyan light-gray barrier",
+      "action": "viewed from behind the researcher in a light-gray shirt and trousers, the matte-white porcelain charcoal bull braces its geometric front hooves on the pale-stone court and pivots smoothly to the side",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "cordoba_bullring_sand",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "yale_bci_workshop",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved matte-white porcelain hands over a pale-gray electronics bench",
+      "prop_action": "both matte-white gloved matte-white porcelain hands set a compact circular brushed-silver stimoceiver capsule beside the handheld radio transmitter on the slate-stone bench",
+      "consequence": "the twin wireless devices gleam in soft studio light",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "yale_bci_workshop",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit Spanish ranch ring with pale-slate walls and clear blue sky",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain scientist in a light-gray shirt stands in the limestone ring holding the radio box as the matte-white porcelain bull trots along the outer wall",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "cordoba_bullring_sand",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "yale_bci_workshop",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved matte-white porcelain hands placing a brushed-silver radio switch over an instinct chart",
+      "prop_action": "both matte-white gloved matte-white porcelain hands slide a pale-gray radio-wave block across a cyan instinct arrow on the slate-stone board",
+      "consequence": "the cyan arrow diverts cleanly at a right angle",
+      "end_sentence_index": 5,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "yale_bci_workshop",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit entrance gate of the Cordoba testing ring with light-gray fences",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain scientist in a light-gray shirt and dark trousers steps out from behind the light-gray barrier and walks onto the pale-limestone ground",
+      "end_sentence_index": 6,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "cordoba_bullring_sand",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-gray shirt sleeves and matte-white gloved matte-white porcelain hands holding the rectangular aluminum-and-brushed-silver radio transmitter",
+      "prop_action": "both matte-white gloved matte-white porcelain hands pull out the telescoping brushed-silver antenna and flip the toggle switch on the top plate",
+      "consequence": "a small soft-sage ready jewel lights up on the transmitter",
+      "end_sentence_index": 6,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "cordoba_bullring_sand",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster balance platform comparing the matte-white porcelain charcoal bull beside a sunlit vintage compact car",
+      "comparison_action": "two matte-white gloved matte-white porcelain hands in coat sleeves slide and set the brushed-silver balance weight showing both sides weighing five hundred fifty kilograms",
+      "end_sentence_index": 8,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the sunlit center of the pale-limestone ground arena",
+      "action": "viewed from behind the clothed matte-white porcelain researcher in a light-gray shirt who braces and holds the radio box, the matte-white porcelain charcoal bull gallops straight forward across the pale-stone court",
+      "end_sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "cordoba_bullring_sand",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-gray shirt sleeves and matte-white gloved matte-white porcelain hands holding the radio box two meters ahead of the charging hooves",
+      "prop_action": "the matte-white gloved matte-white porcelain right thumb presses the brushed-silver transmit button firmly down to the click stop",
+      "consequence": "a soft cyan-blue radio pulse flashes from the antenna",
+      "end_sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "cordoba_bullring_sand",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit pale-limestone ground ring at the two-meter mark",
+      "action": "viewed from behind the researcher in the light-gray shirt, the matte-white porcelain bull plants its hooves in a puff of golden dust, turns ninety degrees left, and walks calmly away",
+      "end_sentence_index": 11,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "cordoba_bullring_sand",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "yale_bci_workshop",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved matte-white porcelain hands assembling a compact brushed-silver-and-resin stimoceiver disc",
+      "prop_action": "both matte-white gloved matte-white porcelain hands lift and place a fine silver coil inside the round transceiver capsule with a brushed-silver tool",
+      "consequence": "the compact wireless receiver gleams on the pale-gray block",
+      "end_sentence_index": 12,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "yale_bci_workshop",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster desk comparing a tangled bundle of long silver cables beside a tiny postage-stamp-sized brushed-silver disc",
+      "comparison_action": "two matte-white gloved matte-white porcelain hands in coat sleeves push the tangled cable bundle aside and set the tiny wireless disc on a pale-gray square",
+      "end_sentence_index": 12,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "yale_bci_workshop",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "pale-gray blazer sleeves and matte-white gloved matte-white porcelain hands unfolding a broadsheet folio on an slate-stone table",
+      "prop_action": "both matte-white gloved matte-white porcelain hands open a large cool-white broadsheet showing a two-frame sequence of the charging and halting bull",
+      "consequence": "the two-frame visual comparison sits centered on the slate-stone desk",
+      "end_sentence_index": 14,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "yale_bci_workshop",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_number": 16,
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "amygdala",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the precision 3D anatomical model of the amygdala, enclosed clear cyan-blue cortical hubs connect with warm amber-gold fiber pathways alongside contained deep crimson-red focal zones and smooth luminous pearl-aqua perivascular fluid channels",
+      "style_profile": "porcelain_cinematic_v7",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA ALARM?\nEMOTION MYTH",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, a question-like coral glow hovers around the lower amygdala while the actual probe path points higher up",
+      "end_sentence_index": 15,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "yale_bci_workshop",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved matte-white porcelain hands lifting the outer shell of a 3D brain model",
+      "prop_action": "both matte-white gloved matte-white porcelain hands open the upper hemisphere of the cool-ivory brain model to reveal the actual deep electrode target",
+      "consequence": "a silver probe tip rests inside the curved motor striatum",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "yale_bci_workshop",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA (CAUDATE)\nMOTOR STEERING HUB",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the C-shaped caudate nucleus of the basal ganglia glows softly in soft sunlit cyan-blue and amber-gold",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "clip_number": 20,
+      "sentence_index": 17,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "basal ganglia",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the precision 3D anatomical model of the basal ganglia, enclosed clear cyan-blue cortical hubs connect with warm amber-gold fiber pathways alongside contained deep crimson-red focal zones and smooth luminous pearl-aqua perivascular fluid channels",
+      "style_profile": "porcelain_cinematic_v7",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "yale_bci_workshop",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Yale neurophysiology workshop with the radio transmitter and 3D brain model on the center table",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in white coats step back from the table and look at the radio box in serious reflection",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "yale_bci_workshop",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "an overhead architectural plan of the bullring showing the straight red charge line bending sharply into a blue left turn arc",
+      "internal_mechanism": "a glowing cyan radio wave hits the two-meter mark and deflects the bull token onto the curved blue rail",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22,
+      "scene_state": {
+        "location_id": "cordoba_bullring_sand",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "CAUDATE NUCLEUS\nHABIT & MOVEMENT ENGINE",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the deep caudate arch of the basal ganglia glows soft sunlit sky-blue and connects up to the motor strip",
+      "end_sentence_index": 21,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "yale_bci_workshop",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved matte-white porcelain hands setting a frequency dial to one hundred hertz",
+      "prop_action": "both matte-white gloved matte-white porcelain hands turn the brushed-silver pulse generator dial to one hundred cycles per second as the",
+      "consequence": "the forced head-turn angle locks at ninety degrees",
+      "end_sentence_index": 22,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "yale_bci_workshop",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_number": 25,
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside 1965 brushed-aluminum handheld FM radio transmitter with whip antenna",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align 1965 brushed-aluminum handheld FM radio transmitter with whip antenna",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "cordoba_bullring_sand",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "thalamus",
+      "anatomy_label": "THALAMUS RELAY\nSENSORY SWITCHBOARD",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the central egg-shaped thalamus relay station glows warm amber-gold",
+      "end_sentence_index": 24,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "yale_bci_workshop",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit primate observation enclosure with a light-gray lever on the wall and a food tray",
+      "action": "viewed from behind the observation window, a clothed matte-white porcelain technician in a white coat watches a small matte-white porcelain monkey press the light-gray lever to calm the enclosure",
+      "end_sentence_index": 25,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "yale_bci_workshop",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "yale_bci_workshop",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved matte-white porcelain hands arranging twenty-five clinical chart folders",
+      "prop_action": "both matte-white gloved matte-white porcelain hands place a small brushed-silver stimoceiver model beside twenty-five cool-white clinical folders on the slate-stone desk",
+      "consequence": "the twenty-five patient charts sit organized in a neat stack",
+      "end_sentence_index": 25,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "yale_bci_workshop",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "washington_hearing_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit 1970 stone-panelled committee hearing room with green baize tables and brushed-silver microphones",
+      "action": "viewed strictly from behind, clothed matte-white porcelain senators and scientists in dark suits lean toward the microphones and hold up ethics reports",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "washington_hearing_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "washington_hearing_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal suit sleeves and matte-white gloved matte-white porcelain hands striking a pale-gray gavel beside the radio box",
+      "prop_action": "one matte-white gloved matte-white porcelain hand brings the pale-gray gavel down onto the sound block while the other hand closes",
+      "consequence": "the gavel rests firm beside the covered transmitter",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "washington_hearing_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "end_sentence_index": 28
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "yale_bci_workshop",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved matte-white porcelain hands comparing a blunt brushed-silver probe with an intricate soft-sage neural tapestry",
+      "prop_action": "both matte-white gloved matte-white porcelain hands hold the thick brushed-silver rod above a delicate web of thousands of fine soft-sage threads",
+      "consequence": "the thick rod is far too coarse to touch a single thread",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "yale_bci_workshop",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "motor cortex",
+      "anatomy_label": "MOTOR CORTEX\nROBOTIC MUSCLE TWITCH",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the central motor strip of the matte warm-ivory 3D brain model, a localized coral amber-gold pulse flashes while the front prefrontal planner stays unlit",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 31,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "yale_bci_workshop",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-sage cardigan sleeves and matte-white gloved matte-white porcelain hands resting on a clinical armrest",
+      "prop_action": "when a small soft-sage pulse lamp flashes, the right matte-white gloved matte-white porcelain hand curls automatically while the left hand and press the instrument into alignment",
+      "consequence": "the patient's left hand clearly identifies the external pulse as the cause",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "yale_bci_workshop",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "yale_bci_workshop",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved matte-white porcelain hands comparing two smooth unlabelled sunlit geometric blocks",
+      "prop_action": "both matte-white gloved matte-white porcelain hands place a smooth sky-blue prism above a smooth soft-lavender cylinder on the pale-stone desk",
+      "consequence": "the two smooth sunlit blocks remain clearly separate on the pale-stone board",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "yale_bci_workshop",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_number": 35,
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside chalked sand trajectory arc () inside a soft sunlit",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align chalked sand trajectory arc (), and set the test marker cleanly",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "cordoba_bullring_sand",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "yale_bci_workshop",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the quiet 1974 Yale laboratory with light-gray packing crates stacked by the door",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain scientist in a soft-gray blazer lifts and places the vintage brushed-silver radio transmitter into a padded pale-stone crate",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "yale_bci_workshop",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png",
+      "end_sentence_index": 34
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "modern_dbs_clinic",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved matte-white porcelain hands holding the 1955 stimoceiver beside a modern Deep Brain Stimulator",
+      "prop_action": "both matte-white gloved matte-white porcelain hands align the vintage brushed-silver stimoceiver disc next to the sleek titanium neuro-pacemaker over a velvet tray",
+      "consequence": "the direct technological lineage is unmistakable",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "modern_dbs_clinic",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA TARGET\nMODERN DBS THERAPY",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, a slender golden lead reaches the deep basal ganglia and calms chaotic coral ripples into smooth sky-blue flow",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 38,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "modern_dbs_clinic",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan sleeve and matte-white gloved matte-white porcelain hand holding a porcelain teacup on a saucer",
+      "prop_action": "the matte-white gloved matte-white porcelain hand trembles and rattles the porcelain teacup against the saucer before the therapy switch turns on",
+      "consequence": "the teacup shakes on the pale-gray table",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "modern_dbs_clinic",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "end_sentence_index": 38
+    },
+    {
+      "clip_number": 40,
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside 1965 brushed-aluminum handheld FM radio transmitter with whip antenna",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align 1965 brushed-aluminum handheld FM radio transmitter with whip antenna",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "cordoba_bullring_sand",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "modern_dbs_clinic",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a soft sunlit rehabilitation courtyard with clothed matte-white porcelain patients in sweaters and coats walking freely",
+      "action": "viewed strictly from behind, clothed matte-white porcelain patients in cardigans walk briskly and steadily across the sunlit courtyard garden",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "modern_dbs_clinic",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "end_sentence_index": 40
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "modern_dbs_clinic",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved matte-white porcelain hands placing the 1964 radio box beside the 2012 closed-loop chip",
+      "prop_action": "both matte-white gloved matte-white porcelain hands connect the vintage radio box to the modern closed-loop chip with a soft-sage timeline",
+      "consequence": "the fifty-year evolution gleams across the table",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "modern_dbs_clinic",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "end_sentence_index": 42
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "RESTORED MOVEMENT\nBASAL GANGLIA BALANCE",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the basal ganglia and upper motor strip glow in harmonious amber-gold and sky-blue",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_dbs_clinic",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "muted-slate blazer sleeves and matte-white gloved matte-white porcelain hands holding a modern neural interface chip on a glass slide",
+      "prop_action": "both matte-white gloved matte-white porcelain hands hold the tiny silver-pinned chip up to the soft morning window light",
+      "consequence": "sunlight glints off the microscopic silver contacts",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "modern_dbs_clinic",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "end_sentence_index": 45
+    },
+    {
+      "clip_number": 45,
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside chalked sand trajectory arc () inside a soft sunlit",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align chalked sand trajectory arc (), and set the test marker cleanly",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "cordoba_bullring_sand",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "basal ganglia",
+      "anatomy_label": "BASAL GANGLIA\nMOTOR STEERING ONLY",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the deep basal ganglia glows sky-blue while the vast outer cortex remains independent",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nBILLIONS OF NEURONS",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the entire matte warm-ivory 3D brain model, an intricate constellation of golden and sky-blue facets shimmers across the prefrontal lobe",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "modern_dbs_clinic",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan sleeves and matte-white gloved matte-white porcelain hands writing in a personal journal",
+      "prop_action": "both matte-white gloved matte-white porcelain hands hold a brushed-silver fountain pen and trace steady, flowing lines across a cool-white journal page",
+      "consequence": "the steady handwriting fills the sunlit page",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48,
+      "scene_state": {
+        "location_id": "modern_dbs_clinic",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "end_sentence_index": 50
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Spanish testing ring alongside the modern neurotechnology studio display",
+      "action": "viewed strictly from behind, clothed matte-white porcelain scientists in coats and light-gray shirts stand beside the light-gray barrier and look out across the sunlit arena",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 49,
+      "scene_state": {
+        "location_id": "cordoba_bullring_sand",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 51,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "cordoba_bullring_sand",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a soft sunlit Andalusian hillside olive grove overlooking cool pale-slate arches and clear sky",
+      "action": "viewed from behind, clothed matte-white porcelain figures in coats and shirts walk calmly along the sunlit stone path as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 50
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "BULL RADIO STOP?",
+    "cover_sentence_index": 3,
+    "cover_brief": "charging low-poly bull halting cleanly in sunlit pastel arena beside researcher holding radio transmitter"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "default_location_id": "cordoba_bullring_sand",
+  "real_environment": "a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and cool pale-slate barriers",
+  "environment_props": [
+    "1965 brushed-aluminum handheld FM radio transmitter with whip antenna (wireless remote switch replacing tangled 1950s laboratory cables)",
+    "life-scale articulated matte-white porcelain bull sculpture with tiny crown stimoceiver cap",
+    "chalked sand trajectory arc ()"
+  ],
+  "cast": {
+    "subject": "1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailored trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailored trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_cordoba_bullring_sand",
+      "location_id": "cordoba_bullring_sand",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 1 (cordoba_bullring_sand: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and cool pale-slate barriers, featuring 1965 brushed-aluminum handheld FM radio transmitter with whip antenna (wireless remote switch replacing tangled 1950s laboratory cables). Inside the room, subject (1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailored trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1965 brushed-aluminum handheld FM radio transmitter with whip antenna (wireless remote switch replacing tangled 1950s laboratory cables). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and",
+        "1965 brushed-aluminum handheld FM radio transmitter with"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_yale_bci_workshop",
+      "location_id": "yale_bci_workshop",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 2 (yale_bci_workshop: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the sunlit Yale neurophysiology workshop with the radio transmitter and 3D brain model on the center table. Inside the room, subject (1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailored trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "the sunlit Yale neurophysiology workshop with the radio transmitter and ",
+        "an unmarked clinical tabletop apparatus"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_washington_hearing_room",
+      "location_id": "washington_hearing_room",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 3 (washington_hearing_room: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a sunlit 1970 stone-panelled committee hearing room with green baize tables and brushed-silver microphones. Inside the room, subject (1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailored trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a sunlit 1970 stone-panelled committee hearing room with green baize tab",
+        "an unmarked clinical tabletop apparatus"
+      ]
+    }
+  ],
+  "track_subtier": "B_scene_bible_anchor",
+  "voice_preset": "emma_v7",
+  "us_anti_clone_v7": true,
+  "prosody_mode": "dynamic_us_v7"
+}

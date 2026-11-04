@@ -301,23 +301,23 @@ def test_publish_ready_qa_bundle_and_r64_upload_lock(tmp_path: Path) -> None:
 
 
 # ==============================================================================
-# 5. Slot 4 `20:00 ET` Unification & US DST (`EDT` vs `EST`) KST Conversion
+# 5. Slot 4 `19:30 ET` Unification & US DST (`EDT` vs `EST`) KST Conversion
 # ==============================================================================
 def test_slot_4_2000_et_and_us_dst_kst_conversion() -> None:
     from pipeline.studio.config import SLOT_TIMETABLE, slot_time_kst_label, slot_time_kst_parts
 
-    assert SLOT_TIMETABLE[4]["hour_et"] == 20
-    assert SLOT_TIMETABLE[4]["minute_et"] == 0
-    assert SLOT_TIMETABLE[4]["time_et"] == "20:00"
-    assert SLOT_TIMETABLE[4]["time_et_12h"] == "8:00 PM"
+    assert SLOT_TIMETABLE[4]["hour_et"] == 19
+    assert SLOT_TIMETABLE[4]["minute_et"] == 30
+    assert SLOT_TIMETABLE[4]["time_et"] == "19:30"
+    assert SLOT_TIMETABLE[4]["time_et_12h"] == "7:30 PM"
 
-    # Oct 30, 2026 is US EDT (UTC-4) -> +13h to KST (UTC+9): 20:00 ET == 09:00 KST (+1d)
-    assert slot_time_kst_parts(20, 0, ref_date=date(2026, 10, 30)) == ("09:00", 1)
-    assert slot_time_kst_label(20, 0, ref_date=date(2026, 10, 30)) == "09:00 KST (+1d)"
+    # Oct 30, 2026 is US EDT (UTC-4) -> +13h to KST (UTC+9): 19:30 ET == 08:30 KST (+1d)
+    assert slot_time_kst_parts(19, 30, ref_date=date(2026, 10, 30)) == ("08:30", 1)
+    assert slot_time_kst_label(19, 30, ref_date=date(2026, 10, 30)) == "08:30 KST (+1d)"
 
-    # Nov 2, 2026 is US EST (UTC-5 after Nov 1 DST fallback) -> +14h to KST: 20:00 ET == 10:00 KST (+1d)
-    assert slot_time_kst_parts(20, 0, ref_date=date(2026, 11, 2)) == ("10:00", 1)
-    assert slot_time_kst_label(20, 0, ref_date=date(2026, 11, 2)) == "10:00 KST (+1d)"
+    # Nov 2, 2026 is US EST (UTC-5 after Nov 1 DST fallback) -> +14h to KST: 19:30 ET == 09:30 KST (+1d)
+    assert slot_time_kst_parts(19, 30, ref_date=date(2026, 11, 2)) == ("09:30", 1)
+    assert slot_time_kst_label(19, 30, ref_date=date(2026, 11, 2)) == "09:30 KST (+1d)"
 
 
 # ==============================================================================

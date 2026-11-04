@@ -3118,6 +3118,12 @@ def recut_diorama_cuts(project_id_or_dir: str | Path, cut_indices: list[int], al
         final_mp4 = asm_dir / "final_shorts_1080x1920.mp4"
         _atomic_copy_file(local_final, final_mp4, suffix=".mp4.tmp")
     (asm_dir / "font_probe.json").write_text(json.dumps(font_rep, indent=2, ensure_ascii=False), encoding="utf-8")
+    try:
+        from pipeline import thumbnail_studio
+
+        thumbnail_studio.run(p_dir, force=True, strict=False)
+    except Exception:
+        pass
     return {"project_dir": str(p_dir), "final_mp4": str(final_mp4), "recut_cuts": sorted(want), "frames": cum}
 
 

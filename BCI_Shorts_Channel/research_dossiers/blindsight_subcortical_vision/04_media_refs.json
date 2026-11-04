@@ -28,6 +28,22 @@
           "Non-vocal archival/demonstration clip (media/M1_blindsight_subcortical_visio/transcript.txt); visual timing and staging inspected directly across 14 keyframes (0.0s–71.5s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "suitable_track_a",
+      "reenactment_suitability_reason": "passed_gates_1_to_4_with_keyframes",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 14,
+        "median_dark_ratio": 0.0248,
+        "median_gray_sat_ratio": 0.1951,
+        "median_p90_sat": 82.0,
+        "max_p90_sat": 88.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
+        "median_flat_patch_ratio": 0.2561,
+        "median_motion_diff": 46.236,
+        "talking_head_ratio": 0.0,
+        "words_per_sec": 0.156,
+        "has_strong_archival_cue": true
       }
     },
     {
@@ -62,7 +78,24 @@
           "Deduplicated English transcript (7 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
-      }
+      },
+      "reenactment_suitability": "needs_section_window",
+      "reenactment_suitability_reason": "gate4_mixed_commentary_or_unwindowed_long_video",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 14,
+        "median_dark_ratio": 0.2229,
+        "median_gray_sat_ratio": 0.2962,
+        "median_p90_sat": 70.0,
+        "max_p90_sat": 156.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": true,
+        "median_flat_patch_ratio": 0.4053,
+        "median_motion_diff": 88.194,
+        "talking_head_ratio": 0.0,
+        "words_per_sec": 0.782,
+        "has_strong_archival_cue": true
+      },
+      "recommended_section": "00:05-01:03"
     },
     {
       "id": "M3",
@@ -85,7 +118,15 @@
           "Inspected media/M3/still.jpg (826x2208 px, CC BY 3.0, Hofer S, Karaus A and Frahm J) — apparatus reference: (Top) Bi-hemispheric reconstructions of the optic nerve and tract (red) as well as of the optic radiation (yellow). (Bottom) Dissection of the optic radiation into Meyer’s loop (yellow), central bundl.",
           "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_a",
+  "track_subtier": "A1a_ready_keyframes"
 }

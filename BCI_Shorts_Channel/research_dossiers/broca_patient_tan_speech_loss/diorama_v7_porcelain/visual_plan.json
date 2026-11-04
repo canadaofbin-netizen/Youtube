@@ -1,0 +1,1310 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "broca_patient_tan_speech_loss",
+  "topic": "Broca (1861) & Dronkers et al. (2007): Louis Victor Leborgne ('Patient Tan'), Left Frontal Speech Localization & Deep White-Matter Tracts",
+  "act5_climax_episode": "146 years after Leborgne's brain was preserved intact in Paris, Nina Dronkers's 2007 high-resolution 3D MRI reveals the damage plunged deep into the insula and superior longitudinal white-matter fiber highway.",
+  "outro_title_lines": [
+    "BROCA (1861) & DRONKERS (2007)",
+    "PARIS, FRANCE & CALIFORNIA"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "ONE SYLLABLE"
+    },
+    {
+      "sentence_index": 3,
+      "text": "ONE SYLLABLE"
+    },
+    {
+      "sentence_index": 10,
+      "text": "PARIS 1861"
+    },
+    {
+      "sentence_index": 19,
+      "text": "LEFT SIDE"
+    },
+    {
+      "sentence_index": 28,
+      "text": "146 YEARS"
+    },
+    {
+      "sentence_index": 36,
+      "text": "DEEP CABLES"
+    },
+    {
+      "sentence_index": 44,
+      "text": "LIVING BRIDGE"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "ONE SYLLABLE"
+    },
+    {
+      "sentence_index": 3,
+      "text": "ONE SYLLABLE"
+    },
+    {
+      "sentence_index": 10,
+      "text": "PARIS 1861"
+    },
+    {
+      "sentence_index": 19,
+      "text": "LEFT SIDE"
+    },
+    {
+      "sentence_index": 28,
+      "text": "146 YEARS"
+    },
+    {
+      "sentence_index": 36,
+      "text": "DEEP CABLES"
+    },
+    {
+      "sentence_index": 44,
+      "text": "LIVING BRIDGE"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 29,
+      "mode": "split_hstack",
+      "left_clip_index": 29,
+      "right_clip_index": 49,
+      "left_label": "1861 SURFACE VIEW",
+      "right_label": "2007 DEEP CABLES"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream linen hospital shirt cuffs and matte-ivory geometric hands resting calmly over a pale-blue wool blanket",
+      "prop_action": "the left matte-white porcelain hand lifts alertly off the wool blanket and taps once in clear understanding",
+      "consequence": "crisp morning window light brightens the woven linen sleeve",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "an elevated rear view of a bright 1861 Paris hospital room with tall arched casement windows, pale-ash floorboards, and iron bedstead",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain surgeon in a charcoal frock coat leans forward beside the bed and reaches a gentle hand toward the rail",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "sunlit 1861 Bicêtre courtyard arches opening onto a quiet stone ward gallery in Paris",
+      "action": "viewed strictly from behind, hospital attendants in slate coats walk past tall sunlit stone arches and carry clean linen",
+      "end_sentence_index": 3,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream linen shirt cuffs gesturing earnestly twice in exact rhythm above the pale-blue blanket",
+      "prop_action": "the left matte-white porcelain hand lifts and taps two crisp emphatic downward gestures in air matching two spoken beats",
+      "consequence": "two small wooden blocks sit paired on the bedside stand",
+      "end_sentence_index": 4,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 4,
+      "act": 1,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal frock coat cuffs extending from bottom frame dipping a brass nib pen into an inkwell",
+      "prop_action": "the surgeon's matte-white porcelain hand dips the brass pen and draws a neat clinical entry line in a cream casebook",
+      "consequence": "sunlight gleams across the polished glass inkwell",
+      "end_sentence_index": 5,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "charcoal frock coat sleeve extending an open questioning palm across the sunlit bedside",
+      "prop_action": "the surgeon's matte-white porcelain hand gestures gently toward the patient while holding a silver polished brass counter",
+      "consequence": "the patient's left hand rises immediately in reply",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream linen sleeve and expressive left matte-ivory matte-white porcelain hand framed clearly against cool pale-blue bedding",
+      "prop_action": "the left matte-white porcelain hand opens all five geometric fingers wide four crisp times in succession",
+      "consequence": "the surgeon's hand nods and counts each five-finger flash",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream linen shirt sleeves extending from bottom frame finishing the count",
+      "prop_action": "the left matte-white porcelain hand closes the fist cleanly and extends one single upright index finger for twenty-one",
+      "consequence": "exact numerical precision shines without a single spoken word",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "paris_study_1861",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a sunlit mechanical music box where the brass cylinder turns cleanly while one wooden chime lever sits unhooked",
+      "internal_mechanism": "the golden brass drum spins smoothly in rhythm while the unhooked wooden chime bar rests silent",
+      "end_sentence_index": 8,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "paris_study_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "paris_study_1861",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal frock coat cuffs placing a matte-ivory 3D brain cast onto a cool pale-ash examination stand",
+      "prop_action": "both matte-white porcelain hands set the matte-ivory brain model onto the wooden cradle and rotate its left side into light",
+      "consequence": "bright Paris studio daylight illuminates the left frontal fold",
+      "end_sentence_index": 8,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "paris_study_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "act": 1,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright sunlit Bicêtre clinical room with tall arched windows and a wooden examination table",
+      "action": "viewed strictly from behind, the clothed Paris surgeon in his charcoal coat leans forward listening attentively beside the bed as porcelain hands reach forward and press cleanly into position.",
+      "end_sentence_index": 10,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal coat cuff holding an open silver polished brass counter while a cream linen cuff answers",
+      "prop_action": "shown the polished brass counter face, the patient's left matte-white porcelain hand flashes fingers matching the exact hour mark",
+      "consequence": "sunlight glints off the open silver watch case",
+      "end_sentence_index": 12,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream linen cuffs lifting a white porcelain water cup smoothly from a tray",
+      "prop_action": "the left matte-white porcelain hand lifts the porcelain water cup steadily and sets it cleanly back onto the saucer",
+      "consequence": "clear water settles level inside the white cup",
+      "end_sentence_index": 13,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the quiet sunlit Paris hospital room with neatly folded pale-blue linen on the iron bedstead and tall open windows",
+      "action": "gentle morning breeze stirs the sheer white window curtain as a clinician closes the cream casebook respectfully in tailored linen sleeves and a woven cardigan.",
+      "end_sentence_index": 13,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-ash study desk holding a sunlit sky-blue tabletop globe mounted in a brass meridian ring",
+      "comparison_action": "a matte-white porcelain hand in charcoal cuffs spins the sunlit globe through one complete gentle rotation into morning light",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "paris_study_1861",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white linen apron cuffs gently sealing a clear cylindrical glass preservation jar on a pale-ash table",
+      "prop_action": "both matte-white porcelain hands set the matte-ivory whole brain model intact inside the clear glass jar without slicing it",
+      "consequence": "crystal-clear preservation fluid refracts bright daylight cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "paris_study_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool slate tray holding a single matte sunlit walnut shell beside a brass caliper",
+      "comparison_action": "two matte-white porcelain hands in white coat cuffs lift and hold the single walnut shell cleanly between the brass caliper tips",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "Broca's area",
+      "anatomy_label": "BROCA'S AREA\nLEFT SPEECH CENTER",
+      "camera": "gentle_push_in",
+      "brain_scene": "on the lower left frontal fold of the matte warm-ivory 3D whole brain model, muted terracotta-coral sunlit facets mark the damaged speech center",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cream linen cuff resting closed beside an untouched brass ink pen on the pale-ash stand",
+      "prop_action": "the left matte-white porcelain hand opens briefly toward the window light then folds quietly onto the pale-blue blanket",
+      "consequence": "long afternoon window bars cast soft shadows across the stand",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "paris_society_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "an 1861 Paris scientific lecture hall with tiered oak benches and tall sunlit windows",
+      "action": "viewed strictly from behind, clothed 19th-century scholars in dark coats raise their hands in lively debate facing the lectern as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20,
+      "scene_state": {
+        "location_id": "paris_society_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_number": 21,
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside matte-white cerebral cast marking the Left 3rd Frontal Convolution",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align matte-white cerebral cast marking the Left 3rd Frontal Convolution",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "brown wool cardigan sleeves placing five small sunlit wooden speech tiles on a bedside tray",
+      "prop_action": "an older matte-white porcelain hand lines up exactly five smooth sunlit tiles on the cool pale-ash tray",
+      "consequence": "all remaining space on the tray stays empty",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22,
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "end_sentence_index": 22
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "brown cardigan sleeve raising four clear fingers toward the surgeon's charcoal cuff",
+      "prop_action": "while tapping three tiles with one hand, the other matte-white porcelain hand holds up four unmistakable upright fingers",
+      "consequence": "the surgeon's hand nods and records four in the notebook",
+      "end_sentence_index": 22,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "paris_study_1861",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "charcoal frock coat cuffs placing two matte-ivory brain casts side by side on a pale-ash table",
+      "prop_action": "both matte-white porcelain hands align the two brain models revealing matching coral hollows on the exact same left frontal spot",
+      "consequence": "both left frontal marks line up in one straight line",
+      "end_sentence_index": 24,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "paris_study_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "paris_study_1861",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "pan_right",
+      "structure": "eight compact matte-ivory brain models lined along a pale-ash shelf each glowing coral on the left frontal side",
+      "internal_mechanism": "a warm golden beam sweeps across all eight models illuminating eight identical left-side markers in unison",
+      "end_sentence_index": 25,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "paris_study_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "paris_study_1861",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "charcoal coat cuffs rotating a matte-ivory two-hemisphere brain model on a brass turntable",
+      "prop_action": "the matte-white porcelain hands turn the unblemished right hemisphere past the camera then stop on the marked left hemisphere",
+      "consequence": "the stark left-right contrast stands clear in studio daylight",
+      "end_sentence_index": 25,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "paris_study_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "paris_society_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the bright Paris lecture hall with a large sunlit anatomical brain diagram easel on stage",
+      "action": "viewed strictly from behind, the clothed surgeon points his wooden pointer to the left frontal lobe as scholars applaud in tailored linen sleeves and a woven cardigan as porcelain hands reach forward and press cleanly into position.",
+      "end_sentence_index": 27,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "paris_society_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "modern_seminar_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer cuffs placing a single small coral disc onto the surface of a matte-ivory brain model",
+      "prop_action": "both matte-white porcelain hands press the tiny flat coral disc onto the outer left frontal surface",
+      "consequence": "the rest of the white model surface looks untouched",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "modern_seminar_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_number": 29,
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside 1861 silver brushed-metal instrument & bound notebook note inside",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align 1861 silver brushed-metal instrument & bound notebook note, and",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_number": 30,
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside matte-white cerebral cast marking the Left 3rd Frontal Convolution",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align matte-white cerebral cast marking the Left 3rd Frontal Convolution",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "modern_seminar_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs extending from bottom frame holding a magnifying lens over the 1861 case notes",
+      "prop_action": "both matte-white porcelain hands slide the brass magnifier across the twenty-one-year timeline comparing surface vs deep cases",
+      "consequence": "crisp light focuses through the clear glass lens",
+      "end_sentence_index": 31,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "modern_seminar_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "paris_museum_vault",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit Paris medical museum gallery lined with tall glass specimen cabinets on pale-oak floors",
+      "action": "viewed strictly from behind, two clothed researchers in white lab coats walk carefully down the aisle and stop before one preserved glass jar as porcelain hands reach forward and press cleanly into position.",
+      "end_sentence_index": 31,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "paris_museum_vault",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "paris_museum_vault",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white cotton-gloved matte-white porcelain hands cradling the intact cylindrical glass jar in bright daylight",
+      "prop_action": "both gloved matte-white porcelain hands lift the historic sealed glass jar gently onto a cushioned transport tray",
+      "consequence": "the whole uncut specimen rests safe inside crystal glass",
+      "end_sentence_index": 33,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "paris_museum_vault",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "modern_mri_suite",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright 2007 high-resolution MRI suite with a sleek white cylindrical scanner and glass control booth",
+      "action": "viewed strictly from behind, Nina Dronkers in a white lab coat positions the cushioned specimen cradle on the motorized MRI bed",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "modern_mri_suite",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "modern_mri_suite",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves pressing the sunlit MRI console key as cross-section slices appear",
+      "prop_action": "both matte-white porcelain hands press the scan button and scroll the dial deeper past the outer brain surface",
+      "consequence": "high-resolution sunlit slices unfold layer by layer on screen",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "modern_mri_suite",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "end_sentence_index": 36
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "modern_mri_suite",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs extending from bottom frame tracing the deep dark shadow on a bright scan monitor",
+      "prop_action": "the right matte-white porcelain hand glides a silver pointer from the outer rim three inches deep into the inner core",
+      "consequence": "warm amber contour lines highlight the unexpected depth",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "modern_mri_suite",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "insula",
+      "anatomy_label": "DEEP INSULA\nSPEECH COORDINATION HIT",
+      "camera": "locked_tripod",
+      "brain_scene": "tucked deep beneath the folded outer cortex inside the flat half-brain cross-section model, terracotta-coral sunlit facets mark the damaged insula fold",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 39,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "white matter",
+      "anatomy_label": "WHITE MATTER CABLES\nDEEP HIGHWAY SEVERED",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the translucent matte-white porcelain brain silhouette, the sweeping sky-blue superior longitudinal fiber bundle linking back and front breaks cleanly at a coral gap",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 38,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "clip_number": 39,
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "white matter",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the precision 3D anatomical model of the white matter, enclosed clear cyan-blue cortical hubs connect with warm amber-gold fiber pathways alongside contained deep crimson-red focal zones and smooth luminous pearl-aqua perivascular fluid channels",
+      "style_profile": "porcelain_cinematic_v7",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "modern_mri_suite",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "an arched sunlit sky-blue bridge linking a back listening tower to a front speaking tower with the middle span open",
+      "internal_mechanism": "golden light pulses warmly inside the back tower but stops cleanly at the open middle bridge gap",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "modern_mri_suite",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png",
+      "end_sentence_index": 41
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "modern_mri_suite",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright 2007 neuroimaging conference room displaying 3D reconstructions of both historic brains",
+      "action": "viewed strictly from behind, three clothed researchers in blazers lean over the pale-ash table and point across the deep fiber tract maps",
+      "end_sentence_index": 41,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "modern_mri_suite",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "white matter",
+      "anatomy_label": "SPEECH NETWORK\nMULTI-CABLE HIGHWAY",
+      "camera": "pan_right",
+      "brain_scene": "spanning from back to front inside the matte-white porcelain brain model, luminous sky-blue and golden-amber fiber arches form a wide multi-lane speech highway",
+      "end_sentence_index": 43,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "modern_speech_clinic",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a warm sunlit modern speech therapy room with pale-oak table, picture cards, and garden window",
+      "action": "viewed strictly from behind, a clothed speech therapist in a sage cardigan sits across from a recovering patient in a navy sweater as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "modern_speech_clinic",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "white matter",
+      "anatomy_label": "SPARED NERVE CABLES\nRECOVERY PATHWAYS",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the matte-white porcelain fiber model, intact sage-green and sky-blue nerve cables route smoothly around a small coral gap",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "modern_speech_clinic",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan and navy sweater sleeves tapping a rhythmic melody together on a wooden tabletop",
+      "prop_action": "both pairs of matte-white porcelain hands tap a steady two-beat musical cadence side by side beside a small pitch pipe",
+      "consequence": "shared musical rhythm unlocks smooth coordinated motion",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "modern_speech_clinic",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "end_sentence_index": 47
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "modern_speech_clinic",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy sweater cuffs extending from bottom frame raising clear counting fingers then sliding a picture card forward",
+      "prop_action": "the patient's matte-white porcelain hand holds up three clear fingers then slides a sunny coffee-cup picture card cleanly forward",
+      "consequence": "the therapist's hand gives a warm thumbs-up in reply",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "modern_speech_clinic",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "end_sentence_index": 49
+    },
+    {
+      "clip_number": 47,
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "paris_ward_1861",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside 1861 silver brushed-metal instrument & bound notebook note inside",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align 1861 silver brushed-metal instrument & bound notebook note, and",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "paris_ward_1861",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "paris_garden_walk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a serene sunlit Paris courtyard garden with limestone arches, chestnut trees, and sunlit gravel path",
+      "action": "viewed strictly from behind in wide view, two clothed scholars in coats walk calmly side by side toward the bright garden arch as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48,
+      "scene_state": {
+        "location_id": "paris_garden_walk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "cut_role": "split_right",
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "white matter",
+      "anatomy_label": "2007 3D MRI\nDEEP CABLES HIT",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the translucent matte-white porcelain brain model, deep coral facets sever the interior sky-blue fiber bundle far beneath the outer fold",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 49,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png",
+      "sentence_index": 29
+    },
+    {
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "paris_garden_walk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "sunlit Paris limestone rooftops and chestnut blossoms rising into a vast clear sky-blue horizon with soft white matte-white porcelain clouds",
+      "action": "golden morning light drifts across the Paris rooftops as the view rises smoothly into open sky",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 50,
+      "sentence_index": 51
+    }
+  ],
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "default_location_id": "paris_ward_1861",
+  "real_environment": "an elevated rear view of a bright 1861 Paris hospital room with tall arched casement windows, pale-ash floorboards, and iron bedstead",
+  "environment_props": [
+    "1861 silver brushed-metal instrument & bound notebook note",
+    "matte-white cerebral cast marking the Left 3rd Frontal Convolution"
+  ],
+  "cast": {
+    "subject": "clean white linen hospital shirt and wool shawl cardigan and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "1861 Parisian physician frock coat, waistcoat, white collar and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_paris_ward_1861",
+      "location_id": "paris_ward_1861",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 1 (paris_ward_1861: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across an elevated rear view of a bright 1861 Paris hospital room with tall arched casement windows, pale-ash floorboards, and iron bedstead, featuring 1861 silver brushed-metal instrument & bound notebook note. Inside the room, subject (clean white linen hospital shirt and wool shawl cardigan and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1861 silver brushed-metal instrument & bound notebook note. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "an elevated rear view of a bright 1861 Paris hospital room with tall arc",
+        "1861 silver brushed-metal instrument & bound notebook no"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_modern_mri_suite",
+      "location_id": "modern_mri_suite",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 2 (modern_mri_suite: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a bright 2007 high-resolution MRI suite with a sleek white cylindrical scanner and glass control booth. Inside the room, subject (clean white linen hospital shirt and wool shawl cardigan and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a bright 2007 high-resolution MRI suite with a sleek white cylindrical s",
+        "an unmarked clinical tabletop apparatus"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_paris_study_1861",
+      "location_id": "paris_study_1861",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 3 (paris_study_1861: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside an elevated rear view of a bright 1861 Paris hospital room with tall arched casement windows, pale-ash floorboards, and iron bedstead. Inside the room, subject (clean white linen hospital shirt and wool shawl cardigan and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "an elevated rear view of a bright 1861 Paris hospital room with tall arc",
+        "an unmarked clinical tabletop apparatus"
+      ]
+    }
+  ],
+  "track_subtier": "B_scene_bible_anchor",
+  "voice_preset": "emma_v7",
+  "us_anti_clone_v7": true,
+  "thumbnail": {
+    "hook_text": "ONE SYLLABLE",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered 1861 silver brushed-metal instrument & bound notebook note inside an elevated rear view of a bright 1861 Paris hospital room with tall arched casement windows, pale-ash floorboards, and iron bedstead"
+  },
+  "prosody_mode": "dynamic_us_v7"
+}

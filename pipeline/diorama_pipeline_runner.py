@@ -24,6 +24,7 @@ from pipeline.config import FLOW_MAX_PARALLEL_BATCH_SIZE, PROJECTS_DIR
 from pipeline.diorama_batch_orchestrator import (
     BATCH_STATUS_PATH,
     DIORAMA_BATCH_20_SPECS,
+    DIORAMA_DAILY_30_SPECS,
     _collect_auto_heal_plan,
     _is_already_completed,
     _save_batch_status,
@@ -32,15 +33,16 @@ from pipeline.diorama_batch_orchestrator import (
 )
 from pipeline.flow_browser import FlowCircuitBreakerError
 from pipeline.flow_diorama_sharded_worker import run_sharded_diorama_flow_generation
+from pipeline.research_dossier import resolve_dossier_for_project
 
 
 def parse_pipeline_specs(raw_projects: str) -> list[dict[str, Any]]:
     """
     Parse comma-separated project tokens into normalized spec dicts:
       - `slug:project_id:pillar` (explicit 3-part spec), OR
-      - `project_id` resolved from `DIORAMA_BATCH_20_SPECS` or `projects/<project_id>/00_project_manifest.json`.
+      - `project_id` resolved from `DIORAMA_DAILY_30_SPECS` or `projects/<project_id>/00_project_manifest.json`.
     """
-    by_pid = {str(s["project_id"]): dict(s) for s in DIORAMA_BATCH_20_SPECS}
+    by_pid = {str(s["project_id"]): dict(s) for s in DIORAMA_DAILY_30_SPECS}
     specs: list[dict[str, Any]] = []
     tokens = [tok.strip() for tok in str(raw_projects or "").split(",") if tok.strip()]
     if not tokens:
@@ -73,6 +75,10 @@ def parse_pipeline_specs(raw_projects: str) -> list[dict[str, Any]]:
             m_doc = json.loads(m_path.read_text(encoding="utf-8")) if m_path.exists() else {}
             s_doc = json.loads(s_path.read_text(encoding="utf-8")) if s_path.exists() else {}
             slug = str(m_doc.get("dossier_slug") or s_doc.get("dossier") or "").strip()
+            if not slug:
+                resolved_d = resolve_dossier_for_project(pid)
+                if resolved_d is not None:
+                    slug = resolved_d.name
             pillar = str(m_doc.get("pillar") or s_doc.get("pillar") or "").strip()
             if not (slug and pillar):
                 raise ValueError(
@@ -180,8 +186,9 @@ def run_diorama_pipeline(
     state: dict[str, Any] = (
         json.loads(BATCH_STATUS_PATH.read_text(encoding="utf-8"))
         if BATCH_STATUS_PATH.exists()
-        else {"total_target": 20, "completed": {}, "in_progress": None, "errors": {}}
+        else {"total_target": len(DIORAMA_DAILY_30_SPECS), "completed": {}, "in_progress": None, "errors": {}}
     )
+    state["total_target"] = len(DIORAMA_DAILY_30_SPECS)
     state.setdefault("completed", {})
     state.setdefault("errors", {})
 

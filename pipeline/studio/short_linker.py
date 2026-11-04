@@ -272,17 +272,24 @@ def write_studio_publish_receipt(
     visibility = normalize_visibility(upload_rec) if upload_rec else str(related_rec.get("source_visibility") or "unknown")
     shorts_url = str(upload_rec.get("shorts_url") or (f"{YOUTUBE_WATCH_BASE_URL}{video_id}" if is_valid_youtube_video_id(video_id) else ""))
 
+    rel_src_vid = str(related_rec.get("source_video_id") or related_rec.get("video_id") or "").strip()
+    rel_vid_ok = (not rel_src_vid) or (not video_id) or (rel_src_vid == video_id)
+    comm_vid = str(community_rec.get("video_id") or "").strip()
+    comm_vid_ok = (not comm_vid) or (not video_id) or (comm_vid == video_id)
+
     playlist_title = str(
-        related_rec.get("playlist_title")
+        (related_rec.get("playlist_title") if rel_vid_ok else "")
         or upload_rec.get("playlist_title")
         or ""
     ).strip()
     playlist_verified = bool(
-        related_rec.get("playlist_verified")
+        (related_rec.get("playlist_verified") and rel_vid_ok)
         or upload_rec.get("playlist_assigned")
     )
-    related_verified = bool(related_rec.get("verified")) and is_valid_youtube_video_id(
-        related_rec.get("target_video_id")
+    related_verified = (
+        bool(related_rec.get("verified"))
+        and rel_vid_ok
+        and is_valid_youtube_video_id(related_rec.get("target_video_id"))
     )
 
     consolidated = {
@@ -298,24 +305,29 @@ def write_studio_publish_receipt(
         "upload": upload_rec,
         "related_video": {
             "linked": related_verified,
-            "target_project_id": related_rec.get("target_project_id"),
-            "target_video_id": related_rec.get("target_video_id"),
-            "target_title": related_rec.get("target_title"),
-            "target_type": related_rec.get("target_type", "short"),
-            "link_reason": related_rec.get("link_reason"),
-            "affinity_score": related_rec.get("affinity_score"),
-            "dom_readback_text": related_rec.get("dom_readback_text"),
-            "verified_at_utc": related_rec.get("verified_at_utc"),
+            "target_project_id": related_rec.get("target_project_id") if rel_vid_ok else None,
+            "target_video_id": related_rec.get("target_video_id") if rel_vid_ok else None,
+            "target_title": related_rec.get("target_title") if rel_vid_ok else None,
+            "target_type": related_rec.get("target_type", "short") if rel_vid_ok else "short",
+            "link_reason": related_rec.get("link_reason") if rel_vid_ok else None,
+            "affinity_score": related_rec.get("affinity_score") if rel_vid_ok else None,
+            "dom_readback_text": related_rec.get("dom_readback_text") if rel_vid_ok else None,
+            "verified_at_utc": related_rec.get("verified_at_utc") if rel_vid_ok else None,
         },
         "playlist": {
             "assigned": playlist_verified,
             "playlist_title": playlist_title,
         },
         "community_pin": {
-            "pinned": bool(community_rec.get("pinned"))
-            or str(community_rec.get("status") or "").lower() in {"pinned", "posted_unpinned"},
-            "status": community_rec.get("status") or ("pinned" if community_rec.get("pinned") else None),
-            "doi_included": community_rec.get("doi_included"),
+            "pinned": comm_vid_ok
+            and (
+                bool(community_rec.get("pinned"))
+                or str(community_rec.get("status") or "").lower() in {"pinned", "posted_unpinned"}
+            ),
+            "status": (community_rec.get("status") or ("pinned" if community_rec.get("pinned") else None))
+            if comm_vid_ok
+            else None,
+            "doi_included": community_rec.get("doi_included") if comm_vid_ok else None,
         },
         "ab_test": {
             "initialized": bool(ab_rec),
@@ -596,8 +608,22 @@ class ShortLinkGraph:
                 "viewed_pct": float(metric.get("viewed_pct", 0.0) or 0.0),
                 "published_longform_video_id": lf_vid if is_valid_youtube_video_id(lf_vid) else "",
                 "published_longform_title": lf_title,
-                "existing_target_video_id": str(rel_rec.get("target_video_id") or "").strip() if rel_rec.get("verified") else "",
-                "existing_playlist_verified": bool(rel_rec.get("playlist_verified")),
+                "existing_target_video_id": (
+                    str(rel_rec.get("target_video_id") or "").strip()
+                    if rel_rec.get("verified")
+                    and (
+                        not str(rel_rec.get("source_video_id") or rel_rec.get("video_id") or "").strip()
+                        or str(rel_rec.get("source_video_id") or rel_rec.get("video_id") or "").strip() == vid
+                    )
+                    else ""
+                ),
+                "existing_playlist_verified": bool(
+                    rel_rec.get("playlist_verified")
+                    and (
+                        not str(rel_rec.get("source_video_id") or rel_rec.get("video_id") or "").strip()
+                        or str(rel_rec.get("source_video_id") or rel_rec.get("video_id") or "").strip() == vid
+                    )
+                ),
                 "dossier_slug": dossier_dir.name if dossier_dir else "",
             })
 

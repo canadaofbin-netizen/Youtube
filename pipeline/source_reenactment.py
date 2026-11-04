@@ -255,6 +255,53 @@ def detect_human_faces_yunet(
     return deduped
 
 
+def detect_non_porcelain_human_faces_yunet(
+    bgr: np.ndarray,
+    score_threshold: float = 0.62,
+) -> list[tuple[int, int, int, int, float]]:
+    """
+    Detects real human faces (both color photorealistic flesh faces and B&W archival faces with eyes/mouth)
+    via YuNet while excluding smooth featureless matte-white porcelain mannequin heads (`porcelain_r >= 0.82`)
+    and low-confidence flat wooden/toy surface false positives.
+    """
+    raw_boxes = detect_human_faces_yunet(bgr, score_threshold=score_threshold)
+    if not raw_boxes or bgr is None or bgr.size == 0:
+        return []
+    h, w = bgr.shape[:2]
+    human_boxes: list[tuple[int, int, int, int, float]] = []
+    for bx, by, bw_b, bh_b, sc in raw_boxes:
+        crop = bgr[max(0, by) : min(h, by + bh_b), max(0, bx) : min(w, bx + bw_b)]
+        if crop.size == 0 or crop.shape[0] < 12 or crop.shape[1] < 12:
+            continue
+        ch, cw = crop.shape[:2]
+        inner = crop[max(0, int(ch * 0.22)) : max(1, int(ch * 0.78)), max(0, int(cw * 0.22)) : max(1, int(cw * 0.78))]
+        if inner.size == 0:
+            inner = crop
+        hsv = cv2.cvtColor(inner, cv2.COLOR_BGR2HSV)
+        ycrcb = cv2.cvtColor(inner, cv2.COLOR_BGR2YCrCb)
+        porc_ratio = float(np.mean((hsv[:, :, 1] <= 55) & (hsv[:, :, 2] >= 150)))
+        skin_ratio = float(
+            np.mean(
+                (hsv[:, :, 0] >= 4)
+                & (hsv[:, :, 0] <= 22)
+                & (hsv[:, :, 1] >= 48)
+                & (hsv[:, :, 1] <= 170)
+                & (ycrcb[:, :, 1] >= 135)
+                & (ycrcb[:, :, 1] <= 178)
+            )
+        )
+        dark_feat_ratio = float(np.mean(hsv[:, :, 2] < 70))
+        lap_var = float(cv2.Laplacian(cv2.cvtColor(inner, cv2.COLOR_BGR2GRAY), cv2.CV_64F).var())
+        # Smooth featureless matte-white porcelain head oval -> not a human face
+        if porc_ratio >= 0.80 and skin_ratio <= 0.06 and dark_feat_ratio <= 0.035:
+            continue
+        # Low-confidence smooth warm prop/wood surface without eye/nostril/mouth dark features -> not a human face
+        if sc < 0.70 and dark_feat_ratio < 0.022 and lap_var < 28.0:
+            continue
+        human_boxes.append((bx, by, bw_b, bh_b, sc))
+    return human_boxes
+
+
 def _resolve_ffmpeg_bin() -> str:
     sys_ff = shutil.which("ffmpeg")
     if sys_ff:
@@ -1198,7 +1245,13 @@ async def translate_porcelain_keyframes_async(
             ):
                 cond_paths.append(guide_cand)
 
-            for cond_id in spec.get("conditioned_on") or []:
+            raw_cond_ids = [str(c) for c in (spec.get("conditioned_on") or []) if str(c).strip()]
+            if guide_cand in cond_paths:
+                # Track A R67 lock: pair [guide_png, ref_cast_*] instead of [guide_png, ref_env_master]
+                raw_cond_ids = [c for c in raw_cond_ids if c.startswith("ref_cast_")] + [
+                    c for c in raw_cond_ids if not c.startswith("ref_cast_")
+                ]
+            for cond_id in raw_cond_ids:
                 if len(cond_paths) >= 2:
                     break
                 cand_p = ref_dir / f"{cond_id}.png"

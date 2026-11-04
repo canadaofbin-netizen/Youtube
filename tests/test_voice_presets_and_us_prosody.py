@@ -39,7 +39,7 @@ from pipeline.voice_fallback import (
 def test_all_five_voice_presets_have_complete_gender_matched_specs():
     expected_ids = {"andrew_v7", "emma_v7", "ava_v7", "aria_v7", "christopher_v7"}
     assert expected_ids.issubset(set(DIORAMA_VOICE_PRESETS.keys()))
-    assert DEFAULT_DIORAMA_VOICE_PRESET == "andrew_v7"
+    assert DEFAULT_DIORAMA_VOICE_PRESET == "emma_v7"
 
     for preset_id in expected_ids:
         spec = DIORAMA_VOICE_PRESETS[preset_id]
@@ -80,18 +80,22 @@ def test_resolve_diorama_voice_preset_priority_and_fallbacks():
     assert p_id2 == "ava_v7"
     assert spec2["kokoro_voice"] == "af_heart"
 
-    # Reverse lookup by neural voice ID
+    # Reverse lookup by neural voice ID (both Emma and legacy Andrew)
     p_id3, _ = resolve_diorama_voice_preset(voice="en-US-EmmaMultilingualNeural")
     assert p_id3 == "emma_v7"
+    p_id_and, spec_and = resolve_diorama_voice_preset(voice_preset="andrew_v7")
+    assert p_id_and == "andrew_v7"
+    assert spec_and["voice"] == "en-US-AndrewMultilingualNeural"
 
-    # Empty / unknown falls back cleanly to andrew_v7
+    # Empty / unknown falls back cleanly to channel default (emma_v7)
     p_id4, spec4 = resolve_diorama_voice_preset(voice_preset="nonexistent_preset_xyz", script_doc={})
-    assert p_id4 == "andrew_v7"
-    assert spec4["voice"] == "en-US-AndrewMultilingualNeural"
+    assert p_id4 == "emma_v7"
+    assert spec4["voice"] == "en-US-EmmaMultilingualNeural"
 
     # Kokoro gender-matched fallback resolution
     assert _resolve_kokoro_voice("en-US-EmmaMultilingualNeural", voice_preset="emma_v7") == "af_bella"
     assert _resolve_kokoro_voice("en-US-AvaMultilingualNeural") == "af_heart"
+    assert _resolve_kokoro_voice("en-US-AndrewMultilingualNeural", voice_preset="andrew_v7") == "am_fenrir"
     assert _resolve_kokoro_voice("", voice_preset=None) == "am_fenrir"
 
 

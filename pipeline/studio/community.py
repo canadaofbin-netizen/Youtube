@@ -14,7 +14,14 @@ from pathlib import Path
 import re
 from typing import Any
 
-from pipeline.config import CHANNEL_ROOT
+from pipeline.config import (
+    BANNED_COMMENT_VIOLENCE_TOKENS,
+    CHANNEL_ROOT,
+    DEBATE_CREATOR_BET_MAX_PREFIX_CHARS,
+    DEBATE_CREATOR_BET_PREFIXES,
+    LONGFORM_PROJECTS_DIR,
+    PINNED_COMMENT_LINE1_MAX_CHARS,
+)
 from pipeline.storage import ProjectStorage
 from pipeline.studio.config import (
     COMMUNITY_SELECTORS,
@@ -32,10 +39,208 @@ _EMOJI_STRIP_RE = re.compile(
     flags=re.UNICODE,
 )
 
+_VIOLENCE_TOKEN_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = tuple(
+    (tok, re.compile(rf"\b{re.escape(tok)}\b", flags=re.IGNORECASE))
+    for tok in BANNED_COMMENT_VIOLENCE_TOKENS
+)
+_DOI_URL_RE = re.compile(r"https?://doi\.org/10\.\d{4,9}/\S+", flags=re.IGNORECASE)
+
+
+def validate_debate_pinned_comment_line1(
+    line1: str,
+    full_comment: str | None = None,
+    *,
+    require_doi: bool | None = None,
+) -> list[str]:
+    """
+    Validates 3-Stage Ignition pinned-comment rules:
+      1. Single-line Line 1 (`<= 240` chars) ending with '?' above the mobile 'Read more' fold.
+      2. 1st-person / off-center creator bet marker starts within the first 45 chars,
+         and any opening bet clause before '—' stays <= 45 chars.
+      3. Verified `https://doi.org/10....` link present in multi-line `full_comment` (or when `require_doi=True`).
+      4. Zero YouTube AI violence/harassment auto-hold trigger words.
+    """
+    issues: list[str] = []
+    clean = (line1 or "").strip()
+    if not clean:
+        return ["[debate_line1] Line 1 is empty"]
+    if "\n" in clean or "\r" in clean:
+        issues.append("[debate_line1] Line 1 must be a single line")
+    if len(clean) > PINNED_COMMENT_LINE1_MAX_CHARS:
+        issues.append(
+            f"[debate_line1] Line 1 length is {len(clean)} chars (> {PINNED_COMMENT_LINE1_MAX_CHARS})"
+        )
+    if not clean.endswith("?"):
+        issues.append("[debate_line1] Line 1 must end with '?'")
+
+    head_window = clean[:DEBATE_CREATOR_BET_MAX_PREFIX_CHARS].lower()
+    if not any(head_window.startswith(pref) for pref in DEBATE_CREATOR_BET_PREFIXES):
+        issues.append(
+            f"[debate_line1] Line 1 must open with a creator bet prefix {DEBATE_CREATOR_BET_PREFIXES} "
+            f"within the first {DEBATE_CREATOR_BET_MAX_PREFIX_CHARS} chars"
+        )
+    if "—" in clean:
+        bet_clause = clean.split("—", 1)[0].strip()
+        if len(bet_clause) > DEBATE_CREATOR_BET_MAX_PREFIX_CHARS:
+            issues.append(
+                f"[debate_line1] Creator bet clause before '—' is {len(bet_clause)} chars "
+                f"(> {DEBATE_CREATOR_BET_MAX_PREFIX_CHARS}): {bet_clause!r}"
+            )
+
+    fc_clean = (full_comment or "").strip()
+    must_have_doi = bool(fc_clean and ("\n" in fc_clean)) if require_doi is None else bool(require_doi)
+    if must_have_doi and not _DOI_URL_RE.search(fc_clean):
+        issues.append("[debate_doi] Full pinned comment must include a verified https://doi.org/10.... link")
+
+    inspect_text = f"{clean}\n{full_comment or ''}"
+    hit_tokens = [tok for tok, pat in _VIOLENCE_TOKEN_PATTERNS if pat.search(inspect_text)]
+    if hit_tokens:
+        issues.append(f"[debate_violence_filter] Banned YouTube hold-filter token(s) found: {hit_tokens}")
+    if "**" in inspect_text or "`" in inspect_text or re.search(r"[\(\[]\s*SRC\d+", inspect_text, flags=re.IGNORECASE):
+        issues.append("[debate_markdown_residue] Raw markdown ('**'/'`') or internal '(SRCn)' tag leaked into comment")
+    return issues
+
+
+validate_pinned_comment_bet = validate_debate_pinned_comment_line1
+
+
+def _sanitize_comment_violence_tokens(text: str) -> str:
+    replacements = {
+        "torturing": "harming",
+        "torture": "severe harm",
+        "electrocuting": "flipping switches on",
+        "electrocute": "flip the switch on",
+        "shock him": "press the switch",
+        "shock her": "press the switch",
+        "shock them": "press the switch",
+        "killing": "ending",
+        "kill": "end",
+        "murder": "violent crime",
+        "suicide": "crisis",
+        "assault": "outburst",
+        "abuse": "misuse",
+    }
+    out = text or ""
+    for bad, safe in replacements.items():
+        out = re.sub(rf"\b{re.escape(bad)}\b", safe, out, flags=re.IGNORECASE)
+    return out
+
+
+def _clean_line1_markup(text: str) -> str:
+    out = _strip_emojis_and_bullets(text or "")
+    out = out.replace("**", "").replace("*", "").replace("`", "")
+    out = re.sub(r"\s*\([^)]{22,}\)", "", out)
+    out = re.sub(r"\s+", " ", out).strip()
+    return out
+
+
+def _clamp_bet_clause(bet_clause: str) -> str:
+    bc = bet_clause.strip().rstrip(" —-,:;")
+    if len(bc) <= DEBATE_CREATOR_BET_MAX_PREFIX_CHARS:
+        return bc
+    bc = re.sub(r"^my honest bet:\s*", "My bet: ", bc, flags=re.IGNORECASE)
+    bc = re.sub(r"^honest take:\s*", "Hot take: ", bc, flags=re.IGNORECASE)
+    if len(bc) <= DEBATE_CREATOR_BET_MAX_PREFIX_CHARS:
+        return bc
+    words = bc.split()
+    acc: list[str] = []
+    for w in words:
+        cand = " ".join([*acc, w])
+        if len(cand) > DEBATE_CREATOR_BET_MAX_PREFIX_CHARS:
+            break
+        acc.append(w)
+    trimmed = " ".join(acc).rstrip(" ,;:-")
+    if not any(trimmed.lower().startswith(pref) for pref in DEBATE_CREATOR_BET_PREFIXES):
+        return "My bet: wiring beats willpower"
+    return trimmed
+
+
+def _clamp_line1_total_length(line1: str) -> str:
+    if len(line1) <= PINNED_COMMENT_LINE1_MAX_CHARS:
+        return line1
+    if "—" in line1:
+        bet_head, rest = line1.split("—", 1)
+        bet_head = _clamp_bet_clause(bet_head)
+        rest = rest.strip()
+        # Preserve trailing forced-choice question after the last comma or sentence boundary if present
+        q_idx = rest.rfind(", do you ")
+        if q_idx == -1:
+            q_idx = rest.rfind(". ")
+        if q_idx > 12:
+            setup_part = rest[:q_idx].strip(" .,:;—-")
+            tail_q = rest[q_idx:].lstrip(". ")
+            if not tail_q.startswith(","):
+                tail_q = f". {tail_q}"
+            budget = PINNED_COMMENT_LINE1_MAX_CHARS - len(f"{bet_head} — ") - len(tail_q)
+            if budget >= 24:
+                words = setup_part.split()
+                kept: list[str] = []
+                for w in words:
+                    cand = " ".join([*kept, w])
+                    if len(cand) > budget:
+                        break
+                    kept.append(w)
+                # Strip dangling stop-words at truncation boundary
+                while kept and kept[-1].lower().strip(",;:") in {
+                    "a", "an", "the", "in", "on", "at", "to", "of", "for", "with", "and", "or", "by", "from", "that", "which", "while", "when"
+                }:
+                    kept.pop()
+                if kept:
+                    cand_line = f"{bet_head} — {' '.join(kept).rstrip(',;:-')}{tail_q}"
+                    if len(cand_line) <= PINNED_COMMENT_LINE1_MAX_CHARS:
+                        return cand_line
+        budget_plain = PINNED_COMMENT_LINE1_MAX_CHARS - len(f"{bet_head} — ") - 1
+        words_r = rest.rstrip("?.! ").split()
+        kept_r: list[str] = []
+        for w in words_r:
+            if len(" ".join([*kept_r, w])) > budget_plain:
+                break
+            kept_r.append(w)
+        while kept_r and kept_r[-1].lower().strip(",;:") in {
+            "a", "an", "the", "in", "on", "at", "to", "of", "for", "with", "and", "or", "by", "from"
+        }:
+            kept_r.pop()
+        return f"{bet_head} — {' '.join(kept_r).rstrip('.,;:- ')}?"
+    words_all = line1.rstrip("?.! ").split()
+    kept_a: list[str] = []
+    for w in words_all:
+        if len(" ".join([*kept_a, w])) > PINNED_COMMENT_LINE1_MAX_CHARS - 1:
+            break
+        kept_a.append(w)
+    return f"{' '.join(kept_a).rstrip('.,;:- ')}?"
+
+
+def _ensure_creator_bet_line1(raw_trigger: str, fallback_topic: str = "this circuit") -> str:
+    cleaned = _sanitize_comment_violence_tokens(_clean_line1_markup(raw_trigger or "")).strip()
+    if cleaned and not cleaned.endswith("?"):
+        cleaned = cleaned.rstrip(".! ") + "?"
+    low = cleaned.lower()
+    if cleaned and any(low.startswith(pref) for pref in DEBATE_CREATOR_BET_PREFIXES):
+        if "—" in cleaned:
+            b_part, r_part = cleaned.split("—", 1)
+            cleaned = f"{_clamp_bet_clause(b_part)} — {r_part.strip()}"
+        return _clamp_line1_total_length(cleaned)
+    if cleaned:
+        q_tail = cleaned[0].lower() + cleaned[1:] if (len(cleaned) > 1 and not cleaned.startswith("I ")) else cleaned
+        if any(cleaned.startswith(n) for n in ("What ", "Would ", "Do ", "Did ", "Can ", "Could ", "Should ", "How ", "In ", "When ", "If ")):
+            out = f"My bet: wiring beats willpower — {cleaned}"
+        else:
+            out = f"My bet: the circuit wins first — {q_tail}"
+        return _clamp_line1_total_length(out)
+    safe_topic = re.sub(r"[^\w\s\-']", "", fallback_topic).strip()[:32] or "this brain circuit"
+    return _clamp_line1_total_length(
+        f"My honest bet: wiring beats willpower — once {safe_topic.lower()} fires, "
+        f"do you trust self-control or changing your setup?"
+    )
+
 
 def _strip_emojis_and_bullets(text: str) -> str:
     cleaned = _EMOJI_STRIP_RE.sub("", text or "")
     cleaned = re.sub(r"^\s*[-*•]\s+", "", cleaned, flags=re.MULTILINE)
+    cleaned = re.sub(r"\[([^\]]+)\]\((https?://[^\)]+)\)", r"\1", cleaned)
+    cleaned = re.sub(r"\s*[\(\[]\s*SRC\d+(?:\s*[,;/]\s*SRC\d+)*\s*[\)\]]", "", cleaned, flags=re.IGNORECASE)
+    cleaned = cleaned.replace("**", "").replace("*", "").replace("`", "")
+    cleaned = re.sub(r"\s+([.,;:!?])", r"\1", cleaned)
     cleaned = re.sub(r"[ \t]+", " ", cleaned)
     return cleaned.strip()
 
@@ -81,10 +286,15 @@ def _parse_citation_author_year_journal(src: dict[str, Any]) -> str:
 
 
 def _find_matching_dossier_dir(project_id: str, dossiers_root: Path | None = None) -> Path | None:
+    from pipeline.research_dossier import _EXPLICIT_PROJECT_SLUG_MAP
+
     root = dossiers_root or (CHANNEL_ROOT / "research_dossiers")
     if not root.exists():
         return None
-    stripped = re.sub(r"^(?:psych|diorama|reenact|news)_\d+_", "", project_id)
+    mapped = _EXPLICIT_PROJECT_SLUG_MAP.get(str(project_id or "").strip().lower())
+    if mapped and (root / mapped).is_dir():
+        return root / mapped
+    stripped = re.sub(r"^(?:psych|diorama|reenact|news|longform)_\d+_", "", project_id)
     direct = root / stripped
     if direct.is_dir():
         return direct
@@ -99,7 +309,11 @@ def _find_matching_dossier_dir(project_id: str, dossiers_root: Path | None = Non
         if d_json_path.exists():
             try:
                 meta = json.loads(d_json_path.read_text(encoding="utf-8"))
-                linked = list(meta.get("linked_projects") or []) + list(meta.get("shorts_projects") or [])
+                linked = (
+                    list(meta.get("linked_projects") or [])
+                    + list(meta.get("shorts_projects") or [])
+                    + list(meta.get("longform_projects") or [])
+                )
                 if project_id in linked:
                     return d_dir
             except Exception:
@@ -121,7 +335,7 @@ _DIORAMA_NATURAL_PACKAGES: dict[str, dict[str, Any]] = {
             "Textbooks claim Gage died a jobless drifter. In reality, Malcolm Macmillan's historical records show he moved to Chile and spent years driving six-horse mountain stagecoaches.",
             "Strict daily routines gave his surviving brain circuits a steady rail to follow.",
         ],
-        "question": "Right before blurting something out in anger, what stops you faster — taking one slow breath or stepping out of the room?",
+        "question": "Hard take: frontal brain damage lowers blame — when severing 11% of white-matter cables flips a calm man's temper overnight, is a sudden outburst still 100% moral choice or broken hardware?",
     },
     "patient_hm_hippocampus": {
         "headline": "Why Patient H.M. Forgot Every Chat in 30 Seconds Yet Learned New Hand Skills",
@@ -132,7 +346,7 @@ _DIORAMA_NATURAL_PACKAGES: dict[str, dict[str, Any]] = {
             "People assume memory sits in one tank. Henry proved the hippocampus records conscious facts, while motor skills wire separately inside the basal ganglia and cerebellum.",
             "Your hands can quietly build real mastery even on days when nothing feels like it sticks.",
         ],
-        "question": "What physical skill — like typing a password or riding a bike — do your hands remember automatically even if you cannot explain the steps?",
+        "question": "My bet: I'd save muscle memory over diaries — Patient H.M. lived independently without new memories because his hands still learned every day. Forced to pick one, do you keep life stories or daily skills?",
     },
     "ramachandran_phantom_limb_mirror": {
         "headline": "How a $10 Cardboard Mirror Box Unclenched a Phantom Hand Locked for 10 Years",
@@ -143,7 +357,7 @@ _DIORAMA_NATURAL_PACKAGES: dict[str, dict[str, Any]] = {
             "Doctors used to blame stump nerves, yet cutting nerves failed. The real jam was a motor strip shouting 'open' with zero visual proof returning.",
             "One clean reflection broke a ten-year loop in seconds, showing adult body maps stay remarkably adaptable.",
         ],
-        "question": "Have you ever felt your own hand twitch while watching a VR avatar or magic trick — did your brain buy the illusion right away?",
+        "question": "Hot take: I'd try a $10 mirror before pills — when phantom pain comes from a jammed brain map rather than nerve endings, tricking your eyes beats numbing your body. Would a visual trick convince your brain, or are you skeptical?",
     },
     "alien_hand_syndrome": {
         "headline": "Why His Right Hand Buttoned His Shirt While His Own Left Hand Unbuttoned It",
@@ -154,7 +368,7 @@ _DIORAMA_NATURAL_PACKAGES: dict[str, dict[str, Any]] = {
             "Movies treat this like thinking a stranger owns your arm. In reality, patients know 100 percent the arm is theirs — what vanishes is agency, the feeling that 'I pressed start.'",
             "Holding a soft foam roll satisfied one patient's grasp reflex so he walked past clinic doors cleanly.",
         ],
-        "question": "If one of your hands started grabbing nearby door handles on autopilot, would you hold a stress ball or try pinning your hand in a pocket?",
+        "question": "My bet: free will is mostly a frontal brake — your motor strip preps reaches for mugs and doors all day before frontal circuits block 99% of them. Do we consciously start actions, or just veto automatic urges?",
     },
     "milgram_obedience_shock": {
         "headline": "Why 65% Flipped the 450-Volt Switch at Yale — Yet Refused One Direct Order",
@@ -165,7 +379,7 @@ _DIORAMA_NATURAL_PACKAGES: dict[str, dict[str, Any]] = {
             "That shatters the myth that humans obey like blind robots. People kept going only when prods appealed to helping science, and beside two rebel peers, 90 percent refused.",
             "Harm spreads fastest when disguised as a worthy shared duty — until one voice says no.",
         ],
-        "question": "In a tense room where everyone stays silent, what makes speaking up easier — questioning things early or seeing just one other person refuse?",
+        "question": "My honest bet: I'd freeze past 150V too — polite lab autopilot is much harder to break in person than from a couch. Without sugarcoating it, what voltage stops your hand: 45V, 150V, or 300V?",
     },
     "hippocampal_memory_prosthesis": {
         "headline": "Why Random Pulses Gave 0% Gain While a Custom Rhythm Boosted Memory by 37%",
@@ -176,7 +390,7 @@ _DIORAMA_NATURAL_PACKAGES: dict[str, dict[str, Any]] = {
             "Sci-fi films treat chips like USB drives that upload skills. When Hampson's team sent the exact same power in a scrambled rhythm, gain dropped to 0 percent.",
             "Rather than storing files on silicon, gentle timing helped the brain's own wiring lock moments in.",
         ],
-        "question": "If a medical implant only echoed your own natural memory rhythm after an injury without storing data outside your head, would you use it?",
+        "question": "My bet: I'd wear a timing-only memory chip — boosting recall by 37% using your own rhythm without storing files on silicon feels fair. Would you trust a medical memory implant, or keep hardware out of your head?",
     },
     "clive_wearing_seven_second_mind": {
         "headline": "His Memory Reset Every 7 Seconds, Yet He Still Conducted an Entire Choir",
@@ -187,7 +401,7 @@ _DIORAMA_NATURAL_PACKAGES: dict[str, dict[str, Any]] = {
             "Movies show amnesia wiping identity clean. Clive proved that facts in the hippocampus, habits in the basal ganglia, and love in the amygdala run on separate circuits — so he still leapt up whenever his wife Deborah walked in.",
             "Even when timelines shatter, practiced skill and devotion hold on deep beneath conscious recall.",
         ],
-        "question": "What song from years ago can your hands or voice still jump into the instant you hear the first three notes?",
+        "question": "Hard take: you're still you without memory — Clive forgot every 7 seconds yet still conducted choirs and lit up for his wife every single time. Does identity live in your timeline of facts, or in habits and love?",
     },
     "invisible_gorilla_attention": {
         "headline": "Why Half the Room — and 83% of Radiologists — Missed a Gorilla in Plain Sight",
@@ -198,7 +412,7 @@ _DIORAMA_NATURAL_PACKAGES: dict[str, dict[str, Any]] = {
             "People assume sharp eyesight or high IQ prevents this. In reality, your eyes catch the light fine while your parietal attention spotlight filters out anything outside your search target.",
             "That is why drivers watching only for cars can look straight past a cyclist.",
         ],
-        "question": "Did you catch the gorilla the first time you ever heard about that test — or what everyday item do you lose most while staring right at it?",
+        "question": "Hot take: ban solo eyewitness convictions — if 83% of radiologists stare right past a gorilla on a scan, 'I saw it with my own eyes' isn't solid proof. Does that go too far, or is the brain science right?",
     },
     "maguire_london_taxi_hippocampus": {
         "headline": "Memorizing 25,000 London Streets Grew Drivers' Brains — With One Hidden Trade-Off",
@@ -209,7 +423,7 @@ _DIORAMA_NATURAL_PACKAGES: dict[str, dict[str, Any]] = {
             "Old textbooks claimed adult brains freeze like concrete. Yet growth carried a trade-off: cabbies' front hippocampus shrank slightly, making new visual shapes tougher to pack — like shifting coats on a crowded shelf.",
             "Following phone arrows daily lets that inner map coast, while choosing routes yourself wakes it up.",
         ],
-        "question": "Could you cross your city to a new neighborhood today without opening GPS once, or do you keep map arrows on even for familiar streets?",
+        "question": "Hot take: I'd trade brain map size for GPS — saving mental RAM beats memorizing 25,000 streets. Did paper maps actually build sharper minds, or do we just romanticize getting lost?",
     },
     "broca_patient_tan_speech_loss": {
         "headline": "He Spoke Only One Syllable for 21 Years — and 146 Years Later an MRI Showed Why",
@@ -220,7 +434,7 @@ _DIORAMA_NATURAL_PACKAGES: dict[str, dict[str, Any]] = {
             "Textbooks taught that surface damage alone causes permanent muteness, though surface-only patients usually recover in months. The 2007 MRI revealed deep damage severing the white-matter cable highway underneath.",
             "Fluent speech rides a deep fiber bridge — and behind missing words, clear thought often shines intact.",
         ],
-        "question": "Have you ever pictured an object or name with 100% clarity in your head while your mouth froze for five seconds trying to pull up the word?",
+        "question": "My bet: we judge speech loss way too harshly — Leborgne spoke only one syllable for 21 years while his inner reasoning stayed completely intact. How often do we mistake a blocked output cable for a slow mind?",
     },
     "olds_milner_pleasure_center": {
         "headline": "A Bent Wire Missed Its Target by 3mm — and Exposed Craving Without Joy",
@@ -231,7 +445,7 @@ _DIORAMA_NATURAL_PACKAGES: dict[str, dict[str, Any]] = {
             "Newspapers dubbed that spot the 'pleasure center,' feeding the myth that dopamine equals bliss. Human patients wired along that bundle later described an urgent itch to click again without satisfaction — pure 'wanting,' not 'liking.'",
             "Midnight phone scrolling taps that exact loop: your thumb keeps swiping long after enjoyment stops.",
         ],
-        "question": "When you catch yourself scrolling late at night with zero enjoyment, what breaks the loop faster — putting the phone across the room or setting a timer?",
+        "question": "Honest take: I still fall for dry dopamine — midnight scrolling is the exact 'wanting without liking' loop that kept rats pressing 2,000 times an hour. What breaks your loop: phone in another room, grayscale, or nothing?",
     },
     "blindsight_subcortical_vision": {
         "headline": "Clinically Blind on One Side, He Swore It Was Dark — Then Pointed 90% Right",
@@ -242,7 +456,7 @@ _DIORAMA_NATURAL_PACKAGES: dict[str, dict[str, Any]] = {
             "People assume vision is one screen at the back of the head. While 90 percent of eye fibers feed conscious sight, an ancient 10 percent shortcut dives straight into the brainstem's reflex map.",
             "Your reflex sight tracks motion milliseconds before your conscious mind ever paints a picture.",
         ],
-        "question": "Have you ever caught a falling cup or ducked a fast object before your conscious mind even knew what moved?",
+        "question": "My bet: I'd trust a sudden gut flinch first — that ancient 10% brainstem shortcut spots motion milliseconds before conscious sight catches up. Should you trust a split-second reflex, or wait until your eyes confirm?",
     },
     "ainsworth_strange_situation": {
         "headline": "Why the Quietest Toddlers Had Racing Hearts Inside Ainsworth's 1970 Playroom",
@@ -253,7 +467,18 @@ _DIORAMA_NATURAL_PACKAGES: dict[str, dict[str, Any]] = {
             "Parents often mistake a quiet toddler after separation for mature independence. Later fMRI work by Dylan Gee (2014, Psychological Science) showed a trusted caregiver acts as an external safety switch that calms the amygdala until prefrontal brakes mature.",
             "Looking calm on the outside is not the same circuit as feeling safe on the inside.",
         ],
-        "question": "When stress hits, do you reach out right away — or go completely quiet while your heart races inside?",
+        "question": "Honest take: silent treatment isn't calm — brain scans show shutting down in conflict is usually hidden panic learned early on. In arguments, are you the one who goes quiet or the one who chases?",
+    },
+    "glymphatic_sleep_toxins": {
+        "headline": "Why Your Brain Cells Physically Shrink by 60% Only During Natural Deep Sleep",
+        "paragraphs": [
+            "Lying wide awake at 3 AM while exhausted — or knocking yourself out with a sleeping pill — feels like a willpower problem, yet brain imaging shows two completely different biological states.",
+            "Across Lulu Xie and Maiken Nedergaard's discovery (2013, Science), Laura Lewis's human MRI wave study (2019, Science), and Natalie Hauglund's vascular pump study (2025, Cell), researchers tracked how the sleeping brain washes out metabolic waste.",
+            "During natural slow-wave sleep, support cells shrink so fluid channels widen by 60 percent, and slow norepinephrine pulses pump cerebrospinal fluid through brain tissue to clear sticky beta-amyloid twice as fast.",
+            "People assume any eight hours unconscious cleans the brain equally. In reality, conditioned bedroom arousal blocks slow waves from starting, and common sedative sleeping pills flatten the vascular pump by roughly half even while you lie still.",
+            "Deep neural rinsing depends on natural slow electrical waves and rhythmic blood-vessel pulses rather than sedation.",
+        ],
+        "question": "My bet: I'd take 5 real hours over pills — knocking yourself out isn't the same wash cycle when sedatives blunt the deep-sleep pump that flushes brain waste. Honest choice: 8 sedated hours or 5 natural ones?",
     },
 }
 
@@ -297,12 +522,45 @@ class CommunityManager:
             ),
             None,
         )
-        doi_val = str((primary_src or {}).get("doi") or "").strip()
+        doi_val = str(
+            (primary_src or {}).get("doi")
+            or (sources_doc.get("primary") or {}).get("doi")
+            or d_meta.get("primary_doi")
+            or ""
+        ).strip()
+
+        porcelain_meta: dict[str, Any] = {}
+        for sub_name in ("diorama_v7_porcelain", "diorama_v7"):
+            m_cand = dossier_dir / sub_name / "metadata.json"
+            if m_cand.exists():
+                try:
+                    loaded_m = json.loads(m_cand.read_text(encoding="utf-8"))
+                    if isinstance(loaded_m, dict) and loaded_m.get("offcenter_creator_bet"):
+                        porcelain_meta = loaded_m
+                        break
+                except Exception:
+                    pass
+
+        deb_ign = d_meta.get("debate_ignition") if isinstance(d_meta.get("debate_ignition"), dict) else {}
+        explicit_dossier_bet = str(
+            porcelain_meta.get("offcenter_creator_bet")
+            or d_meta.get("offcenter_creator_bet")
+            or (deb_ign or {}).get("offcenter_creator_bet")
+            or ""
+        ).strip()
+        fc_q = str((deb_ign or {}).get("forced_choice_question") or "").strip()
+        if explicit_dossier_bet and fc_q and ("—" not in explicit_dossier_bet) and not explicit_dossier_bet.endswith("?"):
+            explicit_dossier_bet = f"{explicit_dossier_bet.rstrip(' —.,:;')} — {fc_q}"
 
         if slug in _DIORAMA_NATURAL_PACKAGES:
             curated = dict(_DIORAMA_NATURAL_PACKAGES[slug])
             if doi_val:
                 curated["doi"] = doi_val
+            curated["paragraphs"] = [_strip_emojis_and_bullets(str(p)) for p in (curated.get("paragraphs") or []) if p]
+            if explicit_dossier_bet:
+                curated["question"] = _ensure_creator_bet_line1(explicit_dossier_bet, fallback_topic=curated.get("headline", slug))
+            else:
+                curated["question"] = _ensure_creator_bet_line1(curated.get("question", ""), fallback_topic=curated.get("headline", slug))
             return curated
 
         if not d_meta:
@@ -315,7 +573,7 @@ class CommunityManager:
             except Exception:
                 plain_doc = {}
 
-        cite_str = _parse_citation_author_year_journal(primary_src) if primary_src else "peer-reviewed neuroscience research"
+        cite_str = _parse_citation_author_year_journal(primary_src or (sources_doc.get("primary") or {})) if (primary_src or sources_doc.get("primary")) else "peer-reviewed neuroscience research"
 
         p_case = d_meta.get("primary_case") or {}
         headline = _smart_trim_headline(str(p_case.get("title") or d_meta.get("topic") or dossier_dir.name), max_len=96)
@@ -359,22 +617,44 @@ class CommunityManager:
         p4 = myth_truth or (core_facts[3] if len(core_facts) > 3 else "Rather than a vague psychological quirk, the evidence points to a concrete circuit-level mechanism.")
         p5 = so_what or "Once you see how this pathway works, everyday habits and split-second reactions make much more sense."
 
+        explicit_bet = str(explicit_dossier_bet or plain_doc.get("offcenter_creator_bet") or "").strip()
         hooks = d_meta.get("everyday_hooks") or []
         question = ""
-        if hooks:
-            hook_line = _strip_emojis_and_bullets(str(hooks[0])).rstrip(".!?")
-            if "?" in str(hooks[0]):
-                question = _strip_emojis_and_bullets(str(hooks[0]))
+        if explicit_bet:
+            question = _ensure_creator_bet_line1(explicit_bet, fallback_topic=headline)
+        elif hooks:
+            hook_raw = _clean_line1_markup(str(hooks[0]))
+            if "?" in hook_raw:
+                question = _ensure_creator_bet_line1(hook_raw, fallback_topic=headline)
             else:
+                hook_line = re.sub(r"\s*[—:]\s.*$", "", hook_raw).rstrip(".!?,;:")
                 h_low = hook_line[0].lower() + hook_line[1:] if len(hook_line) > 1 else hook_line.lower()
-                question = f"Have you ever caught yourself experiencing that — like {h_low}?"
+                if h_low.startswith("when "):
+                    h_low = h_low[5:].strip()
+                question = _ensure_creator_bet_line1(
+                    f"My bet: wiring beats willpower — once you spot {h_low}, do you trust self-control or changing your setup?",
+                    fallback_topic=headline,
+                )
+        else:
+            question = _ensure_creator_bet_line1("", fallback_topic=headline)
 
         return {
             "doi": doi_val,
             "headline": headline,
-            "paragraphs": [p1, p2, p3, p4, p5],
+            "paragraphs": [_sanitize_comment_violence_tokens(p) for p in (p1, p2, p3, p4, p5)],
             "question": question,
         }
+
+    def _resolve_projects_dir(self, project_id: str) -> Path | None:
+        if self.projects_dir is not None:
+            return self.projects_dir
+        shorts_dir = CHANNEL_ROOT / "projects" / project_id
+        if shorts_dir.is_dir():
+            return None
+        lf_dir = LONGFORM_PROJECTS_DIR / project_id
+        if lf_dir.is_dir() or project_id.startswith("longform_"):
+            return LONGFORM_PROJECTS_DIR
+        return None
 
     def prepare_comment_content(
         self,
@@ -382,12 +662,20 @@ class CommunityManager:
         companion_short: dict[str, str] | None = None,
     ) -> dict[str, str]:
         """Prepares the formatted R35 academic DOI and debate trigger comment with dossier synthesis."""
-        storage = ProjectStorage(project_id, projects_dir=self.projects_dir)
+        eff_projects_dir = self._resolve_projects_dir(project_id)
+        storage = ProjectStorage(project_id, projects_dir=eff_projects_dir)
         manifest = storage.get_manifest()
         metadata = storage.load_json("06_publish", "metadata.json") or {}
+        script_doc = storage.load_json("02_script", "script.json") or {}
         related_receipt = storage.load_json("06_publish", "related_video_receipt.json") or {}
 
-        explicit_slug = str(metadata.get("dossier_slug") or manifest.get("dossier_slug") or "").strip()
+        explicit_slug = str(
+            metadata.get("dossier_slug")
+            or script_doc.get("dossier_slug")
+            or script_doc.get("dossier")
+            or manifest.get("dossier_slug")
+            or ""
+        ).strip()
         dossiers_base = self.dossiers_root or (CHANNEL_ROOT / "research_dossiers")
         dossier_dir = (
             (dossiers_base / explicit_slug)
@@ -404,6 +692,9 @@ class CommunityManager:
 
         if not doi and metadata.get("doi"):
             doi = str(metadata["doi"]).strip()
+
+        if not doi and script_doc.get("doi"):
+            doi = str(script_doc["doi"]).strip()
 
         if not doi:
             desc = metadata.get("description", "")
@@ -436,7 +727,7 @@ class CommunityManager:
                     "This does not mean his conscious memory had returned. Instead, recordings from the dorsal striatum show that the basal ganglia compress repeated routines into a single start-to-finish motor chunk ('task-bracketing') that fires automatically once triggered by a cue.",
                     "In other words, conscious memory and habitual action run on two separate neural circuits inside the brain.",
                 ],
-                "question": "What habit do you catch your brain running on autopilot before you even think about it?",
+                "question": "My bet: willpower loses to room layout — once basal ganglia chunk a snack routine, hiding the cue beats trying harder every time. Do you rely on self-control or changing your room?",
             },
             "psych_02_inner_speech_decoding": {
                 "headline": "A Paralyzed Patient Spoke at 62 Words Per Minute Using Only a Brain Implant",
@@ -447,7 +738,7 @@ class CommunityManager:
                     "Crucially, the implant is not 'reading private thoughts' from across the brain. It specifically decodes the fine motor neural commands intended for the lips, tongue, jaw, and larynx in the speech motor cortex.",
                     "Even years after paralysis, the brain's cortical map for individual phonemes remains remarkably intact and ready to be decoded.",
                 ],
-                "question": "If a neural implant can decode speech at 62 words per minute, where should cognitive privacy boundaries be drawn?",
+                "question": "My bet: I'd take a chip with a 10% leak — eleven years of locked-in silence sounds far worse than imperfect mental privacy. Would a 10% thought leak be a dealbreaker for you, or worth speaking again?",
             },
             "psych_03_split_brain_dual_consciousness": {
                 "headline": "When One Hand Buttoned a Shirt, the Other Hand Immediately Unbuttoned It",
@@ -458,7 +749,7 @@ class CommunityManager:
                     "This does not mean the patient was intentionally lying. Rather, the left hemisphere houses a specialized neural system ('the interpreter') that continuously weaves a coherent story to explain actions initiated by brain circuits it cannot access.",
                     "Our sense of a single unified self relies heavily on the left hemisphere's ongoing narrative construction.",
                 ],
-                "question": "When the corpus callosum is severed, do you think two separate conscious minds exist inside one skull?",
+                "question": "Hot take: our left brain makes up excuses — split-brain tests show the verbal side invents confident stories for choices made elsewhere in seconds. How many daily 'reasons' are just clean stories invented after the fact?",
             },
             "psych_05_capgras_imposter_delusion": {
                 "headline": "The Son Who Looked at His Own Parents and Insisted They Were Identical Impostors",
@@ -469,7 +760,7 @@ class CommunityManager:
                     "This occurred because the head injury selectively severed the visual pathway connecting the fusiform face area (FFA) to the amygdala, while leaving the auditory pathway to the amygdala intact.",
                     "Recognizing a loved one requires both an accurate visual template and an automatic emotional limbic signal confirming who they are.",
                 ],
-                "question": "If your visual cortex recognized someone's face but your emotional circuit stayed silent, would you trust your eyes or your gut?",
+                "question": "My bet: gut signals overrule eyesight fast — when the emotional wire goes flat, even a parent's exact face feels fake while a phone voice feels real. In a clash, does your brain trust your eyes or your gut?",
             },
             "psych_06_glymphatic_sleep_toxins": {
                 "headline": "Why Your Brain Cells Physically Shrink by 60 Percent the Moment Deep Sleep Begins",
@@ -480,12 +771,12 @@ class CommunityManager:
                     "This clearance is not passive diffusion. It is driven by the glymphatic system, a pressurized fluid transport network gated by aquaporin-4 water channels that stays largely closed while you are awake and processing sensory information.",
                     "Skipping deep sleep does not just leave you tired; it prevents the brain from completing its nightly metabolic wash cycle.",
                 ],
-                "question": "How many hours of uninterrupted sleep do you usually get on a weeknight?",
+                "question": "My bet: I'd take 5 real hours over pills — knocking yourself out isn't the same wash cycle when sedatives blunt the deep-sleep pump that flushes brain waste. Honest choice: 8 sedated hours or 5 natural ones?",
             },
         }
 
         pkg = _TOPIC_PACKAGES.get(project_id) or dossier_pkg or {}
-        dissonance_trigger = pkg.get("question")
+        dissonance_trigger = str(metadata.get("offcenter_creator_bet") or pkg.get("question") or "").strip() or None
         if not dissonance_trigger and research_card and isinstance(research_card.get("story_context"), dict):
             cand = str(research_card["story_context"].get("social_comment_trigger") or "").strip()
             if cand and cand.lower() not in _GENERIC_PLACEHOLDERS:
@@ -493,19 +784,16 @@ class CommunityManager:
 
         paradox_data = storage.load_json("01_ideation", "paradox_hook.json")
         if not dissonance_trigger and paradox_data:
-            for k in ("social_comment_trigger", "dissonance_trigger", "paradox_statement"):
+            for k in ("offcenter_creator_bet", "social_comment_trigger", "dissonance_trigger", "paradox_statement"):
                 cand = str(paradox_data.get(k) or "").strip()
                 if cand and cand.lower() not in _GENERIC_PLACEHOLDERS and "?" in cand:
                     dissonance_trigger = cand
                     break
 
+        fallback_title = str(metadata.get("title") or manifest.get("title") or "this neural mechanism")
         if not dissonance_trigger:
-            title = metadata.get("title") or manifest.get("title", "this neural mechanism")
-            clean_title = re.sub(r"[^\w\s\?]", "", title).strip()
-            if "?" in clean_title:
-                dissonance_trigger = f"{clean_title} What is your take on this neural mechanism?"
-            else:
-                dissonance_trigger = f"Have you ever noticed '{clean_title}' happening in your own brain?"
+            clean_title = re.sub(r"[^\w\s\?]", "", fallback_title).strip()
+            dissonance_trigger = _ensure_creator_bet_line1("", fallback_topic=clean_title)
 
         clean_trigger = _strip_emojis_and_bullets(
             re.sub(
@@ -515,12 +803,13 @@ class CommunityManager:
                 flags=re.IGNORECASE,
             )
         )
+        clean_trigger = _ensure_creator_bet_line1(clean_trigger, fallback_topic=fallback_title)
 
         doi_clean = doi.strip()
         doi_link = doi_clean if doi_clean.startswith("http") else f"https://doi.org/{doi_clean}"
 
         headline = _strip_emojis_and_bullets(str(pkg.get("headline") or ""))
-        paragraphs = [_strip_emojis_and_bullets(p) for p in (pkg.get("paragraphs") or []) if p]
+        paragraphs = [_sanitize_comment_violence_tokens(_strip_emojis_and_bullets(p)) for p in (pkg.get("paragraphs") or []) if p]
 
         if not headline or not paragraphs:
             raw_title = str(metadata.get("title") or manifest.get("title") or project_id).strip()
@@ -539,10 +828,19 @@ class CommunityManager:
             target_reg = str((research_card or {}).get("target_region") or "the target neural circuit").strip()
             damaged_reg = str((research_card or {}).get("damaged_region") or "the primary pathway").strip()
             paragraphs = [
-                f"A neuroscience case from {location} ({yr}) involving {protagonist} highlights how specific brain circuits shape human perception and behavior.",
-                f"According to the peer-reviewed study, researchers investigated how neural signaling changes across {damaged_reg} and {target_reg} under controlled experimental conditions.",
-                _strip_emojis_and_bullets(core_facts) or f"What stood out during testing was the precise dissociation between automatic neural processing in {target_reg} and conscious awareness.",
-                f"Rather than a general cognitive change, the findings point to a specific circuit-level mechanism operating between {damaged_reg} and {target_reg}.",
+                _sanitize_comment_violence_tokens(
+                    f"A neuroscience case from {location} ({yr}) involving {protagonist} highlights how specific brain circuits shape human perception and behavior."
+                ),
+                _sanitize_comment_violence_tokens(
+                    f"According to the peer-reviewed study, researchers investigated how neural signaling changes across {damaged_reg} and {target_reg} under controlled experimental conditions."
+                ),
+                _sanitize_comment_violence_tokens(
+                    _strip_emojis_and_bullets(core_facts)
+                    or f"What stood out during testing was the precise dissociation between automatic neural processing in {target_reg} and conscious awareness."
+                ),
+                _sanitize_comment_violence_tokens(
+                    f"Rather than a general cognitive change, the findings point to a specific circuit-level mechanism operating between {damaged_reg} and {target_reg}."
+                ),
                 "Understanding this pathway helps clarify how the brain separates fast unconscious processing from conscious experience.",
             ]
 
@@ -563,8 +861,8 @@ class CommunityManager:
             clean_trigger = clean_trigger.rstrip(".! ") + "?"
 
         body_text = "\n\n".join(paragraphs)
-        # Canonical R35 mobile-first layout: Viewer Debate Question ('?') on Line 1 + [Headline] on Line 2
-        # above the 3-line mobile 'Read more' fold (7 double-newline blocks total).
+        # Canonical R35 mobile-first layout: 3-Stage Ignition Creator Bet + Forced-Choice ('?') on Line 1
+        # + [Headline] on Line 2 above the 3-line mobile 'Read more' fold (7 double-newline blocks total).
         header_block = f"{clean_trigger}\n[{headline}]" if clean_trigger else f"[{headline}]"
         comment_text = (
             f"{header_block}\n\n"
@@ -572,22 +870,34 @@ class CommunityManager:
             f"{companion_line}"
             f"Source: {doi_link}"
         )
+        val_issues = validate_debate_pinned_comment_line1(
+            clean_trigger,
+            full_comment=comment_text,
+            require_doi=True,
+        )
 
         return {
             "project_id": project_id,
             "headline": headline,
             "doi": doi,
             "doi_link": doi_link,
-            "dissonance_trigger": dissonance_trigger,
-            "social_comment_trigger": dissonance_trigger,
+            "dissonance_trigger": clean_trigger,
+            "social_comment_trigger": clean_trigger,
+            "line1_valid": len(val_issues) == 0,
+            "validation_issues": val_issues,
             "word_count": len(comment_text.split()),
             "comment_text": comment_text,
         }
 
     def stage_prepared_comment(self, project_id: str) -> dict[str, Any]:
-        """Persists 06_publish/prepared_comment.json with manifest SHA-256 registration."""
-        storage = ProjectStorage(project_id, projects_dir=self.projects_dir)
+        """Persists 06_publish/prepared_comment.json with manifest SHA-256 registration and Line 1 QA gate."""
+        eff_projects_dir = self._resolve_projects_dir(project_id)
+        storage = ProjectStorage(project_id, projects_dir=eff_projects_dir)
         payload = self.prepare_comment_content(project_id)
+        if payload.get("validation_issues"):
+            raise ValueError(
+                f"Refusing to stage invalid pinned comment for {project_id}: {payload['validation_issues']}"
+            )
         staged = {
             **payload,
             "staged_at": datetime.now(timezone.utc).isoformat(),
@@ -595,18 +905,30 @@ class CommunityManager:
         storage.save_json("06_publish", "prepared_comment.json", staged)
         return staged
 
-    async def _delete_existing_self_comments(self, client: Any, keep_marker: str = "") -> int:
-        """Deletes existing top-level comments authored by @AllAboutBrainOfficial before posting a replacement."""
+    async def _delete_existing_self_comments(
+        self,
+        client: Any,
+        keep_marker: str = "",
+        keep_first_line: str = "",
+    ) -> int:
+        """
+        Deletes existing top-level comments authored by @AllAboutBrainOfficial before posting a replacement.
+        Only skips an existing self-comment when BOTH `keep_marker` AND `keep_first_line` (if non-empty) match,
+        so updating Line 1 (the creator bet / question) while `[Headline]` stays unchanged properly replaces the old comment.
+        """
         deleted = 0
         for _ in range(5):
             clicked_menu = await client.eval(
                 f"""(() => {{
                     const keep = {json.dumps(keep_marker)};
+                    const keepLine1 = {json.dumps(keep_first_line)};
                     const threads = Array.from(document.querySelectorAll('ytd-comment-thread-renderer'));
                     for (const th of threads) {{
                         const txt = (th.innerText || '');
                         if (!txt.includes('@AllAboutBrainOfficial') && !txt.includes('ALL ABOUT BRAIN')) continue;
-                        if (keep && txt.includes(keep)) continue;
+                        const hasMarker = keep ? txt.includes(keep) : true;
+                        const hasLine1 = keepLine1 ? txt.includes(keepLine1) : true;
+                        if ((keep || keepLine1) && hasMarker && hasLine1) continue;
                         const btn = th.querySelector('button[aria-label="Action menu"], button[aria-label="작업 메뉴"], ytd-menu-renderer button');
                         if (btn) {{
                             btn.scrollIntoView({{ block: 'center' }});
@@ -680,8 +1002,10 @@ class CommunityManager:
         """Executes comment posting and pinning via DirectCDPClient in an isolated temporary tab (R36-B)."""
         project_id = comment_payload["project_id"]
         comment_text = comment_payload["comment_text"]
+        exact_first_line = comment_text.splitlines()[0].strip() if comment_text.strip() else ""
         headline_marker = f"[{comment_payload.get('headline', '')}]" if comment_payload.get("headline") else ""
-        storage = ProjectStorage(project_id, projects_dir=self.projects_dir)
+        eff_projects_dir = self._resolve_projects_dir(project_id)
+        storage = ProjectStorage(project_id, projects_dir=eff_projects_dir)
         now_iso = datetime.now(timezone.utc).isoformat()
         shorts_url = f"{YOUTUBE_WATCH_BASE_URL}{video_id}"
         watch_url = f"https://www.youtube.com/watch?v={video_id}"
@@ -777,7 +1101,8 @@ class CommunityManager:
                         "reason": comments_blocked_reason,
                     }
                     storage.save_json("06_publish", "community_receipt.json", receipt)
-                    write_studio_publish_receipt(project_id, projects_dir=self.projects_dir)
+                    if eff_projects_dir != LONGFORM_PROJECTS_DIR:
+                        write_studio_publish_receipt(project_id, projects_dir=eff_projects_dir)
                     return receipt
 
                 if not box_ready and not await client.wait_for_element(COMMUNITY_SELECTORS["comment_input_box"], timeout_sec=8.0):
@@ -785,7 +1110,11 @@ class CommunityManager:
 
                 if replace_existing:
                     await asyncio.sleep(1.5)
-                    deleted_prev = await self._delete_existing_self_comments(client, keep_marker=headline_marker)
+                    deleted_prev = await self._delete_existing_self_comments(
+                        client,
+                        keep_marker=headline_marker,
+                        keep_first_line=exact_first_line,
+                    )
                     await client.eval(
                         """(() => {
                             const c = document.querySelector('ytd-comments:not([hidden])') || document.querySelector('#below') || document.body;
@@ -795,15 +1124,20 @@ class CommunityManager:
                     await asyncio.sleep(0.8)
 
                 already_posted_exact = False
-                if headline_marker:
+                if headline_marker or exact_first_line:
                     already_posted_exact = bool(
                         await client.eval(
                             f"""(() => {{
                                 const marker = {json.dumps(headline_marker)};
+                                const firstLine = {json.dumps(exact_first_line)};
                                 const threads = Array.from(document.querySelectorAll('ytd-comment-thread-renderer'));
                                 return threads.some(th => {{
                                     const txt = (th.innerText || '');
-                                    return (txt.includes('@AllAboutBrainOfficial') || txt.includes('ALL ABOUT BRAIN')) && txt.includes(marker);
+                                    const isSelf = txt.includes('@AllAboutBrainOfficial') || txt.includes('ALL ABOUT BRAIN');
+                                    if (!isSelf) return false;
+                                    if (marker && !txt.includes(marker)) return false;
+                                    if (firstLine && !txt.includes(firstLine)) return false;
+                                    return true;
                                 }});
                             }})()"""
                         )
@@ -830,10 +1164,12 @@ class CommunityManager:
                     await client.eval(
                         f"""(() => {{
                             const marker = {json.dumps(headline_marker)};
+                            const firstLine = {json.dumps(exact_first_line)};
                             const threads = Array.from(document.querySelectorAll('ytd-comment-thread-renderer'));
                             return threads.some(th => {{
                                 const txt = (th.innerText || '');
                                 if (marker && !txt.includes(marker)) return false;
+                                if (firstLine && !txt.includes(firstLine)) return false;
                                 return /Pinned by|고정함/i.test(txt);
                             }});
                         }})()"""
@@ -845,10 +1181,12 @@ class CommunityManager:
                     opened_pin_menu = await client.eval(
                         f"""(() => {{
                             const marker = {json.dumps(headline_marker)};
+                            const firstLine = {json.dumps(exact_first_line)};
                             const threads = Array.from(document.querySelectorAll('ytd-comment-thread-renderer'));
                             for (const th of threads) {{
                                 const txt = (th.innerText || '');
                                 if (marker && !txt.includes(marker)) continue;
+                                if (firstLine && !txt.includes(firstLine)) continue;
                                 const btn = th.querySelector('button[aria-label="Action menu"], button[aria-label="작업 메뉴"], ytd-menu-renderer button');
                                 if (btn) {{
                                     btn.scrollIntoView({{ block: 'center' }});
@@ -914,10 +1252,12 @@ class CommunityManager:
                                 await client.eval(
                                     f"""(() => {{
                                         const marker = {json.dumps(headline_marker)};
+                                        const firstLine = {json.dumps(exact_first_line)};
                                         const threads = Array.from(document.querySelectorAll('ytd-comment-thread-renderer'));
                                         return threads.some(th => {{
                                             const txt = (th.innerText || '');
                                             if (marker && !txt.includes(marker)) return false;
+                                            if (firstLine && !txt.includes(firstLine)) return false;
                                             return /Pinned by|고정함/i.test(txt);
                                         }});
                                     }})()"""
@@ -938,7 +1278,8 @@ class CommunityManager:
             "status": "pinned" if pinned_ok else "posted_unpinned",
         }
         storage.save_json("06_publish", "community_receipt.json", receipt)
-        write_studio_publish_receipt(project_id, projects_dir=self.projects_dir)
+        if eff_projects_dir != LONGFORM_PROJECTS_DIR:
+            write_studio_publish_receipt(project_id, projects_dir=eff_projects_dir)
         return receipt
 
     def post_and_pin_comment(
@@ -949,7 +1290,8 @@ class CommunityManager:
         replace_existing: bool = False,
     ) -> dict[str, Any]:
         """Synchronous wrapper to post and pin DOI comment."""
-        storage = ProjectStorage(project_id, projects_dir=self.projects_dir)
+        eff_projects_dir = self._resolve_projects_dir(project_id)
+        storage = ProjectStorage(project_id, projects_dir=eff_projects_dir)
         if not video_id:
             receipt = storage.load_json("06_publish", "upload_receipt.json")
             if receipt and receipt.get("video_id") and receipt["video_id"] != "unknown":
@@ -958,6 +1300,10 @@ class CommunityManager:
                 video_id = f"sim_{project_id[:11]}"
 
         payload = self.prepare_comment_content(project_id)
+        if not dry_run and payload.get("validation_issues"):
+            raise ValueError(
+                f"Refusing to post R35 comment for {project_id} with validation issues: {payload['validation_issues']}"
+            )
         return asyncio.run(
             self._async_post_and_pin(
                 video_id,
@@ -1022,7 +1368,12 @@ class CommunityManager:
                     comm_rec = {}
 
             self.stage_prepared_comment(pid)
-            if comm_rec.get("pinned") is True and not replace_existing:
+            comm_vid = str(comm_rec.get("video_id") or "").strip()
+            if (
+                comm_rec.get("pinned") is True
+                and (not comm_vid or comm_vid == vid)
+                and not replace_existing
+            ):
                 results.append(
                     {
                         "project_id": pid,

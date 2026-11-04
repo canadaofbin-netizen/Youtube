@@ -840,9 +840,9 @@ def main():
 
     p_db = subparsers.add_parser(
         "diorama-batch",
-        help="Resumable Wave 1-4 (20-episode) Schema v7/v6 neuro_diorama precheck, Flow generation, assembly & QA orchestrator",
+        help="Resumable Wave 1-6 (30-episode) Schema v7/v6 neuro_diorama precheck, Flow generation, assembly & QA orchestrator",
     )
-    p_db.add_argument("--wave", default="all", help="Wave selector: 1, 2, 3, 4, or all (default: all)")
+    p_db.add_argument("--wave", default="all", help="Wave selector: 1, 2, 3, 4, 5, 6, or all (default: all)")
     p_db.add_argument("--projects", default="", help="Optional comma-separated project_ids subset")
     p_db.add_argument("--precheck-only", action="store_true", default=False, help="Run prompt-gate + TTS duration lock only")
     p_db.add_argument("--tabs", type=int, default=5, help="Max concurrent Google Flow shard tabs per project (<=5)")
@@ -855,6 +855,7 @@ def main():
         help="Flow engine policy: auto (Omni 1.1 Flash -> 0-credit auto-fallback), omni, or zero-credit",
     )
     p_db.add_argument("--voice-preset", default=None, choices=list(DIORAMA_VOICE_PRESETS), help="Optional narrator voice preset override")
+    p_db.add_argument("--prosody-mode", default=None, choices=list(DIORAMA_V7_PROSODY_MODES), help="Optional prosody mode override")
 
     p_pg = subparsers.add_parser("prompt-gate", help="Run the v5/v6/v7 production gate on a project or dossier draft")
     p_de = subparsers.add_parser(
@@ -874,6 +875,7 @@ def main():
     p_de.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
     p_de.add_argument("--engine", default="auto", choices=["auto", "omni", "zero_credit", "zero-credit"], help="Flow engine policy")
     p_de.add_argument("--voice-preset", default=None, choices=list(DIORAMA_VOICE_PRESETS), help="Optional narrator voice preset override")
+    p_de.add_argument("--prosody-mode", default=None, choices=list(DIORAMA_V7_PROSODY_MODES), help="Optional prosody mode override")
 
     p_dp = subparsers.add_parser(
         "diorama-pipeline",
@@ -890,6 +892,7 @@ def main():
     p_dp.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
     p_dp.add_argument("--engine", default="auto", choices=["auto", "omni", "zero_credit", "zero-credit"], help="Flow engine policy")
     p_dp.add_argument("--voice-preset", default=None, choices=list(DIORAMA_VOICE_PRESETS), help="Optional narrator voice preset override")
+    p_dp.add_argument("--prosody-mode", default=None, choices=list(DIORAMA_V7_PROSODY_MODES), help="Optional prosody mode override")
     p_pg.add_argument("--dir", required=True, help="Folder holding 02_script/script.json or script.json, visual_plan.json, 03_visuals/")
 
     p_ap = subparsers.add_parser("audit-prompts", help="Score every project against Prompt System v5 and write the score sheet")
@@ -1063,6 +1066,17 @@ def main():
     p_sw.add_argument("--no-pins", action="store_true", default=False, help="Skip R35 DOI comment pinning")
     p_sw.add_argument("--no-links", action="store_true", default=False, help="Skip R35-B Short-to-Short related video linking")
 
+    p_su = subparsers.add_parser(
+        "studio-unschedule",
+        help="Safely unschedule (delete forever or switch to private) whitelisted unpublished Scheduled legacy Shorts",
+    )
+    p_su.add_argument("--projects", default="diorama_08..26", help="Whitelisted range or comma-separated project_ids (default: diorama_08..26)")
+    p_su.add_argument("--mode", default="delete", choices=["delete", "private"], help="Take-down mode (default: delete)")
+    p_su.add_argument("--dry-run", action="store_true", default=False, help="Verify live Studio Scheduled rows without deleting")
+    p_su.add_argument("--clean-local", action="store_true", default=False, help="Archive retired Stage-5 receipts and clean legacy lowpoly media")
+    p_su.add_argument("--sync-public", action="store_true", default=False, help="Sync elapsed diorama_04..07 receipts to public and clean staging_queue.json")
+    p_su.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port")
+
     p_nr = subparsers.add_parser(
         "news-radar",
         help="Scan recent Crossref / ClinicalTrials breaking BCI & neuroscience papers into Completed_Neuro_News_Shorts staging",
@@ -1070,12 +1084,68 @@ def main():
     p_nr.add_argument("--days", type=int, default=14, help="Lookback window in days (default: 14)")
     p_nr.add_argument("--max-candidates", type=int, default=5, help="Max staged news cards (default: 5)")
 
+    p_lfi = subparsers.add_parser(
+        "longform-init",
+        help="Initialize standalone 16:9 (1920x1080) Long-Form project in projects_longform/<project_id>/",
+    )
+    p_lfi.add_argument("--project", required=True, help="Target Long-Form project_id (e.g. longform_01_glymphatic_sleep_toxins)")
+    p_lfi.add_argument("--spec", required=True, help="Path to episode_spec JSON file")
+
+    p_lfa = subparsers.add_parser(
+        "longform-audio",
+        help="Synthesize standalone Long-Form relaxed narration (longform_us_v7, -14.0 LUFS) + 1920x1080 ASS subtitles + EDL retiming",
+    )
+    p_lfa.add_argument("--project", required=True, help="Target Long-Form project_id or path")
+    p_lfa.add_argument("--voice-preset", default="emma_v7", choices=list(DIORAMA_VOICE_PRESETS), help="Voice preset (default: emma_v7)")
+    p_lfa.add_argument("--engine", default="edge-tts", choices=["edge-tts", "kokoro-onnx"], help="TTS engine (default: edge-tts)")
+    p_lfa.add_argument("--force", action="store_true", default=False, help="Re-synthesize all sentence audio ignoring cache")
+
+    p_lfr = subparsers.add_parser(
+        "longform-refs",
+        help="Synthesize & Q1-Q10 verify 1920x1080 (16:9) Hybrid Track A + Track B Reference Anchor Pack via 0-credit Google Flow Image x4",
+    )
+    p_lfr.add_argument("--project", required=True, help="Target Long-Form project_id or path")
+    p_lfr.add_argument("--backend", default="flow", choices=["flow", "gemini"], help="Reference image backend (default: flow)")
+    p_lfr.add_argument("--batch-count", type=int, default=4, help="0-credit Flow Image candidates per prompt (1..4, default: 4)")
+    p_lfr.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port")
+    p_lfr.add_argument("--force", action="store_true", default=False, help="Regenerate existing 16:9 reference PNGs")
+
+    p_lff = subparsers.add_parser(
+        "longform-flow",
+        help="Execute chapter-sharded (<= 14 clips/shard) 16:9 Google Flow video generation into flow_native_clips/",
+    )
+    p_lff.add_argument("--project", required=True, help="Target Long-Form project_id or path")
+    p_lff.add_argument("--tabs", type=int, default=3, help="Max concurrent Flow tabs (capped <= 3)")
+    p_lff.add_argument("--shard", type=int, default=None, help="Optional 1-based shard index to run")
+    p_lff.add_argument("--clips", default="", help="Optional comma-separated clip numbers")
+    p_lff.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port")
+    p_lff.add_argument("--engine", default="auto", choices=["auto", "omni", "zero-credit"], help="Flow video engine mode")
+    p_lff.add_argument("--dry-run", action="store_true", default=False, help="Validate shard plan & CV cache without opening browser")
+    p_lff.add_argument("--force", action="store_true", default=False, help="Regenerate existing clip MP4s")
+
     p_lf = subparsers.add_parser(
         "longform-assemble",
-        help="Assemble 16:9 3840x2160 @ 24fps (-14.0 LUFS) CTV Long-Form documentary MP4 + 4K A/B/C thumbnails",
+        help="Assemble standalone 16:9 1920x1080 @ 24fps (-14.0 LUFS) Full HD Long-Form MP4 + burned-in ASS + <2 MB A/B/C thumbnails",
     )
-    p_lf.add_argument("--project", required=True, help="Target project_id or path")
-    p_lf.add_argument("--hook-text", default="THE HIDDEN CIRCUIT", help="4K thumbnail hook headline")
+    p_lf.add_argument("--project", required=True, help="Target Long-Form project_id or path")
+    p_lf.add_argument("--hook-text", default="THE HIDDEN CIRCUIT", help="1920x1080 thumbnail hook headline")
+
+    p_lfq = subparsers.add_parser(
+        "longform-qa",
+        help="Run LFQ1-LFQ12 standalone 16:9 (1920x1080) Long-Form QA suite",
+    )
+    p_lfq.add_argument("--project", required=True, help="Target Long-Form project_id or path")
+    p_lfq.add_argument("--require-audio", action="store_true", default=False, help="Require audio_master.wav & subtitles.ass")
+    p_lfq.add_argument("--require-refs", action="store_true", default=False, help="Require verified 16:9 reference_image_qa_report.json")
+    p_lfq.add_argument("--require-final-mp4", "--require-mp4", dest="require_final_mp4", action="store_true", default=False, help="Require final_longform_1920x1080.mp4")
+
+    p_lfp = subparsers.add_parser(
+        "longform-publish",
+        help="Stage 1920x1080 <2 MB thumbnails, 00:00 chapter metadata.json, and 3-Stage Debate Ignition prepared_comment.json",
+    )
+    p_lfp.add_argument("--project", required=True, help="Target Long-Form project_id or path")
+    p_lfp.add_argument("--hook-text", default="", help="Optional thumbnail hook override")
+    p_lfp.add_argument("--upload-cc", action="store_true", default=False, help="Enable external .srt CC upload (default: False)")
 
     args = parser.parse_args()
 
@@ -1100,11 +1170,32 @@ def main():
     if args.command == "studio-watchdog":
         cmd_studio_watchdog(args)
         return
+    if args.command == "studio-unschedule":
+        cmd_studio_unschedule(args)
+        return
     if args.command == "news-radar":
         cmd_news_radar(args)
         return
+    if args.command == "longform-init":
+        cmd_longform_init(args)
+        return
+    if args.command == "longform-audio":
+        cmd_longform_audio(args)
+        return
+    if args.command == "longform-refs":
+        cmd_longform_refs(args)
+        return
+    if args.command == "longform-flow":
+        cmd_longform_flow(args)
+        return
     if args.command == "longform-assemble":
         cmd_longform_assemble(args)
+        return
+    if args.command == "longform-qa":
+        cmd_longform_qa(args)
+        return
+    if args.command == "longform-publish":
+        cmd_longform_publish(args)
         return
     if args.command == "diorama-batch":
         import json as _json
@@ -1121,6 +1212,7 @@ def main():
             cdp_port=int(args.cdp_port),
             engine_mode=eng_mode,
             voice_preset=args.voice_preset,
+            prosody_mode=args.prosody_mode,
         )
         print(_json.dumps(rep, indent=2, ensure_ascii=False))
         return
@@ -1138,6 +1230,7 @@ def main():
             cdp_port=int(args.cdp_port),
             engine_mode=str(args.engine).replace("-", "_"),
             voice_preset=args.voice_preset,
+            prosody_mode=args.prosody_mode,
         )
         print(_json.dumps(rep, indent=2, ensure_ascii=False, default=str))
         return
@@ -1154,6 +1247,7 @@ def main():
             cdp_port=int(args.cdp_port),
             engine_mode=str(args.engine).replace("_", "-"),
             voice_preset=args.voice_preset,
+            prosody_mode=args.prosody_mode,
         )
         print(_json.dumps(rep, indent=2, ensure_ascii=False, default=str))
         return
@@ -2134,6 +2228,27 @@ def cmd_studio_watchdog(args):
     print(json.dumps(rep, indent=2, ensure_ascii=False, default=str))
 
 
+def cmd_studio_unschedule(args):
+    import json
+
+    from pipeline.studio.unschedule_retired_shorts import run_studio_unschedule
+
+    rep = run_studio_unschedule(
+        projects_spec=str(args.projects),
+        mode=str(args.mode),
+        dry_run=bool(args.dry_run),
+        clean_local=bool(args.clean_local),
+        sync_public=bool(args.sync_public),
+        cdp_port=int(args.cdp_port),
+    )
+    print(json.dumps(rep, indent=2, ensure_ascii=False, default=str))
+    rem = rep.get("studio", {}).get("remaining_scheduled_retired_ids") or []
+    if not args.dry_run and args.mode == "delete" and rem:
+        target_ids = {r.get("video_id") for r in (rep.get("studio", {}).get("results") or [])}
+        if any(v in target_ids for v in rem):
+            sys.exit(1)
+
+
 def cmd_news_radar(args):
     import json
 
@@ -2146,17 +2261,113 @@ def cmd_news_radar(args):
     print(json.dumps(rep, indent=2, ensure_ascii=False))
 
 
+def cmd_longform_init(args):
+    import json
+
+    from pipeline.longform_prompt_builder import initialize_longform_project
+
+    spec_doc = json.loads(Path(args.spec).read_text(encoding="utf-8"))
+    res = initialize_longform_project(str(args.project).strip(), spec_doc)
+    print(json.dumps(res, indent=2, ensure_ascii=False))
+
+
+def cmd_longform_audio(args):
+    import json
+
+    from pipeline.longform_audio import synthesize_longform_master_audio
+
+    res = synthesize_longform_master_audio(
+        args.project,
+        voice_preset=str(args.voice_preset),
+        engine=str(args.engine),
+        force=bool(args.force),
+    )
+    print(json.dumps(res, indent=2, ensure_ascii=False))
+
+
+def cmd_longform_refs(args):
+    import json
+
+    from pipeline.longform_refs import ensure_longform_reference_pack
+
+    res = ensure_longform_reference_pack(
+        args.project,
+        cdp_port=int(args.cdp_port),
+        batch_count=int(args.batch_count),
+        backend=str(args.backend),
+        force=bool(args.force),
+    )
+    print(json.dumps(res, indent=2, ensure_ascii=False))
+    if not res.get("cv_pre_generation_ready"):
+        sys.exit(1)
+
+
+def cmd_longform_flow(args):
+    import asyncio
+    import json
+
+    from pipeline.longform_flow_worker import run_longform_sharded_flow_generation
+
+    only = [int(x.strip()) for x in str(args.clips).split(",") if x.strip()] if str(args.clips).strip() else None
+    res = asyncio.run(
+        run_longform_sharded_flow_generation(
+            args.project,
+            tabs=int(args.tabs),
+            shard_index=args.shard,
+            only_clips=only,
+            cdp_port=int(args.cdp_port),
+            engine_mode=str(args.engine),
+            force=bool(args.force),
+            dry_run=bool(args.dry_run),
+        )
+    )
+    print(json.dumps(res, indent=2, ensure_ascii=False))
+    if not args.dry_run and res.get("failed_clips"):
+        sys.exit(1)
+
+
 def cmd_longform_assemble(args):
     import json
 
-    from pipeline.longform_assembler import assemble_longform_4k_episode
+    from pipeline.longform_assembler import assemble_longform_episode
 
-    res = assemble_longform_4k_episode(args.project, hook_text=str(args.hook_text))
+    res = assemble_longform_episode(args.project, hook_text=str(args.hook_text))
     res["thumbnails_4k"] = res.get("thumbnails")
     print(json.dumps(res, indent=2, ensure_ascii=False))
     if not res.get("passed", True):
         sys.exit(1)
 
 
+def cmd_longform_qa(args):
+    import json
+
+    from pipeline.longform_qa import run_longform_qa
+
+    rep = run_longform_qa(
+        args.project,
+        require_audio=bool(args.require_audio),
+        require_refs=bool(args.require_refs),
+        require_final_mp4=bool(args.require_final_mp4),
+        save_report=True,
+    )
+    print(json.dumps(rep, indent=2, ensure_ascii=False))
+    if not rep.get("passed"):
+        sys.exit(1)
+
+
+def cmd_longform_publish(args):
+    import json
+
+    from pipeline.longform_publish import prepare_longform_publish_package
+
+    rep = prepare_longform_publish_package(
+        args.project,
+        hook_text=str(args.hook_text).strip() or None,
+        upload_cc_srt=bool(args.upload_cc),
+    )
+    print(json.dumps(rep, indent=2, ensure_ascii=False))
+
+
 if __name__ == "__main__":
     main()
+

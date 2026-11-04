@@ -1,0 +1,1311 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "false_memory_elizabeth_loftus",
+  "topic": "Elizabeth Loftus & John Palmer (1974) Crash Verb Misinformation Experiment, Week-Later Phantom Broken Glass, Hippocampal Reconsolidation, and Eyewitness Lineup Reform",
+  "act5_climax_episode": "DNA exoneration reviews across 375 wrongful convictions revealing 70% eyewitness contamination and driving nationwide double-blind police photo-folder and open-question interview reforms.",
+  "outro_title_lines": [
+    "LOFTUS & PALMER (1974)",
+    "UNIVERSITY OF WASHINGTON"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "CAMERA MYTH?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FAKE BROKEN GLASS?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "ONE VERB SHIFT"
+    },
+    {
+      "sentence_index": 19,
+      "text": "MEMORY REBUILD"
+    },
+    {
+      "sentence_index": 27,
+      "text": "LOST IN MALL"
+    },
+    {
+      "sentence_index": 35,
+      "text": "COURT REFORM"
+    },
+    {
+      "sentence_index": 43,
+      "text": "GUARD RECALL"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "CAMERA MYTH?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "FAKE BROKEN GLASS?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "ONE VERB SHIFT"
+    },
+    {
+      "sentence_index": 19,
+      "text": "MEMORY REBUILD"
+    },
+    {
+      "sentence_index": 27,
+      "text": "LOST IN MALL"
+    },
+    {
+      "sentence_index": 35,
+      "text": "COURT REFORM"
+    },
+    {
+      "sentence_index": 43,
+      "text": "GUARD RECALL"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 15,
+      "mode": "split_hstack",
+      "left_clip_index": 17,
+      "right_clip_index": 18,
+      "left_label": "SMASHED: SAW GLASS",
+      "right_label": "HIT: CLEAN ROAD"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored sage blazer sleeves and cool porcelain-white gloved matte-white porcelain hands holding a vintage brushed-silver film camera",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lift the brushed-silver camera and press the shutter button on the pale-stone desk",
+      "consequence": "the silver film reel clicks and stops cleanly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray knit sweater sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge over a desk",
+      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand slides a pale-blue film strip aside and opens a soft-ivory paper folder",
+      "consequence": "the paper sheet settles flat under warm daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray knit sweater cuffs and cool porcelain-white gloved matte-white porcelain hands holding a silver pen over a clean road model",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand taps a coral block onto the desk while the other scatters pale-sky crystal",
+      "consequence": "translucent sunlit shards glint across the compact intersection",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage blazer sleeves and cool porcelain-white gloved matte-white porcelain hands threading a brushed-silver classroom reel projector",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands guide a matte-gray film ribbon around the upper silver reel and flip the projector switch",
+      "consequence": "a soft warm beam shines forward across the room",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a sunlit university screening classroom with wooden desks and a bright pull-down projection screen",
+      "action": "viewed strictly from behind, clothed matte-white porcelain students in knit sweaters sit at desks watching two sunlit sedans bump gently on the bright screen while the researcher in a sage blazer stands beside the projector",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 4,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the sunlit Seattle psychology classroom with rows of pale-wood student desks and tall windows",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain researchers in blazers walk along the aisle and place stacks of crisp ivory survey sheets onto the desks",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 6,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage blazer cuffs and cool porcelain-white gloved matte-white porcelain hands adjusting a smooth unlabelled matte brushed-silver projector barrel",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands rotate the smooth plain silver barrel collar as a smooth solid sunlit film and press the instrument into alignment",
+      "consequence": "a soft cool-white light cone projects cleanly forward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 6,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the bright sunlit intersection scene projected inside the sunlit classroom",
+      "action": "a sky-blue matte-white porcelain sedan and a pale-sand matte-white porcelain sedan roll slowly into the intersection, tap bumpers gently, and stop intact on clean gray pavement",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 7,
+      "end_sentence_index": 8,
+      "act": 1,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_left",
+      "attire_and_hands": "sage blazer sleeves and cool porcelain-white gloved matte-white porcelain hands sliding five pastel-tabbed survey folders across a pale-wood desk",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place and align five neat ivory folders with sky-blue, sage, amber, lavender, and",
+      "consequence": "the five distinct color-tabbed folders sit aligned in bright daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "denim jacket sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands open the sky-blue-tabbed ivory survey sheet and slide a silver pen calmly across the page",
+      "consequence": "a short blue slider bar rests low on the desk gauge",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "dove-gray sweater sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands open the coral-tabbed survey sheet and push a brushed-silver speed slider sharply upward",
+      "consequence": "the coral indicator bar rises high along the track",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "pan_right",
+      "analogy_world": "a sunlit cool-alabaster comparison lane where a sunlit matte-white porcelain bicycle with silver handlebars and pedals rolls beside two compact sedans",
+      "comparison_action": "clothed matte-white porcelain cyclist legs in dove-gray trousers pedal the two-wheeled bicycle briskly past the slow sedan model to match the faster speed gap",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 11,
+      "act": 2,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage blazer sleeves and cool porcelain-white gloved matte-white porcelain hands comparing the sky-blue and coral slider bars",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand lifts the coral-tabbed folder while the other hand taps a clean compact sedan bumper",
+      "consequence": "both compact bumpers remain smooth and unbroken",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit pale-sand studio table holding a soft sky-blue bellows lung model beside a tiny four-segment sand tally counter",
+      "comparison_action": "two cool porcelain-white gloved matte-white porcelain hands in coat sleeves press and release the sky-blue bellows once in a single calm breath while the sand settles",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the bright university screening room as afternoon light streams across rows of wooden desks",
+      "action": "viewed strictly from behind, clothed matte-white porcelain students in sweaters and jackets close their folders, stand up from the desks, and walk toward the hallway door",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "end_sentence_index": 14
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit screening classroom with the pull-down screen rolled up and the projector switched off under a dust cover",
+      "action": "viewed strictly from behind, clothed matte-white porcelain students in cardigans walk back to their wooden desks and sit down facing the blank wall",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray sweater sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge over the coral-tabbed form",
+      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand presses a silver pen down to mark the upper coral response box",
+      "consequence": "the coral response box stays firmly checked",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 15,
+      "cut_role": "split_right",
+      "act": 2,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "denim jacket sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge over the sky-blue-tabbed form",
+      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand slides a silver pen down to mark the lower sky-blue box beside",
+      "consequence": "the compact gray road tile remains completely bare and clean",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_number": 19,
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside two unmarked survey sheets ( vs ) (crisp white",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align two unmarked survey sheets ( vs ) (crisp white",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_number": 20,
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside week-later calendar flip stand (desktop calendar flipped forward seven",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align week-later calendar flip stand (desktop calendar flipped forward seven",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit Seattle classroom with completed survey stacks on the front desk",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain psychologist in a sage blazer and her co-author in a dove-gray jacket stand beside the silent projector comparing the tall coral stack against the clean film reel as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "end_sentence_index": 19
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "HIPPOCAMPUS\nMEMORY RECORDER",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the curved C-shaped hippocampus ridge glows warm amber-gold as its facets gently open along the medial temporal wall",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "mall_study_office",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands molding a soft pastel-ivory clay tile",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands warm and press the soft high-key architectural relief of two compact cars on",
+      "consequence": "the softened clay surface yields smoothly to gentle pressure",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23,
+      "scene_state": {
+        "location_id": "mall_study_office",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "end_sentence_index": 22
+    },
+    {
+      "sentence_index": 22,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 3,
+      "location_id": "mall_study_office",
+      "grammar": "porcelain_pov_hands",
+      "camera": "pan_left",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands snap sky-blue car tiles together and insert a new coral shard tile into",
+      "consequence": "the rebuilt mosaic holds the added coral shard seamlessly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "mall_study_office",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nVERBAL PLANNER",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front lobe of the matte warm-ivory 3D brain model, soft coral-amber facets illuminate the prefrontal cortex and send a smooth stream backward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "VISUAL CORTEX\nVISION CENTER",
+      "camera": "pan_right",
+      "brain_scene": "at the rear occipital pole of the matte warm-ivory 3D brain model, sky-blue facets light up across the primary visual cortex as the incoming stream arrives",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "HIPPOCAMPUS\nEDITED TRACE SAVED",
+      "camera": "locked_tripod",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the curved hippocampus arch blends sky-blue and coral facets into a single steady amber-gold glow",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 27,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "mall_study_office",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "soft-olive cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands holding a stapled ivory childhood booklet",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands turn open the crisp ivory booklet on a sunlit slate-stone table to reveal",
+      "consequence": "one coral story block sits tucked among three sage blocks",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "mall_study_office",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "end_sentence_index": 28,
+      "act": 4,
+      "location_id": "mall_study_office",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a quiet sunlit university interview office with an armchair, potted fern, and small wooden table",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain interviewer in an olive cardigan reaches across the table and slides the stapled four-block booklet to a seated adult volunteer in a sky-blue shirt who opens it",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "mall_study_office",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "mall_study_office",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "pan_left",
+      "structure": "a bright sunlit architectural model of an indoor shopping mall atrium with skylights and benches",
+      "internal_mechanism": "a tiny matte-white porcelain child figure in a soft-mint sweater stands alone beside a central fountain before a taller figure in a plaid jacket steps over",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "mall_study_office",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
+    },
+    {
+      "clip_number": 31,
+      "sentence_index": 30,
+      "act": 4,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside 16mm classroom film projector and pull-down screen inside a",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align 16mm classroom film projector and pull-down screen, and set",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 4,
+      "location_id": "mall_study_office",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue shirt sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands place a compact red-and-dove-gray checkered flannel swatch onto the coral story square of",
+      "consequence": "the woven plaid fabric square rests vividly on the page",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "mall_study_office",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 31,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "mall_study_office",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit university interview office beside tall bright windows",
+      "action": "viewed strictly from behind, the seated clothed matte-white porcelain volunteer in the sky-blue shirt gestures animatedly with open hands toward the interviewer who writes notes in a pad",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "mall_study_office",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png",
+      "end_sentence_index": 32
+    },
+    {
+      "clip_number": 34,
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside two unmarked survey sheets ( vs ) (crisp white",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align two unmarked survey sheets ( vs ) (crisp white",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "mall_study_office",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands placing a clear protective glass bell over an ivory film reel",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands lower the smooth transparent dome cleanly over the untouched reel on the pale-wood stand",
+      "consequence": "coral dust blocks bounce harmlessly off the outer dome",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "mall_study_office",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 35,
+      "act": 5,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a sunlit wood-panelled courtroom with a raised bench and witness box under tall windows",
+      "action": "viewed strictly from behind, clothed matte-white porcelain attorneys in charcoal suits stand facing the witness box as a seated witness raises one hand firmly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "mall_study_office",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "white lab coat cuffs and cool porcelain-white gloved matte-white porcelain hands holding a glowing sky-blue double-helix model beside old case folders",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands set the smooth sculptural sky-blue helix sculpture onto a stack of faded powder-blue",
+      "consequence": "the folders open to reveal mismatched sunlit color tabs",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "mall_study_office",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_number": 38,
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside week-later calendar flip stand (desktop calendar flipped forward seven",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align week-later calendar flip stand (desktop calendar flipped forward seven",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 38,
+      "act": 5,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray cardigan sleeves and cool porcelain-white gloved matte-white porcelain hands resting earnestly over a wooden rail",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand presses calmly against the chest of the cardigan while the other hand rests",
+      "consequence": "warm daylight illuminates the sincere calm posture",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 39,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "mall_study_office",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "charcoal jacket sleeves and cool porcelain-white gloved matte-white porcelain hands tapping one portrait tile repeatedly in a lineup row",
+      "prop_action": "a matte-white gloved matte-white porcelain index finger nudges one coral-bordered portrait card forward ahead of five neutral gray cards",
+      "consequence": "the nudged card stands out unfairly from the row",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "mall_study_office",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "end_sentence_index": 40
+    },
+    {
+      "sentence_index": 40,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "mall_study_office",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "dove-gray sweater sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands open one plain cream folder calmly while an open blank notepad sits quietly",
+      "consequence": "the review proceeds cleanly with zero outside nudging",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "mall_study_office",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "mall_study_office",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of a bright forensic reform conference room with neutral folders and brain models on the table",
+      "action": "viewed strictly from behind, clothed matte-white porcelain psychologists and legal scholars in blazers stand around the table and nod together at the clean protocol as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "mall_study_office",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png",
+      "end_sentence_index": 42
+    },
+    {
+      "sentence_index": 43,
+      "act": 6,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "casual sage jacket sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands open a clean pocket notebook and click the top button of a brushed-silver pen",
+      "consequence": "the fresh ivory page lies ready in bright sunlight",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "end_sentence_index": 44
+    },
+    {
+      "sentence_index": 45,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "hippocampus",
+      "anatomy_label": "HIPPOCAMPUS\nOPEN TO EDITS",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, the medial C-shaped hippocampus glows soft sky-blue and amber-gold as subtle sunlit facets shift smoothly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "tilt_down",
+      "attire_and_hands": "sage blazer sleeves and cool porcelain-white gloved matte-white porcelain hands placing a tall gold confidence bar next to a cracked glass tile",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide the tall amber bar away from the cracked tile and set a",
+      "consequence": "the lens reveals the clean gray road surface underneath",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 47,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 6,
+      "location_id": "mall_study_office",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit city street corner beside a cafe patio table and two parked sedans",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain witness in a sage jacket steps over to the quiet patio table away from two gesturing bystanders",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "scene_state": {
+        "location_id": "mall_study_office",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
+    },
+    {
+      "sentence_index": 47,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 6,
+      "location_id": "mall_study_office",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage jacket sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge over the patio table",
+      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand writes brisk steady lines across the pocket notebook with a brushed-silver pen",
+      "consequence": "neat blue ink lines fill the fresh page",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "mall_study_office",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "end_sentence_index": 48
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "prefrontal cortex",
+      "anatomy_label": "PREFRONTAL CORTEX\nSOURCE CHECKER",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the front third of the matte warm-ivory 3D brain model, calm sky-blue and warm-gold facets glow evenly across the prefrontal cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit university screening classroom with the silver projector, clean sedan model, and pocket notebook arranged on the front desk",
+      "action": "viewed strictly from behind, clothed matte-white porcelain researchers in sage and dove-gray blazers stand calmly looking out toward the bright tall windows",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 49,
+      "scene_state": {
+        "location_id": "seattle_screening_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 50,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "seattle_screening_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a soft sunlit Pacific Northwest campus quad with evergreens, pale-stone arches, and clear sunlit sky",
+      "action": "viewed strictly from behind, clothed matte-white porcelain scholars and students in jackets walk calmly along the sunlit stone path as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 50
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "FAKE BROKEN GLASS?",
+    "cover_sentence_index": 3,
+    "cover_brief": "two pastel low-poly sedans bumping cleanly on spotless pale pavement in front of bright classroom projection screen"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "default_location_id": "seattle_screening_room",
+  "real_environment": "an elevated wide view of a sunlit university screening classroom with wooden desks and a bright pull-down projection screen",
+  "environment_props": [
+    "16mm classroom film projector and pull-down screen",
+    "two unmarked survey sheets ( vs ) (crisp white 1974 typed questionnaires differing by only one bolded verb)",
+    "week-later calendar flip stand (desktop calendar flipped forward seven days to Day 8)"
+  ],
+  "cast": {
+    "subject": "1974 collegiate knit sweaters, corduroy jackets, and wide-lapel blazer on Loftus and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "1974 collegiate knit sweaters, corduroy jackets, and wide-lapel blazer on Loftus and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_seattle_screening_room",
+      "location_id": "seattle_screening_room",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 1 (seattle_screening_room: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across an elevated wide view of a sunlit university screening classroom with wooden desks and a bright pull-down projection screen, featuring 16mm classroom film projector and pull-down screen. Inside the room, subject (1974 collegiate knit sweaters, corduroy jackets, and wide-lapel blazer on Loftus and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 16mm classroom film projector and pull-down screen. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "an elevated wide view of a sunlit university screening classroom with wo",
+        "16mm classroom film projector and pull-down screen"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_mall_study_office",
+      "location_id": "mall_study_office",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 2 (mall_study_office: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a quiet sunlit university interview office with an armchair, potted fern, and small wooden table. Inside the room, subject (1974 collegiate knit sweaters, corduroy jackets, and wide-lapel blazer on Loftus and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a quiet sunlit university interview office with an armchair, potted fern",
+        "an unmarked clinical tabletop apparatus"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_seattle_screening_room",
+      "location_id": "seattle_screening_room",
+      "present_cast": [
+        "researcher",
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_researcher"
+      ],
+      "title": "Room state anchor 3 (seattle_screening_room: researcher, subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside an elevated wide view of a sunlit university screening classroom with wooden desks and a bright pull-down projection screen, featuring 16mm classroom film projector and pull-down screen. Inside the room, researcher (1974 collegiate knit sweaters, corduroy jackets, and wide-lapel blazer on Loftus and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head), subject (1974 collegiate knit sweaters, corduroy jackets, and wide-lapel blazer on Loftus and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 16mm classroom film projector and pull-down screen. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "an elevated wide view of a sunlit university screening classroom with wo",
+        "16mm classroom film projector and pull-down screen"
+      ]
+    }
+  ],
+  "track_subtier": "B_scene_bible_anchor",
+  "voice_preset": "emma_v7",
+  "us_anti_clone_v7": true,
+  "prosody_mode": "dynamic_us_v7"
+}

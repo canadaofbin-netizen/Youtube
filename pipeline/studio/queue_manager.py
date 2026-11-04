@@ -450,15 +450,27 @@ class StagingQueueManager:
         planned_items: list[dict[str, Any]] = []
         emitted_keys: set[tuple[str, int]] = set()
 
-        if slots_per_day == 1:
-            active_slots: tuple[int, ...] = (2,)
-        elif daily_prime_only:
-            active_slots = (2, 4)
+        if slots_per_day == 2:
+            active_slots: tuple[int, ...] = (2, 4)
+        elif slots_per_day == 1 or daily_prime_only:
+            active_slots = (4,)
         else:
             active_slots = (1, 2, 3, 4, 5)
         for day_offset in range(days):
             current_date_dt = start_date_dt + timedelta(days=day_offset)
             date_str = current_date_dt.strftime("%Y-%m-%d")
+
+            if len(active_slots) == 1:
+                day_booked = [
+                    (k, v)
+                    for k, v in sorted(occupied_slots.items())
+                    if k[0] == date_str
+                ]
+                if day_booked:
+                    for b_key, b_val in day_booked:
+                        emitted_keys.add(b_key)
+                        planned_items.append(b_val)
+                    continue
 
             for slot_id in active_slots:
                 key = (date_str, slot_id)
@@ -524,17 +536,16 @@ class StagingQueueManager:
 
     def enforce_seed_protection_window(
         self,
-        min_interval_hours: float = 4.0,
+        min_interval_hours: float = 20.0,
         daily_prime_only: bool = True,
     ) -> dict[str, Any]:
         """
         Enforces seed-audience protection across scheduled items (R30-B):
         - Prevents simultaneous bulk releases that split the YouTube Shorts seed-audience test pool.
-        - Ensures at least `min_interval_hours` (default 4.0h) between consecutive assigned slots.
-        - When `daily_prime_only=True` (for channels < 10,000 subscribers), locks public
-          scheduling to prime Slots 2 (12:00 ET) and 4 (20:00 ET).
+        - Ensures at least `min_interval_hours` (default 20.0h for 1 Short/Day) between consecutive assigned Shorts.
+        - When `daily_prime_only=True`, locks public Shorts scheduling to Slot 4 (`19:30 ET`).
         """
-        slot_hours_map = {1: 7.5, 2: 12.0, 3: 16.0, 4: 20.0, 5: 22.5}
+        slot_hours_map = {1: 7.5, 2: 12.0, 3: 16.0, 4: 19.5, 5: 22.5}
         queue_data = self.load_queue()
         items = queue_data.get("scheduled_items", [])
         assigned = sorted(
@@ -543,7 +554,7 @@ class StagingQueueManager:
                 if it.get("project_id")
                 and str(it.get("status") or "").lower() not in {"published", "published_public"}
             ],
-            key=lambda x: (str(x.get("date") or "2026-01-01"), slot_hours_map.get(int(x.get("slot_id", 2)), 12.0)),
+            key=lambda x: (str(x.get("date") or "2026-01-01"), slot_hours_map.get(int(x.get("slot_id", 4)), 19.5)),
         )
 
         violations: list[str] = []
@@ -552,15 +563,15 @@ class StagingQueueManager:
 
         for it in assigned:
             d_str = it.get("date", "2026-01-01")
-            s_id = int(it.get("slot_id", 2))
+            s_id = int(it.get("slot_id", 4))
             dt = datetime.strptime(d_str, "%Y-%m-%d").replace(tzinfo=timezone.utc)
             if base_dt is None:
                 base_dt = dt
             day_diff = (dt - base_dt).days
-            abs_h = day_diff * 24.0 + slot_hours_map.get(s_id, 12.0)
+            abs_h = day_diff * 24.0 + slot_hours_map.get(s_id, 19.5)
 
-            if daily_prime_only and s_id not in (2, 4):
-                violations.append(f"{it['schedule_id']} ({it['project_id']}) scheduled outside prime slots (2, 4)")
+            if daily_prime_only and s_id != 4:
+                violations.append(f"{it['schedule_id']} ({it['project_id']}) scheduled outside prime Slot 4 (19:30 ET)")
             if prev_abs_hours is not None and (abs_h - prev_abs_hours) < (min_interval_hours - 0.6):
                 violations.append(
                     f"{it['schedule_id']} ({it['project_id']}) interval {abs_h - prev_abs_hours:.1f}h < {min_interval_hours:.1f}h"

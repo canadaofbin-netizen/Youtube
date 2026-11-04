@@ -64,163 +64,71 @@ _PLAQUE_TRIGGER_NOUNS_RE = re.compile(
     flags=re.IGNORECASE,
 )
 
-DIORAMA_BATCH_20_SPECS: tuple[dict[str, Any], ...] = (
-    # Wave 1 (01-05)
-    {
-        "index": 1,
-        "wave": 1,
-        "project_id": "diorama_01_patient_hm_hippocampus",
-        "slug": "patient_hm_hippocampus",
-        "pillar": "brain_history",
-    },
-    {
-        "index": 2,
-        "wave": 1,
-        "project_id": "diorama_02_ramachandran_phantom_mirror",
-        "slug": "ramachandran_phantom_limb_mirror",
-        "pillar": "brain_health",
-    },
-    {
-        "index": 3,
-        "wave": 1,
-        "project_id": "diorama_03_alien_hand_syndrome",
-        "slug": "alien_hand_syndrome",
-        "pillar": "brain_mysteries",
-    },
-    {
-        "index": 4,
-        "wave": 1,
-        "project_id": "diorama_04_milgram_obedience_switch",
-        "slug": "milgram_obedience_shock",
-        "pillar": "bci_ethics",
-    },
-    {
-        "index": 5,
-        "wave": 1,
-        "project_id": "diorama_05_hippocampal_memory_prosthesis",
-        "slug": "hippocampal_memory_prosthesis",
-        "pillar": "bci_tech",
-    },
-    # Wave 2 (06-10)
-    {
-        "index": 6,
-        "wave": 2,
-        "project_id": "diorama_06_clive_wearing_seven_second_mind",
-        "slug": "clive_wearing_seven_second_mind",
-        "pillar": "brain_mysteries",
-    },
-    {
-        "index": 7,
-        "wave": 2,
-        "project_id": "diorama_07_invisible_gorilla_attention",
-        "slug": "invisible_gorilla_attention",
-        "pillar": "brain_mysteries",
-    },
-    {
-        "index": 8,
-        "wave": 2,
-        "project_id": "diorama_08_maguire_london_taxi_hippocampus",
-        "slug": "maguire_london_taxi_hippocampus",
-        "pillar": "brain_health",
-    },
-    {
-        "index": 9,
-        "wave": 2,
-        "project_id": "diorama_09_broca_patient_tan_speech_loss",
-        "slug": "broca_patient_tan_speech_loss",
-        "pillar": "brain_history",
-    },
-    {
-        "index": 10,
-        "wave": 2,
-        "project_id": "diorama_10_olds_milner_pleasure_center",
-        "slug": "olds_milner_pleasure_center",
-        "pillar": "bci_tech",
-    },
-    # Wave 3 (11-15)
-    {
-        "index": 11,
-        "wave": 3,
-        "project_id": "diorama_11_blindsight_subcortical_vision",
-        "slug": "blindsight_subcortical_vision",
-        "pillar": "brain_mysteries",
-    },
-    {
-        "index": 12,
-        "wave": 3,
-        "project_id": "diorama_12_penfield_cortical_homunculus",
-        "slug": "penfield_cortical_homunculus",
-        "pillar": "brain_history",
-    },
-    {
-        "index": 13,
-        "wave": 3,
-        "project_id": "diorama_13_asch_conformity_pressure",
-        "slug": "asch_conformity_pressure",
-        "pillar": "bci_ethics",
-    },
-    {
-        "index": 14,
-        "wave": 3,
-        "project_id": "diorama_14_libet_readiness_potential",
-        "slug": "libet_readiness_potential_free_will",
-        "pillar": "brain_mysteries",
-    },
-    {
-        "index": 15,
-        "wave": 3,
-        "project_id": "diorama_15_draganski_juggling_gray_matter",
-        "slug": "draganski_juggling_gray_matter",
-        "pillar": "brain_health",
-    },
-    # Wave 4 (16-20)
-    {
-        "index": 16,
-        "wave": 4,
-        "project_id": "diorama_16_rizzolatti_mirror_neuron_empathy",
-        "slug": "rizzolatti_mirror_neuron_empathy",
-        "pillar": "brain_news",
-    },
-    {
-        "index": 17,
-        "wave": 4,
-        "project_id": "diorama_17_damasio_somatic_marker_decision",
-        "slug": "damasio_somatic_marker_decision",
-        "pillar": "brain_basics",
-    },
-    {
-        "index": 18,
-        "wave": 4,
-        "project_id": "diorama_18_greene_trolley_dilemma_dual_process",
-        "slug": "greene_trolley_dilemma_dual_process",
-        "pillar": "bci_ethics",
-    },
-    {
-        "index": 19,
-        "wave": 4,
-        "project_id": "diorama_19_davidson_monk_gamma_synchrony",
-        "slug": "davidson_monk_gamma_synchrony",
-        "pillar": "brain_health",
-    },
-    {
-        "index": 20,
-        "wave": 4,
-        "project_id": "diorama_20_dutton_aron_capilano_bridge",
-        "slug": "dutton_aron_capilano_bridge_arousal",
-        "pillar": "brain_basics",
-    },
+DIORAMA_DAILY_30_SPECS: tuple[dict[str, Any], ...] = (
+    # Wave 1 (Nov 05-09)
+    {"index": 1, "wave": 1, "project_id": "diorama_08_maguire_london_taxi_hippocampus", "slug": "maguire_london_taxi_hippocampus", "pillar": "brain_health"},
+    {"index": 2, "wave": 1, "project_id": "diorama_91_hochberg_braingate_robotic_coffee", "slug": "hochberg_braingate_robotic_coffee", "pillar": "bci_tech"},
+    {"index": 3, "wave": 1, "project_id": "diorama_30_little_albert_fear_conditioning", "slug": "little_albert_fear_conditioning", "pillar": "brain_history"},
+    {"index": 4, "wave": 1, "project_id": "diorama_31_darley_latane_bystander_effect", "slug": "darley_latane_bystander_effect", "pillar": "bci_ethics"},
+    {"index": 5, "wave": 1, "project_id": "diorama_28_csikszentmihalyi_flow_hypofrontality", "slug": "csikszentmihalyi_flow_hypofrontality", "pillar": "brain_health"},
+    # Wave 2 (Nov 10-14)
+    {"index": 6, "wave": 2, "project_id": "diorama_29_cotard_walking_corpse_syndrome", "slug": "cotard_walking_corpse_syndrome", "pillar": "brain_mysteries"},
+    {"index": 7, "wave": 2, "project_id": "diorama_16_rizzolatti_mirror_neuron_empathy", "slug": "rizzolatti_mirror_neuron_empathy", "pillar": "brain_news"},
+    {"index": 8, "wave": 2, "project_id": "diorama_27_baddeley_working_memory_architecture", "slug": "baddeley_working_memory_architecture", "pillar": "brain_basics"},
+    {"index": 9, "wave": 2, "project_id": "diorama_09_broca_patient_tan_speech_loss", "slug": "broca_patient_tan_speech_loss", "pillar": "brain_history"},
+    {"index": 10, "wave": 2, "project_id": "diorama_38_harlow_cloth_mother_attachment", "slug": "harlow_cloth_mother_attachment", "pillar": "brain_history"},
+    # Wave 3 (Nov 15-19)
+    {"index": 11, "wave": 3, "project_id": "diorama_13_asch_conformity_pressure", "slug": "asch_conformity_pressure", "pillar": "bci_ethics"},
+    {"index": 12, "wave": 3, "project_id": "diorama_11_blindsight_subcortical_vision", "slug": "blindsight_subcortical_vision", "pillar": "brain_mysteries"},
+    {"index": 13, "wave": 3, "project_id": "diorama_21_delgado_stimoceiver_bull", "slug": "delgado_stimoceiver_bull_stop", "pillar": "bci_tech"},
+    {"index": 14, "wave": 3, "project_id": "diorama_48_raichle_default_mode_network", "slug": "raichle_default_mode_network", "pillar": "brain_health"},
+    {"index": 15, "wave": 3, "project_id": "diorama_32_bandura_bobo_doll_mirroring", "slug": "bandura_bobo_doll_mirroring", "pillar": "brain_basics"},
+    # Wave 4 (Nov 20-24)
+    {"index": 16, "wave": 4, "project_id": "diorama_25_false_memory_elizabeth_loftus", "slug": "false_memory_elizabeth_loftus", "pillar": "brain_mysteries"},
+    {"index": 17, "wave": 4, "project_id": "diorama_43_kross_distanced_self_talk_chatter", "slug": "kross_distanced_self_talk_chatter", "pillar": "brain_health"},
+    {"index": 18, "wave": 4, "project_id": "diorama_14_libet_readiness_potential", "slug": "libet_readiness_potential_free_will", "pillar": "brain_mysteries"},
+    {"index": 19, "wave": 4, "project_id": "diorama_20_dutton_aron_capilano_bridge", "slug": "dutton_aron_capilano_bridge_arousal", "pillar": "brain_basics"},
+    {"index": 20, "wave": 4, "project_id": "diorama_39_dehaene_conscious_brain_ignition", "slug": "dehaene_conscious_brain_ignition", "pillar": "brain_mysteries"},
+    # Wave 5 (Nov 25-29)
+    {"index": 21, "wave": 5, "project_id": "diorama_75_mischel_marshmallow_self_control", "slug": "mischel_marshmallow_self_control", "pillar": "brain_health"},
+    {"index": 22, "wave": 5, "project_id": "diorama_62_zihl_akinetopsia_motion_blindness", "slug": "zihl_akinetopsia_motion_blindness", "pillar": "brain_mysteries"},
+    {"index": 23, "wave": 5, "project_id": "diorama_15_draganski_juggling_gray_matter", "slug": "draganski_juggling_gray_matter", "pillar": "brain_health"},
+    {"index": 24, "wave": 5, "project_id": "diorama_36_rosenhan_sane_in_insane_places", "slug": "rosenhan_sane_in_insane_places", "pillar": "bci_ethics"},
+    {"index": 25, "wave": 5, "project_id": "diorama_60_ebbinghaus_forgetting_curve", "slug": "ebbinghaus_forgetting_curve", "pillar": "brain_basics"},
+    # Wave 6 (Nov 30-Dec 04)
+    {"index": 26, "wave": 6, "project_id": "diorama_58_shapiro_emdr_trauma_saccades", "slug": "shapiro_emdr_trauma_saccades", "pillar": "brain_health"},
+    {"index": 27, "wave": 6, "project_id": "diorama_56_skinner_operant_superstition", "slug": "skinner_operant_superstition", "pillar": "brain_basics"},
+    {"index": 28, "wave": 6, "project_id": "diorama_10_olds_milner_pleasure_center", "slug": "olds_milner_pleasure_center", "pillar": "bci_tech"},
+    {"index": 29, "wave": 6, "project_id": "diorama_80_rubber_hand_body_plasticity", "slug": "rubber_hand_body_plasticity", "pillar": "brain_mysteries"},
+    {"index": 30, "wave": 6, "project_id": "diorama_24_bodamer_prosopagnosia_face_blindness", "slug": "bodamer_prosopagnosia_face_blindness", "pillar": "brain_mysteries"},
 )
+
+DIORAMA_BATCH_20_SPECS: tuple[dict[str, Any], ...] = DIORAMA_DAILY_30_SPECS
 
 
 def select_batch_specs(wave: str = "all", project_ids: list[str] | None = None) -> list[dict[str, Any]]:
     if project_ids:
-        wanted = set(project_ids)
-        return [dict(s) for s in DIORAMA_BATCH_20_SPECS if s["project_id"] in wanted]
+        by_pid = {str(s["project_id"]): dict(s) for s in DIORAMA_DAILY_30_SPECS}
+        out: list[dict[str, Any]] = []
+        for idx, pid in enumerate(project_ids, start=1):
+            if pid in by_pid:
+                out.append(dict(by_pid[pid]))
+                continue
+            p_dir = Path(PROJECTS_DIR) / pid
+            m_path = p_dir / "00_project_manifest.json"
+            s_path = p_dir / "02_script" / "script.json"
+            m_doc = json.loads(m_path.read_text(encoding="utf-8")) if m_path.exists() else {}
+            s_doc = json.loads(s_path.read_text(encoding="utf-8")) if s_path.exists() else {}
+            slug = str(m_doc.get("dossier_slug") or s_doc.get("dossier") or "").strip()
+            pillar = str(m_doc.get("pillar") or s_doc.get("pillar") or "").strip()
+            if slug and pillar:
+                out.append({"index": idx, "wave": 0, "project_id": pid, "slug": slug, "pillar": pillar})
+        return out
     w = str(wave or "all").strip().lower()
-    if w in ("all", "1-4", "20"):
-        return [dict(s) for s in DIORAMA_BATCH_20_SPECS]
+    if w in ("all", "1-6", "1-4", "30", "20"):
+        return [dict(s) for s in DIORAMA_DAILY_30_SPECS]
     w_num = int(w)
-    return [dict(s) for s in DIORAMA_BATCH_20_SPECS if int(s["wave"]) == w_num]
+    return [dict(s) for s in DIORAMA_DAILY_30_SPECS if int(s["wave"]) == w_num]
 
 
 def _sha256_file(path: Path) -> str:
@@ -476,24 +384,39 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
         script_doc["schema_version"] = 6
         visual_plan["camera_profile"] = "dynamic_3d_cinema_rig"
 
+    from pipeline.config import (
+        DEFAULT_DIORAMA_VOICE_PRESET,
+        DIORAMA_V7_US_PROSODY_MODE,
+        PRE_R66_FROZEN_PROJECT_PREFIXES,
+        is_porcelain_v7_plan,
+    )
     from pipeline.voice_fallback import resolve_diorama_voice_preset
 
+    is_frozen_pub = any(project_id.startswith(pref) for pref in PRE_R66_FROZEN_PROJECT_PREFIXES)
+    is_porc_v7 = is_v7 and resolved_v7_style == PORCELAIN_V7_STYLE_PROFILE
     eff_voice_preset = str(
         spec.get("voice_preset")
         or script_doc.get("voice_preset")
         or visual_plan.get("voice_preset")
-        or ""
+        or (DEFAULT_DIORAMA_VOICE_PRESET if (is_porc_v7 and not is_frozen_pub) else "")
     ).strip() or None
     if eff_voice_preset:
         script_doc["voice_preset"] = eff_voice_preset
         visual_plan["voice_preset"] = eff_voice_preset
-    eff_prosody_mode = str(spec.get("prosody_mode") or "").strip()
+    eff_prosody_mode = str(
+        spec.get("prosody_mode")
+        or script_doc.get("prosody_mode")
+        or (DIORAMA_V7_US_PROSODY_MODE if (is_porc_v7 and not is_frozen_pub) else "")
+    ).strip()
     if eff_prosody_mode:
         script_doc["prosody_mode"] = eff_prosody_mode
+        visual_plan["prosody_mode"] = eff_prosody_mode
+    if is_porc_v7 and not is_frozen_pub:
+        script_doc["us_anti_clone_v7"] = True
+        visual_plan["us_anti_clone_v7"] = True
     preset_name, preset_cfg = resolve_diorama_voice_preset(eff_voice_preset, script_doc=script_doc, visual_plan=visual_plan)
 
     sentences = [str(s).strip() for s in script_doc["sentences"] if str(s).strip()]
-    from pipeline.config import is_porcelain_v7_plan
 
     if is_porcelain_v7_plan(visual_plan) and not visual_plan.get("reference_anchors"):
         from pipeline.porcelain_anchor_pack import populate_porcelain_reference_contract
@@ -575,12 +498,22 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
         meta_doc = json.loads(meta_src.read_text(encoding="utf-8"))
         meta_doc["project_id"] = project_id
         meta_doc["pillar"] = pillar
+        meta_doc["title"] = str(script_doc.get("title") or meta_doc.get("title") or "")
         meta_doc.setdefault("video_language", "en-US")
         meta_doc.setdefault("title_description_language", "en-US")
         meta_doc.setdefault("channel_residence_country", "KR")
     else:
         meta_doc = _default_metadata_from_script_and_dossier(project_id, pillar, slug, script_doc)
-        meta_src.write_text(json.dumps(meta_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    if not str(meta_doc.get("offcenter_creator_bet") or "").strip():
+        d_meta_path = d_root / "dossier.json"
+        if d_meta_path.exists():
+            try:
+                d_meta_doc = json.loads(d_meta_path.read_text(encoding="utf-8"))
+                if str(d_meta_doc.get("offcenter_creator_bet") or "").strip():
+                    meta_doc["offcenter_creator_bet"] = str(d_meta_doc["offcenter_creator_bet"]).strip()
+            except Exception:
+                pass
+    meta_src.write_text(json.dumps(meta_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     (p_dir / "06_publish" / "metadata.json").write_text(
         json.dumps(meta_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
@@ -600,6 +533,7 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
     m_doc["camera_profile"] = visual_plan["camera_profile"]
     m_doc["doi"] = str(script_doc.get("doi") or meta_doc.get("doi") or "")
     m_path.write_text(json.dumps(m_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    ProjectStorage.sync_existing_manifest_from_disk(p_dir)
 
     # Link project_id into dossier.json
     d_json_path = rd.dossier_dir(slug) / "dossier.json"
@@ -714,6 +648,7 @@ def precheck_diorama_project(
     spec: dict[str, Any],
     run_tts_clock: bool = True,
     voice_preset: str | None = None,
+    prosody_mode: str | None = None,
 ) -> dict[str, Any]:
     """Validates `prompt-gate`, contract lock mapping (DQ1/DQ3), paradox title, zero-plaque nouns, and pre-Flow TTS + Prosody P1-P6/P8/P10."""
     import os
@@ -731,7 +666,11 @@ def precheck_diorama_project(
     from pipeline.prosody import evaluate_prosody_gates_on_audio
     from pipeline.voice_fallback import _write_mono_wav, resolve_diorama_voice_preset
 
-    eff_spec = {**spec, "voice_preset": voice_preset} if voice_preset else spec
+    eff_spec = dict(spec)
+    if voice_preset:
+        eff_spec["voice_preset"] = voice_preset
+    if prosody_mode:
+        eff_spec["prosody_mode"] = prosody_mode
     p_dir = sync_project_from_dossier_diorama(eff_spec)
     slug = str(spec["slug"])
     sentences, script_doc = load_diorama_script_sentences(p_dir)
@@ -760,12 +699,14 @@ def precheck_diorama_project(
     min_dur = MICRO_SHORT_MIN_SEC if is_micro else (DIORAMA_V7_DURATION_MIN_SEC if is_v7 else DIORAMA_DURATION_MIN_SEC)
     max_dur = MICRO_SHORT_MAX_SEC if is_micro else SHORTS_HARD_CEILING_SEC
     eff_vp = voice_preset or str(spec.get("voice_preset") or script_doc.get("voice_preset") or visual_plan.get("voice_preset") or "").strip() or None
+    eff_pm = prosody_mode or str(spec.get("prosody_mode") or script_doc.get("prosody_mode") or "").strip() or None
     preset_name, preset_cfg = resolve_diorama_voice_preset(eff_vp, script_doc=script_doc, visual_plan=visual_plan)
     if run_tts_clock and not issues:
         tts_res = synthesize_continuous_diorama_track(
             project_dir=p_dir,
             sentences=sentences,
             align_whisper=True,
+            prosody_mode=eff_pm,
             script_doc=script_doc,
             voice_preset=eff_vp,
         )
@@ -797,6 +738,7 @@ def precheck_diorama_project(
         "wave": spec["wave"],
         "schema_version": 7 if is_v7 else 6,
         "voice_preset": preset_name,
+        "prosody_mode": eff_pm or script_doc.get("prosody_mode"),
         "passed": len(issues) == 0,
         "sentences": len(sentences),
         "clips": len(clips),
@@ -886,9 +828,9 @@ def finalize_and_verify_diorama_project(
     voice_preset: str | None = None,
     prosody_mode: str | None = None,
 ) -> dict[str, Any]:
-    """Runs `assemble_diorama_project`, fail-fast Prosody P1-P10, DQ1-DQ12, R64, `autopsy`, `thumbnail`, KB sync, and `verify`."""
+    """Runs `assemble_diorama_project`, fail-fast Prosody P1-P10, DQ1-DQ12, R64, `autopsy`, `thumbnail`, `reenact-qa` (Track A), KB sync, and `verify`."""
     from pipeline import thumbnail_studio
-    from pipeline.config import NEURO_NEWS_HOLD_FROM_AUTO_QUEUE, NEURO_NEWS_STAGING_DIR
+    from pipeline.config import NEURO_NEWS_HOLD_FROM_AUTO_QUEUE, NEURO_NEWS_STAGING_DIR, REENACT_QA_REPORT_FILENAME
     from pipeline.dynamic_episode_qa import compile_episode_qa_contract, verify_final_mp4_against_contract
     from pipeline.knowledge_hub import sync_project_to_knowledge_base
     from pipeline.media_cache import shared_mp4_decode_session, stage_local_file
@@ -910,6 +852,7 @@ def finalize_and_verify_diorama_project(
         "dynamic_episode_qa_report.json",
         "posthoc_semantic_qa_report.json",
         "prosody_qa_report.json",
+        REENACT_QA_REPORT_FILENAME,
     ):
         (asm_dir / stale_qa).unlink(missing_ok=True)
 
@@ -1031,7 +974,7 @@ def finalize_and_verify_diorama_project(
             f"PostHocSemanticQA (R64) flagged weak cuts for {project_id}: {posthoc_rep['summary']['weak_cut_indices']}"
         )
 
-    # R65 Thumbnail Studio hard gate (TQ1-TQ7)
+    # R65 Thumbnail Studio hard gate (TQ1-TQ8)
     t_s = time.monotonic()
     try:
         thumb_rep = thumbnail_studio.run(p_dir, force=False, strict=True)
@@ -1040,7 +983,29 @@ def finalize_and_verify_diorama_project(
         timings["thumbnail_sec"] = time.monotonic() - t_s
         _write_stage_timings(asm_dir, project_id, timings, "QA_FAILED_THUMBNAIL", t_total0)
         _sync_full_project_manifest(p_dir, status="QA_FAILED")
-        raise RuntimeError(f"Thumbnail Studio QA (R65 TQ1-TQ7) failed for {project_id}: {exc}") from exc
+        raise RuntimeError(f"Thumbnail Studio QA (R65 TQ1-TQ8) failed for {project_id}: {exc}") from exc
+
+    # R67 Reenactment Non-Infringement & Fidelity QA (RQ1-RQ5) for Track A / source-EDL episodes
+    rqa_rep: dict[str, Any] = {"passed": True, "skipped": True}
+    vp_chk_path = p_dir / "03_visuals" / "visual_plan.json"
+    vp_chk_doc = json.loads(vp_chk_path.read_text(encoding="utf-8")) if vp_chk_path.exists() else {}
+    if (p_dir / "03_visuals" / "source_edl.json").exists() or str(vp_chk_doc.get("reenactment_track") or "") == "track_a":
+        from pipeline.source_reenactment import purge_reenactment_quarantine, validate_reenactment_non_infringement
+
+        t_s = time.monotonic()
+        purge_reenactment_quarantine()
+        d_dir_rqa = rd.resolve_dossier_for_project(project_id)
+        rqa_rep = validate_reenactment_non_infringement(
+            project_dir=p_dir,
+            dossier_dir=d_dir_rqa,
+            require_quarantine_purged=True,
+            save_report=True,
+        )
+        timings["reenact_qa_sec"] = time.monotonic() - t_s
+        if not rqa_rep.get("passed"):
+            _write_stage_timings(asm_dir, project_id, timings, "QA_FAILED_REENACT", t_total0)
+            _sync_full_project_manifest(p_dir, status="QA_FAILED")
+            raise RuntimeError(f"ReenactmentQA (RQ1-RQ5) failed for {project_id}: {rqa_rep.get('gates_passed')}")
 
     t_s = time.monotonic()
     build_asset_manifest(p_dir)
@@ -1075,6 +1040,7 @@ def finalize_and_verify_diorama_project(
         "posthoc_mean_clarity": posthoc_rep["summary"]["mean_clarity_score"],
         "prosody_qa_passed": bool(prosody_rep.get("passed")),
         "thumbnail_passed": bool(thumb_rep.get("passed")),
+        "reenact_qa_passed": bool(rqa_rep.get("passed")),
         "cover_frame_sec": thumb_rep.get("cover_frame_sec"),
         "stage_timings_sec": {
             **{k: round(float(v), 2) for k, v in timings.items()},
@@ -1133,10 +1099,13 @@ def _collect_auto_heal_plan(project_id: str) -> dict[str, Any]:
             if not script_fix_reasons:
                 for g_key, field in (
                     ("DQ8_zero_uncanny_skin_gore", "skin_leak_cuts"),
+                    ("DQ8_zero_uncanny_skin_gore", "yunet_human_face_cuts"),
                     ("DQ9_zero_background_plaque", "plaque_cuts"),
                 ):
                     for cid in (gates.get(g_key) or {}).get(field) or []:
                         regen_cuts.add(int(cid))
+                for cnum in (gates.get("DQ6_zero_clip_reuse") or {}).get("unattached_reference_clips") or []:
+                    bad_clips.add(int(cnum))
                 for cid in (gates.get("DQ7_continuous_motion_no_freeze") or {}).get("freeze_cuts") or []:
                     edl_only_cuts.add(int(cid))
                 for g_key in ("DQ2_clothed_cast_and_impact", "DQ5_everyday_analogies", "DQ5_cold_open_and_impact"):
@@ -1239,19 +1208,51 @@ def _collect_auto_heal_clip_indices(project_id: str) -> list[int]:
 
 
 def _is_already_completed(project_id: str) -> bool:
+    from pipeline.config import REENACT_QA_REPORT_FILENAME
+
     p_dir = Path(PROJECTS_DIR) / project_id
     comp_mp4 = COMPLETED_SHORTS_DIR / f"final_shorts_{project_id}.mp4"
     asm_dir = p_dir / "05_assembly"
     autopsy_path = asm_dir / "video_autopsy_report.json"
     dq_path = asm_dir / "dynamic_episode_qa_report.json"
     ph_path = asm_dir / "posthoc_semantic_qa_report.json"
-    if not (comp_mp4.exists() and comp_mp4.stat().st_size > 5_000_000 and autopsy_path.exists() and dq_path.exists() and ph_path.exists()):
+    prosody_qa_path = asm_dir / "prosody_qa_report.json"
+    thumb_path = p_dir / "06_publish" / "thumbnail_report.json"
+    if not (
+        comp_mp4.exists()
+        and comp_mp4.stat().st_size > 5_000_000
+        and autopsy_path.exists()
+        and dq_path.exists()
+        and ph_path.exists()
+        and prosody_qa_path.exists()
+        and thumb_path.exists()
+    ):
         return False
     try:
         arep = json.loads(autopsy_path.read_text(encoding="utf-8"))
         dqrep = json.loads(dq_path.read_text(encoding="utf-8"))
         phrep = json.loads(ph_path.read_text(encoding="utf-8"))
-        return bool(arep.get("passed")) and bool(dqrep.get("passed")) and bool(phrep.get("passed"))
+        prrep = json.loads(prosody_qa_path.read_text(encoding="utf-8"))
+        threp = json.loads(thumb_path.read_text(encoding="utf-8"))
+        base_ok = (
+            bool(arep.get("passed"))
+            and bool(dqrep.get("passed"))
+            and bool(phrep.get("passed"))
+            and bool(prrep.get("passed"))
+            and bool(threp.get("passed"))
+        )
+        if not base_ok:
+            return False
+        vp_path = p_dir / "03_visuals" / "visual_plan.json"
+        vp_doc = json.loads(vp_path.read_text(encoding="utf-8")) if vp_path.exists() else {}
+        if (p_dir / "03_visuals" / "source_edl.json").exists() or str(vp_doc.get("reenactment_track") or "") == "track_a":
+            rqa_path = asm_dir / REENACT_QA_REPORT_FILENAME
+            if not rqa_path.exists():
+                return False
+            rqa_doc = json.loads(rqa_path.read_text(encoding="utf-8"))
+            if not bool(rqa_doc.get("passed")):
+                return False
+        return True
     except Exception:
         return False
 
@@ -1446,12 +1447,15 @@ def run_diorama_batch(
     cdp_port: int = 9222,
     engine_mode: str | None = None,
     voice_preset: str | None = None,
+    prosody_mode: str | None = None,
 ) -> dict[str, Any]:
     specs = select_batch_specs(wave=wave, project_ids=project_ids)
     if not specs:
         raise ValueError(f"No batch specs matched wave={wave!r}, project_ids={project_ids!r}")
     if voice_preset:
         specs = [{**sp, "voice_preset": voice_preset} for sp in specs]
+    if prosody_mode:
+        specs = [{**sp, "prosody_mode": prosody_mode} for sp in specs]
 
     prechecks = []
     for sp in specs:
@@ -1476,8 +1480,9 @@ def run_diorama_batch(
     state: dict[str, Any] = (
         json.loads(BATCH_STATUS_PATH.read_text(encoding="utf-8"))
         if BATCH_STATUS_PATH.exists()
-        else {"total_target": 20, "completed": {}, "in_progress": None, "errors": {}}
+        else {"total_target": len(DIORAMA_DAILY_30_SPECS), "completed": {}, "in_progress": None, "errors": {}}
     )
+    state["total_target"] = len(DIORAMA_DAILY_30_SPECS)
 
     run_errors: dict[str, str] = {}
     results: list[dict[str, Any]] = []
@@ -1492,7 +1497,9 @@ def run_diorama_batch(
         t0 = time.time()
         state["in_progress"] = {"project_id": pid, "wave": sp["wave"], "started_at_epoch": round(t0, 1)}
         _save_batch_status(state)
-        print(f"\n==================== [DioramaBatch #{sp['index']:02d}/20 | Wave {sp['wave']}] {pid} ====================")
+        print(
+            f"\n==================== [DioramaBatch #{sp['index']:02d}/{len(DIORAMA_DAILY_30_SPECS)} | Wave {sp['wave']}] {pid} ===================="
+        )
         try:
             gen_kwargs: dict[str, Any] = {
                 "tabs": tabs,
@@ -1502,6 +1509,8 @@ def run_diorama_batch(
             }
             if voice_preset:
                 gen_kwargs["voice_preset"] = voice_preset
+            if prosody_mode:
+                gen_kwargs["prosody_mode"] = prosody_mode
             fin = generate_and_finalize_diorama_episode(pid, **gen_kwargs)
             fin["elapsed_min"] = round((time.time() - t0) / 60.0, 2)
             state["completed"][pid] = fin

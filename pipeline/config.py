@@ -446,6 +446,14 @@ DIORAMA_EUREKA_REVEAL_BANK: tuple[str, ...] = (
     "unlocked the mystery on the spot",
     "surprised every scientist watching",
 )
+DIORAMA_OPEN_VERDICT_BRIDGE_BANK: tuple[str, ...] = (
+    "which leaves one hard test ",
+    "which raises one hard question ",
+    "which forces one hard choice ",
+    "which splits every room ",
+    "which leaves one real dilemma ",
+    "which puts every viewer on the spot ",
+)
 DIORAMA_TAKEAWAY_BRIDGE_BANK: tuple[str, ...] = (
     "which proves ",
     "which is why ",
@@ -459,6 +467,31 @@ DIORAMA_TAKEAWAY_BRIDGE_BANK: tuple[str, ...] = (
     "what this means for you is ",
     "every human brain shares ",
     "that biological lesson explains ",
+    *DIORAMA_OPEN_VERDICT_BRIDGE_BANK,
+)
+DEBATE_CREATOR_BET_PREFIXES: tuple[str, ...] = (
+    "my honest bet:",
+    "my bet:",
+    "hot take:",
+    "hard take:",
+    "honest take:",
+)
+DEBATE_CREATOR_BET_MAX_PREFIX_CHARS = 45
+PINNED_COMMENT_LINE1_MAX_CHARS = 240
+BANNED_COMMENT_VIOLENCE_TOKENS: tuple[str, ...] = (
+    "torture",
+    "torturing",
+    "electrocute",
+    "electrocuting",
+    "shock him",
+    "shock her",
+    "shock them",
+    "kill",
+    "killing",
+    "murder",
+    "suicide",
+    "assault",
+    "abuse",
 )
 DIORAMA_MIDPOINT_REHOOK_BANK: tuple[str, ...] = (
     "but here's",
@@ -482,7 +515,7 @@ AI_DISCLOSURE_SENTENCE = (
 )
 MAX_DAILY_SUBSCRIBER_NOTIFICATIONS = 3
 PRE_R66_FROZEN_PROJECT_PREFIXES: tuple[str, ...] = tuple(
-    f"diorama_{i:02d}_" for i in range(1, 27)
+    f"diorama_{i:02d}_" for i in range(1, 8)
 ) + ("gage_diorama_v6", "gage_diorama_v7", "psych_")
 DIORAMA_BANNED_AI_CLICHES: tuple[str, ...] = (
     "delve into",
@@ -723,7 +756,7 @@ DIORAMA_VOICE_PRESETS: dict[str, dict[str, str]] = {
         "flow_voice_anchor": "Voice: Measured, authoritative American male documentary narrator.",
     },
 }
-DEFAULT_DIORAMA_VOICE_PRESET = "andrew_v7"
+DEFAULT_DIORAMA_VOICE_PRESET = "emma_v7"
 DEFAULT_REENACTMENT_VOICE_PRESET = "emma_v7"
 DIORAMA_V7_WPM_MIN = 135.0                     # Minimum spoken WPM gate at unified 1.08x (+8%) trimmed cadence
 DIORAMA_V7_WPM_MAX = 212.0                     # Maximum spoken WPM gate for Schema v7
@@ -735,7 +768,7 @@ DIORAMA_V7_ACTIVE_VOICED_RMS_RATIO_MIN = 0.80  # Natural human-breath RMS voiced
 
 # --- Sentence-level Prosody Engine (rush / stamp / brisk gears, R63-P & US 45+ dynamic_us_v7) ---
 DIORAMA_V7_PROSODY_MODES: tuple[str, ...] = ("uniform_108x", "uniform_110x", "dynamic_rush_v7", "dynamic_us_v7")
-DIORAMA_V7_PROSODY_MODE = "dynamic_rush_v7"    # Channel default (Plan B approved 2026-10-31); new Porcelain episodes use dynamic_us_v7
+DIORAMA_V7_PROSODY_MODE = "dynamic_us_v7"       # Channel default (US 45+ ear-first dynamic_us_v7); legacy Public 01..07 preserve dynamic_rush_v7
 DIORAMA_V7_US_PROSODY_MODE = "dynamic_us_v7"   # US 45+ ear-first documentary prosody (~162-174 WPM: rush +10% / brisk +7% / stamp +4%)
 DIORAMA_V7_PROSODY_BASE_RATE = "+8%"           # dynamic_rush_v7 synthesizes once at the approved +8% Silk Clean timbre
 DIORAMA_V7_US_PROSODY_BASE_RATE = "+7%"        # dynamic_us_v7 base rate (+7% brisk baseline)
@@ -885,7 +918,7 @@ PORCELAIN_ANCHOR_MIN_CLIP_RATIO = 0.28         # R66-Anchor: min non-outro clip 
 PORCELAIN_ANCHOR_MAX_CLIP_RATIO = 0.88         # R66-Anchor / R67: max non-outro clip reference binding ratio
 YUNET_FACE_MODEL_PATH = WORKSPACE_ROOT / "pipeline" / "assets" / "models" / "face_detection_yunet_2023mar.onnx"
 
-# --- 3-Format Funnel (Micro-Short -> Flagship Diorama -> 16:9 4K CTV Long-Form) & Breaking News ---
+# --- 3-Format Funnel (Micro-Short -> Flagship Diorama -> Standalone 16:9 1920x1080 Long-Form) & Breaking News ---
 MICRO_SHORT_PROFILE = "micro_short_v7"
 MICRO_SHORT_DURATION_MIN_SEC = 35.0
 MICRO_SHORT_DURATION_MAX_SEC = 45.0
@@ -899,13 +932,85 @@ MICRO_SHORT_CUT_COUNT_MIN = 14
 MICRO_SHORT_CUT_COUNT_MAX = 16
 MICRO_SHORT_CUT_MIN = MICRO_SHORT_CUT_COUNT_MIN
 MICRO_SHORT_CUT_MAX = MICRO_SHORT_CUT_COUNT_MAX
-LONGFORM_VIDEO_WIDTH = 3840
-LONGFORM_VIDEO_HEIGHT = 2160
+
+CHANNEL_HANDLE = "@AllAboutBrainOfficial"
+LONGFORM_PRODUCTION_PROFILE = "longform_porcelain_16x9_v1"
+LONGFORM_PROJECTS_DIRNAME = "projects_longform"
+LONGFORM_PROJECTS_DIR = CHANNEL_ROOT / LONGFORM_PROJECTS_DIRNAME
+LONGFORM_QUARANTINE_ROOT = Path("/tmp/aab_reenact_lf")
+LONGFORM_VIDEO_WIDTH = 1920
+LONGFORM_VIDEO_HEIGHT = 1080
 LONGFORM_VIDEO_FPS = 24
+LONGFORM_H264_PROFILE = "high"
+LONGFORM_H264_LEVEL = "4.2"
+LONGFORM_H264_CRF = 18
+LONGFORM_FINAL_MP4_FILENAME = "final_longform_1920x1080.mp4"
 LONGFORM_TARGET_LUFS = -14.0
+LONGFORM_TRUE_PEAK_CEILING_DBTP = -1.5
+LONGFORM_BGM_DUCK_DB = -22.0
+LONGFORM_BGM_SWELL_PEAK_DB = -13.5              # Chapter transition stereo orchestral swell (-22.0 dB -> -13.5 dB -> -22.0 dB)
+LONGFORM_CHAPTER_SWELL_GAIN_DB = 8.5
+LONGFORM_PROSODY_MODE = "longform_us_v7"
+LONGFORM_DEFAULT_VOICE_PRESET = "emma_v7"
+LONGFORM_PROSODY_GEAR_RATES: dict[str, str] = {
+    "rush": "+4%",                              # Hook / suspense beat (native edge-tts rate, zero WSOLA)
+    "explain": "+0%",                           # Calm conversational documentary body (~142-148 WPM effective)
+    "brisk": "+0%",                             # Alias for explain gear compatibility
+    "stamp": "-2%",                             # Deliberate citation / verdict / takeaway beat
+}
+LONGFORM_INTERNAL_SILENCE_TRIM_THRESHOLD_SEC = 0.36
+LONGFORM_INTERNAL_BREATH_KEEP_SEC = 0.18
+LONGFORM_RUSH_PAUSE_SEC = 0.22                  # Gently paced hook sentence gap (0.22s..0.28s window)
+LONGFORM_INTER_SENTENCE_PAUSE_SEC = 0.25        # Natural inter-sentence breathing room (0.22s..0.28s)
+LONGFORM_BEAT_PAUSE_SEC = 0.45                  # Paragraph / citation reveal / stamp pause (0.40s..0.50s)
+LONGFORM_CHAPTER_PAUSE_SEC = 0.92               # Chapter boundary breath & swell window (0.85s..1.00s)
+LONGFORM_OUTRO_SWELL_SEC = 2.60
+LONGFORM_WPM_RANGE = (132.0, 158.0)             # Target ~142-148 WPM effective documentary pace
+LONGFORM_PILOT_DURATION_RANGE_SEC = (510.0, 560.0)  # 8.5-9.3 min sweet spot for 7-chapter Long-Form
 LONGFORM_CHAPTER_FADE_SEC = 0.45
-THUMB_LONGFORM_WIDTH = 3840
-THUMB_LONGFORM_HEIGHT = 2160
+LONGFORM_CHAPTER_COUNT_DEFAULT = 7
+LONGFORM_CHAPTER_COUNT_RANGE = (6, 8)
+LONGFORM_MAX_SENTENCE_WORDS = 22                # Natural flowing documentary sentences (<= 22 words; chunked <= 5w in subtitles)
+LONGFORM_MAX_WORDS_PER_SENTENCE = LONGFORM_MAX_SENTENCE_WORDS
+LONGFORM_MIN_CUT_SEC = 3.20                     # Relaxed 16:9 documentary cut floor (>= 3.2s)
+LONGFORM_AVG_CUT_TARGET_SEC = 5.00              # Target ~4.8s-5.5s average documentary shot length
+LONGFORM_AVG_CUT_RANGE_SEC = (4.60, 5.80)
+LONGFORM_MAX_CUT_SEC = 7.00                     # Allows 5.0s-7.0s cinematic holds on experiments & 3D brain mechanisms
+LONGFORM_PILOT_CLIP_COUNT_RANGE = (90, 114)     # ~95-108 unique 16:9 clips for an 8.5-9.0 min episode
+LONGFORM_SHARD_MAX_CLIPS = 14
+LONGFORM_SPLIT_DIVIDER_PX = 3
+LONGFORM_UPLOAD_CC_SRT_DEFAULT = False
+
+# 1920x1080 Non-Overlapping Burned-In Subtitle + Lower-Left DOI Citation Card Coordinates
+LONGFORM_SUBTITLE_FONT_SIZE = 58
+LONGFORM_SUBTITLE_OUTLINE_WIDTH = 3.5
+LONGFORM_SUBTITLE_SHADOW_DEPTH = 1.0
+LONGFORM_SUBTITLE_MARGIN_V = 98                 # Y ∈ [922, 982] on 1920x1080 (>= +50px clearance below Y=872 citation card)
+LONGFORM_SUBTITLE_Y_RANGE = (922, 982)
+LONGFORM_SUBTITLE_MAX_WORDS = 5
+LONGFORM_SUBTITLE_MAX_CHARS = 32
+LONGFORM_CITATION_CARD_X = 96
+LONGFORM_CITATION_CARD_Y_RANGE = (735, 872)     # Lower-left DOI card Y ∈ [735, 872] (872 + 50 = 922 subtitle ceiling)
+LONGFORM_CITATION_CARD_MIN_CLEARANCE_PX = 50
+LONGFORM_CITATION_CARD_DURATION_SEC = 5.0
+LONGFORM_CITATION_CARD_WIDTH_RANGE = (340, 860)
+LONGFORM_CITATION_CARD_BAR_WIDTH_PX = 4
+LONGFORM_CHAPTER_HEADLINE_Y_RANGE = (78, 180)
+LONGFORM_CHAPTER_HEADLINE_FONT_SIZE = 66
+LONGFORM_CHAPTER_HEADLINE_DURATION_SEC = 3.0
+LONGFORM_SPLIT_LEFT_X = 480
+LONGFORM_SPLIT_RIGHT_X = 1440
+
+THUMB_LONGFORM_WIDTH = 1920
+THUMB_LONGFORM_HEIGHT = 1080
+LONGFORM_THUMB_MAX_BYTES = 1_950_000            # Strictly < YouTube's 2 MB custom thumbnail upload limit
+EVERYDAY_LONGFORM_DOMAINS: tuple[str, ...] = (
+    "sleep",
+    "habits",
+    "memory",
+    "anxiety",
+    "relationships",
+)
 NEURO_NEWS_STAGING_DIR = WORKSPACE_ROOT / "Completed_Neuro_News_Shorts"
 
 FONT_CONDENSED_BLACK_PATH = FONTS_DIR / "AABCondensed-Black.ttf"
@@ -1193,6 +1298,7 @@ THUMB_HOOK_MAX_CHARS = 18                    # Max characters in thumbnail hook 
 THUMB_HOOK_FONT_SIZE_RANGE = (150, 96)       # Auto-fit condensed black headline font size range (max, min)
 THUMB_HOOK_STROKE_PX = 10                    # Dark outer stroke thickness on hook headline (replaces v6 navy box)
 THUMB_MIN_FILE_BYTES = 80_000                # Minimum PNG byte size per variant (R31 / TQ6)
+SHORTS_THUMB_MAX_BYTES = 1_950_000           # Maximum Shorts PNG byte size (< 2.00 MB YouTube Studio custom thumbnail ceiling, TQ6)
 DIORAMA_V7_REQUIRE_THUMBNAIL_BLOCK = True    # Require `visual_plan.thumbnail` block on new Schema v7 episodes (R65)
 
 # Strict Architectural Policies (Constraint #1 & #2)

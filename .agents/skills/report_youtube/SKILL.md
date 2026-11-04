@@ -31,11 +31,11 @@ Run from `/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube`. Always invo
    - Per-Video: `BCI_Shorts_Channel/reports/daily/YYYY-MM-DD_video_detail_charts.png` (+ `LATEST_VIDEO_DETAIL_CHARTS.png`)
 4. **Raw Metrics Snapshot JSON**: `BCI_Shorts_Channel/reports/daily/YYYY-MM-DD_studio_metrics.json`
 5. **Dual Daily Conversation Artifacts (`매일 아침 두 보고서만 제공 원칙`)**:
-   - Copy generated PNG charts into the active conversation artifact directory.
+   - Copy generated PNG charts into the CURRENT session's single active conversation artifact directory (`<appDataDir>/brain/<conversation-id>` from `<user_information>`; never loop over old scratch/brain directories across turns).
    - Write/update **both** artifacts with `Overwrite=True`:
      1. `youtube_daily_report_YYYY_MM_DD.md` (채널 종합 보고서)
      2. `youtube_video_detail_report_YYYY_MM_DD.md` (개별 영상 세부 보고서)
-   - When reporting to the user every morning, present **ONLY** these two report links concisely without extra file clutter.
+   - Deliver local PNG charts inline using `MEDIA:/absolute/path/to/chart.png` (local markdown image embeds are blocked in Hermes desktop) and present **ONLY** these two report links concisely without extra file clutter.
 
 ---
 

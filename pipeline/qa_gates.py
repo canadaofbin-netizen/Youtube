@@ -203,6 +203,7 @@ def run_preflight_qa(cdp_port: int = 9222, require_live_cdp: bool = False) -> di
             DIORAMA_TTS_VOICE,
             DIORAMA_V7_PROSODY_GEAR_RATES,
             DIORAMA_V7_PROSODY_GEARS,
+            DIORAMA_V7_PROSODY_MODE,
             DIORAMA_V7_STYLE_PROFILES,
             DIORAMA_V7_TTS_PITCH,
             DIORAMA_V7_TTS_RATE,
@@ -219,7 +220,8 @@ def run_preflight_qa(cdp_port: int = 9222, require_live_cdp: bool = False) -> di
         )
 
         presets_ok = (
-            DEFAULT_DIORAMA_VOICE_PRESET == "andrew_v7"
+            DEFAULT_DIORAMA_VOICE_PRESET == "emma_v7"
+            and DIORAMA_V7_PROSODY_MODE == "dynamic_us_v7"
             and DEFAULT_REENACTMENT_VOICE_PRESET in DIORAMA_VOICE_PRESETS
             and {"andrew_v7", "emma_v7", "ava_v7", "aria_v7", "christopher_v7"}.issubset(DIORAMA_VOICE_PRESETS.keys())
             and DIORAMA_VOICE_PRESETS["andrew_v7"]["voice"] == DIORAMA_TTS_VOICE

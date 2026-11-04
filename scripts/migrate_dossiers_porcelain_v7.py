@@ -58,7 +58,11 @@ from pipeline.dynamic_episode_qa import (
     _WARDROBE_OR_HAT_RE,
 )
 from pipeline.flow_prompt_builder import _compose_porcelain_v7_clip_scene, count_words
-from pipeline.prompt_quality_v5 import _PRE_R65_ASSEMBLED_DOSSIERS, analyze_script
+from pipeline.prompt_quality_v5 import (
+    _PRE_R65_ASSEMBLED_DOSSIERS,
+    analyze_script,
+    validate_takeaway_bridge_grammar,
+)
 from pipeline.publish import validate_diorama_paradox_title
 from pipeline.studio.sanitize_scheduled_metadata import diversify_clone_title
 
@@ -142,6 +146,14 @@ def _is_frozen_or_published(
             return True
         rcpt = Path(PROJECTS_DIR) / pid / "06_publish" / "upload_receipt.json"
         if rcpt.exists():
+            try:
+                from pipeline.studio.unschedule_retired_shorts import RETIRED_LOWPOLY_SCHEDULED_WHITELIST
+
+                r_doc = json.loads(rcpt.read_text(encoding="utf-8"))
+                if str(r_doc.get("video_id") or "") in set(RETIRED_LOWPOLY_SCHEDULED_WHITELIST.values()):
+                    continue
+            except Exception:
+                pass
             return True
     return False
 
@@ -230,7 +242,7 @@ def _sub_phrase_respecting_case_and_cap(
         elif m.end() < len(sentence) and phrase.endswith("."):
             phrase = phrase.rstrip(".")
         cand = " ".join((sentence[: m.start()] + phrase + sentence[m.end() :]).split())
-        if count_words(cand) <= eff_cap:
+        if count_words(cand) <= eff_cap and not validate_takeaway_bridge_grammar(cand):
             return cand
     return " ".join(sentence.split())
 
@@ -450,8 +462,9 @@ def convert_single_dossier_to_porcelain(dossier_dir: Path, slot_idx: int = 0, ov
 
     sc["pillar"] = canonical_pillar
     sc["style_profile"] = PORCELAIN_V7_STYLE_PROFILE
-    sc["prosody_mode"] = DIORAMA_V7_US_PROSODY_MODE if fits_us_v7 else DIORAMA_V7_PROSODY_MODE
-    sc["voice_preset"] = str(sc.get("voice_preset") or DEFAULT_DIORAMA_VOICE_PRESET)
+    sc["prosody_mode"] = DIORAMA_V7_US_PROSODY_MODE
+    sc["voice_preset"] = DEFAULT_DIORAMA_VOICE_PRESET
+    sc["us_anti_clone_v7"] = True
 
     md_title = str(md.get("title") or "").strip()
     sc_title = str(sc.get("title") or "").strip()
@@ -491,6 +504,8 @@ def convert_single_dossier_to_porcelain(dossier_dir: Path, slot_idx: int = 0, ov
 
     md["pillar"] = canonical_pillar
     md["style_profile"] = PORCELAIN_V7_STYLE_PROFILE
+    md["voice_preset"] = DEFAULT_DIORAMA_VOICE_PRESET
+    md["prosody_mode"] = DIORAMA_V7_US_PROSODY_MODE
     if doi_val:
         md["doi"] = doi_val
     md["ai_disclosure"] = True

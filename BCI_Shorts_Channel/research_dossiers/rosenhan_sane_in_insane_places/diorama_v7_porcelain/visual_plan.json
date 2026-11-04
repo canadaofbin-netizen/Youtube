@@ -521,7 +521,7 @@
       "grammar": "porcelain_hands_closeup",
       "camera": "locked_tripod",
       "attire_and_hands": "white doctor coat sleeves and cool porcelain-white gloved matte-white porcelain hands pressing a rubber ink stamp onto discharge charts",
-      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand presses a heavy wooden rubber stamp onto the open medical chart and lifts it away",
+      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand presses a heavy wooden rubber stamp onto the open medical chart and",
       "consequence": "a coral ink block remains stamped across the discharge folder",
       "style_profile": "porcelain_cinematic_v7",
       "clip_number": 19,
@@ -595,8 +595,8 @@
       "location_id": "psychiatric_ward_corridor",
       "grammar": "porcelain_hands_closeup",
       "camera": "locked_tripod",
-      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a sunlit ward hallway leading to a closed lunchroom serving counter with stacked sunlit lunch trays",
-      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control latch cleanly into place",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands over a sunlit ward hallway leading to a closed lunchroom",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the bench, align the primary test instrument, and press the brass control",
       "consequence": "the calibrated indicator shifts smoothly into steady alignment under bright studio daylight",
       "style_profile": "porcelain_cinematic_v7",
       "scene_state": {
@@ -758,7 +758,7 @@
       "grammar": "porcelain_hands_closeup",
       "camera": "locked_tripod",
       "attire_and_hands": "tweed blazer sleeves and cool porcelain-white gloved matte-white porcelain hands turning the empty wooden dispatch box upside down over the slate-stone desk",
-      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands tilt the empty wooden box toward the light and set a single hollow white ring beside it",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands tilt the empty wooden box toward the light and set a single hollow",
       "consequence": "nothing falls onto the clean sunlit blotter",
       "style_profile": "porcelain_cinematic_v7",
       "end_sentence_index": 32,
@@ -782,7 +782,7 @@
       "grammar": "porcelain_hands_closeup",
       "camera": "locked_tripod",
       "attire_and_hands": "white coat sleeves and cool porcelain-white gloved matte-white porcelain hands sliding a coral patient wristband toward a calm visitor",
-      "prop_action": "the doctor's cool porcelain-white gloved matte-white porcelain hand places a coral admission folder over a calm visitor's soft-mint pad and closes the clasp",
+      "prop_action": "the doctor's cool porcelain-white gloved matte-white porcelain hand places a coral admission folder over a calm visitor's soft-mint pad and",
       "consequence": "healthy calm posture gets sealed inside an illness folder",
       "style_profile": "porcelain_cinematic_v7",
       "clip_number": 31,
@@ -853,7 +853,7 @@
       "grammar": "porcelain_hands_closeup",
       "camera": "locked_tripod",
       "attire_and_hands": "navy suit sleeves and cool porcelain-white gloved matte-white porcelain hands comparing two medical folders on a conference desk",
-      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand points to the three intake rings on the left sheet and slides a structured critique pad beside it",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand points to the three intake rings on the left sheet and slides a",
       "consequence": "the faked intake entry stands highlighted against normal clinical practice",
       "style_profile": "porcelain_cinematic_v7",
       "end_sentence_index": 36,
@@ -877,7 +877,7 @@
       "grammar": "porcelain_pov_hands",
       "camera": "locked_tripod",
       "attire_and_hands": "navy suit sleeves and cool porcelain-white gloved matte-white porcelain hands extending from the bottom frame edge over crisp symptom checklists",
-      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand checks structured boxes down a crisp symptom checklist while the left hand aligns a ruler",
+      "prop_action": "the right cool porcelain-white gloved matte-white porcelain hand checks structured boxes down a crisp symptom checklist while the left hand and press the instrument into alignment",
       "consequence": "neat green check squares line up cleanly down the diagnostic checklist",
       "style_profile": "porcelain_cinematic_v7",
       "clip_number": 35,
@@ -900,7 +900,7 @@
       "grammar": "porcelain_hands_closeup",
       "camera": "locked_tripod",
       "attire_and_hands": "olive jacket sleeves and cool porcelain-white gloved matte-white porcelain hands unlocking a metal storage cabinet holding cardboard archive file boxes",
-      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand turns a small silver key and pulls open the cabinet doors to reach the file boxes",
+      "prop_action": "one cool porcelain-white gloved matte-white porcelain hand turns a small silver key and pulls open the cabinet doors to reach",
       "consequence": "rows of dove-gray cardboard archive file boxes sit revealed in warm daylight",
       "style_profile": "porcelain_cinematic_v7",
       "end_sentence_index": 38,
@@ -947,7 +947,7 @@
       "grammar": "porcelain_hands_closeup",
       "camera": "pan_right",
       "attire_and_hands": "olive jacket sleeves and cool porcelain-white gloved matte-white porcelain hands sliding an unfiled ninth powder-blue folder out from beneath edited notes",
-      "prop_action": "the left cool porcelain-white gloved matte-white porcelain hand pulls out the hidden powder-blue file while the right hand lifts cross-hatched intake notes into light",
+      "prop_action": "the left cool porcelain-white gloved matte-white porcelain hand pulls out the hidden powder-blue file while the right hand lifts cross-hatched",
       "consequence": "the omitted folder and edited intake notes rest side by side on the desk",
       "style_profile": "porcelain_cinematic_v7",
       "end_sentence_index": 40,
@@ -1274,5 +1274,8 @@
         "open spiral field notebook (ordinary college-ruled noteb"
       ]
     }
-  ]
+  ],
+  "voice_preset": "emma_v7",
+  "us_anti_clone_v7": true,
+  "prosody_mode": "dynamic_us_v7"
 }

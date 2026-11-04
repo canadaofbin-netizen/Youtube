@@ -180,7 +180,8 @@ def _build_contract_v4_narrations(
     seed = sum(ord(ch) for ch in title)
     crisis_tail = DIORAMA_CRISIS_BEAT_BANK[seed % len(DIORAMA_CRISIS_BEAT_BANK)]
     eureka_lead = DIORAMA_EUREKA_REVEAL_BANK[seed % len(DIORAMA_EUREKA_REVEAL_BANK)]
-    takeaway_open = DIORAMA_TAKEAWAY_BRIDGE_BANK[seed % len(DIORAMA_TAKEAWAY_BRIDGE_BANK)].capitalize()
+    declarative_bridges = DIORAMA_TAKEAWAY_BRIDGE_BANK[:12]
+    takeaway_open = declarative_bridges[seed % len(declarative_bridges)].capitalize()
 
     c1 = _fit_narration_words(
         f"In {year_period} at {inst}, {researcher} investigated {clean_title} during a landmark clinical study that challenged every textbook model of the human mind."

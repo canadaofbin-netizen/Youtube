@@ -32,6 +32,11 @@
           "Deduplicated English transcript (8 timestamped cues in media/M1_false_memory_elizabeth_loftu/transcript.txt) aligned directly to keyframe timestamps (0.0s–60.5s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_lecture_or_talking_head_kind(lecture)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     },
     {
@@ -66,6 +71,23 @@
           "Deduplicated English transcript (30 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_talking_head_monologue(ratio=0.625,wps=3.233)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 14,
+        "median_dark_ratio": 0.4872,
+        "median_gray_sat_ratio": 0.0177,
+        "median_p90_sat": 255.0,
+        "max_p90_sat": 255.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
+        "median_flat_patch_ratio": 0.3402,
+        "median_motion_diff": 20.712,
+        "talking_head_ratio": 0.625,
+        "words_per_sec": 3.233,
+        "has_strong_archival_cue": false,
+        "gate_failed": 4
       }
     },
     {
@@ -89,7 +111,15 @@
           "Inspected media/M3/still.jpg (960x1440 px, CC BY-SA 3.0, BDEngler) — portrait reference: Elizabeth Loftus at The Amaz!ng Meeting 9, Las Vegas, NV, July 2011.",
           "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor"
 }

@@ -430,17 +430,25 @@ def test_staging_queue_planner(tmp_path):
     assert "psych_01_habit_loop_basal_ganglia" not in ready_pids
     assert "psych_07_stanford_prison_deindividuation" not in ready_pids
 
-    # Stage-gated default (daily_prime_only=True -> 2 prime slots/day = 6 slots over 3 days)
+    # Stage-gated default (daily_prime_only=True -> 1 Short/day = 3 slots over 3 days)
     plan_prime = queue_mgr.plan_5_slot_schedule(days=3, start_date="2026-10-28", daily_prime_only=True)
     assert plan_prime["planned_days"] == 3
-    assert plan_prime["total_slots"] == 6
+    assert plan_prime["total_slots"] == 3
     assert plan_prime["preserved_future_slots"] == 1
-    assert plan_prime["assigned_slots"] == 3  # 1 preserved booked + 2 new v5 ready
+    assert plan_prime["assigned_slots"] == 3  # 1 preserved booked (Oct 28) + 2 new v5 ready (Oct 29, Oct 30)
 
-    # First slot (2026-10-28 Slot 2) must remain occupied by v5_booked_upcoming (never overwritten!)
+    # First day (2026-10-28 Slot 2) must remain occupied by v5_booked_upcoming without double-booking Oct 28!
     slot_map = {(it["date"], it["slot_id"]): it for it in plan_prime["items"]}
     assert slot_map[("2026-10-28", 2)]["project_id"] == "v5_booked_upcoming"
     assert slot_map[("2026-10-28", 2)]["status"] == "scheduled_public"
+    assert ("2026-10-28", 4) not in slot_map
+    assert slot_map[("2026-10-29", 4)]["time_et"] == "19:30"
+    assert slot_map[("2026-10-30", 4)]["time_et"] == "19:30"
+
+    # Explicit 2-slot mode (slots_per_day=2 -> 6 slots over 3 days)
+    plan_two = queue_mgr.plan_5_slot_schedule(days=3, start_date="2026-10-28", slots_per_day=2)
+    assert plan_two["total_slots"] == 6
+    assert plan_two["assigned_slots"] == 3
 
     # Full 5-slot calendar mode (daily_prime_only=False -> 5 slots/day = 15 slots over 3 days)
     plan = queue_mgr.plan_5_slot_schedule(days=3, start_date="2026-10-28", daily_prime_only=False)

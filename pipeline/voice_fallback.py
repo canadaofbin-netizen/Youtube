@@ -988,6 +988,7 @@ def _synthesize_edge_tts_acts(
     sentence_rates: list[str] | None = None,
     rates_used_out: list[str] | None = None,
     vocal_filter: str | None = None,
+    allow_gear_wsola_fallback: bool = False,
 ) -> list[np.ndarray]:
     """
     Synthesizes each Act in ONE unbroken continuous `edge-tts` pass (`en-US-AndrewMultilingualNeural` or preset voice),
@@ -1188,7 +1189,7 @@ def _synthesize_edge_tts_acts(
 
         req_rate = str(use_rate or rate)
         last_err: Exception | None = None
-        for attempt in range(4):
+        for attempt in range(5):
             try:
                 if sem is not None:
                     async with sem:
@@ -1196,9 +1197,9 @@ def _synthesize_edge_tts_acts(
                 return await asyncio.wait_for(_single_attempt(req_rate, pitch, volume), timeout=55.0)
             except Exception as exc:  # noqa: BLE001
                 last_err = exc
-            if attempt < 3:
-                await asyncio.sleep(0.8 * (attempt + 1))
-        raise RuntimeError(f"edge-tts failed after 4 attempts: {last_err}")
+            if attempt < 4:
+                await asyncio.sleep(1.0 * (2 ** attempt))
+        raise RuntimeError(f"edge-tts failed after 5 attempts: {last_err}")
 
     from pipeline.media_cache import MAX_TTS_NPZ_BYTES, get_speed_cache_dir, prune_speed_cache_subdir
 
@@ -1267,7 +1268,7 @@ def _synthesize_edge_tts_acts(
                 try:  # one extra sequential retry round before degrading (edge-tts throttles long parallel batches)
                     fetched = _run_coro_sync(_fetch_edge(" ".join(sp["norm_sents"]), use_rate=sp["rate"]))
                 except Exception as retry_exc:  # noqa: BLE001
-                    if sp["rate"] == str(rate):
+                    if not allow_gear_wsola_fallback or sp["rate"] == str(rate):
                         raise retry_exc from fetched
                     continue  # non-base gear stream failed -> base-rate slices + WSOLA fallback below
             mp3_bytes, bounds = fetched
@@ -1539,6 +1540,7 @@ def synthesize_continuous_diorama_track(
     rate: str | None = None,
     prosody_mode: str | None = None,
     voice_preset: str | None = None,
+    allow_kokoro_fallback: bool = False,
 ) -> dict[str, Any]:
     """
     R58, R59 & R63 Audio-First Master Clock for Schema v6/v7 `neuro_diorama`:
@@ -1673,7 +1675,7 @@ def synthesize_continuous_diorama_track(
             doc_rate = ""
         doc_pitch = str((script_doc or {}).get("tts_pitch") or "").strip()
         # Only strip legacy default "+0Hz" on un-preseted default male Andrew v7 drafts; preserve explicit "+0Hz" on female presets!
-        if v7_mode and doc_pitch == "+0Hz" and eff_preset == DEFAULT_DIORAMA_VOICE_PRESET and pitch is None:
+        if v7_mode and doc_pitch == "+0Hz" and eff_preset == "andrew_v7" and pitch is None:
             doc_pitch = ""
         preset_pitch = preset_spec.get("pitch") if v7_mode else DIORAMA_TTS_PITCH
         preset_vol = preset_spec.get("volume") if v7_mode else "+0%"
@@ -1699,10 +1701,16 @@ def synthesize_continuous_diorama_track(
                 sentence_rates=[str(pl["synth_rate"]) for pl in pros_plan] if native_gear_synth else None,
                 rates_used_out=synth_rates_used,
                 vocal_filter=eff_vocal_filter,
+                allow_gear_wsola_fallback=bool(allow_kokoro_fallback),
             )
             used_act_continuous_edge = True
             chosen_engine = "edge_tts"
-        except Exception:  # noqa: BLE001
+        except Exception as edge_exc:  # noqa: BLE001
+            if not allow_kokoro_fallback:
+                raise RuntimeError(
+                    f"edge-tts synthesis failed for {Path(project_dir).name} (voice={use_voice}, mode={eff_prosody_mode}) "
+                    f"and allow_kokoro_fallback=False: {edge_exc}"
+                ) from edge_exc
             chosen_engine = "kokoro-onnx"
             use_rate = None
             use_pitch = None

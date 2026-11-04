@@ -397,6 +397,8 @@ def _asr_tokens(text: str) -> list[str]:
     from pipeline.plain_language import to_tts_text
 
     t = re.sub(r"\b((?:[A-Za-z]\.){2,})", lambda m: m.group(1).replace(".", ""), str(text or ""))
+    t = re.sub(r"\b(\d{1,3})((?:\s+\d{3})+)\b", lambda m: m.group(1) + m.group(2).replace(" ", ","), t)
+    t = re.sub(r"\bdr\b\.?", "doctor", t, flags=re.IGNORECASE)
     t = to_tts_text(t).replace("-", " ").replace("—", " ")
     out: list[str] = []
     for raw in t.split():
@@ -503,17 +505,58 @@ def _compute_core_prosody_gates(
         p2["passed"] = p2["passed"] and p2["s3_end_sec"] <= PROSODY_P2_STAMP_END_MAX_SEC
     gates["P2_hook_timing"] = p2
 
+    raw_engine = str(vr.get("engine") or "edge_tts").strip().lower()
+    engine_ok = raw_engine in ("edge_tts", "edge-tts")
     tempo_bad = [
         s["sentence_index"]
         for s in sents
         if s.get("measured_tempo") and abs(float(s["measured_tempo"]) / float(s["target_tempo"]) - 1.0) > PROSODY_P3_TEMPO_TOLERANCE
     ]
+    is_dyn = mode in DYNAMIC_PROSODY_MODES
+    wsola_fallback_sents = [
+        s["sentence_index"]
+        for s in sents
+        if is_dyn and not s.get("tempo_clamped") and (not bool(s.get("native_gear_synth", True)) or abs(float(s.get("wsola_factor", 1.0)) - 1.0) > 0.035)
+    ]
     gear_wpm: dict[str, float] = {}
+    gear_wps: dict[str, float] = {}
+    span_by_idx = {int(sp.get("sentence_index") or i + 1): sp for i, sp in enumerate(spans)}
     for g in GEARS:
-        vals = [float(s["wpm"]) for s in sents if s.get("gear") == g and s.get("wpm")]
+        g_sents = [s for s in sents if s.get("gear") == g]
+        vals = [float(s["wpm"]) for s in g_sents if s.get("wpm")]
         if vals:
             gear_wpm[g] = round(float(np.median(vals)), 1)
-    gates["P3_gear_tempo"] = {"passed": not tempo_bad, "off_target_sentences": tempo_bad, "median_wpm_by_gear": gear_wpm}
+        tot_w = 0
+        tot_d = 0.0
+        for s in g_sents:
+            sp_item = span_by_idx.get(int(s.get("sentence_index") or 0))
+            w_cnt = int(s.get("words") or (len(str((sp_item or {}).get("text") or "").split())))
+            if sp_item and sp_item.get("end_sec") is not None and sp_item.get("start_sec") is not None:
+                d_sec = max(0.05, float(sp_item["end_sec"]) - float(sp_item["start_sec"]))
+            else:
+                d_sec = max(0.05, float(s.get("duration_sec") or 0.0) - float(s.get("lead_silence_sec") or 0.0) - float(s.get("trail_silence_sec") or 0.0))
+            if w_cnt > 0 and d_sec > 0.05:
+                tot_w += w_cnt
+                tot_d += d_sec
+        if tot_d > 0.05:
+            gear_wps[g] = round(tot_w / tot_d, 3)
+    acoustic_wps_ok = all(1.4 <= v <= 4.5 for v in gear_wps.values()) if gear_wps else True
+    dyn_spread_ok = True
+    if is_dyn and len(gear_wps) >= 2:
+        wps_spread = max(gear_wps.values()) - min(gear_wps.values())
+        wpm_spread = (max(gear_wpm.values()) - min(gear_wpm.values())) if len(gear_wpm) >= 2 else 0.0
+        dyn_spread_ok = (wps_spread >= 0.04) or (wpm_spread >= 3.0)
+    native_gear_ok = (not is_dyn) or (bool(pr.get("native_gear_synthesis", True)) and not wsola_fallback_sents)
+    gates["P3_gear_tempo"] = {
+        "passed": bool(engine_ok and not tempo_bad and native_gear_ok and acoustic_wps_ok and dyn_spread_ok),
+        "engine": vr.get("engine") or "edge_tts",
+        "engine_ok": engine_ok,
+        "native_gear_ok": native_gear_ok,
+        "wsola_fallback_sentences": wsola_fallback_sents,
+        "off_target_sentences": tempo_bad,
+        "median_wpm_by_gear": gear_wpm,
+        "words_per_sec_by_gear": gear_wps,
+    }
 
     rush_bad = [
         {"sentence_index": s["sentence_index"], "max_internal_silence_sec": s["max_internal_silence_sec"]}

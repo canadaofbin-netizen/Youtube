@@ -32,6 +32,23 @@
           "Deduplicated English transcript (9 timestamped cues in media/M1_rizzolatti_mirror_neuron_emp/transcript.txt) aligned directly to keyframe timestamps (0.0s–71.5s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_modern_monologue_without_archival_footage(wps=2.923,th=0.5)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 14,
+        "median_dark_ratio": 0.3369,
+        "median_gray_sat_ratio": 0.1868,
+        "median_p90_sat": 209.5,
+        "max_p90_sat": 255.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
+        "median_flat_patch_ratio": 0.3258,
+        "median_motion_diff": 61.567,
+        "talking_head_ratio": 0.5,
+        "words_per_sec": 2.923,
+        "has_strong_archival_cue": false,
+        "gate_failed": 4
       }
     },
     {
@@ -66,6 +83,11 @@
           "Deduplicated English transcript (28 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (0.0s–65.0s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_lecture_or_talking_head_kind(lecture)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     },
     {
@@ -89,7 +111,15 @@
           "Inspected media/M3/still.jpg (1067x1600 px, CC BY-SA 2.0, Festival della Scienza from Genova - photo by Cirone-Musi) — portrait reference: Giacomo Rizzolatti (Kiev, 28 aprile 1937) è un neuroscienziato italiano.",
           "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor"
 }

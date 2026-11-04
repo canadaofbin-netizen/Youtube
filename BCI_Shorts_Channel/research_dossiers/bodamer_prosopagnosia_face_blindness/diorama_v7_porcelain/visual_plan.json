@@ -1,0 +1,1308 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "bodamer_prosopagnosia_face_blindness",
+  "topic": "Joachim Bodamer Prosopagnosia Clinical Discovery, Fusiform Face Detector Disconnect vs Voice Identity Rescue, Covert Palm-Sweat Recognition, and Two Percent Congenital Prevalence",
+  "act5_climax_episode": "Population screening studies and clinical accounts including Oliver Sacks overturning the belief that prosopagnosia is rare, proving roughly two percent of adults live with congenital face blindness.",
+  "outro_title_lines": [
+    "JOACHIM BODAMER (1947)",
+    "WINNENDEN HOSPITAL, GERMANY"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "MIRROR STRANGER?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "VOICE KNOWS MOM?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "ONE SPOKEN WORD"
+    },
+    {
+      "sentence_index": 19,
+      "text": "FACE BRIDGE CUT"
+    },
+    {
+      "sentence_index": 28,
+      "text": "PALM SWEAT CLUE"
+    },
+    {
+      "sentence_index": 37,
+      "text": "ONE IN FIFTY"
+    },
+    {
+      "sentence_index": 45,
+      "text": "SAY YOUR NAME"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "MIRROR STRANGER?"
+    },
+    {
+      "sentence_index": 3,
+      "text": "VOICE KNOWS MOM?"
+    },
+    {
+      "sentence_index": 10,
+      "text": "ONE SPOKEN WORD"
+    },
+    {
+      "sentence_index": 19,
+      "text": "FACE BRIDGE CUT"
+    },
+    {
+      "sentence_index": 28,
+      "text": "PALM SWEAT CLUE"
+    },
+    {
+      "sentence_index": 37,
+      "text": "ONE IN FIFTY"
+    },
+    {
+      "sentence_index": 45,
+      "text": "SAY YOUR NAME"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 36,
+      "mode": "split_hstack",
+      "left_clip_index": 32,
+      "right_clip_index": 33,
+      "left_label": "FACE BLIND: WARMTH",
+      "right_label": "OPPOSITE: ID ONLY"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool cardigan sleeves and matte-white gloved matte-white porcelain hands holding a fine-grid optical test card on a sunlit oak desk",
+      "prop_action": "both matte-white gloved matte-white porcelain hands align and trace a silver pointer cleanly across the smallest bottom row of geometric patterns",
+      "consequence": "every tiny geometric shape is identified with pinpoint accuracy",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool cardigan cuffs and matte-white gloved matte-white porcelain hands tilting a wooden-framed tabletop mirror on the clinic desk",
+      "prop_action": "both matte-white gloved matte-white porcelain hands tilt and set the wooden-framed mirror upright showing only an unfeatured frosted-ivory silhouette",
+      "consequence": "the frosted silhouette in the glass stays completely unfamiliar",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit European hospital consultation room with tall arched windows, an oak desk, and a wooden tabletop mirror",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain patient in a wool cardigan leans toward the tabletop mirror then pulls one gloved hand back in puzzlement",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and cool porcelain-white gloved matte-white porcelain hands arranging three smooth blank powder-blue ceramic blocks beside a",
+      "prop_action": "both cool porcelain-white gloved matte-white porcelain hands slide and set three smooth unfeatured powder-blue geometric blocks in a row across",
+      "consequence": "the three blank powder-blue geometric blocks rest beside a smooth solid-mint ceramic block",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 3,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "an elevated wide view of the sunlit Winnenden neurology clinic room with the oak desk, tabletop mirror, and open doorway",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain neurologist in a white coat steps beside the oak desk and points toward the portrait frames opposite the patient in a cardigan",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 4,
+      "end_sentence_index": 5,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright German neurological ward study with three neat case folders and an optical testing tray on a long table",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain neurologist in a white coat walks along the table and opens the three clinical case folders in sequence",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster university quad courtyard with stone arches and clipped hedges",
+      "comparison_action": "viewed strictly from behind, a clothed matte-white porcelain graduate student in a mortarboard cap and blazer walks briskly along the stone path and lifts a stack of ivory notebooks",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool cardigan sleeves and matte-white gloved matte-white porcelain hands sorting a sunlit flower stem and brass coat buttons on a tray",
+      "prop_action": "both matte-white gloved matte-white porcelain hands lift the sunlit flower stem cleanly and tap each brass button in order along the tray",
+      "consequence": "every everyday object is sorted without a single error",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "end_sentence_index": 8
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "wool cardigan cuffs and matte-white gloved matte-white porcelain hands resting before the frosted silhouette in the wooden mirror",
+      "prop_action": "one matte-white gloved matte-white porcelain hand reaches toward the mirror frame then turns palm-up in quiet confusion",
+      "consequence": "the frosted silhouette remains unlinked to any personal identity",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 9,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved matte-white porcelain hands opening the tall wooden clinic door latch",
+      "prop_action": "one matte-white gloved matte-white porcelain hand turns the brass door handle and pulls the tall wooden clinic door smoothly open",
+      "consequence": "warm hallway sunlight streams across the clinic threshold",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit clinic doorway opening into the consultation room behind the oak desk",
+      "action": "viewed strictly from behind the seated patient in a cardigan, a clothed matte-white porcelain visitor in a tailored coat and hat steps quietly into the doorway and turns toward the desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 11,
+      "end_sentence_index": 12,
+      "act": 2,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the quiet sunlit consultation room between the seated patient and the silent visitor in a coat and hat",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain patient in a cardigan sits motionless at the oak desk and tilts his head slightly without rising",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 13,
+      "act": 2,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "VISUAL CORTEX\nSHARP FEATURE VISION",
+      "camera": "gentle_push_in",
+      "brain_scene": "at the back occipital pole of the matte warm-ivory 3D brain model, the primary visual cortex glows in clear sunlit sky-blue confirming intact feature vision",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 2,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored coat sleeves and matte-white gloved matte-white porcelain hands clasping a handbag at the sunlit doorway",
+      "prop_action": "one matte-white gloved matte-white porcelain hand lifts gently in a warm greeting as concentric golden sound rings ripple across the room",
+      "consequence": "warm golden acoustic rings reach the oak consultation desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 14,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 2,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Winnenden clinic room as the golden acoustic rings reach the desk",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain patient in a wool cardigan rises immediately from his chair and steps warmly toward the visitor in a coat and hat",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit cool-alabaster studio table holding a vintage brushed-silver folding press camera with a round reflector dish",
+      "comparison_action": "two matte-white gloved matte-white porcelain hands in shirt sleeves press the silver shutter cable and tilt the camera as a warm-gold flash bulb illuminates the table instantly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "clip_number": 17,
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside wooden-framed tabletop mirror inside a sunlit European hospital consultation",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align wooden-framed tabletop mirror, and set the test marker cleanly",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved matte-white porcelain hands holding a fountain pen over an ivory clinical folder",
+      "prop_action": "the matte-white gloved matte-white porcelain right hand draws a clean diagram separating an intact eye icon from a disconnected portrait",
+      "consequence": "the selective visual-identity split is captured cleanly on the page",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 18,
+      "act": 2,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit German consultation room with the tabletop mirror and three silhouette frames on the oak desk",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain patient in a cardigan and visitor in a coat and hat reach forward and shake gloved hands warmly beside the neurologist",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "end_sentence_index": 19
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "VISUAL CORTEX\nCRISP LINES & EDGES",
+      "camera": "locked_tripod",
+      "brain_scene": "at the rear occipital pole of the matte warm-ivory 3D brain model, crisp sky-blue light illuminates the primary visual cortex",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png",
+      "end_sentence_index": 21
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved matte-white porcelain hands interlocking three sunlit puzzle wedges on the oak desk",
+      "prop_action": "both matte-white gloved matte-white porcelain hands slide and snap three separate geometric wedges together into one unified oval emblem",
+      "consequence": "the unified oval emblem glows softly as a single whole pattern",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 23,
+      "end_sentence_index": 24,
+      "act": 3,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved matte-white porcelain hands showing a disconnected silver link bar beside unlinked geometric blocks",
+      "prop_action": "one matte-white gloved matte-white porcelain hand lifts the detached silver link bar while the other hand spreads three unlinked sunlit blocks apart",
+      "consequence": "the crisp sunlit blocks sit clear yet unjoined to the memory tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "auditory cortex",
+      "anatomy_label": "AUDITORY CORTEX\nINTACT VOICE RESCUE",
+      "camera": "gentle_push_in",
+      "brain_scene": "along the side ridge of the matte warm-ivory 3D brain model, the auditory cortex glows bright amber-gold and connects smoothly forward into identity hubs",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 23,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved matte-white porcelain hands sliding a golden voice token across an upper arch model",
+      "prop_action": "the matte-white gloved matte-white porcelain right hand glides the golden token over the intact upper arch straight into the lit home socket",
+      "consequence": "the home socket lights up warm gold instantly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 27,
+      "act": 3,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved matte-white porcelain hands holding two small silver finger-clip sensors beside a stack of portrait cards",
+      "prop_action": "both matte-white gloved matte-white porcelain hands set the silver finger sensors onto a clean linen pad and align a stack",
+      "consequence": "a brass chart needle rests poised at baseline",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "iowa_autonomic_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright neurology laboratory at Iowa with a clinical table, twin-pen paper chart recorder, and stack of silhouette cards",
+      "action": "viewed strictly from behind, two clothed matte-white porcelain neuroscientists in blazers and white coats step up to the clinical table opposite a seated volunteer in a sweater",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 26,
+      "scene_state": {
+        "location_id": "iowa_autonomic_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png",
+      "end_sentence_index": 29
+    },
+    {
+      "sentence_index": 29,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 4,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved matte-white porcelain hands switching on the paper chart drive",
+      "prop_action": "the matte-white gloved matte-white porcelain right hand flips the silver chart switch so clean ivory graph paper glides smoothly beneath",
+      "consequence": "the brass pen traces a steady level baseline",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "iowa_autonomic_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "end_sentence_index": 30
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sweater sleeves and matte-white gloved matte-white porcelain hands sorting every silhouette card into the unknown tray",
+      "prop_action": "the matte-white gloved matte-white porcelain left hand slides each silhouette card into the same cool-grey tray and taps the empty known tray",
+      "consequence": "the conscious known tray stays completely empty",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "iowa_autonomic_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a close architectural view of the paper chart recorder as a warm-ivory family silhouette card passes the sensor gate",
+      "internal_mechanism": "staying flat on grey cards, the brass pen swings sharply upward tracing a tall golden peak the instant the family silhouette card arrives",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "iowa_autonomic_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
+    },
+    {
+      "sentence_index": 33,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "AMYGDALA ALARM\nCOVERT EMOTIONAL TRACE",
+      "camera": "gentle_push_in",
+      "brain_scene": "inside the flat side-profile half-brain cross-section, a warm amber-gold subcortical arc reaches the deep amygdala even while the lower fusiform bridge stays unlit",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "pan_right",
+      "attire_and_hands": "white lab coat sleeves and matte-white gloved matte-white porcelain hands comparing the tall golden sweat peak beside the empty naming tray",
+      "prop_action": "one matte-white gloved matte-white porcelain hand points to the tall golden chart peak while the other hand taps the family silhouette card",
+      "consequence": "covert bodily recognition stands proven on the paper strip",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "scene_state": {
+        "location_id": "iowa_autonomic_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "end_sentence_index": 35
+    },
+    {
+      "sentence_index": 36,
+      "act": 4,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat sleeve and cool porcelain-white gloved matte-white porcelain left hand over an unmarked limestone groove tray",
+      "prop_action": "the cool porcelain-white gloved matte-white porcelain left hand traces an intact soft cream ceramic rod beside a split powder-blue ceramic",
+      "consequence": "the intact cream ceramic rod and tall smooth mint-sage prism sit cleanly beside the split powder-blue rod with zero markings",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "iowa_autonomic_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 36,
+      "cut_role": "split_right",
+      "act": 4,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy blazer sleeve and matte-white gloved matte-white porcelain right hand over the Capgras relay board",
+      "prop_action": "the matte-white gloved matte-white porcelain right hand traces the lit sky-blue naming wire beside the open gap in the golden",
+      "consequence": "conscious face naming glows brightly while gut warmth stays flat",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "iowa_autonomic_lab",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      }
+    },
+    {
+      "sentence_index": 37,
+      "act": 5,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a warm sunlit New York bookshop foyer with wooden bookcases and a tall bevel-edged wall mirror by the doorway",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain neurologist-author in a tweed blazer and felt hat walks briskly toward the sunlit doorway holding a pocket notebook",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "bookshop_mirror_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit bookshop corner directly before the tall wooden-framed wall mirror",
+      "action": "viewed strictly from behind, the clothed matte-white porcelain author in a tweed blazer steps politely aside and lifts his felt hat toward the frosted silhouette in the tall mirror",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "bookshop_mirror_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed blazer sleeve and matte-white gloved matte-white porcelain hand tipping a soft felt hat beside the bevelled mirror frame",
+      "prop_action": "the matte-white gloved matte-white porcelain hand lifts and tilts the felt hat brim politely as the mirrored silhouette moves in exact synchrony",
+      "consequence": "both hat brims tilt at the exact same angle",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "bookshop_mirror_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tweed blazer cuffs and matte-white gloved matte-white porcelain hands holding an open pocket notebook beside the tall mirror",
+      "prop_action": "one matte-white gloved matte-white porcelain hand presses the wooden mirror frame lightly while the other hand writes a playful note",
+      "consequence": "the humorous self-discovery goes straight into his field notes",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "bookshop_mirror_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 40,
+      "act": 5,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs and matte-white gloved matte-white porcelain hands opening a wide population grid on the sunlit table",
+      "prop_action": "both matte-white gloved matte-white porcelain hands lift and open a wide fifty-slot sunlit grid board across the sunlit table",
+      "consequence": "the community-wide scale of congenital face blindness opens across the table",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "iowa_autonomic_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_number": 39,
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside fine-print reading blank matte card & everyday",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align fine-print reading blank matte card & everyday",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "clip_number": 40,
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside wooden-framed tabletop mirror inside a sunlit European hospital consultation",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align wooden-framed tabletop mirror, and set the test marker cleanly",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "iowa_autonomic_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit research hall displaying the fifty-seat population model and 3D brain sculpture on the central oak table",
+      "action": "viewed strictly from behind, three clothed matte-white porcelain researchers in white coats and blazer jackets step back from the table and turn in amazed agreement",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "iowa_autonomic_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
+    },
+    {
+      "sentence_index": 44,
+      "act": 5,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cardigan sleeves and matte-white gloved matte-white porcelain hands arranging everyday cue tokens of red spectacles, oxford shoes, and a sound wave",
+      "prop_action": "both matte-white gloved matte-white porcelain hands lift and align the compact red spectacles, sunlit shoes, and golden voice wave neatly",
+      "consequence": "clever everyday context cues anchor smooth daily recognition",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "bookshop_mirror_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "end_sentence_index": 45
+    },
+    {
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "the sunlit market aisle away from usual office desks and uniforms",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain coworker in a casual jacket walks briskly and turns down the aisle past another shopper in a cardigan",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 43,
+      "scene_state": {
+        "location_id": "bookshop_mirror_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
+    },
+    {
+      "clip_number": 44,
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside fine-print reading blank matte card & everyday",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align fine-print reading blank matte card & everyday",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 48,
+      "act": 6,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "cardigan sleeves and matte-white gloved matte-white porcelain hands setting aside a cold grey block on a sunlit counter",
+      "prop_action": "one matte-white gloved matte-white porcelain hand pushes the cold grey misunderstanding block away while the other hand places a warm",
+      "consequence": "the warm golden bridge sits ready at the center of the counter",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "bookshop_mirror_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "fusiform face area",
+      "anatomy_label": "FUSIFORM FACE PATCH\nCONTEXT GAP BRIDGED",
+      "camera": "gentle_push_in",
+      "brain_scene": "across the matte warm-ivory 3D brain model, a bright amber-gold arc from the side auditory hearing center illuminates identity hubs past the quiet fusiform patch",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a sunlit neighborhood sidewalk outside the bookshop with green street trees",
+      "action": "viewed strictly from behind, a clothed matte-white porcelain friend in a casual jacket steps forward and reaches a gloved hand warmly toward a colleague in a cardigan",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "bookshop_mirror_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "bookshop_mirror_hall",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "casual jacket sleeve and wool cardigan sleeve with matte-white gloved matte-white porcelain hands meeting in warm sunlight",
+      "prop_action": "both clothed matte-white porcelain right hands reach across and shake in a warm friendly greeting as golden sound rings shimmer gently",
+      "consequence": "instant recognition connects both friends effortlessly",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48,
+      "scene_state": {
+        "location_id": "bookshop_mirror_hall",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      }
+    },
+    {
+      "sentence_index": 52,
+      "act": 6,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "the sunlit Winnenden clinic desk alongside the intact golden voice-bridge model and 3D brain sculpture",
+      "action": "viewed strictly from behind, clothed matte-white porcelain neurologists in white coats and blazer jackets step together and turn calmly toward the sunlit room",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 49,
+      "scene_state": {
+        "location_id": "winnenden_clinic_desk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png"
+    },
+    {
+      "sentence_index": 52,
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "winnenden_clinic_desk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a soft sunlit southern German hillside garden with pale-stone courtyard walls, linden trees, and clear brushed-matte sky",
+      "action": "viewed strictly from behind, clothed matte-white porcelain figures in coats and cardigan jackets walk and step calmly along the sunlit garden path as the camera tilts upward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 50
+    }
+  ],
+  "thumbnail": {
+    "hook_text": "VOICE KNOWS MOM?",
+    "cover_sentence_index": 3,
+    "cover_brief": "low-poly patient in cardigan seated before wooden tabletop mirror showing frosted stranger silhouette until golden voice rings arrive"
+  },
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_b",
+  "default_location_id": "winnenden_clinic_desk",
+  "real_environment": "a sunlit European hospital consultation room with tall arched windows, an oak desk, and a wooden tabletop mirror",
+  "environment_props": [
+    "fine-print reading blank matte card & everyday object tray vs family portraits (proves sharp 20/20 visual acuity and object naming alongside zero face ID)",
+    "wooden-framed tabletop mirror"
+  ],
+  "cast": {
+    "subject": "wool cardigan and pleated trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "1947 European clinical white coat with tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_winnenden_clinic_desk",
+      "location_id": "winnenden_clinic_desk",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 1 (winnenden_clinic_desk: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit European hospital consultation room with tall arched windows, an oak desk, and a wooden tabletop mirror, featuring fine-print reading blank matte card & everyday object tray vs family portraits (proves sharp 20/20 visual acuity and object naming alongside zero face ID). Inside the room, subject (wool cardigan and pleated trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside fine-print reading blank matte card & everyday object tray vs family portraits (proves sharp 20/20 visual acuity and object naming alongside zero face ID). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a sunlit European hospital consultation room with tall arched windows, a",
+        "fine-print reading blank matte card & everyd"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_bookshop_mirror_hall",
+      "location_id": "bookshop_mirror_hall",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 2 (bookshop_mirror_hall: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a warm sunlit New York bookshop foyer with wooden bookcases and a tall bevel-edged wall mirror by the doorway. Inside the room, subject (wool cardigan and pleated trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a warm sunlit New York bookshop foyer with wooden bookcases and a tall b",
+        "an unmarked clinical tabletop apparatus"
+      ]
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_iowa_autonomic_lab",
+      "location_id": "iowa_autonomic_lab",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Room state anchor 3 (iowa_autonomic_lab: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright neurology laboratory at Iowa with a clinical table, twin-pen paper unmarked paper sheet recorder, and stack of silhouette blank matte cards. Inside the room, subject (wool cardigan and pleated trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a bright neurology laboratory at Iowa with a clinical table, twin-pen pa",
+        "an unmarked clinical tabletop apparatus"
+      ]
+    }
+  ],
+  "track_subtier": "B_scene_bible_anchor",
+  "voice_preset": "emma_v7",
+  "us_anti_clone_v7": true,
+  "prosody_mode": "dynamic_us_v7"
+}

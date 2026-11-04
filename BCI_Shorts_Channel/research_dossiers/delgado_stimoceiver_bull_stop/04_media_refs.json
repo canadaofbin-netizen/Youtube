@@ -32,6 +32,23 @@
           "Deduplicated English transcript (14 timestamped cues in media/M1/transcript.txt) aligned directly to keyframe timestamps (26.0s–179.1s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_modern_monologue_without_archival_footage(wps=2.091,th=0.375)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 11,
+        "median_dark_ratio": 0.3069,
+        "median_gray_sat_ratio": 0.5916,
+        "median_p90_sat": 255.0,
+        "max_p90_sat": 255.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
+        "median_flat_patch_ratio": 0.2802,
+        "median_motion_diff": 54.851,
+        "talking_head_ratio": 0.375,
+        "words_per_sec": 2.091,
+        "has_strong_archival_cue": false,
+        "gate_failed": 4
       }
     },
     {
@@ -66,6 +83,23 @@
           "Deduplicated English transcript (44 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (3.1s–39.5s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_modern_monologue_without_archival_footage(wps=3.198,th=0.0)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 14,
+        "median_dark_ratio": 0.6724,
+        "median_gray_sat_ratio": 0.4112,
+        "median_p90_sat": 255.0,
+        "max_p90_sat": 255.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": true,
+        "median_flat_patch_ratio": 0.3677,
+        "median_motion_diff": 11.391,
+        "talking_head_ratio": 0.0,
+        "words_per_sec": 3.198,
+        "has_strong_archival_cue": false,
+        "gate_failed": 4
       }
     },
     {
@@ -89,7 +123,15 @@
           "Inspected media/M3/still.jpg (577x769 px, CC0, Lindsay Hanford, Geoff B Hall) — neuroanatomy reference: Transverse section of the caudate nucleus from a structural MR image.",
           "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor"
 }

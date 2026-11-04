@@ -1037,8 +1037,10 @@ async def _submit_diorama_prompt_zero_credit(
         or ("zero_credit_fallback" if active_model == FLOW_ZERO_CREDIT_MODEL else "omni_monthly_credit")
     )
 
+    expected_chips = 0
+
     async def _switch_to_zero_credit_fallback(reason_msg: str) -> None:
-        nonlocal active_model, active_tier
+        nonlocal active_model, active_tier, expected_chips
         print(f"[FlowDiorama] {reason_msg} -> switching to 0-credit {FLOW_ZERO_CREDIT_MODEL}")
         if credit_exhausted_event is not None:
             credit_exhausted_event.set()
@@ -1046,9 +1048,12 @@ async def _submit_diorama_prompt_zero_credit(
         await _configure_zero_credit_veo_lite(client, force=True, output_count=zc_out)
         fam_chk = await read_active_flow_model_family(client)
         warn_chk = bool(await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))"))
-        if warn_chk and await count_chips(client) > 0:
-            ref_state["lite_supports_ref"] = False
+        if (fam_chk != "veo_3_1_lite_low_priority" or warn_chk) and short_ref_path is not None and await count_chips(client) > 1:
+            # Dual start+end chips drifted model; fall back to mandatory 1-chip start frame (never 0 chips)
+            ref_state["lite_supports_dual_ref"] = False
+            expected_chips = 1
             await clear_prompt_ingredients(client)
+            await attach_uploaded_by_name(client, short_ref_path.name, wait_sec=12.0)
             await _configure_zero_credit_veo_lite(client, force=True, output_count=zc_out)
             fam_chk = await read_active_flow_model_family(client)
             warn_chk = bool(await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))"))
@@ -1058,13 +1063,18 @@ async def _submit_diorama_prompt_zero_credit(
         active_model = FLOW_ZERO_CREDIT_MODEL
         active_tier = "zero_credit_fallback"
 
-    allow_ref = active_model == FLOW_PRIMARY_VIDEO_MODEL or bool(ref_state.get("lite_supports_ref", True))
-    if short_ref_path and short_ref_path.exists() and allow_ref:
+    if short_ref_path is not None and not short_ref_path.exists():
+        raise FileNotFoundError(f"Required start reference_image missing on disk: {short_ref_path}")
+    if end_ref_path is not None and not end_ref_path.exists():
+        raise FileNotFoundError(f"Required end_reference_image missing on disk: {end_ref_path}")
+
+    if short_ref_path is not None:
         use_dual_end = (
             end_ref_path is not None
             and end_ref_path.exists()
             and (active_model == FLOW_PRIMARY_VIDEO_MODEL or bool(ref_state.get("lite_supports_dual_ref", True)))
         )
+        expected_chips = 2 if use_dual_end else 1
 
         async def _do_ref_attach() -> bool:
             try:
@@ -1150,6 +1160,8 @@ async def _submit_diorama_prompt_zero_credit(
                 warn_with_chip = bool(cred_chip.get("has_warning_btn")) or fam_chip != "veo_3_1_lite_low_priority"
                 if warn_with_chip and use_dual_end:
                     ref_state["lite_supports_dual_ref"] = False
+                    use_dual_end = False
+                    expected_chips = 1
                     await clear_prompt_ingredients(client)
                     if await attach_uploaded_by_name(client, short_ref_path.name, wait_sec=12.0):
                         await _configure_zero_credit_veo_lite(client, force=True, output_count=zc_out)
@@ -1157,15 +1169,20 @@ async def _submit_diorama_prompt_zero_credit(
                         fam_chip = await read_active_flow_model_family(client)
                         warn_with_chip = bool(cred_chip.get("has_warning_btn")) or fam_chip != "veo_3_1_lite_low_priority"
                 if warn_with_chip:
-                    print(
-                        f"[FlowDiorama] Ingredient chip triggered credit warning/model drift ({fam_chip}); "
-                        f"clearing chip & locking pure 0-credit {FLOW_ZERO_CREDIT_MODEL}"
-                    )
-                    ref_state["lite_supports_ref"] = False
-                    await clear_prompt_ingredients(client)
                     await _configure_zero_credit_veo_lite(client, force=True, output_count=zc_out)
-                else:
-                    print(f"[FlowDiorama] Attached 0-credit reference anchor: {short_ref_path.name}")
+                    await asyncio.sleep(0.35)
+                    cred_chip = await client.eval(CHECK_CREDIT_EXHAUSTION_JS) or {}
+                    fam_chip = await read_active_flow_model_family(client)
+                    warn_with_chip = bool(cred_chip.get("has_warning_btn")) or fam_chip != "veo_3_1_lite_low_priority"
+                chips_post = await count_chips(client)
+                if warn_with_chip or chips_post < 1:
+                    print(
+                        f"[FlowDiorama] Fail-closed: refusing unanchored or drifted 0-credit submit for {short_ref_path.name} "
+                        f"(family={fam_chip!r}, warn={warn_with_chip}, chips={chips_post})"
+                    )
+                    return False
+                expected_chips = min(expected_chips, chips_post)
+                print(f"[FlowDiorama] Attached 0-credit reference anchor: {short_ref_path.name} (chips={chips_post})")
         else:
             print(f"[FlowDiorama] Reference anchor {short_ref_path.name} failed to attach; aborting unanchored submission for retry")
             await clear_prompt_ingredients(client)
@@ -1229,13 +1246,27 @@ async def _submit_diorama_prompt_zero_credit(
             await _switch_to_zero_credit_fallback(f"Credits exhausted pre-submit ({cred_pre})")
             await asyncio.sleep(0.3)
 
+        if expected_chips > 0:
+            chips_pre_trig = await count_chips(client)
+            if chips_pre_trig < expected_chips and short_ref_path is not None:
+                await attach_uploaded_by_name(client, short_ref_path.name, wait_sec=12.0)
+                chips_pre_trig = await count_chips(client)
+            if chips_pre_trig < 1:
+                print(
+                    f"[FlowDiorama] Fail-closed: expected >=1 reference chip for {short_ref_path.name if short_ref_path else ''}, "
+                    f"got {chips_pre_trig}; aborting submit attempt"
+                )
+                return False
+
         if active_model == FLOW_ZERO_CREDIT_MODEL:
             fam_now = await read_active_flow_model_family(client)
             warn_now = bool(await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))"))
             if fam_now != "veo_3_1_lite_low_priority" or warn_now:
-                if warn_now and await count_chips(client) > 0:
-                    ref_state["lite_supports_ref"] = False
+                if warn_now and short_ref_path is not None and await count_chips(client) > 1:
+                    ref_state["lite_supports_dual_ref"] = False
+                    expected_chips = 1
                     await clear_prompt_ingredients(client)
+                    await attach_uploaded_by_name(client, short_ref_path.name, wait_sec=12.0)
                 await _configure_zero_credit_veo_lite(client, force=True, output_count=zc_out)
                 await asyncio.sleep(0.3)
                 fam_now = await read_active_flow_model_family(client)
@@ -1245,6 +1276,9 @@ async def _submit_diorama_prompt_zero_credit(
                         f"[FlowDiorama] Refusing to submit on zero-credit tier with model_family={fam_now!r}, warn={warn_now}; retrying..."
                     )
                     continue
+            if expected_chips > 0 and await count_chips(client) < 1:
+                print("[FlowDiorama] Fail-closed: reference chip disappeared during zero-credit model lock; aborting submit")
+                return False
 
         sub_res = await client.eval("""(() => {
             const fg = document.querySelector('flow-generate-icon-button');
@@ -1295,6 +1329,8 @@ async def _submit_diorama_prompt_zero_credit(
                             "flow_model": active_model,
                             "credit_tier": active_tier,
                             "zero_credit_verified": bool(active_tier == "zero_credit_fallback"),
+                            "reference_attached": bool(expected_chips > 0),
+                            "attached_chip_count": int(expected_chips),
                         }
                     )
                 return True
@@ -1800,8 +1836,18 @@ async def _run_shard_worker(
                     prompt_str = str(c_spec.get("prompt") or c_spec.get("full_prompt") or "")
                     ref_key = _ref_stage_key(c_spec)
                     short_ref = short_ref_map.get(ref_key) if ref_key else None
+                    if ref_key and (short_ref is None or not Path(short_ref).exists()):
+                        raise FileNotFoundError(
+                            f"[Shard {shard_idx}] Clip {c_num} declares reference_image={c_spec.get('reference_image')!r} "
+                            f"(stage_key={ref_key!r}), but staged PNG is missing from short_ref_map"
+                        )
                     end_rk = str(c_spec.get("end_reference_image") or "").strip()
                     end_short_ref = short_ref_map.get(f"end::{end_rk}") if end_rk else None
+                    if end_rk and (end_short_ref is None or not Path(end_short_ref).exists()):
+                        raise FileNotFoundError(
+                            f"[Shard {shard_idx}] Clip {c_num} declares end_reference_image={end_rk!r}, "
+                            f"but staged end PNG is missing from short_ref_map"
+                        )
                     dst_mp4 = native_dir / f"clip_{c_num}.mp4"
 
                     clip_done = False
@@ -2208,6 +2254,7 @@ async def _run_shard_worker(
                         tmp_cand.unlink(missing_ok=True)
                         seen_global_shas.add(final_sha)
                         st_final = dst_mp4.stat()
+                        req_ref_rel = str(c_spec.get("reference_image") or "").strip()
                         clip_rec = {
                             "clip_index": c_num,
                             "sha256": final_sha,
@@ -2217,6 +2264,8 @@ async def _run_shard_worker(
                             "flow_model": used_model,
                             "model": used_model,
                             "credit_tier": used_tier,
+                            "reference_image": req_ref_rel,
+                            "reference_attached": bool(sub_meta.get("reference_attached", False)) if req_ref_rel else True,
                             "cv_qa": cv_rep,
                         }
                         completed_records.append(clip_rec)
@@ -2449,6 +2498,7 @@ async def run_sharded_diorama_flow_generation(
     prev_shard_tabs: list[str] = []
     prev_prompts_submitted = 0
     prev_default_model = ""
+    prev_ref_enforced = False
     if not (clean_existing and not only_clips) and prev_rcpt_path.exists():
         try:
             pr = json.loads(prev_rcpt_path.read_text(encoding="utf-8"))
@@ -2459,6 +2509,7 @@ async def run_sharded_diorama_flow_generation(
                 prev_shard_tabs = [str(t) for t in (pr.get("shard_tab_ids") or []) if t]
                 prev_prompts_submitted = int(pr.get("prompts_submitted_count") or 0)
                 prev_default_model = str(pr.get("flow_model") or pr.get("model") or "")
+                prev_ref_enforced = bool(pr.get("reference_attachment_enforced"))
                 if " -> " in prev_default_model:
                     prev_default_model = ""
                 for entry in (pr.get("clips") or []):
@@ -2482,6 +2533,7 @@ async def run_sharded_diorama_flow_generation(
     plan_schema_ver = PROMPT_SCHEMA_VERSION_V7 if is_diorama_v7_plan(vp) else 6
     sents, _ = load_diorama_script_sentences(project_dir)
     rendered_clips = build_diorama_v6_prompts(vp, sents)
+    spec_by_idx: dict[int, dict[str, Any]] = {int(c["clip_number"]): c for c in rendered_clips}
     write_flow_prompts_json(project_dir, rendered_clips)
     _, episode_qa_contract = write_episode_qa_contract(project_dir, vp, sents, rendered_clips)
 
@@ -2504,28 +2556,31 @@ async def run_sharded_diorama_flow_generation(
                 src_p = Path(rk_raw) if Path(rk_raw).is_absolute() else (WORKSPACE_ROOT / rk_raw)
                 if not src_p.exists() and not Path(rk_raw).is_absolute():
                     src_p = project_dir / rk_raw
-                if src_p.exists():
-                    hash_payload = src_p.read_bytes() + (b"::neutral_v7" if needs_neutral else b"")
-                    sha6 = hashlib.sha1(hash_payload).hexdigest()[:6]
-                    dst_tmp = Path(f"/tmp/rf_{sha6}.jpg")
-                    if not dst_tmp.exists():
-                        img_bgr = cv2.imread(str(src_p))
-                        if img_bgr is not None:
-                            if needs_neutral:
-                                img_bgr = neutralize_v7_brain_reference_tint(img_bgr)
-                            h0, w0 = img_bgr.shape[:2]
-                            if max(h0, w0) > 1280:
-                                scale = 1280.0 / float(max(h0, w0))
-                                img_bgr = cv2.resize(
-                                    img_bgr,
-                                    (max(1, int(round(w0 * scale))), max(1, int(round(h0 * scale)))),
-                                    interpolation=cv2.INTER_AREA,
-                                )
-                            cv2.imwrite(str(dst_tmp), img_bgr, [cv2.IMWRITE_JPEG_QUALITY, 92])
-                        else:
-                            dst_tmp = Path(f"/tmp/rf_{sha6}{src_p.suffix.lower()}")
-                            shutil.copy2(src_p, dst_tmp)
-                    short_ref_map[stage_k] = dst_tmp
+                if not src_p.exists():
+                    raise FileNotFoundError(
+                        f"Clip {c_spec.get('clip_number')}: declared reference image missing on disk: {rk_raw} (checked {src_p})"
+                    )
+                hash_payload = src_p.read_bytes() + (b"::neutral_v7" if needs_neutral else b"")
+                sha6 = hashlib.sha1(hash_payload).hexdigest()[:6]
+                dst_tmp = Path(f"/tmp/rf_{sha6}.jpg")
+                if not dst_tmp.exists():
+                    img_bgr = cv2.imread(str(src_p))
+                    if img_bgr is not None:
+                        if needs_neutral:
+                            img_bgr = neutralize_v7_brain_reference_tint(img_bgr)
+                        h0, w0 = img_bgr.shape[:2]
+                        if max(h0, w0) > 1280:
+                            scale = 1280.0 / float(max(h0, w0))
+                            img_bgr = cv2.resize(
+                                img_bgr,
+                                (max(1, int(round(w0 * scale))), max(1, int(round(h0 * scale)))),
+                                interpolation=cv2.INTER_AREA,
+                            )
+                        cv2.imwrite(str(dst_tmp), img_bgr, [cv2.IMWRITE_JPEG_QUALITY, 92])
+                    else:
+                        dst_tmp = Path(f"/tmp/rf_{sha6}{src_p.suffix.lower()}")
+                        shutil.copy2(src_p, dst_tmp)
+                short_ref_map[stage_k] = dst_tmp
 
     raw_targets = (
         [c for c in rendered_clips if int(c["clip_number"]) in set(only_clips)]
@@ -2570,7 +2625,11 @@ async def run_sharded_diorama_flow_generation(
                 compute_fn=_eval_main_clip,
                 extra_key=f"{g_str}|{s_ver}|{b_mode}|{st_prof}|{c_num}|{contract_sig_main}",
             )
-            if cached_chk["cv_rep"]["passed"] and cached_chk["dqa_ok"]:
+            req_ref_resume = str(c_spec.get("reference_image") or "").strip()
+            ref_ok_resume = True
+            if req_ref_resume and prev_ref_enforced:
+                ref_ok_resume = existing_clips_by_idx.get(c_num, {}).get("reference_attached") is True
+            if cached_chk["cv_rep"]["passed"] and cached_chk["dqa_ok"] and ref_ok_resume:
                 seen_global_shas.add(fast_file_sha256(dst).lower())
                 continue
         target_clips.append(c_spec)
@@ -2645,6 +2704,12 @@ async def run_sharded_diorama_flow_generation(
                 or ("zero_credit_fallback" if c_model == FLOW_ZERO_CREDIT_MODEL else "omni_monthly_credit")
             )
             src_dl = str(prior.get("source_download_filename") or f"flow_shard_clip_{idx:02d}.mp4")
+            spec_c = spec_by_idx.get(idx) or {}
+            req_ref_rel = str(prior.get("reference_image") or spec_c.get("reference_image") or "").strip()
+            if "reference_attached" in prior:
+                ref_att_val = bool(prior.get("reference_attached"))
+            else:
+                ref_att_val = not bool(req_ref_rel)
             entry: dict[str, Any] = {
                 "clip_index": idx,
                 "sha256": fast_file_sha256(cf).lower(),
@@ -2654,6 +2719,8 @@ async def run_sharded_diorama_flow_generation(
                 "flow_model": c_model,
                 "model": c_model,
                 "credit_tier": c_tier,
+                "reference_image": req_ref_rel,
+                "reference_attached": ref_att_val,
             }
             if prior.get("cv_qa"):
                 entry["cv_qa"] = prior["cv_qa"]
@@ -2700,6 +2767,7 @@ async def run_sharded_diorama_flow_generation(
             "credit_tiers_used": seen_tiers,
             "zero_credit_verified": zero_cred_ok,
             "zero_clip_reuse": True,
+            "reference_attachment_enforced": True,
             "partial_receipt": not bool(final_pass),
             "flow_project_url": primary_url,
             "tab_target_id": primary_tab,

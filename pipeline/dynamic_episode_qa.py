@@ -1159,16 +1159,55 @@ def verify_final_mp4_against_contract(
                 and max_cut <= t_targets["max_single_speech_cut_sec"] + (0.60 if is_synth_test else 0.0)
             )
 
-        # DQ6: Zero Clip Reuse
-        dq6_ok = bool(edl.get("zero_clip_reuse")) and int(edl.get("max_clip_reuse") or 99) <= DIORAMA_MAX_CLIP_REUSE
+        # DQ6: Zero Clip Reuse & Enforced Reference Chip Attachment Provenance
+        unattached_ref_clips: list[int] = []
+        prov_path = p_dir / "03_visuals" / "flow_provenance_receipt.json"
+        if prov_path.exists():
+            try:
+                prov_doc = json.loads(prov_path.read_text(encoding="utf-8"))
+                prov_clips = [pc for pc in (prov_doc.get("clips") or []) if isinstance(pc, dict)]
+                enforce_ref_prov = bool(prov_doc.get("reference_attachment_enforced")) or any(
+                    "reference_attached" in pc for pc in prov_clips
+                )
+                if enforce_ref_prov:
+                    prov_by_idx = {
+                        int(pc.get("clip_index") or pc.get("clip_number") or 0): pc
+                        for pc in prov_clips
+                    }
+                    used_clip_nums = sorted(
+                        {
+                            int(c.get("clip_index") or 0)
+                            for c in cuts
+                            if not c.get("outro_sky_card") and int(c.get("clip_index") or 0) > 0
+                        }
+                    )
+                    for c_num in used_clip_nums:
+                        vp_c = vp_by_num.get(c_num, {})
+                        rc_c = rendered_by_num.get(c_num, {})
+                        expected_ref = str(
+                            vp_c.get("reference_image") or rc_c.get("reference_image") or ""
+                        ).strip()
+                        if expected_ref and prov_by_idx.get(c_num, {}).get("reference_attached") is not True:
+                            unattached_ref_clips.append(c_num)
+            except Exception:
+                pass
+        dq6_ok = (
+            bool(edl.get("zero_clip_reuse"))
+            and int(edl.get("max_clip_reuse") or 99) <= DIORAMA_MAX_CLIP_REUSE
+            and len(unattached_ref_clips) == 0
+        )
 
         # DQ7, DQ8, DQ9: Inspect 100% of ALL EDL cuts (including outro) across full non-subtitle scene bands in Schema v7
         freeze_cuts: list[int] = []
         skin_leaks: list[int] = []
+        yunet_face_cuts: list[int] = []
         plaque_leaks: list[int] = []
         cut_lumas: list[float] = []
         cut_dark_v35: list[float] = []
         cut_sats: list[float] = []
+        _detect_yunet_non_porcelain = None
+        if is_porcelain and not is_synth_test:
+            from pipeline.source_reenactment import detect_non_porcelain_human_faces_yunet as _detect_yunet_non_porcelain
         inspected_cuts = cuts if is_v7 else [c for c in cuts[::3] if not c.get("outro_sky_card")]
         for c in inspected_cuts:
             is_outro = bool(c.get("outro_sky_card"))
@@ -1296,14 +1335,21 @@ def verify_final_mp4_against_contract(
                         elif (
                             is_porcelain
                             and not is_outro
-                            and g_str in ("porcelain_hands_closeup", "porcelain_pov_hands", "porcelain_fullbleed_world")
+                            and g_str != "porcelain_living_brain"
                         ):
                             flesh_cap_dq8 = PORCELAIN_V7_HUMAN_SKIN_MAX + 0.04
                             for sf in sample_frames_cut:
                                 sh_f, sw_f = sf.shape[:2]
                                 full_roi_sf = sf[int(sh_f * 0.10) : int(sh_f * 0.92), int(sw_f * 0.04) : int(sw_f * 0.96)]
-                                if compute_porcelain_flesh_leak_ratio(full_roi_sf) > flesh_cap_dq8:
+                                if (
+                                    g_str in ("porcelain_hands_closeup", "porcelain_pov_hands", "porcelain_fullbleed_world")
+                                    and compute_porcelain_flesh_leak_ratio(full_roi_sf) > flesh_cap_dq8
+                                ):
                                     cut_leak = True
+                                    break
+                                if _detect_yunet_non_porcelain is not None and len(_detect_yunet_non_porcelain(full_roi_sf)) > 0:
+                                    cut_leak = True
+                                    yunet_face_cuts.append(int(c["cut_index"]))
                                     break
                                 if c.get("mode") not in ("split_hstack", "split_vstack") and detect_unintended_horizontal_split_seam(sf) >= 0.72:
                                     cut_leak = True
@@ -1506,11 +1552,16 @@ def verify_final_mp4_against_contract(
             "pan_left_cuts": pan_left_cuts,
             "pan_right_cuts": pan_right_cuts,
         },
-        "DQ6_zero_clip_reuse": {"passed": dq6_ok, "max_clip_reuse": edl.get("max_clip_reuse")},
+        "DQ6_zero_clip_reuse": {
+            "passed": dq6_ok,
+            "max_clip_reuse": edl.get("max_clip_reuse"),
+            "unattached_reference_clips": unattached_ref_clips,
+        },
         "DQ7_continuous_motion_no_freeze": {"passed": len(freeze_cuts) == 0, "cuts_inspected": len(inspected_cuts), "freeze_cuts": freeze_cuts},
         "DQ8_zero_uncanny_skin_gore": {
             "passed": len(skin_leaks) == 0,
             "skin_leak_cuts": skin_leaks,
+            "yunet_human_face_cuts": yunet_face_cuts,
             "episode_mean_luma": ep_mean_luma,
             "episode_dark_v35_ratio": ep_dark_v35,
             "episode_mean_sat": ep_mean_sat,

@@ -1,0 +1,1353 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "NEURO_BIOLOGY",
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "dossier": "blindsight_subcortical_vision",
+  "topic": "Weiskrantz et al. (1974) Blindsight Discovery & de Gelder et al. (2008) Unassisted Obstacle Navigation in Cortical Blindness",
+  "act5_climax_episode": "a lead neuroscientist and colleagues (2008) place a bilaterally cortically blind patient at the start of a chair-and-box obstacle hallway without a cane—and he weaves cleanly from start to finish with zero collisions via ancient subcortical vision pathways.",
+  "outro_title_lines": [
+    "WEISKRANTZ (1974) & DE GELDER (2008)",
+    "LONDON, OXFORD & TILBURG"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "BLIND SIGHT"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BLIND SIGHT"
+    },
+    {
+      "sentence_index": 10,
+      "text": "90% RIGHT"
+    },
+    {
+      "sentence_index": 19,
+      "text": "THE DETOUR"
+    },
+    {
+      "sentence_index": 28,
+      "text": "TWO SCREENS"
+    },
+    {
+      "sentence_index": 36,
+      "text": "ZERO BUMPS"
+    },
+    {
+      "sentence_index": 44,
+      "text": "FAST REFLEX"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "BLIND SIGHT"
+    },
+    {
+      "sentence_index": 3,
+      "text": "BLIND SIGHT"
+    },
+    {
+      "sentence_index": 10,
+      "text": "90% RIGHT"
+    },
+    {
+      "sentence_index": 19,
+      "text": "THE DETOUR"
+    },
+    {
+      "sentence_index": 28,
+      "text": "TWO SCREENS"
+    },
+    {
+      "sentence_index": 36,
+      "text": "ZERO BUMPS"
+    },
+    {
+      "sentence_index": 44,
+      "text": "FAST REFLEX"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 35,
+      "mode": "split_hstack",
+      "left_clip_index": 33,
+      "right_clip_index": 49,
+      "left_label": "1974 LIGHT POINTING",
+      "right_label": "2008 HALLWAY WALK"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "pan_left",
+      "structure": "a semicircular pastel-ivory visual perimeter bowl divided cleanly down the center into a bright sunlit right half and a muted slate-shaded left half",
+      "internal_mechanism": "a crisp brass center crosshair gleams steadily while the entire left half of the curved bowl stays shaded",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 1,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png",
+      "source_shot_id": "S01"
+    },
+    {
+      "sentence_index": 1,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "an elevated rear view of a bright 1974 London clinical testing room with a curved white perimeter dome on a pale-ash table",
+      "action": "viewed strictly from behind, a clothed young man in a sky-blue sweater sits steady at the chin rest facing the center fixation pin as porcelain hands reach forward and press cleanly into position.",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 2,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png",
+      "source_shot_id": "S01"
+    },
+    {
+      "sentence_index": 2,
+      "act": 1,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves operating a silent brass projector wand behind the curved dome",
+      "prop_action": "the researcher's matte-white porcelain hand presses a silent rubber bulb flashing one small golden light dot onto the left curve",
+      "consequence": "the small golden light spot glows silently on the matte left arc",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 3,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S01"
+    },
+    {
+      "sentence_index": 3,
+      "act": 1,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue knit sweater cuffs resting open-palmed on the cool pale-ash table",
+      "prop_action": "both matte-white porcelain hands lift slightly off the table in an honest open-palm shrug then rest flat again",
+      "consequence": "the response bell beside his wrist stays untouched",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 4,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S01"
+    },
+    {
+      "sentence_index": 4,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 1,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue sweater sleeves extending from bottom frame toward the shaded left side of the curved dome",
+      "prop_action": "extending smoothly leftward without hesitation, the right matte-white porcelain index finger reaches out and taps dead-center on the golden light spot",
+      "consequence": "fingertip and light dot align to the millimeter",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 5,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S01"
+    },
+    {
+      "sentence_index": 4,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 1,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs holding brass calipers beside the patient's pointing sky-blue sleeve",
+      "prop_action": "the researcher's matte-white porcelain hands align the brass ruler right beside the patient's fingertip confirming exact bullseye contact",
+      "consequence": "both researchers lean in beside the bright dome",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 6,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S01",
+      "end_sentence_index": 5
+    },
+    {
+      "sentence_index": 6,
+      "act": 1,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white surgical coat cuffs placing a clean sunlit recovery chart onto a sunlit wooden clipboard",
+      "prop_action": "both matte-white porcelain hands clip the recovery sheet flat and place a green health token at the top corner",
+      "consequence": "warm morning daylight bathes the clean clinical desk",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 7,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S01"
+    },
+    {
+      "sentence_index": 7,
+      "act": 1,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "RIGHT VISUAL CORTEX\nMAIN SCREEN REMOVED",
+      "camera": "gentle_push_in",
+      "brain_scene": "at the back right occipital pole of the matte warm-ivory 3D whole brain model, muted terracotta-coral sunlit facets mark the removed vision center",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 8,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 8,
+      "act": 1,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a sunlit tabletop room architectural layout board split cleanly down the midline where right-side objects shine while left-side chairs fade into soft clear daylight",
+      "internal_mechanism": "a thin vertical brass divider slides into the center dimming the left half into blank gray",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 9,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png",
+      "source_shot_id": "S01",
+      "end_sentence_index": 9
+    },
+    {
+      "sentence_index": 10,
+      "act": 2,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit Queen Square perimeter room with Lawrence Weiskrantz and Elizabeth Warrington seated beside the dome",
+      "action": "viewed strictly from behind, both clothed researchers in blazers adjust target markers along the curved arc as porcelain hands reach forward and press cleanly into position.",
+      "end_sentence_index": 11,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 10,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png",
+      "source_shot_id": "S01"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves holding a small penlight beside two clear glass eye lens models",
+      "prop_action": "both matte-white porcelain hands shine a gentle beam through both clear glass lenses showing crisp symmetric focus",
+      "consequence": "twin golden focal dots land cleanly behind both lenses",
+      "end_sentence_index": 12,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 11,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S01"
+    },
+    {
+      "sentence_index": 12,
+      "act": 2,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white coat cuffs sliding a light marker across five left-side positions on the curved arc",
+      "prop_action": "the researcher's matte-white porcelain hand stops the golden dot at three left-arc positions while the patient's hand stays still",
+      "consequence": "zero bell rings register on the counter",
+      "end_sentence_index": 13,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 12,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S02"
+    },
+    {
+      "sentence_index": 14,
+      "act": 2,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "gentle_push_in",
+      "attire_and_hands": "tweed blazer sleeve gesturing encouragingly toward the left wall arc",
+      "prop_action": "Weiskrantz's matte-white porcelain hand taps the patient's wooden armrest gently and motions toward the curved wall",
+      "consequence": "the sky-blue sweater sleeve lifts into position",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 13,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S02"
+    },
+    {
+      "sentence_index": 15,
+      "act": 2,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a cool slate tray displaying ten gleaming silver coins where nine sit heads-up in bright sage rings",
+      "comparison_action": "two matte-white porcelain hands in white coat cuffs lift and turn nine of the ten silver coins face-up in a crisp row",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 14,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "source_shot_id": "S02"
+    },
+    {
+      "sentence_index": 16,
+      "act": 2,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue sweater cuffs tapping matching wooden cross and circle blocks on the desk without looking left",
+      "prop_action": "as a wooden cross paddle rises on the left, the patient's matte-white porcelain hand reaches down and taps the matching",
+      "consequence": "tall green hit counters stack up beside the tray",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 15,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S02"
+    },
+    {
+      "sentence_index": 17,
+      "act": 2,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "pan_right",
+      "attire_and_hands": "tweed blazer sleeves turning the towering ninety-percent hit chart around to show the patient",
+      "prop_action": "both matte-white porcelain hands rotate the tall green bar graph across the pale-ash table as the patient's hands open wide in surprise",
+      "consequence": "every plotted dot hugs the bullseye diagonal line",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 16,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S02",
+      "end_sentence_index": 18
+    },
+    {
+      "sentence_index": 19,
+      "act": 3,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a sunlit optical pathway model splitting one front beam into a wide upper highway and a hidden lower tunnel",
+      "internal_mechanism": "when a wooden gate blocks the upper highway, golden light pulses briskly through the hidden lower tunnel",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 17,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png",
+      "source_shot_id": "S02"
+    },
+    {
+      "sentence_index": 20,
+      "act": 3,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_literal_analogy",
+      "camera": "locked_tripod",
+      "analogy_world": "a sunlit architectural highway model showing ten sunlit road lanes where nine curve toward a main bridge and one exits early",
+      "comparison_action": "a matte-white porcelain hand in navy cuffs traces nine compact cars toward the main bridge while guiding the tenth car down a side ramp",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 18,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "source_shot_id": "S02"
+    },
+    {
+      "sentence_index": 21,
+      "act": 3,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs placing a frosted screen across the main nine-lane bridge on the model",
+      "prop_action": "both matte-white porcelain hands lower the matte coral barrier across the upper nine lanes while leaving the tenth ramp open",
+      "consequence": "the side ramp stays completely clear in bright light",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 19,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S02"
+    },
+    {
+      "sentence_index": 22,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "optic nerve",
+      "anatomy_label": "OPTIC NERVE BRANCH\n10% EARLY DETOUR",
+      "camera": "gentle_push_in",
+      "brain_scene": "entering from the front of the translucent matte-white porcelain brain model, bright sky-blue optic nerve fibers split cleanly sending a golden branch deep inward",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 20,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 23,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "brainstem",
+      "anatomy_label": "UPPER BRAINSTEM\nANCIENT REFLEX MAP",
+      "camera": "locked_tripod",
+      "brain_scene": "at the upper roof of the central brainstem inside the flat half-brain cross-section model, vivid sage-green sunlit facets illuminate the fast spatial reflex hub",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 21,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 24,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "thalamus",
+      "anatomy_label": "THALAMUS RELAY\nDIRECT MOTION BYPASS",
+      "camera": "locked_tripod",
+      "brain_scene": "in the central egg-shaped thalamus hub of the flat half-brain cross-section model, warm golden-amber sunlit facets relay signals forward toward motor areas",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 22,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "clip_number": 23,
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside reveal clipboard (captures D.B.'s own famous disbelief when shown",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align reveal clipboard (captures D.B.'s own famous disbelief when shown",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S02"
+    },
+    {
+      "sentence_index": 25,
+      "act": 3,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sky-blue sweater cuffs catching a rolling sunlit wooden cylinder smoothly across a pale-ash table",
+      "prop_action": "the right matte-white porcelain hand reaches sideways automatically and grips the rolling sky-blue wooden cylinder cleanly",
+      "consequence": "reflex motion lands true before a word is spoken",
+      "end_sentence_index": 25,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 24,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S02"
+    },
+    {
+      "sentence_index": 26,
+      "act": 3,
+      "location_id": "tilburg_corridor_2008",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a long bright sunlit European university corridor with pale-birch floors and tall side windows",
+      "action": "viewed strictly from behind, two clothed researchers in white lab coats set sunlit chairs and boxes across the wide hallway as porcelain hands reach forward and press cleanly into position.",
+      "end_sentence_index": 27,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 25,
+      "scene_state": {
+        "location_id": "tilburg_corridor_2008",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S03"
+    },
+    {
+      "clip_number": 26,
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside reveal clipboard (captures D.B.'s own famous disbelief when shown",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align reveal clipboard (captures D.B.'s own famous disbelief when shown",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S03"
+    },
+    {
+      "sentence_index": 28,
+      "act": 4,
+      "location_id": "sunlit_studio_bench",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "a single glass projection plate sliding down while a hidden brass mechanical linkage underneath keeps moving",
+      "internal_mechanism": "even with the top glass screen covered, the lower brass tracking arms pivot smoothly in tandem",
+      "end_sentence_index": 28,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 27,
+      "scene_state": {
+        "location_id": "sunlit_studio_bench",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png",
+      "source_shot_id": "S03"
+    },
+    {
+      "sentence_index": 29,
+      "act": 4,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "slate blazer cuffs holding a sensitive brass light meter around the shaded perimeter arc",
+      "prop_action": "both matte-white porcelain hands sweep the light meter sensor across the matte surface checking for stray reflections",
+      "consequence": "the brass needle stays pinned at zero scatter",
+      "end_sentence_index": 30,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 28,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S03"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat cuffs extending from bottom frame sealing soft velvet light baffles around the test dome",
+      "prop_action": "both matte-white porcelain hands press the matte baffles tight while the green accuracy counter climbs past ninety again",
+      "consequence": "controlled tests lock the discovery beyond doubt",
+      "end_sentence_index": 31,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 29,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S03"
+    },
+    {
+      "sentence_index": 31,
+      "act": 4,
+      "location_id": "tilburg_corridor_2008",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright 2008 visual neuroscience laboratory with high-resolution brain scan displays",
+      "action": "viewed strictly from behind, a lead neuroscientist in a cream blazer points to symmetric back-hemisphere scan films on a cool light wall",
+      "end_sentence_index": 31,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 30,
+      "scene_state": {
+        "location_id": "tilburg_corridor_2008",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S03"
+    },
+    {
+      "sentence_index": 32,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "brain_region": "primary visual cortex",
+      "anatomy_label": "BILATERAL VISUAL CORTEX\nBOTH SCREENS OFFLINE",
+      "camera": "locked_tripod",
+      "brain_scene": "across both left and right back occipital poles of the matte warm-ivory 3D whole brain model, muted coral facets mark total loss of conscious sight",
+      "end_sentence_index": 33,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 31,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 34,
+      "act": 4,
+      "location_id": "tilburg_corridor_2008",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "oatmeal sweater cuffs handing a folded white walking cane gently to a researcher's white coat sleeve",
+      "prop_action": "the walker's matte-white porcelain hands fold the white cane neatly and place it onto a side wooden bench",
+      "consequence": "the folded cane rests untouched on the bench",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 32,
+      "scene_state": {
+        "location_id": "tilburg_corridor_2008",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S03"
+    },
+    {
+      "sentence_index": 35,
+      "act": 4,
+      "location_id": "tilburg_corridor_2008",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "an elevated rear view looking down a sunlit ten-meter hallway dotted with sunlit chairs, cardboard boxes, and a camera tripod",
+      "action": "viewed strictly from behind, the clothed blind walker in his oatmeal sweater stands poised at the starting tape facing the maze of obstacles",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 33,
+      "scene_state": {
+        "location_id": "tilburg_corridor_2008",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S03"
+    },
+    {
+      "sentence_index": 36,
+      "act": 5,
+      "location_id": "tilburg_corridor_2008",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "white lab coat sleeves positioning a blue wooden chair, a mint storage box, and a tall tripod staggered across the floor",
+      "prop_action": "both matte-white porcelain hands set the mint box staggered two feet forward of the blue chair narrowing the path",
+      "consequence": "a winding slalom path zig-zags down the sunlit floor",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 34,
+      "scene_state": {
+        "location_id": "tilburg_corridor_2008",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S03",
+      "end_sentence_index": 37
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "act": 5,
+      "location_id": "tilburg_corridor_2008",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "the bright sunlit obstacle corridor lined with staggered sunlit chairs and boxes",
+      "action": "viewed strictly from behind, the clothed walker in his oatmeal sweater steps calmly forward and curves smoothly left around the first blue chair without touching it",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 35,
+      "scene_state": {
+        "location_id": "tilburg_corridor_2008",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S03"
+    },
+    {
+      "sentence_index": 38,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "act": 5,
+      "location_id": "tilburg_corridor_2008",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "oatmeal sweater cuffs swinging naturally three inches clear of a wooden chair backrest",
+      "prop_action": "walking unassisted, both matte-white porcelain hands glide cleanly past the wooden chair corner without a single brush",
+      "consequence": "the lightweight chair stands completely unmoved",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 36,
+      "scene_state": {
+        "location_id": "tilburg_corridor_2008",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S03"
+    },
+    {
+      "sentence_index": 39,
+      "act": 5,
+      "location_id": "tilburg_corridor_2008",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the middle stretch of the sunlit hallway between a tall tripod and a stack of sunlit boxes",
+      "action": "viewed strictly from behind, the walker angles his oatmeal-sweater shoulders sideways slipping cleanly through the narrow gap",
+      "end_sentence_index": 40,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 37,
+      "scene_state": {
+        "location_id": "tilburg_corridor_2008",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S04"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "tilburg_corridor_2008",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "the sunny finish line at the far end of the obstacle corridor",
+      "action": "viewed strictly from behind, the walker crosses the finish strip cleanly as two researchers in white coats raise their hands in amazement as porcelain hands reach forward and press cleanly into position.",
+      "end_sentence_index": 41,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 38,
+      "scene_state": {
+        "location_id": "tilburg_corridor_2008",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S04"
+    },
+    {
+      "sentence_index": 41,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "amygdala",
+      "anatomy_label": "EMOTIONAL ALARM\nUNSEEN SMILES SENSED",
+      "camera": "locked_tripod",
+      "brain_scene": "deep inside the front temporal core of the flat half-brain cross-section model, the almond-shaped amygdala glows warmly in golden-amber sunlit facets",
+      "end_sentence_index": 41,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 39,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 42,
+      "act": 5,
+      "location_id": "tilburg_corridor_2008",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a sunlit European seminar room displaying overhead footstep path traces weaving past every box",
+      "action": "viewed strictly from behind, three clothed neuroscientists in blazers lean over the pale-ash table and trace the collision-free slalom curve",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 40,
+      "scene_state": {
+        "location_id": "tilburg_corridor_2008",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S04"
+    },
+    {
+      "sentence_index": 43,
+      "act": 5,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_cutaway_section",
+      "camera": "locked_tripod",
+      "structure": "two harmonious parallel light ribbons inside a clear sunlit arch — an upper sky-blue picture stream and a lower golden action stream",
+      "internal_mechanism": "both smooth light ribbons flow forward side by side across the pale-ash model",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 41,
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png",
+      "source_shot_id": "S04"
+    },
+    {
+      "sentence_index": 44,
+      "act": 6,
+      "location_id": "sunny_park_court",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright sunlit neighborhood park lawn bordered by maple trees and a wooden picnic bench",
+      "action": "viewed strictly from behind, two clothed friends in sunlit jackets toss a soft sky-blue foam ball across the grass",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 42,
+      "scene_state": {
+        "location_id": "sunny_park_court",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S04",
+      "end_sentence_index": 45
+    },
+    {
+      "clip_number": 43,
+      "sentence_index": 46,
+      "act": 6,
+      "location_id": "london_vision_lab",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "tailored woven blazer cuffs and smooth articulated matte-white porcelain hands beside curved white clinical perimeter arc with central fixation cross",
+      "prop_action": "both smooth matte-white porcelain hands reach forward across the workbench, align curved white clinical perimeter arc with central fixation cross",
+      "consequence": "the physical apparatus settles into crisp alignment under bright high-key daylight",
+      "style_profile": "porcelain_cinematic_v7",
+      "scene_state": {
+        "location_id": "london_vision_lab",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S04"
+    },
+    {
+      "sentence_index": 47,
+      "act": 6,
+      "location_id": "sunny_park_court",
+      "grammar": "porcelain_pov_hands",
+      "camera": "locked_tripod",
+      "attire_and_hands": "mint jacket cuffs extending from bottom frame opening palms to inspect the yellow ball already caught",
+      "prop_action": "both matte-white porcelain hands turn the caught yellow ball over in surprise after the reflex catch finishes",
+      "consequence": "bright park sunlight warms the woven jacket cuffs",
+      "end_sentence_index": 48,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 44,
+      "scene_state": {
+        "location_id": "sunny_park_court",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S04"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "modern_rehab_clinic",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "sage cardigan cuffs tapping lit sunlit squares across a modern visual training touch board",
+      "prop_action": "a recovering patient's matte-white porcelain hand reaches smoothly and taps three glowing sky-blue squares in rhythm",
+      "consequence": "each tapped square chimes green along the board",
+      "end_sentence_index": 49,
+      "beat_index": 1,
+      "beat_weight": 0.25,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 45,
+      "scene_state": {
+        "location_id": "modern_rehab_clinic",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S04"
+    },
+    {
+      "sentence_index": 49,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "brain_region": "optic nerve",
+      "anatomy_label": "DUAL VISION STREAMS\nPICTURE PLUS ACTION",
+      "camera": "pan_right",
+      "brain_scene": "inside the translucent matte-white porcelain brain model, both upper sky-blue cortical tracts and deep golden brainstem shortcuts glow together in harmony",
+      "end_sentence_index": 49,
+      "beat_index": 2,
+      "beat_weight": 0.75,
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 46,
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 50,
+      "act": 6,
+      "location_id": "sunny_park_court",
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "navy coat sleeves stepping cleanly around a puddle on sunlit garden paving stones",
+      "prop_action": "holding a coffee cup steady, one matte-white porcelain hand balances a notebook while feet step smoothly past the puddle",
+      "consequence": "clear sky reflects unbroken in the garden water",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 47,
+      "scene_state": {
+        "location_id": "sunny_park_court",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S04"
+    },
+    {
+      "sentence_index": 51,
+      "act": 6,
+      "location_id": "oxford_meadow_walk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a serene sunlit English meadow path lined with stone walls, wildflowers, and oak trees",
+      "action": "viewed strictly from behind in wide view, two clothed walkers in sunlit sweaters stroll calmly along the winding stone path",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 48,
+      "scene_state": {
+        "location_id": "oxford_meadow_walk",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "source_shot_id": "S04"
+    },
+    {
+      "cut_role": "split_right",
+      "act": 5,
+      "location_id": "tilburg_corridor_2008",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "the sunlit obstacle hallway dotted with sunlit chairs and boxes",
+      "action": "viewed strictly from behind, the clothed blind walker weaves smoothly around every obstacle without a cane",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 49,
+      "scene_state": {
+        "location_id": "tilburg_corridor_2008",
+        "present_cast_start": [
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher"
+        ]
+      },
+      "sentence_index": 35
+    },
+    {
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "oxford_meadow_walk",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "sunlit English oak branches and sunlit meadow hills rising into a vast clear sky-blue horizon with soft white matte-white porcelain clouds",
+      "action": "warm golden sunlight drifts across the oak canopy as the view rises smoothly into open sky",
+      "style_profile": "porcelain_cinematic_v7",
+      "clip_number": 50,
+      "sentence_index": 51
+    }
+  ],
+  "shader_style": "photorealistic bright high-key documentary studio world",
+  "cast_style": "clothed articulated matte-white porcelain figures with translucent frosted-glass craniums",
+  "optics_lock": "crisp cinema prime lens clarity with soft natural studio daylight and subtle rim lighting",
+  "require_scene_state_ledger": true,
+  "reenactment_track": "track_a",
+  "default_location_id": "london_vision_lab",
+  "real_environment": "an elevated rear view of a bright 1974 London clinical testing room with a curved white perimeter dome on a pale-ash table",
+  "environment_props": [
+    "curved white clinical perimeter arc with central fixation cross (separates D.B.'s intact right field from his V1-lesioned blind left field)",
+    "silent light-spot projector & orientation paddles (zero sound cues — pure silent visual targets inside the blind hemifield)",
+    "reveal clipboard (captures D.B.'s own famous disbelief when shown his hit map)"
+  ],
+  "cast": {
+    "subject": "patient V-neck wool jumper and collared shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "1974 British clinical coats over tweed/blouse and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "strict_room_continuity": true,
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S01",
+      "location_id": "tilburg_corridor_2008",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Shot S01 anchor 1 (tilburg_corridor_2008: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a long bright sunlit European university corridor with pale-birch floors and tall side windows. Inside the room, subject (patient V-neck wool jumper and collared shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a long bright sunlit European university corridor with pale-birch floors",
+        "an unmarked clinical tabletop apparatus"
+      ],
+      "frame": "start"
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S02",
+      "location_id": "london_vision_lab",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject",
+        "ref_env_master"
+      ],
+      "title": "Shot S02 anchor 2 (london_vision_lab: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across an elevated rear view of a bright 1974 London clinical testing room with a curved white perimeter dome on a pale-ash table, featuring silent light-spot projector & orientation paddles (zero sound cues — pure silent visual targets inside the blind hemifield). Inside the room, subject (patient V-neck wool jumper and collared shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside silent light-spot projector & orientation paddles (zero sound cues — pure silent visual targets inside the blind hemifield). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "an elevated rear view of a bright 1974 London clinical testing room with",
+        "silent light-spot projector & orientation paddles (zero "
+      ],
+      "frame": "start"
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S03",
+      "location_id": "sunlit_studio_bench",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Shot S03 anchor 3 (sunlit_studio_bench: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside an elevated rear view of a bright 1974 London clinical testing room with a curved white perimeter dome on a pale-ash table. Inside the room, subject (patient V-neck wool jumper and collared shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "an elevated rear view of a bright 1974 London clinical testing room with",
+        "an unmarked clinical tabletop apparatus"
+      ],
+      "frame": "start"
+    }
+  ],
+  "track_subtier": "A1a_ready_keyframes",
+  "voice_preset": "emma_v7",
+  "us_anti_clone_v7": true,
+  "thumbnail": {
+    "hook_text": "BLIND SIGHT",
+    "cover_sentence_index": 3,
+    "cover_brief": "centered curved white clinical perimeter arc with central fixation cross (separates D.B.'s intact right field from his V1-lesioned blind left field) inside an elevated rear view of a bright 1974 London clinical testing room with a curved white perimeter dome on a pale-ash table"
+  },
+  "prosody_mode": "dynamic_us_v7"
+}

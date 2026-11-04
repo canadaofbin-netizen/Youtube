@@ -1,0 +1,398 @@
+{
+  "schema_version": 5,
+  "visual_mode": "NEURO_BIOLOGY",
+  "aspect": "9:16",
+  "dossier": "bodamer_prosopagnosia_face_blindness",
+  "total_reference_images": 8,
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in wool cardigan and pleated trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head; researcher in 1947 European clinical white coat with tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head.",
+  "generation_order": "1 env plate + master brain bust -> 2 cast sheets + hero prop (conditioned on env) -> 3 clip start / key frames (conditioned on master anchors)",
+  "master_anchors": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "present_cast": [],
+      "location_id": "winnenden_clinic_desk",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a sunlit European hospital consultation room with tall arched windows, an oak desk, and a wooden tabletop mirror, featuring fine-print reading blank matte card & everyday object tray vs family portraits (proves sharp 20/20 visual acuity and object naming alongside zero face ID). Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a sunlit European hospital consultation room with tall arched windows, an oak de",
+        "fine-print reading blank matte card & everyday o"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_subject",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_subject.png",
+      "title": "Cast sheet: subject (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "subject"
+      ],
+      "location_id": "winnenden_clinic_desk",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing wool cardigan and pleated trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a sunlit European hospital consultation room with tall arched windows, an oak desk, and a wooden tabletop mirror. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "wool cardigan and pleated trousers and closed matte-white leather shoes with a c",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_researcher",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_researcher.png",
+      "title": "Cast sheet: researcher (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "researcher"
+      ],
+      "location_id": "winnenden_clinic_desk",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing 1947 European clinical white coat with tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a sunlit European hospital consultation room with tall arched windows, an oak desk, and a wooden tabletop mirror. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "1947 European clinical white coat with tie and closed matte-white leather shoes ",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [],
+      "location_id": "winnenden_clinic_desk",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of fine-print reading blank matte card & everyday object tray vs family portraits (proves sharp 20/20 visual acuity and object naming alongside zero face ID) inside a sunlit European hospital consultation room with tall arched windows, an oak desk, and a wooden tabletop mirror, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "fine-print reading blank matte card & everyday object tray vs family"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_brain_master",
+      "category": "brain_master_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_void",
+      "filename": "ref_brain_master.png",
+      "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the primary visual cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. At the back occipital pole of the matte warm-ivory 3D brain model, the primary visual cortex glows in clear sunlit sky-blue confirming intact feature vision. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, zero human facial features, no text, no letters, no watermark.",
+      "must_include": [
+        "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
+        "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    }
+  ],
+  "clip_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_winnenden_clinic_desk",
+      "setting": "real_env",
+      "filename": "ref_anchor_01.png",
+      "title": "Room state anchor 1 (winnenden_clinic_desk: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit European hospital consultation room with tall arched windows, an oak desk, and a wooden tabletop mirror, featuring fine-print reading blank matte card & everyday object tray vs family portraits (proves sharp 20/20 visual acuity and object naming alongside zero face ID). Inside the room, subject (wool cardigan and pleated trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside fine-print reading blank matte card & everyday object tray vs family portraits (proves sharp 20/20 visual acuity and object naming alongside zero face ID). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a sunlit European hospital consultation room with tall arched windows, a",
+        "fine-print reading blank matte card & everyd"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "location_id": "winnenden_clinic_desk",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_bookshop_mirror_hall",
+      "setting": "real_env",
+      "filename": "ref_anchor_02.png",
+      "title": "Room state anchor 2 (bookshop_mirror_hall: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a warm sunlit New York bookshop foyer with wooden bookcases and a tall bevel-edged wall mirror by the doorway. Inside the room, subject (wool cardigan and pleated trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a warm sunlit New York bookshop foyer with wooden bookcases and a tall b",
+        "an unmarked clinical tabletop apparatus"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_cast_subject"
+      ],
+      "location_id": "bookshop_mirror_hall",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_iowa_autonomic_lab",
+      "setting": "real_env",
+      "filename": "ref_anchor_03.png",
+      "title": "Room state anchor 3 (iowa_autonomic_lab: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright neurology laboratory at Iowa with a clinical table, twin-pen paper unmarked paper sheet recorder, and stack of silhouette blank matte cards. Inside the room, subject (wool cardigan and pleated trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a bright neurology laboratory at Iowa with a clinical table, twin-pen pa",
+        "an unmarked clinical tabletop apparatus"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_cast_subject"
+      ],
+      "location_id": "iowa_autonomic_lab",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    }
+  ],
+  "all_specs": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "present_cast": [],
+      "location_id": "winnenden_clinic_desk",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a sunlit European hospital consultation room with tall arched windows, an oak desk, and a wooden tabletop mirror, featuring fine-print reading blank matte card & everyday object tray vs family portraits (proves sharp 20/20 visual acuity and object naming alongside zero face ID). Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a sunlit European hospital consultation room with tall arched windows, an oak de",
+        "fine-print reading blank matte card & everyday o"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_subject",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_subject.png",
+      "title": "Cast sheet: subject (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "subject"
+      ],
+      "location_id": "winnenden_clinic_desk",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing wool cardigan and pleated trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a sunlit European hospital consultation room with tall arched windows, an oak desk, and a wooden tabletop mirror. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "wool cardigan and pleated trousers and closed matte-white leather shoes with a c",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_researcher",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_researcher.png",
+      "title": "Cast sheet: researcher (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "researcher"
+      ],
+      "location_id": "winnenden_clinic_desk",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing 1947 European clinical white coat with tie and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a sunlit European hospital consultation room with tall arched windows, an oak desk, and a wooden tabletop mirror. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "1947 European clinical white coat with tie and closed matte-white leather shoes ",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [],
+      "location_id": "winnenden_clinic_desk",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of fine-print reading blank matte card & everyday object tray vs family portraits (proves sharp 20/20 visual acuity and object naming alongside zero face ID) inside a sunlit European hospital consultation room with tall arched windows, an oak desk, and a wooden tabletop mirror, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "fine-print reading blank matte card & everyday object tray vs family"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_brain_master",
+      "category": "brain_master_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_void",
+      "filename": "ref_brain_master.png",
+      "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the primary visual cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. At the back occipital pole of the matte warm-ivory 3D brain model, the primary visual cortex glows in clear sunlit sky-blue confirming intact feature vision. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, zero human facial features, no text, no letters, no watermark.",
+      "must_include": [
+        "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
+        "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_01",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_winnenden_clinic_desk",
+      "setting": "real_env",
+      "filename": "ref_anchor_01.png",
+      "title": "Room state anchor 1 (winnenden_clinic_desk: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit European hospital consultation room with tall arched windows, an oak desk, and a wooden tabletop mirror, featuring fine-print reading blank matte card & everyday object tray vs family portraits (proves sharp 20/20 visual acuity and object naming alongside zero face ID). Inside the room, subject (wool cardigan and pleated trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside fine-print reading blank matte card & everyday object tray vs family portraits (proves sharp 20/20 visual acuity and object naming alongside zero face ID). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a sunlit European hospital consultation room with tall arched windows, a",
+        "fine-print reading blank matte card & everyd"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "location_id": "winnenden_clinic_desk",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_bookshop_mirror_hall",
+      "setting": "real_env",
+      "filename": "ref_anchor_02.png",
+      "title": "Room state anchor 2 (bookshop_mirror_hall: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a warm sunlit New York bookshop foyer with wooden bookcases and a tall bevel-edged wall mirror by the doorway. Inside the room, subject (wool cardigan and pleated trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a warm sunlit New York bookshop foyer with wooden bookcases and a tall b",
+        "an unmarked clinical tabletop apparatus"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_cast_subject"
+      ],
+      "location_id": "bookshop_mirror_hall",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_iowa_autonomic_lab",
+      "setting": "real_env",
+      "filename": "ref_anchor_03.png",
+      "title": "Room state anchor 3 (iowa_autonomic_lab: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright neurology laboratory at Iowa with a clinical table, twin-pen paper unmarked paper sheet recorder, and stack of silhouette blank matte cards. Inside the room, subject (wool cardigan and pleated trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a bright neurology laboratory at Iowa with a clinical table, twin-pen pa",
+        "an unmarked clinical tabletop apparatus"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_cast_subject"
+      ],
+      "location_id": "iowa_autonomic_lab",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    }
+  ],
+  "style_profile": "porcelain_cinematic_v7"
+}

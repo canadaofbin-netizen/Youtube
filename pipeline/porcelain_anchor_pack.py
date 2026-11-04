@@ -62,25 +62,25 @@ _PLAQUE_SANITIZE_SUBS: tuple[tuple[re.Pattern[str], str], ...] = (
     # Strip parenthetical numeric/percentage chart captions (e.g. "(86% vs 14%)")
     (re.compile(r"\([^()]*\d+\s*%[^()]*\)"), ""),
     (re.compile(r"\bledgers\b", re.IGNORECASE), "bound notebooks"),
-    (re.compile(r"\bledger\b", re.IGNORECASE), "bound notebook"),
-    (re.compile(r"\b(?:plaques|nameplates|placards|banners)\b", re.IGNORECASE), "unmarked brushed-metal plates"),
-    (re.compile(r"\b(?:plaque|nameplate|placard|banner)\b", re.IGNORECASE), "unmarked brushed-metal plate"),
-    (re.compile(r"\b(?:chalkboards|blackboards|whiteboards|signboards)\b", re.IGNORECASE), "smooth unmarked slate wall panels"),
-    (re.compile(r"\b(?:chalkboard|blackboard|whiteboard|signboard)\b", re.IGNORECASE), "smooth unmarked slate wall panel"),
-    (re.compile(r"\b(?:newspapers|headlines)\b", re.IGNORECASE), "unmarked paper sheets"),
-    (re.compile(r"\b(?:newspaper|headline)\b", re.IGNORECASE), "unmarked paper sheet"),
-    (re.compile(r"\b(?:charts|graphs)\b", re.IGNORECASE), "unmarked paper sheets"),
-    (re.compile(r"\b(?:chart|graph)\b", re.IGNORECASE), "unmarked paper sheet"),
-    (re.compile(r"\b(?:posters)\b", re.IGNORECASE), "unmarked wall panels"),
-    (re.compile(r"\b(?:poster)\b", re.IGNORECASE), "unmarked wall panel"),
-    (re.compile(r"\b(?:diagrams)\b", re.IGNORECASE), "unmarked anatomical relief models"),
-    (re.compile(r"\b(?:diagram)\b", re.IGNORECASE), "unmarked anatomical relief model"),
-    (re.compile(r"\b(?:flashcards|stimulus cards|playing cards|index cards|cue cards)\b", re.IGNORECASE), "blank unmarked matte cards"),
-    (re.compile(r"\b(?:flashcard|stimulus card|playing card|index card|cue card)\b", re.IGNORECASE), "blank unmarked matte card"),
-    (re.compile(r"\bcards\b", re.IGNORECASE), "blank matte cards"),
-    (re.compile(r"\bcard\b", re.IGNORECASE), "blank matte card"),
-    (re.compile(r"\btextbooks\b", re.IGNORECASE), "unmarked cloth volumes"),
-    (re.compile(r"\btextbook\b", re.IGNORECASE), "unmarked cloth volume"),
+    (re.compile(r"(?<!bound )\bledger\b", re.IGNORECASE), "bound notebook"),
+    (re.compile(r"(?<!unmarked brushed-metal )\b(?:plaques|nameplates|placards|banners)\b", re.IGNORECASE), "unmarked brushed-metal plates"),
+    (re.compile(r"(?<!unmarked brushed-metal )\b(?:plaque|nameplate|placard|banner)\b", re.IGNORECASE), "unmarked brushed-metal plate"),
+    (re.compile(r"(?<!smooth unmarked slate wall )\b(?:chalkboards|blackboards|whiteboards|signboards)\b", re.IGNORECASE), "smooth unmarked slate wall panels"),
+    (re.compile(r"(?<!smooth unmarked slate wall )\b(?:chalkboard|blackboard|whiteboard|signboard)\b", re.IGNORECASE), "smooth unmarked slate wall panel"),
+    (re.compile(r"(?<!unmarked paper )\b(?:newspapers|headlines)\b", re.IGNORECASE), "unmarked paper sheets"),
+    (re.compile(r"(?<!unmarked paper )\b(?:newspaper|headline)\b", re.IGNORECASE), "unmarked paper sheet"),
+    (re.compile(r"(?<!unmarked paper )\b(?:charts|graphs)\b", re.IGNORECASE), "unmarked paper sheets"),
+    (re.compile(r"(?<!unmarked paper )\b(?:chart|graph)\b", re.IGNORECASE), "unmarked paper sheet"),
+    (re.compile(r"(?<!unmarked wall )\b(?:posters)\b", re.IGNORECASE), "unmarked wall panels"),
+    (re.compile(r"(?<!unmarked wall )\b(?:poster)\b", re.IGNORECASE), "unmarked wall panel"),
+    (re.compile(r"(?<!unmarked anatomical relief )\b(?:diagrams)\b", re.IGNORECASE), "unmarked anatomical relief models"),
+    (re.compile(r"(?<!unmarked anatomical relief )\b(?:diagram)\b", re.IGNORECASE), "unmarked anatomical relief model"),
+    (re.compile(r"(?<!blank unmarked matte )\b(?:flashcards|stimulus cards|playing cards|index cards|cue cards)\b", re.IGNORECASE), "blank unmarked matte cards"),
+    (re.compile(r"(?<!blank unmarked matte )\b(?:flashcard|stimulus card|playing card|index card|cue card)\b", re.IGNORECASE), "blank unmarked matte card"),
+    (re.compile(r"(?<!blank matte )(?<!blank unmarked matte )\bcards\b", re.IGNORECASE), "blank matte cards"),
+    (re.compile(r"(?<!blank matte )(?<!blank unmarked matte )\bcard\b", re.IGNORECASE), "blank matte card"),
+    (re.compile(r"(?<!unmarked cloth )\btextbooks\b", re.IGNORECASE), "unmarked cloth volumes"),
+    (re.compile(r"(?<!unmarked cloth )\btextbook\b", re.IGNORECASE), "unmarked cloth volume"),
     (re.compile(r"\b(?:inscribed|engraved|labelled|labeled|printed|handwritten|titled)\b", re.IGNORECASE), "unmarked"),
     (re.compile(r"\bnumerals\b", re.IGNORECASE), "tick marks"),
     (re.compile(r"\bnumeral\b", re.IGNORECASE), "tick mark"),
@@ -706,12 +706,20 @@ def populate_porcelain_reference_contract(
             cast_prose = f"The room is completely unoccupied, showcasing {beside_target} in crisp architectural stillness."
 
         cond_list: list[str] = []
-        if loc_id == default_loc:
-            cond_list.append("ref_env_master")
-        for r in p_tuple:
-            cid = f"ref_cast_{r}"
-            if r in cast_dict and cid not in cond_list and len(cond_list) < 2:
-                cond_list.append(cid)
+        if track_a_shots and p_tuple:
+            for r in p_tuple:
+                cid = f"ref_cast_{r}"
+                if r in cast_dict and cid not in cond_list and len(cond_list) < 2:
+                    cond_list.append(cid)
+            if loc_id == default_loc and "ref_env_master" not in cond_list and len(cond_list) < 2:
+                cond_list.append("ref_env_master")
+        else:
+            if loc_id == default_loc:
+                cond_list.append("ref_env_master")
+            for r in p_tuple:
+                cid = f"ref_cast_{r}"
+                if r in cast_dict and cid not in cond_list and len(cond_list) < 2:
+                    cond_list.append(cid)
         if not cond_list:
             cond_list.append("ref_env_master")
 
@@ -912,42 +920,50 @@ def ensure_porcelain_reference_pack(
                 edl_doc = json.loads((d_dir / "08_reenactment_edl.json").read_text(encoding="utf-8"))
                 edl_path.write_text(json.dumps(edl_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
+            ref_dir_check = vis_dir / REF_IMAGES_DIRNAME
+            need_shot_anchors = [
+                a
+                for a in (plan.get("reference_anchors") or [])
+                if isinstance(a, dict)
+                and str(a.get("scene_id") or "").startswith("S")
+                and (force or not (ref_dir_check / str(a.get("filename") or f"{a.get('ref_id')}.png")).exists())
+            ]
             guides_ready = (q_dir / "guides").is_dir() and any((q_dir / "guides").glob("S*_guide.png"))
-            if not guides_ready and d_dir and (d_dir / "04_media_refs.json").exists():
-                try:
-                    from pipeline.research_dossier import audit_dossier_media_suitability
+            if not guides_ready and need_shot_anchors:
+                if not (d_dir and (d_dir / "04_media_refs.json").exists()):
+                    raise RuntimeError(
+                        f"[porcelain-refs] Track A fail-closed: missing 04_media_refs.json for {slug} while {len(need_shot_anchors)} shot anchors require structural guides."
+                    )
+                from pipeline.research_dossier import audit_dossier_media_suitability
 
-                    suit = audit_dossier_media_suitability(d_dir, write_back=False)
-                    best_media = suit.get("primary_track_a_media")
-                    has_shot_anchors = any(
-                        str(a.get("scene_id") or "").startswith("S")
-                        for a in (plan.get("reference_anchors") or [])
-                        if isinstance(a, dict)
+                suit = audit_dossier_media_suitability(d_dir, write_back=False)
+                best_media = suit.get("primary_track_a_media")
+                if not (best_media and best_media.get("url")):
+                    raise RuntimeError(
+                        f"[porcelain-refs] Track A fail-closed: no suitable_track_a archival media URL found for {slug}; refusing silent Track B fallback."
                     )
-                    if best_media and best_media.get("url") and has_shot_anchors:
-                        used_quarantine = True
-                        edl_doc = extract_source_edl(
-                            best_media["url"],
-                            slug=slug,
-                            project_dir=p_dir,
-                            dossier_dir=d_dir,
-                            section=best_media.get("reenactment_section") or best_media.get("recommended_section") or best_media.get("section"),
-                        )
-                        sanitize_structural_frames(
-                            work_dir=q_dir,
-                            edl_doc=edl_doc,
-                            project_dir=p_dir,
-                            dossier_dir=d_dir,
-                        )
-                        # Re-align `S01..S0K` shot IDs in plan & prompts with freshly extracted source_edl.json
-                        populate_porcelain_reference_contract(plan, dossier_dir=d_dir, project_dir=p_dir)
-                        if vp_path.exists():
-                            _persist_plan_and_prompts(p_dir, plan)
-                except Exception as exc:
-                    print(
-                        f"[porcelain-refs] Warning: Track A guide staging failed for {slug} ({exc}); falling back to master-conditioned anchors.",
-                        flush=True,
+                used_quarantine = True
+                edl_doc = extract_source_edl(
+                    best_media["url"],
+                    slug=slug,
+                    project_dir=p_dir,
+                    dossier_dir=d_dir,
+                    section=best_media.get("reenactment_section") or best_media.get("recommended_section") or best_media.get("section"),
+                )
+                sanitize_structural_frames(
+                    work_dir=q_dir,
+                    edl_doc=edl_doc,
+                    project_dir=p_dir,
+                    dossier_dir=d_dir,
+                )
+                if not ((q_dir / "guides").is_dir() and any((q_dir / "guides").glob("S*_guide.png"))):
+                    raise RuntimeError(
+                        f"[porcelain-refs] Track A fail-closed: sanitize_structural_frames produced zero S*_guide.png files for {slug}."
                     )
+                # Re-align `S01..S0K` shot IDs in plan & prompts with freshly extracted source_edl.json
+                populate_porcelain_reference_contract(plan, dossier_dir=d_dir, project_dir=p_dir)
+                if vp_path.exists():
+                    _persist_plan_and_prompts(p_dir, plan)
 
         gen_summary = translate_porcelain_keyframes(
             project_dir=p_dir,

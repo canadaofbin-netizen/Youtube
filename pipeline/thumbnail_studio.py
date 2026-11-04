@@ -31,6 +31,7 @@ from pipeline.config import (
     FONT_FALLBACK_PATH,
     FONT_PRIMARY_PATH,
     PROJECTS_DIR,
+    SHORTS_THUMB_MAX_BYTES,
     THUMBNAIL_CONTACT_SHEET_FILENAME,
     THUMBNAIL_REPORT_FILENAME,
     THUMB_CANDIDATE_SAMPLES_PER_CUT,
@@ -104,13 +105,28 @@ def _atomic_write_json(path: Path, payload: dict[str, Any]) -> None:
     os.replace(tmp, path)
 
 
-def _atomic_save_pil_png(img: Image.Image, path: Path) -> None:
+def _atomic_save_pil_png(img: Image.Image, path: Path, *, max_bytes: int | None = None) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_name(f".tmp_{os.getpid()}_{path.name}")
-    # Ensure rich uncompressed/low-compression 24-bit PNG so valid frames comfortably exceed THUMB_MIN_FILE_BYTES
-    img.convert("RGB").save(str(tmp), format="PNG", compress_level=1)
+    rgb = img.convert("RGB")
+    # Ensure rich PNG exceeds THUMB_MIN_FILE_BYTES while strictly respecting max_bytes (<= 1.95 MB on Shorts)
+    rgb.save(str(tmp), format="PNG", compress_level=1)
     if tmp.stat().st_size <= THUMB_MIN_FILE_BYTES:
-        img.convert("RGB").save(str(tmp), format="PNG", compress_level=0)
+        rgb.save(str(tmp), format="PNG", compress_level=0)
+    if max_bytes is not None and tmp.stat().st_size > max_bytes:
+        rgb.save(str(tmp), format="PNG", compress_level=9, optimize=True)
+        if tmp.stat().st_size > max_bytes:
+            q_pal = rgb.quantize(colors=256, method=Image.Quantize.FASTOCTREE)
+            q_rgb = q_pal.convert("RGB")
+            q_rgb.save(str(tmp), format="PNG", compress_level=9, optimize=True)
+            if tmp.stat().st_size > max_bytes:
+                for n_cols in (256, 160, 96, 48):
+                    p_img = q_pal if n_cols == 256 else rgb.quantize(colors=n_cols, method=Image.Quantize.FASTOCTREE)
+                    p_img.save(str(tmp), format="PNG", compress_level=9, optimize=True)
+                    if tmp.stat().st_size <= max_bytes:
+                        break
+            elif tmp.stat().st_size <= THUMB_MIN_FILE_BYTES:
+                q_rgb.save(str(tmp), format="PNG", compress_level=1)
     os.replace(tmp, path)
 
 
@@ -201,24 +217,37 @@ def score_candidate(
     return m
 
 
-def _has_head_occlusion_in_hook_band(img_bgr: np.ndarray, grammar: str = "") -> bool:
-    """Detects a compact matte-white oval porcelain head inside the top hook-text band (`y=265..415`) directly above a clothed torso."""
+def _has_head_occlusion_in_hook_band(
+    img_bgr: np.ndarray,
+    grammar: str = "",
+    band_y: tuple[int, int] = (265, 515),
+) -> bool:
+    """Detects a compact matte-white oval porcelain head whose centroid lies inside `band_y` (`y=265..515` default covering 1- and 2-line hooks) directly above a clothed torso."""
     if not img_bgr.size or img_bgr.shape[0] < 600 or img_bgr.shape[1] < 600:
         return False
     g_low = str(grammar or "").lower()
     if "brain" in g_low or "hands" in g_low or "cutaway" in g_low:
         return False
+    y0_b = max(0, min(img_bgr.shape[0] - 20, int(band_y[0])))
+    y1_b = max(y0_b + 20, min(img_bgr.shape[0], int(band_y[1])))
+    win_y0 = max(0, y0_b - 60)
+    win_y1 = min(img_bgr.shape[0], y1_b + 90)
     hsv = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2HSV)
-    band = hsv[265:415, 140:940]
+    band = hsv[win_y0:win_y1, 140:940]
     white_mask = ((band[:, :, 2] >= 165) & (band[:, :, 1] <= 42)).astype(np.uint8)
     n_lbl, _, stats, cents = cv2.connectedComponentsWithStats(white_mask)
     for k in range(1, n_lbl):
         bw = int(stats[k, cv2.CC_STAT_WIDTH])
         bh = int(stats[k, cv2.CC_STAT_HEIGHT])
         area = int(stats[k, cv2.CC_STAT_AREA])
-        if 2200 <= area <= 25000 and 40 <= bw <= 210 and 48 <= bh <= 150 and 0.45 <= bw / max(1, bh) <= 1.65:
+        if 2200 <= area <= 25000 and 40 <= bw <= 210 and 48 <= bh <= 165 and 0.45 <= bw / max(1, bh) <= 1.65:
+            cy_global = int(cents[k][1]) + win_y0
+            if not (y0_b <= cy_global <= y1_b):
+                continue
             cx = int(cents[k][0]) + 140
-            below = hsv[415:575, max(0, cx - 85) : min(img_bgr.shape[1], cx + 85)]
+            torso_y0 = min(img_bgr.shape[0] - 20, cy_global + max(35, bh // 2))
+            torso_y1 = min(img_bgr.shape[0], torso_y0 + 160)
+            below = hsv[torso_y0:torso_y1, max(0, cx - 85) : min(img_bgr.shape[1], cx + 85)]
             if below.size and float(below[:, :, 1].mean()) >= 45.0:
                 return True
     return False
@@ -249,7 +278,7 @@ def _finalize_candidate_scores(candidates: list[ThumbCandidate]) -> None:
         c.scores = {k: round(val, 4) for k, val in norm.items()}
 
         weighted = sum(float(THUMB_SCORE_WEIGHTS[k]) * norm[k] for k in THUMB_SCORE_WEIGHTS)
-        # Hard-floor quality penalty so blurred, flat, empty-centre, or head-decapitated frames never outrank clean frames
+        # Hard-floor quality penalty so blurred, flat, empty-centre, or head-occluded frames never outrank clean frames
         penalty = 0.0
         if float(c.raw_metrics.get("sharpness", 0.0)) < THUMB_MIN_SHARPNESS:
             penalty += 0.60
@@ -258,7 +287,7 @@ def _finalize_candidate_scores(candidates: list[ThumbCandidate]) -> None:
         if float(c.raw_metrics.get("center_salience", 0.0)) < THUMB_MIN_CENTER_SALIENCE:
             penalty += 0.45
         if _has_head_occlusion_in_hook_band(c.image, c.grammar):
-            penalty += 0.22
+            penalty += 1.50
         c.total = round(weighted - penalty, 4)
 
     candidates.sort(key=lambda x: (x.total, x.raw_metrics.get("sharpness", 0.0)), reverse=True)
@@ -816,14 +845,38 @@ def run_thumbnail_qa(
     ac_diff = roi_pairwise_diff(variants["A"]["rendered_bgr"], variants["C"]["rendered_bgr"]) if ("A" in variants and "C" in variants) else 0.0
     tq5_ok = len(var_keys) == 3 and min(ab_diff, bc_diff, ac_diff) >= THUMB_MIN_PAIRWISE_DIFF
 
-    # TQ6: 1080x1920 PNG dimensions & > THUMB_MIN_FILE_BYTES
+    # TQ6: 1080x1920 PNG dimensions & THUMB_MIN_FILE_BYTES < sz <= SHORTS_THUMB_MAX_BYTES
     file_sizes = {k: int(variants[k]["file_bytes"]) for k in var_keys}
     dims_ok = all(variants[k]["dimensions"] == [VIDEO_WIDTH, VIDEO_HEIGHT] for k in var_keys)
-    tq6_ok = len(var_keys) == 3 and dims_ok and all(sz > THUMB_MIN_FILE_BYTES for sz in file_sizes.values())
+    tq6_ok = (
+        len(var_keys) == 3
+        and dims_ok
+        and all(THUMB_MIN_FILE_BYTES < sz <= SHORTS_THUMB_MAX_BYTES for sz in file_sizes.values())
+    )
 
     # TQ7: Hook lexical contract
     hook_issues = validate_hook_lexical(hook, title=title)
     tq7_ok = len(hook_issues) == 0
+
+    # TQ8: Zero porcelain head occlusion inside rendered hook text band (text_bbox or y=265..515 default)
+    head_occ_by_var: dict[str, bool] = {}
+    band_by_var: dict[str, list[int]] = {}
+    for k in var_keys:
+        src_bgr = variants[k].get("clean_bgr")
+        if src_bgr is None:
+            src_bgr = variants[k]["rendered_bgr"]
+        bb = variants[k].get("text_bbox")
+        if isinstance(bb, (list, tuple)) and len(bb) == 4 and int(bb[3]) > int(bb[1]):
+            v_band = (max(255, int(bb[1]) - 12), min(540, max(415, int(bb[3]) + 12)))
+        else:
+            v_band = (265, 515)
+        band_by_var[k] = [v_band[0], v_band[1]]
+        head_occ_by_var[k] = _has_head_occlusion_in_hook_band(
+            src_bgr,
+            str(variants[k].get("grammar") or ""),
+            band_y=v_band,
+        )
+    tq8_ok = bool(var_keys) and not any(head_occ_by_var.values())
 
     gates = {
         "TQ1_shelf_legibility": {
@@ -859,6 +912,7 @@ def run_thumbnail_qa(
         "TQ6_file_integrity": {
             "passed": tq6_ok,
             "min_file_bytes": THUMB_MIN_FILE_BYTES,
+            "max_file_bytes": SHORTS_THUMB_MAX_BYTES,
             "file_bytes_by_variant": file_sizes,
             "dimensions_1080x1920": dims_ok,
         },
@@ -868,6 +922,12 @@ def run_thumbnail_qa(
             "max_words": THUMB_HOOK_MAX_WORDS,
             "max_chars": THUMB_HOOK_MAX_CHARS,
             "issues": hook_issues,
+        },
+        "TQ8_zero_head_occlusion": {
+            "passed": tq8_ok,
+            "hook_band_y": [265, 515],
+            "hook_band_y_by_variant": band_by_var,
+            "head_occlusion_by_variant": head_occ_by_var,
         },
     }
     failed_gates = [g_name for g_name, g_val in gates.items() if not g_val["passed"]]
@@ -1070,9 +1130,9 @@ def run(
     for var_key, cand in zip(("A", "B", "C"), winners):
         pil_img, ov_meta = render_overlay_with_meta(cand.image, hook_text)
         out_png = pub_dir / f"thumbnail_var_{var_key}.png"
-        _atomic_save_pil_png(pil_img, out_png)
+        _atomic_save_pil_png(pil_img, out_png, max_bytes=SHORTS_THUMB_MAX_BYTES)
         if var_key == "A":
-            _atomic_save_pil_png(pil_img, pub_dir / "thumbnail.png")
+            _atomic_save_pil_png(pil_img, pub_dir / "thumbnail.png", max_bytes=SHORTS_THUMB_MAX_BYTES)
 
         rendered_bgr = cv2.cvtColor(np.array(pil_img, dtype=np.uint8), cv2.COLOR_RGB2BGR)
         wcag_c = measure_shelf_text_contrast(pil_img, ov_meta["fill_mask"])
@@ -1099,6 +1159,7 @@ def run(
             "text_contrast_wcag": wcag_c,
             "pil_image": pil_img,
             "rendered_bgr": rendered_bgr,
+            "clean_bgr": cand.image,
         }
 
     qa_res = run_thumbnail_qa(rendered_variants, hook=hook_text, title=title)
@@ -1112,24 +1173,45 @@ def run(
     final_mp4 = p_dir / "05_assembly" / "final_shorts_1080x1920.mp4"
     final_mp4_sha = _sha256_file(final_mp4) if final_mp4.exists() else None
 
-    # Determine in-video cover frame timestamp: prefer cold-open stamp sentence cut if present, else Variant A out_sec
+    # Determine in-video cover frame timestamp: prefer non-occluded frame inside cold-open stamp sentence cut (band y=180..324),
+    # else non-occluded Act-1 candidate, else target sentence cut midpoint / Variant A out_sec
     thumb_cfg = plan.get("thumbnail") if isinstance(plan.get("thumbnail"), dict) else {}
     target_cover_sent = int(thumb_cfg.get("cover_sentence_index") or 3)
     edl = _read_json(p_dir / "05_assembly" / "edit_decision_list.json")
     in_video_cover_sec: float | None = None
-    for cut in edl.get("cuts") or []:
-        if not isinstance(cut, dict):
-            continue
-        s0 = int(cut.get("sentence_index") or 0)
-        s1 = int(cut.get("end_sentence_index") or s0)
-        if s0 <= target_cover_sent <= max(s0, s1) and str(cut.get("mode") or "single") not in THUMB_EXCLUDE_MODES:
-            in_video_cover_sec = round(0.5 * (float(cut.get("out_start_sec") or 0.0) + float(cut.get("out_end_sec") or 0.0)), 2)
-            break
+    cover_sent_clean = [
+        c
+        for c in candidates
+        if c.sentence_index <= target_cover_sent <= max(c.sentence_index, c.end_sentence_index)
+        and not _has_head_occlusion_in_hook_band(c.image, c.grammar, band_y=(180, 324))
+    ]
+    if cover_sent_clean:
+        in_video_cover_sec = round(float(cover_sent_clean[0].out_sec), 2)
+    else:
+        act1_clean = [
+            c
+            for c in candidates
+            if c.act == 1 and not _has_head_occlusion_in_hook_band(c.image, c.grammar, band_y=(180, 324))
+        ]
+        if act1_clean:
+            in_video_cover_sec = round(float(act1_clean[0].out_sec), 2)
+        else:
+            for cut in edl.get("cuts") or []:
+                if not isinstance(cut, dict):
+                    continue
+                s0 = int(cut.get("sentence_index") or 0)
+                s1 = int(cut.get("end_sentence_index") or s0)
+                if s0 <= target_cover_sent <= max(s0, s1) and str(cut.get("mode") or "single") not in THUMB_EXCLUDE_MODES:
+                    in_video_cover_sec = round(
+                        0.5 * (float(cut.get("out_start_sec") or 0.0) + float(cut.get("out_end_sec") or 0.0)),
+                        2,
+                    )
+                    break
     primary_out_sec = float(rendered_variants["A"]["out_sec"])
     cover_frame_sec = in_video_cover_sec if in_video_cover_sec is not None else round(primary_out_sec, 2)
 
     serializable_variants = {
-        k: {vk: vv for vk, vv in v.items() if vk not in ("pil_image", "rendered_bgr")}
+        k: {vk: vv for vk, vv in v.items() if vk not in ("pil_image", "rendered_bgr", "clean_bgr")}
         for k, v in rendered_variants.items()
     }
     report = {
@@ -1169,32 +1251,75 @@ def render_longform_4k_thumbnails(
     hook_text: str | None = None,
 ) -> dict[str, Any]:
     """
-    Renders 3 distinct `16:9` 4K (`3840x2160`) CTV thumbnails (`thumb_longform_A.png`, `B`, `C`) in `06_publish/`
-    for YouTube Studio native `Test & Compare` (`Watch Time Share` optimization).
+    Renders 3 distinct `16:9` `1920x1080` (`THUMB_LONGFORM_WIDTH x THUMB_LONGFORM_HEIGHT`) thumbnails in `06_publish/`:
+      - `thumbnail_var_{A,B,C}.jpg` (`< 2 MB` JPEG for YouTube Studio `Test & Compare` upload)
+      - `thumb_longform_{A,B,C}.png` (lossless PNG archive)
+    Automatically sizes `AAB Condensed Black` and places hook text on the horizontal third opposite to the
+    porcelain subject/brain mass so text never occludes the hero subject.
     """
-    from pipeline.config import THUMB_LONGFORM_HEIGHT, THUMB_LONGFORM_WIDTH
+    import io
 
-    p_dir = Path(project_dir) if Path(project_dir).is_dir() else (Path(PROJECTS_DIR) / str(project_dir))
+    from pipeline.config import LONGFORM_THUMB_MAX_BYTES, THUMB_LONGFORM_HEIGHT, THUMB_LONGFORM_WIDTH
+    from pipeline.longform_prompt_builder import resolve_longform_project_dir
+
+    p_dir = resolve_longform_project_dir(project_dir, create=False)
     pub_dir = p_dir / "06_publish"
     pub_dir.mkdir(parents=True, exist_ok=True)
     eff_hook = str(hook_text if hook_text is not None else hook or "BRAIN MYSTERY?").strip() or "BRAIN MYSTERY?"
     eff_frames = list(frames_bgr or [])
     if not eff_frames:
         vis_dir = p_dir / "03_visuals" / "flow_native_clips"
-        for c_mp4 in sorted(vis_dir.glob("clip_*.mp4"), key=lambda p: int("".join(filter(str.isdigit, p.stem)) or "0"))[:3]:
-            cap = cv2.VideoCapture(str(c_mp4))
-            ok, frm = cap.read()
-            cap.release()
-            if ok and frm is not None:
-                eff_frames.append(frm)
-    font_path = _resolve_v7_font_path()
-    lines = _split_hook_lines(eff_hook.upper())
-    try:
-        fnt = ImageFont.truetype(str(font_path), 240)
-    except Exception:
-        fnt = ImageFont.load_default()
+        if vis_dir.is_dir():
+            for c_mp4 in sorted(vis_dir.glob("clip_*.mp4"), key=lambda p: int("".join(filter(str.isdigit, p.stem)) or "0"))[:6:2]:
+                cap = cv2.VideoCapture(str(c_mp4))
+                ok, frm = cap.read()
+                cap.release()
+                if ok and frm is not None:
+                    eff_frames.append(frm)
+    if not eff_frames:
+        ref_dir = p_dir / "03_visuals" / "reference_images"
+        if ref_dir.is_dir():
+            # Prefer brain + wide room + cast anchors for distinct A/B/C visual contrast
+            ref_pngs = sorted(ref_dir.glob("*.png"))
+            brain_pngs = [p for p in ref_pngs if "brain" in p.stem]
+            room_pngs = [p for p in ref_pngs if "brain" not in p.stem]
+            ordered = (brain_pngs[:1] + room_pngs[:2] + ref_pngs)[:3]
+            for rp in ordered:
+                im = cv2.imread(str(rp))
+                if im is not None:
+                    eff_frames.append(im)
 
-    saved: dict[str, str] = {}
+    font_path = _resolve_v7_font_path()
+    hook_words = [w for w in eff_hook.upper().split() if w]
+    if len(hook_words) <= 1:
+        lines = hook_words or ["BRAIN MYSTERY?"]
+    elif len(hook_words) == 2:
+        lines = [hook_words[0], hook_words[1]]
+    else:
+        best_k = min(
+            range(1, len(hook_words)),
+            key=lambda k: max(len(" ".join(hook_words[:k])), len(" ".join(hook_words[k:]))),
+        )
+        lines = [" ".join(hook_words[:best_k]), " ".join(hook_words[best_k:])]
+
+    max_text_w = int(THUMB_LONGFORM_WIDTH * 0.30)
+    stroke_w = max(8, int(round(THUMB_LONGFORM_HEIGHT * 0.010)))
+    fnt = ImageFont.load_default()
+    for pt in range(int(round(THUMB_LONGFORM_HEIGHT * 0.106)), 48, -4):
+        try:
+            cand_f = ImageFont.truetype(str(font_path), pt)
+            w_max = max((cand_f.getbbox(ln, stroke_width=stroke_w)[2] - cand_f.getbbox(ln, stroke_width=stroke_w)[0]) for ln in lines)
+            if w_max <= max_text_w:
+                fnt = cand_f
+                break
+            fnt = cand_f
+        except Exception:
+            break
+
+    saved_png: dict[str, str] = {}
+    saved_jpg: dict[str, str] = {}
+    jpg_sizes: dict[str, int] = {}
+
     for idx, var_name in enumerate(("A", "B", "C")):
         src = eff_frames[min(idx, len(eff_frames) - 1)] if eff_frames else np.full((1080, 1920, 3), (225, 232, 238), dtype=np.uint8)
         h0, w0 = src.shape[:2]
@@ -1208,7 +1333,6 @@ def render_longform_4k_thumbnails(
             nh = int(round(w0 / target_ratio))
             y0 = max(0, (h0 - nh) // 2)
             cropped = src[y0 : y0 + nh, :]
-        # Subtle framing variation across A/B/C when fewer than 3 input frames are supplied
         if len(eff_frames) < 3 and idx > 0:
             zf = 1.0 + 0.06 * idx
             zh, zw = int(cropped.shape[0] / zf), int(cropped.shape[1] / zf)
@@ -1216,31 +1340,117 @@ def render_longform_4k_thumbnails(
             zx = (cropped.shape[1] - zw) // (2 if idx == 1 else 4)
             cropped = cropped[zy : zy + zh, zx : zx + zw]
         resized = cv2.resize(cropped, (THUMB_LONGFORM_WIDTH, THUMB_LONGFORM_HEIGHT), interpolation=cv2.INTER_LANCZOS4)
-        pil_rgba = Image.fromarray(cv2.cvtColor(resized, cv2.COLOR_BGR2RGB)).convert("RGBA")
+
+        # Score foreground salience inside the exact padded left vs right candidate text bounding boxes
+        # using true RGB chroma (immune to dark-window HSV saturation noise) and smooth porcelain + joint column contrast.
+        hsv = cv2.cvtColor(resized, cv2.COLOR_BGR2HSV)
+        gray_th = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY)
+        rgb_chroma = np.max(resized, axis=2).astype(np.int16) - np.min(resized, axis=2).astype(np.int16)
+        chroma_sal = ((rgb_chroma >= 38) & (hsv[:, :, 2] >= 85)).astype(np.float32)
+        edges = (cv2.Canny(gray_th, 60, 160) > 0).astype(np.float32)
+        gx = np.abs(cv2.Sobel(gray_th, cv2.CV_32F, 1, 0, ksize=3))
+        smooth_porc = (
+            (hsv[:, :, 1] <= 26) & (hsv[:, :, 2] >= 175) & (hsv[:, :, 2] <= 240) & (gx < 22.0)
+        ).astype(np.float32)
+        dark_joint = ((hsv[:, :, 2] <= 65) & (gray_th <= 60)).astype(np.float32)
+        col_has_joint = (
+            dark_joint[int(THUMB_LONGFORM_HEIGHT * 0.20) : int(THUMB_LONGFORM_HEIGHT * 0.85), :].mean(axis=0) * 15.0
+        ).clip(0.0, 1.2)
+        cast_sal = smooth_porc * col_has_joint[None, :]
+        sal = 0.45 * chroma_sal + 0.35 * cast_sal + 0.20 * edges
+
+        margin_x = int(THUMB_LONGFORM_WIDTH * 0.055)
+        box_y0 = int(THUMB_LONGFORM_HEIGHT * 0.18) + (idx * 18)
+        line_bboxes = [fnt.getbbox(ln, stroke_width=stroke_w) for ln in lines]
+        max_lw = max((bb[2] - bb[0]) for bb in line_bboxes) if line_bboxes else int(THUMB_LONGFORM_WIDTH * 0.28)
+        tot_th = sum((bb[3] - bb[1]) + 16 for bb in line_bboxes) if line_bboxes else int(THUMB_LONGFORM_HEIGHT * 0.24)
+        pad_px = 36
+        ly0 = max(0, box_y0 - pad_px)
+        ly1 = min(THUMB_LONGFORM_HEIGHT, box_y0 + tot_th + pad_px)
+        lx0 = max(0, margin_x - pad_px)
+        lx1 = min(THUMB_LONGFORM_WIDTH, margin_x + max_lw + pad_px)
+        rx0 = max(0, THUMB_LONGFORM_WIDTH - margin_x - max_lw - pad_px)
+        rx1 = min(THUMB_LONGFORM_WIDTH, THUMB_LONGFORM_WIDTH - margin_x + pad_px)
+
+        left_sal = float(np.mean(sal[ly0:ly1, lx0:lx1]))
+        center_sal = float(
+            np.mean(sal[ly0:ly1, int(THUMB_LONGFORM_WIDTH * 0.34) : int(THUMB_LONGFORM_WIDTH * 0.66)])
+        )
+        right_sal = float(np.mean(sal[ly0:ly1, rx0:rx1]))
+        place_on_left = left_sal <= right_sal
+
+        intrude_zone = sal[ly0:ly1, lx0:lx1] if place_on_left else sal[ly0:ly1, rx0:rx1]
+        edge_strip = resized[:, :64, :] if place_on_left else resized[:, -64:, :]
+        border_clean = float(np.mean(np.std(edge_strip.astype(np.float32), axis=0))) < 28.0
+        if (
+            border_clean
+            and center_sal > max(left_sal, right_sal) * 1.18
+            and float(np.mean(intrude_zone)) >= 0.09
+        ):
+            shift_px = int(round(THUMB_LONGFORM_WIDTH * 0.14))
+            if place_on_left:
+                padded = cv2.copyMakeBorder(resized, 0, 0, shift_px, 0, cv2.BORDER_REFLECT_101)
+                resized = padded[:, :THUMB_LONGFORM_WIDTH, :].copy()
+                resized[:, : shift_px + 16, :] = cv2.GaussianBlur(resized[:, : shift_px + 16, :], (21, 21), 0)
+            else:
+                padded = cv2.copyMakeBorder(resized, 0, 0, 0, shift_px, cv2.BORDER_REFLECT_101)
+                resized = padded[:, shift_px : shift_px + THUMB_LONGFORM_WIDTH, :].copy()
+                resized[:, -(shift_px + 16) :, :] = cv2.GaussianBlur(resized[:, -(shift_px + 16) :, :], (21, 21), 0)
+
+        # Subtle readability gradient behind text side only
+        grad_x = np.linspace(0.40, 0.0, THUMB_LONGFORM_WIDTH, dtype=np.float32)
+        if not place_on_left:
+            grad_x = grad_x[::-1]
+        darkened = (resized.astype(np.float32) * (1.0 - grad_x[None, :, None])).clip(0, 255).astype(np.uint8)
+
+        pil_rgba = Image.fromarray(cv2.cvtColor(darkened, cv2.COLOR_BGR2RGB)).convert("RGBA")
         txt_layer = Image.new("RGBA", (THUMB_LONGFORM_WIDTH, THUMB_LONGFORM_HEIGHT), (0, 0, 0, 0))
         draw = ImageDraw.Draw(txt_layer)
-        cur_y = 220 + (idx * 24)
-        for ln in lines:
+        cur_y = int(THUMB_LONGFORM_HEIGHT * 0.18) + (idx * 18)
+        margin_x = int(THUMB_LONGFORM_WIDTH * 0.055)
+        for ln_i, ln in enumerate(lines):
+            bb = fnt.getbbox(ln, stroke_width=stroke_w)
+            lw = bb[2] - bb[0]
+            tx = margin_x if place_on_left else max(margin_x, THUMB_LONGFORM_WIDTH - margin_x - lw)
+            fill_col = (255, 214, 74, 255) if (ln_i == 0 and len(lines) > 1 and idx == 1) else (255, 255, 255, 255)
             draw.text(
-                (180, cur_y),
+                (tx, cur_y),
                 ln,
                 font=fnt,
-                fill=(255, 255, 255, 255),
-                stroke_width=18,
+                fill=fill_col,
+                stroke_width=stroke_w,
                 stroke_fill=(10, 15, 24, 255),
             )
-            bb = fnt.getbbox(ln, stroke_width=18)
-            cur_y += (bb[3] - bb[1]) + 28
+            cur_y += (bb[3] - bb[1]) + 16
         out_rgb = Image.alpha_composite(pil_rgba, txt_layer).convert("RGB")
-        out_p = pub_dir / f"thumb_longform_{var_name}.png"
-        out_rgb.save(out_p, format="PNG", compress_level=3)
-        saved[var_name] = str(out_p)
+
+        out_png = pub_dir / f"thumb_longform_{var_name}.png"
+        out_rgb.save(out_png, format="PNG", compress_level=4)
+        saved_png[var_name] = str(out_png)
+
+        out_jpg = pub_dir / f"thumbnail_var_{var_name}.jpg"
+        jpg_bytes = b""
+        for qual in (93, 88, 82, 76):
+            buf = io.BytesIO()
+            out_rgb.save(buf, format="JPEG", quality=qual, optimize=True)
+            jpg_bytes = buf.getvalue()
+            if len(jpg_bytes) <= LONGFORM_THUMB_MAX_BYTES:
+                break
+        out_jpg.write_bytes(jpg_bytes)
+        saved_jpg[var_name] = str(out_jpg)
+        jpg_sizes[var_name] = len(jpg_bytes)
+
     return {
         "project_id": p_dir.name,
         "dimensions": [THUMB_LONGFORM_WIDTH, THUMB_LONGFORM_HEIGHT],
         "hook_text": eff_hook.upper(),
-        "variants": saved,
+        "variants": saved_png,
+        "jpg_variants": saved_jpg,
+        "jpg_sizes_bytes": jpg_sizes,
     }
+
+
+render_longform_thumbnails = render_longform_4k_thumbnails
 
 
 __all__ = [
@@ -1250,6 +1460,7 @@ __all__ = [
     "measure_shelf_text_contrast",
     "pick_top_distinct",
     "render_longform_4k_thumbnails",
+    "render_longform_thumbnails",
     "render_overlay",
     "render_overlay_with_meta",
     "resolve_hook",
@@ -1260,4 +1471,5 @@ __all__ = [
     "validate_hook_lexical",
     "write_contact_sheet",
 ]
+
 

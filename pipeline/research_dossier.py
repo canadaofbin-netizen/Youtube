@@ -103,6 +103,17 @@ def dossier_dir(slug: str, root: Path | None = None) -> Path:
     return Path(root or DOSSIERS_ROOT) / slugify(slug)
 
 
+_EXPLICIT_PROJECT_SLUG_MAP: dict[str, str] = {
+    "diorama_02_ramachandran_phantom_mirror": "ramachandran_phantom_limb_mirror",
+    "diorama_04_milgram_obedience_switch": "milgram_obedience_shock",
+    "diorama_14_libet_readiness_potential": "libet_readiness_potential_free_will",
+    "diorama_20_dutton_aron_capilano_bridge": "dutton_aron_capilano_bridge_arousal",
+    "diorama_21_delgado_stimoceiver_bull": "delgado_stimoceiver_bull_stop",
+    "diorama_22_wernicke_fluent_aphasia": "wernicke_sensory_aphasia",
+    "diorama_23_sperry_split_brain_corpus_callosum": "split_brain_corpus_callosum",
+}
+
+
 def resolve_dossier_for_project(project_id_or_dir: str | Path, root: Path | None = None) -> Path | None:
     """Resolve the research dossier directory for a project ID or project directory (supports legacy slug aliases via linked_projects)."""
     raw = Path(str(project_id_or_dir)).name if isinstance(project_id_or_dir, Path) or "/" in str(project_id_or_dir) else str(project_id_or_dir)
@@ -112,7 +123,9 @@ def resolve_dossier_for_project(project_id_or_dir: str | Path, root: Path | None
     base = Path(root) if root is not None else DOSSIERS_ROOT
     if not base.is_dir():
         return None
-    for cand_slug in (slugify(pid), slugify(re.sub(r"^psych_\d+_", "", pid, flags=re.IGNORECASE))):
+    mapped_slug = _EXPLICIT_PROJECT_SLUG_MAP.get(pid.lower())
+    stripped_slug = slugify(re.sub(r"^(?:psych|diorama|reenact|news|longform)_\d+_", "", pid, flags=re.IGNORECASE))
+    for cand_slug in (mapped_slug, slugify(pid), stripped_slug):
         if cand_slug and (base / cand_slug / "dossier.json").is_file():
             return base / cand_slug
     pid_lower = pid.lower()
@@ -124,7 +137,12 @@ def resolve_dossier_for_project(project_id_or_dir: str | Path, root: Path | None
             meta = json.loads(meta_path.read_text(encoding="utf-8"))
         except Exception:  # noqa: BLE001
             continue
-        for lp in meta.get("linked_projects") or []:
+        linked = (
+            list(meta.get("linked_projects") or [])
+            + list(meta.get("shorts_projects") or [])
+            + list(meta.get("longform_projects") or [])
+        )
+        for lp in linked:
             lp_str = str(lp).strip().lower()
             if lp_str == pid_lower or lp_str.startswith(pid_lower + " "):
                 return d
@@ -148,6 +166,11 @@ def _templates(slug: str, topic: str, pillar: str, visual_mode: str) -> dict[str
             "wow_facts": [],
             "misconceptions": [],
             "everyday_hooks": [],
+            "offcenter_creator_bet": "",
+            "debate_ignition": {
+                "offcenter_creator_bet": "",
+                "open_verdict_question": "",
+            },
             "linked_projects": [],
         },
         "01_sources.json": {"sources": []},
@@ -657,8 +680,12 @@ def diorama_seed_from_dossier(
             "outro_title_lines": ["", ""],
         }
         if resolved_style == PORCELAIN_V7_STYLE_PROFILE:
+            from pipeline.config import DEFAULT_DIORAMA_VOICE_PRESET, DIORAMA_V7_US_PROSODY_MODE
             from pipeline.porcelain_anchor_pack import populate_porcelain_reference_contract
 
+            seeded_v7["voice_preset"] = DEFAULT_DIORAMA_VOICE_PRESET
+            seeded_v7["prosody_mode"] = DIORAMA_V7_US_PROSODY_MODE
+            seeded_v7["us_anti_clone_v7"] = True
             populate_porcelain_reference_contract(seeded_v7, dossier_dir=target_dir)
         return seeded_v7
     return {

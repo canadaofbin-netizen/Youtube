@@ -63,8 +63,8 @@ This file is the index only: identity, pipeline overview, CLI, Rule ID registry,
 | `reenact-produce --slug <slug> --project <project_id> --pillar <pillar> [--voice-preset emma_v7] [--prosody-mode dynamic_us_v7]` | Full `R67` source-conditioned porcelain reenactment episode production + `/tmp/aab_reenact` purge + `RQ1–RQ5` & `R64` QA |
 | `reenact-qa --project <project_id> [--slug <slug>] [--purge]` | 5-axis Reenactment Non-Infringement & Fidelity QA (`RQ1–RQ5`, `R67`) |
 | `studio-watchdog [--apply] [--no-pins] [--no-links]` | Autonomous Studio Go-Live Watchdog: promote elapsed `Scheduled` Shorts, pin R35 DOI comments & link R35-B Public rings |
-| `news-radar [--days 14] [--max-candidates 5]` | Scan recent Crossref / ClinicalTrials breaking BCI & neuroscience papers into `NEURO_NEWS_STAGING_DIR` |
-| `longform-assemble --project <project_id> [--hook-text "..."]` | Assemble `16:9` `LONGFORM_VIDEO_WIDTH x LONGFORM_VIDEO_HEIGHT` `@ LONGFORM_VIDEO_FPS` (`LONGFORM_TARGET_LUFS`) CTV Long-Form MP4 + 4K A/B/C thumbnails |
+| `news-radar [--days 14] [--max-candidates 5]` | Scan recent Crossref / ClinicalTrials breaking BCI + 5 everyday psych/neuroscience domains into `NEURO_NEWS_STAGING_DIR` |
+| `longform-init\|longform-audio\|longform-refs\|longform-flow\|longform-assemble\|longform-qa\|longform-publish --project <project_id> [...]` | Standalone `16:9` `1920x1080 @ 24fps` (`longform_us_v7` relaxed voice, `-14.0 LUFS`, burned-in ASS + lower-left DOI cards, `< 2 MB` A/B/C thumbnails, `LFQ1–LFQ12`) in `projects_longform/` |
 
 Tests: `python -m pytest -v`.
 

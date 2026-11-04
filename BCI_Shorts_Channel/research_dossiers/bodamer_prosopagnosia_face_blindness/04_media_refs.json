@@ -32,6 +32,23 @@
           "Deduplicated English transcript (10 timestamped cues in media/M1_bodamer_prosopagnosia_face_b/transcript.txt) aligned directly to keyframe timestamps (0.0s–60.5s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_talking_head_monologue(ratio=1.0,wps=2.191)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 12,
+        "median_dark_ratio": 0.1479,
+        "median_gray_sat_ratio": 0.3641,
+        "median_p90_sat": 117.0,
+        "max_p90_sat": 120.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
+        "median_flat_patch_ratio": 0.1792,
+        "median_motion_diff": 2.868,
+        "talking_head_ratio": 1.0,
+        "words_per_sec": 2.191,
+        "has_strong_archival_cue": false,
+        "gate_failed": 4
       }
     },
     {
@@ -66,6 +83,23 @@
           "Deduplicated English transcript (35 timestamped cues in media/M2/transcript.txt) aligned directly to keyframe timestamps (71.9s–120.8s).",
           "Analyzed strictly as research reference for historical context, pacing, and terminology; zero video frames or audio reused in channel productions."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_modern_monologue_without_archival_footage(wps=2.311,th=0.5)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 14,
+        "median_dark_ratio": 0.3969,
+        "median_gray_sat_ratio": 0.014,
+        "median_p90_sat": 195.0,
+        "max_p90_sat": 255.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
+        "median_flat_patch_ratio": 0.5177,
+        "median_motion_diff": 79.882,
+        "talking_head_ratio": 0.5,
+        "words_per_sec": 2.311,
+        "has_strong_archival_cue": false,
+        "gate_failed": 4
       }
     },
     {
@@ -89,7 +123,15 @@
           "Inspected media/M3/still.jpg (475x503 px, Public domain, NIH) — neuroanatomy reference: This is a computer-enhanced fMRI scan of a person who has been asked to look at faces. The image shows increased blood flow in the part of the visual cortex that recognizes faces.",
           "Stored strictly for research verification of era, anatomy, or setting; raw archival file is never composited or reused in generated videos."
         ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
+      "reenactment_suitability_metrics": {
+        "gate_failed": 1
       }
     }
-  ]
+  ],
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor"
 }

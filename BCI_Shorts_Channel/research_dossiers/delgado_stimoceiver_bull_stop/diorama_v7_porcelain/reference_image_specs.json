@@ -1,0 +1,398 @@
+{
+  "schema_version": 5,
+  "visual_mode": "NEURO_BIOLOGY",
+  "aspect": "9:16",
+  "dossier": "delgado_stimoceiver_bull_stop",
+  "total_reference_images": 8,
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in 1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailored trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head; researcher in 1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailored trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head.",
+  "generation_order": "1 env plate + master brain bust -> 2 cast sheets + hero prop (conditioned on env) -> 3 clip start / key frames (conditioned on master anchors)",
+  "master_anchors": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "present_cast": [],
+      "location_id": "cordoba_bullring_sand",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and cool pale-slate barriers, featuring 1965 brushed-aluminum handheld FM radio transmitter with whip antenna (wireless remote switch replacing tangled 1950s laboratory cables). Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and cool pa",
+        "1965 brushed-aluminum handheld FM radio transmitter with whi"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_subject",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_subject.png",
+      "title": "Cast sheet: subject (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "subject"
+      ],
+      "location_id": "cordoba_bullring_sand",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailored trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and cool pale-slate barriers. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailore",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_researcher",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_researcher.png",
+      "title": "Cast sheet: researcher (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "researcher"
+      ],
+      "location_id": "cordoba_bullring_sand",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing 1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailored trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and cool pale-slate barriers. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailore",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [],
+      "location_id": "cordoba_bullring_sand",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of 1965 brushed-aluminum handheld FM radio transmitter with whip antenna (wireless remote switch replacing tangled 1950s laboratory cables) inside a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and cool pale-slate barriers, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "1965 brushed-aluminum handheld FM radio transmitter with whip antenna (wireless "
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_brain_master",
+      "category": "brain_master_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_void",
+      "filename": "ref_brain_master.png",
+      "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: sagittal-coronal cross-section of a matte-white 3D brain focusing on the amygdala on an acrylic pedestal with living impulses gliding strictly inside enclosed white-matter sheaths. Inside the precision 3D anatomical model of the amygdala, enclosed clear subtle warm amber-gold cortical hubs connect with warm amber-gold fiber pathways alongside contained deep crimson-red focal zones and smooth luminous pearl-aqua perivascular fluid channels. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, zero human facial features, no text, no letters, no watermark.",
+      "must_include": [
+        "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
+        "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    }
+  ],
+  "clip_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_cordoba_bullring_sand",
+      "setting": "real_env",
+      "filename": "ref_anchor_01.png",
+      "title": "Room state anchor 1 (cordoba_bullring_sand: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and cool pale-slate barriers, featuring 1965 brushed-aluminum handheld FM radio transmitter with whip antenna (wireless remote switch replacing tangled 1950s laboratory cables). Inside the room, subject (1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailored trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1965 brushed-aluminum handheld FM radio transmitter with whip antenna (wireless remote switch replacing tangled 1950s laboratory cables). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and",
+        "1965 brushed-aluminum handheld FM radio transmitter with"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "location_id": "cordoba_bullring_sand",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_yale_bci_workshop",
+      "setting": "real_env",
+      "filename": "ref_anchor_02.png",
+      "title": "Room state anchor 2 (yale_bci_workshop: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the sunlit Yale neurophysiology workshop with the radio transmitter and 3D brain model on the center table. Inside the room, subject (1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailored trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "the sunlit Yale neurophysiology workshop with the radio transmitter and ",
+        "an unmarked clinical tabletop apparatus"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_cast_subject"
+      ],
+      "location_id": "yale_bci_workshop",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_washington_hearing_room",
+      "setting": "real_env",
+      "filename": "ref_anchor_03.png",
+      "title": "Room state anchor 3 (washington_hearing_room: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a sunlit 1970 stone-panelled committee hearing room with green baize tables and brushed-silver microphones. Inside the room, subject (1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailored trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a sunlit 1970 stone-panelled committee hearing room with green baize tab",
+        "an unmarked clinical tabletop apparatus"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_cast_subject"
+      ],
+      "location_id": "washington_hearing_room",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    }
+  ],
+  "all_specs": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "present_cast": [],
+      "location_id": "cordoba_bullring_sand",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and cool pale-slate barriers, featuring 1965 brushed-aluminum handheld FM radio transmitter with whip antenna (wireless remote switch replacing tangled 1950s laboratory cables). Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and cool pa",
+        "1965 brushed-aluminum handheld FM radio transmitter with whi"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_subject",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_subject.png",
+      "title": "Cast sheet: subject (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "subject"
+      ],
+      "location_id": "cordoba_bullring_sand",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailored trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and cool pale-slate barriers. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailore",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_researcher",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_researcher.png",
+      "title": "Cast sheet: researcher (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "researcher"
+      ],
+      "location_id": "cordoba_bullring_sand",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing 1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailored trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and cool pale-slate barriers. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailore",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [],
+      "location_id": "cordoba_bullring_sand",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of 1965 brushed-aluminum handheld FM radio transmitter with whip antenna (wireless remote switch replacing tangled 1950s laboratory cables) inside a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and cool pale-slate barriers, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "1965 brushed-aluminum handheld FM radio transmitter with whip antenna (wireless "
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_brain_master",
+      "category": "brain_master_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_void",
+      "filename": "ref_brain_master.png",
+      "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: sagittal-coronal cross-section of a matte-white 3D brain focusing on the amygdala on an acrylic pedestal with living impulses gliding strictly inside enclosed white-matter sheaths. Inside the precision 3D anatomical model of the amygdala, enclosed clear subtle warm amber-gold cortical hubs connect with warm amber-gold fiber pathways alongside contained deep crimson-red focal zones and smooth luminous pearl-aqua perivascular fluid channels. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, zero human facial features, no text, no letters, no watermark.",
+      "must_include": [
+        "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
+        "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_01",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_cordoba_bullring_sand",
+      "setting": "real_env",
+      "filename": "ref_anchor_01.png",
+      "title": "Room state anchor 1 (cordoba_bullring_sand: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and cool pale-slate barriers, featuring 1965 brushed-aluminum handheld FM radio transmitter with whip antenna (wireless remote switch replacing tangled 1950s laboratory cables). Inside the room, subject (1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailored trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside 1965 brushed-aluminum handheld FM radio transmitter with whip antenna (wireless remote switch replacing tangled 1950s laboratory cables). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a soft sunlit 1964 Spanish bullring arena with pale-limestone ground and",
+        "1965 brushed-aluminum handheld FM radio transmitter with"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "location_id": "cordoba_bullring_sand",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_yale_bci_workshop",
+      "setting": "real_env",
+      "filename": "ref_anchor_02.png",
+      "title": "Room state anchor 2 (yale_bci_workshop: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across the sunlit Yale neurophysiology workshop with the radio transmitter and 3D brain model on the center table. Inside the room, subject (1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailored trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "the sunlit Yale neurophysiology workshop with the radio transmitter and ",
+        "an unmarked clinical tabletop apparatus"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_cast_subject"
+      ],
+      "location_id": "yale_bci_workshop",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_washington_hearing_room",
+      "setting": "real_env",
+      "filename": "ref_anchor_03.png",
+      "title": "Room state anchor 3 (washington_hearing_room: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a sunlit 1970 stone-panelled committee hearing room with green baize tables and brushed-silver microphones. Inside the room, subject (1965 Spanish summer attire: crisp rolled-sleeve white cotton shirt, dark tailored trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a sunlit 1970 stone-panelled committee hearing room with green baize tab",
+        "an unmarked clinical tabletop apparatus"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_cast_subject"
+      ],
+      "location_id": "washington_hearing_room",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    }
+  ],
+  "style_profile": "porcelain_cinematic_v7"
+}

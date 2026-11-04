@@ -1,135 +1,85 @@
 {
-  "target_minutes": 11,
+  "target_minutes": 9,
   "shorts_extract": {
-    "hook": "Live two-photon brain microscopy shows spaces between neurons widening 60% the instant deep sleep starts, flushing out amyloid waste at double speed.",
-    "core_experiment": "Xie & Nedergaard (2013 Science): awake vs sleeping CSF tracer influx, TMA+ 60% interstitial expansion, AQP4 astrocytic water channels, 2x amyloid-beta clearance.",
-    "twist": "Waking norepinephrine keeps channels squeezed shut for sharp signaling, and sedative pills that flatten slow vascular waves do not match natural delta sleep."
+    "hook": "You nod off on the living-room sofa, yet the instant your head touches the pillow your mind snaps wide awake — and reaching for a sleeping pill may silence the very pump that washes your brain.",
+    "core_experiment": "Xie & Nedergaard (2013) discovered brain cells shrink to widen fluid channels by 60% in deep sleep, while Fultz & Lewis (2019) filmed 20-second cerebrospinal fluid waves in sleeping humans.",
+    "twist": "Hauglund & Nedergaard (2025) revealed that sedative zolpidem flattens the rhythmic norepinephrine blood-vessel waves that pump fluid through the brain, trading real night washing for sedated stillness."
   },
   "chapters": [
     {
       "n": 1,
-      "title": "Why Every Animal Must Risk Falling Asleep",
+      "title": "Wide Awake on the Pillow",
       "beats": [
-        "2% body weight burning 20% energy",
-        "Zero traditional lymph pipes inside brain tissue",
-        "The 2013 Rochester two-photon breakthrough"
-      ],
-      "scene_ids": [
-        "S1"
-      ],
-      "reuse_shorts_roles": [
-        "setup"
+        "Everyday paradox: nodding off on the sofa, then snapping into alert racing thoughts the moment your head hits the bedroom pillow.",
+        "Pre-bunk the lazy advice ('just try harder to stay in bed with eyes closed') by showing why forced bed rest makes insomnia worse."
       ],
       "new_shots_needed": [
-        "wide shot of Rochester two-photon rig"
+        "Wide moonlit walnut bedroom where a porcelain sleeper sits upright on crisp linen sheets"
       ]
     },
     {
       "n": 2,
-      "title": "What One All-Nighter Leaves Behind",
+      "title": "When Your Bed Becomes an Alarm",
       "beats": [
-        "Amyloid-beta and tau pooling between neurons",
-        "Human PET scan after one sleepless night",
-        "Why cell-internal recycling is not enough"
-      ],
-      "scene_ids": [
-        "S2"
-      ],
-      "reuse_shorts_roles": [
-        "symptom",
-        "failure",
-        "crisis"
+        "Perlis & Bootzin (1997) behavioral insomnia mechanism: classical Pavlovian conditioned arousal pairs the mattress with threat vigilance and fast cortical beta waves.",
+        "Show the stimulus-control chair experiment: leaving the bed for a dim chair until eyelids droop untangles the alarm reflex."
       ],
       "new_shots_needed": [
-        "3 a.m. desk fatigue comparison"
+        "Split-screen comparison of tossing in bed versus calm reading in a dim warm armchair"
       ]
     },
     {
       "n": 3,
-      "title": "Inside the Glymphatic Wash Cycle",
+      "title": "The 60% Emotional Disconnect",
       "beats": [
-        "Glial astrocytes wrapping arteries with AQP4 channels",
-        "Interstitial space expanding 60% (14% to 23%)",
-        "Convective sweep from arteries to veins"
-      ],
-      "scene_ids": [
-        "S1",
-        "S3"
-      ],
-      "reuse_shorts_roles": [
-        "pivot",
-        "step1"
+        "Yoo & Walker (2007) fMRI study: 35 hours awake cuts the medial prefrontal brake cable and spikes amygdala emotional reactivity by 60%.",
+        "Explain why minor daytime friction feels like an emergency after a fragmented night."
       ],
       "new_shots_needed": [
-        "hinged 3D perivascular model demonstration"
+        "3D sagittal brain cutaway showing crimson-red hyperactive amygdala disconnected from amber-gold medial prefrontal cortex"
       ]
     },
     {
       "n": 4,
-      "title": "Double-Speed Amyloid Clearance",
+      "title": "The Hidden Nighttime Dishwasher",
       "beats": [
-        "Radiolabeled amyloid-beta measurements",
-        "Awake trickle vs delta-sleep surge",
-        "Why norepinephrine locks the gates by day"
-      ],
-      "scene_ids": [
-        "S1"
-      ],
-      "reuse_shorts_roles": [
-        "breakthrough"
+        "Xie & Nedergaard (2013, Science): glial cells shrink during deep slow-wave sleep, widening interstitial fluid channels by 60% and flushing beta-amyloid twice as fast.",
+        "Midpoint open-loop question: if unconsciousness alone opened those channels, why don't sleeping pills wash the brain just as clean?"
       ],
       "new_shots_needed": [
-        "side-by-side awake vs asleep clearance graph"
+        "3D perivascular glymphatic vessel cutaway with enclosed pearl-aqua fluid flushing amber metabolic waste"
       ]
     },
     {
       "n": 5,
-      "title": "Sleeping Pills vs Natural Slow Waves",
+      "title": "20-Second Waves Inside Sleeping Humans",
       "beats": [
-        "Norepinephrine slow oscillations as vascular pump",
-        "Why zolpidem sedation can blunt fluid flow",
-        "Ongoing convective vs dispersive physics debates"
+        "Fultz & Lewis (2019, Science) Boston University human MRI breakthrough: synchronized delta silence, blood-volume drop, and cerebrospinal fluid surges every 20 seconds."
       ],
-      "scene_ids": [
-        "S3"
-      ],
-      "reuse_shorts_roles": [],
       "new_shots_needed": [
-        "slow-wave EEG vs flat sedated trace"
+        "Widescreen clinical MRI scanner suite with porcelain researcher observing abstract fluid wave traces"
       ]
     },
     {
       "n": 6,
-      "title": "Protecting Your Nightly Wash Cycle",
+      "title": "The Sleeping-Pill Pump Paradox",
       "beats": [
-        "First 3-4 hours of sleep carry peak delta waves",
-        "Alcohol, late caffeine, and thermal habits",
-        "Waking with a physically rinsed cortex"
-      ],
-      "scene_ids": [
-        "S4"
-      ],
-      "reuse_shorts_roles": [
-        "conclusion"
+        "Hauglund & Nedergaard (2025, Cell): rhythmic 50-second locus coeruleus norepinephrine waves squeeze pial arteries like a mechanical pump during natural NREM sleep.",
+        "Zolpidem sedation mutes those norepinephrine oscillations by half and cuts brain fluid inflow by roughly one third."
       ],
       "new_shots_needed": [
-        "bright morning bedroom wakeup"
+        "Side-by-side 3D brain arterial pump comparison: pulsing natural NREM inflow versus stalled sedated vessel"
       ]
     },
     {
       "n": 7,
-      "title": "Sleep as Active Biological Maintenance",
+      "title": "Five Real Hours or Eight Sedated?",
       "beats": [
-        "Recap of the 60% plumbing shift",
-        "Long-term neuroprotection",
-        "Closing takeaway"
+        "Synthesize two evidence-backed behavioral levers (20-minute chair reset + thermal/light slow-wave priming) without preachy moralizing.",
+        "Close on the Stage 2 open-verdict forced-choice question between 5 hours of natural slow-wave sleep vs 8 sedated hours."
       ],
-      "scene_ids": [
-        "S4"
-      ],
-      "reuse_shorts_roles": [],
       "new_shots_needed": [
-        "elevated wide shot of sunlit bedroom"
+        "Warm morning sunlight entering minimalist walnut bedroom as rested porcelain figure opens linen curtains"
       ]
     }
   ]

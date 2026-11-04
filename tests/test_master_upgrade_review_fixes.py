@@ -255,7 +255,7 @@ def test_cmd_longform_assemble_end_to_end_4k_mp4_tpad_and_thumbnails(
 
     cli.cmd_longform_assemble(argparse.Namespace(project="lf_test_01", hook_text="WHY SILENT BABIES RACE"))
 
-    out_mp4 = proj_dir / "05_assembly" / "final_longform_3840x2160.mp4"
+    out_mp4 = proj_dir / "05_assembly" / config.LONGFORM_FINAL_MP4_FILENAME
     rep_path = proj_dir / "05_assembly" / "longform_assembly_report.json"
     assert out_mp4.exists() and out_mp4.stat().st_size > 10_000
     assert rep_path.exists()

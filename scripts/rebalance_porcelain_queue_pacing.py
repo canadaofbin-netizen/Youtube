@@ -160,6 +160,8 @@ def _sanitize_filler_tokens(text: str, allow_chrono: bool) -> str:
     out = re.sub(r"\bsunlit\s+sunlit\b", "sunlit", out, flags=re.IGNORECASE)
     # Also neutralize plaque/text triggers that could arise from raw lowpoly fields
     out = re.sub(r"\bwall\s+dial\b", "circular acoustic damper", out, flags=re.IGNORECASE)
+    out = re.sub(r"\bconfetti\b", "paper slips", out, flags=re.IGNORECASE)
+    out = re.sub(r"\b(?:zero|no|without)\s+face(?:\s+features?)?\b", "smooth featureless white heads", out, flags=re.IGNORECASE)
     return re.sub(r"\s{2,}", " ", out).strip()
 
 
@@ -416,7 +418,7 @@ def _expand_holds_to_sweet_spot(
     )
     target_clips = max(PORCELAIN_V7_TARGET_CLIP_MIN, min(PORCELAIN_V7_TARGET_CLIP_MAX - 2, target_clips))
 
-    # Check if already balanced
+    # Check if already balanced AND split_comparisons indices match actual split_right/split_bottom clips
     has_overhold = any(
         str(c.get("cut_role") or "").lower() not in ("outro", "split_right", "split_bottom")
         and isinstance(c.get("sentence_index"), int)
@@ -424,7 +426,21 @@ def _expand_holds_to_sweet_spot(
         > PORCELAIN_V7_MAX_HOLD_SENTENCES
         for c in clips
     )
-    if PORCELAIN_V7_TARGET_CLIP_MIN <= len(clips) <= PORCELAIN_V7_TARGET_CLIP_MAX and not has_overhold:
+    split_roles_1based = {
+        idx_s
+        for idx_s, c_s in enumerate(clips, start=1)
+        if isinstance(c_s, dict) and str(c_s.get("cut_role") or "").strip().lower() in ("split_right", "split_bottom")
+    }
+    has_stale_split_idx = any(
+        isinstance(sc, dict)
+        and int(sc.get("right_clip_index") or sc.get("bottom_clip_index") or 0) not in split_roles_1based
+        for sc in (plan.get("split_comparisons") or [])
+    )
+    if (
+        PORCELAIN_V7_TARGET_CLIP_MIN <= len(clips) <= PORCELAIN_V7_TARGET_CLIP_MAX
+        and not has_overhold
+        and not has_stale_split_idx
+    ):
         return clips, False
 
     split_sents = {
@@ -528,9 +544,61 @@ def _expand_holds_to_sweet_spot(
             break
         _split_one_at(best_idx)
 
+    # Pass 3: Merge adjacent compatible 1-sentence clips when len(work) > PORCELAIN_V7_TARGET_CLIP_MAX - 2
+    max_sweet_clips = PORCELAIN_V7_TARGET_CLIP_MAX - 2
+    while len(work) > max_sweet_clips:
+        merge_idx = -1
+        best_merge_words = 10**9
+        for idx_c in range(len(work) - 1):
+            c_cur = work[idx_c]
+            c_nxt = work[idx_c + 1]
+            r_cur = str(c_cur.get("cut_role") or "").lower()
+            r_nxt = str(c_nxt.get("cut_role") or "").lower()
+            if r_cur in ("outro", "split_left", "split_right", "split_top", "split_bottom"):
+                continue
+            if r_nxt in ("outro", "split_left", "split_right", "split_top", "split_bottom"):
+                continue
+            if not isinstance(c_cur.get("sentence_index"), int) or not isinstance(c_nxt.get("sentence_index"), int):
+                continue
+            s0, s1 = _hold_bounds(c_cur)
+            n0, n1 = _hold_bounds(c_nxt)
+            if s0 < 4 or s1 != s0 or n0 != s0 + 1 or n1 != n0:
+                continue
+            if s0 in split_sents or n0 in split_sents:
+                continue
+            g_cur = str(c_cur.get("grammar") or "")
+            g_nxt = str(c_nxt.get("grammar") or "")
+            if g_cur == "porcelain_literal_analogy" or g_nxt == "porcelain_literal_analogy":
+                continue
+            cur_brain = _is_brain_or_outro(c_cur)
+            nxt_brain = _is_brain_or_outro(c_nxt)
+            if cur_brain != nxt_brain:
+                continue
+            if not cur_brain:
+                # Avoid merging if second sentence names anatomy that requires a 3D brain clip (DQ3)
+                if 1 <= n0 <= n_sents and find_anatomy_terms(narrations[n0 - 1]):
+                    continue
+                loc_cur = str((c_cur.get("scene_state") or {}).get("location_id") or c_cur.get("location_id") or "primary_room")
+                loc_nxt = str((c_nxt.get("scene_state") or {}).get("location_id") or c_nxt.get("location_id") or "primary_room")
+                if loc_cur != loc_nxt:
+                    continue
+            w_pair = sum(count_words(narrations[k - 1]) for k in (s0, n0) if 1 <= k <= n_sents)
+            if w_pair < best_merge_words:
+                best_merge_words = w_pair
+                merge_idx = idx_c
+        if merge_idx < 0:
+            break
+        c_keep = work[merge_idx]
+        c_drop = work.pop(merge_idx + 1)
+        c_keep["end_sentence_index"] = int(c_drop["sentence_index"])
+        c_keep.pop("hold_sentences", None)
+        changed = True
+
     # Re-index clip_number 1..N and re-bind split_comparisons left_clip_index / right_clip_index
     for i_new, c_item in enumerate(work, start=1):
-        c_item["clip_number"] = i_new
+        if c_item.get("clip_number") != i_new:
+            c_item["clip_number"] = i_new
+            changed = True
 
     if isinstance(plan.get("split_comparisons"), list):
         for sc in plan["split_comparisons"]:
@@ -539,20 +607,46 @@ def _expand_holds_to_sweet_spot(
             s_idx = int(sc.get("sentence_index") or 0)
             if s_idx < 1:
                 continue
+            matched_sec = False
             for i_new, c_item in enumerate(work, start=1):
                 role = str(c_item.get("cut_role") or "").strip().lower()
                 s0 = int(c_item.get("sentence_index") or 0)
                 s1 = max(s0, int(c_item.get("end_sentence_index") or s0))
                 if role in ("split_right", "split_bottom") and s0 == s_idx:
                     if "bottom_clip_index" in sc and "right_clip_index" not in sc:
-                        sc["bottom_clip_index"] = i_new
+                        if sc.get("bottom_clip_index") != i_new:
+                            sc["bottom_clip_index"] = i_new
+                            changed = True
                     else:
-                        sc["right_clip_index"] = i_new
+                        if sc.get("right_clip_index") != i_new:
+                            sc["right_clip_index"] = i_new
+                            changed = True
+                    matched_sec = True
                 elif role not in ("outro", "split_right", "split_bottom") and s0 <= s_idx <= s1:
                     if "top_clip_index" in sc and "left_clip_index" not in sc:
-                        sc["top_clip_index"] = i_new
+                        if sc.get("top_clip_index") != i_new:
+                            sc["top_clip_index"] = i_new
+                            changed = True
                     else:
-                        sc["left_clip_index"] = i_new
+                        if sc.get("left_clip_index") != i_new:
+                            sc["left_clip_index"] = i_new
+                            changed = True
+            if not matched_sec:
+                for i_new, c_item in enumerate(work, start=1):
+                    role = str(c_item.get("cut_role") or "").strip().lower()
+                    if role in ("split_right", "split_bottom"):
+                        if c_item.get("sentence_index") != s_idx:
+                            c_item["sentence_index"] = s_idx
+                            changed = True
+                        if "bottom_clip_index" in sc and "right_clip_index" not in sc:
+                            if sc.get("bottom_clip_index") != i_new:
+                                sc["bottom_clip_index"] = i_new
+                                changed = True
+                        else:
+                            if sc.get("right_clip_index") != i_new:
+                                sc["right_clip_index"] = i_new
+                                changed = True
+                        break
 
     return work, changed
 
@@ -651,6 +745,134 @@ def normalize_draft_dir(pdir: Path, *, write: bool = True) -> dict[str, Any]:
             plan["environment_props"] = new_props
             changed = True
 
+    # Pre-normalize classic migrated drafts: trailing outro role, <=2 literal analogy cap, and R65 thumbnail block
+    default_loc = str(plan.get("default_location_id") or "primary_studio_room").strip() or "primary_studio_room"
+    default_env = _sanitize_filler_tokens(
+        str(plan.get("real_environment") or "a bright high-key architectural research room with warm birch benches"),
+        allow_chrono=allow_chrono,
+    )
+    prop_list = [str(x).strip() for x in (plan.get("environment_props") or []) if str(x).strip()]
+    primary_prop = _sanitize_filler_tokens(
+        prop_list[0] if prop_list else "the calibrated tabletop test apparatus",
+        allow_chrono=allow_chrono,
+    )
+    if clips and narrations:
+        last_c = clips[-1]
+        if isinstance(last_c, dict):
+            s_last = last_c.get("sentence_index")
+            r_last = str(last_c.get("cut_role") or "").strip().lower()
+            if r_last == "outro" or s_last is None or (isinstance(s_last, int) and s_last > len(narrations)):
+                if last_c.get("cut_role") != "outro":
+                    last_c["cut_role"] = "outro"
+                    changed = True
+                if last_c.get("sentence_index") != len(narrations):
+                    last_c["sentence_index"] = len(narrations)
+                    changed = True
+                last_c.pop("end_sentence_index", None)
+                last_c.pop("scene_state", None)
+                last_c.pop("scene", None)
+                last_c["act"] = 6
+                last_c["location_id"] = str(last_c.get("location_id") or default_loc)
+                last_c["grammar"] = "porcelain_fullbleed_world"
+                last_c["camera"] = "tilt_up"
+                last_c["style_profile"] = PORCELAIN_V7_STYLE_PROFILE
+                if not str(last_c.get("environment") or "").strip():
+                    last_c["environment"] = (
+                        f"a serene wide architectural view across {default_env} with tall daylight windows opening to pale sky"
+                    )
+                    changed = True
+                if not str(last_c.get("action") or "").strip():
+                    last_c["action"] = (
+                        f"viewed strictly from behind, a clothed matte-white porcelain researcher stands quietly beside {primary_prop} as the camera tilts gently upward"
+                    )
+                    changed = True
+
+    analogy_indices: list[tuple[int, int]] = []
+    for idx_a, c_a in enumerate(clips):
+        if not isinstance(c_a, dict):
+            continue
+        if str(c_a.get("cut_role") or "").strip().lower() in ("outro", "split_right", "split_bottom"):
+            continue
+        if str(c_a.get("grammar") or "") == "porcelain_literal_analogy":
+            s_a0 = int(c_a.get("sentence_index") or 0)
+            s_a1 = max(s_a0, int(c_a.get("end_sentence_index") or s_a0))
+            has_lock = any(
+                _sentence_has_literal_analogy_lock(narrations[sk - 1])
+                for sk in range(s_a0, s_a1 + 1)
+                if 1 <= sk <= len(narrations)
+            )
+            analogy_indices.append((0 if has_lock else 1, idx_a))
+    if len(analogy_indices) > PORCELAIN_V7_LITERAL_ANALOGY_MAX_CLIPS:
+        analogy_indices.sort()
+        keep_analogy = {idx_a for _, idx_a in analogy_indices[:PORCELAIN_V7_LITERAL_ANALOGY_MAX_CLIPS]}
+        for _, idx_a in analogy_indices[PORCELAIN_V7_LITERAL_ANALOGY_MAX_CLIPS:]:
+            c_conv = clips[idx_a]
+            s_a0 = int(c_conv.get("sentence_index") or 1)
+            s_a1 = max(s_a0, int(c_conv.get("end_sentence_index") or s_a0))
+            act_a = int(c_conv.get("act") or min(6, max(1, (s_a0 - 1) // 8 + 1)))
+            prop_i = _sanitize_filler_tokens(
+                prop_list[idx_a % len(prop_list)] if prop_list else primary_prop,
+                allow_chrono=allow_chrono,
+            )
+            prop_short = " ".join(prop_i.split()[:8]).rstrip(",.;:")
+            env_short = " ".join(_strip_wide_camera_prefix_for_closeup(default_env).split()[:12]).rstrip(",.;:")
+            c_conv.clear()
+            c_conv.update(
+                {
+                    "clip_number": idx_a + 1,
+                    "sentence_index": s_a0,
+                    **({"end_sentence_index": s_a1} if s_a1 > s_a0 else {}),
+                    "act": act_a,
+                    "location_id": default_loc,
+                    "grammar": "porcelain_hands_closeup",
+                    "camera": "locked_tripod",
+                    "attire_and_hands": (
+                        f"tailored woven blazer cuffs and smooth matte-white porcelain hands beside {prop_short} inside {env_short}"
+                    ),
+                    "prop_action": (
+                        f"both smooth matte-white porcelain hands reach forward, align {prop_short}, and set the marker cleanly"
+                    ),
+                    "consequence": "the physical apparatus settles into crisp alignment under bright daylight",
+                    "style_profile": PORCELAIN_V7_STYLE_PROFILE,
+                }
+            )
+            changed = True
+
+    thumb_blk = plan.get("thumbnail")
+    if not isinstance(thumb_blk, dict) or not str(thumb_blk.get("hook_text") or "").strip():
+        hook_cand = ""
+        for callout_key in ("chapter_headlines", "top_callouts"):
+            for item_co in (plan.get(callout_key) or []):
+                if isinstance(item_co, dict):
+                    txt_co = re.sub(r"[^A-Z0-9 ?!'-]", "", str(item_co.get("text") or "").upper()).strip()
+                    if 4 <= len(txt_co) <= 18 and int(item_co.get("sentence_index") or 0) in (2, 3, 1):
+                        hook_cand = txt_co
+                        if int(item_co.get("sentence_index") or 0) == 3:
+                            break
+            if hook_cand:
+                break
+        if not hook_cand:
+            words_slug = [w.upper() for w in slug_guess.split("_") if w and len(w) >= 3][:2]
+            hook_cand = " ".join(words_slug)[:18].strip() or "BRAIN MYSTERY"
+        plan["thumbnail"] = {
+            "hook_text": hook_cand,
+            "cover_sentence_index": 3,
+            "cover_brief": f"centered {primary_prop} inside {default_env}",
+        }
+        changed = True
+    if isinstance(plan.get("thumbnail"), dict):
+        cov_s = int(plan["thumbnail"].get("cover_sentence_index") or 3)
+        cov_txt = str(plan["thumbnail"].get("hook_text") or "").strip()
+        if cov_txt:
+            for callout_key in ("chapter_headlines", "top_callouts"):
+                arr = [x for x in (plan.get(callout_key) or []) if isinstance(x, dict)]
+                if not any(int(x.get("sentence_index") or 0) == cov_s and str(x.get("text") or "").strip().upper() == cov_txt.upper() for x in arr):
+                    arr = [x for x in arr if int(x.get("sentence_index") or 0) != cov_s]
+                    arr.append({"sentence_index": cov_s, "text": cov_txt})
+                    arr.sort(key=lambda d: int(d.get("sentence_index") or 0))
+                    plan[callout_key] = arr
+                    changed = True
+
     # Load sibling lowpoly visual_plan as topic-specific shot bank if expansion is needed
     lowpoly_by_sent: dict[int, list[dict[str, Any]]] = {}
     lp_vp_path = pdir.parent / "diorama_v7_lowpoly" / "visual_plan.json"
@@ -702,8 +924,13 @@ def normalize_draft_dir(pdir: Path, *, write: bool = True) -> dict[str, Any]:
             c.get("attire_and_hands"), str
         ):
             stripped_ah = _strip_wide_camera_prefix_for_closeup(c["attire_and_hands"])
+            if len(stripped_ah.split()) > 22:
+                stripped_ah = " ".join(stripped_ah.split()[:20]).rstrip(",.;:")
             if stripped_ah != c["attire_and_hands"]:
                 c["attire_and_hands"] = stripped_ah
+                changed = True
+            if isinstance(c.get("prop_action"), str) and len(c["prop_action"].split()) > 22:
+                c["prop_action"] = " ".join(c["prop_action"].split()[:20]).rstrip(",.;:")
                 changed = True
 
         # Ensure DQ3 anatomy lock compliance on primary clips
@@ -741,7 +968,25 @@ def normalize_draft_dir(pdir: Path, *, write: bool = True) -> dict[str, Any]:
                 g_name = "porcelain_living_brain"
                 changed = True
 
-        if _is_brain_or_outro(c) or g_name == "porcelain_literal_analogy" or c_role in ("split_right", "split_bottom"):
+        if _is_brain_or_outro(c) or g_name == "porcelain_literal_analogy":
+            continue
+        if c_role in ("split_right", "split_bottom"):
+            enriched_sp = _enrich_porcelain_cast_clip(c)
+            if enriched_sp != c:
+                c.clear()
+                c.update(enriched_sp)
+                changed = True
+            sp_loc = str((c.get("scene_state") or {}).get("location_id") or c.get("location_id") or default_loc).strip()
+            c["location_id"] = sp_loc
+            if not isinstance(c.get("scene_state"), dict):
+                c["scene_state"] = {
+                    "location_id": sp_loc,
+                    "present_cast_start": ["researcher"],
+                    "entering_cast": [],
+                    "exiting_cast": [],
+                    "present_cast_end": ["researcher"],
+                }
+                changed = True
             continue
 
         enriched = _enrich_porcelain_cast_clip(c)

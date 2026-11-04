@@ -15,9 +15,11 @@ Monitors `Scheduled -> Public` transitions across `BCI_Shorts_Channel/projects/*
 from __future__ import annotations
 
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo
 
 from pipeline.config import CHANNEL_ROOT, PROJECTS_DIR
 from pipeline.studio.community import CommunityManager
@@ -28,6 +30,8 @@ from pipeline.studio.short_linker import (
     normalize_visibility,
     write_studio_publish_receipt,
 )
+
+_ET_TZ = ZoneInfo("America/New_York")
 
 
 def _load_json(path: Path) -> dict[str, Any]:
@@ -40,18 +44,26 @@ def _load_json(path: Path) -> dict[str, Any]:
         return {}
 
 
-def _parse_iso_utc(raw: str | None) -> datetime | None:
+def _parse_iso_utc(raw: str | None, *, default_tz: Any = timezone.utc) -> datetime | None:
     if not raw:
         return None
     s = str(raw).strip()
     if not s:
         return None
+    m = re.match(r"^(\d{4}-\d{2}-\d{2})\s+(\d{1,2}:\d{2})(?::(\d{2}))?(?:\s*(?:ET|EST|EDT))?$", s, flags=re.IGNORECASE)
+    if m:
+        try:
+            sec_s = m.group(3) or "00"
+            dt_et = datetime.strptime(f"{m.group(1)} {m.group(2)}:{sec_s}", "%Y-%m-%d %H:%M:%S").replace(tzinfo=_ET_TZ)
+            return dt_et.astimezone(timezone.utc)
+        except Exception:
+            return None
     try:
         if s.endswith("Z"):
             return datetime.fromisoformat(s[:-1] + "+00:00").astimezone(timezone.utc)
         dt = datetime.fromisoformat(s)
         if dt.tzinfo is None:
-            dt = dt.replace(tzinfo=timezone.utc)
+            dt = dt.replace(tzinfo=default_tz)
         return dt.astimezone(timezone.utc)
     except Exception:
         return None
@@ -64,9 +76,9 @@ def scan_go_live_transitions(
 ) -> dict[str, Any]:
     """
     Scans all project `06_publish/` directories to identify:
-    - Scheduled videos whose `scheduled_at_utc` has already passed (`due_for_public_transition`)
-    - Public videos missing `community_receipt.json` (`pinned == True`) (`missing_doi_pin`)
-    - Public/Scheduled videos missing `related_video_receipt.json` (`verified == True`) (`missing_related_link`)
+    - Scheduled videos whose `scheduled_at_utc` or `scheduled_time_et` has already passed (`due_for_public_transition`)
+    - Public videos missing `community_receipt.json` (`pinned == True` for current `video_id`) (`missing_doi_pin`)
+    - Public/Scheduled videos missing `related_video_receipt.json` (`verified == True` for current `video_id`) (`missing_related_link`)
     """
     p_root = projects_dir or PROJECTS_DIR
     now = now_utc or datetime.now(timezone.utc)
@@ -100,8 +112,10 @@ def scan_go_live_transitions(
             continue
 
         vis = normalize_visibility(upload_rec)
-        sched_dt = _parse_iso_utc(
-            upload_rec.get("scheduled_at_utc") or upload_rec.get("published_at_utc")
+        sched_dt = (
+            _parse_iso_utc(upload_rec.get("scheduled_at_utc"), default_tz=timezone.utc)
+            or _parse_iso_utc(upload_rec.get("scheduled_time_et"), default_tz=_ET_TZ)
+            or _parse_iso_utc(upload_rec.get("published_at_utc"), default_tz=timezone.utc)
         )
         effective_public = vis == "public"
         if vis == "scheduled" and sched_dt and sched_dt <= now:
@@ -119,15 +133,20 @@ def scan_go_live_transitions(
 
         comm_rec = _load_json(pub_dir / "community_receipt.json")
         rel_rec = _load_json(pub_dir / "related_video_receipt.json")
+        comm_vid = str(comm_rec.get("video_id") or "").strip()
+        rel_vid = str(rel_rec.get("source_video_id") or rel_rec.get("video_id") or "").strip()
 
-        if effective_public and not bool(comm_rec.get("pinned")):
+        pin_valid = bool(comm_rec.get("pinned")) and comm_vid == vid
+        rel_valid = bool(rel_rec.get("verified")) and rel_vid == vid
+
+        if effective_public and not pin_valid:
             missing_pins.append({
                 "project_id": pid,
                 "video_id": vid,
                 "visibility": "public" if vis == "public" else "scheduled_elapsed",
             })
 
-        if vis in {"public", "scheduled"} and not bool(rel_rec.get("verified")):
+        if vis in {"public", "scheduled"} and not rel_valid:
             missing_links.append({
                 "project_id": pid,
                 "video_id": vid,

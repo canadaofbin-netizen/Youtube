@@ -1205,7 +1205,7 @@ class StudioAnalyticsReporter:
 
     @staticmethod
     def _parse_video_row_text(row_text: str) -> dict[str, Any]:
-        """Extracts per-video views, comments, and likes from a ytcp-video-row text line."""
+        """Extracts per-video views, comments, and likes from a single- or multi-line ytcp-video-row text block."""
         parsed: dict[str, Any] = {}
         if not row_text:
             return parsed
@@ -1215,9 +1215,12 @@ class StudioAnalyticsReporter:
             parsed["views"] = int(views_m.group(1).replace(",", ""))
         else:
             tail_nums = re.findall(
-                r"(?:Public|Unlisted|Scheduled|공개|일부 공개|예약됨).*?(?:202\d|\d{1,2}\s+[A-Za-z]{3})\s+(\d[\d,]*)\s+(\d[\d,]*)",
+                r"(?:Public|Unlisted|Scheduled|공개|일부 공개|예약됨).*?"
+                r"(?:202\d\.\s*\d{1,2}\.\s*\d{1,2}\.?|[A-Za-z]{3,9}\s+\d{1,2}(?:,\s*202\d)?|\d{1,2}\s+[A-Za-z]{3,9}(?:,?\s*202\d)?|202\d[\.\-/]\d{1,2}[\.\-/]\d{1,2}|202\d)"
+                r"(?:\s*(?:Published|Scheduled|Uploaded|게시됨|예약됨|업로드됨))?"
+                r"\s+(\d[\d,]*)\s+(\d[\d,]*)",
                 row_text,
-                re.IGNORECASE,
+                re.IGNORECASE | re.DOTALL,
             )
             if tail_nums:
                 parsed["views"] = int(tail_nums[0][0].replace(",", ""))
@@ -2024,6 +2027,7 @@ class StudioAnalyticsReporter:
                 "ctr_pct": ctr_p if v_measured else 0.0,
                 "likes": v_likes,
                 "comments": v_comments,
+                "organic_comments": max(0, v_comments - (1 if v["pinned_comment"] and v_comments >= 1 else 0)),
                 "shares": v_shares,
                 "active_variant": v["active_variant"],
                 "rotation_interval_hours": v.get("rotation_interval_hours", 24),
@@ -2067,7 +2071,12 @@ class StudioAnalyticsReporter:
         )
         total_impressions = sum(r["impressions"] for r in per_video_records) or 2585
         total_likes = int(c_live.get("likes_total") or sum(r["likes"] for r in per_video_records) or 42)
-        total_comments = sum(r["comments"] for r in per_video_records) or 4
+        total_comments = (
+            int(c_live["comments_total"])
+            if c_live.get("comments_total") is not None
+            else sum(int(r.get("comments", 0)) for r in per_video_records)
+        )
+        organic_comments_total = sum(int(r.get("organic_comments", 0)) for r in per_video_records)
         total_shares = sum(r["shares"] for r in per_video_records)
         like_ratio_pct = round((total_likes / max(1, total_views_24h)) * 100.0, 2)
 
@@ -2714,6 +2723,7 @@ class StudioAnalyticsReporter:
                 "like_ratio_pct": like_ratio_pct,
                 "like_ratio_prev_pct": like_prev_val,
                 "comments_24h": total_comments,
+                "organic_comments_24h": organic_comments_total,
                 "comments_prev": comm_prev_val,
                 "shares_24h": total_shares,
                 "shares_prev": share_prev_val,

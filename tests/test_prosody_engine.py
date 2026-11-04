@@ -38,14 +38,15 @@ SENTS = [s for a in SCRIPT["acts"] for s in a["sentences"]]
 
 
 def test_resolve_mode_defaults_and_overrides():
-    assert resolve_prosody_mode(None, {}, v7_mode=True) == "dynamic_rush_v7"
+    assert resolve_prosody_mode(None, {}, v7_mode=True) == "dynamic_us_v7"
     assert resolve_prosody_mode(None, {"prosody_mode": "uniform_108x"}, v7_mode=True) == "uniform_108x"
     assert resolve_prosody_mode(None, {"prosody_mode": "dynamic_rush_v7"}, v7_mode=True) == "dynamic_rush_v7"
     assert resolve_prosody_mode("uniform_110x", {"prosody_mode": "dynamic_rush_v7"}, v7_mode=True) == "uniform_110x"
     assert resolve_prosody_mode("dynamic_rush_v7", {}, v7_mode=False) == "uniform_108x"
-    assert resolve_prosody_mode("bogus", {}, v7_mode=True) == "dynamic_rush_v7"
+    assert resolve_prosody_mode("bogus", {}, v7_mode=True) == "dynamic_us_v7"
     assert base_rate_for_mode("uniform_110x") == "+10%"
     assert base_rate_for_mode("dynamic_rush_v7") == "+8%"
+    assert base_rate_for_mode("dynamic_us_v7") == "+7%"
     assert base_rate_for_mode("uniform_108x") is None
 
 

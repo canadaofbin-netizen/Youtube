@@ -586,12 +586,23 @@ def inspect_single_reference_image(
         & (head_hsv[:, :, 2] <= 210)
     )
     human_skin_ratio = round(float(np.mean(skin_mask)), 4)
+    yunet_human_face_count = 0
+    if not is_brain_setting:
+        from pipeline.source_reenactment import detect_non_porcelain_human_faces_yunet
+
+        yunet_human_face_count = len(detect_non_porcelain_human_faces_yunet(bgr))
     if is_porcelain_v7 and category in ("environment_anchor", "prop_anchor"):
-        q4_ok = bool(human_skin_ratio <= REF_IMAGE_HUMAN_SKIN_MAX)
+        q4_ok = bool(human_skin_ratio <= REF_IMAGE_HUMAN_SKIN_MAX and yunet_human_face_count == 0)
+    elif is_brain_setting:
+        q4_ok = bool(
+            effective_porcelain_ratio >= REF_IMAGE_PORCELAIN_RATIO_MIN
+            and human_skin_ratio <= REF_IMAGE_HUMAN_SKIN_MAX
+        )
     else:
         q4_ok = bool(
             effective_porcelain_ratio >= REF_IMAGE_PORCELAIN_RATIO_MIN
             and human_skin_ratio <= REF_IMAGE_HUMAN_SKIN_MAX
+            and yunet_human_face_count == 0
         )
 
     # --- Q5: Environment & Prop Spatial Depth Entropy ---
@@ -680,6 +691,7 @@ def inspect_single_reference_image(
         "edge_density": edge_density,
         "porcelain_ratio": porcelain_ratio,
         "human_skin_ratio": human_skin_ratio,
+        "yunet_human_face_count": yunet_human_face_count,
         "spatial_entropy": entropy,
         "fg_edge_density": round(fg_edges, 4),
         "bg_edge_density": round(bg_edges, 4),

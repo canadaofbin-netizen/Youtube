@@ -245,6 +245,75 @@ def validate_anti_clone_uniqueness(
     return issues
 
 
+def validate_takeaway_bridge_grammar(sentence: str) -> list[str]:
+    """
+    Rejects mechanical bridge-prefix splices on the final takeaway sentence where a
+    bridge from `DIORAMA_TAKEAWAY_BRIDGE_BANK` is glued onto an incompatible clause:
+      - duplicate spliced phrases (`your brain your brain`, `next time next time`)
+      - `so the next time ...` without a temporal `you/we/... , <main clause>` comma boundary
+      - `every human brain shares ...` or `your own brain still carries ...` followed by a bare
+        independent clause instead of a noun-phrase determiner (`that/this/the/one/two/three/a/an`)
+      - `and that is how your brain ...` followed by a new clause subject (`your brain`, `ethics`,
+        `smart timing`, `matching design`, `people`, `you`, `we`) instead of a predicate verb
+      - `that biological lesson explains ...` without `why/how/what/that` or a noun determiner
+      - double-preposition / double-subordinator splices (`that is why whenever`, `in your own life, in daily`)
+    """
+    issues: list[str] = []
+    clean = re.sub(r"^[\"'“”‘’\s]+", "", str(sentence or "")).strip()
+    low = clean.lower()
+    if not low:
+        return issues
+
+    if re.search(r"\b(your brain|that means|next time|in daily life)\s+\1\b", low):
+        issues.append(f"[hooks_grammar] duplicate spliced phrase in takeaway sentence: '{clean}'")
+    if re.search(
+        r"^(?:which is why|and that is why|which proves)\s+(?:whenever|next time|so the next time)\b",
+        low,
+    ):
+        issues.append(f"[hooks_grammar] double-subordinator splice in takeaway sentence: '{clean}'")
+
+    if low.startswith("so the next time "):
+        rest = low[len("so the next time ") :].strip()
+        if "," not in rest or not re.match(
+            r"^(?:you|we|someone|anyone|a\b|an\b|your\s+(?:phone|alarm|mind|eyes|ears|hand|hands|heart|friends|boss|kid|child|voice|feet|legs|body))\b",
+            rest,
+        ):
+            issues.append(
+                f"[hooks_grammar] 'So the next time ...' requires 'you/your <noun> ..., <main clause>' structure: '{clean}'"
+            )
+    elif low.startswith(("every human brain shares ", "your own brain still carries ")):
+        pref = "every human brain shares " if low.startswith("every human brain shares ") else "your own brain still carries "
+        rest = low[len(pref) :].strip()
+        has_det = bool(re.match(r"^(?:that|this|the|one|two|three|a|an|both|same)\b", rest))
+        has_finite_clause = bool(
+            re.search(
+                r"\b(?:is|are|was|were|has|have|had|can|cannot|could|will|would|does|do|did|you|your|we|they|"
+                r"depends|shines|split|splits|unlocks|quiet|quiets|wires|beats|tracks|tags|builds|speaks|works)\b",
+                rest,
+            )
+        )
+        if not has_det and (has_finite_clause or len(rest.split()) > 5):
+            issues.append(
+                f"[hooks_grammar] '{pref.strip()}' requires a noun-phrase object ('this/that/one ...'), got bare clause: '{clean}'"
+            )
+    elif low.startswith("and that is how your brain "):
+        rest = low[len("and that is how your brain ") :].strip()
+        if re.match(
+            r"^(?:your\s+brain|ethics|smart\s+timing|matching\s+design|human|people|crowds|we|you|small|tiny|quiet\s+pauses|hiding|stepping|resetting)\b",
+            rest,
+        ):
+            issues.append(
+                f"[hooks_grammar] 'And that is how your brain ...' must be followed by a verb phrase, not a new clause subject: '{clean}'"
+            )
+    elif low.startswith("that biological lesson explains "):
+        rest = low[len("that biological lesson explains ") :].strip()
+        if not re.match(r"^(?:why|how|what|where|when|that|the|this|one)\b", rest):
+            issues.append(
+                f"[hooks_grammar] 'That biological lesson explains ...' requires 'why/how/that' or noun object: '{clean}'"
+            )
+    return issues
+
+
 _PRE_R65_ASSEMBLED_DOSSIERS: frozenset[str] = frozenset(
     {
         "phineas_gage_iron_rod",
@@ -255,15 +324,6 @@ _PRE_R65_ASSEMBLED_DOSSIERS: frozenset[str] = frozenset(
         "hippocampal_memory_prosthesis",
         "clive_wearing_seven_second_mind",
         "invisible_gorilla_attention",
-        "maguire_london_taxi_hippocampus",
-        "broca_patient_tan_speech_loss",
-        "olds_milner_pleasure_center",
-        "blindsight_subcortical_vision",
-        "penfield_cortical_homunculus",
-        "asch_conformity_pressure",
-        "libet_readiness_potential_free_will",
-        "draganski_juggling_gray_matter",
-        "rizzolatti_mirror_neuron_empathy",
     }
 )
 
@@ -867,6 +927,8 @@ def validate_production_diorama_v6(
             last_clean = re.sub(r"^[\"'“”‘’\s]+", "", lines[-1]).lower()
             if not any(last_clean.startswith(p.strip().lower()) for p in DIORAMA_TAKEAWAY_BRIDGE_BANK):
                 issues.append("[hooks] final sentence must open with a takeaway bridge from DIORAMA_TAKEAWAY_BRIDGE_BANK (R57)")
+            else:
+                issues.extend(validate_takeaway_bridge_grammar(lines[-1]))
         else:
             if "here is what went wrong" not in full_low:
                 issues.append("[hooks] missing R26 diagnostic opener 'Here is what went wrong.' (R57)")

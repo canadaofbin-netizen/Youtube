@@ -120,7 +120,7 @@ def _build_slot_entry(
     }
 
 
-# 5-Slot Timetable (ET / PT / DST-aware KST) — Slot 4 unified at 20:00 ET per AGENTS.md & R30
+# 5-Slot Timetable (ET / PT / DST-aware KST) — Slot 4 locked at 19:30 ET (09:30 KST in EST) for 1 Short/Day Prime
 SLOT_TIMETABLE: dict[int, dict[str, Any]] = {
     1: _build_slot_entry(
         slot_id=1,
@@ -155,12 +155,12 @@ SLOT_TIMETABLE: dict[int, dict[str, Any]] = {
     4: _build_slot_entry(
         slot_id=4,
         name="Evening Prime",
-        hour_et=20,
-        minute_et=0,
-        time_et_12h="8:00 PM",
-        time_pt="17:00",
-        recommended_pillars=["brain_history"],
-        target_cognitive_state="Sofa relaxation, full Deep-Mechanism historical neuroscience immersion.",
+        hour_et=19,
+        minute_et=30,
+        time_et_12h="7:30 PM",
+        time_pt="16:30",
+        recommended_pillars=["brain_history", "brain_health", "brain_mysteries", "bci_tech", "bci_ethics", "brain_basics", "brain_news"],
+        target_cognitive_state="US Eastern evening prime (19:30 EST / 09:30 KST +1d), flagship 1-Short/Day documentary immersion.",
     ),
     5: _build_slot_entry(
         slot_id=5,

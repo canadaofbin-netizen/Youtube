@@ -4,7 +4,7 @@
 - **Evaluated Cuts in Ledger**: `1578`
 - **Overall Mean Clarity Score**: `97.0`
 - **Golden Prompts Banked (`>= 82.0`)**: `198`
-- **Reusable Packs**: `23` analogies · `190` brain models · `122` locations
+- **Reusable Packs**: `21` analogies · `190` brain models · `122` locations
 
 ## 1. Indexed Episodes
 | Project ID | Schema | Profile | Rate / Speed | WPM | Duration | Cuts | R64 Mean Clarity | Status |

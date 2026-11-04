@@ -1,0 +1,398 @@
+{
+  "schema_version": 5,
+  "visual_mode": "NEURO_BIOLOGY",
+  "aspect": "9:16",
+  "dossier": "draganski_juggling_gray_matter",
+  "total_reference_images": 8,
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in 2004 German clinical-academic attire: tailored neurology coats over button-down shirts and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head; researcher in clean casual athletic knitwear and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head.",
+  "generation_order": "1 env plate + master brain bust -> 2 cast sheets + hero prop (conditioned on env) -> 3 clip start / key frames (conditioned on master anchors)",
+  "master_anchors": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "present_cast": [],
+      "location_id": "regensburg_mri_suite",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a sunlit 2004 German neuroimaging laboratory with a cool-white cylindrical MRI scanner and three sunlit balls on the pale-pale-stone control desk, featuring three soft juggling balls in clean figure-eight cascade + 60-second benchmark timer (stages the exact behavioral mastery criterion from Nature 2004). Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a sunlit 2004 German neuroimaging laboratory with a cool-white cylindrical MRI s",
+        "three soft juggling balls in clean figure-eight cascade + 60"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_subject",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_subject.png",
+      "title": "Cast sheet: subject (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "subject"
+      ],
+      "location_id": "regensburg_mri_suite",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 2004 German clinical-academic attire: tailored neurology coats over button-down shirts and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a sunlit 2004 German neuroimaging laboratory with a cool-white cylindrical MRI scanner and three sunlit balls on the pale-pale-stone control desk. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "2004 German clinical-academic attire: tailored neurology coats over button-down ",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_researcher",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_researcher.png",
+      "title": "Cast sheet: researcher (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "researcher"
+      ],
+      "location_id": "regensburg_mri_suite",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing clean casual athletic knitwear and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a sunlit 2004 German neuroimaging laboratory with a cool-white cylindrical MRI scanner and three sunlit balls on the pale-pale-stone control desk. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "clean casual athletic knitwear and closed matte-white leather shoes with a compl",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [],
+      "location_id": "regensburg_mri_suite",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of three soft juggling balls in clean figure-eight cascade + 60-second benchmark timer (stages the exact behavioral mastery criterion from Nature 2004) inside a sunlit 2004 German neuroimaging laboratory with a cool-white cylindrical MRI scanner and three sunlit balls on the pale-pale-stone control desk, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "three soft juggling balls in clean figure-eight cascade + 60-second benchmark ti"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_brain_master",
+      "category": "brain_master_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_void",
+      "filename": "ref_brain_master.png",
+      "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the parietal cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. Across the upper-rear parietal and side visual-motion ridges of the matte warm-ivory 3D brain model, warm amber-gold and subtle warm amber-gold facets bloom and expand visibly. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, zero human facial features, no text, no letters, no watermark.",
+      "must_include": [
+        "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
+        "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    }
+  ],
+  "clip_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_regensburg_mri_suite",
+      "setting": "real_env",
+      "filename": "ref_anchor_01.png",
+      "title": "Room state anchor 1 (regensburg_mri_suite: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit 2004 German neuroimaging laboratory with a cool-white cylindrical MRI scanner and three sunlit balls on the pale-pale-stone control desk, featuring three soft juggling balls in clean figure-eight cascade + 60-second benchmark timer (stages the exact behavioral mastery criterion from Nature 2004). Inside the room, subject (2004 German clinical-academic attire: tailored neurology coats over button-down shirts and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three soft juggling balls in clean figure-eight cascade + 60-second benchmark timer (stages the exact behavioral mastery criterion from Nature 2004). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a sunlit 2004 German neuroimaging laboratory with a cool-white cylindric",
+        "three soft juggling balls in clean figure-eight cascade "
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "location_id": "regensburg_mri_suite",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_regensburg_grouping_hall",
+      "setting": "real_env",
+      "filename": "ref_anchor_02.png",
+      "title": "Room state anchor 2 (regensburg_grouping_hall: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a soft sunlit university practice gymnasium with pale maple floors and tall windows. Inside the room, subject (2004 German clinical-academic attire: tailored neurology coats over button-down shirts and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a soft sunlit university practice gymnasium with pale maple floors and t",
+        "an unmarked clinical tabletop apparatus"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_cast_subject"
+      ],
+      "location_id": "regensburg_grouping_hall",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_oxford_dti_lab",
+      "setting": "real_env",
+      "filename": "ref_anchor_03.png",
+      "title": "Room state anchor 3 (oxford_dti_lab: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a sunlit 2009 Oxford diffusion tensor imaging laboratory with fiber-tract displays and pale-pale-stone desks. Inside the room, subject (2004 German clinical-academic attire: tailored neurology coats over button-down shirts and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a sunlit 2009 Oxford diffusion tensor imaging laboratory with fiber-trac",
+        "an unmarked clinical tabletop apparatus"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_cast_subject"
+      ],
+      "location_id": "oxford_dti_lab",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    }
+  ],
+  "all_specs": [
+    {
+      "ref_id": "ref_env_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_ENV",
+      "setting": "real_env",
+      "filename": "ref_env_master.png",
+      "title": "Empty environment plate (generate FIRST; every later image is conditioned on it)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "present_cast": [],
+      "location_id": "regensburg_mri_suite",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide empty establishing view of a sunlit 2004 German neuroimaging laboratory with a cool-white cylindrical MRI scanner and three sunlit balls on the pale-pale-stone control desk, featuring three soft juggling balls in clean figure-eight cascade + 60-second benchmark timer (stages the exact behavioral mastery criterion from Nature 2004). Even natural daylight, deep depth of field. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a sunlit 2004 German neuroimaging laboratory with a cool-white cylindrical MRI s",
+        "three soft juggling balls in clean figure-eight cascade + 60"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_subject",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_subject.png",
+      "title": "Cast sheet: subject (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "subject"
+      ],
+      "location_id": "regensburg_mri_suite",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, subject wearing 2004 German clinical-academic attire: tailored neurology coats over button-down shirts and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a sunlit 2004 German neuroimaging laboratory with a cool-white cylindrical MRI scanner and three sunlit balls on the pale-pale-stone control desk. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "2004 German clinical-academic attire: tailored neurology coats over button-down ",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_cast_researcher",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST",
+      "setting": "real_env",
+      "filename": "ref_cast_researcher.png",
+      "title": "Cast sheet: researcher (full body, inside the environment plate)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [
+        "researcher"
+      ],
+      "location_id": "regensburg_mri_suite",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Full-body three-quarter profile view of one articulated matte-white porcelain mannequin with a completely smooth featureless solid matte-white egg-shaped oval head, researcher wearing clean casual athletic knitwear and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head, standing in a sunlit 2004 German neuroimaging laboratory with a cool-white cylindrical MRI scanner and three sunlit balls on the pale-pale-stone control desk. Smooth ball-jointed matte-white porcelain hands and joints. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "clean casual athletic knitwear and closed matte-white leather shoes with a compl",
+        "porcelain mannequin, no human skin or face"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_prop_hero",
+      "category": "prop_anchor",
+      "role": "prop_master",
+      "scene_id": "MASTER_PROP",
+      "setting": "real_env",
+      "filename": "ref_prop_hero.png",
+      "title": "Hero prop close-up (exact geometry, materials, scale)",
+      "generation_order": 2,
+      "conditioned_on": [
+        "ref_env_master"
+      ],
+      "present_cast": [],
+      "location_id": "regensburg_mri_suite",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Close-up of three soft juggling balls in clean figure-eight cascade + 60-second benchmark timer (stages the exact behavioral mastery criterion from Nature 2004) inside a sunlit 2004 German neuroimaging laboratory with a cool-white cylindrical MRI scanner and three sunlit balls on the pale-pale-stone control desk, exact period materials and textures. Razor-sharp focus, bright even documentary light, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "three soft juggling balls in clean figure-eight cascade + 60-second benchmark ti"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_brain_master",
+      "category": "brain_master_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_void",
+      "filename": "ref_brain_master.png",
+      "title": "Master brain cutaway bust (generate FIRST for brain clips; every brain clip conditions on this single bust, angle, and backdrop)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Clean three-quarter profile of a completely featureless matte-white oval porcelain bust (smooth blank egg-shaped head silhouette with zero eyes, zero nose, zero mouth, zero ears) with an architectural cutaway cranium revealing a realistic matte-white 3D porcelain brain inside the skull against a high-contrast cool slate-grey studio backdrop. Photorealistic bright high-key documentary cinema filling the full-bleed vertical frame in soft studio daylight and rim light: bright white studio gallery: three-quarter matte-white 3D brain focusing on the parietal cortex on an acrylic pedestal with fine gyri and enclosed translucent perivascular tubes flowing strictly inside anatomical walls. Across the upper-rear parietal and side visual-motion ridges of the matte warm-ivory 3D brain model, warm amber-gold and subtle warm amber-gold facets bloom and expand visibly. Crisp cinema prime lens clarity with sharp anatomical relief, enclosed translucent vessel walls, and a clean unmarked bright studio backdrop. Subtle subsurface luminance stays smoothly contained inside the matte-white fiber tracts. Native vertical 9:16 portrait still composition against a high-contrast cool slate-grey studio backdrop, framing the featureless matte-white porcelain cranial shell and open 3D anatomical brain cross-section. Minimalist clean porcelain sculpture style, razor-sharp focus, soft studio light, zero human facial features, no text, no letters, no watermark.",
+      "must_include": [
+        "matte-white porcelain brain cutaway bust with unified angle and studio backdrop",
+        "restrained internal warm-amber/ivory tract glow, zero green or blue flying particles"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_01",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_regensburg_mri_suite",
+      "setting": "real_env",
+      "filename": "ref_anchor_01.png",
+      "title": "Room state anchor 1 (regensburg_mri_suite: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a sunlit 2004 German neuroimaging laboratory with a cool-white cylindrical MRI scanner and three sunlit balls on the pale-pale-stone control desk, featuring three soft juggling balls in clean figure-eight cascade + 60-second benchmark timer (stages the exact behavioral mastery criterion from Nature 2004). Inside the room, subject (2004 German clinical-academic attire: tailored neurology coats over button-down shirts and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside three soft juggling balls in clean figure-eight cascade + 60-second benchmark timer (stages the exact behavioral mastery criterion from Nature 2004). Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a sunlit 2004 German neuroimaging laboratory with a cool-white cylindric",
+        "three soft juggling balls in clean figure-eight cascade "
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_env_master",
+        "ref_cast_subject"
+      ],
+      "location_id": "regensburg_mri_suite",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_regensburg_grouping_hall",
+      "setting": "real_env",
+      "filename": "ref_anchor_02.png",
+      "title": "Room state anchor 2 (regensburg_grouping_hall: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a soft sunlit university practice gymnasium with pale maple floors and tall windows. Inside the room, subject (2004 German clinical-academic attire: tailored neurology coats over button-down shirts and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a soft sunlit university practice gymnasium with pale maple floors and t",
+        "an unmarked clinical tabletop apparatus"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_cast_subject"
+      ],
+      "location_id": "regensburg_grouping_hall",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "LOC_oxford_dti_lab",
+      "setting": "real_env",
+      "filename": "ref_anchor_03.png",
+      "title": "Room state anchor 3 (oxford_dti_lab: subject)",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a sunlit 2009 Oxford diffusion tensor imaging laboratory with fiber-tract displays and pale-pale-stone desks. Inside the room, subject (2004 German clinical-academic attire: tailored neurology coats over button-down shirts and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a sunlit 2009 Oxford diffusion tensor imaging laboratory with fiber-trac",
+        "an unmarked clinical tabletop apparatus"
+      ],
+      "key_visual": null,
+      "bound_master_anchors": [
+        "ref_cast_subject"
+      ],
+      "location_id": "oxford_dti_lab",
+      "present_cast": [
+        "subject"
+      ],
+      "style_profile": "porcelain_cinematic_v7"
+    }
+  ],
+  "style_profile": "porcelain_cinematic_v7"
+}

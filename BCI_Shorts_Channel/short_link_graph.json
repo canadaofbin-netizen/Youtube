@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-11-02T13:11:57.895281+00:00",
+  "generated_at_utc": "2026-11-04T10:28:12.408136+00:00",
   "mode": "seed_boost",
-  "node_count": 32,
-  "edge_count": 1,
+  "node_count": 14,
+  "edge_count": 2,
   "two_cycle_count": 0,
   "two_cycles": [],
   "nodes": [
@@ -14,9 +14,9 @@
       "pillar": "brain_history",
       "visual_mode": "NEURO_BIOLOGY",
       "visibility": "public",
-      "views": 380,
-      "impressions": 427,
-      "apv_pct": 84.7,
+      "views": 383,
+      "impressions": 0,
+      "apv_pct": 74.6,
       "regions": [
         "hippocampus",
         "prefrontal cortex",
@@ -35,9 +35,9 @@
       "pillar": "brain_health",
       "visual_mode": "NEURO_BIOLOGY",
       "visibility": "public",
-      "views": 1185,
-      "impressions": 1516,
-      "apv_pct": 94.7,
+      "views": 1240,
+      "impressions": 0,
+      "apv_pct": 60.2,
       "regions": [
         "somatosensory cortex",
         "motor cortex",
@@ -52,9 +52,9 @@
       "pillar": "brain_mysteries",
       "visual_mode": "NEURO_BIOLOGY",
       "visibility": "public",
-      "views": 398,
-      "impressions": 557,
-      "apv_pct": 90.3,
+      "views": 505,
+      "impressions": 0,
+      "apv_pct": 38.2,
       "regions": [
         "premotor cortex",
         "corpus callosum",
@@ -71,7 +71,7 @@
       "title": "Strangers Pressed a 450-Volt Switch, Yet Refused One Direct Order",
       "pillar": "bci_ethics",
       "visual_mode": "BEHAVIORAL_PSYCH",
-      "visibility": "scheduled",
+      "visibility": "public",
       "views": 0,
       "impressions": 0,
       "apv_pct": 0.0,
@@ -83,7 +83,7 @@
       "title": "Scrambled Brain Pulses Gave 0% Gain, Yet a Custom Rhythm Boosted Memory 37%",
       "pillar": "bci_tech",
       "visual_mode": "NEURO_BIOLOGY",
-      "visibility": "scheduled",
+      "visibility": "public",
       "views": 0,
       "impressions": 0,
       "apv_pct": 0.0,
@@ -99,7 +99,7 @@
       "title": "His Memory Reset Every 7 Seconds, Yet He Conducted an Entire Choir",
       "pillar": "brain_mysteries",
       "visual_mode": "NEURO_BIOLOGY",
-      "visibility": "scheduled",
+      "visibility": "public",
       "views": 0,
       "impressions": 0,
       "apv_pct": 0.0,
@@ -118,7 +118,7 @@
       "title": "They Stared Right at a Gorilla for 9 Seconds, Yet Half Saw Nothing",
       "pillar": "brain_mysteries",
       "visual_mode": "HYBRID",
-      "visibility": "scheduled",
+      "visibility": "public",
       "views": 0,
       "impressions": 0,
       "apv_pct": 0.0,
@@ -130,336 +130,6 @@
       ]
     },
     {
-      "project_id": "diorama_08_maguire_london_taxi_hippocampus",
-      "video_id": "4jNxwVMMxQo",
-      "title": "They Memorized 25,000 London Streets, Yet Their Brains Paid a Price",
-      "pillar": "brain_health",
-      "visual_mode": "NEURO_BIOLOGY",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "hippocampus",
-        "parietal cortex",
-        "prefrontal cortex",
-        "temporal lobe"
-      ]
-    },
-    {
-      "project_id": "diorama_09_broca_patient_tan_speech_loss",
-      "video_id": "SpOCgvOojuk",
-      "title": "He Could Only Say One Syllable for 21 Years, Yet Understood Every Word",
-      "pillar": "brain_history",
-      "visual_mode": "NEURO_BIOLOGY",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "Wernicke's area",
-        "Broca's area",
-        "white matter",
-        "insula",
-        "frontal lobe"
-      ]
-    },
-    {
-      "project_id": "diorama_10_olds_milner_pleasure_center",
-      "video_id": "BkWoHoGVV_c",
-      "title": "A Bent Wire Missed Its Target, Yet Rats Pressed a Lever 7,500 Times",
-      "pillar": "bci_tech",
-      "visual_mode": "NEURO_BIOLOGY",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "nucleus accumbens",
-        "ventral tegmental area",
-        "prefrontal cortex"
-      ]
-    },
-    {
-      "project_id": "diorama_11_blindsight_subcortical_vision",
-      "video_id": "XvskvBLMqzg",
-      "title": "He Was Clinically Blind on One Side, Yet Pointed to Lights 90% Right",
-      "pillar": "brain_mysteries",
-      "visual_mode": "NEURO_BIOLOGY",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "primary visual cortex",
-        "optic nerve",
-        "parietal cortex",
-        "brainstem",
-        "thalamus",
-        "white matter",
-        "amygdala"
-      ]
-    },
-    {
-      "project_id": "diorama_12_penfield_cortical_homunculus",
-      "video_id": "RYeASKxFDnk",
-      "title": "Your Back Is 10x Wider Than Your Thumb, Yet Your Brain Maps Your Thumb 10x Bigger",
-      "pillar": "brain_history",
-      "visual_mode": "NEURO_BIOLOGY",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "somatosensory cortex",
-        "motor cortex",
-        "prefrontal cortex",
-        "brainstem"
-      ]
-    },
-    {
-      "project_id": "diorama_13_asch_conformity_pressure",
-      "video_id": "SAtSICgNPh4",
-      "title": "Solo Testers Scored 99% Right, Yet 75% Lied When 5 Strangers Disagreed",
-      "pillar": "bci_ethics",
-      "visual_mode": "HYBRID",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "parietal cortex",
-        "amygdala",
-        "anterior cingulate cortex"
-      ]
-    },
-    {
-      "project_id": "diorama_14_libet_readiness_potential",
-      "video_id": "6rDiJhK0Nl4",
-      "title": "You Feel Yourself Decide to Move, Yet Your Brain Starts 350 Milliseconds Earlier",
-      "pillar": "brain_mysteries",
-      "visual_mode": "NEURO_BIOLOGY",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "premotor cortex",
-        "prefrontal cortex",
-        "motor cortex"
-      ]
-    },
-    {
-      "project_id": "diorama_15_draganski_juggling_gray_matter",
-      "video_id": "f1BATCCY1Vs",
-      "title": "You Think Adult Brains Stop Growing, Yet Juggling Builds New Cortex in 90 Days",
-      "pillar": "brain_health",
-      "visual_mode": "NEURO_BIOLOGY",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "temporal lobe",
-        "parietal cortex",
-        "motor cortex",
-        "primary visual cortex",
-        "white matter",
-        "premotor cortex"
-      ]
-    },
-    {
-      "project_id": "diorama_16_rizzolatti_mirror_neuron_empathy",
-      "video_id": "Ky3iCjdSJd0",
-      "title": "You Sit Completely Still, Yet Watching Someone Grab Food Fires Your Motor Cortex",
-      "pillar": "brain_news",
-      "visual_mode": "NEURO_BIOLOGY",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "premotor cortex",
-        "parietal cortex",
-        "temporal lobe",
-        "motor cortex",
-        "insula",
-        "anterior cingulate cortex",
-        "primary visual cortex"
-      ]
-    },
-    {
-      "project_id": "diorama_17_damasio_somatic_marker_decision",
-      "video_id": "7QM6ZSwrM68",
-      "title": "You Think Cold Logic Makes Wise Choices, Yet Losing Emotion Paralyses Decisions",
-      "pillar": "brain_basics",
-      "visual_mode": "NEURO_BIOLOGY",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "ventromedial prefrontal cortex",
-        "insula",
-        "amygdala",
-        "prefrontal cortex"
-      ]
-    },
-    {
-      "project_id": "diorama_18_greene_trolley_dilemma_dual_process",
-      "video_id": "U1JJjr_2EF8",
-      "title": "You Pull a Switch to Save Five Lives, Yet Your Brain Refuses to Push One Man",
-      "pillar": "bci_ethics",
-      "visual_mode": "NEURO_BIOLOGY",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "ventromedial prefrontal cortex",
-        "anterior cingulate cortex",
-        "dorsolateral prefrontal cortex",
-        "amygdala",
-        "prefrontal cortex",
-        "temporal lobe"
-      ]
-    },
-    {
-      "project_id": "diorama_19_davidson_monk_gamma_synchrony",
-      "video_id": "219ze8JUb7c",
-      "title": "You Think Meditation Just Relaxes You, Yet Monks Fire 30-Fold Brain Gamma Waves",
-      "pillar": "brain_health",
-      "visual_mode": "NEURO_BIOLOGY",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "prefrontal cortex",
-        "insula",
-        "amygdala",
-        "parietal cortex",
-        "premotor cortex",
-        "nucleus accumbens"
-      ]
-    },
-    {
-      "project_id": "diorama_20_dutton_aron_capilano_bridge",
-      "video_id": "KqRu_BXLeRc",
-      "title": "You Trust Butterflies in Your Stomach, Yet a Scary Bridge Fakes Falling in Love",
-      "pillar": "brain_basics",
-      "visual_mode": "NEURO_BIOLOGY",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "amygdala",
-        "insula",
-        "prefrontal cortex",
-        "brainstem"
-      ]
-    },
-    {
-      "project_id": "diorama_21_delgado_stimoceiver_bull",
-      "video_id": "CUS_CD1UvFw",
-      "title": "You Think Brain Chips Control Thoughts, Yet Delgado's Bull Only Turned on Motor Circuits",
-      "pillar": "bci_tech",
-      "visual_mode": "NEURO_BIOLOGY",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "motor cortex",
-        "basal ganglia",
-        "thalamus",
-        "amygdala",
-        "prefrontal cortex"
-      ]
-    },
-    {
-      "project_id": "diorama_22_baars_global_workspace_theater",
-      "video_id": "kDBafW58J0Q",
-      "title": "You Think Consciousness Multitasks, Yet Your Brain Broadcasts Only One Thought at a Time",
-      "pillar": "brain_basics",
-      "visual_mode": "NEURO_BIOLOGY",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "primary visual cortex",
-        "prefrontal cortex",
-        "parietal cortex"
-      ]
-    },
-    {
-      "project_id": "diorama_23_beck_cognitive_triad_depression",
-      "video_id": "aNpoZUC_As8",
-      "title": "You Think Sadness Hits From Nowhere, Yet Beck Found Split-Second Thoughts Come First",
-      "pillar": "brain_health",
-      "visual_mode": "HYBRID",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "amygdala",
-        "dorsolateral prefrontal cortex",
-        "prefrontal cortex"
-      ]
-    },
-    {
-      "project_id": "diorama_24_bodamer_prosopagnosia_face_blindness",
-      "video_id": "B4lcuLzuEgQ",
-      "title": "He Could Read Tiny Print Clearly, Yet His Own Face in a Mirror Looked Like a Stranger",
-      "pillar": "brain_mysteries",
-      "visual_mode": "NEURO_BIOLOGY",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "primary visual cortex",
-        "fusiform face area",
-        "auditory cortex",
-        "amygdala"
-      ]
-    },
-    {
-      "project_id": "diorama_25_false_memory_elizabeth_loftus",
-      "video_id": "yp5Qlf0Fo34",
-      "title": "You Think Memory Works Like a Camera, Yet One Word Made Witnesses See Fake Broken Glass",
-      "pillar": "brain_history",
-      "visual_mode": "HYBRID",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "hippocampus",
-        "prefrontal cortex",
-        "primary visual cortex"
-      ]
-    },
-    {
-      "project_id": "diorama_26_clark_doll_experiment_bias",
-      "video_id": "whXcmzZygN8",
-      "title": "Adults Thought Kids Were Color-Blind, Yet Four Identical Dolls Toppled Segregation",
-      "pillar": "bci_ethics",
-      "visual_mode": "HYBRID",
-      "visibility": "scheduled",
-      "views": 0,
-      "impressions": 0,
-      "apv_pct": 0.0,
-      "regions": [
-        "amygdala",
-        "anterior cingulate cortex",
-        "prefrontal cortex"
-      ]
-    },
-    {
       "project_id": "gage_diorama_v6_dynamic",
       "video_id": "Wydl4JpZmAw",
       "title": "A 13-Pound Iron Rod Pierced His Brain, Yet Daily Structure Rebuilt His Mind",
@@ -467,8 +137,8 @@
       "visual_mode": "NEURO_BIOLOGY",
       "visibility": "public",
       "views": 903,
-      "impressions": 1044,
-      "apv_pct": 84.7,
+      "impressions": 0,
+      "apv_pct": 85.2,
       "regions": [
         "ventromedial prefrontal cortex",
         "amygdala",
@@ -485,9 +155,9 @@
       "pillar": "brain_health",
       "visual_mode": "NEURO_BIOLOGY",
       "visibility": "public",
-      "views": 1589,
-      "impressions": 1690,
-      "apv_pct": 63.2,
+      "views": 1595,
+      "impressions": 0,
+      "apv_pct": 59.3,
       "regions": [
         "hippocampus",
         "basal ganglia",
@@ -503,8 +173,8 @@
       "visual_mode": "NEURO_BIOLOGY",
       "visibility": "public",
       "views": 15,
-      "impressions": 1,
-      "apv_pct": 51.8,
+      "impressions": 0,
+      "apv_pct": 45.9,
       "regions": [
         "brainstem",
         "premotor cortex",
@@ -520,8 +190,8 @@
       "visual_mode": "NEURO_BIOLOGY",
       "visibility": "public",
       "views": 213,
-      "impressions": 830,
-      "apv_pct": 59.4,
+      "impressions": 0,
+      "apv_pct": 20.8,
       "regions": [
         "corpus callosum",
         "primary visual cortex",
@@ -537,8 +207,8 @@
       "visual_mode": "NEURO_BIOLOGY",
       "visibility": "public",
       "views": 7,
-      "impressions": 10,
-      "apv_pct": 94.7,
+      "impressions": 0,
+      "apv_pct": 0.0,
       "regions": [
         "fusiform face area",
         "amygdala",
@@ -551,43 +221,87 @@
       "video_id": "31_O2CmlKOk",
       "title": "What One Sleepless Night Does to Your Brain",
       "pillar": "brain_health",
-      "visual_mode": "NEURO_BIOLOGY",
+      "visual_mode": "HYBRID_REENACTMENT_AND_3D_BRAIN",
       "visibility": "public",
-      "views": 2000,
-      "impressions": 2304,
-      "apv_pct": 84.8,
+      "views": 2002,
+      "impressions": 0,
+      "apv_pct": 97.2,
+      "regions": []
+    },
+    {
+      "project_id": "reenact_01_ainsworth_strange_situation",
+      "video_id": "jySZ6EL3aYM",
+      "title": "1970 Strange Situation: Why Quiet Babies Hid Racing Hearts",
+      "pillar": "brain_health",
+      "visual_mode": "HYBRID",
+      "visibility": "scheduled",
+      "views": 0,
+      "impressions": 0,
+      "apv_pct": 0.0,
       "regions": [
-        "prefrontal cortex",
-        "thalamus",
-        "hippocampus"
+        "amygdala",
+        "ventromedial prefrontal cortex",
+        "hypothalamus",
+        "anterior cingulate cortex",
+        "white matter",
+        "temporal lobe",
+        "brainstem",
+        "prefrontal cortex"
       ]
     }
   ],
   "edges": [
     {
-      "source_project_id": "diorama_25_false_memory_elizabeth_loftus",
-      "source_video_id": "yp5Qlf0Fo34",
-      "source_title": "You Think Memory Works Like a Camera, Yet One Word Made Witnesses See Fake Broken Glass",
-      "source_pillar": "brain_history",
+      "source_project_id": "diorama_07_invisible_gorilla_attention",
+      "source_video_id": "t8Z_Q8oB9MY",
+      "source_title": "They Stared Right at a Gorilla for 9 Seconds, Yet Half Saw Nothing",
+      "source_pillar": "brain_mysteries",
+      "source_visual_mode": "HYBRID",
+      "source_visibility": "public",
+      "source_views": 0,
+      "source_impressions": 0,
+      "target_type": "short",
+      "target_project_id": "diorama_03_alien_hand_syndrome",
+      "target_video_id": "PK1opKmokwY",
+      "target_title": "His Right Hand Buttoned His Shirt, While His Own Left Hand Unbuttoned It",
+      "affinity_score": 0.5029,
+      "affinity_breakdown": {
+        "total": 0.5029,
+        "anatomy": 0.35,
+        "pillar_mode": 0.85,
+        "lexical": 0.2442,
+        "retention_seed": 0.6772,
+        "behavioral_reweighted": false
+      },
+      "link_reason": "same_pillar_semantic_chain",
+      "playlist_title": "Brain Mysteries & Paradoxes | Consciousness & Perception",
+      "existing_playlist_verified": false,
+      "action": "apply_link"
+    },
+    {
+      "source_project_id": "reenact_01_ainsworth_strange_situation",
+      "source_video_id": "jySZ6EL3aYM",
+      "source_title": "1970 Strange Situation: Why Quiet Babies Hid Racing Hearts",
+      "source_pillar": "brain_health",
       "source_visual_mode": "HYBRID",
       "source_visibility": "scheduled",
       "source_views": 0,
       "source_impressions": 0,
       "target_type": "short",
-      "target_project_id": "diorama_22_baars_global_workspace_theater",
-      "target_video_id": "kDBafW58J0Q",
-      "target_title": "You Think Consciousness Multitasks, Yet Your Brain Broadcasts Only One Thought at a Time",
-      "affinity_score": 0.4883,
+      "target_project_id": "gage_diorama_v6_dynamic",
+      "target_video_id": "Wydl4JpZmAw",
+      "target_title": "A 13-Pound Iron Rod Pierced His Brain, Yet Daily Structure Rebuilt His Mind",
+      "affinity_score": 0.5567,
       "affinity_breakdown": {
-        "total": 0.4883,
-        "anatomy": 0.75,
+        "total": 0.5567,
+        "anatomy": 0.8056,
         "pillar_mode": 0.3,
-        "lexical": 0.2854,
-        "retention_seed": 0.375,
+        "lexical": 0.2173,
+        "retention_seed": 0.7733,
         "behavioral_reweighted": false
       },
       "link_reason": "cross_pillar_affinity_bridge",
-      "playlist_title": "Brain History & Evolution | How Humanity Found the Mind",
+      "playlist_title": "Brain Health & Optimization | Sleep, Glymphatic Flush & Dopamine",
       "existing_playlist_verified": false,
       "action": "apply_link"
     }
@@ -621,7 +335,65 @@
       "status": "target_card_not_found",
       "verified": false,
       "verified_at_utc": "2026-11-02T13:13:05.167898+00:00"
+    },
+    {
+      "schema_version": 1,
+      "project_id": "diorama_07_invisible_gorilla_attention",
+      "source_video_id": "t8Z_Q8oB9MY",
+      "source_title": "They Stared Right at a Gorilla for 9 Seconds, Yet Half Saw Nothing",
+      "source_pillar": "brain_mysteries",
+      "source_visibility": "public",
+      "target_type": "short",
+      "target_project_id": "diorama_03_alien_hand_syndrome",
+      "target_video_id": "PK1opKmokwY",
+      "target_title": "His Right Hand Buttoned His Shirt, While His Own Left Hand Unbuttoned It",
+      "matched_card_title": "His Right Hand Buttoned His Shirt, While His Own Left Hand Unbuttoned It",
+      "match_mode": "video_id",
+      "affinity_score": 0.5029,
+      "link_reason": "same_pillar_semantic_chain",
+      "dom_readback_text": "Related video His Right Hand Buttoned His Shirt, While His Own Left Hand Unbuttoned It",
+      "playlist_title": "Brain Mysteries & Paradoxes | Consciousness & Perception",
+      "playlist_verified": true,
+      "playlist_created": false,
+      "playlist_readback_text": "Brain Mysteries & Paradoxes | Consciousness & Perception",
+      "save_result": {
+        "saved": true,
+        "dirty": true,
+        "reason": "saved_and_confirmed"
+      },
+      "status": "linked_verified",
+      "verified": true,
+      "verified_at_utc": "2026-11-04T10:28:10.692673+00:00"
+    },
+    {
+      "schema_version": 1,
+      "project_id": "reenact_01_ainsworth_strange_situation",
+      "source_video_id": "jySZ6EL3aYM",
+      "source_title": "1970 Strange Situation: Why Quiet Babies Hid Racing Hearts",
+      "source_pillar": "brain_health",
+      "source_visibility": "scheduled",
+      "target_type": "short",
+      "target_project_id": "gage_diorama_v6_dynamic",
+      "target_video_id": "Wydl4JpZmAw",
+      "target_title": "A 13-Pound Iron Rod Pierced His Brain, Yet Daily Structure Rebuilt His Mind",
+      "matched_card_title": "A 13-Pound Iron Rod Pierced His Brain, Yet Daily Structure Rebuilt His Mind",
+      "match_mode": "video_id",
+      "affinity_score": 0.5567,
+      "link_reason": "cross_pillar_affinity_bridge",
+      "dom_readback_text": "Related video A 13-Pound Iron Rod Pierced His Brain, Yet Daily Structure Rebuilt His Mind",
+      "playlist_title": "Brain Health & Optimization | Sleep, Glymphatic Flush & Dopamine",
+      "playlist_verified": true,
+      "playlist_created": false,
+      "playlist_readback_text": "Brain Health & Optimization | Sleep, Glymphatic Flush & Dopamine",
+      "save_result": {
+        "saved": true,
+        "dirty": true,
+        "reason": "saved_and_confirmed"
+      },
+      "status": "linked_verified",
+      "verified": true,
+      "verified_at_utc": "2026-11-04T10:28:32.666020+00:00"
     }
   ],
-  "verified_count": 0
+  "verified_count": 2
 }
